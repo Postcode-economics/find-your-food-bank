@@ -52,7 +52,7 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 footer{font-size:14px;padding:10px 12px 24px;color:var(--muted)}footer a{color:var(--gold)}
 </style></head><body>
 <header><div class="brand">Postcode Economics</div><h1>Find a food bank near you</h1>
-<form class="row" id="f"><input id="q" placeholder="Postcode, e.g. BN17 5LF or M20" autocomplete="postal-code" aria-label="Postcode">
+<form class="row" id="f"><input id="q" placeholder="Postcode or town, e.g. BN17 5 or Littlehampton" autocomplete="off" aria-label="Postcode or town">
 <button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location">📍</button><button class="go">Search</button></form>
 <p class="ref"><b>Most food banks need a referral or voucher.</b> Call first.</p>
 <label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div id="hid" role="status"></div>
@@ -126,8 +126,17 @@ function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.r
  lastQ=label==='your location'?null:lastQ}
 let lastQ=null;const PC=/^[A-Z]{1,2}\d[A-Z\d]?\s*\d?[A-Z]{0,2}$/i;
 async function api(p){const r=await fetch('https://api.postcodes.io/'+p);return r.json()}
-async function search(q){q=q.trim().toUpperCase().replace(/\s+/g,' ');if(!q)return msg('Enter a postcode, e.g. BN17 5LF or M20.',true);
- if(!PC.test(q))return msg(`“${q}” isn’t a UK postcode. Try a full postcode like BN17 5LF, or the first part like M20.`,true);
+async function place(q){msg('Searching…');try{const r=await api('places?q='+encodeURIComponent(q)+'&limit=10');
+ const L0=(r.result||[]).filter(x=>x.latitude&&['England','Scotland','Wales','Northern Ireland'].includes(x.country));
+ const n=s=>s.toLowerCase().replace(/[^a-z]/g,''),rank=x=>(n(x.name_1)===n(q)?0:10)+(({City:0,Town:1,Village:2,Hamlet:3,'Suburban Area':4})[x.local_type]??5);
+ L0.sort((a,b)=>rank(a)-rank(b));const p=L0[0];
+ if(!p){lastQ=null;return msg(`We couldn’t find “${q}”. Try a postcode or a town name, e.g. BN17 5LF or Littlehampton.`,true)}
+ lastQ=q;const nm=p.name_1+(p.county_unitary?', '+p.county_unitary:p.region?', '+p.region:'');
+ return nearest(p.latitude,p.longitude,nm,`Showing the centre of ${nm}. Add a postcode for exact distances.`)}
+ catch(err){msg('Search failed. Check your connection and try again.',true)}}
+async function search(q){q=q.trim().replace(/\s+/g,' ');if(!q)return msg('Enter a postcode or town, e.g. BN17 5LF or Littlehampton.',true);
+ if(PC.test(q))q=q.toUpperCase();
+ if(!PC.test(q))return place(q);
  msg('Searching…');lastQ=q;const e=encodeURIComponent(q);
  try{let r=await api('postcodes/'+e);
   if(r.status===200)return nearest(r.result.latitude,r.result.longitude,r.result.postcode);
@@ -137,7 +146,7 @@ async function search(q){q=q.trim().toUpperCase().replace(/\s+/g,' ');if(!q)retu
   if(r.result&&r.result.length){const b=await (await fetch('https://api.postcodes.io/postcodes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({postcodes:r.result})})).json();
    const ok=b.result.map(x=>x.result).filter(x=>x&&x.latitude);if(ok.length){const la=ok.reduce((s,x)=>s+x.latitude,0)/ok.length,ln=ok.reduce((s,x)=>s+x.longitude,0)/ok.length;
    return nearest(la,ln,q,`Partial postcode: showing the centre of ${q} (${ok.length}${ok.length>=100?'+':''} postcodes). Add the rest for exact distances.`)}}
-  lastQ=null;msg(`We couldn’t find “${q}”. Check it and try again, e.g. BN17 5LF or M20.`,true)}
+  return place(q)}
  catch(err){msg('Search failed. Check your connection and try again.',true)}}
 $('f').onsubmit=e=>{e.preventDefault();$('q').blur();search($('q').value)};
 $('me').onclick=()=>{if(!navigator.geolocation)return msg('Location isn’t available on this device. Enter a postcode instead.',true);msg('Finding you…');
