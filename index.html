@@ -1,0 +1,135 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Find a food bank near you · Postcode Economics</title>
+<meta name="description" content="Free map of 2,968 UK food banks and locations. Enter a postcode, see the nearest five, get directions in one tap. No sign-up.">
+<meta property="og:type" content="website"><meta property="og:title" content="Find a food bank near you">
+<meta property="og:description" content="Free map of UK food banks. Enter a postcode, see the nearest five, get directions in one tap. No sign-up.">
+<meta property="og:image" content="og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find a food bank near you">
+<meta name="twitter:description" content="Free map of UK food banks. Enter a postcode, see the nearest five, get directions in one tap."><meta name="twitter:image" content="og.png">
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css">
+<style>
+:root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
+*{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+header{padding:8px 12px 6px}header .brand{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700}
+header h1{margin:0 0 6px;font-size:19px}
+.row{display:flex;gap:6px;align-items:stretch}
+input{flex:1;font-size:16px;padding:0 12px;min-height:48px;border-radius:10px;border:0;background:var(--white);color:var(--navy);min-width:0}
+button{font-size:15px;font-weight:700;border:0;border-radius:10px;padding:0 14px;min-height:48px;cursor:pointer}
+.go{background:var(--gold);color:var(--navy)}
+.loc{background:transparent;color:var(--white);border:2px solid var(--gold);min-width:48px;padding:0 10px;font-size:20px}
+.ref{font-size:15px;margin:6px 0 0;color:var(--white)}.ref b{color:var(--gold)}
+#msg{font-size:15px;color:var(--gold);margin-top:4px}#msg:empty{display:none}
+#msg.err{color:var(--navy);background:var(--gold);padding:8px 10px;border-radius:8px;font-weight:600}
+#map{height:48vh;min-height:320px}
+#list{padding:0 12px}#list:empty{display:none}
+.lh{font-weight:800;color:var(--gold);margin:12px 0 4px;font-size:16px}
+.card{background:var(--card);border-left:4px solid var(--gold);border-radius:10px;padding:12px;margin:10px 0}
+.card.sel{outline:2px solid var(--gold)}
+.card h3{margin:0;font-size:18px;color:var(--gold)}.card .d{font-weight:800;font-size:16px;margin:2px 0 6px}
+.card p{margin:6px 0;font-size:15px;line-height:1.35}.card .sub{color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;text-align:center;text-decoration:none;font-weight:800;font-size:16px;border-radius:10px;margin-top:8px}
+.gm{background:var(--red);color:#fff!important}
+.call{background:transparent;border:2px solid var(--gold);color:var(--white)!important}
+.call small{font-weight:600;color:var(--muted);margin-left:6px;font-size:13px}
+.links{display:flex;gap:8px;margin-top:8px}.links a{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--gold);font-size:15px;border:1px solid #2a3b5c;border-radius:10px;text-decoration:none}
+.note{font-size:15px;color:var(--gold);margin-top:8px}.warn{color:var(--muted);font-size:15px}
+.marker-cluster div{background:var(--gold)!important;color:var(--navy);font-weight:800}.marker-cluster{background:rgba(10,22,40,.55)!important}
+.pin svg{display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}.pin.sel svg path{fill:var(--gold)}.pin.sel{z-index:1000!important}
+.here{width:22px;height:22px;border-radius:50%;background:var(--gold);border:3px solid var(--navy);box-shadow:0 0 0 0 rgba(245,197,24,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 16px rgba(245,197,24,0)}100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}}
+.leaflet-popup-content{color:var(--navy);font-size:15px;min-width:200px;margin:12px}
+.pop h3{margin:0;font-size:17px}.pop .gm{color:#fff!important}
+#sheet{position:fixed;left:0;right:0;bottom:0;max-height:60vh;overflow:auto;background:var(--navy);border-top:3px solid var(--gold);border-radius:16px 16px 0 0;padding:6px 12px 16px;z-index:2000;transform:translateY(105%);transition:transform .2s;box-shadow:0 -6px 20px rgba(0,0,0,.5)}
+#sheet.open{transform:none}#sheet .handle{width:44px;height:5px;border-radius:3px;background:var(--muted);margin:4px auto 6px}
+#sheet .x{position:absolute;right:6px;top:6px;width:44px;height:44px;background:transparent;color:var(--white);font-size:24px;padding:0}
+#sheet .card{margin:4px 0;border-left:0;background:transparent;padding:4px 0}#sheet .card h3{padding-right:44px}
+.share{display:flex;justify-content:center;margin:14px 12px 0}.share button{background:transparent;color:var(--gold);border:2px solid var(--gold);width:100%}
+.made{margin:14px 12px 0;font-size:15px;color:var(--muted);text-align:center}.made a{color:var(--gold);display:inline-block;min-height:44px;line-height:44px}
+.leaflet-bar a{width:44px!important;height:44px!important;line-height:44px!important;font-size:22px!important}
+footer a{display:inline-block;min-height:44px;line-height:44px}
+footer{font-size:14px;padding:10px 12px 24px;color:var(--muted)}footer a{color:var(--gold)}
+</style></head><body>
+<header><div class="brand">Postcode Economics</div><h1>Find a food bank near you</h1>
+<form class="row" id="f"><input id="q" placeholder="Postcode, e.g. BN17 5LF or M20" autocomplete="postal-code" aria-label="Postcode">
+<button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location">📍</button><button class="go">Search</button></form>
+<p class="ref"><b>Most food banks need a referral or voucher.</b> Call first.</p>
+<div id="msg" role="status"></div></header>
+<div id="map"></div><div id="list"></div>
+<div class="share"><button id="share" type="button">Share this map</button></div>
+<p class="made">Made by @postcode_economics. <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Follow for more UK money maps</a></p>
+<footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a>, last updated <span id="upd"></span>. Times change, call ahead to confirm. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
+<div id="sheet" aria-hidden="true"><div class="handle"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
+<script src="data.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
+<script>
+const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
+$('upd').textContent=new Date(D.fetched).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}`;
+const narrow=()=>window.innerWidth<600;
+// DORMANT: opening_times is null for every record (Give Food publishes none). Kept so times can be switched on if a licensed source appears.
+const SHOW_OPEN_STATUS=false,DAYS=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+function openStatus(i){const t=i.opening_times;if(!SHOW_OPEN_STATUS||!t)return null;const n=new Date(),d=t[DAYS[n.getDay()]]||[];const m=n.getHours()*60+n.getMinutes();
+ return{today:d.length>0,now:d.some(([a,b])=>{const[ah,am]=a.split(':'),[bh,bm]=b.split(':');return m>=ah*60+ +am&&m<bh*60+ +bm})}}
+const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')+' away'};
+const site=i=>i.website||i.givefood;
+function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
+ return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
+ ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
+ ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
+ <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a>
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>Phone (from Give Food)</small></a>`:''}
+ <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Opening times (their site)</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
+ <div class="note">🕒 Times change, call ahead.</div>`}
+function pop(i){return `<div class="pop"><h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div></div>`}
+const map=L.map('map').setView([54.5,-3.2],5);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
+const icon=L.divIcon({className:'pin',html:pinSvg,iconSize:[22,28],iconAnchor:[11,27],popupAnchor:[0,-24]});
+const selIcon=L.divIcon({className:'pin sel',html:pinSvg,iconSize:[22,28],iconAnchor:[11,27],popupAnchor:[0,-24]});
+const cl=L.markerClusterGroup({chunkedLoading:true,maxClusterRadius:40});const markers=[],dists={};let selected=null;
+items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon,title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m;cl.addLayer(m)});
+map.addLayer(cl);
+function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icon);selected=k;m.setIcon(selIcon);
+ document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
+ const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;
+   const h=$('sheet').offsetHeight,y=map.latLngToContainerPoint(m.getLatLng()).y;map.panTo(m.getLatLng(),{animate:!fromList});
+  }else{m.unbindPopup();m.bindPopup(pop(i),{maxWidth:280,autoPanPaddingTopLeft:[20,20],autoPanPaddingBottomRight:[20,20]}).openPopup()}};
+ if(fromList)cl.zoomToShowLayer(m,show);else show()}
+function closeSheet(){$('sheet').classList.remove('open');$('sheet').setAttribute('aria-hidden','true')}
+document.querySelector('#sheet .x').onclick=closeSheet;
+const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,R=6371,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
+function msg(t,err){const e=$('msg');e.textContent=t||'';e.className=err?'err':''}
+let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></div>',iconSize:[22,22]});
+function nearest(lat,lng,label,note){if(here)map.removeLayer(here);closeSheet();
+ here=L.marker([lat,lng],{icon:hereIcon,zIndexOffset:2000,keyboard:false}).addTo(map).bindTooltip(label==='your location'?'You are here':'Searched: '+label);
+ Object.keys(dists).forEach(k=>delete dists[k]);items.forEach((i,k)=>dists[k]=hav(lat,lng,i.lat,i.lng));
+ const r=items.map((i,k)=>({i,k,d:dists[k]})).sort((a,b)=>a.d-b.d).slice(0,5);
+ $('list').innerHTML=`<div class="lh">Nearest 5 to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
+ document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
+ map.fitBounds(L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2));msg(note||'');
+ const c=document.querySelector('#list .card');if(c){const y=c.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.45);scrollTo({top:Math.max(0,y),behavior:'auto'})}
+ lastQ=label==='your location'?null:lastQ}
+let lastQ=null;const PC=/^[A-Z]{1,2}\d[A-Z\d]?\s*\d?[A-Z]{0,2}$/i;
+async function api(p){const r=await fetch('https://api.postcodes.io/'+p);return r.json()}
+async function search(q){q=q.trim().toUpperCase().replace(/\s+/g,' ');if(!q)return msg('Enter a postcode, e.g. BN17 5LF or M20.',true);
+ if(!PC.test(q))return msg(`“${q}” isn’t a UK postcode. Try a full postcode like BN17 5LF, or the first part like M20.`,true);
+ msg('Searching…');lastQ=q;const e=encodeURIComponent(q);
+ try{let r=await api('postcodes/'+e);
+  if(r.status===200)return nearest(r.result.latitude,r.result.longitude,r.result.postcode);
+  r=await api('outcodes/'+encodeURIComponent(q.replace(/ /g,'')));
+  if(r.status===200)return nearest(r.result.latitude,r.result.longitude,r.result.outcode,`Showing the centre of the ${r.result.outcode} area. Add the full postcode for exact distances.`);
+  r=await api('postcodes/'+e+'/autocomplete?limit=100');
+  if(r.result&&r.result.length){const b=await (await fetch('https://api.postcodes.io/postcodes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({postcodes:r.result})})).json();
+   const ok=b.result.map(x=>x.result).filter(x=>x&&x.latitude);if(ok.length){const la=ok.reduce((s,x)=>s+x.latitude,0)/ok.length,ln=ok.reduce((s,x)=>s+x.longitude,0)/ok.length;
+   return nearest(la,ln,q,`Partial postcode: showing the centre of ${q} (${ok.length}${ok.length>=100?'+':''} postcodes). Add the rest for exact distances.`)}}
+  lastQ=null;msg(`We couldn’t find “${q}”. Check it and try again, e.g. BN17 5LF or M20.`,true)}
+ catch(err){msg('Search failed. Check your connection and try again.',true)}}
+$('f').onsubmit=e=>{e.preventDefault();$('q').blur();search($('q').value)};
+$('me').onclick=()=>{if(!navigator.geolocation)return msg('Location isn’t available on this device. Enter a postcode instead.',true);msg('Finding you…');
+ navigator.geolocation.getCurrentPosition(p=>nearest(p.coords.latitude,p.coords.longitude,'your location'),
+  err=>msg(err.code===1?'No problem, location is off. Type a postcode instead and we’ll find the nearest food banks.':'Couldn’t get your location. Type a postcode instead.',true),{enableHighAccuracy:true,timeout:10000})};
+$('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(lastQ)u.searchParams.set('q',lastQ);const url=u.toString(),data={title:'Find a food bank near you',text:'Free UK food bank map. No sign-up.',url};
+ if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
+ try{await navigator.clipboard.writeText(url);$('share').textContent='Link copied ✓'}catch(e){prompt('Copy this link:',url)}setTimeout(()=>$('share').textContent='Share this map',2500)};
+const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');search(qs.get('q')).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
+</script></body></html>
