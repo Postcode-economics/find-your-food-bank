@@ -33,7 +33,7 @@ button{font-size:15px;font-weight:700;border:0;border-radius:10px;padding:0 14px
 .call small{font-weight:600;color:var(--muted);margin-left:6px;font-size:13px}
 .links{display:flex;gap:8px;margin-top:8px}.links a{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--gold);font-size:15px;border:1px solid #2a3b5c;border-radius:10px;text-decoration:none}
 .ot{margin:8px 0;font-size:15px}.ot table{border-collapse:collapse}.ot td{padding:1px 10px 1px 0}.ot tr.td td{color:var(--gold);font-weight:800}.ot .src{color:var(--muted);font-size:13px}.ot .raw{white-space:pre-wrap}
-.tog{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:15px;min-height:44px}.tog input{flex:0 0 auto;width:24px;height:24px;min-height:0;accent-color:var(--gold)}#hid{font-size:14px;color:var(--gold)}#hid:empty{display:none}
+.tog{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:15px;min-height:44px}.tog input{flex:0 0 auto;width:24px;height:24px;min-height:0;accent-color:var(--gold)}#hid{font-size:14px;color:var(--gold)}#hid:empty{display:none}.tnl{display:inline-block;margin:6px 0 2px;padding:3px 8px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:13px;font-weight:700}.tnote{font-size:13px;color:var(--muted);margin:-2px 0 4px 32px}
 .note{font-size:15px;color:var(--gold);margin-top:8px}.warn{color:var(--muted);font-size:15px}
 .marker-cluster div{background:var(--gold)!important;color:var(--navy);font-weight:800}.marker-cluster{background:rgba(10,22,40,.55)!important}
 .pin svg{display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}.pin.sel svg path{fill:var(--gold)}.pin.sel{z-index:1000!important}
@@ -65,7 +65,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <form class="row" id="f"><input id="q" placeholder="Postcode or town, e.g. BN17 5 or Littlehampton" autocomplete="off" aria-label="Postcode or town" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac">
 <button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location">📍</button><button class="go">Search</button><ul id="ac" role="listbox" aria-label="Matching places" hidden></ul></form>
 <p class="ref"><b>Most food banks need a referral or voucher.</b> Call first.</p>
-<label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div id="hid" role="status"></div>
+<label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote">Hides only places listed as closed today. Places without listed times stay, call to check.</div><div id="hid" role="status"></div>
 <div id="msg" role="status"></div></header>
 <div id="map"></div><div id="list"></div>
 <div class="share"><button id="share" type="button">Share this map</button></div>
@@ -82,6 +82,7 @@ const narrow=()=>window.innerWidth<600;
 const DK=['sun','mon','tue','wed','thu','fri','sat'],DN={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'},ORD=['mon','tue','wed','thu','fri','sat','sun'];
 const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'&&i.opening_times.structured?i.opening_times.structured:null;
 const openToday=i=>{const s=parsed(i);return !!(s&&(s[DK[new Date().getDay()]]||[]).length)};
+const closedToday=i=>{const s=parsed(i);return !!(s&&!(s[DK[new Date().getDay()]]||[]).length)};
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()];
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
@@ -99,7 +100,7 @@ function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>${i.phone_checked?'Phone (checked on their site)':'Phone (from Give Food)'}</small></a>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
- ${times(i)}<div class="note">Times change, call ahead.</div>`}
+ ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>`}
 function pop(i){return `<div class="pop"><h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div></div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
@@ -109,10 +110,10 @@ const selIcon=L.divIcon({className:'pin sel',html:pinSvg,iconSize:[22,28],iconAn
 const cl=L.markerClusterGroup({chunkedLoading:true,maxClusterRadius:40});const markers=[],dists={};let selected=null;
 items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon,title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m;cl.addLayer(m)});
 map.addLayer(cl);
-const vis=k=>!$('openToday').checked||openToday(items[k]);let lastNear=null;
+const vis=k=>!$('openToday').checked||!closedToday(items[k]);let lastNear=null;
 $('openToday').onchange=()=>{const on=$('openToday').checked;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)));
- const hid=items.filter(i=>!parsed(i)).length,shut=items.filter(i=>parsed(i)&&!openToday(i)).length;
- $('hid').textContent=on?`Showing ${items.length-hid-shut} open today. ${hid.toLocaleString('en-GB')} not shown because their times aren't listed (call them), plus ${shut} closed today.`:'';
+ const op=items.filter(openToday).length,shut=items.filter(closedToday).length,unk=items.length-op-shut;
+ $('hid').textContent=on?`Hides only places listed as closed today (${shut.toLocaleString('en-GB')} hidden). Showing ${op.toLocaleString('en-GB')} listed open today and ${unk.toLocaleString('en-GB')} without listed times, call to check.`:'';
  closeSheet();if(lastNear)nearest(...lastNear)};
 function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icon);selected=k;m.setIcon(selIcon);
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
@@ -128,8 +129,8 @@ let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></d
 function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.removeLayer(here);closeSheet();
  here=L.marker([lat,lng],{icon:hereIcon,zIndexOffset:2000,keyboard:false}).addTo(map).bindTooltip(label==='your location'?'You are here':'Searched: '+label);
  Object.keys(dists).forEach(k=>delete dists[k]);items.forEach((i,k)=>dists[k]=hav(lat,lng,i.lat,i.lng));
- const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)).sort((a,b)=>a.d-b.d).slice(0,5);
- $('list').innerHTML=`<div class="lh">Nearest 5${$('openToday').checked?' open today':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
+ const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)).sort((a,b)=>a.d-b.d).slice(0,5);if($('openToday').checked)r.sort((a,b)=>(openToday(b.i)-openToday(a.i))||a.d-b.d);
+ $('list').innerHTML=`<div class="lh">Nearest 5${$('openToday').checked?' (open today first)':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  map.fitBounds(L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2));msg(note||'');
  const c=document.querySelector('#list .card');if(c){const y=c.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.45);scrollTo({top:Math.max(0,y),behavior:'auto'})}
