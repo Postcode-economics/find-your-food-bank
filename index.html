@@ -147,4 +147,5 @@ $('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(las
  if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
  try{await navigator.clipboard.writeText(url);$('share').textContent='Link copied ✓'}catch(e){prompt('Copy this link:',url)}setTimeout(()=>$('share').textContent='Share this map',2500)};
 const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');search(qs.get('q')).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
-</script></body></html>
+</script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>
