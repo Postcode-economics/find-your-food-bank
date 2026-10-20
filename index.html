@@ -32,6 +32,8 @@ button{font-size:15px;font-weight:700;border:0;border-radius:10px;padding:0 14px
 .call{background:transparent;border:2px solid var(--gold);color:var(--white)!important}
 .call small{font-weight:600;color:var(--muted);margin-left:6px;font-size:13px}
 .links{display:flex;gap:8px;margin-top:8px}.links a{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;color:var(--gold);font-size:15px;border:1px solid #2a3b5c;border-radius:10px;text-decoration:none}
+.ot{margin:8px 0;font-size:15px}.ot table{border-collapse:collapse}.ot td{padding:1px 10px 1px 0}.ot tr.td td{color:var(--gold);font-weight:800}.ot .src{color:var(--muted);font-size:13px}.ot .raw{white-space:pre-wrap}
+.tog{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:15px;min-height:44px}.tog input{flex:0 0 auto;width:24px;height:24px;min-height:0;accent-color:var(--gold)}#hid{font-size:14px;color:var(--gold)}#hid:empty{display:none}
 .note{font-size:15px;color:var(--gold);margin-top:8px}.warn{color:var(--muted);font-size:15px}
 .marker-cluster div{background:var(--gold)!important;color:var(--navy);font-weight:800}.marker-cluster{background:rgba(10,22,40,.55)!important}
 .pin svg{display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}.pin.sel svg path{fill:var(--gold)}.pin.sel{z-index:1000!important}
@@ -53,11 +55,12 @@ footer{font-size:14px;padding:10px 12px 24px;color:var(--muted)}footer a{color:v
 <form class="row" id="f"><input id="q" placeholder="Postcode, e.g. BN17 5LF or M20" autocomplete="postal-code" aria-label="Postcode">
 <button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location">📍</button><button class="go">Search</button></form>
 <p class="ref"><b>Most food banks need a referral or voucher.</b> Call first.</p>
+<label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div id="hid" role="status"></div>
 <div id="msg" role="status"></div></header>
 <div id="map"></div><div id="list"></div>
 <div class="share"><button id="share" type="button">Share this map</button></div>
 <p class="made">Made by @postcode_economics. <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Follow for more UK money maps</a></p>
-<footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a>, last updated <span id="upd"></span>. Times change, call ahead to confirm. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
+<footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a>, last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div id="sheet" aria-hidden="true"><div class="handle"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
 <script src="data.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
 <script>
@@ -66,10 +69,17 @@ $('upd').textContent=new Date(D.fetched).toLocaleDateString('en-GB',{day:'numeri
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}`;
 const narrow=()=>window.innerWidth<600;
-// DORMANT: opening_times is null for every record (Give Food publishes none). Kept so times can be switched on if a licensed source appears.
-const SHOW_OPEN_STATUS=false,DAYS=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
-function openStatus(i){const t=i.opening_times;if(!SHOW_OPEN_STATUS||!t)return null;const n=new Date(),d=t[DAYS[n.getDay()]]||[];const m=n.getHours()*60+n.getMinutes();
- return{today:d.length>0,now:d.some(([a,b])=>{const[ah,am]=a.split(':'),[bh,bm]=b.split(':');return m>=ah*60+ +am&&m<bh*60+ +bm})}}
+const DK=['sun','mon','tue','wed','thu','fri','sat'],DN={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'},ORD=['mon','tue','wed','thu','fri','sat','sun'];
+const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'&&i.opening_times.structured?i.opening_times.structured:null;
+const openToday=i=>{const s=parsed(i);return !!(s&&(s[DK[new Date().getDay()]]||[]).length)};
+const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
+function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()];
+ const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
+ const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
+ if(s)return `<div class="ot"><b>🕒 Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
+ if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>🕒 Opening times</b><div class="raw">${esc(t.raw.trim())}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
+ return '<div class="ot">🕒 Times not listed, call ahead.</div>'}
+$('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')+' away'};
 const site=i=>i.website||i.givefood;
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
@@ -77,9 +87,9 @@ function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>Phone (from Give Food)</small></a>`:''}
- <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Opening times (their site)</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
- <div class="note">🕒 Times change, call ahead.</div>`}
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>${i.phone_checked?'Phone (checked on their site)':'Phone (from Give Food)'}</small></a>`:''}
+ <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
+ ${times(i)}<div class="note">Times change, call ahead.</div>`}
 function pop(i){return `<div class="pop"><h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div></div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
@@ -89,6 +99,11 @@ const selIcon=L.divIcon({className:'pin sel',html:pinSvg,iconSize:[22,28],iconAn
 const cl=L.markerClusterGroup({chunkedLoading:true,maxClusterRadius:40});const markers=[],dists={};let selected=null;
 items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon,title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m;cl.addLayer(m)});
 map.addLayer(cl);
+const vis=k=>!$('openToday').checked||openToday(items[k]);let lastNear=null;
+$('openToday').onchange=()=>{const on=$('openToday').checked;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)));
+ const hid=items.filter(i=>!parsed(i)).length,shut=items.filter(i=>parsed(i)&&!openToday(i)).length;
+ $('hid').textContent=on?`Showing ${items.length-hid-shut} open today. ${hid.toLocaleString('en-GB')} not shown because their times aren't listed (call them), plus ${shut} closed today.`:'';
+ closeSheet();if(lastNear)nearest(...lastNear)};
 function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icon);selected=k;m.setIcon(selIcon);
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
  const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;
@@ -100,11 +115,11 @@ document.querySelector('#sheet .x').onclick=closeSheet;
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,R=6371,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
 function msg(t,err){const e=$('msg');e.textContent=t||'';e.className=err?'err':''}
 let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></div>',iconSize:[22,22]});
-function nearest(lat,lng,label,note){if(here)map.removeLayer(here);closeSheet();
+function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.removeLayer(here);closeSheet();
  here=L.marker([lat,lng],{icon:hereIcon,zIndexOffset:2000,keyboard:false}).addTo(map).bindTooltip(label==='your location'?'You are here':'Searched: '+label);
  Object.keys(dists).forEach(k=>delete dists[k]);items.forEach((i,k)=>dists[k]=hav(lat,lng,i.lat,i.lng));
- const r=items.map((i,k)=>({i,k,d:dists[k]})).sort((a,b)=>a.d-b.d).slice(0,5);
- $('list').innerHTML=`<div class="lh">Nearest 5 to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
+ const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)).sort((a,b)=>a.d-b.d).slice(0,5);
+ $('list').innerHTML=`<div class="lh">Nearest 5${$('openToday').checked?' open today':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  map.fitBounds(L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2));msg(note||'');
  const c=document.querySelector('#list .card');if(c){const y=c.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.45);scrollTo({top:Math.max(0,y),behavior:'auto'})}
