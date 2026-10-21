@@ -94,7 +94,10 @@ def own_site_check(c, kind, fetcher=fetch_raw, today=None):
     if not usable_site(c.get("website")): out["reasons"].append("no own website in directory"); return out
     home, pages = site_pages(c["website"], fetcher)
     out.update({k: home.get(k) for k in ("http", "final_url", "etag", "last_modified", "sha256")})
-    if home["http"] != 200: out["reasons"].append(f"own site unreachable (HTTP {home['http']})"); return out
+    if home["http"] != 200:
+        h = home["http"]
+        out["reasons"].append(f"own site did not return the page (HTTP {h}; usually a bot check)" if isinstance(h, int) and 200 <= h < 300
+                              else f"own site unreachable (HTTP {h})"); return out
     if host(home["final_url"]) != host(c["website"]) and not host(home["final_url"]).endswith("." + host(c["website"])) \
             and not host(c["website"]).endswith("." + host(home["final_url"])):
         out["reasons"].append(f"own site redirects to a different site ({host(home['final_url'])})"); return out
@@ -272,6 +275,22 @@ def geocode(pcs, fetcher=None):
         except Exception: pass
     return out
 
+GOV = re.compile(r"(\.gov\.uk|\.gov\.wales|\.gov\.scot|nidirect\.gov\.uk)$")
+def pre_flags(c, kind):
+    """'100% categorically' rules (Dean, 21 Oct 2026). A discovered candidate is never auto-added when:
+    * its only source is OpenStreetMap: OSM finds go to the flagged list and need a human-checked own-site record
+      in overrides/<layer>_verified.json or _unverified.json before they can appear;
+    * the directory's 'website' is a council page, not the place's own site (it cannot confirm this place);
+    * (shelters) the name says foyer / supported housing / day centre, which are not emergency shelters."""
+    f = []
+    if str(c.get("id", "")).startswith("osm-") or (c.get("source") == "OpenStreetMap" and not c.get("directory")):
+        f.append("OpenStreetMap-only: needs verification on the place's own site before it can be added")
+    n = (c.get("name") or "").lower()
+    if GOV.search(host(c.get("website"))) and not re.search(r"council|borough|county|city of", n):
+        f.append("directory link is a council page, not the place's own site")
+    if kind == "sh" and re.search(r"\bfoyer\b|supported housing|day centre", n):
+        f.append("name says foyer / supported housing / day centre, not an emergency shelter")
+    return f
 def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher=fetch_raw, threads=24):
     """Shelters / warm spaces: dedupe directory candidates against what we already have, own-site check the rest.
     Passing candidates are added to `unverified` (tier 2, 'Unverified - call before you go', sign_url = own site),
@@ -284,7 +303,12 @@ def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher
             if c["postcode"] in g: c["lat"], c["lng"] = g[c["postcode"]]
     new, dup = dedupe(cands, existing)
     log = {"run": run_day, "candidates": len(cands), "already_on_map": dup, "new": len(new), "added": [], "flagged": []}
-    def one(c): return c, (own_site_check(c, kind, fetcher) if c.get("lat") is not None else {"result": "flag", "reasons": ["no postcode/coordinates in directory, cannot pin without guessing"]})
+    def one(c):
+        if c.get("lat") is None: return c, {"result": "flag", "reasons": ["no postcode/coordinates in directory, cannot pin without guessing"]}
+        pre = pre_flags(c, kind)
+        r = own_site_check(c, kind, fetcher)
+        if pre: r = dict(r, result="flag", reasons=pre + r.get("reasons", []))
+        return c, r
     with cf.ThreadPoolExecutor(threads) as ex: res = list(ex.map(one, new))
     add = []
     for c, r in res:

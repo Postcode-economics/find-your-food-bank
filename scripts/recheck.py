@@ -50,6 +50,7 @@ def schema_errors(x, layer):
     if isinstance(h, dict):
         for k, v in h.items():
             if k not in DAYKEYS: e.append(f"hours day key invalid: {k}")
+            if str(v) == "24 hours": continue  # 24/7 from OSM, laid out per day by hours_norm
             for part in str(v).replace(" Monthly", "").replace(" Fortnightly", "").split(" / "):
                 if not TIME_RE.match(part.strip()): e.append(f"hours value invalid: {k}={v}")
     elif h not in ("", None) and not isinstance(h, str): e.append("hours wrong type")
@@ -70,6 +71,8 @@ def norm_times(s):
         out.add(f"{h:02d}:{m:02d}")
     return out
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+def osm_only(entry):
+    return str(entry.get("id", "")).startswith("osm-") or entry.get("source") == "OpenStreetMap"
 def check(entry, ov, page, url=None, prev=None):
     """Run every check against the freshly fetched page; any failure -> ok False with the reason."""
     t = page["text"]; low = t.lower()
@@ -78,8 +81,12 @@ def check(entry, ov, page, url=None, prev=None):
     prev = prev or {}
     res["changed_since_last_run"] = bool(prev.get("sha256")) and prev.get("sha256") != res["sha256"]
     res["headers_changed"] = bool(prev) and (prev.get("etag"), prev.get("last_modified")) != (res["etag"], res["last_modified"])
-    if page["http"] != 200 or len(t) < 200:
-        return dict(res, ok=False, reason="source unreachable this run (HTTP %s)" % page["http"])
+    if page["http"] != 200:
+        h = page["http"]
+        return dict(res, ok=False, reason=("source did not return the page this run (HTTP %s; usually a bot check)" if isinstance(h, int) and 200 <= h < 300
+                                           else "source unreachable this run (HTTP %s)") % h)
+    if len(t) < 200:  # page loaded (HTTP 200) but held no readable text: bot challenge / JS-only page / empty body
+        return dict(res, ok=False, reason="source page loaded (HTTP 200) but had no readable text this run (%d chars; likely a bot check or JavaScript-only page)" % len(t))
     if url and host(page.get("final_url")) != host(url):
         return dict(res, ok=False, reason="source URL now redirects to a different site (%s)" % host(page.get("final_url")))
     name_words = [w for w in re.findall(r"[a-z]{4,}", (ov.get("name") or entry.get("name", "")).lower()) if w not in ("church", "centre", "community", "house", "lodge", "space", "warm", "welcome", "hall", "salvation", "army")]
@@ -98,6 +105,15 @@ def check(entry, ov, page, url=None, prev=None):
     if not res["name_found"]: return dict(res, ok=False, reason="source no longer names this place")
     if want_t and not (want_t & got_t): return dict(res, ok=False, reason="published times not found on source this run")
     if want_d and not res["days_found"]: return dict(res, ok=False, reason="published days not found on source this run")
+    if osm_only(entry):
+        # '100% categorically' (Dean, 21 Oct 2026): an entry that came from OpenStreetMap is never published on OSM alone.
+        # Its evidence page must be a real (non-OSM) page that shows THIS place's postcode or street address this run.
+        street = re.sub(r"^\d+[a-z]?\s+", "", ((ov.get("address") or entry.get("address") or "").split(",")[0]).strip().lower())
+        res["address_found"] = bool(street) and len(street) > 5 and street in low
+        if host(url) in ("openstreetmap.org", "osm.org"):
+            return dict(res, ok=False, reason="OpenStreetMap-only: no independent source page")
+        if not (res["postcode_found"] or res["address_found"]):
+            return dict(res, ok=False, reason="OpenStreetMap-only: own-site page does not show this place's postcode or street address this run")
     return dict(res, ok=True, reason="confirmed this run")
 def recheck_all(fresh, verified, unverified, log_path, layer=None, fetcher=None):
     now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
