@@ -11,7 +11,25 @@ EN = "Donations drop-off – warehouse/office. Not a food bank: clients cannot v
 CY = "Man gollwng rhoddion – warws/swyddfa. Nid banc bwyd: ni all cleientiaid ymweld."
 DROP_EN = "Donation drop-off only. Not a food bank: clients cannot get food here."
 DROP_CY = "Man gollwng rhoddion yn unig. Nid banc bwyd: ni all cleientiaid gael bwyd yma."
+def add_extra_locations(items, root):
+    """Client locations Give Food does not list (overrides/foodbank_extra_locations.json), checked on the food bank's own site.
+    Added (or refreshed) as normal 'location' pins of their parent food bank. Idempotent."""
+    p = os.path.join(root, "overrides", "foodbank_extra_locations.json")
+    if not os.path.exists(p): return 0
+    ex = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+    par = {i["id"]: i for i in items if i["type"] == "foodbank"}
+    items[:] = [i for i in items if i["id"] not in ex]
+    n = 0
+    for k, x in ex.items():
+        pa = par.get(x["parent"])
+        if not pa: print("warning: extra location parent missing:", k); continue
+        items.append({"id": k, "type": "location", "name": x["name"], "foodbank": pa["name"], "network": pa.get("network"), "address": x["address"],
+            "postcode": x["postcode"], "lat": x["lat"], "lng": x["lng"], "phone": x.get("phone") or pa.get("phone") or "", "website": x.get("evidence_url") or pa.get("website") or "",
+            "givefood": pa.get("givefood") or "", "opening_times": x.get("opening_times"), "pc_checked": True, "phone_checked": True, "manual": True, "evidence_url": x.get("evidence_url")})
+        n += 1
+    return n
 def classify(items, root):
+    add_extra_locations(items, root)
     man = {k: v for k, v in json.load(open(os.path.join(root, "overrides", "foodbank_manual.json"))).items() if not k.startswith("_")} \
         if os.path.exists(os.path.join(root, "overrides", "foodbank_manual.json")) else {}
     locs = collections.defaultdict(list)
@@ -65,11 +83,13 @@ def classify(items, root):
         for k in ("kind", "label_en", "label_cy", "centres", "locked"): i.pop(k, None)
         if apply:
             i["kind"] = kind; i["label_en"] = en; i["label_cy"] = cy
-            near = sorted((l for l in locs[i["id"].split("/")[0]] if l["id"] != i["id"] and l["id"] not in nonclient_ids),
+            pick = (man.get(i["id"]) or {}).get("centres", (chk.get(i["id"]) or {}).get("centres"))  # explicit list from a manual check wins
+            near = sorted((l for l in locs[i["id"].split("/")[0]] if l["id"] != i["id"] and l["id"] not in nonclient_ids and (pick is None or l["id"] in pick)),
                           key=lambda l: (l["lat"] - i["lat"]) ** 2 + ((l["lng"] - i["lng"]) * 0.6) ** 2)[:12]  # nearest 12 client locations
             i["centres"] = [{"id": l["id"], "name": l["name"], "address": l["address"], "lat": l["lat"], "lng": l["lng"]} for l in near]
             if i["id"] in man:
-                i["locked"] = True
+                if man[i["id"]].get("locked"): i["locked"] = True
+                if man[i["id"]].get("phone"): i["phone"] = man[i["id"]]["phone"]
                 if man[i["id"]].get("drop_opening_times"): i["opening_times"] = None
         rows.append({"id": i["id"], "type": i["type"], "network": i.get("network") or "Independent", "name": i["name"], "address": i["address"],
             "current_label": "Food bank pin" if i["type"] == "foodbank" else "Food bank location pin",
