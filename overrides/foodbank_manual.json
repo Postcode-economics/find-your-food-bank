@@ -7,5 +7,49 @@
     "label_cy": "Warws – rhoddion yn unig. Ni all cleientiaid ymweld yma. Gweler y canolfannau dosbarthu isod.",
     "evidence": "Confirmed by B30 & South Birmingham Foodbank (Jeanette), Oct 2026: Unit 17 Kings Norton Business Park B30 3HZ is their warehouse; clients must not turn up.",
     "drop_opening_times": true
+  },
+  "rugby": {
+    "kind": "warehouse",
+    "label_en": "Admin office – not a place to get food. See where to get food below.",
+    "label_cy": "Swyddfa weinyddol – nid lle i gael bwyd. Gweler isod ble i gael bwyd.",
+    "centres": [
+      "rugby/lawn-and-retreat"
+    ],
+    "evidence": "Rugby Foodbank site: 'Our postal address for correspondence is: Rugby Foodbank c/o Hope4 8 Newbold Road'. Food is collected at Lawn & Retreat CV21 2LN. https://rugby.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
+  },
+  "st-ives-cornwall": {
+    "kind": "warehouse",
+    "label_en": "Admin office – not a place to get food. See where to get food below.",
+    "label_cy": "Swyddfa weinyddol – nid lle i gael bwyd. Gweler isod ble i gael bwyd.",
+    "centres": [
+      "st-ives-cornwall/edward-hain-centre"
+    ],
+    "evidence": "13 Coombe Road, Penzance is not mentioned on https://www.stivesfoodbank.org/ (postal/trustee address, 8 miles away). Food is collected at the Edward Hain Centre TR26 2BS. Approved by Dean, 21 Oct 2026."
+  },
+  "droitwich-spa": {
+    "kind": "warehouse",
+    "label_en": "Admin office – not a place to get food. See where to get food below.",
+    "label_cy": "Swyddfa weinyddol – nid lle i gael bwyd. Gweler isod ble i gael bwyd.",
+    "centres": [
+      "droitwich-spa/droitwich-spa-baptist-church"
+    ],
+    "evidence": "Droitwich Spa Foodbank site lists 'Foodbank Office – St Andrews Parish Centre'. Food is collected at Droitwich Spa Baptist Church WR9 8QS. https://droitwichspa.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
+  },
+  "littlehampton-district": {
+    "kind": "warehouse",
+    "label_en": "Admin office – not a place to get food. See where to get food below.",
+    "label_cy": "Swyddfa weinyddol – nid lle i gael bwyd. Gweler isod ble i gael bwyd.",
+    "centres": [
+      "littlehampton-district/littlehampton-united-church"
+    ],
+    "evidence": "Littlehampton & District Foodbank site: 'POSTAL ADDRESS: Littlehampton Baptist Church Fitzalan Road'. Food is given out at the rear hall, Littlehampton United Church BN17 5EG. https://littlehamptondistrict.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
+  },
+  "aberdeen-south": {
+    "kind": "warehouse",
+    "label_en": "Admin office – delivery only. Call 07360 162919 to arrange.",
+    "label_cy": "Swyddfa weinyddol – danfon yn unig. Ffoniwch 07360 162919 i drefnu.",
+    "centres": [],
+    "phone": "07360162919",
+    "evidence": "Aberdeen South Foodbank site: 'TLC 18 Palmerston Road (Office Only)'; 'provide a home delivery service on Mondays and Fridays, but do not offer a drop in or collection service'. https://aberdeensouth.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
   }
 }

@@ -741,9 +741,12 @@
   "url": "https://www.restorenorthampton.org.uk/contact"
  },
  "fusion": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: consent to the storage of my data according to the Privacy Policy (GDPR). Our Offices Huddersfield Pearl House, 10 John William Street, Huddersfield, HD1 1BA Mon-Fri: 9am – 4pm Sat-Sun: Closed (Wednesdays Emergency Appointments Only) 030",
-  "url": "https://fusionhousing.org.uk/contact-us/"
+  "result": "office",
+  "evidence": "Pearl House HD1 1BA is a Fusion Housing advice office, not a food collection point. 'You can collect your food pack from Our office on Floor 2, Empire House, Wakefield Old Road, Dewsbury' (fusion/dewsbury). Approved by Dean, 21 Oct 2026.",
+  "url": "https://fusionhousing.org.uk/services/food-and-more-service/",
+  "centres": [
+   "fusion/dewsbury"
+  ]
  },
  "watford": {
   "result": "client",

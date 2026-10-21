@@ -1,0 +1,123 @@
+{
+ "_comment": "Client locations (places to get food) that Give Food does not list. Checked against each food bank's own site, 21 Oct 2026 (verify/recheck_3_and_7.md). Added by scripts/build.py on every nightly refresh, before classification. Lat/lng from postcodes.io.",
+ "rugby/lawn-and-retreat": {
+  "parent": "rugby",
+  "name": "Lawn & Retreat (next to Benn Hall)",
+  "address": "Lawn & Retreat, next to Benn Hall, Newbold Road, Rugby, CV21 2LN",
+  "postcode": "CV21 2LN",
+  "lat": 52.376147,
+  "lng": -1.263978,
+  "evidence": "Rugby Foodbank locations page: Lawn & Retreat (next to Benn Hall), Newbold Road CV21 2LN, Mon, Wed, Fri 12:30–15:00, voucher needed",
+  "evidence_url": "https://rugby.foodbank.org.uk/locations/",
+  "opening_times": {
+   "checked_date": "2026-10-21",
+   "raw": null,
+   "source_url": "https://rugby.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "12:30",
+      "15:00"
+     ]
+    ],
+    "wed": [
+     [
+      "12:30",
+      "15:00"
+     ]
+    ],
+    "fri": [
+     [
+      "12:30",
+      "15:00"
+     ]
+    ]
+   }
+  }
+ },
+ "st-ives-cornwall/edward-hain-centre": {
+  "parent": "st-ives-cornwall",
+  "name": "Edward Hain Centre",
+  "address": "Edward Hain Centre, Albany Terrace, St Ives, TR26 2BS",
+  "postcode": "TR26 2BS",
+  "lat": 50.207542,
+  "lng": -5.479117,
+  "evidence": "St Ives Foodbank: 'You can collect between 10am and 12 on a Tuesday from the Edward Hain Centre'; address from https://edwardhaincentre.org.uk/contact-us",
+  "evidence_url": "https://www.stivesfoodbank.org/",
+  "opening_times": {
+   "checked_date": "2026-10-21",
+   "raw": null,
+   "source_url": "https://www.stivesfoodbank.org/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "droitwich-spa/droitwich-spa-baptist-church": {
+  "parent": "droitwich-spa",
+  "name": "Droitwich Spa Baptist Church",
+  "address": "Droitwich Spa Baptist Church, Ombersley Street East, Droitwich, WR9 8QS",
+  "postcode": "WR9 8QS",
+  "lat": 52.267342,
+  "lng": -2.15233,
+  "evidence": "Droitwich Spa Foodbank locations page: Baptist Church, Ombersley Street East WR9 8QS, Tue 13:00–15:00, Fri 14:00–16:00, voucher needed",
+  "evidence_url": "https://droitwichspa.foodbank.org.uk/locations/",
+  "opening_times": {
+   "checked_date": "2026-10-21",
+   "raw": null,
+   "source_url": "https://droitwichspa.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ],
+    "fri": [
+     [
+      "14:00",
+      "16:00"
+     ]
+    ]
+   }
+  }
+ },
+ "littlehampton-district/littlehampton-united-church": {
+  "parent": "littlehampton-district",
+  "name": "Littlehampton United Church (rear hall)",
+  "address": "Rear hall, Littlehampton United Church, 1 High Street, Littlehampton, BN17 5EG",
+  "postcode": "BN17 5EG",
+  "lat": 50.809914,
+  "lng": -0.543451,
+  "evidence": "Littlehampton & District Foodbank locations page: rear hall, Littlehampton United Church, 1 High Street BN17 5EG, Tue & Thu 13:00–15:00, voucher needed",
+  "evidence_url": "https://littlehamptondistrict.foodbank.org.uk/locations/",
+  "opening_times": {
+   "checked_date": "2026-10-21",
+   "raw": null,
+   "source_url": "https://littlehamptondistrict.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ],
+    "thu": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ]
+   }
+  }
+ }
+}
