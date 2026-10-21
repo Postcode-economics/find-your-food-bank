@@ -61,7 +61,6 @@ function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);i
  return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
 function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(lang==='cy'?h.replace(/Closed/i,'Ar gau'):h)}</td></tr>`).join('')+'</table>'}
 function detail(k,i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,''),row=(l,v)=>v&&v.length?`<p><b>${t(l)}:</b> ${v}</p>`:'';
- const rep=`${REPO}/issues/new?template=report-error.yml&layer=${encodeURIComponent(k==='sh'?'Shelters / Llochesi':'Warm spaces / Mannau cynnes')}&entry=${encodeURIComponent(i.name+' ['+i.id+']')}&title=${encodeURIComponent('Correction / Cywiriad: '+i.name)}`;
  return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist<0.1?'<0.1':(dist*0.621).toFixed(1)} ${t('mi')}</div>`:''}
  ${i.ended?`<p class="xw">⚠ ${t('ended')}</p>`:''}${i.stale?`<p class="xw">⚠ ${t('stale')}</p>`:''}
  <p>${esc(i.address)}${i.postcode?` <b>${esc(i.postcode)}</b>`:''}</p>
@@ -71,7 +70,7 @@ function detail(k,i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,''),row=(l,v
   :row('hours',hoursHtml(i.hours))+row('prov',esc((i.provided||[]).map(v).join(', ')))+row('book',esc(v(i.booking)))+row('dates',esc(vdates(i.scheme_dates)))}
  ${i.website?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
  ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>
- <a class="btn xrep" href="${rep}" target="_blank" rel="noopener">${t('report')}</a>`}
+ ${window.repB?repB(k,i):''}`}
 function showSheet(html){const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false')}
 async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[data-l=fb]');b.setAttribute('aria-pressed',on);on?map.addLayer(cl):map.removeLayer(cl);return}const L_=LAYERS[k],b=document.querySelector(`.xt[data-l=${k}]`);L_.on=on;b.setAttribute('aria-pressed',on);try{localStorage.setItem('lay_'+k,on?'1':'0')}catch(e){}
  if(!on){if(L_.group)map.removeLayer(L_.group);if(lastPos)nearX(...lastPos);return}
@@ -117,7 +116,7 @@ const FBX=[[/^Closed$/,'Ar gau'],[/^Times change, call ahead\.$/,'Mae amseroedd 
 [/^\. Postcodes: $/,'. Codau post: '],[/^\. Map © OpenStreetMap contributors\. Built by $/,'. Map © cyfranwyr OpenStreetMap. Adeiladwyd gan '],[/^checked (.*)$/,'gwiriwyd $1'],
 [/^(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})$/,(m,d,mo,y)=>d+' '+MCY[MEN.indexOf(mo.slice(0,3))]+' '+y]];
 const ATTR=[['q','aria-label','Postcode or town','Cod post neu dref'],['me','aria-label','Use my location','Defnyddio fy lleoliad'],['me','title','Use my location','Defnyddio fy lleoliad']];
-const skip=n=>n.parentElement&&n.parentElement.closest('#xextra,#xbar,#xleg,#xbefore summary,#xoff,#xnear,#xlang,script,style,.leaflet-control-attribution');
+const skip=n=>n.parentElement&&n.parentElement.closest('#rpm,.rpb,#xextra,#xbar,#xleg,#xbefore summary,#xoff,#xnear,#xlang,script,style,.leaflet-control-attribution');
 function trNode(n){if(n.nodeType!==3||skip(n))return;if(n.__en==null||n.nodeValue!==n.__cy)n.__en=n.nodeValue;
  if(lang!=='cy'){if(n.__cy!=null&&n.nodeValue===n.__cy)n.nodeValue=n.__en;return}
  let x=n.__en;for(const[r,w]of FBX)if(r.test(x)){x=x.replace(r,w);break}n.__cy=x;if(n.nodeValue!==x)n.nodeValue=x}
