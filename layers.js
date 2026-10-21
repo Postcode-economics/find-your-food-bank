@@ -70,7 +70,10 @@ function relife(D){if(!D)return;(D.items||[]).forEach(i=>{if(i.scheme_end)i.ende
  D.recently_closed=(D.recently_closed||[]).filter(i=>!i.closed_on||dd(TODAY,i.closed_on)<=30)}
 function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);if(L_.p)return L_.p;$x('u_'+k).textContent=t('loading');
  return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];relife(L_.data);stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
-function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(hDisp(String(h).replace(/(\d\d:\d\d) - (\d\d:\d\d)/g,'$1-$2').replace(/^24 hours$/,lang==='cy'?'24 awr':'24 hours').replace(/Closed/i,lang==='cy'?'Ar gau':'Closed')))}</td></tr>`).join('')+'</table>'}
+const WDAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+// days a place didn't list: shown as 'Closed / not listed' (never invented hours); only when every key is a day name
+const fillDays=h=>{const ks=Object.keys(h);if(!ks.length||!ks.every(k=>WDAYS.includes(k)))return h;const o={};WDAYS.forEach(d=>o[d]=d in h?h[d]:'\u0000');return o};
+function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);h=fillDays(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${h==='\u0000'?`<span class="xnl">${lang==='cy'?'Ar gau / heb ei restru':'Closed / not listed'}</span>`:esc(hDisp(String(h).replace(/(\d\d:\d\d) - (\d\d:\d\d)/g,'$1-$2').replace(/^24 hours$/,lang==='cy'?'24 awr':'24 hours').replace(/Closed/i,lang==='cy'?'Ar gau':'Closed')))}</td></tr>`).join('')+'</table>'}
 // address: no repeated town or postcode, postcode once at the end
 function addr(i){const pc=(i.postcode||'').trim(),re=pc?new RegExp('\\s*'+pc.replace(/\s+/g,'\\s*')+'\\s*','ig'):null;const seen=new Set(),out=[];
  String(i.address||'').split(',').map(x=>(re?x.replace(re,' '):x).replace(/\s+/g,' ').trim()).filter(Boolean).forEach(x=>{const k=x.toLowerCase();if(seen.has(k))return;
@@ -87,7 +90,7 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
  <p>${addr(i)}</p>
  <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>${window.V3?V3.share(i):''}
- ${tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}${t('call')} ${esc(i.phone)}</a>`:''}
+ ${tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}${t('call')} ${esc(String(i.phone).split(' or ')[0])}</a>${String(i.phone).includes(' or ')?`<p class="sub xalt">${lang==='cy'?'Neu':'Or'}: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</p>`:''}`:''}
  ${k==='sh'?row('groups',esc((i.groups||[]).map(v).join(', ')))+row('beds',esc(i.beds))+row('season',esc(v(i.season)))+row('ref',esc(i.referral))+row('hours',i.hours&&typeof i.hours==='object'?hoursHtml(i.hours):esc(hDisp(i.hours)))
   :row('hours',hoursHtml(i.hours))+chips(i)+(known(i.booking)?row('book',esc(v(i.booking))):'')+(known(i.scheme_dates)?row('dates',esc(vdates(i.scheme_dates))):'')}
  ${i.website?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
@@ -112,7 +115,8 @@ function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3oo" data-k="${k}" aria-pressed="${openOnly[k]}">${lang==='cy'?'Ar agor nawr yn unig':'Open now only'}</button><button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(oo?`<p class="sub v3ex">${lang==='cy'?'Ar agor nawr yn gyntaf. Lleoedd ar gau wedi’u cuddio.':'Open now first. Closed places hidden.'}</p>`:'')+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
- const me=document.getElementById('map'),top=me.getBoundingClientRect().top;if(top<0)scrollTo({top:Math.max(0,top+scrollY-8),behavior:'auto'});map.invalidateSize();return r};
+ const me=document.getElementById('map'),top=me.getBoundingClientRect().top;if(top<0)scrollTo({top:Math.max(0,top+scrollY-8),behavior:'auto'});map.invalidateSize();
+ const fit=()=>{if(window._fitB){map.invalidateSize();map.fitBounds(window._fitB,{animate:false})}};fit();setTimeout(fit,250);return r};  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];
@@ -120,7 +124,7 @@ $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const
  $x('xcl').innerHTML=parts.join('')});
 // ---- Welsh for existing food bank UI: rewrites displayed text only, never data or behaviour
 const FBX=[[/^Closed$/,'Ar gau'],[/^Food bank – get food here$/,'Banc bwyd – cael bwyd yma'],[/^Times change, call ahead\.$/,'Mae amseroedd yn newid, ffoniwch ymlaen llaw.'],[/^Times not listed, call ahead\.$/,'Amseroedd heb eu rhestru, ffoniwch ymlaen llaw.'],
-[/^Times not listed, call to check$/,'Amseroedd heb eu rhestru, ffoniwch i wirio'],[/^Opening times$/,'Oriau agor'],[/^Directions$/,'Cyfarwyddiadau'],[/^Their website$/,'Eu gwefan'],
+[/^Times not listed, call to check$/,'Amseroedd heb eu rhestru, ffoniwch i wirio'],[/^Opening times$/,'Oriau agor'],[/^Today:$/,'Heddiw:'],[/^Or: (.+)$/,'Neu: $1'],[/^Check times on their website$/,'Gwiriwch yr amseroedd ar eu gwefan'],[/^Directions$/,'Cyfarwyddiadau'],[/^Their website$/,'Eu gwefan'],
 [/^Give Food page$/,'Tudalen Give Food'],[/^Check times$/,'Gwirio amseroedd'],[/^source$/,'ffynhonnell'],[/^Share this map$/,'Rhannu’r map hwn'],[/^Link copied ✓$/,'Dolen wedi’i chopïo ✓'],
 [/^Pin placed at the postcode centre\. Check the address\.$/,'Pin wedi’i osod yng nghanol y cod post. Gwiriwch y cyfeiriad.'],[/^Phone \(from Give Food\)$/,'Ffôn (gan Give Food)'],[/^Phone \(checked on their site\)$/,'Ffôn (wedi’i wirio ar eu gwefan)'],[/^Phone number from Give Food$/,'Rhif ffôn gan Give Food'],[/^Phone number checked on their site$/,'Rhif ffôn wedi’i wirio ar eu gwefan'],
 [/^ ?Open today only$/,' Ar agor heddiw yn unig'],[/^Places with no times stay listed$/,'Mae lleoedd heb amseroedd yn aros ar y rhestr'],[/^Hides only places listed as closed today\. Places without listed times stay, call to check\.$/,'Yn cuddio dim ond lleoedd sydd wedi’u rhestru ar gau heddiw. Mae lleoedd heb amseroedd yn aros, ffoniwch i wirio.'],
