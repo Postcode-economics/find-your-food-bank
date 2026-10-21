@@ -38,8 +38,8 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 .cen{list-style:none;margin:4px 0;padding:0}.cen li{padding:6px 0;border-bottom:1px solid #2a3b5c}.cen a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:16px;color:#F5C518}.cen span{display:block;font-size:14px;color:#C9D1DE}
 
 #xupd{display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:8px}#xupd span{display:flex;align-items:center;gap:6px}#xupd b{color:#F2F4F8}
-#sheet{padding-top:48px!important}#sheet .handle{position:absolute;top:10px;left:50%;margin:0 0 0 -22px!important}
-#sheet .x{top:2px!important;right:4px!important;width:44px!important;height:44px!important;z-index:2}
+#sheet{padding-top:48px!important}#sheet .handle{position:absolute;top:0;left:56px;right:56px;height:48px;margin:0!important;background:transparent}
+#sheet .x{top:2px!important;right:2px!important;width:52px!important;height:52px!important;z-index:2}
 #sheet .card h3{padding-right:0!important}
 
 #sheet .card .xlst,.card .xlst{font-size:12px;opacity:.75;margin-top:-4px}#sheet .card .xlst a,.card .xlst a{min-height:24px}
