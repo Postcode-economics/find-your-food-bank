@@ -170,15 +170,15 @@ def hours_from_ot(ot):
 
 # Dean's standing default (21 Oct 2026): the place's OWN website is the main source. Where it gives times or says closed,
 # it overrides Give Food and every directory. Directory times are only a fallback, kept but marked unconfirmed.
-UNCONF_NOTE = {"fb": "Times from Give Food – not confirmed on the food bank's own site, call ahead",
+UNCONF_NOTE_UNUSED = {"fb": "Times from Give Food – not confirmed on the food bank's own site, call ahead",
                "sh": "Times from the directory listing – not confirmed on the shelter's own site, call before you go",
                "ws": "Times from the directory listing – not confirmed on the warm space's own site, call before you go"}
-FB_UNCONF_NOTE = UNCONF_NOTE["fb"]
 def _unconfirm(i, kind, field, reason):
-    """Own site could not confirm: keep the directory's times (food banks already through times.py), mark unconfirmed + card note."""
-    had = bool(i.get(field)); i["times_status"] = "unconfirmed"; i["times_reason"] = reason
-    i["times_note"] = UNCONF_NOTE[kind] if had else ""
-    if had and kind == "fb" and isinstance(i[field], dict): i[field] = dict(i[field], unconfirmed=True)
+    """Own site could not confirm: keep the main database's times (Give Food / listing directory) and show them normally
+    (Dean, 21 Oct 17:31). Source/confirmation is logged internally only (times_source / times_status), never displayed."""
+    i["times_status"] = "unconfirmed"; i["times_reason"] = reason
+    i["times_source"] = "main database" if i.get(field) else ""
+    i.pop("times_note", None)
 def office_like(st):
     """Changed times that look like office/warehouse/centre hours: same block on 4+ weekdays lasting 4h+."""
     if not st: return False
