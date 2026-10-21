@@ -41,3 +41,5 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 #sheet{padding-top:48px!important}#sheet .handle{position:absolute;top:10px;left:50%;margin:0 0 0 -22px!important}
 #sheet .x{top:2px!important;right:4px!important;width:44px!important;height:44px!important;z-index:2}
 #sheet .card h3{padding-right:0!important}
+
+#sheet .card .xlst,.card .xlst{font-size:12px;opacity:.75;margin-top:-4px}#sheet .card .xlst a,.card .xlst a{min-height:24px}

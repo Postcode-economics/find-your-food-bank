@@ -8,12 +8,18 @@ const DEN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],DCY=['Sul','Llun','Maw','M
 const hm=s=>{const m=/^(\d{1,2})[:.](\d{2})$/.exec(s.trim());return m?(+m[1])*60+(+m[2]):null};
 function rng(txt){const out=[];String(txt).replace(/(\d{1,2}[:.]\d{2})\s*[-–]\s*(\d{1,2}[:.]\d{2})/g,(_,a,b)=>{a=hm(a);b=hm(b);if(a!=null&&b!=null)out.push([a,b<=a?b+1440:b])});return out}
 const DI={mo:1,tu:2,we:3,th:4,fr:5,sa:6,su:0,mon:1,tue:2,wed:3,thu:4,fri:5,sat:6,sun:0};
+// free-text normaliser: "365 days, 5.00pm-10.00am" / "Every day 9am–5pm" / "Daily 17:00 – 10:00" -> "Mo-Su 17:00-10:00"
+const ap=(h,m,x)=>{h=+h;m=m?+m:0;x=(x||'').toLowerCase();if(x==='pm'&&h<12)h+=12;if(x==='am'&&h===12)h=0;return p2(h)+':'+p2(m)};
+function normH(h){let t=String(h).trim().replace(/[–—]/g,'-').replace(/\s*-\s*/g,'-').replace(/\s+to\s+/gi,'-');
+ t=t.replace(/\b(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)\b/gi,(_,a,b,c)=>ap(a,b,c)).replace(/\b(\d{1,2})\.(\d{2})\b/g,'$1:$2');
+ t=t.replace(/^(?:open\s+)?(?:every\s*day|daily|365\s*days(?:\s+a\s+year)?|7\s*days(?:\s+a\s+week)?)\s*[,:]?\s*(?:from\s+)?/i,'Mo-Su ');
+ t=t.replace(/(\d{2}:\d{2})-(\d{1,2}:\d{2})(?:\s*\(?next day\)?)?/gi,'$1-$2');return t.trim()}
 function sched(layer,i){
  if(layer==='fb'){const t=i.opening_times;if(!t||t.status!=='TIMES_FOUND'||!t.structured)return null;const s={};for(let d=0;d<7;d++)s[d]=[];
   for(const[k,v]of Object.entries(t.structured)){const d=DI[k];if(d==null)continue;(v||[]).forEach(([a,b])=>{a=hm(a);b=hm(b);if(a!=null&&b!=null)s[d].push([a,b<=a?b+1440:b])})}return s}
  const h=i.hours;if(!h)return null;const s={};for(let d=0;d<7;d++)s[d]=[];
  if(typeof h==='object'){let any=false;for(const[k,v]of Object.entries(h)){const d=DI[k.toLowerCase().slice(0,3)];if(d==null)continue;if(/monthly|fortnight|alternate|1st|2nd|3rd|last/i.test(v))return null;const r=rng(v);if(r.length){s[d].push(...r);any=true}}return any?s:null}
- const str=String(h).trim();if(/^24\/7$/.test(str)){for(let d=0;d<7;d++)s[d]=[[0,1440]];return s}
+ const str=normH(h);if(/^24\/7$/.test(str)){for(let d=0;d<7;d++)s[d]=[[0,1440]];return s}
  if(/PH|SH|week|easter|dawn|dusk|sunrise|sunset|"/i.test(str))return null;let any=false;
  for(const part of str.split(/\s*;\s*/)){const m=/^((?:(?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?,?)+)\s+(.+)$/.exec(part.trim());if(!m)return null;
   const days=[];m[1].split(',').filter(Boolean).forEach(x=>{const[a,b]=x.split('-').map(y=>DI[y.toLowerCase()]);if(b==null)days.push(a);else for(let d=a;;d=(d+1)%7){days.push(d);if(d===b)break}});

@@ -6,14 +6,14 @@ const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call befor
  disc:'<b>Listings can change without notice.</b> Always call before you travel. In an emergency call 999. If you are sleeping rough in England, contact your local council or StreetLink.',
  add:'Add or update your service',closed:'Recently closed (last 30 days)',report:'Report an error',call:'Call',dir:'Directions',
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
- src:'Source',ver:'verified',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
+ src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',none:'None listed',
  h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'miles',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
- src:'Ffynhonnell',ver:'gwiriwyd',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
+ src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',none:'Dim wedi’u rhestru',
  h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
@@ -22,6 +22,7 @@ const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,x=Math.sin(r(c-a)/2)**2+Math.cos(
 const MCY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'],MEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const p2=n=>String(n).padStart(2,'0');
 const dstr=(dt,time)=>`${dt.getDate()} ${(lang==='cy'?MCY:MEN)[dt.getMonth()]} ${dt.getFullYear()}`+(time?(lang==='cy'?' am ':', ')+p2(dt.getHours())+':'+p2(dt.getMinutes()):'');
+const hDisp=h=>{let x=String(h||'');x=x.replace(/^Mo-Su\s+/,lang==='cy'?'Bob dydd ':'Every day ');return x.replace(/(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})/g,(m,a,b,c,d)=>a+':'+b+'–'+c+':'+d+((+c*60+ +d)<=(+a*60+ +b)?(lang==='cy'?' (drannoeth)':' (next day)'):''))};
 const fmt=d=>d?dstr(new Date(d+'T12:00:00')):'';
 // Welsh for source-data values (shown as-is in English)
 const VCY={'Hot Drinks':'Diodydd poeth','Accessible Toilets':'Toiledau hygyrch','Free Wifi':'Wifi am ddim','Child Friendly':'Croeso i blant','Charging Facilities':'Cyfleusterau gwefru','Parking':'Parcio','Other Refreshments':'Lluniaeth arall','Food Available':'Bwyd ar gael','Computer Access':'Mynediad at gyfrifiadur','Volunteers':'Gwirfoddolwyr','Co-working Desks':'Desgiau cydweithio','TV':'Teledu','Cool Space':'Man oer','Dog Friendly':'Croeso i gŵn','Energy Advice':'Cyngor ar ynni','Volunteers Needed':'Angen gwirfoddolwyr','Not stated':'Heb ei nodi','Not stated by source':'Heb ei nodi gan y ffynhonnell','Winter-only':'Gaeaf yn unig','Year-round':'Drwy’r flwyddyn','men':'dynion','women':'menywod','families':'teuluoedd','young people':'pobl ifanc','Booking needed':'Rhaid archebu','No booking needed':'Dim angen archebu','Mon':'Llun','Tue':'Maw','Wed':'Mer','Thu':'Iau','Fri':'Gwe','Sat':'Sad','Sun':'Sul'};
@@ -82,10 +83,10 @@ function detail(k,i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,''),row=(l,v
  <p>${addr(i)}</p>
  <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>${window.V3?V3.share(i):''}
  ${tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}${t('call')} ${esc(i.phone)}</a>`:''}
- ${k==='sh'?row('groups',esc((i.groups||[]).map(v).join(', ')))+row('beds',esc(i.beds))+row('season',esc(v(i.season)))+row('ref',esc(i.referral))+row('hours',esc(i.hours))
+ ${k==='sh'?row('groups',esc((i.groups||[]).map(v).join(', ')))+row('beds',esc(i.beds))+row('season',esc(v(i.season)))+row('ref',esc(i.referral))+row('hours',esc(hDisp(i.hours)))
   :row('hours',hoursHtml(i.hours))+chips(i)+(known(i.booking)?row('book',esc(v(i.booking))):'')+(known(i.scheme_dates)?row('dates',esc(vdates(i.scheme_dates))):'')}
  ${i.website?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
- ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>
+ ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}${i.evidence_url?`<p class="sub xchk">${t('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||i.evidence_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.verified_on||i.last_verified)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:`<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>`}
  ${window.repB?repB(k,i):''}`}
 function showSheet(html){const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false')}
 async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[data-l=fb]');b.setAttribute('aria-pressed',on);on?map.addLayer(cl):map.removeLayer(cl);return}const L_=LAYERS[k],b=document.querySelector(`.xt[data-l=${k}]`);L_.on=on;b.setAttribute('aria-pressed',on);try{localStorage.setItem('lay_'+k,on?'1':'0')}catch(e){}
