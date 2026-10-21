@@ -51,26 +51,42 @@ const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div 
 const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return insAfterD(h,walk(d));
  h=badge('fb',i)+insAfterD(h,walk(d));return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};
 const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i))};
+const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
+ const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
+ cs.map((c,n)=>({c,n,s:sc(c)})).sort((a,b)=>a.s-b.s||a.n-b.n).forEach(x=>{x.c.classList.toggle('v3closed',x.s===2);l.append(x.c)})}catch(e){}return r};
 // ---- top: three big task buttons; toggle bar + search become secondary
 const hdr=document.querySelector('header');const big=document.createElement('div');big.id='v3big';
-big.innerHTML=[['fb','food','Food bank','Banc bwyd'],['ws','mug','Warm space','Man cynnes'],['sh','bed','Shelter tonight','Lloches heno']]
- .map(([k,ic,en,cy])=>`<button type="button" class="v3b" data-l="${k}" aria-pressed="${k==='fb'}"><span class="ic" aria-hidden="true">${IC(ic)}</span>${B(en,cy)}</button>`).join('');
+const NB=[['fb','food','Food bank','Banc bwyd','Collect food','Casglu bwyd'],['ws','mug','Warm space','Man cynnes','Somewhere warm','Rhywle cynnes'],['sh','bed','Shelter tonight','Lloches heno','A bed tonight','Gwely heno']];
+big.setAttribute('role','radiogroup');big.setAttribute('aria-label','Find help near you');
+big.innerHTML=NB.map(([k,ic,en,cy,sen,scy])=>`<button type="button" class="v3b" role="radio" data-l="${k}" aria-checked="false" tabindex="-1"><span class="ic" aria-hidden="true">${IC(ic)}</span><span class="v3bt"><span class="v3bl">${B(en,cy)}</span><span class="v3bs">${B(sen,scy)}</span></span><span class="v3tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg></span><span class="v3sr">${B(', selected',', wedi’i ddewis')}</span></button>`+(k==='sh'?`<div id="v3night" hidden>${B('Help tonight','Help heno')}</div>`:'')).join('');
 hdr.querySelector('h1').after(big);
 const sos=document.createElement('div');sos.id='v3sos';sos.hidden=true;sos.innerHTML=strip();big.after(sos);
 const near=document.getElementById('xnear');if(near)near.hidden=true;
-function want(k){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed')==='true';
+// UK clock (Europe/London) for the night cue and night theme; ?clock=20:00 fakes it for tests
+const ukH=()=>{const q=new URLSearchParams(location.search).get('clock');if(q&&/^\d{1,2}:\d{2}$/.test(q))return +q.split(':')[0]+(+q.split(':')[1])/60;
+ const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());return +p.find(x=>x.type==='hour').value+(+p.find(x=>x.type==='minute').value)/60};
+window.V3.ukH=ukH;
+const nightL=document.getElementById('v3night');const syncNight=()=>{const h=ukH();nightL.hidden=!(h>=17||h<8)};syncNight();setInterval(syncNight,60000);
+function mark(k){document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){}}
+function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed')==='true';
  ['fb','sh','ws'].forEach(x=>{const b=document.querySelector(`.xt[data-l=${x}]`);if(b&&on(b)!==(x===k))b.click()});
- document.querySelectorAll('.v3b').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===k)));
+ mark(k);if(noGo)return;
  let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
  if(window.lastNear||s){setTimeout(()=>{const p=window.lastNear||[s.lat,s.lng,s.label];nearest(p[0],p[1],p[2]);const t=document.getElementById(k==='fb'?'list':'xlist');t&&t.scrollIntoView({block:'start'})},k==='fb'?0:900)}
  else document.getElementById('me').click()}
 big.addEventListener('click',e=>{const b=e.target.closest('.v3b');if(b)want(b.dataset.l)});
+big.addEventListener('keydown',e=>{const ks=['fb','ws','sh'],b=e.target.closest('.v3b');if(!b)return;let i=ks.indexOf(b.dataset.l);
+ if(['ArrowDown','ArrowRight'].includes(e.key))i=(i+1)%3;else if(['ArrowUp','ArrowLeft'].includes(e.key))i=(i+2)%3;else if(e.key==='Home')i=0;else if(e.key==='End')i=2;else return;
+ e.preventDefault();const n=big.querySelector(`.v3b[data-l=${ks[i]}]`);n.focus();want(ks[i])});
+// restore the last chosen button (works offline: localStorage only)
+{let k=null;try{k=localStorage.getItem('v3layer')}catch(e){}if(!['fb','ws','sh'].includes(k))k='fb';
+ mark(k);setTimeout(()=>want(k,true),0)}
 // ---- shelters emergency strip: always visible while the shelters layer is on
 const shB=document.querySelector('.xt[data-l=sh]');const syncSos=()=>{sos.hidden=!(shB&&shB.getAttribute('aria-pressed')==='true')};
 if(shB)new MutationObserver(syncSos).observe(shB,{attributes:true,attributeFilter:['aria-pressed']});syncSos();
 // ---- 'Open today' folded into the results; 'Before you go' kept to one line
 const tog=document.querySelector('label.tog'),list=document.getElementById('list');const res=document.createElement('div');res.id='v3res';
-list.before(res);res.append(tog,document.querySelector('.tnote'),document.getElementById('hid'));
+list.before(res);res.before(sos);res.append(tog,document.querySelector('.tnote'),document.getElementById('hid'));
 // ---- list-only view and light (high contrast) mode, both remembered
 const tools=document.createElement('div');tools.id='v3tools';
 tools.innerHTML=`<button type="button" class="v3t" id="v3list" aria-pressed="false">${B('List only','Rhestr yn unig')}</button><button type="button" class="v3t" id="v3light" aria-pressed="false">${B('High contrast','Cyferbyniad uchel')}</button>`;
@@ -79,7 +95,12 @@ const pref=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k)==='1';loc
 function setP(id,cls,on){document.documentElement.classList.toggle(cls,on);document.getElementById(id).setAttribute('aria-pressed',String(on));pref(cls,on);if(cls==='nomap'&&!on)setTimeout(()=>map.invalidateSize(),50)}
 document.getElementById('v3list').onclick=()=>setP('v3list','nomap',!document.documentElement.classList.contains('nomap'));
 document.getElementById('v3light').onclick=()=>setP('v3light','light',!document.documentElement.classList.contains('light'));
-setP('v3list','nomap',pref('nomap'));setP('v3light','light',pref('light'));
+setP('v3list','nomap',pref('nomap'));
+{let m=null;try{m=localStorage.getItem('light')}catch(e){}
+ if(m==='1'||m==='0')setP('v3light','light',m==='1');
+ else{const sysL=matchMedia('(prefers-color-scheme: light)').matches,sysD=matchMedia('(prefers-color-scheme: dark)').matches,h=ukH(),night=h>=19||h<7;
+  const L_=sysL?true:sysD?false:!night&&false;// no system preference: app default (dark); at night always dark
+  document.documentElement.classList.toggle('light',L_);document.getElementById('v3light').setAttribute('aria-pressed',String(L_))}}
 // ---- share / text this address
 document.addEventListener('click',async e=>{const b=e.target.closest('.v3share');if(!b)return;const txt=`${b.dataset.n}, ${b.dataset.a}. https://www.google.com/maps/dir/?api=1&destination=${b.dataset.ll}&travelmode=walking`;
  if(navigator.share){try{await navigator.share({title:b.dataset.n,text:txt});return}catch(err){if(err&&err.name==='AbortError')return}}
