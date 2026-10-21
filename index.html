@@ -42,8 +42,8 @@ button{font-size:15px;font-weight:700;border:0;border-radius:10px;padding:0 14px
 .leaflet-popup-content{color:var(--navy);font-size:15px;min-width:200px;margin:12px}
 .pop h3{margin:0;font-size:17px}.pop .gm{color:#fff!important}
 #sheet{position:fixed;left:0;right:0;bottom:0;max-height:60vh;overflow:auto;background:var(--navy);border-top:3px solid var(--gold);border-radius:16px 16px 0 0;padding:6px 12px 16px;z-index:2000;transform:translateY(105%);transition:transform .2s;box-shadow:0 -6px 20px rgba(0,0,0,.5)}
-#sheet.open{transform:none}#sheet .handle{width:44px;height:5px;border-radius:3px;background:var(--muted);margin:4px auto 6px}
-#sheet .x{position:absolute;right:6px;top:6px;width:44px;height:44px;background:transparent;color:var(--white);font-size:24px;padding:0}
+#sheet.open{transform:none}#sheet .handle{position:sticky;top:-6px;z-index:1;height:28px;margin:-6px -12px 0;display:flex;align-items:center;justify-content:center;cursor:grab;touch-action:none;background:var(--navy)}#sheet .handle::before{content:'';width:48px;height:6px;border-radius:3px;background:var(--muted)}#sheet.drag{transition:none}@media (prefers-reduced-motion:reduce){#sheet,#sheet.drag{transition:none}}
+#sheet .x{position:absolute;right:2px;top:2px;width:52px;height:52px;z-index:2;touch-action:manipulation;background:transparent;color:var(--white);font-size:24px;padding:0}
 #sheet .card{margin:4px 0;border-left:0;background:transparent;padding:4px 0}#sheet .card h3{padding-right:44px}
 .share{display:flex;justify-content:center;margin:14px 12px 0}.share button{background:transparent;color:var(--gold);border:2px solid var(--gold);width:100%}
 .made{margin:14px 12px 0;font-size:15px;color:var(--muted);text-align:center}.made a{color:var(--gold);display:inline-block;min-height:44px;line-height:44px}
@@ -74,7 +74,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <div class="share"><button id="share" type="button">Share this map</button></div>
 <p class="made">Made by @postcode_economics. <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Follow for more UK money maps</a></p>
 <footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a>, last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
-<div id="sheet" aria-hidden="true"><div class="handle"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
+<div id="sheet" aria-hidden="true"><div class="handle" aria-hidden="true" title="Swipe down to close"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
 <script src="data.js?v=labels-20261021"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
@@ -92,7 +92,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
  if(s)return `<div class="ot"><b>🕒 Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
- if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>🕒 Opening times</b><div class="raw">${esc(t.raw.trim())}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
+ if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>🕒 Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
  return '<div class="ot">🕒 Times not listed, call ahead.</div>'}
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')+' away'};
@@ -134,6 +134,19 @@ function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)mark
  if(fromList)cl.zoomToShowLayer(m,show);else show()}
 function closeSheet(){$('sheet').classList.remove('open');$('sheet').setAttribute('aria-hidden','true')}
 document.querySelector('#sheet .x').onclick=closeSheet;
+// swipe-down to close (bottom-sheet): drag from handle anywhere, or from body only when scrolled to top; >80px or fast flick closes, else snaps back
+(()=>{const sh=$('sheet');let y0=null,t0=0,dy=0,id=null,fromHandle=false;
+ const start=(y,pid,target)=>{fromHandle=!!target.closest('.handle');if(target.closest('.x,a,button,input'))return;if(!fromHandle&&sh.scrollTop>0)return;y0=y;t0=performance.now();dy=0;id=pid};
+ const move=(y,e)=>{if(y0==null)return;const d=y-y0;if(!fromHandle&&d<=0&&!dy){y0=null;return}  // upward on body = normal scroll
+  dy=Math.max(0,d);if(dy>4){sh.classList.add('drag');sh.style.transform=`translateY(${dy}px)`;if(e.cancelable)e.preventDefault()}};
+ const end=()=>{if(y0==null)return;const v=dy/Math.max(1,performance.now()-t0);sh.classList.remove('drag');sh.style.transform='';
+  if(dy>80||(dy>20&&v>0.5))closeSheet();y0=null;dy=0};
+ if(window.PointerEvent){sh.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||(e.pointerType==='mouse'&&e.button!==0))return;  // touch handled by touch events below (so preventDefault can stop the page scrolling)
+start(e.clientY,e.pointerId,e.target);if(y0!=null&&fromHandle)try{sh.setPointerCapture(e.pointerId)}catch(_){}});
+  sh.addEventListener('pointermove',e=>{if(e.pointerId===id)move(e.clientY,e)});['pointerup','pointercancel'].forEach(n=>sh.addEventListener(n,e=>{if(e.pointerId===id)end()}));
+}
+ {sh.addEventListener('touchstart',e=>start(e.touches[0].clientY,'touch',e.target),{passive:true});sh.addEventListener('touchmove',e=>move(e.touches[0].clientY,e),{passive:false});sh.addEventListener('touchend',end);sh.addEventListener('touchcancel',end)}
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sh.classList.contains('open'))closeSheet()})})();
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-cid]');if(!a)return;e.preventDefault();const k=items.findIndex(i=>i.id===a.dataset.cid);if(k<0)return;map.setView([items[k].lat,items[k].lng],15);setTimeout(()=>select(k,false),300)});
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,R=6371,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
 function msg(t,err){const e=$('msg');e.textContent=t||'';e.className=err?'err':''}
