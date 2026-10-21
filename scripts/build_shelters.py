@@ -60,7 +60,7 @@ for k, pc in reverse_postcodes(need).items():
     for x in fresh:
         if x["id"] == k: x["postcode"] = pc; x["postcode_note"] = "nearest postcode (postcodes.io)"
 prev = load_js(OUT, "SHELTERS")
-if prev and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE"):
+if not fresh or (prev and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
