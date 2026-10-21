@@ -82,7 +82,7 @@ const known=x=>x&&!/^not stated/i.test(String(x).trim());
 const CHIP=[['Food Available','Food','Bwyd'],['Charging Facilities','Charging','Gwefru'],['Free Wifi','Wifi','Wifi'],['Accessible Toilets','Toilets','Toiledau']];
 const chips=i=>{const p=i.provided||[];const c=CHIP.filter(([k])=>p.includes(k));return c.length?`<div class="chips">${c.map(([,en,cy])=>`<span class="chip">${lang==='cy'?cy:en}</span>`).join('')}</div>`:''};
 const tierTop=i=>(i.tier==='unverified'?`<div class="xunv">${t('unv')}</div>`:'')+(i.access_type?`<span class="xacc xacc-${i.access_type}">${t(i.access_type==='referral_only'?'refOnly':i.access_type==='self_referral'?'selfRef':'openAcc')}</span>`:'');
-function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=tel0.replace(/\D/g,'').length>=10?tel0:'',row=(l,v)=>v&&v.length?`<p><b>${t(l)}:</b> ${v}</p>`:'';
+function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p><b>${t(l)}:</b> ${v}</p>`:'';
  return `${tierTop(i)}${window.V3?V3.badge(k,i):''}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}${k==='sh'&&window.V3?V3.strip():''}
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
  <p>${addr(i)}</p>

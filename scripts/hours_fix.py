@@ -49,3 +49,57 @@ def bad_spans(h):
 def phone_ok(p):
     """A UK phone we will show must have at least 10 digits; otherwise it is hidden."""
     return len(re.sub(r"\D", "", p or "")) >= 10
+
+
+# ---- phone clean-up (every refresh, all layers) ----
+# Source phones can hold two numbers ("01278445682or01278422568", "01483506763%2F01483575128",
+# "01933653346%2F652986"), HTML left over from scraping ('02088711812"target="_blank"...'),
+# a dropped leading 0 ("1984623991") or a mistyped number. tel: links must only ever get ONE valid UK number.
+import html as _html
+from urllib.parse import unquote as _unquote
+
+# Ofcom "mixed" areas where some local numbers have 5 digits (10-digit national number), e.g. 01460 57811
+FIVE_DIGIT_AREAS = set("01204 01208 01254 01276 01297 01298 01363 01364 01384 01386 01404 01420 01460 01461 01480 01488 01524 01527 01562 01566 01606 01629 01635 01647 01659 01695 01726 01744 01750 01768 01827 01837 01884 01900 01905 01935 01949 01963 01995".split())
+
+def _valid_uk(d):
+    """UK number in national format: 11 digits starting 01/02/03/05/07/08/09, or the 10-digit 016977 / 0800 1111 cases."""
+    if re.fullmatch(r"0[1235789]\d{9}", d): return True
+    if len(d) == 10 and d[:5] in FIVE_DIGIT_AREAS: return True
+    return bool(re.fullmatch(r"016977\d{4}|08001111", d))
+
+def _fmt_uk(d):
+    if re.match(r"02", d): return "%s %s %s" % (d[:3], d[3:7], d[7:])
+    if re.match(r"01\d1|011", d): return "%s %s %s" % (d[:4], d[4:7], d[7:])
+    if re.match(r"0[3589]", d): return "%s %s %s" % (d[:4], d[4:7], d[7:])
+    return "%s %s" % (d[:5], d[5:])  # also 10-digit 01xxx xxxxx
+
+def clean_phone(p):
+    """Return (display, tel). tel = first valid UK number (digits only) or ''; display lists every valid number
+    joined by ' or ' (only the first is linked). Invalid parts are dropped; nothing valid -> ('', '')."""
+    s = _html.unescape(_unquote(str(p or "")))
+    s = re.split(r"[\"<>]|\btarget=|\bhref=", s)[0]  # HTML junk after the number
+    s = re.sub(r"\(\s*0\s*\)", "", s)  # +44 (0)1234 ...
+    parts = re.split(r"\s*(?:\bor\b|\band\b|or(?=\d)|(?<=\d)or|and(?=\d)|(?<=\d)and|/|,|;|&|\|)\s*", s, flags=re.I)
+    out = []
+    for part in parts:
+        d = re.sub(r"[^\d+]", "", part)
+        if d.startswith("+44"): d = "0" + d[3:]
+        elif d.startswith("0044"): d = "0" + d[4:]
+        d = d.replace("+", "")
+        if not d: continue
+        if out and 3 <= len(d) <= 7 and d[0] != "0":  # "01933653346/652986": shorthand for same area code
+            d = out[0][:len(out[0]) - len(d)] + d
+        elif len(d) == 10 and d[0] in "1237":  # leading 0 dropped
+            d = "0" + d
+        if _valid_uk(d) and d not in out: out.append(d)
+    if not out: return "", ""
+    return " or ".join(_fmt_uk(d) for d in out), out[0]
+
+def apply_phone(x, key="phone"):
+    """In place: x[key] -> cleaned display text, x['tel'] -> the one number the Call button dials."""
+    if not x.get(key): x["tel"] = ""; return x
+    disp, tel = clean_phone(x[key])
+    raw = re.sub(r"[^\d+]", "", str(x[key])).replace("+44", "0", 1)
+    if tel and " or " not in disp and raw == tel and not re.search(r"[A-Za-z%<>\"&;/]", str(x[key])): disp = x[key].strip()  # already one clean number: keep its own wording
+    x[key], x["tel"] = disp, tel
+    return x
