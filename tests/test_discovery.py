@@ -67,11 +67,13 @@ class Times(unittest.TestCase):
         self.assertEqual(it[0]["opening_times"]["source_url"], "https://x.org/")
     def test_unreachable_never_carries_old_times(self):
         it = self.items(); log = discover.cross_check_times(it, "fb", "opening_times", fake({}))
-        self.assertEqual(log["a"]["status"], "unreachable"); self.assertIsNone(it[0]["opening_times"]); self.assertEqual(it[0]["times_status"], "unconfirmed")
+        self.assertEqual(log["a"]["status"], "unreachable"); self.assertEqual(it[0]["times_status"], "unconfirmed")
+        self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"]); self.assertTrue(it[0]["opening_times"]["unconfirmed"])
+        self.assertIn("Give Food", it[0]["times_note"])
     def test_unconfirmed_withheld(self):
         it = self.items(); h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "see Facebook for times")
         log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
-        self.assertEqual(log["a"]["status"], "unconfirmed"); self.assertIsNone(it[0]["opening_times"])
+        self.assertEqual(log["a"]["status"], "unconfirmed"); self.assertTrue(it[0]["opening_times"]["unconfirmed"]); self.assertIn("not confirmed", it[0]["times_note"])
     def test_own_site_closed_marked_for_removal(self):
         it = self.items(); h = FB.replace("We give", "This food bank is permanently closed. We gave")
         log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
@@ -127,3 +129,33 @@ class OfficeHours(unittest.TestCase):
     def test_office_hours_not_taken_as_client_times(self):
         h = "Riverside Food Bank AB1 2CD. Our office is open Monday - Friday 9am - 5pm."
         self.assertIsNone(discover.extract_times(h, "AB1 2CD"))
+
+class OwnSiteIsMainSource(unittest.TestCase):
+    OT = {"status": "TIMES_FOUND", "structured": {"tue": [["10:00", "12:00"]]}}
+    def test_no_website_keeps_directory_times_unconfirmed(self):
+        it = [{"id": "a", "name": "R", "postcode": "AB1 2CD", "website": "", "opening_times": dict(self.OT)}]
+        discover.cross_check_times(it, "fb", "opening_times", fake({}))
+        self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"]); self.assertEqual(it[0]["times_status"], "unconfirmed")
+    def test_shelter_and_warm_space_fallback_kept_unconfirmed(self):
+        for kind in ("sh", "ws"):
+            it = [{"id": "s", "name": "R", "postcode": "AB1 2CD", "website": "https://x.org/", "hours": {"Tue": "10:00 - 12:00"}}]
+            discover.cross_check_times(it, kind, "hours", fake({}))
+            self.assertEqual(it[0]["hours"], {"Tue": "10:00 - 12:00"}); self.assertEqual(it[0]["times_status"], "unconfirmed"); self.assertIn("directory", it[0]["times_note"])
+    def test_own_site_times_override_directory(self):
+        it = [{"id": "a", "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)}]
+        h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Thursday 2pm - 4pm")
+        discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
+        self.assertEqual(it[0]["opening_times"]["structured"], {"thu": [["14:00", "16:00"]]}); self.assertEqual(it[0]["times_status"], "updated")
+    def test_office_like_change_reverted(self):
+        it = [{"id": "a", "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)}]
+        h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Monday - Friday 9am - 5pm")
+        log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
+        self.assertEqual(log["a"]["status"], "unconfirmed"); self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"])
+    def test_same_table_for_several_branches_reverted(self):
+        it = [{"id": b, "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)} for b in ("a", "b")]
+        h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Thursday 2pm - 4pm")
+        log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
+        self.assertEqual({log["a"]["status"], log["b"]["status"]}, {"unconfirmed"})
+    def test_office_like_detector(self):
+        self.assertTrue(discover.office_like({d: [["09:00", "17:00"]] for d in ("mon", "tue", "wed", "thu", "fri")}))
+        self.assertFalse(discover.office_like({"mon": [["10:00", "12:00"]], "thu": [["13:00", "15:00"]]}))

@@ -168,6 +168,24 @@ def hours_from_ot(ot):
     if not ot or not ot.get("structured"): return None
     return {d.title(): " / ".join(f"{a} - {b}" for a, b in r) for d, r in ot["structured"].items()}
 
+# Dean's standing default (21 Oct 2026): the place's OWN website is the main source. Where it gives times or says closed,
+# it overrides Give Food and every directory. Directory times are only a fallback, kept but marked unconfirmed.
+UNCONF_NOTE = {"fb": "Times from Give Food – not confirmed on the food bank's own site, call ahead",
+               "sh": "Times from the directory listing – not confirmed on the shelter's own site, call before you go",
+               "ws": "Times from the directory listing – not confirmed on the warm space's own site, call before you go"}
+FB_UNCONF_NOTE = UNCONF_NOTE["fb"]
+def _unconfirm(i, kind, field, reason):
+    """Own site could not confirm: keep the directory's times (food banks already through times.py), mark unconfirmed + card note."""
+    had = bool(i.get(field)); i["times_status"] = "unconfirmed"; i["times_reason"] = reason
+    i["times_note"] = UNCONF_NOTE[kind] if had else ""
+    if had and kind == "fb" and isinstance(i[field], dict): i[field] = dict(i[field], unconfirmed=True)
+def office_like(st):
+    """Changed times that look like office/warehouse/centre hours: same block on 4+ weekdays lasting 4h+."""
+    if not st: return False
+    wk = [tuple(map(tuple, st.get(d, []))) for d in ("mon", "tue", "wed", "thu", "fri") if st.get(d)]
+    if len(wk) < 4 or len(set(wk)) > 2: return False
+    def mins(t): h, m = t.split(":"); return int(h) * 60 + int(m)
+    return all(mins(b) - mins(a) >= 240 for blk in wk for a, b in blk)
 def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24):
     """Re-confirm every entry's times on its OWN website this run; mutates items. Returns {id: result} log.
     kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text)."""
@@ -194,19 +212,16 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
             if not s or not home or home.get("http") != 200 or not texts:
                 rec.update(status="unreachable" if s else "no_website", reason="own site unreachable this run" if s else "no own website to check against")
-                had = bool(i.get(field))
-                if had: i[field] = None if kind == "fb" else ({} if isinstance(i.get(field), dict) else "")
-                i["times_status"] = "unconfirmed"; i["times_note"] = rec["reason"] + ("; times withheld, call before you go" if had else "")
-                log[i["id"]] = rec; continue
+                _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             if host(home["final_url"]) != host(s) and not host(home["final_url"]).endswith("." + host(s)) and not host(s).endswith("." + host(home["final_url"])):
                 rec.update(status="unconfirmed", reason="own site redirects to a different site")
-                if i.get(field): i[field] = None if kind == "fb" else ({} if isinstance(i.get(field), dict) else "")
-                i["times_status"] = "unconfirmed"; i["times_note"] = rec["reason"]; log[i["id"]] = rec; continue
+                _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             ev = None
             for t in texts:
                 ev = closure.detect(t, i.get("postcode"))
                 if ev: break
             if ev: rec.update(status="closed", reason="own site says closed", evidence=ev); i["_own_site_closed"] = ev; log[i["id"]] = rec; continue
+            i["_orig_times"] = i.get(field)
             st, new, why = confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"))
             rec.update(status=st, reason=why)
             if st == "confirmed": i["times_status"] = "confirmed"; i["times_checked"] = today
@@ -215,9 +230,22 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 else: i[field] = hours_from_ot(new) or i.get(field)
                 i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if new else None
             elif st == "unconfirmed":
-                i[field] = None if kind == "fb" else ({} if isinstance(i.get(field), dict) else "")
-                i["times_status"] = "unconfirmed"; i["times_note"] = why + "; times withheld, call before you go"
+                _unconfirm(i, kind, field, why)
             log[i["id"]] = rec
+    if kind == "fb":
+        orig = {i["id"]: i.get("_orig_times") for i in items}
+        bysite = {}
+        for i in items:
+            if log.get(i["id"], {}).get("status") == "changed": bysite.setdefault((log[i["id"]]["site"], json.dumps(log[i["id"]].get("new"), sort_keys=True)), []).append(i)
+        for (site, _), grp in bysite.items():
+            for i in grp:
+                why = None
+                if office_like(log[i["id"]].get("new")): why = "new own-site times look like office/centre hours"
+                elif len(grp) > 1: why = "own site gives one table for several branches; cannot tell which branch"
+                if why:
+                    i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
+                    _unconfirm(i, kind, field, why)
+        for i in items: i.pop("_orig_times", None)
     return log
 
 def summary(log):

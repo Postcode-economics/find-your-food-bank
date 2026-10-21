@@ -90,9 +90,10 @@ const closedToday=i=>{const s=parsed(i);return !!(s&&!(s[DK[new Date().getDay()]
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()];
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
+ const un=i.times_status==='unconfirmed'&&i.times_note?`<div class="src unconf">${esc(i.times_note)}</div>`:'';
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
- if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
- if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${esc(t.raw.trim())}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
+ if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table>${un||`<div class="src">From their website${ck}.${src}</div>`}</div>`;
+ if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${esc(t.raw.trim())}</div>${un||`<div class="src">As written on their website${ck}.${src}</div>`}</div>`;
  return `<div class="ot">${IC('clock')}Times not listed, call ahead.</div>`}
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
@@ -112,7 +113,7 @@ function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${esc(i.phone)}</a><small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
  ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>${window.repB?repB('fb',i):''}`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a><div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
+function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a><div style="margin-top:6px">${esc(i.address)}</div>${i.times_status==='unconfirmed'&&i.times_note?`<div class="src unconf" style="margin-top:6px;font-size:13px">${esc(i.times_note)}</div>`:''}${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
