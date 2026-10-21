@@ -97,7 +97,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
 const site=i=>i.website||i.givefood;
-const tag=i=>'<div class="tag" role="note">Food bank – collect food here</div>';  // one label for every place clients can collect food
+const tag=i=>'<div class="tag" role="note">Food bank – get food here</div>';  // one label for every place clients can collect food
 // B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
 const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');

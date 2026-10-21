@@ -11,7 +11,7 @@ const R={
  sh:['closed','place','times','phone','other'],ws:['closed','place','times','phone','other']};
 const T={en:{btn:'Report a problem',title:'Report a problem',intro:'Tell us what’s wrong with this listing. We check every report before changing the map.',
   layer:'Map layer',name:'Name',address:'Address',id:'Listing ID',reason:'What’s wrong?',req:'(required)',opt:'(optional)',
-  r_donations:'This is a distribution centre – drop off food only, not a food bank',r_place:'The address or pin is in the wrong place',r_times:'The opening times are wrong',r_phone:'The phone number is wrong',r_closed:'It’s closed',r_other:'Something else',
+  r_donations:'This is donations only, not a food bank',r_place:'The address or pin is in the wrong place',r_times:'The opening times are wrong',r_phone:'The phone number is wrong',r_closed:'It’s closed',r_other:'Something else',
   details:'Details',detailsPh:'e.g. clients should go to the church hall on High Street',yname:'Your name',email:'Your email',emailHint:'Only if you’re happy for us to reply.',
   staff:'I work or volunteer here',send:'Send report',cancel:'Cancel',close:'Close',sending:'Sending…',
   ok:'Thank you. Your report has been sent and we’ll check it before changing anything on the map.',
@@ -21,7 +21,7 @@ const T={en:{btn:'Report a problem',title:'Report a problem',intro:'Tell us what
   wait:'Please take a moment to check the details, then press Send again.',pick:'Pick what’s wrong to continue.',bademail:'That email address doesn’t look right.'},
 cy:{btn:'Rhoi gwybod am broblem',title:'Rhoi gwybod am broblem',intro:'Dywedwch wrthym beth sydd o’i le gyda’r rhestriad hwn. Rydym yn gwirio pob adroddiad cyn newid y map.',
   layer:'Haen y map',name:'Enw',address:'Cyfeiriad',id:'ID y rhestriad',reason:'Beth sydd o’i le?',req:'(gofynnol)',opt:'(dewisol)',
-  r_donations:'Canolfan ddosbarthu yw hon – gollwng bwyd yn unig, nid banc bwyd',r_place:'Mae’r cyfeiriad neu’r pin yn y lle anghywir',r_times:'Mae’r oriau agor yn anghywir',r_phone:'Mae’r rhif ffôn yn anghywir',r_closed:'Mae wedi cau',r_other:'Rhywbeth arall',
+  r_donations:'Rhoddion yn unig yw hwn, nid banc bwyd',r_place:'Mae’r cyfeiriad neu’r pin yn y lle anghywir',r_times:'Mae’r oriau agor yn anghywir',r_phone:'Mae’r rhif ffôn yn anghywir',r_closed:'Mae wedi cau',r_other:'Rhywbeth arall',
   details:'Manylion',detailsPh:'e.e. dylai cleientiaid fynd i neuadd yr eglwys ar y Stryd Fawr',yname:'Eich enw',email:'Eich e-bost',emailHint:'Dim ond os ydych chi’n hapus i ni ateb.',
   staff:'Rwy’n gweithio neu’n gwirfoddoli yma',send:'Anfon adroddiad',cancel:'Canslo',close:'Cau',sending:'Wrthi’n anfon…',
   ok:'Diolch. Mae eich adroddiad wedi’i anfon a byddwn yn ei wirio cyn newid unrhyw beth ar y map.',
