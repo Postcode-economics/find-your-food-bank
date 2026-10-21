@@ -1,0 +1,20 @@
+{
+  "_comment": "Pins removed because the food bank's OWN site says they have closed. The own site beats Give Food. Applied by scripts/closure.py on every refresh.",
+  "kentish-town": {
+    "url": "https://kentishtown.foodbank.org.uk/",
+    "evidence": "Kentish Town Foodbank (Distribution Centre- Clients only) CLOSED 27TH AUGUST 2026 | Thurs 10.30am – 1pm | Kentish Town Congregational Church, Kentish Town Rd, Church Avenue, NW1 8PD",
+    "confirmed": "own site checked 21 Oct 2026; removal ordered by Dean"
+  },
+  "_hold_for_review": [],
+  "_hold_comment": "Own site appears to say closed (found 21 Oct 2026); kept on the map until Dean confirms. Delete an id from this list to let the daily check remove it.",
+  "shoreham/oasis-food-bank": {
+    "url": "https://shoreham.foodbank.org.uk/locations/",
+    "evidence": "Oasis Foodbank - This is now closed ... Oasis Christian Fellowship, Hangleton Way, Hove BN3 8EQ",
+    "confirmed": "own site checked 21 Oct 2026; removal ordered by Dean"
+  },
+  "waveney/fressingfield-methodist-church": {
+    "url": "https://waveney.foodbank.org.uk/locations/",
+    "evidence": "Fressingfield Methodist Church Walk-In - CENTRE HAS NOW CLOSED ... New street Fressingfield Suffolk IP21 5PG",
+    "confirmed": "own site checked 21 Oct 2026; removal ordered by Dean"
+  }
+}
