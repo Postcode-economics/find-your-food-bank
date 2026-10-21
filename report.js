@@ -9,7 +9,7 @@ const LAYER={fb:{en:'Food banks',cy:'Banciau bwyd'},sh:{en:'Shelters',cy:'Lloche
 const R={
  fb:['donations','place','times','phone','closed','other'],
  sh:['closed','place','times','phone','other'],ws:['closed','place','times','phone','other']};
-const T={en:{btn:'⚠ Report a problem',title:'Report a problem',intro:'Tell us what’s wrong with this listing. We check every report before changing the map.',
+const T={en:{btn:'Report a problem',title:'Report a problem',intro:'Tell us what’s wrong with this listing. We check every report before changing the map.',
   layer:'Map layer',name:'Name',address:'Address',id:'Listing ID',reason:'What’s wrong?',req:'(required)',opt:'(optional)',
   r_donations:'This is a donations-only site, not a food bank',r_place:'The address or pin is in the wrong place',r_times:'The opening times are wrong',r_phone:'The phone number is wrong',r_closed:'It’s closed',r_other:'Something else',
   details:'Details',detailsPh:'e.g. clients should go to the church hall on High Street',yname:'Your name',email:'Your email',emailHint:'Only if you’re happy for us to reply.',
@@ -19,7 +19,7 @@ const T={en:{btn:'⚠ Report a problem',title:'Report a problem',intro:'Tell us 
   mail:'Email your report instead',mailNote:'This opens your email app with the details filled in.',
   limit:'Thanks for your help. You’ve sent 3 reports today, which is the daily limit on this device. Please try again tomorrow, or email us:',
   wait:'Please take a moment to check the details, then press Send again.',pick:'Pick what’s wrong to continue.',bademail:'That email address doesn’t look right.'},
-cy:{btn:'⚠ Rhoi gwybod am broblem',title:'Rhoi gwybod am broblem',intro:'Dywedwch wrthym beth sydd o’i le gyda’r rhestriad hwn. Rydym yn gwirio pob adroddiad cyn newid y map.',
+cy:{btn:'Rhoi gwybod am broblem',title:'Rhoi gwybod am broblem',intro:'Dywedwch wrthym beth sydd o’i le gyda’r rhestriad hwn. Rydym yn gwirio pob adroddiad cyn newid y map.',
   layer:'Haen y map',name:'Enw',address:'Cyfeiriad',id:'ID y rhestriad',reason:'Beth sydd o’i le?',req:'(gofynnol)',opt:'(dewisol)',
   r_donations:'Safle rhoddion yn unig yw hwn, nid banc bwyd',r_place:'Mae’r cyfeiriad neu’r pin yn y lle anghywir',r_times:'Mae’r oriau agor yn anghywir',r_phone:'Mae’r rhif ffôn yn anghywir',r_closed:'Mae wedi cau',r_other:'Rhywbeth arall',
   details:'Manylion',detailsPh:'e.e. dylai cleientiaid fynd i neuadd yr eglwys ar y Stryd Fawr',yname:'Eich enw',email:'Eich e-bost',emailHint:'Dim ond os ydych chi’n hapus i ni ateb.',
@@ -32,7 +32,7 @@ cy:{btn:'⚠ Rhoi gwybod am broblem',title:'Rhoi gwybod am broblem',intro:'Dywed
 const lang=()=>{try{return localStorage.getItem('lang')==='cy'?'cy':'en'}catch(e){return document.documentElement.lang==='cy'?'cy':'en'}};
 const e_=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Button markup used inside cards, pop-ups and sheets. Both languages are rendered; CSS shows the one matching <html lang>.
-window.repB=(layer,i)=>`<button type="button" class="btn rpb" data-rl="${e_(layer)}" data-rid="${e_(i.id)}" data-rn="${e_(i.name)}" data-ra="${e_([i.address,i.postcode&&!(i.address||'').includes(i.postcode)?i.postcode:''].filter(Boolean).join(', '))}" data-rlab="${e_(i.label_en||'')}"><span class="en">${T.en.btn}</span><span class="cy" lang="cy">${T.cy.btn}</span></button>`;
+window.repB=(layer,i)=>`<button type="button" class="btn rpb" data-rl="${e_(layer)}" data-rid="${e_(i.id)}" data-rn="${e_(i.name)}" data-ra="${e_([i.address,i.postcode&&!(i.address||'').includes(i.postcode)?i.postcode:''].filter(Boolean).join(', '))}" data-rlab="${e_(i.label_en||'')}"><span class="en">${window.IC?IC('alert'):''}${T.en.btn}</span><span class="cy" lang="cy">${window.IC?IC('alert'):''}${T.cy.btn}</span></button>`;
 // ---- daily limit (per device, localStorage)
 const day=()=>new Date().toISOString().slice(0,10);
 const used=()=>{try{const o=JSON.parse(localStorage.getItem('rpCount')||'{}');return o.d===day()?o.n:0}catch(e){return 0}};
@@ -45,7 +45,7 @@ function mailto(p,L){const body=[`${T[L].layer}: ${p.layerName}`,`${T[L].name}: 
   `${T[L].details}: ${p.details||''}`,`${T[L].yname}: ${p.yname||''}`,`${T[L].email}: ${p.email||''}`,`${T[L].staff}: ${p.staff?'Yes / Ydw':'No / Na'}`,`Page: ${location.href}`,`Language: ${L}`,`Time: ${new Date().toISOString()}`].join('\n');
  return `mailto:${REPORT_EMAIL}?subject=${encodeURIComponent('Map report: '+p.name)}&body=${encodeURIComponent(body)}`}
 function msg(kind,html){const m=dlg.querySelector('#rpMsg');m.className='rpmsg '+kind;m.innerHTML=html;m.hidden=false;m.focus()}
-function fallback(p,L,why){msg('err',`<p>${T[L][why]}</p><a class="btn rpmail" href="${e_(mailto(p,L))}">✉ ${T[L].mail}</a><p class="rph">${T[L].mailNote}</p>`)}
+function fallback(p,L,why){msg('err',`<p>${T[L][why]}</p><a class="btn rpmail" href="${e_(mailto(p,L))}">${window.IC?IC('mail'):''}${T[L].mail}</a><p class="rph">${T[L].mailNote}</p>`)}
 function values(){const f=dlg.querySelector('form'),r=f.querySelector('input[name=reason]:checked');
  return {...cur,reasonKey:r?r.value:'',reason:r?T.en['r_'+r.value]:'',details:f.details.value.trim(),yname:f.yname.value.trim(),email:f.email.value.trim(),staff:f.staff.checked,honey:f._honey.value}}
 function open(b){const L=lang(),t=T[L];opener=b;openedAt=Date.now();
@@ -56,7 +56,7 @@ function open(b){const L=lang(),t=T[L];opener=b;openedAt=Date.now();
  dlg.innerHTML=`<div class="rphead"><h2 id="rpTitle">${t.title}</h2><button type="button" class="rpx" aria-label="${t.close}">×</button></div>
  <p id="rpIntro" class="rph">${t.intro}</p>
  <div class="rpfix" aria-label="${t.title}">${ro('layer',LAYER[cur.layer]?LAYER[cur.layer][L]:cur.layer)}${ro('name',cur.name)}${ro('address',cur.address||'–')}${ro('id',cur.id)}</div>
- ${over?`<div id="rpMsg" class="rpmsg err" tabindex="-1"><p>${t.limit}</p><a class="btn rpmail" href="${e_(mailto(cur,L))}">✉ ${t.mail}</a></div>`:`<form novalidate>
+ ${over?`<div id="rpMsg" class="rpmsg err" tabindex="-1"><p>${t.limit}</p><a class="btn rpmail" href="${e_(mailto(cur,L))}">${window.IC?IC('mail'):''}${t.mail}</a></div>`:`<form novalidate>
  <fieldset><legend>${t.reason} <small>${t.req}</small></legend>${reasons}</fieldset>
  <label class="rpl" for="rpDet">${t.details} <small>${t.opt}</small></label><textarea id="rpDet" name="details" rows="3" maxlength="1500" placeholder="${t.detailsPh}"></textarea>
  <label class="rpl" for="rpName">${t.yname} <small>${t.opt}</small></label><input id="rpName" name="yname" type="text" autocomplete="name" maxlength="100">
@@ -77,7 +77,7 @@ async function submit(f,L){const t=T[L],p=values(),btn=f.querySelector('.rpsend'
  if(p.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(p.email)){msg('err',`<p>${t.bademail}</p>`);f.email.focus();return}
  if(Date.now()-openedAt<MIN_MS){msg('err',`<p>${t.wait}</p>`);return}
  if(p.honey){msg('ok',`<p>${t.ok}</p>`);return}  // bot filled the trap: pretend success, send nothing
- if(used()>=MAX_PER_DAY){msg('err',`<p>${t.limit}</p><a class="btn rpmail" href="${e_(mailto(p,L))}">✉ ${t.mail}</a>`);return}
+ if(used()>=MAX_PER_DAY){msg('err',`<p>${t.limit}</p><a class="btn rpmail" href="${e_(mailto(p,L))}">${window.IC?IC('mail'):''}${t.mail}</a>`);return}
  if(!navigator.onLine){fallback(p,L,'offline');return}
  btn.disabled=true;btn.textContent=t.sending;
  const payload={_subject:'Map report: '+p.name,_template:'table',_captcha:'false',_honey:'',

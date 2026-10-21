@@ -25,20 +25,20 @@ const p2=n=>String(n).padStart(2,'0'),clk=m=>{m%=1440;const h=Math.floor(m/60),m
 function status(layer,i,now=new Date()){const s=sched(layer,i);if(!s)return{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
  for(const[a,b]of s[(d+6)%7])if(b>1440&&m<b-1440)return{st:'open',until:b-1440};
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
- for(let k=0;k<8;k++){const dd=(d+k)%7;const c=(s[dd]||[]).filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,at:c[0]}}
+ for(let k=0;k<8;k++){const dd=(d+k)%7;const c=(s[dd]||[]).filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
  return{st:'closed',day:null}}
 function badge(layer,i){const r=status(layer,i);
  if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('OPEN NOW','AR AGOR NAWR'):B('OPEN NOW until '+clk(r.until),'AR AGOR NAWR tan '+clk(r.until))}</div>`;
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
-  return `<div class="v3st shut" role="note">${B(`Closed, opens ${de} ${clk(r.at)}`,`Ar gau, yn agor ${dc} ${clk(r.at)}`)}</div>`}
+  return `<div class="v3st shut" role="note">${B(`Closed, opens ${de} ${clk(r.at)}`,`Ar gau, yn agor ${dc} ${clk(r.at)}`)}</div><div class="v3nx">${IC('clock')}${B(`Next open: <b>${DEN[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`,`Ar agor nesaf: <b>${DCY[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`)}</div>`}
  return `<div class="v3st unk" role="note">${B('Times unknown – call first','Amseroedd heb eu rhestru – ffoniwch yn gyntaf')}</div>`}
 const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*60));// est.: straight line x1.3 at 4.8 km/h
  if(min>120)return'';
- return `<div class="v3wk">🚶 ${B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
-const share=i=>`<button type="button" class="btn v3share" data-n="${e_(i.name)}" data-a="${e_(i.address)}${i.postcode&&!(i.address||'').includes(i.postcode)?', '+e_(i.postcode):''}" data-ll="${i.lat},${i.lng}">📤 ${B('Share / text this address','Rhannu / tecstio’r cyfeiriad hwn')}</button>`;
-const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink. <b>In danger? Call 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">📞 Call 999</a></span>',
- '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink. <b>Mewn perygl? Ffoniwch 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">📞 Ffonio 999</a></span>')}</div>`;
+ return `<div class="v3wk">${IC('walk')}${B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
+const share=i=>`<button type="button" class="btn v3share" data-n="${e_(i.name)}" data-a="${e_(i.address)}${i.postcode&&!(i.address||'').includes(i.postcode)?', '+e_(i.postcode):''}" data-ll="${i.lat},${i.lng}">${B('Share / text this address','Rhannu / tecstio’r cyfeiriad hwn')}</button>`;
+const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink. <b>In danger? Call 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Call 999</a></span>',
+ '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink. <b>Mewn perygl? Ffoniwch 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Ffonio 999</a></span>')}</div>`;
 window.V3={sched,status,badge,walk,share,strip};
 // ---- food bank card + pop-up: status first, walking time, share. Donation-only sites get no open/closed badge (no client hours).
 const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div class="d">[^<]*<\/div>)/,'$1'+add):h.replace(/(<\/h3>)/,'$1'+add);
@@ -47,8 +47,8 @@ const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if
 const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i))};
 // ---- top: three big task buttons; toggle bar + search become secondary
 const hdr=document.querySelector('header');const big=document.createElement('div');big.id='v3big';
-big.innerHTML=[['fb','🥫','I need food','Mae angen bwyd arnaf'],['ws','🔥','Somewhere warm','Rhywle cynnes'],['sh','🛏','Somewhere to sleep tonight','Rhywle i gysgu heno']]
- .map(([k,ic,en,cy])=>`<button type="button" class="v3b" data-l="${k}" aria-pressed="${k==='fb'}"><span class="ic" aria-hidden="true">${ic}</span>${B(en,cy)}</button>`).join('');
+big.innerHTML=[['fb','food','Food bank','Banc bwyd'],['ws','mug','Warm space','Man cynnes'],['sh','bed','Shelter tonight','Lloches heno']]
+ .map(([k,ic,en,cy])=>`<button type="button" class="v3b" data-l="${k}" aria-pressed="${k==='fb'}"><span class="ic" aria-hidden="true">${IC(ic)}</span>${B(en,cy)}</button>`).join('');
 hdr.querySelector('h1').after(big);
 const sos=document.createElement('div');sos.id='v3sos';sos.hidden=true;sos.innerHTML=strip();big.after(sos);
 const near=document.getElementById('xnear');if(near)near.hidden=true;
