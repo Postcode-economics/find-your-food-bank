@@ -1,53 +1,53 @@
-name: Add or update a shelter or warm space
-description: For services to list themselves on the map. Free. Every submission is checked before it appears.
-title: "Listing: "
+name: "Add or update a shelter or warm space / Ychwanegu neu ddiweddaru lloches neu fan cynnes"
+description: "Free. Every submission is checked before it appears. / Am ddim. Caiff pob cyflwyniad ei wirio cyn iddo ymddangos."
+title: "Listing / Rhestriad: "
 labels: ["self-registration"]
 body:
   - type: dropdown
     id: layer
-    attributes: {label: Which layer?, options: [Shelters, Warm spaces]}
+    attributes: {label: "Which layer? / Pa haen?", options: ["Shelters / Llochesi", "Warm spaces / Mannau cynnes"]}
     validations: {required: true}
   - type: input
     id: name
-    attributes: {label: Service name}
+    attributes: {label: "Service name / Enw’r gwasanaeth"}
     validations: {required: true}
   - type: textarea
     id: address
-    attributes: {label: Full address and postcode}
+    attributes: {label: "Full address and postcode / Cyfeiriad llawn a chod post"}
     validations: {required: true}
   - type: input
     id: phone
-    attributes: {label: Public phone number}
+    attributes: {label: "Public phone number / Rhif ffôn cyhoeddus"}
   - type: input
     id: website
-    attributes: {label: Website or page that confirms this listing}
+    attributes: {label: "Website or page that confirms this listing / Gwefan neu dudalen sy’n cadarnhau’r rhestriad hwn"}
     validations: {required: true}
   - type: textarea
     id: hours
-    attributes: {label: Days and opening hours (or referral requirements for shelters)}
+    attributes: {label: "Days and opening hours (or referral requirements for shelters) / Diwrnodau ac oriau agor (neu ofynion atgyfeirio ar gyfer llochesi)"}
     validations: {required: true}
   - type: input
     id: beds
-    attributes: {label: "Shelters: bed capacity (if you publish it)"}
+    attributes: {label: "Shelters: bed capacity (if you publish it) / Llochesi: nifer y gwelyau (os ydych yn ei gyhoeddi)"}
   - type: checkboxes
     id: groups
     attributes:
-      label: "Shelters: who you serve"
-      options: [{label: Men}, {label: Women}, {label: Families}, {label: Young people}]
+      label: "Shelters: who you serve / Llochesi: pwy rydych yn eu gwasanaethu"
+      options: [{label: "Men / Dynion"}, {label: "Women / Menywod"}, {label: "Families / Teuluoedd"}, {label: "Young people / Pobl ifanc"}]
   - type: dropdown
     id: season
-    attributes: {label: "Shelters: when open", options: [Year-round, Winter-only, Not applicable]}
+    attributes: {label: "Shelters: when open / Llochesi: pryd ar agor", options: ["Year-round / Drwy’r flwyddyn", "Winter-only / Gaeaf yn unig", "Not applicable / Amherthnasol"]}
   - type: textarea
     id: provided
-    attributes: {label: "Warm spaces: what you provide (hot drinks, food, activities, wifi, charging…)"}
+    attributes: {label: "Warm spaces: what you provide (hot drinks, food, activities, wifi, charging…) / Mannau cynnes: beth rydych yn ei ddarparu (diodydd poeth, bwyd, gweithgareddau, wifi, gwefru…)"}
   - type: dropdown
     id: booking
-    attributes: {label: "Warm spaces: is booking needed?", options: ["No, just drop in", "Yes, booking needed", Not applicable]}
+    attributes: {label: "Warm spaces: is booking needed? / Mannau cynnes: oes angen archebu?", options: ["No, just drop in / Nac oes, galwch heibio", "Yes, booking needed / Oes, rhaid archebu", "Not applicable / Amherthnasol"]}
   - type: input
     id: dates
-    attributes: {label: "Warm spaces: scheme start and end dates (e.g. 2026-11-01 to 2027-03-31)"}
+    attributes: {label: "Warm spaces: scheme start and end dates (e.g. 2026-11-01 to 2027-03-31) / Mannau cynnes: dyddiadau dechrau a gorffen y cynllun (e.e. 2026-11-01 i 2027-03-31)"}
   - type: checkboxes
     id: ok
     attributes:
-      label: Confirmation
-      options: [{label: "I run or represent this service and these details are public.", required: true}]
+      label: "Confirmation / Cadarnhad"
+      options: [{label: "I run or represent this service and these details are public. / Rwy’n rhedeg neu’n cynrychioli’r gwasanaeth hwn ac mae’r manylion hyn yn gyhoeddus.", required: true}]
