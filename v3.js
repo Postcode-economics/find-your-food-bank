@@ -34,7 +34,8 @@ function badge(layer,i){const r=status(layer,i);
   return `<div class="v3st shut" role="note">${B(`Closed, opens ${de} ${clk(r.at)}`,`Ar gau, yn agor ${dc} ${clk(r.at)}`)}</div>`}
  return `<div class="v3st unk" role="note">${B('Times unknown – call first','Amseroedd heb eu rhestru – ffoniwch yn gyntaf')}</div>`}
 const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*60));// est.: straight line x1.3 at 4.8 km/h
- return `<div class="v3wk">🚶 ${min>120?B('Over 2 hours on foot (est.)','Dros 2 awr ar droed (amcan.)'):B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
+ if(min>120)return'';
+ return `<div class="v3wk">🚶 ${B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
 const share=i=>`<button type="button" class="btn v3share" data-n="${e_(i.name)}" data-a="${e_(i.address)}${i.postcode&&!(i.address||'').includes(i.postcode)?', '+e_(i.postcode):''}" data-ll="${i.lat},${i.lng}">📤 ${B('Share / text this address','Rhannu / tecstio’r cyfeiriad hwn')}</button>`;
 const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink: <a href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a>. <b>In danger? Call <a href="tel:999">999</a>.</b>',
  '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink: <a href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a>. <b>Mewn perygl? Ffoniwch <a href="tel:999">999</a>.</b>')}</div>`;
