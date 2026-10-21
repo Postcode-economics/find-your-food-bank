@@ -92,3 +92,31 @@ html.light .ot .src,html.light .card .sub,html.light .warn,html.light #v3res .tn
 html.light .v3t{color:#000!important}
 html.light .cen a.cdir{background:#F5C518!important;color:#0A1628!important;border:2px solid #000!important}
 header h1{min-height:46px;display:flex;align-items:center;margin:6px 0 12px!important}
+
+/* v6 (Motion Designer verdict, approved by Dean): one line-icon set, short labels, tidier cards */
+.ico{width:1.15em;height:1.15em;flex:0 0 auto;vertical-align:-.2em;margin-right:6px}
+.v3b .ic{display:flex;align-items:center;justify-content:center;width:34px;font-size:30px}.v3b .ic .ico{margin:0;width:30px;height:30px}
+.v3b[data-l=ws] .ic{color:#D55E00}.v3b[data-l=sh] .ic{color:#56B4E9}.v3b[data-l=fb] .ic{color:#0A1628}
+.v3b{white-space:nowrap}
+.v3b[aria-pressed=true]::after{content:none}
+.btn.call .ico,.sosl .ico{width:20px;height:20px}
+#me .ico{margin:0;width:24px;height:24px}
+#xnear{display:flex;align-items:center;justify-content:center}
+.v3nx{font-size:16px;margin:-2px 0 10px;color:#F2F4F8}.v3nx .ico{color:#C9D1DE}
+.v3wk{display:flex;align-items:center}
+.ot>b{display:inline-flex;align-items:center}
+.ncb{display:flex;align-items:flex-start}.ncb .ico{margin-top:2px}
+.xw{display:flex;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px}
+.chip{display:inline-block;font-size:15px;font-weight:700;padding:4px 10px;border-radius:999px;border:2px solid #D55E00;color:#F2F4F8}
+#xextra .v3oo{display:flex!important;align-items:center;justify-content:center;width:100%;min-height:48px!important;border:2px solid #F2F4F8!important;border-radius:10px;text-decoration:none!important;font-size:17px!important;margin:4px 0 6px}
+#xextra .v3oo[aria-pressed=true]{background:#F2F4F8!important;color:#0A1628!important}
+#xextra .v3oo[aria-pressed=true]::before{content:none}
+.v3ex{font-size:15px!important;color:#C9D1DE!important;margin:0 0 8px}
+#v3res .tnote,.tnote{font-size:15px!important;color:#C9D1DE!important}
+html.light .v3nx{color:#000}html.light .v3nx .ico{color:#4A5568}
+html.light .chip{color:#000;border-color:#8A5A00}
+html.light #xextra .v3oo{border-color:#000!important;color:#000!important}html.light #xextra .v3oo[aria-pressed=true]{background:#000!important;color:#fff!important}
+html.light .v3ex{color:#4A5568!important}
+html.light .v3sos a.sosl:not(.s999){background:#0A1628;color:#fff!important}
+html.light .v3t[aria-pressed=true]{background:transparent!important;color:#8A5A00!important}html.light .v3t[aria-pressed=true]::before{content:none}

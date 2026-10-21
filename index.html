@@ -6,7 +6,7 @@
 <meta property="og:image" content="og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find a food bank near you">
 <meta name="twitter:description" content="Free map of UK food banks. Enter a postcode, see the nearest five, get directions in one tap."><meta name="twitter:image" content="og.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css">
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -66,7 +66,7 @@ else{t.innerHTML='<b>Opened inside '+app+'?</b> Tap ⋯ (top right) then “Open
 b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;try{localStorage.setItem('iabDismissed','1')}catch(e){}}})()</script>
 <header><div class="brand">Postcode Economics</div><h1>Find help near you</h1>
 <form class="row" id="f"><input id="q" placeholder="Postcode or town, e.g. BN17 5 or Littlehampton" autocomplete="off" aria-label="Postcode or town" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac">
-<button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location">📍</button><button class="go">Search</button><ul id="ac" role="listbox" aria-label="Matching places" hidden></ul></form>
+<button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location"><svg class="ico" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></button><button class="go">Search</button><ul id="ac" role="listbox" aria-label="Matching places" hidden></ul></form>
 <p class="ref"><b>Most food banks need a referral or voucher.</b> Call first.</p>
 <label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote">Places with no times stay listed</div><div id="hid" role="status"></div>
 <div id="msg" role="status"></div></header>
@@ -91,26 +91,28 @@ const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()];
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
- if(s)return `<div class="ot"><b>🕒 Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
- if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>🕒 Opening times</b><div class="raw">${esc(t.raw.trim())}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
- return '<div class="ot">🕒 Times not listed, call ahead.</div>'}
+ if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
+ if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${esc(t.raw.trim())}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
+ return `<div class="ot">${IC('clock')}Times not listed, call ahead.</div>`}
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
-const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')+' away'};
+const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
 const site=i=>i.website||i.givefood;
-const tag=i=>i.type==='location'?'<div class="tag" role="note">🥫 Food bank distribution centre – get food here</div>':'<div class="tag" role="note">🥫 Food bank – get food here</div>';
+const tag=i=>i.type==='location'?'<div class="tag" role="note">Food bank distribution centre – get food here</div>':'<div class="tag" role="note">Food bank – get food here</div>';
+// B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
+const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
- if(nc(i))return `<div class="ncb" role="note">📦 ${esc(i.label_en)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
- <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">🚶 Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
+ if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
+ <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>Phone (to donate or ask)</small></a>`:''}${window.repB?repB('fb',i):''}`;
- return `${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${esc(i.phone)}<small>Phone (to donate or ask)</small></a>`:''}${window.repB?repB('fb',i):''}`;
+ return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
- <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>${i.phone_checked?'Phone (checked on their site)':'Phone (from Give Food)'}</small></a>`:''}
+ <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${esc(i.phone)}<small>${i.phone_checked?'Phone (checked on their site)':'Phone (from Give Food)'}</small></a>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
  ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>${window.repB?repB('fb',i):''}`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">📦 ${esc(i.label_en)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
+function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a><div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
