@@ -74,7 +74,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         has_evidence = bool(v and v.get("evidence_url") and (v.get("day_time_quote") or v.get("quote")))
         if v and has_evidence and (not valid_until or run_day <= valid_until(v)):
             x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
-            for k in ("phone", "address", "access", "postcode", "lat", "lng"):  # pin/address fixes persist nightly
+            for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name"):  # pin/address fixes persist nightly
                 if v.get(k): x[k] = v[k]
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             pub.append(x)
