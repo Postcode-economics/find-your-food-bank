@@ -22,7 +22,7 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 .loc{min-width:48px!important;min-height:48px!important}
 .leaflet-bar a,.leaflet-control-zoom a{width:44px!important;height:44px!important;line-height:44px!important}
 #xextra a:not(.btn),#sheet .card a:not(.btn),.card .links a,.ot .src a,.made a,footer a{display:inline-flex;align-items:center;min-height:44px;color:#F5C518}
-#xextra{padding:0 12px}#xextra .card.xsh{border-left-color:#00D1FF}#xextra .card.xws{border-left-color:#FF3EC8}
+#xextra{padding:0 12px}#xextra .card.xsh{border-left-color:#00D1FF}#xextra .card.xws{border-left-color:#D55E00}
 #xclosed{margin:14px 0;background:#13223d;border-radius:10px;padding:0 12px}#xclosed summary{min-height:52px;display:flex;align-items:center;font-weight:800;font-size:16px;color:#F5C518;cursor:pointer}
 .xw{background:#F5C518;color:#0A1628!important;font-weight:800;padding:8px 10px;border-radius:8px}
 .xrep{background:transparent;border:2px dashed #C9D1DE;color:#F2F4F8!important}
