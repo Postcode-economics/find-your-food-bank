@@ -24,7 +24,15 @@
   "listing_updated": "2026-10-12",
   "verified_on": "2026-10-21",
   "day_time_quote": "Gloucestershire Libraries Warm Welcome Week 2026",
-  "evidence_name": "gloslibraries.uk"
+  "evidence_name": "gloslibraries.uk",
+  "hours": {
+   "Mon": "09:30 - 17:00",
+   "Tue": "09:30 - 17:00",
+   "Wed": "09:30 - 14:00",
+   "Thu": "09:30 - 17:00",
+   "Fri": "09:30 - 17:00",
+   "Sat": "09:30 - 16:00"
+  }
  },
  "ww-69100298": {
   "name": "Greenwood Centre Library Hub",
@@ -83,11 +91,16 @@
  "ww-69002757": {
   "name": "Over Wyre URC",
   "evidence_url": "https://www.wyre.gov.uk/directory-record/2428/over-wyre-united-reformed-church",
-  "quote": "Wyre Council Warm Spaces directory record",
+  "quote": "Opening hours Mon am, 7 – 10pm Tues 2 – 4pm Wed 7.30pm – 9.30pm Sat - lunchtime",
   "listing_updated": "2026-10-07",
   "verified_on": "2026-10-21",
-  "day_time_quote": "Wyre Council Warm Spaces directory record",
-  "evidence_name": "Wyre Council"
+  "day_time_quote": "Opening hours Mon am, 7 – 10pm Tues 2 – 4pm Wed 7.30pm – 9.30pm Sat - lunchtime",
+  "evidence_name": "Wyre Council",
+  "hours": {
+   "Mon": "19:00 - 22:00",
+   "Tue": "14:00 - 16:00",
+   "Wed": "19:30 - 21:30"
+  }
  },
  "ww-68762729": {
   "name": "Pineholt Bowls Club",
@@ -122,8 +135,16 @@
   "quote": "County council directory: library warm space, hours match",
   "listing_updated": "2026-10-13",
   "verified_on": "2026-10-21",
-  "day_time_quote": "County council directory: library warm space, hours match",
-  "evidence_name": "Cambridgeshire County Council"
+  "day_time_quote": "Monday: 9.30am to 5pm Tuesday: 9.30am to 5pm Wednesday: 1.30pm to 7pm Thursday: 9.30am to 5pm Friday: 9.30am to 5pm Saturday: 9.30am to 4pm",
+  "evidence_name": "Cambridgeshire County Council",
+  "hours": {
+   "Mon": "09:30 - 17:00",
+   "Tue": "09:30 - 17:00",
+   "Wed": "13:30 - 19:00",
+   "Thu": "09:30 - 17:00",
+   "Fri": "09:30 - 17:00",
+   "Sat": "09:30 - 16:00"
+  }
  },
  "ww-55592295": {
   "name": "St. Matt's Community Hub",
@@ -280,7 +301,11 @@
   "listing_updated": "2026-09-24",
   "verified_on": "2026-10-21",
   "bar": "credible source states day/time, current",
-  "evidence_name": "altrinchamurc.org.uk"
+  "evidence_name": "altrinchamurc.org.uk",
+  "hours": {
+   "Tue": "12:00 - 16:00",
+   "Thu": "12:00 - 16:00"
+  }
  },
  "ww-68618605": {
   "name": "Bruton Community Library",
@@ -549,7 +574,13 @@
   "listing_updated": "2026-09-04",
   "verified_on": "2026-10-21",
   "bar": "credible source states day/time, current",
-  "evidence_name": "Hinckley & Bosworth Borough Council"
+  "evidence_name": "Hinckley & Bosworth Borough Council",
+  "hours": {
+   "Tue": "13:00 - 15:00",
+   "Fri": "18:30 - 20:00"
+  },
+  "scheme_end": "2027-03-12",
+  "scheme_dates": "Until 2027-03-12 (Friday sessions from 2 Oct 2026)"
  },
  "ww-68792800": {
   "name": "The Meeting Place",
@@ -575,11 +606,16 @@
   "name": "The Space at Field Lane Community Hub",
   "evidence_url": "https://new.calderdale.gov.uk/benefits/money/find-warm-welcoming-place/space-community-hub-rastrick",
   "quote": "Tue & Wed 9am-2:30pm, Fri 9am-3:30pm",
-  "day_time_quote": "Tue & Wed 9am-2:30pm, Fri 9am-3:30pm",
+  "day_time_quote": "Tuesday 9am to 2.30pm Wednesday 9am to 2.30pm Thursday Closed Friday 9am to 3.30pm",
   "listing_updated": "2026-09-04",
   "verified_on": "2026-10-21",
   "bar": "credible source states day/time, current",
-  "evidence_name": "Calderdale Council"
+  "evidence_name": "Calderdale Council",
+  "hours": {
+   "Tue": "09:00 - 14:30",
+   "Wed": "09:00 - 14:30",
+   "Fri": "09:00 - 15:30"
+  }
  },
  "ww-68789946": {
   "name": "Ullesthorpe Village Hall Drop-In",
@@ -629,7 +665,14 @@
   "listing_updated": "2026-09-18",
   "verified_on": "2026-10-21",
   "bar": "credible source states day/time, current",
-  "evidence_name": "stpaulscantley.co.uk"
+  "evidence_name": "stpaulscantley.co.uk",
+  "hours": {
+   "Tue": "10:00 - 14:00",
+   "Wed": "10:00 - 14:00",
+   "Thu": "10:00 - 14:00",
+   "Fri": "10:00 - 14:00",
+   "Sat": "10:00 - 14:00"
+  }
  },
  "ww-63065195": {
   "name": "Ashley Community Hub",
@@ -1204,7 +1247,8 @@
   "quote": "(Melbourn) ‘MACS Cozy Corner’ Community Hub – Opens: Monday and Thursday, 12pm – 3pm. Please note that the Cozy Corner is closed on the fourth Thursday of each month.",
   "day_time_quote": "Opens: Monday and Thursday, 12pm – 3pm. Please note that the Cozy Corner is closed on the fourth Thursday of each month.",
   "hours": {
-   "Thu": "12:00 - 15:00 Monthly"
+   "Mon": "12:00 - 15:00",
+   "Thu": "12:00 - 15:00"
   },
   "address": "Vicarage Close Community Hall, Vicarage Close, Melbourn, Royston, SG8 6DY",
   "postcode": "SG8 6DY",

@@ -1,0 +1,3965 @@
+{
+ "run": "2026-10-21",
+ "candidates": 270,
+ "already_on_map": 35,
+ "new": 235,
+ "added": [
+  {
+   "id": "osm-node-11702060791",
+   "name": "The Shrewsbury Ark",
+   "postcode": "SY1 2EH",
+   "directory": null,
+   "url": "https://www.shrewsburyark.co.uk/",
+   "final_url": "https://www.shrewsburyark.co.uk/",
+   "http": 200,
+   "sha256": "e93b2dfce2970bb1ded600d90ae309a81c935fcd2c44c0c7b4ec7a7a5c1851c0",
+   "etag": "W/\"003eb1d8a0e063f8d849557b8479c119\"",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-12876936676",
+   "name": "999 Club",
+   "postcode": "SE8 4PA",
+   "directory": null,
+   "url": "https://999club.org/",
+   "final_url": "https://999club.org/",
+   "http": 200,
+   "sha256": "3fa0024196494fd98fa91a8ba3caefcfc52ee68401677c54b0a8467bfbe43530",
+   "etag": "",
+   "last_modified": "Wed, 21 Oct 2026 13:20:45 GMT"
+  },
+  {
+   "id": "osm-way-567941601",
+   "name": "LDHAS Lancaster Homeless Action",
+   "postcode": "LA1 1BJ",
+   "directory": null,
+   "url": "https://www.ldhas.org.uk/",
+   "final_url": "https://www.ldhas.org.uk/",
+   "http": 200,
+   "sha256": "973c2c1a64e79d3656c68b8a427f917562702c633fdeb309ff91e570fbf90ad0",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-way-679300044",
+   "name": "Manna House",
+   "postcode": "LA9 6AA",
+   "directory": null,
+   "url": "https://www.manna-house.org.uk/",
+   "final_url": "https://www.manna-house.org.uk/",
+   "http": 200,
+   "sha256": "fb59bfc3c62fb7db987115c38ea7db370c272a1b302b648e499dffb9586817b4",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-way-1110034236",
+   "name": "East Clayton Farm",
+   "postcode": "RH20 4AG",
+   "directory": null,
+   "url": "https://www.eastclaytonfarm.org.uk/",
+   "final_url": "https://www.eastclaytonfarm.org.uk/",
+   "http": 200,
+   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
+   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-centrepoint-bradford-foyer",
+   "name": "Centrepoint - Bradford Foyer",
+   "postcode": "BD1 1HX",
+   "directory": "Homeless Link",
+   "url": "https://www.bradford.gov.uk/housing/help-with-housing-and-homelessness/the-housing-options-service/",
+   "final_url": "https://www.bradford.gov.uk/housing/homelessness/i-have-nowhere-to-sleep-tonight/",
+   "http": 200,
+   "sha256": "873199e7711c20c58630f982ca5db2961eb4514bcc80809343b8ad12063f0201",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-chess-homeless",
+   "name": "Chess Homeless",
+   "postcode": "CM2 9AB",
+   "directory": "Homeless Link",
+   "url": "https://chesshomeless.org/",
+   "final_url": "https://chesshomeless.org/",
+   "http": 200,
+   "sha256": "aa6f10ed66572f6153713cdac860b756a3e6d987e504862847bc3881e466fce9",
+   "etag": "\"5294-1792596422;;;\"",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-spear-penny-wade-house",
+   "name": "SPEAR - Penny Wade House",
+   "postcode": "TW1 4AW",
+   "directory": "Homeless Link",
+   "url": "https://www.spearlondon.org/",
+   "final_url": "https://www.spearlondon.org/",
+   "http": 200,
+   "sha256": "eeff465da5d0f18a684b66cb8d344e4a8cc950ea601b284f4a6506905e88799f",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-the-passage-montfort-house",
+   "name": "The Passage - Montfort House",
+   "postcode": "SW1P 1NL",
+   "directory": "Homeless Link",
+   "url": "https://www.passage.org.uk",
+   "final_url": "https://passage.org.uk/",
+   "http": 200,
+   "sha256": "228b3f2fa0496b72117cd9ab5a56fcd241373430bd883d7e31d046798870d043",
+   "etag": "",
+   "last_modified": ""
+  }
+ ],
+ "flagged": [
+  {
+   "id": "osm-node-1243077938",
+   "name": "The Gap Centre",
+   "postcode": "NP20 1JG",
+   "website": "https://www.thegap.wales/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "own site unreachable (HTTP 202)"
+   ],
+   "url": "https://www.thegap.wales/",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "2a9be82e6e5f8d831d103845b09dbf599f53101cd5640f9f51d5935e08f7b933",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-3126125844",
+   "name": "HARP",
+   "postcode": "SS0 8AE",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-4490110694",
+   "name": "Willow Lodge",
+   "postcode": "FY2 9NT",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-5048168684",
+   "name": "Alms Houses",
+   "postcode": "B48 7SE",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-7257703002",
+   "name": "House The Homeless",
+   "postcode": "SE27 0QT",
+   "website": "https://housethehomeless.com",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "own site unreachable (HTTP 202)"
+   ],
+   "url": "https://housethehomeless.com",
+   "final_url": "https://housethehomeless.com",
+   "http": 202,
+   "sha256": "84caa9c2a6ba1d26c63e98574a5d52191d608d4f3b3238d998080631b6609bc9",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-9067373694",
+   "name": "The Wellspring Stockport",
+   "postcode": "SK1 1YD",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-9696469499",
+   "name": "The Wallich",
+   "postcode": "NP4 6JQ",
+   "website": "https://thewallich.com/services/torfaen-tenancy-support/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://thewallich.com/services/torfaen-tenancy-support/",
+   "final_url": "https://thewallich.com/services/torfaen-tenancy-support/",
+   "http": 200,
+   "sha256": "f12ba4486e4d072b00e662235c2b30dd613c1440ac04a7511c1f980a3d722072",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-11815272405",
+   "name": "Llamau",
+   "postcode": "NP20 4DX",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-12804949354",
+   "name": "Sandwood House",
+   "postcode": "B17 8DR",
+   "website": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
+   "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
+   "http": 200,
+   "sha256": "d1ac1d893e9acc56d3907525ef523ede17c20b9e8da20609f0a2243d251fdb7f",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-13661455428",
+   "name": "Help The Homeless Leicester",
+   "postcode": "LE1 3QN",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-32349145",
+   "name": "Queens Hotel",
+   "postcode": "SE19 2UG",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-97799459",
+   "name": "The Queens Arms",
+   "postcode": "RG1 7HN",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-103443901",
+   "name": "Ben's Centre",
+   "postcode": "S10 2GB",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-112817892",
+   "name": "St Martins House Under 1 Roof",
+   "postcode": "NR2 4SZ",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-152789142",
+   "name": "Catching Lives",
+   "postcode": "CT1 3PJ",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-171300312",
+   "name": "Centrepoint Camberwell Foyer",
+   "postcode": "SE5 8RX",
+   "website": "https://centrepoint.org.uk/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://centrepoint.org.uk/",
+   "final_url": "https://centrepoint.org.uk/",
+   "http": 200,
+   "sha256": "a695925e52000cd80e31366ecf5f4b7674169caa2012599a9f2c0de6d59c3c51",
+   "etag": "\"1792591696\"",
+   "last_modified": "Wed, 21 Oct 2026 14:08:16 GMT"
+  },
+  {
+   "id": "osm-way-172932545",
+   "name": "St. Mungo's Broadway",
+   "postcode": "NW6 5QW",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-173078399",
+   "name": "Saint Wilfrid's Centre",
+   "postcode": "S2 4DT",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-318977041",
+   "name": "Fairholme House",
+   "postcode": "SE5 9DD",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-379771476",
+   "name": "The Beacon Centre",
+   "postcode": "OX16 0AA",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-408710018",
+   "name": "The Trinity Foyer",
+   "postcode": "ME14 1BS",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-639048084",
+   "name": "St Mungo's",
+   "postcode": "W2 5XQ",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-699201604",
+   "name": "Refugee Reception Centre - Former Defence Fire Fighting Training Establishment",
+   "postcode": "CT12 5BS",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-774694067",
+   "name": "Norfolk Hotel",
+   "postcode": "SR1 1EE",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1126940021",
+   "name": "Mary and Joseph House",
+   "postcode": "M12 6PT",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1224548824",
+   "name": "The Haven",
+   "postcode": "SN3 1AR",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1268379059",
+   "name": "Trevanion Lodge",
+   "postcode": "PL25 4SA",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1279024352",
+   "name": "Sussex Edwardian Hotel",
+   "postcode": "TN37 7BS",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1311059304",
+   "name": "Womens Center M.W.Y.S. & E.F.",
+   "postcode": "L8 2TU",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-relation-3996349",
+   "name": "Glanrafon",
+   "postcode": "CH5 1SA",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-1625-independent-people-st-georges-house",
+   "name": "1625 Independent People - St George's House",
+   "postcode": "BS1 5UP",
+   "website": "http://www.1625ip.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/1625-independent-people-st-georges-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.1625ip.co.uk",
+   "final_url": "http://www.1625ip.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-a2dominion-matilda-house",
+   "name": "a2Dominion - Matilda House",
+   "postcode": "OX4 3LA",
+   "website": "https://a2dominion.co.uk/services/Supported-housing",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/a2dominion-matilda-house/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://a2dominion.co.uk/services/Supported-housing",
+   "final_url": "https://a2dominion.co.uk/services/Supported-housing",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-action-homeless-leicester",
+   "name": "Action Homeless Leicester",
+   "postcode": "",
+   "website": "http://www.actionhomeless.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/action-homeless-leicester/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-adullam-homes-ha-bury-aben-phase-3",
+   "name": "Adullam Homes HA - Bury ABEN (Phase 3)",
+   "postcode": "",
+   "website": "https://www.bury.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/adullam-homes-ha-bury-aben-phase-3/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-adullam-homes-ha-fleet-house",
+   "name": "Adullam Homes HA - Fleet House",
+   "postcode": "",
+   "website": "http://www.irwellvalleyha.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/adullam-homes-ha-fleet-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-adullam-homes-ha-norman-house",
+   "name": "Adullam Homes HA - Norman House",
+   "postcode": "B70 9LS",
+   "website": "http://www.adullam.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/adullam-homes-ha-norman-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.adullam.org.uk",
+   "final_url": "http://www.adullam.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-alabare-christian-care-alabare-north-devon",
+   "name": "Alabaré- North Devon",
+   "postcode": "EX39 2AU",
+   "website": "http://www.alabare.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-christian-care-alabare-north-devon/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.alabare.co.uk",
+   "final_url": "http://www.alabare.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-alabare-the-andover-foyer-sarum-house",
+   "name": "Alabaré - The Andover Foyer Sarum House",
+   "postcode": "",
+   "website": "http://www.alabare.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-the-andover-foyer-sarum-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-amat-uk",
+   "name": "Ashdown Medway Accommodation Trust (AMAT)",
+   "postcode": "ME4 4PB",
+   "website": "http://www.amatuk.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/amat-uk/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.amatuk.org",
+   "final_url": "http://www.amatuk.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-amplius-the-new-haven",
+   "name": "Amplius - The New Haven",
+   "postcode": "",
+   "website": "https://www.longhurst-group.org.uk/search-for-independent-living-extra-care-specialist-housing-and-support/the-new-haven/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/amplius-the-new-haven/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ashley-foundation-elm-house",
+   "name": "Homeless Action - Elm House",
+   "postcode": "FY1 5DA",
+   "website": "https://homelessaction.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ashley-foundation-elm-house/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://homelessaction.org/",
+   "final_url": "https://homelessaction.org/",
+   "http": 200,
+   "sha256": "a3e480612e6d04d8ed6973ff802194ea7b74a80184644fb90d134a6a63341fee",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-barnardos-bay-6-project-emergency-accommodation",
+   "name": "Barnardo's - Bay 6 Project - Emergency Accommodation",
+   "postcode": "PR25 2YA",
+   "website": "http://www.barnardos.org.uk/bay6project.htm",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/barnardos-bay-6-project-emergency-accommodation/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.barnardos.org.uk/bay6project.htm",
+   "final_url": "http://www.barnardos.org.uk/bay6project.htm",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-barnardos-merriweather-home",
+   "name": "Barnardo's - Merriweather Home",
+   "postcode": "PR1 8JB",
+   "website": "https://www.barnardos.org.uk/what-we-do/services/merriweather",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/barnardos-merriweather-home/",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.barnardos.org.uk/what-we-do/services/merriweather",
+   "final_url": "https://www.barnardos.org.uk/what-we-do/services/merriweather",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-basildon-emergency-night-shelter",
+   "name": "Basildon Emergency Night Shelter",
+   "postcode": "",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/basildon-emergency-night-shelter/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bournemouth-churches-ha-st-pauls-hostel",
+   "name": "Bournemouth Churches HA - St Paul's Hostel",
+   "postcode": "BH2 6LL",
+   "website": "http://www.bournemouth.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bournemouth-churches-ha-st-pauls-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.bournemouth.gov.uk",
+   "final_url": "http://www.bournemouth.gov.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bradford-cyrenians-hostel-for-homeless-men",
+   "name": "Bradford Cyrenians - Hostel for Homeless Men",
+   "postcode": "BD8 7EP",
+   "website": "http://www.bradfordcyrenians.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bradford-cyrenians-hostel-for-homeless-men/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.bradfordcyrenians.org.uk",
+   "final_url": "http://www.bradfordcyrenians.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-branches-hostel",
+   "name": "Branches Hostel",
+   "postcode": "E17 3HR",
+   "website": "http://https://www.wfcbranches.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/branches-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://https://www.wfcbranches.org.uk",
+   "final_url": "http://https://www.wfcbranches.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bridge-house-mission",
+   "name": "Bridge House Mission",
+   "postcode": "TS18 3AX",
+   "website": "http://www.bridgehousemission.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bridge-house-mission/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.bridgehousemission.co.uk",
+   "final_url": "http://www.bridgehousemission.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-brighton-hove-city-council-new-steine-mews-hostel",
+   "name": "Brighton & Hove City Council - New Steine Mews Hostel",
+   "postcode": "BN2 1QP",
+   "website": "http://www.nsmhostel.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/brighton-hove-city-council-new-steine-mews-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.nsmhostel.org.uk",
+   "final_url": "http://www.nsmhostel.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bromford-charles-england-house",
+   "name": "1625 Independent People - Charles England House",
+   "postcode": "BS15 9TR",
+   "website": "https://www.1625ip.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-charles-england-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bromford-hayward-road-hostel",
+   "name": "Bromford - Hayward Road Hostel",
+   "postcode": "BS15 9TR",
+   "website": "http://www.bromford.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-cardinal-hume-centre-hostel",
+   "name": "Cardinal Hume Centre Hostel",
+   "postcode": "",
+   "website": "http://https://www.cardinalhumecentre.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "http://www.broxbourne.gov.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ccp-bramah-house",
+   "name": "CCP - Bramah House",
+   "postcode": "",
+   "website": "http://www.ccp.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-bramah-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ccp-cheltenham-foyer-the-arkells",
+   "name": "CCP - The Arkells",
+   "postcode": "GL50 3HW",
+   "website": "http://www.cheltborohomes.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-cheltenham-foyer-the-arkells/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.cheltborohomes.org",
+   "final_url": "http://www.cheltborohomes.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ccp-night-shelter",
+   "name": "CCP - Night Shelter",
+   "postcode": "",
+   "website": "https://www.herefordshire.gov.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-night-shelter/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ccp-season-house",
+   "name": "CCP - Season House",
+   "postcode": "GL5 4UB",
+   "website": "http://www.stroud.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-season-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.stroud.gov.uk",
+   "final_url": "http://www.stroud.gov.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-centrepoint-aldo-house",
+   "name": "Centrepoint - Aldo House",
+   "postcode": "BD9 4AR",
+   "website": "http://www.centrepoint.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/centrepoint-aldo-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.centrepoint.org.uk",
+   "final_url": "http://www.centrepoint.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-centrepoint-bedford-hill",
+   "name": "Centrepoint - Bedford Hill",
+   "postcode": "E1 8DZ",
+   "website": "http://www.centrepoint.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/centrepoint-bedford-hill/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.centrepoint.org",
+   "final_url": "http://www.centrepoint.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-centrepoint-laitwood-road-service",
+   "name": "Centrepoint - Laitwood Road service",
+   "postcode": "SW12 9QN",
+   "website": "http://www.centrepoint.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/centrepoint-laitwood-road-service/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.centrepoint.org",
+   "final_url": "http://www.centrepoint.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-city-of-york-council-homelessness-housing-schemes",
+   "name": "City of York Council - Homelessness Housing Schemes",
+   "postcode": "",
+   "website": "http://www.york.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/city-of-york-council-homelessness-housing-schemes/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-city-of-york-council-howe-hill-hostel-for-young-pe",
+   "name": "City of York Council - Howe Hill Hostel for Young People",
+   "postcode": "YO24 4HA",
+   "website": "https://www.york.gov.uk/SingleAccessPoint",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/city-of-york-council-howe-hill-hostel-for-young-pe/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.york.gov.uk/SingleAccessPoint",
+   "final_url": "https://www.york.gov.uk/SingleAccessPoint",
+   "http": 200,
+   "sha256": "2c69d49ec58f6c6a484b26afe5e6ae2a88c81e7448cb5f567aa079ad82bc4cd3",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-coatham-house",
+   "name": "Coatham House",
+   "postcode": "",
+   "website": "http://www.coathamhouse.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/coatham-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-connection-at-st-martins-st-martins-house",
+   "name": "Connection at St Martin's - St Martin's House",
+   "postcode": "",
+   "website": "https://www.connection-at-stmartins.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/connection-at-st-martins-st-martins-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-contact-hostel",
+   "name": "Contact Hostel",
+   "postcode": "",
+   "website": "http://www.contacthostel.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/contact-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-corby-homeless-project",
+   "name": "Corby Homeless Project",
+   "postcode": "",
+   "website": "http://encs.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/corby-homeless-project/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-dartford-churches-shelter",
+   "name": "Dartford Churches Shelter",
+   "postcode": "",
+   "website": "https://dartfordchurcheswintershelter.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/dartford-churches-shelter/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-dens-the-elms-hostel",
+   "name": "DENS - The Elms Hostel",
+   "postcode": "HP1 1HT",
+   "website": "http://www.dens.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/dens-the-elms-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.dens.org.uk",
+   "final_url": "http://www.dens.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-depaul-uk-burnage-lane-project",
+   "name": "Depaul UK - Burnage Lane Project",
+   "postcode": "M4 1LE",
+   "website": "http://www.depauluk.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/depaul-uk-burnage-lane-project/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.depauluk.org",
+   "final_url": "http://www.depauluk.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-depaul-uk-willesden-hostel",
+   "name": "DePaul UK - Willesden Hostel",
+   "postcode": "",
+   "website": "http://https://www.depauluk.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/depaul-uk-willesden-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-elim-ha-phoenix-place",
+   "name": "Elim HA - Phoenix Place",
+   "postcode": "",
+   "website": "http://www.elimhousing.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/elim-ha-phoenix-place/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-elim-ha-ron-jones-house",
+   "name": "Elim HA - Ron Jones House",
+   "postcode": "BS2 8JW",
+   "website": "http://www.elimhousing.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/elim-ha-ron-jones-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.elimhousing.co.uk",
+   "final_url": "http://www.elimhousing.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-emmaus-dover-ltd",
+   "name": "Emmaus Dover Ltd.",
+   "postcode": "CT179EL",
+   "website": "http://www.emmaus.org.uk/dover",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/emmaus-dover-ltd/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.emmaus.org.uk/dover",
+   "final_url": "http://www.emmaus.org.uk/dover",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-emmaus-greenwich",
+   "name": "Emmaus - Greenwich",
+   "postcode": "SE18 7NN",
+   "website": "https://www.emmaus.org.uk/greenwich",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/emmaus-greenwich/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.emmaus.org.uk/greenwich",
+   "final_url": "https://www.emmaus.org.uk/greenwich",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-empanda-yps-cromer-foyer",
+   "name": "Empanda YPS - Cromer Foyer",
+   "postcode": "NR27 9HT",
+   "website": "http://www.empanda.org.uk/services/young-people/cromer/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/empanda-yps-cromer-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.empanda.org.uk/services/young-people/cromer/",
+   "final_url": "http://www.empanda.org.uk/services/young-people/cromer/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-forum-ha-market-wells-foyer",
+   "name": "Forum Housing Association - Market Wells Foyer",
+   "postcode": "CH41 6HA",
+   "website": "http://forumhousing.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/forum-ha-market-wells-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://forumhousing.co.uk",
+   "final_url": "http://forumhousing.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-forum-housing-association-the-mulberry-centre",
+   "name": "Forum Housing Association - The Mulberry Centre",
+   "postcode": "",
+   "website": "http://forumhousing.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/forum-housing-association-the-mulberry-centre/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-foundation-scarborough-young-peoples-pathway",
+   "name": "Foundation - Scarborough Young People's Pathway",
+   "postcode": "YO11 1BA",
+   "website": "http://www.foundationuk.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/foundation-scarborough-young-peoples-pathway/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.foundationuk.org",
+   "final_url": "http://www.foundationuk.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-framework-ha-9-10-south-terrace",
+   "name": "Framework HA - 9-10 South Terrace",
+   "postcode": "LN1 1PD",
+   "website": "http://www.lincolnshire.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/framework-ha-9-10-south-terrace/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.lincolnshire.gov.uk",
+   "final_url": "http://www.lincolnshire.gov.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-framework-ha-london-road-service",
+   "name": "Framework HA - London Road Service",
+   "postcode": "NG1 1EE",
+   "website": "http://www.nottinghamcity.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/framework-ha-london-road-service/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.nottinghamcity.gov.uk",
+   "final_url": "http://www.nottinghamcity.gov.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-framework-ha-on-track-north-kesteven",
+   "name": "Framework HA - On Track North Kesteven",
+   "postcode": "NG347EA",
+   "website": "http://www.n-kesteven.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/framework-ha-on-track-north-kesteven/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.n-kesteven.gov.uk",
+   "final_url": "http://www.n-kesteven.gov.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-framework-ha-potter-street-service",
+   "name": "Framework HA - Potter Street Service",
+   "postcode": "S80 2HQ",
+   "website": "https://www.frameworkha.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/framework-ha-potter-street-service/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.frameworkha.org",
+   "final_url": "https://www.frameworkha.org",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-framework-ha-russell-house",
+   "name": "Framework HA - Russell House",
+   "postcode": "NG24 1TN",
+   "website": "http://www.frameworkha.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/framework-ha-russell-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.frameworkha.org",
+   "final_url": "http://www.frameworkha.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-glenwood-lodge-project",
+   "name": "Glenwood Lodge Project",
+   "postcode": "BN2 9QA",
+   "website": "https://www.brighton-hove.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/glenwood-lodge-project/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.brighton-hove.gov.uk",
+   "final_url": "https://www.brighton-hove.gov.uk",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-green-square-accord-mcneille-house",
+   "name": "Green Square Accord- McNeille House",
+   "postcode": "B29 7JS",
+   "website": "http://www.fryha.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/green-square-accord-mcneille-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.fryha.org.uk",
+   "final_url": "http://www.fryha.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-green-square-accord-newell-house",
+   "name": "Green Square Accord - Newell House",
+   "postcode": "B13 9DH",
+   "website": "https://greensquareaccord.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/green-square-accord-newell-house/",
+   "reasons": [
+    "own site unreachable (HTTP 503)"
+   ],
+   "url": "https://greensquareaccord.co.uk/",
+   "final_url": "https://greensquareaccord.co.uk/",
+   "http": 503,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-greenwich-winter-night-shelter-gwns",
+   "name": "Greenwich Homeless Project",
+   "postcode": "",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/greenwich-winter-night-shelter-gwns/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-grow-house",
+   "name": "Grow House",
+   "postcode": "WD18 7HT",
+   "website": "http://www.growhostel.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/grow-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.growhostel.org.uk",
+   "final_url": "http://www.growhostel.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-harbour-place-grimsby",
+   "name": "Harbour Place Grimsby",
+   "postcode": "DN32 7QL",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/harbour-place-grimsby/",
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-havebury-housing-partnership-tayfen-house",
+   "name": "Havebury Housing Partnership - Tayfen House",
+   "postcode": "",
+   "website": "https://www.havebury.com/community/tayfen-house/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/havebury-housing-partnership-tayfen-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-hightown-ha-kent-house",
+   "name": "Hightown HA - Kent House",
+   "postcode": "AL1 3XF",
+   "website": "https://www.hightownha.org.uk/care-and-support/scheme-search/kent-house/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/hightown-ha-kent-house/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.hightownha.org.uk/care-and-support/scheme-search/kent-house/",
+   "final_url": "https://www.hightownha.org.uk/care-support/",
+   "http": 200,
+   "sha256": "f87c491340f8e007924a92be0315bb6cfe90e8bd109215e2fb37bbf12fc94a00",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-hightown-ha-young-peoples-housing-service-watford",
+   "name": "Hightown HA - Young People's Housing Service Watford",
+   "postcode": "",
+   "website": "http://www.hightownha.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/hightown-ha-young-peoples-housing-service-watford/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-hinckley-homeless-group",
+   "name": "Hinckley Homeless Group",
+   "postcode": "LE10 1JQ",
+   "website": "http://www.hinckleyhomeless.com",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/hinckley-homeless-group/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.hinckleyhomeless.com",
+   "final_url": "http://www.hinckleyhomeless.com",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-home-group-st-bedes-house",
+   "name": "Home Group - St Bede's House",
+   "postcode": "NE9 5PQ",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/home-group-st-bedes-house/",
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-hope-community-services-queen-street",
+   "name": "HOPE Community Services - Hope House",
+   "postcode": "S80 2AN",
+   "website": "http://www.hopeservices.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/hope-community-services-queen-street/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.hopeservices.org.uk",
+   "final_url": "http://www.hopeservices.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-hull-resettlement-project-bourne-street",
+   "name": "Hull Resettlement Project - Bourne Street",
+   "postcode": "HU2 8AE",
+   "website": "https://www.hrpltd.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/hull-resettlement-project-bourne-street/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.hrpltd.org.uk",
+   "final_url": "https://www.hrpltd.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-impakt-housing-and-support-cornerstone-house",
+   "name": "IMPAKT Housing & Support - Cornerstone House",
+   "postcode": "MK40 2RE",
+   "website": "https://impakt.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/impakt-housing-and-support-cornerstone-house/",
+   "reasons": [
+    "own site unreachable (HTTP 202)"
+   ],
+   "url": "https://impakt.org.uk/",
+   "final_url": "https://impakt.org.uk/",
+   "http": 202,
+   "sha256": "8b6b75ccdd61d105875bea049343b4281e546595515aceb6be578fcff9ac5af1",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-impakt-housing-support-bedford-foyer",
+   "name": "IMPAKT Housing & Support - Bedford Foyer",
+   "postcode": "MK40 1EQ",
+   "website": "http://www.impakt.og.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/impakt-housing-support-bedford-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.impakt.og.uk",
+   "final_url": "http://www.impakt.og.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-intact-projects-trafford",
+   "name": "Intact Projects - Trafford",
+   "postcode": "M16 0DS",
+   "website": "http://www.intactprojects.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/intact-projects-trafford/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.intactprojects.co.uk",
+   "final_url": "http://www.intactprojects.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-it-takes-a-city-cambridge-crossways-and-176",
+   "name": "It Takes a City (Cambridge) - Crossways and 176",
+   "postcode": "",
+   "website": "https://www.ittakesacity.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/it-takes-a-city-cambridge-crossways-and-176/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-jimmys-cambridge",
+   "name": "Jimmy's Cambridge",
+   "postcode": "CB1 1BD",
+   "website": "http://www.jimmyscambridge.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/jimmys-cambridge/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.jimmyscambridge.org.uk",
+   "final_url": "http://www.jimmyscambridge.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-julian-house-corn-street-hostel",
+   "name": "Alongside - Corn Street Hostel",
+   "postcode": "",
+   "website": "http://www.julianhouse.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/julian-house-corn-street-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-just-homes-cumberland-road",
+   "name": "Just Homes - 1 Cumberland Road",
+   "postcode": "E16 1QU",
+   "website": "http://https://www.justhomes.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/just-homes-cumberland-road/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://https://www.justhomes.org.uk",
+   "final_url": "http://https://www.justhomes.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-keychange-charity-esther-community",
+   "name": "Keychange Charity - Esther Community",
+   "postcode": "EX4 3RQ",
+   "website": "http://www.keychange.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/keychange-charity-esther-community/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.keychange.org.uk",
+   "final_url": "http://www.keychange.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-lb-southwark-keyworth-street-hostel",
+   "name": "Keyworth Street Hostel",
+   "postcode": "SE15 4UJ",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/lb-southwark-keyworth-street-hostel/",
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-lighthouse-homes-rotherham",
+   "name": "Lighthouse Homes",
+   "postcode": "",
+   "website": "lighthousehomes.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/lighthouse-homes-rotherham/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-livewest-bristol-foyer",
+   "name": "LiveWest - Bristol Foyer",
+   "postcode": "BS16DT",
+   "website": "http://www.livewest.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/livewest-bristol-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.livewest.co.uk",
+   "final_url": "http://www.livewest.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-livewest-carn-brea-foyer",
+   "name": "LiveWest - Carn Brea Foyer",
+   "postcode": "TR15 3DF",
+   "website": "http://www.livewest.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/livewest-carn-brea-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.livewest.co.uk",
+   "final_url": "http://www.livewest.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-livewest-holdfast-house",
+   "name": "Livewest - Holdfast House",
+   "postcode": "BS15 9TR",
+   "website": "https://www.livewest.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/livewest-holdfast-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-london-borough-of-tower-hamlets-luke-house-hotel",
+   "name": "London Borough of Tower Hamlets - Luke House Hotel",
+   "postcode": "E2 0PG",
+   "website": "https://www.towerhamlets.gov.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/london-borough-of-tower-hamlets-luke-house-hotel/",
+   "reasons": [
+    "postcode not on own site",
+    "own site says closed:  accepted at the Reuse and Recycling Centre. The council is no longer operating the waste transfer station at Northumberland Wharf. For que"
+   ],
+   "url": "https://www.towerhamlets.gov.uk/",
+   "final_url": "https://www.towerhamlets.gov.uk/Home.aspx",
+   "http": 200,
+   "sha256": "abcc7a9fedc7ab89b63f089f6fd160460222637d57a0591965fb125fbb3f094a",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-london-cyrenians-connelly-house",
+   "name": "Just - Connelly House",
+   "postcode": "",
+   "website": "http://www.just.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/london-cyrenians-connelly-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-london-cyrenians-housing-project",
+   "name": "Just - Housing Project",
+   "postcode": "",
+   "website": "http://www.just.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/london-cyrenians-housing-project/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-london-cyrenians-lambeth-peripatetic-services",
+   "name": "Just - Lambeth Peripatetic Services",
+   "postcode": "SW1V 1EJ",
+   "website": "http://www.just.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/london-cyrenians-lambeth-peripatetic-services/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.just.org.uk",
+   "final_url": "http://www.just.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-longhurst-group-stepping-stones",
+   "name": "Grimsby HRS",
+   "postcode": "",
+   "website": "http://www.nelhrsgateway.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/longhurst-group-stepping-stones/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-look-ahead-115-pound-lane",
+   "name": "Look Ahead - Pound Lane",
+   "postcode": "HA9 0FJ",
+   "website": "https://www.lookahead.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/look-ahead-115-pound-lane/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.lookahead.org.uk/",
+   "final_url": "https://www.lookahead.org.uk/",
+   "http": 200,
+   "sha256": "0ba0d03fd096949c11555b4f76bab471d172a33ffeb49a141c1d337cd4cdb456",
+   "etag": "",
+   "last_modified": "Wed, 21 Oct 2026 17:15:53 GMT"
+  },
+  {
+   "id": "hl-look-ahead-cambridge-street-hostel",
+   "name": "Look Ahead - Cambridge Street Hostel",
+   "postcode": "",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/look-ahead-cambridge-street-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-look-ahead-slough-hostel",
+   "name": "Look Ahead - Slough Hostel",
+   "postcode": "SL1 1JL",
+   "website": "https://www.lookahead.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/look-ahead-slough-hostel/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.lookahead.org.uk",
+   "final_url": "https://www.lookahead.org.uk",
+   "http": 200,
+   "sha256": "0ba0d03fd096949c11555b4f76bab471d172a33ffeb49a141c1d337cd4cdb456",
+   "etag": "",
+   "last_modified": "Wed, 21 Oct 2026 17:15:53 GMT"
+  },
+  {
+   "id": "hl-look-ahead-tower-hamlets-campbell-road-young-peopl",
+   "name": "Providence Row HA - Providence House",
+   "postcode": "",
+   "website": "https://prha.net/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/look-ahead-tower-hamlets-campbell-road-young-peopl/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-look-ahead-tower-hamlets-mile-end-young-peoples-su",
+   "name": "Look Ahead - Tower Hamlets Campbell Road Young People's Support Service",
+   "postcode": "",
+   "website": "https://www.lookahead.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/look-ahead-tower-hamlets-mile-end-young-peoples-su/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-midland-heart-oasis-house",
+   "name": "Midland Heart - Oasis House",
+   "postcode": "NN1 3DS",
+   "website": "http://www.midlandheart.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/midland-heart-oasis-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.midlandheart.org.uk",
+   "final_url": "http://www.midlandheart.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-midland-heart-rolfe-house",
+   "name": "Midland Heart - Rolfe House",
+   "postcode": "",
+   "website": "http://www.sandwellhousing.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/midland-heart-rolfe-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-naash-supported-services",
+   "name": "NAASH - Supported Services",
+   "postcode": "",
+   "website": "http://www.naash.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/naash-supported-services/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ncha-heathfield-house",
+   "name": "NCHA - Heathfield House",
+   "postcode": "LE2 1RH",
+   "website": "https://www.ncha.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ncha-heathfield-house/",
+   "reasons": [
+    "postcode not on own site",
+    "own site does not show it is a shelter/emergency accommodation"
+   ],
+   "url": "https://www.ncha.org.uk",
+   "final_url": "https://www.ncha.org.uk",
+   "http": 200,
+   "sha256": "588b5468d07b80ee6554e10a8948b0fbfd2ac6631ddb74fc1eae40d2a24616da",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-new-start-leyland-road-sit-up-service",
+   "name": "New Start - Leyland Road - Sit up service",
+   "postcode": "PR9 9RJ",
+   "website": "https://www.sefton.gov.uk/housing/gateway-services.aspx",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/new-start-leyland-road-sit-up-service/",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.sefton.gov.uk/housing/gateway-services.aspx",
+   "final_url": "https://www.sefton.gov.uk/housing/gateway-services.aspx",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-newmarket-open-door-portland-house",
+   "name": "Newmarket Open Door - Portland House",
+   "postcode": "",
+   "website": "http://www.newmarketopendoor.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/newmarket-open-door-portland-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-nightstop-communities-northwest",
+   "name": "NCNW CIC",
+   "postcode": "WA80AT",
+   "website": "http://ncnw.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/nightstop-communities-northwest/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://ncnw.co.uk/",
+   "final_url": "http://ncnw.co.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-notting-hill-genesis-ha-withipoll-street-rooms",
+   "name": "Notting Hill Genesis HA - Withipoll Street Rooms",
+   "postcode": "",
+   "website": "https://portal.suffolk.gov.uk/hrs/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/notting-hill-genesis-ha-withipoll-street-rooms/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-oasis-community-housing-croydon-foyer",
+   "name": "Oasis Community Housing - Croydon Foyer",
+   "postcode": "CR0 1BF",
+   "website": "https://oasiscommunityhousing.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/oasis-community-housing-croydon-foyer/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://oasiscommunityhousing.org/",
+   "final_url": "https://oasiscommunityhousing.org/",
+   "http": 200,
+   "sha256": "7e90b5fa82f627bd211babdfef8cf1a3d9709bc8fc84e010b9844c358a6b0c4e",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-one-housing-group-young-peoples-assessment-support",
+   "name": "Look Ahead - TH Campbell Road & Mile End Road Young People's Support Service",
+   "postcode": "",
+   "website": "https://www.lookahead.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/one-housing-group-young-peoples-assessment-support/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-one-ymca-bishops-stortford-hostel",
+   "name": "One YMCA - Bishop's Stortford Hostel",
+   "postcode": "CM23 2EX",
+   "website": "https://oneymca.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-bishops-stortford-hostel/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://oneymca.org/",
+   "final_url": "https://oneymca.org/",
+   "http": 200,
+   "sha256": "7ef543263474fa9471ccc5c01aa2b03b4b7a0fdca7b8d99873c477271250ec55",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-one-ymca-hatfield-hostel",
+   "name": "One YMCA - Hatfield Hostel",
+   "postcode": "AL10 9NG",
+   "website": "http://www.oneymca.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-hatfield-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.oneymca.org",
+   "final_url": "http://www.oneymca.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-orwell-ha-christchurch-house",
+   "name": "Orwell HA - Christchurch House",
+   "postcode": "IP1 2BX",
+   "website": "https://portal.suffolk.gov.uk/hrs/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/orwell-ha-christchurch-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://portal.suffolk.gov.uk/hrs/",
+   "final_url": "https://portal.suffolk.gov.uk/hrs/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-orwell-ha-hinde-house",
+   "name": "Orwell HA - Hinde House",
+   "postcode": "",
+   "website": "http://www.orwell-housing.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/orwell-ha-hinde-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-p3-gloucestershire-somewhere-safe-to-stay-hubs",
+   "name": "P3 - Gloucestershire Safe Spaces",
+   "postcode": "",
+   "website": "https://p3charity.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/p3-gloucestershire-somewhere-safe-to-stay-hubs/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
+   "name": "Paradigm Housing Group - Lea Bridge House Hostel",
+   "postcode": "E10 7EB",
+   "website": "https://www.paradigmhousing.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/paradigm-housing-group-lea-bridge-house-hostel/",
+   "reasons": [
+    "postcode not on own site",
+    "own site does not show it is a shelter/emergency accommodation"
+   ],
+   "url": "https://www.paradigmhousing.co.uk",
+   "final_url": "https://www.paradigmhousing.co.uk",
+   "http": 200,
+   "sha256": "e0385b2b3a92412df8742af457d12be06c047f4e4d5fc9a62bc83686ef41902a",
+   "etag": "",
+   "last_modified": "Wed, 21 Oct 2026 15:58:04 GMT"
+  },
+  {
+   "id": "hl-pathways-to-independence-accommodation-services",
+   "name": "Pathways to Independence (Accommodation Services)",
+   "postcode": "ME1 1XJ",
+   "website": "http://www.socialinterestgroup.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/pathways-to-independence-accommodation-services/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.socialinterestgroup.org.uk",
+   "final_url": "http://www.socialinterestgroup.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-peabody-trust-leahurst-hostel",
+   "name": "Peabody Trust - Leahurst Hostel",
+   "postcode": "CM7 9HB",
+   "website": "https://www.peabody.org.uk/care-support",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/peabody-trust-leahurst-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.peabody.org.uk/care-support",
+   "final_url": "https://www.peabody.org.uk/care-support",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-peasholme-resettlement-centre-accommodation",
+   "name": "City of York Resettlement Centre - Accommodation",
+   "postcode": "YO10 4FB",
+   "website": "http://www.york.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/peasholme-resettlement-centre-accommodation/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-peter-bedford-ha-hackney",
+   "name": "Peter Bedford HA - Hackney",
+   "postcode": "",
+   "website": "http://www.peterbedford.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/peter-bedford-ha-hackney/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-places-for-people-stonebridge-park",
+   "name": "Places for People - Stonebridge Park",
+   "postcode": "",
+   "website": "https://placesforpeople.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/places-for-people-stonebridge-park/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-providence-row-ha-crimscott-st",
+   "name": "Providence Row HA - Crimscott St",
+   "postcode": "",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/providence-row-ha-crimscott-st/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-queen-marys-hostel",
+   "name": "Queen Marys Hostel",
+   "postcode": "",
+   "website": "https://www.riverside.org.uk/care-and-support/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/queen-marys-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-renewal-programme-barking-road-hostel",
+   "name": "Renewal Programme - Barking Road Hostel",
+   "postcode": "E13 8BJ",
+   "website": "https://www.renewalprogramme.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/renewal-programme-barking-road-hostel/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.renewalprogramme.org.uk",
+   "final_url": "https://www.renewalprogramme.org.uk",
+   "http": 200,
+   "sha256": "90774cc9bf2a317e7c3912c39fa2cb6e932a78d4dac1c9f0bc784b8c0d4cbc2b",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-riverside-newton-house",
+   "name": "Riverside - Newton House",
+   "postcode": "GL1 3NE",
+   "website": "http://www.riverside.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/riverside-newton-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.riverside.org.uk",
+   "final_url": "http://www.riverside.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-riverside-no5-project",
+   "name": "Riverside - No5 Project",
+   "postcode": "GU1 4DR",
+   "website": "http://www.riverside.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/riverside-no5-project/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.riverside.org.uk",
+   "final_url": "http://www.riverside.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-riverside-simon-mead-house",
+   "name": "Sanctuary Supported Living - Simon Mead House",
+   "postcode": "TN23 5BH",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/riverside-simon-mead-house/",
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-riverside-stages-academy",
+   "name": "Riverside - Stages Academy",
+   "postcode": "TS2 1BN",
+   "website": "http://www.riverside.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/riverside-stages-academy/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-rochdale-petrus-community-chevriot-house",
+   "name": "Rochdale Petrus Community - Chevriot House",
+   "postcode": "",
+   "website": "http://www.petrus.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/rochdale-petrus-community-chevriot-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-rochdale-petrus-community-ruth-house",
+   "name": "Rochdale Petrus Community - Ruth House",
+   "postcode": "",
+   "website": "http://www.petrus.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/rochdale-petrus-community-ruth-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-salvation-army-ha-mulberry-house",
+   "name": "Salvation Army Homes - Mulberry House",
+   "postcode": "",
+   "website": "https://www.salvationarmyhomes.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/salvation-army-ha-mulberry-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-salvation-army-ha-newhaven-foyer",
+   "name": "Salvation Army Homes - Newhaven Foyer",
+   "postcode": "BN9 9TW",
+   "website": "https://salvationarmyhomes.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/salvation-army-ha-newhaven-foyer/",
+   "reasons": [
+    "postcode not on own site",
+    "own site does not show it is a shelter/emergency accommodation"
+   ],
+   "url": "https://salvationarmyhomes.org.uk",
+   "final_url": "https://www.salvationarmyhomes.org.uk/",
+   "http": 200,
+   "sha256": "9f3502830117f02862388e1fa2b287f627245af49e6f2086c8b08b19b6b667c6",
+   "etag": "",
+   "last_modified": "Tue, 20 Oct 2026 10:54:53 GMT"
+  },
+  {
+   "id": "hl-salvation-army-ha-turner-house",
+   "name": "Salvation Army Homes - Turner House",
+   "postcode": "",
+   "website": "https://www.salvationarmyhomes.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/salvation-army-ha-turner-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-sanctuary-supported-living-heazeworth-house",
+   "name": "Sanctuary Supported Living - Heazeworth House",
+   "postcode": "",
+   "website": "http://www.sanctuary-supported-living.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/sanctuary-supported-living-heazeworth-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-sanctuary-supported-living-merrick-house",
+   "name": "Sanctuary Supported Living - Merrick House",
+   "postcode": "TN34 3UY",
+   "website": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/merrick-house-hastings",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/sanctuary-supported-living-merrick-house/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/merrick-house-hastings",
+   "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/merrick-house-hastings",
+   "http": 200,
+   "sha256": "66217d29a8c080b0d1714d4c62db05ee8063e416978c11b24b9adf82c2d3211e",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-sanctuary-supported-living-prices-court",
+   "name": "Sanctuary Supported Living - Prices Court",
+   "postcode": "ME10 3LD",
+   "website": "https://www.sanctuary-supported-living.co.uk/get-know-us-prices-court",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/sanctuary-supported-living-prices-court/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.sanctuary-supported-living.co.uk/get-know-us-prices-court",
+   "final_url": "https://www.sanctuary-supported-living.co.uk/get-know-us-prices-court",
+   "http": 200,
+   "sha256": "7dc20c35e37b5924e45c39364ef9bfd3ccd11a2685ea2384cbbcf99adad83154",
+   "etag": "W/\"1792602964-gzip\"",
+   "last_modified": "Wed, 21 Oct 2026 17:16:04 GMT"
+  },
+  {
+   "id": "hl-sanctuary-supported-living-st-aubyns-road",
+   "name": "Sanctuary Supported Living - St Aubyns Road",
+   "postcode": "",
+   "website": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/st-aubyns-road-eastbourne",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/sanctuary-supported-living-st-aubyns-road/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-sanctuary-supported-living-victoria-house",
+   "name": "Sanctuary Supported Living - Victoria House",
+   "postcode": "M11 2LY",
+   "website": "http://www.sanctuary-supported-living.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/sanctuary-supported-living-victoria-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.sanctuary-supported-living.co.uk",
+   "final_url": "http://www.sanctuary-supported-living.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-sanctuary-the-limes",
+   "name": "Sanctuary - The Limes",
+   "postcode": "",
+   "website": "https://www.suffolk.gov.uk/care-and-support-for-adults/how-social-care-can-help/homelessness-and-housing-support/apply-for-housing-related-support/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/sanctuary-the-limes/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-shp-165-project",
+   "name": "SHP - SMU Service (Herbert Street)",
+   "postcode": "",
+   "website": "https://www.shp.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/shp-165-project/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-shp-dennis-handfield-house",
+   "name": "SHP - SMU Service (Dennis Handfield House)",
+   "postcode": "WC1X 9LP",
+   "website": "https://www.shp.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/shp-dennis-handfield-house/",
+   "reasons": [
+    "own site unreachable (HTTP 202)"
+   ],
+   "url": "https://www.shp.org.uk",
+   "final_url": "https://www.shp.org.uk",
+   "http": 202,
+   "sha256": "186467e935bf85bb1f26f4b814c40efe2943af626b0561f97d8326b36613ad14",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-shp-greenwich-yp-assessment-centre",
+   "name": "SHP - Greenwich YP Assessment Centre",
+   "postcode": "",
+   "website": "https://www.shp.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/shp-greenwich-yp-assessment-centre/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-shp-king-georges-hostel",
+   "name": "SHP - King George's Hostel",
+   "postcode": "SW1P 2BN",
+   "website": "https://www.shp.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/shp-king-georges-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP 202)"
+   ],
+   "url": "https://www.shp.org.uk",
+   "final_url": "https://www.shp.org.uk",
+   "http": 202,
+   "sha256": "83ae0092d220ca923cfde56923c6ebd39baac39c549da6c99a7be74c9bcc8829",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-shp-lewisham-assessment-centre",
+   "name": "SHP - Lewisham YP Assessment Centre",
+   "postcode": "",
+   "website": "https://www.shp.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/shp-lewisham-assessment-centre/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-society-of-st-james-10-southampton-street",
+   "name": "Society of St James - 10 Southampton Street (Intensive Homeless Hostel)",
+   "postcode": "SO14 0LT",
+   "website": "http://www.ssj.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/society-of-st-james-10-southampton-street/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.ssj.org.uk",
+   "final_url": "http://www.ssj.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-southern-housing-group-atkinson-house",
+   "name": "Southern Housing Group - Atkinson House",
+   "postcode": "PO30 2LJ",
+   "website": "https://www.shgroup.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/southern-housing-group-atkinson-house/",
+   "reasons": [
+    "own site redirects to a different site (southernhousing.org.uk)"
+   ],
+   "url": "https://www.shgroup.org.uk",
+   "final_url": "https://www.southernhousing.org.uk/",
+   "http": 200,
+   "sha256": "55cd059eff1e73dd440fc38c353e48d90a91c7f216bc65da00c695e517990c3d",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-spitalfields-crypt-trust-acorn-house",
+   "name": "Spitalfields Crypt Trust - Acorn House",
+   "postcode": "E1 6JN",
+   "website": "http://www.sct.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/spitalfields-crypt-trust-acorn-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.sct.org.uk",
+   "final_url": "http://www.sct.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-squared-16-25-hostel",
+   "name": "Squared - 16-25 hostel",
+   "postcode": "LU1 1JD",
+   "website": "http://www.squared.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/squared-16-25-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.squared.org.uk",
+   "final_url": "http://www.squared.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-squared-female-hostel",
+   "name": "Squared - female hostel",
+   "postcode": "",
+   "website": "squared.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/squared-female-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-basils-carole-gething-house",
+   "name": "St Basils - Carole Gething House",
+   "postcode": "B10 0NJ",
+   "website": "http://www.stbasils.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-basils-carole-gething-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.stbasils.org.uk",
+   "final_url": "http://www.stbasils.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-georges-crypt-the-crypt",
+   "name": "St George's Crypt - The Crypt",
+   "postcode": "",
+   "website": "https://www.stgeorgescrypt.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-georges-crypt-the-crypt/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-ealing-accommodation-services",
+   "name": "St Mungo's - Ealing Accommodation Services B65 Hostel",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-ealing-accommodation-services/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-endell-street",
+   "name": "St Mungo's - Endell Street",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-endell-street/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-grange-road-ta",
+   "name": "St Mungo's - Grange Road",
+   "postcode": "",
+   "website": "http://www.mungos.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-grange-road-ta/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-hither-green",
+   "name": "St Mungo's - Hither Green Services",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-hither-green/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-larc-lewisham-assessment-and-recovery-ce",
+   "name": "St Mungo's - LARC (Lewisham Assessment and Recovery Centre)",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-larc-lewisham-assessment-and-recovery-ce/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-lillie-road",
+   "name": "St Mungo's - Lillie Road",
+   "postcode": "W6 9XY",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-lillie-road/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-mare-street-hostel",
+   "name": "St Mungo's - Mare Street Hostel",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-mare-street-hostel/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-shepherds-house",
+   "name": "St Mungo's - Shepherds House",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-shepherds-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-the-lodge-at-st-ursulas",
+   "name": "The Lodge at St Ursula's (City)",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-the-lodge-at-st-ursulas/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-mungos-the-old-theatre",
+   "name": "St Mungo's - The Old Theatre",
+   "postcode": "",
+   "website": "https://www.mungos.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-the-old-theatre/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-st-petrocs-tremayne-road",
+   "name": "St Petroc's - Truro",
+   "postcode": "",
+   "website": "http://www.stpetrocs.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-petrocs-tremayne-road/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-stepping-stone-projects-redfearn-house",
+   "name": "Stepping Stone Projects - Redfearn House",
+   "postcode": "OL12 7LH",
+   "website": "http://www.stepping-stone.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/stepping-stone-projects-redfearn-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.stepping-stone.org.uk",
+   "final_url": "http://www.stepping-stone.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-stoll",
+   "name": "Stoll",
+   "postcode": "",
+   "website": "http://www.stoll.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/stoll/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-stonepillow-bognor-hostel",
+   "name": "Stonepillow - Bognor Hostel",
+   "postcode": "PO21 2SG",
+   "website": "http://www.stonepillow.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/stonepillow-bognor-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.stonepillow.org.uk",
+   "final_url": "http://www.stonepillow.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-stonewater-poole-quay-foyer",
+   "name": "Stonewater - Poole Quay Foyer",
+   "postcode": "BH15 2RU",
+   "website": "http://www.stonewater.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/stonewater-poole-quay-foyer/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.stonewater.org",
+   "final_url": "http://www.stonewater.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-thames-reach-greenwich-vulnerable-adults-pathway",
+   "name": "Thames Reach - Greenwich Vulnerable Adults Pathway",
+   "postcode": "",
+   "website": "https://thamesreach.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/thames-reach-greenwich-vulnerable-adults-pathway/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-thames-reach-martha-jones-house",
+   "name": "Thames Reach - Martha Jones House",
+   "postcode": "",
+   "website": "https://thamesreach.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/thames-reach-martha-jones-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-the-cambridge-housing-society-fenland-young-people",
+   "name": "Cambridge Housing Group",
+   "postcode": "PE13 3TJ",
+   "website": "CHS Group.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/the-cambridge-housing-society-fenland-young-people/",
+   "reasons": [
+    "no own website in directory"
+   ],
+   "url": "CHS Group.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-the-outside-project",
+   "name": "The Outside Project",
+   "postcode": "",
+   "website": "http://www.lgbtiqoutside.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/the-outside-project/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-the-passage-passage-house-assessment-centre",
+   "name": "The Passage - Passage House Assessment Centre",
+   "postcode": "",
+   "website": "http://www.passage.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/the-passage-passage-house-assessment-centre/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-the-robes-project",
+   "name": "The ROBES Project",
+   "postcode": "",
+   "website": "https://robes.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/the-robes-project/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-the-shelter-project-hounslow-tsph",
+   "name": "The Shelter Project Hounslow (TSPH)",
+   "postcode": "",
+   "website": "http://www.tsph.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/the-shelter-project-hounslow-tsph/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-transform-housing-and-support-hersham-road-hostel",
+   "name": "Transform Housing and Support - Hersham Road Hostel",
+   "postcode": "KT12 1LE",
+   "website": "https://www.transformhousing.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/transform-housing-and-support-hersham-road-hostel/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.transformhousing.org.uk",
+   "final_url": "https://www.transformhousing.org.uk",
+   "http": 200,
+   "sha256": "f6843d18b0c37376f2f468407fd5ef272cf7c839045ed8e0d826b054ceaebbf9",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-trident-reach-tenchlee-house",
+   "name": "Trident Reach - Tenchlee House",
+   "postcode": "B1 1LB",
+   "website": "http://www.reachthecharity.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/trident-reach-tenchlee-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.reachthecharity.org.uk",
+   "final_url": "http://www.reachthecharity.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-trinity-homeless-projects-olympic-house",
+   "name": "Trinity Homeless Projects - Olympic House",
+   "postcode": "",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/trinity-homeless-projects-olympic-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-tuntum-ha-karibu-house",
+   "name": "Tuntum HA - Karibu House",
+   "postcode": "NG7 7JN",
+   "website": "http://www.tuntum.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/tuntum-ha-karibu-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.tuntum.co.uk",
+   "final_url": "http://www.tuntum.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-turning-lives-around-seacole-scheme",
+   "name": "Our Way Leeds Emergency Accommodation",
+   "postcode": "",
+   "website": "https://ourwayleeds.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/turning-lives-around-seacole-scheme/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-two-saints-isle-of-wight-homeless-pathway",
+   "name": "Two Saints - Isle of Wight Homeless Pathway",
+   "postcode": "",
+   "website": "https://www.twosaints.org.uk/project/isle-of-wight/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/two-saints-isle-of-wight-homeless-pathway/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-two-saints-patrick-house",
+   "name": "Society of St James - Patrick House Assessment Centre & Intensive Support Hostel",
+   "postcode": "SO15 0HW",
+   "website": "http://www.ssj.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/two-saints-patrick-house/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.ssj.org.uk",
+   "final_url": "http://www.ssj.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-two-saints-portsmouth-foyer",
+   "name": "Two Saints - Portsmouth Foyer",
+   "postcode": "",
+   "website": "https://www.twosaints.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/two-saints-portsmouth-foyer/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-wycombe-homeless-connection-night-shelter",
+   "name": "Wycombe Homeless Connection - Night Shelter",
+   "postcode": "HP11 1BB",
+   "website": "https://www.wyhoc.org.uk/winter-night-shelter",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/wycombe-homeless-connection-night-shelter/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.wyhoc.org.uk/winter-night-shelter",
+   "final_url": "https://www.wyhoc.org.uk/winter-night-shelter",
+   "http": 200,
+   "sha256": "633df9a56677330248f3af1f7019c878b1d563014037b280b82330ecd8f42507",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-blackburn-ryedale-foyer",
+   "name": "YMCA Blackburn - Ryedale Foyer",
+   "postcode": "YO17 7HH",
+   "website": "https://ryedaleymca.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-blackburn-ryedale-foyer/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://ryedaleymca.org.uk/",
+   "final_url": "https://ryedaleymca.org.uk/",
+   "http": 200,
+   "sha256": "db0e85d02419b1a7d5a71324c28522bc8fb77da4be55045b3acf2418b29bdc4f",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-brighton-george-williams-centre",
+   "name": "YMCA Brighton - George Williams Centre",
+   "postcode": "BN1 1JP",
+   "website": "https://www.brighton-hove.gov.uk/content/a-z/a-z-pages/housing-options-advice-and-information",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-brighton-george-williams-centre/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-brighton-leslie-best-house",
+   "name": "YMCA Brighton - Leslie Best House",
+   "postcode": "",
+   "website": "http://www.ymcabrighton.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-brighton-leslie-best-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-brunel-group-emergency-accommodation",
+   "name": "YMCA Brunel Group (Emergency Accommodation)",
+   "postcode": "",
+   "website": "http://www.mendipymca.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-brunel-group-emergency-accommodation/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-downslink-group-mckendrick-house",
+   "name": "YMCA Downslink Group - McKendrick House",
+   "postcode": "",
+   "website": "http://www.ymcadlg.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-downslink-group-mckendrick-house/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-grove-house-hailsham",
+   "name": "YMCA - Grove House, Hailsham",
+   "postcode": "BN27 2AX",
+   "website": "https://www.ymcadlg.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-grove-house-hailsham/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.ymcadlg.org",
+   "final_url": "https://www.ymcadlg.org",
+   "http": 200,
+   "sha256": "85cce7c93e9a50728be017d4d8a835f45e9eccd125534a1cc2f131d332774af0",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-heart-of-england-coventry-and-warwickshire-da",
+   "name": "YMCA Heart of England - Coventry and Warwickshire - Daimler Green",
+   "postcode": "CV6 3LB",
+   "website": "https://ymca-cw.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-heart-of-england-coventry-and-warwickshire-da/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://ymca-cw.org.uk/",
+   "final_url": "https://ymca-cw.org.uk/",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-heart-of-england-magdalene-court",
+   "name": "YMCA Heart of England - Magdalene Court",
+   "postcode": "B31 2DL",
+   "website": "https://www.ymcaheartofengland.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-heart-of-england-magdalene-court/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.ymcaheartofengland.org.uk",
+   "final_url": "https://www.ymcaheartofengland.org.uk",
+   "http": 200,
+   "sha256": "c3c7dc02883946f4dd24df94ec77a378f8be3eefb34ad9fe838cee04cff06b86",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-humber-grimsby-foyer",
+   "name": "YMCA Humber - Orwell Street",
+   "postcode": "",
+   "website": "https://www.ymca-humber.com/accommodation/foyer/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-humber-grimsby-foyer/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-liverpool",
+   "name": "You Matter",
+   "postcode": "L3 6HU",
+   "website": "https://ymcatogether.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-liverpool/",
+   "reasons": [
+    "own site redirects to a different site (you-matter.org.uk)"
+   ],
+   "url": "https://ymcatogether.org.uk/",
+   "final_url": "https://you-matter.org.uk/",
+   "http": 200,
+   "sha256": "80313cefe71084801a4b791fd01227388e35220742153a416b2c502639f817c8",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-london-city-and-north-landaid-house",
+   "name": "YMCA London City and North - LandAid House",
+   "postcode": "EC1Y 8SE",
+   "website": "https://www.tfaforms.com/4772849",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-london-city-and-north-landaid-house/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.tfaforms.com/4772849",
+   "final_url": "https://www.tfaforms.com/4772849",
+   "http": 200,
+   "sha256": "3ee46c1a07024cdbc8045081da6f6625ab3d6377ebcf48ef7398fd1598b6fb97",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-norfolk-nightstop-plus",
+   "name": "YMCA Norfolk - Nightstop Plus",
+   "postcode": "NR2 1NR",
+   "website": "https://www.ymcanorfolk.org/what-we-do/accommodation/norfolk-nightstop-plus/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-norfolk-nightstop-plus/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.ymcanorfolk.org/what-we-do/accommodation/norfolk-nightstop-plus/",
+   "final_url": "https://www.ymcanorfolk.org/what-we-do/accommodation/norfolk-nightstop-plus/",
+   "http": 200,
+   "sha256": "1d84b2e5d560354a43a1a97b2f7e4171dfa0ef615d2232cf5b00750cfa157d79",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-nottinghamshire-shakespeare-street-and-peachy",
+   "name": "YMCA Robin Hood Group - Shakespeare Street Hostel",
+   "postcode": "NG1 4FG",
+   "website": "http://www.nottsymca.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-nottinghamshire-shakespeare-street-and-peachy/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.nottsymca.com/",
+   "final_url": "http://www.nottsymca.com/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-robin-hood-group-ashfield-16-commissioned-ser",
+   "name": "YMCA Robin Hood Group - Ashfield 16+ Commissioned Services",
+   "postcode": "",
+   "website": "http://www.nottsymca.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-robin-hood-group-ashfield-16-commissioned-ser/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-robin-hood-group-edinburgh-court-16",
+   "name": "YMCA Robin Hood Group - Edinburgh Court 16+",
+   "postcode": "DN14 5EH",
+   "website": "http://www.nottsymca.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-robin-hood-group-edinburgh-court-16/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.nottsymca.com/",
+   "final_url": "http://www.nottsymca.com/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-robin-hood-group-mansfield-16-commissioned-se",
+   "name": "YMCA Robin Hood Group - Mansfield 16+ Commissioned Services",
+   "postcode": "",
+   "website": "http://www.nottsymca.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-robin-hood-group-mansfield-16-commissioned-se/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-robin-hood-group-mansfield-accommodation-serv",
+   "name": "YMCA Robin Hood Group - Mansfield Accommodation Service",
+   "postcode": "NG18 1EU",
+   "website": "http://www.nottsymca.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-robin-hood-group-mansfield-accommodation-serv/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.nottsymca.com/",
+   "final_url": "http://www.nottsymca.com/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-robin-hood-group-worksop-accommodation-servic",
+   "name": "YMCA Robin Hood Group - Worksop Accommodation Service",
+   "postcode": "S80 1DL",
+   "website": "http://www.nottsymca.com/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-robin-hood-group-worksop-accommodation-servic/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.nottsymca.com/",
+   "final_url": "http://www.nottsymca.com/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-robin-hood-group-worksop-bridge-street",
+   "name": "YMCA Robin Hood Group - Worksop Watson Road",
+   "postcode": "S80 2BA",
+   "website": "https://www.ymcarobinhood.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-robin-hood-group-worksop-bridge-street/",
+   "reasons": [
+    "postcode not on own site"
+   ],
+   "url": "https://www.ymcarobinhood.org",
+   "final_url": "https://www.ymcarobinhood.org",
+   "http": 200,
+   "sha256": "d9293c554e95bfd213e0458035301dbb189e898464021e4721204a05dd1a096b",
+   "etag": "",
+   "last_modified": "Wed, 21 Oct 2026 17:34:15 GMT"
+  },
+  {
+   "id": "hl-ymca-southend",
+   "name": "YMCA Southend",
+   "postcode": "",
+   "website": "http://www.southendymca.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-southend/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ymca-st-pauls-group-ealing-common-hostel",
+   "name": "YMCA St Paul's Group - Ealing Common Hostel",
+   "postcode": "W5 2QB",
+   "website": "https://ymcastpaulsgroup.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-st-pauls-group-ealing-common-hostel/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://ymcastpaulsgroup.org/",
+   "final_url": "https://ymcastpaulsgroup.org/",
+   "http": 200,
+   "sha256": "30905389e23ea532cc2c09e8e89839036843567fdd770657112b420fd3b06fe0",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-worcester-gordon-anstis-house",
+   "name": "YMCA Worcester - Gordon Anstis House",
+   "postcode": "B98 9JS",
+   "website": "https://ymcaworcestershire.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-worcester-gordon-anstis-house/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://ymcaworcestershire.org.uk/",
+   "final_url": "https://ymcaworcestershire.org.uk/",
+   "http": 200,
+   "sha256": "50573e9f78274b93096444451c8e8dc6ff41d6473f59359e07921c0b5aa8f105",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ymca-worcestershire-worcester",
+   "name": "YMCA Worcestershire - Worcester",
+   "postcode": "",
+   "website": "http://ymcaworcestershire.org.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-worcestershire-worcester/",
+   "reasons": [
+    "no postcode/coordinates in directory, cannot pin without guessing"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-your-homes-newcastle-young-peoples-service-hostel",
+   "name": "Newcastle upon Tyne City Council - Young People's Service Hostel",
+   "postcode": "NE1 6SQ",
+   "website": "https://new.newcastle.gov.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/your-homes-newcastle-young-peoples-service-hostel/",
+   "reasons": [
+    "postcode not on own site",
+    "own site does not show it is a shelter/emergency accommodation"
+   ],
+   "url": "https://new.newcastle.gov.uk/",
+   "final_url": "https://new.newcastle.gov.uk/",
+   "http": 200,
+   "sha256": "c5a88723218d44606b56a0f83ba683e60b14c9fad76b6e570b4d368a7ab97654",
+   "etag": "\"1792595835\"",
+   "last_modified": "Wed, 21 Oct 2026 15:17:15 GMT"
+  },
+  {
+   "id": "hl-your-housing-group-bridge-foyer-chester",
+   "name": "Your Housing Group - Bridge Foyer Chester",
+   "postcode": "CH1 4JR",
+   "website": "http://www.forfutures.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/your-housing-group-bridge-foyer-chester/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://www.forfutures.co.uk",
+   "final_url": "http://www.forfutures.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  }
+ ]
+}
