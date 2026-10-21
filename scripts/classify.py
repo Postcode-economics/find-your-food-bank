@@ -17,29 +17,44 @@ def classify(items, root):
     locs = collections.defaultdict(list)
     for i in items:
         if i["type"] == "location": locs[i["id"].split("/")[0]].append(i)
+    chk = {k: v for k, v in json.load(open(os.path.join(root, "overrides", "foodbank_checks.json"))).items() if not k.startswith("_")} \
+        if os.path.exists(os.path.join(root, "overrides", "foodbank_checks.json")) else {}
+    pcn = lambda x: (x or "").replace(" ", "").upper()
+    addn = lambda x: re.sub(r"[^a-z0-9]", "", (x or "").lower())[:15]
+    # A parent whose address/postcode is one of its own distribution locations is the same place: keep one client pin (the location).
+    drop = set()
+    for i in items:
+        if i["type"] == "foodbank" and locs[i["id"]] and i["id"] not in man:
+            if any((pcn(l["postcode"]) and pcn(l["postcode"]) == pcn(i["postcode"])) or addn(l["address"]) == addn(i["address"]) for l in locs[i["id"]]):
+                drop.add(i["id"])
+    nonclient_ids = {k for k, v in chk.items() if v['result'] == 'office'}
     rows = []
     for i in items:
         txt = f"{i['name']} {i['address']}"; ot = i.get("opening_times") or {}
         times = "has opening times" if ot.get("status") == "TIMES_FOUND" else "no opening times listed"
         ev, kind, conf = [], "client", "medium"
+        if i["id"] in drop:
+            m = [l for l in locs[i["id"]] if (pcn(l["postcode"]) and pcn(l["postcode"]) == pcn(i["postcode"])) or addn(l["address"]) == addn(i["address"])][0]
+            rows.append({"id": i["id"], "type": i["type"], "network": i.get("network") or "Independent", "name": i["name"], "address": i["address"],
+                "current_label": "Food bank pin", "class": "client-facing (merged)", "proposed_label_en": "", "proposed_label_cy": "", "applied": "yes: duplicate pin removed",
+                "evidence": f"same address/postcode as its own distribution location '{m['name']}' ({m['id']}), which keeps the client pin", "confidence": "high"})
+            continue
         if i["type"] == "foodbank":
             n = len(locs[i["id"]]); s = STRONG.search(txt); w = WEAK.search(txt)
-            if n: ev.append(f"Give Food lists {n} separate distribution location(s) for this food bank")
+            if n: ev.append(f"Give Food lists {n} separate distribution location(s) and this address is not one of them")
             if s: ev.append(f"address/name contains '{s.group(0)}'")
             elif w: ev.append(f"address/name contains '{w.group(0)}'")
             ev.append(times)
-            v = VENUE.search(txt)
-            if n and s and v: kind, conf = "unclear", "medium"; ev.append(f"but also names a venue ('{v.group(0)}'), which may serve clients")
-            elif n == 1 and s: kind, conf = "unclear", "medium"; ev.append("only 1 separate location, so this site may also serve clients")
-            elif n and s: kind, conf = "warehouse", "high"
-            elif n and w: kind, conf = "unclear", "medium"   # likely office, not applied
-            elif n: kind, conf = "unclear", "low"
-            elif s: kind, conf = "unclear", "low"; ev.append("no separate locations, so this may be the only site")
+            if n: kind, conf = "warehouse", "high"   # rule (Dean, 21 Oct 2026): parent pin with separate client locations = office/warehouse
+            elif s or re.search(r"\boffice\b", txt, re.I): kind, conf = "unclear", "low"; ev.append("single address with office/industrial wording: not yet confirmed by the food bank's own site")
             else: kind, conf = "client", "medium"; ev.append("only address listed for this food bank")
         else:
             ev.append("listed by Give Food as a distribution location of " + i["foodbank"]); kind, conf = "client", "high"
-            m = LOCKW.search(txt)
-            if m: kind, conf = "unclear", "low"; ev.append(f"name/address contains '{m.group(0)}'")
+            m = LOCKW.search(txt) or (re.search(r"\b(office|admin\w*|warehouse)\b", txt, re.I) if ot.get("status") != "TIMES_FOUND" else None)
+            if m: kind, conf = "unclear", "low"; ev.append(f"name/address contains '{m.group(0)}'" + ("" if ot.get("status") == "TIMES_FOUND" else ", no opening times"))
+        if i["id"] in chk:
+            c = chk[i["id"]]; ev.append(f"checked 21 Oct 2026: {c['evidence']} ({c['url']})")
+            kind, conf = {"office": ("warehouse", "high"), "client": ("client", "high"), "unclear": ("unclear", "low")}[c["result"]]
         if i["id"] in man:
             o = man[i["id"]]; kind, conf = o["kind"], "confirmed"; ev = [o["evidence"]]
         apply = conf in ("high", "confirmed") and kind in ("warehouse", "dropoff")
@@ -50,7 +65,9 @@ def classify(items, root):
         for k in ("kind", "label_en", "label_cy", "centres", "locked"): i.pop(k, None)
         if apply:
             i["kind"] = kind; i["label_en"] = en; i["label_cy"] = cy
-            i["centres"] = [{"id": l["id"], "name": l["name"], "address": l["address"], "lat": l["lat"], "lng": l["lng"]} for l in locs[i["id"].split("/")[0]] if l["id"] != i["id"]]
+            near = sorted((l for l in locs[i["id"].split("/")[0]] if l["id"] != i["id"] and l["id"] not in nonclient_ids),
+                          key=lambda l: (l["lat"] - i["lat"]) ** 2 + ((l["lng"] - i["lng"]) * 0.6) ** 2)[:12]  # nearest 12 client locations
+            i["centres"] = [{"id": l["id"], "name": l["name"], "address": l["address"], "lat": l["lat"], "lng": l["lng"]} for l in near]
             if i["id"] in man:
                 i["locked"] = True
                 if man[i["id"]].get("drop_opening_times"): i["opening_times"] = None
@@ -58,6 +75,7 @@ def classify(items, root):
             "current_label": "Food bank pin" if i["type"] == "foodbank" else "Food bank location pin",
             "class": {"client": "client-facing", "warehouse": "warehouse/office (donations only)", "dropoff": "donation drop-off only", "unclear": "unclear"}[kind],
             "proposed_label_en": en, "proposed_label_cy": cy, "applied": "yes" if apply else "no", "evidence": "; ".join(ev), "confidence": conf})
+    items[:] = [i for i in items if i['id'] not in drop]
     return rows
 def write_csv(rows, path):
     with open(path, "w", newline="", encoding="utf-8") as f:
