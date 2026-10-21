@@ -90,6 +90,10 @@ def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from classify import classify, write_csv
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
+    # own-site closure check (own site beats Give Food): omit pins whose own site says they closed; log + 30-day recently-closed list
+    import closure
+    gone = closure.apply(items, ROOT)
+    if gone: print('omitted as closed on own site:', ', '.join(gone))
     write_csv(classify(items, ROOT), os.path.join(ROOT, 'logs', 'foodbank_audit.csv'))
     cur = current_count()
     if len(items) < 0.8 * cur: die('only %d entries vs %d current (<80%%)' % (len(items), cur))

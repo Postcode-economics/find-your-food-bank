@@ -7,10 +7,10 @@ STRONG = re.compile(r"\b(warehouse|depot|industrial (estate|park|units?)|busines
 WEAK = re.compile(r"\b(office|admin(istration)?|unit \d+[a-z]?)\b", re.I)
 VENUE = re.compile(r"\b(church|chapel|c/o|community|ministr\w*|liberty|hope|freedom|light|life|eternity|vineyard|centre for)\b", re.I)
 LOCKW = re.compile(r"\b(warehouse|depot|head office|admin|donations? only|drop[- ]off|not a distribution)\b", re.I)
-EN = "Donations drop-off – warehouse/office. Not a food bank: clients cannot visit."
-CY = "Man gollwng rhoddion – warws/swyddfa. Nid banc bwyd: ni all cleientiaid ymweld."
-DROP_EN = "Donation drop-off only. Not a food bank: clients cannot get food here."
-DROP_CY = "Man gollwng rhoddion yn unig. Nid banc bwyd: ni all cleientiaid gael bwyd yma."
+EN = "Distribution centre – drop off food only"
+CY = "Canolfan ddosbarthu – gollwng bwyd yn unig"
+DROP_EN = EN
+DROP_CY = CY
 def classify(items, root):
     man = {k: v for k, v in json.load(open(os.path.join(root, "overrides", "foodbank_manual.json"))).items() if not k.startswith("_")} \
         if os.path.exists(os.path.join(root, "overrides", "foodbank_manual.json")) else {}
@@ -61,7 +61,7 @@ def classify(items, root):
         en = cy = ""
         if kind in ("warehouse", "dropoff"):
             en, cy = (EN, CY) if kind == "warehouse" else (DROP_EN, DROP_CY)
-            if i["id"] in man: en, cy = man[i["id"]]["label_en"], man[i["id"]]["label_cy"]
+            if i["id"] in man and man[i["id"]].get("locked"): en, cy = man[i["id"]]["label_en"], man[i["id"]]["label_cy"]  # only the locked B30 wording is kept; every other non-client site uses the single label (Dean, 21 Oct 2026)
         for k in ("kind", "label_en", "label_cy", "centres", "locked"): i.pop(k, None)
         if apply:
             i["kind"] = kind; i["label_en"] = en; i["label_cy"] = cy
