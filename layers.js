@@ -8,7 +8,7 @@ const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Listings change �
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',none:'None listed',
- h1:'Find a food bank near you',search:'Search',ph:'Postcode or town, e.g. BN17 5 or Littlehampton',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'mi',srcNote:'Details are shown in the language the source published them in.'},
+ h1:'Find a food bank near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'mi',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Mae rhestrau’n newid – ffoniwch bob amser cyn teithio',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'📍 Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
@@ -38,7 +38,7 @@ const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria
 bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)+seg('ws',LAYERS.ws.col,'dia',false);
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
 const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=`<span><i class="sw tear" style="background:#F5C518"></i><b data-t="fb"></b> <small id="u_fb"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="sh"></b> <small id="u_sh"></small></span><span><i class="sw dia" style="background:${LAYERS.ws.col}"></i><b data-t="ws"></b> <small id="u_ws"></small></span>`;
-bar.after(lg);
+const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
 const nb=document.createElement('button');nb.type='button';nb.id='xnear';nb.className='btn';hdr.insertBefore(nb,document.getElementById('f').nextSibling);
@@ -52,7 +52,7 @@ extra.innerHTML=`<div id="xlist"></div><details id="xclosed"><summary data-t="cl
 document.getElementById('list').after(extra);
 function paint(){document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
  $x('xlang').innerHTML=lang==='en'?'<b>EN</b><span aria-hidden="true">|</span>CY':'EN<span aria-hidden="true">|</span><b>CY</b>';$x('xlang').setAttribute('aria-label',lang==='en'?'Newid i’r Gymraeg':'Switch to English');nb.textContent=t('near');disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
- if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
+ document.getElementById('q').placeholder=t('ph');if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
  paint.done=true;trAll();stamp('fb');banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
 function $x(i){return document.getElementById(i)}
 function stamp(k){if(k==='fb'){$x('u_fb').textContent=`${t('upd')} ${fmt(String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];$x('u_'+k).textContent=L_.data?`${t('upd')} ${fmt(L_.data.updated)}`:t('notLoaded')}
@@ -88,7 +88,8 @@ function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng
   const r=L_.data.items.map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>(a.i.ended-b.i.ended)||a.d-b.d).slice(0,3);
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+(r.length?r.map(x=>`<div class="card x${k}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
-const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);return r};
+const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
+ const me=document.getElementById('map'),top=me.getBoundingClientRect().top;if(top<0)scrollTo({top:Math.max(0,top+scrollY-8),behavior:'auto'});map.invalidateSize();return r};
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];

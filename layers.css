@@ -5,12 +5,11 @@ header{padding-top:10px}
 #xlang b{color:#F5C518;font-weight:800}
 header h1{padding-right:90px}
 #xbar{display:flex;margin:0 0 6px;border:2px solid #F5C518;border-radius:12px;overflow:hidden}
-.xt{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:0;background:transparent;color:#C9D1DE;font-size:15px;font-weight:700;padding:0 6px;border:0;border-left:2px solid #F5C518}
+.xt{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:5px;min-height:48px;border-radius:0;background:transparent;color:#C9D1DE;font-size:14px;font-weight:700;padding:0 4px;border:0;border-left:1px solid #F5C518;white-space:nowrap;min-width:0}
 .xt:first-child{border-left:0}
 .xt[aria-pressed=true]{background:#F5C518;color:#0A1628}
 .sw{display:inline-block;width:16px;height:16px;flex:0 0 16px;border:2px solid #0A1628;box-shadow:0 0 0 1.5px #F2F4F8}
 .sw.tear{border-radius:50% 50% 50% 0;transform:rotate(-45deg)}.sw.sq{border-radius:3px}.sw.dia{transform:rotate(45deg);width:14px;height:14px;flex-basis:14px}
-#xleg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:#C9D1DE;margin:0 0 8px}#xleg span{display:flex;align-items:center;gap:6px}#xleg b{color:#F2F4F8}
 #xnear{width:100%;background:#F5C518;color:#0A1628;border:0;font-size:17px;min-height:52px;margin-top:8px}
 #msg{margin-top:6px}
 #xbefore{margin-top:8px;background:#fff;color:#0A1628;border-left:6px solid #E63946;border-radius:8px}
@@ -37,4 +36,8 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 .pin.wh svg{filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
 .ncb{background:#F2F4F8;color:#0A1628;font-weight:800;font-size:16px;padding:10px 12px;border-radius:8px;border-left:6px solid #E63946;margin-bottom:8px;line-height:1.3}
 .cen{list-style:none;margin:4px 0;padding:0}.cen li{padding:6px 0;border-bottom:1px solid #2a3b5c}.cen a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:16px;color:#F5C518}.cen span{display:block;font-size:14px;color:#C9D1DE}
-#sheet .ncb{margin-right:44px}
+
+#xupd{display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:8px}#xupd span{display:flex;align-items:center;gap:6px}#xupd b{color:#F2F4F8}
+#sheet{padding-top:48px!important}#sheet .handle{position:absolute;top:10px;left:50%;margin:0 0 0 -22px!important}
+#sheet .x{top:2px!important;right:4px!important;width:44px!important;height:44px!important;z-index:2}
+#sheet .card h3{padding-right:0!important}
