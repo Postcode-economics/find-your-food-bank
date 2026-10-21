@@ -60,7 +60,21 @@ for k, pc in reverse_postcodes(need).items():
     for x in fresh:
         if x["id"] == k: x["postcode"] = pc; x["postcode_note"] = "nearest postcode (postcodes.io)"
 prev = load_js(OUT, "SHELTERS")
-if not fresh or (prev and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
+# Verification gate: publish only allowlisted shelters; new finds go to logs/shelters_pending.json.
+VER = load_verified("overrides/shelters_verified.json")
+HE_HINT = "https://homeless.org.uk/homeless-england/"
+def shelter_autocheck(x):
+    # Automatic pre-check only flags what a human must confirm; it never publishes.
+    flags = []
+    if x.get("flag_closed"): flags.append("tagged closed/disused in OSM")
+    n = x["name"].lower()
+    if any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee"]): flags.append("name suggests not a shelter")
+    if not x.get("website"): flags.append("no operator website in source")
+    return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}
+raw_count = len(fresh)
+fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", shelter_autocheck)
+sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
+if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
