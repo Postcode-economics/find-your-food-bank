@@ -118,8 +118,16 @@ def own_site_check(c, kind, fetcher=fetch_raw, today=None):
 DAYN = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 TIMESPAN = re.compile(r"((?:(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?:\s*(?:,|&|and|-|–|to)\s*)?)+)[\s:,(]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday))", re.I)
 def norm_times(s):
-    from recheck import norm_times as nt
-    return nt(s or "")
+    """'10.30am', '10:30', '10am' -> {'10:30','10:00'} in 24h (am/pm aware). Same rule as recheck.norm_times, kept here so
+    the food bank build has no dependency on the shelter/warm-space modules."""
+    out = set(); s = (s or "").lower().replace("noon", "12pm").replace("midday", "12pm")
+    for h, m, ap in re.findall(r"\b(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?\b", s):
+        h = int(h); m = int(m or 0)
+        if h > 24 or m > 59 or (not ap and not m and h < 7): continue
+        if ap == "pm" and h < 12: h += 12
+        if ap == "am" and h == 12: h = 0
+        out.add(f"{h:02d}:{m:02d}")
+    return out
 def want_times(ot):
     """Times + days we publish for an entry (food bank opening_times dict, or shelter/warm-space hours)."""
     if not ot: return set(), set()
