@@ -6,7 +6,7 @@
 <meta property="og:image" content="og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find a food bank near you">
 <meta name="twitter:description" content="Free map of UK food banks. Enter a postcode, see the nearest five, get directions in one tap."><meta name="twitter:image" content="og.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css">
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css">
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -81,7 +81,7 @@ const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
 $('upd').textContent=new Date(D.fetched).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}`;
+const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking`;
 const narrow=()=>window.innerWidth<600;
 const DK=['sun','mon','tue','wed','thu','fri','sat'],DN={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'},ORD=['mon','tue','wed','thu','fri','sat','sun'];
 const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'&&i.opening_times.structured?i.opening_times.structured:null;
@@ -201,5 +201,5 @@ $('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(las
  if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
  try{await navigator.clipboard.writeText(url);$('share').textContent='Link copied ✓'}catch(e){prompt('Copy this link:',url)}setTimeout(()=>$('share').textContent='Share this map',2500)};
 const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');search(qs.get('q')).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
-</script><script src="layers.js"></script><script src="report.js"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
+</script><script src="layers.js"></script><script src="report.js"></script><script src="v3.js"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>

@@ -28,7 +28,7 @@ const VCY={'Hot Drinks':'Diodydd poeth','Accessible Toilets':'Toiledau hygyrch',
 const v=x=>lang==='cy'&&VCY[x]?VCY[x]:x;
 const vdates=x=>lang==='cy'&&/^Until /.test(x||'')?'Tan '+fmt(x.slice(6)):v(x);
 const vreason=x=>lang==='cy'?String(x||'').replace(/^No longer listed by source \(unseen (\d+) days\)$/,'Nid yw’r ffynhonnell yn ei restru mwyach (heb ei weld ers $1 diwrnod)'):x;
-const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#00D1FF',shape:'sq',on:false,data:null,group:null},ws:{file:'warmspaces.js',var:'WARMSPACES',col:'#FF3EC8',shape:'dia',on:false,data:null,group:null}};
+const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:false,data:null,group:null},ws:{file:'warmspaces.js',var:'WARMSPACES',col:'#D55E00',shape:'dia',on:false,data:null,group:null}};
 const SHP={sq:(c)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M9 18l7-7 7 7v6H9z" fill="#0A1628"/></svg>`,
  dia:(c)=>`<svg width="34" height="40" viewBox="0 0 34 40"><path d="M17 1l15 15-15 23L2 16z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M13 21c0-4 4-5 3-9 4 2 6 6 4 10a4 4 0 0 1-7-1z" fill="#0A1628"/></svg>`};
 const pinIcon=(col,grey,shape)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
@@ -61,10 +61,10 @@ function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);i
  return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
 function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(lang==='cy'?h.replace(/Closed/i,'Ar gau'):h)}</td></tr>`).join('')+'</table>'}
 function detail(k,i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,''),row=(l,v)=>v&&v.length?`<p><b>${t(l)}:</b> ${v}</p>`:'';
- return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist<0.1?'<0.1':(dist*0.621).toFixed(1)} ${t('mi')}</div>`:''}
+ return `${window.V3?V3.badge(k,i):''}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist<0.1?'<0.1':(dist*0.621).toFixed(1)} ${t('mi')}</div>`:''}${window.V3?V3.walk(dist):''}${k==='sh'&&window.V3?V3.strip():''}
  ${i.ended?`<p class="xw">⚠ ${t('ended')}</p>`:''}${i.stale?`<p class="xw">⚠ ${t('stale')}</p>`:''}
  <p>${esc(i.address)}${i.postcode?` <b>${esc(i.postcode)}</b>`:''}</p>
- <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}" target="_blank" rel="noopener">${t('dir')} ➜</a>
+ <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')} ➜</a>${window.V3?V3.share(i):''}
  ${tel?`<a class="btn call" href="tel:${tel}">${t('call')} ${esc(i.phone)}</a>`:''}
  ${k==='sh'?row('groups',esc((i.groups||[]).map(v).join(', ')))+row('beds',esc(i.beds))+row('season',esc(v(i.season)))+row('ref',esc(i.referral))+row('hours',esc(i.hours))
   :row('hours',hoursHtml(i.hours))+row('prov',esc((i.provided||[]).map(v).join(', ')))+row('book',esc(v(i.booking)))+row('dates',esc(vdates(i.scheme_dates)))}
@@ -81,11 +81,13 @@ async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[dat
  if(L_.on)map.addLayer(L_.group);if(lastPos)nearX(...lastPos)}
 document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.getAttribute('aria-pressed')!=='true'));
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
-let lastPos=null;
+let lastPos=null;const openOnly={sh:true,ws:true};
+document.addEventListener('click',e=>{const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
 function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data)continue;
-  const r=L_.data.items.map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>(a.i.ended-b.i.ended)||a.d-b.d).slice(0,3);
-  out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+(r.length?r.map(x=>`<div class="card x${k}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
+  const all=L_.data.items.map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>(a.i.ended-b.i.ended)||a.d-b.d);const oo=openOnly[k]&&window.V3;const sc=x=>oo?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:0;
+  const r=(oo?all.slice(0,60).filter(x=>sc(x)<2&&!x.i.ended).sort((a,b)=>sc(a)-sc(b)||a.d-b.d):all).slice(0,3);
+  out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3oo" data-k="${k}" aria-pressed="${openOnly[k]}">${lang==='cy'?'Ar agor nawr yn unig':'Open now only'}</button>`+(oo?`<p class="sub">${lang==='cy'?'Yn dangos lleoedd ar agor nawr yn gyntaf, yna rhai heb oriau (ffoniwch i wirio). Mae lleoedd sydd ar gau nawr wedi’u cuddio.':'Showing places open now first, then ones with unknown hours (call to check). Places closed right now are hidden.'}</p>`:'')+(r.length?r.map(x=>`<div class="card x${k}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
  const me=document.getElementById('map'),top=me.getBoundingClientRect().top;if(top<0)scrollTo({top:Math.max(0,top+scrollY-8),behavior:'auto'});map.invalidateSize();return r};
