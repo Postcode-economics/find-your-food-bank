@@ -86,6 +86,11 @@ def main():
         i['pc_checked'] = bool(r)
         if r and hav(i['lat'], i['lng'], *r) > 2:
             i['orig_latlng'] = [i['lat'], i['lng']]; i['lat'], i['lng'] = round(r[0], 6), round(r[1], 6); i['moved_to_postcode'] = True
+    # classify client-facing vs warehouse/office (manual locks in overrides/foodbank_manual.json always applied)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from classify import classify, write_csv
+    os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
+    write_csv(classify(items, ROOT), os.path.join(ROOT, 'logs', 'foodbank_audit.csv'))
     cur = current_count()
     if len(items) < 0.8 * cur: die('only %d entries vs %d current (<80%%)' % (len(items), cur))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/', items=items)
