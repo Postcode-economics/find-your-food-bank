@@ -9,10 +9,10 @@ button,.btn,a.btn,.links a,.v3t,.xt,input,.cen a{min-height:48px}
 header{padding:6px 12px 4px!important}header .brand{display:none}header h1{font-size:20px!important;margin:4px 0 8px!important;line-height:1.2;padding-right:96px}
 /* three big task buttons */
 #v3big{display:flex;flex-direction:column;gap:8px;margin:0 0 8px}
-.v3b{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:0 16px;border-radius:12px;border:3px solid #F5C518;background:#F5C518;color:#0A1628;font-size:20px;font-weight:800;text-align:left;cursor:pointer}
-.v3b[data-l=ws]{background:#13223d;color:#F2F4F8;border-color:#D55E00}.v3b[data-l=sh]{background:#13223d;color:#F2F4F8;border-color:#56B4E9}
+.v3b{--c:#F5C518;--g:rgba(245,197,24,.3);display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:0 16px;border-radius:12px;border:2px solid var(--c);background:#13223d;color:#F4E6C6;font-size:20px;font-weight:800;text-align:left;cursor:pointer;outline:none;transition:background-color 150ms,border-color 150ms,box-shadow 150ms}
+.v3b[data-l=ws]{--c:#D55E00;--g:rgba(213,94,0,.3)}.v3b[data-l=sh]{--c:#56B4E9;--g:rgba(86,180,233,.3)}
 .v3b .ic{font-size:26px;width:32px;text-align:center}
-.v3b[aria-pressed=true]{outline:4px solid #F2F4F8;outline-offset:2px}
+.v3b[aria-pressed=true]{background:var(--c);border-color:var(--c);color:#0A1628;box-shadow:0 0 0 3px var(--g);outline:none}
 /* secondary: layer toggles, clearly ON/OFF */
 #xbar{margin:0 0 6px!important}
 .xt{font-size:16px!important;gap:4px!important;padding:0 3px!important;letter-spacing:-.2px}
@@ -58,7 +58,7 @@ html.light .card,html.light #xclosed,html.light .rpfix,html.light .rpr,html.ligh
 html.light #sheet,html.light .rpd{background:#fff!important;color:#000!important;border-color:#000!important}
 html.light .card p,html.light .card .sub,html.light small,html.light .tnote,html.light #hid,html.light .cen span,html.light footer,html.light .made,html.light .rph,html.light .rpk,html.light .rpd small,html.light #xupd b,html.light #v3res .tnote{color:#000!important}
 html.light a:not(.btn),html.light .card .links a,html.light footer a,html.light .made a,html.light #xextra a:not(.btn){color:#00379E!important}
-html.light .v3b{border-color:#000!important}html.light .v3b[data-l=ws],html.light .v3b[data-l=sh]{background:#fff!important;color:#000!important}
+html.light .v3b{--c:#8A5A00;--g:rgba(245,197,24,.3);background:#fff;color:#0A1628}html.light .v3b[data-l=ws]{--c:#D55E00;--g:rgba(213,94,0,.3)}html.light .v3b[data-l=sh]{--c:#0072B2;--g:rgba(86,180,233,.3)}html.light .v3b[aria-pressed=true]{background:var(--c);border-color:var(--c);color:#0A1628}html.light .v3b[data-l=fb][aria-pressed=true]{--c:#F5C518}html.light .v3b[data-l=sh][aria-pressed=true]{--c:#56B4E9}html.light .v3b[aria-pressed=true] .ic{color:#0A1628}
 html.light .v3t,html.light .xt[aria-pressed=false],html.light #xlang,html.light .v3share,html.light .rpb,html.light .rpcancel,html.light .v3st.unk{background:#fff!important;color:#000!important;border-color:#000!important}
 html.light .v3t[aria-pressed=true]{background:#000!important;color:#fff!important}html.light #xbar{border-color:#000!important}
 html.light .cen a{background:#fff!important;color:#00379E!important;border-color:#000!important}
@@ -70,7 +70,7 @@ html.light .loc{color:#000!important;border-color:#000!important}
 /* v4 final fixes (Motion Designer final review, 21 Oct 2026) */
 #xbar,#xbar[hidden]{display:none!important}
 .v3b[aria-pressed=true]::after{content:"✓";margin-left:auto;font-size:26px;font-weight:900}
-.v3b[aria-pressed=true]{outline:4px solid #F2F4F8;outline-offset:2px}
+.v3b:focus-visible{outline:2px solid #F4E6C6;outline-offset:2px}html.light .v3b:focus-visible{outline-color:#0A1628}
 #v3tools{display:flex;gap:18px;justify-content:center;margin:0 0 4px}
 .v3t{flex:0 0 auto;border:0!important;background:transparent!important;color:#F2F4F8!important;font-size:15px!important;font-weight:700;text-decoration:underline;padding:0 4px;min-height:44px}
 .v3t[aria-pressed=true]{background:transparent!important;color:#F5C518!important}
@@ -96,7 +96,7 @@ header h1{min-height:46px;display:flex;align-items:center;margin:6px 0 12px!impo
 /* v6 (Motion Designer verdict, approved by Dean): one line-icon set, short labels, tidier cards */
 .ico{width:1.15em;height:1.15em;flex:0 0 auto;vertical-align:-.2em;margin-right:6px}
 .v3b .ic{display:flex;align-items:center;justify-content:center;width:34px;font-size:30px}.v3b .ic .ico{margin:0;width:30px;height:30px}
-.v3b[data-l=ws] .ic{color:#D55E00}.v3b[data-l=sh] .ic{color:#56B4E9}.v3b[data-l=fb] .ic{color:#0A1628}
+.v3b .ic{color:var(--c)}.v3b[aria-pressed=true] .ic{color:#0A1628}
 .v3b{white-space:nowrap}
 .v3b[aria-pressed=true]::after{content:none}
 .btn.call .ico,.sosl .ico{width:20px;height:20px}
