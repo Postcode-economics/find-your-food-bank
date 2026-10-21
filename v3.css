@@ -1,0 +1,68 @@
+/* v3 layout + accessibility (display only) */
+html[lang=cy] .v-en,html:not([lang=cy]) .v-cy{display:none}
+/* type: 16px minimum body, 18px+ buttons, nothing greyer than #C9D1DE */
+body,.card p,.card .sub,.warn,small,.call small,.ot,.ot .src,.tnote,#hid,footer,.made,.cen span,.tag,#xupd,#xupd small,.rph,.rpd small,.rpk,.leaflet-popup-content,.sub,#xextra p{font-size:16px!important}
+:root{--muted:#C9D1DE}
+.btn,button.btn,.go,.rpsend,.rpcancel,.rpb,#xclosed summary{font-size:18px!important}
+button,.btn,a.btn,.links a,.v3t,.xt,input,.cen a{min-height:48px}
+/* shorter header */
+header{padding:6px 12px 4px!important}header .brand{display:none}header h1{font-size:20px!important;margin:4px 0 8px!important;line-height:1.2;padding-right:96px}
+/* three big task buttons */
+#v3big{display:flex;flex-direction:column;gap:8px;margin:0 0 8px}
+.v3b{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:0 16px;border-radius:12px;border:3px solid #F5C518;background:#F5C518;color:#0A1628;font-size:20px;font-weight:800;text-align:left;cursor:pointer}
+.v3b[data-l=ws]{background:#13223d;color:#F2F4F8;border-color:#D55E00}.v3b[data-l=sh]{background:#13223d;color:#F2F4F8;border-color:#56B4E9}
+.v3b .ic{font-size:26px;width:32px;text-align:center}
+.v3b[aria-pressed=true]{outline:4px solid #F2F4F8;outline-offset:2px}
+/* secondary: layer toggles, clearly ON/OFF */
+#xbar{margin:0 0 6px!important}
+.xt{font-size:16px!important;gap:4px!important;padding:0 3px!important;letter-spacing:-.2px}
+.xt .sw{width:12px!important;height:12px!important;flex-basis:12px!important}
+.xt[aria-pressed=true]::before{content:"✓";font-weight:900;font-size:18px;margin-right:2px}
+.xt[aria-pressed=false]{background:#0A1628!important;color:#F2F4F8!important}
+#v3tools{display:flex;gap:6px;margin:0 0 6px}
+.v3t{flex:1;min-height:48px;border-radius:10px;border:2px solid #F2F4F8;background:transparent;color:#F2F4F8;font-size:16px;font-weight:700;padding:4px 8px;cursor:pointer}
+.v3t[aria-pressed=true]{background:#F2F4F8;color:#0A1628}.v3t[aria-pressed=true]::before{content:"✓ ";font-weight:900}
+.v3oo{width:100%;margin:2px 0 6px;font-size:17px}
+/* Before you go: one line */
+#xbefore summary{flex-direction:row!important;align-items:center;gap:8px;white-space:nowrap;overflow:hidden;min-height:48px!important}
+#xbefore .bt{flex:0 0 auto;font-size:14px!important}#xbefore .bs{overflow:hidden;text-overflow:ellipsis;font-size:16px}
+/* results: Open today lives here */
+#v3res{padding:0 12px}#v3res label.tog{margin-top:8px}#v3res .tnote{margin:0 0 4px 34px;color:#C9D1DE}
+/* cards: status first, then distance + walk */
+.v3st{display:block;font-weight:900;font-size:17px;letter-spacing:.02em;padding:8px 12px;border-radius:8px;margin:0 0 8px}
+.v3st.open{background:#1E7B3A;color:#fff}.v3st.shut{background:#F2F4F8;color:#0A1628;border-left:6px solid #E63946}.v3st.unk{background:transparent;color:#F2F4F8;border:2px solid #C9D1DE}
+.v3wk{font-size:16px;font-weight:700;margin:0 0 8px}
+.btn.gm,.btn.call,a.btn.call{display:flex!important;align-items:center;justify-content:center;width:100%;min-height:56px!important;background:#F5C518!important;color:#0A1628!important;border:0!important;font-size:18px!important;font-weight:800;border-radius:10px;text-decoration:none;margin:8px 0}
+.btn.call small{color:#0A1628!important;margin-left:6px;font-weight:600}
+.v3share{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;min-height:52px;background:transparent;border:2px solid #F5C518;color:#F2F4F8;font-weight:800;border-radius:10px;margin:8px 0}
+.card .links{display:flex;gap:16px;margin:4px 0}.card .links a,.leaflet-popup-content .links a{flex:0 0 auto!important;border:0!important;justify-content:flex-start!important;text-decoration:underline;font-size:16px!important;padding:0}
+/* Get food at: no gap, full-width rows */
+.lh{margin:10px 0 2px!important}.cen{margin:0!important}.cen li{padding:0!important}
+.cen a{display:flex!important;width:100%;min-height:52px;padding:6px 10px;background:#13223d;border:2px solid #F5C518;border-radius:10px;margin:4px 0 0;text-decoration:none}
+.cen a::after{content:"›";margin-left:auto;font-size:24px}.cen span{padding:2px 0 6px 2px}
+/* sheet close X: 44px, never clipped */
+#sheet{padding-top:56px!important}
+#sheet .x{position:absolute!important;top:6px!important;right:8px!important;width:44px!important;height:44px!important;font-size:24px!important;line-height:44px!important;padding:0!important;border-radius:10px;background:#13223d!important;color:#F2F4F8!important;border:2px solid #F2F4F8!important;z-index:3;display:flex;align-items:center;justify-content:center}
+#sheet .ncb{margin-right:0!important}
+/* shelters emergency strip */
+#v3sos,.v3sos{display:block}#v3sos[hidden]{display:none}
+.v3sos{background:#F2F4F8;color:#0A1628;border-left:6px solid #56B4E9;border-radius:8px;padding:10px 12px;margin:0 0 8px;font-size:16px;line-height:1.35}
+.v3sos a{color:#0A1628!important;font-weight:800;text-decoration:underline;display:inline!important;min-height:0!important}
+/* list-only view */
+html.nomap #map{display:none}
+/* high-contrast light mode */
+html.light,html.light body{background:#fff!important;color:#000!important}
+html.light header,html.light #xextra,html.light #v3res,html.light footer,html.light .made{color:#000!important}
+html.light header h1,html.light .card h3,html.light .lh,html.light #xclosed summary{color:#000!important}
+html.light .card,html.light #xclosed,html.light .rpfix,html.light .rpr,html.light .rpc{background:#fff!important;border:2px solid #000!important;border-left:8px solid #000!important;color:#000!important}
+html.light #sheet,html.light .rpd{background:#fff!important;color:#000!important;border-color:#000!important}
+html.light .card p,html.light .card .sub,html.light small,html.light .tnote,html.light #hid,html.light .cen span,html.light footer,html.light .made,html.light .rph,html.light .rpk,html.light .rpd small,html.light #xupd b,html.light #v3res .tnote{color:#000!important}
+html.light a:not(.btn),html.light .card .links a,html.light footer a,html.light .made a,html.light #xextra a:not(.btn){color:#00379E!important}
+html.light .v3b{border-color:#000!important}html.light .v3b[data-l=ws],html.light .v3b[data-l=sh]{background:#fff!important;color:#000!important}
+html.light .v3t,html.light .xt[aria-pressed=false],html.light #xlang,html.light .v3share,html.light .rpb,html.light .rpcancel,html.light .v3st.unk{background:#fff!important;color:#000!important;border-color:#000!important}
+html.light .v3t[aria-pressed=true]{background:#000!important;color:#fff!important}html.light #xbar{border-color:#000!important}
+html.light .cen a{background:#fff!important;color:#00379E!important;border-color:#000!important}
+html.light .rpd legend,html.light .rphead h2{color:#000!important}html.light #sheet .x{background:#fff!important;color:#000!important;border-color:#000!important}
+html.light #xlang b{color:#000!important;text-decoration:underline}
+html.light .rpd textarea,html.light .rpd input[type=text],html.light .rpd input[type=email],html.light #q{border:2px solid #000!important}
+html.light .loc{color:#000!important;border-color:#000!important}
