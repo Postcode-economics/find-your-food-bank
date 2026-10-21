@@ -12,12 +12,15 @@
  {
   "id": "osm-way-327576971",
   "name": "Aidan House",
-  "address": "Tewkesbury Drive, Nottingham",
-  "postcode": "NG6 0DJ",
-  "source_url": "https://www.openstreetmap.org/way/327576971",
-  "website": "https://www.frameworkha.org/",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.frameworkha.org/about-us/our-services/",
+   "final_url": "https://www.frameworkha.org/about-us/our-services/",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 403,
+   "sha256": ""
+  }
  },
  {
   "id": "osm-node-5048168684",
@@ -50,6 +53,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-node-14178877191",
+  "name": "Centrepoint",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
+   "final_url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "ce41fb0129cb879d1b07ee61fac7b62af65abf47adf0472088f6ec6a831d84d6"
+  }
+ },
+ {
   "id": "osm-way-171300312",
   "name": "Centrepoint Camberwell Foyer",
   "address": "90 Denmark Hill, London",
@@ -58,6 +74,45 @@
   "website": "https://centrepoint.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "osm-way-180604493",
+  "name": "Cosgarne Hall",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "recheck": {
+   "url": "https://www.harbourhousing.com/what-we-do/supported-accommodation/",
+   "final_url": "https://www.harbourhousing.com/what-we-do/supported-accommodation/",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 202,
+   "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
+  }
+ },
+ {
+  "id": "osm-way-1104948217",
+  "name": "Cotswold House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
+   "final_url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "c9bde17a7f203e9cf8919f7ea6924fc5d0d8b26aabd8fc3f67a21fbd43b9a95a"
+  }
+ },
+ {
+  "id": "osm-way-1383660740",
+  "name": "Dunedin Harbour",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
+   "final_url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 403,
+   "sha256": ""
+  }
  },
  {
   "id": "osm-way-1110034236",
@@ -70,6 +125,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-way-147871099",
+  "name": "Evolve Housing",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "recheck": {
+   "url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
+   "final_url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 202,
+   "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
+  }
+ },
+ {
   "id": "osm-way-318977041",
   "name": "Fairholme House",
   "address": "40 Kenbury Street, London",
@@ -78,6 +146,19 @@
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "osm-way-260267675",
+  "name": "Gilven House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP error)",
+  "recheck": {
+   "url": "http://www.housingoptionshub.co.uk/index.php/hub/view/category/fife-temporary-accommodation-provider",
+   "final_url": "http://www.housingoptionshub.co.uk/index.php/hub/view/category/fife-temporary-accommodation-provider",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": "error",
+   "sha256": ""
+  }
  },
  {
   "id": "osm-relation-3996349",
@@ -110,6 +191,32 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-way-608979359",
+  "name": "Hills House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "recheck": {
+   "url": "https://www.p-a-c.org.uk/safespace/",
+   "final_url": "https://www.p-a-c.org.uk/safespace/",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 202,
+   "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
+  }
+ },
+ {
+  "id": "osm-node-6480884322",
+  "name": "Home 4 Good",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
+   "final_url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
   "id": "osm-node-7257703002",
   "name": "House The Homeless",
   "address": "237 Knight's Hill, London",
@@ -118,6 +225,19 @@
   "website": "https://housethehomeless.com",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "osm-node-3724769904",
+  "name": "Julian House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: referral requirement not stated",
+  "recheck": {
+   "url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
+   "final_url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "cd27c64ef4db347d110cb32f46300bf7b4b70344b9e18e05aef28d756f27bce7"
+  }
  },
  {
   "id": "osm-way-567941601",
@@ -160,6 +280,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-way-560767993",
+  "name": "Newbury House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
+   "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
   "id": "osm-way-774694067",
   "name": "Norfolk Hotel",
   "address": "34 Norfolk Street, Sunderland",
@@ -168,6 +301,32 @@
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "osm-way-97716790",
+  "name": "O'Hanlon House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: referral requirement not stated",
+  "recheck": {
+   "url": "https://homelessoxfordshire.uk/our-work/",
+   "final_url": "https://homelessoxfordshire.uk/our-work/",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "aa2b032087b79a2cea386785fc90048508448f7540ed4d9bc4698ca5d94d2a37"
+  }
+ },
+ {
+  "id": "osm-node-9596043207",
+  "name": "Pobl Clifton Place",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
+   "final_url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "038ed60c90b7f3fdb0648d3da2680128c71af1bdee0468c6f7c8a204e8869e73"
+  }
  },
  {
   "id": "osm-way-32349145",
@@ -260,6 +419,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-way-453369056",
+  "name": "The Dawn Centre",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://leicester.gov.uk/your-community/housing/homelessness/temporary-accommodation/the-dawn-centre",
+   "final_url": "https://www.leicester.gov.uk/housing/homelessness",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "885886ffe7393715ff9e9cdc9367e5aa0ee65df1c197ca38fe1f143c165568c4"
+  }
+ },
+ {
   "id": "osm-node-1243077938",
   "name": "The Gap Centre",
   "address": "42 Stow Hill, Newport",
@@ -330,6 +502,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-way-673331522",
+  "name": "Tresillian House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
+   "final_url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
   "id": "osm-way-1268379059",
   "name": "Trevanion Lodge",
   "address": "Southbourne Road",
@@ -338,6 +523,19 @@
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "osm-way-1262733230",
+  "name": "Ty Parc",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: referral requirement not stated",
+  "recheck": {
+   "url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
+   "final_url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "dc2ad00f84809570dd1b78584d27c2afa44a0df910a02406fea1803ad712b669"
+  }
  },
  {
   "id": "osm-node-4490110694",
@@ -350,6 +548,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "osm-way-157731534",
+  "name": "Wirral Ark",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://wirralark.org.uk/supported-accommodation/",
+   "final_url": "https://wirralark.org.uk/supported-accommodation/",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
   "id": "osm-way-1311059304",
   "name": "Womens Center M.W.Y.S. & E.F.",
   "address": "",
@@ -358,5 +569,18 @@
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "osm-way-81353303",
+  "name": "YMCA London City and North",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
+   "final_url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
+   "fetched_at": "2026-10-21T13:40:01+00:00",
+   "http": 200,
+   "sha256": "28ed62616a40b02ebb47fd2fdcd781d9c87b93dce85fee6131b015e9134e3859"
+  }
  }
 ]

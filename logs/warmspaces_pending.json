@@ -20,16 +20,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63065215",
-  "name": "(Stetchworth) Ellesmere Community Hub",
-  "address": "Ellesmere Centre, Newmarket, Suffolk CB8 9TS",
-  "postcode": "CB8 9TS",
-  "source_url": "https://www.warmwelcome.uk/space?l=27163",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57951916",
   "name": "1",
   "address": "34 Argyle Street, Birkenhead, Merseyside CH41 6AE",
@@ -620,26 +610,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68697409",
-  "name": "Acumen@Churchill Square Community Room",
-  "address": "Churchill Square Community Room,, Houghton-le-Spring, Tyne& Wear DH4 5PQ",
-  "postcode": "DH4 5PQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=28463",
-  "website": "www.acumencommunitybuildings.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-64432668",
-  "name": "Acumen@Kepier Hall, Houghton-le-Spring",
-  "address": "Acumen Community Buildings Ltd, Houghton le Spring, Tyne & Wear DH4 4DN",
-  "postcode": "DH4 4DN",
-  "source_url": "https://www.warmwelcome.uk/space?l=24484",
-  "website": "www.acumencommunitybuildings.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64717116",
   "name": "Adapt Community Hub and Warm Space",
   "address": "Adapt Community Hub, Hexham, Northumberland NE46 3HN",
@@ -1126,16 +1096,6 @@
   "postcode": "N22 7UJ",
   "source_url": "https://www.warmwelcome.uk/space?l=27423",
   "website": "https://haringey.gov.uk/libraries/libraries-haringey/alexandra-park-library",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68904940",
-  "name": "Alford Fly Cup at St. Andrew’s",
-  "address": "St Andrews Episcopal Church, Alford, Aberdeenshire AB33  8PX",
-  "postcode": "AB33 8PX",
-  "source_url": "https://www.warmwelcome.uk/space?l=23295",
-  "website": "standrewsalford.aodiocese.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -2230,16 +2190,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-55592180",
-  "name": "Ash Vale Chapel Cafe",
-  "address": "The Chapel Project, Surrey GU12 5AY",
-  "postcode": "GU12 5AY",
-  "source_url": "https://www.warmwelcome.uk/space?l=22060",
-  "website": "www.ashvalechapel.com",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-65437373",
   "name": "Ashbourne Pavilion",
   "address": "The Pavilion, Ashbourne, Derbyshire DE6 1EJ",
@@ -2316,16 +2266,6 @@
   "postcode": "DE45 1QB",
   "source_url": "https://www.warmwelcome.uk/space?l=27397",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065195",
-  "name": "Ashley Community Hub",
-  "address": "Ashley Pavilion, CB8  9DX",
-  "postcode": "CB8 9DX",
-  "source_url": "https://www.warmwelcome.uk/space?l=27156",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -2892,12 +2832,15 @@
  {
   "id": "ww-69211163",
   "name": "Bamford Chapel & Norden URC",
-  "address": "Bamford Chapel & Norden United Reformed Church, Rochdale, Lancashire OL11 5PQ",
-  "postcode": "OL11 5PQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=28589",
-  "website": "www.bcnchurch.org.uk",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
+  "reason": "omitted this run: schema: hours value invalid: Thu=Closed / 10:30 - 12:00; hours value invalid: Fri=Closed / 13:30 - 15:00 Monthly; hours value invalid: Sat=Closed / 18:30 - 20:00 Monthly",
+  "recheck": {
+   "url": "https://www.warmwelcome.uk/find-a-space",
+   "final_url": "https://www.warmwelcome.uk/find-a-space",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": "feed",
+   "sha256": null
+  }
  },
  {
   "id": "ww-57952574",
@@ -3420,16 +3363,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-65441837",
-  "name": "BCG Community Hub",
-  "address": "Unit 6, Birmingham, West Midlands B16 0QZ",
-  "postcode": "B16 0QZ",
-  "source_url": "https://www.warmwelcome.uk/space?l=25148",
-  "website": "www.birminghamcaregroup.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55475584",
   "name": "BCMH The Hub",
   "address": "The Hub, Bushey Fields Hospital Site,Bushey Fields Road, DUDLEY, West Midlands DY1 2LZ",
@@ -3702,12 +3635,15 @@
  {
   "id": "ww-64432711",
   "name": "Belgrave Neighbourhood Co-operative Housing Association- EKTA sessions",
-  "address": "Belgrave Neighbourhood Co-Operative Housing Association, Leicestershire LE4 7SG",
-  "postcode": "LE4 7SG",
-  "source_url": "https://www.warmwelcome.uk/space?l=21988",
-  "website": "https://belgravecoop.org.uk/",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
+  "reason": "omitted this run: schema: hours value invalid: Mon=12:00 - 15.00; hours value invalid: Fri=12:00 - 1500",
+  "recheck": {
+   "url": "https://belgravecoop.org.uk/",
+   "final_url": "https://belgravecoop.org.uk/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "ef0958be15e38ed5d88e2d8bd0c07343cc324fca05939287286c70b992ed3b99"
+  }
  },
  {
   "id": "ww-57952168",
@@ -3906,16 +3842,6 @@
   "postcode": "RH16 3QB",
   "source_url": "https://www.warmwelcome.uk/space?l=25020",
   "website": "www.bentswoodhub.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63077073",
-  "name": "Benwick Community Living Room",
-  "address": "Benwick Village Hall, March, Cambridgeshire PE15 0XG",
-  "postcode": "PE15 0XG",
-  "source_url": "https://www.warmwelcome.uk/space?l=27169",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -6820,6 +6746,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-69189484",
+  "name": "Cafe No 7",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source URL now redirects to a different site (soulsurvivor.church)",
+  "recheck": {
+   "url": "https://www.soulsurvivorwatford.co.uk/cafeno7",
+   "final_url": "https://soulsurvivor.church/cafeno7",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "c5eae6eb86c6bd8a8ce6646d54fb36e6bec315aca6c062263934f978c33d6093"
+  }
+ },
+ {
   "id": "ww-64378921",
   "name": "Cafe Oasis",
   "address": "Oldhams Family Hub, Bolton, Lancashire BL1 6RN",
@@ -7036,16 +6975,6 @@
   "postcode": "DD1 2AF",
   "source_url": "https://www.warmwelcome.uk/space?l=24982",
   "website": "www.cakeordice.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-65441901",
-  "name": "Caldecote Community Hub",
-  "address": "Caldecote Pavilion, Caldecote, Cambridgeshire CB23 7ZH",
-  "postcode": "CB23 7ZH",
-  "source_url": "https://www.warmwelcome.uk/space?l=25249",
-  "website": "www.cambsacre.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -8510,16 +8439,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63077074",
-  "name": "Chatteris Community Living Room",
-  "address": "Bricstan Cafe within Chatteris Parish Church, PE16  6BA",
-  "postcode": "PE16 6BA",
-  "source_url": "https://www.warmwelcome.uk/space?l=27170",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952522",
   "name": "Chatty & D-Cafe",
   "address": "EdgeleyCommunity Church, Stockport, Cheshire SK3 9JL",
@@ -8970,16 +8889,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63443263",
-  "name": "Chittlehampton Village Hall",
-  "address": "The Village Hall, Chittlehampton, Devon EX37 9PU",
-  "postcode": "EX37 9PU",
-  "source_url": "https://www.warmwelcome.uk/space?l=27348",
-  "website": "https://chittlehamptonvillagehall.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-60210822",
   "name": "Chobham Road Welcome Space",
   "address": "Woodhill Church, Surrey GU21 2SX",
@@ -9046,16 +8955,6 @@
   "postcode": "PR7 3DU",
   "source_url": "https://www.warmwelcome.uk/space?l=25875",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68672287",
-  "name": "Chorlton Central Church Hall",
-  "address": "Chorlton Central Church, Chorlton, Manchester M21 8BF",
-  "postcode": "M21 8BF",
-  "source_url": "https://www.warmwelcome.uk/space?l=22016",
-  "website": "www.chorlton-central.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -9400,16 +9299,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63077081",
-  "name": "Christchurch Umbrella",
-  "address": "Christchurch Community Centre, Wisbech, Cambridgeshire PE14 9LL",
-  "postcode": "PE14 9LL",
-  "source_url": "https://www.warmwelcome.uk/space?l=27174",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55474856",
   "name": "Christina Upton",
   "address": "50 Norris Road, Chester, Cheshire CH1   5DZ",
@@ -9536,16 +9425,6 @@
   "postcode": "PO7 5QB",
   "source_url": "https://www.warmwelcome.uk/space?l=16566",
   "website": "http://www.cogs.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-62358275",
-  "name": "Church of the Holy Nativity",
-  "address": "Church Of The Holy Nativity, Newcastle upon Tyne, Tyne and Wear NE5 1DR",
-  "postcode": "NE5 1DR",
-  "source_url": "https://www.warmwelcome.uk/space?l=26759",
-  "website": "https://www.achurchnearyou.com/church/16258/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -10100,16 +9979,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63077080",
-  "name": "Coates Community Living Room",
-  "address": "Coates Public Hall, PE7  2BP",
-  "postcode": "PE7 2BP",
-  "source_url": "https://www.warmwelcome.uk/space?l=27171",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952325",
   "name": "Cobbett Hub and Library",
   "address": "Cobbett Hub and Library, Hampshire SO18 1HL",
@@ -10270,31 +10139,11 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-65441903",
-  "name": "Coffee and Croissants at Grantchester Hub",
-  "address": "Grantchester Communal Hall, Cambridge, Cambridgeshire CB3 9NW",
-  "postcode": "CB3 9NW",
-  "source_url": "https://www.warmwelcome.uk/space?l=25253",
-  "website": "www.cambsacre.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-62137106",
   "name": "Coffee and games",
   "address": "St James Church, Sutton Coldfield, West Midlands B75 5BW",
   "postcode": "B75 5BW",
   "source_url": "https://www.warmwelcome.uk/space?l=26421",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-59953387",
-  "name": "Coffee at the Living Room",
-  "address": "Hardwick Christian Fellowship, Cambridge, Cambridgeshire CB23 7QJ",
-  "postcode": "CB23 7QJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=26570",
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
@@ -11790,16 +11639,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69177710",
-  "name": "Community Support Warm Welcome",
-  "address": "The Lighthouse, 60 - 62 High Street, Harrow, London NW10 4LL",
-  "postcode": "NW10 4LL",
-  "source_url": "https://www.warmwelcome.uk/space?l=27110",
-  "website": "www.transitionhomelessproject.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64420691",
   "name": "Community Warm Space",
   "address": "Bridgwater Arts Centre, Somerset TA6 3DD",
@@ -11852,12 +11691,15 @@
  {
   "id": "ww-64379057",
   "name": "Communityhub@BishopAucklandBaptist Church",
-  "address": "Westfield Road, Bishop Auckland, Co Durham DL14 6AE",
-  "postcode": "DL14 6AE",
-  "source_url": "https://www.warmwelcome.uk/space?l=15044",
-  "website": "www.bishopbaptists.co.uk",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.bishopbaptists.co.uk",
+   "final_url": "https://www.bishopbaptists.co.uk",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "87c5a12d41140be0a0400e4018fffd17258d60da1960802bad7d476d94baa4dd"
+  }
  },
  {
   "id": "ww-55473490",
@@ -12130,6 +11972,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-68672284",
+  "name": "Cornerstone Benwell",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 404)",
+  "recheck": {
+   "url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
+   "final_url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 404,
+   "sha256": ""
+  }
+ },
+ {
   "id": "ww-55474758",
   "name": "Cornerstone Christian Centre",
   "address": "10 Saville Way, Grove, Wantage",
@@ -12176,16 +12031,6 @@
   "postcode": "AL10 9GH",
   "source_url": "https://www.warmwelcome.uk/space?l=16444",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68980095",
-  "name": "Cornerstone United Reformed Church @ Parrs Wood Road",
-  "address": "Cornerstone United Reformed Church, Lancashire M20 6EE",
-  "postcode": "M20 6EE",
-  "source_url": "https://www.warmwelcome.uk/space?l=28488",
-  "website": "cornerstoneurc.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -12870,16 +12715,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-62890200",
-  "name": "Crossways Community Cafe",
-  "address": "Crossways Community Baptist Church, Dorking, Surrey RH4 3HB",
-  "postcode": "RH4 3HB",
-  "source_url": "https://www.warmwelcome.uk/space?l=27062",
-  "website": "https://www.crossways.info/crossways-community-cafe",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-58107129",
   "name": "Crossways Library",
   "address": "Dorset County Council, Dorchester, Dorset DT2 8TU",
@@ -13056,16 +12891,6 @@
   "postcode": "LS25 6BL",
   "source_url": "https://www.warmwelcome.uk/space?l=26092",
   "website": "www.savct.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69004052",
-  "name": "Currock House Community Centre",
-  "address": "Currock House Community Centre, Carlisle, Cumbria CA2 4BS",
-  "postcode": "CA2 4BS",
-  "source_url": "https://www.warmwelcome.uk/space?l=26923",
-  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -13296,16 +13121,6 @@
   "postcode": "DN1 3BZ",
   "source_url": "https://www.warmwelcome.uk/space?l=24835",
   "website": "www.dglam.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-62730894",
-  "name": "Darfield Church Hall",
-  "address": "Darfield Church Hall, Barnsley, South Yorkshire S73 9JX",
-  "postcode": "S73 9JX",
-  "source_url": "https://www.warmwelcome.uk/space?l=26886",
-  "website": "darfieldallsaintschurch.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -13556,16 +13371,6 @@
   "postcode": "BH25 6QL",
   "source_url": "https://www.warmwelcome.uk/space?l=28089",
   "website": "www.mydementiasupport.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-65437345",
-  "name": "Denaby community Library",
-  "address": "Springwell Centre, Doncaster, DN12 4AB 4AB",
-  "postcode": "DN12 4AB",
-  "source_url": "https://www.warmwelcome.uk/space?l=28599",
-  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -13956,16 +13761,6 @@
   "postcode": "TR1 2SQ",
   "source_url": "https://www.warmwelcome.uk/space?l=27830",
   "website": "https://thedockyardcollective.org/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63077083",
-  "name": "Doddington Community Living Room",
-  "address": "Doddington Church Rooms, PE15 0SP",
-  "postcode": "PE15 0SP",
-  "source_url": "https://www.warmwelcome.uk/space?l=27175",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -14480,32 +14275,12 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-65441902",
-  "name": "Duxford Coffee Morning",
-  "address": "Duxford Community Centre, Cambridge, Cambridgeshire CB22 4RE",
-  "postcode": "CB22 4RE",
-  "source_url": "https://www.warmwelcome.uk/space?l=25252",
-  "website": "www.cambsacre.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57951643",
   "name": "Dwell Cafe at HighwayChurch",
   "address": "Highway Community Centre, Penryn, Cornwall Tr10 8DA",
   "postcode": "TR10 8DA",
   "source_url": "https://www.warmwelcome.uk/space?l=14828",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-65913527",
-  "name": "DWICA Warm Welcome Space",
-  "address": "Derby West Indian Community Association, Derby, Derbyshire DE1 2ND",
-  "postcode": "DE1 2ND",
-  "source_url": "https://www.warmwelcome.uk/space?l=28022",
-  "website": "dwica.co.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -14860,16 +14635,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-67830599",
-  "name": "Ebenezer Church",
-  "address": "286 Filton Avenue, Horfield, Bristol BS7 0BA",
-  "postcode": "BS7 0BA",
-  "source_url": "https://www.warmwelcome.uk/space?l=14930",
-  "website": "https://www.ebe.org.uk/welcomingspace",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57990866",
   "name": "Eccles Library",
   "address": "Eccles Library, Salford, M30 0TU",
@@ -15130,16 +14895,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69155575",
-  "name": "Eighton Banks Village Hall",
-  "address": "Eighton Banks Village Hall, Gateshead, Tyne and Wear NE9 7UP",
-  "postcode": "NE9 7UP",
-  "source_url": "https://www.warmwelcome.uk/space?l=28569",
-  "website": "eightonbanksvillagehall.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55472927",
   "name": "EK Community Food Bank & Community Cafe",
   "address": "Calderwood Baptist Church, Lanarkshire G74 3LW",
@@ -15386,16 +15141,6 @@
   "postcode": "CF5 5BQ",
   "source_url": "https://www.warmwelcome.uk/space?l=22569",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065196",
-  "name": "Ely Chat and Chill Cafe",
-  "address": "Countess Free Church Ely, Ely, CB6  1AD",
-  "postcode": "CB6 1AD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27157",
-  "website": "https://www.countessely.co.uk/cafe/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -15936,16 +15681,6 @@
   "postcode": "BL2 2HN",
   "source_url": "https://www.warmwelcome.uk/space?l=24673",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63077618",
-  "name": "FACT Living Room Space",
-  "address": "5 Martin Avenue, PE15 0AY",
-  "postcode": "PE15 0AY",
-  "source_url": "https://www.warmwelcome.uk/space?l=27178",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -16720,16 +16455,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69062943",
-  "name": "Folkestone Library",
-  "address": "14 Sandgate Road, Folkestone, Kent CT20 1DP",
-  "postcode": "CT20 1DP",
-  "source_url": "https://www.warmwelcome.uk/space?l=28545",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57951946",
   "name": "Folklore Library and Archive",
   "address": "Folklore Library and Archive, Crediton, Devon EX17 2AA",
@@ -16816,26 +16541,6 @@
   "postcode": "NG17 2EB",
   "source_url": "https://www.warmwelcome.uk/space?l=24390",
   "website": "https://foodcycle.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69275865",
-  "name": "Footprints Coffee Morning",
-  "address": "Trinity Methodist Church, Biggleswade, Bedfordshire SG18 0AP",
-  "postcode": "SG18 0AP",
-  "source_url": "https://www.warmwelcome.uk/space?l=28593",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065201",
-  "name": "Fordham Community Hub",
-  "address": "Victoria Hall, Ely, CB7  5NG",
-  "postcode": "CB7 5NG",
-  "source_url": "https://www.warmwelcome.uk/space?l=27158",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -16930,16 +16635,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68911571",
-  "name": "Former scout hall, Broomfield Avenue, Hasland",
-  "address": "Former scout hall, Chesterfield, Derbyshire S41 0LY S41 0LY",
-  "postcode": "S41 0LY",
-  "source_url": "https://www.warmwelcome.uk/space?l=28514",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-65413990",
   "name": "Forth Community Resource Centre SG",
   "address": "Forth Community Resource Centre, 57 Hawkwood Terrace, Forth, South Lanarkshire ML11 8AT",
@@ -16958,6 +16653,32 @@
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "ww-68642792",
+  "name": "Fosdyke playing field social club (Fozzy’s)",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: published days not found on source this run",
+  "recheck": {
+   "url": "https://haylincolnshire.co.uk/activities/fozzys/",
+   "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "bd71323f8fd04d2c3ad25f3bfae101338b8a36737f39ab1a9cf52e113182d66b"
+  }
+ },
+ {
+  "id": "ww-68642793",
+  "name": "Fosdyke playing field social club (Fozzy’s)",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: published days not found on source this run",
+  "recheck": {
+   "url": "https://haylincolnshire.co.uk/activities/fozzys/",
+   "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "bd71323f8fd04d2c3ad25f3bfae101338b8a36737f39ab1a9cf52e113182d66b"
+  }
  },
  {
   "id": "ww-55473187",
@@ -17236,16 +16957,6 @@
   "postcode": "NE61 4EG",
   "source_url": "https://www.warmwelcome.uk/space?l=22842",
   "website": "www.scotsgapmethodistchurch.com",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63077615",
-  "name": "Friday Bridge Hope Hub",
-  "address": "Tower Hall, Wisbech, PE14 0HW",
-  "postcode": "PE14 0HW",
-  "source_url": "https://www.warmwelcome.uk/space?l=27176",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -18020,16 +17731,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-64711952",
-  "name": "Geeks Headquarters",
-  "address": "Geeks Headquarters, Chesterfield, Derbyshire S40 1PS",
-  "postcode": "S40 1PS",
-  "source_url": "https://www.warmwelcome.uk/space?l=26532",
-  "website": "https://www.geeksheadquarters.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64379140",
   "name": "Genesis Care (North West) Limited",
   "address": "9 West Bank, Chorley, Lancashire PR7 1JF",
@@ -18136,16 +17837,6 @@
   "postcode": "B13 9NY",
   "source_url": "https://www.warmwelcome.uk/space?l=28154",
   "website": "https://www.springfieldproject.org.uk/children-over-5/after-school-clubs/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63057566",
-  "name": "Girton Community Hub",
-  "address": "St Vincent's Close Community Centre, Cambridge, Cambridgeshire CB3 0PD",
-  "postcode": "CB3 0PD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27136",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -18930,6 +18621,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-69069573",
+  "name": "Green Community Cafe, Calarence Park,Bury, BL9 6LL",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: hours value invalid: Fri=10:00 - 14.00",
+  "recheck": {
+   "url": "https://www.personasupport.org/our-services/the-green-community-cafe/",
+   "final_url": "https://www.personasupport.org/our-services/the-green-community-cafe/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "92a9030bca488af64954cc4dcb9350ea46f9673538b00f5187125230c19e0a83"
+  }
+ },
+ {
   "id": "ww-55473522",
   "name": "Green Field Pavilion",
   "address": "Green Field Pavilion, Cheshire CW8  1QA",
@@ -18996,16 +18700,6 @@
   "postcode": "DA9 9EJ",
   "source_url": "https://www.warmwelcome.uk/space?l=23163",
   "website": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=1jtDdUlzFvg&communitychannel=9",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69068971",
-  "name": "Greenmount Old School",
-  "address": "Greenmount Old School, Bury, Lancashire BL8 4DS",
-  "postcode": "BL8 4DS",
-  "source_url": "https://www.warmwelcome.uk/space?l=28552",
-  "website": "In progress",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -19266,16 +18960,6 @@
   "postcode": "N4 2BN",
   "source_url": "https://www.warmwelcome.uk/space?l=25167",
   "website": "https://www.hackneyshowroom.com/whatson/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065202",
-  "name": "Haddenham Social Hub",
-  "address": "Haddenham Bowls Club, CB6 3TB",
-  "postcode": "CB6 3TB",
-  "source_url": "https://www.warmwelcome.uk/space?l=27159",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -19690,6 +19374,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-67460238",
+  "name": "Harlesden Community Club",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 410)",
+  "recheck": {
+   "url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
+   "final_url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 410,
+   "sha256": ""
+  }
+ },
+ {
   "id": "ww-55475677",
   "name": "Harlesden Library",
   "address": "London Borough Of Brent, London NW10 8SE",
@@ -20070,16 +19767,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69336207",
-  "name": "Hawkhurst Food Bank",
-  "address": "Hawkhurst Baptist Church, Cranbrook, Kent TN18 4AU",
-  "postcode": "TN18 4AU",
-  "source_url": "https://www.warmwelcome.uk/space?l=28605",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64379237",
   "name": "Hawkhurst Library",
   "address": "Rye Road, Tunbridge Wells, Kent TN4 8RZ TN4 8RZ",
@@ -20176,16 +19863,6 @@
   "postcode": "OL6 9AU",
   "source_url": "https://www.warmwelcome.uk/space?l=24479",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68917333",
-  "name": "Hazlemere Community Association Social Club Ltd",
-  "address": "Hazlemere Community Centre, Buckinghamshire, UK & Ireland HP15 7UB HP15 7UB",
-  "postcode": "HP15 7UB",
-  "source_url": "https://www.warmwelcome.uk/space?l=18356",
-  "website": "www.hcacommunity.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -21740,6 +21417,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-68997961",
+  "name": "Hope Cafe",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP error)",
+  "recheck": {
+   "url": "https://christchurchmission.co.uk/hope-caf%C3%A9",
+   "final_url": "https://christchurchmission.co.uk/hope-caf%C3%A9",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": "error",
+   "sha256": ""
+  }
+ },
+ {
   "id": "ww-55475713",
   "name": "Hope Cafe",
   "address": "Hope Church Lytham, Lytham, Lancashire FY8 5AA",
@@ -21910,16 +21600,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68990442",
-  "name": "Hope URC Denton",
-  "address": "Denton, Lancashire M 34 2AB",
-  "postcode": "",
-  "source_url": "https://www.warmwelcome.uk/space?l=28529",
-  "website": "undefined",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-61970833",
   "name": "Hope Wednesday Soup",
   "address": "Hope Chapel, Bristol, Avon BS8 4ND",
@@ -22016,16 +21696,6 @@
   "postcode": "SE23 3PQ",
   "source_url": "https://www.warmwelcome.uk/space?l=26383",
   "website": "https://www.horniman.ac.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63057571",
-  "name": "Horningsea Community Hub",
-  "address": "Horningsea Pavilion, CB25  9JG",
-  "postcode": "CB25 9JG",
-  "source_url": "https://www.warmwelcome.uk/space?l=27137",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -22316,16 +21986,6 @@
   "postcode": "NG15 7BS",
   "source_url": "https://www.warmwelcome.uk/space?l=27472",
   "website": "www.inspireculture.org.uk/hucknall",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69100241",
-  "name": "Huddersfield Library Hub",
-  "address": "Our Cultural Heart - Huddersfield Library Hub, Huddersfield, West Yorkshire HD1 2RS",
-  "postcode": "HD1 2RS",
-  "source_url": "https://www.warmwelcome.uk/space?l=16781",
-  "website": "https://www.kirklees.gov.uk/beta/cost-of-living/cost-of-living-libraries.aspx",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -23156,16 +22816,6 @@
   "postcode": "BH6 3QJ",
   "source_url": "https://www.warmwelcome.uk/space?l=22410",
   "website": "www.immanuelsouthbourne.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-65437446",
-  "name": "Jubilee Centre",
-  "address": "Jubilee Centre, 15a Silver Street, Ely, Cambridgeshire CB7 4JF",
-  "postcode": "CB7 4JF",
-  "source_url": "https://www.warmwelcome.uk/space?l=24989",
-  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -24650,16 +24300,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63057573",
-  "name": "Landbeach Community Hub",
-  "address": "All Saint's Church, CB25  9FD",
-  "postcode": "CB25 9FD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27138",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952707",
   "name": "Landrake Chapel Community Hub",
   "address": "Landrake Methodist Church, Landrake, Cornwall PL12  5EA",
@@ -25610,16 +25250,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63057583",
-  "name": "Linton Community Hub",
-  "address": "Linton Football Pavilion, Linton, CB21  4HX",
-  "postcode": "CB21 4HX",
-  "source_url": "https://www.warmwelcome.uk/space?l=27139",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57953254",
   "name": "Linton Library",
   "address": "Horseheath Road, Cambridgeshire, Cambridgeshire Cb21 4jt",
@@ -25780,16 +25410,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63065203",
-  "name": "Little Thetford Community Hub",
-  "address": "Little Thetford Village Hall, CB6  3HG",
-  "postcode": "CB6 3HG",
-  "source_url": "https://www.warmwelcome.uk/space?l=27160",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55475944",
   "name": "Littlehampton Library",
   "address": "West Sussex County Council, West Sussex BN17 5NA",
@@ -25846,16 +25466,6 @@
   "postcode": "OX4 6JZ",
   "source_url": "https://www.warmwelcome.uk/space?l=25122",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065213",
-  "name": "Littleport St George’s Connections Community Cafe",
-  "address": "St George’s Church Parish Room, Ely, CB6  1PS",
-  "postcode": "CB6 1PS",
-  "source_url": "https://www.warmwelcome.uk/space?l=27161",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -26710,16 +26320,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-64379342",
-  "name": "MACS Cozy Corner’ Community Hub",
-  "address": "Vicarage Close Community Hall, Melbourn, SG8  6DY",
-  "postcode": "SG8 6DY",
-  "source_url": "https://www.warmwelcome.uk/space?l=27141",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952940",
   "name": "Made-Well CIC",
   "address": "Made Well C I C, Devon EX20 3QA",
@@ -26996,16 +26596,6 @@
   "postcode": "PR1 1DT",
   "source_url": "https://www.warmwelcome.uk/space?l=21775",
   "website": "Www.the Mandala Preston.com",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63077616",
-  "name": "Manea Community Hub",
-  "address": "The Church Rooms, Manea, PE15  0JD",
-  "postcode": "PE15 0JD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27177",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -27730,16 +27320,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63058939",
-  "name": "Meldreth Community Hub",
-  "address": "The Sheltered Housing Communal Building, Royston, Hertfordshire SG8 6LX",
-  "postcode": "SG8 6LX",
-  "source_url": "https://www.warmwelcome.uk/space?l=27145",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952233",
   "name": "Melksham Library",
   "address": "Melksham Community Campus, Melksham, Wiltshire SN12 6ES",
@@ -27840,16 +27420,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69068910",
-  "name": "Men's Health Project - Tree Estate",
-  "address": "Tree Community Centre, Dartford, Kent DA1 2RS",
-  "postcode": "DA1 2RS",
-  "source_url": "https://www.warmwelcome.uk/space?l=28547",
-  "website": "https://hlcdartford.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-62871080",
   "name": "Mens Brew Crew",
   "address": "St. Margarets Centre, Manchester, Lancashire M21 0TT",
@@ -27896,16 +27466,6 @@
   "postcode": "DA13 0AH",
   "source_url": "https://www.warmwelcome.uk/space?l=18650",
   "website": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=EmzD02awYI8&communitychannel=9",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065214",
-  "name": "Mepal Community Hub",
-  "address": "Mepal Village Hall, CB6  2AJ",
-  "postcode": "CB6 2AJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27162",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -28960,16 +28520,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68881001",
-  "name": "Munch and Mingle",
-  "address": "Crossgates Community Centre, Scarborough, North Yorkshire YO12 4TL",
-  "postcode": "YO12 4TL",
-  "source_url": "https://www.warmwelcome.uk/space?l=28507",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-62767955",
   "name": "Mundesley Library",
   "address": "Mundesley Library, 18 Cromer Road, Mundesley, Mundesley, Norfolk NR11  8BE",
@@ -29150,16 +28700,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69038953",
-  "name": "NAN activity space/meeting room",
-  "address": "Emmanuel Assemblies Of God, Leeds, West Yorkshire LS11 5HP",
-  "postcode": "LS11 5HP",
-  "source_url": "https://www.warmwelcome.uk/space?l=28542",
-  "website": "https://newcomeraidnetwork.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55592202",
   "name": "Nancegollan Community Cafe",
   "address": "Nancegollan Village Hall, Cornwall  TR13 0AJ",
@@ -29276,16 +28816,6 @@
   "postcode": "CH64 9UH",
   "source_url": "https://www.warmwelcome.uk/space?l=25665",
   "website": "www.mha.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-57953160",
-  "name": "Neston Community Youth Centre",
-  "address": "Neston Community Youth Centre, Neston, Merseyside CH64 9RE",
-  "postcode": "CH64 9RE",
-  "source_url": "https://www.warmwelcome.uk/space?l=24893",
-  "website": "https://www.ncyc.charity/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -30020,16 +29550,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69174313",
-  "name": "North Blackburn URC",
-  "address": "North Blackburn United Reformed Church, Blackburn, Lancashire BB1 9QY",
-  "postcode": "BB1 9QY",
-  "source_url": "https://www.warmwelcome.uk/space?l=28574",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-65438722",
   "name": "North Bridlington Library",
   "address": "North Bridlington Library, East Riding of Yorkshire YO16 6YD",
@@ -30166,16 +29686,6 @@
   "postcode": "NR28 9DE",
   "source_url": "https://www.warmwelcome.uk/space?l=24787",
   "website": "www.norfolk.gov.uk/libraries",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69082337",
-  "name": "North Warm Welcome",
-  "address": "North Church, 98 Kirkstall Road, Leeds, West Yorkshire LS3 1HJ",
-  "postcode": "LS3 1HJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=28557",
-  "website": "churchnorth.com",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -30320,16 +29830,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63058940",
-  "name": "Northstowe Community Lounge",
-  "address": "Northstowe Community Centre, Cambridge, Cambridgeshire CB24 1FD",
-  "postcode": "CB24 1FD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27146",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952108",
   "name": "Northway Community Hub",
   "address": "Northway Community Hub & Parish Office, Gloucestershire, Gloucestershire GL20  8QG",
@@ -30446,16 +29946,6 @@
   "postcode": "NG1 5LP",
   "source_url": "https://www.warmwelcome.uk/space?l=25804",
   "website": "www.nottinghamwomenscentre.com",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69042541",
-  "name": "Nottingham Women's Centre",
-  "address": "Nottingham Womens Centre, Nottingham, Nottinghamshire NG1 5LP",
-  "postcode": "NG1 5LP",
-  "source_url": "https://www.warmwelcome.uk/space?l=28543",
-  "website": "https://www.nottinghamwomenscentre.com/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -30785,16 +30275,6 @@
   "address": "CLC, Wolverhampton, West Midlands  WV2  3AJ",
   "postcode": "WV2 3AJ",
   "source_url": "https://www.warmwelcome.uk/space?l=25571",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-55475000",
-  "name": "Octagon Community Hub, Willingham",
-  "address": "Octagon Church Hall, Cambridgeshire CB24 5HS",
-  "postcode": "CB24 5HS",
-  "source_url": "https://www.warmwelcome.uk/space?l=22938",
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
@@ -32600,6 +32080,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-68762729",
+  "name": "Pineholt Bowls Club",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: published times not found on source this run",
+  "recheck": {
+   "url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
+   "final_url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "4b270256e38eff4844f2f3b1018e76adbdaa99af524b071fb540e3986795e4ca"
+  }
+ },
+ {
   "id": "ww-65345121",
   "name": "Pinxton Warm and Welcome Club",
   "address": "Pinxton Village Hall, Derbyshire, Derbyshire NG16 6NA",
@@ -33076,16 +32569,6 @@
   "postcode": "BH15 1QE",
   "source_url": "https://www.warmwelcome.uk/space?l=23154",
   "website": "https://www.bcpcouncil.gov.uk/Libraries/Your-local-library/Libraries-in-Poole/Poole-Library.aspx",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-67428559",
-  "name": "Poole Pantry",
-  "address": "Parkstone URC, Poole, Dorset BH14  0JW",
-  "postcode": "BH14 0JW",
-  "source_url": "https://www.warmwelcome.uk/space?l=28169",
-  "website": "https://poolecommunityexchange.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -33830,32 +33313,12 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-65420071",
-  "name": "Rainbow Junktion",
-  "address": "All Hallows Church, West Yorkshire LS6 1NP",
-  "postcode": "LS6 1NP",
-  "source_url": "https://www.warmwelcome.uk/space?l=24434",
-  "website": "https://www.allhallowsleeds.org/what-we-do#/rainbow-junktion/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57951867",
   "name": "Rainbow Leisure Centre",
   "address": "Rainbow Leisure Centre, Surrey KT17 1BN",
   "postcode": "KT17 1BN",
   "source_url": "https://www.warmwelcome.uk/space?l=24228",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68641659",
-  "name": "Rainham Foodbank",
-  "address": "Rainham Foodbank, Rainham, Havering RM13 8HT",
-  "postcode": "RM13 8HT",
-  "source_url": "https://www.warmwelcome.uk/space?l=28454",
-  "website": "https://rainham.foodbank.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -34460,16 +33923,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69336193",
-  "name": "Renew Well Being Café",
-  "address": "Hawkhurst Baptist Church, Cranbrook, Kent TN18 4AU",
-  "postcode": "TN18 4AU",
-  "source_url": "https://www.warmwelcome.uk/space?l=28604",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64432715",
   "name": "Renew Wellbeing Cafe",
   "address": "St. Peter's Micklefield Road, High Wycombe, Buckinghamshire HP13 7HU",
@@ -34576,16 +34029,6 @@
   "postcode": "PE21 8UJ",
   "source_url": "https://www.warmwelcome.uk/space?l=14975",
   "website": "https://restorechurchboston.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-65438881",
-  "name": "Retford Library",
-  "address": "Inspire Culture, Learning and Libraries, Retford, Nottinghamshire DN22 6PE",
-  "postcode": "DN22 6PE",
-  "source_url": "https://www.warmwelcome.uk/space?l=27478",
-  "website": "www.inspireculture.org.uk/retford",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -35310,16 +34753,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-69056096",
-  "name": "Rowbarton Methodist Church Taunton",
-  "address": "Rowbarton Methodist Church, Taunton, Somerset TA2 6LA",
-  "postcode": "TA2 6LA",
-  "source_url": "https://www.warmwelcome.uk/space?l=25926",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-58212613",
   "name": "Rowsley South Tea Rooms",
   "address": "Rowsley South Station, Darley Dale, DE4 2LF",
@@ -35606,16 +35039,6 @@
   "postcode": "BN16 2NL",
   "source_url": "https://www.warmwelcome.uk/space?l=24699",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69082269",
-  "name": "RWA Gallery - Living Room",
-  "address": "Royal West Of England Academy, Bristol, BS8 1PX",
-  "postcode": "BS8 1PX",
-  "source_url": "https://www.warmwelcome.uk/space?l=28521",
-  "website": "www.rwa.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -36346,16 +35769,6 @@
   "postcode": "BN22 7NN",
   "source_url": "https://www.warmwelcome.uk/space?l=22088",
   "website": "undefined",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-55473794",
-  "name": "Seaview Project",
-  "address": "Southwater Centre, St Leonards on Sea, Uk TN37  6LB",
-  "postcode": "TN37 6LB",
-  "source_url": "https://www.warmwelcome.uk/space?l=19326",
-  "website": "https://seaviewproject.co.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -37620,16 +37033,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63060796",
-  "name": "Soham Community Hub",
-  "address": "Soham Town Rangers Football & Social Club, Ely, Cambridgeshire CB7 5EQ",
-  "postcode": "CB7 5EQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27152",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-67995149",
   "name": "Soham Community Wellbeing Space at Savoy Court",
   "address": "Community Centre, Harrow, Middlesex HA2 6BU",
@@ -37926,16 +37329,6 @@
   "postcode": "DH9 7QF",
   "source_url": "https://www.warmwelcome.uk/space?l=18349",
   "website": "www.northwestdurhammethodists.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69210060",
-  "name": "South Riverside Community Development Centre Ltd",
-  "address": "South Riverside Development Centre Ltd, Riverside, Cardiff CF11 6ES CF11 6ES",
-  "postcode": "CF11 6ES",
-  "source_url": "https://www.warmwelcome.uk/space?l=28588",
-  "website": "https://www.srcdc.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -38446,16 +37839,6 @@
   "postcode": "DA1 1TE",
   "source_url": "https://www.warmwelcome.uk/space?l=27184",
   "website": "www.2dartfordchurches.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69208997",
-  "name": "St Albans Centre",
-  "address": "St Albans Centre Holmewood, Chesterfield, Derbyshire S42 5SJ",
-  "postcode": "S42 5SJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=28544",
-  "website": "A Church Near You All Saints Heath and St Albans Holmewood",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -39940,16 +39323,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-62854883",
-  "name": "St Johns Community Hub and St Johns Tots",
-  "address": "St Johns Church Hall, March, Cambridgeshire PE15 8SQ",
-  "postcode": "PE15 8SQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27037",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55475768",
   "name": "St Johns Green Drop Thursday Drop In",
   "address": "St. Johns Church, South Yorkshire S61 3JL",
@@ -41270,16 +40643,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-58107219",
-  "name": "St Peter and St Paul, Bishops Hull",
-  "address": "St. Peter & St. Paul Parish Church, Somerset TA1 5EB",
-  "postcode": "TA1 5EB",
-  "source_url": "https://www.warmwelcome.uk/space?l=21982",
-  "website": "https://www.stpeterandstpaul.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57951912",
   "name": "St Peter's Centre",
   "address": "St. Peters Centre, Cheltenham, Gloucestershire GL54 5LU",
@@ -41436,16 +40799,6 @@
   "postcode": "WF17 9PB",
   "source_url": "https://www.warmwelcome.uk/space?l=24728",
   "website": "https//stpetersbirstall.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68672296",
-  "name": "St Petrock's Church, Timberscombe",
-  "address": "St Petrock's Church, Somerset TA24  7TP",
-  "postcode": "TA24 7TP",
-  "source_url": "https://www.warmwelcome.uk/space?l=22081",
-  "website": "https://timberscombevillage.com/church-services/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -41898,6 +41251,19 @@
   "website": "https://www.smbfsec.com/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "ww-55592295",
+  "name": "St. Matt's Community Hub",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 404)",
+  "recheck": {
+   "url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
+   "final_url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 404,
+   "sha256": ""
+  }
  },
  {
   "id": "ww-55473715",
@@ -42810,16 +42176,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-67491277",
-  "name": "Strand Community Centre",
-  "address": "Strand Community Centre, Dawlish, Devon EX7 9PT",
-  "postcode": "EX7 9PT",
-  "source_url": "https://www.warmwelcome.uk/space?l=25485",
-  "website": "https://www.strandcentre.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-62766119",
   "name": "Stratford Advice Arcade",
   "address": "Stratford Advice Arcade, London, London E15 1HP",
@@ -42896,16 +42252,6 @@
   "postcode": "M32 0LG",
   "source_url": "https://www.warmwelcome.uk/space?l=23626",
   "website": "www.stretfordpublichall.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63065216",
-  "name": "Stretham Community Hub",
-  "address": "Stretham Parish Rooms, CB6  3LD",
-  "postcode": "CB6 3LD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27164",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -43396,16 +42742,6 @@
   "postcode": "S41 9JZ",
   "source_url": "https://www.warmwelcome.uk/space?l=28343",
   "website": "https://www.swanwickmemorialhall.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-64379394",
-  "name": "Sway Community Hub",
-  "address": "Sway Youth Centre, Sway, Sway SO41 6BA",
-  "postcode": "SO41 6BA",
-  "source_url": "https://www.warmwelcome.uk/space?l=18284",
-  "website": "www.sway-pc.gov.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -44130,16 +43466,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63059342",
-  "name": "Teversham Community Hub",
-  "address": "Teversham Community Club, CB1  9AQ",
-  "postcode": "CB1 9AQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27147",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55474655",
   "name": "Tewkesbury Baptist Church",
   "address": "Station Road, TEWKESBURY, Gloucestershire GL20 5DR GL20 5DR",
@@ -44346,16 +43672,6 @@
   "postcode": "DD8 1BA",
   "source_url": "https://www.warmwelcome.uk/space?l=25397",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-62827950",
-  "name": "The Angel Community Cafe",
-  "address": "The Angel, Langport, Somerset TA10 9PQ",
-  "postcode": "TA10 9PQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=26965",
-  "website": "https://theangelcafelangport.co.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -46250,16 +45566,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-65438865",
-  "name": "The Hubbub",
-  "address": "Lockeaze Neighbourhood Trust, Bristol, Avon BS7 9FB BS7 9FB",
-  "postcode": "BS7 9FB",
-  "source_url": "https://www.warmwelcome.uk/space?l=27459",
-  "website": "https://www.lockleazent.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55474625",
   "name": "The Hut",
   "address": "The Hut, West Yorkshire WF10 3ET",
@@ -46600,6 +45906,19 @@
   "reason": "not on allowlist"
  },
  {
+  "id": "ww-68769406",
+  "name": "The Living Room",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: published times not found on source this run",
+  "recheck": {
+   "url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
+   "final_url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 200,
+   "sha256": "8aabcad5952fc6c2a20b7c9c265fdf5ef0e75b5edf14c81418b425a4f63df342"
+  }
+ },
+ {
   "id": "ww-64511430",
   "name": "The Living Room",
   "address": "St. Jude & St. Paul's Church, London N1 4PL",
@@ -46860,14 +46179,17 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68895885",
+  "id": "ww-69080400",
   "name": "The Meeting Place",
-  "address": "The Salvation Army, Craigavon, County Armagh BT62 3LX",
-  "postcode": "BT62 3LX",
-  "source_url": "https://www.warmwelcome.uk/space?l=28509",
-  "website": "https://www.salvationarmy.org.uk/portadown",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
+  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "recheck": {
+   "url": "https://www.budleighbaptistchurch.org.uk/activities/",
+   "final_url": "https://www.budleighbaptistchurch.org.uk/activities/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 202,
+   "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
+  }
  },
  {
   "id": "ww-64576746",
@@ -47000,16 +46322,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68611803",
-  "name": "The Neighbourhood Table",
-  "address": "Gussage All Saints Village Hall, Wimborne, Dorset BH21 5ET BH21 5ET",
-  "postcode": "BH21 5ET",
-  "source_url": "https://www.warmwelcome.uk/space?l=28451",
-  "website": "www.gussageallsaintsvillagehall.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64379273",
   "name": "The Nest, New Romney",
   "address": "The Nest, New Romney, Kent TN28 8AY",
@@ -47056,16 +46368,6 @@
   "postcode": "BR5 2LJ",
   "source_url": "https://www.warmwelcome.uk/space?l=18798",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-66561578",
-  "name": "The Oasis",
-  "address": "Newquay Methodist Church, Cornwall TR7 1RW",
-  "postcode": "TR7 1RW",
-  "source_url": "https://www.warmwelcome.uk/space?l=26481",
-  "website": "www.newquaymethodist.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -47536,16 +46838,6 @@
   "postcode": "LL13 8DG",
   "source_url": "https://www.warmwelcome.uk/space?l=28342",
   "website": "www.rbwhfoundation.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69343435",
-  "name": "The Reed",
-  "address": "28 Convent Gardens, London, London W11 1NH",
-  "postcode": "W11 1NH",
-  "source_url": "https://www.warmwelcome.uk/space?l=28607",
-  "website": "abri.co.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -49520,16 +48812,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63059343",
-  "name": "Toft Community Hub",
-  "address": "Toft People’s Hall, Cambridge, CB23  2RJ",
-  "postcode": "CB23 2RJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27148",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-64767973",
   "name": "TOG's Family Centre",
   "address": "Togs Centre, Pontypool, Gwent NP4 0PH",
@@ -49566,16 +48848,6 @@
   "postcode": "BD4 0RP",
   "source_url": "https://www.warmwelcome.uk/space?l=27741",
   "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-64379220",
-  "name": "Together We Thrive",
-  "address": "Main Hall, off 227 Ballards Lane,, London, Finchley N3  1NB",
-  "postcode": "N3 1NB",
-  "source_url": "https://www.warmwelcome.uk/space?l=26970",
-  "website": "https://barnet.adventistchurch.org.uk/community-services",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -50350,16 +49622,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68923940",
-  "name": "Tuesdays Thingamajigs Memory Cafe",
-  "address": "Fryyern Pavilion, Eastleigh, Hampshire SO53 2LE",
-  "postcode": "SO53 2LE",
-  "source_url": "https://www.warmwelcome.uk/space?l=28518",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-65437445",
   "name": "Tuesdays Warm Space Refreshments and Chat",
   "address": "United Reformed Church, MINEHEAD, Somerset  TA24  5DJ",
@@ -50518,6 +49780,19 @@
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "ww-68789946",
+  "name": "Ullesthorpe Village Hall Drop-In",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 404)",
+  "recheck": {
+   "url": "https://ullesthorpe.org/amenities/village-hall/",
+   "final_url": "https://ullesthorpe.org/amenities/village-hall/",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 404,
+   "sha256": ""
+  }
  },
  {
   "id": "ww-64379426",
@@ -51080,16 +50355,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-67608542",
-  "name": "Ventnor Well-being Cafe",
-  "address": "Ventnor Town Council, Isle of Wight PO38 1EJ",
-  "postcode": "PO38 1EJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27335",
-  "website": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57952095",
   "name": "Venture Centre",
   "address": "Venture Community Association, London, London W10 5YB",
@@ -51250,16 +50515,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-64432641",
-  "name": "Vicar Mark Adams",
-  "address": "St Margaret's Church, North Street, Barking, Essex IG11 8AS",
-  "postcode": "IG11 8AS",
-  "source_url": "https://www.warmwelcome.uk/space?l=16390",
-  "website": "https://stmargaretschurchbarking.com/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55472774",
   "name": "Victoria Hall",
   "address": "Victoria Hall, Derbyshire SK13 7DG",
@@ -51376,16 +50631,6 @@
   "postcode": "SL4 4JW",
   "source_url": "https://www.warmwelcome.uk/space?l=25864",
   "website": "https://allsaintschurchdedworth.com/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63610903",
-  "name": "VineCCL Coffee Morning",
-  "address": "The Vine Community Church, Ely, Cambridgeshire CB6 1PW",
-  "postcode": "CB6 1PW",
-  "source_url": "https://www.warmwelcome.uk/space?l=27411",
-  "website": "vineccl.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -51690,16 +50935,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68735413",
-  "name": "Wardlaw Museum",
-  "address": "Wardlaw Museum, St. Andrews, Fife KY16 9AR",
-  "postcode": "KY16 9AR",
-  "source_url": "https://www.warmwelcome.uk/space?l=28473",
-  "website": "https://www.st-andrews.ac.uk/museums/wardlaw-museum/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-65438807",
   "name": "Wareham  Family Hub",
   "address": "Wareham Family Hub, WAREHAM, DORSET BH20 4PH",
@@ -51878,6 +51113,19 @@
   "website": "wkpc.church",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
+ },
+ {
+  "id": "ww-69189234",
+  "name": "Warm hub 2026",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
+   "final_url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": 403,
+   "sha256": ""
+  }
  },
  {
   "id": "ww-65344957",
@@ -52175,16 +51423,6 @@
   "address": "The Immaculate Conception Church Oadby, Leicestershire, Leicester, Leicestershire  LE2  4LI",
   "postcode": "LE2 4LI",
   "source_url": "https://www.warmwelcome.uk/space?l=26641",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-68639359",
-  "name": "Warm Space Cafe",
-  "address": "46 St Martin's Rd, Knowle, Bristol BS4 2NG",
-  "postcode": "BS4 2NG",
-  "source_url": "https://www.warmwelcome.uk/space?l=21864",
   "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
@@ -52520,16 +51758,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-57952419",
-  "name": "Warm Welcome",
-  "address": "Emmanuel United Reformed Church, West Wickham, Kent BR4  9JS",
-  "postcode": "BR4 9JS",
-  "source_url": "https://www.warmwelcome.uk/space?l=25597",
-  "website": "www.emmanuelww.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-55474832",
   "name": "Warm Welcome",
   "address": "The Salvation Army, Essex SS3  8UT",
@@ -52596,16 +51824,6 @@
   "postcode": "NR3 3NT",
   "source_url": "https://www.warmwelcome.uk/space?l=25843",
   "website": "http://www.oakgrovecommunitychurch.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-62729499",
-  "name": "Warm welcome",
-  "address": "Chorlton Central Church, Manchester, Lancashire M21 8BF",
-  "postcode": "M21 8BF",
-  "source_url": "https://www.warmwelcome.uk/space?l=26885",
-  "website": "www.chorlton-central.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -53560,16 +52778,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-68972466",
-  "name": "Wednesday Memories @ St Andrews",
-  "address": "St. Andrews Methodist Church, Eastleigh, Hampshire SO50 5SD",
-  "postcode": "SO50 5SD",
-  "source_url": "https://www.warmwelcome.uk/space?l=28523",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-65441973",
   "name": "Wednesday Morning Café",
   "address": "St. Ninians Church, Dunfermline, Fife KY11 4HE",
@@ -53852,12 +53060,15 @@
  {
   "id": "ww-68833847",
   "name": "Welcome space",
-  "address": "Methodist Church Old Roan, Merseyside L10 2LQ",
-  "postcode": "L10 2LQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=28502",
-  "website": "",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
+  "reason": "omitted this run: schema: hours value invalid: Wed=Closed - 14:00",
+  "recheck": {
+   "url": "https://www.warmwelcome.uk/find-a-space",
+   "final_url": "https://www.warmwelcome.uk/find-a-space",
+   "fetched_at": "2026-10-21T13:40:55+00:00",
+   "http": "feed",
+   "sha256": null
+  }
  },
  {
   "id": "ww-67999426",
@@ -54106,16 +53317,6 @@
   "postcode": "NG31 9QZ",
   "source_url": "https://www.warmwelcome.uk/space?l=15029",
   "website": "http://harrowby-londonthorpe-parishes.uk/public/index.php",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69189528",
-  "name": "Wellbeing Group",
-  "address": "Holford Drive Sports Hub, Birmingham, West Midlands B42 2TU",
-  "postcode": "B42 2TU",
-  "source_url": "https://www.warmwelcome.uk/space?l=28582",
-  "website": "https://holfordsportshub.co.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -54700,16 +53901,6 @@
   "reason": "not on allowlist"
  },
  {
-  "id": "ww-63059344",
-  "name": "West Wickham Community Hub",
-  "address": "West Wickham Village Hall, Cambridge, Cambridgeshire CB21 4SB",
-  "postcode": "CB21 4SB",
-  "source_url": "https://www.warmwelcome.uk/space?l=27149",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
   "id": "ww-57979439",
   "name": "West Wight Sports and Community Centre",
   "address": "West Wight Sports & Community Centre, Isle of Wight PO40 9XH",
@@ -54956,16 +54147,6 @@
   "postcode": "DE56 4ER",
   "source_url": "https://www.warmwelcome.uk/space?l=27384",
   "website": "www.westoncentre.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63059429",
-  "name": "Weston Colville Community Hub",
-  "address": "The Reading Room, Cambridge, Cambridgeshire CB21 5NX",
-  "postcode": "CB21 5NX",
-  "source_url": "https://www.warmwelcome.uk/space?l=27150",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -55496,16 +54677,6 @@
   "postcode": "WN1 1NH",
   "source_url": "https://www.warmwelcome.uk/space?l=27267",
   "website": "https://www.wigan.gov.uk/Resident/Libraries/index.aspx",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-63059428",
-  "name": "Wilbrahams Community Hub",
-  "address": "Wilbrahams Memorial Hall, Cambridge, CB21  5JG",
-  "postcode": "CB21 5JG",
-  "source_url": "https://www.warmwelcome.uk/space?l=27151",
-  "website": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },
@@ -56946,16 +56117,6 @@
   "postcode": "KT2 5BH",
   "source_url": "https://www.warmwelcome.uk/space?l=23871",
   "website": "WWW.YMCASPG.ORG",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist"
- },
- {
-  "id": "ww-69175071",
-  "name": "YMCA Scarborough",
-  "address": "YMCA Yorkshire Coast, North Yorkshire YO11 1DY",
-  "postcode": "YO11 1DY",
-  "source_url": "https://www.warmwelcome.uk/space?l=24035",
-  "website": "https://www.ymcayorks.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist"
  },

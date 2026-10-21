@@ -75,7 +75,7 @@ def shelter_autocheck(x):
     if not x.get("website"): flags.append("no operator website in source")
     return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}
 raw_count = len(fresh)
-fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", shelter_autocheck)
+fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", unverified=load_verified("overrides/shelters_unverified.json"), autocheck=shelter_autocheck)
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
