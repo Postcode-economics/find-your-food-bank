@@ -3446,7 +3446,13 @@
    "id": "vai",
    "name": "Voluntary Action Islington warm spaces",
    "url": "https://vai.org.uk/warm-spaces-in-islington/",
-   "layer": "warmspaces"
+   "layer": "warmspaces",
+   "auto_add": true,
+   "parser": "numbered_fields",
+   "section": {
+    "start": "Warm spaces 1.",
+    "end": " Services & advice"
+   }
   },
   {
    "id": "swk",
@@ -3519,6 +3525,18 @@
    "name": "Emmanuel House Night Shelter",
    "url": "https://www.emmanuelhouse.org.uk/services/nottingham-night-shelter/",
    "layer": "shelters"
+  },
+  {
+   "id": "vai2",
+   "name": "Voluntary Action Islington community support (Warm Spaces section)",
+   "url": "https://vai.org.uk/community-support/",
+   "layer": "warmspaces",
+   "auto_add": true,
+   "parser": "numbered_fields",
+   "section": {
+    "start": "Warm Spaces 1.",
+    "end": "Advice and Legal Support 1."
+   }
   }
  ]
 }
