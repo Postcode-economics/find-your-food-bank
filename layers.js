@@ -2,20 +2,20 @@
    Each layer has its own data file (shelters.js / warmspaces.js), scraper and update log. */
 (function(){
 const REPO='https://github.com/postcode-economics/find-your-food-bank';
-const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Listings change – always call before you travel',legend:'Key',sh:'Shelters',ws:'Warm spaces',near:'📍 Find nearest to me',upd:'updated',notLoaded:'tap to show',
+const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call before you go',legend:'Key',sh:'Shelters',ws:'Warm spaces',near:'📍 Find nearest to me',upd:'updated',notLoaded:'tap to show',
  disc:'<b>Listings can change without notice.</b> Always call before you travel. In an emergency call 999. If you are sleeping rough in England, contact your local council or StreetLink.',
  add:'Add or update your service',closed:'Recently closed (last 30 days)',report:'Report an error',call:'Call',dir:'Directions',
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',none:'None listed',
- h1:'Find a food bank near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'mi',srcNote:'Details are shown in the language the source published them in.'},
-cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Mae rhestrau’n newid – ffoniwch bob amser cyn teithio',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'📍 Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
+ h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'mi',srcNote:'Details are shown in the language the source published them in.'},
+cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'📍 Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',none:'Dim wedi’u rhestru',
- h1:'Dod o hyd i fanc bwyd yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
+ h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(x))};
@@ -101,7 +101,7 @@ const FBX=[[/^Closed$/,'Ar gau'],[/^Times change, call ahead\.$/,'Mae amseroedd 
 [/^Times not listed, call to check$/,'Amseroedd heb eu rhestru, ffoniwch i wirio'],[/^🕒 Opening times$/,'🕒 Oriau agor'],[/^Open in Google Maps ➜$/,'Agor yn Google Maps ➜'],[/^Their website$/,'Eu gwefan'],
 [/^Give Food page$/,'Tudalen Give Food'],[/^Check times$/,'Gwirio amseroedd'],[/^source$/,'ffynhonnell'],[/^Share this map$/,'Rhannu’r map hwn'],[/^Link copied ✓$/,'Dolen wedi’i chopïo ✓'],
 [/^Pin placed at the postcode centre\. Check the address\.$/,'Pin wedi’i osod yng nghanol y cod post. Gwiriwch y cyfeiriad.'],[/^Phone \(from Give Food\)$/,'Ffôn (gan Give Food)'],[/^Phone \(checked on their site\)$/,'Ffôn (wedi’i wirio ar eu gwefan)'],
-[/^ ?Open today only$/,' Ar agor heddiw yn unig'],[/^Hides only places listed as closed today\. Places without listed times stay, call to check\.$/,'Yn cuddio dim ond lleoedd sydd wedi’u rhestru ar gau heddiw. Mae lleoedd heb amseroedd yn aros, ffoniwch i wirio.'],
+[/^ ?Open today only$/,' Ar agor heddiw yn unig'],[/^Places with no times stay listed$/,'Mae lleoedd heb amseroedd yn aros ar y rhestr'],[/^🚶 Directions$/,'🚶 Cyfarwyddiadau'],[/^Hides only places listed as closed today\. Places without listed times stay, call to check\.$/,'Yn cuddio dim ond lleoedd sydd wedi’u rhestru ar gau heddiw. Mae lleoedd heb amseroedd yn aros, ffoniwch i wirio.'],
 [/^Most food banks need a referral or voucher\.$/,'Mae angen atgyfeiriad neu daleb ar y rhan fwyaf o fanciau bwyd.'],[/^ Call first\.$/,' Ffoniwch yn gyntaf.'],
 [/^Searching…$/,'Wrthi’n chwilio…'],[/^Finding you…$/,'Wrthi’n dod o hyd i chi…'],[/^Search failed\. Check your connection and try again\.$/,'Methodd y chwiliad. Gwiriwch eich cysylltiad a rhowch gynnig arall arni.'],
 [/^We couldn’t find “(.*)”\. Try a postcode or a town name, e\.g\. BN17 5LF or Littlehampton\.$/,'Methwyd dod o hyd i “$1”. Rhowch gynnig ar god post neu enw tref, e.e. BN17 5LF neu Littlehampton.'],
