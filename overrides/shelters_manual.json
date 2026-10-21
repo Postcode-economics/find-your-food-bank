@@ -1,1 +1,46 @@
-[]
+[
+ {
+  "id": "man-nightsafe-blackburn",
+  "name": "Nightsafe Emergency Night Shelter",
+  "address": "The Boulevard Centre, 45 Railway Road, Blackburn",
+  "postcode": "BB1 1EZ",
+  "lat": 53.746989,
+  "lng": -2.478944,
+  "phone": "01254 503067",
+  "website": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+  "hours": "365 days, 5.00pm-10.00am",
+  "referral": "Self-referral (01254 503067, Mon-Fri 9-5) or council out of hours",
+  "beds": "5",
+  "groups": [
+   "Young people"
+  ],
+  "season": "Year-round",
+  "operator": "",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+  "last_verified": "2026-10-21",
+  "stale": false
+ },
+ {
+  "id": "man-wakefield-swep",
+  "name": "Wakefield Cold Weather Shelter (SWEP)",
+  "address": "Wakefield Baptist Church, Belle Isle Avenue, Wakefield",
+  "postcode": "WF1 5JY",
+  "lat": 53.672306,
+  "lng": -1.487575,
+  "phone": "01924 304360",
+  "website": "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
+  "hours": "8pm-8am, only when severe weather provision is open",
+  "referral": "Open access when SWEP active; check with Housing Needs 01924 304360",
+  "beds": "",
+  "groups": [],
+  "season": "SWEP (severe weather only)",
+  "operator": "",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
+  "last_verified": "2026-10-21",
+  "stale": false
+ }
+]

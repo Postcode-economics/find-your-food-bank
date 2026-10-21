@@ -64,11 +64,14 @@ prev = load_js(OUT, "SHELTERS")
 VER = load_verified("overrides/shelters_verified.json")
 HE_HINT = "https://homeless.org.uk/homeless-england/"
 def shelter_autocheck(x):
-    # Automatic pre-check only flags what a human must confirm; it never publishes.
+    # Bar (Dean, 21 Oct 2026): a credible council/operator/charity/official page must show it is a homeless
+    # shelter, night shelter or emergency accommodation, open in a stated period, with opening or access
+    # times/route. Day centres without beds do not count. This pre-check only flags; it never publishes.
     flags = []
     if x.get("flag_closed"): flags.append("tagged closed/disused in OSM")
     n = x["name"].lower()
-    if any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee"]): flags.append("name suggests not a shelter")
+    if any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee", "foyer"]): flags.append("name suggests not a shelter")
+    if any(w in n for w in ["night shelter", "winter shelter", "swep", "cold weather"]): flags.append("seasonal: needs stated open period")
     if not x.get("website"): flags.append("no operator website in source")
     return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}
 raw_count = len(fresh)

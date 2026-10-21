@@ -70,13 +70,17 @@ def season_end(v):  # a verification is valid only for the winter season it was 
     d = datetime.date.fromisoformat(v.get("verified_on", "2000-01-01"))
     return f"{d.year + (1 if d.month >= 9 else 0)}-04-30"
 def ws_autocheck(x):
-    # Evidence the feed allows: opening hours, no past end date. The listing's own last-updated date
-    # is shown on warmwelcome.uk; a spot-check of 51 season-updated listings passed only 59%, so this
-    # pre-check can never publish on its own.
+    # Bar (Dean, 21 Oct 2026): publish only when a credible source (council, venue's own site, library,
+    # church or charity page) states the warm space runs on a given weekday at a given time, and nothing
+    # says it has ended/closed/was last winter only. A Warm Welcome listing alone does not count.
+    # This pre-check only flags; it never publishes. A human adds evidence_url + day_time_quote.
     flags = []
     if not x.get("hours"): flags.append("no opening hours")
     if x.get("ended"): flags.append("past stated end date")
-    return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", x.get("source_url", ""), "council warm spaces page"]}
+    w = (x.get("website") or "").lower()
+    if not w or "warmwelcome.uk" in w: flags.append("no independent website: Warm Welcome listing alone is not evidence")
+    return {"result": "needs manual evidence", "flags": flags, "needs": "credible page with weekday + time, current season",
+            "where_to_check": [x.get("website") or "", "council warm spaces page", "achurchnearyou / library page"]}
 raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", ws_autocheck, season_end)
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}

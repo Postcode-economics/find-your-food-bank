@@ -71,7 +71,8 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
     pub, pending = [], []
     for x in fresh:
         v = verified.get(x["id"])
-        if v and (not valid_until or run_day <= valid_until(v)):
+        has_evidence = bool(v and v.get("evidence_url") and (v.get("day_time_quote") or v.get("quote")))
+        if v and has_evidence and (not valid_until or run_day <= valid_until(v)):
             x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
             for k in ("phone", "address", "access"):
                 if v.get(k): x[k] = v[k]
@@ -80,7 +81,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         else:
             p = {"id": x["id"], "name": x["name"], "address": x.get("address", ""), "postcode": x.get("postcode", ""),
                  "source_url": x.get("source_url", ""), "website": x.get("website", ""), "first_seen": run_day,
-                 "reason": "verification expired" if v else "not on allowlist"}
+                 "reason": ("allowlisted but missing evidence_url/day_time_quote" if v and not has_evidence else "verification expired") if v else "not on allowlist"}
             if autocheck:
                 try: p["autocheck"] = autocheck(x)
                 except Exception as e: p["autocheck"] = {"result": "error", "detail": str(e)[:120]}
