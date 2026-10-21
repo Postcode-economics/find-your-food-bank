@@ -22,6 +22,10 @@ const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,x=Math.sin(r(c-a)/2)**2+Math.cos(
 const MCY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'],MEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const p2=n=>String(n).padStart(2,'0');
 const dstr=(dt,time)=>`${dt.getDate()} ${(lang==='cy'?MCY:MEN)[dt.getMonth()]} ${dt.getFullYear()}`+(time?(lang==='cy'?' am ':', ')+p2(dt.getHours())+':'+p2(dt.getMinutes()):'');
+const MLONG=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const cyDates=s=>s.replace(/(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})/g,(m,d,mo,y)=>{let i=MLONG.indexOf(mo);if(i<0)i=MEN.indexOf(mo);
+ try{const f=new Intl.DateTimeFormat('cy-GB',{day:'numeric',month:'long',year:'numeric'}).format(new Date(+y,i,+d));if(MCY.some(x=>f.includes(x)))return f}catch(e){}
+ return d+' '+MCY[i]+' '+y});  // Welsh footer dates: cy-GB, manual month fallback
 const hDisp=h=>{let x=String(h||'');x=x.replace(/^Mo-Su\s+/,lang==='cy'?'Bob dydd ':'Every day ');return x.replace(/(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})/g,(m,a,b,c,d)=>a+':'+b+'–'+c+':'+d+((+c*60+ +d)<=(+a*60+ +b)?(lang==='cy'?' (drannoeth)':' (next day)'):''))};
 const fmt=d=>d?dstr(new Date(d+'T12:00:00')):'';
 // Welsh for source-data values (shown as-is in English)
@@ -133,7 +137,7 @@ const FBX=[[/^Closed$/,'Ar gau'],[/^Food bank – collect food here$/,'Banc bwyd
 [/^Mon$/,'Llun'],[/^Tue$/,'Maw'],[/^Wed$/,'Mer'],[/^Thu$/,'Iau'],[/^Fri$/,'Gwe'],[/^Sat$/,'Sad'],[/^Sun$/,'Sul'],[/^You are here$/,'Rydych chi yma'],[/^Searched: (.*)$/,'Chwiliwyd: $1'],
 [/^Made by @postcode_economics\. $/,'Gwnaed gan @postcode_economics. '],[/^Follow for more UK money maps$/,'Dilynwch am fwy o fapiau arian y DU'],
 [/^Data: $/,'Data: '],[/^, last updated $/,', diweddarwyd ddiwethaf '],[/^ and the $/,' a’r '],[/^ \(checked on each food bank's own website\), last updated $/,' (wedi’u gwirio ar wefan pob banc bwyd), diweddarwyd ddiwethaf '],[/^\. Times change, call ahead to confirm\. Phone numbers and opening times $/,'. Mae amseroedd yn newid, ffoniwch ymlaen llaw i gadarnhau. Rhifau ffôn ac oriau agor '],
-[/^\. Postcodes: $/,'. Codau post: '],[/^\. Map © OpenStreetMap contributors\. Built by $/,'. Map © cyfranwyr OpenStreetMap. Adeiladwyd gan '],[/^checked (.*)$/,'gwiriwyd $1'],
+[/^\. Postcodes: $/,'. Codau post: '],[/^\. Map © OpenStreetMap contributors\. Built by $/,'. Map © cyfranwyr OpenStreetMap. Adeiladwyd gan '],[/^checked (.*)$/,(m,a)=>'gwiriwyd '+cyDates(a)],
 [/^(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})$/,(m,d,mo,y)=>d+' '+MCY[MEN.indexOf(mo.slice(0,3))]+' '+y]];
 const ATTR=[['q','aria-label','Postcode or town','Cod post neu dref'],['me','aria-label','Use my location','Defnyddio fy lleoliad'],['me','title','Use my location','Defnyddio fy lleoliad']];
 const skip=n=>n.parentElement&&n.parentElement.closest('#rpm,.rpb,#xextra,#xbar,#xleg,#xbefore summary,#xoff,#xnear,#xlang,script,style,.leaflet-control-attribution');
