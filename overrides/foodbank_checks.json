@@ -1,0 +1,14 @@
+{
+  "_comment": "Results of manual source checks (21 Oct 2026). 'office' entries are relabelled as donation-only; 'client' entries are confirmed client-facing; 'unclear' stay as normal pins and are flagged in the audit. Applied on every nightly build by scripts/classify.py.",
+  "manna": {"result": "office", "evidence": "Give Food lists this PO Box address as 'Administrative'; PO Box 682 is not a visitable place", "url": "https://www.givefood.org.uk/needs/at/manna/"},
+  "salvation-army/severn-somerset": {"result": "office", "evidence": "Address is an office park (Vantage Office Park, ground floor unit), with no opening times listed", "url": "https://www.givefood.org.uk/needs/at/salvation-army/severn-somerset/"},
+  "salvation-army/central-south": {"result": "office", "evidence": "Address is an office park (1st Floor, Anglo Office Park), with no opening times listed", "url": "https://www.givefood.org.uk/needs/at/salvation-army/central-south/"},
+  "blackpool/helping-hearts": {"result": "office", "evidence": "Address is 'Office 11' in Flexspace Business Centre, with no opening times listed", "url": "https://www.givefood.org.uk/needs/at/blackpool/helping-hearts/"},
+  "harold-hill": {"result": "client", "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher", "url": "https://haroldhill.foodbank.org.uk/locations/"},
+  "sutton-bridge-community-larder": {"result": "client", "evidence": "Own site: 'OPEN TUESDAYS and FRIDAYS 10 a.m. to 1 p.m. ... at Unit 8, Railway Lane Industrial Estate'", "url": "https://sblarder.wixsite.com/larder"},
+  "arfon": {"result": "client", "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher", "url": "https://arfon.foodbank.org.uk/locations/"},
+  "south-derbyshire-cvs": {"result": "client", "evidence": "Own site: 'Our Food Hub is located on the Top Floor of Unit G ... Food bank opening times are...'", "url": "https://www.sdcvs.org.uk/food-hub"},
+  "truro": {"result": "client", "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher", "url": "https://truro.foodbank.org.uk/locations/"},
+  "foyle": {"result": "client", "evidence": "Own Locations page: 'Unit 15 Springtown Industrial estate ... Collection only, Collection times'", "url": "https://foyle.foodbank.org.uk/locations/"},
+  "lyme-regis": {"result": "client", "evidence": "Own site: 'open for food parcel collections on Wednesdays between 10am and noon. We are at Unit 5, Uplyme Road Business Park'", "url": "https://lymeregisfoodbank.co.uk"}
+}

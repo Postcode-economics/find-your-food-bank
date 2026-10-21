@@ -1,0 +1,11 @@
+{
+  "_comment": "NEVER REMOVE these entries. Confirmed by the food bank itself; applied by scripts/build.py on every nightly refresh and they override automatic classification.",
+  "b30-south-birmingham": {
+    "kind": "warehouse",
+    "locked": true,
+    "label_en": "Warehouse – donations only. Clients cannot visit here. See distribution centres below.",
+    "label_cy": "Warws – rhoddion yn unig. Ni all cleientiaid ymweld yma. Gweler y canolfannau dosbarthu isod.",
+    "evidence": "Confirmed by B30 & South Birmingham Foodbank (Jeanette), Oct 2026: Unit 17 Kings Norton Business Park B30 3HZ is their warehouse; clients must not turn up.",
+    "drop_opening_times": true
+  }
+}
