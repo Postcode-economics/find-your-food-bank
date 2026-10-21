@@ -97,7 +97,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
 const site=i=>i.website||i.givefood;
-const tag=i=>i.type==='location'?'<div class="tag" role="note">Food bank distribution centre – get food here</div>':'<div class="tag" role="note">Food bank – get food here</div>';
+const tag=i=>'<div class="tag" role="note">Food bank – collect food here</div>';  // one label for every place clients can collect food
 // B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
 const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
@@ -105,7 +105,7 @@ function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${esc(i.phone)}<small>Phone (to donate or ask)</small></a>`:''}${window.repB?repB('fb',i):''}`;
- return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
+ return `${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>

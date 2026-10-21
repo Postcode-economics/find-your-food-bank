@@ -18,3 +18,10 @@
 Each entry stores its url, fetched_at, http, final_url, hashes and extracted values in `logs/<layer>_recheck.json`. Nothing is carried over from the previous run.
 
 **Publish guard:** `scripts/verify_fresh.py <layer>` exits 1 if the log is missing or more than 2h old, or if any published entry lacks an ok recheck with a matching fetched_at. Both workflows run at 04/12/20 UTC in this order: unit tests, build, guard, commit. Tests are in `tests/test_recheck.py` (11 cases). Caveat: a repo admin can still disable Actions; the guard blocks publishing, not that.
+
+## v11 — food bank labels (21 Oct 2026)
+There are now exactly two labels:
+- **"Food bank – collect food here"** (Welsh: "Banc bwyd – casglu bwyd yma") goes on every place where clients collect food in person, both main addresses and distribution locations.
+- **"Distribution centre – drop off food only"** (Welsh: "Canolfan ddosbarthu – gollwng bwyd yn unig") goes on every warehouse, office or drop-off.
+
+The one exception is B30 & South Birmingham (Kings Norton, B30 3HZ), whose wording stays locked. The new label is used on cards, pop-ups and list rows, and the report reason text now uses it too. Open/closed badges appear only on food bank cards. The offline cache is bumped to fyfb-v12. Audit files are in /workspace/fbup/verify_layers/fblabels/: page_labels.csv, scan_mismatches.csv and scan_unreachable.csv. Mismatches found in the live scan were not auto-changed.

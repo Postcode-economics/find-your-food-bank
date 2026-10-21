@@ -1,781 +1,801 @@
 {
- "_comment": "Results of manual source checks (21 Oct 2026). 'office' entries are relabelled as donation-only; 'client' entries are confirmed client-facing; 'unclear' stay as normal pins and are flagged in the audit. Applied on every nightly build by scripts/classify.py.",
- "manna": {
-  "result": "office",
-  "evidence": "Give Food lists this PO Box address as 'Administrative'; PO Box 682 is not a visitable place",
-  "url": "https://www.givefood.org.uk/needs/at/manna/"
- },
- "salvation-army/severn-somerset": {
-  "result": "office",
-  "evidence": "Address is an office park (Vantage Office Park, ground floor unit), with no opening times listed",
-  "url": "https://www.givefood.org.uk/needs/at/salvation-army/severn-somerset/"
- },
- "salvation-army/central-south": {
-  "result": "office",
-  "evidence": "Address is an office park (1st Floor, Anglo Office Park), with no opening times listed",
-  "url": "https://www.givefood.org.uk/needs/at/salvation-army/central-south/"
- },
- "blackpool/helping-hearts": {
-  "result": "office",
-  "evidence": "Address is 'Office 11' in Flexspace Business Centre, with no opening times listed",
-  "url": "https://www.givefood.org.uk/needs/at/blackpool/helping-hearts/"
- },
- "harold-hill": {
-  "result": "client",
-  "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher",
-  "url": "https://haroldhill.foodbank.org.uk/locations/"
- },
- "sutton-bridge-community-larder": {
-  "result": "client",
-  "evidence": "Own site: 'OPEN TUESDAYS and FRIDAYS 10 a.m. to 1 p.m. ... at Unit 8, Railway Lane Industrial Estate'",
-  "url": "https://sblarder.wixsite.com/larder"
- },
- "arfon": {
-  "result": "client",
-  "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher",
-  "url": "https://arfon.foodbank.org.uk/locations/"
- },
- "south-derbyshire-cvs": {
-  "result": "client",
-  "evidence": "Own site: 'Our Food Hub is located on the Top Floor of Unit G ... Food bank opening times are...'",
-  "url": "https://www.sdcvs.org.uk/food-hub"
- },
- "truro": {
-  "result": "client",
-  "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher",
-  "url": "https://truro.foodbank.org.uk/locations/"
- },
- "foyle": {
-  "result": "client",
-  "evidence": "Own Locations page: 'Unit 15 Springtown Industrial estate ... Collection only, Collection times'",
-  "url": "https://foyle.foodbank.org.uk/locations/"
- },
- "lyme-regis": {
-  "result": "client",
-  "evidence": "Own site: 'open for food parcel collections on Wednesdays between 10am and noon. We are at Unit 5, Uplyme Road Business Park'",
-  "url": "https://lymeregisfoodbank.co.uk"
- },
- "colchester": {
-  "result": "client",
-  "url": "https://colchester.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …nk the best way to reach us is by phone, so that we can direct you to the most appropriate referral agency to get a foodbank voucher from. annebarney@colchester.foodbank.org.uk Unit 3 Tollgate Retail Park Stanway, Essex CO3 8RG Get directions Collection and delivery in exceptional circumstances Col"
- },
- "windsor-food-share": {
-  "result": "client",
-  "url": "https://www.windsorfoodshare.org.uk",
-  "evidence": "own site shows clients collecting food here: … here . Our service then works by distributing foods to those presenting vouchers at: Alma Beacon , 73a Alma Rd, Windsor SL4 3HD Tuesdays between 1:00 pm and 2:30 pm Dedworth Green Baptist Church , Smiths Lane, Windsor, SL4 5PE Wednesdays between 9:00 am and 12:30 pm Thursdays between 9:00 am and 2"
- },
- "mustard-tree": {
-  "result": "client",
-  "url": "https://mustardtree.org.uk/get-help/",
-  "evidence": "own site shows clients collecting food here: …Click below to find out more about our activities, clubs and classes, plus drop-in times for our Community Shops and café. Visit What’s On page View Community page ADDRESS Mustard Tree 110 Oldham Road Ancoats Manchester M4 6AG CONTACT US To donate furniture: 0161 228 7331 Help Desk: 0161 850 2282 i"
- },
- "swansea": {
-  "result": "client",
-  "url": "https://swansea.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … St Catherine's Church, Gorseinon 07815 534095 Opening times Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed Address St Catherine's Church Hall, Alexandra Road Gorseinon SA4 4NU"
- },
- "harrogate-district": {
-  "result": "client",
-  "url": "https://harrogatedistrict.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Life Destiny Church, Starbeck 07885529864 Opening times Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 Fri Closed Sat Closed Sun Closed Address Life Destiny Church 93B High Street Starbeck HG2 7LH"
- },
- "downham-market-district": {
-  "result": "client",
-  "url": "https://downhammarketdistrict.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …sing a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Downham Market Foodbank 01366 384474 Opening times Mon Closed Tue 12:30 - 14:30 Wed Closed Thu Closed Fri 10:30 - 12:30 Sat Closed Sun Closed Address Eternity Do"
- },
- "newark": {
-  "result": "client",
-  "url": "https://newark.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Newark 07344 119340 Opening times Mon Closed Tue 15:00 - 17:00 Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Newar"
- },
- "vale-of-clwyd": {
-  "result": "client",
-  "url": "https://valeofclwyd.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …r foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more 11 Mount Pleasant 07468 028 953 Opening times Mon 10:30 - 12:00 Tue 10:30 - 12:00 Wed 10:30 - 12:00 Thu Closed Fri 10:30 - 12:00 Sat Closed Sun"
- },
- "clay-cross": {
-  "result": "client",
-  "url": "https://claycross.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …lfreton stops outside the church and from Chesterfield stops across the road. The 51 and 54 are within 5 minutes walk. You can find the times on traveline . Community of Christ 07899 878 398 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 14:00 Sat Closed Sun Closed Address Co"
- },
- "fylde": {
-  "result": "client",
-  "url": "https://fylde.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more St Anne's on Sea 01253 727455 Opening times Mon Closed Tue 10:00 - 15:00 Wed Closed Thu 10:00 - 15:00 Fri Closed Sat Closed Sun Closed Address The Annex United Reforme"
- },
- "hope-central": {
-  "result": "client",
-  "url": "https://hopecentral.org.uk/get-involved/giving-food",
-  "evidence": "own site shows clients collecting food here: …rsonal hygiene items and cleaning products. Drop off locations You can donate in person at these locations and times. Many thanks for your generous support. Monday to Friday 11am-12pm at the back of St Chad’s, Handforth SK9 3ES Mondays 9.30-11am St Cross Church, Knutsford WA16 8EL Saturday 10am-11a"
- },
- "south-normanton-area": {
-  "result": "client",
-  "url": "https://southnormantonarea.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …tem. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more St Michaels Church Hall COLLECTION ONLY NO DELIVERIES 07999 551691 Opening times Mon Closed Tue 13:30 - 14:30 Wed Closed Thu Closed Fri 13:30 - 14:30 Sat Closed Sun Closed Address Church S"
- },
- "st-neots": {
-  "result": "client",
-  "url": "https://stneots.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …tant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Open Door Church 01480 475 426 Opening times Mon 16:00 - 17:30 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Addre"
- },
- "rochdale": {
-  "result": "client",
-  "url": "https://rochdale.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Rochdale Foodbank 03001021646 Opening times Mon 10:30 - 12:30 Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri 11:00 - 13:00 Sat Closed"
- },
- "swale": {
-  "result": "client",
-  "url": "https://swale.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …odbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Rhema Miracle Centre 07486 370709 Opening times Mon 11:30 - 13:30 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address The Net"
- },
- "stamford-oundle": {
-  "result": "client",
-  "url": "https://stamfordoundle.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Stamford Foodbank 07570 583799 Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address All Saints and St Johns Church C"
- },
- "dorking-area": {
-  "result": "client",
-  "url": "https://dorkingarea.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …- Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Christian Centre 07494226743 Opening times Mon Closed Tue 16:15 - 17:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address"
- },
- "brent": {
-  "result": "client",
-  "url": "https://brent.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Brent Foodbank - Neasden Centre 0203 7455 972 Opening times Mon Closed Tue 12:30 - 15:00 Wed Closed Thu 12:30 - 15:00 Fri Closed Sat Closed Sun Closed Address St Mary's Church Church End Next to"
- },
- "aston-nechells": {
-  "result": "client",
-  "url": "https://astonnechells.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Bethel Free Baptist Church (Collection only) 07384 213 621 Opening times Mon Closed Tue Closed Wed 12:30 - 14:30 Thu Closed Fri Closed Sat Closed Sun Closed Address Bethel Free Baptist Church Wardend Road Ward End Birmingham B8 2QU"
- },
- "bridgend": {
-  "result": "client",
-  "url": "https://bridgend.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …cher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Bridgend 01656 750016 Opening times Mon Closed Tue 12:00 - 14:00 Wed Closed Thu Closed Fri 11:00 - 14:00 Sat Closed Sun Closed Address Hope Baptist Church Station Hill* Br"
- },
- "rhymney-valley": {
-  "result": "client",
-  "url": "https://rhymneyvalley.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … White Rose Resource Centre 07944354175 Opening times Mon Closed Tue Closed Wed Closed Thu 11:00 - 13:00 Fri Closed Sat Closed Sun Closed Address Elliotstown New Tredegar NP24 6EF"
- },
- "south-ayrshire": {
-  "result": "client",
-  "url": "https://southayrshire.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …her referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more New Life Church Prestwick 07599071114/ 07871689392 Opening times Mon Closed Tue 12:30 - 14:30 Wed Closed Thu Closed Fri 12:30 - 14:30 Sat Closed Sun Closed Address New Life"
- },
- "basildon": {
-  "result": "client",
-  "url": "https://basildon.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Basildon Foodbank 07424660862 - 01268395506 Opening times Mon Closed Tue Closed Wed 12:00 - 14:00 Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed Address 1 The Gore Basildon SS14 2EA"
- },
- "ek-community": {
-  "result": "client",
-  "url": "https://www.calderwoodbaptist.co.uk/Groups/270436/Contact_Us.aspx",
-  "evidence": "own site shows clients collecting food here: …ooking to email a specific staff member, emails are <firstname>@calderwoodbaptist.co.uk) Office Opening Hours: Monday–Friday: 9am–5pm Office Address: Calderwood Baptist Church Maxwellton Road Calderwood East Kilbride G74 3LW Contact Form Please fill in this form and it will be sent to the church of"
- },
- "glasgow-ne": {
-  "result": "client",
-  "url": "https://glasgowne.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Parkhead - Glasgow NE Foodbank 07951749363/73 Opening times Mon 13:00 - 15:00 Tue Closed Wed 10:30 - 12:30 Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Calton Old Parish Church 142 Helenvale Street Parkhead Glasgow G31 4NA"
- },
- "north-ayrshire": {
-  "result": "client",
-  "url": "https://northayrshire.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …s using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Church of the Nazarene 01294 601312 Opening times Mon 10:00 - 14:00 Tue 10:00 - 14:00 Wed 10:00 - 14:00 Thu 10:00 - 14:00 Fri 10:00 - 14:00 Sat Closed Sun Clo"
- },
- "waveney": {
-  "result": "client",
-  "url": "https://waveney.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Sunday Emergency Centre Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun 09:30 - 09:30 Address Address is given when the appointment is made. ip23 7hn"
- },
- "isle-of-wight": {
-  "result": "client",
-  "url": "https://isleofwight.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …cher? Important - Our Foodbank works using a voucher referral system. In order to get help from our Foodbank, you will need a voucher issued by local agencies. - Find out more Cowes Foodbank (Main Office) Opening times Mon 13:00 - 15:00 Tue Closed Wed 10:00 - 12:00 Thu Closed Fri 10:00 - 12:00 Sat"
- },
- "brecon": {
-  "result": "client",
-  "url": "https://brecon.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ortant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need an e-voucher issued by local agencies. - Find out more Brecon Foodbank 01874 611723 option 2 Opening times Mon Closed Tue 13:30 - 15:30 Wed Closed Thu Closed Fri 13:30 - 15:30 Sat Clos"
- },
- "oldham": {
-  "result": "client",
-  "url": "https://oldham.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …rs for financial donations to help with the operational costs. Donate here Find us on Twitter Oldham Foodbank NO COLLECTION – ONLY DELIVERY FROM THIS CENTRE Unit B Prince of Wales Industrial Units Vulcan Street Oldham OL1 4ER e: [email protected] t: To receive a voucher, please call Oldham Advice S"
- },
- "richmond": {
-  "result": "client",
-  "url": "https://richmond.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … View local transport Local transport links X The foodbank is located adjacent to a bus stop (R70, 111). Richmond 07516 935655 Opening times Mon 13:00 - 15:00 Tue Closed Wed Closed Thu 13:00 - 15:00 Fri Closed Sat Closed Sun Closed Address Vineyard Community Centre The Vineyard Richmond TW10 6AQ"
- },
- "taff-bargoed": {
-  "result": "client",
-  "url": "https://taffbargoed.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … system. In order to get help from your foodbank, you will need a E-voucher issued by one of our local professional agencies. - Find out more Taff Bargoed Foodbank | Nelson 01443 450 832 Opening times Mon Closed Tue 09:00 - 12:00 Wed Closed Thu Closed Fri 09:00 - 12:00 Sat Closed Sun Closed Address"
- },
- "south-gwynedd": {
-  "result": "client",
-  "url": "https://southgwynedd.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more South Gwynedd Foodbank (office & distribution centre) 07973 914 599 Opening times Mon 10:00 - 16:00 Tue 10:00 - 16:00 Wed 10:00 - 16:00 Thu 10:00 - 16:00 Fri 10:00 - 16:00 Sat Closed Sun Closed Ad"
- },
- "ashby": {
-  "result": "client",
-  "url": "https://ashby.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ng a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Ashby Foodbank 07542118878 Opening times Mon Closed Tue 09:30 - 11:30 Wed Closed Thu Closed Fri 14:00 - 16:00 Sat Closed Sun Closed Address Ashby Congregational Ch"
- },
- "highland": {
-  "result": "client",
-  "url": "https://newstarthighland.org/how-we-help/highland-foodbank",
-  "evidence": "own site shows clients collecting food here: …nations, to welcoming people at our centres and delivering food across rural areas, our volunteers are at the heart of everything we do. Our foodbank centres: Inverness Mon – Fri 12:00 – 14:00 1 Glebe Street, Inverness, IV1 1RF Nairn Tuesday & Friday 12:00 – 14:00 St. Mary’s Church Hall, 7 Academy"
- },
- "letchworth": {
-  "result": "client",
-  "url": "https://letchworth.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …o get help from our foodbank, you will need to be resident in a SG postcode and receive a voucher issued by local agencies. - Find out more Letchworth 07547 211940 Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed Address Mrs Howard Memorial Ha"
- },
- "northfleet-hive-hope": {
-  "result": "client",
-  "url": "https://hivehope.org.uk/about-hive-hope/",
-  "evidence": "own site shows clients collecting food here: …EQ 📍 View on Google Maps Mobile · Saturdays 1pm - 2pm Disused Taxi Rank Near St George's Church, Church Street, DA11 0DJ 📍 View on Google Maps Static · Wednesdays 11am - 12:30pm St Botolphs Church Hall Northfleet, Kent, DA11 9EU - parking available nearby 📍 View on Google Maps 🎄 Christmas opening h"
- },
- "lichfield": {
-  "result": "client",
-  "url": "https://lichfield.foodbank.org.uk",
-  "evidence": "own site shows clients collecting food here: …ide is displayed one at a time. Distribution Opening Times Monday - 10-12 pm - Curborough Community Centre, WS13 7NY Tuesday - 6.30-7.30pm - LifeChurch, Netherstowe, WS13 6TS Friday - 12.00-1.30 pm - Wade Street Church, WS13 6HL ** Please note from the 1st Nov 2026 Tuesday will change to 6.00-7.00"
- },
- "bexley": {
-  "result": "client",
-  "url": "https://bexley.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …al agencies. - Find out more Avery Hill Foodbank For Vouchers and contact - 07385 921627 (Mon to Fri - 0900 to 1200hrs) or Freephone 0808 208 2138 (Mon to Fri - 0900 to 1700hrs) Opening times Mon Closed Tue Closed Wed Closed Thu 11:30 - 13:30 Fri Closed Sat Closed Sun Closed Address Avery Hill Chri"
- },
- "redbridge": {
-  "result": "client",
-  "url": "https://redbridge.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …- Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Jubilee Church 02085180056 Opening times Mon Closed Tue 11:00 - 13:00 Wed 14:00 - 16:00 Thu Closed Fri Closed Sat 10:00 - 13:00 Sun Closed"
- },
- "dundonald": {
-  "result": "client",
-  "url": "https://dundonald.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …Foodbank works using a voucher referral system. To get help from our Foodbank you will need a voucher issued by a local agency. - Find out more Dundonald Foodbank 028 95435310 Opening times Mon 09:00 - 12:00 Tue Closed Wed 09:00 - 12:00 Thu Closed Fri 09:00 - 12:00 Sat Closed Sun Closed Address 971"
- },
- "skelmersdale-district": {
-  "result": "client",
-  "url": "https://skelmersdale.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Ecumenical Centre Opening times Mon 10:00 - 12:00 Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed Address The Ecumenical Centre Northway WN8 6LU"
- },
- "york": {
-  "result": "client",
-  "url": "https://york.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ojects as well as covering our modest operating costs. Donate here Find us on Facebook Find us on Instagram York Foodbank Helping local people in crisis York Foodbank Unit 5 Sterling Park Bleriot Way Clifton Moor York YO30 4WU (Depot address for donation drop off only. Open every Tuesday/Thursday 9"
- },
- "hedge-end": {
-  "result": "client",
-  "url": "https://www.kingscommunitychurch.co.uk/foodcentre",
-  "evidence": "own site shows clients collecting food here: …lways be answered but you can leave a message or a text and they will get back to you as soon as possible. Food centre hedge end Time: Mondays 10:00-13:00 Address: King’s Community Church, Upper Northam Road, Hedge End, SO30 4BZ Drop In: You may already have a referral from an agency but if not you"
- },
- "bangor-ni": {
-  "result": "client",
-  "url": "https://bangorni.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ngor Foodhub & Community Support Part of Bangor NI Foodbank 07821 791674 07821 791674 Phone answered during open hours only, Monday to Friday 10:00am to 5:00pm info@bangorni.foodbank.org.uk 24 Balloo Avenue Bangor, Down BT19 7QT Get directions Collection and delivery in exceptional circumstances Co"
- },
- "liskeard-looe": {
-  "result": "client",
-  "url": "https://liskeardlooe.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Liskeard Clients collection Dean St Liskeard 07512 011452 Opening times Mon 09:30 - 12:15 Tue Closed Wed 09:30 - 12:15 Thu 09:30 - 12:15 Fri 09:30 - 12:15 Sat Closed Sun Closed Address 21 Dean Street Liskeard Cornwall PL14 4AB"
- },
- "yiewsley-west-drayton": {
-  "result": "client",
-  "url": "https://yiewsleywestdrayton.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …m our foodbank, you will need a voucher issued by local agencies. Please get in touch to find out more. - Find out more St Matthew's Church COLLECTION AT FOODBANK ONLY 07462 097357 Opening times Mon 12:00 - 14:00 Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed Address St Ma"
- },
- "sherwood-forest": {
-  "result": "client",
-  "url": "https://sherwoodforest.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …m. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Sherwood Forest Foodbank 07563 233652 Opening times Mon 14:00 - 16:00 Tue Closed Wed Closed Thu 14:00 - 16:00 Fri Closed Sat Closed Sun Closed Address c/o Stables Centre 12 Church Street Man"
- },
- "leicester-south": {
-  "result": "client",
-  "url": "https://leicestersouth.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Leicester South Foodbank @ Bell Street Wigston 0116 5079153 Opening times Mon Closed Tue Closed Wed Closed Thu 13:00 - 14:00 Fri Closed Sat Closed Sun Closed Address Community"
- },
- "first-base-dumfriesshire": {
-  "result": "client",
-  "url": "https://www.firstbasedumfries.co.uk/foodbank-service",
-  "evidence": "own site shows clients collecting food here: … Our Foodbank Service - The First Base Agency The First Base Agency 6 Buccleuch St Dumfries DG1 2AH | | | Opening Hours Monday: 12:00 – 14:00 Tuesday: 12:00 – 14:00 Wednesday: 12:00 – 14:00 Thursday: 12:00 – 14:00 Frida"
- },
- "romsey": {
-  "result": "client",
-  "url": "https://romsey.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …need a voucher issued by local agencies. - Find out more Romsey Foodbank, open Tues, Weds and Thurs 10:30 to 12:30 07761 405 870 Opening times Mon Closed Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri Closed Sat Closed Sun Closed Address Romsey Foodbank Freedom Centre Unit 6, Greatbridge"
- },
- "port-talbot": {
-  "result": "client",
-  "url": "https://porttalbot.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Carmel Chapel 07491 922211 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Aberafan, Glan-Yr-Afon, Port Talbot SA13 1PQ"
- },
- "kingston": {
-  "result": "client",
-  "url": "https://kingston.foodbank.org.uk/contact/",
-  "evidence": "own site shows clients collecting food here: …u to the most appropriate agency to give you a foodbank voucher. Email us Δ Enquiry Type General foodbank enquiry Your name Email address Your message Send your message Address Suite 110 61 Victoria Road Surbiton Surrey KT6 4JX (Please note that this address is for correspondence only – no staff wo"
- },
- "st-helens": {
-  "result": "client",
-  "url": "https://sthelens.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Christian Life Centre 01744 26414 Opening times Mon Closed Tue 11:00 - 14:00 Wed Closed Thu Closed Fri 11:00 - 14:00 Sat Closed Sun Closed Address Atherton Street St Helens WA10 2DT"
- },
- "portsmouth": {
-  "result": "client",
-  "url": "https://portsmouth.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …o get help from our foodbank, you will need a voucher issued by local agencies. Central (Southsea) 023 9298 7976 Opening times Mon 11:00 - 13:00 Tue Closed Wed 11:00 - 13:00 Thu Closed Fri 11:00 - 13:00 Sat Closed Sun Closed Address E-referrals only Please bring ID and carrier bags Hope Centre (pre"
- },
- "weston-super-mare": {
-  "result": "client",
-  "url": "https://westonsupermare.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … this venue. We operate a shop style system where clients are able to choose food items that best suit their preferences. Please bring your own bags with you. North Street 01934 708 906 Opening times Mon 11:00 - 14:30 Tue Closed Wed 11:00 - 14:30 Thu Closed Fri 11:00 - 14:30 Sat Closed Sun Closed A"
- },
- "newham-district": {
-  "result": "client",
-  "url": "https://newhamdistrict.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ur foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Ascension Church Centre 02075111232 Opening times Mon Closed Tue Closed Wed Closed Thu 11:00 - 13:00 Fri Closed Sat Closed Sun Closed Address"
- },
- "chesterfield": {
-  "result": "client",
-  "url": "https://chesterfield.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …odbank vouchers. Chesterfield Foodbank collects and distributes long life emergency food packs to local people in financial crisis. Mailing Address Only: Unit 6 Carrwood Road Industrial Estate Carrwood Road Chesterfield S41 9QB e: [email protected] t: 07529224996 FAQs Donate food Volunteer Donate m"
- },
- "collier-row-romford": {
-  "result": "client",
-  "url": "https://collierrowromford.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …k voucher? Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. Romford Baptist Church Opening times Mon 12:00 - 14:00 Tue Closed Wed 12:00 - 14:00 Thu Closed Fri Closed Sat Closed Sun Closed Addres"
- },
- "barrow": {
-  "result": "client",
-  "url": "https://barrow.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …er to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Barrow foodbank 01229 343436 Opening times Mon 11:00 - 13:00 Tue 11:00 - 13:00 Wed 11:00 - 13:00 Thu 11:00 - 13:00 Fri 13:00 - 15:00 Sat Closed Sun Closed Address Abbey Road Baptist Church Abbey Road"
- },
- "newtownabbey": {
-  "result": "client",
-  "url": "https://newtownabbey.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …bank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Carnmoney Church 07581179604 Opening times Mon 14:00 - 16:00 Tue Closed Wed 18:30 - 19:30 Thu Closed Fri Closed Sat Closed Sun Closed Address Carnmon"
- },
- "dunfermline": {
-  "result": "client",
-  "url": "https://dunfermline.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …s walk: head south down Moodie Street, cross the junction, down Elgin Street, then right at the Industrial Estate) 3/4/5/5A/6 Dunfermline 07580 231286 Opening times Mon 16:00 - 18:00 Tue Closed Wed 16:00 - 18:00 Thu Closed Fri 16:00 - 18:00 Sat Closed Sun Closed Address Liberty Centre Pitreavie Way"
- },
- "st-austell": {
-  "result": "client",
-  "url": "https://staustell.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …elp from our foodbank, you will need an E voucher issued by a local referral agency. - Find out more St Austell Foodbank - closed Bank Holidays Opening times Mon 16:00 - 18:00 Tue 13:00 - 15:00 Wed Closed Thu 13:00 - 15:00 Fri 13:00 - 15:00 Sat Closed Sun Closed Address The Light & Life Centre, The"
- },
- "northern-devon": {
-  "result": "client",
-  "url": "https://northerndevon.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Northern Devon Foodbank - Bideford 01237 422243 Opening times Mon 10:30 - 13:30 Tue Closed Wed 10:30 - 13:30 Thu Closed Fri 10:30 - 13:30 Sat 11:30 - 13:30 Sun Closed Address Supreme House, Pitt Lane EX39 3JA"
- },
- "llandrindod": {
-  "result": "client",
-  "url": "https://llandrindod.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. Llandrindod Foodbank COLLECTION AND DELIVERY in Exceptional Circumstances 07519 839189 Opening times Mon Closed Tue 10:30 - 13:00 Wed 10:30 - 13:00 Thu Closed Fri 10:30 - 13:00 Sat Closed Sun"
- },
- "helston-the-lizard": {
-  "result": "client",
-  "url": "https://helstonthelizard.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …cher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Open Door Café, Wendron Street 01326 564194 Opening times Mon 10:00 - 14:00 Tue Closed Wed 10:00 - 14:00 Thu Closed Fri 10:00 - 14:00 Sat Closed Sun Closed Address The"
- },
- "larne": {
-  "result": "client",
-  "url": "https://larne.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …k works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Craigyhill Methodist Church 028 28277530 Opening times Mon Closed Tue 13:00 - 15:00 Wed 17:00 - 18:30 Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed"
- },
- "banbury": {
-  "result": "client",
-  "url": "https://banbury.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …r foodbank works using a referral system. In order to get help from our foodbank, you will need to get a referral code from a local referral agency. - Find out more The People's Church - Town Centre Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Ad"
- },
- "devizes-district": {
-  "result": "client",
-  "url": "https://devizesdistrict.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … from our foodbank, you will need a voucher issued by local agencies. - Find out more Devizes Foodbank Centre - closed between 12pm and 2pm 07807 973605 / 07379 818913 Opening times Mon Closed Tue 14:00 - 16:00 Wed 10:00 - 12:00 Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed Address Unit 4, Gle"
- },
- "east-west-nottingham": {
-  "result": "client",
-  "url": "https://eastwestnottingham.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …nk works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Hope House, Beeston 0303 040 1110 Opening times Mon 09:30 - 12:00 Tue Closed Wed 09:30 - 12:00 Thu 09:30 - 12:00 Fri Closed Sat 09:30 - 10:30 Sun Close"
- },
- "hertford-ware-district": {
-  "result": "client",
-  "url": "https://hertfordwaredistrict.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …rral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Hertford Foodbank (Pre booked collection only) 07851 708470 Opening times Mon 10:00 - 11:00 Tue Closed Wed 10:00 - 11:00 Thu Closed Fri 10:00 - 11:00 Sat Closed Sun Closed Address"
- },
- "aberdeen-north": {
-  "result": "client",
-  "url": "https://aberdeennorth.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … King's Way Centre 01224 518936 Opening times Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed Address King's Way Centre, King's Way, Bridge of Don, AB23 8BL"
- },
- "scunthorpe": {
-  "result": "client",
-  "url": "https://scunthorpe.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …r? Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Connect Church Ashby Road 0300 102 8061 Opening times Mon Closed Tue 13:00 - 14:30 Wed Closed Thu Closed Fri Closed Sat Closed"
- },
- "atherton-leigh": {
-  "result": "client",
-  "url": "https://athertonleigh.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Atherton Parish Church 07517393362 Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Market Pl, Atherton, Manchester M46 0DW"
- },
- "hastings": {
-  "result": "client",
-  "url": "https://hastings.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Hastings Centre 01424 755990 Opening times Mon 10:30 - 15:00 Tue Closed Wed 10:30 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed Address King's Church Hastin"
- },
- "ryedale-community": {
-  "result": "client",
-  "url": "https://ryedalecommunityfoodbank.co.uk/contact/",
-  "evidence": "own site shows clients collecting food here: …ion please email us at: general@ryedalecommunityfoodbank.co.uk Registered Charity No. 1197910 Follow us on social media Contact form Name Email Address Phone Message Send Message Main Branch 7A Howe Road, Norton, Malton YO17 9BH Telephone: 01653 228118 general@ryedalecommunityfoodbank.co.uk Opening"
- },
- "craigavon-area": {
-  "result": "client",
-  "url": "https://craigavonarea.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ucher You can exchange a food voucher for emergency food at these locations. 4 results See map Close Craigavon Foodbank - Delivery Part of Craigavon Area Foodbank 03330507702 03330507702 contact@craigavonfoodbank.org.uk BT63 5WG Get directions Delivery only Delivery times Closed today Monday Closed"
- },
- "hart": {
-  "result": "client",
-  "url": "https://hart.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Fleet 07926 806256 Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu 11:00 - 12:30 Fri Closed Sat Closed Sun Closed Address Fle"
- },
- "cheltenham": {
-  "result": "client",
-  "url": "https://cheltenham.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …tem. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Cheltenham Foodbank Elim Distribution Centre 01242 570080 Opening times Mon Closed Tue 11:00 - 13:00 Wed 10:30 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed Address Cheltenham Elim C"
- },
- "south-sefton": {
-  "result": "client",
-  "url": "https://southsefton.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … St Leonard's Youth & Community Centre 0151 933 1300 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 14:30 Sat Closed Sun Closed Address 60 Peel Road Bootle L20 4RW"
- },
- "greenwich": {
-  "result": "client",
-  "url": "https://greenwich.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Depot - Donation Drop-offs only [email protected] Opening times Mon 10:00 - 16:00 Tue 10:00 - 16:00 Wed 10:00 - 16:00 Thu 10:00 - 16:00 Fri 10:00 - 16:00 Sat Closed Sun Closed Address Unit 1 180 Shooters Hill London SE18 3HY"
- },
- "caithness": {
-  "result": "client",
-  "url": "https://caithness.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Thurso Opening times Mon Closed Tue 12:00 - 14:30 Wed Closed Thu Closed Fri 12:00 - 14:30 Sat Closed Sun Closed Address 13 Princes Street Thurso KW14 7BQ"
- },
- "dagenham": {
-  "result": "client",
-  "url": "https://dagenham.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …sing a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Dagenham Foodbank- HOFC Centre Opening times Mon Closed Tue Closed Wed 11:00 - 13:00 Thu Closed Fri Closed Sat 11:00 - 13:00 Sun Closed Address RCCG House of Fai"
- },
- "vale": {
-  "result": "client",
-  "url": "https://vale.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …r foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Coastlands Family Church , Barry 07879562077 Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu 16:00 - 17:30 Fri Closed Sat Closed Sun"
- },
- "hillingdon": {
-  "result": "client",
-  "url": "https://hillingdon.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Foodbank works in partnership with voluntary and statutory agencies, which come into contact with people in crisis, through the course of their work. Office Address ( Admin enquiries only) 4 New Windsor Street Uxbridge UB8 2TU Hillingdon Foodbank Sorting & Distribution Centre (no vouchers issued o"
- },
- "gravesham": {
-  "result": "client",
-  "url": "https://gravesham.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …tem. In order to get help from our Foodbank, you will need a voucher issued by a local referral agency. - Find out more Main Operations and Distribution Centre 01474 661 275 Opening times Mon Closed Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri 10:30 - 12:30 Sat Closed Sun Closed Addres"
- },
- "brentwood": {
-  "result": "client",
-  "url": "https://brentwood.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Friday 10:00 am to 1:00 pm Saturday-Sunday Closed Dodd Road Community Church Part of Brentwood Foodbank 01277 224528 01277 224528 doddroadchurch@outlook.com Dodd Road Community Church Doddinghurst Road Brentwood, Essex CM15 9EH Get directions Collection only Collection times Open today until 1:00"
- },
- "bicester": {
-  "result": "client",
-  "url": "https://bicester.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Bicester Foodbank 01869 245036 Opening times Mon 10:00 - 12:00 Tue 10:00 - 12:00 Wed 10:00 - 12:00 Thu 10:00 - 12:00 Fri 10:00 - 12:00 Sat 10:00 - 12:00 Sun Closed Add"
- },
- "southport": {
-  "result": "client",
-  "url": "https://southport.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … voucher? Important - Our Foodbank works using a voucher referral system. In order to get help from our Foodbank, you will need a voucher issued by local agencies. Victoria Centre 01704 264505 Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address"
- },
- "lambeth-croydon": {
-  "result": "client",
-  "url": "https://lambethcroydon.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …or deliver to you. Please do not turn up at this location without having spoken to us - your food will not be there. foodbank@oasiswaterloo.org Tulse Hill Hub, Village hall 155 Tulse Hill Within Oasis St Martins Village SW2 3UP Get directions Collection only Collection times Closed today Monday 12:"
- },
- "fallowfield-withington": {
-  "result": "client",
-  "url": "https://fallowfieldwithington.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Union Chapel 07411 077654 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed Address 2b Wellington Road, Fallowfield M14 6EQ"
- },
- "covent-garden": {
-  "result": "client",
-  "url": "https://www.dragonhall.org.uk/food-bank",
-  "evidence": "own site shows clients collecting food here: …rmation go to www.cgcc.org.uk Donate to Dragon Hall Trust >> Donate to Covent Garden Pantry >> Contact Us: Tel: 020 7404 7274 E-mail: info@dragonhall.org.uk Covent Garden Dragon Hall Trust 17, Stukeley Street London WC2B 5LT Charity Number: 1087268 Our Location: See Map admin staff © Copyright 2024"
- },
- "erdington": {
-  "result": "client",
-  "url": "https://erdington.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …bank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Six Ways Baptist Church 07474 683927 Opening times Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed Address Six Wa"
- },
- "mid-norfolk": {
-  "result": "client",
-  "url": "https://midnorfolk.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …nk works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Wellspring Family Centre, Dereham 07542 106107 Opening times Mon 13:30 - 15:30 Tue Closed Wed Closed Thu Closed Fri 13:30 - 15:30 Sat Closed Sun Closed"
- },
- "edinburgh-ne": {
-  "result": "client",
-  "url": "https://edinburghnefoodbank.com/contact/",
-  "evidence": "own site shows clients collecting food here: …NING TIMES Mon Closed Tue Closed Wed 16:30 – 18:00 Thu Closed Fri Closed Sat Closed Sun Closed Get in touch with us 0131 553 5694 info@edinburghne.foodbank.org.uk Edinburgh North East Foodbank 19 Stewartfield, Edinburgh EH6 5RQ Stay informed - Sign up to our e-news Our Mission This foodbank is run"
- },
- "long-eaton-sawley": {
-  "result": "client",
-  "url": "https://longeatonsawley.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … and Sawley food bank, we provide emergency food parcels to local people and families experiencing a financial crisis. (supported by Foundation Derbyshire) Long Eaton: Baptist Church Station Street Long Eaton Nottingham NG10 1GJ Sawley: 165 Wilmot Street Sawley Long Eaton Nottingham NG10 3EL Castle"
- },
- "lutterworth-and-villages": {
-  "result": "client",
-  "url": "https://lutterworthvillages.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …et help from our foodbank, you will need a voucher issued by local agencies. - Find out more Lutterworth - HARBOROUGH DC DELIVERY AND PRE-BOOKED COLLECTIONS 01455 558797 Opening times Mon Closed Tue 13:00 - 15:00 Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Church Gate Cent"
- },
- "north-belfast": {
-  "result": "client",
-  "url": "https://northbelfast.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ate here Find us on Twitter Find us on Facebook Find us on Instagram North Belfast Foodbank FOR FOOD PARCELS: Ekenhead Halls 19 North Circular Road Belfast BT15 5HB Immanuel Presbyterian Church 35 Agnes Street Belfast BT13 1GG FOOD DONATIONS Monday 6.15pm – 6.45pm Unit 8 2 West Bank Road BELFAST BT"
- },
- "east-dunbartonshire": {
-  "result": "client",
-  "url": "https://eastdunbartonshire.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …odbank works using a referral system. In order to get help from our foodbank, you will need an e-voucher or red voucher issued by local agencies. Kirkintilloch Baptist Church 07425 134131 Opening times Mon 14:00 - 16:00 Tue Closed Wed 14:00 - 16:00 Thu Closed Fri 14:00 - 16:00 Sat Closed Sun Closed"
- },
- "glasgow-sw": {
-  "result": "client",
-  "url": "https://glasgowsw.foodbank.org.uk/contact/",
-  "evidence": "own site shows clients collecting food here: …ur message Send your message Contact details Monday to Friday 9am to 5pm Phone us 07437 910115 Email us [email protected] Address Our main office can be found at: Unit 65 Elderpark Workspace 100 Elderpark Street Glasgow G51 3TR Directions via Google Maps Donate As a charity, we rely on donations to"
- },
- "renfrewshire": {
-  "result": "client",
-  "url": "https://renfrewshire.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …m this location) 03001022500 Opening times Mon 09:30 - 12:00 Tue 09:30 - 12:00 Wed 09:30 - 12:00 Thu 09:30 - 12:00 Fri 09:30 - 12:00 Sat Closed Sun Closed Address E Block Offices, Westway Porterfield Road Renfrew PA4 8DJ Go through the security gate and take the 5th right, turn left, then right. We"
- },
- "causeway": {
-  "result": "client",
-  "url": "https://causeway.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Coleraine Centre 02870220005 Opening times Mon Closed Tue 11:30 - 13:00 Wed 11:30 - 13:00 Thu 19:00 - 20:00 Fri 11:30 - 13:00 Sat Closed Sun Closed Address The Vineyard Centre"
- },
- "carmarthen": {
-  "result": "client",
-  "url": "https://carmarthen.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …l system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Carmarthen Foodbank 01267 225996 Opening times Mon 11:00 - 14:00 Tue Closed Wed 11:00 - 14:00 Thu Closed Fri 11:00 - 14:00 Sat Closed Sun Closed Address Carmarthen Foodbank, Xcel Proj"
- },
- "caerphilly": {
-  "result": "client",
-  "url": "https://caerphilly.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Connect Life Church 02920 868151 Opening times Mon Closed Tue 10:00 - 13:00 Wed 10:00 - 13:00 Thu Closed Fri Closed Sat Closed Su"
- },
- "burngreave": {
-  "result": "client",
-  "url": "https://burngreave.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … 52a to Gainsford Rd Burngreave 07542 888671 - (The office is open on Mon, Weds & Fri 10-4. Food donations can be brought in during these times but food parcels can only be collected at the times below) Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri 13:00 - 15:00 Sat Closed Su"
- },
- "woodley": {
-  "result": "client",
-  "url": "https://woodleyfoodbank.org",
-  "evidence": "own site shows clients collecting food here: …to issue our parcels. If You Need Help We recognise that anyone can run into difficulties and need assistance. If you need a food parcel, you can collect one yourself from: Woodley Baptist Church Hurricane Way, Woodley, RG5 4UX Monday to Friday, 10:00 - noon Directions Emmanuel Church The Food Bank"
- },
- "boston": {
-  "result": "client",
-  "url": "https://boston.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …tant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Rectory, Wormgate 01205 310929 Opening times Mon Closed Tue 11:30 - 14:30 Wed Closed Thu 11:30 - 14:30 Fri Closed Sat Closed Sun C"
- },
- "tamworth": {
-  "result": "client",
-  "url": "https://tamworth.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …rks using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Manna House 01827 302431 Opening times Mon 12:30 - 15:00 Tue Closed Wed 12:30 - 15:00 Thu Closed Fri 12:30 - 15:00 Sat Closed Sun Closed Address 258-264 Gla"
- },
- "blaenau-gwent": {
-  "result": "client",
-  "url": "https://blaenaugwent.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Beaufort Centre - ADMIN CENTRE ONLY 07812425130 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address Destiny Church Heads of the Valley 54 Beaufort Rise Beaufort Ebbw Vale NP23 5JQ"
- },
- "glasgow-nw": {
-  "result": "client",
-  "url": "https://glasgownw.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …om our foodbank, you will need a voucher issued by local agencies. - Find out more Blawarthill Church Mbls: 0773 5522 621; 07787 334 012. Office Number, Tue & Fri 12noon - 2pm: 0141 959 9813, Opening times Mon Closed Tue 12:00 - 14:00 Wed Closed Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed Ad"
- },
- "weymouth": {
-  "result": "client",
-  "url": "https://www.weymouthfoodbank.co.uk",
-  "evidence": "own site shows clients collecting food here: …s for our foodbank centres. Everyone who comes to the foodbank for emergency food would normally need to have a valid foodbank referral number. Weymouth Baptist Church (To collect food parcels) 18 The Esplanade Weymouth DT4 8DT (near Alexandra Gardens) Opening Times Tuesday and Friday 10.30 am to 1"
- },
- "runnymede": {
-  "result": "client",
-  "url": "https://runnymede.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …eed to access a foodbank voucher? Important - Call 01932 943 056 and leave a message saying that you are in financial crisis and need food. - Find out more Chertsey Foodbank 01932 943 056 Opening times Mon Closed Tue Closed Wed 10:00 - 12:00 Thu Closed Fri Closed Sat Closed Sun Closed Address The B"
- },
- "merthyr-cynon": {
-  "result": "client",
-  "url": "https://merthyrcynon.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …er referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Gurnos Christian Centre 07427 537437 Opening times Mon 09:00 - 12:00 Tue 09:00 - 12:00 Wed 09:00 - 12:00 Thu 09:00 - 12:00 Fri 09:00 - 12:00 Sat Closed Sun Closed Address 26"
- },
- "taunton": {
-  "result": "client",
-  "url": "https://taunton.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ages of children (if any) and an emergency box will be given to you to tide you over. - Find out more Taunton Foodbank 07761 624216/01823 270316 Opening times Mon 10:00 - 12:00 Tue 10:00 - 12:00 Wed 10:00 - 12:00 Thu 10:00 - 12:00 Fri 10:00 - 12:00 Sat Closed Sun Closed Address Unit 4, Belvedere Tr"
- },
- "malmesbury-district": {
-  "result": "client",
-  "url": "https://malmesburydistrict.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … a voucher issued by local agencies. - Find out more Malmesbury Foodbank - Daytime 01666 826982 (answerphone available - calls will be returned as soon as possible) Opening times Mon Closed Tue 10:00 - 11:30 Wed Closed Thu 13:00 - 14:30 Fri Closed Sat Closed Sun Closed Address The Town Hall (entran"
- },
- "3food4u": {
-  "result": "client",
-  "url": "https://3food4u.org",
-  "evidence": "own site shows clients collecting food here: … a new tab) Share on LinkedIn (opens in a new tab) Share by Email (opens in a new tab) Find Us On facebook Please Donate Our Hub Locations Waltham Abbey Monday & Friday 10:45am to 12:30pm 13 Sun Street, Waltham Abbey, EN9 1ER Loughton Tuesday 10:45am to 12:30pm Loughton Club, 8 Station Road, IG10 4"
- },
- "woking": {
-  "result": "client",
-  "url": "https://woking.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …our phone is manned by volunteers so please leave a message if you are unable to get through and we will get back to you as soon as possible. info@woking.foodbank.org.uk The Lighthouse Unit 4, Church Path Woking, Surrey GU21 6EL Get directions Collection only Disabled access Collection times Open t"
- },
- "billingham-stockton-borough": {
-  "result": "client",
-  "url": "https://billinghamstocktonborough.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …nt - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Billingham 07583 575522 Opening times Mon Closed Tue 11:00 - 14:00 Wed Closed Thu 11:00 - 14:00 Fri Closed Sat Closed Sun Closed Address"
- },
- "arnold": {
-  "result": "client",
-  "url": "https://arnold.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …g a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Arnold Foodbank 07854 690694 Opening times Mon 13:30 - 15:00 Tue Closed Wed 13:30 - 15:00 Thu Closed Fri 13:30 - 15:00 Sat Closed Sun Closed Address Daybrook Baptis"
- },
- "glenrothes": {
-  "result": "client",
-  "url": "https://glenrothes.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …oodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. Caledonia House 01592 631088 Opening times Mon 11:30 - 15:00 Tue Closed Wed 12:30 - 17:00 Thu Closed Fri 11:30 - 15:00 Sat Closed Sun Closed Address Caledonia Hou"
- },
- "bournemouth": {
-  "result": "client",
-  "url": "https://bournemouth.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ing a valid voucher - Find out more about food bank vouchers and how to get one - Find out more St George's Hub 01202 394505 Opening times Mon 10:30 - 12:30 Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri Closed Sat Closed Sun Closed Address Open all-year-round except bank holidays. St Ge"
- },
- "armagh": {
-  "result": "client",
-  "url": "https://armagh.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ps Make a donation We rely on our supporters for financial donations to help with the operational costs. Donate here Find us on Twitter Find us on Facebook Armagh Foodbank Stepping Stones Pantry, 30 Barrack st Armagh, BT60 1AD Opened Tuesday and Saturday 10.30am to 12.30 pm e: [email protected] t:"
- },
- "stockport": {
-  "result": "client",
-  "url": "https://stockport.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Hazel Grove 07483 115349 Opening times Mon 12:30 - 14:30 Tue Closed Wed 10:30 - 12:30 Thu Closed Fri 11:30 - 13:30 Sat Closed Sun Closed Address Hazel Grove Baptist C"
- },
- "soar-valley-community-food-project": {
-  "result": "client",
-  "url": "https://soarvalleyoutreach.org.uk/food-projects",
-  "evidence": "own site shows clients collecting food here: …dvice, budgeting and a listening ear. The central Hub is based at Mountsorrel Baptist Church on a Monday morning from 9 -12. If you would like to donate food please drop in to Mountsorrel Baptist Church, Leicester Road, LE12 7AJ next to Mountsorrel Memorial Centre or text 07743 765958 to arrange a"
- },
- "fosse": {
-  "result": "client",
-  "url": "https://fosse.foodbank.org.uk",
-  "evidence": "own site shows clients collecting food here: …as 2025 Opening times Make a donation We rely on our supporters for financial donations to help with the operational costs. Donate here Find us on Twitter Fosse Foodbank St Peter’s Church Warwick Road Kineton Warwick. CV35 0HN (Address for postal correspondence c/o 60 Green Farm End Kineton, Warwic"
- },
- "shoreham": {
-  "result": "client",
-  "url": "https://shoreham.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … The Villas Foodbank 07548835610 Opening times Mon 10:00 - 12:00 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address 21-23 Clarendon Villas Hove BN3 3RE"
- },
- "meon-valley": {
-  "result": "client",
-  "url": "https://meonvalleyfoodbank.co.uk",
-  "evidence": "own site shows clients collecting food here: …r 2025 We are now on Bank the Food app We have teamed up with Bank the Food to provide up to date alerts of low stock direct to your phone. View more updates Address Wickham Community Centre, Mill Lane, Wickham, FAREHAM PO17 5AL Opening Hours Mon 10AM–noon (Donations) Tues 10AM–2PM (Collections) Cl"
- },
- "ammanford": {
-  "result": "client",
-  "url": "https://ammanford.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Ammanford Foodbank 07804189830 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed"
- },
- "highbridge-area": {
-  "result": "client",
-  "url": "https://highbridgearea.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Hope Baptist 07979 235218 Opening times Mon Closed Tue Closed Wed Closed Thu 09:30 - 12:00 Fri Closed Sat Closed Sun Closed Address Church Street Highbridge TA9 3HW"
- },
- "rutherglen-cambuslang": {
-  "result": "client",
-  "url": "https://rutherglencambuslang.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: … Rutherglen 07393 737 030 Opening times Mon 12:30 - 14:30 Tue Closed Wed Closed Thu 12:30 - 14:30 Fri Closed Sat Closed Sun Closed Address From Monday 8th September, 2025, we are moving the Rutherglen operation to 37 Rutherglen Exchange, where you currently pick up your food G73 2LS"
- },
- "chiltern": {
-  "result": "client",
-  "url": "https://chiltern.foodbank.org.uk/locations/",
-  "evidence": "own site shows clients collecting food here: …ltern Foodbank 01494 775668 01494 775668 Phoneline open Tuesday to Friday, 10am to 12:30pm voucher@chiltern.foodbank.org.uk Please email us and we will endeavour to reply as soon as possible. 71, Broadway Chesham, Bucks HP5 1BX Get directions Collection and delivery Collection times Open today unti"
- },
- "wadebridge": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: odbank nearest to you. **Please note: our Foodbanks will be closed on Public Holidays & Bank Holidays.** Address 4 Eddystone Road Wadebridge Cornwall PL27 7AL Directions via Google Maps Need to access a foodbank voucher? Important - Our f",
-  "url": "https://www.wadebridgefoodbank.org/locations/"
- },
- "andover": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: you will need a voucher issued by local agencies. - Find out more Andover Foodbank St John the Baptist 01264 362111 Opening times Mon 09:30 - 12:30 Tue Closed Wed Closed Thu 09:30 - 12:30 Fri 09:30 - 12:30 Sat Closed Sun Closed Address Andover Foodbank St John the Baptist, St John the Baptist RC Chu",
-  "url": "https://andover.foodbank.org.uk/locations/"
- },
- "hammersmith-fulham": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: St Matthew's Church, Wandsworth Bridge Road, Fulham 020 7731 3693 Opening times Mon Closed Tue 10:00 - 11:45 Wed Closed Thu Closed Fri 14:00 - 16:15 Sat Closed Sun Closed Address St Matthew's Church Wandsworth Bridge Road London SW6 2TX",
-  "url": "https://hammersmithfulham.foodbank.org.uk/locations/"
- },
- "north-bristol-south-gloucestershire": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: have a valid food bank voucher. Our main office address North Bristol & South Glos Foodbank Office Ebenezer Church 286 Filton Avenue Horfield Bristol BS7 0BA Get directions via Google Maps Important: Please bring a valid voucher – Find out about food bank vouchers and how to g",
-  "url": "https://nbsg.foodbank.org.uk/locations/"
- },
- "wetherby-district": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: ucher. These are issued by local agencies or can be obtained by ringing the Help Through Hardship helpline on 08082 082138. - Find out more Barleyfields Community Centre 07840 455725 Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed Address Barl",
-  "url": "https://wetherbyanddistrict.foodbank.org.uk/locations/"
- },
- "northampton": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: e Use the form below to send us a message and we'll be in touch as soon as possible RESTORE NORTHAMPTON Central Vineyard 42 Sheep Street Northampton ​NN1 2LZ Tel: 01604 328046 Office Opening Times 9:30am - 2pm Monday - Thursday PLEASE",
-  "url": "https://www.restorenorthampton.org.uk/contact"
- },
- "fusion": {
-  "result": "office",
-  "evidence": "Pearl House HD1 1BA is a Fusion Housing advice office, not a food collection point. 'You can collect your food pack from Our office on Floor 2, Empire House, Wakefield Old Road, Dewsbury' (fusion/dewsbury). Approved by Dean, 21 Oct 2026.",
-  "url": "https://fusionhousing.org.uk/services/food-and-more-service/",
-  "centres": [
-   "fusion/dewsbury"
-  ]
- },
- "watford": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: am – 1:00 pm Thu 10:00 am – 1:00 pm Fri 10:00 am – 1:00 pm Sat 10:00 am – 1:00 pm Sun Closed Address Unit 5 Empire Centre Imperial Way North Watford WD24 4YH Directions via Google Maps Wellspring Church Opening times Mon 2:00 pm – 4:00 p",
-  "url": "https://watfordfoodbank.co.uk/locations"
- },
- "burnage": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: stem. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Burnage Foodbank (Burnage Lane) 07796 448 205 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 15:00 - 17:00 Sat Closed Sun Closed Address St Bernard's Parish Rooms St Bernard",
-  "url": "https://burnage.foodbank.org.uk/locations/"
- },
- "chorlton-didsbury": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: View local transport Local transport links X Bus no’s 101,104,105,108,109 travelling along Princess Road Bus no’s 23,23A, ST Barnabas Church Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:30 - 14:00 Sat Closed Sun Closed Address Hurstville Road, Off Hardy Lane Chorlton M21 8DH",
-  "url": "https://chorltondidsbury.foodbank.org.uk/locations/"
- },
- "shrewsbury": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: Y3 9NB Sainsburys Meole Brace SY3 9NB Sainsburys Reabrook SY3 7TJ foodbank PLUS drop-off location & times: Barnabas Church Centre, Longden Coleham, SY3 7DN Tuesday: 09.30 - 12.00 Wednesday: 09.30 - 12.00 Friday: 09.30 - 12.00 Ban",
-  "url": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank"
- },
- "dunstable": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: The Way, Christ Church, Dunstable 07874 200056 Opening times Mon Closed Tue 14:30 - 16:30 Wed Closed Thu Closed Fri 12:30 - 14:30 Sat Closed Sun Closed Address Please note: Dunstable Foodbank supports clients in LU5 and LU6 postcodes only. West Street Dunstable LU6 1SX",
-  "url": "https://dunstable.foodbank.org.uk/locations/"
- },
- "lincoln-community-larder": {
-  "result": "client",
-  "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: DONATE Footer Text Header Text Footer Text Header Text Contact us Registered Address Lincoln Community Larder YMCA Annexe Rosemary Lane Lincoln LN2 5AR Email address lincolncommunitylarder@hotmail.co.uk Phone numbers 07914655460",
-  "url": "https://www.lincolnlarder.co.uk"
- }
+  "_comment": "Results of manual source checks (21 Oct 2026). 'office' entries are relabelled as donation-only; 'client' entries are confirmed client-facing; 'unclear' stay as normal pins and are flagged in the audit. Applied on every nightly build by scripts/classify.py.",
+  "manna": {
+    "result": "office",
+    "evidence": "Give Food lists this PO Box address as 'Administrative'; PO Box 682 is not a visitable place",
+    "url": "https://www.givefood.org.uk/needs/at/manna/"
+  },
+  "salvation-army/severn-somerset": {
+    "result": "office",
+    "evidence": "Address is an office park (Vantage Office Park, ground floor unit), with no opening times listed",
+    "url": "https://www.givefood.org.uk/needs/at/salvation-army/severn-somerset/"
+  },
+  "salvation-army/central-south": {
+    "result": "office",
+    "evidence": "Address is an office park (1st Floor, Anglo Office Park), with no opening times listed",
+    "url": "https://www.givefood.org.uk/needs/at/salvation-army/central-south/"
+  },
+  "blackpool/helping-hearts": {
+    "result": "office",
+    "evidence": "Address is 'Office 11' in Flexspace Business Centre, with no opening times listed",
+    "url": "https://www.givefood.org.uk/needs/at/blackpool/helping-hearts/"
+  },
+  "harold-hill": {
+    "result": "client",
+    "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher",
+    "url": "https://haroldhill.foodbank.org.uk/locations/"
+  },
+  "sutton-bridge-community-larder": {
+    "result": "client",
+    "evidence": "Own site: 'OPEN TUESDAYS and FRIDAYS 10 a.m. to 1 p.m. ... at Unit 8, Railway Lane Industrial Estate'",
+    "url": "https://sblarder.wixsite.com/larder"
+  },
+  "arfon": {
+    "result": "client",
+    "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher",
+    "url": "https://arfon.foodbank.org.uk/locations/"
+  },
+  "south-derbyshire-cvs": {
+    "result": "client",
+    "evidence": "Own site: 'Our Food Hub is located on the Top Floor of Unit G ... Food bank opening times are...'",
+    "url": "https://www.sdcvs.org.uk/food-hub"
+  },
+  "truro": {
+    "result": "client",
+    "evidence": "Food bank's own Locations page lists this as the address to bring a foodbank voucher",
+    "url": "https://truro.foodbank.org.uk/locations/"
+  },
+  "foyle": {
+    "result": "client",
+    "evidence": "Own Locations page: 'Unit 15 Springtown Industrial estate ... Collection only, Collection times'",
+    "url": "https://foyle.foodbank.org.uk/locations/"
+  },
+  "lyme-regis": {
+    "result": "client",
+    "evidence": "Own site: 'open for food parcel collections on Wednesdays between 10am and noon. We are at Unit 5, Uplyme Road Business Park'",
+    "url": "https://lymeregisfoodbank.co.uk"
+  },
+  "colchester": {
+    "result": "client",
+    "url": "https://colchester.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …nk the best way to reach us is by phone, so that we can direct you to the most appropriate referral agency to get a foodbank voucher from. annebarney@colchester.foodbank.org.uk Unit 3 Tollgate Retail Park Stanway, Essex CO3 8RG Get directions Collection and delivery in exceptional circumstances Col"
+  },
+  "windsor-food-share": {
+    "result": "client",
+    "url": "https://www.windsorfoodshare.org.uk",
+    "evidence": "own site shows clients collecting food here: … here . Our service then works by distributing foods to those presenting vouchers at: Alma Beacon , 73a Alma Rd, Windsor SL4 3HD Tuesdays between 1:00 pm and 2:30 pm Dedworth Green Baptist Church , Smiths Lane, Windsor, SL4 5PE Wednesdays between 9:00 am and 12:30 pm Thursdays between 9:00 am and 2"
+  },
+  "mustard-tree": {
+    "result": "client",
+    "url": "https://mustardtree.org.uk/get-help/",
+    "evidence": "own site shows clients collecting food here: …Click below to find out more about our activities, clubs and classes, plus drop-in times for our Community Shops and café. Visit What’s On page View Community page ADDRESS Mustard Tree 110 Oldham Road Ancoats Manchester M4 6AG CONTACT US To donate furniture: 0161 228 7331 Help Desk: 0161 850 2282 i"
+  },
+  "swansea": {
+    "result": "client",
+    "url": "https://swansea.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … St Catherine's Church, Gorseinon 07815 534095 Opening times Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed Address St Catherine's Church Hall, Alexandra Road Gorseinon SA4 4NU"
+  },
+  "harrogate-district": {
+    "result": "client",
+    "url": "https://harrogatedistrict.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Life Destiny Church, Starbeck 07885529864 Opening times Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 Fri Closed Sat Closed Sun Closed Address Life Destiny Church 93B High Street Starbeck HG2 7LH"
+  },
+  "downham-market-district": {
+    "result": "client",
+    "url": "https://downhammarketdistrict.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …sing a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Downham Market Foodbank 01366 384474 Opening times Mon Closed Tue 12:30 - 14:30 Wed Closed Thu Closed Fri 10:30 - 12:30 Sat Closed Sun Closed Address Eternity Do"
+  },
+  "newark": {
+    "result": "client",
+    "url": "https://newark.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Newark 07344 119340 Opening times Mon Closed Tue 15:00 - 17:00 Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Newar"
+  },
+  "vale-of-clwyd": {
+    "result": "client",
+    "url": "https://valeofclwyd.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …r foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more 11 Mount Pleasant 07468 028 953 Opening times Mon 10:30 - 12:00 Tue 10:30 - 12:00 Wed 10:30 - 12:00 Thu Closed Fri 10:30 - 12:00 Sat Closed Sun"
+  },
+  "clay-cross": {
+    "result": "client",
+    "url": "https://claycross.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …lfreton stops outside the church and from Chesterfield stops across the road. The 51 and 54 are within 5 minutes walk. You can find the times on traveline . Community of Christ 07899 878 398 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 14:00 Sat Closed Sun Closed Address Co"
+  },
+  "fylde": {
+    "result": "client",
+    "url": "https://fylde.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more St Anne's on Sea 01253 727455 Opening times Mon Closed Tue 10:00 - 15:00 Wed Closed Thu 10:00 - 15:00 Fri Closed Sat Closed Sun Closed Address The Annex United Reforme"
+  },
+  "hope-central": {
+    "result": "client",
+    "url": "https://hopecentral.org.uk/get-involved/giving-food",
+    "evidence": "own site shows clients collecting food here: …rsonal hygiene items and cleaning products. Drop off locations You can donate in person at these locations and times. Many thanks for your generous support. Monday to Friday 11am-12pm at the back of St Chad’s, Handforth SK9 3ES Mondays 9.30-11am St Cross Church, Knutsford WA16 8EL Saturday 10am-11a"
+  },
+  "south-normanton-area": {
+    "result": "client",
+    "url": "https://southnormantonarea.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …tem. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more St Michaels Church Hall COLLECTION ONLY NO DELIVERIES 07999 551691 Opening times Mon Closed Tue 13:30 - 14:30 Wed Closed Thu Closed Fri 13:30 - 14:30 Sat Closed Sun Closed Address Church S"
+  },
+  "st-neots": {
+    "result": "client",
+    "url": "https://stneots.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …tant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Open Door Church 01480 475 426 Opening times Mon 16:00 - 17:30 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Addre"
+  },
+  "rochdale": {
+    "result": "client",
+    "url": "https://rochdale.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Rochdale Foodbank 03001021646 Opening times Mon 10:30 - 12:30 Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri 11:00 - 13:00 Sat Closed"
+  },
+  "swale": {
+    "result": "client",
+    "url": "https://swale.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …odbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Rhema Miracle Centre 07486 370709 Opening times Mon 11:30 - 13:30 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address The Net"
+  },
+  "stamford-oundle": {
+    "result": "client",
+    "url": "https://stamfordoundle.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Stamford Foodbank 07570 583799 Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address All Saints and St Johns Church C"
+  },
+  "dorking-area": {
+    "result": "client",
+    "url": "https://dorkingarea.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …- Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Christian Centre 07494226743 Opening times Mon Closed Tue 16:15 - 17:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address"
+  },
+  "brent": {
+    "result": "client",
+    "url": "https://brent.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Brent Foodbank - Neasden Centre 0203 7455 972 Opening times Mon Closed Tue 12:30 - 15:00 Wed Closed Thu 12:30 - 15:00 Fri Closed Sat Closed Sun Closed Address St Mary's Church Church End Next to"
+  },
+  "aston-nechells": {
+    "result": "client",
+    "url": "https://astonnechells.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Bethel Free Baptist Church (Collection only) 07384 213 621 Opening times Mon Closed Tue Closed Wed 12:30 - 14:30 Thu Closed Fri Closed Sat Closed Sun Closed Address Bethel Free Baptist Church Wardend Road Ward End Birmingham B8 2QU"
+  },
+  "bridgend": {
+    "result": "client",
+    "url": "https://bridgend.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …cher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Bridgend 01656 750016 Opening times Mon Closed Tue 12:00 - 14:00 Wed Closed Thu Closed Fri 11:00 - 14:00 Sat Closed Sun Closed Address Hope Baptist Church Station Hill* Br"
+  },
+  "rhymney-valley": {
+    "result": "client",
+    "url": "https://rhymneyvalley.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … White Rose Resource Centre 07944354175 Opening times Mon Closed Tue Closed Wed Closed Thu 11:00 - 13:00 Fri Closed Sat Closed Sun Closed Address Elliotstown New Tredegar NP24 6EF"
+  },
+  "south-ayrshire": {
+    "result": "client",
+    "url": "https://southayrshire.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …her referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more New Life Church Prestwick 07599071114/ 07871689392 Opening times Mon Closed Tue 12:30 - 14:30 Wed Closed Thu Closed Fri 12:30 - 14:30 Sat Closed Sun Closed Address New Life"
+  },
+  "basildon": {
+    "result": "client",
+    "url": "https://basildon.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Basildon Foodbank 07424660862 - 01268395506 Opening times Mon Closed Tue Closed Wed 12:00 - 14:00 Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed Address 1 The Gore Basildon SS14 2EA"
+  },
+  "ek-community": {
+    "result": "client",
+    "url": "https://www.calderwoodbaptist.co.uk/Groups/270436/Contact_Us.aspx",
+    "evidence": "own site shows clients collecting food here: …ooking to email a specific staff member, emails are <firstname>@calderwoodbaptist.co.uk) Office Opening Hours: Monday–Friday: 9am–5pm Office Address: Calderwood Baptist Church Maxwellton Road Calderwood East Kilbride G74 3LW Contact Form Please fill in this form and it will be sent to the church of"
+  },
+  "glasgow-ne": {
+    "result": "client",
+    "url": "https://glasgowne.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Parkhead - Glasgow NE Foodbank 07951749363/73 Opening times Mon 13:00 - 15:00 Tue Closed Wed 10:30 - 12:30 Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Calton Old Parish Church 142 Helenvale Street Parkhead Glasgow G31 4NA"
+  },
+  "north-ayrshire": {
+    "result": "client",
+    "url": "https://northayrshire.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …s using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Church of the Nazarene 01294 601312 Opening times Mon 10:00 - 14:00 Tue 10:00 - 14:00 Wed 10:00 - 14:00 Thu 10:00 - 14:00 Fri 10:00 - 14:00 Sat Closed Sun Clo"
+  },
+  "waveney": {
+    "result": "client",
+    "url": "https://waveney.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Sunday Emergency Centre Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun 09:30 - 09:30 Address Address is given when the appointment is made. ip23 7hn"
+  },
+  "isle-of-wight": {
+    "result": "client",
+    "url": "https://isleofwight.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …cher? Important - Our Foodbank works using a voucher referral system. In order to get help from our Foodbank, you will need a voucher issued by local agencies. - Find out more Cowes Foodbank (Main Office) Opening times Mon 13:00 - 15:00 Tue Closed Wed 10:00 - 12:00 Thu Closed Fri 10:00 - 12:00 Sat"
+  },
+  "brecon": {
+    "result": "client",
+    "url": "https://brecon.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ortant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need an e-voucher issued by local agencies. - Find out more Brecon Foodbank 01874 611723 option 2 Opening times Mon Closed Tue 13:30 - 15:30 Wed Closed Thu Closed Fri 13:30 - 15:30 Sat Clos"
+  },
+  "oldham": {
+    "result": "client",
+    "url": "https://oldham.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …rs for financial donations to help with the operational costs. Donate here Find us on Twitter Oldham Foodbank NO COLLECTION – ONLY DELIVERY FROM THIS CENTRE Unit B Prince of Wales Industrial Units Vulcan Street Oldham OL1 4ER e: [email protected] t: To receive a voucher, please call Oldham Advice S"
+  },
+  "richmond": {
+    "result": "client",
+    "url": "https://richmond.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … View local transport Local transport links X The foodbank is located adjacent to a bus stop (R70, 111). Richmond 07516 935655 Opening times Mon 13:00 - 15:00 Tue Closed Wed Closed Thu 13:00 - 15:00 Fri Closed Sat Closed Sun Closed Address Vineyard Community Centre The Vineyard Richmond TW10 6AQ"
+  },
+  "taff-bargoed": {
+    "result": "client",
+    "url": "https://taffbargoed.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … system. In order to get help from your foodbank, you will need a E-voucher issued by one of our local professional agencies. - Find out more Taff Bargoed Foodbank | Nelson 01443 450 832 Opening times Mon Closed Tue 09:00 - 12:00 Wed Closed Thu Closed Fri 09:00 - 12:00 Sat Closed Sun Closed Address"
+  },
+  "south-gwynedd": {
+    "result": "client",
+    "url": "https://southgwynedd.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more South Gwynedd Foodbank (office & distribution centre) 07973 914 599 Opening times Mon 10:00 - 16:00 Tue 10:00 - 16:00 Wed 10:00 - 16:00 Thu 10:00 - 16:00 Fri 10:00 - 16:00 Sat Closed Sun Closed Ad"
+  },
+  "ashby": {
+    "result": "client",
+    "url": "https://ashby.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ng a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Ashby Foodbank 07542118878 Opening times Mon Closed Tue 09:30 - 11:30 Wed Closed Thu Closed Fri 14:00 - 16:00 Sat Closed Sun Closed Address Ashby Congregational Ch"
+  },
+  "highland": {
+    "result": "client",
+    "url": "https://newstarthighland.org/how-we-help/highland-foodbank",
+    "evidence": "own site shows clients collecting food here: …nations, to welcoming people at our centres and delivering food across rural areas, our volunteers are at the heart of everything we do. Our foodbank centres: Inverness Mon – Fri 12:00 – 14:00 1 Glebe Street, Inverness, IV1 1RF Nairn Tuesday & Friday 12:00 – 14:00 St. Mary’s Church Hall, 7 Academy"
+  },
+  "letchworth": {
+    "result": "client",
+    "url": "https://letchworth.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …o get help from our foodbank, you will need to be resident in a SG postcode and receive a voucher issued by local agencies. - Find out more Letchworth 07547 211940 Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed Address Mrs Howard Memorial Ha"
+  },
+  "northfleet-hive-hope": {
+    "result": "client",
+    "url": "https://hivehope.org.uk/about-hive-hope/",
+    "evidence": "own site shows clients collecting food here: …EQ 📍 View on Google Maps Mobile · Saturdays 1pm - 2pm Disused Taxi Rank Near St George's Church, Church Street, DA11 0DJ 📍 View on Google Maps Static · Wednesdays 11am - 12:30pm St Botolphs Church Hall Northfleet, Kent, DA11 9EU - parking available nearby 📍 View on Google Maps 🎄 Christmas opening h"
+  },
+  "lichfield": {
+    "result": "client",
+    "url": "https://lichfield.foodbank.org.uk",
+    "evidence": "own site shows clients collecting food here: …ide is displayed one at a time. Distribution Opening Times Monday - 10-12 pm - Curborough Community Centre, WS13 7NY Tuesday - 6.30-7.30pm - LifeChurch, Netherstowe, WS13 6TS Friday - 12.00-1.30 pm - Wade Street Church, WS13 6HL ** Please note from the 1st Nov 2026 Tuesday will change to 6.00-7.00"
+  },
+  "bexley": {
+    "result": "client",
+    "url": "https://bexley.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …al agencies. - Find out more Avery Hill Foodbank For Vouchers and contact - 07385 921627 (Mon to Fri - 0900 to 1200hrs) or Freephone 0808 208 2138 (Mon to Fri - 0900 to 1700hrs) Opening times Mon Closed Tue Closed Wed Closed Thu 11:30 - 13:30 Fri Closed Sat Closed Sun Closed Address Avery Hill Chri"
+  },
+  "redbridge": {
+    "result": "client",
+    "url": "https://redbridge.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …- Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Jubilee Church 02085180056 Opening times Mon Closed Tue 11:00 - 13:00 Wed 14:00 - 16:00 Thu Closed Fri Closed Sat 10:00 - 13:00 Sun Closed"
+  },
+  "dundonald": {
+    "result": "client",
+    "url": "https://dundonald.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …Foodbank works using a voucher referral system. To get help from our Foodbank you will need a voucher issued by a local agency. - Find out more Dundonald Foodbank 028 95435310 Opening times Mon 09:00 - 12:00 Tue Closed Wed 09:00 - 12:00 Thu Closed Fri 09:00 - 12:00 Sat Closed Sun Closed Address 971"
+  },
+  "skelmersdale-district": {
+    "result": "client",
+    "url": "https://skelmersdale.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Ecumenical Centre Opening times Mon 10:00 - 12:00 Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed Address The Ecumenical Centre Northway WN8 6LU"
+  },
+  "york": {
+    "result": "client",
+    "url": "https://york.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ojects as well as covering our modest operating costs. Donate here Find us on Facebook Find us on Instagram York Foodbank Helping local people in crisis York Foodbank Unit 5 Sterling Park Bleriot Way Clifton Moor York YO30 4WU (Depot address for donation drop off only. Open every Tuesday/Thursday 9"
+  },
+  "hedge-end": {
+    "result": "client",
+    "url": "https://www.kingscommunitychurch.co.uk/foodcentre",
+    "evidence": "own site shows clients collecting food here: …lways be answered but you can leave a message or a text and they will get back to you as soon as possible. Food centre hedge end Time: Mondays 10:00-13:00 Address: King’s Community Church, Upper Northam Road, Hedge End, SO30 4BZ Drop In: You may already have a referral from an agency but if not you"
+  },
+  "bangor-ni": {
+    "result": "client",
+    "url": "https://bangorni.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ngor Foodhub & Community Support Part of Bangor NI Foodbank 07821 791674 07821 791674 Phone answered during open hours only, Monday to Friday 10:00am to 5:00pm info@bangorni.foodbank.org.uk 24 Balloo Avenue Bangor, Down BT19 7QT Get directions Collection and delivery in exceptional circumstances Co"
+  },
+  "liskeard-looe": {
+    "result": "client",
+    "url": "https://liskeardlooe.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Liskeard Clients collection Dean St Liskeard 07512 011452 Opening times Mon 09:30 - 12:15 Tue Closed Wed 09:30 - 12:15 Thu 09:30 - 12:15 Fri 09:30 - 12:15 Sat Closed Sun Closed Address 21 Dean Street Liskeard Cornwall PL14 4AB"
+  },
+  "yiewsley-west-drayton": {
+    "result": "client",
+    "url": "https://yiewsleywestdrayton.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …m our foodbank, you will need a voucher issued by local agencies. Please get in touch to find out more. - Find out more St Matthew's Church COLLECTION AT FOODBANK ONLY 07462 097357 Opening times Mon 12:00 - 14:00 Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed Address St Ma"
+  },
+  "sherwood-forest": {
+    "result": "client",
+    "url": "https://sherwoodforest.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …m. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Sherwood Forest Foodbank 07563 233652 Opening times Mon 14:00 - 16:00 Tue Closed Wed Closed Thu 14:00 - 16:00 Fri Closed Sat Closed Sun Closed Address c/o Stables Centre 12 Church Street Man"
+  },
+  "leicester-south": {
+    "result": "client",
+    "url": "https://leicestersouth.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Leicester South Foodbank @ Bell Street Wigston 0116 5079153 Opening times Mon Closed Tue Closed Wed Closed Thu 13:00 - 14:00 Fri Closed Sat Closed Sun Closed Address Community"
+  },
+  "first-base-dumfriesshire": {
+    "result": "client",
+    "url": "https://www.firstbasedumfries.co.uk/foodbank-service",
+    "evidence": "own site shows clients collecting food here: … Our Foodbank Service - The First Base Agency The First Base Agency 6 Buccleuch St Dumfries DG1 2AH | | | Opening Hours Monday: 12:00 – 14:00 Tuesday: 12:00 – 14:00 Wednesday: 12:00 – 14:00 Thursday: 12:00 – 14:00 Frida"
+  },
+  "romsey": {
+    "result": "client",
+    "url": "https://romsey.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …need a voucher issued by local agencies. - Find out more Romsey Foodbank, open Tues, Weds and Thurs 10:30 to 12:30 07761 405 870 Opening times Mon Closed Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri Closed Sat Closed Sun Closed Address Romsey Foodbank Freedom Centre Unit 6, Greatbridge"
+  },
+  "port-talbot": {
+    "result": "client",
+    "url": "https://porttalbot.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Carmel Chapel 07491 922211 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Aberafan, Glan-Yr-Afon, Port Talbot SA13 1PQ"
+  },
+  "kingston": {
+    "result": "client",
+    "url": "https://kingston.foodbank.org.uk/contact/",
+    "evidence": "own site shows clients collecting food here: …u to the most appropriate agency to give you a foodbank voucher. Email us Δ Enquiry Type General foodbank enquiry Your name Email address Your message Send your message Address Suite 110 61 Victoria Road Surbiton Surrey KT6 4JX (Please note that this address is for correspondence only – no staff wo"
+  },
+  "st-helens": {
+    "result": "client",
+    "url": "https://sthelens.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Christian Life Centre 01744 26414 Opening times Mon Closed Tue 11:00 - 14:00 Wed Closed Thu Closed Fri 11:00 - 14:00 Sat Closed Sun Closed Address Atherton Street St Helens WA10 2DT"
+  },
+  "portsmouth": {
+    "result": "client",
+    "url": "https://portsmouth.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …o get help from our foodbank, you will need a voucher issued by local agencies. Central (Southsea) 023 9298 7976 Opening times Mon 11:00 - 13:00 Tue Closed Wed 11:00 - 13:00 Thu Closed Fri 11:00 - 13:00 Sat Closed Sun Closed Address E-referrals only Please bring ID and carrier bags Hope Centre (pre"
+  },
+  "weston-super-mare": {
+    "result": "client",
+    "url": "https://westonsupermare.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … this venue. We operate a shop style system where clients are able to choose food items that best suit their preferences. Please bring your own bags with you. North Street 01934 708 906 Opening times Mon 11:00 - 14:30 Tue Closed Wed 11:00 - 14:30 Thu Closed Fri 11:00 - 14:30 Sat Closed Sun Closed A"
+  },
+  "newham-district": {
+    "result": "client",
+    "url": "https://newhamdistrict.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ur foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Ascension Church Centre 02075111232 Opening times Mon Closed Tue Closed Wed Closed Thu 11:00 - 13:00 Fri Closed Sat Closed Sun Closed Address"
+  },
+  "chesterfield": {
+    "result": "client",
+    "url": "https://chesterfield.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …odbank vouchers. Chesterfield Foodbank collects and distributes long life emergency food packs to local people in financial crisis. Mailing Address Only: Unit 6 Carrwood Road Industrial Estate Carrwood Road Chesterfield S41 9QB e: [email protected] t: 07529224996 FAQs Donate food Volunteer Donate m"
+  },
+  "collier-row-romford": {
+    "result": "client",
+    "url": "https://collierrowromford.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …k voucher? Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. Romford Baptist Church Opening times Mon 12:00 - 14:00 Tue Closed Wed 12:00 - 14:00 Thu Closed Fri Closed Sat Closed Sun Closed Addres"
+  },
+  "barrow": {
+    "result": "client",
+    "url": "https://barrow.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …er to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Barrow foodbank 01229 343436 Opening times Mon 11:00 - 13:00 Tue 11:00 - 13:00 Wed 11:00 - 13:00 Thu 11:00 - 13:00 Fri 13:00 - 15:00 Sat Closed Sun Closed Address Abbey Road Baptist Church Abbey Road"
+  },
+  "newtownabbey": {
+    "result": "client",
+    "url": "https://newtownabbey.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …bank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Carnmoney Church 07581179604 Opening times Mon 14:00 - 16:00 Tue Closed Wed 18:30 - 19:30 Thu Closed Fri Closed Sat Closed Sun Closed Address Carnmon"
+  },
+  "dunfermline": {
+    "result": "client",
+    "url": "https://dunfermline.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …s walk: head south down Moodie Street, cross the junction, down Elgin Street, then right at the Industrial Estate) 3/4/5/5A/6 Dunfermline 07580 231286 Opening times Mon 16:00 - 18:00 Tue Closed Wed 16:00 - 18:00 Thu Closed Fri 16:00 - 18:00 Sat Closed Sun Closed Address Liberty Centre Pitreavie Way"
+  },
+  "st-austell": {
+    "result": "client",
+    "url": "https://staustell.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …elp from our foodbank, you will need an E voucher issued by a local referral agency. - Find out more St Austell Foodbank - closed Bank Holidays Opening times Mon 16:00 - 18:00 Tue 13:00 - 15:00 Wed Closed Thu 13:00 - 15:00 Fri 13:00 - 15:00 Sat Closed Sun Closed Address The Light & Life Centre, The"
+  },
+  "northern-devon": {
+    "result": "client",
+    "url": "https://northerndevon.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Northern Devon Foodbank - Bideford 01237 422243 Opening times Mon 10:30 - 13:30 Tue Closed Wed 10:30 - 13:30 Thu Closed Fri 10:30 - 13:30 Sat 11:30 - 13:30 Sun Closed Address Supreme House, Pitt Lane EX39 3JA"
+  },
+  "llandrindod": {
+    "result": "client",
+    "url": "https://llandrindod.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. Llandrindod Foodbank COLLECTION AND DELIVERY in Exceptional Circumstances 07519 839189 Opening times Mon Closed Tue 10:30 - 13:00 Wed 10:30 - 13:00 Thu Closed Fri 10:30 - 13:00 Sat Closed Sun"
+  },
+  "helston-the-lizard": {
+    "result": "client",
+    "url": "https://helstonthelizard.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …cher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Open Door Café, Wendron Street 01326 564194 Opening times Mon 10:00 - 14:00 Tue Closed Wed 10:00 - 14:00 Thu Closed Fri 10:00 - 14:00 Sat Closed Sun Closed Address The"
+  },
+  "larne": {
+    "result": "client",
+    "url": "https://larne.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …k works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Craigyhill Methodist Church 028 28277530 Opening times Mon Closed Tue 13:00 - 15:00 Wed 17:00 - 18:30 Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed"
+  },
+  "banbury": {
+    "result": "client",
+    "url": "https://banbury.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …r foodbank works using a referral system. In order to get help from our foodbank, you will need to get a referral code from a local referral agency. - Find out more The People's Church - Town Centre Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Ad"
+  },
+  "devizes-district": {
+    "result": "client",
+    "url": "https://devizesdistrict.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … from our foodbank, you will need a voucher issued by local agencies. - Find out more Devizes Foodbank Centre - closed between 12pm and 2pm 07807 973605 / 07379 818913 Opening times Mon Closed Tue 14:00 - 16:00 Wed 10:00 - 12:00 Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed Address Unit 4, Gle"
+  },
+  "east-west-nottingham": {
+    "result": "client",
+    "url": "https://eastwestnottingham.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …nk works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Hope House, Beeston 0303 040 1110 Opening times Mon 09:30 - 12:00 Tue Closed Wed 09:30 - 12:00 Thu 09:30 - 12:00 Fri Closed Sat 09:30 - 10:30 Sun Close"
+  },
+  "hertford-ware-district": {
+    "result": "client",
+    "url": "https://hertfordwaredistrict.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …rral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Hertford Foodbank (Pre booked collection only) 07851 708470 Opening times Mon 10:00 - 11:00 Tue Closed Wed 10:00 - 11:00 Thu Closed Fri 10:00 - 11:00 Sat Closed Sun Closed Address"
+  },
+  "aberdeen-north": {
+    "result": "client",
+    "url": "https://aberdeennorth.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … King's Way Centre 01224 518936 Opening times Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed Address King's Way Centre, King's Way, Bridge of Don, AB23 8BL"
+  },
+  "scunthorpe": {
+    "result": "client",
+    "url": "https://scunthorpe.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …r? Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Connect Church Ashby Road 0300 102 8061 Opening times Mon Closed Tue 13:00 - 14:30 Wed Closed Thu Closed Fri Closed Sat Closed"
+  },
+  "atherton-leigh": {
+    "result": "client",
+    "url": "https://athertonleigh.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Atherton Parish Church 07517393362 Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Market Pl, Atherton, Manchester M46 0DW"
+  },
+  "hastings": {
+    "result": "client",
+    "url": "https://hastings.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Hastings Centre 01424 755990 Opening times Mon 10:30 - 15:00 Tue Closed Wed 10:30 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed Address King's Church Hastin"
+  },
+  "ryedale-community": {
+    "result": "client",
+    "url": "https://ryedalecommunityfoodbank.co.uk/contact/",
+    "evidence": "own site shows clients collecting food here: …ion please email us at: general@ryedalecommunityfoodbank.co.uk Registered Charity No. 1197910 Follow us on social media Contact form Name Email Address Phone Message Send Message Main Branch 7A Howe Road, Norton, Malton YO17 9BH Telephone: 01653 228118 general@ryedalecommunityfoodbank.co.uk Opening"
+  },
+  "craigavon-area": {
+    "result": "client",
+    "url": "https://craigavonarea.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ucher You can exchange a food voucher for emergency food at these locations. 4 results See map Close Craigavon Foodbank - Delivery Part of Craigavon Area Foodbank 03330507702 03330507702 contact@craigavonfoodbank.org.uk BT63 5WG Get directions Delivery only Delivery times Closed today Monday Closed"
+  },
+  "hart": {
+    "result": "client",
+    "url": "https://hart.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Fleet 07926 806256 Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu 11:00 - 12:30 Fri Closed Sat Closed Sun Closed Address Fle"
+  },
+  "cheltenham": {
+    "result": "client",
+    "url": "https://cheltenham.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …tem. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Cheltenham Foodbank Elim Distribution Centre 01242 570080 Opening times Mon Closed Tue 11:00 - 13:00 Wed 10:30 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed Address Cheltenham Elim C"
+  },
+  "south-sefton": {
+    "result": "client",
+    "url": "https://southsefton.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … St Leonard's Youth & Community Centre 0151 933 1300 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 14:30 Sat Closed Sun Closed Address 60 Peel Road Bootle L20 4RW"
+  },
+  "greenwich": {
+    "result": "client",
+    "url": "https://greenwich.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Depot - Donation Drop-offs only [email protected] Opening times Mon 10:00 - 16:00 Tue 10:00 - 16:00 Wed 10:00 - 16:00 Thu 10:00 - 16:00 Fri 10:00 - 16:00 Sat Closed Sun Closed Address Unit 1 180 Shooters Hill London SE18 3HY"
+  },
+  "caithness": {
+    "result": "client",
+    "url": "https://caithness.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Thurso Opening times Mon Closed Tue 12:00 - 14:30 Wed Closed Thu Closed Fri 12:00 - 14:30 Sat Closed Sun Closed Address 13 Princes Street Thurso KW14 7BQ"
+  },
+  "dagenham": {
+    "result": "client",
+    "url": "https://dagenham.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …sing a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Dagenham Foodbank- HOFC Centre Opening times Mon Closed Tue Closed Wed 11:00 - 13:00 Thu Closed Fri Closed Sat 11:00 - 13:00 Sun Closed Address RCCG House of Fai"
+  },
+  "vale": {
+    "result": "client",
+    "url": "https://vale.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …r foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Coastlands Family Church , Barry 07879562077 Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu 16:00 - 17:30 Fri Closed Sat Closed Sun"
+  },
+  "hillingdon": {
+    "result": "client",
+    "url": "https://hillingdon.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Foodbank works in partnership with voluntary and statutory agencies, which come into contact with people in crisis, through the course of their work. Office Address ( Admin enquiries only) 4 New Windsor Street Uxbridge UB8 2TU Hillingdon Foodbank Sorting & Distribution Centre (no vouchers issued o"
+  },
+  "gravesham": {
+    "result": "client",
+    "url": "https://gravesham.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …tem. In order to get help from our Foodbank, you will need a voucher issued by a local referral agency. - Find out more Main Operations and Distribution Centre 01474 661 275 Opening times Mon Closed Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri 10:30 - 12:30 Sat Closed Sun Closed Addres"
+  },
+  "brentwood": {
+    "result": "client",
+    "url": "https://brentwood.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Friday 10:00 am to 1:00 pm Saturday-Sunday Closed Dodd Road Community Church Part of Brentwood Foodbank 01277 224528 01277 224528 doddroadchurch@outlook.com Dodd Road Community Church Doddinghurst Road Brentwood, Essex CM15 9EH Get directions Collection only Collection times Open today until 1:00"
+  },
+  "bicester": {
+    "result": "client",
+    "url": "https://bicester.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Bicester Foodbank 01869 245036 Opening times Mon 10:00 - 12:00 Tue 10:00 - 12:00 Wed 10:00 - 12:00 Thu 10:00 - 12:00 Fri 10:00 - 12:00 Sat 10:00 - 12:00 Sun Closed Add"
+  },
+  "southport": {
+    "result": "client",
+    "url": "https://southport.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … voucher? Important - Our Foodbank works using a voucher referral system. In order to get help from our Foodbank, you will need a voucher issued by local agencies. Victoria Centre 01704 264505 Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address"
+  },
+  "lambeth-croydon": {
+    "result": "client",
+    "url": "https://lambethcroydon.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …or deliver to you. Please do not turn up at this location without having spoken to us - your food will not be there. foodbank@oasiswaterloo.org Tulse Hill Hub, Village hall 155 Tulse Hill Within Oasis St Martins Village SW2 3UP Get directions Collection only Collection times Closed today Monday 12:"
+  },
+  "fallowfield-withington": {
+    "result": "client",
+    "url": "https://fallowfieldwithington.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Union Chapel 07411 077654 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed Address 2b Wellington Road, Fallowfield M14 6EQ"
+  },
+  "covent-garden": {
+    "result": "client",
+    "url": "https://www.dragonhall.org.uk/food-bank",
+    "evidence": "own site shows clients collecting food here: …rmation go to www.cgcc.org.uk Donate to Dragon Hall Trust >> Donate to Covent Garden Pantry >> Contact Us: Tel: 020 7404 7274 E-mail: info@dragonhall.org.uk Covent Garden Dragon Hall Trust 17, Stukeley Street London WC2B 5LT Charity Number: 1087268 Our Location: See Map admin staff © Copyright 2024"
+  },
+  "erdington": {
+    "result": "client",
+    "url": "https://erdington.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …bank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Six Ways Baptist Church 07474 683927 Opening times Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed Address Six Wa"
+  },
+  "mid-norfolk": {
+    "result": "client",
+    "url": "https://midnorfolk.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …nk works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Wellspring Family Centre, Dereham 07542 106107 Opening times Mon 13:30 - 15:30 Tue Closed Wed Closed Thu Closed Fri 13:30 - 15:30 Sat Closed Sun Closed"
+  },
+  "edinburgh-ne": {
+    "result": "client",
+    "url": "https://edinburghnefoodbank.com/contact/",
+    "evidence": "own site shows clients collecting food here: …NING TIMES Mon Closed Tue Closed Wed 16:30 – 18:00 Thu Closed Fri Closed Sat Closed Sun Closed Get in touch with us 0131 553 5694 info@edinburghne.foodbank.org.uk Edinburgh North East Foodbank 19 Stewartfield, Edinburgh EH6 5RQ Stay informed - Sign up to our e-news Our Mission This foodbank is run"
+  },
+  "long-eaton-sawley": {
+    "result": "client",
+    "url": "https://longeatonsawley.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … and Sawley food bank, we provide emergency food parcels to local people and families experiencing a financial crisis. (supported by Foundation Derbyshire) Long Eaton: Baptist Church Station Street Long Eaton Nottingham NG10 1GJ Sawley: 165 Wilmot Street Sawley Long Eaton Nottingham NG10 3EL Castle"
+  },
+  "lutterworth-and-villages": {
+    "result": "client",
+    "url": "https://lutterworthvillages.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …et help from our foodbank, you will need a voucher issued by local agencies. - Find out more Lutterworth - HARBOROUGH DC DELIVERY AND PRE-BOOKED COLLECTIONS 01455 558797 Opening times Mon Closed Tue 13:00 - 15:00 Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed Address Church Gate Cent"
+  },
+  "north-belfast": {
+    "result": "client",
+    "url": "https://northbelfast.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ate here Find us on Twitter Find us on Facebook Find us on Instagram North Belfast Foodbank FOR FOOD PARCELS: Ekenhead Halls 19 North Circular Road Belfast BT15 5HB Immanuel Presbyterian Church 35 Agnes Street Belfast BT13 1GG FOOD DONATIONS Monday 6.15pm – 6.45pm Unit 8 2 West Bank Road BELFAST BT"
+  },
+  "east-dunbartonshire": {
+    "result": "client",
+    "url": "https://eastdunbartonshire.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …odbank works using a referral system. In order to get help from our foodbank, you will need an e-voucher or red voucher issued by local agencies. Kirkintilloch Baptist Church 07425 134131 Opening times Mon 14:00 - 16:00 Tue Closed Wed 14:00 - 16:00 Thu Closed Fri 14:00 - 16:00 Sat Closed Sun Closed"
+  },
+  "glasgow-sw": {
+    "result": "client",
+    "url": "https://glasgowsw.foodbank.org.uk/contact/",
+    "evidence": "own site shows clients collecting food here: …ur message Send your message Contact details Monday to Friday 9am to 5pm Phone us 07437 910115 Email us [email protected] Address Our main office can be found at: Unit 65 Elderpark Workspace 100 Elderpark Street Glasgow G51 3TR Directions via Google Maps Donate As a charity, we rely on donations to"
+  },
+  "renfrewshire": {
+    "result": "client",
+    "url": "https://renfrewshire.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …m this location) 03001022500 Opening times Mon 09:30 - 12:00 Tue 09:30 - 12:00 Wed 09:30 - 12:00 Thu 09:30 - 12:00 Fri 09:30 - 12:00 Sat Closed Sun Closed Address E Block Offices, Westway Porterfield Road Renfrew PA4 8DJ Go through the security gate and take the 5th right, turn left, then right. We"
+  },
+  "causeway": {
+    "result": "client",
+    "url": "https://causeway.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Coleraine Centre 02870220005 Opening times Mon Closed Tue 11:30 - 13:00 Wed 11:30 - 13:00 Thu 19:00 - 20:00 Fri 11:30 - 13:00 Sat Closed Sun Closed Address The Vineyard Centre"
+  },
+  "carmarthen": {
+    "result": "client",
+    "url": "https://carmarthen.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …l system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Carmarthen Foodbank 01267 225996 Opening times Mon 11:00 - 14:00 Tue Closed Wed 11:00 - 14:00 Thu Closed Fri 11:00 - 14:00 Sat Closed Sun Closed Address Carmarthen Foodbank, Xcel Proj"
+  },
+  "caerphilly": {
+    "result": "client",
+    "url": "https://caerphilly.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Connect Life Church 02920 868151 Opening times Mon Closed Tue 10:00 - 13:00 Wed 10:00 - 13:00 Thu Closed Fri Closed Sat Closed Su"
+  },
+  "burngreave": {
+    "result": "client",
+    "url": "https://burngreave.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … 52a to Gainsford Rd Burngreave 07542 888671 - (The office is open on Mon, Weds & Fri 10-4. Food donations can be brought in during these times but food parcels can only be collected at the times below) Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri 13:00 - 15:00 Sat Closed Su"
+  },
+  "woodley": {
+    "result": "client",
+    "url": "https://woodleyfoodbank.org",
+    "evidence": "own site shows clients collecting food here: …to issue our parcels. If You Need Help We recognise that anyone can run into difficulties and need assistance. If you need a food parcel, you can collect one yourself from: Woodley Baptist Church Hurricane Way, Woodley, RG5 4UX Monday to Friday, 10:00 - noon Directions Emmanuel Church The Food Bank"
+  },
+  "boston": {
+    "result": "client",
+    "url": "https://boston.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …tant - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more The Rectory, Wormgate 01205 310929 Opening times Mon Closed Tue 11:30 - 14:30 Wed Closed Thu 11:30 - 14:30 Fri Closed Sat Closed Sun C"
+  },
+  "tamworth": {
+    "result": "client",
+    "url": "https://tamworth.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …rks using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Manna House 01827 302431 Opening times Mon 12:30 - 15:00 Tue Closed Wed 12:30 - 15:00 Thu Closed Fri 12:30 - 15:00 Sat Closed Sun Closed Address 258-264 Gla"
+  },
+  "blaenau-gwent": {
+    "result": "client",
+    "url": "https://blaenaugwent.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Beaufort Centre - ADMIN CENTRE ONLY 07812425130 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address Destiny Church Heads of the Valley 54 Beaufort Rise Beaufort Ebbw Vale NP23 5JQ"
+  },
+  "glasgow-nw": {
+    "result": "client",
+    "url": "https://glasgownw.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …om our foodbank, you will need a voucher issued by local agencies. - Find out more Blawarthill Church Mbls: 0773 5522 621; 07787 334 012. Office Number, Tue & Fri 12noon - 2pm: 0141 959 9813, Opening times Mon Closed Tue 12:00 - 14:00 Wed Closed Thu Closed Fri 12:00 - 14:00 Sat Closed Sun Closed Ad"
+  },
+  "weymouth": {
+    "result": "client",
+    "url": "https://www.weymouthfoodbank.co.uk",
+    "evidence": "own site shows clients collecting food here: …s for our foodbank centres. Everyone who comes to the foodbank for emergency food would normally need to have a valid foodbank referral number. Weymouth Baptist Church (To collect food parcels) 18 The Esplanade Weymouth DT4 8DT (near Alexandra Gardens) Opening Times Tuesday and Friday 10.30 am to 1"
+  },
+  "runnymede": {
+    "result": "client",
+    "url": "https://runnymede.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …eed to access a foodbank voucher? Important - Call 01932 943 056 and leave a message saying that you are in financial crisis and need food. - Find out more Chertsey Foodbank 01932 943 056 Opening times Mon Closed Tue Closed Wed 10:00 - 12:00 Thu Closed Fri Closed Sat Closed Sun Closed Address The B"
+  },
+  "merthyr-cynon": {
+    "result": "client",
+    "url": "https://merthyrcynon.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …er referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Gurnos Christian Centre 07427 537437 Opening times Mon 09:00 - 12:00 Tue 09:00 - 12:00 Wed 09:00 - 12:00 Thu 09:00 - 12:00 Fri 09:00 - 12:00 Sat Closed Sun Closed Address 26"
+  },
+  "taunton": {
+    "result": "client",
+    "url": "https://taunton.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ages of children (if any) and an emergency box will be given to you to tide you over. - Find out more Taunton Foodbank 07761 624216/01823 270316 Opening times Mon 10:00 - 12:00 Tue 10:00 - 12:00 Wed 10:00 - 12:00 Thu 10:00 - 12:00 Fri 10:00 - 12:00 Sat Closed Sun Closed Address Unit 4, Belvedere Tr"
+  },
+  "malmesbury-district": {
+    "result": "client",
+    "url": "https://malmesburydistrict.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … a voucher issued by local agencies. - Find out more Malmesbury Foodbank - Daytime 01666 826982 (answerphone available - calls will be returned as soon as possible) Opening times Mon Closed Tue 10:00 - 11:30 Wed Closed Thu 13:00 - 14:30 Fri Closed Sat Closed Sun Closed Address The Town Hall (entran"
+  },
+  "3food4u": {
+    "result": "client",
+    "url": "https://3food4u.org",
+    "evidence": "own site shows clients collecting food here: … a new tab) Share on LinkedIn (opens in a new tab) Share by Email (opens in a new tab) Find Us On facebook Please Donate Our Hub Locations Waltham Abbey Monday & Friday 10:45am to 12:30pm 13 Sun Street, Waltham Abbey, EN9 1ER Loughton Tuesday 10:45am to 12:30pm Loughton Club, 8 Station Road, IG10 4"
+  },
+  "woking": {
+    "result": "client",
+    "url": "https://woking.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …our phone is manned by volunteers so please leave a message if you are unable to get through and we will get back to you as soon as possible. info@woking.foodbank.org.uk The Lighthouse Unit 4, Church Path Woking, Surrey GU21 6EL Get directions Collection only Disabled access Collection times Open t"
+  },
+  "billingham-stockton-borough": {
+    "result": "client",
+    "url": "https://billinghamstocktonborough.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …nt - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Billingham 07583 575522 Opening times Mon Closed Tue 11:00 - 14:00 Wed Closed Thu 11:00 - 14:00 Fri Closed Sat Closed Sun Closed Address"
+  },
+  "arnold": {
+    "result": "client",
+    "url": "https://arnold.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …g a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Arnold Foodbank 07854 690694 Opening times Mon 13:30 - 15:00 Tue Closed Wed 13:30 - 15:00 Thu Closed Fri 13:30 - 15:00 Sat Closed Sun Closed Address Daybrook Baptis"
+  },
+  "glenrothes": {
+    "result": "client",
+    "url": "https://glenrothes.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …oodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. Caledonia House 01592 631088 Opening times Mon 11:30 - 15:00 Tue Closed Wed 12:30 - 17:00 Thu Closed Fri 11:30 - 15:00 Sat Closed Sun Closed Address Caledonia Hou"
+  },
+  "bournemouth": {
+    "result": "client",
+    "url": "https://bournemouth.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ing a valid voucher - Find out more about food bank vouchers and how to get one - Find out more St George's Hub 01202 394505 Opening times Mon 10:30 - 12:30 Tue 10:30 - 12:30 Wed 10:30 - 12:30 Thu 10:30 - 12:30 Fri Closed Sat Closed Sun Closed Address Open all-year-round except bank holidays. St Ge"
+  },
+  "armagh": {
+    "result": "client",
+    "url": "https://armagh.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ps Make a donation We rely on our supporters for financial donations to help with the operational costs. Donate here Find us on Twitter Find us on Facebook Armagh Foodbank Stepping Stones Pantry, 30 Barrack st Armagh, BT60 1AD Opened Tuesday and Saturday 10.30am to 12.30 pm e: [email protected] t:"
+  },
+  "stockport": {
+    "result": "client",
+    "url": "https://stockport.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Hazel Grove 07483 115349 Opening times Mon 12:30 - 14:30 Tue Closed Wed 10:30 - 12:30 Thu Closed Fri 11:30 - 13:30 Sat Closed Sun Closed Address Hazel Grove Baptist C"
+  },
+  "soar-valley-community-food-project": {
+    "result": "client",
+    "url": "https://soarvalleyoutreach.org.uk/food-projects",
+    "evidence": "own site shows clients collecting food here: …dvice, budgeting and a listening ear. The central Hub is based at Mountsorrel Baptist Church on a Monday morning from 9 -12. If you would like to donate food please drop in to Mountsorrel Baptist Church, Leicester Road, LE12 7AJ next to Mountsorrel Memorial Centre or text 07743 765958 to arrange a"
+  },
+  "fosse": {
+    "result": "client",
+    "url": "https://fosse.foodbank.org.uk",
+    "evidence": "own site shows clients collecting food here: …as 2025 Opening times Make a donation We rely on our supporters for financial donations to help with the operational costs. Donate here Find us on Twitter Fosse Foodbank St Peter’s Church Warwick Road Kineton Warwick. CV35 0HN (Address for postal correspondence c/o 60 Green Farm End Kineton, Warwic"
+  },
+  "shoreham": {
+    "result": "client",
+    "url": "https://shoreham.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … The Villas Foodbank 07548835610 Opening times Mon 10:00 - 12:00 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed Address 21-23 Clarendon Villas Hove BN3 3RE"
+  },
+  "meon-valley": {
+    "result": "client",
+    "url": "https://meonvalleyfoodbank.co.uk",
+    "evidence": "own site shows clients collecting food here: …r 2025 We are now on Bank the Food app We have teamed up with Bank the Food to provide up to date alerts of low stock direct to your phone. View more updates Address Wickham Community Centre, Mill Lane, Wickham, FAREHAM PO17 5AL Opening Hours Mon 10AM–noon (Donations) Tues 10AM–2PM (Collections) Cl"
+  },
+  "ammanford": {
+    "result": "client",
+    "url": "https://ammanford.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …Important - Our foodbank works using a voucher referral system. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Ammanford Foodbank 07804189830 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed"
+  },
+  "highbridge-area": {
+    "result": "client",
+    "url": "https://highbridgearea.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Hope Baptist 07979 235218 Opening times Mon Closed Tue Closed Wed Closed Thu 09:30 - 12:00 Fri Closed Sat Closed Sun Closed Address Church Street Highbridge TA9 3HW"
+  },
+  "rutherglen-cambuslang": {
+    "result": "client",
+    "url": "https://rutherglencambuslang.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: … Rutherglen 07393 737 030 Opening times Mon 12:30 - 14:30 Tue Closed Wed Closed Thu 12:30 - 14:30 Fri Closed Sat Closed Sun Closed Address From Monday 8th September, 2025, we are moving the Rutherglen operation to 37 Rutherglen Exchange, where you currently pick up your food G73 2LS"
+  },
+  "chiltern": {
+    "result": "client",
+    "url": "https://chiltern.foodbank.org.uk/locations/",
+    "evidence": "own site shows clients collecting food here: …ltern Foodbank 01494 775668 01494 775668 Phoneline open Tuesday to Friday, 10am to 12:30pm voucher@chiltern.foodbank.org.uk Please email us and we will endeavour to reply as soon as possible. 71, Broadway Chesham, Bucks HP5 1BX Get directions Collection and delivery Collection times Open today unti"
+  },
+  "wadebridge": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: odbank nearest to you. **Please note: our Foodbanks will be closed on Public Holidays & Bank Holidays.** Address 4 Eddystone Road Wadebridge Cornwall PL27 7AL Directions via Google Maps Need to access a foodbank voucher? Important - Our f",
+    "url": "https://www.wadebridgefoodbank.org/locations/"
+  },
+  "andover": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: you will need a voucher issued by local agencies. - Find out more Andover Foodbank St John the Baptist 01264 362111 Opening times Mon 09:30 - 12:30 Tue Closed Wed Closed Thu 09:30 - 12:30 Fri 09:30 - 12:30 Sat Closed Sun Closed Address Andover Foodbank St John the Baptist, St John the Baptist RC Chu",
+    "url": "https://andover.foodbank.org.uk/locations/"
+  },
+  "hammersmith-fulham": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: St Matthew's Church, Wandsworth Bridge Road, Fulham 020 7731 3693 Opening times Mon Closed Tue 10:00 - 11:45 Wed Closed Thu Closed Fri 14:00 - 16:15 Sat Closed Sun Closed Address St Matthew's Church Wandsworth Bridge Road London SW6 2TX",
+    "url": "https://hammersmithfulham.foodbank.org.uk/locations/"
+  },
+  "north-bristol-south-gloucestershire": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: have a valid food bank voucher. Our main office address North Bristol & South Glos Foodbank Office Ebenezer Church 286 Filton Avenue Horfield Bristol BS7 0BA Get directions via Google Maps Important: Please bring a valid voucher – Find out about food bank vouchers and how to g",
+    "url": "https://nbsg.foodbank.org.uk/locations/"
+  },
+  "wetherby-district": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: ucher. These are issued by local agencies or can be obtained by ringing the Help Through Hardship helpline on 08082 082138. - Find out more Barleyfields Community Centre 07840 455725 Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed Address Barl",
+    "url": "https://wetherbyanddistrict.foodbank.org.uk/locations/"
+  },
+  "northampton": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: e Use the form below to send us a message and we'll be in touch as soon as possible RESTORE NORTHAMPTON Central Vineyard 42 Sheep Street Northampton ​NN1 2LZ Tel: 01604 328046 Office Opening Times 9:30am - 2pm Monday - Thursday PLEASE",
+    "url": "https://www.restorenorthampton.org.uk/contact"
+  },
+  "fusion": {
+    "result": "office",
+    "evidence": "Pearl House HD1 1BA is a Fusion Housing advice office, not a food collection point. 'You can collect your food pack from Our office on Floor 2, Empire House, Wakefield Old Road, Dewsbury' (fusion/dewsbury). Approved by Dean, 21 Oct 2026.",
+    "url": "https://fusionhousing.org.uk/services/food-and-more-service/",
+    "centres": [
+      "fusion/dewsbury"
+    ]
+  },
+  "watford": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: am – 1:00 pm Thu 10:00 am – 1:00 pm Fri 10:00 am – 1:00 pm Sat 10:00 am – 1:00 pm Sun Closed Address Unit 5 Empire Centre Imperial Way North Watford WD24 4YH Directions via Google Maps Wellspring Church Opening times Mon 2:00 pm – 4:00 p",
+    "url": "https://watfordfoodbank.co.uk/locations"
+  },
+  "burnage": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: stem. In order to get help from our foodbank, you will need a voucher issued by local agencies. - Find out more Burnage Foodbank (Burnage Lane) 07796 448 205 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 15:00 - 17:00 Sat Closed Sun Closed Address St Bernard's Parish Rooms St Bernard",
+    "url": "https://burnage.foodbank.org.uk/locations/"
+  },
+  "chorlton-didsbury": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: View local transport Local transport links X Bus no’s 101,104,105,108,109 travelling along Princess Road Bus no’s 23,23A, ST Barnabas Church Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:30 - 14:00 Sat Closed Sun Closed Address Hurstville Road, Off Hardy Lane Chorlton M21 8DH",
+    "url": "https://chorltondidsbury.foodbank.org.uk/locations/"
+  },
+  "shrewsbury": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: Y3 9NB Sainsburys Meole Brace SY3 9NB Sainsburys Reabrook SY3 7TJ foodbank PLUS drop-off location & times: Barnabas Church Centre, Longden Coleham, SY3 7DN Tuesday: 09.30 - 12.00 Wednesday: 09.30 - 12.00 Friday: 09.30 - 12.00 Ban",
+    "url": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank"
+  },
+  "dunstable": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: The Way, Christ Church, Dunstable 07874 200056 Opening times Mon Closed Tue 14:30 - 16:30 Wed Closed Thu Closed Fri 12:30 - 14:30 Sat Closed Sun Closed Address Please note: Dunstable Foodbank supports clients in LU5 and LU6 postcodes only. West Street Dunstable LU6 1SX",
+    "url": "https://dunstable.foodbank.org.uk/locations/"
+  },
+  "lincoln-community-larder": {
+    "result": "client",
+    "evidence": "Full re-verification 21 Oct 2026: food bank's own site lists this as a client site: DONATE Footer Text Header Text Footer Text Header Text Contact us Registered Address Lincoln Community Larder YMCA Annexe Rosemary Lane Lincoln LN2 5AR Email address lincolncommunitylarder@hotmail.co.uk Phone numbers 07914655460",
+    "url": "https://www.lincolnlarder.co.uk"
+  },
+  "hambleton-foodshare": {
+    "result": "client",
+    "evidence": "At the Old Registry Office: Mon to Fri - 10am to 4pm ... Food parcels are normally available during these times - please ring 07514 244158 to organise. (checked 21 Oct 2026)",
+    "url": "https://hambletonfoodshare.org.uk/contact/"
+  },
+  "ballycastle": {
+    "result": "client",
+    "evidence": "Locations: opening times and locations for our foodbank centres ... Unit 6 Causeway Enterprise Centre, Leyland Road, Ballycastle BT54 6EZ ... Open every Wednesday 2.00-3.30pm, otherwise by appointment. (checked 21 Oct 2026)",
+    "url": "https://ballycastle.foodbank.org.uk/locations/"
+  },
+  "rickmansworth/st-lawrence-abbots-langley": {
+    "result": "client",
+    "evidence": "You can exchange a food voucher for emergency food at these locations ... Old Stables, St. Lawrence Church, High Street, Abbots Langley WD5 0AS (checked 21 Oct 2026)",
+    "url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+  },
+  "brackley": {
+    "result": "client",
+    "evidence": "Collections are each Saturday morning between 10am and 12 noon ... Collections are from our Warehouse: Unit 6, Buckingham Court, Brackley NN13 7EU (checked 21 Oct 2026)",
+    "url": "https://www.brackleyfoodbank.org/get-help"
+  }
 }
