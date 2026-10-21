@@ -1,0 +1,26 @@
+[
+ {
+  "run": "2026-10-21",
+  "result": "ok",
+  "items": 5776,
+  "ended": 7,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "Warm Welcome network (warmwelcome.uk map feed)": {
+    "status": "ok",
+    "count": 5787
+   },
+   "Manual (council pages, press releases, approved self-registrations)": {
+    "status": "ok",
+    "count": 0
+   },
+   "Council warm spaces / warm hubs pages (~360 councils)": {
+    "status": "not scraped: no common format; most councils now list via the Warm Welcome map (already included). Individual council pages to be added via overrides/warmspaces_manual.json with source URL"
+   },
+   "Age UK branches, British Red Cross, libraries, church directories": {
+    "status": "not scraped: no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"
+   }
+  }
+ }
+]

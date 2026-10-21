@@ -1,0 +1,21 @@
+name: Report an error on a pin
+description: Wrong address, phone, hours, or the place has closed.
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: dropdown
+    id: layer
+    attributes: {label: Layer, options: [Food banks, Shelters, Warm spaces]}
+    validations: {required: true}
+  - type: input
+    id: entry
+    attributes: {label: Which listing? (filled in automatically from the pin)}
+    validations: {required: true}
+  - type: dropdown
+    id: problem
+    attributes: {label: What is wrong?, options: [It has closed, Wrong address or pin location, Wrong phone number, Wrong hours, Other]}
+    validations: {required: true}
+  - type: textarea
+    id: details
+    attributes: {label: Correct details, and how you know (a link helps)}
+    validations: {required: true}

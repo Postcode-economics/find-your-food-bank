@@ -1,0 +1,34 @@
+[
+ {
+  "run": "2026-10-21",
+  "result": "ok",
+  "items": 99,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "OpenStreetMap (Overpass)": {
+    "status": "ok",
+    "count": 99
+   },
+   "Manual (verified from source pages)": {
+    "status": "ok",
+    "count": 0
+   },
+   "nightshelter.org.uk": {
+    "status": "not scraped: domain is parked (redirects to a lander page); no data"
+   },
+   "StreetLink (thestreetlink.org.uk)": {
+    "status": "not scraped: 403 to automated requests; it is a referral service, not a shelter directory"
+   },
+   "Homeless England (Homeless Link)": {
+    "status": "not scraped: listings have no address/postcode, so they cannot be pinned without guessing"
+   },
+   "LHF Atlas": {
+    "status": "not scraped: map is an interactive app with no public data export; London-only"
+   },
+   "Crisis / Shelter / St Mungo's / Thames Reach": {
+    "status": "not scraped: no public shelter directory; services are via referral (council/outreach)"
+   }
+  }
+ }
+]

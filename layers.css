@@ -1,0 +1,17 @@
+#xbar{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 8px}
+.xt{flex:1 1 40%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;background:transparent;color:#fff;border:3px solid #5a6b8c;font-size:16px;padding:4px 8px}
+.xt i{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid #fff;margin-bottom:1px}
+.xt small{font-weight:600;font-size:12px;color:#d7deea}
+.xt[aria-pressed=true]{border-color:#F5C518;background:#1d3257;box-shadow:inset 0 0 0 2px #F5C518}
+.xt[aria-pressed=true]::after{content:"✓ ON";font-size:12px;color:#F5C518}
+#xlang{flex:0 0 auto;min-width:96px;min-height:56px;background:#F2F4F8;color:#0A1628;font-size:16px}
+#xnear{width:100%;background:#F5C518;color:#0A1628;border:0;font-size:18px;min-height:56px;margin-top:8px}
+#xdisc{margin-top:8px;padding:10px 12px;background:#fff;color:#0A1628;border-left:6px solid #E63946;border-radius:8px;font-size:15px;line-height:1.35}
+#xextra{padding:0 12px}#xextra .card.xsh{border-left-color:#2EC4F1}#xextra .card.xws{border-left-color:#FF8C42}
+#xclosed{margin:14px 0;background:#13223d;border-radius:10px;padding:0 12px}#xclosed summary{min-height:52px;display:flex;align-items:center;font-weight:800;font-size:16px;color:#F5C518;cursor:pointer}
+.xw{background:#F5C518;color:#0A1628!important;font-weight:800;padding:8px 10px;border-radius:8px}
+.xrep{background:transparent;border:2px dashed #b9c2d3;color:#F2F4F8!important}
+.xcl div{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0A1628;border:3px solid #0A1628}
+.xpin svg{display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+#sheet .card a{word-break:break-word}#sheet .card table td{padding:1px 10px 1px 0}
+#xextra a:not(.btn),#sheet .card a:not(.btn){color:#F5C518}

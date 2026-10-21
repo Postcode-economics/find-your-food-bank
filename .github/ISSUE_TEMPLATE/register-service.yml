@@ -1,0 +1,53 @@
+name: Add or update a shelter or warm space
+description: For services to list themselves on the map. Free. Every submission is checked before it appears.
+title: "Listing: "
+labels: ["self-registration"]
+body:
+  - type: dropdown
+    id: layer
+    attributes: {label: Which layer?, options: [Shelters, Warm spaces]}
+    validations: {required: true}
+  - type: input
+    id: name
+    attributes: {label: Service name}
+    validations: {required: true}
+  - type: textarea
+    id: address
+    attributes: {label: Full address and postcode}
+    validations: {required: true}
+  - type: input
+    id: phone
+    attributes: {label: Public phone number}
+  - type: input
+    id: website
+    attributes: {label: Website or page that confirms this listing}
+    validations: {required: true}
+  - type: textarea
+    id: hours
+    attributes: {label: Days and opening hours (or referral requirements for shelters)}
+    validations: {required: true}
+  - type: input
+    id: beds
+    attributes: {label: "Shelters: bed capacity (if you publish it)"}
+  - type: checkboxes
+    id: groups
+    attributes:
+      label: "Shelters: who you serve"
+      options: [{label: Men}, {label: Women}, {label: Families}, {label: Young people}]
+  - type: dropdown
+    id: season
+    attributes: {label: "Shelters: when open", options: [Year-round, Winter-only, Not applicable]}
+  - type: textarea
+    id: provided
+    attributes: {label: "Warm spaces: what you provide (hot drinks, food, activities, wifi, charging…)"}
+  - type: dropdown
+    id: booking
+    attributes: {label: "Warm spaces: is booking needed?", options: ["No, just drop in", "Yes, booking needed", Not applicable]}
+  - type: input
+    id: dates
+    attributes: {label: "Warm spaces: scheme start and end dates (e.g. 2026-11-01 to 2027-03-31)"}
+  - type: checkboxes
+    id: ok
+    attributes:
+      label: Confirmation
+      options: [{label: "I run or represent this service and these details are public.", required: true}]
