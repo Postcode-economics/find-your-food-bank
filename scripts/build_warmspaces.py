@@ -64,7 +64,23 @@ for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no comm
                "Age UK branches, British Red Cross, libraries, church directories": "no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"}.items():
     sources[k] = {"status": "not scraped: " + why}
 prev = load_js(OUT, "WARMSPACES")
-if not fresh or (prev and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
+# Verification gate: publish only allowlisted warm spaces (independently confirmed for the current season).
+VER = load_verified("overrides/warmspaces_verified.json")
+def season_end(v):  # a verification is valid only for the winter season it was made in (to 30 April)
+    d = datetime.date.fromisoformat(v.get("verified_on", "2000-01-01"))
+    return f"{d.year + (1 if d.month >= 9 else 0)}-04-30"
+def ws_autocheck(x):
+    # Evidence the feed allows: opening hours, no past end date. The listing's own last-updated date
+    # is shown on warmwelcome.uk; a spot-check of 51 season-updated listings passed only 59%, so this
+    # pre-check can never publish on its own.
+    flags = []
+    if not x.get("hours"): flags.append("no opening hours")
+    if x.get("ended"): flags.append("past stated end date")
+    return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", x.get("source_url", ""), "council warm spaces page"]}
+raw_count = len(fresh)
+fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", ws_autocheck, season_end)
+sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
+if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})

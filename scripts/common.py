@@ -58,3 +58,40 @@ def merge_lifecycle(prev, fresh, run_day, stale_days=7, close_after=14, keep_clo
 def append_log(path, entry):
     log = json.load(open(path)) if os.path.exists(path) else []
     log.insert(0, entry); json.dump(log[:120], open(path, "w"), indent=1)
+
+# ---- Verification gate (added 2026-10-21, Dean: "100% categorically" verified only) ----
+# Only entries on the layer's allowlist (overrides/<layer>_verified.json) are published.
+# Everything else the daily scrape finds goes into logs/<layer>_pending.json (not shown on the map)
+# with the result of an automatic pre-check. The pre-check never publishes anything by itself:
+# a human adds the evidence (URL + quote) to the allowlist file.
+def load_verified(path):
+    return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
+def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None):
+    """Returns (published_fresh, filtered_prev). Writes pending list."""
+    pub, pending = [], []
+    for x in fresh:
+        v = verified.get(x["id"])
+        if v and (not valid_until or run_day <= valid_until(v)):
+            x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
+            for k in ("phone", "address", "access"):
+                if v.get(k): x[k] = v[k]
+            if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
+            pub.append(x)
+        else:
+            p = {"id": x["id"], "name": x["name"], "address": x.get("address", ""), "postcode": x.get("postcode", ""),
+                 "source_url": x.get("source_url", ""), "website": x.get("website", ""), "first_seen": run_day,
+                 "reason": "verification expired" if v else "not on allowlist"}
+            if autocheck:
+                try: p["autocheck"] = autocheck(x)
+                except Exception as e: p["autocheck"] = {"result": "error", "detail": str(e)[:120]}
+            pending.append(p)
+    old = {p["id"]: p for p in (json.load(open(pending_path)) if os.path.exists(pending_path) else [])}
+    for p in pending:
+        if p["id"] in old: p["first_seen"] = old[p["id"]].get("first_seen", run_day)
+    json.dump(sorted(pending, key=lambda p: p["first_seen"], reverse=True), open(pending_path, "w"), indent=1, ensure_ascii=False)
+    ok = {x["id"] for x in pub}
+    if prev:
+        prev = dict(prev)
+        prev["items"] = [x for x in prev.get("items", []) if x["id"] in verified]
+        prev["recently_closed"] = [x for x in prev.get("recently_closed", []) if x["id"] in verified]
+    return pub, prev, len(pending)
