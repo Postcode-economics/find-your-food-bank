@@ -82,7 +82,7 @@ def ws_autocheck(x):
     return {"result": "needs manual evidence", "flags": flags, "needs": "credible page with weekday + time, current season",
             "where_to_check": [x.get("website") or "", "council warm spaces page", "achurchnearyou / library page"]}
 raw_count = len(fresh)
-fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", ws_autocheck, season_end)
+fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", unverified=load_verified("overrides/warmspaces_unverified.json"), autocheck=ws_autocheck, valid_until=season_end)
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)

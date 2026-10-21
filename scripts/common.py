@@ -66,17 +66,38 @@ def append_log(path, entry):
 # a human adds the evidence (URL + quote) to the allowlist file.
 def load_verified(path):
     return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
-def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None):
-    """Returns (published_fresh, filtered_prev). Writes pending list."""
+def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True):
+    """Returns (published_fresh, filtered_prev). Writes pending list.
+    recheck=True: every run re-fetches each entry's source page and only publishes what it confirms (scripts/recheck.py)."""
     pub, pending = [], []
+    RC = {}
+    if recheck:
+        from recheck import recheck_all
+        RC = recheck_all(fresh, verified, unverified, pending_path.replace("_pending.json", "_recheck.json"))
+        RC.pop("_run", None)
     for x in fresh:
         v = verified.get(x["id"])
         has_evidence = bool(v and v.get("evidence_url") and (v.get("day_time_quote") or v.get("quote")))
+        rc = RC.get(x["id"]) if recheck else None
+        if (v or (unverified and x["id"] in unverified)) and recheck and (rc is None or not rc.get("ok")):
+            pending.append({"id": x["id"], "name": x["name"], "first_seen": run_day, "reason": "omitted this run: " + (rc or {}).get("reason", "not re-checked"),
+                            "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}}); continue
         if v and has_evidence and (not valid_until or run_day <= valid_until(v)):
             x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
             for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name"):  # pin/address fixes persist nightly
                 if v.get(k): x[k] = v[k]
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
+            x["tier"] = "verified"
+            if rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
+            if v.get("access_type"): x["access_type"] = v["access_type"]
+            pub.append(x)
+        elif unverified and x["id"] in unverified and (not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
+                and unverified[x["id"]].get("sign_url") and not x.get("ended") and not x.get("flag_closed"):
+            # Tier 2: confirmed open/accessible some other way (sign of life), no stated hours or formal page.
+            u = unverified[x["id"]]; x = dict(x); x["tier"] = "unverified"; x["verified"] = False
+            x["sign_url"] = u["sign_url"]; x["checked_on"] = (rc or {}).get("fetched_at", "")[:10] or u.get("checked_on", "")
+            if rc: x["fetched_at"] = rc.get("fetched_at")
+            if u.get("access_type"): x["access_type"] = u["access_type"]
             pub.append(x)
         else:
             p = {"id": x["id"], "name": x["name"], "address": x.get("address", ""), "postcode": x.get("postcode", ""),
@@ -93,6 +114,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
     ok = {x["id"] for x in pub}
     if prev:
         prev = dict(prev)
-        prev["items"] = [x for x in prev.get("items", []) if x["id"] in verified]
-        prev["recently_closed"] = [x for x in prev.get("recently_closed", []) if x["id"] in verified]
+        keep = {x["id"] for x in pub}  # only what was confirmed THIS run; nothing carried over
+        prev["items"] = [x for x in prev.get("items", []) if x["id"] in keep]
+        prev["recently_closed"] = [x for x in prev.get("recently_closed", []) if x["id"] in keep]
     return pub, prev, len(pending)

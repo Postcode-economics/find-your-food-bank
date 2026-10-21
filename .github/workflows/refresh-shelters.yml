@@ -1,7 +1,7 @@
 name: Refresh Shelters layer
 on:
   schedule:
-    - cron: "41 4 * * *"
+    - cron: "41 4,12,20 * * *"   # three runs a day (UTC); every run re-fetches every evidence page
   workflow_dispatch:
 permissions:
   contents: write
@@ -16,13 +16,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Rebuild shelters.js
+      - name: Test the verification checks
+        run: python -m unittest discover -s tests -v
+      - name: Rebuild shelters.js (re-fetches and re-checks every source page)
         run: python scripts/build_shelters.py
+      - name: Refuse to publish without fresh verification
+        run: python scripts/verify_fresh.py shelters
       - name: Commit if changed
         run: |
-          git add shelters.js logs/shelters_log.json logs/shelters_pending.json
+          git add shelters.js logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Daily Shelters refresh $(date -u +%F)"
+          git commit -m "3x-daily Shelters refresh $(date -u +%F)"
           git pull --rebase && git push
