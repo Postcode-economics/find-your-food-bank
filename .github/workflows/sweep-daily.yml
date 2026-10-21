@@ -1,0 +1,35 @@
+name: Daily deep sweep (councils + voluntary-sector lists)
+# Discovery only. Runs once a day at 01:00 UTC (02:00 UK summer time, 01:00 in winter).
+# Independent of the 3x-daily refresh workflows, which still re-check every entry against its source.
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sweep-daily
+  cancel-in-progress: false
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test the sweep and verification checks
+        run: python -m unittest tests.test_sweep tests.test_recheck -v
+      - name: Sweep every council sitemap and list page (fail-safe; adds new entries only)
+        run: python scripts/sweep_daily.py
+      - name: Commit new entries and the sweep log
+        run: |
+          git add overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
+                  overrides/warmspaces_manual.json overrides/warmspaces_verified.json overrides/warmspaces_unverified.json \
+                  logs/sweep_log.json logs/sweep_pending.json
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Daily deep sweep $(date -u +%F)"
+          git pull --rebase && git push

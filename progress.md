@@ -44,3 +44,13 @@ RESUME HERE:
 2. Cambridgeshire ACRE: the page is now fetchable and dated (published 12 Aug 2026, updated 5 Oct 2026, saved as batch_oi/cambs_live.txt). batch_oi/entries_b5.py is a draft whose regex splits names wrongly at "Opens: ... Thursday/Friday ..." boundaries. Fix the splitting, then run build2.build (it removes duplicates of the ~30 already in the base layer). NOT yet written to overrides.
 3. Remaining undated lists (Camden, Argyll TSI, Communities 1st, Rugby, Fylde, BANES, Chelmsford): their only date is a 2026 copyright line. Look for a real date (e.g. WordPress wp-json "modified") before using them.
 4. Emmanuel House Nottingham. 5. CofE / Methodist lists.
+
+## Resumed 21 Oct 2026 16:57, checkpoint 17:50 BST
+- probe.py results (probe.json, 5,600 URL probes): 13 hits across 9 councils, all known or undated (Sefton warm-places lists ~40 venues with times but the page has no date, so it was not used).
+- +1 verified warm space: Cambridgeshire ACRE (March St John's Community Hub; the other 41 were already on the base layer).
+- +1 verified warm space: Tewkesbury Borough Council directory, winter 2026-27 (Encounter Church Winchcombe; the other 5 were already on the map).
+- +1 unverified shelter: Emmanuel House Night Shelter Nottingham (referral_only; pin is the Support Centre at NG1 1FE).
+- Undated lists (Camden, Argyll, Communities 1st, Rugby, Fylde, BANES, Chelmsford, Sefton, Gloucestershire Methodist): still not used. The only date on them is a copyright year. The daily sweep re-checks them every night and moves them up automatically once a real date appears.
+- CofE: no national list exists. Methodist national page points to Warm Welcome (already the base layer).
+- NEW: .github/workflows/sweep-daily.yml (01:00 UTC) + scripts/sweep_daily.py + scripts/sweep_sources.json + overrides/sweep_exclude.json + tests/test_sweep.py (17 tests). First full run: 820 pages, 152 failed, 0 auto-added, 550 queued in logs/sweep_pending.json.
+RESUME HERE: review logs/sweep_pending.json (550 candidates) and mark more list sources auto_add once their layout has been checked; Riverside / Powys / NIHE are still blocked.

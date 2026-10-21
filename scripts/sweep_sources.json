@@ -1,0 +1,3524 @@
+{
+ "note": "Councils and voluntary-sector lists swept once a day by scripts/sweep_daily.py. Add list pages under 'lists'. Set auto_add true only after checking the page layout parses correctly (name – address POSTCODE. Opens: times).",
+ "councils": [
+  {
+   "code": "ABC",
+   "name": "Armagh City, Banbridge and Craigavon Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.armaghbanbridgecraigavon.gov.uk",
+   "known_pages": [
+    "https://www.armaghbanbridgecraigavon.gov.uk/lurgans-warm-welcome-to-german-team/",
+    "https://www.armaghbanbridgecraigavon.gov.uk/new-warm-spaces-scheme-and-online-cost-of-living-support-hub-launched/",
+    "https://www.armaghbanbridgecraigavon.gov.uk/tag/warm-spaces/",
+    "https://www.armaghbanbridgecraigavon.gov.uk/warm-hub-scheme-continues-to-run-across-the-borough/",
+    "https://www.armaghbanbridgecraigavon.gov.uk/warm-hub-scheme-to-run-throughout-winter-months/"
+   ]
+  },
+  {
+   "code": "ABD",
+   "name": "Aberdeenshire Council",
+   "nation": "Scotland",
+   "site": "https://www.aberdeenshire.gov.uk/",
+   "known_pages": [
+    "https://www.aberdeenshire.gov.uk/communities/cost-of-living/warm-welcoming-spaces",
+    "https://www.aberdeenshire.gov.uk/news/2023/may/warm-welcome-for-education-service-business-plans-but-concerns-raised-over-probationary-teacher-allocations"
+   ]
+  },
+  {
+   "code": "ABE",
+   "name": "Aberdeen City Council",
+   "nation": "Scotland",
+   "site": "https://www.aberdeencity.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ADU",
+   "name": "Adur District Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "AGB",
+   "name": "Argyll and Bute Council",
+   "nation": "Scotland",
+   "site": "https://www.argyll-bute.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "AGY",
+   "name": "Isle of Anglesey County Council",
+   "nation": "Wales",
+   "site": "https://www.anglesey.gov.uk",
+   "known_pages": [
+    "https://www.anglesey.gov.wales/en/Residents/Benefits-and-grants/Cost-of-living/Warm-spaces.aspx",
+    "https://www.anglesey.gov.wales/en/Residents/Bins-and-recycling/Severe-weather-top-tips-for-bin-collections-and-recycling.aspx",
+    "https://www.anglesey.gov.wales/en/Residents/Community-Safety/Severe-weather-disruption-to-council-services.aspx",
+    "https://www.anglesey.gov.wales/en/Residents/Housing/Homeless-or-at-risk/Homeless-severe-weather-emergency-protocol.aspx"
+   ]
+  },
+  {
+   "code": "AMB",
+   "name": "Amber Valley Borough Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "AND",
+   "name": "Ards and North Down Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.ardsandnorthdown.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ANN",
+   "name": "Antrim and Newtownabbey Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://antrimandnewtownabbey.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ANS",
+   "name": "Angus Council",
+   "nation": "Scotland",
+   "site": "https://www.angus.gov.uk/",
+   "known_pages": [
+    "https://www.angus.gov.uk/council_committees_and_elections/emergency_and_events_planning/severe_weather_news_and_guidance"
+   ]
+  },
+  {
+   "code": "ARU",
+   "name": "Arun District Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ASF",
+   "name": "Ashford Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ASH",
+   "name": "Ashfield District Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BAB",
+   "name": "Babergh District Council",
+   "nation": "England",
+   "site": "http://www.suffolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BAE",
+   "name": "Bassetlaw District Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BAI",
+   "name": "Basildon Borough Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BAN",
+   "name": "Basingstoke and Deane Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BAS",
+   "name": "Bath and North East Somerset Council",
+   "nation": "England",
+   "site": "http://www.bathnes.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BBD",
+   "name": "Blackburn with Darwen Borough Council",
+   "nation": "England",
+   "site": "https://www.blackburn.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BDF",
+   "name": "Bedford Borough Council",
+   "nation": "England",
+   "site": "https://www.bedford.gov.uk/",
+   "known_pages": [
+    "https://www.bedford.gov.uk/benefits-and-support/welcoming-spaces",
+    "https://www.bedford.gov.uk/benefits-and-support/welcoming-spaces/family-hubs-welcoming-spaces",
+    "https://www.bedford.gov.uk/benefits-and-support/welcoming-spaces/grants-organisations-opening-welcoming-space",
+    "https://www.bedford.gov.uk/benefits-and-support/welcoming-spaces/welcoming-spaces",
+    "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/rough-sleepers"
+   ]
+  },
+  {
+   "code": "BDG",
+   "name": "London Borough of Barking and Dagenham",
+   "nation": "England",
+   "site": "https://www.lbbd.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BEN",
+   "name": "London Borough of Brent",
+   "nation": "England",
+   "site": "https://www.brent.gov.uk/",
+   "known_pages": [
+    "https://www.brent.gov.uk/housing/housing-assistance/emergency-accommodation",
+    "https://www.brent.gov.uk/housing/housing-assistance/homelessness-and-rough-sleeping-strategy",
+    "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather",
+    "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather/cold-weather-snow-and-ice",
+    "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather/flooding",
+    "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather/flooding/flooding-in-brent-july-2021",
+    "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather/storms-and-strong-winds"
+   ]
+  },
+  {
+   "code": "BEX",
+   "name": "London Borough of Bexley",
+   "nation": "England",
+   "site": "https://www.bexley.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BFS",
+   "name": "Belfast City Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.belfastcity.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BGE",
+   "name": "Bridgend County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.bridgend.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BGW",
+   "name": "Blaenau Gwent County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.blaenau-gwent.gov.uk/",
+   "known_pages": [
+    "https://www.blaenau-gwent.gov.uk/en/news/warm-hubs-bringing-people-together-across-blaenau-gwent/",
+    "https://www.blaenau-gwent.gov.uk/en/resident/cost-of-living-and-wellbeing-advice-and-support/a-warm-welcome-in-a-cool-space/",
+    "https://www.blaenau-gwent.gov.uk/en/resident/cost-of-living-and-wellbeing-advice-and-support/find-a-warm-space/"
+   ]
+  },
+  {
+   "code": "BIR",
+   "name": "Birmingham City Council",
+   "nation": "England",
+   "site": "https://www.birmingham.gov.uk/",
+   "known_pages": [
+    "https://www.birmingham.gov.uk/directory/73/warm_welcome_spaces_in_birmingham",
+    "https://www.birmingham.gov.uk/directory_record/438673/the_exchange_warm_place_of_welcome",
+    "https://www.birmingham.gov.uk/directory_record/438675/erdington_abbey_svp_warm_welcome",
+    "https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome",
+    "https://www.birmingham.gov.uk/download/downloads/id/7194/rough_sleeping_and_prevention.pdf",
+    "https://www.birmingham.gov.uk/download/downloads/id/7195/rough_sleeping_and_prevention_-_commentary.pdf",
+    "https://www.birmingham.gov.uk/downloads/file/7194/rough_sleeping_and_prevention",
+    "https://www.birmingham.gov.uk/downloads/file/7195/rough_sleeping_and_prevention_-_commentary",
+    "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping",
+    "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping/2",
+    "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping/3",
+    "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping/4",
+    "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping/5",
+    "https://www.birmingham.gov.uk/info/50173/information_for_care_providers/2483/cold_weather_resources",
+    "https://www.birmingham.gov.uk/info/50196/specific_risks/1734/dealing_with_severe_weather",
+    "https://www.birmingham.gov.uk/info/50196/specific_risks/1734/dealing_with_severe_weather/2",
+    "https://www.birmingham.gov.uk/info/50196/specific_risks/1734/dealing_with_severe_weather/3",
+    "https://www.birmingham.gov.uk/info/50196/specific_risks/1734/dealing_with_severe_weather/4",
+    "https://www.birmingham.gov.uk/news/article/1006/cold_weather_and_sleeping_rough_on_the_streets",
+    "https://www.birmingham.gov.uk/news/article/1028/public_offered_a_better_way_to_help_rough_sleepers_this_winter",
+    "https://www.birmingham.gov.uk/news/article/1070/helping_rough_sleepers_during_storm_eunice",
+    "https://www.birmingham.gov.uk/news/article/1073/birmingham_city_council_responds_to_the_national_rough_sleeper_statistics_report_released_by_the_dluhc",
+    "https://www.birmingham.gov.uk/news/article/1210/birminghams_warm_welcome_spaces_open",
+    "https://www.birmingham.gov.uk/news/article/1250/new_200k_fund_for_warm_welcomes_grants_launched_to_expand_network",
+    "https://www.birmingham.gov.uk/news/article/1251/more_than_100_warm_welcome_spaces_now_open_across_birmingham"
+   ]
+  },
+  {
+   "code": "BLA",
+   "name": "Blaby District Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BNE",
+   "name": "London Borough of Barnet",
+   "nation": "England",
+   "site": "https://www.barnet.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BNH",
+   "name": "Brighton and Hove City Council",
+   "nation": "England",
+   "site": "https://www.brighton-hove.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BNS",
+   "name": "Barnsley Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.barnsley.gov.uk/",
+   "known_pages": [
+    "https://www.barnsley.gov.uk/services/community-and-volunteering/welcoming-spaces/"
+   ]
+  },
+  {
+   "code": "BOL",
+   "name": "Bolton Metropolitan Borough Council",
+   "nation": "England",
+   "site": "http://www.bolton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BOS",
+   "name": "Bolsover District Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "BOT",
+   "name": "Boston Borough Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "BPC",
+   "name": "Bournemouth, Christchurch and Poole Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "BPL",
+   "name": "Blackpool Borough Council",
+   "nation": "England",
+   "site": "https://www.blackpool.gov.uk/Home.aspx",
+   "known_pages": []
+  },
+  {
+   "code": "BRA",
+   "name": "Braintree District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BRC",
+   "name": "Bracknell Forest Council",
+   "nation": "England",
+   "site": "https://www.bracknell-forest.gov.uk/",
+   "known_pages": [
+    "https://www.bracknell-forest.gov.uk/news/2026/07/plan-further-reduce-homelessness-and-rough-sleeping"
+   ]
+  },
+  {
+   "code": "BRD",
+   "name": "City of Bradford Metropolitan District Council",
+   "nation": "England",
+   "site": "https://www.bradford.gov.uk/",
+   "known_pages": [
+    "https://www.bradford.gov.uk/health/protecting-your-health/advice-for-cold-weather/",
+    "https://www.bradford.gov.uk/health/protecting-your-health/warmwelcoming-spaces-communications-toolkit/",
+    "https://www.bradford.gov.uk/health/protecting-your-health/warmwelcoming-spaces/",
+    "https://www.bradford.gov.uk/housing/homelessness/help-for-homeless-people-during-cold-weather/"
+   ]
+  },
+  {
+   "code": "BRE",
+   "name": "Breckland District Council",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BRM",
+   "name": "Bromsgrove District Council",
+   "nation": "England",
+   "site": "http://www.worcestershire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "BRO",
+   "name": "Broadland District Council",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BRT",
+   "name": "Broxtowe Borough Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BRW",
+   "name": "Brentwood Borough Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BRX",
+   "name": "Broxbourne Borough Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "BRY",
+   "name": "London Borough of Bromley",
+   "nation": "England",
+   "site": "https://www.bromley.gov.uk/",
+   "known_pages": [
+    "https://www.bromley.gov.uk/downloads/file/3439/bromley-homelessness-and-rough-sleeping-strategy-2025-%E2%80%93-2030"
+   ]
+  },
+  {
+   "code": "BST",
+   "name": "Bristol City Council",
+   "nation": "England",
+   "site": "https://www.bristol.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BUC",
+   "name": "Buckinghamshire Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "BUN",
+   "name": "Burnley Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "BUR",
+   "name": "Bury Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.bury.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CAB",
+   "name": "Cambridge City Council",
+   "nation": "England",
+   "site": "https://www.cambridgeshire.gov.uk/",
+   "known_pages": [
+    "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
+   ]
+  },
+  {
+   "code": "CAM",
+   "name": "Cambridgeshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "CAN",
+   "name": "Cannock Chase District Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CAS",
+   "name": "Castle Point Borough Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CAT",
+   "name": "Canterbury City Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CAY",
+   "name": "Caerphilly County Borough Council",
+   "nation": "Wales",
+   "site": "http://www.caerphilly.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "CBD",
+   "name": "Cumberland Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "CBF",
+   "name": "Central Bedfordshire Council",
+   "nation": "England",
+   "site": "http://www.centralbedfordshire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "CCG",
+   "name": "Causeway Coast and Glens Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.causewaycoastandglens.gov.uk/",
+   "known_pages": [
+    "https://causewaycoastandglens.gov.uk/news/a-warm-welcome-awaits-as-visitor-information-centres-open-for-the-new-seaso",
+    "https://causewaycoastandglens.gov.uk/news/a-warm-welcome-awaits-you-at-the-ould-lammas-fair-in-ballycastle",
+    "https://causewaycoastandglens.gov.uk/news/new-directory-brings-together-warm-welcome-spaces-in-causeway-coast-and-gle",
+    "https://causewaycoastandglens.gov.uk/news/winning-christmas-windows-create-a-warm-welcome-across-causeway-coast-and-g"
+   ]
+  },
+  {
+   "code": "CGN",
+   "name": "Ceredigion County Council",
+   "nation": "Wales",
+   "site": "https://www.ceredigion.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHA",
+   "name": "Charnwood Borough Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHE",
+   "name": "Cheshire East Council",
+   "nation": "England",
+   "site": "https://www.cheshireeast.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHI",
+   "name": "Chichester District Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHL",
+   "name": "Chelmsford City Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHO",
+   "name": "Chorley Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHR",
+   "name": "Cherwell District Council",
+   "nation": "England",
+   "site": "https://www.oxfordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHS",
+   "name": "Chesterfield Borough Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "CHT",
+   "name": "Cheltenham Borough Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CHW",
+   "name": "Cheshire West and Chester Council",
+   "nation": "England",
+   "site": "https://www.cheshirewestandchester.gov.uk/",
+   "known_pages": [
+    "https://www.cheshirewestandchester.gov.uk/news-and-views/incidents/tips-for-cold-weather",
+    "https://www.cheshirewestandchester.gov.uk/news/expect-a-warm-welcome-when-visiting-one-of-many-welcoming-spaces-across-the-borough",
+    "https://www.cheshirewestandchester.gov.uk/news/partnership-patrol-tackles-anti-social-behaviour-and-rough-sleeping-in-northwich",
+    "https://www.cheshirewestandchester.gov.uk/news/warm-welcoming-spaces-available-for-residents-across-the-borough",
+    "https://www.cheshirewestandchester.gov.uk/residents/benefits-and-welfare-help/cost-of-living/keep-warm-and-well-this-winter/welcoming-spaces",
+    "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice-and-homelessness/rough-sleeping-and-homelessness-pledge",
+    "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice/rough-sleepers",
+    "https://www.cheshirewestandchester.gov.uk/residents/housing/report-rough-sleeping",
+    "https://www.cheshirewestandchester.gov.uk/system-pages/privacy-notices/multi-agency-rough-sleeping-mars-group-privacy-notice",
+    "https://www.cheshirewestandchester.gov.uk/system-pages/privacy-notices/rough-sleeping-help-and-outreach-privacy-notice"
+   ]
+  },
+  {
+   "code": "CLD",
+   "name": "Calderdale Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.calderdale.gov.uk/",
+   "known_pages": [
+    "https://new.calderdale.gov.uk/benefits/money/find-warm-space/calder-food-support",
+    "https://new.calderdale.gov.uk/benefits/money/find-warm-space/edshift",
+    "https://new.calderdale.gov.uk/benefits/money/find-warm-space/everybody-arts",
+    "https://new.calderdale.gov.uk/benefits/money/find-warm-space/st-andrews-methodist",
+    "https://new.calderdale.gov.uk/benefits/money/find-warm-space/st-pauls"
+   ]
+  },
+  {
+   "code": "CLK",
+   "name": "Clackmannanshire Council",
+   "nation": "Scotland",
+   "site": "https://www.clacks.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CMD",
+   "name": "London Borough of Camden",
+   "nation": "England",
+   "site": "https://www.camden.gov.uk/",
+   "known_pages": [
+    "https://www.camden.gov.uk/cold-weather-advice",
+    "https://www.camden.gov.uk/council-tax-night-shelter-owner-discount",
+    "https://www.camden.gov.uk/homelessness-and-rough-sleeping-strategy",
+    "https://www.camden.gov.uk/rough-sleeping",
+    "https://www.camden.gov.uk/warm-spaces-in-camden"
+   ]
+  },
+  {
+   "code": "CMN",
+   "name": "Carmarthenshire County Council",
+   "nation": "Wales",
+   "site": "https://www.carmarthenshire.gov.wales/home/council-services/",
+   "known_pages": []
+  },
+  {
+   "code": "COL",
+   "name": "Colchester Borough Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CON",
+   "name": "Cornwall Council",
+   "nation": "England",
+   "site": "https://www.cornwall.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "COT",
+   "name": "Cotswold District Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "COV",
+   "name": "Coventry City Council",
+   "nation": "England",
+   "site": "https://www.coventry.gov.uk/",
+   "known_pages": [
+    "https://www.coventry.gov.uk/cost-living-support/places-providing-warm-welcome-privacy-notice",
+    "https://www.coventry.gov.uk/directory-record/58464/severe-weather-emergency-protocol-information",
+    "https://www.coventry.gov.uk/directory-record/59158/warm-banks",
+    "https://www.coventry.gov.uk/directory-record/59179/rough-sleeper-numbers-during-swep",
+    "https://www.coventry.gov.uk/directory-record/59365/hotel-spend-during-swep",
+    "https://www.coventry.gov.uk/directory-record/59977/councillors-residing-near-emergency-accommodation",
+    "https://www.coventry.gov.uk/directory-record/60543/emergency-accommodation-and-housing",
+    "https://www.coventry.gov.uk/directory-record/62279/people-classified-as-rough-sleeping",
+    "https://www.coventry.gov.uk/directory-record/65479/swep",
+    "https://www.coventry.gov.uk/directory-record/71283/rough-sleepers-in-the-target-priority-group",
+    "https://www.coventry.gov.uk/directory-record/81200/swep-activation",
+    "https://www.coventry.gov.uk/directory-record/93394/severe-weather-emergency-protocol-swep-activations-for-summer-2025",
+    "https://www.coventry.gov.uk/directory/115/warm-welcome-venues",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/2",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/3",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/4",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/5",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/6",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/7",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/8",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-delivery-plan/9",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-strategy-2025-2029",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-strategy-2025-2029/2",
+    "https://www.coventry.gov.uk/homelessness-1/homelessness-rough-sleeping-strategy-2025-2029/3"
+   ]
+  },
+  {
+   "code": "CRF",
+   "name": "City of Cardiff Council",
+   "nation": "Wales",
+   "site": "https://www.cardiff.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CRW",
+   "name": "Crawley Borough Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "CRY",
+   "name": "London Borough of Croydon",
+   "nation": "England",
+   "site": "http://www.croydon.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "CWY",
+   "name": "Conwy County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.conwy.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "DAC",
+   "name": "Dacorum Borough Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "DAL",
+   "name": "Darlington Borough Council",
+   "nation": "England",
+   "site": "https://www.darlington.gov.uk/",
+   "known_pages": [
+    "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/i-am-worried-about-someone-rough-sleeping/",
+    "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/preventing-rough-sleeping/",
+    "https://www.darlington.gov.uk/the-council/council-information/the-community-risk-register/severe-weather/"
+   ]
+  },
+  {
+   "code": "DAR",
+   "name": "Dartford Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DBY",
+   "name": "Derbyshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "DEB",
+   "name": "Derbyshire Dales District Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "DEN",
+   "name": "Denbighshire County Council",
+   "nation": "Wales",
+   "site": "https://www.denbighshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DER",
+   "name": "Derby City Council",
+   "nation": "England",
+   "site": "https://www.derby.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DEV",
+   "name": "Devon County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "DGY",
+   "name": "Dumfries and Galloway Council",
+   "nation": "Scotland",
+   "site": "https://www.dumgal.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DNC",
+   "name": "City of Doncaster Council",
+   "nation": "England",
+   "site": "http://www.doncaster.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DND",
+   "name": "Dundee City Council",
+   "nation": "Scotland",
+   "site": "https://www.dundeecity.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DOV",
+   "name": "Dover District Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "DRS",
+   "name": "Derry City and Strabane District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.derrystrabane.com/",
+   "known_pages": []
+  },
+  {
+   "code": "DST",
+   "name": "Dorset Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "DUD",
+   "name": "Dudley Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.dudley.gov.uk/",
+   "known_pages": [
+    "https://www.dudley.gov.uk/council-community/emergencies/specific-risks/severe-weather/"
+   ]
+  },
+  {
+   "code": "DUR",
+   "name": "Durham County Council",
+   "nation": "England",
+   "site": "http://www.durham.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EAL",
+   "name": "London Borough of Ealing",
+   "nation": "England",
+   "site": "https://www.ealing.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EAS",
+   "name": "Eastbourne Borough Council",
+   "nation": "England",
+   "site": "https://www.eastsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EAT",
+   "name": "Eastleigh Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EAY",
+   "name": "East Ayrshire Council",
+   "nation": "Scotland",
+   "site": "https://www.east-ayrshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ECA",
+   "name": "East Cambridgeshire District Council",
+   "nation": "England",
+   "site": "https://www.cambridgeshire.gov.uk/",
+   "known_pages": [
+    "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
+   ]
+  },
+  {
+   "code": "EDE",
+   "name": "East Devon District Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EDH",
+   "name": "City of Edinburgh Council",
+   "nation": "Scotland",
+   "site": "https://www.edinburgh.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EDU",
+   "name": "East Dunbartonshire Council",
+   "nation": "Scotland",
+   "site": "https://www.eastdunbarton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EHA",
+   "name": "East Hampshire District Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EHE",
+   "name": "East Hertfordshire District Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "ELI",
+   "name": "East Lindsey District Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "ELM",
+   "name": "Elmbridge Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ELN",
+   "name": "East Lothian Council",
+   "nation": "Scotland",
+   "site": "https://www.eastlothian.gov.uk/",
+   "known_pages": [
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face",
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/dunbar-and-east-linton",
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/haddington-and-lammermuir",
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/musselburgh-wallyford-and-whitecraig",
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/north-berwick-coastal",
+    "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/preston-seton-gosford",
+    "https://www.eastlothian.gov.uk/safety-and-community/emergencies-safety-and-crime/severe-weather",
+    "https://www.eastlothian.gov.uk/safety-and-community/emergencies-safety-and-crime/severe-weather/flood-study-reports"
+   ]
+  },
+  {
+   "code": "ELS",
+   "name": "Comhairle nan Eilean Siar",
+   "nation": "Scotland",
+   "site": "https://www.cne-siar.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ENF",
+   "name": "London Borough of Enfield",
+   "nation": "England",
+   "site": "https://new.enfield.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EPP",
+   "name": "Epping Forest District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "EPS",
+   "name": "Epsom and Ewell Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ERE",
+   "name": "Erewash Borough Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "ERW",
+   "name": "East Renfrewshire Council",
+   "nation": "Scotland",
+   "site": "http://www.eastrenfrewshire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "ERY",
+   "name": "East Riding of Yorkshire Council",
+   "nation": "England",
+   "site": "http://www.eastriding.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ESK",
+   "name": "East Suffolk Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "ESS",
+   "name": "Essex County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "EST",
+   "name": "East Staffordshire Borough Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ESX",
+   "name": "East Sussex County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "EXE",
+   "name": "Exeter City Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "FAL",
+   "name": "Falkirk Council",
+   "nation": "Scotland",
+   "site": "https://www.falkirk.gov.uk/",
+   "known_pages": [
+    "https://www.falkirk.gov.uk/homelessness/rough-sleeping",
+    "https://www.falkirk.gov.uk/policies-and-strategies/resilience-planning/severe-weather"
+   ]
+  },
+  {
+   "code": "FAR",
+   "name": "Fareham Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "FEN",
+   "name": "Fenland District Council",
+   "nation": "England",
+   "site": "https://www.cambridgeshire.gov.uk/",
+   "known_pages": [
+    "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
+   ]
+  },
+  {
+   "code": "FIF",
+   "name": "Fife Council",
+   "nation": "Scotland",
+   "site": "https://www.fife.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "FLN",
+   "name": "Flintshire County Council",
+   "nation": "Wales",
+   "site": "http://www.flintshire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "FMO",
+   "name": "Fermanagh and Omagh District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.fermanaghomagh.com/",
+   "known_pages": [
+    "https://www.fermanaghomagh.com/article/a-warm-welcome-awaits-at-devenish-island/"
+   ]
+  },
+  {
+   "code": "FOE",
+   "name": "Forest of Dean District Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "FYL",
+   "name": "Fylde Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GAT",
+   "name": "Gateshead Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.gateshead.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GED",
+   "name": "Gedling Borough Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GLG",
+   "name": "Glasgow City Council",
+   "nation": "Scotland",
+   "site": "https://www.glasgow.gov.uk/",
+   "known_pages": [
+    "https://www.glasgow.gov.uk/article/2734/New-Name-and-Location-for-Glasgow-s-Winter-Night-Shelter",
+    "https://www.glasgow.gov.uk/article/2848/Overdose-Victims-Revived-17-Times-at-Glasgow-s-Winter-Night-Shelter",
+    "https://www.glasgow.gov.uk/article/3659/Glasgow-Joins-Global-Alliance-to-Tackle-Street-Homelessness"
+   ]
+  },
+  {
+   "code": "GLO",
+   "name": "Gloucester City Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GLS",
+   "name": "Gloucestershire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "GOS",
+   "name": "Gosport Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GRA",
+   "name": "Gravesham Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GRE",
+   "name": "Royal Borough of Greenwich",
+   "nation": "England",
+   "site": "http://www.royalgreenwich.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GRT",
+   "name": "Guildford Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GRY",
+   "name": "Great Yarmouth Borough Council",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "GWN",
+   "name": "Gwynedd Council",
+   "nation": "Wales",
+   "site": "https://www.gwynedd.llyw.cymru/",
+   "known_pages": []
+  },
+  {
+   "code": "HAA",
+   "name": "Havant Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HAL",
+   "name": "Halton Borough Council",
+   "nation": "England",
+   "site": "https://www3.halton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HAM",
+   "name": "Hampshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "HAO",
+   "name": "Harborough District Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HAR",
+   "name": "Harlow District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HAS",
+   "name": "Hastings Borough Council",
+   "nation": "England",
+   "site": "https://www.eastsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HAT",
+   "name": "Hart District Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HAV",
+   "name": "London Borough of Havering",
+   "nation": "England",
+   "site": "https://www.havering.gov.uk/",
+   "known_pages": [
+    "https://www.havering.gov.uk/community-1/warm-spaces",
+    "https://www.havering.gov.uk/downloads/file/4145/prevention-of-homelessness-and-rough-sleeping-strategy-2020---2025",
+    "https://www.havering.gov.uk/news/article/1167/warm-spaces-launched-across-havering",
+    "https://www.havering.gov.uk/news/article/1309/warm-spaces-open-to-help-residents-this-winter",
+    "https://www.havering.gov.uk/news/article/1431/tackling-rough-sleeping-case-study-r",
+    "https://www.havering.gov.uk/news/article/1486/new-street-homeless-community-drop-in",
+    "https://www.havering.gov.uk/news/article/1679/council-steps-up-support-as-cold-weather-impacts-residents",
+    "https://www.havering.gov.uk/news/article/701/have-your-say-on-plans-to-end-rough-sleeping-in-havering",
+    "https://www.havering.gov.uk/news/article/857/we-will-end-long-term-rough-sleeping-says-havering-council",
+    "https://www.havering.gov.uk/swep",
+    "https://www.havering.gov.uk/warmspaces"
+   ]
+  },
+  {
+   "code": "HCK",
+   "name": "London Borough of Hackney",
+   "nation": "England",
+   "site": "https://hackney.gov.uk/",
+   "known_pages": [
+    "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping",
+    "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/advice-temporary-accommodation-residents",
+    "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
+    "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/tell-us-about-rough-sleeper"
+   ]
+  },
+  {
+   "code": "HEF",
+   "name": "Herefordshire Council",
+   "nation": "England",
+   "site": "https://www.herefordshire.gov.uk/",
+   "known_pages": [
+    "https://www.herefordshire.gov.uk/community/cold-weather-alert/",
+    "https://www.herefordshire.gov.uk/community/severe-weather-and-flooding/",
+    "https://www.herefordshire.gov.uk/directories/council-policies-strategies-and-procedures/homeless-prevention-and-rough-sleeping-strategy/",
+    "https://www.herefordshire.gov.uk/directories/council-policies-strategies-and-procedures/severe-weather-emergency-protocol-swep/",
+    "https://www.herefordshire.gov.uk/family-support/housing/homelessness/concerns-about-someone-rough-sleeping/",
+    "https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/",
+    "https://www.herefordshire.gov.uk/news/2023/december/emergency-accommodation-opens-for-winter/",
+    "https://www.herefordshire.gov.uk/news/2024/december/winter-night-shelter-now-open/",
+    "https://www.herefordshire.gov.uk/news/2025/august/council-decision-means-more-homes-for-people-in-need-of-emergency-accommodation/",
+    "https://www.herefordshire.gov.uk/news/2025/november/winter-night-shelter-now-open/",
+    "https://www.herefordshire.gov.uk/news/2025/september/tell-us-what-you-think-about-herefordshire-s-homeless-prevention-and-rough-sleeping-strategy/",
+    "https://www.herefordshire.gov.uk/news/2026/august/work-progresses-on-new-emergency-accommodation-for-herefordshire/"
+   ]
+  },
+  {
+   "code": "HER",
+   "name": "Hertsmere Borough Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "HIG",
+   "name": "High Peak Borough Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "HIL",
+   "name": "London Borough of Hillingdon",
+   "nation": "England",
+   "site": "https://www.hillingdon.gov.uk/",
+   "known_pages": [
+    "https://www.hillingdon.gov.uk/article/13941/Warm-welcome-centres"
+   ]
+  },
+  {
+   "code": "HIN",
+   "name": "Hinckley and Bosworth Borough Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HLD",
+   "name": "The Highland Council",
+   "nation": "Scotland",
+   "site": "https://www.highland.gov.uk/",
+   "known_pages": [
+    "https://www.highland.gov.uk/news/article/15471/a-warm-welcome-to-highland-probationer-teachers-2023",
+    "https://www.highland.gov.uk/news/article/15599/further-severe-weather-warning-as-rain-continues",
+    "https://www.highland.gov.uk/news/article/15602/severe-weather-impacts-being-monitored",
+    "https://www.highland.gov.uk/news/article/16352/severe-weather-impacting-on-wick-aberdeen-air-services",
+    "https://www.highland.gov.uk/news/article/16987/roll-out-of-extra-grit-supplies-after-prolonged-severe-weather"
+   ]
+  },
+  {
+   "code": "HMF",
+   "name": "London Borough of Hammersmith & Fulham",
+   "nation": "England",
+   "site": "http://www.lbhf.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HNS",
+   "name": "London Borough of Hounslow",
+   "nation": "England",
+   "site": "https://www.hounslow.gov.uk/",
+   "known_pages": [
+    "https://www.hounslow.gov.uk/community-safety/severe-weather-emergency-protocol",
+    "https://www.hounslow.gov.uk/privacy-notice/privacy-notice-strategic-insights-tool-rough-sleeping",
+    "https://www.hounslow.gov.uk/warmwelcome"
+   ]
+  },
+  {
+   "code": "HOR",
+   "name": "Horsham District Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "HPL",
+   "name": "Hartlepool Borough Council",
+   "nation": "England",
+   "site": "http://www.hartlepool.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "HRT",
+   "name": "Hertfordshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "HRW",
+   "name": "London Borough of Harrow",
+   "nation": "England",
+   "site": "https://www.harrow.gov.uk/",
+   "known_pages": [
+    "https://www.harrow.gov.uk/swep"
+   ]
+  },
+  {
+   "code": "HRY",
+   "name": "London Borough of Haringey",
+   "nation": "England",
+   "site": "https://www.haringey.gov.uk/",
+   "known_pages": [
+    "https://haringey.gov.uk/adult-social-care/adult-social-care-directory/welcome-space",
+    "https://haringey.gov.uk/adult-social-care/adult-social-care-directory/women-wellbeing-warm-welcome",
+    "https://haringey.gov.uk/care-support-adults/adult-social-care-directory/coffee-mornings-warm-welcome-afternoons-hosted-by-sweet-mind",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/bridge-hope",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/chestnuts-community-centre",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/community-cook-up",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/ferry-lane-school",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/lordship-hub",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/neighbourhood-resource-centre",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/nodes-funeral-directors",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/ok-foundation",
+    "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/winkfield-resource-centre-0",
+    "https://haringey.gov.uk/environment/major-emergencies/cold-weather",
+    "https://haringey.gov.uk/housing/find-a-home/help-you-are-temporary-emergency-accommodation",
+    "https://haringey.gov.uk/housing/find-a-home/help-you-are-temporary-emergency-accommodation/help-with-moving-temporary-accommodation",
+    "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/temporary-accommodation-repairs",
+    "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/who-to-contact-about-your-case",
+    "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/who-to-contact-about-your-stay-your-accommodation",
+    "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/who-to-contact-about-your-temporary-accommodation-rent",
+    "https://haringey.gov.uk/housing/homelessness/rough-sleeping",
+    "https://haringey.gov.uk/housing/homelessness/rough-sleeping/day-centres-hostelsshelters-homeless-people",
+    "https://haringey.gov.uk/housing/homelessness/rough-sleeping/haringey-street-outreach-team",
+    "https://haringey.gov.uk/housing/homelessness/rough-sleeping/mulberry-junction",
+    "https://haringey.gov.uk/housing/homelessness/rough-sleeping/mulberry-junction/mulberry-junction-activity-timetable",
+    "https://haringey.gov.uk/housing/homelessness/rough-sleeping/mulberry-junction/woosh-women-only-one-stop-hub"
+   ]
+  },
+  {
+   "code": "HUN",
+   "name": "Huntingdonshire District Council",
+   "nation": "England",
+   "site": "https://www.cambridgeshire.gov.uk/",
+   "known_pages": [
+    "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
+   ]
+  },
+  {
+   "code": "HYN",
+   "name": "Hyndburn Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "IOS",
+   "name": "Council of the Isles of Scilly",
+   "nation": "England",
+   "site": "http://www.scilly.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "IOW",
+   "name": "Isle of Wight Council",
+   "nation": "England",
+   "site": "https://www.iow.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "IPS",
+   "name": "Ipswich Borough Council",
+   "nation": "England",
+   "site": "http://www.suffolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ISL",
+   "name": "London Borough of Islington",
+   "nation": "England",
+   "site": "https://www.islington.gov.uk/",
+   "known_pages": [
+    "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals",
+    "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals/cold-weather-health-guidance-for-professionals",
+    "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals/heat-health-for-professionals",
+    "https://www.islington.gov.uk/housing/finding-a-home/homelessness/how-we-support-rough-sleepers",
+    "https://www.islington.gov.uk/housing/finding-a-home/homelessness/how-you-can-help-rough-sleepers"
+   ]
+  },
+  {
+   "code": "IVC",
+   "name": "Inverclyde Council",
+   "nation": "Scotland",
+   "site": "https://www.inverclyde.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "KEC",
+   "name": "Royal Borough of Kensington and Chelsea",
+   "nation": "England",
+   "site": "https://www.rbkc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "KEN",
+   "name": "Kent County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "KHL",
+   "name": "Hull City Council",
+   "nation": "England",
+   "site": "https://www.hull.gov.uk",
+   "known_pages": [
+    "https://www.hull.gov.uk/homelessness/rough-sleeper-team",
+    "https://www.hull.gov.uk/warmspaces"
+   ]
+  },
+  {
+   "code": "KIN",
+   "name": "Borough Council of Kings Lynn and West Norfolk",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "KIR",
+   "name": "Kirklees Council",
+   "nation": "England",
+   "site": "https://www.kirklees.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "KTT",
+   "name": "Royal Borough of Kingston upon Thames",
+   "nation": "England",
+   "site": "https://www.kingston.gov.uk/",
+   "known_pages": [
+    "https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers",
+    "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/cold-weather-ice-and-snow",
+    "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/kingston-community-risk-register/severe-weather",
+    "https://www.kingston.gov.uk/safety-crime-and-emergencies/staying-safe-in-winter/weather-safety/rough-sleepers"
+   ]
+  },
+  {
+   "code": "KWL",
+   "name": "Knowsley Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.knowsley.gov.uk/",
+   "known_pages": [
+    "https://www.knowsley.gov.uk/housing/energy-efficiency/cold-weather-payments",
+    "https://www.knowsley.gov.uk/knowsley-offer/your-money/warm-hubs"
+   ]
+  },
+  {
+   "code": "LAC",
+   "name": "Lancaster City Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LAN",
+   "name": "Lancashire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "LBC",
+   "name": "Lisburn and Castlereagh City Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.lisburncastlereagh.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LBH",
+   "name": "London Borough of Lambeth",
+   "nation": "England",
+   "site": "http://www.lambeth.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LCE",
+   "name": "Leicester City Council",
+   "nation": "England",
+   "site": "https://www.leicester.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LDS",
+   "name": "Leeds City Council",
+   "nation": "England",
+   "site": "https://www.leeds.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LEC",
+   "name": "Leicestershire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "LEE",
+   "name": "Lewes District Council",
+   "nation": "England",
+   "site": "https://www.eastsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LEW",
+   "name": "London Borough of Lewisham",
+   "nation": "England",
+   "site": "https://lewisham.gov.uk/",
+   "known_pages": [
+    "https://lewisham.gov.uk/inmyarea/publicsafety/emergencies/what-to-do-in-an-emergency/what-to-do-in-severe-weather"
+   ]
+  },
+  {
+   "code": "LIC",
+   "name": "City of Lincoln Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "LIF",
+   "name": "Lichfield District Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LIN",
+   "name": "Lincolnshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "LIV",
+   "name": "Liverpool City Council",
+   "nation": "England",
+   "site": "https://liverpool.gov.uk/",
+   "known_pages": [
+    "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/"
+   ]
+  },
+  {
+   "code": "LND",
+   "name": "City of London Corporation",
+   "nation": "England",
+   "site": "https://www.cityoflondon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "LUT",
+   "name": "Luton Borough Council",
+   "nation": "England",
+   "site": "https://m.luton.gov.uk/Page/Show",
+   "known_pages": []
+  },
+  {
+   "code": "MAI",
+   "name": "Maidstone Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MAL",
+   "name": "Maldon District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MAN",
+   "name": "Manchester City Council",
+   "nation": "England",
+   "site": "http://www.manchester.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MAS",
+   "name": "Mansfield District Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MAV",
+   "name": "Malvern Hills District Council",
+   "nation": "England",
+   "site": "http://www.worcestershire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "MDB",
+   "name": "Middlesbrough Borough Council",
+   "nation": "England",
+   "site": "https://www.middlesbrough.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MDE",
+   "name": "Mid Devon District Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MDW",
+   "name": "Medway Council",
+   "nation": "England",
+   "site": "https://www.medway.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MEA",
+   "name": "Mid and East Antrim Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.midandeastantrim.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MEL",
+   "name": "Melton Borough Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MIK",
+   "name": "Milton Keynes Council",
+   "nation": "England",
+   "site": "https://www.milton-keynes.gov.uk/",
+   "known_pages": [
+    "https://www.milton-keynes.gov.uk/housing/housing-consultations/homelessness-and-rough-sleeping-consultation",
+    "https://www.milton-keynes.gov.uk/housing/rough-sleepers",
+    "https://www.milton-keynes.gov.uk/housing/rough-sleepers/help-end-rough-sleeping-right-way",
+    "https://www.milton-keynes.gov.uk/housing/rough-sleepers/rough-sleeper-service"
+   ]
+  },
+  {
+   "code": "MLN",
+   "name": "Midlothian Council",
+   "nation": "Scotland",
+   "site": "https://www.midlothian.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MOL",
+   "name": "Mole Valley District Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MON",
+   "name": "Monmouthshire County Council",
+   "nation": "Wales",
+   "site": "https://www.monmouthshire.gov.uk/",
+   "known_pages": [
+    "https://www.monmouthshire.gov.uk/2025/10/monmouthshire-community-hubs-offering-a-warm-welcome-this-winter/",
+    "https://www.monmouthshire.gov.uk/2025/10/monmouthshire-community-hubs-offering-a-warm-welcome-this-winter/_j5a2178/",
+    "https://www.monmouthshire.gov.uk/2026/05/cost-of-living-projects-help-thousands-across-monmouthshire/warm-space-2/",
+    "https://www.monmouthshire.gov.uk/2026/05/cost-of-living-projects-help-thousands-across-monmouthshire/warm-space/",
+    "https://www.monmouthshire.gov.uk/cy/gwasanaethau/cynllunio-ar-gyfer-argyfyngau/severe-weather/",
+    "https://www.monmouthshire.gov.uk/materion-arian/mannau-croeso-cynnes/mcc_warm-welcome_web-banner_cym-1-edit/",
+    "https://www.monmouthshire.gov.uk/materion-arian/mannau-croeso-cynnes/warm-welcome-monmouthshire-1/",
+    "https://www.monmouthshire.gov.uk/materion-arian/mannau-croeso-cynnes/warm-welcome-monmouthshire-2-2/",
+    "https://www.monmouthshire.gov.uk/materion-arian/mannau-croeso-cynnes/warm-welcome-monmouthshire-2/",
+    "https://www.monmouthshire.gov.uk/materion-arian/mannau-croeso-cynnes/warm-welcome-monmouthshirestacey-white-final_-2/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/mannau-croeso-cynnes-2/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/mcc_cost-of-living_web-banner2_eng-3/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/mcc_warm-welcome_web-banner_eng-draft/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/mcc_warm-welcome_web-banner_eng/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/mcc_warm-welcome_web-banner_generic-1/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/warm-welcome-monmouthshire-1-2/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/warm-welcome-monmouthshire-2/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/warm-welcome-monmouthshire/",
+    "https://www.monmouthshire.gov.uk/money-matters/warm-welcome-spaces/warm-welcome-monmouthshirestacey-white-final_/",
+    "https://www.monmouthshire.gov.uk/service-updates-severe-weather/",
+    "https://www.monmouthshire.gov.uk/services/planning-for-emergencies/severe-weather/",
+    "https://www.monmouthshire.gov.uk/services/planning-for-emergencies/severe-weather/automobile/",
+    "https://www.monmouthshire.gov.uk/services/planning-for-emergencies/severe-weather/heat-wave/",
+    "https://www.monmouthshire.gov.uk/services/planning-for-emergencies/severe-weather/power-button/"
+   ]
+  },
+  {
+   "code": "MRT",
+   "name": "London Borough of Merton",
+   "nation": "England",
+   "site": "http://www.merton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MRY",
+   "name": "The Moray Council",
+   "nation": "Scotland",
+   "site": "http://www.moray.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "MSS",
+   "name": "Mid Sussex District Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MSU",
+   "name": "Mid Suffolk District Council",
+   "nation": "England",
+   "site": "http://www.suffolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "MTY",
+   "name": "Merthyr Tydfil County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.merthyr.gov.uk",
+   "known_pages": [
+    "https://www.merthyr.gov.uk/resident/cost-of-living-support-and-advice/warm-hub/"
+   ]
+  },
+  {
+   "code": "MUL",
+   "name": "Mid Ulster District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.midulstercouncil.org/",
+   "known_pages": []
+  },
+  {
+   "code": "NAY",
+   "name": "North Ayrshire Council",
+   "nation": "Scotland",
+   "site": "https://www.north-ayrshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NBL",
+   "name": "Northumberland County Council",
+   "nation": "England",
+   "site": "https://www.northumberland.gov.uk/",
+   "known_pages": [
+    "https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather"
+   ]
+  },
+  {
+   "code": "NDE",
+   "name": "North Devon District Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NEA",
+   "name": "Newark and Sherwood District Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NEC",
+   "name": "Newcastle-under-Lyme Borough Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NED",
+   "name": "North East Derbyshire District Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "NEL",
+   "name": "North East Lincolnshire Council",
+   "nation": "England",
+   "site": "http://www.nelincs.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NET",
+   "name": "Newcastle City Council",
+   "nation": "England",
+   "site": "https://www.newcastle.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NEW",
+   "name": "New Forest District Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NFK",
+   "name": "Norfolk County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "NGM",
+   "name": "Nottingham City Council",
+   "nation": "England",
+   "site": "https://www.nottinghamcity.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NHE",
+   "name": "North Hertfordshire District Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "NKE",
+   "name": "North Kesteven District Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "NLK",
+   "name": "North Lanarkshire Council",
+   "nation": "Scotland",
+   "site": "https://www.northlanarkshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NLN",
+   "name": "North Lincolnshire Council",
+   "nation": "England",
+   "site": "https://www.northlincs.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NMD",
+   "name": "Newry, Mourne and Down District Council",
+   "nation": "Northern Ireland",
+   "site": "http://www.newrymournedown.org/",
+   "known_pages": []
+  },
+  {
+   "code": "NNO",
+   "name": "North Norfolk District Council",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NNT",
+   "name": "North Northamptonshire Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "NOW",
+   "name": "Norwich City Council",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NSM",
+   "name": "North Somerset  Council",
+   "nation": "England",
+   "site": "https://www.n-somerset.gov.uk/",
+   "known_pages": [
+    "https://n-somerset.gov.uk/my-services/bins-recycling/recycling-rubbish-collections/collections-during-severe-weather",
+    "https://n-somerset.gov.uk/my-services/children-young-people-families/children-care-care-leavers/local-offer-care-leavers/finding-place-live-when-youre-care-leaver/emergency-accommodation-care-leavers"
+   ]
+  },
+  {
+   "code": "NTL",
+   "name": "Neath Port Talbot County Borough Council",
+   "nation": "Wales",
+   "site": "http://www.neath-porttalbot.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "NTT",
+   "name": "Nottinghamshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "NTY",
+   "name": "North Tyneside Council",
+   "nation": "England",
+   "site": "https://my.northtyneside.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NUN",
+   "name": "Nuneaton and Bedworth Borough Council",
+   "nation": "England",
+   "site": "https://www.warwickshire.gov.uk/",
+   "known_pages": [
+    "https://www.warwickshire.gov.uk/librarieswarmwelcome",
+    "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
+    "https://www.warwickshire.gov.uk/news/article/2919/a-warm-welcome-to-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/3622/public-spaces-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/3989/find-your-nearest-warm-welcome-location",
+    "https://www.warwickshire.gov.uk/news/article/4338/over-33000-visits-to-warm-welcome-locations-in-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/440/free-flu-vaccinations-for-warwickshires-rough-sleepers",
+    "https://www.warwickshire.gov.uk/news/article/4454/stay-safe-with-warm-bank-holiday-weather-on-the-way",
+    "https://www.warwickshire.gov.uk/news/article/4832/warwickshire-libraries-set-to-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm",
+    "https://www.warwickshire.gov.uk/news/article/526/educaterers-staff-raise-over-460-for-leamington-night-shelter",
+    "https://www.warwickshire.gov.uk/news/article/5855/visit-warm-and-welcoming-warwickshire-libraries-this-festive-season",
+    "https://www.warwickshire.gov.uk/news/article/871/warwickshire-county-council-awarded-funding-to-help-rough-sleepers-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/889/cold-weather-alert-for-coventry-and-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/915/warwickshires-rough-sleeper-initiative-awarded-further-funds",
+    "https://www.warwickshire.gov.uk/severe-weather",
+    "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
+    "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
+    "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
+   ]
+  },
+  {
+   "code": "NWA",
+   "name": "North Warwickshire Borough Council",
+   "nation": "England",
+   "site": "https://www.warwickshire.gov.uk/",
+   "known_pages": [
+    "https://www.warwickshire.gov.uk/librarieswarmwelcome",
+    "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
+    "https://www.warwickshire.gov.uk/news/article/2919/a-warm-welcome-to-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/3622/public-spaces-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/3989/find-your-nearest-warm-welcome-location",
+    "https://www.warwickshire.gov.uk/news/article/4338/over-33000-visits-to-warm-welcome-locations-in-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/440/free-flu-vaccinations-for-warwickshires-rough-sleepers",
+    "https://www.warwickshire.gov.uk/news/article/4454/stay-safe-with-warm-bank-holiday-weather-on-the-way",
+    "https://www.warwickshire.gov.uk/news/article/4832/warwickshire-libraries-set-to-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm",
+    "https://www.warwickshire.gov.uk/news/article/526/educaterers-staff-raise-over-460-for-leamington-night-shelter",
+    "https://www.warwickshire.gov.uk/news/article/5855/visit-warm-and-welcoming-warwickshire-libraries-this-festive-season",
+    "https://www.warwickshire.gov.uk/news/article/871/warwickshire-county-council-awarded-funding-to-help-rough-sleepers-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/889/cold-weather-alert-for-coventry-and-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/915/warwickshires-rough-sleeper-initiative-awarded-further-funds",
+    "https://www.warwickshire.gov.uk/severe-weather",
+    "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
+    "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
+    "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
+   ]
+  },
+  {
+   "code": "NWL",
+   "name": "North West Leicestershire District Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "NWM",
+   "name": "London Borough of Newham",
+   "nation": "England",
+   "site": "https://www.newham.gov.uk/",
+   "known_pages": [
+    "https://www.newham.gov.uk/news/article/1193/severe-weather-emergency-protocol-swep-introduced-as-temperatures-plummet",
+    "https://www.newham.gov.uk/news/article/1206/severe-weather-emergency-protocol-swep-introduced-as-temperatures-plummet",
+    "https://www.newham.gov.uk/news/article/1312/heat-swep-active-in-newham-to-protect-vulnerable-residents",
+    "https://www.newham.gov.uk/news/article/132/tackling-the-rough-sleeper-crisis-in-stratford",
+    "https://www.newham.gov.uk/news/article/1366/severe-weather-emergency-protocol-swep-introduced-as-temperatures-plummet",
+    "https://www.newham.gov.uk/news/article/1494/milestone-reached-on-rough-sleeper-accommodation",
+    "https://www.newham.gov.uk/news/article/202/severe-hot-weather---rough-sleepers",
+    "https://www.newham.gov.uk/news/article/21/12million-funding-boost-to-help-rough-sleepers-following-successful-bid",
+    "https://www.newham.gov.uk/news/article/211/establishing-a-task-force-to-look-at-the-specific-challenges-surrounding-street-homelessness",
+    "https://www.newham.gov.uk/news/article/276/mayor-of-london-triggers-severe-weather-emergency-protocol-swep-for-rough-sleepers-as-temperatures-hit-zero",
+    "https://www.newham.gov.uk/news/article/289/severe-weather-emergency-protocol-launched-for-first-time-this-year",
+    "https://www.newham.gov.uk/news/article/303/in-the-eye-of-the-storm-%E2%80%93-newham-tackling-the-rough-sleeping-crisis",
+    "https://www.newham.gov.uk/news/article/54/new-mayor-announces-a-fresh-start-to-tackle-street-homelessness-in-newham",
+    "https://www.newham.gov.uk/news/article/563/cold-weather---rough-sleepers",
+    "https://www.newham.gov.uk/news/article/570/christmas-cold-weather---rough-sleepers",
+    "https://www.newham.gov.uk/news/article/713/newham-council-helps-prevent-94-per-cent-of-rough-sleepers-from-returning-to-the-streets",
+    "https://www.newham.gov.uk/news/article/74/newham-council-to-support-the-201920-christmas-shelter-for-the-rough-sleeping-community-for-a-second-year",
+    "https://www.newham.gov.uk/news/article/76/newham-council-sets-out-new-strategy-to-tackle-homelessness-and-rough-sleeping",
+    "https://www.newham.gov.uk/news/article/779/newham-council-launches-action-plan-to-support-people-affected-by-homelessness-and-rough-sleeping",
+    "https://www.newham.gov.uk/news/article/963/severe-weather-emergency-protocol-swep-introduced-as-temperatures-plummet",
+    "https://www.newham.gov.uk/news/article/966/newham-responds-to-first-extreme-cold-weather-event-of-the-winter",
+    "https://www.newham.gov.uk/news/article/993/severe-weather-emergency-protocol-swep-introduced-as-temperatures-dip-below-freezing",
+    "https://www.newham.gov.uk/swepactivation"
+   ]
+  },
+  {
+   "code": "NWP",
+   "name": "Newport City Council",
+   "nation": "Wales",
+   "site": "https://www.newport.gov.uk/",
+   "known_pages": [
+    "https://www.newport.gov.uk/benefits-and-support/warm-hubs-sessions",
+    "https://www.newport.gov.uk/newsroom/2024/community-warm-spaces"
+   ]
+  },
+  {
+   "code": "NYE",
+   "name": "North Yorkshire Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "OAD",
+   "name": "Oadby and Wigston Borough Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "OLD",
+   "name": "Oldham Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.oldham.gov.uk/",
+   "known_pages": [
+    "https://www.oldham.gov.uk/news/article/2857/warm_welcome_for_families_as_winter_wardrobe_appeal_2025_launches_at_oldham_family_hubs",
+    "https://www.oldham.gov.uk/rough-sleepers-referral"
+   ]
+  },
+  {
+   "code": "ORK",
+   "name": "Orkney Islands Council",
+   "nation": "Scotland",
+   "site": "https://www.orkney.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "OXF",
+   "name": "Oxfordshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "OXO",
+   "name": "Oxford City Council",
+   "nation": "England",
+   "site": "https://www.oxfordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "PEM",
+   "name": "Pembrokeshire County Council",
+   "nation": "Wales",
+   "site": "https://www.pembrokeshire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "PEN",
+   "name": "Pendle Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "PKN",
+   "name": "Perth and Kinross Council",
+   "nation": "Scotland",
+   "site": "https://www.pkc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "PLY",
+   "name": "Plymouth City Council",
+   "nation": "England",
+   "site": "https://www.plymouth.gov.uk/",
+   "known_pages": [
+    "https://www.plymouth.gov.uk/homeless-and-rough-sleeping",
+    "https://www.plymouth.gov.uk/news/funding-available-welcoming-warm-spaces-plymouth-winter",
+    "https://www.plymouth.gov.uk/news/funding-boost-rough-sleeping-relief",
+    "https://www.plymouth.gov.uk/news/funding-helps-open-more-welcoming-spaces-plymouth",
+    "https://www.plymouth.gov.uk/news/rough-sleeping-declines-plymouth",
+    "https://www.plymouth.gov.uk/news/rough-sleeping-provision-during-cold-weather",
+    "https://www.plymouth.gov.uk/news/warm-and-welcoming-spaces-open-soon-winter-0",
+    "https://www.plymouth.gov.uk/news/warm-spaces-open-now-people-plymouth",
+    "https://www.plymouth.gov.uk/news/warm-spaces-spark-community-connection-across-plymouth",
+    "https://www.plymouth.gov.uk/news/welcoming-spaces-open-plymouth-residents-winter",
+    "https://www.plymouth.gov.uk/news/welcoming-spaces-open-their-doors-plymouth-again-winter",
+    "https://www.plymouth.gov.uk/news/welcoming-spaces-opening-across-plymouth-winter",
+    "https://www.plymouth.gov.uk/preventing-homelessness-and-rough-sleeping-plymouth-2019-2024",
+    "https://www.plymouth.gov.uk/rough-sleeping",
+    "https://www.plymouth.gov.uk/severe-cold-weather-advice",
+    "https://www.plymouth.gov.uk/severe-weather",
+    "https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep",
+    "https://www.plymouth.gov.uk/welcome-spaces-funding-faqs-and-tips-applying",
+    "https://www.plymouth.gov.uk/welcome-spaces-funding-programme-2026-2027"
+   ]
+  },
+  {
+   "code": "POR",
+   "name": "Portsmouth City Council",
+   "nation": "England",
+   "site": "https://www.portsmouth.gov.uk/",
+   "known_pages": [
+    "https://www.portsmouth.gov.uk/services/council-tax/discounts-and-exemptions/disregard-discount/hostels-and-night-shelters"
+   ]
+  },
+  {
+   "code": "POW",
+   "name": "Powys County Council",
+   "nation": "Wales",
+   "site": "http://www.powys.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "PRE",
+   "name": "Preston City Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "PTE",
+   "name": "Peterborough City Council",
+   "nation": "England",
+   "site": "http://www.peterborough.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RCC",
+   "name": "Redcar and Cleveland Borough Council",
+   "nation": "England",
+   "site": "https://www.redcar-cleveland.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RCH",
+   "name": "Rochdale Metropolitan Borough Council",
+   "nation": "England",
+   "site": "http://www.rochdale.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RCT",
+   "name": "Rhondda Cynon Taf County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.rctcbc.gov.uk/",
+   "known_pages": [
+    "https://www.rctcbc.gov.uk/CY/Newsroom/PressReleases/2024/February/AWarmWelcomeAwaitsinCwmbach.aspx",
+    "https://www.rctcbc.gov.uk/CY/Newsroom/PressReleases/2025/December/SafeandWarmSpacesfilledwithChristmasSpirit.aspx",
+    "https://www.rctcbc.gov.uk/CY/Newsroom/PressReleases/2025/November/SafeandWarmSpacesNowOpen.aspx",
+    "https://www.rctcbc.gov.uk/CY/Newsroom/PressReleases/2025/September/SummerFunNewFundingAnnouncedforSafeWarmSpaces.aspx",
+    "https://www.rctcbc.gov.uk/EN/Newsroom/PressReleases/2024/February/AWarmWelcomeAwaitsinCwmbach.aspx",
+    "https://www.rctcbc.gov.uk/EN/Newsroom/PressReleases/2025/December/SafeandWarmSpacesfilledwithChristmasSpirit.aspx",
+    "https://www.rctcbc.gov.uk/EN/Newsroom/PressReleases/2025/November/SafeandWarmSpacesNowOpen.aspx",
+    "https://www.rctcbc.gov.uk/EN/Newsroom/PressReleases/2025/September/SummerFunNewFundingAnnouncedforSafeWarmSpaces.aspx"
+   ]
+  },
+  {
+   "code": "RDB",
+   "name": "London Borough of Redbridge",
+   "nation": "England",
+   "site": "https://www.redbridge.gov.uk/",
+   "known_pages": [
+    "https://www.redbridge.gov.uk/housing/homeless-or-at-risk/tell-us-about-a-rough-sleeper/",
+    "https://www.redbridge.gov.uk/news/december-2024/stay-safe-during-the-cold-weather/",
+    "https://www.redbridge.gov.uk/news/december-2025/stay-safe-during-the-cold-weather/",
+    "https://www.redbridge.gov.uk/news/january-2023/cold-weather-warning/",
+    "https://www.redbridge.gov.uk/news/january-2023/do-you-know-anyone-sleeping-rough-in-the-cold-weather/",
+    "https://www.redbridge.gov.uk/news/november-2025/do-you-know-anyone-sleeping-rough-in-this-cold-weather/",
+    "https://www.redbridge.gov.uk/news/november-2025/redbridge-council-approves-new-strategy-to-tackle-homelessness-and-rough-sleeping/"
+   ]
+  },
+  {
+   "code": "RDG",
+   "name": "Reading Borough Council",
+   "nation": "England",
+   "site": "https://www.reading.gov.uk/",
+   "known_pages": [
+    "https://www.reading.gov.uk/benefits-and-financial-support/money-matters/warm-spaces-in-reading/",
+    "https://www.reading.gov.uk/crime-and-safety/emergency-planning/severe-weather/",
+    "https://www.reading.gov.uk/housing/homelessness/homeless-or-rough-sleeping/",
+    "https://www.reading.gov.uk/housing/rough-sleeping/",
+    "https://www.reading.gov.uk/housing/rough-sleeping/rough-sleeping-strategy-2019-2024/",
+    "https://www.reading.gov.uk/news/annual-rough-sleeper-count-at-five-year-low-in-reading/",
+    "https://www.reading.gov.uk/the-council-and-democracy/council-strategies-plans-and-policies/data-protection/readings-womens-rough-sleeping-census-data-privacy/",
+    "https://www.reading.gov.uk/warmspaces/"
+   ]
+  },
+  {
+   "code": "RED",
+   "name": "Redditch Borough Council",
+   "nation": "England",
+   "site": "http://www.worcestershire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "REI",
+   "name": "Reigate and Banstead Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RFW",
+   "name": "Renfrewshire Council",
+   "nation": "Scotland",
+   "site": "https://www.renfrewshire.gov.uk/",
+   "known_pages": [
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/prepare-loss-utilities",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/prepare-travel-during-bad-weather",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/prepare-winter-or-severe-weather",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/prepare-your-business-emergencies",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/prepare-your-community-emergencies",
+    "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/prepare-your-home-emergencies"
+   ]
+  },
+  {
+   "code": "RIB",
+   "name": "Ribble Valley Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RIC",
+   "name": "London Borough of Richmond upon Thames",
+   "nation": "England",
+   "site": "http://www.richmond.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ROC",
+   "name": "Rochford District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ROH",
+   "name": "Rother District Council",
+   "nation": "England",
+   "site": "https://www.eastsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ROS",
+   "name": "Rossendale Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "ROT",
+   "name": "Rotherham Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.rotherham.gov.uk/",
+   "known_pages": [
+    "https://www.rotherham.gov.uk/community-living/warm-welcome-spaces",
+    "https://www.rotherham.gov.uk/downloads/download/709/homelessness-prevention-and-rough-sleeper-strategy",
+    "https://www.rotherham.gov.uk/downloads/file/4935/rotherhams-homelessness-prevention-and-rough-sleeper-strategy-2026-2031-pdf",
+    "https://www.rotherham.gov.uk/downloads/file/4940/rotherhams-homelessness-prevention-and-rough-sleeper-strategy-2026-2031-word",
+    "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping",
+    "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/2",
+    "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
+    "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/4",
+    "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/5",
+    "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/6",
+    "https://www.rotherham.gov.uk/homelessness/homelessness-prevention-and-rough-sleeper-strategy",
+    "https://www.rotherham.gov.uk/money-matters/cold-weather-payment",
+    "https://www.rotherham.gov.uk/news/article/1105/rotherham-council-activates-severe-weather-plan-to-protect-rough-sleepers",
+    "https://www.rotherham.gov.uk/news/article/1267/dedicated-accommodation-hub-proposed-for-women-at-risk-of-rough-sleeping-in-rotherham",
+    "https://www.rotherham.gov.uk/news/article/702/offering-residents-a-warm-welcome",
+    "https://www.rotherham.gov.uk/news/article/726/open-door-event-offers-residents-a-warm-welcome-in-thrybergh",
+    "https://www.rotherham.gov.uk/news/article/738/warm-welcome-spaces-get-a-very-warm-welcome",
+    "https://www.rotherham.gov.uk/news/article/895/council-tenants-give-a-warm-welcome-to-new-energy-saving-retrofit",
+    "https://www.rotherham.gov.uk/warm-welcome"
+   ]
+  },
+  {
+   "code": "RUG",
+   "name": "Rugby Borough Council",
+   "nation": "England",
+   "site": "https://www.warwickshire.gov.uk/",
+   "known_pages": [
+    "https://www.warwickshire.gov.uk/librarieswarmwelcome",
+    "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
+    "https://www.warwickshire.gov.uk/news/article/2919/a-warm-welcome-to-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/3622/public-spaces-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/3989/find-your-nearest-warm-welcome-location",
+    "https://www.warwickshire.gov.uk/news/article/4338/over-33000-visits-to-warm-welcome-locations-in-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/440/free-flu-vaccinations-for-warwickshires-rough-sleepers",
+    "https://www.warwickshire.gov.uk/news/article/4454/stay-safe-with-warm-bank-holiday-weather-on-the-way",
+    "https://www.warwickshire.gov.uk/news/article/4832/warwickshire-libraries-set-to-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm",
+    "https://www.warwickshire.gov.uk/news/article/526/educaterers-staff-raise-over-460-for-leamington-night-shelter",
+    "https://www.warwickshire.gov.uk/news/article/5855/visit-warm-and-welcoming-warwickshire-libraries-this-festive-season",
+    "https://www.warwickshire.gov.uk/news/article/871/warwickshire-county-council-awarded-funding-to-help-rough-sleepers-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/889/cold-weather-alert-for-coventry-and-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/915/warwickshires-rough-sleeper-initiative-awarded-further-funds",
+    "https://www.warwickshire.gov.uk/severe-weather",
+    "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
+    "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
+    "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
+   ]
+  },
+  {
+   "code": "RUH",
+   "name": "Rushmoor Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RUN",
+   "name": "Runnymede Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RUS",
+   "name": "Rushcliffe Borough Council",
+   "nation": "England",
+   "site": "http://www.nottinghamshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "RUT",
+   "name": "Rutland County Council",
+   "nation": "England",
+   "site": "https://www.rutland.gov.uk/",
+   "known_pages": [
+    "https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy",
+    "https://www.rutland.gov.uk/future-library-services-ryhall-area/Thoughts%20and%20feelings%20about%20key%20issues/warm-space",
+    "https://www.rutland.gov.uk/housing/homelessness/rough-sleepers",
+    "https://www.rutland.gov.uk/housing/housing-strategies-plans-reports/housing-homelessness-rough-sleeping-policy"
+   ]
+  },
+  {
+   "code": "SAL",
+   "name": "St Albans City and District Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "SAW",
+   "name": "Sandwell Metropolitan Borough Council",
+   "nation": "England",
+   "site": "http://www.sandwell.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SAY",
+   "name": "South Ayrshire Council",
+   "nation": "Scotland",
+   "site": "https://www.south-ayrshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SCA",
+   "name": "South Cambridgeshire District Council",
+   "nation": "England",
+   "site": "https://www.cambridgeshire.gov.uk/",
+   "known_pages": [
+    "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
+   ]
+  },
+  {
+   "code": "SCB",
+   "name": "Scottish Borders Council",
+   "nation": "Scotland",
+   "site": "https://www.scotborders.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "SDE",
+   "name": "South Derbyshire District Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/",
+   "known_pages": [
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
+    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
+   ]
+  },
+  {
+   "code": "SEV",
+   "name": "Sevenoaks District Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SFK",
+   "name": "Suffolk County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "SFT",
+   "name": "Sefton Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.sefton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SGC",
+   "name": "South Gloucestershire Council",
+   "nation": "England",
+   "site": "http://www.southglos.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SHA",
+   "name": "South Hams District Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SHE",
+   "name": "Folkestone and Hythe District Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "SHF",
+   "name": "Sheffield City Council",
+   "nation": "England",
+   "site": "https://www.sheffield.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SHN",
+   "name": "St Helens Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "SHO",
+   "name": "South Holland District Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "SHR",
+   "name": "Shropshire Council",
+   "nation": "England",
+   "site": "https://next.shropshire.gov.uk/",
+   "known_pages": [
+    "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/",
+    "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/gales/",
+    "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/heatwaves/",
+    "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/thunderstorms/",
+    "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/winter/",
+    "https://next.shropshire.gov.uk/housing/housing-options-and-homelessness/rough-sleeping/",
+    "https://next.shropshire.gov.uk/libraries/find-a-library/market-drayton-library/warm-spaces-learn-to-crochet/",
+    "https://next.shropshire.gov.uk/libraries/find-a-library/whitchurch-library/shropshire-warm-spaces-music-for-fun/"
+   ]
+  },
+  {
+   "code": "SKE",
+   "name": "South Kesteven District Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "SKP",
+   "name": "Stockport Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.stockport.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SLF",
+   "name": "Salford City Council",
+   "nation": "England",
+   "site": "https://www.salford.gov.uk/",
+   "known_pages": [
+    "https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/emergency-accommodation/",
+    "https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/"
+   ]
+  },
+  {
+   "code": "SLG",
+   "name": "Slough Borough Council",
+   "nation": "England",
+   "site": "https://www.slough.gov.uk/",
+   "known_pages": [
+    "https://www.slough.gov.uk/crime-safety/severe-weather",
+    "https://www.slough.gov.uk/crime-safety/severe-weather/2",
+    "https://www.slough.gov.uk/crime-safety/severe-weather/3",
+    "https://www.slough.gov.uk/crime-safety/severe-weather/4",
+    "https://www.slough.gov.uk/homelessness/emergency-accommodation-severe-weather",
+    "https://www.slough.gov.uk/homelessness/report-rough-sleeper",
+    "https://www.slough.gov.uk/news/article/250/warm-space-project-welcomes-new-sites",
+    "https://www.slough.gov.uk/news/article/29/cold-weather-alert-%E2%80%93-advice-on-keeping-warm-and-well",
+    "https://www.slough.gov.uk/news/article/358/warm-spaces-going-strong-in-slough",
+    "https://www.slough.gov.uk/news/article/607/cold-weather-alert-%E2%80%93-advice-on-keeping-warm-and-well",
+    "https://www.slough.gov.uk/news/article/697/consultation-on-new-homelessness-and-rough-sleeping-strategy"
+   ]
+  },
+  {
+   "code": "SLK",
+   "name": "South Lanarkshire Council",
+   "nation": "Scotland",
+   "site": "https://www.southlanarkshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SMT",
+   "name": "Somerset Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "SND",
+   "name": "Sunderland City Council",
+   "nation": "England",
+   "site": "https://www.sunderland.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SNO",
+   "name": "South Norfolk District Council",
+   "nation": "England",
+   "site": "http://www.norfolk.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SOL",
+   "name": "Solihull Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.solihull.gov.uk/",
+   "known_pages": [
+    "https://www.solihull.gov.uk/housing/rough-sleeping"
+   ]
+  },
+  {
+   "code": "SOS",
+   "name": "Southend-on-Sea Borough Council",
+   "nation": "England",
+   "site": "http://www.southend.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SOX",
+   "name": "South Oxfordshire District Council",
+   "nation": "England",
+   "site": "https://www.oxfordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SPE",
+   "name": "Spelthorne Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SRI",
+   "name": "South Ribble Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SRY",
+   "name": "Surrey County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "SST",
+   "name": "South Staffordshire Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STA",
+   "name": "Stafford Borough Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STE",
+   "name": "Stoke-on-Trent City Council",
+   "nation": "England",
+   "site": "https://www.stoke.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STF",
+   "name": "Staffordshire Moorlands District Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STG",
+   "name": "Stirling Council",
+   "nation": "Scotland",
+   "site": "https://stirling.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STH",
+   "name": "Southampton City Council",
+   "nation": "England",
+   "site": "http://www.southampton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STN",
+   "name": "London Borough of Sutton",
+   "nation": "England",
+   "site": "https://www.sutton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STO",
+   "name": "Stroud District Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STR",
+   "name": "Stratford-on-Avon District Council",
+   "nation": "England",
+   "site": "https://www.warwickshire.gov.uk/",
+   "known_pages": [
+    "https://www.warwickshire.gov.uk/librarieswarmwelcome",
+    "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
+    "https://www.warwickshire.gov.uk/news/article/2919/a-warm-welcome-to-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/3622/public-spaces-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/3989/find-your-nearest-warm-welcome-location",
+    "https://www.warwickshire.gov.uk/news/article/4338/over-33000-visits-to-warm-welcome-locations-in-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/440/free-flu-vaccinations-for-warwickshires-rough-sleepers",
+    "https://www.warwickshire.gov.uk/news/article/4454/stay-safe-with-warm-bank-holiday-weather-on-the-way",
+    "https://www.warwickshire.gov.uk/news/article/4832/warwickshire-libraries-set-to-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm",
+    "https://www.warwickshire.gov.uk/news/article/526/educaterers-staff-raise-over-460-for-leamington-night-shelter",
+    "https://www.warwickshire.gov.uk/news/article/5855/visit-warm-and-welcoming-warwickshire-libraries-this-festive-season",
+    "https://www.warwickshire.gov.uk/news/article/871/warwickshire-county-council-awarded-funding-to-help-rough-sleepers-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/889/cold-weather-alert-for-coventry-and-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/915/warwickshires-rough-sleeper-initiative-awarded-further-funds",
+    "https://www.warwickshire.gov.uk/severe-weather",
+    "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
+    "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
+    "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
+   ]
+  },
+  {
+   "code": "STS",
+   "name": "Staffordshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "STT",
+   "name": "Stockton-on-Tees Borough Council",
+   "nation": "England",
+   "site": "https://www.stockton.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "STV",
+   "name": "Stevenage Borough Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "STY",
+   "name": "South Tyneside Council",
+   "nation": "England",
+   "site": "http://www.southtyneside.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "SUR",
+   "name": "Surrey Heath Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SWA",
+   "name": "City and County of Swansea Council",
+   "nation": "Wales",
+   "site": "https://www.swansea.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SWD",
+   "name": "Swindon Borough Council",
+   "nation": "England",
+   "site": "https://www.swindon.gov.uk/",
+   "known_pages": [
+    "https://www.swindon.gov.uk/directory/56/welcome_spaces",
+    "https://www.swindon.gov.uk/download/downloads/id/11342/housing_policy_-_rough_sleeper_-_december_2024.pdf",
+    "https://www.swindon.gov.uk/download/downloads/id/11343/cabinet_rough_sleeper_policy.pdf",
+    "https://www.swindon.gov.uk/download/downloads/id/5218/swindon_rough_sleeping_reduction_strategy_2024-2027.pdf",
+    "https://www.swindon.gov.uk/downloads/download/1050/swindon_rough_sleeping_reduction_strategy_2024-2027",
+    "https://www.swindon.gov.uk/downloads/file/11342/housing_policy_-_rough_sleeper_-_december_2024",
+    "https://www.swindon.gov.uk/downloads/file/11343/cabinet_rough_sleeper_policy",
+    "https://www.swindon.gov.uk/downloads/file/5218/swindon_rough_sleeping_reduction_strategy_2024-2027",
+    "https://www.swindon.gov.uk/info/20024/health_and_wellbeing/219/staying_safe_and_warm_in_cold_weather",
+    "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
+    "https://www.swindon.gov.uk/info/20273/resilience_and_emergencies/1787/cold_weather_and_snow"
+   ]
+  },
+  {
+   "code": "SWK",
+   "name": "London Borough of Southwark",
+   "nation": "England",
+   "site": "https://www.southwark.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "SWL",
+   "name": "Swale Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TAM",
+   "name": "Tameside Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.tameside.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TAN",
+   "name": "Tandridge District Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TAW",
+   "name": "Tamworth Borough Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TEI",
+   "name": "Teignbridge District Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TEN",
+   "name": "Tendring District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TES",
+   "name": "Test Valley Borough Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TEW",
+   "name": "Tewkesbury Borough Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TFW",
+   "name": "Telford & Wrekin Council",
+   "nation": "England",
+   "site": "https://www.telford.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "THA",
+   "name": "Thanet District Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "THE",
+   "name": "Three Rivers District Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "THR",
+   "name": "Thurrock Council",
+   "nation": "England",
+   "site": "https://www.thurrock.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TOB",
+   "name": "Torbay Council",
+   "nation": "England",
+   "site": "http://www.torbay.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TOF",
+   "name": "Torfaen County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.torfaen.gov.uk/",
+   "known_pages": [
+    "https://www.torfaen.gov.uk/cy/communities-leisure-and-wellbeing/keeping-communities-safe/emergency-management/severe-weather",
+    "https://www.torfaen.gov.uk/en/communities-leisure-and-wellbeing/keeping-communities-safe/emergency-management/severe-weather"
+   ]
+  },
+  {
+   "code": "TON",
+   "name": "Tonbridge and Malling Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TOR",
+   "name": "Torridge District Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TRF",
+   "name": "Trafford Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.trafford.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TUN",
+   "name": "Tunbridge Wells Borough Council",
+   "nation": "England",
+   "site": "http://www.kent.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "TWH",
+   "name": "London Borough of Tower Hamlets",
+   "nation": "England",
+   "site": "https://www.towerhamlets.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "UTT",
+   "name": "Uttlesford District Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "VAL",
+   "name": "Vale of White Horse District Council",
+   "nation": "England",
+   "site": "https://www.oxfordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "VGL",
+   "name": "Vale of Glamorgan Council",
+   "nation": "Wales",
+   "site": "https://valeofglamorgan.gov.uk/en/index.aspx",
+   "known_pages": [
+    "https://www.valeofglamorgan.gov.uk/StaffnetPlus/cy/Staff-News-Stories/2025/December/How-Warm-Spaces-are-bringing-comfort-connection-and-community-this-Winter.aspx",
+    "https://www.valeofglamorgan.gov.uk/StaffnetPlus/en/Staff-News-Stories/2025/December/How-Warm-Spaces-are-bringing-comfort-connection-and-community-this-Winter.aspx",
+    "https://www.valeofglamorgan.gov.uk/cy/living/Cost-of-Living/Warm-Spaces.aspx",
+    "https://www.valeofglamorgan.gov.uk/cy/our_council/press_and_communications/latest_news/2017/September2017/Vale-50-Strategy-Forum-extends-a-warm-welcome-to-all-as-they-celebrate-International-Older-Peoples-Day.aspx",
+    "https://www.valeofglamorgan.gov.uk/cy/our_council/press_and_communications/latest_news/2019/March-2019/Warm-welcome-for-Goodsheds-planning-application-approval.aspx",
+    "https://www.valeofglamorgan.gov.uk/cy/our_council/press_and_communications/latest_news/2022/November/Warm-Welcome-on-offer-across-the-Vale-this-Autumn-and-Winter.aspx",
+    "https://www.valeofglamorgan.gov.uk/cy/our_council/press_and_communications/latest_news/2023/April/Warm-Welcome-programme-helps-thousands-of-Vale-residents.aspx",
+    "https://www.valeofglamorgan.gov.uk/en/living/Cost-of-Living/Warm-Spaces.aspx",
+    "https://www.valeofglamorgan.gov.uk/en/our_council/press_and_communications/latest_news/2019/March-2019/Warm-welcome-for-Goodsheds-planning-application-approval.aspx",
+    "https://www.valeofglamorgan.gov.uk/en/our_council/press_and_communications/latest_news/2022/November/Warm-Welcome-on-offer-across-the-Vale-this-Autumn-and-Winter.aspx",
+    "https://www.valeofglamorgan.gov.uk/en/our_council/press_and_communications/latest_news/2023/April/Warm-Welcome-programme-helps-thousands-of-Vale-residents.aspx"
+   ]
+  },
+  {
+   "code": "WAE",
+   "name": "Waverley Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WAF",
+   "name": "Westmorland and Furness Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "WAR",
+   "name": "Warwickshire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "WAT",
+   "name": "Watford Borough Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "WAW",
+   "name": "Warwick District Council",
+   "nation": "England",
+   "site": "https://www.warwickshire.gov.uk/",
+   "known_pages": [
+    "https://www.warwickshire.gov.uk/librarieswarmwelcome",
+    "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
+    "https://www.warwickshire.gov.uk/news/article/2919/a-warm-welcome-to-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/3622/public-spaces-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/3989/find-your-nearest-warm-welcome-location",
+    "https://www.warwickshire.gov.uk/news/article/4338/over-33000-visits-to-warm-welcome-locations-in-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/440/free-flu-vaccinations-for-warwickshires-rough-sleepers",
+    "https://www.warwickshire.gov.uk/news/article/4454/stay-safe-with-warm-bank-holiday-weather-on-the-way",
+    "https://www.warwickshire.gov.uk/news/article/4832/warwickshire-libraries-set-to-offer-a-warm-welcome-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm",
+    "https://www.warwickshire.gov.uk/news/article/526/educaterers-staff-raise-over-460-for-leamington-night-shelter",
+    "https://www.warwickshire.gov.uk/news/article/5855/visit-warm-and-welcoming-warwickshire-libraries-this-festive-season",
+    "https://www.warwickshire.gov.uk/news/article/871/warwickshire-county-council-awarded-funding-to-help-rough-sleepers-this-winter",
+    "https://www.warwickshire.gov.uk/news/article/889/cold-weather-alert-for-coventry-and-warwickshire",
+    "https://www.warwickshire.gov.uk/news/article/915/warwickshires-rough-sleeper-initiative-awarded-further-funds",
+    "https://www.warwickshire.gov.uk/severe-weather",
+    "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
+    "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
+    "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
+   ]
+  },
+  {
+   "code": "WBK",
+   "name": "West Berkshire Council",
+   "nation": "England",
+   "site": "http://www.westberks.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WDE",
+   "name": "West Devon Borough Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WDU",
+   "name": "West Dunbartonshire Council",
+   "nation": "Scotland",
+   "site": "https://www.west-dunbarton.gov.uk/",
+   "known_pages": [
+    "https://www.west-dunbarton.gov.uk/community/community-planning/communities/your-community/warm-hubs",
+    "https://www.west-dunbarton.gov.uk/community/community-planning/communities/your-community/warm-hubs/warm-hubs"
+   ]
+  },
+  {
+   "code": "WEA",
+   "name": "Wealden District Council",
+   "nation": "England",
+   "site": "https://www.eastsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WEW",
+   "name": "Welwyn Hatfield Borough Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/",
+   "known_pages": [
+    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
+    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
+   ]
+  },
+  {
+   "code": "WFT",
+   "name": "London Borough of Waltham Forest",
+   "nation": "England",
+   "site": "https://www.walthamforest.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WGN",
+   "name": "Wigan Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.wigan.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WIL",
+   "name": "Wiltshire Council",
+   "nation": "England",
+   "site": "https://www.wiltshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WIN",
+   "name": "Winchester City Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WKF",
+   "name": "Wakefield Metropolitan District Council",
+   "nation": "England",
+   "site": "https://www.wakefield.gov.uk/",
+   "known_pages": [
+    "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
+    "https://www.wakefield.gov.uk/money-benefits-and-support/welcome-spaces",
+    "https://www.wakefield.gov.uk/our-people-and-communities/emergency-planning/what-to-do-in-an-emergency/severe-weather",
+    "https://www.wakefield.gov.uk/your-district/support-is-available-for-rough-sleepers-this-winter",
+    "https://www.wakefield.gov.uk/your-district/warm-welcome-spaces-open-for-residents-this-winter"
+   ]
+  },
+  {
+   "code": "WLA",
+   "name": "West Lancashire Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WLI",
+   "name": "West Lindsey District Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk/",
+   "known_pages": [
+    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+    "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
+   ]
+  },
+  {
+   "code": "WLL",
+   "name": "Walsall Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://go.walsall.gov.uk/",
+   "known_pages": [
+    "http://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+    "http://go.walsall.gov.uk/newsroom/opticians-donate-help-rough-sleepers-walsall",
+    "http://go.walsall.gov.uk/newsroom/walsall-residents-reminded-keep-warm-and-well-cold-weather-alert-issued"
+   ]
+  },
+  {
+   "code": "WLN",
+   "name": "West Lothian Council",
+   "nation": "Scotland",
+   "site": "https://www.westlothian.gov.uk/",
+   "known_pages": [
+    "https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements",
+    "https://www.westlothian.gov.uk/article/85394/Schools-and-severe-weather",
+    "https://www.westlothian.gov.uk/warm-welcome"
+   ]
+  },
+  {
+   "code": "WLV",
+   "name": "City of Wolverhampton Council",
+   "nation": "England",
+   "site": "http://www.wolverhampton.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "WND",
+   "name": "London Borough of Wandsworth",
+   "nation": "England",
+   "site": "https://www.wandsworth.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WNM",
+   "name": "Royal Borough of Windsor and Maidenhead",
+   "nation": "England",
+   "site": "http://www.rbwm.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WNT",
+   "name": "West Northamptonshire Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "WOC",
+   "name": "Worcester City Council",
+   "nation": "England",
+   "site": "http://www.worcestershire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "WOI",
+   "name": "Woking Borough Council",
+   "nation": "England",
+   "site": "http://www.surreycc.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WOK",
+   "name": "Wokingham Borough Council",
+   "nation": "England",
+   "site": "https://www.wokingham.gov.uk/",
+   "known_pages": [
+    "https://www.wokingham.gov.uk/health-and-wellbeing-services/health-services-and-advice/covid-19-and-public-health/public-health-campaigns/staying-well-winter/whos-most-risk-cold-weather"
+   ]
+  },
+  {
+   "code": "WOR",
+   "name": "Worcestershire County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "WOT",
+   "name": "Worthing Borough Council",
+   "nation": "England",
+   "site": "http://www.westsussex.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WOX",
+   "name": "West Oxfordshire District Council",
+   "nation": "England",
+   "site": "https://www.oxfordshire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WRL",
+   "name": "Wirral Borough Council",
+   "nation": "England",
+   "site": "http://www.wirral.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WRT",
+   "name": "Warrington Borough Council",
+   "nation": "England",
+   "site": "https://www.warrington.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WRX",
+   "name": "Wrexham County Borough Council",
+   "nation": "Wales",
+   "site": "http://www.wrexham.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "WSK",
+   "name": "West Suffolk Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "WSM",
+   "name": "City of Westminster",
+   "nation": "England",
+   "site": "https://www.westminster.gov.uk/",
+   "known_pages": [
+    "https://www.westminster.gov.uk/cold-weather-support-and-advice",
+    "https://www.westminster.gov.uk/event/warm-and-welcome-space-kensington-palace",
+    "https://www.westminster.gov.uk/housing-policy-and-strategy/homelessness-and-rough-sleeping-strategy-2025-2030",
+    "https://www.westminster.gov.uk/housing-policy-and-strategy/social-housing-homelessness-and-rough-sleeping-statistics",
+    "https://www.westminster.gov.uk/housing/homelessness/homelessness-and-rough-sleeping-strategy-2025-2030",
+    "https://www.westminster.gov.uk/housing/leaseholders/support-services/rough-sleeping",
+    "https://www.westminster.gov.uk/housing/tenants/support-services/rough-sleeping",
+    "https://www.westminster.gov.uk/leisure-libraries-and-community/rough-sleeping-support-services",
+    "https://www.westminster.gov.uk/leisure-libraries-and-community/rough-sleeping-support-services/rough-sleeping-facts",
+    "https://www.westminster.gov.uk/news/extra-hot-weather-support-available-rough-sleepers",
+    "https://www.westminster.gov.uk/news/hundreds-rough-sleepers-leave-westminster-streets",
+    "https://www.westminster.gov.uk/news/rough-sleeping-services-westminster-given-major-boost"
+   ]
+  },
+  {
+   "code": "WSX",
+   "name": "West Sussex County Council",
+   "nation": "England",
+   "site": "",
+   "known_pages": []
+  },
+  {
+   "code": "WYC",
+   "name": "Wychavon District Council",
+   "nation": "England",
+   "site": "http://www.worcestershire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "WYE",
+   "name": "Wyre Forest District Council",
+   "nation": "England",
+   "site": "http://www.worcestershire.gov.uk",
+   "known_pages": []
+  },
+  {
+   "code": "WYR",
+   "name": "Wyre Borough Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk/",
+   "known_pages": []
+  },
+  {
+   "code": "YOR",
+   "name": "City of York Council",
+   "nation": "England",
+   "site": "https://www.york.gov.uk/",
+   "known_pages": [
+    "https://www.york.gov.uk/WarmBanks",
+    "https://www.york.gov.uk/WarmPlaces",
+    "https://www.york.gov.uk/emergencies-1/severe-weather-advice",
+    "https://www.york.gov.uk/homelessness/rough-sleeping-york",
+    "https://www.york.gov.uk/news/article/1540/grant-applications-for-warm-places-invited",
+    "https://www.york.gov.uk/news/article/1564/87000-secured-to-support-rough-sleepers-this-winter",
+    "https://www.york.gov.uk/news/article/1747/good-place-warm-place-invites-york-organisations-funding-applications",
+    "https://www.york.gov.uk/news/article/1810/york-increases-support-to-rough-sleepers-with-emergency-beds",
+    "https://www.york.gov.uk/news/article/1944/applications-invited-for-good-place-warm-place-fund"
+   ]
+  },
+  {
+   "code": "ZET",
+   "name": "Shetland Islands Council",
+   "nation": "Scotland",
+   "site": "https://www.shetland.gov.uk/",
+   "known_pages": []
+  }
+ ],
+ "lists": [
+  {
+   "id": "cacre",
+   "name": "Cambridgeshire ACRE Community Hubs Network",
+   "url": "https://www.cambsacre.org.uk/projects/cambridgeshire-community-hubs-network/",
+   "layer": "warmspaces",
+   "auto_add": true
+  },
+  {
+   "id": "vai",
+   "name": "Voluntary Action Islington warm spaces",
+   "url": "https://vai.org.uk/warm-spaces-in-islington/",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "swk",
+   "name": "Southwark Council warm spaces",
+   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "rugby",
+   "name": "Rugby Borough Council warm hubs",
+   "url": "https://www.rugby.gov.uk/warmhubs",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "fylde",
+   "name": "Fylde Council warm spaces",
+   "url": "https://fylde.gov.uk/warm-spaces-in-fylde/",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "camden",
+   "name": "Camden Council warm spaces",
+   "url": "https://www.camden.gov.uk/warm-spaces-in-camden",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "argyll",
+   "name": "Argyll & Bute TSI warm spaces",
+   "url": "https://www.argylltsi.org/warm-spaces/",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "c1st",
+   "name": "Communities 1st warm hubs",
+   "url": "https://www.communities1st.org.uk/warm-hubs",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "banes",
+   "name": "B&NES warm spaces directory",
+   "url": "https://livewell.bathnes.gov.uk/warm-places-list",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "chelm",
+   "name": "Chelmsford Connects winter & warm spaces",
+   "url": "https://chelmsfordconnects.org.uk/search?category=1555",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "tewk",
+   "name": "Tewkesbury Borough Council warm spaces directory",
+   "url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "sefton",
+   "name": "Sefton Council warm places",
+   "url": "https://www.sefton.gov.uk/warm-places",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "glosmeth",
+   "name": "Gloucestershire Methodist Circuit warm spaces",
+   "url": "https://www.gloucestershiremethodist.org.uk/about/warm-spaces.html",
+   "layer": "warmspaces"
+  },
+  {
+   "id": "emmanuel",
+   "name": "Emmanuel House Night Shelter",
+   "url": "https://www.emmanuelhouse.org.uk/services/nottingham-night-shelter/",
+   "layer": "shelters"
+  }
+ ]
+}
