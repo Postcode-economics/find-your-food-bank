@@ -64,7 +64,7 @@ for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no comm
                "Age UK branches, British Red Cross, libraries, church directories": "no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"}.items():
     sources[k] = {"status": "not scraped: " + why}
 prev = load_js(OUT, "WARMSPACES")
-if prev and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE"):
+if not fresh or (prev and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})

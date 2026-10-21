@@ -48,7 +48,7 @@ const disc=document.createElement('div');disc.id='xdisc';disc.setAttribute('role
 const tog=hdr.querySelector('label.tog');tog.before(bf);bf.append(hdr.querySelector('.ref'),disc,hdr.querySelector('.tnote'));
 const extra=document.createElement('section');extra.id='xextra';
 extra.innerHTML=`<div id="xlist"></div><details id="xclosed"><summary data-t="closed"></summary><div id="xcl"></div></details>
-<a class="btn call" id="xadd" target="_blank" rel="noopener" href="${REPO}/issues/new?template=register-service.yml"></a>`;
+<button type="button" class="btn call" id="xadd"></button>`;
 document.getElementById('list').after(extra);
 function paint(){document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
  $x('xlang').innerHTML=lang==='en'?'<b>EN</b><span aria-hidden="true">|</span>CY':'EN<span aria-hidden="true">|</span><b>CY</b>';$x('xlang').setAttribute('aria-label',lang==='en'?'Newid i’r Gymraeg':'Switch to English');nb.innerHTML=IC('pin')+'<span>'+esc(t('near'))+'</span>';disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
@@ -57,8 +57,14 @@ function paint(){document.documentElement.lang=lang;document.querySelectorAll('[
 function $x(i){return document.getElementById(i)}
 function stamp(k){if(k==='fb'){$x('u_fb').textContent=`${t('upd')} ${fmt(String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];$x('u_'+k).textContent=L_.data?`${t('upd')} ${fmt(L_.data.updated)}`:t('notLoaded')}
 $x('xlang').onclick=()=>{lang=lang==='en'?'cy':'en';try{localStorage.setItem('lang',lang)}catch(e){}paint()};
+// Re-check expiry/staleness against today's date in the browser too, so a warm space greys out the day its scheme ends
+// and a shelter is flagged once 7 days pass, even between nightly builds. ?testdate=YYYY-MM-DD simulates a date (testing only).
+const TODAY=(()=>{const q=new URLSearchParams(location.search).get('testdate');if(q&&/^\d{4}-\d{2}-\d{2}$/.test(q))return q;const d=new Date();return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())})();
+const dd=(a,b)=>Math.round((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/864e5);
+function relife(D){if(!D)return;(D.items||[]).forEach(i=>{if(i.scheme_end)i.ended=i.scheme_end<TODAY;if(i.last_verified)i.stale=dd(TODAY,i.last_verified)>7});
+ D.recently_closed=(D.recently_closed||[]).filter(i=>!i.closed_on||dd(TODAY,i.closed_on)<=30)}
 function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);if(L_.p)return L_.p;$x('u_'+k).textContent=t('loading');
- return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
+ return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];relife(L_.data);stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
 function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(lang==='cy'?h.replace(/Closed/i,'Ar gau'):h)}</td></tr>`).join('')+'</table>'}
 // address: no repeated town or postcode, postcode once at the end
 function addr(i){const pc=(i.postcode||'').trim(),re=pc?new RegExp('\\s*'+pc.replace(/\s+/g,'\\s*')+'\\s*','ig'):null;const seen=new Set(),out=[];
