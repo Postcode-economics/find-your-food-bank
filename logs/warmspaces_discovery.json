@@ -12,7 +12,7 @@
    "url": "https://www.kingsheathcommunitycentre.co.uk/",
    "final_url": "https://www.kingsheathcommunitycentre.co.uk/",
    "http": 200,
-   "sha256": "92d71450dccf83a8502f139aedb6fa8fffee7158d98043b1fdb14e655c9bd578",
+   "sha256": "ac1e906dfd077e6934e8395c3cb6ee23a69b9dd65a7bc130f8db3898ef1360f8",
    "etag": "",
    "last_modified": ""
   },
@@ -36,7 +36,7 @@
    "url": "https://www.midlandsgreek.org/",
    "final_url": "https://www.midlandsgreek.org/",
    "http": 200,
-   "sha256": "06014a7ae1e1a8ccc080310e491f2d79e5ef4b1df4882195932f257401f1f564",
+   "sha256": "e8f8893acf6f199ea36c21920080d074b03ac4eabbe22cd94cfbf6755cb887ab",
    "etag": "",
    "last_modified": ""
   }
@@ -1789,7 +1789,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "066af619e3af265ae6f866ac0d340124df9f24085bc6f9d62a600aff54418e26",
+   "sha256": "48ad3509bf5b28f5bc868e26760c7115b263c4a34f2475ea75f372a79223cb9c",
    "etag": "",
    "last_modified": ""
   },
@@ -1818,6 +1818,7 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/609324/acocks_green_library",
    "reasons": [
+    "directory link is a council page, not the place's own site",
     "postcode not on own site",
     "own site does not mention a warm space"
    ],
@@ -1887,14 +1888,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/876246/al_mahdi_institute",
    "reasons": [
-    "own site unreachable (HTTP 202)"
+    "own site does not mention a warm space"
    ],
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
-   "http": 202,
-   "sha256": "2e4c3e487931d035b521c649a5b2c2705db4c46ae1e0b346de5edac82bb747d7",
+   "http": 200,
+   "sha256": "81d94a651c97abe90ab34243f14be5af93291315ba2b20486b20e6cf5b0b73f7",
    "etag": "",
-   "last_modified": ""
+   "last_modified": "Wed, 21 Oct 2026 09:40:22 GMT"
   },
   {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -2215,7 +2216,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "c4c484d19a6b524081652e1356067dd2be77671d5fa67e217923fe7c012374b6",
+   "sha256": "8167f43b9bbdec1d9ebf6a4e37924c8fec778e1db9d5429aefa75a4ff91b9cd9",
    "etag": "",
    "last_modified": ""
   },
@@ -2334,7 +2335,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "631f209d494f1a7b880aa28cd5a5b434d0ea32257928a31a0c10f518bb76e6ce",
+   "sha256": "aa18d386c8f2ca44580e12c2a8ec5b9a9f25852351cc9decae89a12160a9bc65",
    "etag": "",
    "last_modified": ""
   },
@@ -2385,7 +2386,7 @@
    "url": "https://bwcpf-support.org/",
    "final_url": "https://bwcpf-support.org/home",
    "http": 200,
-   "sha256": "28e3a533ef5c255030743b535408a0f06d47d3272f6a8266e3940a62e441be79",
+   "sha256": "4d85c7496438b818e0b08a786349b22646f53a1fef9f148e7297048072984617",
    "etag": "",
    "last_modified": ""
   },
@@ -2789,12 +2790,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site unreachable (HTTP 202)"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
    "http": 202,
-   "sha256": "ea6c6d0895396718229ff6ec36b635b9648b9173f9cd1ad277c31e7883a20d29",
+   "sha256": "7ebb1240e5e48c77d3d05a9817011bd2176f6203bc79d057b83518c4da52c19f",
    "etag": "",
    "last_modified": ""
   },
@@ -3202,7 +3203,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "f1e7228e0a62b1073ec5433288b92dcfbad8112e79803bf54874d12cdb68ebb5",
+   "sha256": "006d99ccdb5ef3e18b8b035bde0eb2a86ccc2575e4343416465fa67ff18a57e0",
    "etag": "",
    "last_modified": ""
   },
@@ -3542,7 +3543,7 @@
    "url": "https://saheli.co.uk",
    "final_url": "https://saheli.co.uk",
    "http": 200,
-   "sha256": "0652e003dda9bfc6be2577fd58c5b7ea48c846ed12e7ec11d7105797e808f0a7",
+   "sha256": "370f8b17a49556c28c125287cc081e05009761f41372ac42724c1fd9c3ef6c05",
    "etag": "",
    "last_modified": ""
   },
@@ -3741,6 +3742,7 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/670114/kings_norton_library",
    "reasons": [
+    "directory link is a council page, not the place's own site",
     "postcode not on own site",
     "own site does not mention a warm space"
    ],
@@ -4038,8 +4040,8 @@
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "http": 200,
    "sha256": "20c79b2817b08abb7aaa037a224d580908417770523256c1e8746e39e7e85401",
-   "etag": "\"1792569057\"",
-   "last_modified": "Wed, 21 Oct 2026 07:50:57 GMT"
+   "etag": "\"1792607835\"",
+   "last_modified": "Wed, 21 Oct 2026 18:37:15 GMT"
   },
   {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -4156,7 +4158,7 @@
    "url": "https://wesleyanchurch.org.uk",
    "final_url": "https://wesleyanchurch.org.uk",
    "http": 200,
-   "sha256": "773fca04bb40c16a50487e27092ecb603fcb3a5366b1787e6cea7550f5e3be91",
+   "sha256": "3406b57465bbb4a5ab10a2fef3a7c723ee40e6058b8185920968b865921ccb5c",
    "etag": "",
    "last_modified": ""
   },
@@ -4224,7 +4226,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "8f45b91242a9d9799467b133ee1f3bc43bf9b4e4f68c8004a844aeb1ae4ccda4",
+   "sha256": "0a52c1545f9994f2455ab5f464ee43d25a09797b797f8fca9cc9a2efefaa6e17",
    "etag": "",
    "last_modified": ""
   },
@@ -4763,12 +4765,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
    "reasons": [
-    "own site unreachable (HTTP 202)"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://uk.thedawoodibohras.com/birmingham/",
    "final_url": "https://uk.thedawoodibohras.com/birmingham/",
    "http": 202,
-   "sha256": "ce861437a9efc91cd396facff1229aabe8206b401a3eb2446cf6cb39687e06ce",
+   "sha256": "fe24f3c55775dd8b0fd1c931f053ebbb8aa0dd91b5f0b4da7c2a73cf7e3fc9d6",
    "etag": "",
    "last_modified": ""
   },
@@ -4989,7 +4991,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "61eaea8c3d1e307f129616d0a296f2868452afe329539a8f8f1b3bc51655661e",
+   "sha256": "31ea62b424217201871603934f7d30f0bf3b32887ab30c75bb807b4c28f32037",
    "etag": "",
    "last_modified": ""
   },
@@ -5040,7 +5042,7 @@
    "url": "https://standrews-handsworth.org.uk",
    "final_url": "https://standrews-handsworth.org.uk",
    "http": 200,
-   "sha256": "7370206378f0ef671934577128d789efc292b2eb7973f1106b5cf30cf58a1d74",
+   "sha256": "4040be027470f36ac887af1ae8327ac48d09523efda9c83adc63c5f511a0ac6d",
    "etag": "",
    "last_modified": ""
   },
@@ -5550,7 +5552,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "fa2926e66ee649def8cfc9a62195b12bf6008b0cc069b456f27aaf2adf380035",
+   "sha256": "8726c40d5807d6b6563f23e5c1dde9fd299a9cb190afd140e559448c9247ee74",
    "etag": "",
    "last_modified": ""
   },
@@ -5584,7 +5586,7 @@
    "url": "https://stmichaelsb21.bdmat.org.uk/community-hub/",
    "final_url": "https://stmichaelsb21.bdmat.org.uk/community-hub/",
    "http": 200,
-   "sha256": "a25702ef01be7c5f1a2508cbda4c146da2d3bc9101c45cacff263f827061a070",
+   "sha256": "5d238c78de1c9f1f63574a876e75f59ad462811f814769edd375e576a452fd9d",
    "etag": "",
    "last_modified": ""
   },
@@ -5601,7 +5603,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "3f6e8f1898c45f27d8db79bf684ed627b74bf20f60bd2c66d02942cee0d02c3b",
+   "sha256": "76f4b091bc157fe5edcc5250933a659d8de7b2d50894b710385ecca9e77bd5ec",
    "etag": "",
    "last_modified": ""
   },
@@ -5636,7 +5638,7 @@
    "url": "https://stryx.co.uk/What-s-On",
    "final_url": "https://stryx.co.uk/What-s-On",
    "http": 200,
-   "sha256": "2163ce6d59418eb733858026266ca68b7e9242aec00c29a54b205a6b1543b18d",
+   "sha256": "eed52924c5fc074d62ef4c4930f95d480dd3877556e99aa24172f911ba8767e4",
    "etag": "",
    "last_modified": ""
   },
@@ -6044,7 +6046,7 @@
    "url": "https://fullgospeltab.co.uk/",
    "final_url": "https://fullgospeltab.co.uk/",
    "http": 200,
-   "sha256": "b19ec8da3a3979ecba23bd917f3847694e7f60f59c85a03bf6886cb09bc8d8f5",
+   "sha256": "02158b099ed0475a14bf629210b67a78745df00ec0fe82bd45f78e59d031e073",
    "etag": "",
    "last_modified": ""
   },
@@ -6231,7 +6233,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "802c1f0dbf8525c2f4105cca35f5081d2cf824b8256a26972a32bed2ee7ee5cd",
+   "sha256": "f47701b5815de90a3ddffe84e8dc92628edbfe33ecf6e80e3447f07593e68924",
    "etag": "",
    "last_modified": ""
   },
@@ -6248,7 +6250,7 @@
    "url": "https://yourmoneyyourwaycic.co.uk/",
    "final_url": "https://yourmoneyyourwaycic.co.uk/",
    "http": 200,
-   "sha256": "e8a6e8e0a9fe684730d191d168d9db6af5c1daa9eaa443fcb749e253136fb8a9",
+   "sha256": "81dc4176da646fbf16e7bfd8142df276f6b03c5f19e6f56c0ee16e56e22e3071",
    "etag": "",
    "last_modified": ""
   },
@@ -6418,7 +6420,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "http": 200,
-   "sha256": "79f840d0d36c8ea46591955f0e19c788d40484d5b7e09a526b25787fd1334f61",
+   "sha256": "7d148d7884f2e0ab48f4112067434cec15ff29d0e47d519e25b8d810d97f3be1",
    "etag": "",
    "last_modified": ""
   },

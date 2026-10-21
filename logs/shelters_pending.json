@@ -1,5 +1,18 @@
 [
  {
+  "id": "osm-node-839135604",
+  "name": "North Hertfordshire Sanctuary",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://oneymca.org/blog/north-herts-sanctuary/",
+   "final_url": "https://oneymca.org/blog/north-herts-sanctuary/",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "228f5cfdcf1726305f1ec125ab8a2080db21613d0e1324bdf9dba3f95506071b"
+  }
+ },
+ {
   "id": "osm-node-1243077938",
   "name": "The Gap Centre",
   "address": "42 Stow Hill, Newport",
@@ -47,7 +60,7 @@
   "recheck": {
    "url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
    "final_url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "cd27c64ef4db347d110cb32f46300bf7b4b70344b9e18e05aef28d756f27bce7"
   }
@@ -96,6 +109,19 @@
   }
  },
  {
+  "id": "osm-node-5113222471",
+  "name": "Foyer",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.sng.org.uk/rent-or-buy/the-foyer-isle-of-wight",
+   "final_url": "https://www.sng.org.uk/rent-or-buy/the-foyer-isle-of-wight",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "180df4a7d9a03ecbbcf64198a4f06bb0d87a89795a0b682438adfe08a829b626"
+  }
+ },
+ {
   "id": "osm-node-6480884322",
   "name": "Home 4 Good",
   "first_seen": "2026-10-21",
@@ -103,7 +129,7 @@
   "recheck": {
    "url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
    "final_url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "5caee77e3ea418b14f8ed89e29e650f6d5feb174c3778dcb8af363413f229c0a"
   }
@@ -156,7 +182,7 @@
   "recheck": {
    "url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
    "final_url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "038ed60c90b7f3fdb0648d3da2680128c71af1bdee0468c6f7c8a204e8869e73"
   }
@@ -175,6 +201,25 @@
    "flags": [],
    "where_to_check": [
     "https://thewallich.com/services/torfaen-tenancy-support/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-11702060791",
+  "name": "The Shrewsbury Ark",
+  "address": "32 Castle Foregate, Shrewsbury",
+  "postcode": "SY1 2EH",
+  "source_url": "https://www.openstreetmap.org/node/11702060791",
+  "website": "https://www.shrewsburyark.co.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.shrewsburyark.co.uk/",
     "https://homeless.org.uk/homeless-england/",
     "council homelessness page"
    ]
@@ -221,6 +266,38 @@
   }
  },
  {
+  "id": "osm-node-12876936676",
+  "name": "999 Club",
+  "address": "21 Deptford Broadway, London",
+  "postcode": "SE8 4PA",
+  "source_url": "https://www.openstreetmap.org/node/12876936676",
+  "website": "https://999club.org/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://999club.org/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-13078865908",
+  "name": "Open Door",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.hightownha.org.uk/care-support/homeless-services/need-a-bed-tonight/",
+   "final_url": "https://www.hightownha.org.uk/care-support/homeless-services/need-a-bed-tonight/",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "7c8be7b4365f82a00cf3da504f99404494351178df6bff456cb98d562dcf5b83"
+  }
+ },
+ {
   "id": "osm-node-13661455428",
   "name": "Help The Homeless Leicester",
   "address": "",
@@ -249,7 +326,7 @@
   "recheck": {
    "url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
    "final_url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "ce41fb0129cb879d1b07ee61fac7b62af65abf47adf0472088f6ec6a831d84d6"
   }
@@ -277,6 +354,19 @@
   }
  },
  {
+  "id": "osm-way-56777384",
+  "name": "Derby City Mission",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.derbycitymission.org.uk/what-is-safe-space",
+   "final_url": "https://www.derbycitymission.org.uk/what-is-safe-space",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "44dc8d8e66a33b15aed699c26ad5b4b02ba8e7917d57bcea800ef4f406818460"
+  }
+ },
+ {
   "id": "osm-way-81353303",
   "name": "YMCA London City and North",
   "first_seen": "2026-10-21",
@@ -284,9 +374,22 @@
   "recheck": {
    "url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
    "final_url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "28ed62616a40b02ebb47fd2fdcd781d9c87b93dce85fee6131b015e9134e3859"
+  }
+ },
+ {
+  "id": "osm-way-86915090",
+  "name": "Guildry House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://newsroom.moray.gov.uk/news/morays-homelessness-support-partnership-renewed",
+   "final_url": "https://newsroom.moray.gov.uk/news/morays-homelessness-support-partnership-renewed",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "a2631b325be9bb2c3a0d22959d82d663b2ab5ef50a1bcaf1b09268a83b0ace4e"
   }
  },
  {
@@ -297,7 +400,7 @@
   "recheck": {
    "url": "https://homelessoxfordshire.uk/our-work/",
    "final_url": "https://homelessoxfordshire.uk/our-work/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "aa2b032087b79a2cea386785fc90048508448f7540ed4d9bc4698ca5d94d2a37"
   }
@@ -373,7 +476,7 @@
   "recheck": {
    "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/the-springs-cambridge",
    "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/the-springs-cambridge",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -382,11 +485,11 @@
   "id": "osm-way-147871099",
   "name": "Evolve Housing",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "reason": "omitted this run: source did not return the page this run (HTTP 202; usually a bot check)",
   "recheck": {
    "url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
    "final_url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 202,
    "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
   }
@@ -420,7 +523,7 @@
   "recheck": {
    "url": "https://wirralark.org.uk/supported-accommodation/",
    "final_url": "https://wirralark.org.uk/supported-accommodation/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -492,11 +595,11 @@
   "id": "osm-way-180604493",
   "name": "Cosgarne Hall",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "reason": "omitted this run: source did not return the page this run (HTTP 202; usually a bot check)",
   "recheck": {
    "url": "https://www.harbourhousing.com/what-we-do/supported-accommodation/",
    "final_url": "https://www.harbourhousing.com/what-we-do/supported-accommodation/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 202,
    "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
   }
@@ -509,7 +612,7 @@
   "recheck": {
    "url": "http://www.housingoptionshub.co.uk/index.php/hub/view/category/fife-temporary-accommodation-provider",
    "final_url": "http://www.housingoptionshub.co.uk/index.php/hub/view/category/fife-temporary-accommodation-provider",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -543,9 +646,22 @@
   "recheck": {
    "url": "https://www.frameworkha.org/about-us/our-services/",
    "final_url": "https://www.frameworkha.org/about-us/our-services/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 403,
    "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-369362320",
+  "name": "Roffey Place",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.turning-tides.org.uk/what-we-do/accommodation/",
+   "final_url": "https://www.turning-tides.org.uk/what-we-do/accommodation/",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "f8b8bc901adb4e45090fec5b3256774a3641abab8322da9961e72451f2a177ae"
   }
  },
  {
@@ -599,7 +715,7 @@
   "recheck": {
    "url": "https://leicester.gov.uk/your-community/housing/homelessness/temporary-accommodation/the-dawn-centre",
    "final_url": "https://www.leicester.gov.uk/housing/homelessness",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "885886ffe7393715ff9e9cdc9367e5aa0ee65df1c197ca38fe1f143c165568c4"
   }
@@ -612,7 +728,7 @@
   "recheck": {
    "url": "https://talbotassociation.org/our-services-1",
    "final_url": "https://talbotassociation.org/our-services-1",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -625,20 +741,65 @@
   "recheck": {
    "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
    "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 403,
    "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-567941601",
+  "name": "LDHAS Lancaster Homeless Action",
+  "address": "2 Aalborg Place, Lancaster",
+  "postcode": "LA1 1BJ",
+  "source_url": "https://www.openstreetmap.org/way/567941601",
+  "website": "https://www.ldhas.org.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.ldhas.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-569033362",
+  "name": "The Limes",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.salvationarmyhomes.org.uk/homes/the-limes",
+   "final_url": "https://www.salvationarmyhomes.org.uk/homes/the-limes",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "3d394b0d74bad59ace9c618b1e7c768067e8f93b85aa2de3ec4e93fa5c89e084"
+  }
+ },
+ {
+  "id": "osm-way-585259224",
+  "name": "Town View Fields Hostel",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/support-if-you-are-homeless-or-risk-becoming-homeless",
+   "final_url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/support-if-you-are-homeless-or-risk-becoming-homeless",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "6040db0a09af663a598e117f4fe7ac3b20421b7532a80f419521a561e2e63205"
   }
  },
  {
   "id": "osm-way-608979359",
   "name": "Hills House",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 202)",
+  "reason": "omitted this run: source did not return the page this run (HTTP 202; usually a bot check)",
   "recheck": {
    "url": "https://www.p-a-c.org.uk/safespace/",
    "final_url": "https://www.p-a-c.org.uk/safespace/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 202,
    "sha256": "36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068"
   }
@@ -665,6 +826,19 @@
   }
  },
  {
+  "id": "osm-way-642121557",
+  "name": "Abbott Lodge",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.salvationarmyhomes.org.uk/homes/abbott-lodge",
+   "final_url": "https://www.salvationarmyhomes.org.uk/homes/abbott-lodge",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "e578568ce3490c574d03fa56d73e20c731afba0025cefbecd6d6cec3d8dda828"
+  }
+ },
+ {
   "id": "osm-way-673331522",
   "name": "Tresillian House",
   "first_seen": "2026-10-21",
@@ -672,9 +846,28 @@
   "recheck": {
    "url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
    "final_url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 403,
    "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-679300044",
+  "name": "Manna House",
+  "address": "Ann Street, Kendal",
+  "postcode": "LA9 6AA",
+  "source_url": "https://www.openstreetmap.org/way/679300044",
+  "website": "https://www.manna-house.org.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.manna-house.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
   }
  },
  {
@@ -707,7 +900,7 @@
   "recheck": {
    "url": "https://anchorhouseperth.org/crieff-rd-accomodation/",
    "final_url": "https://anchorhouseperth.org/crieff-rd-accomodation/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -735,14 +928,40 @@
   }
  },
  {
+  "id": "osm-way-931997512",
+  "name": "Hafan Wrexham",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "final_url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "2b3d364230dea1d3a70a36f20f2292e654b2d630720d06708110dd58d9eee884"
+  }
+ },
+ {
+  "id": "osm-way-931997513",
+  "name": "Wrexham Foyer",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "final_url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "2b3d364230dea1d3a70a36f20f2292e654b2d630720d06708110dd58d9eee884"
+  }
+ },
+ {
   "id": "osm-way-936508369",
   "name": "Wayside Hostel",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 200)",
+  "reason": "omitted this run: source page loaded (HTTP 200) but had no readable text this run (82 chars; likely a bot check or JavaScript-only page)",
   "recheck": {
    "url": "https://www.keychange.org.uk/wayside-community/",
    "final_url": "https://www.keychange.org.uk/wayside-community/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "f4a7709c00e645f9ae7d8eadfda6ff76ded171bf3502861ecf70ef31775b43f4"
   }
@@ -755,9 +974,28 @@
   "recheck": {
    "url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
    "final_url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 200,
    "sha256": "c9bde17a7f203e9cf8919f7ea6924fc5d0d8b26aabd8fc3f67a21fbd43b9a95a"
+  }
+ },
+ {
+  "id": "osm-way-1110034236",
+  "name": "East Clayton Farm",
+  "address": "Storrington Road",
+  "postcode": "RH20 4AG",
+  "source_url": "https://www.openstreetmap.org/way/1110034236",
+  "website": "https://www.eastclaytonfarm.org.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.eastclaytonfarm.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
   }
  },
  {
@@ -806,13 +1044,13 @@
   "id": "osm-way-1262733230",
   "name": "Ty Parc",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
   "recheck": {
    "url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
    "final_url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
-   "http": 403,
-   "sha256": ""
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "3b4833bf8ce0b7da95d1e3cb719aab064dcd6eb3960f0b9f90392e3282805b8a"
   }
  },
  {
@@ -880,6 +1118,19 @@
   }
  },
  {
+  "id": "osm-way-1499433619",
+  "name": "Bethany House",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.bethanychristiantrust.com/service/bethany-house/",
+   "final_url": "https://www.bethanychristiantrust.com/service/bethany-house/",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
+   "http": 200,
+   "sha256": "0c19287e912d4334d9b0c8562efb8a0cfea7c5dc0765946b3462d06384329519"
+  }
+ },
+ {
   "id": "osm-relation-2707322",
   "name": "Wilson Carlile House",
   "first_seen": "2026-10-21",
@@ -887,7 +1138,7 @@
   "recheck": {
    "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
    "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
-   "fetched_at": "2026-10-21T17:34:40+00:00",
+   "fetched_at": "2026-10-21T19:18:18+00:00",
    "http": 403,
    "sha256": ""
   }

@@ -2,6 +2,2192 @@
  {
   "run": "2026-10-21",
   "result": "ok",
+  "items": 229,
+  "ended": 0,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "Warm Welcome network (warmwelcome.uk map feed)": {
+    "status": "ok",
+    "count": 5787
+   },
+   "Manual (council pages, press releases, approved self-registrations)": {
+    "status": "ok",
+    "count": 89
+   },
+   "Council warm spaces / warm hubs pages (~360 councils)": {
+    "status": "not scraped: no common format; most councils now list via the Warm Welcome map (already included). Individual council pages to be added via overrides/warmspaces_manual.json with source URL"
+   },
+   "warmspaces.org (Warm Spaces directory)": {
+    "status": "not scraped: inactive since Nov 2024 (per Open Innovations register); site returns 404"
+   },
+   "Age UK branches, British Red Cross, libraries, church directories": {
+    "status": "not scraped: no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"
+   },
+   "Open Innovations warm spaces aggregator (council/VCS directories)": {
+    "status": "ok",
+    "count": 4079,
+    "last_modified": "Mon, 19 Oct 2026 22:47:09 GMT",
+    "sha256": "3576482df076b4b6e3a4d170d1ab4ba38371e46321f0148ac150944254d59247"
+   },
+   "Discovery": {
+    "status": "ok",
+    "candidates": 4079,
+    "new": 2516,
+    "added_unverified": 3,
+    "flagged": 2513
+   },
+   "am/pm hours fix": {
+    "status": "ok",
+    "entries_fixed": 591,
+    "detail": [
+     {
+      "id": "ww-55472831",
+      "name": "Bradford Central Foodbank and The Light Church",
+      "changes": [
+       [
+        "Wed",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437316",
+      "name": "Community Living Room",
+      "changes": [
+       [
+        "Mon",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ],
+       [
+        "Wed",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ],
+       [
+        "Fri",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473654",
+      "name": "Hedon Centre",
+      "changes": [
+       [
+        "Wed",
+        "09:30 - 01:30",
+        "09:30 - 13:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437279",
+      "name": "Howden Centre",
+      "changes": [
+       [
+        "Mon",
+        "09:30 - 04:30",
+        "09:30 - 16:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474741",
+      "name": "St Mary's Liscard Neigbourhood Hub -   Round  the Back Cafe",
+      "changes": [
+       [
+        "Wed",
+        "11:30 - 02:00",
+        "11:30 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57951916",
+      "name": "1",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ],
+       [
+        "Sat",
+        "12:00 - 03:00",
+        "12:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68851205",
+      "name": "10",
+      "changes": [
+       [
+        "Mon",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Tue",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Wed",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Thu",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Fri",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Sat",
+        "12:00 - 08:00",
+        "12:00 - 20:00"
+       ],
+       [
+        "Sun",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62565383",
+      "name": "55 Ruscoe Road",
+      "changes": [
+       [
+        "Mon",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952250",
+      "name": "A Warm Space",
+      "changes": [
+       [
+        "Wed",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474771",
+      "name": "A warm welcome",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437430",
+      "name": "Abbey Hall Lounge",
+      "changes": [
+       [
+        "Mon",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437375",
+      "name": "Aberbargoed Library",
+      "changes": [
+       [
+        "Tue",
+        "09:30 - 06:00",
+        "09:30 - 18:00"
+       ],
+       [
+        "Wed",
+        "09:30 - 05:00",
+        "09:30 - 17:00"
+       ],
+       [
+        "Thu",
+        "09:30 - 05:00",
+        "09:30 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473122",
+      "name": "Abraham Moss Library",
+      "changes": [
+       [
+        "Thu",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952113",
+      "name": "Academy HQ",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 10:00",
+        "10:00 - 22:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65441942",
+      "name": "Afternoon Community Club",
+      "changes": [
+       [
+        "Tue",
+        "01:00 - 02:30 Monthly",
+        "13:00 - 14:30 Monthly"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55475071",
+      "name": "Alcester Methodist Church",
+      "changes": [
+       [
+        "Tue",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65419953",
+      "name": "Allington Library",
+      "changes": [
+       [
+        "Tue",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Wed",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "02:00 - 05:00",
+        "14:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57951928",
+      "name": "Ancient Borough Arms",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sun",
+        "10:00 - 00:00",
+        "10:00 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62980634",
+      "name": "Angy Care Health Foundation",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Wed",
+        "11:00 - 05:00",
+        "11:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65085970",
+      "name": "Antley Methodist Church",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55592144",
+      "name": "Apex Church Community Cafe",
+      "changes": [
+       [
+        "Wed",
+        "12:00 - 01:30",
+        "12:00 - 13:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68922383",
+      "name": "Art,Faith  and  wellbeing  hub",
+      "changes": [
+       [
+        "Tue",
+        "12:00 - 04:00",
+        "12:00 - 16:00"
+       ],
+       [
+        "Thu",
+        "12:00 - 04:00",
+        "12:00 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65413993",
+      "name": "Askern Community Hub",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Wed",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-59964853",
+      "name": "Aspire Community Lunch & Warm Space",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Wed",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474994",
+      "name": "ATAC COMMUNITY HALL",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-69069572",
+      "name": "Audacious Church",
+      "changes": [
+       [
+        "Tue",
+        "10:30 - 15.30",
+        "10:30 - 15:30"
+       ],
+       [
+        "Thu",
+        "10:30 - 15.30",
+        "10:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-69211163",
+      "name": "Bamford Chapel & Norden URC",
+      "changes": [
+       [
+        "Thu",
+        "Closed / 10:30 - 12:00",
+        "10:30 - 12:00"
+       ],
+       [
+        "Fri",
+        "Closed / 13:30 - 15:00 Monthly",
+        "13:30 - 15:00 Monthly"
+       ],
+       [
+        "Sat",
+        "Closed / 18:30 - 20:00 Monthly",
+        "18:30 - 20:00 Monthly"
+       ],
+       [
+        "Sun",
+        "Closed / 10:30 - 12:00",
+        "10:30 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476048",
+      "name": "Bar Hill Hub",
+      "changes": [
+       [
+        "Mon",
+        "Closed / 09:00 - 12:00",
+        "09:00 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65438825",
+      "name": "Barton Community Centre",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476318",
+      "name": "Beacon Church Centre",
+      "changes": [
+       [
+        "Tue",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476155",
+      "name": "Bearsted Library",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952944",
+      "name": "Beechwood Road Public Library",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952878",
+      "name": "Beggar and Gentleman",
+      "changes": [
+       [
+        "Fri",
+        "11:00 - 00:30",
+        "11:00 - 12:30"
+       ],
+       [
+        "Sat",
+        "11:00 - 00:30",
+        "11:00 - 12:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64432711",
+      "name": "Belgrave Neighbourhood Co-operative Housing Association- EKTA sessions",
+      "changes": [
+       [
+        "Mon",
+        "12:00 - 15.00",
+        "12:00 - 15:00"
+       ],
+       [
+        "Fri",
+        "12:00 - 1500",
+        "12:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65438851",
+      "name": "Bennachie Leisure Centre Charity",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Wed",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55475047",
+      "name": "Beswick Library",
+      "changes": [
+       [
+        "Fri",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474488",
+      "name": "Bethesda Church Cheltenham",
+      "changes": [
+       [
+        "Wed",
+        "10:30 - 03:30",
+        "10:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473353",
+      "name": "Bethlehem Centre, In partnership with All community connect CIC",
+      "changes": [
+       [
+        "Sat",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64378969",
+      "name": "Bethnal Green Methodist Church",
+      "changes": [
+       [
+        "Fri",
+        "10:30 - 04:00",
+        "10:30 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476122",
+      "name": "Birchington Library",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "09:30 - 03:30",
+        "09:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474884",
+      "name": "Blaby All Saints Parish Church",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473387",
+      "name": "Blackburn with Darwen Library and Information Service. Cherry Tree Library",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Thu",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "10:12 - 00:00",
+        "10:12 - 12:00"
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55472965",
+      "name": "Blaenau Gwent Libraries - Abertillery Library",
+      "changes": [
+       [
+        "Fri",
+        "09:00 - 01:00 / 14:00 - 17:30",
+        "09:00 - 13:00 / 14:00 - 17:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-58212277",
+      "name": "Blakelaw Library at Leisure United",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64432691",
+      "name": "Bloxwich Community Library",
+      "changes": [
+       [
+        "Tue",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Wed",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Thu",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Fri",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-63029577",
+      "name": "Boghall Community Wing",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 09:00",
+        "10:00 - 21:00"
+       ],
+       [
+        "Wed",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 04:00",
+        "10:00 - 16:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 03:00",
+        "10:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473954",
+      "name": "Botley Library",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952653",
+      "name": "Bournemouth Library",
+      "changes": [
+       [
+        "Sat",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-58668039",
+      "name": "Bovey Tracey Social Supermarket",
+      "changes": [
+       [
+        "Tue",
+        "03:00 - 05:00",
+        "15:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65420032",
+      "name": "Brandhall Library",
+      "changes": [
+       [
+        "Fri",
+        "10.00 - 13:00 / 14:00 - 17:00",
+        "10:00 - 13:00 / 14:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62836257",
+      "name": "Bridge Project, Salvation Army",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952791",
+      "name": "Brighouse Central Methodist Church",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64379209",
+      "name": "Brislington Community Cafe",
+      "changes": [
+       [
+        "Mon",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68367637",
+      "name": "Britwell Hub",
+      "changes": [
+       [
+        "Thu",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473024",
+      "name": "Bromyard Methodist Church",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473412",
+      "name": "Brookside Community Hub",
+      "changes": [
+       [
+        "Fri",
+        "09:30 - 03:00",
+        "09:30 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57953248",
+      "name": "Brynmill Community Centre",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65345131",
+      "name": "Buckfastleigh Social Supermarket",
+      "changes": [
+       [
+        "Tue",
+        "03:00 - 05:00",
+        "15:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65413945",
+      "name": "Bucknall Village Hall Warm Space",
+      "changes": [
+       [
+        "Mon",
+        "09:30 - 01:10",
+        "09:30 - 13:10"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65989134",
+      "name": "Bugbrooke Community Living Room",
+      "changes": [
+       [
+        "Tue",
+        "01:30 - 05:00",
+        "13:30 - 17:00"
+       ],
+       [
+        "Thu",
+        "02:00 - 05:00",
+        "14:00 - 17:00"
+       ]
+      ]
+     }
+    ]
+   },
+   "Hours normalised": {
+    "status": "ok",
+    "changed": 2
+   },
+   "Own-site times check": {
+    "status": "ok",
+    "unconfirmed": 61,
+    "no_website": 80,
+    "confirmed": 82,
+    "unreachable": 2,
+    "changed": 3,
+    "none_published": 3,
+    "removed_closed": []
+   },
+   "Verification gate": {
+    "status": "ok",
+    "scraped": 5868,
+    "published": 231,
+    "pending": 5637
+   },
+   "Excluded by review": {
+    "status": "ok",
+    "ids": [
+     "ww-68851205",
+     "ww-69343435"
+    ]
+   }
+  }
+ },
+ {
+  "run": "2026-10-21",
+  "result": "ok",
+  "items": 228,
+  "ended": 0,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "Warm Welcome network (warmwelcome.uk map feed)": {
+    "status": "ok",
+    "count": 5787
+   },
+   "Manual (council pages, press releases, approved self-registrations)": {
+    "status": "ok",
+    "count": 89
+   },
+   "Council warm spaces / warm hubs pages (~360 councils)": {
+    "status": "not scraped: no common format; most councils now list via the Warm Welcome map (already included). Individual council pages to be added via overrides/warmspaces_manual.json with source URL"
+   },
+   "warmspaces.org (Warm Spaces directory)": {
+    "status": "not scraped: inactive since Nov 2024 (per Open Innovations register); site returns 404"
+   },
+   "Age UK branches, British Red Cross, libraries, church directories": {
+    "status": "not scraped: no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"
+   },
+   "Open Innovations warm spaces aggregator (council/VCS directories)": {
+    "status": "ok",
+    "count": 4079,
+    "last_modified": "Mon, 19 Oct 2026 22:47:09 GMT",
+    "sha256": "3576482df076b4b6e3a4d170d1ab4ba38371e46321f0148ac150944254d59247"
+   },
+   "Discovery": {
+    "status": "ok",
+    "candidates": 4079,
+    "new": 2516,
+    "added_unverified": 3,
+    "flagged": 2513
+   },
+   "am/pm hours fix": {
+    "status": "ok",
+    "entries_fixed": 591,
+    "detail": [
+     {
+      "id": "ww-55472831",
+      "name": "Bradford Central Foodbank and The Light Church",
+      "changes": [
+       [
+        "Wed",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437316",
+      "name": "Community Living Room",
+      "changes": [
+       [
+        "Mon",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ],
+       [
+        "Wed",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ],
+       [
+        "Fri",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473654",
+      "name": "Hedon Centre",
+      "changes": [
+       [
+        "Wed",
+        "09:30 - 01:30",
+        "09:30 - 13:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437279",
+      "name": "Howden Centre",
+      "changes": [
+       [
+        "Mon",
+        "09:30 - 04:30",
+        "09:30 - 16:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474741",
+      "name": "St Mary's Liscard Neigbourhood Hub -   Round  the Back Cafe",
+      "changes": [
+       [
+        "Wed",
+        "11:30 - 02:00",
+        "11:30 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57951916",
+      "name": "1",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ],
+       [
+        "Sat",
+        "12:00 - 03:00",
+        "12:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68851205",
+      "name": "10",
+      "changes": [
+       [
+        "Mon",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Tue",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Wed",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Thu",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Fri",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Sat",
+        "12:00 - 08:00",
+        "12:00 - 20:00"
+       ],
+       [
+        "Sun",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62565383",
+      "name": "55 Ruscoe Road",
+      "changes": [
+       [
+        "Mon",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952250",
+      "name": "A Warm Space",
+      "changes": [
+       [
+        "Wed",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474771",
+      "name": "A warm welcome",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437430",
+      "name": "Abbey Hall Lounge",
+      "changes": [
+       [
+        "Mon",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437375",
+      "name": "Aberbargoed Library",
+      "changes": [
+       [
+        "Tue",
+        "09:30 - 06:00",
+        "09:30 - 18:00"
+       ],
+       [
+        "Wed",
+        "09:30 - 05:00",
+        "09:30 - 17:00"
+       ],
+       [
+        "Thu",
+        "09:30 - 05:00",
+        "09:30 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473122",
+      "name": "Abraham Moss Library",
+      "changes": [
+       [
+        "Thu",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952113",
+      "name": "Academy HQ",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 10:00",
+        "10:00 - 22:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65441942",
+      "name": "Afternoon Community Club",
+      "changes": [
+       [
+        "Tue",
+        "01:00 - 02:30 Monthly",
+        "13:00 - 14:30 Monthly"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55475071",
+      "name": "Alcester Methodist Church",
+      "changes": [
+       [
+        "Tue",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65419953",
+      "name": "Allington Library",
+      "changes": [
+       [
+        "Tue",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Wed",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "02:00 - 05:00",
+        "14:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57951928",
+      "name": "Ancient Borough Arms",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sun",
+        "10:00 - 00:00",
+        "10:00 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62980634",
+      "name": "Angy Care Health Foundation",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Wed",
+        "11:00 - 05:00",
+        "11:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65085970",
+      "name": "Antley Methodist Church",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55592144",
+      "name": "Apex Church Community Cafe",
+      "changes": [
+       [
+        "Wed",
+        "12:00 - 01:30",
+        "12:00 - 13:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68922383",
+      "name": "Art,Faith  and  wellbeing  hub",
+      "changes": [
+       [
+        "Tue",
+        "12:00 - 04:00",
+        "12:00 - 16:00"
+       ],
+       [
+        "Thu",
+        "12:00 - 04:00",
+        "12:00 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65413993",
+      "name": "Askern Community Hub",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Wed",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-59964853",
+      "name": "Aspire Community Lunch & Warm Space",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Wed",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474994",
+      "name": "ATAC COMMUNITY HALL",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-69069572",
+      "name": "Audacious Church",
+      "changes": [
+       [
+        "Tue",
+        "10:30 - 15.30",
+        "10:30 - 15:30"
+       ],
+       [
+        "Thu",
+        "10:30 - 15.30",
+        "10:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-69211163",
+      "name": "Bamford Chapel & Norden URC",
+      "changes": [
+       [
+        "Thu",
+        "Closed / 10:30 - 12:00",
+        "10:30 - 12:00"
+       ],
+       [
+        "Fri",
+        "Closed / 13:30 - 15:00 Monthly",
+        "13:30 - 15:00 Monthly"
+       ],
+       [
+        "Sat",
+        "Closed / 18:30 - 20:00 Monthly",
+        "18:30 - 20:00 Monthly"
+       ],
+       [
+        "Sun",
+        "Closed / 10:30 - 12:00",
+        "10:30 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476048",
+      "name": "Bar Hill Hub",
+      "changes": [
+       [
+        "Mon",
+        "Closed / 09:00 - 12:00",
+        "09:00 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65438825",
+      "name": "Barton Community Centre",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476318",
+      "name": "Beacon Church Centre",
+      "changes": [
+       [
+        "Tue",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476155",
+      "name": "Bearsted Library",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952944",
+      "name": "Beechwood Road Public Library",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952878",
+      "name": "Beggar and Gentleman",
+      "changes": [
+       [
+        "Fri",
+        "11:00 - 00:30",
+        "11:00 - 12:30"
+       ],
+       [
+        "Sat",
+        "11:00 - 00:30",
+        "11:00 - 12:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64432711",
+      "name": "Belgrave Neighbourhood Co-operative Housing Association- EKTA sessions",
+      "changes": [
+       [
+        "Mon",
+        "12:00 - 15.00",
+        "12:00 - 15:00"
+       ],
+       [
+        "Fri",
+        "12:00 - 1500",
+        "12:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65438851",
+      "name": "Bennachie Leisure Centre Charity",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Wed",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55475047",
+      "name": "Beswick Library",
+      "changes": [
+       [
+        "Fri",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474488",
+      "name": "Bethesda Church Cheltenham",
+      "changes": [
+       [
+        "Wed",
+        "10:30 - 03:30",
+        "10:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473353",
+      "name": "Bethlehem Centre, In partnership with All community connect CIC",
+      "changes": [
+       [
+        "Sat",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64378969",
+      "name": "Bethnal Green Methodist Church",
+      "changes": [
+       [
+        "Fri",
+        "10:30 - 04:00",
+        "10:30 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476122",
+      "name": "Birchington Library",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "09:30 - 03:30",
+        "09:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474884",
+      "name": "Blaby All Saints Parish Church",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473387",
+      "name": "Blackburn with Darwen Library and Information Service. Cherry Tree Library",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Thu",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "10:12 - 00:00",
+        "10:12 - 12:00"
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55472965",
+      "name": "Blaenau Gwent Libraries - Abertillery Library",
+      "changes": [
+       [
+        "Fri",
+        "09:00 - 01:00 / 14:00 - 17:30",
+        "09:00 - 13:00 / 14:00 - 17:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-58212277",
+      "name": "Blakelaw Library at Leisure United",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64432691",
+      "name": "Bloxwich Community Library",
+      "changes": [
+       [
+        "Tue",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Wed",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Thu",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Fri",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-63029577",
+      "name": "Boghall Community Wing",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 09:00",
+        "10:00 - 21:00"
+       ],
+       [
+        "Wed",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 04:00",
+        "10:00 - 16:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 03:00",
+        "10:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473954",
+      "name": "Botley Library",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952653",
+      "name": "Bournemouth Library",
+      "changes": [
+       [
+        "Sat",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-58668039",
+      "name": "Bovey Tracey Social Supermarket",
+      "changes": [
+       [
+        "Tue",
+        "03:00 - 05:00",
+        "15:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65420032",
+      "name": "Brandhall Library",
+      "changes": [
+       [
+        "Fri",
+        "10.00 - 13:00 / 14:00 - 17:00",
+        "10:00 - 13:00 / 14:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62836257",
+      "name": "Bridge Project, Salvation Army",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952791",
+      "name": "Brighouse Central Methodist Church",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64379209",
+      "name": "Brislington Community Cafe",
+      "changes": [
+       [
+        "Mon",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68367637",
+      "name": "Britwell Hub",
+      "changes": [
+       [
+        "Thu",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473024",
+      "name": "Bromyard Methodist Church",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473412",
+      "name": "Brookside Community Hub",
+      "changes": [
+       [
+        "Fri",
+        "09:30 - 03:00",
+        "09:30 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57953248",
+      "name": "Brynmill Community Centre",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65345131",
+      "name": "Buckfastleigh Social Supermarket",
+      "changes": [
+       [
+        "Tue",
+        "03:00 - 05:00",
+        "15:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65413945",
+      "name": "Bucknall Village Hall Warm Space",
+      "changes": [
+       [
+        "Mon",
+        "09:30 - 01:10",
+        "09:30 - 13:10"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65989134",
+      "name": "Bugbrooke Community Living Room",
+      "changes": [
+       [
+        "Tue",
+        "01:30 - 05:00",
+        "13:30 - 17:00"
+       ],
+       [
+        "Thu",
+        "02:00 - 05:00",
+        "14:00 - 17:00"
+       ]
+      ]
+     }
+    ]
+   },
+   "Hours normalised": {
+    "status": "ok",
+    "changed": 2
+   },
+   "Own-site times check": {
+    "status": "ok",
+    "unconfirmed": 61,
+    "no_website": 80,
+    "confirmed": 82,
+    "unreachable": 1,
+    "changed": 3,
+    "none_published": 3,
+    "removed_closed": []
+   },
+   "Verification gate": {
+    "status": "ok",
+    "scraped": 5868,
+    "published": 230,
+    "pending": 5638
+   },
+   "Excluded by review": {
+    "status": "ok",
+    "ids": [
+     "ww-68851205",
+     "ww-69343435"
+    ]
+   }
+  }
+ },
+ {
+  "run": "2026-10-21",
+  "result": "ok",
   "items": 230,
   "ended": 0,
   "stale": 0,
