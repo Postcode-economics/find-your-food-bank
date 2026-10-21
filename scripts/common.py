@@ -84,7 +84,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                             "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}}); continue
         if v and has_evidence and (not valid_until or run_day <= valid_until(v)):
             x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
-            for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name"):  # pin/address fixes persist nightly
+            for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name", "scheme_end", "scheme_dates"):  # pin/address fixes persist nightly
                 if v.get(k): x[k] = v[k]
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             x["tier"] = "verified"

@@ -17,6 +17,21 @@ def fetch(url):
     t = html.unescape(re.sub(r"<[^>]+>", " ", t)); t = re.sub(r"\s+", " ", t)
     return {"http": code, "text": t, "final_url": final, "etag": etag, "last_modified": lm,
             "sha256": hashlib.sha256(t.encode()).hexdigest()}
+def fetch_js(url):
+    """Headless Chrome fallback for pages that only render after a JavaScript challenge. None if Chrome is unavailable."""
+    import shutil, subprocess
+    exe = shutil.which("google-chrome") or shutil.which("chromium") or shutil.which("chromium-browser")
+    if not exe: return None
+    try:
+        raw = subprocess.run([exe, "--headless=new", "--no-sandbox", "--disable-gpu", "--virtual-time-budget=15000",
+                              "--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130 Safari/537.36", "--dump-dom", url],
+                             capture_output=True, timeout=90).stdout.decode("utf8", "ignore")
+    except Exception:
+        return None
+    t = re.sub(r"<script.*?</script>|<style.*?</style>", " ", raw, flags=re.S)
+    t = html.unescape(re.sub(r"<[^>]+>", " ", t)); t = re.sub(r"\s+", " ", t)
+    if len(t) < 200: return None
+    return {"http": 200, "text": t, "final_url": url, "etag": "", "last_modified": "", "sha256": hashlib.sha256(t.encode()).hexdigest(), "via": "headless-chrome"}
 def host(u):
     h = urllib.parse.urlparse(u or "").netloc.lower()
     return h[4:] if h.startswith("www.") else h
@@ -98,6 +113,8 @@ def recheck_all(fresh, verified, unverified, log_path, layer=None, fetcher=None)
     for u in urls:  # one sequential retry for failed/short pages (rate limits, bot challenges) before omitting
         if pages[u].get("http") != 200 or len(pages[u].get("text", "")) < 200:
             pages[u] = fetcher(u)
+        if fetcher is fetch and pages[u].get("http") == 200 and len(pages[u].get("text", "")) < 200:
+            pages[u] = fetch_js(u) or pages[u]  # JS bot-challenge page (e.g. cambsacre.org.uk 'One moment, please'): real browser
     out = {}
     for i, (x, ov, u) in jobs.items():
         merged = dict(x); merged.update({k: ov[k] for k in ("address", "postcode", "lat", "lng", "hours", "access_type") if k in ov})

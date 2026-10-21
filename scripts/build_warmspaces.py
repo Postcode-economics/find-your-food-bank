@@ -4,6 +4,7 @@ marked 'ended' (shown greyed); they become active again automatically when a new
 import json, sys, os, re, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
+from hours_fix import fix_hours, phone_ok
 RUN = today(); OUT, LOG = "warmspaces.js", "logs/warmspaces_log.json"
 SP = "https://api.storepoint.co/v1/16320a694c8cc5/locations"  # Warm Welcome network public map feed
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
@@ -90,11 +91,20 @@ sources["Open Innovations warm spaces aggregator (council/VCS directories)"] = s
 add, dlog = discover.discover_layer(oi, fresh, "ws", RUN, UNV, "logs/warmspaces_discovery.json")
 fresh += add
 sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
+HFIX = []
+def clean(x):  # am/pm fix for 12h-clock times stored as 24h, and hide phones with fewer than 10 digits
+    h, ch = fix_hours(x.get("hours"))
+    if ch: x["hours"] = h; HFIX.append({"id": x["id"], "name": x["name"], "changes": ch})
+    if x.get("phone") and not phone_ok(x["phone"]): x["phone"] = ""
+    return x
+fresh = [clean(x) for x in fresh]
 raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", unverified=UNV, autocheck=ws_autocheck, valid_until=season_end)
+fresh = [clean(x) for x in fresh]  # again: verified overrides can set hours/phone
+sources["am/pm hours fix"] = {"status": "ok", "entries_fixed": len({c['id'] for c in HFIX}), "detail": HFIX[:60]}
 tlog = discover.cross_check_times(fresh, "ws", "hours")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
-fresh = [x for x in fresh if not x.pop("_own_site_closed", None)]
+fresh = [clean(x) for x in fresh if not x.pop("_own_site_closed", None)]  # and after own-site times updates
 json.dump(tlog, open("logs/warmspaces_times_check.json", "w"), indent=0, ensure_ascii=False)
 sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
