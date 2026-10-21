@@ -68,12 +68,11 @@ class Times(unittest.TestCase):
     def test_unreachable_never_carries_old_times(self):
         it = self.items(); log = discover.cross_check_times(it, "fb", "opening_times", fake({}))
         self.assertEqual(log["a"]["status"], "unreachable"); self.assertEqual(it[0]["times_status"], "unconfirmed")
-        self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"]); self.assertTrue(it[0]["opening_times"]["unconfirmed"])
-        self.assertIn("Give Food", it[0]["times_note"])
+        self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"]); self.assertNotIn("times_note", it[0]); self.assertEqual(it[0]["times_source"], "main database")
     def test_unconfirmed_withheld(self):
         it = self.items(); h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "see Facebook for times")
         log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
-        self.assertEqual(log["a"]["status"], "unconfirmed"); self.assertTrue(it[0]["opening_times"]["unconfirmed"]); self.assertIn("not confirmed", it[0]["times_note"])
+        self.assertEqual(log["a"]["status"], "unconfirmed"); self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"]); self.assertNotIn("times_note", it[0])
     def test_own_site_closed_marked_for_removal(self):
         it = self.items(); h = FB.replace("We give", "This food bank is permanently closed. We gave")
         log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
@@ -140,7 +139,7 @@ class OwnSiteIsMainSource(unittest.TestCase):
         for kind in ("sh", "ws"):
             it = [{"id": "s", "name": "R", "postcode": "AB1 2CD", "website": "https://x.org/", "hours": {"Tue": "10:00 - 12:00"}}]
             discover.cross_check_times(it, kind, "hours", fake({}))
-            self.assertEqual(it[0]["hours"], {"Tue": "10:00 - 12:00"}); self.assertEqual(it[0]["times_status"], "unconfirmed"); self.assertIn("directory", it[0]["times_note"])
+            self.assertEqual(it[0]["hours"], {"Tue": "10:00 - 12:00"}); self.assertEqual(it[0]["times_status"], "unconfirmed"); self.assertNotIn("times_note", it[0])
     def test_own_site_times_override_directory(self):
         it = [{"id": "a", "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)}]
         h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Thursday 2pm - 4pm")
