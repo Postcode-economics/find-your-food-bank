@@ -52,7 +52,10 @@ footer a{display:inline-block;min-height:44px;line-height:44px}
 footer{font-size:14px;padding:10px 12px 24px;color:var(--muted)}footer a{color:var(--gold)}
 #f{position:relative}#ac{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:5000;list-style:none;margin:0;padding:4px 0;background:var(--card);border:2px solid var(--gold);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.5);max-height:60vh;overflow:auto}#ac[hidden]{display:none}#ac li{min-height:48px;display:flex;align-items:center;padding:0 14px;font-size:16px;color:var(--white);cursor:pointer;border-bottom:1px solid rgba(255,255,255,.08)}#ac li:last-child{border-bottom:0}#ac li small{color:var(--muted);margin-left:6px;font-size:14px}#ac li[aria-selected="true"],#ac li:hover{background:var(--gold);color:var(--navy)}#ac li[aria-selected="true"] small,#ac li:hover small{color:var(--navy)}
 #iab{display:flex;gap:8px;align-items:flex-start;margin:6px 8px 0;padding:8px 10px;background:var(--card);border:2px solid var(--gold);border-radius:10px;font-size:14px;line-height:1.35}#iab[hidden]{display:none}#iab .t{flex:1}#iab b{color:var(--gold)}#iab .ob{display:inline-block;margin:6px 0 2px;padding:10px 14px;min-height:44px;background:var(--gold);color:var(--navy);font-weight:800;border-radius:8px;text-decoration:none}#iab small{display:block;color:var(--muted);font-size:13px}#iab .x{flex:0 0 auto;width:36px;height:36px;min-height:0;border:0;border-radius:8px;background:transparent;color:var(--white);font-size:22px;line-height:1;cursor:pointer;padding:0}
-</style></head><body>
+.pin.wh svg{display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
+.ncb{background:#F2F4F8;color:#0A1628;font-weight:800;font-size:16px;padding:10px 12px;border-radius:8px;border-left:6px solid #E63946;margin-bottom:8px;line-height:1.3}#sheet .ncb{margin-right:44px}
+.cen{list-style:none;margin:4px 0;padding:0}.cen li{padding:6px 0;border-bottom:1px solid #2a3b5c}.cen a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:16px;color:var(--gold)}.cen span{display:block;font-size:14px;color:var(--muted)}
+.tag{display:inline-block;background:#F5C518;color:#0A1628;font-weight:800;font-size:14px;padding:4px 10px;border-radius:6px;margin:0 0 6px}</style></head><body>
 <div id="iab" role="region" aria-label="Open in your browser" hidden><div class="t" id="iabt"></div><button class="x" id="iabx" type="button" aria-label="Dismiss">×</button></div>
 <script>(function(){var u=navigator.userAgent||'',b=document.getElementById('iab');
 if(!/Instagram|FBAN|FBAV|FB_IAB|Threads|TikTok|musical_ly|BytedanceWebview|Snapchat/i.test(u))return;
@@ -75,7 +78,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <script src="data.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
-const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites: never shown as a place to get food
+const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
 $('upd').textContent=new Date(D.fetched).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}`;
@@ -94,19 +97,20 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')+' away'};
 const site=i=>i.website||i.givefood;
+const tag=i=>i.type==='location'?'<div class="tag" role="note">🥫 Food bank distribution centre – get food here</div>':'<div class="tag" role="note">🥫 Food bank – get food here</div>';
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  if(nc(i))return `<div class="ncb" role="note">📦 ${esc(i.label_en)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span></li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>Phone (to donate or ask)</small></a>`:''}`;
- return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
+ return `${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>${i.phone_checked?'Phone (checked on their site)':'Phone (from Give Food)'}</small></a>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
  ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">📦 ${esc(i.label_en)}</div>`:''}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div></div>`}
+function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">📦 ${esc(i.label_en)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div></div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
@@ -130,6 +134,7 @@ function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)mark
  if(fromList)cl.zoomToShowLayer(m,show);else show()}
 function closeSheet(){$('sheet').classList.remove('open');$('sheet').setAttribute('aria-hidden','true')}
 document.querySelector('#sheet .x').onclick=closeSheet;
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-cid]');if(!a)return;e.preventDefault();const k=items.findIndex(i=>i.id===a.dataset.cid);if(k<0)return;map.setView([items[k].lat,items[k].lng],15);setTimeout(()=>select(k,false),300)});
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,R=6371,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
 function msg(t,err){const e=$('msg');e.textContent=t||'';e.className=err?'err':''}
 let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></div>',iconSize:[22,22]});
