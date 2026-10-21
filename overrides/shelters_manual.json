@@ -1230,5 +1230,54 @@
   "last_verified": "2026-10-21",
   "stale": false,
   "access_type": "self_referral"
+ },
+ {
+  "id": "hl-nightsafe-blackburn",
+  "name": "Nightsafe – The Shelter (young people 16-24)",
+  "address": "The Boulevard Centre, Cathedral Quarter, 45 Railway Road, Blackburn, BB1 1EZ",
+  "postcode": "BB1 1EZ",
+  "lat": 53.746989,
+  "lng": -2.478944,
+  "phone": "01254 503067",
+  "website": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+  "hours": "",
+  "referral": "Self-referral: call 01254 503067 Mon-Fri 9am-5pm or call in to Platform 5; out of hours ring the shelter door bell (\"we are a direct access shelter\"). Ages 16-24, local connection to Blackburn with Darwen, Hyndburn or Ribble Valley",
+  "beds": "",
+  "groups": [
+   "Age 16-24",
+   "Local connection: Blackburn with Darwen, Hyndburn, Ribble Valley"
+  ],
+  "season": "Year-round",
+  "operator": "",
+  "flag_closed": false,
+  "source": "Homeless Link Find help + 2026 corroboration",
+  "source_url": "https://nightsafe.org/contact-nightsafe/",
+  "last_verified": "2026-10-21",
+  "stale": false,
+  "access_type": "self_referral"
+ },
+ {
+  "id": "hl-st-georges-crypt-leeds",
+  "name": "St George's Crypt – emergency accommodation",
+  "address": "Great George Street, Leeds, LS1 3BR",
+  "postcode": "LS1 3BR",
+  "lat": 53.801045,
+  "lng": -1.553483,
+  "phone": "0113 222 4412",
+  "website": "https://www.stgeorgescrypt.org.uk/contact",
+  "hours": "",
+  "referral": "Referral only: through Leeds Housing Options, 0113 222 4412 (Mon-Fri 9am-4pm, Tue from 10am); out of hours 0113 378 8366",
+  "beds": "",
+  "groups": [
+   "Age 16+"
+  ],
+  "season": "Year-round",
+  "operator": "",
+  "flag_closed": false,
+  "source": "Homeless Link Find help + 2026 corroboration",
+  "source_url": "https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/",
+  "last_verified": "2026-10-21",
+  "stale": false,
+  "access_type": "referral_only"
  }
 ]

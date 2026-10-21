@@ -34,3 +34,13 @@ RESUME HERE:
 3. OI directories still to check per venue: Cambs ACRE, Camden, Argyll TSI, Communities 1st, Rugby, Fylde, B&NES, Chelmsford.
 4. Emmanuel House Nottingham (referral_only): needs a source the re-check can fetch.
 5. CofE and Methodist lists not started.
+
+## Checkpoint 21 Oct 2026 16:45 BST (paused by Dean)
+- Batch 4 (Homeless Link remainder, batch_hl/entries_sh2.py): +2 verified shelters: Nightsafe Blackburn (BB1 1EZ, 365 days 5pm-10am, self-referral, 16-24) and St George's Crypt Leeds (LS1 3BR, 24/7, referral_only via Leeds Housing Options).
+- Not added: The Crossings Hull (riverside.org.uk returns 403, no fetchable corroboration); New Start Leyland Road Southport (no 2026 corroboration found).
+- probe.py was restarted, then stopped again for the pause (no output). It still needs a full run.
+RESUME HERE:
+1. Rerun batch_patterns/probe.py in the background.
+2. Cambridgeshire ACRE: the page is now fetchable and dated (published 12 Aug 2026, updated 5 Oct 2026, saved as batch_oi/cambs_live.txt). batch_oi/entries_b5.py is a draft whose regex splits names wrongly at "Opens: ... Thursday/Friday ..." boundaries. Fix the splitting, then run build2.build (it removes duplicates of the ~30 already in the base layer). NOT yet written to overrides.
+3. Remaining undated lists (Camden, Argyll TSI, Communities 1st, Rugby, Fylde, BANES, Chelmsford): their only date is a 2026 copyright line. Look for a real date (e.g. WordPress wp-json "modified") before using them.
+4. Emmanuel House Nottingham. 5. CofE / Methodist lists.
