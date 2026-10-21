@@ -28,8 +28,19 @@ def add_extra_locations(items, root):
             "givefood": pa.get("givefood") or "", "opening_times": x.get("opening_times"), "pc_checked": True, "phone_checked": True, "manual": True, "evidence_url": x.get("evidence_url")})
         n += 1
     return n
+def apply_address_fixes(items, root):
+    """overrides/foodbank_address_fixes.json: correct a food bank's own pin to where food is given out; drop stale pins. Idempotent."""
+    p = os.path.join(root, "overrides", "foodbank_address_fixes.json")
+    if not os.path.exists(p): return
+    fx = json.load(open(p)); rm = set(fx.get("_remove_ids", []))
+    items[:] = [i for i in items if i["id"] not in rm]
+    for i in items:
+        f = fx.get(i["id"])
+        if f and not i["id"].startswith("_"):
+            for k in ("address", "postcode", "lat", "lng"): i[k] = f[k]
 def classify(items, root):
     add_extra_locations(items, root)
+    apply_address_fixes(items, root)
     man = {k: v for k, v in json.load(open(os.path.join(root, "overrides", "foodbank_manual.json"))).items() if not k.startswith("_")} \
         if os.path.exists(os.path.join(root, "overrides", "foodbank_manual.json")) else {}
     locs = collections.defaultdict(list)
