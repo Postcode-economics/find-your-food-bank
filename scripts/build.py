@@ -68,8 +68,10 @@ def main():
         i['address'] = i['address'].replace('Wayneflete Street', 'Waynflete Street')
     phones = load_json(os.path.join(ROOT, 'overrides', 'phones.json'), {})
     times = load_json(os.path.join(ROOT, 'overrides', 'opening_times.json'), {})
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from times import normalise  # scraped text -> clean Mon-Sun table, or deduped text 'as written'
     for i in items:
-        i['opening_times'] = times.get(i['id'])
+        i['opening_times'] = normalise(times.get(i['id']))
         if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
     # postcode check: move pins >2 km from their postcode centroid
     pcs = sorted({i['postcode'] for i in items if i['postcode']}); res = {}
