@@ -73,9 +73,9 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <div id="map"></div><div id="list"></div>
 <div class="share"><button id="share" type="button">Share this map</button></div>
 <p class="made">Made by @postcode_economics. <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Follow for more UK money maps</a></p>
-<footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a>, last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
+<footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a> and the <a href="https://www.foodaidnetwork.org.uk/" target="_blank" rel="noopener">Independent Food Aid Network</a> (checked on each food bank's own website), last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div id="sheet" aria-hidden="true"><div class="handle" aria-hidden="true" title="Swipe down to close"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
-<script src="data.js?v=labels-20261021"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
+<script src="data.js?v=refresh-20261021"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
@@ -101,14 +101,14 @@ const tag=i=>'<div class="tag" role="note">🥫 Food bank – collect food here<
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  if(nc(i))return `<div class="ncb" role="note">📦 ${esc(i.label_en)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span></li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
- <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
+ <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>Phone (to donate or ask)</small></a>`:''}`;
  return `${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">📞 ${esc(i.phone)}<small>${i.phone_checked?'Phone (checked on their site)':'Phone (from Give Food)'}</small></a>`:''}
- <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>
+ <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
  ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>`}
 function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">📦 ${esc(i.label_en)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Open in Google Maps ➜</a><div style="margin-top:6px">${esc(i.address)}</div></div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
@@ -215,4 +215,14 @@ $('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(las
  try{await navigator.clipboard.writeText(url);$('share').textContent='Link copied ✓'}catch(e){prompt('Copy this link:',url)}setTimeout(()=>$('share').textContent='Share this map',2500)};
 const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');search(qs.get('q')).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
 </script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
+<style>#xoff{position:sticky;top:0;z-index:6000;background:#F5C518;color:#0A1628;font-weight:800;font-size:16px;padding:12px;text-align:center;border-bottom:3px solid #0A1628}#xoff[hidden]{display:none}</style>
+<script>/* offline mode: banner + service worker (sw.js precaches the app shell and data; map tiles cached as viewed) */
+(()=>{const ban=document.createElement('div');ban.id='xoff';ban.setAttribute('role','status');ban.hidden=true;document.body.insertBefore(ban,document.body.firstChild);
+let off=false;const saved=()=>{try{return localStorage.getItem('savedAt')}catch(e){return null}};
+const show=()=>{if(!off){ban.hidden=true;return}const d=saved();ban.textContent='You\u2019re offline \u2013 showing saved data from '+(d?new Date(d).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'your last visit');ban.hidden=false};
+const go=()=>{if(!off){off=true;show()}};
+addEventListener('offline',go);addEventListener('online',()=>{off=false;show()});
+if('serviceWorker' in navigator){navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='offline')go()});navigator.serviceWorker.register('sw.js').catch(()=>{})}
+addEventListener('load',()=>{if(!navigator.onLine)return go();fetch('index.html',{cache:'no-store'}).then(r=>{if(r.ok&&!off)try{localStorage.setItem('savedAt',new Date().toISOString())}catch(e){}}).catch(go)});
+setTimeout(()=>{if(!navigator.onLine)go()},500)})();</script>
 </body></html>
