@@ -59,7 +59,7 @@ const hdr=document.querySelector('header');const big=document.createElement('div
 const NB=[['fb','food','Food bank','Banc bwyd','Collect food','Casglu bwyd'],['ws','mug','Warm space','Man cynnes','Somewhere warm','Rhywle cynnes'],['sh','bed','Shelter tonight','Lloches heno','A bed tonight','Gwely heno']];
 big.setAttribute('role','radiogroup');big.setAttribute('aria-label','Find help near you');
 big.innerHTML=NB.map(([k,ic,en,cy,sen,scy])=>`<button type="button" class="v3b" role="radio" data-l="${k}" aria-checked="false" tabindex="-1"><span class="ic" aria-hidden="true">${IC(ic)}</span><span class="v3bt"><span class="v3bl">${B(en,cy)}</span><span class="v3bs">${B(sen,scy)}</span></span><span class="v3tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg></span><span class="v3sr">${B(', selected',', wedi’i ddewis')}</span></button>`+(k==='sh'?`<div id="v3night" hidden>${B('Help tonight','Help heno')}</div>`:'')).join('');
-hdr.querySelector('h1').after(big);
+{const f=document.getElementById('f');if(f){hdr.querySelector('h1').after(f);f.after(big)}else hdr.querySelector('h1').after(big)}
 const sos=document.createElement('div');sos.id='v3sos';sos.hidden=true;sos.innerHTML=strip();big.after(sos);
 const near=document.getElementById('xnear');if(near)near.hidden=true;
 // UK clock (Europe/London) for the night cue and night theme; ?clock=20:00 fakes it for tests
