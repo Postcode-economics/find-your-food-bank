@@ -103,13 +103,13 @@ async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[dat
  if(L_.on)map.addLayer(L_.group);if(lastPos)nearX(...lastPos)}
 document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.getAttribute('aria-pressed')!=='true'));
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
-let lastPos=null;const openOnly={sh:true,ws:true},verOnly={sh:false,ws:false};
+let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false};
 document.addEventListener('click',e=>{const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
 function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data)continue;
   const all=L_.data.items.filter(i=>!verOnly[k]||i.tier!=='unverified').map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>(a.i.ended-b.i.ended)||a.d-b.d);const oo=openOnly[k]&&window.V3;const sc=x=>oo?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:0;
-  const r=(oo?all.slice(0,60).filter(x=>sc(x)<2&&!x.i.ended).sort((a,b)=>sc(a)-sc(b)||a.d-b.d):all).slice(0,3);
-  out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3oo" data-k="${k}" aria-pressed="${openOnly[k]}">${lang==='cy'?'Ar agor nawr yn unig':'Open now only'}</button><button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(oo?`<p class="sub v3ex">${lang==='cy'?'Ar agor nawr yn gyntaf. Lleoedd ar gau wedi’u cuddio.':'Open now first. Closed places hidden.'}</p>`:'')+(r.length?r.map(x=>`<div class="card x${k}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
+  const st=x=>window.V3?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:1;const r=(oo?all.slice(0,60).filter(x=>sc(x)<2&&!x.i.ended).sort((a,b)=>sc(a)-sc(b)||a.d-b.d):all.slice(0,3).sort((a,b)=>st(a)-st(b)||a.d-b.d)).slice(0,3);
+  out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3oo" data-k="${k}" aria-pressed="${openOnly[k]}">${lang==='cy'?'Ar agor nawr yn unig':'Open now only'}</button><button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(oo?`<p class="sub v3ex">${lang==='cy'?'Ar agor nawr yn gyntaf. Lleoedd ar gau wedi’u cuddio.':'Open now first. Closed places hidden.'}</p>`:'')+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
  const me=document.getElementById('map'),top=me.getBoundingClientRect().top;if(top<0)scrollTo({top:Math.max(0,top+scrollY-8),behavior:'auto'});map.invalidateSize();return r};

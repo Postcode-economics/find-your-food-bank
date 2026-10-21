@@ -111,6 +111,9 @@ sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
+EXCL = {e["id"] for e in json.load(open("overrides/warmspaces_exclude.json"))} if os.path.exists("overrides/warmspaces_exclude.json") else set()
+items = [x for x in items if x["id"] not in EXCL]; closed = [x for x in closed if x["id"] not in EXCL]  # signed-off removals stay off on every rebuild
+sources["Excluded by review"] = {"status": "ok", "ids": sorted(EXCL)}
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "warm spaces", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "ended": sum(x.get("ended", False) for x in items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
