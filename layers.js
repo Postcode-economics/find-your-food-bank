@@ -123,6 +123,11 @@ function trNode(n){if(n.nodeType!==3||skip(n))return;if(n.__en==null||n.nodeValu
 function trAll(root){const w=document.createTreeWalker(root||document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())trNode(n);
  ATTR.forEach(([id,a,en,cy])=>{const e=document.getElementById(id);if(e)e.setAttribute(a,lang==='cy'?cy:en)})}
 new MutationObserver(ms=>{if(lang!=='cy')return;for(const m of ms){if(m.type==='characterData')trNode(m.target);else m.addedNodes.forEach(n=>n.nodeType===3?trNode(n):trAll(n))}}).observe(document.body,{subtree:true,childList:true,characterData:true});
+// ---- donation-only food bank sites: Welsh label + 'Get food at' links jump to the client location
+const FBI=window.FB_DATA.items;const ENCY={};FBI.forEach(i=>{if(i.label_en){ENCY['📦 '+i.label_en]='📦 '+i.label_cy}});
+FBX.unshift([/^📦 (.*)$/,m=>ENCY[m]||m],[/^Get food at:$/,'Cael bwyd yn:'],[/^Contact the food bank for where to get food\.$/,'Cysylltwch â’r banc bwyd i wybod ble i gael bwyd.'],[/^Phone \(to donate or ask\)$/,'Ffôn (i roi neu holi)']);
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-cid]');if(!a)return;e.preventDefault();const k=FBI.findIndex(i=>i.id===a.dataset.cid);if(k<0)return;
+ map.setView([FBI[k].lat,FBI[k].lng],15);setTimeout(()=>select(k,false),300)});
 // ---- offline banner (EN/CY) + last saved search
 const ban=document.createElement('div');ban.id='xoff';ban.setAttribute('role','status');ban.hidden=true;document.body.insertBefore(ban,document.body.firstChild);
 let isOff=false;const savedAt=()=>{try{return localStorage.getItem('savedAt')}catch(e){return null}};
