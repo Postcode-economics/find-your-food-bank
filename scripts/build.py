@@ -139,8 +139,8 @@ def main():
     import hours_norm  # stored opening_times: structured in Mon-Sun order, text lines once (part of every refresh)
     n_ot = hours_norm.apply(items, 'opening_times')
     write_csv(classify(items, ROOT), os.path.join(ROOT, 'logs', 'foodbank_audit.csv'))
-    for i in items:
-        if i.get('phone') and len(''.join(c for c in i['phone'] if c.isdigit())) < 10: i['phone'] = ''  # same rule as other layers
+    from hours_fix import apply_phone  # split 'a or b' / '%2F', strip HTML, fix leading 0, UK-format check; tel = first valid
+    for i in items: apply_phone(i)
     # recheck gate: same over-check as shelters / warm spaces (hash + fetched_at, HTTP, ETag/Last-Modified, schema, source URL)
     extra = load_json(os.path.join(ROOT, 'overrides', 'foodbank_extra_locations.json'), {})
     for i in items:

@@ -59,6 +59,8 @@ def schema_errors(i):
     if pc and not PC_RE.match(pc.upper()): e.append("postcode invalid")
     ph = i.get("phone") or ""
     if not isinstance(ph, str) or (ph and len(re.sub(r"\D", "", ph)) < 10): e.append("phone has fewer than 10 digits")
+    tl = i.get("tel")
+    if tl is not None and not (tl == "" or (isinstance(tl, str) and re.fullmatch(r"0\d{9,10}", tl))): e.append("tel not a single UK number")
     if not url_ok(i.get("website", "")): e.append("website not a URL")
     g = i.get("givefood", "")
     if g and host(g) != "givefood.org.uk": e.append("givefood URL not on givefood.org.uk")

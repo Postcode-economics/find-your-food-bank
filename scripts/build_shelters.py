@@ -87,9 +87,8 @@ fresh += [c for c in add if c["id"] not in have]
 sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
 raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", unverified=UNV, autocheck=shelter_autocheck)
-from hours_fix import phone_ok
-for x in fresh:
-    if x.get("phone") and not phone_ok(x["phone"]): x["phone"] = ""  # fewer than 10 digits: hidden
+from hours_fix import apply_phone
+for x in fresh: apply_phone(x)  # one valid UK number for tel:, others shown as text; invalid hidden
 # times cross-check on every published shelter's OWN site this run (closed -> removed; unconfirmed -> times withheld)
 tlog = discover.cross_check_times(fresh, "sh", "hours")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]

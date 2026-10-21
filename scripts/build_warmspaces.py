@@ -4,7 +4,7 @@ marked 'ended' (shown greyed); they become active again automatically when a new
 import json, sys, os, re, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
-from hours_fix import fix_hours, phone_ok
+from hours_fix import fix_hours, phone_ok, apply_phone
 RUN = today(); OUT, LOG = "warmspaces.js", "logs/warmspaces_log.json"
 SP = "https://api.storepoint.co/v1/16320a694c8cc5/locations"  # Warm Welcome network public map feed
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
@@ -95,7 +95,7 @@ HFIX = []
 def clean(x):  # am/pm fix for 12h-clock times stored as 24h, and hide phones with fewer than 10 digits
     h, ch = fix_hours(x.get("hours"))
     if ch: x["hours"] = h; HFIX.append({"id": x["id"], "name": x["name"], "changes": ch})
-    if x.get("phone") and not phone_ok(x["phone"]): x["phone"] = ""
+    apply_phone(x)  # one valid UK number for tel:, others shown as text; invalid hidden
     return x
 fresh = [clean(x) for x in fresh]
 raw_count = len(fresh)
