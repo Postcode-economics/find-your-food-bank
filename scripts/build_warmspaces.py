@@ -61,6 +61,7 @@ for m in man:
     m["ended"] = bool(m.get("scheme_end") and m["scheme_end"] < RUN); fresh.append(m)
 sources["Manual (council pages, press releases, approved self-registrations)"] = {"status": "ok", "count": len(man)}
 for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no common format; most councils now list via the Warm Welcome map (already included). Individual council pages to be added via overrides/warmspaces_manual.json with source URL",
+               "warmspaces.org (Warm Spaces directory)": "inactive since Nov 2024 (per Open Innovations register); site returns 404",
                "Age UK branches, British Red Cross, libraries, church directories": "no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"}.items():
     sources[k] = {"status": "not scraped: " + why}
 prev = load_js(OUT, "WARMSPACES")
@@ -81,12 +82,26 @@ def ws_autocheck(x):
     if not w or "warmwelcome.uk" in w: flags.append("no independent website: Warm Welcome listing alone is not evidence")
     return {"result": "needs manual evidence", "flags": flags, "needs": "credible page with weekday + time, current season",
             "where_to_check": [x.get("website") or "", "council warm spaces page", "achurchnearyou / library page"]}
+# ---- discovery every run: Open Innovations aggregator (council + VCS warm space directories) -> own-site check ----
+import discover, directories
+UNV = load_verified("overrides/warmspaces_unverified.json")
+oi, st = directories.open_innovations()
+sources["Open Innovations warm spaces aggregator (council/VCS directories)"] = st
+add, dlog = discover.discover_layer(oi, fresh, "ws", RUN, UNV, "logs/warmspaces_discovery.json")
+fresh += add
+sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
 raw_count = len(fresh)
-fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", unverified=load_verified("overrides/warmspaces_unverified.json"), autocheck=ws_autocheck, valid_until=season_end)
+fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", unverified=UNV, autocheck=ws_autocheck, valid_until=season_end)
+tlog = discover.cross_check_times(fresh, "ws", "hours")
+gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
+fresh = [x for x in fresh if not x.pop("_own_site_closed", None)]
+json.dump(tlog, open("logs/warmspaces_times_check.json", "w"), indent=0, ensure_ascii=False)
+sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
+if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "warm spaces", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "ended": sum(x.get("ended", False) for x in items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "warm spaces")

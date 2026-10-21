@@ -51,7 +51,6 @@ for m in man:
 sources["Manual (verified from source pages)"] = {"status": "ok", "count": len(man)}
 for k, why in {"nightshelter.org.uk": "domain is parked (redirects to a lander page); no data",
                "StreetLink (thestreetlink.org.uk)": "403 to automated requests; it is a referral service, not a shelter directory",
-               "Homeless England (Homeless Link)": "listings have no address/postcode, so they cannot be pinned without guessing",
                "LHF Atlas": "map is an interactive app with no public data export; London-only",
                "Crisis / Shelter / St Mungo's / Thames Reach": "no public shelter directory; services are via referral (council/outreach)"}.items():
     sources[k] = {"status": "not scraped: " + why}
@@ -74,12 +73,31 @@ def shelter_autocheck(x):
     if any(w in n for w in ["night shelter", "winter shelter", "swep", "cold weather"]): flags.append("seasonal: needs stated open period")
     if not x.get("website"): flags.append("no operator website in source")
     return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}
+# ---- discovery every run: Homeless Link 'Find help' + OSM finds not on our lists -> own-site check -> tier 2 or flagged ----
+import discover, directories
+UNV = load_verified("overrides/shelters_unverified.json")
+known = set(VER) | set(UNV)
+hl, st = directories.homeless_link(known=known)
+sources["Homeless Link 'Find help' (homeless.org.uk/homeless-england)"] = st
+osm_new = [x for x in fresh if x["id"] not in known and x["id"].startswith("osm-")]
+base = [x for x in fresh if x["id"] in known]
+add, dlog = discover.discover_layer(osm_new + hl, base, "sh", RUN, UNV, "logs/shelters_discovery.json")
+have = {x["id"] for x in fresh}
+fresh += [c for c in add if c["id"] not in have]
+sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
 raw_count = len(fresh)
-fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", unverified=load_verified("overrides/shelters_unverified.json"), autocheck=shelter_autocheck)
+fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", unverified=UNV, autocheck=shelter_autocheck)
+# times cross-check on every published shelter's OWN site this run (closed -> removed; unconfirmed -> times withheld)
+tlog = discover.cross_check_times(fresh, "sh", "hours")
+gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
+fresh = [x for x in fresh if not x.pop("_own_site_closed", None)]
+json.dump(tlog, open("logs/shelters_times_check.json", "w"), indent=0, ensure_ascii=False)
+sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
+if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "shelters")
