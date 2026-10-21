@@ -1,21 +1,21 @@
-name: Report an error on a pin
-description: Wrong address, phone, hours, or the place has closed.
-title: "Correction: "
+name: "Report an error on a pin / Rhoi gwybod am gamgymeriad ar bin"
+description: "Wrong address, phone, hours, or the place has closed. / Cyfeiriad, ffôn neu oriau anghywir, neu mae’r lle wedi cau."
+title: "Correction / Cywiriad: "
 labels: ["correction"]
 body:
   - type: dropdown
     id: layer
-    attributes: {label: Layer, options: [Food banks, Shelters, Warm spaces]}
+    attributes: {label: "Layer / Haen", options: ["Food banks / Banciau bwyd", "Shelters / Llochesi", "Warm spaces / Mannau cynnes"]}
     validations: {required: true}
   - type: input
     id: entry
-    attributes: {label: Which listing? (filled in automatically from the pin)}
+    attributes: {label: "Which listing? (filled in automatically from the pin) / Pa restriad? (wedi’i lenwi’n awtomatig o’r pin)"}
     validations: {required: true}
   - type: dropdown
     id: problem
-    attributes: {label: What is wrong?, options: [It has closed, Wrong address or pin location, Wrong phone number, Wrong hours, Other]}
+    attributes: {label: "What is wrong? / Beth sy’n anghywir?", options: ["It has closed / Mae wedi cau", "Wrong address or pin location / Cyfeiriad neu leoliad pin anghywir", "Wrong phone number / Rhif ffôn anghywir", "Wrong hours / Oriau anghywir", "Other / Arall"]}
     validations: {required: true}
   - type: textarea
     id: details
-    attributes: {label: Correct details, and how you know (a link helps)}
+    attributes: {label: "Correct details, and how you know (a link helps) / Y manylion cywir, a sut rydych yn gwybod (mae dolen yn helpu)"}
     validations: {required: true}

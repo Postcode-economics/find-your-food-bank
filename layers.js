@@ -8,18 +8,26 @@ const T={en:{sh:'Shelters',ws:'Warm spaces',near:'📍 Find nearest to me',upd:'
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',none:'None listed',
- h1:'Find a food bank near you',search:'Search',ph:'Postcode or town, e.g. BN17 5 or Littlehampton',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.'},
+ h1:'Find a food bank near you',search:'Search',ph:'Postcode or town, e.g. BN17 5 or Littlehampton',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'mi',srcNote:'Details are shown in the language the source published them in.'},
 cy:{sh:'Llochesi',ws:'Mannau cynnes',near:'📍 Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',none:'Dim wedi’u rhestru',
- h1:'Dod o hyd i fanc bwyd yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'English',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.'}};
+ h1:'Dod o hyd i fanc bwyd yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'English',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(x))};
-const fmt=d=>d?new Date(d+'T12:00:00').toLocaleDateString(lang==='cy'?'cy-GB':'en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
+const MCY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'],MEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const p2=n=>String(n).padStart(2,'0');
+const dstr=(dt,time)=>`${dt.getDate()} ${(lang==='cy'?MCY:MEN)[dt.getMonth()]} ${dt.getFullYear()}`+(time?(lang==='cy'?' am ':', ')+p2(dt.getHours())+':'+p2(dt.getMinutes()):'');
+const fmt=d=>d?dstr(new Date(d+'T12:00:00')):'';
+// Welsh for source-data values (shown as-is in English)
+const VCY={'Hot Drinks':'Diodydd poeth','Accessible Toilets':'Toiledau hygyrch','Free Wifi':'Wifi am ddim','Child Friendly':'Croeso i blant','Charging Facilities':'Cyfleusterau gwefru','Parking':'Parcio','Other Refreshments':'Lluniaeth arall','Food Available':'Bwyd ar gael','Computer Access':'Mynediad at gyfrifiadur','Volunteers':'Gwirfoddolwyr','Co-working Desks':'Desgiau cydweithio','TV':'Teledu','Cool Space':'Man oer','Dog Friendly':'Croeso i gŵn','Energy Advice':'Cyngor ar ynni','Volunteers Needed':'Angen gwirfoddolwyr','Not stated':'Heb ei nodi','Not stated by source':'Heb ei nodi gan y ffynhonnell','Winter-only':'Gaeaf yn unig','Year-round':'Drwy’r flwyddyn','men':'dynion','women':'menywod','families':'teuluoedd','young people':'pobl ifanc','Booking needed':'Rhaid archebu','No booking needed':'Dim angen archebu','Mon':'Llun','Tue':'Maw','Wed':'Mer','Thu':'Iau','Fri':'Gwe','Sat':'Sad','Sun':'Sul'};
+const v=x=>lang==='cy'&&VCY[x]?VCY[x]:x;
+const vdates=x=>lang==='cy'&&/^Until /.test(x||'')?'Tan '+fmt(x.slice(6)):v(x);
+const vreason=x=>lang==='cy'?String(x||'').replace(/^No longer listed by source \(unseen (\d+) days\)$/,'Nid yw’r ffynhonnell yn ei restru mwyach (heb ei weld ers $1 diwrnod)'):x;
 const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#2EC4F1',on:false,data:null,group:null},ws:{file:'warmspaces.js',var:'WARMSPACES',col:'#FF8C42',on:false,data:null,group:null}};
 const pinIcon=(col,grey)=>L.divIcon({className:'xpin',html:`<svg width="30" height="40" viewBox="0 0 30 40"><path d="M15 1C7 1 1 7 1 15c0 10 14 24 14 24s14-14 14-24C29 7 23 1 15 1z" fill="${grey?'#7a8496':col}" stroke="#0A1628" stroke-width="2.5"/><circle cx="15" cy="15" r="5.5" fill="#0A1628"/></svg>`,iconSize:[30,40],iconAnchor:[15,39],popupAnchor:[0,-34]});
 // ---- UI
@@ -38,24 +46,24 @@ document.getElementById('list').after(extra);
 function paint(){document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
  $x('xlang').textContent=t('lang');nb.textContent=t('near');disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
  if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
- paint.done=true;banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
+ paint.done=true;document.documentElement.style.setProperty('--xon',JSON.stringify(t('on')));banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
 function $x(i){return document.getElementById(i)}
 function stamp(k){const L_=LAYERS[k];$x('u_'+k).textContent=L_.data?`${t('upd')} ${fmt(L_.data.updated)}`:t('notLoaded')}
 $x('xlang').onclick=()=>{lang=lang==='en'?'cy':'en';try{localStorage.setItem('lang',lang)}catch(e){}paint()};
 function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);if(L_.p)return L_.p;$x('u_'+k).textContent=t('loading');
  return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
-function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,v])=>`<tr><td>${esc(d)}</td><td>${esc(v)}</td></tr>`).join('')+'</table>'}
+function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(lang==='cy'?h.replace(/Closed/i,'Ar gau'):h)}</td></tr>`).join('')+'</table>'}
 function detail(k,i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,''),row=(l,v)=>v&&v.length?`<p><b>${t(l)}:</b> ${v}</p>`:'';
- const rep=`${REPO}/issues/new?template=report-error.yml&layer=${k==='sh'?'Shelters':'Warm+spaces'}&entry=${encodeURIComponent(i.name+' ['+i.id+']')}&title=${encodeURIComponent('Correction: '+i.name)}`;
- return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist<0.1?'<0.1':(dist*0.621).toFixed(1)} mi</div>`:''}
+ const rep=`${REPO}/issues/new?template=report-error.yml&layer=${encodeURIComponent(k==='sh'?'Shelters / Llochesi':'Warm spaces / Mannau cynnes')}&entry=${encodeURIComponent(i.name+' ['+i.id+']')}&title=${encodeURIComponent('Correction / Cywiriad: '+i.name)}`;
+ return `<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist<0.1?'<0.1':(dist*0.621).toFixed(1)} ${t('mi')}</div>`:''}
  ${i.ended?`<p class="xw">⚠ ${t('ended')}</p>`:''}${i.stale?`<p class="xw">⚠ ${t('stale')}</p>`:''}
  <p>${esc(i.address)}${i.postcode?` <b>${esc(i.postcode)}</b>`:''}</p>
  <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}" target="_blank" rel="noopener">${t('dir')} ➜</a>
  ${tel?`<a class="btn call" href="tel:${tel}">${t('call')} ${esc(i.phone)}</a>`:''}
- ${k==='sh'?row('groups',esc((i.groups||[]).join(', ')))+row('beds',esc(i.beds))+row('season',esc(i.season))+row('ref',esc(i.referral))+row('hours',esc(i.hours))
-  :row('hours',hoursHtml(i.hours))+row('prov',esc((i.provided||[]).join(', ')))+row('book',esc(i.booking))+row('dates',esc(i.scheme_dates))}
+ ${k==='sh'?row('groups',esc((i.groups||[]).map(v).join(', ')))+row('beds',esc(i.beds))+row('season',esc(v(i.season)))+row('ref',esc(i.referral))+row('hours',esc(i.hours))
+  :row('hours',hoursHtml(i.hours))+row('prov',esc((i.provided||[]).map(v).join(', ')))+row('book',esc(v(i.booking)))+row('dates',esc(vdates(i.scheme_dates)))}
  ${i.website?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
- <p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>
+ ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>
  <a class="btn xrep" href="${rep}" target="_blank" rel="noopener">${t('report')}</a>`}
 function showSheet(html){const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false')}
 async function toggle(k,on){const L_=LAYERS[k],b=document.querySelector(`.xt[data-l=${k}]`);L_.on=on;b.setAttribute('aria-pressed',on);try{localStorage.setItem('lay_'+k,on?'1':'0')}catch(e){}
@@ -77,12 +85,12 @@ const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=or
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];
- for(const k of ['sh','ws']){try{const d=await load(k);const c=d.recently_closed||[];parts.push(`<div class="lh">${t(k)}</div>`+(c.length?c.map(i=>`<p><b>${esc(i.name)}</b>, ${esc(i.postcode)}<br><span class="sub">${esc(i.closed_reason||'')} · ${fmt(i.closed_on)}</span></p>`).join(''):`<p class="sub">${t('noClosed')}</p>`))}catch(_){}}
+ for(const k of ['sh','ws']){try{const d=await load(k);const c=d.recently_closed||[];parts.push(`<div class="lh">${t(k)}</div>`+(c.length?c.map(i=>`<p><b>${esc(i.name)}</b>, ${esc(i.postcode)}<br><span class="sub">${esc(vreason(i.closed_reason))} · ${fmt(i.closed_on)}</span></p>`).join(''):`<p class="sub">${t('noClosed')}</p>`))}catch(_){}}
  $x('xcl').innerHTML=parts.join('')});
 // ---- offline banner (EN/CY) + last saved search
 const ban=document.createElement('div');ban.id='xoff';ban.setAttribute('role','status');ban.hidden=true;document.body.insertBefore(ban,document.body.firstChild);
 let isOff=false;const savedAt=()=>{try{return localStorage.getItem('savedAt')}catch(e){return null}};
-function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();ban.textContent=t('offline')+(d?new Date(d).toLocaleString(lang==='cy'?'cy-GB':'en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'?');ban.hidden=false}
+function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();ban.textContent=t('offline')+(d?dstr(new Date(d),true):'?');ban.hidden=false}
 function goOffline(){if(isOff)return;isOff=true;banner();try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');
  if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x}}catch(e){}}
 addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false;banner()});
