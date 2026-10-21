@@ -145,7 +145,8 @@ html.light #xextra .card.xws{border-left-color:#D55E00!important}
 .sosb{gap:12px}
 .v3sos a.sosl{font-size:18px;font-weight:700;min-height:48px!important}
 .v3sos a.sosl.s999{background:#0A1628;color:#F4E6C6!important;border:2px solid #0A1628}.v3sos a.sosl:not(.s999){background:#fff;color:#0A1628!important;border:2px solid #0A1628}
-.card.v3closed{opacity:.6}
+.card.v3closed>*:not(.btn){opacity:.6}  /* dimmed card, but Directions / Call / Share stay full colour */
+.pop .btn.call{margin-top:6px;min-height:48px!important}.leaflet-popup-content .pop a.btn.gm,.leaflet-popup-content .pop a.btn.call{color:#0A1628!important}.ptd{margin-top:6px;font-size:15px}.ptd .ico{width:16px;height:16px;vertical-align:-3px;margin-right:4px}.xnl{color:#5b6677;font-style:italic}html:not(.light) .xnl{color:#b7c0cf}.palt{display:block}
 #q,#q::placeholder{font-size:17px}#f .go{font-size:17px;font-weight:700}
 html.light .v3b{background:#fff;color:#0A1628;--c:#8A5A00}html.light .v3b[data-l=ws]{--c:#D55E00}html.light .v3b[data-l=sh]{--c:#0072B2}
 html.light .v3b[aria-checked=true]{--c:#F5C518}html.light .v3b[data-l=ws][aria-checked=true]{--c:#D55E00}html.light .v3b[data-l=sh][aria-checked=true]{--c:#56B4E9}

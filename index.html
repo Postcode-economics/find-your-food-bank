@@ -100,19 +100,23 @@ const site=i=>i.website||i.givefood;
 const tag=i=>'<div class="tag" role="note">Food bank – get food here</div>';  // one label for every place clients can collect food
 // B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
 const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
-function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
+const telOf=i=>i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(i.phone||'').replace(/[^\d+]/g,'');  // build sets tel = first valid UK number
+const ph1=i=>esc(String(i.phone||'').split(' or ')[0]),phAlt=i=>String(i.phone||'').includes(' or ')?`<small class="psrc palt">Or: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</small>`:'';
+const todayLine=i=>{const s=parsed(i),td=DK[new Date().getDay()],t=i.opening_times;if(s){const r=s[td]||[];return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.length?r.map(x=>x.join('–')).join(', '):'Closed'}</div>`}
+ return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?`<div class="ptd">${IC('clock')}Check times on their website</div>`:`<div class="ptd">${IC('clock')}Times not listed, call ahead.</div>`};
+function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${esc(i.phone)}<small>Phone (to donate or ask)</small></a>`:''}${window.repB?repB('fb',i):''}`;
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}<small>Phone (to donate or ask)</small></a>${phAlt(i)}`:''}${window.repB?repB('fb',i):''}`;
  return `${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${esc(i.phone)}</a><small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
  ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>${window.repB?repB('fb',i):''}`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a><div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
+function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
 const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
@@ -159,7 +163,7 @@ function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.r
  const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>a.d-b.d).slice(0,5);if($('openToday').checked)r.sort((a,b)=>(openToday(b.i)-openToday(a.i))||a.d-b.d);
  $('list').innerHTML=`<div class="lh">Nearest 5${$('openToday').checked?' (open today first)':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
- map.fitBounds(L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2));msg(note||'');
+ window._fitB=L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2);map.fitBounds(window._fitB);msg(note||'');
  const c=document.querySelector('#list .card');if(c){const y=c.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.45);scrollTo({top:Math.max(0,y),behavior:'auto'})}
  lastQ=label==='your location'?null:lastQ}
 let lastQ=null;const PC=/^[A-Z]{1,2}\d[A-Z\d]?\s*\d?[A-Z]{0,2}$/i;
