@@ -75,7 +75,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <p class="made">Made by @postcode_economics. <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Follow for more UK money maps</a></p>
 <footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a>, last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div id="sheet" aria-hidden="true"><div class="handle"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
-<script src="data.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
+<script src="data.js?v=labels-20261021"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
@@ -97,7 +97,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
 $('chk').textContent=chkDates.length?'checked '+chkDates.map(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})).join(', '):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')+' away'};
 const site=i=>i.website||i.givefood;
-const tag=i=>i.type==='location'?'<div class="tag" role="note">🥫 Food bank distribution centre – get food here</div>':'<div class="tag" role="note">🥫 Food bank – get food here</div>';
+const tag=i=>'<div class="tag" role="note">🥫 Food bank – collect food here</div>';  // one label for every place clients collect food
 function card(i,dist){const tel=(i.phone||'').replace(/[^\d+]/g,'');
  if(nc(i))return `<div class="ncb" role="note">📦 ${esc(i.label_en)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span></li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
