@@ -5,6 +5,7 @@ Manual entries in overrides/foodbank_manual.json always win (NEVER remove them).
 import json, os, re, csv, collections
 STRONG = re.compile(r"\b(warehouse|depot|industrial (estate|park|units?)|business (park|centre|center)|trading estate|enterprise (park|centre)|po box|head office)\b", re.I)
 WEAK = re.compile(r"\b(office|admin(istration)?|unit \d+[a-z]?)\b", re.I)
+VENUE = re.compile(r"\b(church|chapel|c/o|community|ministr\w*|liberty|hope|freedom|light|life|eternity|vineyard|centre for)\b", re.I)
 LOCKW = re.compile(r"\b(warehouse|depot|head office|admin|donations? only|drop[- ]off|not a distribution)\b", re.I)
 EN = "Donations drop-off – warehouse/office. Not a food bank: clients cannot visit."
 CY = "Man gollwng rhoddion – warws/swyddfa. Nid banc bwyd: ni all cleientiaid ymweld."
@@ -27,7 +28,10 @@ def classify(items, root):
             if s: ev.append(f"address/name contains '{s.group(0)}'")
             elif w: ev.append(f"address/name contains '{w.group(0)}'")
             ev.append(times)
-            if n and s: kind, conf = "warehouse", "high"
+            v = VENUE.search(txt)
+            if n and s and v: kind, conf = "unclear", "medium"; ev.append(f"but also names a venue ('{v.group(0)}'), which may serve clients")
+            elif n == 1 and s: kind, conf = "unclear", "medium"; ev.append("only 1 separate location, so this site may also serve clients")
+            elif n and s: kind, conf = "warehouse", "high"
             elif n and w: kind, conf = "unclear", "medium"   # likely office, not applied
             elif n: kind, conf = "unclear", "low"
             elif s: kind, conf = "unclear", "low"; ev.append("no separate locations, so this may be the only site")
