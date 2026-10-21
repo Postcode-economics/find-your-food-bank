@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from common import load_js
 MAX_AGE = datetime.timedelta(hours=int(os.environ.get("MAX_AGE_HOURS", "2")))
 now = datetime.datetime.now(datetime.timezone.utc); bad = []
-ALL = {"shelters": ("shelters.js", "SHELTERS", "logs/shelters_recheck.json"), "warmspaces": ("warmspaces.js", "WARMSPACES", "logs/warmspaces_recheck.json")}
+ALL = {"foodbanks": ("data.js", "FB_DATA", "logs/foodbank_recheck.json"), "shelters": ("shelters.js", "SHELTERS", "logs/shelters_recheck.json"), "warmspaces": ("warmspaces.js", "WARMSPACES", "logs/warmspaces_recheck.json")}
 for OUT, VAR, LOG in [ALL[a] for a in (sys.argv[1:] or ALL)]:
     if not os.path.exists(LOG): bad.append(f"{LOG} missing"); continue
     rc = json.load(open(LOG)); run = rc.get("_run", {})

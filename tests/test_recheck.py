@@ -37,3 +37,26 @@ class T(unittest.TestCase):
         self.assertTrue(out["x1"]["ok"]); self.assertFalse(out["x2"]["ok"]); self.assertTrue(json.load(open(log))["_run"]["fetched_at"])
     def test_norm_times(self): self.assertEqual(R.norm_times("10.30am to 12pm, 5pm-10am"), {"10:30", "12:00", "17:00", "10:00"})
 if __name__ == "__main__": unittest.main()
+
+class OsmOnly(unittest.TestCase):
+    """'100% categorically': OSM-sourced entries need their own-site page to show this place's postcode/address."""
+    OE = dict(E, id="osm-way-1", source="OpenStreetMap")
+    def test_osm_with_postcode_ok(self): self.assertTrue(R.check(self.OE, OV, pg(), OV["evidence_url"])["ok"])
+    def test_osm_without_address_fails(self):
+        t = PAGE.replace("BS9 3EQ", "").replace("Church Road", "")
+        r = R.check(self.OE, OV, pg(text=t), OV["evidence_url"]); self.assertFalse(r["ok"]); self.assertIn("OpenStreetMap-only", r["reason"])
+        self.assertTrue(R.check(E, OV, pg(text=t), OV["evidence_url"])["ok"])  # non-OSM entries keep the existing rule
+    def test_osm_page_rejected(self):
+        u = "https://www.openstreetmap.org/way/1"
+        r = R.check(self.OE, OV, pg(final=u), u); self.assertFalse(r["ok"])
+class Http200Reason(unittest.TestCase):
+    def test_short_200_not_called_unreachable(self):
+        r = R.check(E, OV, pg(text="One moment, please"), OV["evidence_url"]); self.assertFalse(r["ok"])
+        self.assertNotIn("unreachable", r["reason"]); self.assertIn("no readable text", r["reason"])
+    def test_real_unreachable(self):
+        self.assertIn("unreachable this run (HTTP 403)", R.check(E, OV, pg(text="", http=403), OV["evidence_url"])["reason"])
+    def test_24_hours_schema(self):
+        self.assertEqual(R.schema_errors(dict(E, hours={"Mon": "24 hours"}), "sh"), [])
+class Http2xx(unittest.TestCase):
+    def test_202_not_unreachable(self):
+        r = R.check(E, OV, pg(http=202), OV["evidence_url"]); self.assertFalse(r["ok"]); self.assertIn("did not return the page", r["reason"])

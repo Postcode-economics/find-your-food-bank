@@ -21,9 +21,11 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild data.js (discovery + own-site checks)
         run: python scripts/build.py
+      - name: Refuse to publish without fresh verification
+        run: python scripts/verify_fresh.py foodbanks
       - name: Commit if changed
         run: |
-          git add data.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json
+          git add data.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

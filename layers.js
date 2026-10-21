@@ -70,7 +70,7 @@ function relife(D){if(!D)return;(D.items||[]).forEach(i=>{if(i.scheme_end)i.ende
  D.recently_closed=(D.recently_closed||[]).filter(i=>!i.closed_on||dd(TODAY,i.closed_on)<=30)}
 function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);if(L_.p)return L_.p;$x('u_'+k).textContent=t('loading');
  return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];relife(L_.data);stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
-function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(lang==='cy'?h.replace(/Closed/i,'Ar gau'):h)}</td></tr>`).join('')+'</table>'}
+function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${esc(hDisp(String(h).replace(/(\d\d:\d\d) - (\d\d:\d\d)/g,'$1-$2').replace(/^24 hours$/,lang==='cy'?'24 awr':'24 hours').replace(/Closed/i,lang==='cy'?'Ar gau':'Closed')))}</td></tr>`).join('')+'</table>'}
 // address: no repeated town or postcode, postcode once at the end
 function addr(i){const pc=(i.postcode||'').trim(),re=pc?new RegExp('\\s*'+pc.replace(/\s+/g,'\\s*')+'\\s*','ig'):null;const seen=new Set(),out=[];
  String(i.address||'').split(',').map(x=>(re?x.replace(re,' '):x).replace(/\s+/g,' ').trim()).filter(Boolean).forEach(x=>{const k=x.toLowerCase();if(seen.has(k))return;

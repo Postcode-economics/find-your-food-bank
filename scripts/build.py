@@ -43,9 +43,13 @@ def hav(a, b, c, d):
     return 2*6371*math.asin(math.sqrt(x))
 
 def main():
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import fb_recheck
+    api_meta = {}
     try:
-        fb = get(API + 'foodbanks/'); loc = get(API + 'locations/')
+        fb, api_meta['foodbanks'] = fb_recheck.fetch_api(API + 'foodbanks/'); loc, api_meta['locations'] = fb_recheck.fetch_api(API + 'locations/')
     except Exception as e: die('fetch failed: %r' % e)
+    records = {}  # id -> exact source record, hashed per entry by the recheck gate
     if not isinstance(fb, list) or not isinstance(loc, list): die('unexpected API shape')
     fbs = {f['slug']: f for f in fb}
     items = []
@@ -55,6 +59,7 @@ def main():
         items.append(dict(id=f['slug'], type='foodbank', name=f['name'], foodbank=f['name'], network=f.get('network') or '',
             address=clean(f.get('address')), postcode=(f.get('postcode') or '').upper().strip(), lat=la, lng=ln,
             phone=f.get('phone') or '', website=f['urls'].get('homepage') or '', givefood=f['urls']['html']))
+        records[f['slug']] = f
     for l in loc:
         p = fbs.get(l['foodbank']['slug'])
         if p is None or p.get('closed') or not l.get('lat_lng'): continue
@@ -63,6 +68,7 @@ def main():
         items.append(dict(id=lid, type='location', name=l['name'], foodbank=p['name'], network=l['foodbank'].get('network') or '',
             address=clean(l.get('address')), postcode=(l.get('postcode') or '').upper().strip(), lat=la, lng=ln,
             phone=l.get('phone') or p.get('phone') or '', website=p['urls'].get('homepage') or '', givefood=l['urls']['html']))
+        records[lid] = l
     seen = set(); out = []
     for i in items:
         k = (i['foodbank'].lower(), i['postcode'].replace(' ', ''), round(i['lat'], 4), round(i['lng'], 4))
@@ -116,6 +122,7 @@ def main():
         if r['result'] == 'add':
             c = dict(c, type='foodbank', address=c.get('address') or c['postcode'], phone='', givefood='', opening_times=None,
                      discovered=disc['run'][:10], own_site_check=ev)
+            records[c['id']] = {k: v for k, v in c.items() if k != 'own_site_check'}
             items.append(c); disc['added'].append({'id': c['id'], 'name': c['name'], 'postcode': c['postcode'], **ev})
         else:
             disc['flagged'].append({'id': c['id'], 'name': c['name'], 'postcode': c['postcode'], 'website': c.get('website'), 'directory': c['directory'], 'reasons': r['reasons'], **ev})
@@ -129,7 +136,20 @@ def main():
     json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)
     json.dump(disc, open(os.path.join(ROOT, 'logs', 'foodbank_discovery.json'), 'w'), indent=1, ensure_ascii=False)
     print('discovery: %d new candidates, %d added, %d flagged; times %s' % (len(new_c), len(disc['added']), len(disc['flagged']), disc['times']))
+    import hours_norm  # stored opening_times: structured in Mon-Sun order, text lines once (part of every refresh)
+    n_ot = hours_norm.apply(items, 'opening_times')
     write_csv(classify(items, ROOT), os.path.join(ROOT, 'logs', 'foodbank_audit.csv'))
+    for i in items:
+        if i.get('phone') and len(''.join(c for c in i['phone'] if c.isdigit())) < 10: i['phone'] = ''  # same rule as other layers
+    # recheck gate: same over-check as shelters / warm spaces (hash + fetched_at, HTTP, ETag/Last-Modified, schema, source URL)
+    extra = load_json(os.path.join(ROOT, 'overrides', 'foodbank_extra_locations.json'), {})
+    for i in items:
+        if i.get('manual') and i['id'] in extra: records[i['id']] = extra[i['id']]  # source = the human-checked own-site record
+    before = len(items)
+    try:
+        items, omitted = fb_recheck.gate(items, records, api_meta, os.path.join(ROOT, 'logs', 'foodbank_recheck.json'), os.path.join(ROOT, 'logs', 'foodbank_pending.json'))
+    except RuntimeError as e: die(str(e))
+    print('recheck gate: %d of %d published, %d omitted; opening_times normalised on %d' % (len(items), before, len(omitted), n_ot))
     cur = current_count()
     if len(items) < 0.8 * cur: die('only %d entries vs %d current (<80%%)' % (len(items), cur))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)

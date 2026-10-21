@@ -106,6 +106,8 @@ tlog = discover.cross_check_times(fresh, "ws", "hours")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
 fresh = [clean(x) for x in fresh if not x.pop("_own_site_closed", None)]  # and after own-site times updates
 json.dump(tlog, open("logs/warmspaces_times_check.json", "w"), indent=0, ensure_ascii=False)
+import hours_norm  # stored hours: Mon-Sun order (fixes e.g. Cat and Mouse Library, Central Library) or own wording once
+sources["Hours normalised"] = {"status": "ok", "changed": hours_norm.apply(fresh, "hours")}
 sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
