@@ -21,17 +21,17 @@ function sched(layer,i){
   const r=[];for(const x of m[2].split(',')){const q=/^(\d{1,2}:\d{2})-(\d{1,2}:\d{2})$/.exec(x.trim());if(!q)return null;const a=hm(q[1]),b=hm(q[2]);r.push([a,b<=a?b+1440:b])}
   days.forEach(d=>s[d]=r);any=true}
  return any?s:null}
-const p2=n=>String(n).padStart(2,'0'),clk=m=>{m%=1440;return p2(Math.floor(m/60))+':'+p2(m%60)};
+const p2=n=>String(n).padStart(2,'0'),clk=m=>{m%=1440;const h=Math.floor(m/60),mm=m%60,h12=h%12||12;return h12+(mm?':'+p2(mm):'')+(h<12?'am':'pm')};
 function status(layer,i,now=new Date()){const s=sched(layer,i);if(!s)return{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
  for(const[a,b]of s[(d+6)%7])if(b>1440&&m<b-1440)return{st:'open',until:b-1440};
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
  for(let k=0;k<8;k++){const dd=(d+k)%7;const c=(s[dd]||[]).filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,at:c[0]}}
  return{st:'closed',day:null}}
 function badge(layer,i){const r=status(layer,i);
- if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('OPEN NOW','AR AGOR NAWR'):B('OPEN NOW until '+clk(r.until),'AR AGOR NAWR tan '+clk(r.until))}</div>`;
- if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('CLOSED','AR GAU')}</div>`;
+ if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('Open now','Ar agor nawr'):B('Open now until '+clk(r.until),'Ar agor nawr tan '+clk(r.until))}</div>`;
+ if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
-  return `<div class="v3st shut" role="note">${B(`CLOSED, opens ${de} ${clk(r.at)}`,`AR GAU, yn agor ${dc} ${clk(r.at)}`)}</div>`}
+  return `<div class="v3st shut" role="note">${B(`Closed, opens ${de} ${clk(r.at)}`,`Ar gau, yn agor ${dc} ${clk(r.at)}`)}</div>`}
  return `<div class="v3st unk" role="note">${B('Times unknown – call first','Amseroedd heb eu rhestru – ffoniwch yn gyntaf')}</div>`}
 const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*60));// est.: straight line x1.3 at 4.8 km/h
  return `<div class="v3wk">🚶 ${min>120?B('Over 2 hours on foot (est.)','Dros 2 awr ar droed (amcan.)'):B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
