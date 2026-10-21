@@ -1,0 +1,12 @@
+{
+ "_comment": "Corrections to a food bank's own pin when Give Food lists a postal address instead of where food is given out. Checked on the food bank's own site. Applied by scripts/classify.py on every build. Stale pins listed in _remove_ids are dropped.",
+ "_remove_ids": ["littlehampton-district/littlehampton-united-church"],
+ "littlehampton-district": {
+  "address": "Rear hall, Littlehampton United Church, 1 High Street, Littlehampton, BN17 5EG",
+  "postcode": "BN17 5EG",
+  "lat": 50.809914,
+  "lng": -0.543451,
+  "evidence": "Food bank's own site: 'FOODBANK CENTRE ADDRESS: Rear hall, Littlehampton United Church, BN17 5EG' (Tue, Thu); 'POSTAL ADDRESS: Littlehampton Baptist Church, BN17 5NY'. Dean (local) confirms it is not an admin office, 21 Oct 2026.",
+  "evidence_url": "https://littlehamptondistrict.foodbank.org.uk/locations/"
+ }
+}
