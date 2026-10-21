@@ -70,7 +70,7 @@ def main():
     times = load_json(os.path.join(ROOT, 'overrides', 'opening_times.json'), {})
     for i in items:
         i['opening_times'] = times.get(i['id'])
-        if i['id'] in phones: i['phone'] = phones[i['id']]
+        if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
     # postcode check: move pins >2 km from their postcode centroid
     pcs = sorted({i['postcode'] for i in items if i['postcode']}); res = {}
     try:
