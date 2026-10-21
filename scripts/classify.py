@@ -7,8 +7,8 @@ STRONG = re.compile(r"\b(warehouse|depot|industrial (estate|park|units?)|busines
 WEAK = re.compile(r"\b(office|admin(istration)?|unit \d+[a-z]?)\b", re.I)
 VENUE = re.compile(r"\b(church|chapel|c/o|community|ministr\w*|liberty|hope|freedom|light|life|eternity|vineyard|centre for)\b", re.I)
 LOCKW = re.compile(r"\b(warehouse|depot|head office|admin|donations? only|drop[- ]off|not a distribution)\b", re.I)
-EN = "Distribution centre – drop off food only"
-CY = "Canolfan ddosbarthu – gollwng bwyd yn unig"
+EN = "Donations only"
+CY = "Rhoddion yn unig"
 DROP_EN = EN
 DROP_CY = CY
 def add_extra_locations(items, root):
