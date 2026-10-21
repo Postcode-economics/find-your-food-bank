@@ -7,14 +7,14 @@ const T={en:{sh:'Shelters',ws:'Warm spaces',near:'📍 Find nearest to me',upd:'
  add:'Add or update your service',closed:'Recently closed (last 30 days)',report:'Report an error',call:'Call',dir:'Directions',
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
- nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You are offline. Showing your last saved search.',none:'None listed',
+ nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',none:'None listed',
  h1:'Find a food bank near you',search:'Search',ph:'Postcode or town, e.g. BN17 5 or Littlehampton',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.'},
 cy:{sh:'Llochesi',ws:'Mannau cynnes',near:'📍 Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
- nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein. Yn dangos eich chwiliad diwethaf.',none:'Dim wedi’u rhestru',
+ nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',none:'Dim wedi’u rhestru',
  h1:'Dod o hyd i fanc bwyd yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'English',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -38,7 +38,7 @@ document.getElementById('list').after(extra);
 function paint(){document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
  $x('xlang').textContent=t('lang');nb.textContent=t('near');disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
  if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
- paint.done=true;for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
+ paint.done=true;banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
 function $x(i){return document.getElementById(i)}
 function stamp(k){const L_=LAYERS[k];$x('u_'+k).textContent=L_.data?`${t('upd')} ${fmt(L_.data.updated)}`:t('notLoaded')}
 $x('xlang').onclick=()=>{lang=lang==='en'?'cy':'en';try{localStorage.setItem('lang',lang)}catch(e){}paint()};
@@ -79,10 +79,16 @@ try{nearest=window.nearest}catch(e){}
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];
  for(const k of ['sh','ws']){try{const d=await load(k);const c=d.recently_closed||[];parts.push(`<div class="lh">${t(k)}</div>`+(c.length?c.map(i=>`<p><b>${esc(i.name)}</b>, ${esc(i.postcode)}<br><span class="sub">${esc(i.closed_reason||'')} · ${fmt(i.closed_on)}</span></p>`).join(''):`<p class="sub">${t('noClosed')}</p>`))}catch(_){}}
  $x('xcl').innerHTML=parts.join('')});
-// ---- offline: show the last saved search if the network is gone
-function offlineCheck(){if(navigator.onLine)return;try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');if(!s)return;
- const m=document.getElementById('msg');m.textContent=t('offline')+' ('+s.label+')';m.className='err';if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;$x('xlist').innerHTML=s.x}catch(e){}}
-addEventListener('offline',offlineCheck);
+// ---- offline banner (EN/CY) + last saved search
+const ban=document.createElement('div');ban.id='xoff';ban.setAttribute('role','status');ban.hidden=true;document.body.insertBefore(ban,document.body.firstChild);
+let isOff=false;const savedAt=()=>{try{return localStorage.getItem('savedAt')}catch(e){return null}};
+function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();ban.textContent=t('offline')+(d?new Date(d).toLocaleString(lang==='cy'?'cy-GB':'en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'?');ban.hidden=false}
+function goOffline(){if(isOff)return;isOff=true;banner();try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');
+ if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x}}catch(e){}}
+addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false;banner()});
+if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='offline')goOffline()});
+function offlineCheck(){if(!navigator.onLine)goOffline()}
+addEventListener('load',()=>{if(navigator.onLine&&!isOff)fetch('index.html',{cache:'no-store'}).then(r=>{if(r.ok&&!isOff)try{localStorage.setItem('savedAt',new Date().toISOString())}catch(e){}}).catch(goOffline)});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 paint();for(const k in LAYERS){try{if(localStorage.getItem('lay_'+k)==='1')toggle(k,true)}catch(e){}}
 const q=new URLSearchParams(location.search);['sh','ws'].forEach(k=>{if(q.get(k)==='1')toggle(k,true)});
