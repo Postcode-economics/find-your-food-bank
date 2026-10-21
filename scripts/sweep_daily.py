@@ -77,7 +77,7 @@ def blocks(text):
     return out
 
 VENUE = re.compile(r"\b(hub|centre|center|church|chapel|library|hall|caf[eé]|room|house|club|pavilion|lounge|space|shelter|hostel|project|community|trust|mission|institute|association|pantry|kitchen|museum|cathedral|parish|quaker|methodist|baptist|salvation army|ymca|foyer|living room|coffee)\b", re.I)
-JUNK = re.compile(r"\b(contact|e-?mail|website|information|accessibility|registered office|address|telephone|phone|opening|monday|tuesday|wednesday|thursday|friday|saturday|sunday|closed|cookies?|privacy|vendor|support email|food ?bank)\b", re.I)
+JUNK = re.compile(r"\b(contact|e-?mail|website|information|accessibility|registered office|address|telephone|phone|opening|monday|tuesday|wednesday|thursday|friday|saturday|sunday|closed|cookies?|privacy|vendor|support email|support provided|food ?bank)\b", re.I)
 GENERIC = re.compile(r"^(the )?(meeting room|county hall|town hall|main hall|council chamber|reception|civic cent(re|er)|community cent(re|er)|church hall|library)$", re.I)
 PAST = re.compile(rf"(until|ends?|ending|to|closes?)\s+(\w+day,?\s+)?(\d{{1,2}})(st|nd|rd|th)?\s+({MONTHS})\s+(20\d\d)", re.I)
 def ended(ctx, d=None):
@@ -90,6 +90,30 @@ def ended(ctx, d=None):
 def excluded():
     f = os.path.join(OV, "sweep_exclude.json")
     return {(x["postcode"].replace(" ", "").upper()) for x in json.load(open(f))} if os.path.exists(f) else set()
+def blocks_numbered(text):
+    """'12. Name Address: ... POSTCODE Email: .. Telephone: .. Opening times: ...' (Voluntary Action Islington layout)."""
+    out = []
+    for m in re.finditer(r"(?:^| )\d+\. (.{3,80}?) Address: (.+?)(?: Email: .+?)?(?: Telephone: .+?)? Opening (?:times|hours): (.+?)(?= \d+\. | [A-Z][a-z]+(?: [A-Za-z&]+){0,4} 1\. |$)", text):
+        pc = PC.search(m.group(2))
+        if not pc: continue
+        times = re.split(r" Additional information| Services & advice", m.group(3))[0]
+        out.append({"name": m.group(1).replace("Squa re", "Square").strip(), "address": m.group(2).strip(), "postcode": pc.group(1), "times": times, "context": m.group(0)})
+    return out
+
+def blocks_location_fields(text):
+    """'Name [This space opens on <dates>] Location <address POSTCODE> Opening [dates and] hours <times> Activity ...' (Tewkesbury layout)."""
+    out = []
+    for m in re.finditer(r"([A-Z][^.]{2,70}?) (?:This space opens on (.{5,60}?) )?Location (.+?\b[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})\b Opening (?:dates and )?hours (.+?) (?=Activity|Food & drink|Support|Contact)", text):
+        pc = PC.search(m.group(3)); st = m.group(2) or ""
+        if st:
+            mm = re.match(rf"(\d{{1,2}}) ({MONTHS}) (20\d\d)", st, re.I)
+            if mm and datetime.datetime.strptime(" ".join(mm.groups()), "%d %B %Y").date() > today():
+                continue  # not open yet
+        out.append({"name": m.group(1).strip(), "address": m.group(3).strip(), "postcode": pc.group(1), "times": m.group(4).strip(), "context": m.group(0)})
+    return out
+
+PARSERS = {"dash": None, "numbered_fields": blocks_numbered, "location_fields": blocks_location_fields}
+
 def name_ok(n):
     if GENERIC.match(n.strip()): return False
     if re.match(r"\(?[a-z]", n) or JUNK.search(n) or not VENUE.search(n): return False
@@ -146,18 +170,27 @@ def council_pages(c, fetcher):
             elif KEY_URL.search(loc): urls.append(loc)
     return sorted(set(urls))[:40]
 
-def extract(page_text, url, source_name, layer_hint, last_modified="", trusted=False):
+def section(text, start, end=None):
+    """Cut a page down to one titled section. Returns '' if the start marker is missing (fail-safe: no entries)."""
+    i = text.find(start)
+    if i < 0: return ""
+    j = text.find(end, i + len(start)) if end else -1
+    return text[i:j] if j > 0 else text[i:]
+
+def extract(page_text, url, source_name, layer_hint, last_modified="", trusted=False, parser="dash", sect=None):
     """Return candidate entries (dicts) from one page with tier decided by the two-tier rules."""
     if not KEY_TXT.search(page_text): return []
     dated, why = page_dated(page_text, last_modified)
+    if sect: page_text = section(page_text, sect.get("start", ""), sect.get("end"))
     out = []
-    for b in blocks(page_text):
+    for b in (PARSERS.get(parser) or blocks)(page_text):
         ctx = b["context"]
         if CLOSED.search(b["times"][:160]) or ended(ctx): continue
         layer = "shelters" if SHELTER.search(ctx) and (layer_hint == "shelters" or re.search(r"shelter|emergency accommodation", b["name"], re.I)) else "warmspaces"
         e = dict(name=b["name"], address=b["address"], postcode=b["postcode"], source_url=url, source=source_name, times_text=b["times"][:200], layer=layer, page_date=why)
         if layer == "shelters": e["access_type"] = "referral_only" if REFERRAL.search(ctx) else None
-        if not name_ok(b["name"]): e.update(tier="pending", reason="name not clear"); out.append(e); continue
+        structured = parser != "dash"   # name comes from a labelled field, so the venue-word test is not needed
+        if not (name_ok(b["name"]) or (structured and not JUNK.search(b["name"]) and not re.match(r"\(?[a-z]", b["name"]) and len(b["name"]) <= 80)): e.update(tier="pending", reason="name not clear"); out.append(e); continue
         if re.search(r"Contact:?\s*$", ctx[:ctx.find(b["name"])] if b["name"] in ctx else "", re.I): e.update(tier="pending", reason="name taken from a contact line"); out.append(e); continue
         if not trusted and not KEY_TXT.search(ctx) and not SHELTER.search(ctx): e.update(tier="pending", reason="block itself does not say warm space/shelter"); out.append(e); continue
         h = weekly_hours(b["times"])
@@ -194,20 +227,20 @@ def atomic_dump(obj, path):
 def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     d = today().isoformat()
     S = sources or json.load(open(os.path.join(HERE, "sweep_sources.json")))
-    jobs = [(l["url"], l["name"], l.get("layer", "warmspaces"), bool(l.get("auto_add"))) for l in S.get("lists", [])]
+    jobs = [(l["url"], l["name"], l.get("layer", "warmspaces"), bool(l.get("auto_add")), l.get("parser", "dash"), l.get("section")) for l in S.get("lists", [])]
     errors = []
     def cp(c):
-        try: return [(u, c["name"], "warmspaces", False) for u in council_pages(c, fetcher)]
+        try: return [(u, c["name"], "warmspaces", False, "dash", None) for u in council_pages(c, fetcher)]
         except Exception as ex: errors.append((c["name"], "sitemap: " + str(ex)[:80])); return []
     with cf.ThreadPoolExecutor(16) as ex:
         for r in ex.map(cp, S.get("councils", [])): jobs += r
-    jobs = list(dict.fromkeys(jobs))
+    jobs = list({(j[0], j[1]): j for j in jobs}.values())
     def one(j):
-        u, name, hint, auto = j
+        u, name, hint, auto, parser, sect = j
         try:
             r = fetcher(u)
             if r.get("http") != 200 or not r.get("text"): return ("fail", u, r.get("http"))
-            c = extract(r["text"], r.get("final_url") or u, name, hint, r.get("last_modified", ""), trusted=auto)
+            c = extract(r["text"], r.get("final_url") or u, name, hint, r.get("last_modified", ""), trusted=auto, parser=parser, sect=sect)
             if not auto:  # layout not proven for this source: queue for a human, never straight onto the map
                 c = [dict(e, proposed_tier=e["tier"], tier="pending", reason=e.get("reason") or "source not marked auto_add (layout not proven); proposed " + e["tier"]) for e in c]
             return ("ok", u, c)

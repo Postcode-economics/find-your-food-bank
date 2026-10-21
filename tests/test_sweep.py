@@ -30,6 +30,27 @@ class Extract(unittest.TestCase):
     def test_closed_skipped(self):
         t = "Warm spaces winter 2026-27. Ely Community Hub – Jubilee Centre, Ely, CB7 4JF. This hub has closed."
         self.assertEqual(S.extract(t, "u", "src", "warmspaces"), [])
+NUM = ("Winter 2026-27 support. Food 1. Some Food Bank Address: 1 Road, London N7 7RY Opening times: Monday, 10am–1pm "
+       "Warm Spaces 1. Andover Community Centre Address: 55–57 Corker Walk, London N7 7RY Telephone: 020 7272 3493 Opening times: Monday, 10am–1:30pm; Friday, 9:30am–5:30pm "
+       "2. St Andrew’s, Thornhill Square Address: Thornhill Square, London N1 1BQ Opening times: Saturday, 11am–1pm "
+       "Advice and Legal Support 1. City Advice Address: 2 Road, London N1 9PD Opening times: Tuesday, 10am–2pm")
+class Parsers(unittest.TestCase):
+    def setUp(self): os.environ["SWEEP_TODAY"] = "2026-10-21"
+    def test_numbered_section_only(self):
+        c = S.extract(NUM, "u", "src", "warmspaces", trusted=True, parser="numbered_fields", sect={"start": "Warm Spaces 1.", "end": "Advice and Legal Support 1."})
+        self.assertEqual([e["name"] for e in c], ["Andover Community Centre", "St Andrew’s, Thornhill Square"])
+        self.assertEqual(c[0]["hours"], {"Mon": "10:00 - 13:30", "Fri": "09:30 - 17:30"}); self.assertEqual(c[1]["tier"], "verified")
+    def test_missing_section_gives_nothing(self):
+        self.assertEqual(S.extract(NUM, "u", "src", "warmspaces", trusted=True, parser="numbered_fields", sect={"start": "Not on page"}), [])
+    def test_label_text_rejected(self):
+        t = "Winter 2026-27. Warm Spaces 1. Age UK Islington Support provided: Debt advice Address: 6 Road, London N7 6LA Opening times: Monday, 2pm–4pm"
+        c = S.extract(t, "u", "src", "warmspaces", trusted=True, parser="numbered_fields")
+        self.assertTrue(all(e["tier"] == "pending" for e in c))
+    def test_location_fields_not_open_yet_skipped(self):
+        t = ("Warm Spaces this winter, 2026 – 2027. Priors Park Community Church This space opens on 1 November 2026 – 31 March 2027 Location Priors Park Chapel, Queens Road, Tewkesbury GL20 5EY Opening hours Tuesdays 9am-4pm Activity Crafts "
+             "Encounter Church This space opens on 1 October 2026 – 31 March 2027 Location Gretton Road, Cheltenham GL54 5EE Opening hours Thursdays, 12.30pm – 1.30pm Activity Lunch")
+        c = S.extract(t.replace("2026 – 2027", "winter 2026-27"), "u", "src", "warmspaces", trusted=True, parser="location_fields")
+        self.assertEqual([e["postcode"] for e in c], ["GL54 5EE"])
 class Run(unittest.TestCase):
     def setUp(self):
         os.environ["SWEEP_TODAY"] = "2026-10-21"
