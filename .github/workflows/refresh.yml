@@ -28,9 +28,12 @@ jobs:
         run: python scripts/full_check.py
       - name: Write compact browser data.js from data.full.js
         run: python scripts/compact.py
+      - name: Stamp this run's UK date and time (footer last updated / checked)
+        run: python scripts/stamp.py write refresh && python scripts/stamp.py verify
       - name: Commit if changed
         run: |
-          git add data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json
+          python scripts/stamp.py verify
+          git add stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
