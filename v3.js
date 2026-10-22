@@ -88,7 +88,7 @@ function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0
  const n=t.querySelectorAll('.card').length;if(k!=='fb'&&!n&&!t.textContent.trim())return;  // layer data still loading: stay busy, the observer calls again
  big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});clearTimeout(busyT);
  const W={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];
- pl.innerHTML=`<a href="#${t.id}" class="v3pl">${B(`Showing ${n} ${W[0]} · list ↓`,`Yn dangos ${n} ${W[1]} · rhestr ↓`)}</a>`;flash()}
+ pl.innerHTML=`<a href="#${t.id}" class="v3pl">${B(`Showing ${W[0]}: ${n} nearby · see list ↓`,`Yn dangos ${W[1]}: ${n} gerllaw · gweld y rhestr ↓`)}</a>`;flash()}
 function flash(){pl.classList.remove('v3flash');void pl.offsetWidth;pl.classList.add('v3flash');
  ['#list>.lh','#xlist>.lh'].forEach(q=>{const h=document.querySelector(q);if(h){h.classList.remove('v3flash');void h.offsetWidth;h.classList.add('v3flash')}})}  // brief pulse: every update (incl. the same search again or re-tapping the chosen type) is visible
 pl.addEventListener('click',e=>{const a=e.target.closest('a.v3pl');if(!a)return;e.preventDefault();const t=tgt(window.v3focus);if(!t)return;
@@ -140,8 +140,8 @@ try{map.options.wheelPxPerZoomLevel=180;map.options.wheelDebounceTime=80;map.scr
  let n=sp.nextElementSibling;while(n&&!(n.classList&&n.classList.contains('share'))&&n.tagName!=='FOOTER'){const nx=n.nextElementSibling;col.append(n);n=nx}
  const xb=document.getElementById('xbefore'),fw=document.getElementById('fwrap'),ft=document.getElementById('ftab'),chg=document.getElementById('v3chg');
  col.prepend(chg);  // round 3 (Dean): filters, 'Always call' and List only/Light mode back above the map, right under the type buttons
- {const fl=document.createElement('div');fl.id='v3filt';const r2=document.createElement('div');r2.id='v3row2';const tl=document.getElementById('v3tools');r2.append(...[xb].filter(Boolean));const ot=document.querySelector('label.tog');if(ot)ot.id='v3open';if(ot){const tn=[...ot.childNodes].find(n=>n.nodeType===3&&/Open today only/.test(n.textContent));if(tn)tn.textContent=' Open today';ot.querySelector('input')&&ot.querySelector('input').setAttribute('aria-label','Open today only')}fl.append(...[fw,ot,tl,ft,r2].filter(Boolean));big.after(fl);
-    if(ot){const vr=document.getElementById('v3res'),mq=matchMedia('(max-width:339px)'),place=()=>{if(mq.matches){if(ot.parentElement!==vr)vr.prepend(ot)}else if(ot.parentElement!==fl)fl.insertBefore(ot,tl)};place();mq.addEventListener('change',place)}  // MD4: Open today sits with the chips where it fits (>=340px); below 340px it stays above the list so the map isn't pushed down
+ {const fl=document.createElement('div');fl.id='v3filt';const r2=document.createElement('div');r2.id='v3row2';const tl=document.getElementById('v3tools');r2.append(...[xb].filter(Boolean));const ot=document.querySelector('label.tog');if(ot)ot.id='v3open';fl.append(...[fw,ot,tl,ft,r2].filter(Boolean));big.after(fl);
+    if(ot){const vr=document.getElementById('v3res'),mq=matchMedia('not all'),place=()=>{if(mq.matches){if(ot.parentElement!==vr)vr.prepend(ot)}else if(ot.parentElement!==fl)fl.insertBefore(ot,tl)};place();mq.addEventListener('change',place)}  // MD4: Open today sits with the chips where it fits (>=340px); below 340px it stays above the list so the map isn't pushed down
     const pr=document.createElement('div');pr.id='v3prow';fl.after(pr);pr.append(pl)}  // filters + 'Always call' + tools stay directly under the type buttons (Dean); pill row follows
  const xl=document.getElementById('xlist'),so=document.getElementById('v3sos');if(xl&&so)xl.before(so);
  setTimeout(()=>map.invalidateSize(),0);matchMedia('(min-width:1024px)').addEventListener('change',()=>setTimeout(()=>map.invalidateSize(),50))}
