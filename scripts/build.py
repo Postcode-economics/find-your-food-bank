@@ -167,7 +167,7 @@ def main():
     excl = load_json(os.path.join(ROOT, 'overrides', 'foodbank_exclude.json'), {}).get('foodbanks', [])
     def excluded(i):
         host = (i.get('website') or '').split('//')[-1].split('/')[0].lower().removeprefix('www.')
-        return any(i['id'] == e['slug'] or i['id'].startswith(e['slug'] + '/') or (e.get('host') and host == e['host']) for e in excl)
+        return any(i['id'] == e['slug'] or (not e.get('exact') and (i['id'].startswith(e['slug'] + '/') or (e.get('host') and host == e['host']))) for e in excl)
     n0 = len(items); items = [i for i in items if not excluded(i)]
     print('excluded at request: %d pins' % (n0 - len(items)))
     cur = current_count()

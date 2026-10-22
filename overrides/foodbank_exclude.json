@@ -1,5 +1,5 @@
 {
- "_comment": "Food banks removed from the map at their own request. Every pin whose id is the slug or starts with slug/, or whose website host matches, is dropped on every refresh (scripts/build.py), so discovery/Give Food can never re-add it.",
+ "_comment": "Food banks removed from the map at their own request. Every pin whose id is the slug or starts with slug/, or whose website host matches, is dropped on every refresh (scripts/build.py), so discovery/Give Food can never re-add it. Entries with \"exact\": true drop only the pin whose id equals the slug (its own centre pins slug/... stay).",
  "foodbanks": [
   {
    "slug": "oldham",
@@ -23,6 +23,12 @@
    "name": "Bradford Metropolitan Foodbank",
    "host": "bradfordfoodbank.com",
    "reason": "'do not distribute food directly to those in need' - supplies registered third-party organisations only (https://bradfordfoodbank.com/). Removed 22 Oct 2026 per Dean"
+  },
+  {
+   "slug": "lincoln",
+   "name": "Lincoln Foodbank (Beaumont Manor offices)",
+   "exact": true,
+   "reason": "Beaumont Manor LN1 1UL is Acts Trust's offices, Community Grocery and cafe, not a foodbank centre (Foodbank Team email, 22 Oct 2026). Their centre pins lincoln/... stay. Per Dean"
   }
  ]
 }
