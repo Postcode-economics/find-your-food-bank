@@ -84,6 +84,12 @@ def main():
     for i in items:
         i['opening_times'] = normalise(times.get(i['id']))
         if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
+    names = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_names.json'), {}).items() if not k.startswith('_')}
+    for i in items:  # names a food bank asked us to use (overrides/foodbank_names.json)
+        nm = names.get(i['id'])
+        if nm:
+            for k in ('name', 'foodbank'):
+                if nm.get(k): i[k] = nm[k]
     import own_locations  # own-site locations pages (overrides/own_location_pages.json), re-scraped every run; page beats Give Food
     own_log = own_locations.refresh(items, ROOT); print('own locations pages:', json.dumps(own_log))
     # postcode check: move pins >2 km from their postcode centroid

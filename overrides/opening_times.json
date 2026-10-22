@@ -21336,5 +21336,43 @@
   "source_url": "https://www.ystradgynlaisvc.org.uk/what-we-do/foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "huddersfield": {
+  "checked_date": "2026-10-22",
+  "raw": "Monday to Friday between 10 am and 4 pm",
+  "source_url": "https://www.thewelcomecentre.org/pages/need-our-help",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  }
  }
 }

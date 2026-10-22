@@ -1,0 +1,9 @@
+{
+ "_comment": "Display names a food bank asked us to use (their own request via email or the map report form). Applied by scripts/build.py on every refresh, after Give Food/IFAN data, so a refresh can't undo it. Keys are pin ids; 'name' is the pin name and 'foodbank' the organisation name.",
+ "huddersfield": {
+  "name": "The Welcome Centre",
+  "foodbank": "The Welcome Centre",
+  "evidence": "Charlie Taylor, The Welcome Centre (map report form, 22 Oct 2026): please update name to The Welcome Centre, times 10am-4pm Mon-Fri, referral only",
+  "evidence_url": "https://www.thewelcomecentre.org/pages/need-our-help"
+ }
+}
