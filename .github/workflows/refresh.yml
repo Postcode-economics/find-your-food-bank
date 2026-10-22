@@ -33,4 +33,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily food bank refresh $(date -u +%F)"
-          git pull --rebase && git push
+          # data.js / access.js / logs / reports are generated: if another push touched them meanwhile, keep this run's
+          # fresh build (overrides are re-applied on every run, so nothing hand-made is lost for more than one run)
+          for n in 1 2 3; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true; sleep $((n * 10))
+          done
+          exit 1
