@@ -14,7 +14,7 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
- if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(await caches.match('index.html'))||Response.error()}));return}
+ if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
  e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
    if(hit){e.waitUntil(net.catch(()=>{}));return hit}
    return net.catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||Response.error()})}))});
