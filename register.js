@@ -2,7 +2,7 @@
    Submissions are for review only: nothing here ever writes to the map data. An approved entry is added by hand
    to overrides/shelters_manual.json or overrides/warmspaces_manual.json with its source. */
 (function(){
-const EMAIL='postcode.economics@gmail.com',ENDPOINT='https://formsubmit.co/ajax/'+EMAIL,MIN_MS=5000,MAX_PER_DAY=3;
+const EMAIL='postcode.economics@gmail.com',ENDPOINT='https://formsubmit.co/ajax/5030e7451fb0b7d985eef5842d9af2aa',MIN_MS=5000,MAX_PER_DAY=3;
 const T={en:{title:'Add or update your service',intro:'For shelters and warm spaces. It’s free. We check every submission before anything appears on the map.',
  layer:'Type of service',sh:'Shelter',ws:'Warm space',name:'Service name',address:'Full address',postcode:'Postcode',phone:'Public phone number',web:'Website',
  hours:'Opening hours',hoursPh:'e.g. Mon–Fri 10:00–16:00',who:'Who it’s for (shelters)',whoPh:'e.g. men 18+, families',beds:'Beds (shelters)',ref:'Referral needed? (shelters)',

@@ -3,7 +3,7 @@
    Display only: it never changes pin data. */
 (function(){
 const REPORT_EMAIL='postcode.economics@gmail.com';   // swap for FormSubmit's random alias later; used for both the form and the email backup
-const ENDPOINT='https://formsubmit.co/ajax/'+REPORT_EMAIL;
+const ENDPOINT='https://formsubmit.co/ajax/5030e7451fb0b7d985eef5842d9af2aa';
 const MAX_PER_DAY=3,MIN_MS=3000;
 const LAYER={fb:{en:'Food banks',cy:'Banciau bwyd'},sh:{en:'Shelters',cy:'Llochesi'},ws:{en:'Warm spaces',cy:'Mannau cynnes'}};
 const R={
