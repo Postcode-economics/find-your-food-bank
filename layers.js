@@ -50,7 +50,7 @@ const nb=document.createElement('button');nb.type='button';nb.id='xnear';nb.clas
 nb.onclick=()=>document.getElementById('me').click();
 const bf=document.createElement('details');bf.id='xbefore';bf.innerHTML='<summary><span class="bt" data-t="before"></span><span class="bs" data-t="beforeSum"></span></summary>';
 const disc=document.createElement('div');disc.id='xdisc';disc.setAttribute('role','note');
-const tog=hdr.querySelector('label.tog');tog.before(bf);bf.append(hdr.querySelector('.ref'),disc,hdr.querySelector('.tnote'));
+const tog=hdr.querySelector('label.tog');tog.before(bf);bf.append(...[hdr.querySelector('.ref'),disc,hdr.querySelector('.tnote')].filter(Boolean));
 const extra=document.createElement('section');extra.id='xextra';
 extra.innerHTML=`<div id="xlist"></div><details id="xclosed"><summary data-t="closed"></summary><div id="xcl"></div></details>
 <button type="button" class="btn call" id="xadd"></button>`;
