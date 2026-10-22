@@ -1,15 +1,24 @@
 [
  {
-  "id": "ww-65441939",
-  "name": "CAN HQ",
+  "id": "ww-69363722",
+  "name": "Burringham Community Warm Space",
+  "address": "Burringham Village Hall, South Humberside DN17 3NB",
+  "postcode": "DN17 3NB",
+  "source_url": "https://www.warmwelcome.uk/space?l=28561",
+  "website": "",
   "first_seen": "2026-10-22",
-  "reason": "omitted this run: source unreachable this run (HTTP 429)",
-  "recheck": {
-   "url": "https://coalvillecan.coop/pages/buildings-for-the-community",
-   "final_url": "https://coalvillecan.coop/pages/buildings-for-the-community",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
-   "http": 429,
-   "sha256": ""
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
   }
  },
  {
@@ -38,6 +47,28 @@
   "address": "The Salvation Army, Kendal, Cumbria LA9 4ED",
   "postcode": "LA9 4ED",
   "source_url": "https://www.warmwelcome.uk/space?l=28617",
+  "website": "",
+  "first_seen": "2026-10-22",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-69359093",
+  "name": "Friendly Coffee Morning",
+  "address": "77-79 The Parade, Watford, Hertfordshire WD17 1LN",
+  "postcode": "WD17 1LN",
+  "source_url": "https://www.warmwelcome.uk/space?l=28629",
   "website": "",
   "first_seen": "2026-10-22",
   "reason": "not on allowlist",
@@ -157,6 +188,29 @@
   }
  },
  {
+  "id": "ww-69359213",
+  "name": "Our Space Hub and Library",
+  "address": "Our Space Community Centre, Ellesmere, Shropshire SY12 0AE",
+  "postcode": "SY12 0AE",
+  "source_url": "https://www.warmwelcome.uk/space?l=28632",
+  "website": "",
+  "first_seen": "2026-10-22",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no opening hours",
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-69358981",
   "name": "Pedal Power Cafe",
   "address": "Cardiff Caravan Park, Cardiff, South Glamorgan CF11 9LB",
@@ -171,6 +225,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.cardiffpedalpower.org",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-69359856",
+  "name": "Ramsey Neighbourhoods Trust",
+  "address": "Cambridgeshire County Council, Huntingdon, Cambridgeshire PE26 1HG",
+  "postcode": "PE26 1HG",
+  "source_url": "https://www.warmwelcome.uk/space?l=28633",
+  "website": "www.ramseynt.org",
+  "first_seen": "2026-10-22",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "www.ramseynt.org",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -194,19 +268,6 @@
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
-  }
- },
- {
-  "id": "ww-68797190",
-  "name": "Shama Women's Centre",
-  "first_seen": "2026-10-22",
-  "reason": "omitted this run: source unreachable this run (HTTP error)",
-  "recheck": {
-   "url": "https://shamawomenscentre.co.uk/wp-content/uploads/2026/10/October-January-2027-programme.pdf",
-   "final_url": "https://shamawomenscentre.co.uk/wp-content/uploads/2026/10/October-January-2027-programme.pdf",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
-   "http": "error",
-   "sha256": ""
   }
  },
  {
@@ -244,6 +305,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.thehive.food",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-69359203",
+  "name": "The Hub Carnon Community Methodist Church",
+  "address": "Carnon Community Methodist Church, Truro, Cornwall TR3 6HY",
+  "postcode": "TR3 6HY",
+  "source_url": "https://www.warmwelcome.uk/space?l=28628",
+  "website": "Carnonhub.co.uk",
+  "first_seen": "2026-10-22",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "Carnonhub.co.uk",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -14525,9 +14606,9 @@
   "recheck": {
    "url": "https://www.soulsurvivorwatford.co.uk/cafeno7",
    "final_url": "https://soulsurvivor.church/cafeno7",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 200,
-   "sha256": "8a214d2367cff38c1c97807d7cc9315ba7ccb6c1658511352ac59d6d119ada1d"
+   "sha256": "d6ae0e11072ee4bf4ac393db41289eed2d271fd92dcbbc1abc7868fa89d1c5c5"
   }
  },
  {
@@ -20612,11 +20693,11 @@
   }
  },
  {
-  "id": "ww-65413951",
+  "id": "ww-64432701",
   "name": "Cleo Smith",
-  "address": "Lyminge Community Support Hub, Kent CT18 8HQ",
-  "postcode": "CT18 8HQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=22518",
+  "address": "Age Uk Hythe, Kent CT21 6BD",
+  "postcode": "CT21 6BD",
+  "source_url": "https://www.warmwelcome.uk/space?l=26244",
   "website": "www.ageuk.org.uk/hythelymingeashford",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -20632,11 +20713,11 @@
   }
  },
  {
-  "id": "ww-64432701",
+  "id": "ww-65413951",
   "name": "Cleo Smith",
-  "address": "Age Uk Hythe, Kent CT21 6BD",
-  "postcode": "CT21 6BD",
-  "source_url": "https://www.warmwelcome.uk/space?l=26244",
+  "address": "Lyminge Community Support Hub, Kent CT18 8HQ",
+  "postcode": "CT18 8HQ",
+  "source_url": "https://www.warmwelcome.uk/space?l=22518",
   "website": "www.ageuk.org.uk/hythelymingeashford",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -21603,7 +21684,7 @@
   "recheck": {
    "url": "https://silvertonmethodist.church/blog/",
    "final_url": "https://silvertonmethodist.church/blog/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -22427,6 +22508,61 @@
   }
  },
  {
+  "id": "ww-69082336",
+  "name": "Community Cafe",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://churchnorth.com/events/community-cafe/",
+   "final_url": "https://churchnorth.com/events/community-cafe/",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "ww-65845293",
+  "name": "Community Cafe",
+  "address": "Life Church, Wirral, Merseyside CH63 7LA",
+  "postcode": "CH63 7LA",
+  "source_url": "https://www.warmwelcome.uk/space?l=28009",
+  "website": "",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-65438798",
+  "name": "Community Cafe",
+  "address": "Kingussie Parish Church,, Kingussie, Inverness-shire  PH21  1HY",
+  "postcode": "PH21 1HY",
+  "source_url": "https://www.warmwelcome.uk/space?l=25671",
+  "website": "www.kingussielaggannewtonmorechurch.com",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "www.kingussielaggannewtonmorechurch.com",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-63139390",
   "name": "COMMUNITY CAFE",
   "address": "Christ Church Community Centre, Liverpool, Merseyside L11 3BR",
@@ -22461,61 +22597,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "jct.church",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-69082336",
-  "name": "Community Cafe",
-  "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 403)",
-  "recheck": {
-   "url": "https://churchnorth.com/events/community-cafe/",
-   "final_url": "https://churchnorth.com/events/community-cafe/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
-   "http": 403,
-   "sha256": ""
-  }
- },
- {
-  "id": "ww-65438798",
-  "name": "Community Cafe",
-  "address": "Kingussie Parish Church,, Kingussie, Inverness-shire  PH21  1HY",
-  "postcode": "PH21 1HY",
-  "source_url": "https://www.warmwelcome.uk/space?l=25671",
-  "website": "www.kingussielaggannewtonmorechurch.com",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.kingussielaggannewtonmorechurch.com",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65845293",
-  "name": "Community Cafe",
-  "address": "Life Church, Wirral, Merseyside CH63 7LA",
-  "postcode": "CH63 7LA",
-  "source_url": "https://www.warmwelcome.uk/space?l=28009",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [
-    "no independent website: Warm Welcome listing alone is not evidence"
-   ],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -23698,26 +23779,6 @@
   }
  },
  {
-  "id": "ww-64379604",
-  "name": "Community Hub",
-  "address": "Little Thetford Village Hall, Little Thetford, CAMBS CB6 3HD",
-  "postcode": "CB6 3HD",
-  "source_url": "https://www.warmwelcome.uk/space?l=27450",
-  "website": "www.littlethetfordvillagehall.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.littlethetfordvillagehall.org.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65438860",
   "name": "Community Hub",
   "address": "Green Pastures Community Hub, Norfolk, Norfolk NR19 1BX",
@@ -23732,6 +23793,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.lovedereham.org.uk",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-64379604",
+  "name": "Community Hub",
+  "address": "Little Thetford Village Hall, Little Thetford, CAMBS CB6 3HD",
+  "postcode": "CB6 3HD",
+  "source_url": "https://www.warmwelcome.uk/space?l=27450",
+  "website": "www.littlethetfordvillagehall.org.uk",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "www.littlethetfordvillagehall.org.uk",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -23980,26 +24061,6 @@
   }
  },
  {
-  "id": "ww-65438686",
-  "name": "Community Living Room",
-  "address": "West End Community Centre, Derby, Derbyshire DE22 3BL",
-  "postcode": "DE22 3BL",
-  "source_url": "https://www.warmwelcome.uk/space?l=16758",
-  "website": "N/A",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "N/A",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65413974",
   "name": "Community Living Room",
   "address": "Commercial Rd, Poole, Parkstone, Dorset BH14  0JW",
@@ -24016,6 +24077,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-65438686",
+  "name": "Community Living Room",
+  "address": "West End Community Centre, Derby, Derbyshire DE22 3BL",
+  "postcode": "DE22 3BL",
+  "source_url": "https://www.warmwelcome.uk/space?l=16758",
+  "website": "N/A",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "N/A",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -24551,7 +24632,7 @@
   "recheck": {
    "url": "https://www.bishopbaptists.co.uk",
    "final_url": "https://www.bishopbaptists.co.uk",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 200,
    "sha256": "25f1c22cff75b928da5a46394401132b669a835bce33da128e2bb8907285975b"
   }
@@ -25116,7 +25197,7 @@
   "recheck": {
    "url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
    "final_url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -34698,7 +34779,7 @@
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 200,
    "sha256": "bd71323f8fd04d2c3ad25f3bfae101338b8a36737f39ab1a9cf52e113182d66b"
   }
@@ -34711,7 +34792,7 @@
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 200,
    "sha256": "bd71323f8fd04d2c3ad25f3bfae101338b8a36737f39ab1a9cf52e113182d66b"
   }
@@ -40203,7 +40284,7 @@
   "recheck": {
    "url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
    "final_url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 410,
    "sha256": ""
   }
@@ -41396,7 +41477,7 @@
   "recheck": {
    "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
    "final_url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -47920,11 +48001,11 @@
   }
  },
  {
-  "id": "ww-64379192",
+  "id": "ww-65345058",
   "name": "Kensal Rise Library",
-  "address": "Bathurst Gardens, NW10 5JA",
+  "address": "Kensal Rise Library Bathurst Gardens, Kensal Rise, London NW10 5JA",
   "postcode": "NW10 5JA",
-  "source_url": "https://www.warmwelcome.uk/space?l=23390",
+  "source_url": "https://www.warmwelcome.uk/space?l=20985",
   "website": "www.kensalriselibrary.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -47940,11 +48021,11 @@
   }
  },
  {
-  "id": "ww-65345058",
+  "id": "ww-64379192",
   "name": "Kensal Rise Library",
-  "address": "Kensal Rise Library Bathurst Gardens, Kensal Rise, London NW10 5JA",
+  "address": "Bathurst Gardens, NW10 5JA",
   "postcode": "NW10 5JA",
-  "source_url": "https://www.warmwelcome.uk/space?l=20985",
+  "source_url": "https://www.warmwelcome.uk/space?l=23390",
   "website": "www.kensalriselibrary.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -66152,7 +66233,7 @@
   "recheck": {
    "url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
    "final_url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 200,
    "sha256": "4b270256e38eff4844f2f3b1018e76adbdaa99af524b071fb540e3986795e4ca"
   }
@@ -66304,6 +66385,26 @@
   }
  },
  {
+  "id": "ww-65723423",
+  "name": "Place of Welcome",
+  "address": "St Martin's Church, Birmingham, Warwickshire B23  5AP",
+  "postcode": "B23 5AP",
+  "source_url": "https://www.warmwelcome.uk/space?l=17122",
+  "website": "https://bodymindspiritpartnership.org.uk/delivery-partners/st-martins-social-care-project/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "https://bodymindspiritpartnership.org.uk/delivery-partners/st-martins-social-care-project/",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-65438679",
   "name": "Place of Welcome",
   "address": "St Johns Church, Tyne and Wear NE9  5rD",
@@ -66320,26 +66421,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65723423",
-  "name": "Place of Welcome",
-  "address": "St Martin's Church, Birmingham, Warwickshire B23  5AP",
-  "postcode": "B23 5AP",
-  "source_url": "https://www.warmwelcome.uk/space?l=17122",
-  "website": "https://bodymindspiritpartnership.org.uk/delivery-partners/st-martins-social-care-project/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://bodymindspiritpartnership.org.uk/delivery-partners/st-martins-social-care-project/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -82234,26 +82315,6 @@
   }
  },
  {
-  "id": "ww-63423763",
-  "name": "St Mary's Church",
-  "address": "The Parish Church Of St. Mary The Virgin, Uttoxeter, Staffordshire ST14 8AW",
-  "postcode": "ST14 8AW",
-  "source_url": "https://www.warmwelcome.uk/space?l=27324",
-  "website": "https://www.uttoxetercofe.org/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.uttoxetercofe.org/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65748690",
   "name": "St Mary's Church",
   "address": "St. Marys Church, East Molesey, Surrey KT8 0ST",
@@ -82268,6 +82329,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.smem.org.uk/",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-63423763",
+  "name": "St Mary's Church",
+  "address": "The Parish Church Of St. Mary The Virgin, Uttoxeter, Staffordshire ST14 8AW",
+  "postcode": "ST14 8AW",
+  "source_url": "https://www.warmwelcome.uk/space?l=27324",
+  "website": "https://www.uttoxetercofe.org/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "https://www.uttoxetercofe.org/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -83097,7 +83178,7 @@
   "recheck": {
    "url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
    "final_url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -83307,26 +83388,6 @@
   }
  },
  {
-  "id": "ww-64379101",
-  "name": "St Paul's Church",
-  "address": "St Paul's Church, CAMBRIDGE, Cambridge CB2 1JP CB2 1JP",
-  "postcode": "CB2 1JP",
-  "source_url": "https://www.warmwelcome.uk/space?l=16918",
-  "website": "https://www.stpaulscambridge.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.stpaulscambridge.org.uk/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65437285",
   "name": "St Paul's Church",
   "address": "Church Street, Carlton, Nottingham NG4 1BJ",
@@ -83341,6 +83402,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://stpaulscarlton.org",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-64379101",
+  "name": "St Paul's Church",
+  "address": "St Paul's Church, CAMBRIDGE, Cambridge CB2 1JP CB2 1JP",
+  "postcode": "CB2 1JP",
+  "source_url": "https://www.warmwelcome.uk/space?l=16918",
+  "website": "https://www.stpaulscambridge.org.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "https://www.stpaulscambridge.org.uk/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -84026,7 +84107,7 @@
   "recheck": {
    "url": "https://timberscombevillage.com/church-services/",
    "final_url": "https://timberscombevillage.com/church-services/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -84963,7 +85044,7 @@
   "recheck": {
    "url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
    "final_url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -92799,28 +92880,6 @@
   }
  },
  {
-  "id": "ww-64379325",
-  "name": "The Haven",
-  "address": "The Haven, Cornwall PL13 1DX",
-  "postcode": "PL13 1DX",
-  "source_url": "https://www.warmwelcome.uk/space?l=23139",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [
-    "no independent website: Warm Welcome listing alone is not evidence"
-   ],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-67979746",
   "name": "The Haven",
   "address": "Cippenham Baptist Church, Berkshire SL1 5QS",
@@ -92855,6 +92914,28 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.stirlingbaptist.org/the-haven.html",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-64379325",
+  "name": "The Haven",
+  "address": "The Haven, Cornwall PL13 1DX",
+  "postcode": "PL13 1DX",
+  "source_url": "https://www.warmwelcome.uk/space?l=23139",
+  "website": "",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -93085,26 +93166,6 @@
   }
  },
  {
-  "id": "ww-65438800",
-  "name": "The Hive",
-  "address": "The Old Booking Office, Abergele, Conwy LL22 7PQ",
-  "postcode": "LL22 7PQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=25675",
-  "website": "abergeleaction.co.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "abergeleaction.co.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-67493036",
   "name": "The Hive",
   "address": "Sawmill Walk, The Butts, Worcester, Worcestershire WR1 3DP",
@@ -93119,6 +93180,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.worcestershire.gov.uk/libraries",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-65438800",
+  "name": "The Hive",
+  "address": "The Old Booking Office, Abergele, Conwy LL22 7PQ",
+  "postcode": "LL22 7PQ",
+  "source_url": "https://www.warmwelcome.uk/space?l=25675",
+  "website": "abergeleaction.co.uk",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "abergeleaction.co.uk",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -93435,6 +93516,26 @@
   }
  },
  {
+  "id": "ww-65437551",
+  "name": "The Hub",
+  "address": "Seahouses Development Trust, Seahouses, Northumberland NE68 7YL",
+  "postcode": "NE68 7YL",
+  "source_url": "https://www.warmwelcome.uk/space?l=27752",
+  "website": "www.seahouses.org",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "www.seahouses.org",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-63544427",
   "name": "The Hub",
   "address": "Orchard Church, Wollaston, Stourbridge, DY8 4QL",
@@ -93469,26 +93570,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.sbadc.org.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65437551",
-  "name": "The Hub",
-  "address": "Seahouses Development Trust, Seahouses, Northumberland NE68 7YL",
-  "postcode": "NE68 7YL",
-  "source_url": "https://www.warmwelcome.uk/space?l=27752",
-  "website": "www.seahouses.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.seahouses.org",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -94437,26 +94518,6 @@
   }
  },
  {
-  "id": "ww-64511430",
-  "name": "The Living Room",
-  "address": "St. Jude & St. Paul's Church, London N1 4PL",
-  "postcode": "N1 4PL",
-  "source_url": "https://www.warmwelcome.uk/space?l=22987",
-  "website": "http://www.sjsp.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "http://www.sjsp.org.uk/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-68672301",
   "name": "The Living Room",
   "address": "Rumney Gospel Chapel, Brachdy Road, Rumney, Cardiff CF3 3BG",
@@ -94484,9 +94545,29 @@
   "recheck": {
    "url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
    "final_url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 200,
    "sha256": "72ce99cbfa56ed4ac7f1c3ff817180e6b888a50023c505207d2e3435589e2783"
+  }
+ },
+ {
+  "id": "ww-64511430",
+  "name": "The Living Room",
+  "address": "St. Jude & St. Paul's Church, London N1 4PL",
+  "postcode": "N1 4PL",
+  "source_url": "https://www.warmwelcome.uk/space?l=22987",
+  "website": "http://www.sjsp.org.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "http://www.sjsp.org.uk/",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
   }
  },
  {
@@ -99605,108 +99686,6 @@
   }
  },
  {
-  "id": "ww-63511172",
-  "name": "Thursday Coffee Morning",
-  "address": "Compton Methodist Church, Plymouth, Devon PL3 5LF",
-  "postcode": "PL3 5LF",
-  "source_url": "https://www.warmwelcome.uk/space?l=27376",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [
-    "no independent website: Warm Welcome listing alone is not evidence"
-   ],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-57979486",
-  "name": "Thursday coffee space",
-  "address": "All Saints Church, Dudwell Lane, Halifax, West Yorkshire HX3  0SD",
-  "postcode": "HX3 0SD",
-  "source_url": "https://www.warmwelcome.uk/space?l=21181",
-  "website": "www.allsaintshalifax.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.allsaintshalifax.org.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-57992850",
-  "name": "Thursday Coffee Stop",
-  "address": "St. Michaels Hospice, St. Leonards-on-Sea, East Sussex TN38 0LB",
-  "postcode": "TN38 0LB",
-  "source_url": "https://www.warmwelcome.uk/space?l=21009",
-  "website": "www.stmichaelshospice.com",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.stmichaelshospice.com",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-57951650",
-  "name": "Thursday Community Cafe",
-  "address": "All Saints Vicarage, London, London SE15 4QS",
-  "postcode": "SE15 4QS",
-  "source_url": "https://www.warmwelcome.uk/space?l=24792",
-  "website": "allsaintspeckham.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "allsaintspeckham.org.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65345100",
-  "name": "Thursday drop in (starting in January)",
-  "address": "Ralston Road, Barrhead, East Renfrewshire G78 2QQ",
-  "postcode": "G78 2QQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=17159",
-  "website": "https://www.barrhead-standrewschurch.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.barrhead-standrewschurch.org.uk/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-64379263",
   "name": "Whole Again Communities CIC",
   "address": "Treneere Community Hub, Cornwall TR18 3NZ",
@@ -99893,6 +99872,28 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "yealmptonmethodistchurch.org",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-63511172",
+  "name": "Thursday Coffee Morning",
+  "address": "Compton Methodist Church, Plymouth, Devon PL3 5LF",
+  "postcode": "PL3 5LF",
+  "source_url": "https://www.warmwelcome.uk/space?l=27376",
+  "website": "",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -101989,7 +101990,7 @@
   "recheck": {
    "url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
    "final_url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -102062,7 +102063,7 @@
   "recheck": {
    "url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
    "final_url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -102652,6 +102653,26 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
+  "id": "ww-57992850",
+  "name": "Thursday Coffee Stop",
+  "address": "St. Michaels Hospice, St. Leonards-on-Sea, East Sussex TN38 0LB",
+  "postcode": "TN38 0LB",
+  "source_url": "https://www.warmwelcome.uk/space?l=21009",
+  "website": "www.stmichaelshospice.com",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "www.stmichaelshospice.com",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -105708,6 +105729,26 @@
   }
  },
  {
+  "id": "ww-57951650",
+  "name": "Thursday Community Cafe",
+  "address": "All Saints Vicarage, London, London SE15 4QS",
+  "postcode": "SE15 4QS",
+  "source_url": "https://www.warmwelcome.uk/space?l=24792",
+  "website": "allsaintspeckham.org.uk",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "allsaintspeckham.org.uk",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-55476199",
   "name": "Woking United Reformed Church",
   "address": "Woking United Reformed Church, Woking, Surrey GU22 7HA",
@@ -107836,7 +107877,7 @@
   "recheck": {
    "url": "https://ullesthorpe.org/amenities/village-hall/",
    "final_url": "https://ullesthorpe.org/amenities/village-hall/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -110032,7 +110073,7 @@
   "recheck": {
    "url": "https://www.warmwelcome.uk/find-a-space",
    "final_url": "https://www.warmwelcome.uk/find-a-space",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": "feed",
    "sha256": null
   }
@@ -113792,6 +113833,26 @@
   }
  },
  {
+  "id": "ww-57979486",
+  "name": "Thursday coffee space",
+  "address": "All Saints Church, Dudwell Lane, Halifax, West Yorkshire HX3  0SD",
+  "postcode": "HX3 0SD",
+  "source_url": "https://www.warmwelcome.uk/space?l=21181",
+  "website": "www.allsaintshalifax.org.uk",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "www.allsaintshalifax.org.uk",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-55476214",
   "name": "Trinity Methodist Church",
   "address": "Trinity Methodist Church Community Room, Trinity Street, Mirfield WF14 8AD",
@@ -115243,6 +115304,26 @@
   }
  },
  {
+  "id": "ww-65345100",
+  "name": "Thursday drop in (starting in January)",
+  "address": "Ralston Road, Barrhead, East Renfrewshire G78 2QQ",
+  "postcode": "G78 2QQ",
+  "source_url": "https://www.warmwelcome.uk/space?l=17159",
+  "website": "https://www.barrhead-standrewschurch.org.uk/",
+  "first_seen": "2026-10-21",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "needs": "credible page with weekday + time, current season",
+   "where_to_check": [
+    "https://www.barrhead-standrewschurch.org.uk/",
+    "council warm spaces page",
+    "achurchnearyou / library page"
+   ]
+  }
+ },
+ {
   "id": "ww-57952116",
   "name": "Warm Welcome Hub",
   "address": "Blantyre Old Parish Church, Glasgow, South Lanarkshire  G72  9UA",
@@ -115772,7 +115853,7 @@
   "recheck": {
    "url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
    "final_url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
-   "fetched_at": "2026-10-22T13:31:57+00:00",
+   "fetched_at": "2026-10-22T19:40:03+00:00",
    "http": 403,
    "sha256": ""
   }

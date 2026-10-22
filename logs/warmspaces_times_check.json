@@ -409,6 +409,16 @@
 "status": "no_website",
 "reason": "no own website to check against"
 },
+"ww-65441939": {
+"site": "",
+"http": null,
+"sha256": null,
+"etag": null,
+"last_modified": null,
+"checked": "2026-10-22",
+"status": "no_website",
+"reason": "no own website to check against"
+},
 "ww-68672287": {
 "site": "",
 "http": null,
@@ -849,6 +859,16 @@
 "status": "no_website",
 "reason": "no own website to check against"
 },
+"ww-68797190": {
+"site": "",
+"http": null,
+"sha256": null,
+"etag": null,
+"last_modified": null,
+"checked": "2026-10-22",
+"status": "no_website",
+"reason": "no own website to check against"
+},
 "ww-68685671": {
 "site": "",
 "http": null,
@@ -1092,7 +1112,7 @@
 "ww-64432711": {
 "site": "https://belgravecoop.org.uk/",
 "http": 200,
-"sha256": "5d20d8b792ca25c10e8948b4b7983891ace01f046efcaf1f0ad673b3a999c9f2",
+"sha256": "13f13d38024159191b48af3878729a9b19862fb1e4f3e556bf25eac74a14905d",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1102,7 +1122,7 @@
 "ww-68737520": {
 "site": "https://www.cornwall.gov.uk/libraries-museums-and-archives/libraries/your-local-library/bodmin-library-and-information-service/",
 "http": 200,
-"sha256": "2e5cf5b1571e977340a9f59abaaf7feaafb8adf6374810065120452523963a80",
+"sha256": "df4989320c7a835c89d9f2676b8f1286fd02b3a36075ed6757bb26679e709ce4",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1112,7 +1132,7 @@
 "ww-69054594": {
 "site": "https://www.westbury-parish-church.org.uk",
 "http": 200,
-"sha256": "7417e61f666ff64a94f3c2a154d5057a64dd1303fed53fd2da1d28874e6708c8",
+"sha256": "dce965d3b409914763a1127e3cdf50b0c8067e91a4c2c28c4e06ec51ddc8bdcb",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1122,8 +1142,8 @@
 "ww-63443263": {
 "site": "https://chittlehamptonvillagehall.co.uk/",
 "http": 200,
-"sha256": "7d8ff457001bf964cf4b4f9b0d001d4765515650ee032eaea530aeace3ccfcc4",
-"etag": "W/\"1420-1792416501;gz\"",
+"sha256": "90f91b7e2bfca8c2abe64e188333645d3b000aa28403cb88573de0f1216d6f30",
+"etag": "W/\"1520-1792696897;gz\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "unconfirmed",
@@ -1132,7 +1152,7 @@
 "ww-69150223": {
 "site": "https://www.christchurchlittlelever.co.uk/",
 "http": 200,
-"sha256": "2e5142c79901ef77870b11a49af60c161e298de1baa5d9fbc3a801b9683ca83e",
+"sha256": "728b65144d5b5f768f63f45eba15cdea665a48d21069359731ccbe9d266337a3",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1142,7 +1162,7 @@
 "ww-62358275": {
 "site": "https://www.achurchnearyou.com/church/16258/",
 "http": 200,
-"sha256": "ce6c50d37421663ef347a7cbc461eccf1fdc6d3a64d070f6f301ce08426fcc92",
+"sha256": "a56bd6b63ba8ffab6385a9a394a617c5ffcd6ca46192f6d6991daa61377dd089",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1152,8 +1172,8 @@
 "ww-68972336": {
 "site": "https://www.christchurchstleonards.co.uk/cosy-crypt",
 "http": 200,
-"sha256": "7f7983061455ffa2bccb46212a00e4690451d175ba817c54f271b198aac0b21f",
-"etag": "W/\"0e341a0897425dbd2aa359c8e40bd73a\"",
+"sha256": "559276c1ff61c1dfc3c8ae785cc69b3b2ada29023e4954d97d5b103eab16e033",
+"etag": "W/\"e863d7d83fc545ba7d4fc00269968b7e\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "confirmed",
@@ -1162,7 +1182,7 @@
 "ww-69025981": {
 "site": "https://kwmc.org.uk/whats-on/sessions/creative-cuppa/",
 "http": 200,
-"sha256": "e1294592b650af2be1e1e9749a9a7e373ea28c95b4f52823d7e59ff219a0fc5a",
+"sha256": "e158a246c039aedc816d0a9e95d8f555c1f98b1a7efa90bf18899fcc8c99eba4",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1172,7 +1192,7 @@
 "ww-62890200": {
 "site": "https://www.crossways.info/crossways-community-cafe",
 "http": 200,
-"sha256": "6b7b469291f4b368e7801714325262cfe367cea2c91b9e2f057bc18d0d2531eb",
+"sha256": "4541f60737573b29920440c44d587f6095f1520993d3789043eb5d972fff5c34",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1181,18 +1201,18 @@
 },
 "ww-69206790": {
 "site": "https://desboroughbaptist.org.uk",
-"http": "error",
-"sha256": null,
-"etag": null,
-"last_modified": null,
+"http": 200,
+"sha256": "32ed587c5441846678079724639dfe73af6c1536c2bb1d89de59524121799056",
+"etag": "",
+"last_modified": "",
 "checked": "2026-10-22",
-"status": "unreachable",
-"reason": "own site unreachable this run"
+"status": "unconfirmed",
+"reason": "published times not found on own site this run"
 },
 "ww-64379285": {
 "site": "https://gloslibraries.uk/library/dursley-library",
 "http": 200,
-"sha256": "4fb1d00d5ecc09097913c73f7fab3faafadeff32137e86b1be1cbb12bfad6886",
+"sha256": "e62540a58324c68ab65aa18e1fd20f45d23ae534e4400c0b9012a57eb0a1bacc",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1202,8 +1222,8 @@
 "ww-67830599": {
 "site": "https://www.ebe.org.uk/welcomingspace",
 "http": 200,
-"sha256": "628e0bcf6043b8ee10d533aff0c1d0d2391448f49a961e85b99f4bc5af2923a9",
-"etag": "W/\"c9ef175b3bdd28a576f5fcd186f03683--gzip\"",
+"sha256": "2aed7bef3a1262d3a85426b06f60cbc6c5620f34d4caba110bf798eb26fa0980",
+"etag": "W/\"a05e171bf9c7ed61fe0fadb9eae58280\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "unconfirmed",
@@ -1212,7 +1232,7 @@
 "ww-63065196": {
 "site": "https://www.countessely.co.uk/cafe/",
 "http": 200,
-"sha256": "8119b4dd5bb62bc77798ef6bbf13b408554b23be352a6ef250b3131452413713",
+"sha256": "a8a43b54d849b047dab0525eb07614432bc0622968ccf70a464ac3b3b340c7ca",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1222,8 +1242,8 @@
 "ww-64711952": {
 "site": "https://www.geeksheadquarters.co.uk/",
 "http": 200,
-"sha256": "1b11c5c70b76ce0024a14205dc7cb08f2f8a82e9077ea656572e4fc29b01a668",
-"etag": "W/\"e7a39ecfda543e240fb26f0d9e65f49a\"",
+"sha256": "f9693d5b4125ff66dfdc502b0611f27a05194d65fe2cb9dd71d78683b92af781",
+"etag": "W/\"6db4764851e9475b7e8effb804993acc\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "confirmed",
@@ -1291,19 +1311,19 @@
 },
 "ww-69038953": {
 "site": "https://newcomeraidnetwork.co.uk/",
-"http": 200,
-"sha256": "ddf1088fec48e65b2adc8908212d3943d53f49451e57bca5d8fc78e058afa7d0",
-"etag": "",
-"last_modified": "",
+"http": "error",
+"sha256": null,
+"etag": null,
+"last_modified": null,
 "checked": "2026-10-22",
-"status": "unconfirmed",
-"reason": "published times not found on own site this run"
+"status": "unreachable",
+"reason": "own site unreachable this run"
 },
 "ww-57953160": {
 "site": "https://www.ncyc.charity/",
 "http": 200,
-"sha256": "0b24dd6f6b83334c543572c33b1e21f99ab12d74daab2f4cd342511477368239",
-"etag": "W/\"8630fa8862c6b92c631c450e0aaec0be\"",
+"sha256": "e49b64f489cddc2ad13c6ebd5dbbb82288f3c6a80dfb99d8d39c7620f986279b",
+"etag": "W/\"8a95a5c59dd2adb3cfde62c79527f77a\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "unconfirmed",
@@ -1332,8 +1352,8 @@
 "ww-65420071": {
 "site": "https://www.allhallowsleeds.org/what-we-do#/rainbow-junktion/",
 "http": 200,
-"sha256": "f075af1a979f21958fdbadd60146bea175c567eb1cdfc594491f600ad6492a3e",
-"etag": "W/\"f828ad6d8d5ddf0e1aee0b432cdb998f\"",
+"sha256": "4edfe94c731d939748f83bed13c7c858104ace11ed963cff97400d48ca310c8b",
+"etag": "W/\"1c03ed266441b215fed7ade738b3533e--gzip\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "unconfirmed",
@@ -1342,9 +1362,9 @@
 "ww-68641659": {
 "site": "https://rainham.foodbank.org.uk/",
 "http": 200,
-"sha256": "121df2f3bde6e351854cf2d3b24c9c679397b41254d3b095c362ae773a5ba3b5",
+"sha256": "8e369cb2f4f6689285561018051d9bbdaebb55c1da3617f378525794e5263300",
 "etag": "",
-"last_modified": "Thu, 22 Oct 2026 13:22:37 GMT",
+"last_modified": "Thu, 22 Oct 2026 19:40:38 GMT",
 "checked": "2026-10-22",
 "status": "changed",
 "reason": "own site now shows different times",
@@ -1372,7 +1392,7 @@
 "ww-68737547": {
 "site": "https://www.tyndalebaptist.co.uk/",
 "http": 200,
-"sha256": "0be55d7a0d82a8e604209f16a8d7477d4d648002bbbd8618e19fcaa750dee249",
+"sha256": "94b52600ab30c2e35cea638ef191a2a45dde0106fc0275788160ce11c6571162",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1402,7 +1422,7 @@
 "ww-69210060": {
 "site": "https://www.srcdc.org.uk/",
 "http": 200,
-"sha256": "52b9981fb1803a5d3eb996eecb1e8084614402f88e866999ddacd77c732f2028",
+"sha256": "3905b407082e3c7f0d091049e074db73bb30261f0e84c63d543da49ab86a0fec",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1426,7 +1446,7 @@
 "ww-68737211": {
 "site": "https://smng.org.uk/",
 "http": 200,
-"sha256": "76a704cb20e4ce0d48268f4a78313420479ed1911379469d1e10ece0ac51caac",
+"sha256": "b0b60a11e4e056cd59eeabae91cc164360a048598086962b0e51a36731cc5b1c",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1480,7 +1500,7 @@
 "ww-58107219": {
 "site": "https://www.stpeterandstpaul.org.uk/",
 "http": 200,
-"sha256": "e30bb86762377fbe76776eb74aee269b0d44d6631c9d5ad10383ed86274ba578",
+"sha256": "29ea4b95dedf78a3da86c1e6b3fc7ee8aedd355b02317c88dca3486e04b29402",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1490,7 +1510,7 @@
 "ww-67491277": {
 "site": "https://www.strandcentre.co.uk/",
 "http": 200,
-"sha256": "d1e265d8f4fadf277c540f805d3f15d75d6f74abc69e2632053cdcea4dbe6cc7",
+"sha256": "2485a852c988830f78b01c0308875faa7e8db502d997b978a4c8073ac0d9af16",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1510,8 +1530,8 @@
 "ww-68672266": {
 "site": "https://www.christchurchcreekmoor.org/",
 "http": 200,
-"sha256": "2b808cbd3b2ef61942d9e2410f43339211f96afff397bdfd27d3505ba836bab2",
-"etag": "W/\"00e46d232885486a661b3d7196ba2f0b\"",
+"sha256": "ea3162cc41b4b2c0779c0fcecc79afb0858de24eb06c6e366bba95b3598c3c1d",
+"etag": "W/\"75fb535deab49f3c5fc3f4fea2e3cf9c\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "confirmed",
@@ -1520,8 +1540,8 @@
 "ww-68672262": {
 "site": "https://www.stpeters-woolton.org.uk",
 "http": 200,
-"sha256": "3f90f710be8345702c8d79b507d6bbe201eb2f183f5851aaa0ed9c5829263357",
-"etag": "W/\"00337a598ce9b9435a9885c32e8d7843\"",
+"sha256": "5fe33e84c2697e67263a2be212585003ede7521b81705d6cd3d9029802b10f96",
+"etag": "W/\"d79f22c6ec75f213a44f0ece85b24e5a\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "unconfirmed",
@@ -1530,7 +1550,7 @@
 "ww-65438865": {
 "site": "https://www.lockleazent.co.uk/",
 "http": 200,
-"sha256": "31e8fd5b4353123b69fb2b79244fd953cb7581b1254face3a08634c9e1a42ba7",
+"sha256": "8003dd8542609aa19737321ad435d042be9b2a4b6f07fb5efcb7de603ee8a3f6",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1540,7 +1560,7 @@
 "ww-68620249": {
 "site": "https://thewigtownploughman.co.uk",
 "http": 200,
-"sha256": "514928e23d995e5e4de17a926f3c28b2dc2d7c9b0871677bc1673a5215496b6c",
+"sha256": "c3a94449b244a59884f26b8979b9c67b41497e6f40b53e433af1257ae5224e5b",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1560,9 +1580,9 @@
 "ww-68895885": {
 "site": "https://www.salvationarmy.org.uk/portadown",
 "http": 200,
-"sha256": "777ccd918f7c077a6e6232f5ccc8f0ededec58cb3e68bb0e4f13b782189cd372",
-"etag": "\"1792675940-gzip\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:20 GMT",
+"sha256": "556adc3a437abb476fbdb2197a23e8c5f7044201a158d3003bc10e4e09b0e5c8",
+"etag": "\"1792694553-gzip\"",
+"last_modified": "Thu, 22 Oct 2026 18:42:33 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1570,8 +1590,8 @@
 "ww-64379220": {
 "site": "https://barnet.adventistchurch.org.uk/community-services",
 "http": 200,
-"sha256": "0a46725cd7607a42a60b1206d3ad04ac726bed46c282081c0b5926ef9d22707f",
-"etag": "W/\"0a46725cd7607a42a60b1206d3ad04ac\"",
+"sha256": "57448ffb4f28d1840b953ec60bc7f3d27e180e4da421e07c2bb6754e038a9356",
+"etag": "W/\"57448ffb4f28d1840b953ec60bc7f3d2\"",
 "last_modified": "",
 "checked": "2026-10-22",
 "status": "unconfirmed",
@@ -1664,7 +1684,7 @@
 "hav-monday-meet-up": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1694,7 +1714,7 @@
 "hav-st-georges-centre": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1704,7 +1724,7 @@
 "hav-salvation-army-harold-hill": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1714,7 +1734,7 @@
 "hav-friendship-cafe-myplace": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1724,7 +1744,7 @@
 "hav-elm-park-assembly-hall": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1734,7 +1754,7 @@
 "hav-mardyke-community": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1744,7 +1764,7 @@
 "hav-wild-goose-cafe": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1754,7 +1774,7 @@
 "hav-new-windmill-hall": {
 "site": "https://www.havering.gov.uk/warmspaces",
 "http": 200,
-"sha256": "94e6416cc7ffd97654b6ec7e2dff99b6b955133bf8ac5b2f4cd82d6af9eae50d",
+"sha256": "1e019f457e9870c8169a11806934bb6a9341340a753d03398362b7505f79e3d5",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1924,9 +1944,9 @@
 "eln-faside-community-kitchen": {
 "site": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "http": 200,
-"sha256": "ee493c1ea8c2f89a4a6ed3e22dad832177451b45465c3e6c3e8015aed9d728ab",
-"etag": "\"1792675922\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:02 GMT",
+"sha256": "c243f7b60faf5639a6873a32f1cae563af4e44f57e1466cedf4a99643e035269",
+"etag": "\"1792697779\"",
+"last_modified": "Thu, 22 Oct 2026 19:36:19 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1934,9 +1954,9 @@
 "eln-new-winton-hall": {
 "site": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "http": 200,
-"sha256": "ee493c1ea8c2f89a4a6ed3e22dad832177451b45465c3e6c3e8015aed9d728ab",
-"etag": "\"1792675922\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:02 GMT",
+"sha256": "c243f7b60faf5639a6873a32f1cae563af4e44f57e1466cedf4a99643e035269",
+"etag": "\"1792697779\"",
+"last_modified": "Thu, 22 Oct 2026 19:36:19 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1944,9 +1964,9 @@
 "eln-macmerry-miners": {
 "site": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "http": 200,
-"sha256": "ee493c1ea8c2f89a4a6ed3e22dad832177451b45465c3e6c3e8015aed9d728ab",
-"etag": "\"1792675922\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:02 GMT",
+"sha256": "c243f7b60faf5639a6873a32f1cae563af4e44f57e1466cedf4a99643e035269",
+"etag": "\"1792697779\"",
+"last_modified": "Thu, 22 Oct 2026 19:36:19 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1954,9 +1974,9 @@
 "eln-pencaitland-lunch-club": {
 "site": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "http": 200,
-"sha256": "ee493c1ea8c2f89a4a6ed3e22dad832177451b45465c3e6c3e8015aed9d728ab",
-"etag": "\"1792675922\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:02 GMT",
+"sha256": "c243f7b60faf5639a6873a32f1cae563af4e44f57e1466cedf4a99643e035269",
+"etag": "\"1792697779\"",
+"last_modified": "Thu, 22 Oct 2026 19:36:19 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1964,9 +1984,9 @@
 "eln-connections-cafe": {
 "site": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "http": 200,
-"sha256": "ee493c1ea8c2f89a4a6ed3e22dad832177451b45465c3e6c3e8015aed9d728ab",
-"etag": "\"1792675922\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:02 GMT",
+"sha256": "c243f7b60faf5639a6873a32f1cae563af4e44f57e1466cedf4a99643e035269",
+"etag": "\"1792697779\"",
+"last_modified": "Thu, 22 Oct 2026 19:36:19 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1974,9 +1994,9 @@
 "eln-roots-and-fruits": {
 "site": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
 "http": 200,
-"sha256": "ee493c1ea8c2f89a4a6ed3e22dad832177451b45465c3e6c3e8015aed9d728ab",
-"etag": "\"1792675922\"",
-"last_modified": "Thu, 22 Oct 2026 13:32:02 GMT",
+"sha256": "c243f7b60faf5639a6873a32f1cae563af4e44f57e1466cedf4a99643e035269",
+"etag": "\"1792697779\"",
+"last_modified": "Thu, 22 Oct 2026 19:36:19 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -1984,7 +2004,7 @@
 "vai-andover-community-centre": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -1994,7 +2014,7 @@
 "vai-arachne-women-s-support": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2004,7 +2024,7 @@
 "vai-archway-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2014,7 +2034,7 @@
 "vai-brickworks-community-centre": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2024,7 +2044,7 @@
 "vai-cat-and-mouse-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2034,7 +2054,7 @@
 "vai-caxton-house-community-centre": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2044,7 +2064,7 @@
 "vai-central-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2054,7 +2074,7 @@
 "vai-elizabeth-house": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2064,7 +2084,7 @@
 "vai-finsbury-park-mosque": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2074,7 +2094,7 @@
 "vai-finsbury-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2084,7 +2104,7 @@
 "vai-highbury-roundhouse": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2094,7 +2114,7 @@
 "vai-hornsey-lane-estate-community-centre": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2104,7 +2124,7 @@
 "vai-king-s-house-church": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2114,7 +2134,7 @@
 "vai-margins-project-at-union-chapel": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2124,7 +2144,7 @@
 "vai-mildmay-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2134,7 +2154,7 @@
 "vai-n4-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2144,7 +2164,7 @@
 "vai-south-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2154,7 +2174,7 @@
 "vai-st-clement-s-church": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2164,7 +2184,7 @@
 "vai-st-jude-and-st-paul-s-church": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2174,7 +2194,7 @@
 "vai-st-mary-s-hornsey-rise-church": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2184,7 +2204,7 @@
 "vai-the-rock-tower": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2194,7 +2214,7 @@
 "vai-west-library": {
 "site": "https://vai.org.uk/warm-spaces-in-islington/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2204,9 +2224,9 @@
 "swk-blackfriars-settlement": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2214,9 +2234,9 @@
 "swk-london-lgbtq-community-centre": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2224,9 +2244,9 @@
 "swk-camberwell-leisure-centre": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2234,9 +2254,9 @@
 "swk-southwark-pensioners-centre": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2244,9 +2264,9 @@
 "swk-southwark-carers": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2254,9 +2274,9 @@
 "swk-brandon-2-tra-hall": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2264,9 +2284,9 @@
 "swk-latin-american-disabled-people-s-project": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2274,9 +2294,9 @@
 "swk-christ-church-east-dulwich": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2284,9 +2304,9 @@
 "swk-kingswood-arts": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2294,9 +2314,9 @@
 "swk-1st-place-family-hub": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2304,9 +2324,9 @@
 "swk-pembroke-house-walworth-living-room": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2314,9 +2334,9 @@
 "swk-dulwich-leisure-centre": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2324,9 +2344,9 @@
 "swk-link-age-southwark": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2334,9 +2354,9 @@
 "swk-south-london-mission": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2344,9 +2364,9 @@
 "swk-southwark-day-centre-for-asylum-seekers": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2354,9 +2374,9 @@
 "swk-victory-family-hub": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2364,9 +2384,9 @@
 "swk-astley-and-cooper-asco-tra": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2374,9 +2394,9 @@
 "swk-golden-oldies": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2384,9 +2404,9 @@
 "swk-nunhead-s-voice": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2394,9 +2414,9 @@
 "swk-southwark-park-sports-and-athletics-cent": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2404,9 +2424,9 @@
 "swk-time-talents": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2414,9 +2434,9 @@
 "swk-time-talents-2": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2424,9 +2444,9 @@
 "swk-age-uk-lewisham-southwark": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2434,9 +2454,9 @@
 "swk-castle-leisure-centre": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2444,9 +2464,9 @@
 "swk-the-spring-community-hub": {
 "site": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
 "http": 200,
-"sha256": "253af6635d008fd3545c8288492ab5db16e7864f710edf80172e27267be45eb0",
-"etag": "\"1792675549\"",
-"last_modified": "Thu, 22 Oct 2026 13:25:49 GMT",
+"sha256": "7493aa6bbf17444b7fa0126969e034b911280a43ea386c7ed8665c2cec8b6870",
+"etag": "\"1792698009\"",
+"last_modified": "Thu, 22 Oct 2026 19:40:09 GMT",
 "checked": "2026-10-22",
 "status": "confirmed",
 "reason": "all published days/times found on own site this run"
@@ -2464,7 +2484,7 @@
 "sw-st-andrew-s-thornhill-square-n11bq": {
 "site": "https://vai.org.uk/community-support/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2474,7 +2494,7 @@
 "sw-st-george-s-tufnell-park-n70nd": {
 "site": "https://vai.org.uk/community-support/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2484,7 +2504,7 @@
 "sw-st-john-s-hoxton-n16np": {
 "site": "https://vai.org.uk/community-support/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2494,7 +2514,7 @@
 "sw-st-luke-s-community-centre-ec1v8aj": {
 "site": "https://vai.org.uk/community-support/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2504,7 +2524,7 @@
 "sw-vibast-community-centre-ec1v9nh": {
 "site": "https://vai.org.uk/community-support/",
 "http": 200,
-"sha256": "f230590119d0f291239ba8e43699e11c7b64da7bdcd58568b36d4da2d82d1ab6",
+"sha256": "8eb7b4065338af21131ade18aa851b0415da44dfb0d60770ca1bf78c26349726",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2524,7 +2544,7 @@
 "oi-birmingham-council-saifee-mosque-b18-6pu": {
 "site": "https://uk.thedawoodibohras.com/birmingham/",
 "http": 200,
-"sha256": "50f3aef6fa62ec40842cc82780ea4f661e8a52b2b8e29b83f461daba635080a4",
+"sha256": "06a646199d400d92fba971e3ed13d79607a47f3d4f7b18cb5e1168cdc888aed2",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
@@ -2534,7 +2554,7 @@
 "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj": {
 "site": "https://www.midlandsgreek.org/",
 "http": 200,
-"sha256": "7e27203427dd2778c5fa5c76ffe351985a0d66cf48851dac48773e104042a7c8",
+"sha256": "b7076bed3fccc55751d016a65ac8c4134d0fc0ea713e87a99135ed93d956062f",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-22",
