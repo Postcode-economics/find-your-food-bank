@@ -280,3 +280,8 @@ html body footer>div,html body footer>div *{font-size:14px!important;line-height
 html body footer>div>span{align-items:center}
 html body footer>div{row-gap:0!important}html body footer>div>span{height:1.6em;overflow:visible}html body footer>div i{max-height:1.6em}
 html body footer #xupd,html body footer #xupd *{font-size:14px!important;line-height:1.6!important}
+
+/* round 5: national helplines inside the shelter strip, collapsed so the strip stays short */
+.v3sos details.hlp{margin-top:8px}.v3sos details.hlp summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center;text-decoration:underline}.v3sos details.hlp ul{margin:2px 0 0;padding-left:20px}.v3sos details.hlp li{margin:0 0 6px}.v3sos details.hlp a{white-space:nowrap}
+html.light .v3sos details.hlp a,html.light .v3sos details.hlp summary{color:#F4E6C6!important}
+html.light #v3sos .v3sos details.hlp a,html.light #v3col .v3sos details.hlp a,html.light #xextra .v3sos details.hlp a,html.light #sheet .v3sos details.hlp a,html.light #v3sos .v3sos details.hlp summary,html.light #v3col .v3sos details.hlp summary,html.light #xextra .v3sos details.hlp summary,html.light #sheet .v3sos details.hlp summary{color:#F4E6C6!important}

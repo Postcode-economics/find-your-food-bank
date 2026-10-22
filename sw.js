@@ -1,7 +1,7 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // map tiles (any provider in tiles.js) cache-first, bounded to the 300 most recent.
-const C='fyfb-v45',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js?v=compact-20261022','data.js','stamp.js','access.js','layers.js','layers.js?v=ux20261022h','layers.css','report.js','register.js','report.css','v3.js','v3.js?v=ux20261022h','v3.css','v3.css?v=ux20261022h','icons.js','privacy.html','outcodes.json','tiles.js','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
+const C='fyfb-v46',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js?v=compact-20261022','data.js','stamp.js','access.js','layers.js','layers.js?v=ux20261022i','layers.css','report.js','register.js','report.css','v3.js','v3.js?v=ux20261022i','v3.css','v3.css?v=ux20261022i','icons.js','privacy.html','terms.html','accessibility.html','outcodes.json','tiles.js','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==T).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
