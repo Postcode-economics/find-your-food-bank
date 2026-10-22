@@ -14,7 +14,7 @@ class T(unittest.TestCase):
         m = json.load(open(os.path.join(ROOT, "overrides", "foodbank_manual.json")))
         self.assertTrue(m["b30-south-birmingham"]["locked"])
     def test_rebuild_keeps_labels(self):
-        t = open(os.path.join(ROOT, "data.js"), encoding="utf-8").read(); items = json.loads(t[t.index("=") + 1:].strip().rstrip(";"))["items"]
+        t = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read(); items = json.loads(t[t.index("=") + 1:].strip().rstrip(";"))["items"]
         C.classify(items, ROOT)
         labs = {(i.get("label_en"), i.get("label_cy")) for i in items if i.get("label_en")}
         b30 = [i for i in items if i["id"] == "b30-south-birmingham"]

@@ -25,7 +25,7 @@ class TestCleanPhone(unittest.TestCase):
 
 class TestPublishedData(unittest.TestCase):
     def test_every_tel_is_one_valid_uk_number(self):
-        for f in ("data.js", "shelters.js", "warmspaces.js"):
+        for f in ("data.full.js", "shelters.js", "warmspaces.js"):
             s = open(os.path.join(ROOT, f)).read(); d = json.loads(s[s.index("{"):s.rindex("}") + 1])
             for i in d["items"]:
                 if i.get("phone"):

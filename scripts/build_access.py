@@ -15,7 +15,7 @@ def classify(r):
     return 'unconfirmed'
 
 def main(root=ROOT):
-    d = open(os.path.join(root, 'data.js'), encoding='utf-8').read()
+    d = open(os.path.join(root, 'data.full.js'), encoding='utf-8').read()
     items = json.loads(d[d.index('{'):d.rindex('}') + 1])['items']
     files = sorted(glob.glob(os.path.join(root, 'overrides', 'access', 'voucher_split_*.csv')), key=lambda f: (('pass2' in f) or ('final' in f), f))
     m = {}

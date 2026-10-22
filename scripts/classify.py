@@ -115,9 +115,10 @@ def write_csv(rows, path):
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
 if __name__ == "__main__":  # re-classify the current data.js in place (no refetch)
     import sys
-    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); p = os.path.join(root, "data.js")
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); p = os.path.join(root, "data.full.js")
     t = open(p).read(); d = json.loads(t[t.index("=") + 1:].strip().rstrip(";"))
     rows = classify(d["items"], root)
     open(p, "w").write("window.FB_DATA=" + json.dumps(d) + ";")
+    import compact; compact.main()
     write_csv(rows, sys.argv[1] if len(sys.argv) > 1 else os.path.join(root, "logs", "foodbank_audit.csv"))
     print(collections.Counter((r["class"], r["confidence"]) for r in rows))
