@@ -23,13 +23,16 @@ jobs:
         run: python -m unittest tests.test_sweep tests.test_recheck -v
       - name: Sweep every council sitemap and list page (fail-safe; adds new entries only)
         run: python scripts/sweep_daily.py
+      - name: Stamp this run's UK date and time (footer last updated / checked)
+        run: python scripts/stamp.py write sweep && python scripts/stamp.py verify
       - name: Commit new entries and the sweep log
         run: |
-          git add overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
+          python scripts/stamp.py verify
+          git add stamp.js overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
                   overrides/warmspaces_manual.json overrides/warmspaces_verified.json overrides/warmspaces_unverified.json \
                   logs/sweep_log.json logs/sweep_pending.json overrides/foodbank_own_pages.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Daily deep sweep $(date -u +%F)"
-          git pull --rebase && git push
+          git pull --rebase -X theirs && git push

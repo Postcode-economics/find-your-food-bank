@@ -85,7 +85,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <div class="share"><button id="share" type="button">Share this map</button></div>
 <footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a> and the <a href="https://www.foodaidnetwork.org.uk/" target="_blank" rel="noopener">Independent Food Aid Network</a> (checked on each food bank's own website), last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: postcodes.io. Map © MapTiler © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div id="sheet" aria-hidden="true"><div class="handle" aria-hidden="true" title="Swipe down to close"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
-<script src="data.js?v=compact-20261022"></script><script src="access.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="tiles.js"></script>
+<script src="data.js?v=compact-20261022"></script><script src="stamp.js"></script><script src="access.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="tiles.js"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
@@ -105,7 +105,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
  if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
  return `<div class="ot">${IC('clock')}Times not listed, call ahead.</div>`}
 {const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
-$('chk').textContent=chkDates.length?'checked '+new Date(chkDates[chkDates.length-1]).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'not yet checked';
+if(window.FB_STAMP){$('upd').textContent=FB_STAMP.label;$('chk').textContent='checked '+FB_STAMP.label}else $('chk').textContent=chkDates.length?'checked '+new Date(chkDates[chkDates.length-1]).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
 const site=i=>i.website||i.givefood;
 const tag=i=>acc(i)==='voucher'?'<div class="tag vtag" role="note">Foodbank voucher needed – no walk-ins without a referral</div>':'<div class="tag" role="note">Food bank – get food here</div>';  // voucher-only per access.js (overrides/access CSVs)  // one label for every place clients can collect food
