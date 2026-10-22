@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /logs/
+Disallow: /reports/
+Disallow: /overrides/
+Disallow: /scripts/
+Disallow: /tests/
+
+Sitemap: https://helpmap.uk/sitemap.xml
