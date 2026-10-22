@@ -1,7 +1,7 @@
 name: Refresh food bank data
 on:
   schedule:
-    - cron: "29 4,12,20 * * *"   # three runs a day (UTC): Give Food + IFAN discovery, own-site closure + times check
+    - cron: "29 4,12,20 * * *"   # three runs a day (UTC): Give Food + IFAN discovery + own locations pages (overrides/own_location_pages.json), own-site closure + times check
   workflow_dispatch:
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
         run: python scripts/verify_fresh.py foodbanks
       - name: Commit if changed
         run: |
-          git add data.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json
+          git add data.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

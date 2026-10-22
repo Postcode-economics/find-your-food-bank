@@ -15,8 +15,10 @@ def add_extra_locations(items, root):
     """Client locations Give Food does not list (overrides/foodbank_extra_locations.json), checked on the food bank's own site.
     Added (or refreshed) as normal 'location' pins of their parent food bank. Idempotent."""
     p = os.path.join(root, "overrides", "foodbank_extra_locations.json")
-    if not os.path.exists(p): return 0
-    ex = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+    ex = {}
+    for f in (p, os.path.join(root, "overrides", "foodbank_own_pages.json")):  # + centres scraped from own locations pages (own_locations.py)
+        if os.path.exists(f): ex.update({k: v for k, v in json.load(open(f)).items() if not k.startswith("_")})
+    if not ex: return 0
     par = {i["id"]: i for i in items if i["type"] == "foodbank"}
     items[:] = [i for i in items if i["id"] not in ex]
     n = 0

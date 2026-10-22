@@ -291,4 +291,9 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
 if __name__ == "__main__":
     r = run()
     print(r["status"], "pages", r["pages"], "failed", r["failed"], "added", len(r["added"]), "pending", len(r["pending"]))
+    try:  # food bank own locations pages (overrides/own_location_pages.json, e.g. Coventry): re-scrape, refresh the snapshot
+        import own_locations
+        js = open(os.path.join(ROOT, "data.js")).read(); fb = json.loads(js[js.index("{"):js.rindex("}") + 1])["items"]
+        print("own locations pages:", json.dumps(own_locations.refresh(fb, ROOT)))
+    except Exception as e: print("own locations pages: skipped", repr(e))
     sys.exit(0)
