@@ -89,7 +89,7 @@ const tog=document.querySelector('label.tog'),list=document.getElementById('list
 list.before(res);res.before(sos);res.append(tog,document.querySelector('.tnote'),document.getElementById('hid'));
 // ---- list-only view and light (high contrast) mode, both remembered
 const tools=document.createElement('div');tools.id='v3tools';
-tools.innerHTML=`<button type="button" class="v3t" id="v3list" aria-pressed="false">${B('List only','Rhestr yn unig')}</button><button type="button" class="v3t" id="v3light" aria-pressed="false">${B('High contrast','Cyferbyniad uchel')}</button>`;
+tools.innerHTML=`<button type="button" class="v3t" id="v3list" aria-pressed="false">${B('List only','Rhestr yn unig')}</button><button type="button" class="v3t" id="v3light" aria-pressed="false">${B('Light mode','Modd golau')}</button>`;
 document.getElementById('xbar').after(tools);document.getElementById('xbar').hidden=true;// layer row removed: the 3 need buttons set the layer
 const pref=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k)==='1';localStorage.setItem(k,v?'1':'0')}catch(e){}};
 function setP(id,cls,on){document.documentElement.classList.toggle(cls,on);document.getElementById(id).setAttribute('aria-pressed',String(on));pref(cls,on);if(cls==='nomap'&&!on)setTimeout(()=>map.invalidateSize(),50)}
