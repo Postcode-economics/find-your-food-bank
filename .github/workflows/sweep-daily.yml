@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write   # failed or partial runs open a 'refresh-alert' issue (scripts/alert.py)
 concurrency:
   group: sweep-daily
   cancel-in-progress: false
@@ -36,3 +37,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Daily deep sweep $(date -u +%F)"
           git pull --rebase -X theirs && git push
+      - name: Alert - run failed (nothing new published)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py open sweep "Overnight sweep run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
+      - name: Clear the run alert after a good run
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py resolve sweep

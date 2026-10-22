@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write   # failed or partial runs open a 'refresh-alert' issue (scripts/alert.py)
 concurrency:
   group: refresh-shelters
   cancel-in-progress: false
@@ -31,3 +32,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily Shelters refresh $(date -u +%F)"
           git pull --rebase && git push
+      - name: Alert - run failed (nothing new published)
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py open shelters "Shelters refresh run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
+      - name: Clear the run alert after a good run
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py resolve shelters
