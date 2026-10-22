@@ -264,3 +264,9 @@ html{scroll-padding-top:8px}
 
 #fwrap.off .fchip{display:none}
 #v3tilenote{left:56px!important}
+
+/* legal footer (draft for Dean) */
+.legal{max-width:760px;margin:8px auto 0;padding:10px 12px 28px;font-size:12.5px!important;line-height:1.5;color:#C9D1DE;border-top:1px solid rgba(201,209,222,.25)}
+.legal p{margin:0 0 6px}.legal .lgl{margin:0}.legal a{color:#F5C518}
+.legal .lgl a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+html.light .legal{color:#333}html.light .legal a{color:#00379E}
