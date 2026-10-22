@@ -148,11 +148,22 @@ def main():
     extra.update(load_json(os.path.join(ROOT, 'overrides', 'foodbank_own_pages.json'), {}))
     for i in items:
         if i.get('manual') and i['id'] in extra: records[i['id']] = extra[i['id']]  # source = the human-checked own-site record
+    allc = {i['id']: i.pop('_own_all_closed') for i in items if '_own_all_closed' in i}  # kept out of the recheck gate
     before = len(items)
     try:
         items, omitted = fb_recheck.gate(items, records, api_meta, os.path.join(ROOT, 'logs', 'foodbank_recheck.json'), os.path.join(ROOT, 'logs', 'foodbank_pending.json'))
     except RuntimeError as e: die(str(e))
     print('recheck gate: %d of %d published, %d omitted; opening_times normalised on %d' % (len(items), before, len(omitted), n_ot))
+    show_closed = set(load_json(os.path.join(ROOT, 'overrides', 'show_all_closed.json'), {}).get('ids', []))
+    for i in items:  # per-pin: own page lists every day 'Closed' -> publish a Mon-Sun table of 'Closed' (only for ids in the override)
+        ac = allc.get(i['id'])
+        if ac and i['id'] in show_closed: i['opening_times'] = dict(ac, status='TIMES_FOUND', structured=None, all_closed=True)
+    excl = load_json(os.path.join(ROOT, 'overrides', 'foodbank_exclude.json'), {}).get('foodbanks', [])
+    def excluded(i):
+        host = (i.get('website') or '').split('//')[-1].split('/')[0].lower().removeprefix('www.')
+        return any(i['id'] == e['slug'] or i['id'].startswith(e['slug'] + '/') or (e.get('host') and host == e['host']) for e in excl)
+    n0 = len(items); items = [i for i in items if not excluded(i)]
+    print('excluded at request: %d pins' % (n0 - len(items)))
     cur = current_count()
     if len(items) < 0.8 * cur: die('only %d entries vs %d current (<80%%)' % (len(items), cur))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
@@ -160,5 +171,6 @@ def main():
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
     tmp = OUT + '.tmp'; open(tmp, 'w').write(new); os.replace(tmp, OUT)
     print('wrote %d entries (previous %d)' % (len(items), cur))
+    import build_access; build_access.main(ROOT)  # filter chips: regenerate access.js from overrides/access/*.csv
 
 if __name__ == '__main__': main()

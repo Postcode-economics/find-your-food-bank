@@ -55,7 +55,18 @@ footer{font-size:14px;padding:10px 12px 24px;color:var(--muted)}footer a{color:v
 .pin.wh svg{display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
 .ncb{background:#F2F4F8;color:#0A1628;font-weight:800;font-size:16px;padding:10px 12px;border-radius:8px;border-left:6px solid #E63946;margin-bottom:8px;line-height:1.3}#sheet .ncb{margin-right:44px}
 .cen{list-style:none;margin:4px 0;padding:0}.cen li{padding:6px 0;border-bottom:1px solid #2a3b5c}.cen a{display:inline-flex;min-height:44px;align-items:center;font-weight:800;font-size:16px;color:var(--gold)}.cen span{display:block;font-size:14px;color:var(--muted)}
-.tag{display:inline-block;background:#F5C518;color:#0A1628;font-weight:800;font-size:14px;padding:4px 10px;border-radius:6px;margin:0 0 6px}</style></head><body>
+.tag{display:inline-block;background:#F5C518;color:#0A1628;font-weight:800;font-size:14px;padding:4px 10px;border-radius:6px;margin:0 0 6px}#fwrap{overflow:hidden;max-height:60px;transition:max-height .2s,opacity .2s}#fwrap.off{max-height:0;opacity:0}
+.fchips{display:flex;gap:8px;overflow-x:auto;margin:6px -12px 0;padding:0 12px 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;transition:transform .2s,opacity .2s}.fchips::-webkit-scrollbar{display:none}
+.fchip{flex:0 0 auto;min-height:44px;padding:0 14px;border-radius:999px;background:transparent;color:var(--white);border:2px solid var(--gold);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.fchip .ck{width:18px;height:18px;border-radius:999px;border:2px solid var(--muted);display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+.fchip[aria-pressed=true]{background:var(--gold);color:var(--navy)}.fchip[aria-pressed=true] .ck{border-color:var(--navy);background:var(--navy);color:var(--gold)}.fchip[aria-pressed=true] .ck::before{content:'✓'}
+.fchip.hide{border-color:var(--muted);padding:0 14px}
+.fchip:focus-visible,.ftab:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+.ftab{display:inline-flex;align-items:center;gap:8px;margin-top:6px;min-height:32px;padding:0 14px;border-radius:999px;background:transparent;color:var(--white);border:2px solid var(--gold);font-size:13px}.ftab[hidden]{display:none}
+.fb{background:var(--gold);color:var(--navy);border-radius:999px;padding:0 8px;font-weight:700}.fb[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){#fwrap,.fchips{transition:none}}
+html.light .fchip,html.light .ftab{color:#000;border-color:#8A5A00}html.light .fchip .ck{border-color:#000}html.light .fchip[aria-pressed=true]{background:#F5C518;border-color:#F5C518;color:#0A1628}html.light .fchip[aria-pressed=true] .ck{border-color:#0A1628;background:#0A1628;color:#F5C518}html.light .fb{background:#F5C518;color:#0A1628}html.light .fchip:focus-visible,html.light .ftab:focus-visible{outline-color:#000}
+</style></head><body>
 <div id="iab" role="region" aria-label="Open in your browser" hidden><div class="t" id="iabt"></div><button class="x" id="iabx" type="button" aria-label="Dismiss">×</button></div>
 <script>(function(){var u=navigator.userAgent||'',b=document.getElementById('iab');
 if(!/Instagram|FBAN|FBAV|FB_IAB|Threads|TikTok|musical_ly|BytedanceWebview|Snapchat/i.test(u))return;
@@ -67,15 +78,14 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <header><div class="brand">Postcode Economics</div><h1>Find help near you</h1>
 <form class="row" id="f"><input id="q" placeholder="Postcode or town, e.g. BN17 5 or Littlehampton" autocomplete="off" aria-label="Postcode or town" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac">
 <button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location"><svg class="ico" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></button><button class="go">Search</button><ul id="ac" role="listbox" aria-label="Matching places" hidden></ul></form>
-<p class="ref"><b>Most food banks need a referral or voucher.</b> Call first.</p>
-<label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote">Places with no times stay listed</div><div id="hid" role="status"></div>
+<div id="fwrap"><div class="fchips" id="chips" role="group" aria-label="Food bank filters (swipe up to hide)"><button type="button" class="fchip" data-f="walk" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Walk-ins welcome</button><button type="button" class="fchip" data-f="vouch" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Voucher needed</button><button type="button" class="fchip hide" id="fhide" aria-label="Hide filters">✕</button></div></div><button type="button" class="ftab" id="ftab" hidden aria-label="Show filters">▾ Filters <span class="fb" id="fcount" hidden></span></button><label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote">Places with no times stay listed</div><div id="hid" role="status"></div>
 <div id="msg" role="status"></div></header>
 <div id="map"></div><div id="list"></div>
 <div class="share"><button id="share" type="button">Share this map</button></div>
 <p class="made">Made by @postcode_economics. <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Follow for more UK money maps</a></p>
 <footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a> and the <a href="https://www.foodaidnetwork.org.uk/" target="_blank" rel="noopener">Independent Food Aid Network</a> (checked on each food bank's own website), last updated <span id="upd"></span>. Times change, call ahead to confirm. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io" target="_blank" rel="noopener">postcodes.io</a>. Map © OpenStreetMap contributors. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div id="sheet" aria-hidden="true"><div class="handle" aria-hidden="true" title="Swipe down to close"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
-<script src="data.js?v=refresh-20261021"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
+<script src="data.js?v=refresh-20261021"></script><script src="access.js"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
@@ -84,7 +94,7 @@ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking`;
 const narrow=()=>window.innerWidth<600;
 const DK=['sun','mon','tue','wed','thu','fri','sat'],DN={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'},ORD=['mon','tue','wed','thu','fri','sat','sun'];
-const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'&&i.opening_times.structured?i.opening_times.structured:null;
+const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'?(i.opening_times.structured||(i.opening_times.all_closed?{}:null)):null;
 const openToday=i=>{const s=parsed(i);return !!(s&&(s[DK[new Date().getDay()]]||[]).length)};
 const closedToday=i=>{const s=parsed(i);return !!(s&&!(s[DK[new Date().getDay()]]||[]).length)};
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
@@ -115,7 +125,7 @@ function card(i,dist){const tel=telOf(i);
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
- ${$('openToday').checked&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>${window.repB?repB('fb',i):''}`}
+ ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl">Times not listed, call to check</div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call ahead</div>':''}${window.repB?repB('fb',i):''}`}
 function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
@@ -127,8 +137,10 @@ const whIcon=L.divIcon({className:'pin wh',html:'<svg width="30" height="30" vie
 const icFor=k=>nc(items[k])?whIcon:icon;
 items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon:icFor(k),title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m;cl.addLayer(m)});
 map.addLayer(cl);
-const vis=k=>!$('openToday').checked||(!closedToday(items[k])&&!nc(items[k]));let lastNear=null;
-$('openToday').onchange=()=>{const on=$('openToday').checked;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)));
+const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};
+const accOk=i=>{if(!F.walk&&!F.vouch)return true;if(nc(i))return false;const a=acc(i);return (F.walk&&a!=='voucher')||(F.vouch&&a==='voucher')};
+const vis=k=>accOk(items[k])&&(!F.open||(!closedToday(items[k])&&!nc(items[k])));let lastNear=null;
+const applyF=()=>{const on=F.open;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)));
  const op=items.filter(openToday).length,shut=items.filter(closedToday).length,unk=items.length-op-shut;
  $('hid').textContent=on?`Hides only places listed as closed today (${shut.toLocaleString('en-GB')} hidden). Showing ${op.toLocaleString('en-GB')} listed open today and ${unk.toLocaleString('en-GB')} without listed times, call to check.`:'';
  closeSheet();if(lastNear)nearest(...lastNear)};
@@ -160,8 +172,8 @@ let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></d
 function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.removeLayer(here);closeSheet();
  here=L.marker([lat,lng],{icon:hereIcon,zIndexOffset:2000,keyboard:false}).addTo(map).bindTooltip(label==='your location'?'You are here':'Searched: '+label);
  Object.keys(dists).forEach(k=>delete dists[k]);items.forEach((i,k)=>dists[k]=hav(lat,lng,i.lat,i.lng));
- const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>a.d-b.d).slice(0,5);if($('openToday').checked)r.sort((a,b)=>(openToday(b.i)-openToday(a.i))||a.d-b.d);
- $('list').innerHTML=`<div class="lh">Nearest 5${$('openToday').checked?' (open today first)':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
+ const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>a.d-b.d).slice(0,5);if(F.open)r.sort((a,b)=>(openToday(b.i)-openToday(a.i))||a.d-b.d);
+ $('list').innerHTML=`<div class="lh">Nearest 5${F.open?' (open today first)':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  window._fitB=L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2);map.fitBounds(window._fitB);msg(note||'');
  const c=document.querySelector('#list .card');if(c){const y=c.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.45);scrollTo({top:Math.max(0,y),behavior:'auto'})}
@@ -220,5 +232,24 @@ $('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(las
  if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
  try{await navigator.clipboard.writeText(url);$('share').textContent='Link copied ✓'}catch(e){prompt('Copy this link:',url)}setTimeout(()=>$('share').textContent='Share this map',2500)};
 const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');search(qs.get('q')).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
+/* filter chips + swipe-up-to-dismiss  */
+(function(){const ch=$('chips'),wr=$('fwrap'),tab=$('ftab'),cnt=$('fcount');let st={};try{st=JSON.parse(localStorage.getItem('fbFilters')||'{}')}catch(e){}
+ const save=()=>{try{localStorage.setItem('fbFilters',JSON.stringify({f:F,hidden:wr.classList.contains('off')}))}catch(e){}};
+ const badge=()=>{const n=Object.values(F).filter(Boolean).length;cnt.textContent=n;cnt.hidden=!n;tab.setAttribute('aria-label','Show filters'+(n?', '+n+' on':''))};
+ const sync=()=>{ch.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(!!F[b.dataset.f])));$('openToday').checked=F.open;badge()};
+ const setHidden=(h,focus)=>{wr.classList.toggle('off',h);ch.style.transform='';ch.style.opacity='';tab.hidden=!h;ch.querySelectorAll('button').forEach(b=>b.tabIndex=h?-1:0);if(focus)(h?tab:ch.querySelector('button')).focus();save()};
+ if(st.f)Object.keys(F).forEach(k=>F[k]=!!st.f[k]);sync();if(Object.values(F).some(Boolean))applyF();if(st.hidden)setHidden(true);
+ ch.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;F[b.dataset.f]=!F[b.dataset.f];sync();applyF();save()});
+ $('openToday').onchange=()=>{F.open=$('openToday').checked;badge();applyF();save()};$('fhide').onclick=()=>setHidden(true,true);tab.onclick=()=>setHidden(false,true);
+ ch.addEventListener('keydown',e=>{if(e.key==='Escape')setHidden(true,true);const bs=[...ch.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(i<0)return;if(e.key==='ArrowRight'){e.preventDefault();bs[Math.min(i+1,bs.length-1)].focus()}if(e.key==='ArrowLeft'){e.preventDefault();bs[Math.max(i-1,0)].focus()}});
+ // vertical up-flick on the row; horizontal moves are left to native scroll (touch-action:pan-x)
+ let y0=null,x0=0,t0=0,dir=null;
+ ch.addEventListener('touchstart',e=>{y0=e.touches[0].clientY;x0=e.touches[0].clientX;t0=Date.now();dir=null},{passive:true});
+ ch.addEventListener('touchmove',e=>{if(y0==null)return;const dy=e.touches[0].clientY-y0,dx=e.touches[0].clientX-x0;if(!dir&&(Math.abs(dy)>8||Math.abs(dx)>8))dir=Math.abs(dy)>Math.abs(dx)?'v':'h';if(dir!=='v')return;const u=Math.min(0,dy);ch.style.transition='none';ch.style.transform='translateY('+u+'px)';ch.style.opacity=String(Math.max(.2,1+u/80))},{passive:true});
+ const end=e=>{if(y0==null||dir!=='v'){y0=null;return}const dy=(e.changedTouches?e.changedTouches[0].clientY:y0)-y0,v=dy/Math.max(1,Date.now()-t0);ch.style.transition='';y0=null;if(dy<-40||v<-.5)setHidden(true);else{ch.style.transform='';ch.style.opacity=''}};
+ ch.addEventListener('touchend',end);ch.addEventListener('touchcancel',end);
+ // pull down on the tab also restores
+ let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
+})();
 </script><script src="layers.js"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
