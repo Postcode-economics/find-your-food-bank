@@ -90,7 +90,7 @@ def page(path, title, desc, body, crumbs, updated):
         {'@type': 'ListItem', 'position': n + 1, 'name': nm, 'item': SITE + p} for n, (nm, p) in enumerate(crumbs)]}
     return ('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>%s</title><meta name="description" content="%s"><link rel="canonical" href="%s">'
-            '<link rel="icon" href="/favicon.ico?v=1" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1">'
+            '<link rel="icon" href="/favicon.ico?v=1" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=1"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png"><link rel="icon" href="/icon-48.png" sizes="48x48" type="image/png"><link rel="manifest" href="/site.webmanifest">'
             '<meta property="og:type" content="website"><meta property="og:site_name" content="helpmap.uk"><meta property="og:title" content="%s">'
             '<meta property="og:description" content="%s"><meta property="og:url" content="%s"><meta property="og:image" content="https://helpmap.uk/og_launch.png">'
             '<meta name="twitter:card" content="summary_large_image"><style>%s</style>'
