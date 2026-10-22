@@ -67,7 +67,7 @@ const ukH=()=>{const q=new URLSearchParams(location.search).get('clock');if(q&&/
  const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());return +p.find(x=>x.type==='hour').value+(+p.find(x=>x.type==='minute').value)/60};
 window.V3.ukH=ukH;
 const nightL=document.getElementById('v3night');const syncNight=()=>{const h=ukH();nightL.hidden=!(h>=17||h<8)};syncNight();setInterval(syncNight,60000);
-function mark(k){document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){};['fwrap','ftab'].forEach(id=>{const e=document.getElementById(id);if(!e)return;e.style.display='';e.style.visibility=k==='fb'?'':'hidden';e.inert=k!=='fb';e.setAttribute('aria-hidden',String(k!=='fb'))})}  // keep the food bank filter row's space (no layout shift); hidden + inert for the other types
+function mark(k){document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){};['fwrap','ftab'].forEach(id=>{const e=document.getElementById(id);if(!e)return;e.style.display='';e.style.visibility=k==='fb'?'':'hidden';e.inert=k!=='fb';e.setAttribute('aria-hidden',String(k!=='fb'))})}  // round 2: filter row lives above the results (below the map), so hiding it never moves the buttons or the map
 function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed')==='true';
  ['fb','sh','ws'].forEach(x=>{const b=document.querySelector(`.xt[data-l=${x}]`);if(b&&on(b)!==(x===k))b.click()});
  mark(k);if(noGo)return;window.__go=false;
@@ -75,7 +75,7 @@ function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed'
  // and the 'results updated' pill below the buttons says what changed, with a link down to the list
  let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
  const p=LN()||(s&&typeof s.lat==='number'?[s.lat,s.lng,s.label]:null);
- if(p){busy(k);const y=scrollY;nearest(p[0],p[1],p[2]);if(scrollY!==y)scrollTo({top:y,behavior:'auto'});pill(k)}
+ if(p){busy(k);const y=scrollY;nearest(p[0],p[1],p[2],p[3]);if(scrollY!==y)scrollTo({top:y,behavior:'auto'});pill(k)}
  else{busy(null);pill(k)}}  // before any search: just select; the pill line (space always reserved) asks for a postcode
 const LN=()=>{try{return typeof lastNear!=='undefined'&&lastNear?lastNear:null}catch(e){return null}};  // index.html's script-level let
 // ---- 'results updated' pill (aria-live) + pressed/loading state
@@ -83,11 +83,12 @@ const pl=document.createElement('div');pl.id='v3pill';pl.setAttribute('aria-live
 let busyT=0;function busy(k){const b=big.querySelector(`.v3b[data-l=${k}]`);big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});
  if(!b)return;b.classList.add('v3busy');b.setAttribute('aria-busy','true');clearTimeout(busyT);busyT=setTimeout(()=>pill(k),8000)}
 const tgt=k=>document.getElementById(k==='fb'?'list':'xlist');
-function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){pl.innerHTML=`<span class="v3ph">${B('Enter a postcode or town above, or tap the pin, to see the nearest places.','Rhowch god post neu dref uchod, neu tapiwch y pin, i weld y lleoedd agosaf.')}</span>`;return}
+function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];pl.innerHTML=`<span class="v3ph">${B(`Showing ${W0[0]}. Enter a postcode or town above, or tap the pin, to see the nearest.`,`Yn dangos ${W0[1]}. Rhowch god post neu dref uchod, neu tapiwch y pin, i weld y rhai agosaf.`)}</span>`;flash();return}
  const n=t.querySelectorAll('.card').length;if(k!=='fb'&&!n&&!t.textContent.trim())return;  // layer data still loading: stay busy, the observer calls again
  big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});clearTimeout(busyT);
  const W={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];
- pl.innerHTML=`<a href="#${t.id}" class="v3pl">${B(`${n} ${W[0]} nearby · see list ↓`,`${n} ${W[1]} gerllaw · gweld y rhestr ↓`)}</a>`}
+ pl.innerHTML=`<a href="#${t.id}" class="v3pl">${B(`Showing ${W[0]}: ${n} nearby · see list ↓`,`Yn dangos ${W[1]}: ${n} gerllaw · gweld y rhestr ↓`)}</a>`;flash()}
+function flash(){pl.classList.remove('v3flash');void pl.offsetWidth;pl.classList.add('v3flash')}  // brief pulse: every update (incl. the same search again or re-tapping the chosen type) is visible
 pl.addEventListener('click',e=>{const a=e.target.closest('a.v3pl');if(!a)return;e.preventDefault();const t=tgt(window.v3focus);if(!t)return;
  const h=t.querySelector('.lh')||t;h.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
  const c=t.querySelector('.card a,.card button,.card h3');if(c)setTimeout(()=>{(t.querySelector('.lh')||t).setAttribute('tabindex','-1');(t.querySelector('.lh')||t).focus({preventScroll:true})},400)});
@@ -129,11 +130,13 @@ addEventListener('load',()=>setTimeout(()=>{if(LN())return;let s=null;try{s=JSON
 // ---- 'Change type' link above the results (the type buttons are far above once you scroll the list)
 {const ct=document.createElement('a');ct.href='#v3big';ct.id='v3chg';ct.innerHTML=B('↑ Change type: food bank, warm space or shelter','↑ Newid math: banc bwyd, man cynnes neu loches');
  const sosE=document.getElementById('v3sos');(sosE||document.getElementById('v3res')).before(ct);
- ct.onclick=e=>{e.preventDefault();big.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});const b=big.querySelector('.v3b[aria-checked=true]');if(b)b.focus({preventScroll:true})}}
+ ct.onclick=e=>{e.preventDefault();(hdr.querySelector('h1')||big).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});const b=big.querySelector('.v3b[aria-checked=true]');if(b)b.focus({preventScroll:true})}}
 // ---- map no longer hijacks the page scroll: wheel zoom only after a click/focus on the map, off again when the pointer leaves
 try{map.scrollWheelZoom.disable();const mc=map.getContainer();map.on('click focus',()=>map.scrollWheelZoom.enable());mc.addEventListener('mouseleave',()=>map.scrollWheelZoom.disable());mc.addEventListener('blur',()=>map.scrollWheelZoom.disable())}catch(e){}
 // ---- desktop (>=1024px): map and results side by side; phones keep the single column (CSS in v3.css)
 {const m=document.getElementById('map'),sp=document.createElement('div'),col=document.createElement('div');sp.id='v3split';col.id='v3col';m.before(sp);sp.append(m,col);
  let n=sp.nextElementSibling;while(n&&!(n.classList&&n.classList.contains('share'))&&n.tagName!=='FOOTER'){const nx=n.nextElementSibling;col.append(n);n=nx}
+ const xb=document.getElementById('xbefore'),fw=document.getElementById('fwrap'),ft=document.getElementById('ftab'),chg=document.getElementById('v3chg');
+ col.prepend(...[document.getElementById('v3tools'),chg,xb,fw,ft].filter(Boolean));const xl=document.getElementById('xlist'),so=document.getElementById('v3sos');if(xl&&so)xl.before(so);
  setTimeout(()=>map.invalidateSize(),0);matchMedia('(min-width:1024px)').addEventListener('change',()=>setTimeout(()=>map.invalidateSize(),50))}
 })();
