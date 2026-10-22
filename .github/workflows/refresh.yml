@@ -11,7 +11,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,9 +23,12 @@ jobs:
         run: python scripts/build.py
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py foodbanks
+      - name: Full check of every food bank's own site (access flips, hours, closures, contacts, items needed -> reports/daily_review.md)
+        continue-on-error: true
+        run: python scripts/full_check.py
       - name: Commit if changed
         run: |
-          git add data.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json
+          git add data.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
