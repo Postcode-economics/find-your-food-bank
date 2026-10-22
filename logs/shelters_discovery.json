@@ -1,8 +1,8 @@
 {
  "run": "2026-10-22",
- "candidates": 63,
- "already_on_map": 4,
- "new": 59,
+ "candidates": 59,
+ "already_on_map": 3,
+ "new": 56,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "b224eefa3ee30412796ba49cb851e8d2526e8f3e048d8b9c419c8c2ba6598969",
+   "sha256": "39f9b874a89f1d3b03752003c0a0edd1bdbeef787f6b8aff8092df3056d4f4fe",
    "etag": "",
    "last_modified": ""
   }
@@ -63,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "65ce809bff5afca65a9bf8179959c36a9101946bb80ca8b185234f0bf3170524",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "4a2f5d595f9f6a2819cb5b1b81e536cb67fe7c237b59368f5c79dcb0dd6517c1",
    "etag": "",
    "last_modified": ""
   },
@@ -134,12 +134,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "d0eedf3f41734f9a7dbc4e118447f79ff77bcac8de7eeb02773345c09573449a",
+   "http": 202,
+   "sha256": "12459559f3fa7930cf7bb6ad6988d728e13788d859da6070c056da64a9533893",
    "etag": "",
    "last_modified": ""
   },
@@ -228,7 +229,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "5f29f5e632f8605910669f1fc3ac2d4a7eca2d741af2eaff0ad79e155ecc0efa",
+   "sha256": "304d86ad1db7a12942d0217ddecb255d66be91a47d4d5e31b3ec8944076a109d",
    "etag": "",
    "last_modified": ""
   },
@@ -695,7 +696,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "2cc424968de1a700b0ecd96bfa226c827bc4c7890ac561cbd4edbcaf8815f67e",
+   "sha256": "48e098eeb5cdac0bccfa511969372ba10bc544ae0a456892d924168ccf90af8b",
    "etag": "",
    "last_modified": ""
   },
@@ -850,7 +851,7 @@
    "http": 200,
    "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
    "etag": "",
-   "last_modified": "Thu, 22 Oct 2026 08:16:01 GMT"
+   "last_modified": "Thu, 22 Oct 2026 20:23:00 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -962,60 +963,6 @@
    "website": "http://www.bromford.co.uk",
    "directory": "Homeless Link",
    "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
-   "reasons": [
-    "no postcode/coordinates in directory, cannot pin without guessing"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-cardinal-hume-centre-hostel",
-   "name": "Cardinal Hume Centre Hostel",
-   "postcode": "",
-   "website": "http://https://www.cardinalhumecentre.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
-   "reasons": [
-    "no postcode/coordinates in directory, cannot pin without guessing"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-catalyst-osborne-house",
-   "name": "Catalyst - Osborne House",
-   "postcode": "EN8 9NB",
-   "website": "http://www.broxbourne.gov.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-osborne-house/",
-   "reasons": [
-    "directory link is a council page, not the place's own site",
-    "own site does not name it",
-    "postcode not on own site",
-    "own site does not show it is a shelter/emergency accommodation"
-   ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "7ceb9d39f34f93c73f9424a93b82a7ebefa2ec4b05dcbaa1789d32df1d7e37ed",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "hl-ccp-bramah-house",
-   "name": "CCP - Bramah House",
-   "postcode": "",
-   "website": "http://www.ccp.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-bramah-house/",
    "reasons": [
     "no postcode/coordinates in directory, cannot pin without guessing"
    ],
