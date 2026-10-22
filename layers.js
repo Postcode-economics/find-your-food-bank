@@ -115,7 +115,7 @@ function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3oo" data-k="${k}" aria-pressed="${openOnly[k]}">${lang==='cy'?'Ar agor nawr yn unig':'Open now only'}</button><button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(oo?`<p class="sub v3ex">${lang==='cy'?'Ar agor nawr yn gyntaf. Lleoedd ar gau wedi’u cuddio.':'Open now first. Closed places hidden.'}</p>`:'')+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
- const me=document.getElementById('map'),top=me.getBoundingClientRect().top;if(top<0)scrollTo({top:Math.max(0,top+scrollY-8),behavior:'auto'});map.invalidateSize();
+ map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
  const fit=()=>{if(window._fitB){map.invalidateSize();map.fitBounds(window._fitB,{animate:false})}};fit();setTimeout(fit,250);return r};  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)

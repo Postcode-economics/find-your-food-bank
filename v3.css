@@ -156,3 +156,18 @@ html.light #v3night{color:#0A1628}
 html.light .v3sos{background:#0A1628;color:#F4E6C6}html.light .v3sos a.sosl.s999{background:#F4E6C6;color:#0A1628!important;border-color:#F4E6C6}
 html.light .v3sos a.sosl:not(.s999){background:transparent;color:#F4E6C6!important;border:2px solid #F4E6C6}
 #f{position:relative;z-index:1200;margin-bottom:12px}
+/* UX 22 Oct (Dean): results pill, pressed/loading state, change-type link, desktop side by side */
+#v3pill{min-height:40px;margin:0 0 6px;display:flex;align-items:center}.v3ph{font-size:13px;opacity:.85}
+.v3pl{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:#F5C518;color:#0A1628;font-weight:700;text-decoration:none}
+.v3pl:focus-visible{outline:2px solid #fff;outline-offset:2px}html.light .v3pl{background:#F5C518;color:#0A1628}
+.v3b.v3busy{position:relative}.v3b.v3busy .v3tick{visibility:hidden}
+.v3b.v3busy::after{content:'';position:absolute;right:16px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:3px solid currentColor;border-right-color:transparent;animation:v3spin .7s linear infinite}
+@keyframes v3spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.v3b.v3busy::after{animation:none;border-right-color:currentColor;opacity:.5}}
+#v3chg{display:inline-block;margin:10px 12px 4px;color:#F5C518;font-weight:700;min-height:32px}html.light #v3chg{color:#8A5A00}
+#v3split{display:block}
+@media (min-width:1024px){
+ #v3split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(380px,1fr);gap:16px;align-items:start;padding:0 12px}
+ #v3split>#map{position:sticky;top:8px;height:calc(100vh - 16px);min-height:420px;border-radius:12px}
+ html.nomap #v3split{display:block}
+ #v3col{min-width:0}
+}
