@@ -270,3 +270,13 @@ html{scroll-padding-top:8px}
 .legal p{margin:0 0 6px}.legal .lgl{margin:0}.legal a{color:#F5C518}
 .legal .lgl a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
 html.light .legal{color:#333}html.light .legal a{color:#00379E}
+/* footer-draft: uniform bottom-of-page lines (Dean) - inline links in running text (WCAG 2.5.8 inline exception), one font size/line-height, no extra gaps */
+html body footer,html body .legal{font-size:14px!important;line-height:1.6!important}
+html body footer a:not(.btn),html body .legal a,html body .legal .lgl a{display:inline!important;min-height:0!important;line-height:inherit!important;padding:0!important;vertical-align:baseline}
+html body footer{padding-bottom:0!important}
+html body .legal{margin:0 auto!important;padding:0 12px 28px!important;border-top:0!important;max-width:none}
+html body .legal p,html body .legal .lgl{margin:0!important}
+html body footer>div,html body footer>div *{font-size:14px!important;line-height:1.6!important;margin-top:0!important;margin-bottom:0!important;min-height:0!important}
+html body footer>div>span{align-items:center}
+html body footer>div{row-gap:0!important}html body footer>div>span{height:1.6em;overflow:visible}html body footer>div i{max-height:1.6em}
+html body footer #xupd,html body footer #xupd *{font-size:14px!important;line-height:1.6!important}
