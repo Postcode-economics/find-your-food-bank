@@ -1,5 +1,5 @@
 // Offline fallback: app shell + all three layers' data precached; network first, cache when offline. Map tiles cached as viewed.
-const C='fyfb-v22',T='fyfb-tiles',SHELL=['./','index.html','data.js','access.js','shelters.js','warmspaces.js','layers.js','layers.css','report.js','register.js','report.css','v3.js','v3.css','icons.js','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
+const C='fyfb-v23',T='fyfb-tiles',SHELL=['./','index.html','data.js','access.js','shelters.js','warmspaces.js','layers.js','layers.css','report.js','register.js','report.css','v3.js','v3.css','icons.js','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==T).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 const tell=()=>self.clients.matchAll().then(cs=>cs.forEach(c=>c.postMessage('offline')));
