@@ -84,6 +84,8 @@ def main():
     for i in items:
         i['opening_times'] = normalise(times.get(i['id']))
         if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
+    import own_locations  # own-site locations pages (overrides/own_location_pages.json), re-scraped every run; page beats Give Food
+    own_log = own_locations.refresh(items, ROOT); print('own locations pages:', json.dumps(own_log))
     # postcode check: move pins >2 km from their postcode centroid
     pcs = sorted({i['postcode'] for i in items if i['postcode']}); res = {}
     try:
@@ -143,6 +145,7 @@ def main():
     for i in items: apply_phone(i)
     # recheck gate: same over-check as shelters / warm spaces (hash + fetched_at, HTTP, ETag/Last-Modified, schema, source URL)
     extra = load_json(os.path.join(ROOT, 'overrides', 'foodbank_extra_locations.json'), {})
+    extra.update(load_json(os.path.join(ROOT, 'overrides', 'foodbank_own_pages.json'), {}))
     for i in items:
         if i.get('manual') and i['id'] in extra: records[i['id']] = extra[i['id']]  # source = the human-checked own-site record
     before = len(items)
