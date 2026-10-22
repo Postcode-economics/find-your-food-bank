@@ -306,3 +306,4 @@ html.light #v3filt>#v3open.on{background:#F5C518;border-color:#F5C518;color:#0A1
 #v3filt.fclosed>#ftab{display:inline-flex!important;align-items:center;min-height:44px!important;height:44px;box-sizing:border-box;border:2px solid var(--gold);border-radius:999px;padding:0 16px!important;font-weight:700;font-size:15px}
 html.light #v3filt.fclosed>#ftab{border-color:#8A5A00}
 #ftab .fb{background:transparent!important;color:inherit!important;padding:0!important;min-width:0!important}
+#v3filt>#v3tools.v3tight{gap:2px!important}#v3filt>#v3tools.v3tight .v3t{padding:0 3px!important}
