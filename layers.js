@@ -3,18 +3,18 @@
 (function(){
 const REPO='https://github.com/postcode-economics/find-your-food-bank';
 const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call before you go',legend:'Key',sh:'Shelters',ws:'Warm spaces',near:'Find nearest to me',upd:'updated',notLoaded:'tap to show',
- disc:'<b>Listings can change without notice.</b> Always call before you travel. In an emergency call 999. If you are sleeping rough in England, contact your local council or StreetLink.',
+ disc:'<b>Listings can change without notice.</b> Always call before you travel. We list services from public information and do not visit or inspect them. In an emergency call 999. If you are sleeping rough in England, contact your local council or StreetLink.',
  add:'Add or update your service',closed:'Recently closed (last 30 days)',report:'Report an error',call:'Call',dir:'Directions',
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',unv:'Unverified – call before you go',seen:'Seen open',refOnly:'Referral only',selfRef:'Self-referral',openAcc:'Open access',verOnly:'Verified only',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
- nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',none:'None listed',
+ nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',chk:'Listings last checked ',none:'None listed',
  h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'miles',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
- disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
+ disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Rydym yn rhestru gwasanaethau o wybodaeth gyhoeddus ac nid ydym yn ymweld â nhw nac yn eu harolygu. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',unv:'Heb ei wirio – ffoniwch cyn mynd',seen:'Gwelwyd ar agor',refOnly:'Atgyfeirio yn unig',selfRef:'Hunangyfeirio',openAcc:'Mynediad agored',verOnly:'Wedi’u gwirio yn unig',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
- nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',none:'Dim wedi’u rhestru',
+ nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',chk:'Gwiriwyd y rhestrau ddiwethaf ',none:'Dim wedi’u rhestru',
  h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -159,14 +159,14 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[data-cid]');if
 // ---- offline banner (EN/CY) + last saved search
 const ban=document.createElement('div');ban.id='xoff';ban.setAttribute('role','status');ban.hidden=true;document.body.insertBefore(ban,document.body.firstChild);
 let isOff=false;const savedAt=()=>{try{return localStorage.getItem('savedAt')}catch(e){return null}};
-function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();ban.textContent=t('offline')+(d?dstr(new Date(d),true):'?');ban.hidden=false}
+function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();const st=window.FB_STAMP&&FB_STAMP.run?dstr(new Date(FB_STAMP.run),true):'';ban.textContent=d?t('offline')+dstr(new Date(d),true)+(st?'. '+t('chk')+st+'.':''):t('offline').replace(/ (from|ar) $/,'')+(st?'. '+t('chk')+st+'.':'');ban.hidden=false}
 function goOffline(){if(isOff)return;isOff=true;banner();try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');
  if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x}}catch(e){}}
 addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false;banner()});
 if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='offline')goOffline()});
 function offlineCheck(){if(!navigator.onLine)goOffline()}
 addEventListener('load',()=>{if(navigator.onLine&&!isOff)fetch('index.html',{cache:'no-store'}).then(r=>{if(r.ok&&!isOff)try{localStorage.setItem('savedAt',new Date().toISOString())}catch(e){}}).catch(goOffline)});
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=45',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=46',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
 paint();for(const k in LAYERS){try{if(localStorage.getItem('lay_'+k)==='1')toggle(k,true)}catch(e){}}
 const q=new URLSearchParams(location.search);['sh','ws'].forEach(k=>{if(q.get(k)==='1')toggle(k,true)});
 setTimeout(offlineCheck,500);
