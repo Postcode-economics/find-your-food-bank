@@ -30,12 +30,78 @@
    "source": "manual (own site)",
    "url": "https://waveney.foodbank.org.uk/locations/",
    "evidence": "Fressingfield Methodist Church Walk-In - CENTRE HAS NOW CLOSED ... New street Fressingfield Suffolk IP21 5PG"
+  },
+  {
+   "id": "padiham-parish",
+   "name": "Padiham Parish Foodbank",
+   "address": "St Leonard's Church, Church Street, Padiham, Burnley, BB12 8HG",
+   "postcode": "BB12 8HG",
+   "closed_on": "2026-10-22",
+   "source": "manual (own site)",
+   "url": "https://www.burnleyexpress.net/health/padiham-parish-food-bank-closes-its-doors-after-five-years-of-helping-struggling-families-5610360",
+   "evidence": "Padiham Parish Food Bank held its final session on Wed 1 Apr 2026 (Burnley Express 24 Feb 2026; own Facebook posts 23 Feb + 1 Apr 2026); users directed to Burnley Together 01282 686402"
+  },
+  {
+   "id": "gatehouse-bury-st-edmunds",
+   "name": "Gatehouse (Bury St Edmunds) Foodbank",
+   "address": "Gatehouse, Dettigen Way, Bury St Edmunds, Suffolk, IP33 3TU",
+   "postcode": "IP33 3TU",
+   "closed_on": "2026-10-22",
+   "source": "manual (own site)",
+   "url": "https://www.suffolknews.co.uk/bury-st-edmunds/news/final-farewell-for-charity-that-never-turned-anyone-in-genu-9478124/",
+   "evidence": "Gatehouse - Caring in East Anglia (Dettingen Way) closed for good on 13 Aug 2026 (brought forward from 31 Aug); Suffolk News / EADT / BBC"
+  },
+  {
+   "id": "belton-pantry",
+   "name": "Belton Pantry Foodbank",
+   "address": "All Saints Belton, Church Lane, Belton, Norfolk, NR31 9LD",
+   "postcode": "NR31 9LD",
+   "closed_on": "2026-10-22",
+   "source": "manual (own site)",
+   "url": "https://allsaintsbelton.church/pantry/",
+   "evidence": "Own site: 'Our Foodbank has now closed. St Mary Magdalene Gorleston is now serving our local area.' Handed over to Gorleston Foodbank (Diocese of Norwich, Great Yarmouth Mercury)"
+  },
+  {
+   "id": "food-for-thought-alyth",
+   "name": "Food For Thought Alyth Foodbank",
+   "address": "19 Airlie Street, Alyth, Blairgowrie, PH11 8AH",
+   "postcode": "PH11 8AH",
+   "closed_on": "2026-10-22",
+   "source": "manual (own site)",
+   "url": "https://www.ngos1.com/GB/Alyth/102122201613798/Food-for-Thought",
+   "evidence": "Own Facebook post 1 Apr 2026: 'we are now closed ... Food for Thought team 2020-2026'; Alyth Development Trust minutes 6 Apr 2026 confirm move out of Airlie Street premises"
+  },
+  {
+   "id": "action-homeless",
+   "name": "Action Homeless Foodbank",
+   "address": "Central Services, Ridgeway House, Little Hill, Wigston, Leicester, LE18 3SE",
+   "postcode": "LE18 3SE",
+   "closed_on": "2026-10-22",
+   "source": "manual (own site)",
+   "url": "https://www.actionhomeless.org.uk/food-stop-prepares-for-closure/",
+   "evidence": "Action Homeless Food Stop (Malcolm Arcade) closed 31 Mar 2022; emergency food coordination handed to Reaching People / Leicester City Council Community Support Grant"
+  },
+  {
+   "id": "stockport/tiviot-dale-stockport",
+   "name": "Tiviot Dale, Stockport",
+   "address": "Tiviot Dale Methodist Church, Tiviot Dale, Stockport, SK1 1TA",
+   "postcode": "SK1 1TA",
+   "closed_on": "2026-10-22",
+   "source": "manual (own site)",
+   "url": "https://stockport.foodbank.org.uk/locations/",
+   "evidence": "Elly Lane, Operations Officer, Stockport Foodbank (map report email 22 Oct 2026): Tiviot Dale Methodist Church, Tiviot Dale, Stockport SK1 1TA closed at the end of August 2026 due to building closure"
   }
  ],
  "removed_this_run": [
+  "padiham-parish",
+  "gatehouse-bury-st-edmunds",
+  "belton-pantry",
+  "food-for-thought-alyth",
+  "action-homeless",
   "kentish-town",
   "shoreham/oasis-food-bank",
-  "waveney/fressingfield-methodist-church"
+  "waveney/fressingfield-methodist-church",
+  "stockport/tiviot-dale-stockport"
  ],
  "held_for_review": []
 }
