@@ -7,6 +7,7 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  1. access: voucher / walk-in, against access.js (scripts/build_access.py). CLEAR flips (same wording on 2 runs)
     are applied to access.js automatically, kept in reports/access_tags.json and logged (reports/access_changes.json).
     Mixed / uncertain -> daily list. Unclear never gets a tag (= walk-ins welcome on the map).
+ (Dean 22 Oct 10:33: confirmed closures + new food banks are auto-applied and logged too)
  2. opening-hours changes (seasonal / holiday notices, changed hours text) -> daily list
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
@@ -90,6 +91,8 @@ def access(t):
 SEASON = re.compile(r"(christmas|xmas|new year|easter|bank holiday|half[- ]term|summer|winter|festive)[^.\n]{0,80}(clos|open|hours|times|session)|"
     r"(clos|open|hours|times)[^.\n]{0,60}(christmas|xmas|new year|easter|bank holiday|half[- ]term|festive)|"
     r"(new|change[sd]? to( our)?|revised|temporary|updated) (opening )?(hours|times)", re.I)
+PERM_CLOSED = re.compile(r"(food ?bank|pantry|we) (has|have) (now )?(permanently )?closed( down)?\b(?! (on|for|over|during|until|till|from|between))|permanently closed|"
+    r"no longer (operating|running)( a| the| our)? ?(food ?bank)?|(has|have) ceased (operat|trading)|closed (its|our) doors (for good|permanently)", re.I)
 CLOSED = re.compile(r"(food ?bank|we) (has|have) (now )?(permanently )?closed|permanently closed|no longer (operat|running|open)|"
     r"(has|have) ceased|closed (its|our) doors|temporarily closed|is closed until", re.I)
 NEEDS = re.compile(r"(items? (we )?(urgently |currently )?need(ed)?|urgently need|running low|shopping list|we are short of|current needs|most needed)", re.I)
@@ -126,7 +129,7 @@ def check_site(url):
     tel = sorted({p for p in (norm_phone(urllib.parse.unquote(x)) for _, h in pages for x in re.findall(r'href=["\']tel:([^"\']+)', h, re.I)) if p})
     res.update(tel=tel[:4], ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
                hours_hash=hashlib.sha1('\n'.join(hours).encode()).hexdigest()[:12] if hours else '', hours_sample=hours[:4],
-               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), phones=phones[:8], needs=needs_list(t))
+               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t))
     return res
 
 # ---------- main ----------
@@ -144,6 +147,10 @@ def main():
     state = rj('full_check_state.json', {'sites': {}, 'ids': []})
     tags = rj('access_tags.json', {})       # pin id -> {"tag": "voucher"|"walkin", "since", "evidence", "source", "was"} (auto flips)
     acc = load_access()
+    CLP = os.path.join(ROOT, 'overrides', 'foodbank_closed.json')
+    try: closed_raw = json.load(open(CLP, encoding='utf-8'))
+    except Exception: closed_raw = {}
+    closed_ov, closed_hold, remove = {}, set(closed_raw.get('_hold_for_review', [])), set()
     for x, t in tags.items():
         if x in acc: acc[x] = t['tag']   # build_access.py regenerated access.js from the CSVs; re-apply our flips
     fixes = rj('phone_fixes.json', {})      # website -> {"old", "new", "since", "source"}
@@ -161,8 +168,11 @@ def main():
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
         for x in sorted(set(ids) - prev_ids):
-            i = next(j for j in items if j['id'] == x); flag(x, 'new food bank', name=i['name'], postcode=i.get('postcode'), website=i.get('website'), note='new on the map this run - check it looks right')
-        for x in sorted(prev_ids - set(ids)): flag(x, 'food bank gone from map', id=x, note='no longer in the feed / closed on own site this run')
+            i = next(j for j in items if j['id'] == x)
+            e = dict(when=NOW.isoformat(), id=x, website=i.get('website') or '', name=i['name'], kind='new food bank', old='not on map', new='added (%s)' % (i.get('postcode') or ''), source=(i.get('own_site_check') or {}).get('final_url') or i.get('website') or i.get('givefood') or '')
+            changes.insert(0, e); log.append(e)
+        for x in sorted(prev_ids - set(ids)):
+            e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='removed', old='on map', new='gone (no longer in the feed / closed on own site / excluded)', source='logs/foodbank_closed.json'); changes.insert(0, e); log.append(e)
     # fetch everything (time-boxed; whatever is left is reported, not guessed)
     t0 = time.time(); results = {}
     def job(u):
@@ -171,15 +181,16 @@ def main():
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
-    log = []; stats = dict(sites=len(sites), ok=0, failed=0, skipped=0, voucher=0, walkin=0, mixed=0, unclear=0, flips=0, phone_fixes=0)
+    log = []; stats = dict(sites=len(sites), ok=0, failed=0, skipped=0, voucher=0, walkin=0, mixed=0, unclear=0, flips=0, phone_fixes=0, closures=0)
     for u in sites:
         r, prev = results[u], state['sites'].get(u, {}); names = sorted({i['foodbank'] for i in by_site[u]}); name = names[0]
         if r.get('ok') is None: stats['skipped'] += 1; continue
         if not r['ok']:
             stats['failed'] += 1; r['fail_runs'] = prev.get('fail_runs', 0) + 1
             for k in ('access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed'): r[k] = prev.get(k)
+            r['perm_closed'] = None  # a failed fetch never confirms a closure
             if r['fail_runs'] >= 2: flag(u, 'dead or unreachable website', name=name, website=u, error=r['error'], failed_runs=r['fail_runs'], phone=by_site[u][0].get('phone'), note='site failed %d runs in a row - check contact details' % r['fail_runs'])
-            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed', 'fail_runs')}; continue
+            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
         stats['ok'] += 1; r['fail_runs'] = 0; stats[r['access']] += 1
         # (1) access - per pin, against access.js (hand-read CSVs + earlier auto flips). A flip needs the
         # same clear own-site result on 2 runs in a row; unclear never changes anything (= walk-ins welcome).
@@ -202,8 +213,20 @@ def main():
         if r['seasonal'] and r['seasonal'] != prev.get('seasonal'): flag(u, 'seasonal/holiday hours notice', name=name, website=u, text=r['seasonal'])
         if prev.get('hours_hash') and r['hours_hash'] and r['hours_hash'] != prev['hours_hash']:
             flag(u, 'opening hours changed on own site', name=name, website=u, before=prev.get('hours_sample'), now=r['hours_sample'])
-        # (3) closure
-        if r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure', name=name, website=u, text=r['closed'])
+        # (3) closure: clear permanent wording on 2 runs in a row -> removed automatically (overrides/foodbank_closed.json),
+        # unless Dean put the pin on _hold_for_review. Temporary / holiday closures stay flags.
+        if r['perm_closed'] and prev.get('perm_closed'):
+            ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
+            for x in ids_:
+                closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto: own site said permanently closed on 2 runs in a row (scripts/full_check.py %s)' % DAY)
+                remove.add(x)
+            today['items'].pop('closure pending (confirms next run)|' + u, None)
+            if ids_:
+                e = dict(when=NOW.isoformat(), website=u, name=name, kind='closure', old='on map (%d pins)' % len(ids_), new='removed - own site says closed', source=r['final_url'], evidence=r['perm_closed'])
+                changes.insert(0, e); log.append(e); stats['closures'] += 1
+            if len(ids_) < len(by_site[u]): flag(u, 'closure on hold (your hold list)', name=name, website=u, text=r['perm_closed'])
+        elif r['perm_closed']: flag(u, 'closure pending (confirms next run)', name=name, website=u, text=r['perm_closed'], note='removed automatically if the wording is still there next run')
+        elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if stored and r['phones'] and not (stored & set(r['phones'])):
@@ -216,7 +239,7 @@ def main():
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'phones', 'tel', 'needs', 'fail_runs')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
@@ -228,21 +251,27 @@ def main():
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
     print('full check:', json.dumps(stats))
-    if len(items) != n0: print('FAIL SAFE: item count changed, data.js/access.js not written'); sys.exit(1)
+    if remove:
+        items[:] = [i for i in items if i['id'] not in remove]
+        for x in remove: acc.pop(x, None)
+    if len(items) != n0 - len(remove) or len(remove) > 30: print('FAIL SAFE: unexpected item count / too many closures (%d), nothing written' % len(remove)); sys.exit(1)
     if os.environ.get('DRY_RUN') or os.environ.get('SAMPLE'): print('DRY RUN/SAMPLE: data.js not written'); return
     out = raw[:raw.index('=') + 1] + json.dumps(d) + ';'
     json.loads(out[out.index('=') + 1:].rstrip(';'))
     t = DATA + '.tmp'; open(t, 'w', encoding='utf-8').write(out); os.replace(t, DATA)
+    if closed_ov:
+        closed_raw.update(closed_ov); t = CLP + '.tmp'
+        json.dump(closed_raw, open(t, 'w', encoding='utf-8'), indent=2, ensure_ascii=False); os.replace(t, CLP)
     if acc:
         t = ACC + '.tmp'; open(t, 'w', encoding='utf-8').write('window.FB_ACCESS=' + json.dumps(acc, separators=(',', ':')) + ';\n'); os.replace(t, ACC)
 
 def write_md(today, log, stats):
     L = ['# Daily review - food banks - %s' % today['date'], '',
-         'Generated by scripts/full_check.py on every refresh run. Only clear access flips and clear phone fixes are auto-applied (logged below and in reports/access_changes.json); everything else is here for Dean to decide.', '',
-         '## Runs today', '', '| run (UTC) | sites | checked | failed | not reached | voucher | walk-in | mixed | unclear | access flips | phone fixes |', '|---|---|---|---|---|---|---|---|---|---|---|']
-    for r in today['runs']: L.append('| %s | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d |' % (r['at'][11:16], r['sites'], r['ok'], r['failed'], r['skipped'], r['voucher'], r['walkin'], r['mixed'], r['unclear'], r['flips'], r['phone_fixes']))
+         'Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 22 Oct 10:33): clear access flips, clear phone fixes, confirmed closures (own site says permanently closed on 2 runs running) and new food banks - all logged below and in reports/access_changes.json. Only uncertain or mixed cases are listed for Dean.', '',
+         '## Runs today', '', '| run (UTC) | sites | checked | failed | not reached | voucher | walk-in | mixed | unclear | access flips | phone fixes | closures |', '|---|---|---|---|---|---|---|---|---|---|---|---|']
+    for r in today['runs']: L.append('| %s | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d |' % (r['at'][11:16], r['sites'], r['ok'], r['failed'], r['skipped'], r['voucher'], r['walkin'], r['mixed'], r['unclear'], r['flips'], r['phone_fixes'], r.get('closures', 0)))
     L += ['', '## Auto-applied this run', '']
-    L += ['- **%s** (%s): %s → %s — %s' % (e['name'], e['website'], e['old'], e['new'], e['source']) for e in log] or ['- none']
+    L += ['- %s**%s** (%s): %s → %s — %s' % ((e.get('kind') + ': ') if e.get('kind') else 'access: ', e['name'], e['website'], e['old'], e['new'], e['source']) for e in log] or ['- none']
     cats = {}
     for v in today['items'].values(): cats.setdefault(v['category'], []).append(v)
     L += ['', '## For Dean to review (%d)' % len(today['items'])]
