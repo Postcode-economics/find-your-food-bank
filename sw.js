@@ -13,6 +13,7 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
+ if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
  e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
