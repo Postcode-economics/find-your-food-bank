@@ -78,7 +78,7 @@ V_STRONG = re.compile(r"(you('ll| will)? need|require[sd]?|need) (a |an )?(food 
     r"(voucher|referral)s? (is |are )?(needed|required|essential)|by (voucher|referral) only|referral only|"
     r"(must|need to|will need to) be referred|cannot (accept|serve|help).{0,30}without a (voucher|referral)|no walk[- ]?ins?", re.I)
 W_STRONG = re.compile(r"no (voucher|referral)s? (is |are )?(needed|required|necessary)|without (a |the need for a )?(voucher|referral)|"
-    r"walk[- ]?ins? (are |is )?(welcome|accepted)|just (turn|come|drop) (up|in|along)|drop[- ]in (session|service|basis)|self[- ]?referr?(al|ing|ed)?|"
+    r"walk[- ]?ins? (are |is )?(welcome|accepted)|just (turn|come|drop) (up|in|along)|self[- ]?referr?(al|ing|ed)?|"
     r"(don'?t|do not|won'?t) need (a |to have a |an? )?(food ?bank )?(voucher|referral)", re.I)  # self-referral counts as walk-in (Dean; same as build_access.py)
 def access(t):
     v = [m.group(0) for m in V_STRONG.finditer(t) if not re.match(r'no (voucher|referral)', m.group(0), re.I)
@@ -158,7 +158,7 @@ def main():
     review = rj('daily_review.json', {})
     today = review.get(DAY, {'date': DAY, 'runs': [], 'items': {}}); review = {k: v for k, v in review.items() if k >= (NOW.date() - datetime.timedelta(days=14)).isoformat()}
     flag = lambda key, cat, **kw: today['items'].__setitem__(cat + '|' + key, dict(category=cat, first_flagged=today['items'].get(cat + '|' + key, {}).get('first_flagged', NOW.isoformat()), **kw))
-    by_site = {}
+    by_site = {}; by_id = {i['id']: i for i in items}
     for i in items:
         w = (i.get('website') or '').strip()
         if w.startswith('http'): by_site.setdefault(w, []).append(i)
@@ -197,6 +197,10 @@ def main():
         curs = {i['id']: acc.get(i['id'], 'unconfirmed') for i in by_site[u] if i['id'] in acc}
         if r['access'] in ('voucher', 'walkin'):
             todo = [x for x, c in curs.items() if c != r['access']]
+            trus = [x for x in todo if r['access'] == 'walkin' and by_id[x].get('network') == 'Trussell']
+            if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
+                flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
+                todo = [x for x in todo if x not in trus]
             if todo and prev.get('access') == r['access']:
                 for x in todo:
                     entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
