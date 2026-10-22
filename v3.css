@@ -316,3 +316,11 @@ html.light #v3filt>#v3open:has(input:focus-visible){outline-color:#000}
  #v3filt #fhide{flex:0 0 44px!important;width:44px;padding:0!important;justify-content:center}
 }
 @media (max-width:379px){#v3filt>#v3tools .v3t{padding:0 4px!important}#v3filt>#v3open{padding:0 6px!important;gap:5px!important}}
+
+/* round 5d (Dean 21:10): slim 'Always call before you go' bar - one thin line, same place, still a tappable <details> */
+#v3filt #xbefore,#xbefore{border-left-width:3px!important;border-left-color:#E63946!important;border-radius:6px!important}
+#v3filt #xbefore summary,#xbefore summary{min-height:30px!important;height:auto;padding:4px 10px!important;gap:6px!important;line-height:1.3!important;justify-content:flex-start!important}
+#v3filt #xbefore .bs,#xbefore .bs{font-size:14px!important;font-weight:700!important}
+#v3filt #xbefore summary::after,#xbefore summary::after{position:static!important;transform:none!important;font-size:12px!important;margin-left:6px;opacity:.75}
+@media (min-width:1024px){#v3filt>#v3row2{align-self:center}}
+html.light #xbefore{border:1px solid #C9CED6!important;border-left:3px solid #E63946!important}
