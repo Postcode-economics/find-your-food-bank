@@ -3,7 +3,7 @@
 only replaced if the fetch succeeds and the entry count is >= 80% of the current one."""
 import json, math, os, sys, urllib.request, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, 'data.js')
+OUT = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'foodbank-map-refresh (github actions)'}
 API = 'https://www.givefood.org.uk/api/2/'
 
@@ -177,6 +177,7 @@ def main():
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
     tmp = OUT + '.tmp'; open(tmp, 'w').write(new); os.replace(tmp, OUT)
     print('wrote %d entries (previous %d)' % (len(items), cur))
+    import compact; compact.main()  # browser-facing compact data.js
     import build_access; build_access.main(ROOT)  # filter chips: regenerate access.js from overrides/access/*.csv
 
 if __name__ == '__main__': main()

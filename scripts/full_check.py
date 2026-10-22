@@ -18,7 +18,7 @@ Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the i
 Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
 import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.js')
+REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
@@ -263,6 +263,7 @@ def main():
     out = raw[:raw.index('=') + 1] + json.dumps(d) + ';'
     json.loads(out[out.index('=') + 1:].rstrip(';'))
     t = DATA + '.tmp'; open(t, 'w', encoding='utf-8').write(out); os.replace(t, DATA)
+    import compact; compact.main()  # browser-facing compact data.js
     if closed_ov:
         closed_raw.update(closed_ov); t = CLP + '.tmp'
         json.dump(closed_raw, open(t, 'w', encoding='utf-8'), indent=2, ensure_ascii=False); os.replace(t, CLP)
