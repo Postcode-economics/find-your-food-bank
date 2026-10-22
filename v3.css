@@ -305,3 +305,14 @@ html.light #v3filt>#v3open:has(input:checked){background:#F5C518;border-color:#F
 html.light #v3filt>#v3open:has(input:checked)::before{border-color:#0A1628;background:#0A1628;color:#F5C518}
 html.light #v3filt>#v3open:has(input:focus-visible){outline-color:#000}
 @media (max-width:379px){#v3filt .fchip,#v3filt>#v3open{padding:0 8px!important}#v3filt>#v3tools .v3t{padding:0 5px!important}}
+
+/* round 5c (Dean 21:06): clean grid. Row 1 = Walk-ins | Voucher (equal halves); row 2 = Open today | List only | Light mode | x. Edges at 12px both sides. */
+#v3filt [data-f=walk]{order:1!important}#v3filt [data-f=vouch]{order:2!important}#v3filt>#v3open{order:3!important}#v3filt>#v3tools{order:4!important}#v3filt #fhide{order:5!important}#v3filt>#ftab{order:6!important}#v3filt>#v3row2{order:7!important}
+#v3filt .fchip,#v3filt>#v3open{justify-content:center}
+@media (max-width:599px){
+ #v3filt [data-f=walk],#v3filt [data-f=vouch]{flex:1 1 calc(50% - 3px)!important;min-width:0}
+ #v3filt>#v3open{flex:1 1 auto!important}
+ #v3filt>#v3tools{flex:0 0 auto!important}
+ #v3filt #fhide{flex:0 0 44px!important;width:44px;padding:0!important;justify-content:center}
+}
+@media (max-width:379px){#v3filt>#v3tools .v3t{padding:0 4px!important}#v3filt>#v3open{padding:0 6px!important;gap:5px!important}}
