@@ -335,3 +335,11 @@ html.light #xbefore{border:1px solid #C9CED6!important;border-left:3px solid #E6
 #v3filt .fchip .ck{flex:0 0 auto!important;box-sizing:border-box;width:18px!important;height:18px!important}
 @media (max-width:599px){#v3filt>#v3open{flex:1 1 0!important;min-width:max-content}#v3filt>#v3tools{gap:2px!important}}
 @media (max-width:379px){html[lang=cy] #v3filt>#v3open::before{display:none}html[lang=cy] #v3filt>#v3open{padding:0 6px!important}html[lang=cy] #v3filt>#v3tools .v3t{padding:0 3px!important}}
+
+/* round 5f: x collapses ALL filter chips (incl. Open today) into the 'Filters' tab on the first row; nothing else appears, map moves up not down */
+#v3filt:has(#fwrap.off)>#v3open{display:none!important}
+#v3filt>#ftab{order:0!important;height:44px!important;min-height:44px!important;box-sizing:border-box;border-radius:999px!important;padding:0 14px!important;font-size:14px!important;display:inline-flex;align-items:center;margin:0!important}
+#v3filt>#ftab[hidden]{display:none!important}
+#xbefore{border-top:1px solid transparent!important;border-bottom:1px solid transparent!important;border-right:1px solid transparent!important}
+html.light #xbefore{border-color:#C9CED6!important;border-left-color:#E63946!important}
+#v3filt #fwrap.off .fchip{display:none!important}
