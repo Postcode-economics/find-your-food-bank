@@ -7,7 +7,7 @@
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=ux20261022o"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=ux20261022p"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -79,7 +79,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <header><div class="brand">Postcode Economics</div><h1>Find help near you</h1>
 <form class="row" id="f"><input id="q" placeholder="Postcode or town, e.g. BN17 5 or Littlehampton" autocomplete="off" aria-label="Postcode or town" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac">
 <button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location"><svg class="ico" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></button><button class="go">Search</button><ul id="ac" role="listbox" aria-label="Matching places" hidden></ul></form>
-<div id="fwrap"><div class="fchips" id="chips" role="group" aria-label="Food bank filters (swipe up to hide)"><button type="button" class="fchip hide" id="fhide" aria-label="Hide filters">✕</button><button type="button" class="fchip" data-f="walk" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Walk-ins welcome</button><button type="button" class="fchip" data-f="vouch" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Voucher needed</button></div></div><button type="button" class="ftab" id="ftab" hidden aria-label="Show filters">▾ Filters <span class="fb" id="fcount" hidden></span></button><label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote">Places with no times stay listed</div><div id="hid" role="status"></div>
+<div id="fwrap"><div class="fchips" id="chips" role="group" aria-label="Food bank filters (swipe up to hide)"><button type="button" class="fchip hide" id="fhide" aria-label="Hide filters" aria-expanded="true">✕</button><button type="button" class="fchip" data-f="walk" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Walk-ins welcome</button><button type="button" class="fchip" data-f="vouch" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Voucher needed</button></div></div><button type="button" class="ftab" id="ftab" hidden aria-label="Show filters">▾ Filters <span class="fb" id="fcount" hidden></span></button><label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote">Places with no times stay listed</div><div id="hid" role="status"></div>
 <div id="msg" role="status"></div></header>
 <div id="map"></div><div id="list"></div>
 <div class="share"><button id="share" type="button">Share this map</button></div>
@@ -252,11 +252,15 @@ $('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(las
 const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');(window.__go=true,search(qs.get('q'))).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
 /* filter chips + swipe-up-to-dismiss  */
 (function(){const ch=$('chips'),wr=$('fwrap'),tab=$('ftab'),cnt=$('fcount');let st={};try{st=JSON.parse(localStorage.getItem('fbFilters')||'{}')}catch(e){}
- const save=()=>{try{localStorage.setItem('fbFilters',JSON.stringify({f:F,hidden:wr.classList.contains('off')}))}catch(e){}};
- const badge=()=>{const n=Object.values(F).filter(Boolean).length;cnt.textContent=n;cnt.hidden=!n;{const cy=document.documentElement.lang==='cy';tab.setAttribute('aria-label',(cy?'Dangos hidlwyr':'Show filters')+(n?', '+n+(cy?' ymlaen':' on'):''))}};
+ const save=()=>{try{localStorage.setItem('fbFilters',JSON.stringify({f:F}))}catch(e){}};
+ const badge=()=>{const n=Object.values(F).filter(Boolean).length;$('openToday').parentElement.classList.toggle('on',!!F.open);cnt.textContent='· '+n;cnt.hidden=!n;{const cy=document.documentElement.lang==='cy';tab.setAttribute('aria-label',(cy?'Dangos hidlwyr':'Show filters')+(n?', '+n+(cy?' ymlaen':' on'):''))}};
  const sync=()=>{ch.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(!!F[b.dataset.f])));$('openToday').checked=F.open;badge()};
- const setHidden=(h,focus)=>{wr.classList.toggle('off',h);ch.style.transform='';ch.style.opacity='';tab.hidden=!h;ch.querySelectorAll('button').forEach(b=>b.tabIndex=h?-1:0);if(focus)(h?tab:ch.querySelector('button')).focus();save()};
- if(st.f)Object.keys(F).forEach(k=>F[k]=!!st.f[k]);sync();if(Object.values(F).some(Boolean))applyF();if(st.hidden)setHidden(true);
+ // single source of truth for open/closed: #v3filt.fclosed + #ftab.hidden + aria-expanded; state per tab session (sessionStorage)
+ const setFilters=(open,focus)=>{const closed=!open;window.fbFiltersClosed=closed;wr.classList.toggle('off',closed);const fl=document.getElementById('v3filt');if(fl)fl.classList.toggle('fclosed',closed);
+  tab.hidden=open;tab.setAttribute('aria-expanded','false');$('fhide').setAttribute('aria-expanded','true');ch.style.transform='';ch.style.opacity='';
+  ch.querySelectorAll('button').forEach(b=>b.tabIndex=closed?-1:0);try{sessionStorage.setItem('fbFclosed',closed?'1':'0')}catch(e){}if(focus)(closed?tab:$('fhide')).focus();save()};
+ const setHidden=(h,focus)=>setFilters(!h,focus);window.fbSetFilters=setFilters;
+ if(st.f)Object.keys(F).forEach(k=>F[k]=!!st.f[k]);sync();if(Object.values(F).some(Boolean))applyF();{let c=false;try{c=sessionStorage.getItem('fbFclosed')==='1'}catch(e){}setFilters(!c)}
  ch.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;F[b.dataset.f]=!F[b.dataset.f];sync();applyF();save()});
  window.fbBadge=badge;$('openToday').onchange=()=>{F.open=$('openToday').checked;badge();applyF();save()};$('fhide').onclick=()=>setHidden(true,true);tab.onclick=()=>setHidden(false,true);
  ch.addEventListener('keydown',e=>{if(e.key==='Escape')setHidden(true,true);const bs=[...ch.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(i<0)return;if(e.key==='ArrowRight'){e.preventDefault();bs[Math.min(i+1,bs.length-1)].focus()}if(e.key==='ArrowLeft'){e.preventDefault();bs[Math.max(i-1,0)].focus()}});
@@ -269,5 +273,5 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  // pull down on the tab also restores
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
-</script><script src="layers.js?v=ux20261022o"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=ux20261022o"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
+</script><script src="layers.js?v=ux20261022p"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=ux20261022p"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>

@@ -293,10 +293,16 @@ html.light #v3sos .v3sos details.hlp a,html.light #v3col .v3sos details.hlp a,ht
 #v3filt>#v3open{position:relative;border:2px solid var(--gold);border-radius:999px;min-height:44px!important;height:44px;box-sizing:border-box;padding:0 12px!important;gap:8px!important;display:inline-flex;align-items:center;color:var(--white);font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:15px!important;white-space:nowrap;cursor:pointer;margin-left:0!important;margin-right:0!important}
 #v3filt>#v3open input{position:absolute!important;opacity:0;width:1px!important;height:1px!important;margin:0;min-height:0!important;pointer-events:none}
 #v3filt>#v3open::before{content:'';flex:0 0 auto;width:18px;height:18px;border-radius:999px;border:2px solid var(--muted);display:inline-flex;align-items:center;justify-content:center;font-size:13px}
-#v3filt>#v3open:has(input:checked){background:var(--gold);color:var(--navy)}
-#v3filt>#v3open:has(input:checked)::before{content:'✓';border-color:var(--navy);background:var(--navy);color:var(--gold)}
-#v3filt>#v3open:has(input:focus-visible){outline:2px solid var(--white);outline-offset:2px}
+#v3filt>#v3open.on{background:var(--gold);color:var(--navy)}
+#v3filt>#v3open.on::before{content:'✓';border-color:var(--navy);background:var(--navy);color:var(--gold)}
+#v3filt>#v3open:focus-within{outline:2px solid var(--white);outline-offset:2px}
 html.light #v3filt>#v3open{color:#000;border-color:#8A5A00}html.light #v3filt>#v3open::before{border-color:#000}
-html.light #v3filt>#v3open:has(input:checked){background:#F5C518;border-color:#F5C518;color:#0A1628}html.light #v3filt>#v3open:has(input:checked)::before{border-color:#0A1628;background:#0A1628;color:#F5C518}
-#v3filt:has(#fwrap.off)>#v3open{display:none!important}
+html.light #v3filt>#v3open.on{background:#F5C518;border-color:#F5C518;color:#0A1628}html.light #v3filt>#v3open.on::before{border-color:#0A1628;background:#0A1628;color:#F5C518}
 @media (max-width:419px){#v3filt .fchip,#v3filt>#v3open{font-size:14px!important;padding:0 8px!important;gap:6px!important}#v3filt .fchip.hide{padding:0 12px!important}}
+/* open/closed filter area: one class on #v3filt (set by setFilters); closed = only the Filters tab and the Always-call bar remain */
+#v3filt.fclosed>:not(#ftab):not(#v3row2){display:none!important}
+#v3filt:not(.fclosed) #ftab{display:none!important}
+#v3filt.fclosed::before{display:none}
+#v3filt.fclosed>#ftab{display:inline-flex!important;align-items:center;min-height:44px!important;height:44px;box-sizing:border-box;border:2px solid var(--gold);border-radius:999px;padding:0 16px!important;font-weight:700;font-size:15px}
+html.light #v3filt.fclosed>#ftab{border-color:#8A5A00}
+#ftab .fb{background:transparent!important;color:inherit!important;padding:0!important;min-width:0!important}
