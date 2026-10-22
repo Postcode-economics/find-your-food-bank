@@ -203,3 +203,22 @@ html.light #v3sos .v3sos a.sosl:not(.s999),html.light .v3sos a.sosl:not(.s999){c
 footer a,footer a:not(.btn){display:inline-block!important;min-height:44px!important;line-height:44px!important;padding:0!important;vertical-align:middle}footer{line-height:1.6!important}
 html.light #xextra .v3sos a.sosl:not(.s999),html.light #sheet .v3sos a.sosl:not(.s999),html.light #v3col .v3sos a.sosl:not(.s999){color:#F4E6C6!important}html.light #xextra .v3sos a.sosl.s999,html.light #sheet .v3sos a.sosl.s999,html.light #v3col .v3sos a.sosl.s999{color:#0A1628!important}
 html body footer a:not(.btn),html body .made a:not(.btn){display:inline-block!important;min-height:44px!important;line-height:44px!important;padding:0!important;vertical-align:middle}
+/* round 3: compact filter block above the map */
+#v3filt{margin:2px 0 4px}
+#v3filt #fwrap{margin:0}#v3filt .fchips{margin:0!important;gap:6px}
+#v3filt .fchip{min-height:44px;padding:0 10px;font-size:15px;gap:6px}
+#v3row2{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px}
+#v3row2 #xbefore{flex:1 1 220px;margin:0}#v3row2 #xbefore summary{min-height:44px!important;padding-top:2px;padding-bottom:2px}
+#v3row2 #v3tools{flex:0 0 auto;margin:0;display:flex;gap:4px}#v3row2 #v3tools .v3t{min-height:44px}
+#v3filt #ftab{margin-top:0}
+@media (min-width:1024px){#v3filt{display:flex;flex-wrap:wrap;align-items:center;gap:6px}#v3filt #fwrap{flex:0 1 auto}#v3row2{flex:1 1 400px;margin-top:0}}
+#v3filt{display:flex!important;flex-wrap:wrap;align-items:center;gap:6px}
+#v3filt>#fwrap,#v3filt #chips{display:contents!important}
+#fwrap.off .fchip{display:none}
+#v3filt>#v3tools{display:flex;gap:4px;margin:0}#v3filt>#v3tools .v3t{min-height:44px;padding:0 8px}
+#v3filt>#ftab{margin:0}
+#v3filt>#v3row2{flex:1 1 100%;margin-top:0}
+@media (min-width:1024px){#v3filt>#v3row2{flex:1 1 300px}}
+#v3filt>#v3tools .v3t{padding:0 6px;font-size:14px}
+@media (max-width:1023px){#xnear{min-height:48px!important;margin-top:4px}#v3pill{min-height:44px;margin-bottom:2px}}
+@media (max-width:379px){#v3filt .fchip{padding:0 8px}#v3filt>#v3tools .v3t{padding:0 5px}}
