@@ -1,0 +1,11 @@
+{
+ "_comment": "Food banks removed from the map at their own request. Every pin whose id is the slug or starts with slug/, or whose website host matches, is dropped on every refresh (scripts/build.py), so discovery/Give Food can never re-add it.",
+ "foodbanks": [
+  {
+   "slug": "oldham",
+   "name": "Oldham Foodbank",
+   "host": "oldham.foodbank.org.uk",
+   "reason": "Referral-only delivery service; asked not to be listed (Dean, 22 Oct 2026)"
+  }
+ ]
+}

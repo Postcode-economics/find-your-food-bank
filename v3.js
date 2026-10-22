@@ -15,8 +15,8 @@ function normH(h){let t=String(h).trim().replace(/[–—]/g,'-').replace(/\s*-\
  t=t.replace(/^(?:open\s+)?(?:every\s*day|daily|365\s*days(?:\s+a\s+year)?|7\s*days(?:\s+a\s+week)?)\s*[,:]?\s*(?:from\s+)?/i,'Mo-Su ');
  t=t.replace(/(\d{2}:\d{2})-(\d{1,2}:\d{2})(?:\s*\(?next day\)?)?/gi,'$1-$2');return t.trim()}
 function sched(layer,i){
- if(layer==='fb'){const t=i.opening_times;if(!t||t.status!=='TIMES_FOUND'||!t.structured)return null;const s={};for(let d=0;d<7;d++)s[d]=[];
-  for(const[k,v]of Object.entries(t.structured)){const d=DI[k];if(d==null)continue;(v||[]).forEach(([a,b])=>{a=hm(a);b=hm(b);if(a!=null&&b!=null)s[d].push([a,b<=a?b+1440:b])})}return s}
+ if(layer==='fb'){const t=i.opening_times;if(!t||t.status!=='TIMES_FOUND'||(!t.structured&&!t.all_closed))return null;const s={};for(let d=0;d<7;d++)s[d]=[];
+  for(const[k,v]of Object.entries(t.structured||{})){const d=DI[k];if(d==null)continue;(v||[]).forEach(([a,b])=>{a=hm(a);b=hm(b);if(a!=null&&b!=null)s[d].push([a,b<=a?b+1440:b])})}return s}
  const h=i.hours;if(!h)return null;const s={};for(let d=0;d<7;d++)s[d]=[];
  if(typeof h==='object'){let any=false;for(const[k,v]of Object.entries(h)){const d=DI[k.toLowerCase().slice(0,3)];if(d==null)continue;if(/monthly|fortnight|alternate|1st|2nd|3rd|last/i.test(v))return null;const r=rng(v);if(r.length){s[d].push(...r);any=true}}return any?s:null}
  const str=normH(h);if(/^24\/7$/.test(str)){for(let d=0;d<7;d++)s[d]=[[0,1440]];return s}

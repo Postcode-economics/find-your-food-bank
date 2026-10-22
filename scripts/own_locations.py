@@ -50,6 +50,11 @@ def geocode(pcs):
 
 def words(s): return {w for w in re.findall(r"[a-z]{4,}", s.lower().replace("'", "")) if w not in ("church", "centre", "foodbank", "coventry", "england", "evangelical", "baptist", "christian")}
 
+ALL_CLOSED_RE = re.compile(r"^\s*(opening times\s*)?((mon|tue|wed|thu|fri|sat|sun)\w*\s+closed\s*){7}$", re.I)
+def all_closed(raw):
+    """True when the page lists all seven days, every one 'Closed' (e.g. a paused Coventry centre)."""
+    return bool(raw) and bool(ALL_CLOSED_RE.match(raw.strip()))
+
 def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
     """Mutates items. Returns a log dict. Never raises."""
     today = (today or datetime.date.today()).isoformat()
@@ -82,6 +87,7 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
             if hit:
                 matched.append(hit["id"])
                 hit.update(name=x["name"], address=x["address"], postcode=x["postcode"], opening_times=ot)
+                if ot is None and all_closed(x["raw"]): hit["_own_all_closed"] = {"checked_date": today, "raw": x["raw"], "source_url": c["url"]}
                 if x["postcode"] in ll: hit["lat"], hit["lng"] = ll[x["postcode"]]
                 continue
             if x["postcode"] not in ll: log.setdefault(parent, {}).setdefault("ungeocoded", []).append(x["name"]); continue
