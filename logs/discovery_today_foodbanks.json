@@ -1,1 +1,5445 @@
-{}
+{
+ "day": "2026-10-23",
+ "runs": [
+  {
+   "at": "09:42Z",
+   "source": "Give Food + IFAN",
+   "added": 65,
+   "queued": 301,
+   "rejected": 0
+  }
+ ],
+ "added": [
+  {
+   "id": "lincoln",
+   "name": "Lincoln Foodbank",
+   "postcode": "LN1 1UL",
+   "source_url": "https://www.givefood.org.uk/needs/at/lincoln/"
+  },
+  {
+   "id": "caterham",
+   "name": "Caterham Foodbank",
+   "postcode": "CR3 6NA",
+   "source_url": "https://www.givefood.org.uk/needs/at/caterham/"
+  },
+  {
+   "id": "padiham-parish",
+   "name": "Padiham Parish Foodbank",
+   "postcode": "BB12 8HG",
+   "source_url": "https://www.givefood.org.uk/needs/at/padiham-parish/"
+  },
+  {
+   "id": "dundee-angus",
+   "name": "Dundee & Angus Foodbank",
+   "postcode": "DD4 6QN",
+   "source_url": "https://www.givefood.org.uk/needs/at/dundee-angus/"
+  },
+  {
+   "id": "lewisham",
+   "name": "Lewisham Foodbank",
+   "postcode": "SE6 2RP",
+   "source_url": "https://www.givefood.org.uk/needs/at/lewisham/"
+  },
+  {
+   "id": "oldham",
+   "name": "Oldham Foodbank",
+   "postcode": "OL1 4ER",
+   "source_url": "https://www.givefood.org.uk/needs/at/oldham/"
+  },
+  {
+   "id": "sunderland",
+   "name": "Sunderland Foodbank",
+   "postcode": "SR2 8AH",
+   "source_url": "https://www.givefood.org.uk/needs/at/sunderland/"
+  },
+  {
+   "id": "blyth",
+   "name": "Blyth Foodbank",
+   "postcode": "NE24 1AY",
+   "source_url": "https://www.givefood.org.uk/needs/at/blyth/"
+  },
+  {
+   "id": "gatehouse-bury-st-edmunds",
+   "name": "Gatehouse (Bury St Edmunds) Foodbank",
+   "postcode": "IP33 3TU",
+   "source_url": "https://www.givefood.org.uk/needs/at/gatehouse-bury-st-edmunds/"
+  },
+  {
+   "id": "trafford-south",
+   "name": "Trafford South Foodbank",
+   "postcode": "WA14 5NX",
+   "source_url": "https://www.givefood.org.uk/needs/at/trafford-south/"
+  },
+  {
+   "id": "belton-pantry",
+   "name": "Belton Pantry Foodbank",
+   "postcode": "NR31 9LD",
+   "source_url": "https://www.givefood.org.uk/needs/at/belton-pantry/"
+  },
+  {
+   "id": "badenoch-strathspey",
+   "name": "Badenoch & Strathspey Foodbank",
+   "postcode": "PH22 1RH",
+   "source_url": "https://www.givefood.org.uk/needs/at/badenoch-strathspey/"
+  },
+  {
+   "id": "rickmansworth",
+   "name": "Rickmansworth Foodbank",
+   "postcode": "WD3 7HJ",
+   "source_url": "https://www.givefood.org.uk/needs/at/rickmansworth/"
+  },
+  {
+   "id": "food-for-thought-alyth",
+   "name": "Food For Thought Alyth Foodbank",
+   "postcode": "PH11 8AH",
+   "source_url": "https://www.givefood.org.uk/needs/at/food-for-thought-alyth/"
+  },
+  {
+   "id": "transformation",
+   "name": "Transformation Foodbank",
+   "postcode": "TR14 8HS",
+   "source_url": "https://www.givefood.org.uk/needs/at/transformation/"
+  },
+  {
+   "id": "felix-multibank",
+   "name": "Felix Multibank",
+   "postcode": "UB6 8UN",
+   "source_url": "https://www.givefood.org.uk/needs/at/felix-multibank/"
+  },
+  {
+   "id": "launceston",
+   "name": "Launceston Foodbank",
+   "postcode": "PL15 8EX",
+   "source_url": "https://www.givefood.org.uk/needs/at/launceston/"
+  },
+  {
+   "id": "action-homeless",
+   "name": "Action Homeless Foodbank",
+   "postcode": "LE18 3SE",
+   "source_url": "https://www.givefood.org.uk/needs/at/action-homeless/"
+  },
+  {
+   "id": "bradford-metropolitan",
+   "name": "Bradford Metropolitan Foodbank",
+   "postcode": "BD8 9NN",
+   "source_url": "https://www.givefood.org.uk/needs/at/bradford-metropolitan/"
+  },
+  {
+   "id": "kentish-town",
+   "name": "Kentish Town Foodbank",
+   "postcode": "NW1 8PD",
+   "source_url": "https://www.givefood.org.uk/needs/at/kentish-town/"
+  },
+  {
+   "id": "antrim",
+   "name": "Antrim Foodbank",
+   "postcode": "BT41 1JZ",
+   "source_url": "https://www.givefood.org.uk/needs/at/antrim/"
+  },
+  {
+   "id": "oxford-food-hub",
+   "name": "Oxford Food Hub",
+   "postcode": "OX2 0LX",
+   "source_url": "https://www.givefood.org.uk/needs/at/oxford-food-hub/"
+  },
+  {
+   "id": "shoreham/oasis-food-bank",
+   "name": "Oasis Food Bank",
+   "postcode": "BN3 8EQ",
+   "source_url": "https://www.givefood.org.uk/needs/at/shoreham/"
+  },
+  {
+   "id": "salvation-army/worcester",
+   "name": "Worcester",
+   "postcode": "WR1 2PN",
+   "source_url": "https://www.givefood.org.uk/needs/at/salvation-army/"
+  },
+  {
+   "id": "waveney/fressingfield-methodist-church",
+   "name": "Fressingfield Methodist Church",
+   "postcode": "IP21 5PG",
+   "source_url": "https://www.givefood.org.uk/needs/at/waveney/"
+  },
+  {
+   "id": "lincoln/north-hykeham",
+   "name": "North Hykeham",
+   "postcode": "LN6 8JB",
+   "source_url": "https://www.givefood.org.uk/needs/at/lincoln/"
+  },
+  {
+   "id": "stockport/tiviot-dale-stockport",
+   "name": "Tiviot Dale, Stockport",
+   "postcode": "SK1 1TA",
+   "source_url": "https://www.givefood.org.uk/needs/at/stockport/"
+  },
+  {
+   "id": "oldham/shaw-crompton-churches-together",
+   "name": "Shaw & Crompton Churches Together",
+   "postcode": "OL2 8QY",
+   "source_url": "https://www.givefood.org.uk/needs/at/oldham/"
+  },
+  {
+   "id": "ifan-00db218cd539582721f6a4-0",
+   "name": "Bahja Initiative",
+   "postcode": "BB5 0RT",
+   "url": "https://Bahja.co.uk",
+   "final_url": "https://www.bahja.co.uk/",
+   "http": 200,
+   "sha256": "6312d98e9d7ef7dd2edee332dd275f8fa24858ec770beb91b73f924d3fd27623",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-0696416ec3aadb29cb398b-0",
+   "name": "South Norwood Community Kitchen",
+   "postcode": "SE25 4PQ",
+   "url": "https://www.southnorwoodcommunitykitchen.co.uk",
+   "final_url": "https://www.southnorwoodcommunitykitchen.co.uk",
+   "http": 200,
+   "sha256": "6c1c20ece9b99493487e1c0398a9baaebd1a3402bc9daa4d4f28e30e5ddc333d",
+   "etag": "W/\"bce567a383c3bea59bedeab3eef420bd\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-0ea12dd414fcb6a358d3f0-0",
+   "name": "Pan Together",
+   "postcode": "PO30 2AX",
+   "url": "https://www.pantogether.org.uk",
+   "final_url": "https://pantogether.org.uk/",
+   "http": 200,
+   "sha256": "10e40131a829cf3f3924a887ea696017324e4cf350fa0e5d3a98df56274a7520",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-1f8203c780b955550f673f-0",
+   "name": "Humans MCR",
+   "postcode": "M9 6FQ",
+   "url": "https://www.humansmcr.org",
+   "final_url": "https://humansmcr.org/",
+   "http": 200,
+   "sha256": "8cec9b721537fc635f32664d6bd5187d2fcbeb8a03aaec338f19d263f18144a9",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-25c84c4582b7e7c60aeeac-0",
+   "name": "New beginnings - Improving Lives CIC",
+   "postcode": "L6 4BB",
+   "url": "https://www.nbil-community.org",
+   "final_url": "https://www.nbil-community.org",
+   "http": 200,
+   "sha256": "f77d880e3045df6305491957b2fb0b23f61fb40c724a100ac678db5d3b828686",
+   "etag": "W/\"f7bab645cac8c6c836d417380cecfc6a\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-3287e57944ff0bdd42b2a6-0",
+   "name": "Jedidiah UK",
+   "postcode": "MK18 1BP",
+   "url": "https://www.jedidiah.org.uk",
+   "final_url": "https://www.jedidiah.org.uk",
+   "http": 200,
+   "sha256": "6ffe93bcd1e6e9b041d8c32ff397cbf2539e6df008ba1394dbe08a0cfe398809",
+   "etag": "W/\"84e6cf615dc14e36c28e4dc7acaf52ee\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-3287e57944ff0bdd42b2a6-1",
+   "name": "Jedidiah UK",
+   "postcode": "SG14 1AJ",
+   "url": "https://www.jedidiah.org.uk",
+   "final_url": "https://www.jedidiah.org.uk",
+   "http": 200,
+   "sha256": "6ffe93bcd1e6e9b041d8c32ff397cbf2539e6df008ba1394dbe08a0cfe398809",
+   "etag": "W/\"84e6cf615dc14e36c28e4dc7acaf52ee\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-345925e365a20af9a2007e-0",
+   "name": "Axminster Health & Wellbeing Centre",
+   "postcode": "EX13 5DZ",
+   "url": "https://www.axminsterwellbeing.com",
+   "final_url": "https://www.axminsterwellbeing.com",
+   "http": 200,
+   "sha256": "302587a32177cd6ac5ffc028c01af51c0ab99881c8144390798dce4b9c96f402",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-35c6027fbd4557dc7eb4bb-0",
+   "name": "Wai Yin Society",
+   "postcode": "M4 5JU",
+   "url": "https://www.waiyin.org.uk",
+   "final_url": "https://www.waiyin.org.uk",
+   "http": 200,
+   "sha256": "3e44c73ae32fbfbedff04ca48c1f30f224389d024e2cadb08ce10200e4854645",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-3c7cb974c7ac6c1966b83c-0",
+   "name": "Neo Community",
+   "postcode": "CH42 3YN",
+   "url": "https://www.neocommunity.org.uk/",
+   "final_url": "https://www.neocommunity.org.uk/",
+   "http": 200,
+   "sha256": "d93024e48b962c25eb571159f997760eaede07f775f61d2792b77157db2ad8a9",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 09:41:56 GMT"
+  },
+  {
+   "id": "ifan-3de702dac280937b2490eb-0",
+   "name": "St Catherine's Church Centre",
+   "postcode": "WF1 5HL",
+   "url": "https://www.stcatherines-wakefield.org.uk",
+   "final_url": "https://www.stcatherines-wakefield.org.uk",
+   "http": 200,
+   "sha256": "3c82fb3b0c7d9a6643c2abe42671cafe8d49635dde9bd86d8b765b733cfad64b",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-3e1f90aa3ff4d2ebf4b6d0-0",
+   "name": "Healthy Me Healthy Communities (Miles Platting)",
+   "postcode": "M18 8PE",
+   "url": "https://www.hmhc.co.uk",
+   "final_url": "https://www.hmhc.co.uk",
+   "http": 200,
+   "sha256": "94196c31c105875428e4a5fcc17650b35724e5b9a1c84598c190dcbb115d2591",
+   "etag": "W/\"663910035\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-4794bf126a61365207fff5-0",
+   "name": "West Hampstead Community Food Hub",
+   "postcode": "NW6 2BA",
+   "url": "https://www.westhampsteadcommunityfoodhub.org",
+   "final_url": "https://westhampsteadcommunityfoodhub.org/",
+   "http": 200,
+   "sha256": "0b601c6c1163a50b69b86cffe497bee47929c6b27cce8c43814e5d606543450c",
+   "etag": "W/\"4272708219734f4aa1e73e0b6777cae6\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-47a9d1714fe97a62d62178-0",
+   "name": "Making Dundee Home (JustBeeProductions)",
+   "postcode": "DD1 4EH",
+   "url": "https://www.justbeeproductions.co.uk",
+   "final_url": "https://www.justbeeproductions.co.uk",
+   "http": 200,
+   "sha256": "2947584dbddb05500038838bcab9e11e8462b1efff65dd4e437053c06fd45afa",
+   "etag": "W/\"4a9cc9e15d10019456c6212e22dd578a\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-4843e1fec06a8fc46989df-0",
+   "name": "Colne Valley Help",
+   "postcode": "HD7 5AB",
+   "url": "https://www.colnevalleyhelp.org.uk",
+   "final_url": "https://www.colnevalleyhelp.org.uk",
+   "http": 200,
+   "sha256": "e185fcadd6a0c0a2ee406caae775bb618041ff2e416741a2c319e07a31202296",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-4843e1fec06a8fc46989df-1",
+   "name": "Colne Valley Help",
+   "postcode": "HD3 4SS",
+   "url": "https://www.colnevalleyhelp.org.uk",
+   "final_url": "https://www.colnevalleyhelp.org.uk",
+   "http": 200,
+   "sha256": "e185fcadd6a0c0a2ee406caae775bb618041ff2e416741a2c319e07a31202296",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-53c68645aa831ab649ac43-0",
+   "name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
+   "postcode": "SW19 6EW",
+   "url": "https://stpaulsparkside.org.uk/",
+   "final_url": "https://www.stpaulsparkside.org.uk/",
+   "http": 200,
+   "sha256": "9e30c2e16d0e6fdce422249464c04d1642b2b1f725afde6004ea503cbd1c7a8a",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-5b3e01fe979d373d9ba679-0",
+   "name": "Cornerstone Day Centre - Caritas Diocese of Salford",
+   "postcode": "M15 6JS",
+   "url": "https://www.caritassalford.org.uk/service/cornerstone-centre/",
+   "final_url": "https://www.caritassalford.org.uk/service/cornerstone-centre/",
+   "http": 200,
+   "sha256": "b1c7be51ce490dffeaa9b63299cd2702bd21633fecff9a6c7959ca554b0f28f7",
+   "etag": "",
+   "last_modified": "Thu, 22 Oct 2026 14:05:23 GMT"
+  },
+  {
+   "id": "ifan-5b9fd1318a04132921a389-0",
+   "name": "Holy Trinity Church, Wester Hailes",
+   "postcode": "EH14 2SL",
+   "url": "https://www.holytrinitywesterhailes.org.uk",
+   "final_url": "https://holytrinitywesterhailes.org.uk/",
+   "http": 200,
+   "sha256": "e69eb2ecdf78658b12e5bff4442bef787121786a81f1ca66e213c17aee59fec5",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 05:20:03 GMT"
+  },
+  {
+   "id": "ifan-604a74f1cb3c7d624b7f35-0",
+   "name": "Teign Valley Larder CIC (Christow)",
+   "postcode": "EX6 7LZ",
+   "url": "https://www.teignvalley.org/larder/",
+   "final_url": "https://teignvalley.org/larder/",
+   "http": 200,
+   "sha256": "70904674511ecb30f9c92783bf810f0a992ae16e2fb9959090b61a055e2928f9",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-656c3bdee3de82e43e1cd8-0",
+   "name": "Carpenters Cafe",
+   "postcode": "E15 2JL",
+   "url": "https://www.carpenterscafe.co.uk",
+   "final_url": "https://carpenterscafe.co.uk/",
+   "http": 200,
+   "sha256": "307b0f249a21a14a53af4b77c2620b651b88e754cd2c16ff060c6cbc903d7bee",
+   "etag": "",
+   "last_modified": "Wed, 21 Oct 2026 04:53:55 GMT"
+  },
+  {
+   "id": "ifan-6975154b6c15b497a8cdc5-0",
+   "name": "AROUND AGAIN CHARITY",
+   "postcode": "B37 6DX",
+   "url": "https://colebridge.org/around-again/",
+   "final_url": "https://colebridge.org/around-again/",
+   "http": 200,
+   "sha256": "89d992a9166d6d59a710543548c88e5fa1a3eeb544fa68ac34baed4922827027",
+   "etag": "\"942-1792659162;;;\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-762040c38571b1178c1e2d-0",
+   "name": "The Gospel Centre ( Food bank)",
+   "postcode": "N8 0LT",
+   "url": "https://www.gospelcentre.co.uk/get-involved.html",
+   "final_url": "https://www.gospelcentre.co.uk/get-involved.html",
+   "http": 200,
+   "sha256": "42c8dada843071ded4e5ccb53caf2179ae0dd6538a6b478ee6dfdd96f281d420",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 09:42:01 GMT"
+  },
+  {
+   "id": "ifan-84cd0bf40986bfc9a427c6-0",
+   "name": "St Laurence's Larder & Open Kitchen",
+   "postcode": "NW6 7BJ",
+   "url": "https://www.laurenceslarder.org.uk",
+   "final_url": "https://www.laurenceslarder.org.uk",
+   "http": 200,
+   "sha256": "260439a713139098cb75d2fae7735fad041a14e9994a72de3c78986a51b2e9c6",
+   "etag": "W/\"f8fb2f02411016c3f8db9a9d8832bbc5--gzip\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-85fc4f26365d8e7c333d57-0",
+   "name": "Ibijoke Children Foundation UK",
+   "postcode": "L7 0JA",
+   "url": "https://www.ibijokefoundation.co.uk/",
+   "final_url": "https://ibijokefoundation.co.uk/",
+   "http": 200,
+   "sha256": "494f826536a76ee754adddd7532907ec8da6c7bcba2212208c0a36ba61ee0a24",
+   "etag": "e153c171796715c9572dd4d4fcb8e7be",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-9cf9dd4ce1df051c2c0a59-0",
+   "name": "Healthy Living Platform",
+   "postcode": "SW9 7AA",
+   "url": "https://www.healthylivingplatform.org",
+   "final_url": "https://healthylivingplatform.org/",
+   "http": 200,
+   "sha256": "832a79d3d2b19be888f50b78e99714d7aeb4ec347ed38b4d638ebc792b704501",
+   "etag": "W/\"710277e7e4e8c7b9f813fd3ac789df34\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-9fef48d4f0fd3a3f6896d2-0",
+   "name": "The Gospel Church of Jesus Christ",
+   "postcode": "WC1B 3PP",
+   "url": "https://www.gcjc.co.uk",
+   "final_url": "https://www.gcjc.co.uk",
+   "http": 200,
+   "sha256": "0fcc71aa4be853279f0f8e5feffc4ad6206c77a3ce7cbe89227510c218369340",
+   "etag": "W/\"40971fecd87a23e0aadc4cceb90860d0\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-b5024cf18b57b8b3790909-0",
+   "name": "Dorchester Community Church FOOD SHARE",
+   "postcode": "DT1 3DF",
+   "url": "https://www.dorchestercommunitychurch.org.uk",
+   "final_url": "https://www.dorchestercommunitychurch.org.uk",
+   "http": 200,
+   "sha256": "1f155474aaa91b18e40f228a2c0eed9408b552294fda9c06b6a22832fba4af34",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-bbedc864f82d0a852b5735-0",
+   "name": "Bryncynon Strategy",
+   "postcode": "CF45 4XZ",
+   "url": "https://www.bryncynonstrategy.co.uk",
+   "final_url": "https://www.bryncynonstrategy.co.uk",
+   "http": 200,
+   "sha256": "498436ab7cc4d24837875ee2da8668ae6fae18f1f39bc9cab62b835796df54b9",
+   "etag": "W/\"9c860b8b8a77de3ac806f7a75e9e7263\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-bcc7d26b922ed1d9edf4f5-0",
+   "name": "Shoreline Church Food Bank",
+   "postcode": "PR9 0TS",
+   "url": "https://www.shorelinechurch.org.uk",
+   "final_url": "https://www.shorelinechurch.org.uk",
+   "http": 200,
+   "sha256": "8d30bd917e30fc3c2685ba87e3dc358c6223c7718870e6ffa5a5981b7a9188ca",
+   "etag": "W/\"8ebaa34500f151494c502a045ab9c009\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-c894c18cc81d79344bc973-0",
+   "name": "Touch of Love Outreach",
+   "postcode": "AB11 9LA",
+   "url": "https://www.touchoflove.org.uk",
+   "final_url": "https://www.touchoflove.org.uk",
+   "http": 200,
+   "sha256": "c44d2359708493043a0e1b67e96490cd2c9873777dc79fa4a976134ef328c6a2",
+   "etag": "",
+   "last_modified": "Mon, 13 Jul 2026 21:18:13 GMT"
+  },
+  {
+   "id": "ifan-ca574aed6b4ff8c310060c-0",
+   "name": "CFYDC (CHANCE) t/a Chapeltown Youth Development Centre",
+   "postcode": "LS7 2HJ",
+   "url": "https://www.cfydc.org.uk/",
+   "final_url": "https://cfydc.org.uk/",
+   "http": 200,
+   "sha256": "1ab4295fa1d97d3b8938307f6d2c1d18a4789da1cfe4664c363f9d7d6db69344",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-d59b2e089746f7a97c1e15-0",
+   "name": "Chance Changing Lives",
+   "postcode": "CW1 4EJ",
+   "url": "https://www.chancechanginglives.org",
+   "final_url": "https://www.chancechanginglives.org",
+   "http": 200,
+   "sha256": "32ac7b6720bd65d6ceb9f6d3e125b3a968d36bdfd26ac08fde959728a1d98ea1",
+   "etag": "W/\"278f4ec0247fc8ccbe9ba57707438d01\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-da5df633f7eabc8fbdb2a3-0",
+   "name": "Castleman Community Larder CIC",
+   "postcode": "BH22 0JB",
+   "url": "https://castlemancommunity.wixsite.com/larder",
+   "final_url": "https://castlemancommunity.wixsite.com/larder",
+   "http": 200,
+   "sha256": "56eca456be7ce531188d1b76334bc1f7508d149aac89c0421ac766439ed10325",
+   "etag": "W/\"8a89bdefa67663fbd45ab259a89bdac9\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-eddf2af4d3d092a3382b3c-0",
+   "name": "Christ Apostolic Church Mount of Rehoboth",
+   "postcode": "WV13 1QU",
+   "url": "https://www.cacmor.org.uk",
+   "final_url": "https://cacmor.org.uk/",
+   "http": 200,
+   "sha256": "5c76552989f72a8fe3fa457ec2e747ee1e8b8a37e4ff2b57f3af9a05aa7a4097",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-edf226c522cd08e91d2afb-0",
+   "name": "Bridge Church Food Bank",
+   "postcode": "DN22 6AA",
+   "url": "https://bridgechurchretford.com/",
+   "final_url": "https://bridgechurchretford.com/",
+   "http": 200,
+   "sha256": "f4f4a44f962f560e841f92d6a9f32df9a14f476e7a855dd110c754cd023a29e1",
+   "etag": "\"312-1792244450;;;\"",
+   "last_modified": ""
+  },
+  {
+   "id": "ifan-f4e21546df8eddabcf5d8e-0",
+   "name": "The Life House",
+   "postcode": "B29 6PB",
+   "url": "https://www.thelifehouse.net",
+   "final_url": "https://www.thelifehouse.net",
+   "http": 200,
+   "sha256": "f17505666d8a7106e680f7011f693fcd24e829e0be3a59395f01f3367de300fe",
+   "etag": "W/\"7d2243faf8d06794c314de25c2398dc1--gzip\"",
+   "last_modified": ""
+  }
+ ],
+ "queued": {
+  "ifan-00dc6e6d959d10df76db37-1": {
+   "id": "ifan-00dc6e6d959d10df76db37-1",
+   "name": "Hive Hope",
+   "postcode": "DA11 0RB",
+   "website": "https://www.hivehope.org.uk.",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.hivehope.org.uk.",
+   "final_url": "https://www.hivehope.org.uk.",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-00fd59779afa4846919e20-0": {
+   "id": "ifan-00fd59779afa4846919e20-0",
+   "name": "Bethlehem House of Bread (Condorrat Parish Church)",
+   "postcode": "G67 4DZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-01c4e7b3eb5fb6efb0189d-0": {
+   "id": "ifan-01c4e7b3eb5fb6efb0189d-0",
+   "name": "The Bright Morning Star Prisons and Homelessness Outreach",
+   "postcode": "SE11 4HZ",
+   "website": "https://Www.thebrightmorningministries.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://Www.thebrightmorningministries.com",
+   "final_url": "https://Www.thebrightmorningministries.com",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-01c4e7b3eb5fb6efb0189d-1": {
+   "id": "ifan-01c4e7b3eb5fb6efb0189d-1",
+   "name": "The Bright Morning Star Prisons and Homelessness Outreach",
+   "postcode": "SW9 7PT",
+   "website": "https://Www.thebrightmorningministries.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://Www.thebrightmorningministries.com",
+   "final_url": "https://Www.thebrightmorningministries.com",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-0259cea5fd25500b83604b-1": {
+   "id": "ifan-0259cea5fd25500b83604b-1",
+   "name": "Eat or Heat",
+   "postcode": "E4 8LT",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-028a4b1d913cc3e8cfaa54-0": {
+   "id": "ifan-028a4b1d913cc3e8cfaa54-0",
+   "name": "Preen Community Interest Company",
+   "postcode": "SG18 0BP",
+   "website": "https://www.preencic.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.preencic.org",
+   "final_url": "https://www.preencic.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-02ba9c90ed8392b235249f-0": {
+   "id": "ifan-02ba9c90ed8392b235249f-0",
+   "name": "Corner Cupboard",
+   "postcode": "KA3 7AH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-039120b558a6065c21440a-0": {
+   "id": "ifan-039120b558a6065c21440a-0",
+   "name": "Heart of Braehead Community Group",
+   "postcode": "FK7 7QW",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-03a7e0a3d37533c3474bb3-0": {
+   "id": "ifan-03a7e0a3d37533c3474bb3-0",
+   "name": "The Larder",
+   "postcode": "EH54 9BJ",
+   "website": "https://www.thelarder.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.thelarder.org",
+   "final_url": "https://www.thelarder.org",
+   "http": 200,
+   "sha256": "fe88dd9b8bc33dc1afc74857c6a16d84d02342781c675209460edddebbba11b6",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-03a7e0a3d37533c3474bb3-1": {
+   "id": "ifan-03a7e0a3d37533c3474bb3-1",
+   "name": "The Larder",
+   "postcode": "EH54 6TQ",
+   "website": "https://www.thelarder.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.thelarder.org",
+   "final_url": "https://www.thelarder.org",
+   "http": 200,
+   "sha256": "fe88dd9b8bc33dc1afc74857c6a16d84d02342781c675209460edddebbba11b6",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-03a7e0a3d37533c3474bb3-2": {
+   "id": "ifan-03a7e0a3d37533c3474bb3-2",
+   "name": "The Larder",
+   "postcode": "EH52 5LH",
+   "website": "https://www.thelarder.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.thelarder.org",
+   "final_url": "https://www.thelarder.org",
+   "http": 200,
+   "sha256": "fe88dd9b8bc33dc1afc74857c6a16d84d02342781c675209460edddebbba11b6",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-05463fbeed5b9637c71888-0": {
+   "id": "ifan-05463fbeed5b9637c71888-0",
+   "name": "Sadaka",
+   "postcode": "RG6 7BH",
+   "website": "https://www.sadakagives.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.sadakagives.org.uk",
+   "final_url": "https://www.sadakagives.org.uk",
+   "http": 200,
+   "sha256": "e3ae0700e98bacd127281ba052c0614d385cf90fb9043e8a502f1a6bf0d6e0ab",
+   "etag": "W/\"5ef6f508d5e7311944e1f9b4da845458\"",
+   "last_modified": ""
+  },
+  "ifan-054c61a030517912bf75d7-0": {
+   "id": "ifan-054c61a030517912bf75d7-0",
+   "name": "Teign Valley Larder CIC (Ashton)",
+   "postcode": "EX6 7QR",
+   "website": "https://www.teignvalley.org/larder/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.teignvalley.org/larder/",
+   "final_url": "https://teignvalley.org/larder/",
+   "http": 200,
+   "sha256": "70904674511ecb30f9c92783bf810f0a992ae16e2fb9959090b61a055e2928f9",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-06d88ea7fff15103d90170-0": {
+   "id": "ifan-06d88ea7fff15103d90170-0",
+   "name": "Olive Branch Aid",
+   "postcode": "SW11 5QR",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-074a4286646df9698beb62-0": {
+   "id": "ifan-074a4286646df9698beb62-0",
+   "name": "Manna Food Bank",
+   "postcode": "AL10 0JJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-080cfed478ae3b8d920a20-0": {
+   "id": "ifan-080cfed478ae3b8d920a20-0",
+   "name": "Helping the Homeless",
+   "postcode": "ME1 2DR",
+   "website": "https://www.helpingthehomeless.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.helpingthehomeless.org.uk/",
+   "final_url": "https://www.helpingthehomeless.org.uk/",
+   "http": 200,
+   "sha256": "ab63a00d5e50f68c0193a814b5cf0a20e21e8e5935955185cd1afcb29f525112",
+   "etag": "W/\"625c8ebfce87dc3bc085e53305fe4e8a\"",
+   "last_modified": ""
+  },
+  "ifan-08a48c4d731262ef86431d-0": {
+   "id": "ifan-08a48c4d731262ef86431d-0",
+   "name": "Legendary Community Club",
+   "postcode": "SE26 6AD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-094544521ec0f1eba9f2f0-0": {
+   "id": "ifan-094544521ec0f1eba9f2f0-0",
+   "name": "Banc Bwyd Bro Ddyfi Foodbank",
+   "postcode": "SY20 8ER",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-0a85871ecb89da72ac73b8-0": {
+   "id": "ifan-0a85871ecb89da72ac73b8-0",
+   "name": "St. Mark's Meals",
+   "postcode": "MK16 0EA",
+   "website": "https://www.stmarksmk.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.stmarksmk.com",
+   "final_url": "https://www.stmarksmk.com",
+   "http": 200,
+   "sha256": "80b02c7b58fef1476477cd8746e8fdcbbc49ae48ff998b750d0ef794350cc0b6",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-0b79c440b3093c72239f55-0": {
+   "id": "ifan-0b79c440b3093c72239f55-0",
+   "name": "Dawley Food Bank",
+   "postcode": "TF4 2EX",
+   "website": "https://dcctelford.wordpress.com/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://dcctelford.wordpress.com/",
+   "final_url": "https://dcctelford.wordpress.com/",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-0c5eeeb46bc09a4994b9bb-0": {
+   "id": "ifan-0c5eeeb46bc09a4994b9bb-0",
+   "name": "Diamond Hampers (The Attic)",
+   "postcode": "PE29 3PN",
+   "website": "https://www.diamondhampers.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.diamondhampers.org",
+   "final_url": "https://diamondhampers.org/",
+   "http": 200,
+   "sha256": "9a26923028655ccf73c80dcd995eacb100d952a3e017aa87f7e91e4c68bf99d4",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-0ce84917202c2d891ecb5c-0": {
+   "id": "ifan-0ce84917202c2d891ecb5c-0",
+   "name": "Crookston Community Group",
+   "postcode": "G53 5AS",
+   "website": "https://www.myccg.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.myccg.co.uk",
+   "final_url": "https://www.myccg.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-0d973db19a5f27873590b5-0": {
+   "id": "ifan-0d973db19a5f27873590b5-0",
+   "name": "St Michael's Church Food Bank",
+   "postcode": "B18 5LB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-0db3c65880521109ceafce-0": {
+   "id": "ifan-0db3c65880521109ceafce-0",
+   "name": "Burton HOPE",
+   "postcode": "DE14 1HA",
+   "website": "https://www.burtonhope.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.burtonhope.co.uk",
+   "final_url": "https://burtonhope.co.uk/",
+   "http": 200,
+   "sha256": "20a3e212dcba040a656f60a1384e0780e0a6689824263b367db8fe7eb772a6a2",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-0fe2ef9b892f84fea9964f-0": {
+   "id": "ifan-0fe2ef9b892f84fea9964f-0",
+   "name": "Macduff Community Benefit Society",
+   "postcode": "AB44 1LQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-116600f347b50ea6ba453e-0": {
+   "id": "ifan-116600f347b50ea6ba453e-0",
+   "name": "Healthy Me Healthy Communities (Anson)",
+   "postcode": "M13 0TR",
+   "website": "https://www.hmhc.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.hmhc.co.uk",
+   "final_url": "https://www.hmhc.co.uk",
+   "http": 200,
+   "sha256": "94196c31c105875428e4a5fcc17650b35724e5b9a1c84598c190dcbb115d2591",
+   "etag": "W/\"663910035\"",
+   "last_modified": ""
+  },
+  "ifan-1317823e7c2523d41cef3f-0": {
+   "id": "ifan-1317823e7c2523d41cef3f-0",
+   "name": "Edinburgh City Mission - Newington Foodbank+",
+   "postcode": "EH8 9NZ",
+   "website": "https://www.edinburghcitymission.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.edinburghcitymission.org.uk",
+   "final_url": "https://edinburghcitymission.org.uk/",
+   "http": 200,
+   "sha256": "b47769fb87ffee2e8c3b8b783edf93e10ca6cb54f55c75d2692e0ce6b115649e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-13e0ccd47569e9d19bd08e-0": {
+   "id": "ifan-13e0ccd47569e9d19bd08e-0",
+   "name": "Food For Your Future Community Pantry",
+   "postcode": "KY11 4UG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-13fc1b846cfb681c682b8a-0": {
+   "id": "ifan-13fc1b846cfb681c682b8a-0",
+   "name": "The Sapphire Foundation",
+   "postcode": "E1 6LS",
+   "website": "https://www.sapphirecommunitygroup.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.sapphirecommunitygroup.org",
+   "final_url": "https://www.sapphirecommunitygroup.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-160fc78f316f3132f59942-0": {
+   "id": "ifan-160fc78f316f3132f59942-0",
+   "name": "Nancy's Community Meals Service",
+   "postcode": "SE16 3TY",
+   "website": "https://www.my2ndchance.co.uk/store/Nancys-Community-Meals-Service-NCMS-c46114071",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.my2ndchance.co.uk/store/Nancys-Community-Meals-Service-NCMS-c46114071",
+   "final_url": "https://www.my2ndchance.co.uk/store/Nancys-Community-Meals-Service-NCMS-c46114071",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-16c8d285d002667123a897-0": {
+   "id": "ifan-16c8d285d002667123a897-0",
+   "name": "Holbeck Food Bank",
+   "postcode": "LS11 0AB",
+   "website": "https://www.holbeckfoodbank.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.holbeckfoodbank.org.uk/",
+   "final_url": "https://holbeckfoodbank.org.uk/",
+   "http": 200,
+   "sha256": "720fd8f05c718ca26f61ab17920170f369c6525e94b7a1aa2ac20c307d445ab9",
+   "etag": "e3178a5d007bed5d612240dd4f3e019e",
+   "last_modified": ""
+  },
+  "ifan-172cea283a050e3b6ce1f3-0": {
+   "id": "ifan-172cea283a050e3b6ce1f3-0",
+   "name": "Noah's Ark Food Bank",
+   "postcode": "E17 9AH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-172cea283a050e3b6ce1f3-1": {
+   "id": "ifan-172cea283a050e3b6ce1f3-1",
+   "name": "Noah's Ark Food Bank",
+   "postcode": "ME5 9QG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-18666cb6fcac051b76a0d7-0": {
+   "id": "ifan-18666cb6fcac051b76a0d7-0",
+   "name": "Hungry No More",
+   "postcode": "GL3 1HX",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-196a8076328f966295727c-0": {
+   "id": "ifan-196a8076328f966295727c-0",
+   "name": "SIFA fireside",
+   "postcode": "B9 4DS",
+   "website": "https://www.sifafireside.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.sifafireside.co.uk",
+   "final_url": "https://sifafireside.co.uk/",
+   "http": 200,
+   "sha256": "70470bc62ffe92d918d0c211beb2429719330cd104380752cbf9e50c518cbc04",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-19911956bf192706391a48-0": {
+   "id": "ifan-19911956bf192706391a48-0",
+   "name": "Edinburgh City Mission - Prestopans Foodbank+",
+   "postcode": "EH32 9NT",
+   "website": "https://www.edinburghcitymission.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.edinburghcitymission.org.uk",
+   "final_url": "https://edinburghcitymission.org.uk/",
+   "http": 200,
+   "sha256": "b47769fb87ffee2e8c3b8b783edf93e10ca6cb54f55c75d2692e0ce6b115649e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-1a8319123770f9bff0b70d-0": {
+   "id": "ifan-1a8319123770f9bff0b70d-0",
+   "name": "Better Together Community Support Group",
+   "postcode": "ST4 5LU",
+   "website": "https://www.bettertogethercommunitystoke.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.bettertogethercommunitystoke.org",
+   "final_url": "https://www.bettertogethercommunitystoke.org",
+   "http": 200,
+   "sha256": "a944eea9a49117bc015bbb51279e7c91cb53befe3e465c265b21b4161069bd81",
+   "etag": "W/\"fec28800b1e511b2d0dbe287e8fb4711\"",
+   "last_modified": ""
+  },
+  "ifan-1abca925982b15e8fe62a3-0": {
+   "id": "ifan-1abca925982b15e8fe62a3-0",
+   "name": "Food Kitchen, St David Lewis and St Francis Xavier Church Hall",
+   "postcode": "NP15 1RZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-1bad985fb741b975162049-0": {
+   "id": "ifan-1bad985fb741b975162049-0",
+   "name": "Southway Housing Trust",
+   "postcode": "M20 2LT",
+   "website": "https://www.southwayhousing.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.southwayhousing.co.uk",
+   "final_url": "https://www.southwayhousing.co.uk",
+   "http": 200,
+   "sha256": "bad6a9657bde14e5d137a67717a8ef772b225d08719df0c8539a8ac34cb2d84d",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-1be02ac54f2e8495d4757c-0": {
+   "id": "ifan-1be02ac54f2e8495d4757c-0",
+   "name": "East Bridgwater Local Pantry",
+   "postcode": "TA6 4QZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-1c2fe63f30f54ac8856fc0-0": {
+   "id": "ifan-1c2fe63f30f54ac8856fc0-0",
+   "name": "Edible Links",
+   "postcode": "CV9 2QX",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-1c531782d071ddac04e221-0": {
+   "id": "ifan-1c531782d071ddac04e221-0",
+   "name": "CGCC Food Bank",
+   "postcode": "WF4 3FX",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-1ca141b0881fd27cf3b0dc-0": {
+   "id": "ifan-1ca141b0881fd27cf3b0dc-0",
+   "name": "Charles Burrell Centre - The Burrell Shop",
+   "postcode": "IP24 3LH",
+   "website": "https://www.charlesburrellcentre.org.uk/index",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.charlesburrellcentre.org.uk/index",
+   "final_url": "https://www.charlesburrellcentre.org.uk/index",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-1ce25ab0c3ff1ae9e8feb2-0": {
+   "id": "ifan-1ce25ab0c3ff1ae9e8feb2-0",
+   "name": "Junction 7",
+   "postcode": "DL5 7DZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-209acd21549df18a9ad576-2": {
+   "id": "ifan-209acd21549df18a9ad576-2",
+   "name": "Food for Thought",
+   "postcode": "G81 2HX",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2229c48c344d712989f04f-0": {
+   "id": "ifan-2229c48c344d712989f04f-0",
+   "name": "Firth Park Cultural Centre",
+   "postcode": "S5 6HB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-225214704f83cfe5182286-0": {
+   "id": "ifan-225214704f83cfe5182286-0",
+   "name": "Wells Vineyard Foodbank / The Wells Storehouse",
+   "postcode": "BA5 1DA",
+   "website": "https://www.wellsvineyard.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.wellsvineyard.com",
+   "final_url": "https://www.wellsvineyard.com",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-227478a14b97284f943f7d-0": {
+   "id": "ifan-227478a14b97284f943f7d-0",
+   "name": "Rokzkool Academy (SCIO)",
+   "postcode": "IV4 7EH",
+   "website": "https://www.rokzkoolacademy.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.rokzkoolacademy.org",
+   "final_url": "https://www.rokzkoolacademy.org",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-227478a14b97284f943f7d-1": {
+   "id": "ifan-227478a14b97284f943f7d-1",
+   "name": "Rokzkool Academy (SCIO)",
+   "postcode": "IV3 8HE",
+   "website": "https://www.rokzkoolacademy.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.rokzkoolacademy.org",
+   "final_url": "https://www.rokzkoolacademy.org",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2382aee46075d858e813a9-1": {
+   "id": "ifan-2382aee46075d858e813a9-1",
+   "name": "Friends of Isaacs Food Bank",
+   "postcode": "B97 6HX",
+   "website": "https://www.teamisaac.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 503)"
+   ],
+   "url": "https://www.teamisaac.co.uk",
+   "final_url": "https://www.teamisaac.co.uk",
+   "http": 503,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2382aee46075d858e813a9-3": {
+   "id": "ifan-2382aee46075d858e813a9-3",
+   "name": "Friends of Isaacs Food Bank",
+   "postcode": "B98 9HL",
+   "website": "https://www.teamisaac.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 503)"
+   ],
+   "url": "https://www.teamisaac.co.uk",
+   "final_url": "https://www.teamisaac.co.uk",
+   "http": 503,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2518e0e42e77bd3f62bc28-0": {
+   "id": "ifan-2518e0e42e77bd3f62bc28-0",
+   "name": "Food4All",
+   "postcode": "E7 9LW",
+   "website": "https://www.food4alluk.org/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.food4alluk.org/",
+   "final_url": "https://www.food4alluk.org/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-25c6387e81732d91973c76-0": {
+   "id": "ifan-25c6387e81732d91973c76-0",
+   "name": "Saint Vincent de Paul Society (St Mary's Cathedral)",
+   "postcode": "AB10 1SH",
+   "website": "https://www.stmaryscathedralaberdeen.org/groups/groups-2/non-liturgical/st-vincent/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.stmaryscathedralaberdeen.org/groups/groups-2/non-liturgical/st-vincent/",
+   "final_url": "https://www.stmaryscathedralaberdeen.org/groups/groups-2/non-liturgical/st-vincent/",
+   "http": 200,
+   "sha256": "3db8819516ab3f9419657566b5ee7356f3da908f60b808f385507cfa713e63bf",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-25d7031a9be08bf69027c7-0": {
+   "id": "ifan-25d7031a9be08bf69027c7-0",
+   "name": "Social Echo North Huntingdonshire",
+   "postcode": "PE7 3AT",
+   "website": "https://www.socialecho.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.socialecho.uk",
+   "final_url": "https://www.socialecho.uk",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-264c63312b6c7e4aa5eed1-0": {
+   "id": "ifan-264c63312b6c7e4aa5eed1-0",
+   "name": "Oxford Mutual Aid",
+   "postcode": "OX4 1UR",
+   "website": "https://www.oxfordmutualaid.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.oxfordmutualaid.org",
+   "final_url": "https://www.oxfordmutualaid.org",
+   "http": 200,
+   "sha256": "e11a8adf718f83ac40b2e49a7d7a857fb0bd6f420f0af4bc7a09b75d7d084543",
+   "etag": "W/\"b8c3507cb8fd5759d99429ac2728268e\"",
+   "last_modified": ""
+  },
+  "ifan-266a4c096a86a9a76c0611-0": {
+   "id": "ifan-266a4c096a86a9a76c0611-0",
+   "name": "Sutton Community Food Project",
+   "postcode": "WA9 4RB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2672bdd931f230dcd4a519-0": {
+   "id": "ifan-2672bdd931f230dcd4a519-0",
+   "name": "Food Angels Foodbank",
+   "postcode": "HP3 8DG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-26860facb1a8525e302b6d-0": {
+   "id": "ifan-26860facb1a8525e302b6d-0",
+   "name": "Share IT!",
+   "postcode": "PR2 3XA",
+   "website": "https://www.shareitpreston.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.shareitpreston.org.uk",
+   "final_url": "https://shareitpreston.org.uk/",
+   "http": 200,
+   "sha256": "8133b6767e1405df20f92613a80be5ce20bf1f576cb008ee881ee1d2790b3a56",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-27d3e95fd03c1b237239e2-0": {
+   "id": "ifan-27d3e95fd03c1b237239e2-0",
+   "name": "Selkirk foodbank",
+   "postcode": "TD7 5BL",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2b515c7db6b72816398d62-0": {
+   "id": "ifan-2b515c7db6b72816398d62-0",
+   "name": "Mayflower Tenants Association",
+   "postcode": "SE16 7JP",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2d389d7b87fe0052b7bcf4-0": {
+   "id": "ifan-2d389d7b87fe0052b7bcf4-0",
+   "name": "Friends of meadowside cic",
+   "postcode": "WA2 8AP",
+   "website": "https://www.friendsofmeadowside.org/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.friendsofmeadowside.org/",
+   "final_url": "https://www.friendsofmeadowside.org/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-2e2412b3cbcf8f62b55bcb-0": {
+   "id": "ifan-2e2412b3cbcf8f62b55bcb-0",
+   "name": "Royal Oak Community Centre (Food Pantry)",
+   "postcode": "M23 1DU",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-30327b26b5a6ffbe1dffd9-0": {
+   "id": "ifan-30327b26b5a6ffbe1dffd9-0",
+   "name": "Soul Foundation",
+   "postcode": "NR7 9NT",
+   "website": "https://www.soulfoundation.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.soulfoundation.org.uk",
+   "final_url": "https://www.soulfoundation.org.uk",
+   "http": 200,
+   "sha256": "6e646d436a81ce1fe913275047f6297c6e081fb2fd5de41e15404a6ef3d820ed",
+   "etag": "",
+   "last_modified": "Tue, 15 Sep 2026 10:59:36 GMT"
+  },
+  "ifan-30f53cebce261b8b2e633d-0": {
+   "id": "ifan-30f53cebce261b8b2e633d-0",
+   "name": "Bo'ness Storehouse Foodbank",
+   "postcode": "EH51 9UD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3165e221a6d796c263b761-0": {
+   "id": "ifan-3165e221a6d796c263b761-0",
+   "name": "CATCH Cwmtawe Action to Combat Hardship",
+   "postcode": "SA9 2JA",
+   "website": "https://www.catch-online.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.catch-online.org.uk",
+   "final_url": "https://www.catch-online.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-31bce51d8b5b704548c1f5-0": {
+   "id": "ifan-31bce51d8b5b704548c1f5-0",
+   "name": "Caring for Kendray",
+   "postcode": "S70 3RH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-323f3452695004231600ef-0": {
+   "id": "ifan-323f3452695004231600ef-0",
+   "name": "Teign Valley Larder CIC (Dunsford)",
+   "postcode": "EX6 7DA",
+   "website": "https://www.teignvalley.org/larder/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.teignvalley.org/larder/",
+   "final_url": "https://teignvalley.org/larder/",
+   "http": 200,
+   "sha256": "70904674511ecb30f9c92783bf810f0a992ae16e2fb9959090b61a055e2928f9",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-32509a86fddc0f05384d13-0": {
+   "id": "ifan-32509a86fddc0f05384d13-0",
+   "name": "Bedford Street Community Company Ltd",
+   "postcode": "LL18 1LS",
+   "website": "https://www.forydcentre.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.forydcentre.com",
+   "final_url": "https://forydcentre.com/",
+   "http": 200,
+   "sha256": "d6aee6755c301196baf27f26bb08878ab95bd9a25a52ac734f529937fc0722d5",
+   "etag": "",
+   "last_modified": "Tue, 12 May 2026 08:25:40 GMT"
+  },
+  "ifan-32a403c91d899e5ca3f5b3-0": {
+   "id": "ifan-32a403c91d899e5ca3f5b3-0",
+   "name": "Solar Project",
+   "postcode": "PA77 6UZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-33b7b5c312da6557de7b46-0": {
+   "id": "ifan-33b7b5c312da6557de7b46-0",
+   "name": "King's Table Whitecross (King's Church Warrington)",
+   "postcode": "WA5 1NZ",
+   "website": "https://www.kingschurchwarrington.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.kingschurchwarrington.co.uk",
+   "final_url": "https://kingschurchwarrington.co.uk/",
+   "http": 200,
+   "sha256": "64184f5a7a7ab2a66e0e2e07348645f34a0dadc00a49a2a7da04ba749a0d9730",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-34121866eb63e9e50d317f-0": {
+   "id": "ifan-34121866eb63e9e50d317f-0",
+   "name": "Shop and Donate CIC",
+   "postcode": "SW1V 1TA",
+   "website": "https://www.shopanddonate.org/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://www.shopanddonate.org/",
+   "final_url": "https://www.shopanddonate.org/",
+   "http": 202,
+   "sha256": "9a6073825ed2ef74f699d7108ea7c6c6b7f88e39ed592b99359a48f5cee38ab6",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-34504d53ca053d312366a6-0": {
+   "id": "ifan-34504d53ca053d312366a6-0",
+   "name": "EMS Ltd (Lonsdale Centre)",
+   "postcode": "HU3 6PA",
+   "website": "https://www.emsyorkshire.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.emsyorkshire.co.uk",
+   "final_url": "https://www.emsyorkshire.co.uk",
+   "http": 200,
+   "sha256": "06e7a45a69c009fb8df45008e62bbadf447c822e4e9db1bfbe08d24356ce35c8",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-3494d9add5a16928dda49a-0": {
+   "id": "ifan-3494d9add5a16928dda49a-0",
+   "name": "Dornoch Firth Group",
+   "postcode": "IV25 3LA",
+   "website": "https://www.dornochfirthgroup.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (dfgcommunity.com)"
+   ],
+   "url": "https://www.dornochfirthgroup.com",
+   "final_url": "https://dfgcommunity.com/",
+   "http": 200,
+   "sha256": "585e9b254694bfa83c1430f52db54a807a5df6ac5ba09680183aa9af6ac0102f",
+   "etag": "cb4e8d80f6e4f917efa38284838bc583",
+   "last_modified": ""
+  },
+  "ifan-34f7d9e1b9a4515722ca5e-0": {
+   "id": "ifan-34f7d9e1b9a4515722ca5e-0",
+   "name": "Cardiff and Vale College",
+   "postcode": "CF10 5FE",
+   "website": "https://www.cavc.ac.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.cavc.ac.uk",
+   "final_url": "https://cavc.ac.uk/en",
+   "http": 200,
+   "sha256": "5d1c9d857af0c780e32e7821ff7dd03e749f96455c667b69f23bf4c348ad2bcb",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-353082049d5b4f3b910b52-0": {
+   "id": "ifan-353082049d5b4f3b910b52-0",
+   "name": "Nightwatch",
+   "postcode": "CR8 2QA",
+   "website": "https://croydonnightwatch.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://croydonnightwatch.org.uk",
+   "final_url": "https://croydonnightwatch.org.uk",
+   "http": 200,
+   "sha256": "a93c65793a8982b67db19b3da4f768ae20e2da41d36d65ec47f9ab506593d662",
+   "etag": "",
+   "last_modified": "Thu, 22 Oct 2026 15:08:36 GMT"
+  },
+  "ifan-3598d68070dfe141274bc6-0": {
+   "id": "ifan-3598d68070dfe141274bc6-0",
+   "name": "Eyres Monsell Club for Young People",
+   "postcode": "LE2 9AQ",
+   "website": "https://www.eyresmonsellcyp.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://www.eyresmonsellcyp.co.uk",
+   "final_url": "https://www.eyresmonsellcyp.co.uk",
+   "http": 202,
+   "sha256": "ebf4f52fe5657144930c21d26e0a9a904aed64225b71e5822f64aeaeb5bee73e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-35e750b2cf2a6a0e876f28-0": {
+   "id": "ifan-35e750b2cf2a6a0e876f28-0",
+   "name": "Pollokshields Community Food Point",
+   "postcode": "G41 1NY",
+   "website": "https://www.pollokshieldsfoodpoint.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.pollokshieldsfoodpoint.org",
+   "final_url": "https://www.pollokshieldsfoodpoint.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-363464998baab7ea7c3f0c-0": {
+   "id": "ifan-363464998baab7ea7c3f0c-0",
+   "name": "Thorney, Eye and Surrounding Areas Food Bank",
+   "postcode": "PE6 0QB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3899748e8d2fa5b449b328-0": {
+   "id": "ifan-3899748e8d2fa5b449b328-0",
+   "name": "Hope Food - North Birmingham",
+   "postcode": "B75 5ED",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3899748e8d2fa5b449b328-1": {
+   "id": "ifan-3899748e8d2fa5b449b328-1",
+   "name": "Hope Food - North Birmingham",
+   "postcode": "B23 7JH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3899748e8d2fa5b449b328-2": {
+   "id": "ifan-3899748e8d2fa5b449b328-2",
+   "name": "Hope Food - North Birmingham",
+   "postcode": "B75 7LB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-394ce88b3b53294af75eb9-0": {
+   "id": "ifan-394ce88b3b53294af75eb9-0",
+   "name": "Action Force Community Group",
+   "postcode": "LU3 2DG",
+   "website": "https://www.actionforce.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.actionforce.org.uk",
+   "final_url": "https://actionforce.org.uk/",
+   "http": 200,
+   "sha256": "083fc88c7ebb792b4d96b5a7647cace56b9088712b8661615e8173d9f7473bd5",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 05:56:04 GMT"
+  },
+  "ifan-395997bbfb94e4dd204190-0": {
+   "id": "ifan-395997bbfb94e4dd204190-0",
+   "name": "Huntingdonshire Community Group",
+   "postcode": "PE29 1PE",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-39bf0b4ea110d1d54f79ad-0": {
+   "id": "ifan-39bf0b4ea110d1d54f79ad-0",
+   "name": "The Pop Up Soup Kitchen",
+   "postcode": "PO36 8DZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3a928df311762a50d89216-0": {
+   "id": "ifan-3a928df311762a50d89216-0",
+   "name": "Harvesters' Soup Kitchen",
+   "postcode": "E2 8AN",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3bb7a90c350ae33cc6f56d-0": {
+   "id": "ifan-3bb7a90c350ae33cc6f56d-0",
+   "name": "Street Treats",
+   "postcode": "M1 1RN",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3bb7a90c350ae33cc6f56d-1": {
+   "id": "ifan-3bb7a90c350ae33cc6f56d-1",
+   "name": "Street Treats",
+   "postcode": "SK14 2NN",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3cdb85ff80c513f236dbec-0": {
+   "id": "ifan-3cdb85ff80c513f236dbec-0",
+   "name": "The Hulme Community Pantry Limited",
+   "postcode": "M15 5ED",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-3e63bc7efa1f5ae555903f-0": {
+   "id": "ifan-3e63bc7efa1f5ae555903f-0",
+   "name": "The Centre Ferndown (Distributor for Wimborne Food Bank+)",
+   "postcode": "BH22 8XH",
+   "website": "https://www.thecentreferndown.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.thecentreferndown.co.uk",
+   "final_url": "https://www.thecentreferndown.co.uk",
+   "http": 200,
+   "sha256": "9f3c4a2e745c1cae8a44987235852f0cd773d89766e7fa686f30f13ac293ef65",
+   "etag": "",
+   "last_modified": "Thu, 06 Aug 2026 14:35:19 GMT"
+  },
+  "ifan-423ef713d6c992a48a6f68-0": {
+   "id": "ifan-423ef713d6c992a48a6f68-0",
+   "name": "Quaker Social Action",
+   "postcode": "EC1V 8AJ",
+   "website": "https://www.quakersocialaction.org.uk/we-can-help/homelessness-housing/cook",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.quakersocialaction.org.uk/we-can-help/homelessness-housing/cook",
+   "final_url": "https://quakersocialaction.org.uk/we-can-help/homelessness-housing/cook",
+   "http": 200,
+   "sha256": "770503c8e600462fcd8cba74c50da42a7263d3909fbb7cef60bcad4a4d632a32",
+   "etag": "W/\"1792748517-0\"",
+   "last_modified": "Fri, 23 Oct 2026 09:41:57 GMT"
+  },
+  "ifan-423ef713d6c992a48a6f68-1": {
+   "id": "ifan-423ef713d6c992a48a6f68-1",
+   "name": "Quaker Social Action",
+   "postcode": "E14 7AW",
+   "website": "https://www.quakersocialaction.org.uk/we-can-help/homelessness-housing/cook",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.quakersocialaction.org.uk/we-can-help/homelessness-housing/cook",
+   "final_url": "https://quakersocialaction.org.uk/we-can-help/homelessness-housing/cook",
+   "http": 200,
+   "sha256": "770503c8e600462fcd8cba74c50da42a7263d3909fbb7cef60bcad4a4d632a32",
+   "etag": "W/\"1792748517-0\"",
+   "last_modified": "Fri, 23 Oct 2026 09:41:57 GMT"
+  },
+  "ifan-435a0b16861f3438d8e0c6-0": {
+   "id": "ifan-435a0b16861f3438d8e0c6-0",
+   "name": "The Village Food Bank CIC",
+   "postcode": "BN11YD",
+   "website": "https://www.instagram.com/thevillagefoodbank",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.instagram.com/thevillagefoodbank",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-43d932edcde9d787d0d163-0": {
+   "id": "ifan-43d932edcde9d787d0d163-0",
+   "name": "East Cleveland Good Neighbours - Tees Valley rural Action",
+   "postcode": "TS13 4RG",
+   "website": "https://teesvalleyruralaction.co.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://teesvalleyruralaction.co.uk/",
+   "final_url": "https://teesvalleyruralaction.co.uk/",
+   "http": 200,
+   "sha256": "98d51c8a032584e2d40a65092374874d72fd04c7d59313a3961aa382811d79ea",
+   "etag": "\"2-1792667474;;;\"",
+   "last_modified": ""
+  },
+  "ifan-4835c3c50558c0d1c9195b-0": {
+   "id": "ifan-4835c3c50558c0d1c9195b-0",
+   "name": "Aspire Community and Wrestling Alliance Ltd",
+   "postcode": "DE21 6DJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-48376249bcdcff24cbe45f-0": {
+   "id": "ifan-48376249bcdcff24cbe45f-0",
+   "name": "The Coachhouse Food Hub",
+   "postcode": "PL34 0AJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-48538e379cb1bb295da780-0": {
+   "id": "ifan-48538e379cb1bb295da780-0",
+   "name": "Christian Community Action (CCA)",
+   "postcode": "RG30 1HA",
+   "website": "https://CCAM.ORG.UK",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://CCAM.ORG.UK",
+   "final_url": "https://CCAM.ORG.UK",
+   "http": 200,
+   "sha256": "a10ec4efa5d94abfd08282344d4b4107de2a307cd37566ba5342098702de00ba",
+   "etag": "\"181-1792748439;;;\"",
+   "last_modified": ""
+  },
+  "ifan-491805b7ff9089e129e980-0": {
+   "id": "ifan-491805b7ff9089e129e980-0",
+   "name": "Come out of Hiding The Lighthouse Network",
+   "postcode": "SE13 7FT",
+   "website": "https://www.cooh.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.cooh.co.uk",
+   "final_url": "https://www.cooh.co.uk",
+   "http": 200,
+   "sha256": "6d987b4ebb0867495b1fe555fb84679b1bad0755dbf935cd7beda0d0ecf39141",
+   "etag": "W/\"2e8b02f5be8594164d4da3e02e1656a4\"",
+   "last_modified": ""
+  },
+  "ifan-491e54ffca7a442aeb3743-0": {
+   "id": "ifan-491e54ffca7a442aeb3743-0",
+   "name": "Eggcup",
+   "postcode": "LA1 1NZ",
+   "website": "https://www.eggcup.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://www.eggcup.org",
+   "final_url": "https://www.eggcup.org",
+   "http": 202,
+   "sha256": "8f94dc586b6a89c08d466d7b8e274330a5f1253d2f06d05cada073e41876eb51",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-4a6217d6ae69c4977d7d70-0": {
+   "id": "ifan-4a6217d6ae69c4977d7d70-0",
+   "name": "Hopeworx",
+   "postcode": "SS6 7XJ",
+   "website": "https://www.hopeworx.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://www.hopeworx.org.uk",
+   "final_url": "https://www.hopeworx.org.uk",
+   "http": 202,
+   "sha256": "1ff45bc0a817faa2d2e3face76cad85e9b710eeab14e43351ed51f9935d8e1bc",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-4b349caf2d80fd4e96bf32-0": {
+   "id": "ifan-4b349caf2d80fd4e96bf32-0",
+   "name": "Swansea Eastside Foodbank",
+   "postcode": "SA1 7JR",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-4b4bdd13a30584805008e1-0": {
+   "id": "ifan-4b4bdd13a30584805008e1-0",
+   "name": "Sunderland African Community Association (SACA)",
+   "postcode": "SR4 7BN",
+   "website": "https://www.afrocommunity.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.afrocommunity.co.uk",
+   "final_url": "https://www.afrocommunity.co.uk",
+   "http": 200,
+   "sha256": "fd7586f43303481f6072908b7566a98be6d4a900b0e6ef574750b591a93e8313",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 06:16:01 GMT"
+  },
+  "ifan-4b7a40466786de957b576c-0": {
+   "id": "ifan-4b7a40466786de957b576c-0",
+   "name": "Hearts and Hands Stafford",
+   "postcode": "ST18 0BF",
+   "website": "https://www.heartsandhands-stafford.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.heartsandhands-stafford.co.uk",
+   "final_url": "https://www.heartsandhands-stafford.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5047a28b83ac7242ddee57-0": {
+   "id": "ifan-5047a28b83ac7242ddee57-0",
+   "name": "Spring Community Hub",
+   "postcode": "SE5 8LU",
+   "website": "https://www.cschub.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not name it",
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.cschub.co.uk",
+   "final_url": "https://www.cschub.co.uk",
+   "http": 200,
+   "sha256": "45efcc950cdebc3961810cfbec3c06c5572b82ed69db0097edcb8a3299fea042",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-514554af0d6efea413704c-0": {
+   "id": "ifan-514554af0d6efea413704c-0",
+   "name": "The Peoples Pantry NE",
+   "postcode": "NE38 8AQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5241ba78601f16b99c0456-0": {
+   "id": "ifan-5241ba78601f16b99c0456-0",
+   "name": "Feed A Child Torbay",
+   "postcode": "TQ2 8GR",
+   "website": "https://www.feedachildtorbay.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.feedachildtorbay.org.uk",
+   "final_url": "https://www.feedachildtorbay.org.uk",
+   "http": 200,
+   "sha256": "e18b536ec1b4648f01a3fe143f274b80a65c634d07a81167ec7498d12f7c8249",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 09:41:59 GMT"
+  },
+  "ifan-5685105afba5b67c62a6f3-0": {
+   "id": "ifan-5685105afba5b67c62a6f3-0",
+   "name": "Edinburgh City Mission - Granton Foodbank+",
+   "postcode": "EH5 2NW",
+   "website": "https://www.edinburghcitymission.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.edinburghcitymission.org.uk",
+   "final_url": "https://edinburghcitymission.org.uk/",
+   "http": 200,
+   "sha256": "b47769fb87ffee2e8c3b8b783edf93e10ca6cb54f55c75d2692e0ce6b115649e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-5696b01d32f4dec099de8c-0": {
+   "id": "ifan-5696b01d32f4dec099de8c-0",
+   "name": "The Breaking Bread Trust",
+   "postcode": "HA1 2TB",
+   "website": "https://www.breakingbreadtrust.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 500)"
+   ],
+   "url": "https://www.breakingbreadtrust.org",
+   "final_url": "https://www.breakingbreadtrust.org",
+   "http": 500,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-57394600aa088be9d5d027-0": {
+   "id": "ifan-57394600aa088be9d5d027-0",
+   "name": "Edinburgh City Mission - Wilson Foodbank+",
+   "postcode": "EH7 6RY",
+   "website": "https://www.edinburghcitymission.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.edinburghcitymission.org.uk",
+   "final_url": "https://edinburghcitymission.org.uk/",
+   "http": 200,
+   "sha256": "b47769fb87ffee2e8c3b8b783edf93e10ca6cb54f55c75d2692e0ce6b115649e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-592240e1eda92e1bd5915c-0": {
+   "id": "ifan-592240e1eda92e1bd5915c-0",
+   "name": "NGC Community Hub",
+   "postcode": "NG6 0JU",
+   "website": "https://www.ngcnottingham.com/ngchub",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.ngcnottingham.com/ngchub",
+   "final_url": "https://www.ngcnottingham.com/ngchub",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5KAiCqcY3rs0Bq2bmGsBq2-0": {
+   "id": "ifan-5KAiCqcY3rs0Bq2bmGsBq2-0",
+   "name": "Machars Churches Basics Food Bank",
+   "postcode": "DG8 6EL",
+   "website": "https://www.angycarehealth.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not name it",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.angycarehealth.co.uk",
+   "final_url": "https://www.angycarehealth.co.uk",
+   "http": 200,
+   "sha256": "9723dbdab7d5b855507d5c7b23d1513261634ba3c118ad61c59785240147c66a",
+   "etag": "W/\"7b18e93436ebd8296810ee872a0c2cdb\"",
+   "last_modified": ""
+  },
+  "ifan-5b735755a79e6a00c3bbef-0": {
+   "id": "ifan-5b735755a79e6a00c3bbef-0",
+   "name": "The5es Development",
+   "postcode": "E16 3PJ",
+   "website": "https://www.the5es.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.the5es.org",
+   "final_url": "https://www.the5es.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5bd01fd7c0921f8b1194d4-0": {
+   "id": "ifan-5bd01fd7c0921f8b1194d4-0",
+   "name": "The Bus Shelter Ipswich CIC",
+   "postcode": "IP2 8LR",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5c5bed9a3e29f987f36754-1": {
+   "id": "ifan-5c5bed9a3e29f987f36754-1",
+   "name": "PATCH - Pembrokeshire Action to Combat Hardship",
+   "postcode": "SA68 0YH",
+   "website": "https://www.patchcharity.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.patchcharity.org.uk",
+   "final_url": "https://patchcharity.org.uk/",
+   "http": 200,
+   "sha256": "c9aef1417450e3e6b36230d53666dddd34d74810656ef50fe1fecf8c63660fce",
+   "etag": "\"bf-642fce432f300\"",
+   "last_modified": "Fri, 07 Nov 2025 08:23:08 GMT"
+  },
+  "ifan-5c5bed9a3e29f987f36754-2": {
+   "id": "ifan-5c5bed9a3e29f987f36754-2",
+   "name": "PATCH - Pembrokeshire Action to Combat Hardship",
+   "postcode": "SA61 1QE",
+   "website": "https://www.patchcharity.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.patchcharity.org.uk",
+   "final_url": "https://www.patchcharity.org.uk",
+   "http": 200,
+   "sha256": "c9aef1417450e3e6b36230d53666dddd34d74810656ef50fe1fecf8c63660fce",
+   "etag": "\"bf-642fce432f300\"",
+   "last_modified": "Fri, 07 Nov 2025 08:23:08 GMT"
+  },
+  "ifan-5e03993d10949e7aff8078-0": {
+   "id": "ifan-5e03993d10949e7aff8078-0",
+   "name": "Homeschool Social Enterprise/ Active Christians",
+   "postcode": "WS10 0GB",
+   "website": "https://www.activechristians.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.activechristians.org.uk",
+   "final_url": "https://www.activechristians.org.uk",
+   "http": 200,
+   "sha256": "85d3197117f7e6a07fea5dadd9dee77f584535a39967e6bbbf48938b8112622c",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-5eae8db21a4b9fcb1e65b2-0": {
+   "id": "ifan-5eae8db21a4b9fcb1e65b2-0",
+   "name": "Neema Women Community",
+   "postcode": "B12 8LF",
+   "website": "https://www.neemawomen.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.neemawomen.com",
+   "final_url": "https://www.neemawomen.com",
+   "http": 200,
+   "sha256": "8e4621d25fa0688f2f71c2a8f975fae3a7a10081520933abecb5eae13695c094",
+   "etag": "W/\"ba9900fe17c4700851748f659e77e531\"",
+   "last_modified": ""
+  },
+  "ifan-5eae8db21a4b9fcb1e65b2-1": {
+   "id": "ifan-5eae8db21a4b9fcb1e65b2-1",
+   "name": "Neema Women Community",
+   "postcode": "B29 7EL",
+   "website": "https://www.neemawomen.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.neemawomen.com",
+   "final_url": "https://www.neemawomen.com",
+   "http": 200,
+   "sha256": "8e4621d25fa0688f2f71c2a8f975fae3a7a10081520933abecb5eae13695c094",
+   "etag": "W/\"ba9900fe17c4700851748f659e77e531\"",
+   "last_modified": ""
+  },
+  "ifan-5f22786ca407aa6695f3bd-0": {
+   "id": "ifan-5f22786ca407aa6695f3bd-0",
+   "name": "Hurst Green Community Fridge",
+   "postcode": "RH8 0LB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5f5d36d34c3baa8cb8d46e-0": {
+   "id": "ifan-5f5d36d34c3baa8cb8d46e-0",
+   "name": "Edlington Community Organisation",
+   "postcode": "DN12 1AB",
+   "website": "https://www.edlingtoncommunityorganisation.wordpress.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.edlingtoncommunityorganisation.wordpress.com",
+   "final_url": "https://www.edlingtoncommunityorganisation.wordpress.com",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-5facfb127bd0b0bd492b71-0": {
+   "id": "ifan-5facfb127bd0b0bd492b71-0",
+   "name": "MCKS Food Pantry",
+   "postcode": "RG21 7SY",
+   "website": "https://www.mcksfoodpantry.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.mcksfoodpantry.com",
+   "final_url": "https://www.mcksfoodpantry.com",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-61947f2e06f70c73656a4a-0": {
+   "id": "ifan-61947f2e06f70c73656a4a-0",
+   "name": "Centre of Help and Hope",
+   "postcode": "NW10 2JD",
+   "website": "https://www.centreofhelpandhope.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.centreofhelpandhope.com",
+   "final_url": "https://www.centreofhelpandhope.com",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-622e7be5d239cfb2b9c4e5-0": {
+   "id": "ifan-622e7be5d239cfb2b9c4e5-0",
+   "name": "Glastonbury & Street Bridging the Gap Foodbank",
+   "postcode": "BA6 8BS",
+   "website": "https://www.together.ourchurchweb.org.uk/glastonbury/churches/foodbank/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.together.ourchurchweb.org.uk/glastonbury/churches/foodbank/",
+   "final_url": "https://www.together.ourchurchweb.org.uk/glastonbury/churches/foodbank/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-6267d9d25029fdccca1ffc-1": {
+   "id": "ifan-6267d9d25029fdccca1ffc-1",
+   "name": "Uist & Barra Foodbank",
+   "postcode": "HS9 5XY",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-648c9fdb21218c09bad2e2-0": {
+   "id": "ifan-648c9fdb21218c09bad2e2-0",
+   "name": "Pankhurst Pantry",
+   "postcode": "BN2 9AD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-66fa40bba14d26725c9b8a-0": {
+   "id": "ifan-66fa40bba14d26725c9b8a-0",
+   "name": "Launch Foods",
+   "postcode": "G2 6PH",
+   "website": "https://www.launchfoods.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.launchfoods.org",
+   "final_url": "https://www.launchfoods.org",
+   "http": 200,
+   "sha256": "b3f0756b2a601638b750da57fe5660d5467870db7a85de2dfba2681cc50cbb1c",
+   "etag": "\"ea5f382af21ad64aee3e416f16d5b8f6\"",
+   "last_modified": "Thu, 30 Jul 2026 12:47:44 GMT"
+  },
+  "ifan-67135b9ebf80271c0dd3c7-0": {
+   "id": "ifan-67135b9ebf80271c0dd3c7-0",
+   "name": "Over 55 Tuesday Mixer Club",
+   "postcode": "ST17 4LY",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-693471bce152defcf94dd5-0": {
+   "id": "ifan-693471bce152defcf94dd5-0",
+   "name": "Croydon Refugee Day Centre",
+   "postcode": "CR0 2JH",
+   "website": "https://www.croydonrefugeedaycentre.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://www.croydonrefugeedaycentre.co.uk",
+   "final_url": "https://www.croydonrefugeedaycentre.co.uk",
+   "http": 202,
+   "sha256": "8273a217a8d21b7ae0efd47457c1130237c5bfad56d987292f1113f42a136d28",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-6a98c13b55d5073f3a0d60-0": {
+   "id": "ifan-6a98c13b55d5073f3a0d60-0",
+   "name": "EMS Ltd (The Mitchell Centre)",
+   "postcode": "HU2 0BQ",
+   "website": "https://www.emsyorkshire.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.emsyorkshire.co.uk",
+   "final_url": "https://www.emsyorkshire.co.uk",
+   "http": 200,
+   "sha256": "06e7a45a69c009fb8df45008e62bbadf447c822e4e9db1bfbe08d24356ce35c8",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-6bbc1641b2492605bb9eb9-0": {
+   "id": "ifan-6bbc1641b2492605bb9eb9-0",
+   "name": "Central Dalkeith & Woodburn Pantry",
+   "postcode": "EH22 2AT",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-6d4443acfa583dcac102b5-0": {
+   "id": "ifan-6d4443acfa583dcac102b5-0",
+   "name": "Meals Collective",
+   "postcode": "G40 2DD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-6d597b63a2de7f379d4426-0": {
+   "id": "ifan-6d597b63a2de7f379d4426-0",
+   "name": "Over 50's Foodbank",
+   "postcode": "BL6 7TD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-6d8165836e1c2efcccf964-0": {
+   "id": "ifan-6d8165836e1c2efcccf964-0",
+   "name": "Waste Not Want Not Battersea",
+   "postcode": "SW11 2NT",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-6e41d46a33761e13b51842-0": {
+   "id": "ifan-6e41d46a33761e13b51842-0",
+   "name": "The People's Army (warm space + collection)",
+   "postcode": "N5 1SA",
+   "website": "https://www.thepeoplesarmyfoodbank.wordpress.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.thepeoplesarmyfoodbank.wordpress.com",
+   "final_url": "https://www.thepeoplesarmyfoodbank.wordpress.com",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-6f2b90dcad4f0df4be5b2f-0": {
+   "id": "ifan-6f2b90dcad4f0df4be5b2f-0",
+   "name": "Eudaimonia/ Super Kitch",
+   "postcode": "DN21 1SN",
+   "website": "https://www.eudaimonia-hmk.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.eudaimonia-hmk.com",
+   "final_url": "https://www.eudaimonia-hmk.com",
+   "http": 200,
+   "sha256": "618031ccb0c6fc96e8c972926cafdc8840502edb9df8ffb5e0f4ea2103e1cbb6",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-70b5b42dfcef13b22a54ab-0": {
+   "id": "ifan-70b5b42dfcef13b22a54ab-0",
+   "name": "STAR Project",
+   "postcode": "PA3 2BU",
+   "website": "https://www.star-project.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.star-project.org.uk",
+   "final_url": "https://star-project.org.uk/",
+   "http": 200,
+   "sha256": "de5645b678389a91094b63e5c299f7e7225b00bb50531a6b218f262217badadc",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-71b2e489581c47444e83a2-0": {
+   "id": "ifan-71b2e489581c47444e83a2-0",
+   "name": "The Moses Poject",
+   "postcode": "TS18 2AP",
+   "website": "https://www.themosesproject.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.themosesproject.co.uk",
+   "final_url": "https://themosesproject.co.uk/",
+   "http": 200,
+   "sha256": "b5ec1a3cc9f3daa16e7b883448095a8c8640fe810a864693524f213820b8224c",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-72f942152347405c4a5dff-0": {
+   "id": "ifan-72f942152347405c4a5dff-0",
+   "name": "People without labels",
+   "postcode": "G40 1PE",
+   "website": "https://www.thespacescotland.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.thespacescotland.org",
+   "final_url": "https://www.thespacescotland.org",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-73cb875b91808eb84a8fea-0": {
+   "id": "ifan-73cb875b91808eb84a8fea-0",
+   "name": "Surviving the Streets UK",
+   "postcode": "BN21 3NJ",
+   "website": "https://www.survivingthestreets.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.survivingthestreets.uk",
+   "final_url": "https://www.survivingthestreets.uk",
+   "http": 200,
+   "sha256": "510f682be914179a6de7abef086ca715cef459548df50b98f6a57c65154ee648",
+   "etag": "\"6ad28eee-b9a\"",
+   "last_modified": "Fri, 16 Oct 2026 20:54:06 GMT"
+  },
+  "ifan-73cb875b91808eb84a8fea-1": {
+   "id": "ifan-73cb875b91808eb84a8fea-1",
+   "name": "Surviving the Streets UK",
+   "postcode": "TN34 1ET",
+   "website": "https://www.survivingthestreets.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.survivingthestreets.uk",
+   "final_url": "https://www.survivingthestreets.uk",
+   "http": 200,
+   "sha256": "510f682be914179a6de7abef086ca715cef459548df50b98f6a57c65154ee648",
+   "etag": "\"6ad28eee-b9a\"",
+   "last_modified": "Fri, 16 Oct 2026 20:54:06 GMT"
+  },
+  "ifan-73fd4c6bd1b1ca69887a45-0": {
+   "id": "ifan-73fd4c6bd1b1ca69887a45-0",
+   "name": "Rackets Cubed - Roehampton Community Box",
+   "postcode": "SW15 4LJ",
+   "website": "https://www.racketscubed.com",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.racketscubed.com",
+   "final_url": "https://racketscubed.com/",
+   "http": 200,
+   "sha256": "15d333f43e58de778d2a07e3c7f747f12280a0df40c94c062dd3ff480c3f3947",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 00:49:37 GMT"
+  },
+  "ifan-742f6f8c5734b2ce9c4f41-0": {
+   "id": "ifan-742f6f8c5734b2ce9c4f41-0",
+   "name": "Bervie Pantry",
+   "postcode": "DD10 0RB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-7488c5a8838a8772565605-0": {
+   "id": "ifan-7488c5a8838a8772565605-0",
+   "name": "A Helping Hand In The Highlands",
+   "postcode": "IV124PG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-7488c5a8838a8772565605-1": {
+   "id": "ifan-7488c5a8838a8772565605-1",
+   "name": "A Helping Hand In The Highlands",
+   "postcode": "IV2 3QW",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-74b41b4120bbda23bd6287-0": {
+   "id": "ifan-74b41b4120bbda23bd6287-0",
+   "name": "Kersiebank Community Project",
+   "postcode": "FK3 9EF",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-764716d73f25049a018f5b-0": {
+   "id": "ifan-764716d73f25049a018f5b-0",
+   "name": "Worthing Vegan Food Bank",
+   "postcode": "BN11 4LY",
+   "website": "https://www.worthingveganfoodbank.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.worthingveganfoodbank.co.uk",
+   "final_url": "https://www.worthingveganfoodbank.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-77132403617b01473d9d3d-0": {
+   "id": "ifan-77132403617b01473d9d3d-0",
+   "name": "The Wiggly Worm",
+   "postcode": "GL1 2NF",
+   "website": "https://www.thewigglyworm.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.thewigglyworm.org.uk",
+   "final_url": "https://www.thewigglyworm.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-77af71af2ee49848bea634-0": {
+   "id": "ifan-77af71af2ee49848bea634-0",
+   "name": "Kilcooley Women's Centre & Pantry",
+   "postcode": "BT19 1SH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-77af71af2ee49848bea634-1": {
+   "id": "ifan-77af71af2ee49848bea634-1",
+   "name": "Kilcooley Women's Centre & Pantry",
+   "postcode": "BT19 1RB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-77b40f73c0e446d644e9be-0": {
+   "id": "ifan-77b40f73c0e446d644e9be-0",
+   "name": "Oldmeldrum Community Pantry",
+   "postcode": "AB51 0AA",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-79789d4df6b2024369673c-0": {
+   "id": "ifan-79789d4df6b2024369673c-0",
+   "name": "Highwayhope",
+   "postcode": "M12 4QW",
+   "website": "https://www.Highwayhope.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.Highwayhope.co.uk",
+   "final_url": "https://www.Highwayhope.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-7aa1c2532c8b68fab59b5f-0": {
+   "id": "ifan-7aa1c2532c8b68fab59b5f-0",
+   "name": "Slawa Birmingham",
+   "postcode": "B23 5GY",
+   "website": "https://www.slawa.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.slawa.org.uk",
+   "final_url": "https://www.slawa.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-7c36917afc7a026b71adc5-0": {
+   "id": "ifan-7c36917afc7a026b71adc5-0",
+   "name": "EMS Ltd",
+   "postcode": "HU9 3QB",
+   "website": "https://www.emsyorkshire.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.emsyorkshire.co.uk",
+   "final_url": "https://www.emsyorkshire.co.uk",
+   "http": 200,
+   "sha256": "06e7a45a69c009fb8df45008e62bbadf447c822e4e9db1bfbe08d24356ce35c8",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-7c7e13cf91238c75fdb8a8-0": {
+   "id": "ifan-7c7e13cf91238c75fdb8a8-0",
+   "name": "Caritas Portsmouth",
+   "postcode": "PO9 1LP",
+   "website": "https://www.caritasportsmouth.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (portsmouthdiocese.org.uk)"
+   ],
+   "url": "https://www.caritasportsmouth.org.uk",
+   "final_url": "https://portsmouthdiocese.org.uk/caritas/",
+   "http": 200,
+   "sha256": "9b82745c671026113dc78a1353151451e6c708687224299e66291ea55427c32b",
+   "etag": "\"47339-1792746238;;;\"",
+   "last_modified": ""
+  },
+  "ifan-7c7e13cf91238c75fdb8a8-2": {
+   "id": "ifan-7c7e13cf91238c75fdb8a8-2",
+   "name": "Caritas Portsmouth",
+   "postcode": "PO1 3QA",
+   "website": "https://www.caritasportsmouth.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (portsmouthdiocese.org.uk)"
+   ],
+   "url": "https://www.caritasportsmouth.org.uk",
+   "final_url": "https://portsmouthdiocese.org.uk/caritas/",
+   "http": 200,
+   "sha256": "9b82745c671026113dc78a1353151451e6c708687224299e66291ea55427c32b",
+   "etag": "\"47339-1792746238;;;\"",
+   "last_modified": ""
+  },
+  "ifan-7c7e13cf91238c75fdb8a8-4": {
+   "id": "ifan-7c7e13cf91238c75fdb8a8-4",
+   "name": "Caritas Portsmouth",
+   "postcode": "SO17 3SB",
+   "website": "https://www.caritasportsmouth.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (portsmouthdiocese.org.uk)"
+   ],
+   "url": "https://www.caritasportsmouth.org.uk",
+   "final_url": "https://portsmouthdiocese.org.uk/caritas/",
+   "http": 200,
+   "sha256": "9b82745c671026113dc78a1353151451e6c708687224299e66291ea55427c32b",
+   "etag": "\"47339-1792746238;;;\"",
+   "last_modified": ""
+  },
+  "ifan-7cc13ffe758724ce266c29-0": {
+   "id": "ifan-7cc13ffe758724ce266c29-0",
+   "name": "Trust House Whitefield",
+   "postcode": "BL9 9AU",
+   "website": "https://www.trusthousewhitefield.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (trusthousebury.org)"
+   ],
+   "url": "https://www.trusthousewhitefield.org",
+   "final_url": "https://trusthousebury.org/",
+   "http": 200,
+   "sha256": "1b7622ff3fcea0395419372894def23214e33aac414fb3d21dc824883048ddb7",
+   "etag": "W/\"5b5da2b2829e1566cad60861032d88ce\"",
+   "last_modified": ""
+  },
+  "ifan-7d87a00f986fd95ded44ab-0": {
+   "id": "ifan-7d87a00f986fd95ded44ab-0",
+   "name": "Littleport Independent Foodbank",
+   "postcode": "CB6 1PS",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-7fe82257847233a934549f-0": {
+   "id": "ifan-7fe82257847233a934549f-0",
+   "name": "The Collective Sharehouse",
+   "postcode": "YO23 1BW",
+   "website": "https://www.thecollectivesharehouse.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.thecollectivesharehouse.co.uk",
+   "final_url": "https://www.thecollectivesharehouse.co.uk",
+   "http": 200,
+   "sha256": "e3372ecaeefdf42b1a80c4fdb695b144aad0241283ba84a07e51ed004dd52b90",
+   "etag": "W/\"08a4bac05a250b46c1748a8235e92fd4\"",
+   "last_modified": ""
+  },
+  "ifan-7pueunOd2UocdnJawaU9Dq-0": {
+   "id": "ifan-7pueunOd2UocdnJawaU9Dq-0",
+   "name": "Nailsea Community Group",
+   "postcode": "BS48 1RQ",
+   "website": "https://allcommunityconnect.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://allcommunityconnect.org.uk",
+   "final_url": "https://allcommunityconnect.org.uk",
+   "http": 202,
+   "sha256": "c21fcf35404061f1355b5e03f09c05b65cb8550a9a2d4cb0d5bc37b70ebb7c67",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-84c7ff1084c238432a7c77-0": {
+   "id": "ifan-84c7ff1084c238432a7c77-0",
+   "name": "The SPACE",
+   "postcode": "W10 6TT",
+   "website": "https://www.214space.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.214space.org",
+   "final_url": "https://www.214space.org",
+   "http": 200,
+   "sha256": "2fb97c3d68a1753b4cc4b18c8c4d42f10812cf3e4596a70046e97c5715bd7416",
+   "etag": "W/\"675a30da2f5d1452ee1dcbcb1c6fdac3\"",
+   "last_modified": ""
+  },
+  "ifan-84e0d66c29279524acb952-0": {
+   "id": "ifan-84e0d66c29279524acb952-0",
+   "name": "Al-Ikhlas Centre",
+   "postcode": "CF24 1NH",
+   "website": "https://www.alikhlas.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 500)"
+   ],
+   "url": "https://www.alikhlas.org.uk",
+   "final_url": "https://www.alikhlas.org.uk",
+   "http": 500,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-870f2c66d29979d217471c-0": {
+   "id": "ifan-870f2c66d29979d217471c-0",
+   "name": "We do not eat elephants!",
+   "postcode": "CT11 9TL",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-870f2c66d29979d217471c-1": {
+   "id": "ifan-870f2c66d29979d217471c-1",
+   "name": "We do not eat elephants!",
+   "postcode": "CT9 1LU",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-888d7ca60173b18d0d2d83-0": {
+   "id": "ifan-888d7ca60173b18d0d2d83-0",
+   "name": "Bute Oasis Food Bank",
+   "postcode": "PA20 9DG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-8b973f512738e38323a12e-0": {
+   "id": "ifan-8b973f512738e38323a12e-0",
+   "name": "Healthy Me Healthy Communities (Hulme)",
+   "postcode": "M15 6AX",
+   "website": "https://www.hmhc.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.hmhc.co.uk",
+   "final_url": "https://www.hmhc.co.uk",
+   "http": 200,
+   "sha256": "94196c31c105875428e4a5fcc17650b35724e5b9a1c84598c190dcbb115d2591",
+   "etag": "W/\"663910035\"",
+   "last_modified": ""
+  },
+  "ifan-8db3c07876042fdfb9dd6b-0": {
+   "id": "ifan-8db3c07876042fdfb9dd6b-0",
+   "name": "St. Mary's Church (Tenbury Foodbank)",
+   "postcode": "WR15 8BP",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-8de0bb8a5c04ca94d78d8b-0": {
+   "id": "ifan-8de0bb8a5c04ca94d78d8b-0",
+   "name": "Marsh Community Centre",
+   "postcode": "LA1 5PP",
+   "website": "https://www.marshcommunitycentre.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.marshcommunitycentre.org.uk",
+   "final_url": "https://www.marshcommunitycentre.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-8e41d98cefcaf2c3b18c8c-0": {
+   "id": "ifan-8e41d98cefcaf2c3b18c8c-0",
+   "name": "Sufra NW London - Pakistan Community Centre",
+   "postcode": "NW2 4PU",
+   "website": "https://www.sufra-nwlondon.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.sufra-nwlondon.org.uk",
+   "final_url": "https://www.sufra-nwlondon.org.uk",
+   "http": 200,
+   "sha256": "91333c9af7ebbc92d05cd1d991177d57a04e8159d111676955897cfe66a612be",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-8ee535f35b9da5cdcc78c7-0": {
+   "id": "ifan-8ee535f35b9da5cdcc78c7-0",
+   "name": "Telford Crisis Support",
+   "postcode": "TF7 4QP",
+   "website": "https://www.telfordcrisissupport.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.telfordcrisissupport.org.uk",
+   "final_url": "https://www.telfordcrisissupport.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-8f80537e73938b14290ca2-0": {
+   "id": "ifan-8f80537e73938b14290ca2-0",
+   "name": "BLT Food Hub",
+   "postcode": "CF38 2DA",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-8f88ad68a513b2bed5556f-0": {
+   "id": "ifan-8f88ad68a513b2bed5556f-0",
+   "name": "Lancashire First CIO",
+   "postcode": "BB11 2DJ",
+   "website": "https://www.lancashirefirst.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.lancashirefirst.org",
+   "final_url": "https://lancashirefirst.org/",
+   "http": 200,
+   "sha256": "6fd85fb9cc8b48d6ad6b11998347f52c24c22287d0b3b07733f6308ff1113775",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-900c089b8094f3da2cbf44-0": {
+   "id": "ifan-900c089b8094f3da2cbf44-0",
+   "name": "Craven Vale Food Bank",
+   "postcode": "BN2 0FH",
+   "website": "https://www.cravenvale.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.cravenvale.org.uk/",
+   "final_url": "https://www.cravenvale.org.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-90a2e8ab15a6d7859cd17c-0": {
+   "id": "ifan-90a2e8ab15a6d7859cd17c-0",
+   "name": "Ambition Aspire Achieve",
+   "postcode": "E16 4JT",
+   "website": "https://www.theaaazone.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.theaaazone.com",
+   "final_url": "https://www.theaaazone.com",
+   "http": 200,
+   "sha256": "24438c31b245ab1a8f1afec440ba638cbae6ab34b63c27bbc8d7d5599c2b90ae",
+   "etag": "W/\"04b95ac69312b9ee62f9b665b5309dfe\"",
+   "last_modified": ""
+  },
+  "ifan-918ac0228101a60ceb17d4-0": {
+   "id": "ifan-918ac0228101a60ceb17d4-0",
+   "name": "Pendle Food For All",
+   "postcode": "BB9 8EL",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9258fa0bb1e66808987766-0": {
+   "id": "ifan-9258fa0bb1e66808987766-0",
+   "name": "DN7 Community Foodbank",
+   "postcode": "DN7 4HT",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-92bb8842e0f217426b1393-0": {
+   "id": "ifan-92bb8842e0f217426b1393-0",
+   "name": "Paston Farm Community Foundation",
+   "postcode": "PE4 7XB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-92dcca24495aec487c1ca6-0": {
+   "id": "ifan-92dcca24495aec487c1ca6-0",
+   "name": "STEP (South Tyrone  Empowerment Programme)",
+   "postcode": "BT70 1BS",
+   "website": "https://www.stepni.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.stepni.org",
+   "final_url": "https://www.stepni.org",
+   "http": 200,
+   "sha256": "775e2f3d3cd36d9f604e1a1b4ad60cb4bcb81f1a14291f10b70ef78b61f897ba",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-92e5364ccf5fe4f6a63666-0": {
+   "id": "ifan-92e5364ccf5fe4f6a63666-0",
+   "name": "Hackney Church (Leyton Food Bank)",
+   "postcode": "E10 5JP",
+   "website": "https://www.saint.church/lighthouse/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (saintlighthouse.org)"
+   ],
+   "url": "https://www.saint.church/lighthouse/",
+   "final_url": "https://saintlighthouse.org/",
+   "http": 200,
+   "sha256": "331cb5bccdbc90bdbb569787f0475d230c36a4fc281d71a7e78c23d175fd6da1",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 01:33:37 GMT"
+  },
+  "ifan-946eb969d33833538e20b7-0": {
+   "id": "ifan-946eb969d33833538e20b7-0",
+   "name": "Darkwood Crew - Helping Ferguslie Flourish",
+   "postcode": "PA3 1NT",
+   "website": "https://www.darkwoodcrew.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.darkwoodcrew.co.uk",
+   "final_url": "https://www.darkwoodcrew.co.uk",
+   "http": 200,
+   "sha256": "19a6ee031a8b70f116f7b6979b397efc843f25f7a74d3043d63632518f9ba17d",
+   "etag": "",
+   "last_modified": "Tue, 11 Feb 2025 10:07:23 GMT"
+  },
+  "ifan-94870bb2fee0273f62d778-0": {
+   "id": "ifan-94870bb2fee0273f62d778-0",
+   "name": "The Vestry St Lukes Food Bank Club",
+   "postcode": "SW3 6NH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-95350f871262dd0f3a293a-0": {
+   "id": "ifan-95350f871262dd0f3a293a-0",
+   "name": "South Machars Community Centre community fridge",
+   "postcode": "DG8 8PN",
+   "website": "https://smccwhithorn.org/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://smccwhithorn.org/",
+   "final_url": "https://smccwhithorn.org/",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9590560420816566af75a7-0": {
+   "id": "ifan-9590560420816566af75a7-0",
+   "name": "Be A Good Neighbour",
+   "postcode": "TA18 8BP",
+   "website": "https://www.bagn.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not name it",
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.bagn.co.uk",
+   "final_url": "https://bagn.co.uk/",
+   "http": 200,
+   "sha256": "7b9e6e7e85ba81bb75e2747c676391f56a756e6db1be14381d7d81e45964d922",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-96a236595c9d3b8282313b-0": {
+   "id": "ifan-96a236595c9d3b8282313b-0",
+   "name": "Christ Apostle Church  House of Refuge",
+   "postcode": "RM7 8NT",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9836fd8b054f3e2e229c17-0": {
+   "id": "ifan-9836fd8b054f3e2e229c17-0",
+   "name": "Cymer Afan Community Library",
+   "postcode": "SA13 3HR",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-984a033f90ba683e7fed64-0": {
+   "id": "ifan-984a033f90ba683e7fed64-0",
+   "name": "Rccg New Wine Assembly UK",
+   "postcode": "E6 6EJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-998b5ff7df2b495d075dd6-0": {
+   "id": "ifan-998b5ff7df2b495d075dd6-0",
+   "name": "Hasi Humanitarian Organisation Ltd",
+   "postcode": "N9 9UJ",
+   "website": "https://www.hasifoundation.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.hasifoundation.org",
+   "final_url": "https://www.hasifoundation.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-99c9213d1327a0c74bb344-0": {
+   "id": "ifan-99c9213d1327a0c74bb344-0",
+   "name": "Families 1st 4 Additional Needs",
+   "postcode": "NE13 7GB",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9a2993eb6d38518934ea87-0": {
+   "id": "ifan-9a2993eb6d38518934ea87-0",
+   "name": "Neruka's Soup Kitchen",
+   "postcode": "LS8 5ES",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9a857caa75e63d0a98a9a9-0": {
+   "id": "ifan-9a857caa75e63d0a98a9a9-0",
+   "name": "Sunnyside Supplies",
+   "postcode": "S66 3RL",
+   "website": "https://www.sunnysidesupplies.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.sunnysidesupplies.co.uk",
+   "final_url": "https://www.sunnysidesupplies.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9ba8e9719fdedc67a2fe40-0": {
+   "id": "ifan-9ba8e9719fdedc67a2fe40-0",
+   "name": "Community of Helping Hands",
+   "postcode": "G32 0TG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-9d9a5ae13b3923c3fd7d0b-0": {
+   "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
+   "name": "Hangar Community Hub CIC",
+   "postcode": "CF11 8TT",
+   "website": "https://hangarhub.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://hangarhub.org",
+   "final_url": "https://hangarhub.org",
+   "http": 202,
+   "sha256": "452e3829d2a6799f67eedffd9ff38e077cf5f797c9dc0ef42030fcee555ce219",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-9fd0ebd2b2c5fc50b5bf67-0": {
+   "id": "ifan-9fd0ebd2b2c5fc50b5bf67-0",
+   "name": "King's Table Orford (King's Church Warrington)",
+   "postcode": "WA2 9UE",
+   "website": "https://www.kingschurchwarrington.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.kingschurchwarrington.co.uk",
+   "final_url": "https://kingschurchwarrington.co.uk/",
+   "http": 200,
+   "sha256": "64184f5a7a7ab2a66e0e2e07348645f34a0dadc00a49a2a7da04ba749a0d9730",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-a22a1d72694912dcb759ee-0": {
+   "id": "ifan-a22a1d72694912dcb759ee-0",
+   "name": "Rainbow Junktion",
+   "postcode": "LS6 1NP",
+   "website": "https://www.allhallowsleeds.org/rainbow-junktion",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.allhallowsleeds.org/rainbow-junktion",
+   "final_url": "https://www.allhallowsleeds.org/rainbow-junktion",
+   "http": 200,
+   "sha256": "1185ca811984464f503df074a34219308ce524416795a520e196f33424aefea6",
+   "etag": "W/\"0074ed24b64de715da55e35ef65a6dc8\"",
+   "last_modified": ""
+  },
+  "ifan-a2fb34d07632697d4b6eae-0": {
+   "id": "ifan-a2fb34d07632697d4b6eae-0",
+   "name": "Poitiers Care",
+   "postcode": "SO40 7DU",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-a3ca52bf08d5dc48e91863-0": {
+   "id": "ifan-a3ca52bf08d5dc48e91863-0",
+   "name": "Teign Valley Larder CIC (Bridford)",
+   "postcode": "EX6 7HT",
+   "website": "https://www.teignvalley.org/larder/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.teignvalley.org/larder/",
+   "final_url": "https://teignvalley.org/larder/",
+   "http": 200,
+   "sha256": "70904674511ecb30f9c92783bf810f0a992ae16e2fb9959090b61a055e2928f9",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-a430e6d293d0f1d5c9ec2e-0": {
+   "id": "ifan-a430e6d293d0f1d5c9ec2e-0",
+   "name": "VOICE",
+   "postcode": "BB1 1EZ",
+   "website": "https://www.communitycvs.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.communitycvs.org.uk",
+   "final_url": "https://www.communitycvs.org.uk",
+   "http": 200,
+   "sha256": "4d2861cf9b0db9ecbf5d078e7ecf4381b8bdaf8405e367b61a5996d38da4e9e1",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-a5847fd5315c6305f0f944-0": {
+   "id": "ifan-a5847fd5315c6305f0f944-0",
+   "name": "Food Aid - Blidworth",
+   "postcode": "NG21 0PX",
+   "website": "https://www.sfcc.org.uk/foodaid-blidworth",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.sfcc.org.uk/foodaid-blidworth",
+   "final_url": "https://www.sfcc.org.uk/foodaid-blidworth",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-a5aeda4bb18ab566f5610c-0": {
+   "id": "ifan-a5aeda4bb18ab566f5610c-0",
+   "name": "The Pantry, Bardney and surrounding villages - local community foodbank",
+   "postcode": "LN3 5TZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-a5bca1160f8daafbb580ec-0": {
+   "id": "ifan-a5bca1160f8daafbb580ec-0",
+   "name": "Share Alike",
+   "postcode": "G74 1LQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-a6d3e14547d34a450d5346-0": {
+   "id": "ifan-a6d3e14547d34a450d5346-0",
+   "name": "Lammermuir Larder",
+   "postcode": "EH41 3NB",
+   "website": "https://www.lammermuirlarder.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.lammermuirlarder.co.uk",
+   "final_url": "https://www.lammermuirlarder.co.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-a6da8389621a47bc1534b7-0": {
+   "id": "ifan-a6da8389621a47bc1534b7-0",
+   "name": "Resolven Building Blocks",
+   "postcode": "SA11 4AB",
+   "website": "https://www.buildingblocksfamilycentre.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.buildingblocksfamilycentre.co.uk",
+   "final_url": "https://buildingblocksfamilycentre.co.uk/",
+   "http": 200,
+   "sha256": "5450197d20cece04b460308857d3b349c18aa61366ec7a722c09dc5799198d41",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-abad177fd72888bd4466fe-0": {
+   "id": "ifan-abad177fd72888bd4466fe-0",
+   "name": "Mission Trinity",
+   "postcode": "DN14 5QL",
+   "website": "https://www.missiontrinity.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.missiontrinity.org",
+   "final_url": "https://www.missiontrinity.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-abbcf849405fc1a358624d-0": {
+   "id": "ifan-abbcf849405fc1a358624d-0",
+   "name": "Lea Road Church Community Food Project",
+   "postcode": "WV3 0LW",
+   "website": "https://www.learoadurc.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.learoadurc.org.uk/",
+   "final_url": "https://www.learoadurc.org.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-abc0ccab580711a0e4ec05-0": {
+   "id": "ifan-abc0ccab580711a0e4ec05-0",
+   "name": "Storehouse Foodbank at West Suffolk Vineyard Church",
+   "postcode": "IP32 6NL",
+   "website": "https://www.wsvc.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.wsvc.org.uk",
+   "final_url": "https://www.wsvc.org.uk",
+   "http": 200,
+   "sha256": "ba5e106bf6522f7c3226e6457994c19c7b921ffdd4ab4f1bd7d2936da00dd311",
+   "etag": "",
+   "last_modified": "Thu, 22 Oct 2026 14:21:13 GMT"
+  },
+  "ifan-ac6b98635839d2d6dfd5cd-0": {
+   "id": "ifan-ac6b98635839d2d6dfd5cd-0",
+   "name": "Lambourn Junction Food Bank",
+   "postcode": "RG17 8XL",
+   "website": "https://lambournjunction.uk/lambourn-food-junction/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://lambournjunction.uk/lambourn-food-junction/",
+   "final_url": "https://lambournjunction.uk/lambourn-food-junction/",
+   "http": 200,
+   "sha256": "4a83f5738a1b9c7f62746ef9593a17d14128bc998bf1907f065bb4fd6a3c3025",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-ac843e44b922c86671474f-1": {
+   "id": "ifan-ac843e44b922c86671474f-1",
+   "name": "Wansbeck Valley Food Bank",
+   "postcode": "NE61 6PU",
+   "website": "https://www.wansbeckvalleyfoodbank.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.wansbeckvalleyfoodbank.org",
+   "final_url": "https://wansbeckvalleyfoodbank.org/",
+   "http": 200,
+   "sha256": "41823bb175f2228ccf3303b51961c192c27fec16a4510390516cf48a4285c308",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-acd31e5e0e568c117eb9bb-0": {
+   "id": "ifan-acd31e5e0e568c117eb9bb-0",
+   "name": "The Easter Team",
+   "postcode": "RH10 1FP",
+   "website": "https://www.theeasterteam.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.theeasterteam.org",
+   "final_url": "https://www.theeasterteam.org",
+   "http": 200,
+   "sha256": "1b82d6310d6e5cb1e50b836132575364f367998a5cf0db672e37583d904c00c4",
+   "etag": "W/\"bbdcc9ebb9fb5556747e3447f7f3f854--gzip\"",
+   "last_modified": ""
+  },
+  "ifan-ae65d40b5a32266148292a-0": {
+   "id": "ifan-ae65d40b5a32266148292a-0",
+   "name": "Baby Box Isle of Wight",
+   "postcode": "PO38 1AS",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ae6b9b419bdd0914492306-0": {
+   "id": "ifan-ae6b9b419bdd0914492306-0",
+   "name": "Second Chance Charity",
+   "postcode": "ME4 4DH",
+   "website": "https://www.2ndchancemedway.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.2ndchancemedway.org",
+   "final_url": "https://www.2ndchancemedway.org",
+   "http": 200,
+   "sha256": "3122977f587f0758a549685c399551b010781676aec7b781b3dbd129221a7a43",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-aee93e226e46493a82fa00-0": {
+   "id": "ifan-aee93e226e46493a82fa00-0",
+   "name": "Spring Community Hub (Foursquare Church)",
+   "postcode": "SE17 1RW",
+   "website": "https://www.cschub.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not name it",
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.cschub.co.uk",
+   "final_url": "https://www.cschub.co.uk",
+   "http": 200,
+   "sha256": "45efcc950cdebc3961810cfbec3c06c5572b82ed69db0097edcb8a3299fea042",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-af158660b47ba9d8f1f89b-0": {
+   "id": "ifan-af158660b47ba9d8f1f89b-0",
+   "name": "StarRizeUK",
+   "postcode": "N15 4BN",
+   "website": "https://starrize.uk/ & https://woodgreenfoodbank.org/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://starrize.uk/ & https://woodgreenfoodbank.org/",
+   "final_url": "https://starrize.uk/ & https://woodgreenfoodbank.org/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-afffa76f9e2e38c42b62a5-0": {
+   "id": "ifan-afffa76f9e2e38c42b62a5-0",
+   "name": "Wythenshawe Food Poverty Group",
+   "postcode": "M23 0PH",
+   "website": "https://www.st-matthews.org.uk/food-bank/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.st-matthews.org.uk/food-bank/",
+   "final_url": "https://www.st-matthews.org.uk/food-bank/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-b293720e3616fc0fee2c4c-0": {
+   "id": "ifan-b293720e3616fc0fee2c4c-0",
+   "name": "RMUK Wellbeing Community Interest Company",
+   "postcode": "SE12 0ST",
+   "website": "https://www.rmukwellbeing.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.rmukwellbeing.com",
+   "final_url": "https://www.rmukwellbeing.com",
+   "http": 200,
+   "sha256": "6c7a584a76b4eb4b1c1fb87148d912180a140af7a3296f09e90e3cea9554df5a",
+   "etag": "W/\"145a1d59655babe295875bc67808ce3a\"",
+   "last_modified": ""
+  },
+  "ifan-b336dfab709a5332407dc5-0": {
+   "id": "ifan-b336dfab709a5332407dc5-0",
+   "name": "Food in Community",
+   "postcode": "TQ9 7UU",
+   "website": "https://www.foodincommunity.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.foodincommunity.org",
+   "final_url": "https://foodincommunity.org/",
+   "http": 200,
+   "sha256": "234c0d3809539823bea5140f2bc9703227aa2af732bc9ad0fc34554725981966",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-b4f760ba46facf868d8bb4-0": {
+   "id": "ifan-b4f760ba46facf868d8bb4-0",
+   "name": "Be Enriched",
+   "postcode": "SW4 8EP",
+   "website": "https://www.be-enriched.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.be-enriched.org",
+   "final_url": "https://www.be-enriched.org",
+   "http": 200,
+   "sha256": "8cf9b773bd860fe0f7721901dcf1c4512c4da2a91fb9289dfda1021e46c6d3f9",
+   "etag": "W/\"a60dd791d21c1d7d5249d71c758b2b44\"",
+   "last_modified": ""
+  },
+  "ifan-b4f760ba46facf868d8bb4-1": {
+   "id": "ifan-b4f760ba46facf868d8bb4-1",
+   "name": "Be Enriched",
+   "postcode": "SE1 6SN",
+   "website": "https://www.be-enriched.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.be-enriched.org",
+   "final_url": "https://www.be-enriched.org",
+   "http": 200,
+   "sha256": "8cf9b773bd860fe0f7721901dcf1c4512c4da2a91fb9289dfda1021e46c6d3f9",
+   "etag": "W/\"a60dd791d21c1d7d5249d71c758b2b44\"",
+   "last_modified": ""
+  },
+  "ifan-b4f760ba46facf868d8bb4-2": {
+   "id": "ifan-b4f760ba46facf868d8bb4-2",
+   "name": "Be Enriched",
+   "postcode": "SW17 9NQ",
+   "website": "https://www.be-enriched.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.be-enriched.org",
+   "final_url": "https://www.be-enriched.org",
+   "http": 200,
+   "sha256": "8cf9b773bd860fe0f7721901dcf1c4512c4da2a91fb9289dfda1021e46c6d3f9",
+   "etag": "W/\"a60dd791d21c1d7d5249d71c758b2b44\"",
+   "last_modified": ""
+  },
+  "ifan-b595a2208802ba38bef45d-0": {
+   "id": "ifan-b595a2208802ba38bef45d-0",
+   "name": "Shipshape Health and Wellbeing",
+   "postcode": "S11 8AE",
+   "website": "https://www.shipshape.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.shipshape.org.uk",
+   "final_url": "https://www.shipshape.org.uk",
+   "http": 200,
+   "sha256": "37f94bfb70b9c5eda7d614ba419c39a1059a22516617246b8d48352756dadddb",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-b6d4c5e8c6691e9c10d1a8-0": {
+   "id": "ifan-b6d4c5e8c6691e9c10d1a8-0",
+   "name": "Glossopdale Foodbank",
+   "postcode": "SK13 0LU",
+   "website": "https://www.glossopdalefoodbank.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.glossopdalefoodbank.org.uk",
+   "final_url": "https://glossopdalefoodbank.org.uk/",
+   "http": 200,
+   "sha256": "8cb5fb1768b2d5e6c9c0a5045c4fd9e17eff68b19654d474b2a13e69668d75ab",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-b7d6cc55aac76dcb7590a9-0": {
+   "id": "ifan-b7d6cc55aac76dcb7590a9-0",
+   "name": "St Aidan's Church Leeds -Food Share",
+   "postcode": "LS8 5DQ",
+   "website": "https://www.staidan-leeds.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.staidan-leeds.org.uk",
+   "final_url": "https://www.staidan-leeds.org.uk",
+   "http": 200,
+   "sha256": "4f940a87ad6eed1ae32a83265d42ec022e5a1d7856ff80620c8d881aec0e63de",
+   "etag": "W/\"d56d1f77824fea497cfc9c270a489346\"",
+   "last_modified": ""
+  },
+  "ifan-b90a9885edd63239d3b383-0": {
+   "id": "ifan-b90a9885edd63239d3b383-0",
+   "name": "Reverse The Trend Foundation",
+   "postcode": "NW10 5YT",
+   "website": "https://www.reversethetrend.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.reversethetrend.org.uk",
+   "final_url": "https://www.reversethetrend.org.uk",
+   "http": 200,
+   "sha256": "d97b618791cb821783a44ad6bea7d5b39b6e3aef02190dfaaa6b8cdd4d39d02c",
+   "etag": "W/\"4763e1fae53404be5ac2b3d07cfd5375\"",
+   "last_modified": ""
+  },
+  "ifan-b90a9885edd63239d3b383-1": {
+   "id": "ifan-b90a9885edd63239d3b383-1",
+   "name": "Reverse The Trend Foundation",
+   "postcode": "E5 0BT",
+   "website": "https://www.reversethetrend.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.reversethetrend.org.uk",
+   "final_url": "https://www.reversethetrend.org.uk",
+   "http": 200,
+   "sha256": "d97b618791cb821783a44ad6bea7d5b39b6e3aef02190dfaaa6b8cdd4d39d02c",
+   "etag": "W/\"4763e1fae53404be5ac2b3d07cfd5375\"",
+   "last_modified": ""
+  },
+  "ifan-b90a9885edd63239d3b383-2": {
+   "id": "ifan-b90a9885edd63239d3b383-2",
+   "name": "Reverse The Trend Foundation",
+   "postcode": "SE8 5RJ",
+   "website": "https://www.reversethetrend.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.reversethetrend.org.uk",
+   "final_url": "https://www.reversethetrend.org.uk",
+   "http": 200,
+   "sha256": "d97b618791cb821783a44ad6bea7d5b39b6e3aef02190dfaaa6b8cdd4d39d02c",
+   "etag": "W/\"4763e1fae53404be5ac2b3d07cfd5375\"",
+   "last_modified": ""
+  },
+  "ifan-b90a9885edd63239d3b383-3": {
+   "id": "ifan-b90a9885edd63239d3b383-3",
+   "name": "Reverse The Trend Foundation",
+   "postcode": "E16 3ET",
+   "website": "https://www.reversethetrend.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.reversethetrend.org.uk",
+   "final_url": "https://www.reversethetrend.org.uk",
+   "http": 200,
+   "sha256": "d97b618791cb821783a44ad6bea7d5b39b6e3aef02190dfaaa6b8cdd4d39d02c",
+   "etag": "W/\"4763e1fae53404be5ac2b3d07cfd5375\"",
+   "last_modified": ""
+  },
+  "ifan-b90a9885edd63239d3b383-4": {
+   "id": "ifan-b90a9885edd63239d3b383-4",
+   "name": "Reverse The Trend Foundation",
+   "postcode": "E3 2AB",
+   "website": "https://www.reversethetrend.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.reversethetrend.org.uk",
+   "final_url": "https://www.reversethetrend.org.uk",
+   "http": 200,
+   "sha256": "d97b618791cb821783a44ad6bea7d5b39b6e3aef02190dfaaa6b8cdd4d39d02c",
+   "etag": "W/\"4763e1fae53404be5ac2b3d07cfd5375\"",
+   "last_modified": ""
+  },
+  "ifan-ba7b6a6de2dca5ee389cc4-0": {
+   "id": "ifan-ba7b6a6de2dca5ee389cc4-0",
+   "name": "Edinburgh City Mission - Moredun Foodbank+",
+   "postcode": "EH17 7NX",
+   "website": "https://www.edinburghcitymission.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.edinburghcitymission.org.uk",
+   "final_url": "https://edinburghcitymission.org.uk/",
+   "http": 200,
+   "sha256": "b47769fb87ffee2e8c3b8b783edf93e10ca6cb54f55c75d2692e0ce6b115649e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-bb6b4e2af04904ac928cb2-0": {
+   "id": "ifan-bb6b4e2af04904ac928cb2-0",
+   "name": "Maundy Relief",
+   "postcode": "BB5 1EN",
+   "website": "https://www.maundyrelief.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.maundyrelief.org.uk",
+   "final_url": "https://www.maundyrelief.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-bbbb20c0296b8924869ad2-0": {
+   "id": "ifan-bbbb20c0296b8924869ad2-0",
+   "name": "The Power Movement Organisation",
+   "postcode": "E1 5DD",
+   "website": "https://www.poweruk.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.poweruk.org",
+   "final_url": "https://www.poweruk.org",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-be0fbcc6b241399c3b98c9-0": {
+   "id": "ifan-be0fbcc6b241399c3b98c9-0",
+   "name": "EBI Unites",
+   "postcode": "PA8 6HA",
+   "website": "https://www.ebi.scot",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.ebi.scot",
+   "final_url": "https://www.ebi.scot",
+   "http": 200,
+   "sha256": "c52c74947d29d55ea0cee1a274868d1c97e14772264165ca1641adb32c4e23cd",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-be0fbcc6b241399c3b98c9-1": {
+   "id": "ifan-be0fbcc6b241399c3b98c9-1",
+   "name": "EBI Unites",
+   "postcode": "PA4 9LU",
+   "website": "https://www.ebi.scot",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.ebi.scot",
+   "final_url": "https://www.ebi.scot",
+   "http": 200,
+   "sha256": "c52c74947d29d55ea0cee1a274868d1c97e14772264165ca1641adb32c4e23cd",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-bfa12fee25e5deb044f7df-0": {
+   "id": "ifan-bfa12fee25e5deb044f7df-0",
+   "name": "Eyemouth Food Bank",
+   "postcode": "TD14 5JD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c0d1b5851904fbd08b1358-0": {
+   "id": "ifan-c0d1b5851904fbd08b1358-0",
+   "name": "Lovechurch",
+   "postcode": "BH1 3ED",
+   "website": "https://www.lovechurch.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.lovechurch.org.uk",
+   "final_url": "https://lovechurch.org.uk/",
+   "http": 200,
+   "sha256": "60989e37724883c7a72c92de7b9126e53a7621746d917cf0e2247fa8c992c25d",
+   "etag": "W/\"4b0bd650bfa888c6039fef6a19308e1d\"",
+   "last_modified": ""
+  },
+  "ifan-c1a81cd2421d1da7324ac3-0": {
+   "id": "ifan-c1a81cd2421d1da7324ac3-0",
+   "name": "Copef Training Skills / African Emergency Food Bank",
+   "postcode": "SW9 8TX",
+   "website": "https://www.copeftrainingskills.co.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.copeftrainingskills.co.uk/",
+   "final_url": "https://www.copeftrainingskills.co.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c2f43089064c8291de455f-0": {
+   "id": "ifan-c2f43089064c8291de455f-0",
+   "name": "Harehills lane baptist church",
+   "postcode": "LS8 4HE",
+   "website": "https://www.hlbc.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.hlbc.org.uk/",
+   "final_url": "https://www.hlbc.org.uk/",
+   "http": 200,
+   "sha256": "1cd0c7c408155741410d9915abe24dd6fa75fff75ac9239421ce3399d49393a7",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-c49684f5e290bab2b31dec-0": {
+   "id": "ifan-c49684f5e290bab2b31dec-0",
+   "name": "Mobile Food Hub - Camden",
+   "postcode": "NW1 1DF",
+   "website": "https://www.urbancommunityprojects.org.uk/camden-mobile-food-bank",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.urbancommunityprojects.org.uk/camden-mobile-food-bank",
+   "final_url": "https://www.urbancommunityprojects.org.uk/camden-mobile-food-bank",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c519a97dfcc742c4b91d25-0": {
+   "id": "ifan-c519a97dfcc742c4b91d25-0",
+   "name": "Warming Up The Homeless",
+   "postcode": "BN21 3PE",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c519a97dfcc742c4b91d25-1": {
+   "id": "ifan-c519a97dfcc742c4b91d25-1",
+   "name": "Warming Up The Homeless",
+   "postcode": "TN34 3JJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c519a97dfcc742c4b91d25-2": {
+   "id": "ifan-c519a97dfcc742c4b91d25-2",
+   "name": "Warming Up The Homeless",
+   "postcode": "TN33 0AE",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c519a97dfcc742c4b91d25-3": {
+   "id": "ifan-c519a97dfcc742c4b91d25-3",
+   "name": "Warming Up The Homeless",
+   "postcode": "TN40 1DY",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c531f4d2023be7661c4d4f-0": {
+   "id": "ifan-c531f4d2023be7661c4d4f-0",
+   "name": "Youth Aid Council",
+   "postcode": "SE27 9JW",
+   "website": "https://www.youthaidcouncil.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.youthaidcouncil.org",
+   "final_url": "https://youthaidcouncil.org/",
+   "http": 200,
+   "sha256": "c08959601e767e05c2a59d84bc06807a348e6ed4fbf9b65a023a8fd79f7b9484",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-c531f4d2023be7661c4d4f-1": {
+   "id": "ifan-c531f4d2023be7661c4d4f-1",
+   "name": "Youth Aid Council",
+   "postcode": "SE26 4QD",
+   "website": "https://www.youthaidcouncil.org",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.youthaidcouncil.org",
+   "final_url": "https://youthaidcouncil.org/",
+   "http": 200,
+   "sha256": "c08959601e767e05c2a59d84bc06807a348e6ed4fbf9b65a023a8fd79f7b9484",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-c67c7827fb2c091a90d9b0-0": {
+   "id": "ifan-c67c7827fb2c091a90d9b0-0",
+   "name": "The Magic Wishing Well",
+   "postcode": "WF15 8HG",
+   "website": "https://www.themagicwishingwell.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.themagicwishingwell.org.uk",
+   "final_url": "https://themagicwishingwell.org.uk/",
+   "http": 200,
+   "sha256": "d62da2231fecf678f2e56f15e2e8f8d9648d32a5af8563e095043ef9455e85a1",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-c695565ba28cbd9f61d582-0": {
+   "id": "ifan-c695565ba28cbd9f61d582-0",
+   "name": "JW3 Food Bank",
+   "postcode": "NW3 6ET",
+   "website": "https://www.jw3.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.jw3.org.uk",
+   "final_url": "https://www.jw3.org.uk",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c82d994782aec9c3f8c807-0": {
+   "id": "ifan-c82d994782aec9c3f8c807-0",
+   "name": "Daily Bread Pop up Cafe",
+   "postcode": "CM13 1JS",
+   "website": "https://www.huttonparish.com",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.huttonparish.com",
+   "final_url": "https://www.huttonparish.com",
+   "http": 200,
+   "sha256": "26b33f1766b794c566e6ee1351b6c661ea3b317a3f045d5d6ea2131d3760d0af",
+   "etag": "W/\"6374c562bd12e7e5c6e17363ea8648c1\"",
+   "last_modified": ""
+  },
+  "ifan-c915d9601b5f7917fbfcc9-0": {
+   "id": "ifan-c915d9601b5f7917fbfcc9-0",
+   "name": "TOOTING COMMUNITY KITCHEN",
+   "postcode": "SW17 7EN",
+   "website": "https://www.tootingcommunitykitchen.co.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.tootingcommunitykitchen.co.uk/",
+   "final_url": "https://www.tootingcommunitykitchen.co.uk/",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c9413c54f383184b2f87fe-0": {
+   "id": "ifan-c9413c54f383184b2f87fe-0",
+   "name": "EMS Ltd (Springhead Golf Club)",
+   "postcode": "HU5 5JE",
+   "website": "https://www.emsyorkshire.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.emsyorkshire.co.uk",
+   "final_url": "https://www.emsyorkshire.co.uk",
+   "http": 200,
+   "sha256": "06e7a45a69c009fb8df45008e62bbadf447c822e4e9db1bfbe08d24356ce35c8",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-c94d6d7f7985856e5762f9-0": {
+   "id": "ifan-c94d6d7f7985856e5762f9-0",
+   "name": "Musselburgh Community Pantry",
+   "postcode": "EH21 8JJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-c9aa05e823b42f828b895c-0": {
+   "id": "ifan-c9aa05e823b42f828b895c-0",
+   "name": "Jedburgh Food Bank",
+   "postcode": "TD8 6AS",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ca86f76c0942d03c9f9e07-0": {
+   "id": "ifan-ca86f76c0942d03c9f9e07-0",
+   "name": "St Luke's",
+   "postcode": "LS11 8PD",
+   "website": "https://www.stlukesholbeck.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.stlukesholbeck.org.uk/",
+   "final_url": "https://stlukesholbeck.org.uk/",
+   "http": 200,
+   "sha256": "6c3d98d5ded06a09425754e2b6fd126ff64cf3835ea99e1b35a24c0c6e509cff",
+   "etag": "",
+   "last_modified": "Tue, 20 Oct 2026 23:19:28 GMT"
+  },
+  "ifan-cb6c37f190b4af6460846c-0": {
+   "id": "ifan-cb6c37f190b4af6460846c-0",
+   "name": "Brotherhood of the Cross & Star",
+   "postcode": "SE1 6RT",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-cb6c37f190b4af6460846c-1": {
+   "id": "ifan-cb6c37f190b4af6460846c-1",
+   "name": "Brotherhood of the Cross & Star",
+   "postcode": "M14 4ST",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ccde4e50d3dc214223b8d3-0": {
+   "id": "ifan-ccde4e50d3dc214223b8d3-0",
+   "name": "Adis legacy non profit community support group",
+   "postcode": "LN5 8SS",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ccde4e50d3dc214223b8d3-1": {
+   "id": "ifan-ccde4e50d3dc214223b8d3-1",
+   "name": "Adis legacy non profit community support group",
+   "postcode": "LN2 4DD",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ccde4e50d3dc214223b8d3-2": {
+   "id": "ifan-ccde4e50d3dc214223b8d3-2",
+   "name": "Adis legacy non profit community support group",
+   "postcode": "LN5 8TQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-cdc46dddd2343f7f13f374-0": {
+   "id": "ifan-cdc46dddd2343f7f13f374-0",
+   "name": "CERT (UK)",
+   "postcode": "CA10 3LT",
+   "website": "https://www.certuk.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.certuk.org.uk",
+   "final_url": "https://www.certuk.org.uk",
+   "http": 200,
+   "sha256": "5e1e943d74c4fb1b2a4d292cfe253e8312006565c35cfe8f8e46cf274562d41d",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 09:42:12 GMT"
+  },
+  "ifan-cf2b665580321e2ffe05e8-0": {
+   "id": "ifan-cf2b665580321e2ffe05e8-0",
+   "name": "Kincardine Community Association Ltd",
+   "postcode": "FK10 4SF",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-cf96752e08b07025ef50ca-0": {
+   "id": "ifan-cf96752e08b07025ef50ca-0",
+   "name": "Hope Church Luton Trust",
+   "postcode": "LU2 7NT",
+   "website": "https://www.hopechurch.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.hopechurch.co.uk",
+   "final_url": "https://www.hopechurch.co.uk",
+   "http": 200,
+   "sha256": "6788a689dfcacf72e9d74c1111c4584fbdf228973efe489499383556d49fb4a5",
+   "etag": "",
+   "last_modified": "Thu, 22 Oct 2026 17:56:40 GMT"
+  },
+  "ifan-d081843c9c51e4cf9a2fdd-0": {
+   "id": "ifan-d081843c9c51e4cf9a2fdd-0",
+   "name": "Streetskitchen",
+   "postcode": "N7 6AA",
+   "website": "https://www.streetskitchen.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.streetskitchen.org",
+   "final_url": "https://www.streetskitchen.org",
+   "http": 200,
+   "sha256": "4add2e92b00d43d38d6361c104d5df53ba1269c88e48047be5032f4df028ffdf",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-d16730480b17451a1a8285-0": {
+   "id": "ifan-d16730480b17451a1a8285-0",
+   "name": "Proactive Communities, an arm of Blairgowrie and Rattray Development Trust",
+   "postcode": "PH10 6NQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-d30c8fd310aaaedc03e8a4-0": {
+   "id": "ifan-d30c8fd310aaaedc03e8a4-0",
+   "name": "Bury Fellowship",
+   "postcode": "BL9 0HE",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-d39ab7ecf8bfd375030a03-0": {
+   "id": "ifan-d39ab7ecf8bfd375030a03-0",
+   "name": "Katakata",
+   "postcode": "SW2 1RS",
+   "website": "https://www.facebook.com/KatakataBrixtonHill/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.facebook.com/KatakataBrixtonHill/",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-d64a79f330411d234c105d-0": {
+   "id": "ifan-d64a79f330411d234c105d-0",
+   "name": "House of Judah Church",
+   "postcode": "CR0 3PB",
+   "website": "https://www.houseofjudah.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.houseofjudah.org.uk",
+   "final_url": "https://www.houseofjudah.org.uk",
+   "http": 200,
+   "sha256": "856b98e5deff5da1db34f3decd1e9be340ef7635d40a4a9722c311c9e0f2c1a0",
+   "etag": "W/\"14107f706900bf5665dedc5148bf7e80\"",
+   "last_modified": ""
+  },
+  "ifan-d6e96f2307510ff02fd272-0": {
+   "id": "ifan-d6e96f2307510ff02fd272-0",
+   "name": "Craft In Mind C.I.C",
+   "postcode": "WA1 2QQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-d70db0b16add0172ea6d47-0": {
+   "id": "ifan-d70db0b16add0172ea6d47-0",
+   "name": "Independence Initiative Limited",
+   "postcode": "L20 7EJ",
+   "website": "https://www.independenceinitiative.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.independenceinitiative.org",
+   "final_url": "https://www.independenceinitiative.org",
+   "http": 200,
+   "sha256": "dce002f759478400ed1ed26f1251a3cb6d0c302de87e10e6747fa3898e2b33de",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-d7f150d6d17a6461e28bc6-0": {
+   "id": "ifan-d7f150d6d17a6461e28bc6-0",
+   "name": "Empower Women for Change",
+   "postcode": "G1 1DT",
+   "website": "https://www.ewfc.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.ewfc.org.uk",
+   "final_url": "https://www.ewfc.org.uk",
+   "http": 200,
+   "sha256": "61e0999c7361fde795336742dc677762244c359c7d51d19be90a7db9a0448130",
+   "etag": "W/\"d470a7aab95883c805f1c2d298d459fb\"",
+   "last_modified": ""
+  },
+  "ifan-d7fc84441cb4b169e549bb-0": {
+   "id": "ifan-d7fc84441cb4b169e549bb-0",
+   "name": "Saint Joseph's Community Connect Food Bank.",
+   "postcode": "LL29 7LG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-dc725915192ad0e4eb903a-0": {
+   "id": "ifan-dc725915192ad0e4eb903a-0",
+   "name": "The Pantri",
+   "postcode": "NP11 6BW",
+   "website": "https://www.thepantri.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.thepantri.org",
+   "final_url": "https://www.thepantri.org",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-dcce46e4cbab6cbb51f969-0": {
+   "id": "ifan-dcce46e4cbab6cbb51f969-0",
+   "name": "The Orchard",
+   "postcode": "L24 9HZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-dcfe252dd7c4a5f8d87286-0": {
+   "id": "ifan-dcfe252dd7c4a5f8d87286-0",
+   "name": "Great Lumley Methodist Church",
+   "postcode": "DH3 4JB",
+   "website": "https://www.glmc.church",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (tommy1949.wixsite.com)"
+   ],
+   "url": "https://www.glmc.church",
+   "final_url": "https://tommy1949.wixsite.com/glmc2017",
+   "http": 200,
+   "sha256": "e0177bd1a366aab6c46ff76644e1428abf27029e1438b7cfb0123633056b3845",
+   "etag": "W/\"d674d077b0691c436fb1c9a4f180eec2\"",
+   "last_modified": ""
+  },
+  "ifan-df91dcbbdc94e6e9178bdd-0": {
+   "id": "ifan-df91dcbbdc94e6e9178bdd-0",
+   "name": "Barnstable Blessings Box CIC",
+   "postcode": "EX31 3SU",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-e044f4a1c80fb94767cd38-0": {
+   "id": "ifan-e044f4a1c80fb94767cd38-0",
+   "name": "Boldon Community Association",
+   "postcode": "NE35 9DS",
+   "website": "https://www.boldonca.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.boldonca.co.uk",
+   "final_url": "https://www.boldonca.co.uk",
+   "http": 200,
+   "sha256": "82bcc02d223f74049bcb7617f7c0bc8107240c13454745b191ce92d9b0bafd29",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 09:42:14 GMT"
+  },
+  "ifan-e2466004ac51cd788aa0de-0": {
+   "id": "ifan-e2466004ac51cd788aa0de-0",
+   "name": "The Hill Community Development Trust",
+   "postcode": "SA1 6PH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-e88dd94a97d4bca3fb89aa-0": {
+   "id": "ifan-e88dd94a97d4bca3fb89aa-0",
+   "name": "Croftfoot Parish Church (The Pantry)",
+   "postcode": "G44 5NS",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-e8d7dade1b9ad4a37b670d-0": {
+   "id": "ifan-e8d7dade1b9ad4a37b670d-0",
+   "name": "Sharlston Foodbank",
+   "postcode": "WF4 1EJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ed9b47ffcd62e055b6b99c-0": {
+   "id": "ifan-ed9b47ffcd62e055b6b99c-0",
+   "name": "St Martin's Food Share",
+   "postcode": "HR2 7RJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-eded1489dc15f259abd1c2-0": {
+   "id": "ifan-eded1489dc15f259abd1c2-0",
+   "name": "Calvary Mansfield  -  Gap Cafe",
+   "postcode": "NG18 3FS",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-ee4f77b4af521ebdee4ee8-0": {
+   "id": "ifan-ee4f77b4af521ebdee4ee8-0",
+   "name": "Hackney Church (Homerton Food Bank)",
+   "postcode": "E9 6RT",
+   "website": "https://www.saint.church/lighthouse/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (saintlighthouse.org)"
+   ],
+   "url": "https://www.saint.church/lighthouse/",
+   "final_url": "https://saintlighthouse.org/",
+   "http": 200,
+   "sha256": "331cb5bccdbc90bdbb569787f0475d230c36a4fc281d71a7e78c23d175fd6da1",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 01:33:37 GMT"
+  },
+  "ifan-eed22046fea846fdb82e58-0": {
+   "id": "ifan-eed22046fea846fdb82e58-0",
+   "name": "Edinburgh City Mission - Leith Foodbank+",
+   "postcode": "EH6 5JX",
+   "website": "https://www.edinburghcitymission.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.edinburghcitymission.org.uk",
+   "final_url": "https://edinburghcitymission.org.uk/",
+   "http": 200,
+   "sha256": "b47769fb87ffee2e8c3b8b783edf93e10ca6cb54f55c75d2692e0ce6b115649e",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-ef0c8720ed8d007bd2e703-0": {
+   "id": "ifan-ef0c8720ed8d007bd2e703-0",
+   "name": "PAL Multicultural Centre",
+   "postcode": "L8 2TF",
+   "website": "https://www.palcentre.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.palcentre.org",
+   "final_url": "https://www.palcentre.org",
+   "http": 200,
+   "sha256": "2e1b306e0fc38b91f1d793b2b5b02f72463f701b22a0dca039f61566f505a5bf",
+   "etag": "W/\"3b68a044d87dec2084ed03d3574ed523\"",
+   "last_modified": ""
+  },
+  "ifan-efdbbbdb5cbdb2630b1da2-0": {
+   "id": "ifan-efdbbbdb5cbdb2630b1da2-0",
+   "name": "Foothold Cymru",
+   "postcode": "SA14 9RA",
+   "website": "https://www.footholdcymru.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site does not show food aid"
+   ],
+   "url": "https://www.footholdcymru.org.uk",
+   "final_url": "https://footholdcymru.org.uk/",
+   "http": 200,
+   "sha256": "e6efebf85eaf980d7933dda5aa46376be5e5ba321b8bcf5a58e5c5bac1733fdd",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-f0b9104641bb49ff84946a-0": {
+   "id": "ifan-f0b9104641bb49ff84946a-0",
+   "name": "Your Money Your Way CIC",
+   "postcode": "B18 7LG",
+   "website": "https://yourmoneyyourwaycic.co.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://yourmoneyyourwaycic.co.uk",
+   "final_url": "https://yourmoneyyourwaycic.co.uk",
+   "http": 200,
+   "sha256": "f63a7f83b1e8c22d0a0bcb0c5184a5e374973f64f6230697ee18b9eb54c33f60",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-f20578376a3651cdbaa938-0": {
+   "id": "ifan-f20578376a3651cdbaa938-0",
+   "name": "Hackney Church (Shoreditch Food Bank)",
+   "postcode": "E1 6JN",
+   "website": "https://www.saint.church/lighthouse/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (saintlighthouse.org)"
+   ],
+   "url": "https://www.saint.church/lighthouse/",
+   "final_url": "https://saintlighthouse.org/",
+   "http": 200,
+   "sha256": "331cb5bccdbc90bdbb569787f0475d230c36a4fc281d71a7e78c23d175fd6da1",
+   "etag": "",
+   "last_modified": "Fri, 23 Oct 2026 01:33:37 GMT"
+  },
+  "ifan-f338cb2d7c6ffef93a20ca-0": {
+   "id": "ifan-f338cb2d7c6ffef93a20ca-0",
+   "name": "The Well",
+   "postcode": "NR31 9RE",
+   "website": "https://www.gorlestonbaptist.org.uk/Groups/369232/Well_Foodbank.aspx",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://www.gorlestonbaptist.org.uk/Groups/369232/Well_Foodbank.aspx",
+   "final_url": "https://www.gorlestonbaptist.org.uk/Groups/369232/Well_Foodbank.aspx",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f5776598349e261aa45671-0": {
+   "id": "ifan-f5776598349e261aa45671-0",
+   "name": "St Martins Foodbank",
+   "postcode": "SY11 3AY",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f57b8b32645c432c4100e3-0": {
+   "id": "ifan-f57b8b32645c432c4100e3-0",
+   "name": "Cae Rowland Pantry, aPproject of Cae Rowland Community Partnership Partnership",
+   "postcode": "SA5 8NY",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f6d1f6383d0c233eb3a486-0": {
+   "id": "ifan-f6d1f6383d0c233eb3a486-0",
+   "name": "Stannington Foodbank",
+   "postcode": "S6 5HZ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f810b66877419ce9b8019a-0": {
+   "id": "ifan-f810b66877419ce9b8019a-0",
+   "name": "Fresh",
+   "postcode": "SK3 8LX",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f810b66877419ce9b8019a-1": {
+   "id": "ifan-f810b66877419ce9b8019a-1",
+   "name": "Fresh",
+   "postcode": "SK3 0RJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f810b66877419ce9b8019a-2": {
+   "id": "ifan-f810b66877419ce9b8019a-2",
+   "name": "Fresh",
+   "postcode": "SK3 8QJ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f810b66877419ce9b8019a-3": {
+   "id": "ifan-f810b66877419ce9b8019a-3",
+   "name": "Fresh",
+   "postcode": "SK3 8LQ",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f810b66877419ce9b8019a-4": {
+   "id": "ifan-f810b66877419ce9b8019a-4",
+   "name": "Fresh",
+   "postcode": "SK8 2JF",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f810b66877419ce9b8019a-5": {
+   "id": "ifan-f810b66877419ce9b8019a-5",
+   "name": "Fresh",
+   "postcode": "SK5 8HH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f86ca6451a02c639e09b30-0": {
+   "id": "ifan-f86ca6451a02c639e09b30-0",
+   "name": "Grace Church Family",
+   "postcode": "AB31 5ZU",
+   "website": "https://www.gracechurchfamily.com",
+   "directory": "IFAN",
+   "reasons": [
+    "own site unreachable (HTTP 429)"
+   ],
+   "url": "https://www.gracechurchfamily.com",
+   "final_url": "https://www.gracechurchfamily.com",
+   "http": 429,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-f88e4b63fb10d9a98aa620-0": {
+   "id": "ifan-f88e4b63fb10d9a98aa620-0",
+   "name": "Restore Hope",
+   "postcode": "HP5 1TU",
+   "website": "https://www.restorehopelatimer.org",
+   "directory": "IFAN",
+   "reasons": [
+    "own site redirects to a different site (restorehopecharity.org)"
+   ],
+   "url": "https://www.restorehopelatimer.org",
+   "final_url": "https://www.restorehopecharity.org/",
+   "http": 200,
+   "sha256": "dfa02b9635cf916b7f2ef6f5363446dd2c7823e285ee8d3e3525b416928c6660",
+   "etag": "W/\"a97cb6f86d24f527087e047a7f741811\"",
+   "last_modified": ""
+  },
+  "ifan-f8aae34ac5a14e26dd70b5-0": {
+   "id": "ifan-f8aae34ac5a14e26dd70b5-0",
+   "name": "Good Things Food Pantry",
+   "postcode": "CR0 7TD",
+   "website": "https://www.instagram.com/goodthingsfp",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.instagram.com/goodthingsfp",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-faefb08089325e68929a3f-2": {
+   "id": "ifan-faefb08089325e68929a3f-2",
+   "name": "Start Up Stirling",
+   "postcode": "FK21 8TP",
+   "website": "https://www.startupstirling.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.startupstirling.org.uk/",
+   "final_url": "https://startupstirling.org.uk/",
+   "http": 200,
+   "sha256": "993fbadda07b776755800b9e4dc026ccc5fe9e0369636ab48e05957fc383a120",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-faefb08089325e68929a3f-3": {
+   "id": "ifan-faefb08089325e68929a3f-3",
+   "name": "Start Up Stirling",
+   "postcode": "FK17 8BN",
+   "website": "https://www.startupstirling.org.uk/",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.startupstirling.org.uk/",
+   "final_url": "https://startupstirling.org.uk/",
+   "http": 200,
+   "sha256": "3cb8645f218eac4d035ad64785c98999b3c5e9065b570573fc71b5174ec25d78",
+   "etag": "",
+   "last_modified": ""
+  },
+  "ifan-fd42e1d6bc7417d081d3cc-0": {
+   "id": "ifan-fd42e1d6bc7417d081d3cc-0",
+   "name": "Montrose Food Hub",
+   "postcode": "DD10 8JG",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-fdf84aa64b3a52cdfc7fe0-0": {
+   "id": "ifan-fdf84aa64b3a52cdfc7fe0-0",
+   "name": "Heart of the Community Foodbank Swadlincote",
+   "postcode": "DE11 0TW",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-fe09bed76bda36a250d54c-0": {
+   "id": "ifan-fe09bed76bda36a250d54c-0",
+   "name": "Community Food Bank Skye & Lochalsh",
+   "postcode": "IV51 9EH",
+   "website": "",
+   "directory": "IFAN",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "ifan-fe9e49e1b0d9e8ad2086e7-0": {
+   "id": "ifan-fe9e49e1b0d9e8ad2086e7-0",
+   "name": "The People's Pantry",
+   "postcode": "G42 7BX",
+   "website": "https://www.govanhillbaths.com/pantry/",
+   "directory": "IFAN",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://www.govanhillbaths.com/pantry/",
+   "final_url": "https://www.govanhillbaths.com/pantry/",
+   "http": 202,
+   "sha256": "3ad25d0c29c7dc1792b5337114440afd95fbfb6ff7736bd45bb5adf01b681ed6",
+   "etag": "",
+   "last_modified": ""
+  }
+ },
+ "rejected": {}
+}
