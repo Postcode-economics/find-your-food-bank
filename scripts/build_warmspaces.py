@@ -59,6 +59,10 @@ for x in seen.values():
         "hours": hours, "provided": provided, "booking": booking, "notes": desc[:240],
         "scheme_start": ss["start"], "scheme_end": end, "scheme_dates": ("Until " + end) if end else "Not stated by source",
         "ended": bool(end and end < RUN), "source": "Warm Welcome", "source_url": page, "last_verified": RUN})
+FIX = {f["id"]: f for f in json.load(open("overrides/warmspaces_fixes.json"))} if os.path.exists("overrides/warmspaces_fixes.json") else {}
+for x in fresh:  # audited pin/postcode corrections, re-applied every run (fail-safe: only known keys)
+    for k in ("lat", "lng", "postcode", "address"):
+        if x["id"] in FIX and k in FIX[x["id"]]: x[k] = FIX[x["id"]][k]
 man = json.load(open("overrides/warmspaces_manual.json")) if os.path.exists("overrides/warmspaces_manual.json") else []
 for m in man:
     m["ended"] = bool(m.get("scheme_end") and m["scheme_end"] < RUN); fresh.append(m)

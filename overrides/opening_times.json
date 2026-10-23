@@ -255,6 +255,41 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "abergele-district": {
+  "card_name": "Abergele & Pensarn Railway Station",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Tuesday 10:00 am to 2:00 pm; Thursday-Friday 10:00 am to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://abergeledistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
  "abingdon": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue 11:00 - 12:45 Wed Closed Thu Closed Fri 11:00 - 12:45 Sat Closed Sun Closed ",
@@ -284,7 +319,7 @@
  },
  "adat-yeshua": {
   "checked_date": "2026-10-20",
-  "raw": "Saturdays at 10:30am \u2014 please arrive 10:00\u201310:15 | Saturdays 10:30am \u00b7 please arrive 10:00\u201310:15",
+  "raw": "Saturdays at 10:30am — please arrive 10:00–10:15 | Saturdays 10:30am · please arrive 10:00–10:15",
   "source_url": "https://adatyeshua.co.uk/contact/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -298,7 +333,7 @@
  },
  "afecc": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday: 9am \u2013 9pm | Saturday: 11am \u2013 6pm",
+  "raw": "Monday to Friday: 9am – 9pm | Saturday: 11am – 6pm",
   "source_url": "https://www.afecc.co.uk/contact-us/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -651,7 +686,7 @@
  },
  "arena-community": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays & Thursdays \u2022 10am \u2013 2pm",
+  "raw": "Tuesdays & Thursdays • 10am – 2pm",
   "source_url": "https://arenacommunity.co.uk/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -812,7 +847,7 @@
  },
  "ashton-pantry": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays : 11am\u201312pm | Thursdays : 2pm\u20133pm | Sundays : 3pm\u20134pm | Mondays from 12\u20131pm | Monday from 12\u20131pm",
+  "raw": "Tuesdays : 11am–12pm | Thursdays : 2pm–3pm | Sundays : 3pm–4pm | Mondays from 12–1pm | Monday from 12–1pm",
   "source_url": "https://www.stthomasstluke.org.uk/ourtown/foodpantry/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -929,7 +964,7 @@
  },
  "auchterarder-blue-door": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday and Friday 10.00 \u2013 1.00",
+  "raw": "Tuesday and Friday 10.00 – 1.00",
   "source_url": "https://bluedoorfoodbank.org/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -950,14 +985,14 @@
  },
  "aylesbury": {
   "checked_date": "2026-10-20",
-  "raw": "Mon \u2013 Thurs 10.30 am \u2013 3:00pm",
+  "raw": "Mon – Thurs 10.30 am – 3:00pm",
   "source_url": "https://aylesbury.foodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "aylesbury-vineyard-storehouse": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Thursday from 9 am until 3 pm | Tuesdays 10am - 12pm | Saturdays 10am - 12pm | Monday \u2013 Thursday, 9 am \u2013 2.30 pm | Tuesday & Saturday 10 am \u2013 12 pm | Monday to Thursday 9 am \u2013 3 pm",
+  "raw": "Monday to Thursday from 9 am until 3 pm | Tuesdays 10am - 12pm | Saturdays 10am - 12pm | Monday – Thursday, 9 am – 2.30 pm | Tuesday & Saturday 10 am – 12 pm | Monday to Thursday 9 am – 3 pm",
   "source_url": "https://aylesburyvineyard.church/storehouse",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -1630,6 +1665,125 @@
    ]
   }
  },
+ "basingstoke/brighton-hill": {
+  "card_name": "Basingstoke Foodbank Brighton Hill",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "basingstoke/buckskin": {
+  "card_name": "Basingstoke Foodbank Buckskin",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "basingstoke/popley": {
+  "card_name": "Basingstoke Foodbank Popley",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 12:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "basingstoke/sarum-hill": {
+  "card_name": "Basingstoke Foodbank Sarum Hill",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "basingstoke/tadley": {
+  "card_name": "Basingstoke Foodbank Tadley",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Tuesday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "basingstoke/town-centre": {
+  "card_name": "Basingstoke Foodbank Town Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "basingstoke/winklebury": {
+  "card_name": "Basingstoke Foodbank Winklebury",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 12:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://basingstoke.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
  "bath-keynsham-somer-valley": {
   "checked_date": "2026-10-20",
   "raw": "Mon 12:30 - 14:30 | Tue Closed Wed 12:30 - 14:30 | Thu Closed Fri 12:30 - 14:30 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:15 - 11:45 | Mon 10:00 - 12:00 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:00 - 13:30 | Mon 12:00 - 14:00 | Mon Closed Tue Closed Wed 13:00 - 14:30",
@@ -1777,7 +1931,7 @@
  },
  "beaminster": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays 10.00 \u2013 12.00 | Fridays 10.00 \u2013 12.00",
+  "raw": "Mondays 10.00 – 12.00 | Fridays 10.00 – 12.00",
   "source_url": "https://beaminsterteamchurches.org/foodbank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -1896,7 +2050,7 @@
  },
  "berwick": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday 4.00pm \u2013 6.00pm | Friday 10.00am \u2013 12.00pm | Monday 10.00am - 2.00pm | Tuesday 10.00am - 2.00pm | Wednesday 10.00am - 2.00pm | Thursday 10.00am - 2.00pm | Friday 10.00am - 2.00pm | Mon-Fri 9.00am - 5.00pm",
+  "raw": "Tuesday 4.00pm – 6.00pm | Friday 10.00am – 12.00pm | Monday 10.00am - 2.00pm | Tuesday 10.00am - 2.00pm | Wednesday 10.00am - 2.00pm | Thursday 10.00am - 2.00pm | Friday 10.00am - 2.00pm | Mon-Fri 9.00am - 5.00pm",
   "source_url": "https://berwicktrust.org.uk/berwick-food-bank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -1918,6 +2072,23 @@
     [
      "13:00",
      "15:00"
+    ]
+   ]
+  }
+ },
+ "bexhill/battle": {
+  "card_name": "Battle",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:30 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://bexhill.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:30",
+     "14:00"
     ]
    ]
   }
@@ -2266,7 +2437,7 @@
  },
  "bognor-regis": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays 10.30am \u2013 2.30pm | Thursdays 11am \u2013 1pm | Fridays 10.30am \u2013 2.30pm | Mon Closed Tue 10:30 - 14:30 | Wed Closed Thu 11:00 - 13:00 | Fri 10:30 - 14:30",
+  "raw": "Tuesdays 10.30am – 2.30pm | Thursdays 11am – 1pm | Fridays 10.30am – 2.30pm | Mon Closed Tue 10:30 - 14:30 | Wed Closed Thu 11:00 - 13:00 | Fri 10:30 - 14:30",
   "source_url": "https://bognorregis.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -2608,6 +2779,114 @@
    ]
   }
  },
+ "braintree-area/christ-church": {
+  "card_name": "Braintree Christ Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday-Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://braintreearea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "braintree-area/food-and-more": {
+  "card_name": "Food And More",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://braintreearea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "braintree-area/st-andrews-church-hall-halstead": {
+  "card_name": "Halstead",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://braintreearea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "braintree-area/st-pauls-church": {
+  "card_name": "Paul's Church Braintree",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://braintreearea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "braintree-area/the-church-in-great-notley": {
+  "card_name": "The Church in Great Notley",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://braintreearea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "braintree-area/witham-methodist-church": {
+  "card_name": "Witham",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://braintreearea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "breaking-bread": {
   "checked_date": "2026-10-20",
   "raw": "Wed 10AM-3PM | Fri 1PM-7PM | Wed : 10AM - 3PM | Fri : 1PM - 7PM",
@@ -2689,6 +2968,23 @@
   "source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "brentwood/brentwood-baptist-church": {
+  "card_name": "Brentwood Baptist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  }
  },
  "bridgend": {
   "checked_date": "2026-10-20",
@@ -2848,7 +3144,7 @@
  },
  "brighouse-central": {
   "checked_date": "2026-10-20",
-  "raw": "Friday 1pm\u20133pm",
+  "raw": "Friday 1pm–3pm",
   "source_url": "https://www.brighousecmc.org/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -2874,9 +3170,89 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "bromley-borough/central-bromley": {
+  "card_name": "Bromley URC Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 11:00 am to 1:15 pm; Thursday 12:00 pm to 2:15 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://bromleyborough.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "12:00",
+     "14:15"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "13:15"
+    ]
+   ]
+  }
+ },
+ "bromley-borough/central-orpington": {
+  "card_name": "Orpington Central (Walnuts)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 12:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://bromleyborough.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "bromley-borough/orpington": {
+  "card_name": "St Mary Cray Centre (Oak)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 12:30 pm to 2:30 pm; Wednesday 11:00 am to 1:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://bromleyborough.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "13:30"
+    ]
+   ]
+  }
+ },
+ "bromley-borough/penge": {
+  "card_name": "Penge Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://bromleyborough.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
  "broxbourne": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday to Thursday 10am \u2013 2pm",
+  "raw": "Tuesday to Thursday 10am – 2pm",
   "source_url": "https://broxbourne.foodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -2951,7 +3327,7 @@
  },
  "bude": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday (except Wednesdays) 9.30am \u2013 1.00pm",
+  "raw": "Monday – Friday (except Wednesdays) 9.30am – 1.00pm",
   "source_url": "https://budefoodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3033,7 +3409,7 @@
  },
  "bute": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 10.00 am \u2013 1.00 pm | Tuesday 10.00 am \u2013 1.00 pm | Wednesday 10.00 am \u2013 1.00 pm | Thursday 10.00 am \u2013 1.00 pm | Friday 10.00 am \u2013 1.00 pm",
+  "raw": "Monday 10.00 am – 1.00 pm | Tuesday 10.00 am – 1.00 pm | Wednesday 10.00 am – 1.00 pm | Thursday 10.00 am – 1.00 pm | Friday 10.00 am – 1.00 pm",
   "source_url": "https://www.buteadvice.org.uk/contact",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3158,6 +3534,142 @@
   "source_url": "https://www.calnefoodbank.co.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "cambridge-city/c3-church": {
+  "card_name": "C3 Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:30 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:30",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/cambourne": {
+  "card_name": "Blue Space Cambourne",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/chesterton-methodist-church": {
+  "card_name": "Chesterton Methodist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/christ-church-trumpington-centre": {
+  "card_name": "Christ Church Trumpington",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 2:30 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "14:30",
+     "16:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/church-of-the-good-shepherd": {
+  "card_name": "Church of the Good Shepherd",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/northstowe": {
+  "card_name": "The Unity Centre Northstowe",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/olem-church": {
+  "card_name": "OLEM Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "cambridge-city/st-pauls-church": {
+  "card_name": "St Paul's Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 3:00 pm to 5:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "15:00",
+     "17:00"
+    ]
+   ]
+  }
  },
  "camden": {
   "checked_date": "2026-10-20",
@@ -3304,7 +3816,7 @@
  },
  "cardigan": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays \u2013 10:00am-1:00pm | Fridays \u2013 10:00am \u2013 3:00pm",
+  "raw": "Tuesdays – 10:00am-1:00pm | Fridays – 10:00am – 3:00pm",
   "source_url": "https://www.cardiganfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3455,7 +3967,7 @@
  },
  "chat": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday 9.30 am \u2013 4.30 pm | Saturday 9.30am \u2013 12 | Monday\u2013Friday 9:30am\u20134:30pm | Saturday 9:30am\u201312",
+  "raw": "Monday – Friday 9.30 am – 4.30 pm | Saturday 9.30am – 12 | Monday–Friday 9:30am–4:30pm | Saturday 9:30am–12",
   "source_url": "https://www.chatmid.org/contact",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3625,7 +4137,7 @@
  },
  "cheltenham-open-door": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 10am-3pm | Tuesday \u2013 10am-3pm | Wednesday \u2013 10am-3pm | Thursday \u2013 10am-3pm | Sunday \u2013 8.30am-1pm | Mondays to Thursdays from 10.00am-3.00pm | Sundays from 08.30am-1.00pm",
+  "raw": "Monday – 10am-3pm | Tuesday – 10am-3pm | Wednesday – 10am-3pm | Thursday – 10am-3pm | Sunday – 8.30am-1pm | Mondays to Thursdays from 10.00am-3.00pm | Sundays from 08.30am-1.00pm",
   "source_url": "https://cheltenhamopendoor.org.uk/find-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3785,7 +4297,7 @@
  },
  "chichester-district": {
   "checked_date": "2026-10-20",
-  "raw": "Monday: 2-4pm | Wednesday: 9.30-11.30am | Friday: 4-6pm | Friday: 10am - midday | Monday, Tuesday, Wednesday & Friday: 9.00am - 12.30pm | Monday: 08:30-16:00 | Tuesday: 09:00-12:00 | Thursday: 08:30 \u2013 15:30",
+  "raw": "Monday: 2-4pm | Wednesday: 9.30-11.30am | Friday: 4-6pm | Friday: 10am - midday | Monday, Tuesday, Wednesday & Friday: 9.00am - 12.30pm | Monday: 08:30-16:00 | Tuesday: 09:00-12:00 | Thursday: 08:30 – 15:30",
   "source_url": "https://chichesterdistrict.foodbank.org.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3804,9 +4316,26 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "chichester-district/selsey": {
+  "card_name": "Collection Only",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://chichesterdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "childs-hill": {
   "checked_date": "2026-10-20",
-  "raw": "SATURDAYS 10 am \u2013 12 | Mondays through Thursday 9.30am to 5.00pm | Sundays 8 am \u2013 12 | Monday to Thursday, 9.30 am to 6 pm",
+  "raw": "SATURDAYS 10 am – 12 | Mondays through Thursday 9.30am to 5.00pm | Sundays 8 am – 12 | Monday to Thursday, 9.30 am to 6 pm",
   "source_url": "https://allsaintschildshill.com/childs-hill-food-bank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -3895,7 +4424,7 @@
  },
  "christchurch": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays & Thursdays, 10am \u2013 2pm | Mons, 10am \u2013 12pm | Tues, 10am \u2013 12pm | Thurs, 11am \u2013 1pm | Fri, 2pm \u2013 4pm | Tuesdays \u2013 Thursdays, 9.30am \u2013 12.30pm | Fridays, 9.30am \u2013 12pm | Wednesday, 10am \u2013 12pm | Friday, 2pm \u2013 4pm | Wednesdays, 9am \u2013 12.30pm | Fridays, 2pm \u2013 4pm | Sundays, 2.30pm \u2013 4.30pm",
+  "raw": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -4078,12 +4607,201 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "colchester/brightlingsea": {
+  "card_name": "Brightlingsea Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "colchester/colchester-central": {
+  "card_name": "Colchester Central Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday-Wednesday 11:00 am to 1:00 pm; Friday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "colchester/greenstead": {
+  "card_name": "Greenstead Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Tuesday 10:00 am to 12:00 pm; Thursday-Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "colchester/highwoods": {
   "checked_date": "2026-10-20",
   "raw": "Monday 9:30 am to 11:30 am",
   "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "colchester/monkwick": {
+  "card_name": "Monkwick Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "colchester/myland": {
+  "card_name": "Myland Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 8:30 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "08:30",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "colchester/new-town": {
+  "card_name": "New Town Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 7:30 pm to 8:30 pm; Thursday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "19:30",
+     "20:30"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "colchester/rowhedge": {
+  "card_name": "Rowhedge Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 4:00 pm to 6:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "16:00",
+     "18:00"
+    ]
+   ]
+  }
+ },
+ "colchester/tiptree-churches": {
+  "card_name": "Tiptree Churches Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 2:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
+ "colchester/wivenhoe": {
+  "card_name": "Wivenhoe Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher?page=2",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
  },
  "colindale": {
   "checked_date": "2026-10-20",
@@ -4182,7 +4900,7 @@
  },
  "cornerstone": {
   "checked_date": "2026-10-20",
-  "raw": "Mon-Fri: 9:00am \u2013 4:00pm | Saturday: 10:00 \u2013 1:00pm | Sunday: Closed Op Shop Mon-Fri: 10:00am \u2013 4:00pm",
+  "raw": "Mon-Fri: 9:00am – 4:00pm | Saturday: 10:00 – 1:00pm | Sunday: Closed Op Shop Mon-Fri: 10:00am – 4:00pm",
   "source_url": "https://www.cornerstonecarlisle.org/contact/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -4380,6 +5098,104 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "craigavon-area/craigavon-presbyterian": {
+  "card_name": "Craigavon Presbyterian",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 11:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://craigavonarea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "craigavon-area/emmanuel-portadown": {
+  "card_name": "Emmanuel Portadown",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 11:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://craigavonarea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "craigavon-area/salvation-army-lurgan": {
+  "card_name": "Salvation Army Lurgan - Drop In",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 11:00 am to 12:00 pm; Thursday 11:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://craigavonarea.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "cramlington": {
+  "card_name": "Cramlington Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Monday-Friday 10:00 am to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cramlington.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
  "craven-arms": {
   "checked_date": "2026-10-20",
   "raw": "Tuesdays, 10am to midday",
@@ -4442,6 +5258,16 @@
    ]
   }
  },
+ "crowthorne/owlsmoor-community-centre": {
+  "card_name": "Owlsmoor - Sandhurst",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 12:30 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://crowthorne.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
  "cumbernauld": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue 12:00 - 14:00 Wed Closed Thu 12:00 - 14:00 Fri Closed Sat Closed Sun Closed ",
@@ -4462,9 +5288,38 @@
    ]
   }
  },
+ "cupar": {
+  "card_name": "Cupar Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Monday 11:00 am to 3:00 pm; Wednesday 4:00 pm to 6:00 pm; Friday 11:00 am to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://cupar.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "15:00"
+    ]
+   ],
+   "mon": [
+    [
+     "11:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "16:00",
+     "18:00"
+    ]
+   ]
+  }
+ },
  "dads-house": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday to Friday 10am to 1pm | Tuesday from 20th of October to 24th of November 2026. Time: 5:30pm \u2013 7:00pm | Tuesday from 7.45pm till 8.45pm | Saturday morning from 9am to 10.30 am | Tuesday to Friday, from 10am to 1pm",
+  "raw": "Tuesday to Friday 10am to 1pm | Tuesday from 20th of October to 24th of November 2026. Time: 5:30pm – 7:00pm | Tuesday from 7.45pm till 8.45pm | Saturday morning from 9am to 10.30 am | Tuesday to Friday, from 10am to 1pm",
   "source_url": "https://www.dadshouse.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -4519,14 +5374,14 @@
  },
  "dartmouth-district": {
   "checked_date": "2026-10-20",
-  "raw": "Friday from 11.00 am to 12.30 pm | Sundays 10.00 am to 12 | Wednesdays 12 noon to 3.00 pm | Sundays 10am \u2013 12 | Wednesdays 12 noon \u2013 3pm | Monday - Friday 9.00 am until 2.00 pm",
+  "raw": "Friday from 11.00 am to 12.30 pm | Sundays 10.00 am to 12 | Wednesdays 12 noon to 3.00 pm | Sundays 10am – 12 | Wednesdays 12 noon – 3pm | Monday - Friday 9.00 am until 2.00 pm",
   "source_url": "https://dartmouthanddistrictfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "dartmouth-district/kingswear": {
   "checked_date": "2026-10-20",
-  "raw": "Sundays 10am \u2013 12 | Wednesdays 12 noon \u2013 3pm | Monday - Friday 9.00 am until 2.00 pm",
+  "raw": "Sundays 10am – 12 | Wednesdays 12 noon – 3pm | Monday - Friday 9.00 am until 2.00 pm",
   "source_url": "https://dartmouthanddistrictfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -4807,7 +5662,7 @@
  },
  "droitwich-spa": {
   "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday, Thursday and Friday between 10am \u2013 4pm | Monday to Friday, 9am-5pm",
+  "raw": "Monday, Tuesday, Thursday and Friday between 10am – 4pm | Monday to Friday, 9am-5pm",
   "source_url": "https://droitwichspa.foodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -4828,7 +5683,7 @@
  },
  "dunbar-foodshare": {
   "checked_date": "2026-10-20",
-  "raw": "Wednesdays between 12pm and 2.00pm. Our Social Caf\u00e9 is open from 10.30am until 1.45pm",
+  "raw": "Wednesdays between 12pm and 2.00pm. Our Social Café is open from 10.30am until 1.45pm",
   "source_url": "https://www.dunbarfoodshare.org/visit",
   "status": "TIMES_FOUND",
   "structured": {
@@ -4846,6 +5701,70 @@
   "source_url": "https://dundeeandangus.foodbank.org.uk/contact-us",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "dundee-angus/arbroath": {
+  "card_name": "Arbroath Distribution Centre(Angus)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 3:00 pm; Friday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://dundeeandangus.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "dundee-angus/stobswell": {
+  "card_name": "Stobswell",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Friday 12:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://dundeeandangus.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:00",
+     "16:00"
+    ]
+   ],
+   "mon": [
+    [
+     "12:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "12:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "16:00"
+    ]
+   ]
+  }
  },
  "dundonald": {
   "checked_date": "2026-10-20",
@@ -5200,7 +6119,7 @@
  },
  "easingwold": {
   "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday, Thursday and Friday 9.30am to 12.30pm | Monday, Tuesday, Thursday and Friday 9.30am \u2013 12.30pm",
+  "raw": "Monday, Tuesday, Thursday and Friday 9.30am to 12.30pm | Monday, Tuesday, Thursday and Friday 9.30am – 12.30pm",
   "source_url": "https://edcca.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -5326,12 +6245,87 @@
    ]
   }
  },
+ "east-lothian": {
+  "card_name": "East Lothian Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Friday 10:00 am to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://eastlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
  "east-renfrewshire": {
   "checked_date": "2026-10-20",
   "raw": "Tues 12-2pm | Fri 2-4pm",
   "source_url": "https://eastrenfrewshire.foodbank.org.uk/contact-us",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "east-renfrewshire/busby-centre": {
+  "card_name": "Busby Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://eastrenfrewshire.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "east-renfrewshire/thornliebank-resource-centre": {
+  "card_name": "Thornliebank Resource Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:30 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://eastrenfrewshire.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  }
  },
  "east-west-nottingham": {
   "checked_date": "2026-10-20",
@@ -5903,7 +6897,7 @@
  },
  "edinburgh-ne": {
   "checked_date": "2026-10-20",
-  "raw": "Mon Closed Tue Closed Wed 16:30 \u2013 18:00",
+  "raw": "Mon Closed Tue Closed Wed 16:30 – 18:00",
   "source_url": "https://edinburghnefoodbank.com/contact/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -5936,7 +6930,7 @@
  },
  "ek-community": {
   "checked_date": "2026-10-20",
-  "raw": "Monday\u2013Friday: 9am\u20135pm",
+  "raw": "Monday–Friday: 9am–5pm",
   "source_url": "https://www.calderwoodbaptist.co.uk/Groups/270436/Contact_Us.aspx",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -5947,6 +6941,108 @@
   "source_url": "https://ellandanddistrictfb.wordpress.com/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "ely/chatteris": {
+  "card_name": "Chatteris - Salvation Army Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
+ "ely/cottenham": {
+  "card_name": "Cottenham - Baptist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "ely/haddenham": {
+  "card_name": "Haddenham - Holy Trinity Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
+ "ely/march": {
+  "card_name": "March - Centenary Baptist",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 1:00 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "ely/soham": {
+  "card_name": "Soham Foodbank Methodist ChurchHall",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 10:30 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "ely/waterbeach": {
+  "card_name": "Waterbeach - Baptist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 11:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "12:00"
+    ]
+   ]
+  }
  },
  "enfield": {
   "checked_date": "2026-10-20",
@@ -5980,6 +7076,23 @@
   "source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "enniskillen/irvinestown": {
+  "card_name": "Arc Healthy Living Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "14:00"
+    ]
+   ]
+  }
  },
  "epping-forest": {
   "checked_date": "2026-10-20",
@@ -6157,7 +7270,7 @@
  },
  "exeter": {
   "checked_date": "2026-10-20",
-  "raw": "Monday Closed Tuesday Closed Wednesday 10:00 am \u2013 12:00 pm | Thursday Closed Friday 10:00 am \u2013 12:00 pm",
+  "raw": "Monday Closed Tuesday Closed Wednesday 10:00 am – 12:00 pm | Thursday Closed Friday 10:00 am – 12:00 pm",
   "source_url": "https://exeterfoodbank.co.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -6252,7 +7365,7 @@
  },
  "family-food-bank": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 9:00 \u2013 16:00 | Tuesday 9 :00 \u2013 16:00 | Wednesday 9.0 0 \u2013 16:00 | Thursday 9.0 0 \u2013 16:00 | Friday 9. 00 \u2013 16:00",
+  "raw": "Monday 9:00 – 16:00 | Tuesday 9 :00 – 16:00 | Wednesday 9.0 0 – 16:00 | Thursday 9.0 0 – 16:00 | Friday 9. 00 – 16:00",
   "source_url": "https://www.familyfoodbank.org/contact-us.html",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -6440,7 +7553,7 @@
  },
  "ferndown": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday from 2pm \u2013 5.00pm | Saturday between 10.30 -1pm",
+  "raw": "Monday – Friday from 2pm – 5.00pm | Saturday between 10.30 -1pm",
   "source_url": "https://ferndowncommunitysupport.org.uk/community-larder/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -6491,7 +7604,7 @@
  },
  "first-base-dumfriesshire": {
   "checked_date": "2026-10-20",
-  "raw": "Monday: 12:00 \u2013 14:00 | Tuesday: 12:00 \u2013 14:00 | Wednesday: 12:00 \u2013 14:00 | Thursday: 12:00 \u2013 14:00 | Friday: 12:00 \u2013 14:00",
+  "raw": "Monday: 12:00 – 14:00 | Tuesday: 12:00 – 14:00 | Wednesday: 12:00 – 14:00 | Thursday: 12:00 – 14:00 | Friday: 12:00 – 14:00",
   "source_url": "https://www.firstbasedumfries.co.uk/foodbank-service/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -6828,14 +7941,14 @@
  },
  "fusion": {
   "checked_date": "2026-10-20",
-  "raw": "Mon-Fri: 10am \u2013 3pm",
+  "raw": "Mon-Fri: 10am – 3pm",
   "source_url": "https://fusionhousing.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "fusion/calderdale": {
   "checked_date": "2026-10-20",
-  "raw": "Mon-Fri: 9am \u2013 4pm",
+  "raw": "Mon-Fri: 9am – 4pm",
   "source_url": "https://fusionhousing.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -7116,6 +8229,35 @@
    ]
   }
  },
+ "glasgow-se": {
+  "card_name": "Glasgow SE Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 12:30 pm to 2:00 pm; Wednesday 12:30 pm to 2:00 pm; Friday 12:30 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://glasgowse.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:00"
+    ]
+   ],
+   "mon": [
+    [
+     "12:30",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:30",
+     "14:00"
+    ]
+   ]
+  }
+ },
  "glasgow-sw": {
   "checked_date": "2026-10-20",
   "raw": "Monday to Friday 9am to 5pm",
@@ -7247,6 +8389,57 @@
    ]
   }
  },
+ "gloucester/hucclecote-centre": {
+  "card_name": "Hucclecote Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 11:00 am to 12:45 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://gloucester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "11:00",
+     "12:45"
+    ]
+   ]
+  }
+ },
+ "gloucester/kingsway-beacon-centre": {
+  "card_name": "Kingsway, Beacon Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Friday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://gloucester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "gloucester/matson": {
+  "card_name": "Redwell Centre, Matson",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:00 am to 11:45 am",
+  "reader": "trussell_cards",
+  "source_url": "https://gloucester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "11:45"
+    ]
+   ]
+  }
+ },
  "godmanchester-huntingdon": {
   "checked_date": "2026-10-20",
   "raw": "Monday to Friday 9.30am to 3.30pm | Monday to Friday, 9am-5pm",
@@ -7270,6 +8463,35 @@
     [
      "10:00",
      "14:00"
+    ]
+   ]
+  }
+ },
+ "gorleston": {
+  "card_name": "St Mary Magdalene (NR31 only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 9:30 am to 11:30 am; Wednesday 9:30 am to 11:30 am; Friday 9:30 am to 11:30 am",
+  "reader": "trussell_cards",
+  "source_url": "https://gorleston.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ],
+   "mon": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:30",
+     "11:30"
     ]
    ]
   }
@@ -7390,7 +8612,7 @@
  },
  "green-lane-masjid-and-community-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday 12.00pm \u2013 5.00pm | Saturday 12.00pm \u2013 2.00pm | Mon-Fri: 11.00am - 5.00pm | Sat: 12.00pm - 2.00pm",
+  "raw": "Monday – Friday 12.00pm – 5.00pm | Saturday 12.00pm – 2.00pm | Mon-Fri: 11.00am - 5.00pm | Sat: 12.00pm - 2.00pm",
   "source_url": "https://greenlanemasjid.org/contact/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -7968,6 +9190,80 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "harrow/holy-trinity-church-wealdstone": {
+  "card_name": "Holy Trinity Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 1:00 pm to 3:00 pm; Friday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://harrow.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "harrow/kenton-methodist-church": {
+  "card_name": "Kenton Methodist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://harrow.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "harrow/rayners-lane-baptist-church": {
+  "card_name": "Rayners Lane Baptist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://harrow.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "harrow/south-harrow-baptist-church": {
+  "card_name": "South Harrow Baptist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://harrow.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "hart": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon 13:30 - 15:00 Tue Closed Wed Closed Thu 11:00 - 12:30 Fri Closed Sat Closed Sun Closed ",
@@ -8268,7 +9564,7 @@
  },
  "highams-park-hub": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday and Thursday from 11 am to 1 pm | Thursdays, as well as on Wednesdays, our free community caf\u00e9 (11 am \u2013 2 pm | Tuesdays and Thursdays from 11am to 1pm | Wednesdays from 11am to 2pm | Tuesdays and Thursdays between 11am to 1pm | Tuesdays 11am-1pm | Wednesdays 11am-2pm | Thursdays 11am-1pm",
+  "raw": "Tuesday and Thursday from 11 am to 1 pm | Thursdays, as well as on Wednesdays, our free community café (11 am – 2 pm | Tuesdays and Thursdays from 11am to 1pm | Wednesdays from 11am to 2pm | Tuesdays and Thursdays between 11am to 1pm | Tuesdays 11am-1pm | Wednesdays 11am-2pm | Thursdays 11am-1pm",
   "source_url": "https://hphub.co.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -8309,35 +9605,35 @@
  },
  "highland": {
   "checked_date": "2026-10-20",
-  "raw": "Mon \u2013 Fri 12:00 \u2013 14:00",
+  "raw": "Mon – Fri 12:00 – 14:00",
   "source_url": "https://newstarthighland.org/how-we-help/highland-foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "highland/alness-invergordon": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday & Friday 11:00 \u2013 13:00",
+  "raw": "Tuesday & Friday 11:00 – 13:00",
   "source_url": "https://newstarthighland.org/how-we-help/highland-foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "highland/dingwall": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday 10:00 \u2013 12:00 | Friday 13:00 \u2013 15:00",
+  "raw": "Tuesday 10:00 – 12:00 | Friday 13:00 – 15:00",
   "source_url": "https://newstarthighland.org/how-we-help/highland-foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "highland/nairn": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday & Friday 12:00 \u2013 14:00",
+  "raw": "Tuesday & Friday 12:00 – 14:00",
   "source_url": "https://newstarthighland.org/how-we-help/highland-foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "highland/tain": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday & Thursday 12 \u2013 14:30",
+  "raw": "Tuesday & Thursday 12 – 14:30",
   "source_url": "https://newstarthighland.org/how-we-help/highland-foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -8540,7 +9836,7 @@
  },
  "hits": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday 10.00am until 4.00pm",
+  "raw": "Monday – Friday 10.00am until 4.00pm",
   "source_url": "https://hitsfoodbank.org/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -8567,7 +9863,7 @@
  },
  "holy-trinity": {
   "checked_date": "2026-10-20",
-  "raw": "Sunday from 1.30pm \u2013 3.30pm | Saturdays from 8.45 to 9.45pm | Sundays from 9.00am to 9pm",
+  "raw": "Sunday from 1.30pm – 3.30pm | Saturdays from 8.45 to 9.45pm | Sundays from 9.00am to 9pm",
   "source_url": "https://www.holytrinityfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -8614,7 +9910,7 @@
  },
  "hornsey": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Thursday 8.45am-5pm | Friday 8.45am-4.45pm | Thursday 10:15am \u2013 1pm",
+  "raw": "Monday to Thursday 8.45am-5pm | Friday 8.45am-4.45pm | Thursday 10:15am – 1pm",
   "source_url": "https://www.hornseyfoodbank.org.uk/about-us",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -8805,10 +10101,48 @@
  },
  "hounslow-community-foodbox": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday \u2013 Friday: 10am \u2013 1pm | Saturday: 10am \u2013 12pm",
+  "raw": "Tuesday – Friday: 10am – 1pm | Saturday: 10am – 12pm",
   "source_url": "https://hounslowfoodbox.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "huddersfield": {
+  "checked_date": "2026-10-22",
+  "raw": "Monday to Friday between 10 am and 4 pm",
+  "source_url": "https://www.thewelcomecentre.org/pages/need-our-help",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  }
  },
  "hull": {
   "checked_date": "2026-10-20",
@@ -8897,6 +10231,29 @@
    ]
   }
  },
+ "hunstanton-district": {
+  "card_name": "Hunstanton & District Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:30 pm to 2:30 pm; Thursday 1:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://hunstantondistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:30",
+     "14:30"
+    ]
+   ],
+   "thu": [
+    [
+     "13:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
  "ignite-life": {
   "checked_date": "2026-10-20",
   "raw": "Mondays 12:30-4pm | Tuesdays 10am-3pm | Wednesdays 10am-1pm",
@@ -8925,7 +10282,7 @@
  },
  "instant-neighbour": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday 10:00 \u2013 13:00 | Monday to Friday from 10:00 \u2013 13:00",
+  "raw": "Monday – Friday 10:00 – 13:00 | Monday to Friday from 10:00 – 13:00",
   "source_url": "https://www.instantneighbour.co.uk/food-bank/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -9115,6 +10472,23 @@
    ]
   }
  },
+ "ivybridge-district": {
+  "card_name": "Ivybridge Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://ivybridge.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "jigsaw": {
   "checked_date": "2026-10-20",
   "raw": "Monday - 08:30 - 16:00 | Tuesday - 08:30 - 16:00 | Wednesday - 08:30 - 16:00 | Thursday - 08:30 - 16:00 | Friday - 08:30 - 16:00 | Saturday - CLOSED Sunday - 09:00 - 13:00",
@@ -9272,6 +10646,23 @@
    ]
   }
  },
+ "kings-lynn/st-faiths-community-hub": {
+  "card_name": "Gaywood (St Faith's Community Hub)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://kingslynn.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "kings-project": {
   "checked_date": "2026-10-20",
   "raw": "Monday & Friday 10am - 12pm",
@@ -9281,7 +10672,7 @@
  },
  "kingsbridge": {
   "checked_date": "2026-10-20",
-  "raw": "Saturday morning\u2019s, from 10am until 12pm",
+  "raw": "Saturday morning’s, from 10am until 12pm",
   "source_url": "https://www.kingsbridgefoodbank.org.uk/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -9357,7 +10748,7 @@
  },
  "kinmel-bay-church": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday and Friday 11 am \u2013 1 pm",
+  "raw": "Tuesday and Friday 11 am – 1 pm",
   "source_url": "https://kinmelbaychurch.org.uk/food-bank-2/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -9429,6 +10820,23 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "lambeth-croydon/brixton": {
+  "card_name": "Brixton Hub - appointment only",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://lambethcroydon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
  "lambeth-croydon/croydon": {
   "checked_date": "2026-10-20",
   "raw": "Monday-Thursday 9am-5pm | Friday 9am-12pm",
@@ -9443,6 +10851,29 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "lambeth-croydon/oasis-centre": {
+  "card_name": "Waterloo - appointment only",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 2:00 pm to 4:00 pm; Friday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://lambethcroydon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
  "lambeth-croydon/streatham": {
   "checked_date": "2026-10-20",
   "raw": "Monday Closed Tuesday 11:00 am to 1:00 pm",
@@ -9456,6 +10887,29 @@
   "source_url": "https://landportra.wordpress.com/2016/05/31/landport-foodbank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "larkhall-district": {
+  "card_name": "Larkhall & District Foodbank Office",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Tuesday 11:00 am to 1:00 pm; Friday 11:00 am to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://larkhalldistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
  },
  "larne": {
   "checked_date": "2026-10-20",
@@ -10287,14 +11741,14 @@
  },
  "liberty-church-mid-ulster": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday \u2013 Thursday, 9.30 am \u2013 4pm | Sunday of each month Luke 4 : 18-19",
+  "raw": "Tuesday – Thursday, 9.30 am – 4pm | Sunday of each month Luke 4 : 18-19",
   "source_url": "https://www.wearelibertychurch.com/contact/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "liberty-thurcroft": {
   "checked_date": "2026-10-20",
-  "raw": "Wednesday morning from 10am \u2013 12pm",
+  "raw": "Wednesday morning from 10am – 12pm",
   "source_url": "https://thurcroft.libertyrotherham.org/blog/liberty-thurcroft-food-and-baby-bank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -10626,7 +12080,7 @@
  },
  "lochaber": {
   "checked_date": "2026-10-20",
-  "raw": "Monday, Wednesday, Friday 12pm \u2013 2pm | Monday, Wednesday & Friday 12 till 2 | Monday 10am till 12pm | Wednesday 10am till 12pm | Friday 10am till 12pm",
+  "raw": "Monday, Wednesday, Friday 12pm – 2pm | Monday, Wednesday & Friday 12 till 2 | Monday 10am till 12pm | Wednesday 10am till 12pm | Friday 10am till 12pm",
   "source_url": "https://www.lochaberfoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -10695,7 +12149,7 @@
  },
  "loveworks": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday \u2013 Fridays 10am \u2013 1pm",
+  "raw": "Tuesday – Fridays 10am – 1pm",
   "source_url": "https://www.loveworks.org.uk/contact",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -10749,7 +12203,7 @@
  },
  "luton": {
   "checked_date": "2026-10-20",
-  "raw": "Mon-Fri, 8.30am \u2013 4pm",
+  "raw": "Mon-Fri, 8.30am – 4pm",
   "source_url": "https://lutonfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -10875,6 +12329,29 @@
   "source_url": "https://malvernhills.foodbank.org.uk/contact-us",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "malvern-hills/upton-upon-severn-baptist-church": {
+  "card_name": "Upton-upon-Severn Baptist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:00 am to 1:00 pm; Friday 10:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://malvernhills.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  }
  },
  "manchester-central": {
   "checked_date": "2026-10-20",
@@ -11003,77 +12480,77 @@
  },
  "medway": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm | Monday 10:00 am to 12:30 pm | Tuesday-Thursday Closed Friday 10:00 am to 12:30 pm | Monday-Tuesday Closed Wednesday 9:30 am to 11:30 am | Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Monday Closed Tuesday 10:30 am to 12:30 pm | Monday-Wednesday Closed Thursday 1:00 pm to 3:00 pm | Friday Closed Saturday 10:00 am to 12:00 pm | Monday Closed Tuesday 11:30 am to 1:30 pm | Wednesday-Thursday Closed Friday 11:30 am to 1:30 pm | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm | Monday-Wednesday Closed Thursday 9:30 am to 12:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:30 am to 12:30 pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm | Monday 10:00 am to 12:30 pm | Tuesday-Thursday Closed Friday 10:00 am to 12:30 pm | Monday-Tuesday Closed Wednesday 9:30 am to 11:30 am | Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Monday Closed Tuesday 10:30 am to 12:30 pm | Monday-Wednesday Closed Thursday 1:00 pm to 3:00 pm | Friday Closed Saturday 10:00 am to 12:00 pm | Monday Closed Tuesday 11:30 am to 1:30 pm | Wednesday-Thursday Closed Friday 11:30 am to 1:30 pm | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm | Monday-Wednesday Closed Thursday 9:30 am to 12:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:30 am to 12:30 pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/all-saints-foodbank-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/harvest-foodbank-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/midkent-college": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/open-doors-cafe": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/st-justus-church": {
   "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/st-marks-foodbank": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/strood-foodbank": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/the-net-community-cafe": {
   "checked_date": "2026-10-20",
-  "raw": "Wednesday Closed Thursday 11:00 am to 1:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Wednesday Closed Thursday 11:00 am to 1:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "medway/twydall-foodbank-centre-coffee-shop": {
   "checked_date": "2026-10-20",
-  "raw": "Thursday 9:30 am to 12:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am \u2013 1.30pm",
+  "raw": "Thursday 9:30 am to 12:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "meon-valley": {
   "checked_date": "2026-10-20",
-  "raw": "Mon 10AM\u2013noon | Tues 10AM\u20132PM",
+  "raw": "Mon 10AM–noon | Tues 10AM–2PM",
   "source_url": "https://meonvalleyfoodbank.co.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -11202,14 +12679,14 @@
  },
  "micah-liverpool": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays 10.30am \u2013 12pm | Thursdays 10.30am \u2013 12pm",
+  "raw": "Tuesdays 10.30am – 12pm | Thursdays 10.30am – 12pm",
   "source_url": "https://micahliverpool.com/our-food-bank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "mid-cheshire": {
   "checked_date": "2026-10-20",
-  "raw": "Mon, Tues, Wed, Fri \u2013 09:00 \u2013 12:00 | Thurs \u2013 10:00 \u2013 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 13:30 | Mon Closed Tue Closed Wed 12:15 - 12:45 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 13:30 | Mon Closed Tue 17:30 - 18:00 | Mon 12:00 - 12:30 | Mon Closed Tue 14:00 - 14:45 | Wed Closed Thu 14:00 - 14:45 | Mon Closed Tue Closed Wed 13:30 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 14:15",
+  "raw": "Mon, Tues, Wed, Fri – 09:00 – 12:00 | Thurs – 10:00 – 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 13:30 | Mon Closed Tue Closed Wed 12:15 - 12:45 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 13:30 | Mon Closed Tue 17:30 - 18:00 | Mon 12:00 - 12:30 | Mon Closed Tue 14:00 - 14:45 | Wed Closed Thu 14:00 - 14:45 | Mon Closed Tue Closed Wed 13:30 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 14:15",
   "source_url": "https://midcheshire.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -11578,42 +13055,42 @@
  },
  "milton-keynes": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 09:00 \u2013 16:00pm | Monday to Friday 12:00 \u2013 14:00pm | Tuesday to Friday 12:30 \u2013 14:30pm | Mon, Tues, Thurs, Fri 09:00 \u2013 16:00pm | Weds 09;00 \u2013 12:00pm | Tues and Thurs 10:00 \u2013 16:00pm | Mon, Weds and Fri 13:30 \u2013 14:30pm | Friday 13:15 \u2013 14:30pm | Monday and Friday 13:45 \u2013 14:45pm | Wednesday 10:00am \u2013 12:30pm | Thursday 10:00am \u2013 12:30pm | Mon & Weds 14:30pm \u2013 15:30pm | Thursday 09:30 \u2013 10:30am | Monday to Friday (Appointments only) 09:00 \u2013 15:30pm",
+  "raw": "Monday to Friday 09:00 – 16:00pm | Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Weds 09;00 – 12:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am | Monday to Friday (Appointments only) 09:00 – 15:30pm",
   "source_url": "https://mkfoodbank.org.uk/i-need-help/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "milton-keynes/great-linford-parish-office": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday to Friday 12:30 \u2013 14:30pm",
+  "raw": "Tuesday to Friday 12:30 – 14:30pm",
   "source_url": "https://mkfoodbank.org.uk/i-need-help/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "milton-keynes/kings-community-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 12:00 \u2013 14:00pm",
+  "raw": "Monday to Friday 12:00 – 14:00pm",
   "source_url": "https://mkfoodbank.org.uk/i-need-help/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "milton-keynes/milton-keynes-christian-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Friday 13:15 \u2013 14:30pm",
+  "raw": "Friday 13:15 – 14:30pm",
   "source_url": "https://mkfoodbank.org.uk/i-need-help/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "milton-keynes/newton-leys-pavilion": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 12:00 \u2013 14:00pm",
+  "raw": "Monday to Friday 12:00 – 14:00pm",
   "source_url": "https://mkfoodbank.org.uk/i-need-help/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "miners-lamp": {
   "checked_date": "2026-10-20",
-  "raw": "Monday Closed Tue \u2013 Fri 10:00 am \u2013 02:00 pm",
+  "raw": "Monday Closed Tue – Fri 10:00 am – 02:00 pm",
   "source_url": "https://www.minerslamp.org/contact-us/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -11723,7 +13200,7 @@
  },
  "mustard-tree": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 10 AM \u2013 4 PM | Tuesday \u2013 10 AM \u2013 4 PM | Wednesday 10 AM \u2013 4 PM | Thursday \u2013 \u2013 \u2013 Friday \u2013 10 AM \u2013 4 PM | Saturday 10 AM \u2013 4 PM",
+  "raw": "Monday 10 AM – 4 PM | Tuesday – 10 AM – 4 PM | Wednesday 10 AM – 4 PM | Thursday – – – Friday – 10 AM – 4 PM | Saturday 10 AM – 4 PM",
   "source_url": "https://mustardtree.org.uk/contact/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -11823,42 +13300,127 @@
  },
  "newcastle": {
   "checked_date": "2026-10-20",
-  "raw": "Tue: 10:00 \u2013 13:00 | Wed: 10:00 \u2013 13:00",
+  "raw": "Tue: 10:00 – 13:00 | Wed: 10:00 – 13:00",
   "source_url": "https://www.newcastlefoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "newcastle-staffs/all-saints-church": {
+  "card_name": "Madeley (All Saints Church)",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Monday 11:00 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://newcastlestaffs.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "newcastle-staffs/congregational-church": {
+  "card_name": "Newcastle (Congregational Church)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 2:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://newcastlestaffs.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
+ "newcastle-staffs/cornerstone": {
+  "card_name": "Silverdale (Cornerstone Centre)",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Wednesday 2:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://newcastlestaffs.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
+ "newcastle-staffs/st-lukes-church": {
+  "card_name": "Clayton (St Luke's Methodist)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://newcastlestaffs.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "newcastle-staffs/st-thomas-church": {
+  "card_name": "Kidsgrove (St Thomas Church)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://newcastlestaffs.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "newcastle/church-of-the-venerable-bede": {
   "checked_date": "2026-10-20",
-  "raw": "Mon: 10:00 \u2013 11:30 | Thur: 10:00 \u2013 13:00",
+  "raw": "Mon: 10:00 – 11:30 | Thur: 10:00 – 13:00",
   "source_url": "https://www.newcastlefoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "newcastle/galafield-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Mon: 9:00 \u2013 13:00",
+  "raw": "Mon: 9:00 – 13:00",
   "source_url": "https://www.newcastlefoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "newcastle/heaton-baptist-church": {
   "checked_date": "2026-10-20",
-  "raw": "Wed: 14:00 \u2013 15:30",
+  "raw": "Wed: 14:00 – 15:30",
   "source_url": "https://www.newcastlefoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "newcastle/lemington-methodist-church": {
   "checked_date": "2026-10-20",
-  "raw": "Tue: 9:30 \u2013 11:30 | Thurs: 17:00 \u2013 18:30",
+  "raw": "Tue: 9:30 – 11:30 | Thurs: 17:00 – 18:30",
   "source_url": "https://www.newcastlefoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "newcastle/st-silas-c-of-e-church": {
   "checked_date": "2026-10-20",
-  "raw": "Thur: 14:00 \u2013 15:30",
+  "raw": "Thur: 14:00 – 15:30",
   "source_url": "https://www.newcastlefoodbank.org/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -11913,10 +13475,33 @@
  },
  "newlands": {
   "checked_date": "2026-10-20",
-  "raw": "Monday between 1pm-3pm | Monday Closed Tuesday Closed Wednesday Closed Thursday 9:00 am \u2013 11:00 am",
+  "raw": "Monday between 1pm-3pm | Monday Closed Tuesday Closed Wednesday Closed Thursday 9:00 am – 11:00 am",
   "source_url": "https://newlandsmethodistchurch.wordpress.com/foodbank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "newport-district": {
+  "card_name": "Newport & District",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:30 am to 12:30 pm; Thursday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://newportdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "tue": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
  },
  "newport-shropshire": {
   "checked_date": "2026-10-20",
@@ -12488,7 +14073,7 @@
  },
  "north-belfast": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 6.15pm \u2013 6.45pm | Mon Closed Tue 14:00 - 16:00 | Wed Closed Thu 18:30 - 20:00 | Mon 14:00 - 15:30",
+  "raw": "Monday 6.15pm – 6.45pm | Mon Closed Tue 14:00 - 16:00 | Wed Closed Thu 18:30 - 20:00 | Mon 14:00 - 15:30",
   "source_url": "https://northbelfast.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -12515,10 +14100,106 @@
  },
  "north-bristol-south-gloucestershire": {
   "checked_date": "2026-10-20",
-  "raw": "Mon-Fri 9.30am \u2013 4.30pm",
+  "raw": "Mon-Fri 9.30am – 4.30pm",
   "source_url": "https://nbsg.foodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "north-bristol-south-gloucestershire/mangotsfield": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "raw": "Friday 10:00am - 12:00pm",
+  "reader": "times_finder",
+  "source_url": "https://nbsg.foodbank.org.uk/location/mangotsfield/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "north-bristol-south-gloucestershire/patchway": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "raw": "Thursday 10:00am - 12:00pm",
+  "reader": "times_finder",
+  "source_url": "https://nbsg.foodbank.org.uk/location/patchway/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "north-bristol-south-gloucestershire/redcliffe": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "raw": "Wednesday 12:00pm - 2:00pm",
+  "reader": "times_finder",
+  "source_url": "https://nbsg.foodbank.org.uk/location/redcliffe/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
+ "north-bristol-south-gloucestershire/southmead": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "raw": "Thursday 3:00pm - 5:00pm",
+  "reader": "times_finder",
+  "source_url": "https://nbsg.foodbank.org.uk/location/southmead/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "15:00",
+     "17:00"
+    ]
+   ]
+  }
+ },
+ "north-bristol-south-gloucestershire/stokes-croft": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "raw": "Friday 1:00pm - 3:00pm",
+  "reader": "times_finder",
+  "source_url": "https://nbsg.foodbank.org.uk/location/stokes-croft/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "north-bristol-south-gloucestershire/yate": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "raw": "Tuesday 1:00pm - 4:00pm",
+  "reader": "times_finder",
+  "source_url": "https://nbsg.foodbank.org.uk/location/yate/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "16:00"
+    ]
+   ]
+  }
  },
  "north-cotswold": {
   "checked_date": "2026-10-20",
@@ -12786,9 +14467,135 @@
    ]
   }
  },
+ "north-norfolk/aylsham-parish-church": {
+  "card_name": "Aylsham Parish Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 9:30 am to 11:30 am",
+  "reader": "trussell_cards",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ]
+  }
+ },
+ "north-norfolk/coastal-health-wellbeing-at-wells": {
+  "card_name": "Coastal Health & Wellbeing at Wells",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 3:00 pm; Tuesday-Wednesday 10:00 am to 3:00 pm; Thursday-Friday 10:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "north-norfolk/holt": {
+  "card_name": "Holt",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 1:30 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:30",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "north-norfolk/north-walsham": {
+  "card_name": "North Walsham",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:30 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:30",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "north-norfolk/sheringham": {
+  "card_name": "Sheringham",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:30 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:30",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "north-norfolk/stalham": {
+  "card_name": "Stalham",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 1:30 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:30",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "north-oxfordshire": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 9.30am \u2013 11.00am",
+  "raw": "Monday 9.30am – 11.00am",
   "source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -13164,7 +14971,7 @@
  },
  "nourish": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays & Thursdays, 10am \u2013 2pm | Mons, 10am \u2013 12pm | Tues, 10am \u2013 12pm | Thurs, 11am \u2013 1pm | Fri, 2pm \u2013 4pm | Tuesdays \u2013 Thursdays, 9.30am \u2013 12.30pm | Fridays, 9.30am \u2013 12pm | Wednesday, 10am \u2013 12pm | Friday, 2pm \u2013 4pm | Wednesdays, 9am \u2013 12.30pm | Fridays, 2pm \u2013 4pm | Sundays, 2.30pm \u2013 4.30pm",
+  "raw": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -13346,7 +15153,7 @@
  },
  "patch": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday 10am-2pm | Tuesday \u2013 Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday \u2013 Friday 10am \u2013 2pm",
+  "raw": "Monday – Friday 10am-2pm | Tuesday – Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday – Friday 10am – 2pm",
   "source_url": "https://patchcharity.org.uk/get-help/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -13713,6 +15520,29 @@
    ]
   }
  },
+ "pontefract-knottingley/knottingley": {
+  "card_name": "Knottingley Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:30 am to 12:00 pm; Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://pontefractandknottingley.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "pontypridd": {
   "checked_date": "2026-10-20",
   "raw": "Monday Closed Tuesday-Friday 9:00 am to 1:45 pm | Saturday 10:00 am to 11:45 am | Monday-Wednesday Closed Thursday 12:00 pm to 1:00 pm",
@@ -13722,7 +15552,7 @@
  },
  "poole": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays & Thursdays, 10am \u2013 2pm | Mons, 10am \u2013 12pm | Tues, 10am \u2013 12pm | Thurs, 11am \u2013 1pm | Fri, 2pm \u2013 4pm | Tuesdays \u2013 Thursdays, 9.30am \u2013 12.30pm | Fridays, 9.30am \u2013 12pm | Wednesday, 10am \u2013 12pm | Friday, 2pm \u2013 4pm | Wednesdays, 9am \u2013 12.30pm | Fridays, 2pm \u2013 4pm | Sundays, 2.30pm \u2013 4.30pm",
+  "raw": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -13743,21 +15573,21 @@
  },
  "poole/poole-waste-not-want-not": {
   "checked_date": "2026-10-20",
-  "raw": "Mon \u2013 Fri, 10.30am \u2013 3pm | Sat, 10.30am \u2013 2pm",
+  "raw": "Mon – Fri, 10.30am – 3pm | Sat, 10.30am – 2pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "poole/st-clements-church-hall": {
   "checked_date": "2026-10-20",
-  "raw": "Mon \u2013 Fri, 10.30am \u2013 3pm | Sat, 10.30am \u2013 2pm",
+  "raw": "Mon – Fri, 10.30am – 3pm | Sat, 10.30am – 2pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "poole/st-gabriels-church-hall": {
   "checked_date": "2026-10-20",
-  "raw": "Mon \u2013 Fri, 11am \u2013 12.30pm",
+  "raw": "Mon – Fri, 11am – 12.30pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -14931,7 +16761,7 @@
  },
  "ross-community-larder": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday morning when the Larder is open, between 9.00 \u2013 11.00 | Wednesdays, Thursdays and Fridays, 9.00am - 2.00pm",
+  "raw": "Tuesday morning when the Larder is open, between 9.00 – 11.00 | Wednesdays, Thursdays and Fridays, 9.00am - 2.00pm",
   "source_url": "https://rossparishes.uk/what-we-do/the-community-larder/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -15652,7 +17482,7 @@
  },
  "salvation-army": {
   "checked_date": "2026-10-20",
-  "raw": "Sunday Worship 10.30am - 12pm | Sunday School Halfway During the Morning Worship (YP Hall) 5-12 | Monday \ud83d\udc6a PCF (Parent & Carers Foundation) 10:30am-12:30pm | Tuesday \ud83d\udc6a PCF (Parent & Carers Foundation) 9:30am-2:30pm | Wednesday \ud83e\uddb6 Care South Nail Care 10am-2pm | Thursday \ud83d\udc6a Parent & Toddler Group 9:30-11:15am | Friday \ud83d\udce3 War Cry Outreach 10am\u201312pm | Saturday \ud83d\udecd Charity Shop 9:30am\u20131pm | Sunday \u26ea Morning Worship 10:30am-12pm | Monday \ud83d\udecd Charity Shop 9:30am-4pm | Tuesday \ud83d\udecd Charity Shop 9:30am-4pm | Wednesday \ud83d\udecd Charity Shop 9:30am-6pm | Thursday \ud83d\udecd Charity Shop 9:30am-4pm | Friday \ud83d\udecd Charity Shop 9:30am\u20134pm | Monday \u2615 Caf\u00e9 9:30am-2pm | Tuesday \u2615 Caf\u00e9 9:30am-4pm | Wednesday \u2615 Caf\u00e9 9:30am-6pm | Thursday \u2615 Caf\u00e9 9:30am-4pm",
+  "raw": "Sunday Worship 10.30am - 12pm | Sunday School Halfway During the Morning Worship (YP Hall) 5-12 | Monday 👪 PCF (Parent & Carers Foundation) 10:30am-12:30pm | Tuesday 👪 PCF (Parent & Carers Foundation) 9:30am-2:30pm | Wednesday 🦶 Care South Nail Care 10am-2pm | Thursday 👪 Parent & Toddler Group 9:30-11:15am | Friday 📣 War Cry Outreach 10am–12pm | Saturday 🛍 Charity Shop 9:30am–1pm | Sunday ⛪ Morning Worship 10:30am-12pm | Monday 🛍 Charity Shop 9:30am-4pm | Tuesday 🛍 Charity Shop 9:30am-4pm | Wednesday 🛍 Charity Shop 9:30am-6pm | Thursday 🛍 Charity Shop 9:30am-4pm | Friday 🛍 Charity Shop 9:30am–4pm | Monday ☕ Café 9:30am-2pm | Tuesday ☕ Café 9:30am-4pm | Wednesday ☕ Café 9:30am-6pm | Thursday ☕ Café 9:30am-4pm",
   "source_url": "https://www.salvationarmy.org.uk/winton",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -15771,7 +17601,7 @@
  },
  "salvation-army/pill": {
   "checked_date": "2026-10-20",
-  "raw": "Saturday Coffee morning 1st & 3rd of each month, 10am \u2013 12",
+  "raw": "Saturday Coffee morning 1st & 3rd of each month, 10am – 12",
   "source_url": "https://www.salvationarmy.org.uk/wimborne",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -15799,7 +17629,7 @@
  },
  "salvation-army/southsea": {
   "checked_date": "2026-10-20",
-  "raw": "Sunday 10:00am Sunday Club \u200b\u200bAges 2-7",
+  "raw": "Sunday 10:00am Sunday Club ​​Ages 2-7",
   "source_url": "https://www.salvationarmy.org.uk/southsea",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -15848,21 +17678,21 @@
  },
  "salvation-army/wimborne": {
   "checked_date": "2026-10-20",
-  "raw": "Sunday \u26ea Morning Worship 10:30am-12pm | Sunday School Halfway During the Morning Worship (YP Hall) 5-12",
+  "raw": "Sunday ⛪ Morning Worship 10:30am-12pm | Sunday School Halfway During the Morning Worship (YP Hall) 5-12",
   "source_url": "https://www.salvationarmy.org.uk/winton",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "salvation-army/winton": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \ud83d\udecd Charity Shop 9:30am-4pm | Tuesday \ud83d\udecd Charity Shop 9:30am-4pm | Wednesday \ud83d\udecd Charity Shop 9:30am-6pm | Thursday \ud83d\udecd Charity Shop 9:30am-4pm | Friday \ud83d\udecd Charity Shop 9:30am\u20134pm | Saturday \ud83d\udecd Charity Shop 9:30am\u20131pm | Monday \u2615 Caf\u00e9 9:30am-2pm | Tuesday \u2615 Caf\u00e9 9:30am-4pm | Wednesday \u2615 Caf\u00e9 9:30am-6pm | Thursday \u2615 Caf\u00e9 9:30am-4pm",
+  "raw": "Monday 🛍 Charity Shop 9:30am-4pm | Tuesday 🛍 Charity Shop 9:30am-4pm | Wednesday 🛍 Charity Shop 9:30am-6pm | Thursday 🛍 Charity Shop 9:30am-4pm | Friday 🛍 Charity Shop 9:30am–4pm | Saturday 🛍 Charity Shop 9:30am–1pm | Monday ☕ Café 9:30am-2pm | Tuesday ☕ Café 9:30am-4pm | Wednesday ☕ Café 9:30am-6pm | Thursday ☕ Café 9:30am-4pm",
   "source_url": "https://www.salvationarmy.org.uk/winton",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "salvation-army/worthing": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 10.00 \u2013 1.00 | Sat 21st Nov Christmas Market at Crescent Rd 10am to 3pm",
+  "raw": "Monday 10.00 – 1.00 | Sat 21st Nov Christmas Market at Crescent Rd 10am to 3pm",
   "source_url": "https://www.salvationarmy.org.uk/worthing",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -15945,7 +17775,7 @@
  },
  "seaton": {
   "checked_date": "2026-10-20",
-  "raw": "Wednesday we hold a \u2018Drop-in\u2019 from 10am till 12.00",
+  "raw": "Wednesday we hold a ‘Drop-in’ from 10am till 12.00",
   "source_url": "https://seatonurc.wordpress.com/about/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -16118,7 +17948,7 @@
  },
  "shepshed": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday from 11:00am to 12:30pm | Tuesday 11:00 am \u2014 12:30 pm | Mon-Friday 9:00 am \u2013 4:00 pm",
+  "raw": "Tuesday from 11:00am to 12:30pm | Tuesday 11:00 am — 12:30 pm | Mon-Friday 9:00 am – 4:00 pm",
   "source_url": "https://shepshedfoodbank.org/about/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -16439,7 +18269,7 @@
  },
  "sleaford-new-life-community-larder": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday between the hours of 10am \u2013 4pm",
+  "raw": "Monday – Friday between the hours of 10am – 4pm",
   "source_url": "https://www.nlcm.org.uk/community-larder",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -16550,7 +18380,7 @@
  },
  "somebody-cares": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday, 8:30am \u2013 4:30pm | Monday \u2013 Friday 10:00am \u2013 3:30pm | Monday \u2013 Friday, 9:30am \u2013 4:30pm | Saturday 10am - 4:30pm | Monday - Tuesday, Thursday - Saturday 10am \u2013 4pm | Saturday 10.00 \u2013 12:00pm",
+  "raw": "Monday – Friday, 8:30am – 4:30pm | Monday – Friday 10:00am – 3:30pm | Monday – Friday, 9:30am – 4:30pm | Saturday 10am - 4:30pm | Monday - Tuesday, Thursday - Saturday 10am – 4pm | Saturday 10.00 – 12:00pm",
   "source_url": "https://www.somebodycaresscotland.org/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -16707,6 +18537,57 @@
     [
      "10:00",
      "12:00"
+    ]
+   ]
+  }
+ },
+ "south-cotswolds/cirencester-opportunity-group": {
+  "card_name": "Cirencester",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 1:15 pm to 3:15 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southcotswolds.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "13:15",
+     "15:15"
+    ]
+   ]
+  }
+ },
+ "south-cotswolds/fairford": {
+  "card_name": "Fairford",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southcotswolds.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "south-cotswolds/tetbury": {
+  "card_name": "Tetbury",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 11:00 am to 1:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southcotswolds.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "13:00"
     ]
    ]
   }
@@ -16992,6 +18873,126 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "south-liverpool/deeper-life-bible-church": {
+  "card_name": "Deeper Life Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 2:00 pm to 4:00 pm; Saturday 12:00 pm to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
+ "south-liverpool/frontline-centre": {
+  "card_name": "Frontline Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Monday 1:00 pm to 3:00 pm; Wednesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "south-liverpool/netherley-youth-community-initiative": {
+  "card_name": "Netherley Youth & Community Initiative",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "south-liverpool/noahs-ark-centre": {
+  "card_name": "Noah's Ark Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:00 am to 12:00 pm; Thursday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "south-liverpool/st-marks-church": {
+  "card_name": "Mark's Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "south-liverpool/st-marys-church": {
+  "card_name": "Mary's Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "south-normanton-area": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue 13:30 - 14:30 Wed Closed Thu Closed Fri 13:30 - 14:30 Sat Closed Sun Closed ",
@@ -17176,12 +19177,46 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "southend/belle-vue-baptist-church": {
+  "card_name": "Southchurch (Belle Vue) DISTRIBUTION CENTRE",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southend.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "southend/hawkwell-hockley": {
   "checked_date": "2026-10-20",
   "raw": "Monday, Tuesday and Thursday between 9am - 2pm | Monday 5pm - 6.30pm",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "southend/shoeburyness": {
+  "card_name": "Shoeburyness DISTRIBUTION CENTRE",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 12:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://southend.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
  },
  "southend/westcliff": {
   "checked_date": "2026-10-20",
@@ -17192,7 +19227,7 @@
  },
  "southgate-mosque": {
   "checked_date": "2026-10-20",
-  "raw": "Monday (including holidays). Open from 10:30 am \u2013 12:00 pm | Mondays: 9:00 am-12:30 pm | Saturdays afternoons: 12:30 pm \u2013 2:30 pm",
+  "raw": "Monday (including holidays). Open from 10:30 am – 12:00 pm | Mondays: 9:00 am-12:30 pm | Saturdays afternoons: 12:30 pm – 2:30 pm",
   "source_url": "https://southgatemosque.co.uk/foodbank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -17377,6 +19412,152 @@
   "source_url": "https://www.springcommunityhub.org.uk/food-bank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "st-albans-and-district/christ-church-new-greens": {
+  "card_name": "New Greens Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/cottonmill": {
+  "card_name": "Cottonmill Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/crabtree-church-harpenden": {
+  "card_name": "Harpenden Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/frogmore": {
+  "card_name": "Frogmore Distribution Centre (Fortnightly)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 11:30 am to 1:00 pm (Fortnightly)",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "st-albans-and-district/jubilee-centre": {
+  "card_name": "Jubilee Centre Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/london-colney": {
+  "card_name": "London Colney Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/redbourn": {
+  "card_name": "Redbourn Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 2:00 pm to 3:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "14:00",
+     "15:30"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/verso-care": {
+  "card_name": "Verso Care",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "st-albans-and-district/wheathampstead": {
+  "card_name": "Wheathampstead Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 11:30 am to 1:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher?page=2",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:30",
+     "13:30"
+    ]
+   ]
+  }
  },
  "st-andrews": {
   "checked_date": "2026-10-20",
@@ -17565,7 +19746,7 @@
  },
  "st-monicas": {
   "checked_date": "2026-10-20",
-  "raw": "Monday, 11am \u2013 1 pm | Monday from 12noon \u2013 2.30pm",
+  "raw": "Monday, 11am – 1 pm | Monday from 12noon – 2.30pm",
   "source_url": "https://stmonica.co.uk/social-action/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -17628,7 +19809,7 @@
  },
  "st-pauls-crewe": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday, 10:00 AM \u2013 4:00 PM | Mon \u2013 Fri 9.30 \u2013 4.00pm",
+  "raw": "Monday to Friday, 10:00 AM – 4:00 PM | Mon – Fri 9.30 – 4.00pm",
   "source_url": "https://www.stpaulscentre.org.uk/food",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -17649,7 +19830,7 @@
  },
  "st-saviours-sunbury": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays 9.30am \u2013 12pm | Thursdays 9.30am \u2013 1.00pm",
+  "raw": "Mondays 9.30am – 12pm | Thursdays 9.30am – 1.00pm",
   "source_url": "https://www.stsavs.org/foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -18106,7 +20287,7 @@
  },
  "storehouse-influence-church": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday to Thursday, 10am \u2013 4pm",
+  "raw": "Tuesday to Thursday, 10am – 4pm",
   "source_url": "https://www.influencechurch.co.uk/storehouse/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -18120,24 +20301,65 @@
  },
  "storehouse-influence-church/bishop-auckland-baptist-church": {
   "checked_date": "2026-10-20",
-  "raw": "Fridays, 9.30am \u2013 11.30am",
+  "raw": "Fridays, 9.30am – 11.30am",
   "source_url": "https://www.influencechurch.co.uk/storehouse/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "storehouse-melton": {
   "checked_date": "2026-10-20",
-  "raw": "Monday: 11:00am - 1:00pm | Tuesday: CLOSED Wednesday: 11:00am - 1:00pm | Thursday: CLOSED Friday: 11:00am - 1:00pm | Saturday & Sunday: CLOSED Storehouse at the Hope Centre, 42\u201344",
+  "raw": "Monday: 11:00am - 1:00pm | Tuesday: CLOSED Wednesday: 11:00am - 1:00pm | Thursday: CLOSED Friday: 11:00am - 1:00pm | Saturday & Sunday: CLOSED Storehouse at the Hope Centre, 42–44",
   "source_url": "https://www.storehousemelton.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "stowmarket-area": {
   "checked_date": "2026-10-20",
-  "raw": "Mondays: 9 am \u2013 1 pm | Tuesdays: 9 am \u2013 1 pm | Wednesdays: 9 am \u2013 1 pm | Thursdays: 9 am \u2013 1 pm | Fridays: 9 am \u2013 1 pm | Tuesdays and Wednesdays (one day per family), 10:30 am to 11:30 am",
+  "raw": "Mondays: 9 am – 1 pm | Tuesdays: 9 am – 1 pm | Wednesdays: 9 am – 1 pm | Thursdays: 9 am – 1 pm | Fridays: 9 am – 1 pm | Tuesdays and Wednesdays (one day per family), 10:30 am to 11:30 am",
   "source_url": "https://www.livingit.org.uk/foodbank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "strabane": {
+  "card_name": "The Grassroots Cafe and Food Market",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Friday 9:30 am to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://strabane.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:30",
+     "15:00"
+    ]
+   ],
+   "mon": [
+    [
+     "09:30",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:30",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:30",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:30",
+     "15:00"
+    ]
+   ]
+  }
  },
  "stranraer": {
   "checked_date": "2026-10-20",
@@ -18145,6 +20367,40 @@
   "source_url": "https://stranraer.foodbank.org.uk/about-us",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "stratford-upon-avon/ken-kennett-centre": {
+  "card_name": "Ken Kennett Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:00 am to 11:00 am",
+  "reader": "trussell_cards",
+  "source_url": "https://stratforduponavon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "11:00"
+    ]
+   ]
+  }
+ },
+ "stratford-upon-avon/meon-vale-village-hall": {
+  "card_name": "Meon Vale Village Hall",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Tuesday 10:00 am to 11:00 am",
+  "reader": "trussell_cards",
+  "source_url": "https://stratforduponavon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "11:00"
+    ]
+   ]
+  }
  },
  "stretton": {
   "checked_date": "2026-10-20",
@@ -18539,6 +20795,35 @@
    ]
   }
  },
+ "swanley-and-district": {
+  "card_name": "Distribution Centre, Swanley",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 10:30 am to 3:00 pm; Wednesday 9:30 am to 11:30 am; Friday 10:30 am to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://swanleydistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:30",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:30",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ]
+  }
+ },
  "swansea": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed ",
@@ -18666,6 +20951,125 @@
     [
      "10:00",
      "12:00"
+    ]
+   ]
+  }
+ },
+ "taff-ely/3d-church-williamstown": {
+  "card_name": "3D Church Williamstown",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "taff-ely/ebenezer-church": {
+  "card_name": "Ebenezer Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 10:30 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "taff-ely/gilfach-goch": {
+  "card_name": "The Rock Church, Gilfach Goch",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 10:00 am to 11:30 am",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  }
+ },
+ "taff-ely/llanharan": {
+  "card_name": "Carmel Baptist Church, Llanharan",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 9:30 am to 11:00 am",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:30",
+     "11:00"
+    ]
+   ]
+  }
+ },
+ "taff-ely/pontyclun": {
+  "card_name": "Bethel Baptist Church, Pontyclun",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 10:30 am to 12:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
+ },
+ "taff-ely/st-davids-church": {
+  "card_name": "David's Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "taff-ely/trealaw-christian-centre": {
+  "card_name": "One Church Rhondda (Formally Trealaw Christian Centre)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 12:00 pm to 1:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://taffely.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "12:00",
+     "13:30"
     ]
    ]
   }
@@ -18934,21 +21338,21 @@
  },
  "thame": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday, 9am \u2013 8pm | Saturday 9:30am -1pm | Monday to Friday, 8am \u2013 8pm | Saturday 8am \u2013 4pm | Monday to Friday, 9am to 5pm | Monday to Thursday 9.30am\u20135pm | Friday 9.30am\u20133.30pm",
+  "raw": "Monday to Friday, 9am – 8pm | Saturday 9:30am -1pm | Monday to Friday, 8am – 8pm | Saturday 8am – 4pm | Monday to Friday, 9am to 5pm | Monday to Thursday 9.30am–5pm | Friday 9.30am–3.30pm",
   "source_url": "https://sharinglifetrust.org/foodbank/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "the-bus-shelter-shop": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 10 am\u20135 pm | Tuesday Closed Wednesday 10 am\u20135 pm | Thursday Closed Friday10 am\u20135 pm | Monday 10 am - 4 pm | Tuesday 10 am\u20134 pm | Wednesday 10 am\u20134 pm | Thursday 10 am\u20134 pm | Friday 10 am\u20134 pm | Saturday 10 am\u20134 pm",
+  "raw": "Monday 10 am–5 pm | Tuesday Closed Wednesday 10 am–5 pm | Thursday Closed Friday10 am–5 pm | Monday 10 am - 4 pm | Tuesday 10 am–4 pm | Wednesday 10 am–4 pm | Thursday 10 am–4 pm | Friday 10 am–4 pm | Saturday 10 am–4 pm",
   "source_url": "https://www.thebusshelteripswich.co.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "the-forest": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday 1 pm - 3 pm | Wednesday 10 am - 12 | Thursday 1 pm - 3 pm | Monday, Tuesday, Wednesday and Thursday 9am to 1pm | Friday 9am to 3pm | Monday to Friday, 9am \u2013 5pm | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue 13:00 - 15:00",
+  "raw": "Tuesday 1 pm - 3 pm | Wednesday 10 am - 12 | Thursday 1 pm - 3 pm | Monday, Tuesday, Wednesday and Thursday 9am to 1pm | Friday 9am to 3pm | Monday to Friday, 9am – 5pm | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue 13:00 - 15:00",
   "source_url": "https://theforest.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -19099,6 +21503,23 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "thurrock/emmanuel-church-chadwell-st-mary": {
+  "card_name": "Chadwell Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 9:30 am to 11:30 am",
+  "reader": "trussell_cards",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ]
+  }
+ },
  "thurrock/gates-of-praise-international-christian-centre": {
   "checked_date": "2026-10-20",
   "raw": "Monday-Friday Closed Saturday 9:30 am to 11:30 am",
@@ -19112,6 +21533,23 @@
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "thurrock/grays-methodist-church": {
+  "card_name": "Grays Methodist Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
  },
  "thurrock/st-francis-centre-linford": {
   "checked_date": "2026-10-20",
@@ -19127,6 +21565,23 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "thurrock/st-marys-church-hall-little-thurrock": {
+  "card_name": "Little Thurrock Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "Tuesday 2:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
  "thurrock/st-stephens-church-hall-purfleet": {
   "checked_date": "2026-10-20",
   "raw": "Monday Closed Tuesday 2:00 pm to 4:00 pm",
@@ -19136,7 +21591,7 @@
  },
  "todmorden": {
   "checked_date": "2026-10-20",
-  "raw": "Saturday from 9:15 \u2013 11:15am",
+  "raw": "Saturday from 9:15 – 11:15am",
   "source_url": "https://todfooddropin.org/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -19336,6 +21791,29 @@
   "source_url": "https://tyhapus.com/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "uckfield": {
+  "card_name": "Uckfield Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 12:15 pm to 2:15 pm; Friday 12:15 pm to 2:15 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://uckfield.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:15",
+     "14:15"
+    ]
+   ],
+   "tue": [
+    [
+     "12:15",
+     "14:15"
+    ]
+   ]
+  }
  },
  "vale": {
   "checked_date": "2026-10-20",
@@ -19585,7 +22063,7 @@
  },
  "walk-inn": {
   "checked_date": "2026-10-20",
-  "raw": "Monday\u2013Friday 10 a.m. to 5 p.m. | Saturday 1 p.m. to 5 p.m. | Tuesday 10 a.m\u20135 p.m. Thursday 10 a.m.\u20135 p.m.",
+  "raw": "Monday–Friday 10 a.m. to 5 p.m. | Saturday 1 p.m. to 5 p.m. | Tuesday 10 a.m–5 p.m. Thursday 10 a.m.–5 p.m.",
   "source_url": "https://balcproject.org.uk/contact/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -19794,28 +22272,28 @@
  },
  "wansbeck-valley": {
   "checked_date": "2026-10-20",
-  "raw": "Monday Closed Tuesday 12:00 \u2013 13:00 | Wednesday Closed Thursday 12:00 \u2013 13:00",
+  "raw": "Monday Closed Tuesday 12:00 – 13:00 | Wednesday Closed Thursday 12:00 – 13:00",
   "source_url": "https://wansbeckvalleyfoodbank.org/find-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "wansbeck-valley/hirst-welfare-centre": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 11:00 \u2013 12:00 | Tuesday Closed Wednesday Closed Thursday Closed Friday 11:00 \u2013 12:00",
+  "raw": "Monday 11:00 – 12:00 | Tuesday Closed Wednesday Closed Thursday Closed Friday 11:00 – 12:00",
   "source_url": "https://wansbeckvalleyfoodbank.org/find-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "wansbeck-valley/ymca": {
   "checked_date": "2026-10-20",
-  "raw": "Monday 11:00 \u2013 12:00 | Tuesday Closed Wednesday Closed Thursday Closed Friday 11:00 \u2013 12:00",
+  "raw": "Monday 11:00 – 12:00 | Tuesday Closed Wednesday Closed Thursday Closed Friday 11:00 – 12:00",
   "source_url": "https://wansbeckvalleyfoodbank.org/find-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "wareham": {
   "checked_date": "2026-10-20",
-  "raw": "Sundays at Roper\u2019s Lane, Wareham for a 10:30 - 12:00",
+  "raw": "Sundays at Roper’s Lane, Wareham for a 10:30 - 12:00",
   "source_url": "https://www.purbeckgatewaychurch.co.uk/visit-us",
   "status": "TIMES_FOUND",
   "structured": {
@@ -19865,6 +22343,57 @@
    ]
   }
  },
+ "warwick-district/heathcote-parish-church": {
+  "card_name": "Heathcote",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 12:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://warwickdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "warwick-district/saltisford-church-warwick": {
+  "card_name": "Warwick - Saltisford Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Friday 1:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://warwickdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
+ "warwick-district/st-pauls-church-leamington-spa": {
+  "card_name": "Leamington - St Paul's Church",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Thursday 2:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://warwickdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
  "waterside": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue 10:00 - 15:00 Wed Closed Thu 10:00 - 13:00 Fri 10:00 - 13:00 Sat Closed Sun Closed ",
@@ -19893,35 +22422,35 @@
  },
  "watford": {
   "checked_date": "2026-10-20",
-  "raw": "Mon 10:00 am \u2013 1:00 pm | Tue 10:00 am \u2013 1:00 pm | Wed 10:00 am \u2013 1:00 pm | Thu 10:00 am \u2013 1:00 pm | Fri 10:00 am \u2013 1:00 pm | Sat 10:00 am \u2013 1:00 pm",
+  "raw": "Mon 10:00 am – 1:00 pm | Tue 10:00 am – 1:00 pm | Wed 10:00 am – 1:00 pm | Thu 10:00 am – 1:00 pm | Fri 10:00 am – 1:00 pm | Sat 10:00 am – 1:00 pm",
   "source_url": "https://watfordfoodbank.co.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "watford/christ-church": {
   "checked_date": "2026-10-20",
-  "raw": "Mon Closed Tue Closed Wed Closed Thu 10:00 am \u2013 1:00 pm",
+  "raw": "Mon Closed Tue Closed Wed Closed Thu 10:00 am – 1:00 pm",
   "source_url": "https://watfordfoodbank.co.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "watford/cpso-methodist-church": {
   "checked_date": "2026-10-20",
-  "raw": "Mon Closed Tue 11:00 am \u2013 1:00 pm",
+  "raw": "Mon Closed Tue 11:00 am – 1:00 pm",
   "source_url": "https://watfordfoodbank.co.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "watford/st-michael-all-angels-church": {
   "checked_date": "2026-10-20",
-  "raw": "Mon Closed Tue Closed Wed 10:00 am \u2013 12:00 pm",
+  "raw": "Mon Closed Tue Closed Wed 10:00 am – 12:00 pm",
   "source_url": "https://watfordfoodbank.co.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "watford/wellspring-church": {
   "checked_date": "2026-10-20",
-  "raw": "Mon 2:00 pm \u2013 4:00 pm | Tue 2:00 pm \u2013 4:00 pm | Wed 2:00 pm \u2013 4:00 pm | Thu 2:00 pm \u2013 4:00 pm | Fri 2:00 pm \u2013 4:00 pm",
+  "raw": "Mon 2:00 pm – 4:00 pm | Tue 2:00 pm – 4:00 pm | Wed 2:00 pm – 4:00 pm | Thu 2:00 pm – 4:00 pm | Fri 2:00 pm – 4:00 pm",
   "source_url": "https://watfordfoodbank.co.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -20044,7 +22573,7 @@
  },
  "welwyn-garden-city": {
   "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday, Thursday and Friday, 9am \u2013 5pm | Wednesday, 9am \u2013 7pm | Saturday \u2013 Sunday, 10am \u2013 4pm | Monday to Friday, 9am-5pm",
+  "raw": "Monday, Tuesday, Thursday and Friday, 9am – 5pm | Wednesday, 9am – 7pm | Saturday – Sunday, 10am – 4pm | Monday to Friday, 9am-5pm",
   "source_url": "https://www.newzioncf.net/food-bank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -20187,14 +22716,14 @@
  },
  "west-bromwich": {
   "checked_date": "2026-10-20",
-  "raw": "Monday, Wednesday and Friday 12.00 \u2013 2.00",
+  "raw": "Monday, Wednesday and Friday 12.00 – 2.00",
   "source_url": "https://westbromwichfoodbank.com/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "west-cheshire": {
   "checked_date": "2026-10-20",
-  "raw": "Monday \u2013 Friday 9am \u2013 2pm",
+  "raw": "Monday – Friday 9am – 2pm",
   "source_url": "https://westcheshire.foodbank.org.uk/contact-us-2/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -20460,8 +22989,78 @@
  },
  "west-hallam-methodist": {
   "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 9.00am to 4.00pm | Friday 10am \u2013 11am | FRIDAYS 10:00am-11:00am",
+  "raw": "Monday to Friday 9.00am to 4.00pm | Friday 10am – 11am | FRIDAYS 10:00am-11:00am",
   "source_url": "https://www.westhallammethodistchurch.co.uk/?page_id=1003",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/boghall": {
+  "card_name": "Boghall DC (By Appointment Only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "name",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/broxburn": {
+  "card_name": "Broxburn (by appointment only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/carmondean": {
+  "card_name": "Carmondean (by appointment only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/craigshill": {
+  "card_name": "Craigshill (by appointment only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/dedridge": {
+  "card_name": "Dedridge (by appointment only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/linlithgow": {
+  "card_name": "Linlithgow (by appointment only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "west-lothian/whitburn": {
+  "card_name": "Whitburn (by appointment only)",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "By appointment only (own site)",
+  "reader": "trussell_cards",
+  "source_url": "https://westlothian.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
@@ -20738,21 +23337,44 @@
  },
  "wimborne": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays & Thursdays, 10am \u2013 2pm | Mons, 10am \u2013 12pm | Tues, 10am \u2013 12pm | Thurs, 11am \u2013 1pm | Fri, 2pm \u2013 4pm | Tuesdays \u2013 Thursdays, 9.30am \u2013 12.30pm | Fridays, 9.30am \u2013 12pm | Wednesday, 10am \u2013 12pm | Friday, 2pm \u2013 4pm | Wednesdays, 9am \u2013 12.30pm | Fridays, 2pm \u2013 4pm | Sundays, 2.30pm \u2013 4.30pm",
+  "raw": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
  "winchester-basics-bank": {
   "checked_date": "2026-10-20",
-  "raw": "Tue/Fri 9 am \u2013 2 pm",
+  "raw": "Tue/Fri 9 am – 2 pm",
   "source_url": "https://winchesterfoodandbasicsbank.co.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "windermere-district": {
+  "card_name": "Windermere and District Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 12:00 pm to 3:00 pm; Friday 12:00 pm to 3:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://windermeredistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "15:00"
+    ]
+   ]
+  }
+ },
  "windsor-food-share": {
   "checked_date": "2026-10-20",
-  "raw": "Wednesday\u2019s and 9 am to 3 pm",
+  "raw": "Wednesday’s and 9 am to 3 pm",
   "source_url": "https://www.windsorfoodshare.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -20764,12 +23386,92 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "wirral/christ-church-moreton": {
+  "card_name": "MORETON, CHRIST CHURCH",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 1:00 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "wirral/salvation-army-charity-shop": {
+  "card_name": "Salvation Army Charity Shop",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Saturday 10:30 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "wirral/seacombe-childrens-centre": {
+  "card_name": "Seacombe Distribution Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 12:30 pm to 2:30 pm; Wednesday 12:30 pm to 2:30 pm; Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "mon": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "wed": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
  "wirral/st-chads-liscard": {
   "checked_date": "2026-10-20",
   "raw": "Monday-Thursday Closed Friday 11:00 am to 1:00 pm",
   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "wirral/st-davids-church": {
+  "card_name": "ST DAVID'S Eastham Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 1:00 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "14:30"
+    ]
+   ]
+  }
  },
  "wirral/st-james-church-new-brighton": {
   "checked_date": "2026-10-20",
@@ -20791,6 +23493,76 @@
   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "wirral/st-vincents-centre": {
+  "card_name": "St Vincent's Centre",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Friday 12:30 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "mon": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "thu": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "tue": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "wed": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "wisbech": {
+  "card_name": "Wisbech Food Bank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday 2:00 pm to 4:00 pm; Wednesday 2:00 pm to 4:00 pm; Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://wisbech.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "mon": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
  },
  "witney-west-oxfordshire": {
   "checked_date": "2026-10-20",
@@ -20837,6 +23609,63 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "woking/byfleet": {
+  "card_name": "Woking Foodbank Byfleet",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 12:00 pm to 2:30 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "12:00",
+     "14:30"
+    ]
+   ]
+  }
+ },
+ "woking/sheerwater": {
+  "card_name": "Woking Foodbank Sheerwater",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Wednesday 2:00 pm to 4:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  }
+ },
+ "woking/sythwood": {
+  "card_name": "Woking Foodbank Sythwood",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Tuesday 12:30 pm to 2:30 pm; Friday 10:00 am to 12:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  }
+ },
  "wokingham": {
   "checked_date": "2026-10-20",
   "raw": "Monday 13:00 - 15:00 | Tuesday Closed Wednesday 13:00 - 15:00 | Thursday Closed Friday 13:00 - 15:00 | Monday 13:00- 14:30 | Monday 9:30- 14:30 | Tuesday Closed Wednesday 9:30- 14:30 | Thursday Closed Friday 9:30-14:30",
@@ -20846,7 +23675,7 @@
  },
  "wolverhampton": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesday - Friday 8.30am \u2013 3pm",
+  "raw": "Tuesday - Friday 8.30am – 3pm",
   "source_url": "https://www.thewellwolverhampton.co.uk/contact/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -20904,9 +23733,44 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "worcester": {
+  "card_name": "Worcester Foodbank",
+  "checked_date": "2026-10-23",
+  "matched_by": "postcode",
+  "raw": "Monday-Wednesday 11:00 am to 2:00 pm; Friday 11:00 am to 2:00 pm",
+  "reader": "trussell_cards",
+  "source_url": "https://worcester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "mon": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
  "worth-valley": {
   "checked_date": "2026-10-20",
-  "raw": "Tuesdays 1pm - 2.45pm | Monday, Tuesday or Friday 9am \u2013 Noon",
+  "raw": "Tuesdays 1pm - 2.45pm | Monday, Tuesday or Friday 9am – Noon",
   "source_url": "https://worthvalleyfoodbank.com/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
@@ -21336,43 +24200,5 @@
   "source_url": "https://www.ystradgynlaisvc.org.uk/what-we-do/foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
- },
- "huddersfield": {
-  "checked_date": "2026-10-22",
-  "raw": "Monday to Friday between 10 am and 4 pm",
-  "source_url": "https://www.thewelcomecentre.org/pages/need-our-help",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "10:00",
-     "16:00"
-    ]
-   ],
-   "tue": [
-    [
-     "10:00",
-     "16:00"
-    ]
-   ],
-   "wed": [
-    [
-     "10:00",
-     "16:00"
-    ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "16:00"
-    ]
-   ],
-   "fri": [
-    [
-     "10:00",
-     "16:00"
-    ]
-   ]
-  }
  }
 }
