@@ -27,6 +27,10 @@ jobs:
           WW_DISCOVERY_SECONDS: "1200"
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py warmspaces
+      - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/refresh_guard.py warmspaces
       - name: Review list for Dean (adds, removals, tier flips, opens-later)
         continue-on-error: true
         run: python scripts/layer_review.py
@@ -43,7 +47,7 @@ jobs:
         run: python scripts/shelter_contacts.py check
       - name: Commit if changed
         run: |
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
