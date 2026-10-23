@@ -1,7 +1,7 @@
 name: Refresh Warm spaces layer
 on:
   schedule:
-    - cron: "53 4 * * *"   # once a day (UTC, ~05:30-05:55 BST / 04:30 GMT; Dean 23 Oct); every run re-fetches every evidence page
+    - cron: "53 4,12,20 * * *"   # three runs a day (UTC); every run re-fetches every evidence page
   workflow_dispatch:
 permissions:
   contents: write

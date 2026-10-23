@@ -1,7 +1,7 @@
 name: Refresh food bank data
 on:
   schedule:
-    - cron: "29 4 * * *"   # once a day (UTC, ~05:30-05:55 BST / 04:30 GMT; Dean 23 Oct): Give Food + IFAN discovery + own locations pages (overrides/own_location_pages.json), own-site closure + times check
+    - cron: "29 4,12,20 * * *"   # three runs a day (UTC): Give Food + IFAN discovery + own locations pages (overrides/own_location_pages.json), own-site closure + times check
   workflow_dispatch:
 permissions:
   contents: write
