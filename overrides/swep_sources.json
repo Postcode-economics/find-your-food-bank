@@ -5127,7 +5127,7 @@
   "code": "WNM",
   "council": "Royal Borough of Windsor and Maidenhead",
   "nation": "England",
-  "url": null,
+  "url": "https://www.rbwm.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -5137,7 +5137,8 @@
   "ooh_phone": "01628 683803",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.rbwm.gov.uk/housing/homelessness/homelessness-applying-housing",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WNT",
@@ -5202,12 +5203,13 @@
   "code": "WOT",
   "council": "Worthing Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.adur-worthing.gov.uk/housing/advice/going-to-be-homeless/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WOX",
@@ -5310,7 +5312,7 @@
   "code": "WYE",
   "council": "Wyre Forest District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://wyreforestdc.gov.uk/housing-and-homes/homelessness/getting-a-home/housing-advice-for-specific-groups-of-people/housing-advice-for-rough-sleepers/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -5320,13 +5322,14 @@
   "ooh_phone": "01562 732225",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.wyreforestdc.gov.uk/housing-and-homes/homelessness/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WYR",
   "council": "Wyre Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.wyre.gov.uk/housing-options-homelessness/duty-refer/3",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -5341,7 +5344,8 @@
   "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
   "homeless_url": "https://www.wyre.gov.uk/housing-options-homelessness/homeless-threatened-homelessness?documentId=82&amp;categoryId=20045",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
-  "homeless_phone": "01253 891000"
+  "homeless_phone": "01253 891000",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "YOR",
