@@ -1,12 +1,8 @@
 {
  "run": "2026-10-23",
- "pages": 1159,
- "failed": 98,
+ "pages": 1162,
+ "failed": 102,
  "errors": [
-  [
-   "https://www.rugby.gov.uk/warmhubs",
-   "error"
-  ],
   [
    "https://www.camden.gov.uk/warm-spaces-in-camden",
    403
@@ -94,6 +90,14 @@
   [
    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
    400
+  ],
+  [
+   "https://www.edinburgh.gov.uk/warm-welcoming-spaces",
+   404
+  ],
+  [
+   "https://www.edinburgh.gov.uk/warm-welcoming-spaces/recently-added-events-activities",
+   404
   ],
   [
    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
@@ -393,6 +397,18 @@
   ],
   [
    "http://www.oxfordshire.gov.uk/transport-and-travel/severe-weather-road-closures",
+   "error"
+  ],
+  [
+   "http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
+   "error"
+  ],
+  [
+   "http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
+   "error"
+  ],
+  [
+   "http://go.walsall.gov.uk/feedback?rating=Poor&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
    "error"
   ]
  ],
