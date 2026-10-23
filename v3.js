@@ -29,7 +29,7 @@ function sched(layer,i){
   days.forEach(d=>s[d]=r);any=true}
  return any?s:null}
 const p2=n=>String(n).padStart(2,'0'),clk=m=>{m%=1440;const h=Math.floor(m/60),mm=m%60,h12=h%12||12;return h12+(mm?':'+p2(mm):'')+(h<12?'am':'pm')};
-function status(layer,i,now=new Date()){const s=sched(layer,i);if(!s)return{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
+function status(layer,i,now=new Date()){if(i.upcoming)return{st:'closed',day:null};const s=sched(layer,i);if(!s)return{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
  for(const[a,b]of s[(d+6)%7])if(b>1440&&m<b-1440)return{st:'open',until:b-1440};
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
  for(let k=0;k<8;k++){const dd=(d+k)%7;const c=(s[dd]||[]).filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}

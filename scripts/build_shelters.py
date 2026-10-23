@@ -101,6 +101,15 @@ sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
+import seasonal  # winter night shelters: 'Opens <date>' until the stated start, expire after the stated end
+for x in items:
+    if not (x.get("scheme_start") or x.get("scheme_end")):
+        d = seasonal.parse(" ".join(str(x.get(k) or "") for k in ("season", "hours", "referral")))
+        if d["start"] or d["end"]: x["scheme_start"], x["scheme_end"] = d["start"], d["end"]
+items, expired = seasonal.apply(items, RUN, closed)
+for x in items:
+    if x.get("upcoming") and x.get("scheme_dates"): x["season"] = "Winter-only (" + x["scheme_dates"] + ")"
+sources["Seasonal dates"] = {"status": "ok", "upcoming": sum(bool(x.get("upcoming")) for x in items), "expired": [x["id"] for x in expired]}
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})

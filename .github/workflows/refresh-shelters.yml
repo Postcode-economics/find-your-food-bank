@@ -24,9 +24,18 @@ jobs:
         run: python scripts/build_shelters.py
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py shelters
+      - name: SWEP watch (council severe-weather pages; flags only, never changes the map)
+        id: swep
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python scripts/swep.py
+      - name: Review list for Dean (adds, removals, tier flips, opens-later, SWEP changes)
+        id: review
+        continue-on-error: true
+        run: python scripts/layer_review.py
       - name: Commit if changed
         run: |
-          git add shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json
+          git add shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/swep_status.json reports/layers_review.md reports/layers_review.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -42,3 +51,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve shelters
+      - name: Alert - SWEP watch or review list failed (data still published)
+        if: always() && (steps.swep.outcome == 'failure' || steps.review.outcome == 'failure')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py open swep "SWEP watch / review list failed" "swep.py or layer_review.py failed this run. Shelters data was still checked and published as normal."
+      - name: Clear the SWEP alert after a good run
+        if: success() && steps.swep.outcome == 'success' && steps.review.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py resolve swep
