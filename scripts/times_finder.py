@@ -79,6 +79,7 @@ def generic(items_for_site, base):
             ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs); out[i["id"]] = (ot, "found on own site")
         else: out[i["id"]] = (None, "no client times found on own site (home, sitemap and %d linked pages read)" % (len(pages) - 1))
     return out
+RENDER_DIAG = {}
 KNOWN = os.path.join(os.path.dirname(__file__), "..", "overrides", "known_sources.json")
 def known():
     try: return json.load(open(KNOWN))
@@ -149,7 +150,11 @@ def run(items, apply=False, threads=12, render=None):
             base = "https://" + host
             cards = TT.site_cards(base, fetcher=polite)
             if not cards and render:  # new Trussell sites draw the centre cards with JavaScript: render them headless
-                cards = TT.site_cards(base, fetcher=render)
+                seen = []
+                def rf(u, *a, **k):
+                    r = render(u); seen.append({"url": u, "http": r[0], "final": r[1], "bytes": len(r[2] or "")}); return r
+                cards = TT.site_cards(base, fetcher=rf)
+                RENDER_DIAG[host] = {"pages": seen, "cards": len(cards)}   # 24 Oct: see why a site gives no cards in Actions
             if not cards:  # older Trussell template: fall back to the generic own-site reader
                 o = generic(its, w)
                 return {k: (v[0], v[1] if v[0] else "Trussell site: no centre cards at " + TT.PATH + "; " + v[1]) for k, v in o.items()}
@@ -162,7 +167,7 @@ def run(items, apply=False, threads=12, render=None):
         return generic(its, w)
     with cf.ThreadPoolExecutor(threads) as ex:
         for r in ex.map(one, list(by)): res.update(r)
-    log = {"run": RUN, "checked": len(todo), "found": {k: v[0] for k, v in res.items() if v[0]}, "reasons": {k: v[1] for k, v in res.items()}}
+    log = {"run": RUN, "render": RENDER_DIAG, "checked": len(todo), "found": {k: v[0] for k, v in res.items() if v[0]}, "reasons": {k: v[1] for k, v in res.items()}}
     os.makedirs("logs", exist_ok=True)
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
     decide(log, items, apply)
