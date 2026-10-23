@@ -79,7 +79,8 @@ def card_sh(i):
     acc = ACC.get(i.get('access_type') or '')
     ref = ''
     if acc or i.get('referral'):
-        ref = '<div class="ref"><b>%s</b>%s</div>' % (E(acc or 'Referral'), (': ' + E(i['referral'])) if i.get('referral') and i['referral'] != 'Not stated' else '')
+        rt = re.sub(r'^\s*(referral only|self[- ]referral|open access)\s*[:.–-]?\s*', '', i.get('referral') or '', flags=re.I) if i.get('referral') != 'Not stated' else ''
+        ref = '<div class="ref"><b>%s</b>%s</div>' % (E(acc or 'Referral'), (': ' + E(rt)) if rt else '')
         if i.get('access_type') == 'referral_only': ref += '<div class="sub">You need a referral before you go, usually from an outreach team, day centre or the council.</div>'
     opens = ''
     if i.get('upcoming') or (i.get('scheme_dates') and str(i['scheme_dates']).startswith('Opens')):

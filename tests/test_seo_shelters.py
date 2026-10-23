@@ -13,9 +13,10 @@ class T(unittest.TestCase):
         self.assertTrue(B.shelter_public(dict(base, source='OpenStreetMap', evidence_url='https://a')))
     def test_card(self):
         c = B.card_sh(dict(name='Barnet WNS', address='N3 1TR', postcode='N3 1TR', tier='unverified', access_type='referral_only',
-                           referral='Via HAB', upcoming=True, scheme_start='2026-11-08', scheme_dates='Opens 8 Nov 2026', hours=''))
+                           referral='Referral only: Via HAB', upcoming=True, scheme_start='2026-11-08', scheme_dates='Opens 8 Nov 2026', hours=''))
         for s in ('Referral only', 'Via HAB', 'You need a referral', '<div class="opens">Opens 8 Nov 2026</div>', 'Unverified – call before you go', 'faq.html#times'):
             self.assertIn(s, c)
+        self.assertEqual(c.count('Referral only'), 1)
     def test_ws_card(self):
         c = B.card_ws(dict(name='W', address='a', upcoming=True, scheme_start='2026-11-04', scheme_dates='Opens 4 Nov 2026', booking='Booking needed', notes='By referral from GP', hours={}))
         self.assertIn('<div class="opens">Opens 4 Nov 2026</div>', c); self.assertIn('Booking needed', c); self.assertIn('Referral:', c)
