@@ -41,7 +41,7 @@ jobs:
       - name: Commit new entries and the sweep log
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces sitemap.xml logs/discovery_today_sweep.json reports/new_today.md reports/manual_review.md stamp.js overrides/swep_sources.json overrides/opening_times.json logs/times_finder.json overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_sweep.json reports/new_today.md reports/manual_review.md stamp.js overrides/swep_sources.json overrides/opening_times.json logs/times_finder.json overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
                   overrides/warmspaces_manual.json overrides/warmspaces_verified.json overrides/warmspaces_unverified.json \
                   logs/sweep_log.json logs/sweep_pending.json overrides/foodbank_own_pages.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
@@ -69,6 +69,9 @@ jobs:
             sleep $((n * 10))
           done
           exit 1
+      - name: IndexNow - tell search engines which pages really changed (fail-safe)
+        continue-on-error: true
+        run: python scripts/indexnow.py "$GITHUB_SHA"
       - name: Alert - run failed (nothing new published)
         if: failure()
         env:

@@ -42,7 +42,7 @@ jobs:
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces sitemap.xml logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -63,6 +63,9 @@ jobs:
             git rebase --abort 2>/dev/null || true; sleep $((n * 10))
           done
           exit 1
+      - name: IndexNow - tell search engines which pages really changed (fail-safe)
+        continue-on-error: true
+        run: python scripts/indexnow.py "$GITHUB_SHA"
       - name: Alert - run failed (nothing new published)
         if: failure()
         env:

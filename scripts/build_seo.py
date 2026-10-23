@@ -15,9 +15,9 @@ E = lambda s: html.escape(str(s or ''), quote=True)
 LEGAL = ('<div class="legal"><p>helpmap.uk is a free guide compiled from publicly available information. While we aim to keep it '
          'accurate, details can change, so please confirm with the service before visiting. We are not affiliated with the services '
          'listed and cannot accept liability for any loss arising from use of this information. In an emergency, please call '
-         '<a href="tel:999">999</a>.</p><p><a href="/faq.html">How we keep it up to date</a> · <a href="/terms.html">Terms of use</a> · <a href="/privacy.html">Privacy &amp; data protection</a> · '
+         '<a href="tel:999">999</a>.</p><p><a href="/faq.html">How we keep it up to date</a> · <a href="/shelters/">Shelters by area</a> · <a href="/terms.html">Terms of use</a> · <a href="/privacy.html">Privacy &amp; data protection</a> · '
          '<a href="/accessibility.html">Accessibility</a> · <a href="mailto:hello@helpmap.uk?subject=Report%20a%20mistake%20on%20helpmap.uk">Report a mistake</a></p></div>')
-CSS = ('body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#13233f;background:#fff}'
+CSS = ('.ref{margin:4px 0}.opens{display:inline-block;font-weight:700;background:#e3f2fd;color:#0d47a1;padding:2px 8px;border-radius:8px;margin:4px 0}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#13233f;background:#fff}'
        'main,header,footer{max-width:760px;margin:0 auto;padding:0 16px}header{padding-top:14px}'
        'a{color:#0b5cad}h1{font-size:1.5rem;line-height:1.25;margin:.4em 0}.top a{font-weight:700;text-decoration:none}'
        '.cta{display:inline-block;background:#13233f;color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;margin:6px 0 14px;min-height:20px}'
@@ -65,6 +65,34 @@ def hours_ws(i):
     rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(d), E(v)) for d, v in h.items() if v)
     return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
 
+def shelter_public(i):
+    """Same rule as the map: no stale/ended/closed entries, and no OpenStreetMap-only entry (must have own-site evidence)."""
+    if i.get('stale') or i.get('ended') or i.get('flag_closed') or not i.get('postcode'): return False
+    if i.get('source') == 'OpenStreetMap' and not (i.get('evidence_url') or i.get('sign_url')): return False
+    return True
+
+ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open_access': 'Open access'}
+
+def card_sh(i):
+    tag = '<div class="tag">Shelter</div>'
+    if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
+    acc = ACC.get(i.get('access_type') or '')
+    ref = ''
+    if acc or i.get('referral'):
+        ref = '<div class="ref"><b>%s</b>%s</div>' % (E(acc or 'Referral'), (': ' + E(i['referral'])) if i.get('referral') and i['referral'] != 'Not stated' else '')
+        if i.get('access_type') == 'referral_only': ref += '<div class="sub">You need a referral before you go, usually from an outreach team, day centre or the council.</div>'
+    opens = ''
+    if i.get('upcoming') or (i.get('scheme_dates') and str(i['scheme_dates']).startswith('Opens')):
+        opens = '<div class="opens">%s</div>' % E(i.get('scheme_dates') or ('Opens ' + i.get('scheme_start', '')))
+    elif i.get('scheme_dates'):
+        opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])
+    h = (i.get('hours') or '').strip() if isinstance(i.get('hours'), str) else ''
+    hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
+    note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
+    web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
+            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone')), ref, hrs, web))
+
 def phone_html(p):
     if not p: return ''
     return '<div>Phone: <a href="tel:%s">%s</a></div>' % (E(re.sub(r'[^0-9+]', '', p)), E(p))
@@ -80,9 +108,19 @@ def card_fb(i, acc):
 
 def card_ws(i):
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
-    bk = '<div class="sub">Booking: %s</div>' % E(i['booking']) if i.get('booking') and i['booking'] != 'Not stated' else ''
-    return ('<li><div class="n">%s</div><div class="tag">Warm space</div><div>%s</div>%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
-            % (E(i['name']), E(i.get('address')), phone_html(i.get('phone')), hours_ws(i), bk, web))
+    tag = '<div class="tag">Warm space</div>'
+    if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
+    opens = ''
+    if i.get('upcoming') and (i.get('scheme_dates') or i.get('scheme_start')):
+        opens = '<div class="opens">%s</div>' % E(i.get('scheme_dates') if str(i.get('scheme_dates', '')).startswith('Opens') else 'Opens ' + i['scheme_start'])
+    elif i.get('scheme_dates'):
+        opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])
+    ref = ''
+    if i.get('booking') and i['booking'] != 'Not stated': ref += '<div class="ref"><b>%s</b></div>' % E(i['booking'])
+    if 'referr' in (i.get('notes') or '').lower(): ref += '<div class="ref"><b>Referral:</b> %s</div>' % E(i['notes'])
+    hrs = '<div class="sub">Times unknown – call first</div>' if i.get('call_check') else hours_ws(i)
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
+            % (E(i['name']), tag, opens, E(i.get('address')), phone_html(i.get('phone')), hrs, ref, web))
 
 def page(path, title, desc, body, crumbs, updated):
     url = SITE + path
@@ -118,30 +156,31 @@ def section(kind, items, cache, updated, out, card):
         path = '/%s/%s/' % (base, slug(d))
         n = len(lst)
         title = '%s in %s – free help near you' % (label, d)
-        desc = '%d %s in %s with addresses, phone numbers and opening times. Free, no sign-up. Always call before you go.' % (n, noun if n != 1 else noun.rstrip('s'), d)
+        desc = '%d %s in %s with addresses, phone numbers and opening times. Checked three times a day. Free, no sign-up. Always call before you go.' % (n, noun if n != 1 else noun.rstrip('s'), d)
         body = ('<h1>%s in %s</h1><p>%d %s listed in the %s area, taken from the same checked data as the helpmap.uk map. '
                 'Details can change, so please call before you go.</p><a class="cta" href="/?q=%s">Open on the map</a>'
-                '<p class="chk3"><a href="/faq.html">Checked three times daily</a></p><div class="call">Always call before you go</div><ul class="s">%s</ul><p><a href="/%s/">All areas</a></p>'
-                % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(lst[0]['postcode'])), ''.join(card(i) for i in lst), base))
+                '<p class="chk3"><a href="/faq.html">Checked three times daily</a></p><div class="call">Always call before you go</div><ul class="s">%s</ul><!--xlinks:%s--><p><a href="/%s/">All areas</a></p>'
+                % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(lst[0]['postcode'])), ''.join(card(i) for i in lst), slug(d), base))
         write(path, page(path, title, desc, body, [('helpmap.uk', '/'), (label, '/%s/' % base), (d, path)], updated), out)
         urls.append(path)
     links = ''.join('<li><a href="/%s/%s/">%s</a> (%d)</li>' % (base, slug(d), E(d), len(l)) for d, l in sorted(groups.items()))
     path = '/%s/' % base
     body = ('<h1>%s by area</h1><p>Free UK list of %d %s across %d council areas. Pick your area, or <a href="/">search the map by postcode</a>.</p>'
             '<ul class="a">%s</ul>' % (E(label), sum(len(l) for l in groups.values()), noun, len(groups), links))
-    write(path, page(path, '%s by area – helpmap.uk' % label, 'Find %s near you in every UK council area. Free, no sign-up.' % noun, body,
+    write(path, page(path, '%s by area – helpmap.uk' % label, 'Find %s near you in every UK council area. Checked three times a day. Free, no sign-up.' % noun, body,
                      [('helpmap.uk', '/'), (label, path)], updated), out)
     return [path] + urls
 
 def build(out=ROOT, fetch=True):
     fb = load_js('data.full.js', 'FB_DATA'); acc = load_js('access.js', 'FB_ACCESS'); ws = load_js('warmspaces.js', 'WARMSPACES')
     fbi = [i for i in fb['items'] if i.get('kind') not in ('warehouse', 'dropoff') and i.get('postcode')]
+    sh = load_js('shelters.js', 'SHELTERS'); shi = [i for i in sh['items'] if shelter_public(i)]
     wsi = [i for i in ws['items'] if not i.get('ended') and not i.get('stale') and i.get('postcode')]
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
-    lookup(sorted({norm_pc(i['postcode']) for i in fbi + wsi}), cache, fetch)
+    lookup(sorted({norm_pc(i['postcode']) for i in fbi + wsi + shi}), cache, fetch)
     if out == ROOT:
         json.dump(dict(sorted(cache.items())), open(CACHE, 'w'), indent=0)
-    for base in ('food-banks', 'warm-spaces'):   # drop pages for areas that no longer have any service
+    for base in ('food-banks', 'warm-spaces', 'shelters'):   # drop pages for areas that no longer have any service
         d = os.path.join(out, base)
         if os.path.isdir(d):
             for sub in os.listdir(d):
@@ -149,20 +188,30 @@ def build(out=ROOT, fetch=True):
                 if os.path.exists(f): os.remove(f)
     urls = section(('Food banks', 'food-banks', 'food banks'), fbi, cache, fb['fetched'], out, lambda i: card_fb(i, acc))
     urls += section(('Warm spaces', 'warm-spaces', 'warm spaces'), wsi, cache, ws['updated'], out, card_ws)
-    for d in ('food-banks', 'warm-spaces'):   # remove now-empty area folders
+    urls += section(('Homeless shelters', 'shelters', 'homeless shelters'), shi, cache, sh['updated'], out, card_sh)
+    XL = [('food-banks', 'Food banks'), ('warm-spaces', 'Warm spaces'), ('shelters', 'Homeless shelters')]
+    have = set(u for u in urls)
+    for u in urls:   # cross-link the same area's food bank / warm space / shelter pages
+        parts = u.strip('/').split('/')
+        if len(parts) != 2: continue
+        p = os.path.join(out, parts[0], parts[1], 'index.html'); s = open(p, encoding='utf-8').read()
+        links = ['<a href="/%s/%s/">%s</a>' % (b_, parts[1], lab) for b_, lab in XL if b_ != parts[0] and '/%s/%s/' % (b_, parts[1]) in have]
+        html_ = '<p class="xl">Also in this area: %s</p>' % ' · '.join(links) if links else ''
+        open(p, 'w', encoding='utf-8').write(s.replace('<!--xlinks:%s-->' % parts[1], html_))
+    for d in ('food-banks', 'warm-spaces', 'shelters'):   # remove now-empty area folders
         for sub in os.listdir(os.path.join(out, d)):
             p = os.path.join(out, d, sub)
             if os.path.isdir(p) and not os.listdir(p): os.rmdir(p)
     lm = {'/': fb['fetched']}
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in ['/'] + urls + ['/faq.html', '/privacy.html', '/terms.html', '/accessibility.html']:
-        d = ws['updated'] if u.startswith('/warm-spaces') else fb['fetched']
+        d = ws['updated'] if u.startswith('/warm-spaces') else sh['updated'] if u.startswith('/shelters') else fb['fetched']
         sm.append('<url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (SITE, u, d))
     sm.append('</urlset>')
     open(os.path.join(out, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
     open(os.path.join(out, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /logs/\nDisallow: /reports/\nDisallow: /overrides/\nDisallow: /scripts/\nDisallow: /tests/\n\nSitemap: %s/sitemap.xml\n' % SITE)
     body = ('<h1>Page not found</h1><p>Sorry, that page isn’t here. It may have moved.</p><a class="cta" href="/">Open the helpmap.uk map</a>'
-            '<p><a href="/food-banks/">Food banks by area</a> · <a href="/warm-spaces/">Warm spaces by area</a></p>')
+            '<p><a href="/food-banks/">Food banks by area</a> · <a href="/warm-spaces/">Warm spaces by area</a> · <a href="/shelters/">Shelters by area</a></p>')
     open(os.path.join(out, '404.html'), 'w').write(page('/404.html', 'Page not found – helpmap.uk', 'Page not found.', body, [('helpmap.uk', '/')], fb['fetched']).replace('<link rel="canonical" href="https://helpmap.uk/404.html">', '<meta name="robots" content="noindex">'))
     print('seo pages: %d (+ sitemap, robots, 404)' % len(urls))
     return urls
