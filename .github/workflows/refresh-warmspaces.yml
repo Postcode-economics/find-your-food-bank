@@ -23,7 +23,8 @@ jobs:
       - name: Rebuild warmspaces.js (re-fetches and re-checks every source page)
         run: python scripts/build_warmspaces.py
         env:
-          WW_DISCOVERY_BUDGET: "250"   # Warm Welcome finds own-site checked per run (time box)
+          WW_DISCOVERY_BUDGET: "0"     # 0 = the whole Warm Welcome feed, time-boxed by WW_DISCOVERY_SECONDS
+          WW_DISCOVERY_SECONDS: "1200"
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py warmspaces
       - name: Review list for Dean (adds, removals, tier flips, opens-later)
@@ -40,7 +41,18 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily Warm spaces refresh $(date -u +%F)"
-          git pull --rebase && git push
+          # shared reports (new_today / manual_review / layers_review) may have been changed by another refresh meanwhile:
+          # keep this run's files, then rebuild the discovery reports from every layer's log so nobody's entries are lost
+          for n in 1 2 3; do
+            if git pull --rebase -X theirs; then
+              python scripts/discovery_rules.py render || true
+              git add reports/new_today.md reports/manual_review.md
+              git diff --cached --quiet || git commit -m "Discovery reports re-rendered after merge"
+              if git push; then exit 0; fi
+            else git rebase --abort 2>/dev/null || true; fi
+            sleep $((n * 10))
+          done
+          exit 1
       - name: Alert - run failed (nothing new published)
         if: failure()
         env:
