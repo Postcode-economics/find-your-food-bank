@@ -47,7 +47,12 @@ const ft=document.querySelector('footer');const fu=document.createElement('div')
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
 const nb=document.createElement('button');nb.type='button';nb.id='xnear';nb.className='btn';hdr.insertBefore(nb,document.getElementById('f').nextSibling);
-nb.onclick=()=>document.getElementById('me').click();
+// Find nearest (Dean, 23 Oct): follows the selected type; no type selected = food bank behaviour as before
+const NL={en:{fb:'Find nearest food bank',sh:'Find nearest shelter',ws:'Find nearest warm space'},cy:{fb:'Dod o hyd i’r banc bwyd agosaf',sh:'Dod o hyd i’r lloches agosaf',ws:'Dod o hyd i’r man cynnes agosaf'}};
+const nearK=()=>{const k=window.v3focus;return k==='sh'||k==='ws'||k==='fb'?k:null};
+function nearLabel(){const k=nearK();nb.innerHTML=IC('pin')+'<span>'+esc(k?NL[lang][k]:t('near'))+'</span>'}
+nb.onclick=()=>{const k=nearK();window.__nearK=k==='sh'||k==='ws'?k:null;document.getElementById('me').click()};
+document.addEventListener('click',e=>{if(e.target.closest('.v3b'))setTimeout(nearLabel,0)});[0,300,1500].forEach(ms=>setTimeout(nearLabel,ms));
 const bf=document.createElement('details');bf.id='xbefore';bf.innerHTML='<summary><span class="bt" data-t="before"></span><span class="bs" data-t="beforeSum"></span></summary>';
 const disc=document.createElement('div');disc.id='xdisc';disc.setAttribute('role','note');
 const tog=hdr.querySelector('label.tog');tog.before(bf);bf.append(...[hdr.querySelector('.ref'),disc,hdr.querySelector('.tnote')].filter(Boolean));
@@ -56,7 +61,7 @@ extra.innerHTML=`<div id="xlist"></div><details id="xclosed"><summary data-t="cl
 <button type="button" class="btn call" id="xadd"></button>`;
 document.getElementById('list').after(extra);
 function paint(){document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
- $x('xlang').innerHTML=lang==='en'?'<b>EN</b><span aria-hidden="true">|</span>CY':'EN<span aria-hidden="true">|</span><b>CY</b>';$x('xlang').setAttribute('aria-label',lang==='en'?'Newid i’r Gymraeg':'Switch to English');nb.innerHTML=IC('pin')+'<span>'+esc(t('near'))+'</span>';disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
+ $x('xlang').innerHTML=lang==='en'?'<b>EN</b><span aria-hidden="true">|</span>CY':'EN<span aria-hidden="true">|</span><b>CY</b>';$x('xlang').setAttribute('aria-label',lang==='en'?'Newid i’r Gymraeg':'Switch to English');nearLabel();disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
  document.getElementById('q').placeholder=t('ph');if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
  paint.done=true;trAll();stamp('fb');banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
 function $x(i){return document.getElementById(i)}
@@ -125,6 +130,7 @@ function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3oo" data-k="${k}" aria-pressed="${openOnly[k]}">${lang==='cy'?'Ar agor nawr yn unig':'Open now only'}</button><button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(oo?`<p class="sub v3ex">${lang==='cy'?'Ar agor nawr yn gyntaf. Lleoedd ar gau wedi’u cuddio.':'Open now first. Closed places hidden.'}</p>`:'')+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
+ const nk=window.__nearK;window.__nearK=null;if(nk){const h=[...document.querySelectorAll('#xlist .lh')].find(e=>e.textContent===t(nk==='sh'?'nSh':'nWs'));if(h){const y=h.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.15);setTimeout(()=>scrollTo({top:Math.max(0,y),behavior:'auto'}),0)}}  // Find nearest shelter / warm space: land on that list, not the food banks
  map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
  const fit=()=>{if(window._fitB){map.invalidateSize();map.fitBounds(window._fitB,{animate:false})}};fit();setTimeout(fit,250);return r};  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
