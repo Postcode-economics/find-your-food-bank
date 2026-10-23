@@ -7,6 +7,7 @@ class T(unittest.TestCase):
     def test_generic(self): self.assertEqual(W.classify("SWEP provides emergency accommodation during severe weather.")[0], "unknown")
     def test_conditional_not_active(self): self.assertEqual(W.classify("SWEP is activated when there is a severe weather warning.")[0], "unknown")
     def test_old_news(self): self.assertTrue(W.classify("Published: Thursday, 8th January 2026. The Severe Weather Emergency Protocol has been activated due to snow.", "2026-10-23")[0].startswith("old notice"))
+    def test_when_prefix(self): self.assertEqual(W.classify("When SWEP is activated SWEP is activated when: the Met Office issues a red warning")[0], "unknown")
     def test_none(self): self.assertEqual(W.classify("Bin collection days")[0], "no SWEP wording")
     def test_run_changes(self):
         d = tempfile.mkdtemp(); cwd = os.getcwd(); os.chdir(d); os.makedirs("overrides"); os.makedirs("logs")
