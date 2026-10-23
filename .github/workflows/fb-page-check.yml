@@ -1,0 +1,40 @@
+name: Daily Facebook page check
+# Dean, 23 Oct 23:36: re-check every verified Facebook page behind the 'Message on Facebook' button.
+# Title must still match the 23 Oct baseline (overrides/facebook_pages.json). Dead or changed pages are FLAGGED
+# (reports/fb_pages_flagged.md + a GitHub issue), never removed from the map.
+on:
+  schedule:
+    - cron: "40 6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: fb-page-check
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test the Facebook page check
+        run: python -m unittest tests.test_fb_page_check -v
+      - name: Re-check every Facebook page (flag only)
+        run: python scripts/fb_page_check.py
+      - name: Commit the log and flagged list
+        run: |
+          git add logs/fb_page_check.json reports/fb_pages_flagged.md
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Facebook page check $(date -u +%F)"
+          for n in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep $((n*10)); done; exit 1
+      - name: Alert - Facebook pages flagged
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '^- `' reports/fb_pages_flagged.md; then python scripts/alert.py open fb-pages "Facebook pages flagged" "$(cat reports/fb_pages_flagged.md)"; else python scripts/alert.py resolve fb-pages; fi
