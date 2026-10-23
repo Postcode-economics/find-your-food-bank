@@ -12,7 +12,8 @@ FILES = {'foodbanks': 'data.full.js', 'shelters': 'shelters.js', 'warmspaces': '
 def split(t): a, b = t.index('{'), t.rindex('}') + 1; return t[:a], json.loads(t[a:b]), t[b:]
 def has_phone(layer, i):
     if i.get('tel'): return True
-    return layer != 'foodbanks' and bool(i.get('council_ooh') or i.get('council_phone'))
+    if layer == 'warmspaces': return bool(i.get('council_label') and i.get('council_phone'))  # verified council out-of-hours homeless line only; general council lines are a gap
+    return layer == 'shelters' and bool(i.get('council_ooh') or i.get('council_phone'))
 def problems(layer, i):
     p = [] if has_phone(layer, i) else ['no verified phone']
     if layer == 'shelters' and not i.get('groups'): p.append("no sourced 'who it's for'")
