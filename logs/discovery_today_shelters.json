@@ -28,6 +28,13 @@
    "added": 4,
    "queued": 53,
    "rejected": 0
+  },
+  {
+   "at": "07:53Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 34,
+   "rejected": 0
   }
  ],
  "added": [
@@ -178,7 +185,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "89410050d07b8914ade38b3ac5fad80f13538e5a340d9057c9d90899cb84690c",
+   "sha256": "2c6ab4268db17efb99518136bf8735b60d90aaad5bdca338ba45e0033ab2226f",
    "etag": "",
    "last_modified": ""
   },
@@ -231,8 +238,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "73dc5218fac072a12c1461dcd3c9f45effd731970de8348b79df206acc66423a",
-   "etag": "W/\"b5245eb2d4650ef5810089c079b5df25\"",
+   "sha256": "650e1c6fd0cfcd402cffd7492af5b24ee1096ea294e3b5ad50b1b532502f09c0",
+   "etag": "W/\"4697d9d58dcd55d0c0b36afc0c056fe1\"",
    "last_modified": ""
   },
   "osm-node-12804949354": {
@@ -249,7 +256,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "8dd832f31728ffd4268df4dd5c57f39b1ea8f9517b550d4c325950cd9b62f0db",
+   "sha256": "cfa7fb915d9e96c0dce459e63d66665fdaf08a54fc42914b958e6db2c84b17fb",
    "etag": "",
    "last_modified": ""
   },
@@ -394,8 +401,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1792668179\"",
-   "last_modified": "Thu, 22 Oct 2026 11:22:59 GMT"
+   "etag": "\"1792739250\"",
+   "last_modified": "Fri, 23 Oct 2026 07:07:30 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -590,8 +597,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
-   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
+   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
+   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {

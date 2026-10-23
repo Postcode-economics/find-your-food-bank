@@ -1,8 +1,12 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 1 · removed 0 · changed 0 · tier flips 0 · opens later 2 · season ended 0 · recheck failed 36
+added 0 · removed 4 · changed 0 · tier flips 0 · opens later 2 · season ended 0 · recheck failed 36
 
+- REMOVED **Adullam Homes HA - Norman House** – not confirmed this run
+- REMOVED **Ashdown Medway Accommodation Trust (AMAT)** – not confirmed this run
+- REMOVED **Bradford Cyrenians - Hostel for Homeless Men** – not confirmed this run
+- REMOVED **Bridge House Mission** – not confirmed this run
 - OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027
 

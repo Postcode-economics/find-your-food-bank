@@ -1,13 +1,28 @@
 {
  "shelters.js": {
-  "added": [
+  "added": [],
+  "removed": [
+   {
+    "id": "hl-adullam-homes-ha-norman-house",
+    "name": "Adullam Homes HA - Norman House",
+    "reason": "not confirmed this run"
+   },
+   {
+    "id": "hl-amat-uk",
+    "name": "Ashdown Medway Accommodation Trust (AMAT)",
+    "reason": "not confirmed this run"
+   },
+   {
+    "id": "hl-bradford-cyrenians-hostel-for-homeless-men",
+    "name": "Bradford Cyrenians - Hostel for Homeless Men",
+    "reason": "not confirmed this run"
+   },
    {
     "id": "hl-bridge-house-mission",
     "name": "Bridge House Mission",
-    "tier": "unverified"
+    "reason": "not confirmed this run"
    }
   ],
-  "removed": [],
   "changed": [],
   "tier_flips": [],
   "upcoming": [
@@ -110,7 +125,7 @@
    },
    {
     "id": "osm-way-753792449",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-931997512",
@@ -126,7 +141,7 @@
    },
    {
     "id": "osm-way-979361293",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-1104948217",
@@ -150,11 +165,11 @@
    },
    {
     "id": "hl-ymca-lincs-nomad-centre",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "hl-st-annes-hostel-birmingham",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "hl-st-georges-crypt-leeds",
