@@ -21,3 +21,9 @@ def test_food_bank_times():
     new = [{'id': 'f', 'name': 'F', 'lat': 1, 'lng': 1, 'phone': '1', 'opening_times': {'status': 'NOT_FOUND'}}]
     out, rep = g.guard('foodbanks', old, new)
     assert rep['times'] == ['f'] and out[0]['opening_times']['raw'] == 'Mon 10-12'
+
+def test_shelter_groups_kept():
+    old = [{'id': 's', 'name': 'S', 'lat': 1, 'lng': 1, 'tel': '1', 'hours': 'h', 'groups': ['Women']}]
+    new = [{'id': 's', 'name': 'S', 'lat': 1, 'lng': 1, 'tel': '1', 'hours': 'h', 'groups': []}]
+    out, rep = g.guard('shelters', old, new)
+    assert out[0]['groups'] == ['Women'] and rep['groups'] == ['s']
