@@ -182,3 +182,18 @@ class FbPageKept(unittest.TestCase):
         o = {"id": "ifan-x", "fb_page": "https://www.facebook.com/x/", "opening_times": None}
         out, rep = G.guard("foodbanks", [o], [{"id": "ifan-x", "opening_times": None}])
         self.assertEqual([i for i in out if i["id"] == "ifan-x"][0]["fb_page"], "https://www.facebook.com/x/"); self.assertIn("ifan-x", rep["fb_pages"])
+class Checked9(unittest.TestCase):
+    """24 Oct hand check of the 9 strict auto-applied sets: 7 correct (locked), 2 wrong (dropped, place+phone kept)."""
+    def test_locked_and_dropped(self):
+        O = json.load(open(os.path.join(R, "overrides", "opening_times.json")))
+        for k in ("kirkcaldy/linton-lane-centre", "kirkcaldy/new-volunteer-house", "northfleet-hive-hope/disused-taxi-rank", "northfleet-hive-hope/rose-street",
+                  "patch/pembroke-dock", "storehouse-influence-church/barnard-castle", "the-community-cupboard/swanley-community-cupboard"):
+            self.assertTrue(O[k]["protected"]); self.assertTrue(O[k]["source_url"].startswith("https://"))
+        for k in ("3food4u/budworth-hall", "dens/way-inn-christian-centre"): self.assertNotIn(k, O)
+        G = json.load(open(os.path.join(R, "overrides", "guard_wrong_times.json")))["foodbanks"]
+        self.assertIn("3food4u/budworth-hall", G); self.assertIn("dens/way-inn-christian-centre", G)
+    def test_times_above_address_layout(self):   # 3food4u: 'Thursday 12:15pm to 1:15pm / Budworth Hall CM5 9JG / Friday 12:30pm to 2:00pm / Epping CM16 7BN'
+        t = ("Wednesday 4:45pm to 6:00pm All Saints Church Hall IG7 4QD Thursday 12:15pm to 1:15pm Budworth Hall CM5 9JG "
+             "Friday 12:30pm to 2:00pm Community Centre Epping CM16 7BN Waltham Abbey Baptist Church EN9 1RL")
+        ot = D.extract_times(t, "CM5 9JG")
+        self.assertTrue(ot is None or "Friday" not in ot["raw"])
