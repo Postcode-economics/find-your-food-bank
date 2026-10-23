@@ -395,7 +395,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Basildon Emergency Night Shelter · https://homeless.org.uk/homeless-england/service/basildon-emergency-night-shelter/ — no valid postcode
 - QUEUED Bournemouth Churches HA - St Paul's Hostel · BH2 6LL · http://www.bournemouth.gov.uk — directory link is a council page, not the place's own site; own site redirects to a different site (bcpcouncil.gov.uk)
 - QUEUED Branches Hostel · E17 3HR · http://https://www.wfcbranches.org.uk — own site unreachable (HTTP error)
-- QUEUED Brighton & Hove City Council - New Steine Mews Hostel · BN2 1QP · http://www.nsmhostel.org.uk — own site unreachable (HTTP 403)
+- QUEUED Brighton & Hove City Council - New Steine Mews Hostel · BN2 1QP · http://www.nsmhostel.org.uk — own site has no readable text
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
 - QUEUED Bridge House Mission · TS18 3AX · http://www.bridgehousemission.co.uk — own site unreachable (HTTP 500)
