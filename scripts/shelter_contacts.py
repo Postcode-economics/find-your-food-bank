@@ -27,7 +27,7 @@ def apply(items, data=None):
         if o.get("email") and not x.get("email"): x["email"] = o["email"]
         if o.get("groups"): x["groups"] = o["groups"]; x["groups_source"] = o.get("groups_source", "")  # who it is for, hand-checked from own/operator page
         if o.get("referral_note"): x["referral"] = o["referral_note"]  # hand-checked: says whose phone line it is (no UI change)
-        c = councils.get(o.get("area") or "") or {k: o[k] for k in ("council", "council_phone", "council_ooh", "council_url") if o.get(k)}
+        c = councils.get(o.get("area") or "") or {k: o[k] for k in ("council", "council_phone", "council_ooh", "council_url", "council_label", "council_label_cy") if o.get(k)}
         if c:
             for k, v in c.items(): x[k] = v
     return n
