@@ -48,3 +48,6 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 .xacc{display:inline-block;margin:0 0 8px;padding:3px 9px;border-radius:999px;font-size:13px;font-weight:700;border:1px solid #8a94a6;color:#e6e9ef}
 .xacc-open_access{border-color:#3fbf6f;color:#9fe3b8}.xacc-referral_only{border-color:#e0a030;color:#f3cf8e}
 html.light .xunv,html.light .xacc{background:#fff;color:#000;border-color:#000}
+
+.btn.web{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;border:2px solid currentColor;border-radius:10px;font-weight:700;text-decoration:none;margin:8px 0;box-sizing:border-box;overflow-wrap:anywhere;padding:6px 10px;text-align:center}.xhow{border-left:4px solid #F5C518;padding:4px 0 4px 10px;margin:8px 0}.xhow p{margin:4px 0}.xem a{overflow-wrap:anywhere}
+.btn.call.xfb{background:#fff!important;border:3px solid #F5C518!important}

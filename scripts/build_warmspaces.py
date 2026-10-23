@@ -156,6 +156,8 @@ EXCL = {e["id"] for e in json.load(open("overrides/warmspaces_exclude.json"))} i
 items = [x for x in items if x["id"] not in EXCL]; closed = [x for x in closed if x["id"] not in EXCL]  # signed-off removals stay off on every rebuild
 sources["Excluded by review"] = {"status": "ok", "ids": sorted(EXCL)}
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "warm spaces", json.dumps(sources)[:1500]); sys.exit(0)
+import shelter_contacts  # venue numbers + labelled council fallback (overrides/warmspaces_contacts.json) survive every refresh
+sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items, shelter_contacts.load(shelter_contacts.WS)), "missing_any_number": shelter_contacts.check(items)}
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "ended": sum(x.get("ended", False) for x in items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "warm spaces")

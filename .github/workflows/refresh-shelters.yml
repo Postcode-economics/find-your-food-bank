@@ -22,6 +22,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild shelters.js (re-fetches and re-checks every source page)
         run: python scripts/build_shelters.py
+      - name: Every entry has a phone or a labelled council fallback (overrides/*_contacts.json)
+        run: python scripts/shelter_contacts.py check
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py shelters
       - name: SWEP watch (council severe-weather pages; flags only, never changes the map)
