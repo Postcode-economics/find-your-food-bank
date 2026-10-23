@@ -84,6 +84,9 @@ def main():
     for i in items:
         i['opening_times'] = normalise(times.get(i['id']))
         if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
+    fbp = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'facebook_pages.json'), {}).items() if not k.startswith('_')}
+    for i in items:  # verified Facebook page, used only when there is no phone (Dean 23 Oct)
+        if i['id'] in fbp: i['fb_page'] = fbp[i['id']]['url']
     names = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_names.json'), {}).items() if not k.startswith('_')}
     for i in items:  # names a food bank asked us to use (overrides/foodbank_names.json)
         nm = names.get(i['id'])
