@@ -56,14 +56,14 @@ def lookup(pcs, cache, fetch=True):
 def hours_fb(i):
     ot = i.get('opening_times') or {}
     st = ot.get('structured') if ot.get('status') == 'TIMES_FOUND' else None
-    if not st: return '<div class="sub">Times not listed, call to check</div>'
+    if not st: return '<div class="sub">Call for opening times</div>'
     rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (DN[d], ', '.join('%s–%s' % (a, b) for a, b in st[d])) for d in ORD if st.get(d))
-    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Times not listed, call to check</div>'
+    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
 
 def hours_ws(i):
     h = i.get('hours') or {}
     rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(d), E(v)) for d, v in h.items() if v)
-    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Times not listed, call to check</div>'
+    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
 
 def phone_html(p):
     if not p: return ''
