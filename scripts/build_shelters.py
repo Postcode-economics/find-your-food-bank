@@ -110,6 +110,8 @@ items, expired = seasonal.apply(items, RUN, closed)
 for x in items:
     if x.get("upcoming") and x.get("scheme_dates"): x["season"] = "Winter-only (" + x["scheme_dates"] + ")"
 sources["Seasonal dates"] = {"status": "ok", "upcoming": sum(bool(x.get("upcoming")) for x in items), "expired": [x["id"] for x in expired]}
+import shelter_contacts  # manual numbers/emails + council referral lines (overrides/shelters_contacts.json) survive every refresh
+sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items), "missing_any_number": shelter_contacts.check(items)}
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})

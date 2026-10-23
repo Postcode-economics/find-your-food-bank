@@ -91,8 +91,26 @@ def card_sh(i):
     hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
-    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
-            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone')), ref, hrs, web))
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
+            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone')), web, sh_contact(i), ref, hrs))
+
+def ws_fallback(i):
+    if i.get('tel') or not i.get('council_phone'): return ''
+    return '<div class="ref">No number for the venue itself. Council main number (%s): <a href="tel:%s">%s</a></div>' % (E(i['council']), E(re.sub(r'[^0-9+]', '', i['council_phone'])), E(i['council_phone']))
+
+def sh_contact(i):
+    """Email, council referral line, and national fallbacks when there is no direct number (overrides/shelters_contacts.json)."""
+    o = ''
+    if i.get('email'): o += '<div>Email: <a href="mailto:%s">%s</a></div>' % (E(i['email']), E(i['email']))
+    if i.get('council_phone'):
+        o += '<div class="ref"><b>How to get a place</b>: referral via %s. Council homeless line: %s' % (E(i['council']), phone_html(i['council_phone'])[5:-6].replace('Phone: ', ''))
+        if i.get('council_ooh') and i['council_ooh'] != i['council_phone']:
+            o += ' (out of hours <a href="tel:%s">%s</a>)' % (E(re.sub(r'[^0-9+]', '', i['council_ooh'])), E(i['council_ooh']))
+        o += '</div>'
+    if not i.get('tel'):
+        o += ('<div class="ref"><b>No direct number.</b> Help tonight: Shelter national helpline (not this venue) <a href="tel:08088004444">0808 800 4444</a>, '
+              'or your local council&#39;s homeless team. Someone sleeping rough: <a href="https://thestreetlink.org.uk/" rel="noopener">StreetLink</a></div>')
+    return o
 
 def phone_html(p):
     if not p: return ''
@@ -105,7 +123,7 @@ def card_fb(i, acc):
     extra = '<div class="sub">Walk-in not confirmed – call ahead</div>' if a == 'unconfirmed' else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s<div class="sub">Times change, call ahead.</div></li>'
-            % (E(i['name']), tag, extra, E(i.get('address')), phone_html(i.get('phone')), hours_fb(i), web))
+            % (E(i['name']), tag, extra, E(i.get('address')), phone_html(i.get('phone')) + ws_fallback(i), hours_fb(i), web))
 
 def card_ws(i):
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
