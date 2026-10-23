@@ -12,6 +12,78 @@
    },
    "Manual (verified from source pages)": {
     "status": "ok",
+    "count": 67
+   },
+   "nightshelter.org.uk": {
+    "status": "not scraped: domain is parked (redirects to a lander page); no data"
+   },
+   "StreetLink (thestreetlink.org.uk)": {
+    "status": "not scraped: 403 to automated requests; it is a referral service, not a shelter directory"
+   },
+   "LHF Atlas": {
+    "status": "not scraped: map is an interactive app with no public data export; London-only"
+   },
+   "Crisis / Shelter / St Mungo's / Thames Reach": {
+    "status": "not scraped: no public shelter directory; services are via referral (council/outreach)"
+   },
+   "Homeless Link 'Find help' (homeless.org.uk/homeless-england)": {
+    "status": "ok",
+    "services_listed": 236,
+    "fetched_new": 26,
+    "query_failures": 0
+   },
+   "Discovery": {
+    "status": "ok",
+    "candidates": 61,
+    "new": 56,
+    "added_unverified": 4,
+    "flagged": 52
+   },
+   "Hours normalised": {
+    "status": "ok",
+    "changed": 3
+   },
+   "Own-site times check": {
+    "status": "ok",
+    "no_website": 22,
+    "none_published": 65,
+    "unreachable": 3,
+    "confirmed": 4,
+    "changed": 1,
+    "removed_closed": []
+   },
+   "Verification gate": {
+    "status": "ok",
+    "scraped": 170,
+    "published": 95,
+    "pending": 75,
+    "kept_on_48h_grace": []
+   },
+   "Seasonal dates": {
+    "status": "ok",
+    "upcoming": 2,
+    "expired": []
+   },
+   "Manual contacts": {
+    "status": "ok",
+    "phones_filled": 14,
+    "missing_any_number": []
+   }
+  }
+ },
+ {
+  "run": "2026-10-23",
+  "result": "ok",
+  "items": 95,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "OpenStreetMap (Overpass)": {
+    "status": "ok",
+    "count": 99
+   },
+   "Manual (verified from source pages)": {
+    "status": "ok",
     "count": 63
    },
    "nightshelter.org.uk": {

@@ -1,13 +1,17 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 0 · changed 0 · tier flips 0 · opens later 2 · season ended 0 · recheck failed 36
+added 0 · removed 4 · changed 0 · tier flips 0 · opens later 2 · season ended 0 · recheck failed 36
 
+- REMOVED **C4WS Homeless Project Winter Night Shelter** – not confirmed this run
+- REMOVED **Glasgow City Mission Overnight Welcome Centre** – not confirmed this run
+- REMOVED **NOAH Emergency Winter Night Shelter** – not confirmed this run
+- REMOVED **St Peter's Parish Night Shelter (Roath)** – not confirmed this run
 - OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027
 
 ## warmspaces.js
-added 168 · removed 0 · changed 0 · tier flips 0 · opens later 7 · season ended 0 · recheck failed 25
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 7 · season ended 0 · recheck failed 25
 
 - OPENS LATER Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026
 - OPENS LATER Desborough Baptist Church Warm Welcome Space – Opens 3 Nov 2026
