@@ -32,10 +32,10 @@ jobs:
       - name: Headless Chromium for JavaScript-drawn Trussell centre cards (fail-safe)
         continue-on-error: true
         run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
-      - name: Find missing food bank opening times (strict auto-apply only; everything uncertain -> reports/pending_dean.md; fail-safe)
+      - name: Find missing food bank opening times (review only, never applied; every result -> reports/pending_dean.md for hand check; fail-safe)
         continue-on-error: true
         timeout-minutes: 35
-        run: python scripts/times_finder.py --apply --render
+        run: python scripts/times_finder.py --render
       - name: Stamp this run's UK date and time (footer last updated / checked)
         run: python scripts/stamp.py write sweep && python scripts/stamp.py verify
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
