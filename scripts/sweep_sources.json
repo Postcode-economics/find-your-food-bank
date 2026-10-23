@@ -35,8 +35,10 @@
    "code": "ADU",
    "name": "Adur District Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.adur-worthing.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "AGB",
@@ -61,13 +63,15 @@
    "code": "AMB",
    "name": "Amber Valley Borough Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.ambervalley.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "AND",
@@ -96,50 +100,64 @@
    "code": "ARU",
    "name": "Arun District Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.arun.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ASF",
    "name": "Ashford Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.ashford.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ASH",
    "name": "Ashfield District Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.ashfield.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BAB",
    "name": "Babergh District Council",
    "nation": "England",
-   "site": "http://www.suffolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.babergh.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.suffolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BAE",
    "name": "Bassetlaw District Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.bassetlaw.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BAI",
    "name": "Basildon Borough Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.basildon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BAN",
    "name": "Basingstoke and Deane Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.basingstoke.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BAS",
@@ -259,8 +277,10 @@
    "code": "BLA",
    "name": "Blaby District Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.blaby.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BNE",
@@ -296,30 +316,36 @@
    "code": "BOS",
    "name": "Bolsover District Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.bolsover.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BOT",
    "name": "Boston Borough Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.boston.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BPC",
    "name": "Bournemouth, Christchurch and Poole Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.bcpcouncil.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BPL",
@@ -332,8 +358,10 @@
    "code": "BRA",
    "name": "Braintree District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.braintree.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRC",
@@ -360,42 +388,52 @@
    "code": "BRE",
    "name": "Breckland District Council",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.breckland.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRM",
    "name": "Bromsgrove District Council",
    "nation": "England",
-   "site": "http://www.worcestershire.gov.uk",
-   "known_pages": []
+   "site": "https://www.bromsgrove.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.worcestershire.gov.uk",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRO",
    "name": "Broadland District Council",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.southnorfolkandbroadland.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRT",
    "name": "Broxtowe Borough Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.broxtowe.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRW",
    "name": "Brentwood Borough Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.brentwood.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRX",
    "name": "Broxbourne Borough Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.broxbourne.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -406,7 +444,9 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BRY",
@@ -428,15 +468,19 @@
    "code": "BUC",
    "name": "Buckinghamshire Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.buckinghamshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BUN",
    "name": "Burnley Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://burnley.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "BUR",
@@ -449,38 +493,48 @@
    "code": "CAB",
    "name": "Cambridge City Council",
    "nation": "England",
-   "site": "https://www.cambridgeshire.gov.uk/",
+   "site": "https://www.cambridge.gov.uk",
    "known_pages": [
     "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
-   ]
+   ],
+   "site_was": "https://www.cambridgeshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CAM",
    "name": "Cambridgeshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.cambridgeshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CAN",
    "name": "Cannock Chase District Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.cannockchasedc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CAS",
    "name": "Castle Point Borough Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.castlepoint.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CAT",
    "name": "Canterbury City Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.canterbury.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CAY",
@@ -493,8 +547,10 @@
    "code": "CBD",
    "name": "Cumberland Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.cumberland.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CBF",
@@ -526,8 +582,10 @@
    "code": "CHA",
    "name": "Charnwood Borough Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.charnwood.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHE",
@@ -540,48 +598,60 @@
    "code": "CHI",
    "name": "Chichester District Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.chichester.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHL",
    "name": "Chelmsford City Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.chelmsford.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHO",
    "name": "Chorley Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://chorley.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHR",
    "name": "Cherwell District Council",
    "nation": "England",
-   "site": "https://www.oxfordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.cherwell.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.oxfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHS",
    "name": "Chesterfield Borough Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.chesterfield.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHT",
    "name": "Cheltenham Borough Council",
    "nation": "England",
-   "site": "https://www.gloucestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.cheltenham.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.gloucestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CHW",
@@ -645,8 +715,10 @@
    "code": "COL",
    "name": "Colchester Borough Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.colchester.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CON",
@@ -659,8 +731,10 @@
    "code": "COT",
    "name": "Cotswold District Council",
    "nation": "England",
-   "site": "https://www.gloucestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.cotswold.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.gloucestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "COV",
@@ -706,8 +780,10 @@
    "code": "CRW",
    "name": "Crawley Borough Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://crawley.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "CRY",
@@ -727,7 +803,7 @@
    "code": "DAC",
    "name": "Dacorum Borough Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.dacorum.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -738,7 +814,9 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DAL",
@@ -755,27 +833,33 @@
    "code": "DAR",
    "name": "Dartford Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.dartford.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DBY",
    "name": "Derbyshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.derbyshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DEB",
    "name": "Derbyshire Dales District Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.derbyshiredales.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DEN",
@@ -795,8 +879,10 @@
    "code": "DEV",
    "name": "Devon County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://new.devon.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DGY",
@@ -823,8 +909,10 @@
    "code": "DOV",
    "name": "Dover District Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.dover.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DRS",
@@ -837,8 +925,10 @@
    "code": "DST",
    "name": "Dorset Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.dorsetcouncil.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "DUD",
@@ -867,15 +957,19 @@
    "code": "EAS",
    "name": "Eastbourne Borough Council",
    "nation": "England",
-   "site": "https://www.eastsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.lewes-eastbourne.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.eastsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EAT",
    "name": "Eastleigh Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.eastleigh.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EAY",
@@ -888,17 +982,21 @@
    "code": "ECA",
    "name": "East Cambridgeshire District Council",
    "nation": "England",
-   "site": "https://www.cambridgeshire.gov.uk/",
+   "site": "https://www.eastcambs.gov.uk",
    "known_pages": [
     "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
-   ]
+   ],
+   "site_was": "https://www.cambridgeshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EDE",
    "name": "East Devon District Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://eastdevon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EDH",
@@ -918,14 +1016,16 @@
    "code": "EHA",
    "name": "East Hampshire District Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.easthants.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EHE",
    "name": "East Hertfordshire District Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.eastherts.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -936,24 +1036,30 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ELI",
    "name": "East Lindsey District Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.e-lindsey.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ELM",
    "name": "Elmbridge Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.elmbridge.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ELN",
@@ -990,27 +1096,33 @@
    "code": "EPP",
    "name": "Epping Forest District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.eppingforestdc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EPS",
    "name": "Epsom and Ewell Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.epsom-ewell.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ERE",
    "name": "Erewash Borough Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.erewash.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ERW",
@@ -1030,36 +1142,46 @@
    "code": "ESK",
    "name": "East Suffolk Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.eastsuffolk.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ESS",
    "name": "Essex County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.essex.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EST",
    "name": "East Staffordshire Borough Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.eaststaffsbc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ESX",
    "name": "East Sussex County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.eastsussex.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "EXE",
    "name": "Exeter City Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://exeter.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "FAL",
@@ -1075,17 +1197,21 @@
    "code": "FAR",
    "name": "Fareham Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.fareham.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "FEN",
    "name": "Fenland District Council",
    "nation": "England",
-   "site": "https://www.cambridgeshire.gov.uk/",
+   "site": "https://www.fenland.gov.uk",
    "known_pages": [
     "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
-   ]
+   ],
+   "site_was": "https://www.cambridgeshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "FIF",
@@ -1114,15 +1240,19 @@
    "code": "FOE",
    "name": "Forest of Dean District Council",
    "nation": "England",
-   "site": "https://www.gloucestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.fdean.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.gloucestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "FYL",
    "name": "Fylde Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.fylde.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GAT",
@@ -1135,8 +1265,10 @@
    "code": "GED",
    "name": "Gedling Borough Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.gedling.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GLG",
@@ -1153,29 +1285,37 @@
    "code": "GLO",
    "name": "Gloucester City Council",
    "nation": "England",
-   "site": "https://www.gloucestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.gloucester.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.gloucestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GLS",
    "name": "Gloucestershire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.gloucestershire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GOS",
    "name": "Gosport Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.gosport.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GRA",
    "name": "Gravesham Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.gravesham.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GRE",
@@ -1188,15 +1328,19 @@
    "code": "GRT",
    "name": "Guildford Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.guildford.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GRY",
    "name": "Great Yarmouth Borough Council",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.great-yarmouth.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "GWN",
@@ -1209,8 +1353,10 @@
    "code": "HAA",
    "name": "Havant Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.havant.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HAL",
@@ -1223,36 +1369,46 @@
    "code": "HAM",
    "name": "Hampshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.hants.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HAO",
    "name": "Harborough District Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.harborough.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HAR",
    "name": "Harlow District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.harlow.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HAS",
    "name": "Hastings Borough Council",
    "nation": "England",
-   "site": "https://www.eastsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.hastings.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.eastsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HAT",
    "name": "Hart District Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.hart.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HAV",
@@ -1309,7 +1465,7 @@
    "code": "HER",
    "name": "Hertsmere Borough Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.hertsmere.gov.uk/home.aspx",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -1320,19 +1476,23 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HIG",
    "name": "High Peak Borough Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.highpeak.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HIL",
@@ -1347,8 +1507,10 @@
    "code": "HIN",
    "name": "Hinckley and Bosworth Borough Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.hinckley-bosworth.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HLD",
@@ -1385,8 +1547,10 @@
    "code": "HOR",
    "name": "Horsham District Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.horsham.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HPL",
@@ -1399,8 +1563,10 @@
    "code": "HRT",
    "name": "Hertfordshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.hertfordshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HRW",
@@ -1448,17 +1614,21 @@
    "code": "HUN",
    "name": "Huntingdonshire District Council",
    "nation": "England",
-   "site": "https://www.cambridgeshire.gov.uk/",
+   "site": "https://www.huntingdonshire.gov.uk",
    "known_pages": [
     "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
-   ]
+   ],
+   "site_was": "https://www.cambridgeshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "HYN",
    "name": "Hyndburn Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.hyndburnbc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "IOS",
@@ -1478,8 +1648,10 @@
    "code": "IPS",
    "name": "Ipswich Borough Council",
    "nation": "England",
-   "site": "http://www.suffolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.ipswich.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.suffolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ISL",
@@ -1512,8 +1684,10 @@
    "code": "KEN",
    "name": "Kent County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.kent.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "KHL",
@@ -1529,8 +1703,10 @@
    "code": "KIN",
    "name": "Borough Council of Kings Lynn and West Norfolk",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.west-norfolk.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "KIR",
@@ -1565,15 +1741,19 @@
    "code": "LAC",
    "name": "Lancaster City Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.lancaster.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LAN",
    "name": "Lancashire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.lancashire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LBC",
@@ -1607,15 +1787,19 @@
    "code": "LEC",
    "name": "Leicestershire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.leicestershire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LEE",
    "name": "Lewes District Council",
    "nation": "England",
-   "site": "https://www.eastsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.lewes-eastbourne.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.eastsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LEW",
@@ -1630,25 +1814,31 @@
    "code": "LIC",
    "name": "City of Lincoln Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.lincoln.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LIF",
    "name": "Lichfield District Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.lichfielddc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LIN",
    "name": "Lincolnshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.lincolnshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "LIV",
@@ -1677,15 +1867,19 @@
    "code": "MAI",
    "name": "Maidstone Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://maidstone.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MAL",
    "name": "Maldon District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.maldon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MAN",
@@ -1698,15 +1892,19 @@
    "code": "MAS",
    "name": "Mansfield District Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.mansfield.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MAV",
    "name": "Malvern Hills District Council",
    "nation": "England",
-   "site": "http://www.worcestershire.gov.uk",
-   "known_pages": []
+   "site": "https://www.malvernhills.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.worcestershire.gov.uk",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MDB",
@@ -1719,8 +1917,10 @@
    "code": "MDE",
    "name": "Mid Devon District Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://www.middevon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MDW",
@@ -1740,8 +1940,10 @@
    "code": "MEL",
    "name": "Melton Borough Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.melton.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MIK",
@@ -1766,8 +1968,10 @@
    "code": "MOL",
    "name": "Mole Valley District Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.molevalley.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MON",
@@ -1820,15 +2024,19 @@
    "code": "MSS",
    "name": "Mid Sussex District Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.midsussex.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MSU",
    "name": "Mid Suffolk District Council",
    "nation": "England",
-   "site": "http://www.suffolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.midsuffolk.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.suffolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "MTY",
@@ -1866,34 +2074,42 @@
    "code": "NDE",
    "name": "North Devon District Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://www.northdevon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NEA",
    "name": "Newark and Sherwood District Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.newark-sherwooddc.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NEC",
    "name": "Newcastle-under-Lyme Borough Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.newcastle-staffs.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NED",
    "name": "North East Derbyshire District Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.ne-derbyshire.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NEL",
@@ -1913,15 +2129,19 @@
    "code": "NEW",
    "name": "New Forest District Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.newforest.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NFK",
    "name": "Norfolk County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.norfolk.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NGM",
@@ -1934,7 +2154,7 @@
    "code": "NHE",
    "name": "North Hertfordshire District Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.north-herts.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -1945,17 +2165,21 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NKE",
    "name": "North Kesteven District Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.n-kesteven.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NLK",
@@ -1982,22 +2206,28 @@
    "code": "NNO",
    "name": "North Norfolk District Council",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.north-norfolk.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NNT",
    "name": "North Northamptonshire Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.northnorthants.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NOW",
    "name": "Norwich City Council",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.norwich.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NSM",
@@ -2020,8 +2250,10 @@
    "code": "NTT",
    "name": "Nottinghamshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.nottinghamshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NTY",
@@ -2034,7 +2266,7 @@
    "code": "NUN",
    "name": "Nuneaton and Bedworth Borough Council",
    "nation": "England",
-   "site": "https://www.warwickshire.gov.uk/",
+   "site": "https://www.nuneatonandbedworth.gov.uk",
    "known_pages": [
     "https://www.warwickshire.gov.uk/librarieswarmwelcome",
     "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
@@ -2055,13 +2287,15 @@
     "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
     "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
     "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
-   ]
+   ],
+   "site_was": "https://www.warwickshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NWA",
    "name": "North Warwickshire Borough Council",
    "nation": "England",
-   "site": "https://www.warwickshire.gov.uk/",
+   "site": "https://northwarks.gov.uk",
    "known_pages": [
     "https://www.warwickshire.gov.uk/librarieswarmwelcome",
     "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
@@ -2082,14 +2316,18 @@
     "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
     "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
     "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
-   ]
+   ],
+   "site_was": "https://www.warwickshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NWL",
    "name": "North West Leicestershire District Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.nwleics.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "NWM",
@@ -2136,15 +2374,19 @@
    "code": "NYE",
    "name": "North Yorkshire Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.northyorks.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "OAD",
    "name": "Oadby and Wigston Borough Council",
    "nation": "England",
-   "site": "https://www.leicestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.oadby-wigston.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.leicestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "OLD",
@@ -2167,15 +2409,19 @@
    "code": "OXF",
    "name": "Oxfordshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.oxfordshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "OXO",
    "name": "Oxford City Council",
    "nation": "England",
-   "site": "https://www.oxfordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.oxford.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.oxfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "PEM",
@@ -2188,8 +2434,10 @@
    "code": "PEN",
    "name": "Pendle Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.pendle.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "PKN",
@@ -2245,8 +2493,10 @@
    "code": "PRE",
    "name": "Preston City Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.preston.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "PTE",
@@ -2320,15 +2570,19 @@
    "code": "RED",
    "name": "Redditch Borough Council",
    "nation": "England",
-   "site": "http://www.worcestershire.gov.uk",
-   "known_pages": []
+   "site": "https://www.redditchbc.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.worcestershire.gov.uk",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "REI",
    "name": "Reigate and Banstead Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.reigate-banstead.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "RFW",
@@ -2351,8 +2605,10 @@
    "code": "RIB",
    "name": "Ribble Valley Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.ribblevalley.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "RIC",
@@ -2365,22 +2621,28 @@
    "code": "ROC",
    "name": "Rochford District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.rochford.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ROH",
    "name": "Rother District Council",
    "nation": "England",
-   "site": "https://www.eastsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.rother.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.eastsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ROS",
    "name": "Rossendale Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.rossendale.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "ROT",
@@ -2413,7 +2675,7 @@
    "code": "RUG",
    "name": "Rugby Borough Council",
    "nation": "England",
-   "site": "https://www.warwickshire.gov.uk/",
+   "site": "https://www.rugby.gov.uk",
    "known_pages": [
     "https://www.warwickshire.gov.uk/librarieswarmwelcome",
     "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
@@ -2434,28 +2696,36 @@
     "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
     "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
     "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
-   ]
+   ],
+   "site_was": "https://www.warwickshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "RUH",
    "name": "Rushmoor Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.rushmoor.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "RUN",
    "name": "Runnymede Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.runnymede.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "RUS",
    "name": "Rushcliffe Borough Council",
    "nation": "England",
-   "site": "http://www.nottinghamshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.rushcliffe.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.nottinghamshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "RUT",
@@ -2473,7 +2743,7 @@
    "code": "SAL",
    "name": "St Albans City and District Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.stalbans.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -2484,7 +2754,9 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SAW",
@@ -2504,10 +2776,12 @@
    "code": "SCA",
    "name": "South Cambridgeshire District Council",
    "nation": "England",
-   "site": "https://www.cambridgeshire.gov.uk/",
+   "site": "https://www.scambs.gov.uk",
    "known_pages": [
     "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
-   ]
+   ],
+   "site_was": "https://www.cambridgeshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SCB",
@@ -2520,27 +2794,33 @@
    "code": "SDE",
    "name": "South Derbyshire District Council",
    "nation": "England",
-   "site": "https://www.derbyshire.gov.uk/",
+   "site": "https://www.southderbyshire.gov.uk",
    "known_pages": [
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/",
     "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/your-health/keeping-warm-in-winter/warm-spaces/warm-spaces.aspx"
-   ]
+   ],
+   "site_was": "https://www.derbyshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SEV",
    "name": "Sevenoaks District Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.sevenoaks.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SFK",
    "name": "Suffolk County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.suffolk.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SFT",
@@ -2560,15 +2840,19 @@
    "code": "SHA",
    "name": "South Hams District Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://www.southhams.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SHE",
    "name": "Folkestone and Hythe District Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.folkestone-hythe.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SHF",
@@ -2581,18 +2865,22 @@
    "code": "SHN",
    "name": "St Helens Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.sthelens.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SHO",
    "name": "South Holland District Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.sholland.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SHR",
@@ -2614,11 +2902,13 @@
    "code": "SKE",
    "name": "South Kesteven District Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.southkesteven.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SKP",
@@ -2667,8 +2957,10 @@
    "code": "SMT",
    "name": "Somerset Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.somerset.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SND",
@@ -2681,8 +2973,10 @@
    "code": "SNO",
    "name": "South Norfolk District Council",
    "nation": "England",
-   "site": "http://www.norfolk.gov.uk/",
-   "known_pages": []
+   "site": "https://www.southnorfolkandbroadland.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.norfolk.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SOL",
@@ -2704,43 +2998,55 @@
    "code": "SOX",
    "name": "South Oxfordshire District Council",
    "nation": "England",
-   "site": "https://www.oxfordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.southoxon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.oxfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SPE",
    "name": "Spelthorne Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.spelthorne.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SRI",
    "name": "South Ribble Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.southribble.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SRY",
    "name": "Surrey County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.surreycc.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SST",
    "name": "South Staffordshire Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.sstaffs.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STA",
    "name": "Stafford Borough Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.staffordbc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STE",
@@ -2753,8 +3059,10 @@
    "code": "STF",
    "name": "Staffordshire Moorlands District Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.staffsmoorlands.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STG",
@@ -2781,14 +3089,16 @@
    "code": "STO",
    "name": "Stroud District Council",
    "nation": "England",
-   "site": "https://www.gloucestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.stroud.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.gloucestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STR",
    "name": "Stratford-on-Avon District Council",
    "nation": "England",
-   "site": "https://www.warwickshire.gov.uk/",
+   "site": "https://www.stratford.gov.uk",
    "known_pages": [
     "https://www.warwickshire.gov.uk/librarieswarmwelcome",
     "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
@@ -2809,14 +3119,18 @@
     "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
     "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
     "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
-   ]
+   ],
+   "site_was": "https://www.warwickshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STS",
    "name": "Staffordshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.staffordshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STT",
@@ -2829,7 +3143,7 @@
    "code": "STV",
    "name": "Stevenage Borough Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.stevenage.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -2840,7 +3154,9 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "STY",
@@ -2853,8 +3169,10 @@
    "code": "SUR",
    "name": "Surrey Heath Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.surreyheath.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "SWA",
@@ -2893,8 +3211,10 @@
    "code": "SWL",
    "name": "Swale Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.swale.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TAM",
@@ -2907,43 +3227,55 @@
    "code": "TAN",
    "name": "Tandridge District Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.tandridge.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TAW",
    "name": "Tamworth Borough Council",
    "nation": "England",
-   "site": "https://www.staffordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.tamworth.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.staffordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TEI",
    "name": "Teignbridge District Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://www.teignbridge.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TEN",
    "name": "Tendring District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.tendringdc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TES",
    "name": "Test Valley Borough Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.testvalley.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TEW",
    "name": "Tewkesbury Borough Council",
    "nation": "England",
-   "site": "https://www.gloucestershire.gov.uk/",
-   "known_pages": []
+   "site": "https://tewkesbury.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.gloucestershire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TFW",
@@ -2956,14 +3288,16 @@
    "code": "THA",
    "name": "Thanet District Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.thanet.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "THE",
    "name": "Three Rivers District Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.threerivers.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -2974,7 +3308,9 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "THR",
@@ -3004,15 +3340,19 @@
    "code": "TON",
    "name": "Tonbridge and Malling Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.tmbc.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TOR",
    "name": "Torridge District Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://www.torridge.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TRF",
@@ -3025,8 +3365,10 @@
    "code": "TUN",
    "name": "Tunbridge Wells Borough Council",
    "nation": "England",
-   "site": "http://www.kent.gov.uk/",
-   "known_pages": []
+   "site": "https://www.tunbridgewells.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.kent.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "TWH",
@@ -3039,15 +3381,19 @@
    "code": "UTT",
    "name": "Uttlesford District Council",
    "nation": "England",
-   "site": "https://www.essex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.uttlesford.gov.uk/home",
+   "known_pages": [],
+   "site_was": "https://www.essex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "VAL",
    "name": "Vale of White Horse District Council",
    "nation": "England",
-   "site": "https://www.oxfordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.whitehorsedc.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.oxfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "VGL",
@@ -3072,28 +3418,34 @@
    "code": "WAE",
    "name": "Waverley Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.waverley.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WAF",
    "name": "Westmorland and Furness Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.westmorlandandfurness.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WAR",
    "name": "Warwickshire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.warwickshire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WAT",
    "name": "Watford Borough Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.watford.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -3104,13 +3456,15 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WAW",
    "name": "Warwick District Council",
    "nation": "England",
-   "site": "https://www.warwickshire.gov.uk/",
+   "site": "https://www.warwickdc.gov.uk",
    "known_pages": [
     "https://www.warwickshire.gov.uk/librarieswarmwelcome",
     "https://www.warwickshire.gov.uk/news/article/2916/a-warm-welcome-from-warwickshire-to-ukrainian-guests",
@@ -3131,7 +3485,9 @@
     "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
     "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
     "https://www.warwickshire.gov.uk/severe-weather/snow-wardens"
-   ]
+   ],
+   "site_was": "https://www.warwickshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WBK",
@@ -3144,8 +3500,10 @@
    "code": "WDE",
    "name": "West Devon Borough Council",
    "nation": "England",
-   "site": "https://new.devon.gov.uk/",
-   "known_pages": []
+   "site": "https://www.westdevon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://new.devon.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WDU",
@@ -3161,14 +3519,16 @@
    "code": "WEA",
    "name": "Wealden District Council",
    "nation": "England",
-   "site": "https://www.eastsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.wealden.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.eastsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WEW",
    "name": "Welwyn Hatfield Borough Council",
    "nation": "England",
-   "site": "https://www.hertfordshire.gov.uk/",
+   "site": "https://www.welhat.gov.uk",
    "known_pages": [
     "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
     "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
@@ -3179,7 +3539,9 @@
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
     "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
-   ]
+   ],
+   "site_was": "https://www.hertfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WFT",
@@ -3206,8 +3568,10 @@
    "code": "WIN",
    "name": "Winchester City Council",
    "nation": "England",
-   "site": "https://www.hants.gov.uk/",
-   "known_pages": []
+   "site": "https://www.winchester.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.hants.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WKF",
@@ -3226,18 +3590,22 @@
    "code": "WLA",
    "name": "West Lancashire Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.westlancs.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WLI",
    "name": "West Lindsey District Council",
    "nation": "England",
-   "site": "https://www.lincolnshire.gov.uk/",
+   "site": "https://www.west-lindsey.gov.uk",
    "known_pages": [
     "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
     "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas"
-   ]
+   ],
+   "site_was": "https://www.lincolnshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WLL",
@@ -3286,22 +3654,28 @@
    "code": "WNT",
    "name": "West Northamptonshire Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.westnorthants.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WOC",
    "name": "Worcester City Council",
    "nation": "England",
-   "site": "http://www.worcestershire.gov.uk",
-   "known_pages": []
+   "site": "https://www.worcester.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.worcestershire.gov.uk",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WOI",
    "name": "Woking Borough Council",
    "nation": "England",
-   "site": "http://www.surreycc.gov.uk/",
-   "known_pages": []
+   "site": "https://www.woking.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.surreycc.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WOK",
@@ -3316,22 +3690,28 @@
    "code": "WOR",
    "name": "Worcestershire County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.worcestershire.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WOT",
    "name": "Worthing Borough Council",
    "nation": "England",
-   "site": "http://www.westsussex.gov.uk/",
-   "known_pages": []
+   "site": "https://www.adur-worthing.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.westsussex.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WOX",
    "name": "West Oxfordshire District Council",
    "nation": "England",
-   "site": "https://www.oxfordshire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.westoxon.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.oxfordshire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WRL",
@@ -3358,8 +3738,10 @@
    "code": "WSK",
    "name": "West Suffolk Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.westsuffolk.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WSM",
@@ -3385,29 +3767,37 @@
    "code": "WSX",
    "name": "West Sussex County Council",
    "nation": "England",
-   "site": "",
-   "known_pages": []
+   "site": "https://www.westsussex.gov.uk",
+   "known_pages": [],
+   "site_was": "",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WYC",
    "name": "Wychavon District Council",
    "nation": "England",
-   "site": "http://www.worcestershire.gov.uk",
-   "known_pages": []
+   "site": "https://www.wychavon.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.worcestershire.gov.uk",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WYE",
    "name": "Wyre Forest District Council",
    "nation": "England",
-   "site": "http://www.worcestershire.gov.uk",
-   "known_pages": []
+   "site": "https://www.wyreforestdc.gov.uk",
+   "known_pages": [],
+   "site_was": "http://www.worcestershire.gov.uk",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "WYR",
    "name": "Wyre Borough Council",
    "nation": "England",
-   "site": "https://www.lancashire.gov.uk/",
-   "known_pages": []
+   "site": "https://www.wyre.gov.uk",
+   "known_pages": [],
+   "site_was": "https://www.lancashire.gov.uk/",
+   "site_source": "GOV.UK local authority list (www.gov.uk/api/local-authority), 2026-10-23"
   },
   {
    "code": "YOR",
