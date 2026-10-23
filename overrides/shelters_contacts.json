@@ -60,7 +60,13 @@
   "phone_source": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
   "hours": "Open 24 hours (24/7 support)",
   "hours_source": "https://brighter-futures.org.uk/the-housing-pathway/homelessness-accommodation/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Mixed gender",
+   "Age 18-65"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/brighter-futures-90-hope-street/",
+  "groups_checked": "2026-10-23"
  },
  "sa-centenary-house-calder-fountain-lifehous": {
   "phone": "028 9032 0320",
@@ -68,7 +74,14 @@
   "phone_source": "https://www.salvationarmy.org.uk/centenary-house-calder-fountain",
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.salvationarmy.org.uk/centenary-house-calder-fountain",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single men",
+   "Age 18+",
+   "NIHE referral"
+  ],
+  "groups_source": "https://www.salvationarmy.org.uk/centenary-house-calder-fountain",
+  "groups_checked": "2026-10-23"
  },
  "osm-way-260267675": {
   "note": "01592 744849 appears only on third-party/regulator listings, not on Fife Council's or the operator's site, so not used",
@@ -77,7 +90,13 @@
   "confidence": "high: Care Inspectorate report + Housing Options Hub + Fife on FORT agree",
   "hours": "By referral, call to arrange",
   "hours_source": "http://www.housingoptionshub.co.uk/index.php/hub/view/category/fife-temporary-accommodation-provider",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Women only",
+   "Age 16+"
+  ],
+  "groups_source": "https://fifeonfort.org/gilven-project",
+  "groups_checked": "2026-10-23"
  },
  "sa-glen-alva-family-centre-lifehouse": {
   "phone": "028 9035 1185",
@@ -146,7 +165,12 @@
   "phone_source": "https://morningstarhouse.org/contact-us/",
   "hours": "Self-referral, call to arrange",
   "hours_source": "https://morningstarhouse.org/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single people with support needs"
+  ],
+  "groups_source": "https://www.housingrights.org.uk/sites/default/files/documents/advice/Self%20referral%20hostels_June%202025.pdf",
+  "groups_checked": "2026-10-23"
  },
  "sa-northlands-lifehouse": {
   "phone": "029 2167 6362",
@@ -173,7 +197,16 @@
   "phone_source": "https://www.salvationarmy.org.uk/willow-house",
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.salvationarmy.org.uk/willow-house",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Men and women",
+   "Age 18+",
+   "Some couples",
+   "Local connection",
+   "Council referral"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/salvation-army-willow-house/",
+  "groups_checked": "2026-10-23"
  },
  "osm-node-13272554054": {
   "phone": "01291 638920",
@@ -363,7 +396,13 @@
  "sa-booth-house-grimsby-lifehouse": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.salvationarmy.org.uk/booth-house-grimsby",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single people",
+   "Mixed gender"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/salvation-army-booth-house-grimsby/",
+  "groups_checked": "2026-10-23"
  },
  "hl-bridge-house-mission": {
   "hours": "Open 24 hours, 365 days a year. Call 01642 800311 for a bed (agency referrals Mon-Fri 9am-5pm)",
@@ -401,7 +440,13 @@
  "osm-way-180604493": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.harbourhousing.com/what-we-do/supported-accommodation/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single adults",
+   "Local connection"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/harbour-housing/",
+  "groups_checked": "2026-10-23"
  },
  "sa-darbyshire-lifehouse": {
   "hours": "By referral, call to arrange",
@@ -427,12 +472,24 @@
  "osm-node-13194548111": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://ie.depaulcharity.org/what-we-do/services-in-northern-ireland/stella-maris/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Homeless adults with alcohol support needs",
+   "Couples considered"
+  ],
+  "groups_source": "https://ie.depaulcharity.org/what-we-do/services-in-northern-ireland/stella-maris/",
+  "groups_checked": "2026-10-23"
  },
  "sa-devonport-lifehouse": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.salvationarmy.org.uk/devonport-lifehouse",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single men and women",
+   "Age 18+"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/salvation-army-devonport-lifehouse/",
+  "groups_checked": "2026-10-23"
  },
  "osm-way-288564379": {
   "hours": "By referral, call to arrange",
@@ -491,7 +548,14 @@
  "hl-harrogate-homeless-project": {
   "hours": "Open 24 hours (staff on hand 24 hours a day)",
   "hours_source": "https://www.harrogate-homeless-project.org.uk/get-support/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single homeless people",
+   "Mixed gender",
+   "Age 18+"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/harrogate-homeless-project/",
+  "groups_checked": "2026-10-23"
  },
  "osm-way-608979359": {
   "hours": "By referral, call to arrange",
@@ -511,7 +575,13 @@
  "hl-kings-lynn-night-shelter": {
   "hours": "Self-referral, call to arrange",
   "hours_source": "https://localfreenews.co.uk/night-shelter-reopens-and-appeals-for-food-donations/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Mixed gender",
+   "Age 18+"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/kings-lynn-winter-night-shelter/",
+  "groups_checked": "2026-10-23"
  },
  "sa-kings-ripton-court-lifehouse": {
   "hours": "By referral, call to arrange",
@@ -822,7 +892,14 @@
  "osm-way-1158181491": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.salvationarmy.org.uk/swan-lodge",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single men and women",
+   "Age 18+",
+   "No couples"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/salvation-army-swan-lodge-lifehouse/",
+  "groups_checked": "2026-10-23"
  },
  "osm-way-556071354": {
   "hours": "By referral, call to arrange",
@@ -930,7 +1007,13 @@
  "osm-node-13676934447": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://ymcasthelens.org.uk/services/housing/",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "groups": [
+   "Single homeless people",
+   "Age 18-55"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/ymca-st-helens/",
+  "groups_checked": "2026-10-23"
  },
  "man-c4ws-camden-winter-shelter": {
   "hours": "By referral, call to arrange",
@@ -941,5 +1024,24 @@
   "hours": "Self-referral, call to arrange",
   "hours_source": "https://noahenterprise.org/emergency-winter-night-shelter/",
   "hours_checked": "2026-10-23"
+ },
+ "osm-way-374003917": {
+  "groups": [
+   "Single people",
+   "Mixed gender",
+   "Age 18+",
+   "Couples accepted",
+   "Local connection"
+  ],
+  "groups_source": "https://homeless.org.uk/homeless-england/service/crawley-open-house/",
+  "groups_checked": "2026-10-23"
+ },
+ "osm-way-625141146": {
+  "groups": [
+   "Single homeless people",
+   "Age 18+"
+  ],
+  "groups_source": "https://www.bristol.gov.uk/residents/housing/homelessness/night-shelters",
+  "groups_checked": "2026-10-23"
  }
 }
