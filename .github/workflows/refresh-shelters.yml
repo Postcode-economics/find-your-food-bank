@@ -53,8 +53,10 @@ jobs:
           for n in 1 2 3; do
             if git pull --rebase -X theirs; then
               python scripts/discovery_rules.py render || true
+              { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
+              git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html index.html faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
               git add reports/new_today.md reports/manual_review.md
-              git diff --cached --quiet || git commit -m "Discovery reports re-rendered after merge"
+              git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"
               if git push; then exit 0; fi
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
@@ -63,8 +65,10 @@ jobs:
               done
               if GIT_EDITOR=true git rebase --continue; then
                 python scripts/discovery_rules.py render || true
+              { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
+              git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html index.html faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
                 git add reports/new_today.md reports/manual_review.md
-                git diff --cached --quiet || git commit -m "Discovery reports re-rendered after merge"
+                git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"
                 if git push; then exit 0; fi
               else git rebase --abort 2>/dev/null || true; fi
             fi
