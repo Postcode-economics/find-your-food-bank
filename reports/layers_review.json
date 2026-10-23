@@ -3,31 +3,63 @@
   "added": [],
   "removed": [
    {
-    "id": "man-c4ws-camden-winter-shelter",
-    "name": "C4WS Homeless Project Winter Night Shelter",
-    "reason": "not confirmed this run"
-   },
-   {
     "id": "man-glasgow-city-mission-owc",
     "name": "Glasgow City Mission Overnight Welcome Centre",
     "reason": "not confirmed this run"
+   }
+  ],
+  "changed": [
+   {
+    "id": "man-c4ws-camden-winter-shelter",
+    "name": "C4WS Homeless Project Winter Night Shelter",
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Referral only: through C4WS approved referral partners in Camden (no self-referral). Call C4WS 020 7278 6267 to ask how."
+    },
+    "after": {
+     "referral": "Referral (C4WS approved referral partners in Camden)"
+    }
    },
    {
     "id": "man-noah-luton-winter-shelter",
     "name": "NOAH Emergency Winter Night Shelter",
-    "reason": "not confirmed this run"
+    "fields": [
+     "referral"
+    ],
+    "before": {
+     "referral": "Contact or visit the NOAH Welfare Centre, 141 Park Street, Luton LU1 3HG (01582 728416)"
+    },
+    "after": {
+     "referral": "Via NOAH Welfare Centre"
+    }
    },
    {
     "id": "man-st-peters-cardiff-night-shelter",
     "name": "St Peter's Parish Night Shelter (Roath)",
-    "reason": "not confirmed this run"
+    "fields": [
+     "access_type",
+     "referral",
+     "season"
+    ],
+    "before": {
+     "access_type": null,
+     "referral": "How to get a place is not published: call the parish office 029 2048 3394 (Mon-Fri 9.30am-12.30pm)",
+     "season": "Winter 2026-27: Fridays only, from 4 December 2026 to the end of March 2027"
+    },
+    "after": {
+     "access_type": "self_referral",
+     "referral": "Contact the parish",
+     "season": "Winter-only (Opens 4 Dec 2026 until 31 Mar 2027)"
+    }
    }
   ],
-  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
-   "Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027"
+   "Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027",
+   "St Peter's Parish Night Shelter (Roath) – Opens 4 Dec 2026 until 31 Mar 2027"
   ],
   "ended": [],
   "recheck_failed": [
@@ -81,11 +113,15 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source no longer names this place"
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "osm-way-180604493",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -110,6 +146,10 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
+   },
+   {
+    "id": "osm-way-608979359",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -174,6 +214,18 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "robes-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "hab-barnet-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "man-glasgow-city-mission-owc",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    }
   ]
  },
