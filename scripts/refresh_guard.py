@@ -19,6 +19,10 @@ def load_json(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))
     except Exception: return d
 
+def wrong_times(layer):
+    """Times proven wrong (e.g. a donation page's hours) may be dropped; the place and its phone always stay.
+    overrides/guard_wrong_times.json {layer: {id: reason}} (24 Oct)."""
+    return set(load_json('overrides/guard_wrong_times.json', {}).get(layer, {}))
 def allowed_removals(layer):
     ok = set(load_json('overrides/guard_allow_remove.json', {}).get(layer, []))
     if layer == 'foodbanks':
@@ -61,7 +65,7 @@ def guard(layer, old_items, new_items):
             for k in ('phone', 'tel', 'phone_source'):
                 if o.get(k): n[k] = o[k]
             rep['phones'].append(o['id'])
-        if has_times(layer, o) and not has_times(layer, n) and o['id'] not in ok:
+        if has_times(layer, o) and not has_times(layer, n) and o['id'] not in ok and o['id'] not in wrong_times(layer):
             for k in (('opening_times',) if layer == 'foodbanks' else ('hours', 'hours_source', 'hours_checked')):
                 if k in o: n[k] = o[k]
             rep['times'].append(o['id'])
