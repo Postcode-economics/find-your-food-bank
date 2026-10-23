@@ -1,8 +1,12 @@
 {
  "run": "2026-10-23",
- "pages": 1162,
- "failed": 102,
+ "pages": 1167,
+ "failed": 104,
  "errors": [
+  [
+   "https://www.rugby.gov.uk/warmhubs",
+   "error"
+  ],
   [
    "https://www.camden.gov.uk/warm-spaces-in-camden",
    403
@@ -166,6 +170,10 @@
   [
    "https://www.norfolk.gov.uk/article/80418/Warm-welcome-for-Ukrainian-medical-team-from-Norfolk-County-Council-leader",
    403
+  ],
+  [
+   "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
+   "error"
   ],
   [
    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
