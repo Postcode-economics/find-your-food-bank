@@ -122,18 +122,41 @@ def main():
     disc['sources']['IFAN (foodaidnetwork.org.uk)'] = st
     disc['sources']['Trussell find-a-foodbank'] = directories.trussell()[1]
     new_c, dup = discover.dedupe(cands, items); st['already_on_map'] = dup; st['new_candidates'] = len(new_c)
-    def chk(c): return c, discover.own_site_check(c, 'fb')
+    import discovery_rules as DR  # Dean's auto-add rule (23 Oct 2026): valid in-area postcode, not a duplicate, working source, current
+    live = st.get('status') == 'ok'
+    for c in new_c:
+        c['source_live'] = live
+        if c.get('lat') is not None: c.setdefault('src_lat', c['lat']); c.setdefault('src_lng', c['lng'])
+    try: GEO = {discover.norm_pc(k): v for k, v in discover.geocode([c.get('postcode') for c in new_c if c.get('postcode')]).items()}
+    except Exception: GEO = {}
+    RUN_DAY = datetime.date.today().isoformat()
+    def chk(c):
+        r = {'result': 'flag', 'reasons': []} if DR.held(c) else discover.own_site_check(c, 'fb')
+        return c, r, DR.assess(c, r, GEO, RUN_DAY)
     import concurrent.futures as cf
     with cf.ThreadPoolExecutor(24) as ex: res = list(ex.map(chk, new_c))
-    for c, r in res:
+    if sum(1 for x in res if x[2][0] == 'add') > int(os.environ.get('DISCOVERY_MAX_NEW', '150')):  # flood = source changed: hold all
+        res = [(c, r, ('queue', ['held: too many new in one run'])) for c, r, _ in res]
+    disc['rejected'] = []
+    for c, r, (decision, why) in res:
         ev = {k: r.get(k) for k in ('url', 'final_url', 'http', 'sha256', 'etag', 'last_modified')}
-        if r['result'] == 'add':
+        if decision == 'reject':
+            disc['rejected'].append({'id': c['id'], 'name': c['name'], 'postcode': c.get('postcode'), 'website': c.get('website'), 'reasons': why}); continue
+        if decision == 'add':
+            c = {k: v for k, v in c.items() if k not in ('src_lat', 'src_lng', 'source_live')}
+            if c.get('lat') is None and discover.norm_pc(c.get('postcode')) in GEO: c['lat'], c['lng'] = GEO[discover.norm_pc(c['postcode'])]
             c = dict(c, type='foodbank', address=c.get('address') or c['postcode'], phone='', givefood='', opening_times=None,
                      discovered=disc['run'][:10], own_site_check=ev)
             records[c['id']] = {k: v for k, v in c.items() if k != 'own_site_check'}
             items.append(c); disc['added'].append({'id': c['id'], 'name': c['name'], 'postcode': c['postcode'], **ev})
         else:
-            disc['flagged'].append({'id': c['id'], 'name': c['name'], 'postcode': c['postcode'], 'website': c.get('website'), 'directory': c['directory'], 'reasons': r['reasons'], **ev})
+            disc['flagged'].append({'id': c['id'], 'name': c['name'], 'postcode': c.get('postcode'), 'website': c.get('website'), 'directory': c.get('directory'), 'reasons': why or r['reasons'], **ev})
+    # Give Food entries that are new since the last published run are logged as added too (Give Food is the primary feed)
+    try:
+        prev_ids = {x['id'] for x in load_prev_items()}
+        gf_new = [{'id': x['id'], 'name': x.get('name'), 'postcode': x.get('postcode'), 'source_url': 'https://www.givefood.org.uk/needs/at/' + x['id'].split('/')[0] + '/'} for x in items if prev_ids and x['id'] not in prev_ids and not x.get('directory')]
+    except Exception: gf_new = []
+    DR.record('foodbanks', RUN_DAY, gf_new + disc['added'], disc['flagged'], disc['rejected'], source='Give Food + IFAN')
     # own-site closure check (own site beats Give Food) - shares this run's page cache
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))

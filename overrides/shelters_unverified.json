@@ -244,9 +244,11 @@
   "name": "DENS – The Elms hostel",
   "sign_url": "https://www.dens.org.uk/our-services/outreach-accommodation/",
   "sign": "DENS site (news Sep 2026): \"Our 44-bed hostel ... provides emergency and short-term accommodation for single homeless adults\"; Crash Pad / severe weather beds",
-  "checked_on": "2026-10-21",
+  "checked_on": "2026-10-23",
   "access_type": "referral_only",
-  "access": "Referral only: via DENS day centre or agency referral; Dacorum local connection"
+  "access": "Referral only: via DENS day centre or agency referral; Dacorum local connection",
+  "phone": "01442 800131",
+  "phone_note": "DENS number on its outreach & accommodation page (page back up 23 Oct 2026); old 01442 262274 not on DENS site"
  },
  "hl-ymca-lincs-nomad-centre": {
   "name": "YMCA Lincolnshire – Nomad Centre",
@@ -271,5 +273,45 @@
   "checked_on": "2026-10-21",
   "access_type": "referral_only",
   "access": "Referral only: members of the public contact Framework's Street Outreach Team (0800 066 5356); agencies call the Support Centre on 0115 950 7140. Age 18+. Pin is the Support Centre, not the shelter itself"
+ },
+ "orl-winter-night-shelter": {
+  "name": "One Roof Leicester Winter Night Shelter",
+  "sign_url": "https://www.oneroof.org.uk/our-work/winter-night-shelter",
+  "sign": "One Roof site: 'Every night from 5th October 2026 to 31st March 2027, up to 24 rough sleepers'; access via City or County Outreach",
+  "checked_on": "2026-10-23",
+  "access_type": "referral_only",
+  "access": "Referral only: through Leicester City or County Outreach. If you are sleeping rough, alert StreetLink (thestreetlink.org.uk) and outreach will visit. Pin is One Roof's office, not the shelter"
+ },
+ "robes-winter-night-shelter": {
+  "name": "Robes Winter Night Shelter (Southwark & Lambeth)",
+  "sign_url": "https://robes.org.uk/get-help-now/",
+  "sign": "Robes site: 'In order to access our Winter Shelter we require a referral from one of our partner day centres or the homeless outreach teams in Southwark and Lambeth'",
+  "checked_on": "2026-10-23",
+  "access_type": "referral_only",
+  "access": "Referral only: from a partner day centre or outreach team in Southwark and Lambeth (e.g. Manna Centre, Spires, Ace of Clubs, Webber Street, Crisis, The Passage, Southwark SPOT, Thames Reach Lambeth). Pin is Robes' office, not the shelter"
+ },
+ "glassdoor-winter-night-shelters": {
+  "name": "Glass Door Winter Night Shelters (3 circuits)",
+  "sign_url": "https://www.glassdoor.org.uk/listing/category/get-help",
+  "sign": "Glass Door site: runs three emergency night shelter circuits, seven days a week; 2026-27 dates 21 Nov 2026 – 22 Mar 2027 from Glass Door's 2026-27 staff job pack",
+  "checked_on": "2026-10-23",
+  "access_type": "open_access",
+  "access": "Open access: register for a space through Glass Door (call or visit a partner day centre). Pin is Glass Door's office, not a shelter"
+ },
+ "hab-barnet-winter-night-shelter": {
+  "name": "Barnet Winter Night Shelter (Homeless Action in Barnet)",
+  "sign_url": "https://www.habcentre.org/night-shelter/",
+  "sign": "HAB night shelter page: 'run a night shelter within the local community to house rough sleepers'; phone 020 8446 8400 on the page. Cycle one dates from St Mary-at-Finchley volunteer listing",
+  "checked_on": "2026-10-23",
+  "access_type": "referral_only",
+  "access": "Referral only: through Homeless Action in Barnet (HAB), 020 8446 8400"
+ },
+ "owns-oxford-winter-night-shelter": {
+  "name": "Oxford Winter Night Shelter (OWNS)",
+  "sign_url": "https://www.ownsoxford.org.uk/",
+  "sign": "OWNS site: 'OWNS supports the rough sleepers in Oxford each night during January through to March'; referral via St Mungo's, The Gatehouse, Crisis or The Porch",
+  "checked_on": "2026-10-23",
+  "access_type": "referral_only",
+  "access": "Referral only: through St Mungo's Outreach, The Gatehouse, The Porch or Crisis; must be rough sleeping. Arrive at the night's venue 9.30–10.30pm. Pin is the OWNS office, not the shelter"
  }
 }

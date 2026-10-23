@@ -83,8 +83,11 @@ class Run(unittest.TestCase):
         self.assertEqual(r["added"], []); self.assertEqual(len(self.load("warmspaces_manual.json")), 1)
     def test_untrusted_source_goes_to_review(self):
         src = {"councils": [], "lists": [{"url": "https://example.gov.uk/x", "name": "Council", "layer": "warmspaces"}]}
+        # Dean's auto-add rule (23 Oct 2026): an unproven council layout is no longer only queued - an entry with a
+        # valid postcode, a dated page and nothing within 150 m is added, but only as tier 2 (call before you go)
         r = S.run(src, fetcher=lambda u: page(LIST), geocoder=fake_geo)
-        self.assertEqual(r["added"], []); self.assertTrue(any(p.get("proposed_tier") == "verified" for p in r["pending"]))
+        self.assertTrue(r["added"]); self.assertTrue(all(a["tier"] == "unverified" for a in r["added"]))
+        self.assertTrue(os.path.exists(os.path.join(S.ROOT, "reports", "new_today.md")))
     def test_past_end_date_skipped(self):
         t = "Warm spaces winter 2026-27. Ely Community Hub – Jubilee Centre, Ely, CB7 4JF. Opens: Thursday, 9.30am – 12pm until 31 March 2026"
         self.assertEqual(S.extract(t, "u", "src", "warmspaces", trusted=True), [])

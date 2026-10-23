@@ -103,17 +103,30 @@ WWLOG = "logs/warmspaces_ww_discovery.json"
 wwc = json.load(open(WWLOG)) if os.path.exists(WWLOG) else {"passed": {}, "checked": {}}
 for k, u in wwc["passed"].items(): UNV.setdefault(k, u)
 known = set(VER) | set(UNV)
-pool = [x for x in fresh if x["id"].startswith("ww-") and x["id"] not in known and x.get("website") and "warmwelcome.uk" not in x["website"]
+pool = [x for x in fresh if x["id"].startswith("ww-") and x["id"] not in known
         and wwc["checked"].get(x["id"], "") < (datetime.date.fromisoformat(RUN) - datetime.timedelta(days=7)).isoformat() and not x.get("ended")]
 pool.sort(key=lambda x: (not (x.get("scheme_start") or x.get("scheme_end")), wwc["checked"].get(x["id"], ""), x["id"]))
-budget = int(os.environ.get("WW_DISCOVERY_BUDGET", "250"))
-batch = [dict(x, directory="Warm Welcome", directory_url=x["source_url"]) for x in pool[:budget]]
-before = set(UNV)
-wadd, wlog = discover.discover_layer(batch, [x for x in fresh if x["id"] in known], "ws", RUN, UNV, "logs/warmspaces_ww_discovery_run.json")
-for x in batch: wwc["checked"][x["id"]] = RUN
+# Full Warm Welcome feed (Dean, 23 Oct): every not-yet-known listing is checked, in chunks, until a time box runs out
+# (WW_DISCOVERY_SECONDS, default 20 min); whatever is left is first in line next run. WW_DISCOVERY_BUDGET caps the count (0 = all).
+import time as _t
+budget = int(os.environ.get("WW_DISCOVERY_BUDGET", "0")) or len(pool)
+tbox = _t.time() + int(os.environ.get("WW_DISCOVERY_SECONDS", "1200"))
+before = set(UNV); wadd, batch = [], []
+wlog = {"candidates": 0, "new": 0, "added": [], "flagged": [], "rejected": []}
+for s0 in range(0, min(budget, len(pool)), 150):
+    if _t.time() > tbox: break
+    chunk = [dict(x, directory="Warm Welcome", directory_url=x["source_url"]) for x in pool[s0:min(s0 + 150, budget)]]
+    try:
+        a, l = discover.discover_layer(chunk, [x for x in fresh if x["id"] in known] + wadd, "ws", RUN, UNV, "logs/warmspaces_ww_discovery_run.json")
+    except Exception as ex:
+        sources["Warm Welcome feed discovery"] = {"status": "chunk failed: " + str(ex)[:80]}; break
+    wadd += a; batch += chunk
+    for k in ("candidates", "new"): wlog[k] += l[k]
+    for k in ("added", "flagged", "rejected"): wlog[k] += l[k]
+    for x in chunk: wwc["checked"][x["id"]] = RUN
 for k in set(UNV) - before: wwc["passed"][k] = UNV[k]
 json.dump(wwc, open(WWLOG, "w"), indent=0, ensure_ascii=False)
-sources["Warm Welcome feed discovery"] = {"status": "ok", "pool": len(pool), "checked_this_run": len(batch), "passed_this_run": len(set(UNV) - before), "passed_total": len(wwc["passed"])}
+sources["Warm Welcome feed discovery"] = {"status": "ok", "pool": len(pool), "checked_this_run": len(batch), "added_this_run": len(wlog["added"]), "queued_this_run": len(wlog["flagged"]), "rejected_this_run": len(wlog["rejected"]), "passed_total": len(wwc["passed"])}
 sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
 HFIX = []
 def clean(x):  # am/pm fix for 12h-clock times stored as 24h, and hide phones with fewer than 10 digits

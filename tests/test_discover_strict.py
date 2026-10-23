@@ -6,7 +6,7 @@ def fetch(u): return {"http": 200, "final_url": u, "html": OK, "etag": "", "last
 class T(unittest.TestCase):
     def go(self, c, kind="sh"):
         import tempfile; unv = {}
-        add, log = D.discover_layer([c], [], kind, "2026-10-21", unv, os.path.join(tempfile.mkdtemp(), "l.json"), fetcher=fetch, threads=1)
+        add, log = D.discover_layer([c], [], kind, "2026-10-21", unv, os.path.join(tempfile.mkdtemp(), "l.json"), fetcher=fetch, threads=1, geocoder=lambda pcs: {p: (c["lat"], c["lng"]) for p in pcs})
         return add, log, unv
     def test_osm_only_never_added(self):
         add, log, unv = self.go({"id": "osm-node-7257703002", "name": "House The Homeless", "postcode": "BN1 1AA", "lat": 50.8, "lng": -0.1,
