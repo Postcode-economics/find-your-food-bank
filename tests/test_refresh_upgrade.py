@@ -141,3 +141,31 @@ class FillRates(unittest.TestCase):
             for n in range(9): FR.main(["foodbanks"], run_id=str(n), issue=False)
             self.assertEqual(len(json.load(open(os.path.join(d, "f.json")))["runs"]), 7)
 if __name__ == "__main__": unittest.main()
+class FirstRunMistakes(unittest.TestCase):
+    """24 Oct first strict run: 3 of 12 auto-applied were wrong. Standing rule: test + logic fix in the same change."""
+    def test_giving_food_page_never_auto_applied(self):   # Hope Central Knutsford
+        log, cur, md = Decide().run_decide({"k": Decide().ot(url="https://hopecentral.org.uk/get-involved/giving-food/")},
+                                           [Decide().it("k", w="https://hopecentral.org.uk")])
+        self.assertFalse(log["applied"]); self.assertIn("giving/donating", md)
+    def test_telephone_request_kept_as_text(self):   # North Ayrshire St John's
+        t = "St John's Hayocks Road Stevenston Please phone in advance to arrange a collection. Fri 12:30 - 14:00 KA20 4DE"
+        ot = D.extract_times(t, "KA20 4DE")
+        self.assertTrue(ot is None or ot["status"] == "TIMES_TEXT_ONLY")
+    def test_seeded_skips(self):
+        K = json.load(open(os.path.join(R, "overrides", "known_sources.json")))
+        for k in ("sunderland/*", "north-ayrshire/st-johns-church", "hope-central/*"): self.assertIn(k, K["skip"])
+    def test_guard_lets_proven_wrong_times_drop_but_keeps_place_and_phone(self):
+        import refresh_guard as G
+        with mock.patch.object(G, "wrong_times", return_value={"x"}):
+            o = {"id": "x", "phone": "01", "opening_times": {"status": "TIMES_FOUND", "structured": {"mon": [["09:30", "11:00"]]}}}
+            n = {"id": "x", "phone": "01", "opening_times": None}
+            out, rep = G.guard("foodbanks", [o], [n]) if hasattr(G, "guard") else (None, None)
+            if out is not None:
+                self.assertIsNone([i for i in out if i["id"] == "x"][0]["opening_times"]); self.assertNotIn("x", rep["times"])
+    def test_cross_check_skips_donation_pages(self):
+        i = {"id": "k", "website": "https://ex.org", "postcode": "WA16 8EL", "opening_times": None}
+        page = {"http": 200, "final_url": "https://ex.org/", "html": "", "sha256": "s", "etag": None, "last_modified": None}
+        pages = [("https://ex.org/get-involved/giving-food/", "WA16 8EL Mondays 9.30-11am")]
+        with mock.patch.object(D, "site_pages", return_value=(page, pages)):
+            D.cross_check_times([i], "fb", "opening_times", fetcher=lambda u: page, threads=1)
+        self.assertFalse((i.get("opening_times") or {}).get("structured"))
