@@ -53,7 +53,18 @@ jobs:
               git add reports/new_today.md reports/manual_review.md
               git diff --cached --quiet || git commit -m "Discovery reports re-rendered after merge"
               if git push; then exit 0; fi
-            else git rebase --abort 2>/dev/null || true; fi
+            else
+              # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
+              for f in $(git diff --name-only --diff-filter=U); do
+                if git cat-file -e ":3:$f" 2>/dev/null; then git checkout --theirs -- "$f" && git add -- "$f"; else git rm -q -- "$f"; fi
+              done
+              if GIT_EDITOR=true git rebase --continue; then
+                python scripts/discovery_rules.py render || true
+                git add reports/new_today.md reports/manual_review.md
+                git diff --cached --quiet || git commit -m "Discovery reports re-rendered after merge"
+                if git push; then exit 0; fi
+              else git rebase --abort 2>/dev/null || true; fi
+            fi
             sleep $((n * 10))
           done
           exit 1
