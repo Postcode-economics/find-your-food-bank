@@ -1,9 +1,10 @@
 name: Daily deep sweep (councils + voluntary-sector lists)
-# Discovery only. Runs once a day at 01:00 UTC (02:00 UK summer time, 01:00 in winter).
+# Discovery only. Runs three times a day (03:05, 11:05, 19:05 UTC), ~85 min before each 3x-daily refresh,
+# so new shelters/warm spaces, start dates, SWEP pages and found opening times reach the next refresh.
 # Independent of the 3x-daily refresh workflows, which still re-check every entry against its source.
 on:
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "5 3,11,19 * * *"
   workflow_dispatch:
 permissions:
   contents: write
