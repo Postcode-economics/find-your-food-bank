@@ -97,7 +97,7 @@ json.dump(tlog, open("logs/shelters_times_check.json", "w"), indent=0, ensure_as
 import hours_norm  # stored hours: Mon-Sun day table (OSM text converted) or the place's own wording once
 sources["Hours normalised"] = {"status": "ok", "changed": hours_norm.apply(fresh, "hours")}
 sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
-sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending}
+sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending, "kept_on_48h_grace": [g["id"] for g in getattr(verification_gate, "graced", [])]}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
