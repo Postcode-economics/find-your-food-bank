@@ -1,7 +1,7 @@
 """Warm Spaces layer scraper. Separate from food banks and shelters.
 Writes warmspaces.js and logs/warmspaces_log.json. Seasonal: entries whose scheme end date has passed are
 marked 'ended' (shown greyed); they become active again automatically when a new listing/date appears."""
-import json, sys, os, re, datetime
+import json, seasonal, sys, os, re, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
 from hours_fix import fix_hours, phone_ok, apply_phone
@@ -51,11 +51,13 @@ for x in seen.values():
     page = next((v for v in cf.values() if "/space?" in v), "https://www.warmwelcome.uk/find-a-space")
     low = (desc + " " + " ".join(tags)).lower()
     booking = "Booking needed" if re.search(r"\b(book(ing)? (is )?(required|essential|needed)|must book|please book)\b", low) else ("No booking needed" if re.search(r"no (need to book|booking)|drop[- ]in|just turn up", low) else "Not stated")
-    end = end_date(desc)
+    ss = seasonal.parse(desc)  # start/end from the listing's own wording (pop-ups: 'SPACE OPENING ON 7th December 2026')
+    end = ss["end"] or end_date(desc)
+    if end and end == ss["start"]: end = ""  # an opening date is not an end date
     fresh.append({"id": f"ww-{x['id']}", "name": x["name"].strip(), "address": (x.get("streetaddress") or "").strip(), "postcode": postcode(x.get("streetaddress")),
         "lat": x["loc_lat"], "lng": x["loc_long"], "phone": (x.get("phone") or "").strip(), "website": (x.get("website") or "").strip(),
         "hours": hours, "provided": provided, "booking": booking, "notes": desc[:240],
-        "scheme_end": end, "scheme_dates": ("Until " + end) if end else "Not stated by source",
+        "scheme_start": ss["start"], "scheme_end": end, "scheme_dates": ("Until " + end) if end else "Not stated by source",
         "ended": bool(end and end < RUN), "source": "Warm Welcome", "source_url": page, "last_verified": RUN})
 man = json.load(open("overrides/warmspaces_manual.json")) if os.path.exists("overrides/warmspaces_manual.json") else []
 for m in man:
@@ -90,6 +92,24 @@ oi, st = directories.open_innovations()
 sources["Open Innovations warm spaces aggregator (council/VCS directories)"] = st
 add, dlog = discover.discover_layer(oi, fresh, "ws", RUN, UNV, "logs/warmspaces_discovery.json")
 fresh += add
+# ---- Warm Welcome feed discovery (every run, time-boxed): feed entries not yet on our lists, with their OWN
+# website, get the same own-site check as Open Innovations finds. Passes are cached (logs/warmspaces_ww_discovery.json)
+# and re-confirmed by recheck.py every run like any tier-2 entry; 2026-27 pop-ups with stated dates go first.
+WWLOG = "logs/warmspaces_ww_discovery.json"
+wwc = json.load(open(WWLOG)) if os.path.exists(WWLOG) else {"passed": {}, "checked": {}}
+for k, u in wwc["passed"].items(): UNV.setdefault(k, u)
+known = set(VER) | set(UNV)
+pool = [x for x in fresh if x["id"].startswith("ww-") and x["id"] not in known and x.get("website") and "warmwelcome.uk" not in x["website"]
+        and wwc["checked"].get(x["id"], "") < (datetime.date.fromisoformat(RUN) - datetime.timedelta(days=7)).isoformat() and not x.get("ended")]
+pool.sort(key=lambda x: (not (x.get("scheme_start") or x.get("scheme_end")), wwc["checked"].get(x["id"], ""), x["id"]))
+budget = int(os.environ.get("WW_DISCOVERY_BUDGET", "250"))
+batch = [dict(x, directory="Warm Welcome", directory_url=x["source_url"]) for x in pool[:budget]]
+before = set(UNV)
+wadd, wlog = discover.discover_layer(batch, [x for x in fresh if x["id"] in known], "ws", RUN, UNV, "logs/warmspaces_ww_discovery_run.json")
+for x in batch: wwc["checked"][x["id"]] = RUN
+for k in set(UNV) - before: wwc["passed"][k] = UNV[k]
+json.dump(wwc, open(WWLOG, "w"), indent=0, ensure_ascii=False)
+sources["Warm Welcome feed discovery"] = {"status": "ok", "pool": len(pool), "checked_this_run": len(batch), "passed_this_run": len(set(UNV) - before), "passed_total": len(wwc["passed"])}
 sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
 HFIX = []
 def clean(x):  # am/pm fix for 12h-clock times stored as 24h, and hide phones with fewer than 10 digits
@@ -113,6 +133,8 @@ sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
+items, expired = seasonal.apply(items, RUN, closed)  # 'Opens <date>' for pop-ups not open yet; ended > 14 days -> recently_closed
+sources["Seasonal dates"] = {"status": "ok", "upcoming": sum(bool(x.get("upcoming")) for x in items), "ended_greyed": sum(bool(x.get("ended")) for x in items), "expired": [x["id"] for x in expired]}
 EXCL = {e["id"] for e in json.load(open("overrides/warmspaces_exclude.json"))} if os.path.exists("overrides/warmspaces_exclude.json") else set()
 items = [x for x in items if x["id"] not in EXCL]; closed = [x for x in closed if x["id"] not in EXCL]  # signed-off removals stay off on every rebuild
 sources["Excluded by review"] = {"status": "ok", "ids": sorted(EXCL)}
