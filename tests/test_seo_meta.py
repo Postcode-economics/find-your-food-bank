@@ -27,3 +27,15 @@ class T(unittest.TestCase):
         self.assertGreaterEqual(len(fq['mainEntity']), 7)
         sm = open(os.path.join(self.d, 'sitemap.xml')).read()
         self.assertEqual(sm.count('<lastmod>2026-10-23</lastmod>'), len(ps)); self.assertIn('/faq.html', sm)
+
+    def test_map_checked_line(self):
+        SM.run(self.d); SM.run(self.d)
+        fq = open(os.path.join(self.d, 'faq.html')).read(); tw = open(os.path.join(self.d, 'food-banks', 'x', 'index.html')).read()
+        self.assertEqual(fq.count('class="mapchk"'), 2); self.assertEqual(tw.count('class="mapchk"'), 1)
+        self.assertIn('>Map data last checked on 23 October 2026 at 13:29</p>', fq)
+        self.assertIn('lang="cy" data-run="2026-10-23T13:29:05+01:00">Gwiriwyd data’r map ddiwethaf ar 23 Hydref 2026 am 13:29</p>', fq)
+        self.assertIn('>Map data last checked on 23 October 2026 at 13:29</p><p class="chk3">', tw)
+        self.assertRegex(fq, r'<p class="upd">Last updated 23 October 2026</p><!--mapchk-->')
+        for s in (fq, tw):
+            self.assertEqual(s.count('<script src="/stamp.js?v=r20261023T1329"></script>'), 1); self.assertEqual(s.count('<!--mapchkjs-->'), 1)
+        home = open(os.path.join(self.d, 'index.html')).read(); self.assertNotIn('mapchk', home)
