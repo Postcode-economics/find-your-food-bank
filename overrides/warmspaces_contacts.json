@@ -1541,10 +1541,10 @@
   "council": "Brent Council",
   "council_phone": "020 8937 1234",
   "council_url": "https://www.brent.gov.uk/housing/housing-assistance/at-risk-of-homelessness-or-need-housing",
+  "council_note": "Venue has no number of its own. Same as the switchboard, but the council's own page names it the out-of-hours homelessness line (Dean approved 23 Oct): Brent homelessness page: 'If you are homeless today... Outside of these hours, call: 020 8937 1234'",
   "council_ooh": "020 8937 1234",
   "council_label": "Council out-of-hours homeless line",
-  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
-  "council_note": "No own number found for the venue; council's out-of-hours homeless emergency line as labelled on the council's own page (Dean, 23 Oct)"
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau"
  },
  "ww-55474116": {
   "phone": "01702 711851",
@@ -2004,11 +2004,11 @@
  "ww-63057583": {
   "council": "South Cambridgeshire District Council",
   "council_phone": "01253 501117",
-  "council_url": "https://www.scambs.gov.uk/housing/housing-advice-and-homelessness/homelessness-advice",
+  "council_url": "https://www.scambs.gov.uk/contact-us",
   "council_ooh": "01253 501117",
   "council_label": "Council out-of-hours homeless line",
   "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
-  "council_note": "No own number found for the venue; council's out-of-hours homeless emergency line as labelled on the council's own page (Dean, 23 Oct)"
+  "council_note": "Venue has no number of its own. 01253 501117 is labelled 'Homelessness Emergency Service' out of hours on scambs.gov.uk/contact-us and on the council's SWEP page (outsourced out-of-hours provider, hence the 01253 code); second source Turn2Us. Rechecked 23 Oct."
  },
  "cambs-little-downham-book-club-hub": {
   "phone": "07411 205285",
@@ -2051,11 +2051,11 @@
  "ww-63058939": {
   "council": "South Cambridgeshire District Council",
   "council_phone": "01253 501117",
-  "council_url": "https://www.scambs.gov.uk/housing/housing-advice-and-homelessness/homelessness-advice",
+  "council_url": "https://www.scambs.gov.uk/contact-us",
   "council_ooh": "01253 501117",
   "council_label": "Council out-of-hours homeless line",
   "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
-  "council_note": "No own number found for the venue; council's out-of-hours homeless emergency line as labelled on the council's own page (Dean, 23 Oct)"
+  "council_note": "Venue has no number of its own. 01253 501117 is labelled 'Homelessness Emergency Service' out of hours on scambs.gov.uk/contact-us and on the council's SWEP page (outsourced out-of-hours provider, hence the 01253 code); second source Turn2Us. Rechecked 23 Oct."
  },
  "ww-69068910": {
   "phone": "01322311265",
@@ -2405,13 +2405,21 @@
  },
  "ww-69253373": {
   "council": "London Borough of Haringey",
-  "council_phone": "020 8489 1000",
-  "council_url": "https://haringey.gov.uk/contact/contact-us-by-phone"
+  "council_phone": "020 8489 0000",
+  "council_url": "https://haringey.gov.uk/contact/emergencies",
+  "council_ooh": "020 8489 0000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_note": "Venue has no number of its own. Same as the switchboard, but the council's own page names it the out-of-hours homelessness line (Dean approved 23 Oct): Haringey's emergencies page says the out-of-hours line 020 8489 0000 takes homelessness (emergency accommodation) calls"
  },
  "ww-68923940": {
   "council": "Eastleigh Borough Council",
   "council_phone": "023 8068 8000",
-  "council_url": "https://www.eastleigh.gov.uk/contact"
+  "council_url": "https://www.eastleigh.gov.uk/housing/housing-and-homelessness/homelessness-advice",
+  "council_ooh": "023 8068 8000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_note": "Venue has no number of its own. Same as the switchboard, but the council's own page names it the out-of-hours homelessness line (Dean approved 23 Oct): Eastleigh's homelessness page: 'If you become homeless outside of office opening hours... contact our out-of-hours service on 023 8068 8000'"
  },
  "swk-victory-family-hub": {
   "phone": "020 7740 8070",
@@ -2469,7 +2477,11 @@
  "cambs-whittlesey-community-hub": {
   "council": "Fenland District Council",
   "council_phone": "01354 654321",
-  "council_url": "https://www.fenland.gov.uk/contactus"
+  "council_url": "https://www.fenland.gov.uk/article/17634/I-Need-Accommodation-Now",
+  "council_ooh": "01354 654321",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_note": "Venue has no number of its own. Same as the switchboard, but the council's own page names it the out-of-hours homelessness line (Dean approved 23 Oct): Fenland 'I Need Accommodation Now': 'Outside office hours... call us on 01354 654321'"
  },
  "ww-63059428": {
   "phone": "01223 880723",
