@@ -119,7 +119,9 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             x["tier"] = "verified"
             if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]
-            elif rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
+            elif rc and rc.get("ok"):  # Dean: every successful re-check moves the shown checked date forward
+                x["first_verified_on"] = v.get("verified_on", ""); x["verified_on"] = x["last_verified"] = run_day
+            if not grace and rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
             if v.get("access_type"): x["access_type"] = v["access_type"]
             pub.append(x)
         elif unverified and x["id"] in unverified and (not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
@@ -129,6 +131,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             x["sign_url"] = u["sign_url"]; x["checked_on"] = (rc or {}).get("fetched_at", "")[:10] or u.get("checked_on", "")
             if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]; x["checked_on"] = LC[x["id"]][:10]
             elif rc: x["fetched_at"] = rc.get("fetched_at")
+            if rc and rc.get("ok") and not grace: x["last_verified"] = run_day
             if u.get("access_type"): x["access_type"] = u["access_type"]
             for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "call_check"):  # hand-checked fixes on tier-2 entries persist every run
                 if u.get(k): x[k] = u[k]

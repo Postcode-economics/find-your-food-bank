@@ -163,7 +163,15 @@
   "phone_source": "https://www.jewishislington.co.uk",
   "council": "London Borough of Islington",
   "council_phone": "020 7527 2000",
-  "council_url": "https://www.islington.gov.uk/contact-us"
+  "council_url": "https://www.islington.gov.uk/contact-us",
+  "hours": {
+   "Mon": "11:00 - 15:00 (call ahead)",
+   "Tue": "11:00 - 15:00 (call ahead)",
+   "Wed": "11:00 - 15:00 (call ahead)",
+   "Thu": "11:00 - 15:00 (call ahead)"
+  },
+  "hours_source": "https://www.islington.gov.uk/social-care-and-health/cool-spaces",
+  "hours_checked": "2026-10-23"
  },
  "ww-69150223": {
   "phone": "01204 451225",
@@ -2120,7 +2128,18 @@
   "phone": "07876 222968",
   "phone_fix": "07876 222968",
   "phone_source": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
-  "confidence": "medium: city directory record for the mosque (charity register gives 07866 222716) (web search 2026-10-23)"
+  "confidence": "medium: city directory record for the mosque (charity register gives 07866 222716) (web search 2026-10-23)",
+  "hours": {
+   "Mon": "Open (times not published, call first)",
+   "Tue": "Open (times not published, call first)",
+   "Wed": "Open (times not published, call first)",
+   "Thu": "Open (times not published, call first)",
+   "Fri": "Open (times not published, call first)",
+   "Sat": "Open (times not published, call first)",
+   "Sun": "Open (times not published, call first)"
+  },
+  "hours_source": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
+  "hours_checked": "2026-10-23"
  },
  "ww-64379483": {
   "phone": "01609 536033",
