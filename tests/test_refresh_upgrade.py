@@ -169,3 +169,13 @@ class FirstRunMistakes(unittest.TestCase):
         with mock.patch.object(D, "site_pages", return_value=(page, pages)):
             D.cross_check_times([i], "fb", "opening_times", fetcher=lambda u: page, threads=1)
         self.assertFalse((i.get("opening_times") or {}).get("structured"))
+class FbPageKept(unittest.TestCase):
+    """24 Oct: the first refresh after go-live lost 16 IFAN Facebook pages (applied before IFAN pins were added)."""
+    def test_build_applies_fb_pages_after_ifan(self):
+        s = open(os.path.join(R, "scripts", "build.py")).read()
+        self.assertGreater(s.rindex("i['fb_page'] = fbp"), s.index("directories.ifan()"))
+    def test_guard_puts_back_vanished_fb_page(self):
+        import refresh_guard as G
+        o = {"id": "ifan-x", "fb_page": "https://www.facebook.com/x/", "opening_times": None}
+        out, rep = G.guard("foodbanks", [o], [{"id": "ifan-x", "opening_times": None}])
+        self.assertEqual([i for i in out if i["id"] == "ifan-x"][0]["fb_page"], "https://www.facebook.com/x/"); self.assertIn("ifan-x", rep["fb_pages"])
