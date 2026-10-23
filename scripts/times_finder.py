@@ -117,12 +117,12 @@ def decide(log, items, apply):
         if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
         if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
         if len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]) > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
+        why.append("auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map")
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
-            log["applied"].append(k)
-            if apply: cur[k] = dict(ot, auto_applied=RUN)
+            pass   # unreachable: auto-apply removed
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
-    if apply: json.dump(cur, open(p, "w"), indent=1, ensure_ascii=False)
+    # overrides/opening_times.json is never written by the finder (Dean, 24 Oct 00:16)
     os.makedirs("reports", exist_ok=True)
     L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
     for r in log["review"]:
