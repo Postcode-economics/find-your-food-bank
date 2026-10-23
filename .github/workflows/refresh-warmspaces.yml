@@ -22,15 +22,20 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild warmspaces.js (re-fetches and re-checks every source page)
         run: python scripts/build_warmspaces.py
+        env:
+          WW_DISCOVERY_BUDGET: "250"   # Warm Welcome finds own-site checked per run (time box)
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py warmspaces
+      - name: Review list for Dean (adds, removals, tier flips, opens-later)
+        continue-on-error: true
+        run: python scripts/layer_review.py
       - name: Rebuild area pages, sitemap.xml and robots.txt for Google (scripts/build_seo.py)
         id: seo
         continue-on-error: true   # never blocks the data publish; alerted below
         run: python scripts/build_seo.py
       - name: Commit if changed
         run: |
-          git add warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
+          git add warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
