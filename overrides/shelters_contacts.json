@@ -65,8 +65,10 @@
   "phone_source": "https://www.salvationarmy.org.uk/centenary-house-calder-fountain"
  },
  "osm-way-260267675": {
-  "area": "fife",
-  "note": "01592 744849 appears only on third-party/regulator listings, not on Fife Council's or the operator's site, so not used"
+  "note": "01592 744849 appears only on third-party/regulator listings, not on Fife Council's or the operator's site, so not used",
+  "phone": "01592 744849",
+  "phone_source": "https://www.careinspectorate.com/berengCareservices/html/reports/getPdfBlob.php?id=309520",
+  "confidence": "high: Care Inspectorate report + Housing Options Hub + Fife on FORT agree"
  },
  "sa-glen-alva-family-centre-lifehouse": {
   "phone": "028 9035 1185",
@@ -109,20 +111,26 @@
   "phone_source": "https://www.salvationarmy.org.uk/willow-house"
  },
  "osm-node-13272554054": {
-  "area": "monmouthshire"
+  "phone": "01291 638920",
+  "phone_source": "https://chepstow-wls.business-dir.co.uk/severn-view-resource-centre/",
+  "confidence": "medium: two directories agree; note venue is a Monmouthshire council resource centre"
  },
  "scni-larne": {
   "phone": "0800 171 2222",
   "phone_source": "https://simoncommunity.org/what-we-do/all-services/temporary-accommodation/larne/"
  },
  "sa-skinnergate-lifehouse": {
-  "area": "perth"
+  "phone": "01738 624360",
+  "phone_source": "http://www.housingoptionshub.co.uk/index.php/hub/view/category/perth-temporary-accommodation-provider",
+  "confidence": "high: SHN Housing Options Hub + perth.org.uk listing agree"
  },
  "sa-st-monica-s-house-lifehouse": {
   "area": "portsmouth"
  },
  "sa-st-paul-s-house-lifehouse": {
-  "area": "portsmouth"
+  "phone": "023 9282 5673",
+  "phone_source": "https://www.misterwhat.co.uk/company/1104133-st-pauls-house-southsea",
+  "confidence": "low: one directory only"
  },
  "osm-way-1352311712": {
   "area": "spelthorne"
@@ -143,14 +151,18 @@
   "note": "was 01274 435999 (not on operator site)"
  },
  "osm-way-1017406073": {
-  "drop_phone": true,
-  "area": "trafford",
-  "note": "0300 123 1966 (OSM) not on Great Places page; page says referral via Trafford Council"
+  "note": "0300 123 1966 (OSM) not on Great Places page; page says referral via Trafford Council",
+  "phone": "0161 927 3890",
+  "phone_source": "https://www.greatplaces.org.uk/?support-service=3419",
+  "confidence": "medium: operator Great Places page per search + directory listings",
+  "phone_fix": "0161 927 3890"
  },
  "owns-oxford-winter-night-shelter": {
-  "drop_phone": true,
   "email": "night.shelter.management@ownsoxford.org.uk",
-  "area": "oxford",
-  "note": "01865 362 799 not on OWNS's own site (email only)"
+  "note": "01865 362 799 not on OWNS's own site (email only)",
+  "phone": "01865 362799",
+  "phone_source": "https://oxfordshirehomelessmovement.org/organisation/oxford-winter-night-shelter-owns",
+  "confidence": "medium: Oxfordshire Homeless Movement listing (one source)",
+  "phone_fix": "01865 362799"
  }
 }
