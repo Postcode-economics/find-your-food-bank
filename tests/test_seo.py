@@ -34,7 +34,7 @@ class SeoPages(unittest.TestCase):
             for l in re.findall(r'href="(/(?:food-banks|warm-spaces)/[^"]*)"', self.read(u)): self.assertIn(l, ok, (u, l))
     def test_sitemap_robots_404(self):
         sm = open(os.path.join(self.out, 'sitemap.xml')).read()
-        self.assertEqual(sm.count('<loc>'), len(self.urls) + 4); self.assertIn('<lastmod>', sm)
+        self.assertEqual(sm.count('<loc>'), len(self.urls) + 5); self.assertIn('<lastmod>', sm)
         self.assertIn('Sitemap: https://helpmap.uk/sitemap.xml', open(os.path.join(self.out, 'robots.txt')).read())
         self.assertIn('noindex', open(os.path.join(self.out, '404.html')).read())
     def test_no_owner_address(self):

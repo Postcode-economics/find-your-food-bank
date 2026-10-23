@@ -33,9 +33,14 @@ jobs:
         id: review
         continue-on-error: true
         run: python scripts/layer_review.py
+      - name: Stamp this run's UK date and time (map 'Updated today at' line)
+        run: python scripts/stamp.py write shelters && python scripts/stamp.py verify
+      - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
+        continue-on-error: true
+        run: python scripts/seo_meta.py
       - name: Commit if changed
         run: |
-          git add logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/swep_status.json reports/layers_review.md reports/layers_review.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces sitemap.xml logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/swep_status.json reports/layers_review.md reports/layers_review.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
