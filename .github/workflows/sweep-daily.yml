@@ -28,12 +28,16 @@ jobs:
         continue-on-error: true
         timeout-minutes: 30
         run: python scripts/swep.py discover
+      - name: Find missing food bank opening times on own sites (Trussell centre cards + generic reader; fail-safe)
+        continue-on-error: true
+        timeout-minutes: 25
+        run: python scripts/times_finder.py --apply
       - name: Stamp this run's UK date and time (footer last updated / checked)
         run: python scripts/stamp.py write sweep && python scripts/stamp.py verify
       - name: Commit new entries and the sweep log
         run: |
           python scripts/stamp.py verify
-          git add stamp.js overrides/swep_sources.json overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
+          git add stamp.js overrides/swep_sources.json overrides/opening_times.json logs/times_finder.json overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json \
                   overrides/warmspaces_manual.json overrides/warmspaces_verified.json overrides/warmspaces_unverified.json \
                   logs/sweep_log.json logs/sweep_pending.json overrides/foodbank_own_pages.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
