@@ -46,6 +46,6 @@ class SeoPages(unittest.TestCase):
         h = B.card_fb(i, {'x': 'voucher'})
         self.assertIn('Foodbank voucher needed', h); self.assertIn('tel:01234567890', h); self.assertIn('Mon', h)
         self.assertIn('Walk-in not confirmed', B.card_fb(i, {}))
-        self.assertIn('Times not listed', B.card_fb({'id': 'y', 'name': 'N'}, {}))
+        self.assertIn('Call for opening times', B.card_fb({'id': 'y', 'name': 'N'}, {}))
 
 if __name__ == '__main__': unittest.main()
