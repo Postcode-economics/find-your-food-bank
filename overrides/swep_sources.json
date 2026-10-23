@@ -1811,54 +1811,59 @@
   "code": "DST",
   "council": "Dorset Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.dorsetcouncil.gov.uk/w/rough-sleeping",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.dorsetcouncil.gov.uk/housing/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "DUR",
   "council": "Durham County Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
+  "looked_at": [],
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "EAL",
   "council": "London Borough of Ealing",
   "nation": "England",
-  "url": null,
+  "url": "https://www.ealing.gov.uk/info/201102/finding_a_home/2558/rough_sleeping",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.ealing.gov.uk/info/201086/housing/378/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "EAS",
   "council": "Eastbourne Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.lewes-eastbourne.gov.uk/article/1260/Homeless-What-help-is-available",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "EAT",
   "council": "Eastleigh Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.eastleigh.gov.uk/latest-news/cold-weather-support-for-people-sleeping-rough",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.eastleigh.gov.uk/housing/looking-for-a-home/im-going-to-be-homeless.aspx",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "EAY",
@@ -1893,12 +1898,13 @@
   "code": "EDE",
   "council": "East Devon District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://eastdevon.gov.uk/housing-and-homelessness/homelessness/rough-sleepers/severe-weather-provision/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://eastdevon.gov.uk/housing-and-homelessness/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "EDH",
@@ -1938,7 +1944,7 @@
   "code": "EHA",
   "council": "East Hampshire District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.easthants.gov.uk/emergency-advice/rough-sleepers-advice",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -1948,7 +1954,8 @@
   "ooh_phone": "07850 358156",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.easthants.gov.uk/housing/emergency-housing",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "EHE",
@@ -1971,14 +1978,15 @@
   "code": "ELI",
   "council": "East Lindsey District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.e-lindsey.gov.uk/article/7964/Rough-Sleepers",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving"
   ],
   "homeless_url": "https://www.e-lindsey.gov.uk/HousingAdvice",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "ELM",
