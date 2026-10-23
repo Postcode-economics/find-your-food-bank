@@ -1,0 +1,49 @@
+name: SWEP daily full check (all UK councils)
+# Dean, 23 Oct 2026: once a day re-check every UK council's SWEP page (scripts/sweep_sources.json, ~382),
+# flag new / dead pages and status changes, and write logs/swep_full.json + reports/swep_daily.md for the daily review.
+# 05:00 UTC = 06:00 UK in summer time (05:00 UK in winter). Read-only on council sites; never contacts anyone; never changes the map.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: swep-daily
+  cancel-in-progress: false
+jobs:
+  swep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test the SWEP checks
+        run: python -m unittest tests.test_swep_full -v
+      - name: Full SWEP check (every council)
+        run: python scripts/swep.py full
+      - name: Commit logs
+        run: |
+          git add logs/swep_full.json reports/swep_daily.md
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "SWEP daily full check $(date -u +%F)"
+          for n in 1 2 3; do
+            if git pull --rebase --autostash -X theirs && git push; then exit 0; fi
+            sleep $((n * 10))
+          done
+          exit 1
+      - name: Alert - SWEP daily check failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py open swep-daily "SWEP daily full check failed" "The daily all-council SWEP check did not finish. The 3x-daily watcher still runs. Open the run log."
+      - name: Clear the alert after a good run
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py resolve swep-daily
