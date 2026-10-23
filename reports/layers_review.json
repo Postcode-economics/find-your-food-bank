@@ -1,60 +1,8 @@
 {
  "shelters.js": {
   "added": [],
-  "removed": [
-   {
-    "id": "man-glasgow-city-mission-owc",
-    "name": "Glasgow City Mission Overnight Welcome Centre",
-    "reason": "not confirmed this run"
-   }
-  ],
-  "changed": [
-   {
-    "id": "man-c4ws-camden-winter-shelter",
-    "name": "C4WS Homeless Project Winter Night Shelter",
-    "fields": [
-     "referral"
-    ],
-    "before": {
-     "referral": "Referral only: through C4WS approved referral partners in Camden (no self-referral). Call C4WS 020 7278 6267 to ask how."
-    },
-    "after": {
-     "referral": "Referral (C4WS approved referral partners in Camden)"
-    }
-   },
-   {
-    "id": "man-noah-luton-winter-shelter",
-    "name": "NOAH Emergency Winter Night Shelter",
-    "fields": [
-     "referral"
-    ],
-    "before": {
-     "referral": "Contact or visit the NOAH Welfare Centre, 141 Park Street, Luton LU1 3HG (01582 728416)"
-    },
-    "after": {
-     "referral": "Via NOAH Welfare Centre"
-    }
-   },
-   {
-    "id": "man-st-peters-cardiff-night-shelter",
-    "name": "St Peter's Parish Night Shelter (Roath)",
-    "fields": [
-     "access_type",
-     "referral",
-     "season"
-    ],
-    "before": {
-     "access_type": null,
-     "referral": "How to get a place is not published: call the parish office 029 2048 3394 (Mon-Fri 9.30am-12.30pm)",
-     "season": "Winter 2026-27: Fridays only, from 4 December 2026 to the end of March 2027"
-    },
-    "after": {
-     "access_type": "self_referral",
-     "referral": "Contact the parish",
-     "season": "Winter-only (Opens 4 Dec 2026 until 31 Mar 2027)"
-    }
-   }
-  ],
+  "removed": [],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
@@ -231,8 +179,40 @@
  },
  "warmspaces.js": {
   "added": [],
-  "removed": [],
-  "changed": [],
+  "removed": [
+   {
+    "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+    "name": "Saifee Mosque",
+    "reason": "not confirmed this run"
+   }
+  ],
+  "changed": [
+   {
+    "id": "ww-57979418",
+    "name": "Art4Space",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "10:00 - 18:00",
+      "Tue": "10:00 - 21:00",
+      "Wed": "10:00 - 18:00",
+      "Thu": "10:00 - 18:00",
+      "Fri": "10:00 - 18:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 15:00",
+      "Tue": "10:00 - 17:00",
+      "Wed": "10:00 - 15:00",
+      "Thu": "10:00 - 17:00",
+      "Fri": "10:00 - 15:00"
+     }
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -250,6 +230,10 @@
     "reason": "source no longer names this place"
    },
    {
+    "id": "ww-57979418",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-57952197",
     "reason": "schema: hours value invalid: Sat=Closed Monthly"
    },
@@ -259,10 +243,6 @@
    },
    {
     "id": "ww-68775963",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "ww-69082336",
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
@@ -276,6 +256,10 @@
    {
     "id": "ww-59782766",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "ww-59130027",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-68642792",
@@ -292,6 +276,22 @@
    {
     "id": "ww-69070265",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "ww-67979812",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-65437506",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-58358850",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-57952705",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-68762729",
@@ -314,8 +314,20 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
+    "id": "ww-65437496",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-69080400",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-68672320",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-67608542",
