@@ -1,12 +1,10 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 4 · changed 1 · tier flips 0 · opens later 1 · season ended 0 · recheck failed 40
+added 4 · removed 1 · changed 0 · tier flips 0 · opens later 2 · season ended 0 · recheck failed 36
 
-- REMOVED **Barnet Winter Night Shelter (Homeless Action in Barnet)** – not confirmed this run
-- REMOVED **Cosgarne Hall** – not confirmed this run
-- REMOVED **Hills House** – not confirmed this run
-- REMOVED **Robes Winter Night Shelter (Southwark & Lambeth)** – not confirmed this run
+- REMOVED **Bridge House Mission** – not confirmed this run
+- OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027
 
 ## warmspaces.js

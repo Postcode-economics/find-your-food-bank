@@ -44,12 +44,12 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
 ## Auto-discovery queue (2026-10-23) — failed one auto-add check, not on the map
 
-### Shelters: 51 queued, 0 rejected
-- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
+### Shelters: 52 queued, 0 rejected
+- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Alms Houses · B48 7SE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added
 - QUEUED The Wellspring Stockport · SK1 1YD — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED The Wallich · NP4 6JQ · https://thewallich.com/services/torfaen-tenancy-support/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
 - QUEUED The Shrewsbury Ark · SY1 2EH · https://www.shrewsburyark.co.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
@@ -96,6 +96,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Brighton & Hove City Council - New Steine Mews Hostel · BN2 1QP · http://www.nsmhostel.org.uk — own site unreachable (HTTP 403)
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
+- QUEUED Bridge House Mission · TS18 3AX · http://www.bridgehousemission.co.uk — own site unreachable (HTTP 500)
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 

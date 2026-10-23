@@ -1,48 +1,38 @@
 {
  "shelters.js": {
-  "added": [],
-  "removed": [
+  "added": [
    {
     "id": "hab-barnet-winter-night-shelter",
     "name": "Barnet Winter Night Shelter (Homeless Action in Barnet)",
-    "reason": "not confirmed this run"
+    "tier": "unverified"
    },
    {
     "id": "osm-way-180604493",
     "name": "Cosgarne Hall",
-    "reason": "not confirmed this run"
+    "tier": "verified"
    },
    {
     "id": "osm-way-608979359",
     "name": "Hills House",
-    "reason": "not confirmed this run"
+    "tier": "verified"
    },
    {
     "id": "robes-winter-night-shelter",
     "name": "Robes Winter Night Shelter (Southwark & Lambeth)",
+    "tier": "unverified"
+   }
+  ],
+  "removed": [
+   {
+    "id": "hl-bridge-house-mission",
+    "name": "Bridge House Mission",
     "reason": "not confirmed this run"
    }
   ],
-  "changed": [
-   {
-    "id": "glassdoor-winter-night-shelters",
-    "name": "Glass Door Winter Night Shelters (3 circuits)",
-    "fields": [
-     "season",
-     "ended"
-    ],
-    "before": {
-     "season": "Winter 2026-27 (21 Nov 2026 – 22 Mar 2027), up to 35 people per circuit",
-     "ended": null
-    },
-    "after": {
-     "season": "Winter-only (Opens 21 Nov 2026 until 22 Mar 2027)",
-     "ended": false
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
+   "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
    "Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027"
   ],
   "ended": [],
@@ -97,15 +87,11 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+    "reason": "source no longer names this place"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "osm-way-180604493",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -130,10 +116,6 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
-   },
-   {
-    "id": "osm-way-608979359",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -198,14 +180,6 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "robes-winter-night-shelter",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "hab-barnet-winter-night-shelter",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    }
   ]
  },
