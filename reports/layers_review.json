@@ -1,27 +1,6 @@
 {
  "shelters.js": {
-  "added": [
-   {
-    "id": "hl-adullam-homes-ha-norman-house",
-    "name": "Adullam Homes HA - Norman House",
-    "tier": "unverified"
-   },
-   {
-    "id": "hl-amat-uk",
-    "name": "Ashdown Medway Accommodation Trust (AMAT)",
-    "tier": "unverified"
-   },
-   {
-    "id": "hl-bradford-cyrenians-hostel-for-homeless-men",
-    "name": "Bradford Cyrenians - Hostel for Homeless Men",
-    "tier": "unverified"
-   },
-   {
-    "id": "hl-bridge-house-mission",
-    "name": "Bridge House Mission",
-    "tier": "unverified"
-   }
-  ],
+  "added": [],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -178,7 +157,848 @@
   ]
  },
  "warmspaces.js": {
-  "added": [],
+  "added": [
+   {
+    "id": "evergreen-elderberries-welling",
+    "name": "Elderberries Vintage Tea Rooms (8th Bexleyheath Scout Group)",
+    "tier": "unverified"
+   },
+   {
+    "id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
+    "name": "Marlborough Primary School",
+    "tier": "unverified"
+   },
+   {
+    "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+    "name": "Saifee Mosque",
+    "tier": "unverified"
+   },
+   {
+    "id": "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj",
+    "name": "The Midlands Greek & Cypriot Association",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473134",
+    "name": "Kirkliston Parish Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473170",
+    "name": "Tadworth Leisure & Community Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473189",
+    "name": "The Wickbourne Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473196",
+    "name": "Knowle (South Bristol) Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473321",
+    "name": "Canons Leisure Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473335",
+    "name": "Salvation Army Southport Warm Welcome Space",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473455",
+    "name": "The Place at Platt Lane",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473505",
+    "name": "Glusburn Community & Arts Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473520",
+    "name": "St Helen's Church Northwich",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473691",
+    "name": "The Lounge",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473713",
+    "name": "Hope Church Winchester",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473766",
+    "name": "Home Space - Trinity Church Nottingham",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55473898",
+    "name": "Museum of the Home",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474027",
+    "name": "St Stephen's Church, Cinderford",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474103",
+    "name": "Peterhead Baptist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474116",
+    "name": "Wesley Warm Welcome",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474118",
+    "name": "Winton Park Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474132",
+    "name": "All Nations Christian Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474277",
+    "name": "Falmouth Drop In",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474363",
+    "name": "The Life Rooms Walton",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474433",
+    "name": "Starfish Community Social Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474480",
+    "name": "Salvation Army in Whitleigh",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474493",
+    "name": "West Heath Community Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474542",
+    "name": "Saint Luke's Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474670",
+    "name": "All Saints Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474726",
+    "name": "Renew 57",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474971",
+    "name": "Coxhoe and Area Community Pantry and Foodbank",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55474997",
+    "name": "St Margaret's Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475042",
+    "name": "Centenary Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475166",
+    "name": "Bentilee Volunteers",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475202",
+    "name": "The Hive - Sheerness Salvation Army's Warm Welcome Space",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475339",
+    "name": "Unity Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475350",
+    "name": "Morden Leisure Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475357",
+    "name": "Hull Citadel Salvation Army",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475500",
+    "name": "Christ Church Selly Park",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475528",
+    "name": "CGS - Astral Park Community Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475561",
+    "name": "Moreton Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475671",
+    "name": "St Mary Magdalene Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475700",
+    "name": "Green Street Green Baptist church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475769",
+    "name": "Clopton Connect Warm Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475831",
+    "name": "Norton Hive Community Library and Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475882",
+    "name": "Renew 88",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475956",
+    "name": "Wimbledon Leisure Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55475981",
+    "name": "JNR8 Youth & Community Centre and Manley Park Methodist church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55476019",
+    "name": "Warm Welcome",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55476118",
+    "name": "Canley Community Church Café",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55476124",
+    "name": "Warm Welcome @ The Dolphin",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55592162",
+    "name": "he Salvation Army - Worship & Community Centre (Newcastle Upon Tyne)",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55592180",
+    "name": "Ash Vale Chapel Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55592226",
+    "name": "Staplehurst URC",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55592264",
+    "name": "Marlborough Road Methodist Church Banbury",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55592291",
+    "name": "Cosy Club",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-55592296",
+    "name": "Holy Trinity Church, Horfield, Bristol",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-56707093",
+    "name": "Joshua Tree Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951602",
+    "name": "Community hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951671",
+    "name": "Cozy Cafe Holt Community Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951784",
+    "name": "Delves Community Hall",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951802",
+    "name": "St Botolph's Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951889",
+    "name": "St. Francis of Assisi Church, Ingleby Barwick",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951953",
+    "name": "The Mill",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57951978",
+    "name": "Gillingham Salvation Army",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952133",
+    "name": "St Paul's Church, Hammersmith",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952142",
+    "name": "Rose and Crown",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952231",
+    "name": "Feedo Needo",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952293",
+    "name": "Wymondham Abbey",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952302",
+    "name": "Arch-Way Project Warm Space",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952336",
+    "name": "Community Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952338",
+    "name": "Women Connect First",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952398",
+    "name": "Parish of St John Henry Newman, Morecambe - Warm Welcome",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952547",
+    "name": "Lockswood Care and Wellbeing Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952583",
+    "name": "St Bert's Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952616",
+    "name": "Deptford Lounge",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952705",
+    "name": "No.1 St Osyths Lane",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952739",
+    "name": "Shrewsbury House Community Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952842",
+    "name": "Saturday Coffee Morning",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952849",
+    "name": "Willerby methodist church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57952988",
+    "name": "The Shaw Lane Community Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57953021",
+    "name": "Warm Space at Royston Museum",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57953124",
+    "name": "Mwldan",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57953160",
+    "name": "Neston Community Youth Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57953168",
+    "name": "The Salvation Army, Regent Hall",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57953292",
+    "name": "Martyrs Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57979418",
+    "name": "Art4Space",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57979477",
+    "name": "Social Sunday",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57990409",
+    "name": "Height Library",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-57993936",
+    "name": "Leigh on Sea Elim Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-58212607",
+    "name": "Chabad Lubavitch of Islington",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-58326832",
+    "name": "Horniman Museum and Gardens",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-58352841",
+    "name": "Tower House Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-58358850",
+    "name": "Kidlington Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-58567193",
+    "name": "Gateway",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-59130027",
+    "name": "Fairhaven Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-59500982",
+    "name": "Community Cafe Lunch",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-59803888",
+    "name": "Project St Thomas - St Norbert's Hall",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-59806670",
+    "name": "Friendly Faces",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-59951280",
+    "name": "Wellness Hub At St Laurence's Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-59974983",
+    "name": "Windmill Warmbank",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-60625347",
+    "name": "St. Thomas Church, Sutton-in-Craven",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-60906681",
+    "name": "Ryton Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-61263084",
+    "name": "Westgate House Community Coffee Morning",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-62350386",
+    "name": "Signature at Caversham",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-62359159",
+    "name": "Church of St Edward King & Martyr",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-62486419",
+    "name": "Pick-Up Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-62760741",
+    "name": "Warm Welcome Wednesdays at Burton Memorial Hall",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-62981326",
+    "name": "Oldham Community Grocers",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-63353220",
+    "name": "Circle Funerals",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-63382937",
+    "name": "Mint Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-63519117",
+    "name": "Bishop Sutton & Stowey Village Hall",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64378921",
+    "name": "Cafe Oasis",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64379104",
+    "name": "The Oasis at CSBC",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64379139",
+    "name": "Holy Trinity Coffee Bar",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64379178",
+    "name": "Cepen Lodge Community Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64379621",
+    "name": "Bishops Stortford Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64432631",
+    "name": "Rushenden Warm Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64432678",
+    "name": "The One Love Project",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64432690",
+    "name": "Hwb Cymunedol Taj Mahal Community Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64432722",
+    "name": "Dockyard Food Larder",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64623495",
+    "name": "The Heart",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-64668882",
+    "name": "Christ Church, Mountsorrel",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65070433",
+    "name": "Wembley Creative Community Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65238466",
+    "name": "Caffi Cynefin",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65344928",
+    "name": "Merrow Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65413943",
+    "name": "Place of Welcome at St Oswald's, Oswestry",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65413950",
+    "name": "Shipston Community Warm Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65419943",
+    "name": "Stafford Hall Community Living Room",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65420022",
+    "name": "St Mary's Church Hall",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65420029",
+    "name": "Jubilee Church Hull",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437310",
+    "name": "Edinburgh City Salvation Army",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437319",
+    "name": "Lambourn Lunch Club",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437367",
+    "name": "St Paul's Methodist Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437410",
+    "name": "Cafe Friday",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437466",
+    "name": "Revive Community Cafe",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437496",
+    "name": "Sway Community Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437506",
+    "name": "Jubilee Church, Wirral",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65437525",
+    "name": "Community Warm Space",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65438771",
+    "name": "Warmwell at Westbank",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441818",
+    "name": "The Little Shop at Latchford",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441855",
+    "name": "Coffee chat and snacks",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441857",
+    "name": "Southam Congregational Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441894",
+    "name": "Grange Park Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441920",
+    "name": "The King's Church Halifax",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441937",
+    "name": "Frogmore Care and Wellbeing Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441941",
+    "name": "St. Mary's, Broughty Ferry",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65441971",
+    "name": "Horrill Care and Wellbeing Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-65442002",
+    "name": "Renew QE Park",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-66574549",
+    "name": "St Mary’s Bromley. Grace Cafe:A Place of Welcome",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-67203567",
+    "name": "Connect community coffee morning",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-67300210",
+    "name": "Refreshment Stop",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-67506955",
+    "name": "Green Synergy Community Warm and Cool Space",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-67526400",
+    "name": "The Vale Family Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-67979812",
+    "name": "Hive Cafe & Launderette",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68255736",
+    "name": "The Warm Welcome Community Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68275372",
+    "name": "St Jude's Community Hub",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68472828",
+    "name": "North Warwickshire Citizens Advice - Centre For Warmth",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68506647",
+    "name": "The Hope Centre, Trinity Mission",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68557006",
+    "name": "The 'FORD Community Centre (Stockingford Community Centre)",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68672262",
+    "name": "The Hub @ St Peter's, Woolton",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-68672320",
+    "name": "The Pump Room",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68672344",
+    "name": "Strathmore Road Methodist Church",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-68719796",
+    "name": "St Luke’s Church",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-68972336",
+    "name": "Cosy Crypt",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-68997961",
+    "name": "Hope Cafe",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-69042541",
+    "name": "Nottingham Women's Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "ww-69080400",
+    "name": "The Meeting Place",
+    "tier": "verified"
+   }
+  ],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -194,16 +1014,12 @@
   "ended": [],
   "recheck_failed": [
    {
-    "id": "ww-57952253",
-    "reason": "schema: hours value invalid: Fri=10:00 - 12."
+    "id": "ww-57952860",
+    "reason": "source no longer names this place"
    },
    {
-    "id": "ww-55592180",
-    "reason": "source unreachable this run (HTTP 429)"
-   },
-   {
-    "id": "ww-63519117",
-    "reason": "source unreachable this run (HTTP 429)"
+    "id": "ww-57952197",
+    "reason": "schema: hours value invalid: Sat=Closed Monthly"
    },
    {
     "id": "ww-69189484",
@@ -226,10 +1042,6 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "ww-68972336",
-    "reason": "source unreachable this run (HTTP 429)"
-   },
-   {
     "id": "ww-59782766",
     "reason": "source unreachable this run (HTTP 403)"
    },
@@ -250,24 +1062,12 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-68997961",
-    "reason": "source unreachable this run (HTTP error)"
-   },
-   {
-    "id": "ww-57953160",
-    "reason": "source unreachable this run (HTTP 429)"
-   },
-   {
     "id": "ww-68762729",
     "reason": "published times not found on source this run"
    },
    {
-    "id": "ww-65441857",
-    "reason": "source unreachable this run (HTTP 429)"
-   },
-   {
-    "id": "ww-68719796",
-    "reason": "source unreachable this run (HTTP 429)"
+    "id": "ww-57952222",
+    "reason": "source no longer names this place"
    },
    {
     "id": "ww-65420055",
@@ -282,16 +1082,8 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "ww-68672262",
-    "reason": "source unreachable this run (HTTP 429)"
-   },
-   {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
-   },
-   {
-    "id": "ww-69080400",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-67608542",
@@ -302,10 +1094,6 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-57953021",
-    "reason": "source unreachable this run (HTTP 429)"
-   },
-   {
     "id": "ww-68789946",
     "reason": "source unreachable this run (HTTP 404)"
    },
@@ -314,12 +1102,16 @@
     "reason": "schema: hours value invalid: Wed=Closed - 14:00"
    },
    {
-    "id": "tbc-encounter-church-winchcombe",
-    "reason": "source unreachable this run (HTTP 403)"
+    "id": "ww-57951578",
+    "reason": "source no longer names this place"
    },
    {
-    "id": "evergreen-elderberries-welling",
-    "reason": "source unreachable this run (HTTP 429)"
+    "id": "ww-62854861",
+    "reason": "source no longer names this place"
+   },
+   {
+    "id": "tbc-encounter-church-winchcombe",
+    "reason": "source unreachable this run (HTTP 403)"
    }
   ]
  },

@@ -84,11 +84,173 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 6 added
+## Warm spaces: 168 added
 - wee blether with soup and sandwich at Seescape · KY7 4NT (Opens 2026-11-05)
 - Oasis Hub Hull · HU5 2NB
 - Granton Skills & Wellbeing Centre · EH5 1BZ
 - St Peter's Church, Edmonton · N9 8JP
 - Abbey Community Centre-Kilburn, London · NW6 4BJ
 - Wayfarers Caravan Park with St Hilary Church · TR20 9EF
+- Marlborough Primary School · B10 9NY
+- Saifee Mosque · B18 6PU
+- The Midlands Greek & Cypriot Association · B23 7SJ
+- Kirkliston Parish Church · EH29 9AX
+- Tadworth Leisure & Community Centre · KT20 5FB
+- The Wickbourne Centre · BN17 7DZ
+- Knowle (South Bristol) Methodist Church · BS4 2EP
+- Canons Leisure Centre · CR4 4HD
+- Salvation Army Southport Warm Welcome Space · PR8 5AJ
+- The Place at Platt Lane · M14 7FB
+- Glusburn Community & Arts Centre · BD20 8FQ
+- St Helen's Church Northwich · CW9 5PB
+- The Lounge · PO1 4HA
+- Hope Church Winchester · SO23 8DQ
+- Home Space - Trinity Church Nottingham · NG1 3HX
+- Museum of the Home · E2 8EA
+- St Stephen's Church, Cinderford · GL14 2AA
+- Peterhead Baptist Church · AB42 1TA
+- Wesley Warm Welcome · SS9 1SJ
+- Winton Park Cafe · BH9 1BX
+- All Nations Christian Centre · RG1 6JE
+- Falmouth Drop In · TR11 3RJ
+- The Life Rooms Walton · L9 2AF
+- Starfish Community Social Hub · TS18 3NA
+- Salvation Army in Whitleigh · PL5 4AA
+- West Heath Community Centre · B31 3QY
+- Saint Luke's Church · LE4 2ER
+- All Saints Church · KT1 1JP
+- Renew 57 · LL57 2EU
+- Coxhoe and Area Community Pantry and Foodbank · DH6 4DB
+- St Margaret's Church · EX3 0HL
+- Centenary Methodist Church · PE21 6NY
+- Bentilee Volunteers · ST2 0DH
+- The Hive - Sheerness Salvation Army's Warm Welcome Space · ME12 1UH
+- Unity Cafe · NR11 6JG
+- Morden Leisure Centre · SM4 5HE
+- Hull Citadel Salvation Army · HU3 1YA
+- Christ Church Selly Park · B29 7PS
+- CGS - Astral Park Community Centre · LU7 4AY
+- Moreton Methodist Church · CH46 7TQ
+- St Mary Magdalene Church · B71 3PJ
+- Green Street Green Baptist church · BR6 6AA
+- Clopton Connect Warm Hub · CV37 0DA
+- Norton Hive Community Library and Hub · YO17 9ES
+- Renew 88 · GU21 2PZ
+- Wimbledon Leisure Centre · SW19 1EW
+- JNR8 Youth & Community Centre and Manley Park Methodist church · M16 0BG
+- Warm Welcome · N1 4DA
+- Canley Community Church Café · CV4 8DA
+- Warm Welcome @ The Dolphin · SM1 1PR
+- he Salvation Army - Worship & Community Centre (Newcastle Upon Tyne) · NE5 3JQ
+- Staplehurst URC · TN12 0AS
+- Marlborough Road Methodist Church Banbury · OX16 5BZ
+- Cosy Club · WS15 2HX
+- Holy Trinity Church, Horfield, Bristol · BS7 8ST
+- Joshua Tree Cafe · NE11 0DP
+- Welcome Wednesdays · NG6 9GJ
+- Community hub · ME20 7QR
+- Cozy Cafe Holt Community Centre · NR25 6DN
+- Delves Community Hall · WS5 4PH
+- St Botolph's Church · PE21 6NW
+- St. Francis of Assisi Church, Ingleby Barwick · TS17 0WD
+- The Mill · E17 7HA
+- Gillingham Salvation Army · ME7 1XA
+- St Paul's Church, Hammersmith · W6 9PJ
+- Rose and Crown · CM15 9JH
+- Brighton Bevendean Salvation Army Church · BN2 4LT
+- Slade Centre · SE18 2QQ
+- Feedo Needo · BD5 8EL
+- Wymondham Abbey · NR18 0PH
+- Arch-Way Project Warm Space · HX1 3AG
+- Community Hub · DE4 2EE
+- Women Connect First · CF11 6LP
+- Parish of St John Henry Newman, Morecambe - Warm Welcome · LA4 5JR
+- Lockswood Care and Wellbeing Centre · SO31 6DX
+- St Bert's Church · WA7 6QE
+- Deptford Lounge · SE8 4RJ
+- No.1 St Osyths Lane · PE8 4BG
+- Shrewsbury House Community Centre · SE18 3EG
+- Saturday Coffee Morning · CA22 2DR
+- Willerby methodist church · HU10 6JP
+- Anthony Parkinson · PR5 5HR
+- The Shaw Lane Community Cafe · S70 6HZ
+- Mwldan · SA43 1JY
+- The Salvation Army, Regent Hall · W1C 2DJ
+- Martyrs Church · LE3 0QT
+- Art4Space · SW4 6QU
+- Social Sunday · SK13 8AT
+- Height Library · M6 7GY
+- Leigh on Sea Elim Church · SS9 2BE
+- Chabad Lubavitch of Islington · N1 8HX
+- Horniman Museum and Gardens · SE23 3PQ
+- Tower House Cafe · BN1 6WT
+- Kidlington Methodist Church · OX5 2BP
+- Gateway · OL16 1SN
+- Fairhaven Methodist Church · FY8 1BZ
+- Community Cafe Lunch · SE15 4AN
+- Project St Thomas - St Norbert's Hall · PE11 2XX
+- Friendly Faces · CH63 3EZ
+- Wellness Hub At St Laurence's Church · PR7 1EB
+- Windmill Warmbank · N18 1PL
+- St. Thomas Church, Sutton-in-Craven · BD20 7JS
+- Ryton Methodist Church · NE40 3LU
+- Westgate House Community Coffee Morning · OX10 8FE
+- Signature at Caversham · RG4 6LB
+- Church of St Edward King & Martyr · DE74 2JH
+- Pick-Up Cafe · GU14 6DX
+- Warm Welcome Wednesdays at Burton Memorial Hall · LA6 1NA
+- Warm Space coffee morning · HX3 8AA
+- Oldham Community Grocers · OL9 6AZ
+- Circle Funerals · WA14 2DP
+- Mint Methodist Church · EX4 3AT
+- Cafe Oasis · BL1 6RN
+- The Oasis at CSBC · BS37 6AH
+- Holy Trinity Coffee Bar · WA1 1XG
+- Cepen Lodge Community Cafe · SN14 6UZ
+- Bishops Stortford Methodist Church · CM23 3AZ
+- Rushenden Warm Hub · ME11 5LX
+- The One Love Project · SS2 6LR
+- Hwb Cymunedol Taj Mahal Community Hub · SY20 8AG
+- Dockyard Food Larder · TR1 2SQ
+- The Heart · EH6 4HY
+- Christ Church, Mountsorrel · LE12 7JU
+- Wembley Creative Community Hub · HA0 4AH
+- Caffi Cynefin · SA3 1EH
+- Merrow Methodist Church · GU1 2SH
+- Place of Welcome at St Oswald's, Oswestry · SY11 2SY
+- Shipston Community Warm Hub · CV36 4AX
+- Stafford Hall Community Living Room · E17 8JZ
+- St Mary's Church Hall · NR5 8LB
+- Jubilee Church Hull · HU1 3SQ
+- Edinburgh City Salvation Army · EH8 9TF
+- Lambourn Lunch Club · RG17 8NU
+- St Paul's Methodist Centre · SY23 2NN
+- Cafe Friday · GU1 2AZ
+- Revive Community Cafe · NR2 4DR
+- Sway Community Hub · SO41 6BB
+- Jubilee Church, Wirral · CH45 0LA
+- Community Warm Space · FK10 4JA
+- Warmwell at Westbank · EX6 8AT
+- The Little Shop at Latchford · WA4 2RP
+- Coffee chat and snacks · BA16 0HZ
+- Grange Park Methodist Church · N21 2EU
+- The King's Church Halifax · HX1 2TS
+- Frogmore Care and Wellbeing Centre · GU46 6AG
+- St. Mary's, Broughty Ferry · DD5 1AJ
+- Horrill Care and Wellbeing Centre · SO45 5SZ
+- Renew QE Park · GU2 9LX
+- St Mary’s Bromley. Grace Cafe:A Place of Welcome · BR1 3QG
+- Connect community coffee morning · S11 8HA
+- Refreshment Stop · DY4 8ET
+- Green Synergy Community Warm and Cool Space · LN2 5RD
+- The Vale Family Hub · DT10 1AZ
+- Hive Cafe & Launderette · S80 2TU
+- The Warm Welcome Community Centre · BS11 9EN
+- St Jude's Community Hub · PL4 9BJ
+- North Warwickshire Citizens Advice - Centre For Warmth · CV9 1DU
+- The Hope Centre, Trinity Mission · WF10 1DZ
+- The 'FORD Community Centre (Stockingford Community Centre) · CV10 8DY
+- The Pump Room · SK17 6BH
+- Strathmore Road Methodist Church · NE39 1HX
+- Nottingham Women's Centre · NG1 5LP
 
