@@ -198,6 +198,10 @@ def main():
     print('excluded at request: %d pins' % (n0 - len(items)))
     cur = current_count()
     if len(items) < 0.8 * cur: die('only %d entries vs %d current (<80%%)' % (len(items), cur))
+    # Verified Facebook pages again here, AFTER IFAN discovery adds its pins (24 Oct: 16 IFAN pages were lost
+    # because the earlier pass ran before IFAN entries existed). Only shown when the card has no phone (index.html).
+    for i in items:
+        if i['id'] in fbp: i['fb_page'] = fbp[i['id']]['url']
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
