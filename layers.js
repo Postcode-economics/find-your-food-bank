@@ -69,7 +69,7 @@ const dd=(a,b)=>Math.round((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/864
 function relife(D){if(!D)return;(D.items||[]).forEach(i=>{if(i.scheme_end)i.ended=i.scheme_end<TODAY;if(i.scheme_start)i.upcoming=i.scheme_start>TODAY;if(i.last_verified)i.stale=dd(TODAY,i.last_verified)>7});
  D.recently_closed=(D.recently_closed||[]).filter(i=>!i.closed_on||dd(TODAY,i.closed_on)<=30)}
 function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);if(L_.p)return L_.p;$x('u_'+k).textContent=t('loading');
- return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file;s.onload=()=>{L_.data=window[L_.var];relife(L_.data);stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
+ return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file+'?t='+Math.floor(Date.now()/9e5);s.onload=()=>{L_.data=window[L_.var];relife(L_.data);stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
 const WDAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 // days a place didn't list: shown as 'Closed / not listed' (never invented hours); only when every key is a day name
 const fillDays=h=>{const ks=Object.keys(h);if(!ks.length||!ks.every(k=>WDAYS.includes(k)))return h;const o={};WDAYS.forEach(d=>o[d]=d in h?h[d]:'\u0000');return o};
