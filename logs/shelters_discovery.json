@@ -1,8 +1,8 @@
 {
  "run": "2026-10-23",
- "candidates": 60,
+ "candidates": 61,
  "already_on_map": 5,
- "new": 55,
+ "new": 56,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "2731160dfc3fb04ca9f7fdbf8ec96529f1dbaa73068d02ee562c8f604e3b2eb4",
+   "sha256": "df903be9640df492ba092e2f8e1c4e2b1a28bbde7320de3145a725e404229243",
    "etag": "",
    "last_modified": ""
   }
@@ -63,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not show it is a shelter/emergency accommodation"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://www.thegap.wales/",
-   "http": 202,
-   "sha256": "7106fb71ebb435b257a973cd4caaa28e163e2c241038a10c877712b13a4469b5",
+   "final_url": "https://thegap.wales/",
+   "http": 200,
+   "sha256": "f50a3e8940d020119b3fd9201fa8686e4bd0d4057d260aa35d2cd9e48711d300",
    "etag": "",
    "last_modified": ""
   },
@@ -134,13 +134,12 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 202,
-   "sha256": "8cee64bf4ac55072c9b1b2449a284eb8e10f31ce4dc05c4020de44c18e977005",
+   "http": 200,
+   "sha256": "fa5b4643f7c63e16e2e07e1ef812f924992d89e395baf5e191afb034142e1dbf",
    "etag": "",
    "last_modified": ""
   },
@@ -193,8 +192,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "650e1c6fd0cfcd402cffd7492af5b24ee1096ea294e3b5ad50b1b532502f09c0",
-   "etag": "W/\"4697d9d58dcd55d0c0b36afc0c056fe1\"",
+   "sha256": "6d7b30bb98f1e9276e67400eea8206ebeeed1a0e99998394731c7fd5fd006472",
+   "etag": "W/\"5261489f494361530027a0ceddcc6c68\"",
    "last_modified": ""
   },
   {
@@ -211,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "2d777a8ba0fa34bddb57928ca9bb1ba69f2f5ce44a224664ee1e121140cb5cb2",
+   "sha256": "e13aae76d1cd511e8c82669aa1432f5e75de0dffbd3d4c9f0928a0cd110ecab2",
    "etag": "",
    "last_modified": ""
   },
@@ -677,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "4da4e89432aaade72aa3ba669d6a8f01c1c81d61e219999953eed7ad43a65253",
+   "sha256": "b2dbeb226d845bef7c5c13a366d7dd22a44e4305b0e479ae928aa298fcd291da",
    "etag": "",
    "last_modified": ""
   },
@@ -938,12 +937,12 @@
    "last_modified": null
   },
   {
-   "id": "hl-cardinal-hume-centre-hostel",
-   "name": "Cardinal Hume Centre Hostel",
-   "postcode": "",
-   "website": "http://https://www.cardinalhumecentre.org.uk",
+   "id": "hl-bromford-hayward-road-hostel",
+   "name": "Bromford - Hayward Road Hostel",
+   "postcode": "BS15 9TR",
+   "website": "http://www.bromford.co.uk",
    "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
    "reasons": [
     "no valid postcode"
    ],
@@ -953,6 +952,27 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "222cd184c0d32c5f1336fcc1acb33f3bc39faea73b3d4c593d551f3e26e56d62",
+   "etag": "",
+   "last_modified": ""
   }
  ],
  "rejected": []
