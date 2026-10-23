@@ -43,7 +43,7 @@ jobs:
         run: python scripts/seo_meta.py
       - name: Commit if changed
         run: |
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/swep_status.json reports/layers_review.md reports/layers_review.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

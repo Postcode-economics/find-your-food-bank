@@ -66,7 +66,25 @@ def append_log(path, entry):
 # a human adds the evidence (URL + quote) to the allowlist file.
 def load_verified(path):
     return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
-def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True):
+GRACE_HOURS = 48  # Dean, 23 Oct 2026: keep a place through a brief outage if confirmed in the last 48h
+
+def is_transient(rc):
+    """Source briefly unreachable (bot check, 429, timeout, 5xx, empty/JS-only page) - not a content failure."""
+    if not rc or rc.get("ok"): return False
+    h = rc.get("http")
+    if h == 200: return "no readable text" in (rc.get("reason") or "")
+    if h in ("error", None): return True
+    return isinstance(h, int) and (h in (403, 408, 425, 429) or h >= 500 or 200 <= h < 300)
+
+def _hours_since(ts, now):
+    import datetime
+    try:
+        t = datetime.datetime.fromisoformat(str(ts).replace("Z", "+00:00"))
+        if t.tzinfo is None: t = t.replace(tzinfo=datetime.timezone.utc)
+        return (now - t).total_seconds() / 3600
+    except Exception: return None
+
+def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True, now=None):
     """Returns (published_fresh, filtered_prev). Writes pending list.
     recheck=True: every run re-fetches each entry's source page and only publishes what it confirms (scripts/recheck.py)."""
     pub, pending = [], []
@@ -75,11 +93,23 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         from recheck import recheck_all
         RC = recheck_all(fresh, verified, unverified, pending_path.replace("_pending.json", "_recheck.json"))
         RC.pop("_run", None)
+    import datetime
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    lc_path = pending_path.replace("_pending.json", "_last_confirmed.json")
+    LC = json.load(open(lc_path)) if os.path.exists(lc_path) else {}
+    for x in (prev or {}).get("items", []):  # seed from what is live now (its last confirmed fetch)
+        if x.get("fetched_at") and x["id"] not in LC and not x.get("grace"): LC[x["id"]] = x["fetched_at"]
+    graced = []
     for x in fresh:
         v = verified.get(x["id"])
         has_evidence = bool(v and v.get("evidence_url") and (v.get("day_time_quote") or v.get("quote")))
         rc = RC.get(x["id"]) if recheck else None
-        if (v or (unverified and x["id"] in unverified)) and recheck and (rc is None or not rc.get("ok")):
+        if recheck and rc and rc.get("ok"): LC[x["id"]] = rc.get("fetched_at") or now.replace(microsecond=0).isoformat()
+        age = _hours_since(LC.get(x["id"]), now) if recheck else None
+        grace = bool((v or (unverified and x["id"] in unverified)) and recheck and is_transient(rc) and age is not None and 0 <= age <= GRACE_HOURS)
+        if grace:
+            graced.append({"id": x["id"], "name": x["name"], "reason": rc.get("reason"), "http": rc.get("http"), "last_confirmed": LC[x["id"]], "hours_since": round(age, 1)})
+        if (v or (unverified and x["id"] in unverified)) and recheck and (rc is None or not rc.get("ok")) and not grace:
             pending.append({"id": x["id"], "name": x["name"], "first_seen": run_day, "reason": "omitted this run: " + (rc or {}).get("reason", "not re-checked"),
                             "recheck": {k: (rc or {}).get(k) for k in ("url", "final_url", "fetched_at", "http", "sha256")}}); continue
         if v and has_evidence and (not valid_until or run_day <= valid_until(v)):
@@ -88,7 +118,8 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                 if v.get(k): x[k] = v[k]
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             x["tier"] = "verified"
-            if rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
+            if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]
+            elif rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
             if v.get("access_type"): x["access_type"] = v["access_type"]
             pub.append(x)
         elif unverified and x["id"] in unverified and (not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
@@ -96,7 +127,8 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             # Tier 2: confirmed open/accessible some other way (sign of life), no stated hours or formal page.
             u = unverified[x["id"]]; x = dict(x); x["tier"] = "unverified"; x["verified"] = False
             x["sign_url"] = u["sign_url"]; x["checked_on"] = (rc or {}).get("fetched_at", "")[:10] or u.get("checked_on", "")
-            if rc: x["fetched_at"] = rc.get("fetched_at")
+            if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]; x["checked_on"] = LC[x["id"]][:10]
+            elif rc: x["fetched_at"] = rc.get("fetched_at")
             if u.get("access_type"): x["access_type"] = u["access_type"]
             for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "call_check"):  # hand-checked fixes on tier-2 entries persist every run
                 if u.get(k): x[k] = u[k]
@@ -113,6 +145,15 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
     for p in pending:
         if p["id"] in old: p["first_seen"] = old[p["id"]].get("first_seen", run_day)
     json.dump(sorted(pending, key=lambda p: p["first_seen"], reverse=True), open(pending_path, "w"), indent=1, ensure_ascii=False)
+    if recheck:
+        json.dump(dict(sorted(LC.items())), open(lc_path, "w"), indent=0, ensure_ascii=False)
+        layer = os.path.basename(pending_path).replace("_pending.json", "")
+        os.makedirs("reports", exist_ok=True)
+        with open(f"reports/{layer}_grace.md", "w") as f:
+            f.write(f"# {layer}: kept on 48-hour grace ({now.replace(microsecond=0).isoformat()})\n\n")
+            f.write("Source page briefly unreachable this run; kept because it was confirmed within the last %d hours.\n\n" % GRACE_HOURS)
+            f.write("".join(f"- {g['name']} ({g['id']}): {g['reason']}; last confirmed {g['last_confirmed']} ({g['hours_since']}h ago)\n" for g in graced) or "None this run.\n")
+        verification_gate.graced = graced
     ok = {x["id"] for x in pub}
     if prev:
         prev = dict(prev)
