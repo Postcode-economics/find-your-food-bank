@@ -8,7 +8,7 @@
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=ux20261023d"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=ux20261023e"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -105,7 +105,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
  if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
  if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
- return `<div class="ot">${IC('clock')}Call for opening times</div>`}
+ return `<div class="ot">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`}
 {const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 if(window.FB_STAMP){$('upd').textContent=FB_STAMP.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FB_STAMP.label}else $('chk').textContent=chkDates.length?'checked '+new Date(chkDates[chkDates.length-1]).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
@@ -116,7 +116,7 @@ const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box'
 const telOf=i=>i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(i.phone||'').replace(/[^\d+]/g,'');  // build sets tel = first valid UK number
 const ph1=i=>esc(String(i.phone||'').split(' or ')[0]),phAlt=i=>String(i.phone||'').includes(' or ')?`<small class="psrc palt">Or: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</small>`:'';
 const todayLine=i=>{const s=parsed(i),td=DK[new Date().getDay()],t=i.opening_times;if(s){const r=s[td]||[];return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.length?r.map(x=>x.join('–')).join(', '):'Closed'}</div>`}
- return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?`<div class="ptd">${IC('clock')}Check times on their website</div>`:`<div class="ptd">${IC('clock')}Call for opening times</div>`};
+ return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?`<div class="ptd">${IC('clock')}Check times on their website</div>`:`<div class="ptd">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`};
 function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
@@ -274,5 +274,5 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  // pull down on the tab also restores
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
-</script><script src="layers.js?v=ux20261023d"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=ux20261023d"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
+</script><script src="layers.js?v=ux20261023e"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=ux20261023e"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
