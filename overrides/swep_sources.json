@@ -2987,14 +2987,15 @@
   "code": "MAN",
   "council": "Manchester City Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter",
   "no_swep_page": true,
   "note": "Manchester has a SWEP (0°C one-night trigger, per council report) but no dedicated public SWEP page found; StreetLink/outreach route",
   "looked_at": [],
   "phone_source": "https://democracy.manchester.gov.uk/documents/s42452/Homelessness%20Report.pdf",
   "phone_confidence": "hand-checked web search 2026-10-23",
   "homeless_url": "https://www.manchester.gov.uk/homes-and-property/homeless-people",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "MAS",
@@ -4544,7 +4545,7 @@
   "code": "SWK",
   "council": "London Borough of Southwark",
   "nation": "England",
-  "url": null,
+  "url": "https://www.southwark.gov.uk/housing/homelessness/sleeping-rough/rough-sleeping-very-cold-weather",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4556,7 +4557,8 @@
    "https://www.southwark.gov.uk/housing/homelessness/sleeping-rough"
   ],
   "homeless_url": "https://www.southwark.gov.uk/housing/find-home/downsize-and-find-new-home",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SWL",
