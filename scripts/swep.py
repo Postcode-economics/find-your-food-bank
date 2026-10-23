@@ -18,7 +18,8 @@ def classify(text, run_day=None):
     """Return (status, quote). The LATEST-mentioned state on the page wins when both appear."""
     t = re.sub(r"\s+", " ", text or "")
     if not KW.search(t): return "no SWEP wording", ""
-    on = list(ON.finditer(t)); off = list(OFF.finditer(t))
+    cond = lambda m: re.search(r"\b(when|if|whenever|until)\s+$", t[max(0, m.start() - 12):m.start()], re.I) or re.match(r"\s*(when|if)\b", t[m.end():m.end() + 8], re.I)
+    on = [m for m in ON.finditer(t) if not cond(m)]; off = [m for m in OFF.finditer(t) if not cond(m)]
     if not on and not off: return "unknown", ""
     last_on = on[0] if on else None; last_off = off[0] if off else None  # first mention = page headline / latest news
     if last_on and (not last_off or last_on.start() < last_off.start()): m, st = last_on, "active"
