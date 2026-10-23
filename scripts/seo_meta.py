@@ -2,7 +2,8 @@
 - WebPage JSON-LD with dateModified on every page (block marked data-ld="page")
 - Dataset JSON-LD on the home page (data-ld="dataset"), FAQPage JSON-LD on faq.html (data-ld="faq")
 - the no-JS text of the home page's 'Updated today at HH:MM' line
-- sitemap.xml lastmod for every page.
+- sitemap.xml lastmod for every page
+- ?v=r<run time> on data.js, stamp.js and access.js in index.html (edge cache-bust).
 Usage: python scripts/seo_meta.py"""
 import datetime, glob, html, json, os, re
 from zoneinfo import ZoneInfo
@@ -76,6 +77,8 @@ def run(root=ROOT):
         s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
                                         'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
+            # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
+            s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s at %s' % ('on %d %s' % (t.day, t.strftime('%B')), t.strftime('%H:%M')) + m.group(2), s)
         if rel == 'faq.html':
