@@ -736,7 +736,9 @@
   "council": "Birmingham City Council",
   "council_phone": "0121 303 1111",
   "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers",
-  "hours": "Monday 8:45am to 9:30am (Parents Group)",
+  "hours": {
+   "Monday": "8:45am to 9:30am (Parents Group)"
+  },
   "hours_source": "https://www.birmingham.gov.uk/directory_record/670130/marlborough_primary_school",
   "hours_checked": "2026-10-23"
  },
@@ -2300,7 +2302,10 @@
   "phone": "01213266538",
   "phone_source": "https://www.midlandsgreek.org/",
   "confidence": "cross-checked 23 Oct 2026: second source (web search/directory) agrees; was one source: venue/operator's own website (auto-extracted, single number on page), 2026-10-23",
-  "hours": "Monday and Wednesday 9:30am to midday (Stay and Play)",
+  "hours": {
+   "Monday": "9:30am to midday (Stay and Play)",
+   "Wednesday": "9:30am to midday (Stay and Play)"
+  },
   "hours_source": "https://www.birmingham.gov.uk/directory_record/627826/the_midlands_greek_and_cypriot_association",
   "hours_checked": "2026-10-23"
  },
