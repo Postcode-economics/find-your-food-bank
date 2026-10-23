@@ -2373,7 +2373,7 @@
   "code": "GWN",
   "council": "Gwynedd Council",
   "nation": "Wales",
-  "url": null,
+  "url": "https://www.gwynedd.llyw.cymru/en-gb/housing/homelessness/homelessness-severe-weather-emergency-protocol",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -2381,7 +2381,8 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01286 685100",
   "phone_source": "https://www.gwynedd.llyw.cymru/en-gb/housing",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "HAA",
@@ -3106,7 +3107,7 @@
   "code": "MON",
   "council": "Monmouthshire County Council",
   "nation": "Wales",
-  "url": null,
+  "url": "https://www.monmouthshire.gov.uk/housing/finding-a-home/homelessness-2/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3121,7 +3122,8 @@
   "phone_source": "https://www.monmouthshire.gov.uk/cynllun-pontio-digartrefedd/cy-homeless-transition-action-plan-cy-gb/",
   "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked",
   "homeless_url": "https://www.monmouthshire.gov.uk/housing/finding-a-home/homelessness-2/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "MRT",
@@ -3235,29 +3237,31 @@
   "code": "NEA",
   "council": "Newark and Sherwood District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.newark-sherwooddc.gov.uk/housing/homelessness/severe-weather-emergency-protocol",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.newark-sherwooddc.gov.uk/housing/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NEC",
   "council": "Newcastle-under-Lyme Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.newcastle-staffs.gov.uk/housing/homelessness-harassment/3",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.newcastle-staffs.gov.uk/housing/homelessness-harassment",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NED",
   "council": "North East Derbyshire District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.ne-derbyshire.gov.uk/housing-and-health/homelessness",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3269,13 +3273,14 @@
    "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx"
   ],
   "homeless_url": "https://www.ne-derbyshire.gov.uk/housing-and-health/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NEL",
   "council": "North East Lincolnshire Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.nelincs.gov.uk/north-east-lincolnshire-councils-severe-weather-emergency-protocol-to-offer-shelter-to-people-rough-sleeping-in-north-east-lincolnshire-now-in-place/",
   "looked_at": [],
   "homeless_url": "https://www.nelincs.gov.uk/homes-and-property/homelessness-prevention-and-housing-advice/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
@@ -3285,7 +3290,8 @@
   "ooh_phone": "01472 326296",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.nelincs.gov.uk/homes-and-property/homelessness-prevention-and-housing-advice/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NET",
@@ -3311,12 +3317,13 @@
   "code": "NEW",
   "council": "New Forest District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.newforest.gov.uk/article/4133/Support-to-rough-sleepers-during-colder-weather",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.newforest.gov.uk/article/993/Help-for-homeless",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NFK",
@@ -3367,7 +3374,7 @@
   "code": "NKE",
   "council": "North Kesteven District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3379,7 +3386,8 @@
   "ooh_phone": "01529 308308",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NLK",
@@ -3417,18 +3425,19 @@
   "code": "NNO",
   "council": "North Norfolk District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.north-norfolk.gov.uk/section/housing",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NNT",
   "council": "North Northamptonshire Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.northnorthants.gov.uk/housing/severe-weather-emergency-protocol-swep",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -3437,18 +3446,20 @@
   "ooh_phone": "0300 126 3000",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.northnorthants.gov.uk/housing-advice-and-options/homelessness-and-rough-sleeping",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NOW",
   "council": "Norwich City Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.norwich.gov.uk/housing-and-community-safety/apply-housing-housing-advice-and-homelessness/support-people-sleeping/severe-weather-emergency-protocol",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.norwich.gov.uk/housing-and-community-safety/help-live-home/risk-losing-your-home",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NSM",
@@ -3475,18 +3486,19 @@
   "code": "NTY",
   "council": "North Tyneside Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://my.northtyneside.gov.uk/?originalUrl=https://my.northtyneside.gov.uk/category/1290/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NUN",
   "council": "Nuneaton and Bedworth Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.nuneatonandbedworth.gov.uk/swep",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3498,7 +3510,8 @@
    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm"
   ],
   "homeless_url": "https://www.nuneatonandbedworth.gov.uk/homelessness/homelessness-1",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "NWA",
@@ -3702,7 +3715,7 @@
   "code": "PRE",
   "council": "Preston City Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3716,7 +3729,8 @@
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
   "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked",
   "homeless_url": "https://www.preston.gov.uk/homeless",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "PTE",
@@ -3742,7 +3756,7 @@
   "code": "RCH",
   "council": "Rochdale Metropolitan Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.rochdale.gov.uk/housing/support-people-risk-homelessness",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -3750,7 +3764,8 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "0300 303 8548",
   "phone_source": "https://www.rochdale.gov.uk/homeless",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "RCT",
@@ -3798,12 +3813,13 @@
   "code": "RED",
   "council": "Redditch Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.redditchbc.gov.uk/residents/my-home/find-me-a-home/homeless-services-and-advice/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.redditchbc.gov.uk/my-home/find-me-a-home/homelessness-and-housing-solutions.aspx",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "REI",
@@ -3851,7 +3867,7 @@
   "code": "ROC",
   "council": "Rochford District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.rochford.gov.uk/housing-options-service",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3861,7 +3877,8 @@
    "https://www.essex.gov.uk/adult-social-care-and-health/housing-options-and-care-homes/homelessness-get-advice-and-support"
   ],
   "homeless_url": "https://www.rochford.gov.uk/housing-options-service",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "ROH",
@@ -3877,7 +3894,7 @@
   "code": "ROS",
   "council": "Rossendale Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.rossendale.gov.uk/housing-homelessness/homeless-housing-options/3",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3891,7 +3908,8 @@
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
   "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked",
   "homeless_url": "https://www.rossendale.gov.uk/housing-homelessness/homeless-housing-options/1",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "ROT",
@@ -3925,7 +3943,7 @@
   "code": "RUH",
   "council": "Rushmoor Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.rushmoor.gov.uk/your-council/news-and-your-views/council-news/news-releases/june-2026/severe-weather-emergency-protocol/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -3933,18 +3951,20 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01252 398634",
   "phone_source": "https://www.rushmoor.gov.uk/housing-benefits-and-support/homelessness-and-urgent-housing-need/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "RUN",
   "council": "Runnymede Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.runnymede.gov.uk/news/article/307/severe-weather-emergency-protocol-active-22-june-2026-26-june-2026",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.runnymede.gov.uk/preventing-homelessness-1",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "RUS",
@@ -3961,7 +3981,7 @@
   "code": "SAL",
   "council": "St Albans City and District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.stalbans.gov.uk/rough-sleeping",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3971,13 +3991,14 @@
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx"
-  ]
+  ],
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SAW",
   "council": "Sandwell Metropolitan Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.sandwell.gov.uk/find-home/concerned-rough-sleeper",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -3985,7 +4006,8 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01215 697474",
   "phone_source": "https://www.sandwell.gov.uk/find-home/homeless-risk-losing-home",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SAY",
@@ -4066,7 +4088,7 @@
   "code": "SGC",
   "council": "South Gloucestershire Council",
   "nation": "England",
-  "url": null,
+  "url": "https://life.southglos.gov.uk/kb5/southglos/directory/advice.page?id=2sQ79T30fdg",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -4075,18 +4097,20 @@
   "ooh_phone": "01454 615165",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://life.southglos.gov.uk/kb5/southglos/directory/advice.page?id=2sQ79T30fdg",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SHA",
   "council": "South Hams District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.southhams.gov.uk/news/2025/stay-safe-cold-weather",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.southhams.gov.uk/housing/housing-support/homelessness/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SHE",
@@ -4134,27 +4158,29 @@
   "code": "SHO",
   "council": "South Holland District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.sholland.gov.uk/article/22764/Severe-Weather",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving"
   ],
   "homeless_url": "https://www.sholland.gov.uk/article/5180/Housing-Advice-and-Homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SKE",
   "council": "South Kesteven District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving"
   ],
   "homeless_url": "https://www.southkesteven.gov.uk/homeless",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SKP",
@@ -4206,12 +4232,13 @@
   "code": "SMT",
   "council": "Somerset Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "http://www.somerset.gov.uk/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SND",
@@ -4242,7 +4269,7 @@
   "code": "SOS",
   "council": "Southend-on-Sea Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.southend.gov.uk/housing-1/severe-weather-emergency-protocol-swep",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -4250,13 +4277,14 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01702 215002",
   "phone_source": "https://www.southend.gov.uk/housing-1/homelessness",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SOX",
   "council": "South Oxfordshire District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/housing/are-you-homeless/severe-weather-emergency-protocol-swep/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4268,7 +4296,8 @@
   "ooh_phone": "01235 422420",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/housing/are-you-homeless/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SPE",
@@ -4285,7 +4314,7 @@
   "code": "SRI",
   "council": "South Ribble Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://southribble.gov.uk/housing/severe-weather-emergency-protocol",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4299,7 +4328,8 @@
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
   "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked",
   "homeless_url": "https://southribble.gov.uk/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SRY",
@@ -4316,12 +4346,13 @@
   "code": "SST",
   "council": "South Staffordshire Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.sstaffs.gov.uk/housing/housing-and-homelessness-advice",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.sstaffs.gov.uk/housing/care-leavers-and-homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "STA",
@@ -4398,18 +4429,19 @@
   "code": "STO",
   "council": "Stroud District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.stroud.gov.uk/housing/homelessness/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.stroud.gov.uk/housing/homelessness/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "STR",
   "council": "Stratford-on-Avon District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.stratford.gov.uk/news/press.cfm/current/1/item/136731",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4421,7 +4453,8 @@
    "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm"
   ],
   "homeless_url": "https://www.stratford.gov.uk/homes-properties/homelessness.cfm",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "STS",
@@ -4449,7 +4482,7 @@
   "code": "STV",
   "council": "Stevenage Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.stevenage.gov.uk/housing/homelessness-and-housing-advice/street-homeless-services",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4461,18 +4494,20 @@
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx"
   ],
   "homeless_url": "https://www.stevenage.gov.uk/housing/homelessness-and-housing-advice",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "STY",
   "council": "South Tyneside Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.southtyneside.gov.uk/article/20226/Severe-Weather-Emergency-Protocol-SWEP",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.southtyneside.gov.uk/article/936/Housing",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "SUR",
@@ -4527,12 +4562,13 @@
   "code": "SWL",
   "council": "Swale Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://swale.gov.uk/your-council/strategies-and-policies/severe-weather-emergency-protocol-guidance",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://swale.gov.uk/housing-council-tax-and-benefits/housing/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "TAM",
@@ -4569,12 +4605,13 @@
   "code": "TEI",
   "council": "Teignbridge District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.teignbridge.gov.uk/housing/rough-sleeping/severe-weather-provisions-for-rough-sleepers/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.teignbridge.gov.uk/housing/homelessness-and-prevention",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "TEN",
@@ -4596,18 +4633,19 @@
   "code": "TES",
   "council": "Test Valley Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.testvalley.gov.uk/severe-weather/severe-weather-emergency-protocol-swep",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.testvalley.gov.uk/housing/housing-advice",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "TEW",
   "council": "Tewkesbury Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://tewkesbury.gov.uk/services/housing/homelessness-and-housing-options/homeless-advice-and-prevention/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -4617,35 +4655,38 @@
   "ooh_phone": "01684 293445",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://tewkesbury.gov.uk/services/housing/homelessness-and-housing-options/homeless-advice-and-prevention/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "TFW",
   "council": "Telford & Wrekin Council",
   "nation": "England",
-  "url": null,
+  "url": "https://newsroom.telford.gov.uk/news/council-continues-to-make-great-strides-tackling-homelessness",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.telford.gov.uk/housing-homeowners-tenants-and-landlords-better-homes-for-all/homeowners/are-you-at-risk-of-becoming-homeless/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "THA",
   "council": "Thanet District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.thanet.gov.uk/info-pages/rough-sleeping/",
   "looked_at": [],
   "homeless_url": "https://www.thanet.gov.uk/services/housing-advice/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "no_swep_page": true,
-  "note": "Candidate page listed for Dean; not a council SWEP page"
+  "note": "Candidate page listed for Dean; not a council SWEP page",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "THE",
   "council": "Three Rivers District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.threerivers.gov.uk/services/housing/homelessness",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4662,7 +4703,8 @@
   "ooh_phone": "01923 932145",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.threerivers.gov.uk/services/housing/homelessness",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "THR",
@@ -4681,12 +4723,13 @@
   "code": "TOB",
   "council": "Torbay Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.torbay.gov.uk/housing/homelessness/report-a-rough-sleeper/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.torbay.gov.uk/housing/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "TOF",
@@ -4713,12 +4756,13 @@
   "code": "TOR",
   "council": "Torridge District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.torridge.gov.uk/article/17676/Severe-Weather-Provision-for-Rough-Sleepers",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "http://www.torridge.gov.uk/housing",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "TRF",
@@ -4763,7 +4807,7 @@
   "code": "UTT",
   "council": "Uttlesford District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.uttlesford.gov.uk/article/6001/Help-with-your-housing-needs",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4773,13 +4817,14 @@
    "https://www.essex.gov.uk/adult-social-care-and-health/housing-options-and-care-homes/homelessness-get-advice-and-support"
   ],
   "homeless_url": "https://www.uttlesford.gov.uk/article/5309/Housing-Options-and-homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "VAL",
   "council": "Vale of White Horse District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/housing/are-you-homeless/severe-weather-emergency-protocol-swep/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4791,7 +4836,8 @@
   "ooh_phone": "01235 422420",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/housing/are-you-homeless/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "VGL",
@@ -4823,12 +4869,13 @@
   "code": "WAF",
   "council": "Westmorland and Furness Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/sleeping-rough-or-street-homeless",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.westmorlandandfurness.gov.uk/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WAR",
@@ -4845,7 +4892,7 @@
   "code": "WAT",
   "council": "Watford Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.watford.gov.uk/homelessness/im-homeless-risk-homeless/12",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4860,13 +4907,14 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01923 226400",
   "phone_source": "https://www.watford.gov.uk/homelessness/im-homeless-risk-homeless",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WAW",
   "council": "Warwick District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.warwickdc.gov.uk/info/20233/housing_advice_and_homelessness/1328/other_housing_options_and_local_support_services",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4883,7 +4931,8 @@
   "ooh_phone": "0300 303 5573",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.warwickdc.gov.uk/homelessness",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WBK",
@@ -4932,18 +4981,19 @@
   "code": "WEA",
   "council": "Wealden District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WEW",
   "council": "Welwyn Hatfield Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.welhat.gov.uk/homelessness/homelessness-rough-sleeping-referrals/2",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -4955,7 +5005,8 @@
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx"
   ],
   "homeless_url": "https://www.welhat.gov.uk/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WFT",
@@ -4989,23 +5040,25 @@
   "code": "WIL",
   "council": "Wiltshire Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.wiltshire.gov.uk/article/2026/Rough-Sleeping",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.wiltshire.gov.uk/housing-homeless",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WIN",
   "council": "Winchester City Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.winchester.gov.uk/no-listing/severe-weather-emergency-protocol",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "http://www.winchester.gov.uk/housing/homelessness/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WKF",
@@ -5041,14 +5094,15 @@
   "code": "WLI",
   "council": "West Lindsey District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.west-lindsey.gov.uk/sites/default/files/2026-08/Lincolnshire%20SWEP%20Protocol%20July%202026%20-%20Approved%20Version.pdf",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving"
   ],
   "homeless_url": "https://www.west-lindsey.gov.uk/housing-homelessness/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WLV",
@@ -5075,7 +5129,7 @@
   "code": "WNM",
   "council": "Royal Borough of Windsor and Maidenhead",
   "nation": "England",
-  "url": null,
+  "url": "https://www.rbwm.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -5085,13 +5139,14 @@
   "ooh_phone": "01628 683803",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.rbwm.gov.uk/housing/homelessness/homelessness-applying-housing",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WNT",
   "council": "West Northamptonshire Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -5100,18 +5155,20 @@
   "ooh_phone": "0300 126 7000",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.westnorthants.gov.uk/homelessness/homeless-or-risk-becoming-homeless",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WOC",
   "council": "Worcester City Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.worcester.gov.uk/housing/homeless-or-at-risk-of-homelessness/rough-sleeping",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.worcester.gov.uk/housing",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WOI",
@@ -5148,12 +5205,13 @@
   "code": "WOT",
   "council": "Worthing Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.adur-worthing.gov.uk/housing/advice/going-to-be-homeless/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WOX",
@@ -5201,12 +5259,13 @@
   "code": "WRX",
   "council": "Wrexham County Borough Council",
   "nation": "Wales",
-  "url": null,
+  "url": "https://www.wrexham.gov.uk/services/housing/homeless-or-risk/help-and-advice",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.wrexham.gov.uk/services/housing/homeless-or-risk",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WSK",
@@ -5256,7 +5315,7 @@
   "code": "WYE",
   "council": "Wyre Forest District Council",
   "nation": "England",
-  "url": null,
+  "url": "https://wyreforestdc.gov.uk/housing-and-homes/homelessness/getting-a-home/housing-advice-for-specific-groups-of-people/housing-advice-for-rough-sleepers/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -5266,13 +5325,14 @@
   "ooh_phone": "01562 732225",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.wyreforestdc.gov.uk/housing-and-homes/homelessness/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "WYR",
   "council": "Wyre Borough Council",
   "nation": "England",
-  "url": null,
+  "url": "https://www.wyre.gov.uk/housing-options-homelessness/duty-refer/3",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -5287,7 +5347,8 @@
   "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
   "homeless_url": "https://www.wyre.gov.uk/housing-options-homelessness/homeless-threatened-homelessness?documentId=82&amp;categoryId=20045",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
-  "homeless_phone": "01253 891000"
+  "homeless_phone": "01253 891000",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "YOR",
