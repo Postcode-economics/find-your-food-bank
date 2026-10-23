@@ -1,0 +1,718 @@
+# SWEP daily full check (2026-10-23)
+
+382 councils: 64 with a SWEP page, 83 with a homeless line, 6 active, 382 flagged.
+
+## Active now
+
+- Isle of Anglesey County Council
+- London Borough of Islington
+- North Somerset  Council
+- Rotherham Metropolitan Borough Council
+- Swindon Borough Council
+- London Borough of Tower Hamlets
+
+## Changes and flags
+
+- Armagh City, Banbridge and Craigavon Borough Council: new council record
+- Aberdeenshire Council: new council record
+- Aberdeen City Council: new council record
+- Adur District Council: new council record
+- Argyll and Bute Council: new council record
+- Isle of Anglesey County Council: new council record
+- Amber Valley Borough Council: new council record
+- Ards and North Down Borough Council: new council record
+- Antrim and Newtownabbey Borough Council: new council record
+- Angus Council: new council record
+- Arun District Council: new council record
+- Ashford Borough Council: new council record
+- Ashfield District Council: new council record
+- Babergh District Council: new council record
+- Bassetlaw District Council: new council record
+- Basildon Borough Council: new council record
+- Basingstoke and Deane Borough Council: new council record
+- Bath and North East Somerset Council: new council record
+- Blackburn with Darwen Borough Council: new council record
+- Bedford Borough Council: new council record
+- London Borough of Barking and Dagenham: new council record; dead page https://www.lbbd.gov.uk/civil-protection-service/severe-weather (HTTP 403)
+- London Borough of Brent: new council record
+- London Borough of Bexley: new council record
+- Belfast City Council: new council record
+- Bridgend County Borough Council: new council record
+- Blaenau Gwent County Borough Council: new council record
+- Birmingham City Council: new council record
+- Blaby District Council: new council record
+- London Borough of Barnet: new council record
+- Brighton and Hove City Council: new council record; dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 403)
+- Barnsley Metropolitan Borough Council: new council record
+- Bolton Metropolitan Borough Council: new council record
+- Bolsover District Council: new council record
+- Boston Borough Council: new council record
+- Bournemouth, Christchurch and Poole Council: new council record
+- Blackpool Borough Council: new council record
+- Braintree District Council: new council record
+- Bracknell Forest Council: new council record
+- City of Bradford Metropolitan District Council: new council record
+- Breckland District Council: new council record
+- Bromsgrove District Council: new council record
+- Broadland District Council: new council record
+- Broxtowe Borough Council: new council record
+- Brentwood Borough Council: new council record
+- Broxbourne Borough Council: new council record
+- London Borough of Bromley: new council record
+- Bristol City Council: new council record
+- Buckinghamshire Council: new council record
+- Burnley Borough Council: new council record
+- Bury Metropolitan Borough Council: new council record
+- Cambridge City Council: new council record
+- Cambridgeshire County Council: new council record
+- Cannock Chase District Council: new council record
+- Castle Point Borough Council: new council record
+- Canterbury City Council: new council record
+- Caerphilly County Borough Council: new council record
+- Cumberland Council: new council record
+- Central Bedfordshire Council: new council record
+- Causeway Coast and Glens Borough Council: new council record
+- Ceredigion County Council: new council record
+- Charnwood Borough Council: new council record
+- Cheshire East Council: new council record
+- Chichester District Council: new council record
+- Chelmsford City Council: new council record
+- Chorley Borough Council: new council record
+- Cherwell District Council: new council record
+- Chesterfield Borough Council: new council record
+- Cheltenham Borough Council: new council record
+- Cheshire West and Chester Council: new council record
+- Calderdale Metropolitan Borough Council: new council record
+- Clackmannanshire Council: new council record
+- London Borough of Camden: new council record; dead page https://www.camden.gov.uk/cold-weather-advice (HTTP 403); dead page https://www.camden.gov.uk/rough-sleeping (HTTP 403)
+- Carmarthenshire County Council: new council record
+- Colchester Borough Council: new council record
+- Cornwall Council: new council record
+- Cotswold District Council: new council record
+- Coventry City Council: new council record
+- City of Cardiff Council: new council record; dead page https://www.cardiffhousing.co.uk/homelessness/homeless-now/ (HTTP error)
+- Crawley Borough Council: new council record
+- London Borough of Croydon: new council record
+- Conwy County Borough Council: new council record
+- Dacorum Borough Council: new council record
+- Darlington Borough Council: new council record
+- Dartford Borough Council: new council record
+- Derbyshire County Council: new council record
+- Derbyshire Dales District Council: new council record
+- Denbighshire County Council: new council record
+- Derby City Council: new council record
+- Devon County Council: new council record
+- Dumfries and Galloway Council: new council record
+- City of Doncaster Council: new council record
+- Dundee City Council: new council record
+- Dover District Council: new council record
+- Derry City and Strabane District Council: new council record
+- Dorset Council: new council record
+- Dudley Metropolitan Borough Council: new council record
+- Durham County Council: new council record
+- London Borough of Ealing: new council record
+- Eastbourne Borough Council: new council record
+- Eastleigh Borough Council: new council record
+- East Ayrshire Council: new council record
+- East Cambridgeshire District Council: new council record
+- East Devon District Council: new council record
+- City of Edinburgh Council: new council record
+- East Dunbartonshire Council: new council record
+- East Hampshire District Council: new council record
+- East Hertfordshire District Council: new council record
+- East Lindsey District Council: new council record
+- Elmbridge Borough Council: new council record
+- East Lothian Council: new council record
+- Comhairle nan Eilean Siar: new council record
+- London Borough of Enfield: new council record
+- Epping Forest District Council: new council record
+- Epsom and Ewell Borough Council: new council record
+- Erewash Borough Council: new council record
+- East Renfrewshire Council: new council record
+- East Riding of Yorkshire Council: new council record
+- East Suffolk Council: new council record
+- Essex County Council: new council record
+- East Staffordshire Borough Council: new council record
+- East Sussex County Council: new council record
+- Exeter City Council: new council record
+- Falkirk Council: new council record
+- Fareham Borough Council: new council record
+- Fenland District Council: new council record
+- Fife Council: new council record
+- Flintshire County Council: new council record
+- Fermanagh and Omagh District Council: new council record
+- Forest of Dean District Council: new council record
+- Fylde Borough Council: new council record
+- Gateshead Metropolitan Borough Council: new council record
+- Gedling Borough Council: new council record
+- Glasgow City Council: new council record
+- Gloucester City Council: new council record
+- Gloucestershire County Council: new council record
+- Gosport Borough Council: new council record
+- Gravesham Borough Council: new council record
+- Royal Borough of Greenwich: new council record
+- Guildford Borough Council: new council record
+- Great Yarmouth Borough Council: new council record
+- Gwynedd Council: new council record
+- Havant Borough Council: new council record
+- Halton Borough Council: new council record
+- Hampshire County Council: new council record
+- Harborough District Council: new council record
+- Harlow District Council: new council record
+- Hastings Borough Council: new council record
+- Hart District Council: new council record
+- London Borough of Havering: new council record
+- London Borough of Hackney: new council record
+- Herefordshire Council: new council record
+- Hertsmere Borough Council: new council record
+- High Peak Borough Council: new council record
+- London Borough of Hillingdon: new council record
+- Hinckley and Bosworth Borough Council: new council record
+- The Highland Council: new council record
+- London Borough of Hammersmith & Fulham: new council record
+- London Borough of Hounslow: new council record
+- Horsham District Council: new council record
+- Hartlepool Borough Council: new council record
+- Hertfordshire County Council: new council record
+- London Borough of Harrow: new council record
+- London Borough of Haringey: new council record
+- Huntingdonshire District Council: new council record
+- Hyndburn Borough Council: new council record
+- Council of the Isles of Scilly: new council record
+- Isle of Wight Council: new council record
+- Ipswich Borough Council: new council record
+- London Borough of Islington: new council record
+- Inverclyde Council: new council record
+- Royal Borough of Kensington and Chelsea: new council record
+- Kent County Council: new council record
+- Hull City Council: new council record
+- Borough Council of Kings Lynn and West Norfolk: new council record
+- Kirklees Council: new council record
+- Royal Borough of Kingston upon Thames: new council record
+- Knowsley Metropolitan Borough Council: new council record
+- Lancaster City Council: new council record
+- Lancashire County Council: new council record
+- Lisburn and Castlereagh City Council: new council record
+- London Borough of Lambeth: new council record
+- Leicester City Council: new council record
+- Leeds City Council: new council record
+- Leicestershire County Council: new council record
+- Lewes District Council: new council record
+- London Borough of Lewisham: new council record
+- City of Lincoln Council: new council record
+- Lichfield District Council: new council record
+- Lincolnshire County Council: new council record
+- Liverpool City Council: new council record
+- City of London Corporation: new council record
+- Luton Borough Council: new council record
+- Maidstone Borough Council: new council record
+- Maldon District Council: new council record
+- Manchester City Council: new council record
+- Mansfield District Council: new council record
+- Malvern Hills District Council: new council record
+- Middlesbrough Borough Council: new council record
+- Mid Devon District Council: new council record
+- Medway Council: new council record
+- Mid and East Antrim Borough Council: new council record
+- Melton Borough Council: new council record
+- Milton Keynes Council: new council record
+- Midlothian Council: new council record
+- Mole Valley District Council: new council record
+- Monmouthshire County Council: new council record
+- London Borough of Merton: new council record
+- The Moray Council: new council record
+- Mid Sussex District Council: new council record
+- Mid Suffolk District Council: new council record
+- Merthyr Tydfil County Borough Council: new council record
+- Mid Ulster District Council: new council record
+- North Ayrshire Council: new council record
+- Northumberland County Council: new council record
+- North Devon District Council: new council record
+- Newark and Sherwood District Council: new council record
+- Newcastle-under-Lyme Borough Council: new council record
+- North East Derbyshire District Council: new council record
+- North East Lincolnshire Council: new council record
+- Newcastle City Council: new council record
+- New Forest District Council: new council record
+- Norfolk County Council: new council record
+- Nottingham City Council: new council record
+- North Hertfordshire District Council: new council record
+- North Kesteven District Council: new council record
+- North Lanarkshire Council: new council record
+- North Lincolnshire Council: new council record
+- Newry, Mourne and Down District Council: new council record
+- North Norfolk District Council: new council record
+- North Northamptonshire Council: new council record
+- Norwich City Council: new council record
+- North Somerset  Council: new council record
+- Neath Port Talbot County Borough Council: new council record
+- Nottinghamshire County Council: new council record
+- North Tyneside Council: new council record
+- Nuneaton and Bedworth Borough Council: new council record
+- North Warwickshire Borough Council: new council record
+- North West Leicestershire District Council: new council record
+- London Borough of Newham: new council record
+- Newport City Council: new council record
+- North Yorkshire Council: new council record
+- Oadby and Wigston Borough Council: new council record
+- Oldham Metropolitan Borough Council: new council record
+- Orkney Islands Council: new council record
+- Oxfordshire County Council: new council record
+- Oxford City Council: new council record
+- Pembrokeshire County Council: new council record
+- Pendle Borough Council: new council record
+- Perth and Kinross Council: new council record
+- Plymouth City Council: new council record; dead page https://www.plymouth.gov.uk/rough-sleeping (HTTP 403); dead page https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep (HTTP 403)
+- Portsmouth City Council: new council record
+- Powys County Council: new council record
+- Preston City Council: new council record
+- Peterborough City Council: new council record
+- Redcar and Cleveland Borough Council: new council record; dead page https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping (HTTP 403)
+- Rochdale Metropolitan Borough Council: new council record
+- Rhondda Cynon Taf County Borough Council: new council record
+- London Borough of Redbridge: new council record
+- Reading Borough Council: new council record
+- Redditch Borough Council: new council record
+- Reigate and Banstead Borough Council: new council record
+- Renfrewshire Council: new council record
+- Ribble Valley Borough Council: new council record
+- London Borough of Richmond upon Thames: new council record
+- Rochford District Council: new council record
+- Rother District Council: new council record
+- Rossendale Borough Council: new council record
+- Rotherham Metropolitan Borough Council: new council record
+- Rugby Borough Council: new council record
+- Rushmoor Borough Council: new council record
+- Runnymede Borough Council: new council record
+- Rushcliffe Borough Council: new council record
+- Rutland County Council: new council record
+- St Albans City and District Council: new council record
+- Sandwell Metropolitan Borough Council: new council record
+- South Ayrshire Council: new council record
+- South Cambridgeshire District Council: new council record
+- Scottish Borders Council: new council record
+- South Derbyshire District Council: new council record
+- Sevenoaks District Council: new council record
+- Suffolk County Council: new council record
+- Sefton Metropolitan Borough Council: new council record
+- South Gloucestershire Council: new council record
+- South Hams District Council: new council record
+- Folkestone and Hythe District Council: new council record
+- Sheffield City Council: new council record
+- St Helens Council: new council record
+- South Holland District Council: new council record
+- Shropshire Council: new council record
+- South Kesteven District Council: new council record
+- Stockport Metropolitan Borough Council: new council record
+- Salford City Council: new council record
+- Slough Borough Council: new council record
+- South Lanarkshire Council: new council record
+- Somerset Council: new council record
+- Sunderland City Council: new council record
+- South Norfolk District Council: new council record
+- Solihull Metropolitan Borough Council: new council record
+- Southend-on-Sea Borough Council: new council record
+- South Oxfordshire District Council: new council record
+- Spelthorne Borough Council: new council record
+- South Ribble Borough Council: new council record
+- Surrey County Council: new council record
+- South Staffordshire Council: new council record
+- Stafford Borough Council: new council record
+- Stoke-on-Trent City Council: new council record
+- Staffordshire Moorlands District Council: new council record
+- Stirling Council: new council record
+- Southampton City Council: new council record
+- London Borough of Sutton: new council record
+- Stroud District Council: new council record
+- Stratford-on-Avon District Council: new council record
+- Staffordshire County Council: new council record
+- Stockton-on-Tees Borough Council: new council record
+- Stevenage Borough Council: new council record
+- South Tyneside Council: new council record
+- Surrey Heath Borough Council: new council record
+- City and County of Swansea Council: new council record
+- Swindon Borough Council: new council record
+- London Borough of Southwark: new council record
+- Swale Borough Council: new council record
+- Tameside Metropolitan Borough Council: new council record
+- Tandridge District Council: new council record
+- Tamworth Borough Council: new council record
+- Teignbridge District Council: new council record
+- Tendring District Council: new council record
+- Test Valley Borough Council: new council record
+- Tewkesbury Borough Council: new council record
+- Telford & Wrekin Council: new council record
+- Thanet District Council: new council record
+- Three Rivers District Council: new council record
+- Thurrock Council: new council record
+- Torbay Council: new council record
+- Torfaen County Borough Council: new council record
+- Tonbridge and Malling Borough Council: new council record
+- Torridge District Council: new council record
+- Trafford Metropolitan Borough Council: new council record
+- Tunbridge Wells Borough Council: new council record
+- London Borough of Tower Hamlets: new council record
+- Uttlesford District Council: new council record
+- Vale of White Horse District Council: new council record
+- Vale of Glamorgan Council: new council record
+- Waverley Borough Council: new council record
+- Westmorland and Furness Council: new council record
+- Warwickshire County Council: new council record
+- Watford Borough Council: new council record
+- Warwick District Council: new council record
+- West Berkshire Council: new council record
+- West Devon Borough Council: new council record
+- West Dunbartonshire Council: new council record
+- Wealden District Council: new council record
+- Welwyn Hatfield Borough Council: new council record
+- London Borough of Waltham Forest: new council record
+- Wigan Metropolitan Borough Council: new council record
+- Wiltshire Council: new council record
+- Winchester City Council: new council record
+- Wakefield Metropolitan District Council: new council record
+- West Lancashire Borough Council: new council record
+- West Lindsey District Council: new council record
+- Walsall Metropolitan Borough Council: new council record; dead page http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error); dead page http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)
+- West Lothian Council: new council record
+- City of Wolverhampton Council: new council record
+- London Borough of Wandsworth: new council record
+- Royal Borough of Windsor and Maidenhead: new council record
+- West Northamptonshire Council: new council record
+- Worcester City Council: new council record
+- Woking Borough Council: new council record
+- Wokingham Borough Council: new council record
+- Worcestershire County Council: new council record
+- Worthing Borough Council: new council record
+- West Oxfordshire District Council: new council record
+- Wirral Borough Council: new council record
+- Warrington Borough Council: new council record
+- Wrexham County Borough Council: new council record
+- West Suffolk Council: new council record
+- City of Westminster: new council record
+- West Sussex County Council: new council record
+- Wychavon District Council: new council record
+- Wyre Forest District Council: new council record
+- Wyre Borough Council: new council record
+- City of York Council: new council record
+- Shetland Islands Council: new council record
+
+## No SWEP page found
+
+- Armagh City, Banbridge and Craigavon Borough Council (Northern Ireland)
+- Aberdeenshire Council (Scotland)
+- Aberdeen City Council (Scotland)
+- Adur District Council (England)
+- Argyll and Bute Council (Scotland)
+- Amber Valley Borough Council (England)
+- Ards and North Down Borough Council (Northern Ireland)
+- Antrim and Newtownabbey Borough Council (Northern Ireland)
+- Angus Council (Scotland)
+- Arun District Council (England)
+- Ashford Borough Council (England)
+- Ashfield District Council (England)
+- Bassetlaw District Council (England)
+- Basildon Borough Council (England)
+- Basingstoke and Deane Borough Council (England)
+- Bath and North East Somerset Council (England)
+- Blackburn with Darwen Borough Council (England)
+- Bedford Borough Council (England)
+- London Borough of Bexley (England)
+- Belfast City Council (Northern Ireland)
+- Bridgend County Borough Council (Wales)
+- Blaenau Gwent County Borough Council (Wales)
+- Blaby District Council (England)
+- London Borough of Barnet (England)
+- Barnsley Metropolitan Borough Council (England)
+- Bolton Metropolitan Borough Council (England)
+- Bolsover District Council (England)
+- Bournemouth, Christchurch and Poole Council (England)
+- Blackpool Borough Council (England)
+- Braintree District Council (England)
+- Breckland District Council (England)
+- Bromsgrove District Council (England)
+- Broadland District Council (England)
+- Broxtowe Borough Council (England)
+- Brentwood Borough Council (England)
+- Broxbourne Borough Council (England)
+- London Borough of Bromley (England)
+- Buckinghamshire Council (England)
+- Burnley Borough Council (England)
+- Bury Metropolitan Borough Council (England)
+- Cambridgeshire County Council (England)
+- Cannock Chase District Council (England)
+- Castle Point Borough Council (England)
+- Canterbury City Council (England)
+- Caerphilly County Borough Council (Wales)
+- Cumberland Council (England)
+- Central Bedfordshire Council (England)
+- Causeway Coast and Glens Borough Council (Northern Ireland)
+- Ceredigion County Council (Wales)
+- Charnwood Borough Council (England)
+- Cheshire East Council (England)
+- Chichester District Council (England)
+- Chelmsford City Council (England)
+- Chorley Borough Council (England)
+- Cherwell District Council (England)
+- Chesterfield Borough Council (England)
+- Cheltenham Borough Council (England)
+- Cheshire West and Chester Council (England)
+- Calderdale Metropolitan Borough Council (England)
+- Clackmannanshire Council (Scotland)
+- Carmarthenshire County Council (Wales)
+- Colchester Borough Council (England)
+- Cornwall Council (England)
+- Cotswold District Council (England)
+- Crawley Borough Council (England)
+- London Borough of Croydon (England)
+- Conwy County Borough Council (Wales)
+- Dacorum Borough Council (England)
+- Dartford Borough Council (England)
+- Derbyshire County Council (England)
+- Derbyshire Dales District Council (England)
+- Denbighshire County Council (Wales)
+- Derby City Council (England)
+- Devon County Council (England)
+- Dumfries and Galloway Council (Scotland)
+- City of Doncaster Council (England)
+- Dundee City Council (Scotland)
+- Dover District Council (England)
+- Derry City and Strabane District Council (Northern Ireland)
+- Dorset Council (England)
+- Durham County Council (England)
+- London Borough of Ealing (England)
+- Eastbourne Borough Council (England)
+- Eastleigh Borough Council (England)
+- East Ayrshire Council (Scotland)
+- East Cambridgeshire District Council (England)
+- East Devon District Council (England)
+- City of Edinburgh Council (Scotland)
+- East Dunbartonshire Council (Scotland)
+- East Hampshire District Council (England)
+- East Hertfordshire District Council (England)
+- East Lindsey District Council (England)
+- Elmbridge Borough Council (England)
+- Comhairle nan Eilean Siar (Scotland)
+- London Borough of Enfield (England)
+- Epping Forest District Council (England)
+- Epsom and Ewell Borough Council (England)
+- Erewash Borough Council (England)
+- East Renfrewshire Council (Scotland)
+- East Riding of Yorkshire Council (England)
+- East Suffolk Council (England)
+- Essex County Council (England)
+- East Staffordshire Borough Council (England)
+- East Sussex County Council (England)
+- Exeter City Council (England)
+- Fareham Borough Council (England)
+- Fenland District Council (England)
+- Fife Council (Scotland)
+- Flintshire County Council (Wales)
+- Fermanagh and Omagh District Council (Northern Ireland)
+- Forest of Dean District Council (England)
+- Fylde Borough Council (England)
+- Gateshead Metropolitan Borough Council (England)
+- Gedling Borough Council (England)
+- Glasgow City Council (Scotland)
+- Gloucester City Council (England)
+- Gloucestershire County Council (England)
+- Gosport Borough Council (England)
+- Gravesham Borough Council (England)
+- Royal Borough of Greenwich (England)
+- Guildford Borough Council (England)
+- Great Yarmouth Borough Council (England)
+- Gwynedd Council (Wales)
+- Havant Borough Council (England)
+- Halton Borough Council (England)
+- Hampshire County Council (England)
+- Harborough District Council (England)
+- Harlow District Council (England)
+- Hastings Borough Council (England)
+- Hart District Council (England)
+- Hertsmere Borough Council (England)
+- High Peak Borough Council (England)
+- London Borough of Hillingdon (England)
+- Hinckley and Bosworth Borough Council (England)
+- The Highland Council (Scotland)
+- London Borough of Hammersmith & Fulham (England)
+- Horsham District Council (England)
+- Hartlepool Borough Council (England)
+- Hertfordshire County Council (England)
+- Huntingdonshire District Council (England)
+- Hyndburn Borough Council (England)
+- Council of the Isles of Scilly (England)
+- Isle of Wight Council (England)
+- Ipswich Borough Council (England)
+- Inverclyde Council (Scotland)
+- Royal Borough of Kensington and Chelsea (England)
+- Kent County Council (England)
+- Borough Council of Kings Lynn and West Norfolk (England)
+- Kirklees Council (England)
+- Lancaster City Council (England)
+- Lancashire County Council (England)
+- Lisburn and Castlereagh City Council (Northern Ireland)
+- London Borough of Lambeth (England)
+- Leicestershire County Council (England)
+- Lewes District Council (England)
+- City of Lincoln Council (England)
+- Lichfield District Council (England)
+- Lincolnshire County Council (England)
+- City of London Corporation (England)
+- Luton Borough Council (England)
+- Maidstone Borough Council (England)
+- Maldon District Council (England)
+- Manchester City Council (England)
+- Mansfield District Council (England)
+- Malvern Hills District Council (England)
+- Middlesbrough Borough Council (England)
+- Mid Devon District Council (England)
+- Mid and East Antrim Borough Council (Northern Ireland)
+- Melton Borough Council (England)
+- Midlothian Council (Scotland)
+- Mole Valley District Council (England)
+- Monmouthshire County Council (Wales)
+- London Borough of Merton (England)
+- The Moray Council (Scotland)
+- Mid Sussex District Council (England)
+- Mid Suffolk District Council (England)
+- Merthyr Tydfil County Borough Council (Wales)
+- Mid Ulster District Council (Northern Ireland)
+- North Ayrshire Council (Scotland)
+- North Devon District Council (England)
+- Newark and Sherwood District Council (England)
+- Newcastle-under-Lyme Borough Council (England)
+- North East Derbyshire District Council (England)
+- North East Lincolnshire Council (England)
+- New Forest District Council (England)
+- Norfolk County Council (England)
+- North Hertfordshire District Council (England)
+- North Kesteven District Council (England)
+- North Lanarkshire Council (Scotland)
+- North Lincolnshire Council (England)
+- North Norfolk District Council (England)
+- North Northamptonshire Council (England)
+- Norwich City Council (England)
+- Nottinghamshire County Council (England)
+- North Tyneside Council (England)
+- Nuneaton and Bedworth Borough Council (England)
+- North Warwickshire Borough Council (England)
+- North West Leicestershire District Council (England)
+- Newport City Council (Wales)
+- North Yorkshire Council (England)
+- Oadby and Wigston Borough Council (England)
+- Oldham Metropolitan Borough Council (England)
+- Orkney Islands Council (Scotland)
+- Oxfordshire County Council (England)
+- Oxford City Council (England)
+- Pembrokeshire County Council (Wales)
+- Pendle Borough Council (England)
+- Perth and Kinross Council (Scotland)
+- Powys County Council (Wales)
+- Preston City Council (England)
+- Peterborough City Council (England)
+- Rochdale Metropolitan Borough Council (England)
+- Rhondda Cynon Taf County Borough Council (Wales)
+- Redditch Borough Council (England)
+- Reigate and Banstead Borough Council (England)
+- Ribble Valley Borough Council (England)
+- London Borough of Richmond upon Thames (England)
+- Rochford District Council (England)
+- Rother District Council (England)
+- Rossendale Borough Council (England)
+- Rugby Borough Council (England)
+- Rushmoor Borough Council (England)
+- Runnymede Borough Council (England)
+- Rushcliffe Borough Council (England)
+- St Albans City and District Council (England)
+- Sandwell Metropolitan Borough Council (England)
+- South Ayrshire Council (Scotland)
+- South Cambridgeshire District Council (England)
+- South Derbyshire District Council (England)
+- Sevenoaks District Council (England)
+- Suffolk County Council (England)
+- Sefton Metropolitan Borough Council (England)
+- South Gloucestershire Council (England)
+- South Hams District Council (England)
+- Folkestone and Hythe District Council (England)
+- St Helens Council (England)
+- South Holland District Council (England)
+- South Kesteven District Council (England)
+- Stockport Metropolitan Borough Council (England)
+- South Lanarkshire Council (Scotland)
+- Somerset Council (England)
+- Sunderland City Council (England)
+- South Norfolk District Council (England)
+- Southend-on-Sea Borough Council (England)
+- South Oxfordshire District Council (England)
+- Spelthorne Borough Council (England)
+- South Ribble Borough Council (England)
+- Surrey County Council (England)
+- South Staffordshire Council (England)
+- Stafford Borough Council (England)
+- Staffordshire Moorlands District Council (England)
+- Stirling Council (Scotland)
+- Southampton City Council (England)
+- London Borough of Sutton (England)
+- Stroud District Council (England)
+- Stratford-on-Avon District Council (England)
+- Staffordshire County Council (England)
+- Stockton-on-Tees Borough Council (England)
+- Stevenage Borough Council (England)
+- South Tyneside Council (England)
+- Surrey Heath Borough Council (England)
+- City and County of Swansea Council (Wales)
+- London Borough of Southwark (England)
+- Swale Borough Council (England)
+- Tameside Metropolitan Borough Council (England)
+- Tandridge District Council (England)
+- Tamworth Borough Council (England)
+- Teignbridge District Council (England)
+- Tendring District Council (England)
+- Test Valley Borough Council (England)
+- Tewkesbury Borough Council (England)
+- Telford & Wrekin Council (England)
+- Thanet District Council (England)
+- Three Rivers District Council (England)
+- Thurrock Council (England)
+- Torbay Council (England)
+- Tonbridge and Malling Borough Council (England)
+- Torridge District Council (England)
+- Trafford Metropolitan Borough Council (England)
+- Tunbridge Wells Borough Council (England)
+- Uttlesford District Council (England)
+- Vale of White Horse District Council (England)
+- Vale of Glamorgan Council (Wales)
+- Waverley Borough Council (England)
+- Westmorland and Furness Council (England)
+- Warwickshire County Council (England)
+- Watford Borough Council (England)
+- Warwick District Council (England)
+- West Berkshire Council (England)
+- West Devon Borough Council (England)
+- West Dunbartonshire Council (Scotland)
+- Wealden District Council (England)
+- Welwyn Hatfield Borough Council (England)
+- London Borough of Waltham Forest (England)
+- Wigan Metropolitan Borough Council (England)
+- Wiltshire Council (England)
+- Winchester City Council (England)
+- West Lancashire Borough Council (England)
+- West Lindsey District Council (England)
+- City of Wolverhampton Council (England)
+- London Borough of Wandsworth (England)
+- Royal Borough of Windsor and Maidenhead (England)
+- West Northamptonshire Council (England)
+- Worcester City Council (England)
+- Woking Borough Council (England)
+- Worcestershire County Council (England)
+- Worthing Borough Council (England)
+- West Oxfordshire District Council (England)
+- Wirral Borough Council (England)
+- Warrington Borough Council (England)
+- Wrexham County Borough Council (Wales)
+- West Suffolk Council (England)
+- West Sussex County Council (England)
+- Wychavon District Council (England)
+- Wyre Forest District Council (England)
+- Wyre Borough Council (England)
+- City of York Council (England)
+- Shetland Islands Council (Scotland)

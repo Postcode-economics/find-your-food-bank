@@ -1,0 +1,5635 @@
+{
+ "run": "2026-10-23",
+ "coverage": {
+  "councils": 382,
+  "with_swep_page": 64,
+  "with_line": 83,
+  "active": [
+   "Isle of Anglesey County Council",
+   "London Borough of Islington",
+   "North Somerset  Council",
+   "Rotherham Metropolitan Borough Council",
+   "Swindon Borough Council",
+   "London Borough of Tower Hamlets"
+  ],
+  "flagged": 382
+ },
+ "councils": [
+  {
+   "code": "ABC",
+   "council": "Armagh City, Banbridge and Craigavon Borough Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ABD",
+   "council": "Aberdeenshire Council",
+   "nation": "Scotland",
+   "homeless_phone": "01467 530577",
+   "ooh_phone": "03456 081206",
+   "phone_source": "https://www.aberdeenshire.gov.uk/housing/homelessness/if-you-are-homeless",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ABE",
+   "council": "Aberdeen City Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ADU",
+   "council": "Adur District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "AGB",
+   "council": "Argyll and Bute Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": "0345 056 5457",
+   "phone_source": "https://www.argyll-bute.gov.uk/housing/homelessness",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "AGY",
+   "council": "Isle of Anglesey County Council",
+   "nation": "Wales",
+   "homeless_phone": "01248 750 057",
+   "ooh_phone": null,
+   "phone_source": "https://www.anglesey.gov.wales/en/Residents/Housing/Homeless-or-at-risk/Homeless-severe-weather-emergency-protocol.aspx",
+   "pages": [
+    {
+     "url": "https://www.anglesey.gov.wales/en/Residents/Housing/Homeless-or-at-risk/Homeless-severe-weather-emergency-protocol.aspx",
+     "http": 200,
+     "status": "active",
+     "quote": "t Team is part of Housing Services in the council. When the Severe Weather Protocol is active, they contact other organisations and they will post information on social medi"
+    }
+   ],
+   "status": "active",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "AMB",
+   "council": "Amber Valley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "AND",
+   "council": "Ards and North Down Borough Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ANN",
+   "council": "Antrim and Newtownabbey Borough Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ANS",
+   "council": "Angus Council",
+   "nation": "Scotland",
+   "homeless_phone": "03452 777 778",
+   "ooh_phone": null,
+   "phone_source": "https://www.angus.gov.uk/housing/homelessness/homelessness",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ARU",
+   "council": "Arun District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ASF",
+   "council": "Ashford Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ASH",
+   "council": "Ashfield District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BAB",
+   "council": "Babergh District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "http://www.suffolk.gov.uk/about/severe-weather-information-and-services",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BAE",
+   "council": "Bassetlaw District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BAI",
+   "council": "Basildon Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BAN",
+   "council": "Basingstoke and Deane Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BAS",
+   "council": "Bath and North East Somerset Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BBD",
+   "council": "Blackburn with Darwen Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BDF",
+   "council": "Bedford Borough Council",
+   "nation": "England",
+   "homeless_phone": "01234 718058",
+   "ooh_phone": null,
+   "phone_source": "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/homeless-now",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BDG",
+   "council": "London Borough of Barking and Dagenham",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.lbbd.gov.uk/civil-protection-service/severe-weather",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "unreachable",
+   "flags": [
+    "new council record",
+    "dead page https://www.lbbd.gov.uk/civil-protection-service/severe-weather (HTTP 403)"
+   ]
+  },
+  {
+   "code": "BEN",
+   "council": "London Borough of Brent",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BEX",
+   "council": "London Borough of Bexley",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BFS",
+   "council": "Belfast City Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BGE",
+   "council": "Bridgend County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": "01656 643643",
+   "ooh_phone": null,
+   "phone_source": "https://www.bridgend.gov.uk/residents/housing/homelessness/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BGW",
+   "council": "Blaenau Gwent County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BIR",
+   "council": "Birmingham City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    },
+    {
+     "url": "https://www.birmingham.gov.uk/news/article/1704/birmingham_mobilises_to_protect_people_who_are_sleeping_rough_during_the_severe_weather",
+     "http": 200,
+     "status": "old notice (latest date on page 2026-01-08)",
+     "quote": "le who sleep rough as temperatures fall. Birmingham&rsquo;s Severe Weather Emergency Protocol has been activated due to snow and very cold temperatures. The protocol is activated when a yellow"
+    },
+    {
+     "url": "https://www.birmingham.gov.uk/info/50173/information_for_care_providers/2483/cold_weather_resources",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BLA",
+   "council": "Blaby District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BNE",
+   "council": "London Borough of Barnet",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BNH",
+   "council": "Brighton and Hove City Council",
+   "nation": "England",
+   "homeless_phone": "0300 500 0914",
+   "ooh_phone": null,
+   "phone_source": "https://www.brighton-hove.gov.uk/news/2020/severe-weather-support-rough-sleepers-winter",
+   "pages": [
+    {
+     "url": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "unreachable",
+   "flags": [
+    "new council record",
+    "dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 403)"
+   ]
+  },
+  {
+   "code": "BNS",
+   "council": "Barnsley Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "01226 773870",
+   "ooh_phone": null,
+   "phone_source": "https://www.barnsley.gov.uk/services/housing/homeless-and-housing-advice/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BOL",
+   "council": "Bolton Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BOS",
+   "council": "Bolsover District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BOT",
+   "council": "Boston Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weather-s-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BPC",
+   "council": "Bournemouth, Christchurch and Poole Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BPL",
+   "council": "Blackpool Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRA",
+   "council": "Braintree District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRC",
+   "council": "Bracknell Forest Council",
+   "nation": "England",
+   "homeless_phone": "01344 352010",
+   "ooh_phone": null,
+   "phone_source": "https://www.bracknell-forest.gov.uk/housing/homelessness-advice/homeless-or-risk-homelessness",
+   "pages": [
+    {
+     "url": "https://www.bracknell-forest.gov.uk/news/2026/07/plan-further-reduce-homelessness-and-rough-sleeping",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRD",
+   "council": "City of Bradford Metropolitan District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "01274 309165",
+   "phone_source": "https://www.bradford.gov.uk/housing/homelessness/help-for-homeless-people-during-cold-weather/",
+   "pages": [
+    {
+     "url": "https://www.bradford.gov.uk/housing/homelessness/help-for-homeless-people-during-cold-weather/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.bradford.gov.uk/health/protecting-your-health/advice-for-cold-weather/",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRE",
+   "council": "Breckland District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRM",
+   "council": "Bromsgrove District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRO",
+   "council": "Broadland District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRT",
+   "council": "Broxtowe Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRW",
+   "council": "Brentwood Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRX",
+   "council": "Broxbourne Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BRY",
+   "council": "London Borough of Bromley",
+   "nation": "England",
+   "homeless_phone": "0300 500 0914",
+   "ooh_phone": "0300 303 8671",
+   "phone_source": "https://www.bromley.gov.uk/homelessness",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BST",
+   "council": "Bristol City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://news.bristol.gov.uk/press-releases/e9f2f484-4536-4918-adf0-64b58a095d66/swep-deactivated-in-bristol",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BUC",
+   "council": "Buckinghamshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BUN",
+   "council": "Burnley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "BUR",
+   "council": "Bury Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "0161 253 5537",
+   "ooh_phone": null,
+   "phone_source": "https://www.bury.gov.uk/housing/homelessness/housing-advice-and-support",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CAB",
+   "council": "Cambridge City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CAM",
+   "council": "Cambridgeshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CAN",
+   "council": "Cannock Chase District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CAS",
+   "council": "Castle Point Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CAT",
+   "council": "Canterbury City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CAY",
+   "council": "Caerphilly County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CBD",
+   "council": "Cumberland Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CBF",
+   "council": "Central Bedfordshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CCG",
+   "council": "Causeway Coast and Glens Borough Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CGN",
+   "council": "Ceredigion County Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHA",
+   "council": "Charnwood Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHE",
+   "council": "Cheshire East Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHI",
+   "council": "Chichester District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHL",
+   "council": "Chelmsford City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHO",
+   "council": "Chorley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHR",
+   "council": "Cherwell District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHS",
+   "council": "Chesterfield Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHT",
+   "council": "Cheltenham Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CHW",
+   "council": "Cheshire West and Chester Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CLD",
+   "council": "Calderdale Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "01422 392460",
+   "ooh_phone": null,
+   "phone_source": "https://new.calderdale.gov.uk/housing/homelessness",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CLK",
+   "council": "Clackmannanshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CMD",
+   "council": "London Borough of Camden",
+   "nation": "England",
+   "homeless_phone": "0808 800 0005",
+   "ooh_phone": null,
+   "phone_source": "https://www.camden.gov.uk/rough-sleeping",
+   "pages": [
+    {
+     "url": "https://www.camden.gov.uk/cold-weather-advice",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    },
+    {
+     "url": "https://www.camden.gov.uk/rough-sleeping",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "unreachable",
+   "flags": [
+    "new council record",
+    "dead page https://www.camden.gov.uk/cold-weather-advice (HTTP 403)",
+    "dead page https://www.camden.gov.uk/rough-sleeping (HTTP 403)"
+   ]
+  },
+  {
+   "code": "CMN",
+   "council": "Carmarthenshire County Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "COL",
+   "council": "Colchester Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CON",
+   "council": "Cornwall Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "COT",
+   "council": "Cotswold District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "COV",
+   "council": "Coventry City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.coventry.gov.uk/directory-record/59179/rough-sleeper-numbers-during-swep",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CRF",
+   "council": "City of Cardiff Council",
+   "nation": "Wales",
+   "homeless_phone": "029 2057 0715",
+   "ooh_phone": null,
+   "phone_source": "https://www.cardiffhousing.co.uk/homelessness/homeless-now/",
+   "pages": [
+    {
+     "url": "https://www.cardiffhousing.co.uk/homelessness/homeless-now/",
+     "http": "error",
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "unreachable",
+   "flags": [
+    "new council record",
+    "dead page https://www.cardiffhousing.co.uk/homelessness/homeless-now/ (HTTP error)"
+   ]
+  },
+  {
+   "code": "CRW",
+   "council": "Crawley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CRY",
+   "council": "London Borough of Croydon",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "CWY",
+   "council": "Conwy County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DAC",
+   "council": "Dacorum Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DAL",
+   "council": "Darlington Borough Council",
+   "nation": "England",
+   "homeless_phone": "01325 405333",
+   "ooh_phone": "01642 524552",
+   "phone_source": "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/preventing-rough-sleeping/",
+   "pages": [
+    {
+     "url": "https://www.darlington.gov.uk/my-darlington/login?ReturnUrl=/housing/finding-a-home-or-garage/homelessness/i-am-worried-about-someone-rough-sleeping/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/i-am-worried-about-someone-rough-sleeping/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/preventing-rough-sleeping/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DAR",
+   "council": "Dartford Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DBY",
+   "council": "Derbyshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DEB",
+   "council": "Derbyshire Dales District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DEN",
+   "council": "Denbighshire County Council",
+   "nation": "Wales",
+   "homeless_phone": "01824 712099",
+   "ooh_phone": null,
+   "phone_source": "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/supporting-people.aspx",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DER",
+   "council": "Derby City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DEV",
+   "council": "Devon County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DGY",
+   "council": "Dumfries and Galloway Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DNC",
+   "council": "City of Doncaster Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DND",
+   "council": "Dundee City Council",
+   "nation": "Scotland",
+   "homeless_phone": "0800 633 5843",
+   "ooh_phone": null,
+   "phone_source": "https://www.dundeecity.gov.uk/housing-options-in-dundee/homeless",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DOV",
+   "council": "Dover District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DRS",
+   "council": "Derry City and Strabane District Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DST",
+   "council": "Dorset Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DUD",
+   "council": "Dudley Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "0300 555 2345",
+   "ooh_phone": "0300 555 2345",
+   "phone_source": "https://www.dudley.gov.uk/residents/housing/housing-advice-information-and-support/homelessness/",
+   "pages": [
+    {
+     "url": "https://www.dudley.gov.uk/council-community/emergencies/specific-risks/severe-weather/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "DUR",
+   "council": "Durham County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EAL",
+   "council": "London Borough of Ealing",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EAS",
+   "council": "Eastbourne Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EAT",
+   "council": "Eastleigh Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EAY",
+   "council": "East Ayrshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ECA",
+   "council": "East Cambridgeshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EDE",
+   "council": "East Devon District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EDH",
+   "council": "City of Edinburgh Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EDU",
+   "council": "East Dunbartonshire Council",
+   "nation": "Scotland",
+   "homeless_phone": "0300 123 4510",
+   "ooh_phone": null,
+   "phone_source": "https://www.eastdunbarton.gov.uk/services/a-z-of-services/housing-properties/homelessness/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EHA",
+   "council": "East Hampshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EHE",
+   "council": "East Hertfordshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ELI",
+   "council": "East Lindsey District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ELM",
+   "council": "Elmbridge Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ELN",
+   "council": "East Lothian Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ELS",
+   "council": "Comhairle nan Eilean Siar",
+   "nation": "Scotland",
+   "homeless_phone": "01851 822821",
+   "ooh_phone": "01851 701702",
+   "phone_source": "https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ENF",
+   "council": "London Borough of Enfield",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EPP",
+   "council": "Epping Forest District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EPS",
+   "council": "Epsom and Ewell Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ERE",
+   "council": "Erewash Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ERW",
+   "council": "East Renfrewshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ERY",
+   "council": "East Riding of Yorkshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ESK",
+   "council": "East Suffolk Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ESS",
+   "council": "Essex County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EST",
+   "council": "East Staffordshire Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ESX",
+   "council": "East Sussex County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "EXE",
+   "council": "Exeter City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FAL",
+   "council": "Falkirk Council",
+   "nation": "Scotland",
+   "homeless_phone": "01324 506070",
+   "ooh_phone": "01324 506070",
+   "phone_source": "https://www.falkirk.gov.uk/homelessness/rough-sleeping",
+   "pages": [
+    {
+     "url": "https://www.falkirk.gov.uk/homelessness/rough-sleeping",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FAR",
+   "council": "Fareham Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FEN",
+   "council": "Fenland District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FIF",
+   "council": "Fife Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FLN",
+   "council": "Flintshire County Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FMO",
+   "council": "Fermanagh and Omagh District Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FOE",
+   "council": "Forest of Dean District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "FYL",
+   "council": "Fylde Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GAT",
+   "council": "Gateshead Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GED",
+   "council": "Gedling Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GLG",
+   "council": "Glasgow City Council",
+   "nation": "Scotland",
+   "homeless_phone": "0141 287 0555",
+   "ooh_phone": "0800 838 502",
+   "phone_source": "https://www.glasgow.gov.uk/article/2196/Contact-Health-and-Social-Care",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GLO",
+   "council": "Gloucester City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GLS",
+   "council": "Gloucestershire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GOS",
+   "council": "Gosport Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GRA",
+   "council": "Gravesham Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GRE",
+   "council": "Royal Borough of Greenwich",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GRT",
+   "council": "Guildford Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GRY",
+   "council": "Great Yarmouth Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "GWN",
+   "council": "Gwynedd Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAA",
+   "council": "Havant Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAL",
+   "council": "Halton Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAM",
+   "council": "Hampshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAO",
+   "council": "Harborough District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAR",
+   "council": "Harlow District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAS",
+   "council": "Hastings Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAT",
+   "council": "Hart District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HAV",
+   "council": "London Borough of Havering",
+   "nation": "England",
+   "homeless_phone": "0300 500 0914",
+   "ooh_phone": null,
+   "phone_source": "https://www.havering.gov.uk/swep",
+   "pages": [
+    {
+     "url": "https://www.havering.gov.uk/swep",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HCK",
+   "council": "London Borough of Hackney",
+   "nation": "England",
+   "homeless_phone": "020 7987 5466",
+   "ooh_phone": null,
+   "phone_source": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
+   "pages": [
+    {
+     "url": "https://www.hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/advice-temporary-accommodation-residents",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HEF",
+   "council": "Herefordshire Council",
+   "nation": "England",
+   "homeless_phone": "01432 261600",
+   "ooh_phone": null,
+   "phone_source": "https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/",
+   "pages": [
+    {
+     "url": "https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HER",
+   "council": "Hertsmere Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HIG",
+   "council": "High Peak Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HIL",
+   "council": "London Borough of Hillingdon",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HIN",
+   "council": "Hinckley and Bosworth Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HLD",
+   "council": "The Highland Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HMF",
+   "council": "London Borough of Hammersmith & Fulham",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HNS",
+   "council": "London Borough of Hounslow",
+   "nation": "England",
+   "homeless_phone": "020 8583 3942",
+   "ooh_phone": null,
+   "phone_source": "https://www.hounslow.gov.uk/privacy-notice/privacy-notice-strategic-insights-tool-rough-sleeping",
+   "pages": [
+    {
+     "url": "https://www.hounslow.gov.uk/community-safety/severe-weather-emergency-protocol",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HOR",
+   "council": "Horsham District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HPL",
+   "council": "Hartlepool Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HRT",
+   "council": "Hertfordshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HRW",
+   "council": "London Borough of Harrow",
+   "nation": "England",
+   "homeless_phone": "0208 424 1093",
+   "ooh_phone": "0300 500 0914",
+   "phone_source": "https://www.harrow.gov.uk/roughsleeping",
+   "pages": [
+    {
+     "url": "https://www.harrow.gov.uk/roughsleeping",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HRY",
+   "council": "London Borough of Haringey",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "020 8489 0000",
+   "phone_source": "https://haringey.gov.uk/housing/homelessness/rough-sleeping/severe-weather-emergency-protocol-swep",
+   "pages": [
+    {
+     "url": "https://haringey.gov.uk/housing/homelessness/rough-sleeping/severe-weather-emergency-protocol-swep",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HUN",
+   "council": "Huntingdonshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "HYN",
+   "council": "Hyndburn Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "IOS",
+   "council": "Council of the Isles of Scilly",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "IOW",
+   "council": "Isle of Wight Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "IPS",
+   "council": "Ipswich Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ISL",
+   "council": "London Borough of Islington",
+   "nation": "England",
+   "homeless_phone": "020 7527 2000",
+   "ooh_phone": null,
+   "phone_source": "https://www.islington.gov.uk/housing/finding-a-home/homelessness/how-we-support-rough-sleepers",
+   "pages": [
+    {
+     "url": "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals/cold-weather-health-guidance-for-professionals",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals/heat-health-for-professionals",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.islington.gov.uk/housing/finding-a-home/homelessness/how-we-support-rough-sleepers",
+     "http": 200,
+     "status": "active",
+     "quote": "When the temperature reaches 0C or below, Islington&rsquo;s Severe Weather Emergency Protocol (SWEP) is activated, and specially trained staff from the council and partner organisations work qu"
+    }
+   ],
+   "status": "active",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "IVC",
+   "council": "Inverclyde Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KEC",
+   "council": "Royal Borough of Kensington and Chelsea",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KEN",
+   "council": "Kent County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KHL",
+   "council": "Hull City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.hull.gov.uk/homelessness/rough-sleeper-team",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KIN",
+   "council": "Borough Council of Kings Lynn and West Norfolk",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KIR",
+   "council": "Kirklees Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KTT",
+   "council": "Royal Borough of Kingston upon Thames",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "020 8547 5005",
+   "phone_source": "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/social-care-and-health",
+   "pages": [
+    {
+     "url": "https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    },
+    {
+     "url": "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/hot-weather-heatwaves",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "KWL",
+   "council": "Knowsley Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.knowsley.gov.uk/housing/energy-efficiency/cold-weather-payments",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LAC",
+   "council": "Lancaster City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LAN",
+   "council": "Lancashire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LBC",
+   "council": "Lisburn and Castlereagh City Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LBH",
+   "council": "London Borough of Lambeth",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LCE",
+   "council": "Leicester City Council",
+   "nation": "England",
+   "homeless_phone": "0116 454 0190",
+   "ooh_phone": "0116 221 2770",
+   "phone_source": "https://www.leicester.gov.uk/housing/homelessness/sleeping-rough",
+   "pages": [
+    {
+     "url": "https://www.leicester.gov.uk/housing/homelessness/sleeping-rough",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LDS",
+   "council": "Leeds City Council",
+   "nation": "England",
+   "homeless_phone": "0113 245 9445",
+   "ooh_phone": "07891 273939",
+   "phone_source": "https://www.leeds.gov.uk/housing/homeless-or-at-risk",
+   "pages": [
+    {
+     "url": "https://news.leeds.gov.uk/news/extra-support-for-rough-sleepers-as-council-applies-its-cold-weather-protocol-from-next-monday",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LEC",
+   "council": "Leicestershire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LEE",
+   "council": "Lewes District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LEW",
+   "council": "London Borough of Lewisham",
+   "nation": "England",
+   "homeless_phone": "0808 178 0939",
+   "ooh_phone": "020 8314 7007",
+   "phone_source": "https://lewisham.gov.uk/myservices/housing/get-housing-support/homelessness",
+   "pages": [
+    {
+     "url": "https://lewisham.gov.uk/myservices/education/schools/emergencies-at-school",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LIC",
+   "council": "City of Lincoln Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LIF",
+   "council": "Lichfield District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LIN",
+   "council": "Lincolnshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LIV",
+   "council": "Liverpool City Council",
+   "nation": "England",
+   "homeless_phone": "0300 123 2041",
+   "ooh_phone": null,
+   "phone_source": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
+   "pages": [
+    {
+     "url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LND",
+   "council": "City of London Corporation",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "LUT",
+   "council": "Luton Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MAI",
+   "council": "Maidstone Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MAL",
+   "council": "Maldon District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MAN",
+   "council": "Manchester City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MAS",
+   "council": "Mansfield District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MAV",
+   "council": "Malvern Hills District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MDB",
+   "council": "Middlesbrough Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MDE",
+   "council": "Mid Devon District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MDW",
+   "council": "Medway Council",
+   "nation": "England",
+   "homeless_phone": "01634 334 008",
+   "ooh_phone": null,
+   "phone_source": "https://www.medway.gov.uk/info/200857/homelessness_and_at_risk_of_homelessness_support/1957/help_for_rough_sleepers",
+   "pages": [
+    {
+     "url": "https://www.medway.gov.uk/info/200857/homelessness_and_at_risk_of_homelessness_support/1957/help_for_rough_sleepers/2",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MEA",
+   "council": "Mid and East Antrim Borough Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MEL",
+   "council": "Melton Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MIK",
+   "council": "Milton Keynes Council",
+   "nation": "England",
+   "homeless_phone": "01908 253481",
+   "ooh_phone": null,
+   "phone_source": "https://www.milton-keynes.gov.uk/housing/housing-solutions-and-homelessness-advice/property-being-repossessed",
+   "pages": [
+    {
+     "url": "https://www.milton-keynes.gov.uk/housing/housing-consultations/homelessness-and-rough-sleeping-consultation",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.milton-keynes.gov.uk/sites/default/files/2026-09/DRAFT%20Homelessness%20and%20Rough%20Sleeping%20strategy%20SM.pdf",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.milton-keynes.gov.uk/housing/rough-sleepers",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MLN",
+   "council": "Midlothian Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MOL",
+   "council": "Mole Valley District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MON",
+   "council": "Monmouthshire County Council",
+   "nation": "Wales",
+   "homeless_phone": "01633 644644",
+   "ooh_phone": null,
+   "phone_source": "https://www.monmouthshire.gov.uk/cynllun-pontio-digartrefedd/cy-homeless-transition-action-plan-cy-gb/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MRT",
+   "council": "London Borough of Merton",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MRY",
+   "council": "The Moray Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MSS",
+   "council": "Mid Sussex District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MSU",
+   "council": "Mid Suffolk District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MTY",
+   "council": "Merthyr Tydfil County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": "01685 725000",
+   "ooh_phone": null,
+   "phone_source": "https://www.merthyr.gov.uk/resident/housing/homelessness-prevention/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "MUL",
+   "council": "Mid Ulster District Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NAY",
+   "council": "North Ayrshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NBL",
+   "council": "Northumberland County Council",
+   "nation": "England",
+   "homeless_phone": "0808 196 8409",
+   "ooh_phone": "0345 600 6400",
+   "phone_source": "https://www.northumberland.gov.uk/housing/homelessness-and-housing-options",
+   "pages": [
+    {
+     "url": "https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://nccform.northumberland.gov.uk/form/webfeedback?page=/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.northumberland.gov.uk/housing/homelessness-and-housing-options",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NDE",
+   "council": "North Devon District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NEA",
+   "council": "Newark and Sherwood District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NEC",
+   "council": "Newcastle-under-Lyme Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NED",
+   "council": "North East Derbyshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NEL",
+   "council": "North East Lincolnshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NET",
+   "council": "Newcastle City Council",
+   "nation": "England",
+   "homeless_phone": "0800 1707 008",
+   "ooh_phone": "0800 1707 008 (option 2)",
+   "phone_source": "https://new.newcastle.gov.uk/sites/default/files/2026-10/Newcastle%20City%20Council%20SWEP%202026-27%20draft.pdf",
+   "pages": [
+    {
+     "url": "https://new.newcastle.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-help-newcastle",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NEW",
+   "council": "New Forest District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NFK",
+   "council": "Norfolk County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NGM",
+   "council": "Nottingham City Council",
+   "nation": "England",
+   "homeless_phone": "0800 066 5356",
+   "ooh_phone": null,
+   "phone_source": "https://streetsupport.net/nottingham/severe-weather-accommodation/",
+   "pages": [
+    {
+     "url": "https://streetsupport.net/nottingham/severe-weather-accommodation/",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NHE",
+   "council": "North Hertfordshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NKE",
+   "council": "North Kesteven District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NLK",
+   "council": "North Lanarkshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": "0800 953 2424",
+   "phone_source": "https://www.northlanarkshire.gov.uk/housing/homeless-and-need-help/homeless-how-we-can-help",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NLN",
+   "council": "North Lincolnshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NMD",
+   "council": "Newry, Mourne and Down District Council",
+   "nation": "Northern Ireland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.newrymournedown.org/severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NNO",
+   "council": "North Norfolk District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NNT",
+   "council": "North Northamptonshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NOW",
+   "council": "Norwich City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NSM",
+   "council": "North Somerset  Council",
+   "nation": "England",
+   "homeless_phone": "01934 426 330",
+   "ooh_phone": null,
+   "phone_source": "https://n-somerset.gov.uk/my-services/housing/help-if-you-are-homeless-or-need-support/people-who-are-sleeping-rough",
+   "pages": [
+    {
+     "url": "https://n-somerset.gov.uk/my-services/bins-recycling/recycling-rubbish-collections/collections-during-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://n-somerset.gov.uk/my-services/housing/help-if-you-are-homeless-or-need-support/people-who-are-sleeping-rough",
+     "http": 200,
+     "status": "active",
+     "quote": "vere weather During spells of particularly cold weather the severe weather emergency protocol (SWEP) is activated.&nbsp; Severe weather emergency protocol (SWEP) [551.18 KB] Homeless people who"
+    }
+   ],
+   "status": "active",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NTL",
+   "council": "Neath Port Talbot County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "http://www.neath-porttalbot.gov.uk/parking-roads-and-travel/severe-weather/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NTT",
+   "council": "Nottinghamshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NTY",
+   "council": "North Tyneside Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NUN",
+   "council": "Nuneaton and Bedworth Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NWA",
+   "council": "North Warwickshire Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NWL",
+   "council": "North West Leicestershire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NWM",
+   "council": "London Borough of Newham",
+   "nation": "England",
+   "homeless_phone": "0300 500 0914",
+   "ooh_phone": null,
+   "phone_source": "https://www.newham.gov.uk/severeweather",
+   "pages": [
+    {
+     "url": "https://www.newham.gov.uk/housing-homes-homelessness/homelessness-prevention-advice/2",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.newham.gov.uk/severeweather",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NWP",
+   "council": "Newport City Council",
+   "nation": "Wales",
+   "homeless_phone": "01633 656656",
+   "ooh_phone": null,
+   "phone_source": "https://www.newport.gov.uk/housing/housing/homelessness/housing/housing/homelessness/homelessness-emergency-information",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "NYE",
+   "council": "North Yorkshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "OAD",
+   "council": "Oadby and Wigston Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "OLD",
+   "council": "Oldham Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "0161 770 4605",
+   "ooh_phone": null,
+   "phone_source": "https://www.oldham.gov.uk/info/200257/homelessness/2113/refer_someone_to_the_housing_options_team",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ORK",
+   "council": "Orkney Islands Council",
+   "nation": "Scotland",
+   "homeless_phone": "01856 873535",
+   "ooh_phone": "07921 582962",
+   "phone_source": "https://www.orkney.gov.uk/housing/homelessness-support",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "OXF",
+   "council": "Oxfordshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "OXO",
+   "council": "Oxford City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "PEM",
+   "council": "Pembrokeshire County Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "PEN",
+   "council": "Pendle Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "PKN",
+   "council": "Perth and Kinross Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "PLY",
+   "council": "Plymouth City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "01752 668000",
+   "phone_source": "https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep",
+   "pages": [
+    {
+     "url": "https://www.plymouth.gov.uk/rough-sleeping",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    },
+    {
+     "url": "https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "unreachable",
+   "flags": [
+    "new council record",
+    "dead page https://www.plymouth.gov.uk/rough-sleeping (HTTP 403)",
+    "dead page https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep (HTTP 403)"
+   ]
+  },
+  {
+   "code": "POR",
+   "council": "Portsmouth City Council",
+   "nation": "England",
+   "homeless_phone": "023 9283 4989",
+   "ooh_phone": null,
+   "phone_source": "https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/sleeping-rough",
+   "pages": [
+    {
+     "url": "https://www.portsmouth.gov.uk/services/council-tax/discounts-and-exemptions/disregard-discount/hostels-and-night-shelters",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "POW",
+   "council": "Powys County Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "PRE",
+   "council": "Preston City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "PTE",
+   "council": "Peterborough City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RCC",
+   "council": "Redcar and Cleveland Borough Council",
+   "nation": "England",
+   "homeless_phone": "01642 774774",
+   "ooh_phone": null,
+   "phone_source": "https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping",
+   "pages": [
+    {
+     "url": "https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping",
+     "http": 403,
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "unreachable",
+   "flags": [
+    "new council record",
+    "dead page https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping (HTTP 403)"
+   ]
+  },
+  {
+   "code": "RCH",
+   "council": "Rochdale Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RCT",
+   "council": "Rhondda Cynon Taf County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": "01443 495188",
+   "ooh_phone": "01443 425011",
+   "phone_source": "https://www.rctcbc.gov.uk/EN/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RDB",
+   "council": "London Borough of Redbridge",
+   "nation": "England",
+   "homeless_phone": "0300 500 0914",
+   "ooh_phone": "0208 554 5000",
+   "phone_source": "https://www.redbridge.gov.uk/news/november-2025/do-you-know-anyone-sleeping-rough-in-this-cold-weather/",
+   "pages": [
+    {
+     "url": "https://www.redbridge.gov.uk/news/january-2023/do-you-know-anyone-sleeping-rough-in-the-cold-weather/",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RDG",
+   "council": "Reading Borough Council",
+   "nation": "England",
+   "homeless_phone": "0118 937 2165",
+   "ooh_phone": "01344 351 999",
+   "phone_source": "https://www.reading.gov.uk/housing/homelessness/homeless-or-rough-sleeping/",
+   "pages": [
+    {
+     "url": "https://www.reading.gov.uk/housing/rough-sleeping/",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RED",
+   "council": "Redditch Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "REI",
+   "council": "Reigate and Banstead Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RFW",
+   "council": "Renfrewshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RIB",
+   "council": "Ribble Valley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RIC",
+   "council": "London Borough of Richmond upon Thames",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ROC",
+   "council": "Rochford District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ROH",
+   "council": "Rother District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ROS",
+   "council": "Rossendale Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ROT",
+   "council": "Rotherham Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "01709 336009",
+   "ooh_phone": "01709 336009",
+   "phone_source": "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
+   "pages": [
+    {
+     "url": "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
+     "http": 200,
+     "status": "active",
+     "quote": ") How can we help Temporary accommodation Support available Severe weather emergency protocol (SWEP) The Severe Weather Emergency Protocol (SWEP) is in place to support people at risk of rough sleeping when extreme weather conditions are"
+    }
+   ],
+   "status": "active",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RUG",
+   "council": "Rugby Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RUH",
+   "council": "Rushmoor Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RUN",
+   "council": "Runnymede Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RUS",
+   "council": "Rushcliffe Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "RUT",
+   "council": "Rutland County Council",
+   "nation": "England",
+   "homeless_phone": "01572 722 577",
+   "ooh_phone": "01858 464 499",
+   "phone_source": "https://www.rutland.gov.uk/housing/homelessness/rough-sleepers",
+   "pages": [
+    {
+     "url": "https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SAL",
+   "council": "St Albans City and District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SAW",
+   "council": "Sandwell Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SAY",
+   "council": "South Ayrshire Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SCA",
+   "council": "South Cambridgeshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SCB",
+   "council": "Scottish Borders Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SDE",
+   "council": "South Derbyshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SEV",
+   "council": "Sevenoaks District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SFK",
+   "council": "Suffolk County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SFT",
+   "council": "Sefton Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SGC",
+   "council": "South Gloucestershire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SHA",
+   "council": "South Hams District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SHE",
+   "council": "Folkestone and Hythe District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SHF",
+   "council": "Sheffield City Council",
+   "nation": "England",
+   "homeless_phone": "0114 273 6306",
+   "ooh_phone": "0800 7311 689",
+   "phone_source": "https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather",
+   "pages": [
+    {
+     "url": "https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SHN",
+   "council": "St Helens Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SHO",
+   "council": "South Holland District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SHR",
+   "council": "Shropshire Council",
+   "nation": "England",
+   "homeless_phone": "0345 678 9005",
+   "ooh_phone": null,
+   "phone_source": "https://next.shropshire.gov.uk/housing/housing-options-and-homelessness/rough-sleeping/",
+   "pages": [
+    {
+     "url": "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/winter/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/heatwaves/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/thunderstorms/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SKE",
+   "council": "South Kesteven District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SKP",
+   "council": "Stockport Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SLF",
+   "council": "Salford City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0161 794 8888",
+   "phone_source": "https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/",
+   "pages": [
+    {
+     "url": "https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SLG",
+   "council": "Slough Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "01344 351 999",
+   "phone_source": "https://www.slough.gov.uk/homelessness/emergency-accommodation-severe-weather",
+   "pages": [
+    {
+     "url": "https://www.slough.gov.uk/crime-safety/severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.slough.gov.uk/crime-safety/severe-weather/2",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.slough.gov.uk/crime-safety/severe-weather/3",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SLK",
+   "council": "South Lanarkshire Council",
+   "nation": "Scotland",
+   "homeless_phone": "0303 123 1012",
+   "ooh_phone": null,
+   "phone_source": "https://www.southlanarkshire.gov.uk/homelessness/go-homeless-threatened-homelessness/2",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SMT",
+   "council": "Somerset Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SND",
+   "council": "Sunderland City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SNO",
+   "council": "South Norfolk District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SOL",
+   "council": "Solihull Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": "0121 717 1515",
+   "ooh_phone": null,
+   "phone_source": "https://www.solihull.gov.uk/housing/rough-sleeping",
+   "pages": [
+    {
+     "url": "https://www.solihull.gov.uk/housing/rough-sleeping",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    },
+    {
+     "url": "https://www.solihull.gov.uk/sites/default/files/2023-04/Solihull-Severe-Weather-Emergency-Protocol-SWEP.pdf",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SOS",
+   "council": "Southend-on-Sea Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SOX",
+   "council": "South Oxfordshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SPE",
+   "council": "Spelthorne Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SRI",
+   "council": "South Ribble Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SRY",
+   "council": "Surrey County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SST",
+   "council": "South Staffordshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STA",
+   "council": "Stafford Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STE",
+   "council": "Stoke-on-Trent City Council",
+   "nation": "England",
+   "homeless_phone": "01782 233696",
+   "ooh_phone": null,
+   "phone_source": "https://www.stoke.gov.uk/homelessoratrisk",
+   "pages": [
+    {
+     "url": "https://www.stoke.gov.uk/info/20050/problems_in_my_neighbourhood/729/snow_ice_and_cold_weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STF",
+   "council": "Staffordshire Moorlands District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STG",
+   "council": "Stirling Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STH",
+   "council": "Southampton City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STN",
+   "council": "London Borough of Sutton",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STO",
+   "council": "Stroud District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STR",
+   "council": "Stratford-on-Avon District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STS",
+   "council": "Staffordshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STT",
+   "council": "Stockton-on-Tees Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STV",
+   "council": "Stevenage Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "STY",
+   "council": "South Tyneside Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SUR",
+   "council": "Surrey Heath Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SWA",
+   "council": "City and County of Swansea Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SWD",
+   "council": "Swindon Borough Council",
+   "nation": "England",
+   "homeless_phone": "01793 445500",
+   "ooh_phone": null,
+   "phone_source": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
+   "pages": [
+    {
+     "url": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
+     "http": 200,
+     "status": "active",
+     "quote": "g rough, you can still let us know using the details below. SWEP: currently active The Severe Weather Emergency Protocol is currently active in Swindon . We are providing emergency accommodation to anyone who is street h"
+    }
+   ],
+   "status": "active",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SWK",
+   "council": "London Borough of Southwark",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "SWL",
+   "council": "Swale Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TAM",
+   "council": "Tameside Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TAN",
+   "council": "Tandridge District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TAW",
+   "council": "Tamworth Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TEI",
+   "council": "Teignbridge District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TEN",
+   "council": "Tendring District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TES",
+   "council": "Test Valley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TEW",
+   "council": "Tewkesbury Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TFW",
+   "council": "Telford & Wrekin Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "THA",
+   "council": "Thanet District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "THE",
+   "council": "Three Rivers District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "THR",
+   "council": "Thurrock Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TOB",
+   "council": "Torbay Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TOF",
+   "council": "Torfaen County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": "01495 742303",
+   "ooh_phone": null,
+   "phone_source": "https://www.torfaen.gov.uk/en/council-tax-benefits-and-money/cost-of-living-support/housing-and-homelessness",
+   "pages": [
+    {
+     "url": "https://www.torfaen.gov.uk/en/communities-leisure-and-wellbeing/keeping-communities-safe/emergency-management/severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TON",
+   "council": "Tonbridge and Malling Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TOR",
+   "council": "Torridge District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TRF",
+   "council": "Trafford Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TUN",
+   "council": "Tunbridge Wells Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "TWH",
+   "council": "London Borough of Tower Hamlets",
+   "nation": "England",
+   "homeless_phone": "0808 302 6115",
+   "ooh_phone": null,
+   "phone_source": "https://www.towerhamlets.gov.uk/lgnl/housing/housing_options_service/Homeless_situations/Housing_and_Immigration_restrictions.aspx",
+   "pages": [
+    {
+     "url": "https://www.towerhamlets.gov.uk/lgnl/housing/housing_options_service/helping_the_homeless.aspx",
+     "http": 200,
+     "status": "active",
+     "quote": "n the temperature reaches 0C or below,&#8239;London&rsquo;s Severe Weather Emergency Protocol (SWEP)&#8239;is activated. We work quickly to ensure all people sleeping rough in Tower Hamlets, whatever"
+    }
+   ],
+   "status": "active",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "UTT",
+   "council": "Uttlesford District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "VAL",
+   "council": "Vale of White Horse District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "VGL",
+   "council": "Vale of Glamorgan Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WAE",
+   "council": "Waverley Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WAF",
+   "council": "Westmorland and Furness Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WAR",
+   "council": "Warwickshire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WAT",
+   "council": "Watford Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WAW",
+   "council": "Warwick District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WBK",
+   "council": "West Berkshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WDE",
+   "council": "West Devon Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WDU",
+   "council": "West Dunbartonshire Council",
+   "nation": "Scotland",
+   "homeless_phone": "01389 776 400",
+   "ooh_phone": null,
+   "phone_source": "https://www.west-dunbarton.gov.uk/housing/homelessness/homelessness-where-to-go",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WEA",
+   "council": "Wealden District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WEW",
+   "council": "Welwyn Hatfield Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WFT",
+   "council": "London Borough of Waltham Forest",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WGN",
+   "council": "Wigan Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WIL",
+   "council": "Wiltshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WIN",
+   "council": "Winchester City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WKF",
+   "council": "Wakefield Metropolitan District Council",
+   "nation": "England",
+   "homeless_phone": "01924 385 722",
+   "ooh_phone": null,
+   "phone_source": "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
+   "pages": [
+    {
+     "url": "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "unknown",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WLA",
+   "council": "West Lancashire Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WLI",
+   "council": "West Lindsey District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WLL",
+   "council": "Walsall Metropolitan Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
+     "http": "error",
+     "status": "unreachable",
+     "quote": ""
+    },
+    {
+     "url": "http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
+     "http": "error",
+     "status": "unreachable",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record",
+    "dead page http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)",
+    "dead page http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)"
+   ]
+  },
+  {
+   "code": "WLN",
+   "council": "West Lothian Council",
+   "nation": "Scotland",
+   "homeless_phone": "01506 280000",
+   "ooh_phone": "01506 280000",
+   "phone_source": "https://www.westlothian.gov.uk/homelessness",
+   "pages": [
+    {
+     "url": "https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WLV",
+   "council": "City of Wolverhampton Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WND",
+   "council": "London Borough of Wandsworth",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WNM",
+   "council": "Royal Borough of Windsor and Maidenhead",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WNT",
+   "council": "West Northamptonshire Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WOC",
+   "council": "Worcester City Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WOI",
+   "council": "Woking Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WOK",
+   "council": "Wokingham Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0800 212 111",
+   "phone_source": "https://www.wokingham.gov.uk/health-and-wellbeing-services/health-services-and-advice/covid-19-and-public-health/public-health-campaigns/staying-well-winter/whos-most-risk-cold-weather",
+   "pages": [
+    {
+     "url": "https://www.wokingham.gov.uk/health-and-wellbeing-services/health-services-and-advice/covid-19-and-public-health/public-health-campaigns/staying-well-winter/whos-most-risk-cold-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.wokingham.gov.uk/housing-and-tenants/housing-needs/homelessness",
+     "http": 200,
+     "status": "old notice (latest date on page 2026-05-26)",
+     "quote": " other significant severe weather conditions. When the&nbsp;SWEP (Severe Weather Emergency Protocol)&nbsp;has been activated or deactivated, relevant partner agencies will be notified and anybody who we k"
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WOR",
+   "council": "Worcestershire County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WOT",
+   "council": "Worthing Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WOX",
+   "council": "West Oxfordshire District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WRL",
+   "council": "Wirral Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WRT",
+   "council": "Warrington Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WRX",
+   "council": "Wrexham County Borough Council",
+   "nation": "Wales",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WSK",
+   "council": "West Suffolk Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WSM",
+   "council": "City of Westminster",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [
+    {
+     "url": "https://www.westminster.gov.uk/cold-weather-support-and-advice",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.westminster.gov.uk/form/page-feedback?path=/cold-weather-support-and-advice&amp;source_entity_type=node&amp;source_entity_id=25730",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    },
+    {
+     "url": "https://www.westminster.gov.uk/businesses/major-incidents-and-contingency-planning/risks-and-hazards/extreme-weather",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WSX",
+   "council": "West Sussex County Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WYC",
+   "council": "Wychavon District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WYE",
+   "council": "Wyre Forest District Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "WYR",
+   "council": "Wyre Borough Council",
+   "nation": "England",
+   "homeless_phone": null,
+   "ooh_phone": "0300 123 6722",
+   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "YOR",
+   "council": "City of York Council",
+   "nation": "England",
+   "homeless_phone": "07511 161169",
+   "ooh_phone": "0300 131 2131",
+   "phone_source": "https://www.york.gov.uk/homelessness/rough-sleeping-york",
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  },
+  {
+   "code": "ZET",
+   "council": "Shetland Islands Council",
+   "nation": "Scotland",
+   "homeless_phone": null,
+   "ooh_phone": null,
+   "phone_source": null,
+   "pages": [],
+   "status": "no SWEP page",
+   "flags": [
+    "new council record"
+   ]
+  }
+ ]
+}
