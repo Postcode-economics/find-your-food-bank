@@ -197,3 +197,27 @@ class Checked9(unittest.TestCase):
              "Friday 12:30pm to 2:00pm Community Centre Epping CM16 7BN Waltham Abbey Baptist Church EN9 1RL")
         ot = D.extract_times(t, "CM5 9JG")
         self.assertTrue(ot is None or "Friday" not in ot["raw"])
+class RenderThreads(unittest.TestCase):
+    """23 Oct Actions run: every render failed with 'cannot switch to a different thread' (12 finder threads).
+    All Playwright calls must happen on ONE thread, whatever thread asks."""
+    def test_all_renders_on_one_thread(self):
+        import threading, types, concurrent.futures as cf, importlib
+        import render_fetch as RF; RF = importlib.reload(RF)
+        seen = set()
+        class Page:
+            url = "u"
+            def goto(self, u, **k): seen.add(threading.get_ident()); self.url = u; return types.SimpleNamespace(status=200)
+            def wait_for_selector(self, *a, **k): seen.add(threading.get_ident())
+            def content(self): seen.add(threading.get_ident()); return "<p>Collection times</p>"
+            def close(self): pass
+        class Br:
+            def new_page(self, **k): seen.add(threading.get_ident()); return Page()
+            def close(self): pass
+        class PW:
+            def __enter__(self): return types.SimpleNamespace(chromium=types.SimpleNamespace(launch=lambda **k: Br()))
+            def __exit__(self, *a): pass
+        fake = types.ModuleType("playwright.sync_api"); fake.sync_playwright = lambda: PW()
+        with mock.patch.dict(sys.modules, {"playwright": types.ModuleType("playwright"), "playwright.sync_api": fake}):
+            with cf.ThreadPoolExecutor(8) as ex: res = list(ex.map(RF.fetch, [f"https://x{n}.foodbank.org.uk" for n in range(16)]))
+            RF.close()
+        self.assertTrue(all(r[0] == 200 for r in res)); self.assertEqual(len(seen), 1)
