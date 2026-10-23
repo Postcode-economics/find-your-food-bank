@@ -224,6 +224,7 @@ def atomic_dump(obj, path):
     with os.fdopen(fd, "w") as f: json.dump(obj, f, indent=1, ensure_ascii=False)
     os.replace(tmp, path)
 
+import discovery_rules as DR
 def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     d = today().isoformat()
     S = sources or json.load(open(os.path.join(HERE, "sweep_sources.json")))
@@ -234,6 +235,9 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         except Exception as ex: errors.append((c["name"], "sitemap: " + str(ex)[:80])); return []
     with cf.ThreadPoolExecutor(16) as ex:
         for r in ex.map(cp, S.get("councils", [])): jobs += r
+    try:  # the council severe-weather / rough sleeping pages found by swep.py: new shelter pages listed there are discovered too
+        jobs += [(x["url"], x.get("council", "council"), "shelters", False, "dash", None) for x in json.load(open(os.path.join(OV, "swep_sources.json"))) if x.get("url")]
+    except Exception as ex: errors.append(("swep_sources", str(ex)[:80]))
     jobs = list({(j[0], j[1]): j for j in jobs}.values())
     def one(j):
         u, name, hint, auto, parser, sect = j
@@ -241,8 +245,9 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
             r = fetcher(u)
             if r.get("http") != 200 or not r.get("text"): return ("fail", u, r.get("http"))
             c = extract(r["text"], r.get("final_url") or u, name, hint, r.get("last_modified", ""), trusted=auto, parser=parser, sect=sect)
-            if not auto:  # layout not proven for this source: queue for a human, never straight onto the map
-                c = [dict(e, proposed_tier=e["tier"], tier="pending", reason=e.get("reason") or "source not marked auto_add (layout not proven); proposed " + e["tier"]) for e in c]
+            if not auto:  # layout not proven for this source: auto-add only as tier 2 ('Unverified - call before you go') and only
+                # if Dean's auto-add rule passes below (valid postcode, not within 150 m of anything, dated page, not held)
+                c = [dict(e, proposed_tier=e["tier"], tier="unverified", auto_rule=True) if e["tier"] in ("verified", "unverified") else e for e in c]
             return ("ok", u, c)
         except Exception as ex: return ("fail", u, str(ex)[:80])
     with cf.ThreadPoolExecutor(16) as ex: R = list(ex.map(one, jobs))
@@ -266,7 +271,18 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         if is_dup(e["name"], e["postcode"], st["pool"]): continue
         g = G.get(e["postcode"])
         if not g: report["pending"].append(dict(e, reason="postcode not found")); continue
+        if e.get("auto_rule"):
+            h = DR.held(e)
+            if h: report["pending"].append(dict(e, reason="on hold: " + h.get("reason", ""))); continue
+            near = [b for b in st["pool"] if b.get("lat") is not None and DR.hav(g["latitude"], g["longitude"], b["lat"], b["lng"]) < 0.15]
+            if near: continue  # within 150 m of something already on the map = duplicate
+            ds, s0, e0 = DR.dates_state({"notes": e.get("times_text", "")}, d)
+            if ds == "past": report.setdefault("rejected", []).append(dict(e, reasons=["dates all in the past"])); continue
         i, man, ov = to_records(e, g, d)
+        if e.get("auto_rule"):
+            ds, s0, e0 = DR.dates_state({"notes": e.get("times_text", "")}, d)
+            if s0: man["scheme_start"] = s0
+            if e0: man["scheme_end"] = e0
         errs = schema_errors(dict(man, hours=man["hours"] if isinstance(man["hours"], dict) else {}), "ws" if e["layer"] == "warmspaces" else "sh")
         if errs: report["pending"].append(dict(e, reason="schema: " + "; ".join(map(str, errs))[:120])); continue
         st["pool"].append(man); adds.append((e, i, man, ov))
@@ -286,6 +302,10 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         os.makedirs(LOGS, exist_ok=True)
         atomic_dump({k: v for k, v in report.items() if k != "pending"}, os.path.join(LOGS, "sweep_log.json"))
         atomic_dump({"run": d, "items": report["pending"][:2000]}, os.path.join(LOGS, "sweep_pending.json"))
+    if write:
+        DR.record("sweep", d, [dict(a, upcoming=bool(a.get("scheme_start", "") > d)) for a in report["added"]],
+                  [dict(x, id=x.get("name"), reasons=[x.get("reason", "")]) for x in report["pending"] if x.get("auto_rule") or x.get("reason", "").startswith(("on hold", "postcode"))],
+                  report.get("rejected", []), source="council pages + SWEP pages", root=ROOT)
     return report
 
 if __name__ == "__main__":

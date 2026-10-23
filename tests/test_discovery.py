@@ -118,7 +118,7 @@ class DiscoverLayer(unittest.TestCase):
         cands = [{"id": "oi-1", "name": "Riverside Warm Space", "postcode": "AB1 2CD", "lat": 52, "lng": -1, "website": "https://x.org/", "directory": "OI"},
                  {"id": "oi-2", "name": "No Site Place", "postcode": "ZZ1 1ZZ", "lat": 53, "lng": -2, "website": "", "directory": "OI"}]
         unv = {}; p = tempfile.mktemp()
-        add, log = discover.discover_layer(cands, [], "ws", "2026-10-21", unv, p, fake({"https://x.org/": page(h)}))
+        add, log = discover.discover_layer(cands, [], "ws", "2026-10-21", unv, p, fake({"https://x.org/": page(h)}), geocoder=lambda pcs: {"AB1 2CD": (52, -1), "ZZ1 1ZZ": (53, -2)})
         self.assertEqual([a["id"] for a in add], ["oi-1"]); self.assertIn("oi-1", unv); self.assertEqual(unv["oi-1"]["sign_url"], "https://x.org/")
         self.assertEqual(len(log["flagged"]), 1); self.assertTrue(json.load(open(p))["flagged"])
 

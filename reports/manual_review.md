@@ -36,3 +36,12 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - **Kings Baptist Church** (past season): Latest date 22 Oct 2026 (likely a one-off event)
 - **Soham Community Hub** (past season): 'Starting 6 Nov 2025' – start of a past season
 - **The Neighbourhood Table** (past season): Latest date 23 Sep 2026
+
+## Done 23 Oct 2026
+- ADDED (Dean approved): One Roof Leicester WNS, Robes (Southwark & Lambeth), Glass Door (3 circuits), Barnet WNS (HAB, 020 8446 8400 confirmed on habcentre.org/night-shelter), OWNS Oxford, Elderberries Tea Rooms Welling, Signpost Tendring – The Kettle's On (own-site hours Mon–Fri 09:30–15:30), The Hub South Brent (Opens 1 Nov 2026).
+- Fixed: Christine Court, Men's Hostel Belfast, Talbot Association and DENS The Elms phones (operator numbers); St Johns Community Hub removed as duplicate; Crossways, Jubilee Centre, Soham, Kings Baptist, Neighbourhood Table dates confirmed current; Chittlehampton set to "Call to check".
+
+<!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
+## Auto-discovery queue (2026-10-23) — failed one auto-add check, not on the map
+
+<!-- END AUTO-DISCOVERY QUEUE -->

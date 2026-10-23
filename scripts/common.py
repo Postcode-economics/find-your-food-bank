@@ -98,6 +98,8 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             x["sign_url"] = u["sign_url"]; x["checked_on"] = (rc or {}).get("fetched_at", "")[:10] or u.get("checked_on", "")
             if rc: x["fetched_at"] = rc.get("fetched_at")
             if u.get("access_type"): x["access_type"] = u["access_type"]
+            for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "call_check"):  # hand-checked fixes on tier-2 entries persist every run
+                if u.get(k): x[k] = u[k]
             pub.append(x)
         else:
             p = {"id": x["id"], "name": x["name"], "address": x.get("address", ""), "postcode": x.get("postcode", ""),

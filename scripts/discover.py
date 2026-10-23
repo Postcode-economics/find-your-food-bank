@@ -34,14 +34,14 @@ def host(u):
 
 def is_dup(c, existing):
     """True if candidate c is already on the map: same postcode + shared name word, within 300 m + shared name word,
-    within 50 m regardless of name, or same website host within 2 km."""
+    within 150 m regardless of name (Dean's auto-add rule, 23 Oct 2026), or same website host within 2 km."""
     pc, ct, ch = norm_pc(c.get("postcode")), tokens(c.get("name")), host(c.get("website"))
     for e in existing:
         same_name = bool(ct & tokens(e.get("name")) or ct & tokens(e.get("foodbank")))
         if pc and pc == norm_pc(e.get("postcode")) and (same_name or not ct): return True
         if c.get("lat") is None or e.get("lat") is None: continue
         d = hav(c["lat"], c["lng"], e["lat"], e["lng"])
-        if d < 0.05 or (d < 0.3 and same_name): return True
+        if d < 0.15 or (d < 0.3 and same_name): return True
         if ch and ch == host(e.get("website")) and d < 2 and ch not in ("facebook.com", "linktr.ee", "salvationarmy.org.uk"): return True
     return False
 def dedupe(cands, existing):
@@ -291,29 +291,47 @@ def pre_flags(c, kind):
     if kind == "sh" and re.search(r"\bfoyer\b|supported housing|day centre", n):
         f.append("name says foyer / supported housing / day centre, not an emergency shelter")
     return f
-def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher=fetch_raw, threads=24):
+def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher=fetch_raw, threads=24, geocoder=None):
     """Shelters / warm spaces: dedupe directory candidates against what we already have, own-site check the rest.
     Passing candidates are added to `unverified` (tier 2, 'Unverified - call before you go', sign_url = own site),
     so the verification gate and recheck.py re-fetch and re-confirm them on every run like any other entry.
     Returns (new_candidates_to_append_to_fresh, log)."""
-    need = [c for c in cands if c.get("lat") is None and c.get("postcode")]
-    if need:
-        g = geocode([c["postcode"] for c in need])
-        for c in need:
-            if c["postcode"] in g: c["lat"], c["lng"] = g[c["postcode"]]
+    import discovery_rules as DR
+    cands = [dict(c) for c in cands]
+    for c in cands:  # keep the directory's own pin so the area check can compare it with the postcode
+        if c.get("lat") is not None and c.get("src_lat") is None: c["src_lat"], c["src_lng"] = c["lat"], c["lng"]
+        c.setdefault("source_live", bool(c.get("directory") or c.get("directory_url")))  # record came from a directory fetched this run
+    try: G = (geocoder or geocode)([c["postcode"] for c in cands if c.get("postcode")])
+    except Exception: G = {}
+    geo = {norm_pc(k): v for k, v in G.items()}
+    for c in cands:
+        if c.get("lat") is None and norm_pc(c.get("postcode")) in geo: c["lat"], c["lng"] = geo[norm_pc(c["postcode"])]
     new, dup = dedupe(cands, existing)
-    log = {"run": run_day, "candidates": len(cands), "already_on_map": dup, "new": len(new), "added": [], "flagged": []}
+    log = {"run": run_day, "candidates": len(cands), "already_on_map": dup, "new": len(new), "added": [], "flagged": [], "rejected": []}
     def one(c):
-        if c.get("lat") is None: return c, {"result": "flag", "reasons": ["no postcode/coordinates in directory, cannot pin without guessing"]}
+        if c.get("lat") is None: return c, {"result": "flag", "reasons": ["no postcode/coordinates in directory, cannot pin without guessing"]}, ("queue", ["no valid postcode"])
         pre = pre_flags(c, kind)
-        r = own_site_check(c, kind, fetcher)
+        if DR.held(c): r = {"result": "flag", "reasons": []}
+        else: r = own_site_check(c, kind, fetcher)
         if pre: r = dict(r, result="flag", reasons=pre + r.get("reasons", []))
-        return c, r
+        dec = DR.assess(c, r, geo, run_day)
+        return c, r, dec
     with cf.ThreadPoolExecutor(threads) as ex: res = list(ex.map(one, new))
+    add_cap = int(os.environ.get("DISCOVERY_MAX_NEW", "150"))  # fail-safe: a flood of adds in one run means a source changed - hold them all
+    if sum(1 for x in res if x[2][0] == "add") > add_cap:
+        res = [(c, r, ("queue", ["held: more than %d new in one run (source may have changed)" % add_cap]) if d[0] == "add" else d) for c, r, d in res]
     add = []
-    for c, r in res:
+    for c, r, (decision, why) in res:
         ev = {k: r.get(k) for k in ("url", "final_url", "http", "sha256", "etag", "last_modified")}
-        if r["result"] == "add":
+        if decision == "reject":
+            log["rejected"].append({"id": c["id"], "name": c["name"], "postcode": c.get("postcode"), "website": c.get("website"),
+                                    "directory": c.get("directory"), "directory_url": c.get("directory_url"), "reasons": why}); continue
+        if decision == "add":
+            r = dict(r, final_url=r.get("final_url") or c.get("directory_url") or c.get("source_url"))
+            if not r.get("final_url"): decision, why = "queue", ["no working source page to cite"]
+        if decision == "add":
+            c = {k: v for k, v in c.items() if k not in ("src_lat", "src_lng")}
+            DR.apply_dates(c, run_day)
             c = dict(c); c.setdefault("source", c.get("directory")); c["last_verified"] = run_day
             c.setdefault("groups", []); c.setdefault("season", "Not stated")
             if kind == "ws" and c.get("hours_text") and not c.get("hours"):
@@ -327,6 +345,12 @@ def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher
             log["added"].append({"id": c["id"], "name": c["name"], "postcode": c.get("postcode"), "directory": c.get("directory"), **ev})
         else:
             log["flagged"].append({"id": c["id"], "name": c["name"], "postcode": c.get("postcode"), "website": c.get("website"),
-                                   "directory": c.get("directory"), "directory_url": c.get("directory_url"), "reasons": r["reasons"], **ev})
+                                   "directory": c.get("directory"), "directory_url": c.get("directory_url"), "reasons": why or r["reasons"], **ev})
     json.dump(log, open(log_path, "w"), indent=1, ensure_ascii=False)
+    DR.record({"sh": "shelters", "ws": "warmspaces", "fb": "foodbanks"}[kind], run_day,
+              [dict(a, upcoming=next((x.get("upcoming") for x in add if x["id"] == a["id"]), False),
+                    scheme_start=next((x.get("scheme_start") for x in add if x["id"] == a["id"]), ""),
+                    referral_only=next((bool(x.get("referral", "").startswith("Referral only")) for x in add if x["id"] == a["id"]), False)) for a in log["added"]],
+              log["flagged"], log["rejected"], source=os.path.basename(log_path),
+              root=None if not os.path.isabs(log_path) else os.path.dirname(os.path.dirname(log_path)) if os.path.basename(os.path.dirname(log_path)) == "logs" else os.path.dirname(log_path))
     return add, log
