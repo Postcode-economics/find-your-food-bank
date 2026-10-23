@@ -69,6 +69,32 @@ def faq_ld(text):
         qa.append({'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}})
     return {'@context': 'https://schema.org', '@type': 'FAQPage', 'inLanguage': 'en-GB', 'mainEntity': qa}
 
+CYM = ['Ionawr', 'Chwefror', 'Mawrth', 'Ebrill', 'Mai', 'Mehefin', 'Gorffennaf', 'Awst', 'Medi', 'Hydref', 'Tachwedd', 'Rhagfyr']
+CHK_JS = ("<script>(function(){var s=window.FB_STAMP;if(!s||!s.run)return;var m=s.run.match(/^(\\d{4})-(\\d\\d)-(\\d\\d)T(\\d\\d:\\d\\d)/);if(!m)return;"
+          "var td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(new Date()),same=(m[1]+'-'+m[2]+'-'+m[3])===td,d=+m[3],mo=+m[2]-1,"
+          "EN=['January','February','March','April','May','June','July','August','September','October','November','December'],"
+          "CY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'];"
+          "document.querySelectorAll('.mapchk').forEach(function(e){var cy=e.getAttribute('lang')==='cy';"
+          "e.textContent=cy?('Gwiriwyd data’r map ddiwethaf '+(same?'heddiw':'ar '+d+' '+CY[mo]+' '+m[1])+' am '+m[4]):('Map data last checked '+(same?'today':'on '+d+' '+EN[mo]+' '+m[1])+' at '+m[4]);e.setAttribute('data-run',s.run)})})()</script>")
+
+def chk_line(t, cy=False):
+    if cy: txt = 'Gwiriwyd data’r map ddiwethaf ar %d %s %d am %s' % (t.day, CYM[t.month - 1], t.year, t.strftime('%H:%M'))
+    else: txt = 'Map data last checked on %d %s at %s' % (t.day, t.strftime('%B %Y'), t.strftime('%H:%M'))
+    return '<p class="mapchk"%s data-run="%s">%s</p>' % (' lang="cy"' if cy else '', t.isoformat(timespec='seconds'), txt)
+
+def put_chk(s, t, rel):
+    """Baked 'Map data last checked' line(s) + a live updater from stamp.js (FAQ and town pages only)."""
+    s = re.sub(r'<!--mapchk(?:-cy)?-->.*?<!--/mapchk-->', '', s, flags=re.S)
+    s = re.sub(r'<!--mapchkjs-->.*?<!--/mapchkjs-->', '', s, flags=re.S)
+    en = '<!--mapchk-->%s<!--/mapchk-->' % chk_line(t)
+    if rel == 'faq.html':
+        s = re.sub(r'(<p class="upd">Last updated [^<]*</p>)', lambda m: m.group(1) + en, s, count=1)
+        s = re.sub(r'(<section id="cy"[^>]*>\s*<h1>.*?</h1>)', lambda m: m.group(1) + '<!--mapchk-cy-->%s<!--/mapchk-->' % chk_line(t, True), s, count=1, flags=re.S)
+    else:
+        s = s.replace('<p class="chk3">', en + '<p class="chk3">', 1)
+    js = '<!--mapchkjs--><script src="/stamp.js?v=r%s"></script>%s<!--/mapchkjs-->' % (t.strftime('%Y%m%dT%H%M'), CHK_JS)
+    return s.replace('</body>', js + '</body>', 1)
+
 def run(root=ROOT):
     t = stamp(root); iso = t.isoformat(timespec='seconds'); day = t.date().isoformat()
     ps = pages(root)
@@ -81,6 +107,8 @@ def run(root=ROOT):
             s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s at %s' % ('on %d %s' % (t.day, t.strftime('%B')), t.strftime('%H:%M')) + m.group(2), s)
+        if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/')) and rel.count('/') == 2:
+            s = put_chk(s, t, rel)
         if rel == 'faq.html':
             s = put(s, 'faq', ld('faq', faq_ld(s)))
         if s != s0: open(p, 'w', encoding='utf-8').write(s)
