@@ -23,7 +23,11 @@ class Assess(unittest.TestCase):
     def test_unreachable_source_queued(self):
         self.assertEqual(DR.assess(c(), {"result": "flag", "reasons": ["own site unreachable (HTTP 503)"]}, G, T, H=[])[0], "queue")
     def test_no_own_site_but_live_directory_record_adds(self):
-        self.assertEqual(DR.assess(c(), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[])[0], "add")
+        self.assertEqual(DR.assess(c(notes="SPACE OPENING ON 3rd November 2026"), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[])[0], "add")
+    def test_directory_only_old_listing_queued(self):
+        for n in ("SPACE OPENING ON 9th January 2024", ""):
+            d, why = DR.assess(c(notes=n), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[])
+            self.assertEqual(d, "queue"); self.assertIn("season dates", why[-1])
         self.assertEqual(DR.assess(c(source_live=False), {"result": "flag", "reasons": ["no own website in directory"]}, G, T, H=[])[0], "queue")
     def test_closed_rejected(self):
         self.assertEqual(DR.assess(c(), {"result": "flag", "reasons": ["own site says closed: permanently closed"]}, G, T, H=[])[0], "reject")

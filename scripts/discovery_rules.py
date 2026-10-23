@@ -57,6 +57,10 @@ def assess(c, site, geo, today, H=None):
         if hardq: q += hardq
         soft = [r for r in reasons if r not in hardq]
         if soft and not c.get("source_live"): q += soft  # no own-site confirmation and no live directory record either
+        elif soft:  # directory record only (e.g. a Warm Welcome listing): it must carry THIS season's dates, or it may be an old listing
+            y = int(today[:4]) - (0 if today[5:7] >= "08" else 1); season = "%d-08-01" % y
+            if not ((start and start >= season) or (end and end >= today)):
+                q.append("directory listing only, with no %d-%02d season dates (latest stated start: %s)" % (y, (y + 1) % 100, start or "none"))
         pc = npc(c.get("postcode"))
         g = geo.get(pc) if pc else None
         if not pc: q.append("no postcode")
@@ -128,3 +132,9 @@ def render(run_day, root=None):
     except Exception: s = "# Manual review queue (not on the map)\n"
     s = (s[:s.index(START)].rstrip() + "\n\n" if START in s else s.rstrip() + "\n\n") + "\n".join(Q) + "\n"
     open(p, "w").write(s)
+
+if __name__ == "__main__":  # `python scripts/discovery_rules.py render` - rebuild the two reports from all layers' logs (after a rebase)
+    import sys
+    if sys.argv[1:2] == ["render"]:
+        try: render(datetime.date.today().isoformat())
+        except Exception as ex: print("render failed (ignored):", ex)
