@@ -338,6 +338,18 @@
   "northampton/briar-hill": {
    "url": "https://www.restorenorthampton.org.uk/distribution-points",
    "reason": "not listed on Restore Northampton's distribution-points page"
+  },
+  "sunderland/*": {
+   "url": "https://sunderlandfoodbank.org.uk/get-help/",
+   "reason": "times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only"
+  },
+  "north-ayrshire/st-johns-church": {
+   "url": "https://northayrshire.foodbank.org.uk/locations/",
+   "reason": "centre only opens on telephone request; the Friday 12:30-14:00 times belong to Kirkgate Church"
+  },
+  "hope-central/*": {
+   "url": "https://hopecentral.org.uk/get-involved/giving-food/",
+   "reason": "the times found are on the giving-food (donations) page"
   }
  }
 }

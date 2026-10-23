@@ -94,6 +94,7 @@ def own_page(ot, item):
 def one_block(ot):
     """One clear client-hours block: parsed into a weekly table, no qualifiers, not office-like."""
     return ot.get("status") == "TIMES_FOUND" and bool(ot.get("structured")) and not D.office_like(ot["structured"])
+DONATION_URL = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)   # Hope Central /get-involved/giving-food/ (24 Oct)
 def decide(log, items, apply):
     """Dean, 23 Oct 23:36: nothing uncertain goes on the map. Auto-apply ONLY when (1) the entry's postcode was matched
     exactly on the page, (2) one clear client-hours block, (3) the page is on the food bank's own site, (4) the same
@@ -114,6 +115,7 @@ def decide(log, items, apply):
         if not pc_ok: why.append("postcode not matched exactly on the page")
         if not one_block(ot): why.append("not one clear weekly client-hours block (kept as text for review)")
         if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
+        if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
         if len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]) > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:

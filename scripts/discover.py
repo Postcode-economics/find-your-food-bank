@@ -144,7 +144,8 @@ def want_times(ot):
 NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point", re.I)
 ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month", re.I)
 ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
-APPT = re.compile(r"by appointment|appointment only|appointments only", re.I)
+APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
+DONATION_PAGE = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)
 def not_client_context(t, at, prev_span_end=None):
     """Up to 160 chars before the times, but not past the previous time span (that belongs to another line/centre).
     Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""
@@ -191,6 +192,8 @@ def extract_times(text, postcode=None):
     if not segs: return None
     from times import normalise
     raw = " | ".join(segs)
+    ba = APPT.search(t)   # the centre's own block says appointment / phone first / on request (North Ayrshire St John's)
+    if ba and not APPT.search(raw): raw += " (" + ba.group(0).lower() + ")"; segs = segs + ["(" + ba.group(0).lower() + ")"]
     if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
         return {"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None, "lines": segs}
     return normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None})
@@ -249,7 +252,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
     log = {}
     for s, home, pages in got:
         for i in sites[s]:
-            texts = [t for _, t in pages]
+            texts = [t for u, t in pages if not DONATION_PAGE.search(urllib.parse.urlparse(u).path)]   # never read client times from a giving/donation page
             src = (i.get(field) or {}).get("source_url") if isinstance(i.get(field), dict) else None
             if src and usable_site(src) and src not in [u for u, _ in pages]:
                 r = fetcher(src)
