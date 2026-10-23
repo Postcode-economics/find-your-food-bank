@@ -1,1 +1,1 @@
-window.FB_STAMP={"run": "2026-10-23T23:57:22+01:00", "kind": "refresh", "label": "23 October 2026, 23:57"};
+window.FB_STAMP={"run": "2026-10-24T00:09:26+01:00", "kind": "sweep", "label": "24 October 2026, 00:09"};

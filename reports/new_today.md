@@ -82,8 +82,8 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Bradford Cyrenians - Hostel for Homeless Men · BD8 7EP
 - Bridge House Mission · TS18 3AX
 
-## Deep sweep (council pages): 0 added
-- none
+## Deep sweep (council pages): 1 added
+- Age UK Gloucester House · LE13 1JE · https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 
 ## Warm spaces: 168 added
 - wee blether with soup and sandwich at Seescape · KY7 4NT (Opens 2026-11-05)

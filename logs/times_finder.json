@@ -1,57 +1,9 @@
 {
 "run": "2026-10-23",
-"checked": 1306,
+"checked": 1226,
 "found": {
-"feedo-needo": {
-"raw": "Mondays to Friday 9am to 5pm | Monday to Thursday 10AM to 4PM | Thursdays 11AM to 4PM | Mondays to Fridays 9am to 4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mondays to Friday 9am to 5pm",
-"Monday to Thursday 10AM to 4PM",
-"Thursdays 11AM to 4PM",
-"Mondays to Fridays 9am to 4pm"
-],
-"source_url": "https://feedoneedo.org.uk/our-center",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"storehouse-church-alford": {
-"raw": "Monday, Tuesday, Wednesday and Friday 10am-1pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"10:00",
-"13:00"
-]
-],
-"tue": [
-[
-"10:00",
-"13:00"
-]
-],
-"wed": [
-[
-"10:00",
-"13:00"
-]
-],
-"fri": [
-[
-"10:00",
-"13:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://thestorehousechurchalford.org.uk/access-centre/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
 "bow": {
-"raw": "Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00 | Tuesdays 10:00 am to 12:00 pm | Thursdays 10:00 am to 1:00 pm | Tuesdays 01:00 pm to 4:30 pm | Fridays 08:00 am to 12:00 pm | Wednesdays 2:00 pm to 7:00 pm",
+"raw": "Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00",
 "status": "TIMES_TEXT_ONLY",
 "structured": null,
 "lines": [
@@ -59,425 +11,29 @@
 "Fridays 8 am to 12 pm",
 "Tuesdays 10 am to 12 pm",
 "Thursdays 10 am to 1 pm",
-"Wednesdays 14:00 to 19:00",
-"Tuesdays 10:00 am to 12:00 pm",
-"Thursdays 10:00 am to 1:00 pm",
-"Tuesdays 01:00 pm to 4:30 pm",
-"Fridays 08:00 am to 12:00 pm",
-"Wednesdays 2:00 pm to 7:00 pm"
+"Wednesdays 14:00 to 19:00"
 ],
 "source_url": "https://www.bowfoodbank.org",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"waveney": {
-"raw": "Mon 10:30 - 12:00 | Thu 10:00 - 11:00 | Fri 10:30 - 12:00 | Mon 00:00 - 23:45",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"10:30",
-"12:00"
+"reader": "times_finder",
+"pc_seen": [
+"E35ED"
 ]
-],
-"thu": [
-[
-"10:00",
-"11:00"
-]
-],
-"fri": [
-[
-"10:30",
-"12:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://waveney.foodbank.org.uk/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"the-community-storehouse": {
-"raw": "Tuesday 13:00 - 15:00 | Thursday 09:30 - 11:30 | month 9:30 to 11:30",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 13:00 - 15:00",
-"Thursday 09:30 - 11:30",
-"month 9:30 to 11:30"
-],
-"source_url": "https://communitystorehouse.co.uk",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"readifood": {
-"raw": "Thursdays 1pm-3pm | Fridays 10am-12:30pm",
-"status": "TIMES_FOUND",
-"structured": {
-"thu": [
-[
-"13:00",
-"15:00"
-]
-],
-"fri": [
-[
-"10:00",
-"12:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://fcg.org.uk/reading-pantries/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"s20": {
-"raw": "Monday, Tuesday, Thursday, Friday 9.00am - 12.00 | Monday to Friday 10.00am - 4.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday, Tuesday, Thursday, Friday 9.00am - 12.00",
-"Monday to Friday 10.00am - 4.00pm"
-],
-"source_url": "http://www.sheffieldfoodbank.org.uk/s20/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"wycombe-food-hub": {
-"raw": "Monday 10am-1:30pm | Tuesday 10am-1:30pm | Wednesday 10am-1:30pm | Thursday 10am-1:30pm | Friday 10am-1:30pm | Saturday 10am-1:30pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"10:00",
-"13:30"
-]
-],
-"tue": [
-[
-"10:00",
-"13:30"
-]
-],
-"wed": [
-[
-"10:00",
-"13:30"
-]
-],
-"thu": [
-[
-"10:00",
-"13:30"
-]
-],
-"fri": [
-[
-"10:00",
-"13:30"
-]
-],
-"sat": [
-[
-"10:00",
-"13:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://wycombefoodhub.org/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"llangollen": {
-"raw": "Monday 9am – 11am | Tuesday 10am – 12 | Wednesday 1pm-2pm | Thursday 9am – 11am",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"09:00",
-"11:00"
-]
-],
-"tue": [
-[
-"10:00",
-"12:00"
-]
-],
-"wed": [
-[
-"13:00",
-"14:00"
-]
-],
-"thu": [
-[
-"09:00",
-"11:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.llangollenfoodshare.org.uk/sessions-and-opening-hours/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ryedale-community": {
-"raw": "Friday 1-3pm",
-"status": "TIMES_FOUND",
-"structured": {
-"fri": [
-[
-"13:00",
-"15:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://ryedalecommunityfoodbank.co.uk/contact/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ryedale-community/pickering": {
-"raw": "Friday 1-3pm",
-"status": "TIMES_FOUND",
-"structured": {
-"fri": [
-[
-"13:00",
-"15:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://ryedalecommunityfoodbank.co.uk/contact/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ryedale-community/kirkbymoorside": {
-"raw": "Friday 1-3pm",
-"status": "TIMES_FOUND",
-"structured": {
-"fri": [
-[
-"13:00",
-"15:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://ryedalecommunityfoodbank.co.uk/contact/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-guildford": {
-"raw": "Tuesdays 1:15 pm – 2:15 pm | Wednesdays 9:30 am – 10:30 am | Fridays 5:00 pm – 6:15 pm",
-"status": "TIMES_FOUND",
-"structured": {
-"tue": [
-[
-"13:15",
-"14:15"
-]
-],
-"wed": [
-[
-"09:30",
-"10:30"
-]
-],
-"fri": [
-[
-"17:00",
-"18:15"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.guildfordfoodbank.org/need-help-1/blog-post-title-two-fxerm",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
 },
 "upper-eden": {
-"raw": "Tuesdays 11 – 11:30am | Fridays 10 – 10:30am",
-"status": "TIMES_FOUND",
-"structured": {
-"tue": [
-[
-"11:00",
-"11:30"
-]
+"raw": "Mon-Fri 9am-5pm | Mon & Wed 10am-12pm",
+"status": "TIMES_TEXT_ONLY",
+"structured": null,
+"lines": [
+"Mon-Fri 9am-5pm",
+"Mon & Wed 10am-12pm"
 ],
-"fri": [
-[
-"10:00",
-"10:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://upperedenfoodbank.org.uk",
+"source_url": "https://upperedenfoodbank.org.uk/get-help-2/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"northampton": {
-"raw": "MONDAY 12pm - 2pm | TUESDAY 11.30am - 1.30pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"14:00"
+"reader": "times_finder",
+"pc_seen": [
+"CA166XR"
 ]
-],
-"tue": [
-[
-"11:30",
-"13:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.restorenorthampton.org.uk/distribution-points",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"northampton/far-cotton": {
-"raw": "MONDAY 12pm - 2pm | TUESDAY 11.30am - 1.30pm | THURSDAY 12.30pm - 2.30pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"14:00"
-]
-],
-"tue": [
-[
-"11:30",
-"13:30"
-]
-],
-"thu": [
-[
-"12:30",
-"14:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.restorenorthampton.org.uk/distribution-points",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"northampton/duston": {
-"raw": "MONDAY 12pm - 2pm | TUESDAY 11.30am - 1.30pm | THURSDAY 12.30pm - 2.30pm | FRIDAY 9am - 12pm | SATURDAY 10.00am - 12.00pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"14:00"
-]
-],
-"tue": [
-[
-"11:30",
-"13:30"
-]
-],
-"thu": [
-[
-"12:30",
-"14:30"
-]
-],
-"fri": [
-[
-"09:00",
-"12:00"
-]
-],
-"sat": [
-[
-"10:00",
-"12:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.restorenorthampton.org.uk/distribution-points",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"northampton/eastfield": {
-"raw": "MONDAY 12pm - 2pm | TUESDAY 11.30am - 1.30pm | THURSDAY 12.30pm - 2.30pm | FRIDAY 9am - 12pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"14:00"
-]
-],
-"tue": [
-[
-"11:30",
-"13:30"
-]
-],
-"thu": [
-[
-"12:30",
-"14:30"
-]
-],
-"fri": [
-[
-"09:00",
-"12:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.restorenorthampton.org.uk/distribution-points",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"northampton/spinney-hill": {
-"raw": "MONDAY 12pm - 2pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"14:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.restorenorthampton.org.uk/distribution-points",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"blaenau-gwent": {
-"raw": "Thu 10:00 - 13:00",
-"status": "TIMES_FOUND",
-"structured": {
-"thu": [
-[
-"10:00",
-"13:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://blaenaugwent.foodbank.org.uk/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
 },
 "st-pauls-erith": {
 "raw": "Monday to Friday 9.00am - 12.00pm | Monday to Friday 12.00pm - 3.00pm | Monday to Friday 9.00am - 2.00pm | Monday to Friday 9.00am - 3.00pm",
@@ -491,83 +47,10 @@
 ],
 "source_url": "https://www.spnh.org.uk/preschool/session-information/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"lincoln-community-larder": {
-"raw": "Wednesday 10.00am to 11.30am | Friday 10.00am to 11.30am | Wednesday 9.30am to 10.30am | Thursday 1.30pm to 3.00pm | Tuesday 3.00pm to 4.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 10.00am to 11.30am",
-"Friday 10.00am to 11.30am",
-"Wednesday 9.30am to 10.30am",
-"Thursday 1.30pm to 3.00pm",
-"Tuesday 3.00pm to 4.00pm"
-],
-"source_url": "https://www.lincolnlarder.co.uk/get-help/outreach-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"lincoln-community-larder/martin-village-hall": {
-"raw": "Wednesday 10.00am to 11.30am | Friday 10.00am to 11.30am | Wednesday 9.30am to 10.30am | Thursday 1.30pm to 3.00pm | Tuesday 3.00pm to 4.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 10.00am to 11.30am",
-"Friday 10.00am to 11.30am",
-"Wednesday 9.30am to 10.30am",
-"Thursday 1.30pm to 3.00pm",
-"Tuesday 3.00pm to 4.00pm"
-],
-"source_url": "https://www.lincolnlarder.co.uk/get-help/outreach-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"lincoln-community-larder/st-giles-methodist-church": {
-"raw": "Wednesday 10.00am to 11.30am | Friday 10.00am to 11.30am | Wednesday 9.30am to 10.30am | Thursday 1.30pm to 3.00pm | Tuesday 3.00pm to 4.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 10.00am to 11.30am",
-"Friday 10.00am to 11.30am",
-"Wednesday 9.30am to 10.30am",
-"Thursday 1.30pm to 3.00pm",
-"Tuesday 3.00pm to 4.00pm"
-],
-"source_url": "https://www.lincolnlarder.co.uk/get-help/outreach-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"lincoln-community-larder/st-marys-church-welton": {
-"raw": "Wednesday 10.00am to 11.30am | Friday 10.00am to 11.30am | Wednesday 9.30am to 10.30am | Thursday 1.30pm to 3.00pm | Tuesday 3.00pm to 4.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 10.00am to 11.30am",
-"Friday 10.00am to 11.30am",
-"Wednesday 9.30am to 10.30am",
-"Thursday 1.30pm to 3.00pm",
-"Tuesday 3.00pm to 4.00pm"
-],
-"source_url": "https://www.lincolnlarder.co.uk/get-help/outreach-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"poole/bourne-community-hub": {
-"raw": "Wed 1pm-3pm | Fri 9am-12pm | Mon, Weds & Fri 10am – 1.15pm | Mon – Fri 10.30am – 3pm | Sat 10.30am – 2pm | Mon – Fri 11am – 12.30pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wed 13:00–15:00",
-"Fri 09:00–12:00",
-"Mon, Weds & Fri 10am – 1.15pm",
-"Mon – Fri 10.30am – 3pm",
-"Sat 10:30–14:00",
-"Mon – Fri 11am – 12.30pm"
-],
-"source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"DA81HN"
+]
 },
 "meon-valley/whiteley": {
 "raw": "Mon 10AM–noon",
@@ -583,7 +66,8 @@
 "parsed_from_text": true,
 "source_url": "https://meonvalleyfoodbank.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "meon-valley/wickham-and-knowle": {
 "raw": "Mon 10AM–noon",
@@ -599,7 +83,8 @@
 "parsed_from_text": true,
 "source_url": "https://meonvalleyfoodbank.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "meon-valley/swanmore": {
 "raw": "Mon 10AM–noon",
@@ -615,7 +100,8 @@
 "parsed_from_text": true,
 "source_url": "https://meonvalleyfoodbank.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "meon-valley/droxford": {
 "raw": "Mon 10AM–noon",
@@ -631,7 +117,8 @@
 "parsed_from_text": true,
 "source_url": "https://meonvalleyfoodbank.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "meon-valley/bishops-waltham": {
 "raw": "Mon 10AM–noon",
@@ -647,7 +134,8 @@
 "parsed_from_text": true,
 "source_url": "https://meonvalleyfoodbank.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "meon-valley/west-meon": {
 "raw": "Mon 10AM–noon",
@@ -663,7 +151,8 @@
 "parsed_from_text": true,
 "source_url": "https://meonvalleyfoodbank.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "purley/cr5": {
 "raw": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
@@ -679,7 +168,8 @@
 ],
 "source_url": "https://www.purleyfoodhub.net/get-help/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "purley/cr8": {
 "raw": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
@@ -695,7 +185,8 @@
 ],
 "source_url": "https://www.purleyfoodhub.net/get-help/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "purley/cr2": {
 "raw": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
@@ -711,7 +202,8 @@
 ],
 "source_url": "https://www.purleyfoodhub.net/get-help/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "purley/cr0-4": {
 "raw": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
@@ -727,37 +219,44 @@
 ],
 "source_url": "https://www.purleyfoodhub.net/get-help/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "the-community-cupboard/swanley-community-cupboard": {
-"raw": "Tues & Thur 12 -2pm | Mon & Thurs 10am - 3pm | Sat 10am - 12",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tues & Thur 12 -2pm",
-"Mon & Thurs 10am - 3pm",
-"Sat 10:00–12:00"
+"raw": "Mon & Thurs 10am - 3pm | Sat 10am - 12",
+"status": "TIMES_FOUND",
+"structured": {
+"mon": [
+[
+"10:00",
+"15:00"
+]
 ],
+"thu": [
+[
+"10:00",
+"15:00"
+]
+],
+"sat": [
+[
+"10:00",
+"12:00"
+]
+]
+},
+"parsed_from_text": true,
 "source_url": "https://thecommunitycupboard.co.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"BR87DX"
+]
 },
 "northfleet-hive-hope/disused-taxi-rank": {
-"raw": "Mondays 10:00-10:45am | Saturdays 1:00-2:00pm | Wednesdays 11am-12:30pm",
+"raw": "Saturdays 1:00-2:00pm",
 "status": "TIMES_FOUND",
 "structured": {
-"mon": [
-[
-"10:00",
-"10:45"
-]
-],
-"wed": [
-[
-"11:00",
-"12:30"
-]
-],
 "sat": [
 [
 "13:00",
@@ -768,10 +267,13 @@
 "parsed_from_text": true,
 "source_url": "https://hivehope.org.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"DA110DJ"
+]
 },
 "northfleet-hive-hope/rose-street": {
-"raw": "Mondays 10:00-10:45am | Saturdays 1:00-2:00pm | Wednesdays 11am-12:30pm",
+"raw": "Mondays 10:00-10:45am",
 "status": "TIMES_FOUND",
 "structured": {
 "mon": [
@@ -779,1172 +281,271 @@
 "10:00",
 "10:45"
 ]
-],
-"wed": [
-[
-"11:00",
-"12:30"
-]
-],
-"sat": [
-[
-"13:00",
-"14:00"
-]
 ]
 },
 "parsed_from_text": true,
 "source_url": "https://hivehope.org.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"woodley/emmanuel-church": {
-"raw": "Monday to Friday 10:00 - noon | Monday 09:30 - 10:30 am | Tuesday 10:00 - 12:00 pm | Wednesday 10:00 - 12:00 pm | Thursday 9:30 -10:30 am | Friday 10:00 - 12:00 pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 10:00 - noon",
-"Monday 09:30 - 10:30 am",
-"Tuesday 10:00 - 12:00 pm",
-"Wednesday 10:00 - 12:00 pm",
-"Thursday 9:30 -10:30 am",
-"Friday 10:00 - 12:00 pm"
-],
-"source_url": "https://woodleyfoodbank.org",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-michaels-church": {
-"raw": "Wednesday 10.00am - 12.00 | Wednesday 11.00am - 1.00pm | Wednesday 1.00pm -3.00pm | Wednesday 2pm - 4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 10.00am - 12.00",
-"Wednesday 11.00am - 1.00pm",
-"Wednesday 1.00pm -3.00pm",
-"Wednesday 2pm - 4pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-bartholomews-church": {
-"raw": "Thursday 10.00am – 12.00 | Tuesday 10.00am – 12.00 | Tuesday 2.30pm - 4.30 pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Thursday 10.00am – 12.00",
-"Tuesday 10.00am – 12.00",
-"Tuesday 2.30pm - 4.30 pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-timothys-church": {
-"raw": "Wednesday 11.00am - 1.00pm | Wednesday 1.00pm -3.00pm | Wednesday 2pm - 4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 11.00am - 1.00pm",
-"Wednesday 1.00pm -3.00pm",
-"Wednesday 2pm - 4pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/freshbrook-church": {
-"raw": "Thursday 10.00am – 12.00 | Tuesday 10.00am – 12.00 | Tuesday 2.30pm - 4.30 pm | Wednesday 10.00am - 12.00 | Wednesday 11.00am - 1.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Thursday 10.00am – 12.00",
-"Tuesday 10.00am – 12.00",
-"Tuesday 2.30pm - 4.30 pm",
-"Wednesday 10.00am - 12.00",
-"Wednesday 11.00am - 1.00pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-johns-church-hall": {
-"raw": "Tuesday 10.00am – 12.00 | Tuesday 2.30pm - 4.30 pm | Wednesday 10.00am - 12.00 | Wednesday 11.00am - 1.00pm | Wednesday 1.00pm -3.00pm | Wednesday 2pm - 4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 10.00am – 12.00",
-"Tuesday 2.30pm - 4.30 pm",
-"Wednesday 10.00am - 12.00",
-"Wednesday 11.00am - 1.00pm",
-"Wednesday 1.00pm -3.00pm",
-"Wednesday 2pm - 4pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-margarets-centre": {
-"raw": "Wednesday 10.00am - 12.00 | Wednesday 11.00am - 1.00pm | Wednesday 1.00pm -3.00pm | Wednesday 2pm - 4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 10.00am - 12.00",
-"Wednesday 11.00am - 1.00pm",
-"Wednesday 1.00pm -3.00pm",
-"Wednesday 2pm - 4pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-andrews-methodist-church": {
-"raw": "Tuesday 10.00am – 12.00 | Tuesday 2.30pm - 4.30 pm | Wednesday 10.00am - 12.00 | Wednesday 11.00am - 1.00pm | Wednesday 1.00pm -3.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 10.00am – 12.00",
-"Tuesday 2.30pm - 4.30 pm",
-"Wednesday 10.00am - 12.00",
-"Wednesday 11.00am - 1.00pm",
-"Wednesday 1.00pm -3.00pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/st-peters-church": {
-"raw": "Thursday 10.00am – 12.00 | Tuesday 10.00am – 12.00 | Tuesday 2.30pm - 4.30 pm | Wednesday 10.00am - 12.00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Thursday 10.00am – 12.00",
-"Tuesday 10.00am – 12.00",
-"Tuesday 2.30pm - 4.30 pm",
-"Wednesday 10.00am - 12.00"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"swindon/the-bridge": {
-"raw": "Thursday 10.00am – 12.00 | Tuesday 10.00am – 12.00 | Tuesday 2.30pm - 4.30 pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Thursday 10.00am – 12.00",
-"Tuesday 10.00am – 12.00",
-"Tuesday 2.30pm - 4.30 pm"
-],
-"source_url": "https://www.swindonfoodcollective.org/distribution-centres/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"hackney/hoxton": {
-"raw": "Tuesday 11am - 1pm | Wednesday 5pm - 6.45pm | Friday 10am - 12pm",
-"status": "TIMES_FOUND",
-"structured": {
-"tue": [
-[
-"11:00",
-"13:00"
+"reader": "times_finder",
+"pc_seen": [
+"DA119EQ"
 ]
-],
-"wed": [
-[
-"17:00",
-"18:45"
-]
-],
-"fri": [
-[
-"10:00",
-"12:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.hackney.foodbank.org.uk/locations",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"hackney/dalston": {
-"raw": "Monday 6pm - 7.30pm | Tuesday 11am - 1pm | Wednesday 5pm - 6.45pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"18:00",
-"19:30"
-]
-],
-"tue": [
-[
-"11:00",
-"13:00"
-]
-],
-"wed": [
-[
-"17:00",
-"18:45"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.hackney.foodbank.org.uk/locations",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"hackney/homerton": {
-"raw": "Monday 6pm - 7.30pm | Tuesday 11am - 1pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"18:00",
-"19:30"
-]
-],
-"tue": [
-[
-"11:00",
-"13:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.hackney.foodbank.org.uk/locations",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"hackney/upper-clapton": {
-"raw": "Tuesday 11am - 1pm | Wednesday 5pm - 6.45pm | Friday 10am - 12pm",
-"status": "TIMES_FOUND",
-"structured": {
-"tue": [
-[
-"11:00",
-"13:00"
-]
-],
-"wed": [
-[
-"17:00",
-"18:45"
-]
-],
-"fri": [
-[
-"10:00",
-"12:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.hackney.foodbank.org.uk/locations",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"patch/tenby": {
-"raw": "Monday – Friday 10am-2pm | Tuesday – Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday – Friday 10am – 2pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday – Friday 10am-2pm",
-"Tuesday – Saturday 10am-3pm",
-"Tuesday & Thursday 10am-1pm"
-],
-"source_url": "https://patchcharity.org.uk/get-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
 },
 "patch/pembroke-dock": {
-"raw": "Monday – Friday 10am-2pm | Tuesday – Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday – Friday 10am – 2pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday – Friday 10am-2pm",
-"Tuesday – Saturday 10am-3pm",
-"Tuesday & Thursday 10am-1pm"
+"raw": "Tuesday & Thursday 10am-1pm",
+"status": "TIMES_FOUND",
+"structured": {
+"tue": [
+[
+"10:00",
+"13:00"
+]
 ],
+"thu": [
+[
+"10:00",
+"13:00"
+]
+]
+},
+"parsed_from_text": true,
 "source_url": "https://patchcharity.org.uk/get-help/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"SA726PD"
+]
 },
 "3food4u/waltham-abbey-baptist-church": {
-"raw": "Sunday 12:00pm to 2:00pm | month 3:30pm to 5:30pm | month 10:00am to 12:00pm | month 2:00pm to 4:00pm | month 2:30pm to 4:30pm | month 10-2pm | month 11-3pm | month 10-1pm | Tuesday 11-12:30pm",
+"raw": "1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm",
 "status": "TIMES_TEXT_ONLY",
 "structured": null,
 "lines": [
-"Sunday 12:00pm to 2:00pm",
-"month 3:30pm to 5:30pm",
-"month 10:00am to 12:00pm",
-"month 2:00pm to 4:00pm",
-"month 2:30pm to 4:30pm",
-"month 10-2pm",
-"month 11-3pm",
-"month 10-1pm",
+"1st Tuesday of the month 10-2pm",
+"1st Thursday of the month 11-3pm",
 "Tuesday 11-12:30pm"
 ],
 "source_url": "https://3food4u.org",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"EN91RL"
+]
 },
 "3food4u/budworth-hall": {
-"raw": "Tuesday 10:45am to 12:30pm | Tuesday 12:30pm to 2:00pm | Saturday 3:30pm to 5:00pm | Wednesday 4:45pm to 6:00pm | Thursday 12:15pm to 1:15pm | Friday 12:30pm to 2:00pm | Sunday 12:00pm to 2:00pm | month 3:30pm to 5:30pm | month 10:00am to 12:00pm | month 2:00pm to 4:00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 10:45am to 12:30pm",
-"Tuesday 12:30pm to 2:00pm",
-"Saturday 3:30pm to 5:00pm",
-"Wednesday 4:45pm to 6:00pm",
-"Thursday 12:15pm to 1:15pm",
-"Friday 12:30pm to 2:00pm",
-"Sunday 12:00pm to 2:00pm",
-"month 3:30pm to 5:30pm",
-"month 10:00am to 12:00pm",
-"month 2:00pm to 4:00pm"
-],
-"source_url": "https://3food4u.org",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"oxford-community-emergency/the-baptist-church": {
-"raw": "Thursday 10 am to 11.30 am",
+"raw": "Friday 12:30pm to 2:00pm",
 "status": "TIMES_FOUND",
 "structured": {
-"thu": [
+"fri": [
 [
-"10:00",
-"11:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.cefoxford.co.uk/finding-us/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"oxford-community-emergency/the-barton-community-church": {
-"raw": "Thursday 10 am to 11.30 am",
-"status": "TIMES_FOUND",
-"structured": {
-"thu": [
-[
-"10:00",
-"11:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.cefoxford.co.uk/finding-us/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"dens/liberty-tea-rooms": {
-"raw": "Monday-Friday 10am-1pm | Wednesdays 3pm-6pm | Monday-Friday 9am-5pm | Monday-Friday 9am-4.30pm | Tuesday-Friday 10am-12pm | Saturday 9am-1pm | Monday-Friday 10am-12pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday-Friday 10am-1pm",
-"Wednesdays 3pm-6pm",
-"Monday-Friday 9am-5pm",
-"Monday-Friday 9am-4.30pm",
-"Tuesday-Friday 10am-12pm",
-"Saturday 9am-1pm",
-"Monday-Friday 10am-12pm"
-],
-"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"dens/south-hill-centre": {
-"raw": "Monday-Friday 9am-5pm | Monday-Friday 8.30am-6pm | Tuesday-Thursday 10am-4.30pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday-Friday 9am-5pm",
-"Monday-Friday 8.30am-6pm",
-"Tuesday-Thursday 10am-4.30pm"
-],
-"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"dens/way-inn-christian-centre": {
-"raw": "Monday-Friday 10am-1pm | Wednesdays 3pm-6pm | Monday-Friday 9am-5pm | Monday-Friday 9am-4.30pm | Tuesday-Friday 10am-12pm | Saturday 9am-1pm | Monday-Friday 10am-12pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday-Friday 10am-1pm",
-"Wednesdays 3pm-6pm",
-"Monday-Friday 9am-5pm",
-"Monday-Friday 9am-4.30pm",
-"Tuesday-Friday 10am-12pm",
-"Saturday 9am-1pm",
-"Monday-Friday 10am-12pm"
-],
-"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"dens/st-peter-st-paul-church": {
-"raw": "Wednesdays 3pm-6pm | Monday-Friday 9am-5pm | Monday-Friday 9am-4.30pm | Tuesday-Friday 10am-12pm | Saturday 9am-1pm | Monday-Friday 10am-12pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesdays 3pm-6pm",
-"Monday-Friday 9am-5pm",
-"Monday-Friday 9am-4.30pm",
-"Tuesday-Friday 10am-12pm",
-"Saturday 9am-1pm",
-"Monday-Friday 10am-12pm"
-],
-"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-oxfordshire/woodstock-baptist-church": {
-"raw": "Monday 10am – 11.30am | Monday 9.30am – 11.00am | Friday 11.00am – 1.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday 10am – 11.30am",
-"Monday 9.30am – 11.00am",
-"Friday 11.00am – 1.00pm"
-],
-"source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-oxfordshire/chipping-norton-baptist-church": {
-"raw": "Monday 10am – 11.30am | Monday 9.30am – 11.00am | Friday 11.00am – 1.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday 10am – 11.30am",
-"Monday 9.30am – 11.00am",
-"Friday 11.00am – 1.00pm"
-],
-"source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/knowles-primary-school": {
-"raw": "Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 12:00 – 14:00pm",
-"Tuesday to Friday 12:30 – 14:30pm",
-"Mon, Tues, Thurs, Fri 09:00 – 16:00pm",
-"Tues and Thurs 10:00 – 16:00pm",
-"Mon, Weds and Fri 13:30 – 14:30pm",
-"Friday 13:15 – 14:30pm",
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm",
-"Mon & Weds 14:30pm – 15:30pm",
-"Thursday 09:30 – 10:30am"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/frank-moran-centre-marc": {
-"raw": "Monday to Friday 09:00 – 16:00pm | Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Tues and Thurs 10:00 – 16:00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 09:00 – 16:00pm",
-"Monday to Friday 12:00 – 14:00pm",
-"Tuesday to Friday 12:30 – 14:30pm",
-"Mon, Tues, Thurs, Fri 09:00 – 16:00pm",
-"Tues and Thurs 10:00 – 16:00pm"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/moorlands-family-centre": {
-"raw": "Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tues and Thurs 10:00 – 16:00pm",
-"Mon, Weds and Fri 13:30 – 14:30pm",
-"Friday 13:15 – 14:30pm",
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm",
-"Mon & Weds 14:30pm – 15:30pm",
-"Thursday 09:30 – 10:30am"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/hedgerows-family-centre": {
-"raw": "Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm",
-"Mon & Weds 14:30pm – 15:30pm",
-"Thursday 09:30 – 10:30am"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/glebe-farm-school": {
-"raw": "Monday to Friday 09:00 – 16:00pm | Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 09:00 – 16:00pm",
-"Monday to Friday 12:00 – 14:00pm",
-"Tuesday to Friday 12:30 – 14:30pm",
-"Mon, Tues, Thurs, Fri 09:00 – 16:00pm",
-"Tues and Thurs 10:00 – 16:00pm",
-"Mon, Weds and Fri 13:30 – 14:30pm",
-"Friday 13:15 – 14:30pm",
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm",
-"Mon & Weds 14:30pm – 15:30pm",
-"Thursday 09:30 – 10:30am"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/unity-park": {
-"raw": "Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon, Tues, Thurs, Fri 09:00 – 16:00pm",
-"Tues and Thurs 10:00 – 16:00pm",
-"Mon, Weds and Fri 13:30 – 14:30pm",
-"Friday 13:15 – 14:30pm",
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm",
-"Mon & Weds 14:30pm – 15:30pm",
-"Thursday 09:30 – 10:30am"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/broughton-pavillion": {
-"raw": "Monday to Friday 09:00 – 16:00pm | Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 09:00 – 16:00pm",
-"Monday to Friday 12:00 – 14:00pm",
-"Tuesday to Friday 12:30 – 14:30pm",
-"Mon, Tues, Thurs, Fri 09:00 – 16:00pm",
-"Tues and Thurs 10:00 – 16:00pm",
-"Mon, Weds and Fri 13:30 – 14:30pm",
-"Friday 13:15 – 14:30pm",
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"milton-keynes/rowans-family-centre": {
-"raw": "Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon, Weds and Fri 13:30 – 14:30pm",
-"Friday 13:15 – 14:30pm",
-"Monday and Friday 13:45 – 14:45pm",
-"Wednesday 10:00am – 12:30pm",
-"Thursday 10:00am – 12:30pm",
-"Mon & Weds 14:30pm – 15:30pm",
-"Thursday 09:30 – 10:30am"
-],
-"source_url": "https://mkfoodbank.org.uk/i-need-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"still-good/freedom-church": {
-"raw": "Tuesday, Wednesday, Friday & Saturday 10.00am - 12.00 | Monday & Thursday 2.00pm - 4.00pm | Monday, Tuesday & Friday 2.00pm - 4.00pm | Wednesday, Thursday & Saturday 10.00am - 12.00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday, Wednesday, Friday & Saturday 10.00am - 12.00",
-"Monday & Thursday 2.00pm - 4.00pm",
-"Monday, Tuesday & Friday 2.00pm - 4.00pm",
-"Wednesday, Thursday & Saturday 10.00am - 12.00"
-],
-"source_url": "https://www.stillgoodfood.org/hours",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"stoke-on-trent/wesley-hall-methodist-church": {
-"raw": "Mon 12:30 - 14:30 | Tue 10:00 - 12:00 | Wed 10:00 - 12:00 | Wed 14:00 - 16:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon 12:30–14:30",
-"Tue 10:00–12:00",
-"Wed 10:00–12:00",
-"Wed 14:00–16:00"
-],
-"source_url": "https://stokeontrent.foodbank.org.uk/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"hope-central/knutsford": {
-"raw": "Monday to Friday 11am-12pm | Mondays 9.30-11am | Saturday 10am-11am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 11am-12pm",
-"Mondays 9.30-11am",
-"Saturday 10am-11am"
-],
-"source_url": "https://hopecentral.org.uk/get-involved/giving-food/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"chelwood-foodbank-plus/the-olive-branch": {
-"raw": "Wednesday 1.00pm - 3.00pm | Wednesday 10.00am - 12.00pm | Tuesday 10.00am - 12.00pm | Thursday 12.00pm - 2.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 1.00pm - 3.00pm",
-"Wednesday 10.00am - 12.00pm",
-"Tuesday 10.00am - 12.00pm",
-"Thursday 12.00pm - 2.00pm"
-],
-"source_url": "https://chelwoodfoodbankplus.org/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"chelwood-foodbank-plus/brinnington-community-church": {
-"raw": "Wednesday 1.00pm - 3.00pm | Wednesday 10.00am - 12.00pm | Tuesday 10.00am - 12.00pm | Thursday 12.00pm - 2.00pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 1.00pm - 3.00pm",
-"Wednesday 10.00am - 12.00pm",
-"Tuesday 10.00am - 12.00pm",
-"Thursday 12.00pm - 2.00pm"
-],
-"source_url": "https://chelwoodfoodbankplus.org/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"southport/st-peters-birkdale": {
-"raw": "Mon 13:30 - 15:00 | Thu 13:00 - 15:00 | Thu 15:30 - 17:30",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon 13:30–15:00",
-"Thu 13:00–15:00",
-"Thu 15:30–17:30"
-],
-"source_url": "https://southport.foodbank.org.uk/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"fusion/wakefield": {
-"raw": "Mon-Fri 9am – 4pm | Mon-Fri 10am – 3pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon-Fri 9am – 4pm",
-"Mon-Fri 10am – 3pm"
-],
-"source_url": "https://fusionhousing.org.uk/contact-us/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"fusion/dewsbury": {
-"raw": "Mon-Fri 9am – 4pm | Mon-Fri 10am – 3pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon-Fri 9am – 4pm",
-"Mon-Fri 10am – 3pm"
-],
-"source_url": "https://fusionhousing.org.uk/contact-us/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-lakes/egremont": {
-"raw": "Tuesday 10am - 12pm | Monday 11:30am - 1:30pm | Tuesday 11:30am - 1:30pm | Thursday 11:30am - 1:30pm | Friday 1pm - 3pm | Friday 10am - 12pm | Tuesday 12pm - 2pm | Thursday 12pm - 2pm | Friday 2pm - 4pm | Monday 12pm - 2pm | Wednesday 12pm - 2pm | Friday 12pm - 2pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 10am - 12pm",
-"Monday 11:30am - 1:30pm",
-"Tuesday 11:30am - 1:30pm",
-"Thursday 11:30am - 1:30pm",
-"Friday 1pm - 3pm",
-"Friday 10am - 12pm",
-"Tuesday 12pm - 2pm",
-"Thursday 12pm - 2pm",
-"Friday 2pm - 4pm",
-"Monday 12pm - 2pm",
-"Wednesday 12pm - 2pm",
-"Friday 12pm - 2pm"
-],
-"source_url": "https://www.thefoodbank.org.uk/centres",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-lakes/whitehaven": {
-"raw": "Tuesday 10am - 12pm | Monday 11:30am - 1:30pm | Tuesday 11:30am - 1:30pm | Thursday 11:30am - 1:30pm | Friday 1pm - 3pm | Friday 10am - 12pm | Tuesday 12pm - 2pm | Thursday 12pm - 2pm | Friday 2pm - 4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 10am - 12pm",
-"Monday 11:30am - 1:30pm",
-"Tuesday 11:30am - 1:30pm",
-"Thursday 11:30am - 1:30pm",
-"Friday 1pm - 3pm",
-"Friday 10am - 12pm",
-"Tuesday 12pm - 2pm",
-"Thursday 12pm - 2pm",
-"Friday 2pm - 4pm"
-],
-"source_url": "https://www.thefoodbank.org.uk/centres",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-lakes/maryport": {
-"raw": "Tuesday 10am - 12pm | Monday 11:30am - 1:30pm | Tuesday 11:30am - 1:30pm | Thursday 11:30am - 1:30pm | Friday 1pm - 3pm | Friday 10am - 12pm | Tuesday 12pm - 2pm | Thursday 12pm - 2pm | Friday 2pm - 4pm | Monday 12pm - 2pm | Wednesday 12pm - 2pm | Friday 12pm - 2pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesday 10am - 12pm",
-"Monday 11:30am - 1:30pm",
-"Tuesday 11:30am - 1:30pm",
-"Thursday 11:30am - 1:30pm",
-"Friday 1pm - 3pm",
-"Friday 10am - 12pm",
-"Tuesday 12pm - 2pm",
-"Thursday 12pm - 2pm",
-"Friday 2pm - 4pm",
-"Monday 12pm - 2pm",
-"Wednesday 12pm - 2pm",
-"Friday 12pm - 2pm"
-],
-"source_url": "https://www.thefoodbank.org.uk/centres",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"storehouse-influence-church/barnard-castle": {
-"raw": "Thursdays 4pm – 6pm | Fridays 4pm – 6pm | Fridays 9.30am – 11.30am",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Thursdays 4pm – 6pm",
-"Fridays 4pm – 6pm",
-"Fridays 9.30am – 11.30am"
-],
-"source_url": "https://www.influencechurch.co.uk/storehouse/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"washington-community/st-georges-church": {
-"raw": "Wednesday 12pm until 3pm | Thursday 12pm until 3pm | Friday 12pm until 3pm | Tuesday 10:30am until 2:30pm | Wednesday 10:30am until 2:30pm | Friday 10am until 11:30am | Monday 9:30am until 1pm | Tuesday 9:30am until 1pm | Thursday 9:30am until 1pm | Friday 9:30am until 1pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 12pm until 3pm",
-"Thursday 12pm until 3pm",
-"Friday 12pm until 3pm",
-"Tuesday 10:30am until 2:30pm",
-"Wednesday 10:30am until 2:30pm",
-"Friday 10am until 11:30am",
-"Monday 9:30am until 1pm",
-"Tuesday 9:30am until 1pm",
-"Thursday 9:30am until 1pm",
-"Friday 9:30am until 1pm"
-],
-"source_url": "https://wcfp.org.uk/find-us/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"washington-community/oxclose-church": {
-"raw": "Wednesday 12pm until 3pm | Thursday 12pm until 3pm | Friday 12pm until 3pm | Tuesday 10:30am until 2:30pm | Wednesday 10:30am until 2:30pm | Friday 10am until 11:30am | Monday 9:30am until 1pm | Tuesday 9:30am until 1pm | Thursday 9:30am until 1pm | Friday 9:30am until 1pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesday 12pm until 3pm",
-"Thursday 12pm until 3pm",
-"Friday 12pm until 3pm",
-"Tuesday 10:30am until 2:30pm",
-"Wednesday 10:30am until 2:30pm",
-"Friday 10am until 11:30am",
-"Monday 9:30am until 1pm",
-"Tuesday 9:30am until 1pm",
-"Thursday 9:30am until 1pm",
-"Friday 9:30am until 1pm"
-],
-"source_url": "https://wcfp.org.uk/find-us/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"sunderland/roker-methodist-church": {
-"raw": "Monday 13:00-15:00 | Monday 11:30-13:00 | Thursday 11:30-13:00 | Thursday 13:00-15:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday 13:00-15:00",
-"Monday 11:30-13:00",
-"Thursday 11:30-13:00",
-"Thursday 13:00-15:00"
-],
-"source_url": "https://sunderlandfoodbank.org.uk/get-help/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"north-ayrshire/st-johns-church": {
-"raw": "Mon 10:30 - 12:00 | Tue 10:30 - 12:00 | Thu 10:30 - 12:00 | Fri 10:30 - 12:00 | Fri 12:30 - 14:00 | Mon 09:00 - 17:00 | Tue 09:00 - 17:00 | Wed 09:00 - 17:00 | Thu 09:00 - 17:00 | Fri 09:00 - 17:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon 10:30–12:00",
-"Tue 10:30–12:00",
-"Thu 10:30–12:00",
-"Fri 10:30–12:00",
-"Fri 12:30–14:00",
-"Mon 09:00–17:00",
-"Tue 09:00–17:00",
-"Wed 09:00–17:00",
-"Thu 09:00–17:00",
-"Fri 09:00–17:00"
-],
-"source_url": "https://northayrshire.foodbank.org.uk/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-food-project/craigmillar": {
-"raw": "Tues 10:30 – 13:00 | Thu 10:30 – 13:00 | Fri 10:30 – 13:00 | Mon 13:00-15:00 | Thu 13:00-15:00 | Wed 13:00-15:00 | Fri 10:00-12:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tues 10:30 – 13:00",
-"Thu 10:30–13:00",
-"Fri 10:30–13:00",
-"Mon 13:00–15:00",
-"Thu 13:00–15:00",
-"Wed 13:00–15:00",
-"Fri 10:00–12:00"
-],
-"source_url": "https://edinburghfoodproject.org/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-food-project/grassmarket": {
-"raw": "Mon 13:00-15:00 | Thu 13:00-15:00 | Wed 13:00-15:00 | Fri 10:00-12:00 | Thu 11:00-13:00 | Tues 14:00-16:00 | Fri 14:00-16:00 | Mon 17:30-19:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon 13:00–15:00",
-"Thu 13:00–15:00",
-"Wed 13:00–15:00",
-"Fri 10:00–12:00",
-"Thu 11:00–13:00",
-"Tues 14:00-16:00",
-"Fri 14:00–16:00",
-"Mon 17:30–19:00"
-],
-"source_url": "https://edinburghfoodproject.org/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-food-project/broughton": {
-"raw": "Tues 10:30 – 13:00 | Thu 10:30 – 13:00 | Fri 10:30 – 13:00 | Mon 13:00-15:00 | Thu 13:00-15:00 | Wed 13:00-15:00 | Fri 10:00-12:00 | Thu 11:00-13:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tues 10:30 – 13:00",
-"Thu 10:30–13:00",
-"Fri 10:30–13:00",
-"Mon 13:00–15:00",
-"Thu 13:00–15:00",
-"Wed 13:00–15:00",
-"Fri 10:00–12:00",
-"Thu 11:00–13:00"
-],
-"source_url": "https://edinburghfoodproject.org/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-food-project/pilton": {
-"raw": "Tues 10:30 – 13:00 | Thu 10:30 – 13:00 | Fri 10:30 – 13:00 | Mon 13:00-15:00 | Thu 13:00-15:00 | Wed 13:00-15:00 | Fri 10:00-12:00 | Thu 11:00-13:00 | Tues 14:00-16",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tues 10:30 – 13:00",
-"Thu 10:30–13:00",
-"Fri 10:30–13:00",
-"Mon 13:00–15:00",
-"Thu 13:00–15:00",
-"Wed 13:00–15:00",
-"Fri 10:00–12:00",
-"Thu 11:00–13:00",
-"Tues 14:00-16"
-],
-"source_url": "https://edinburghfoodproject.org/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-food-project/south-queensferry": {
-"raw": "Tues 10:30 – 13:00 | Thu 10:30 – 13:00 | Fri 10:30 – 13:00 | Mon 13:00-15:00 | Thu 13:00-15:00 | Wed 13:00-15:00 | Fri 10:00-12:00 | Thu 11:00-13:00 | Tues 14:00-16:00 | Fri 14:00-16:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tues 10:30 – 13:00",
-"Thu 10:30–13:00",
-"Fri 10:30–13:00",
-"Mon 13:00–15:00",
-"Thu 13:00–15:00",
-"Wed 13:00–15:00",
-"Fri 10:00–12:00",
-"Thu 11:00–13:00",
-"Tues 14:00-16:00",
-"Fri 14:00–16:00"
-],
-"source_url": "https://edinburghfoodproject.org/locations/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-ne/pilrig-st-pauls-parish-church": {
-"raw": "Wed 11:00 – 12:30 | Tue 13:00 – 14:30 | Thu 10:00 – 11:30 | Wed 16:30 – 18:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wed 11:00–12:30",
-"Tue 13:00–14:30",
-"Thu 10:00–11:30",
-"Wed 16:30–18:00"
-],
-"source_url": "https://edinburghnefoodbank.com/contact/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"edinburgh-ne/leith-st-andrews-church-hall": {
-"raw": "Mon 13:00 – 14:30 | Fri 15:00 – 17:00 | Wed 11:00 – 12:30 | Tue 13:00 – 14:30 | Thu 10:00 – 11:30 | Wed 16:30 – 18:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mon 13:00–14:30",
-"Fri 15:00–17:00",
-"Wed 11:00–12:30",
-"Tue 13:00–14:30",
-"Thu 10:00–11:30",
-"Wed 16:30–18:00"
-],
-"source_url": "https://edinburghnefoodbank.com/contact/",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"kirkcaldy/link-living": {
-"raw": "Wednesdays 10am-1pm | Thursdays 10am-3pm | Monday 10am-12.30pm | Tuesday 10am-12.30pm | Thursday 10am-12.30pm | Friday 10am-12.30pm | Wednesday 10am-12.30pm | Monday 10am-4pm | Tuesday 10am-4pm | Wednesday 10am-4pm | Thursday 10am-4pm | Friday 10am-4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Wednesdays 10am-1pm",
-"Thursdays 10am-3pm",
-"Monday 10am-12.30pm",
-"Tuesday 10am-12.30pm",
-"Thursday 10am-12.30pm",
-"Friday 10am-12.30pm",
-"Wednesday 10am-12.30pm",
-"Monday 10am-4pm",
-"Tuesday 10am-4pm",
-"Wednesday 10am-4pm",
-"Thursday 10am-4pm",
-"Friday 10am-4pm"
-],
-"source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"kirkcaldy/new-volunteer-house": {
-"raw": "Mondays 10am-3pm | Tuesdays 10am-1pm | Wednesdays 10am-1pm | Thursdays 10am-3pm | Monday 10am-12.30pm | Tuesday 10am-12.30pm | Thursday 10am-12.30pm | Friday 10am-12.30pm | Wednesday 10am-12.30pm | Monday 10am-4pm | Tuesday 10am-4pm | Wednesday 10am-4pm | Thursday 10am-4pm | Friday 10am-4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mondays 10am-3pm",
-"Tuesdays 10am-1pm",
-"Wednesdays 10am-1pm",
-"Thursdays 10am-3pm",
-"Monday 10am-12.30pm",
-"Tuesday 10am-12.30pm",
-"Thursday 10am-12.30pm",
-"Friday 10am-12.30pm",
-"Wednesday 10am-12.30pm",
-"Monday 10am-4pm",
-"Tuesday 10am-4pm",
-"Wednesday 10am-4pm",
-"Thursday 10am-4pm",
-"Friday 10am-4pm"
-],
-"source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"kirkcaldy/linton-lane-centre": {
-"raw": "Mondays 10am-3pm | Tuesdays 10am-1pm | Wednesdays 10am-1pm | Thursdays 10am-3pm | Monday 10am-12.30pm | Tuesday 10am-12.30pm | Thursday 10am-12.30pm | Friday 10am-12.30pm | Wednesday 10am-12.30pm | Monday 10am-4pm | Tuesday 10am-4pm | Wednesday 10am-4pm | Thursday 10am-4pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Mondays 10am-3pm",
-"Tuesdays 10am-1pm",
-"Wednesdays 10am-1pm",
-"Thursdays 10am-3pm",
-"Monday 10am-12.30pm",
-"Tuesday 10am-12.30pm",
-"Thursday 10am-12.30pm",
-"Friday 10am-12.30pm",
-"Wednesday 10am-12.30pm",
-"Monday 10am-4pm",
-"Tuesday 10am-4pm",
-"Wednesday 10am-4pm",
-"Thursday 10am-4pm"
-],
-"source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ifan-0696416ec3aadb29cb398b-0": {
-"raw": "saturday 9:30am-2pm",
-"status": "TIMES_FOUND",
-"structured": {
-"sat": [
-[
-"09:30",
+"12:30",
 "14:00"
 ]
 ]
 },
 "parsed_from_text": true,
-"source_url": "https://www.southnorwoodcommunitykitchen.co.uk",
+"source_url": "https://3food4u.org",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ifan-3287e57944ff0bdd42b2a6-0": {
-"raw": "Monday - Friday 12pm - 1pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"13:00"
-]
-],
-"tue": [
-[
-"12:00",
-"13:00"
-]
-],
-"wed": [
-[
-"12:00",
-"13:00"
-]
-],
-"thu": [
-[
-"12:00",
-"13:00"
-]
-],
-"fri": [
-[
-"12:00",
-"13:00"
-]
+"reader": "times_finder",
+"pc_seen": [
+"CM59JG"
 ]
 },
-"parsed_from_text": true,
-"source_url": "https://www.jedidiah.org.uk/locations",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ifan-3287e57944ff0bdd42b2a6-1": {
-"raw": "Monday - Friday 12pm - 1pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"12:00",
-"13:00"
-]
-],
-"tue": [
-[
-"12:00",
-"13:00"
-]
-],
-"wed": [
-[
-"12:00",
-"13:00"
-]
-],
-"thu": [
-[
-"12:00",
-"13:00"
-]
-],
-"fri": [
-[
-"12:00",
-"13:00"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.jedidiah.org.uk/locations",
-"checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ifan-3598d68070dfe141274bc6-0": {
-"raw": "Monday 6:30am – 9:00pm | Tuesday 6:30am – 9:00pm | Wednesday 6:30am – 9:00pm | Thursday 8:00am – 9:00pm | Friday 8:00am – 8:00pm | Saturday 8:00am – 4:00pm | Sunday 8:00am – 2:00pm | Monday 9:00am – 2:00pm | Tuesday 9:00am – 2:00pm | Wednesday 9:00am – 2:00pm | Thursday 9:00am – 2:00pm | Friday 9:00am – 2:00pm | Saturday 9:00am – 1:00pm",
+"dens/south-hill-centre": {
+"raw": "Monday-Friday 9am-5pm | Monday-Friday 8.30am-6pm",
 "status": "TIMES_TEXT_ONLY",
 "structured": null,
 "lines": [
-"Monday 6:30am – 9:00pm",
-"Tuesday 6:30am – 9:00pm",
-"Wednesday 6:30am – 9:00pm",
-"Thursday 8:00am – 9:00pm",
-"Friday 8:00am – 8:00pm",
-"Saturday 8:00am – 4:00pm",
-"Sunday 8:00am – 2:00pm",
-"Monday 9:00am – 2:00pm",
-"Tuesday 9:00am – 2:00pm",
-"Wednesday 9:00am – 2:00pm",
-"Thursday 9:00am – 2:00pm",
-"Friday 9:00am – 2:00pm",
-"Saturday 9:00am – 1:00pm"
+"Monday-Friday 9am-5pm",
+"Monday-Friday 8.30am-6pm"
 ],
-"source_url": "https://www.eyresmonsellcyp.co.uk/contact-us/",
+"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"HP11JF"
+]
+},
+"dens/way-inn-christian-centre": {
+"raw": "Tuesday-Friday 10am-12pm",
+"status": "TIMES_FOUND",
+"structured": {
+"tue": [
+[
+"10:00",
+"12:00"
+]
+],
+"wed": [
+[
+"10:00",
+"12:00"
+]
+],
+"thu": [
+[
+"10:00",
+"12:00"
+]
+],
+"fri": [
+[
+"10:00",
+"12:00"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"HP41AQ"
+]
+},
+"hope-central/knutsford": {
+"raw": "Mondays 9.30-11am",
+"status": "TIMES_FOUND",
+"structured": {
+"mon": [
+[
+"09:30",
+"11:00"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://hopecentral.org.uk/get-involved/giving-food/",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"WA168EL"
+]
+},
+"storehouse-influence-church/barnard-castle": {
+"raw": "Fridays 4pm – 6pm",
+"status": "TIMES_FOUND",
+"structured": {
+"fri": [
+[
+"16:00",
+"18:00"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://www.influencechurch.co.uk/storehouse/",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"DL128PW"
+]
+},
+"sunderland/roker-methodist-church": {
+"raw": "Monday 13:00-15:00",
+"status": "TIMES_FOUND",
+"structured": {
+"mon": [
+[
+"13:00",
+"15:00"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://sunderlandfoodbank.org.uk/get-help/",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"SR69TB"
+]
+},
+"north-ayrshire/st-johns-church": {
+"raw": "Fri 12:30 - 14:00",
+"status": "TIMES_FOUND",
+"structured": {
+"fri": [
+[
+"12:30",
+"14:00"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://northayrshire.foodbank.org.uk/locations/",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"KA204DE"
+]
+},
+"kirkcaldy/new-volunteer-house": {
+"raw": "Monday 10am-12.30pm | Wednesday 10am-12.30pm | Friday 10am-12.30pm",
+"status": "TIMES_FOUND",
+"structured": {
+"mon": [
+[
+"10:00",
+"12:30"
+]
+],
+"wed": [
+[
+"10:00",
+"12:30"
+]
+],
+"fri": [
+[
+"10:00",
+"12:30"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"KY11XT"
+]
+},
+"kirkcaldy/linton-lane-centre": {
+"raw": "Monday 10am-12.30pm | Tuesday 10am-12.30pm | Thursday 10am-12.30pm | Friday 10am-12.30pm",
+"status": "TIMES_FOUND",
+"structured": {
+"mon": [
+[
+"10:00",
+"12:30"
+]
+],
+"tue": [
+[
+"10:00",
+"12:30"
+]
+],
+"thu": [
+[
+"10:00",
+"12:30"
+]
+],
+"fri": [
+[
+"10:00",
+"12:30"
+]
+]
+},
+"parsed_from_text": true,
+"source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
+"checked_date": "2026-10-23",
+"reader": "times_finder",
+"pc_seen": [
+"KY26LF"
+]
 },
 "ifan-3c7cb974c7ac6c1966b83c-0": {
 "raw": "Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm",
@@ -1964,7 +565,10 @@
 ],
 "source_url": "https://www.neocommunity.org.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"CH423YN"
+]
 },
 "ifan-53c68645aa831ab649ac43-0": {
 "raw": "Mondays 3.00 - 5.00 pm | Tuesdays 10.00 - 12.00 am | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm",
@@ -1978,7 +582,10 @@
 ],
 "source_url": "https://www.stpaulsparkside.org.uk/",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"SW196EW"
+]
 },
 "ifan-84cd0bf40986bfc9a427c6-0": {
 "raw": "Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm | Monday 10.30am - 2.00pm",
@@ -1992,20 +599,33 @@
 ],
 "source_url": "https://www.laurenceslarder.org.uk",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"NW67BJ"
+]
 },
 "ifan-9cf9dd4ce1df051c2c0a59-0": {
-"raw": "Tuesdays 10-1pm | Tuesdays 12-2pm | Thursdays 11-3pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesdays 10-1pm",
-"Tuesdays 12-2pm",
-"Thursdays 11-3pm"
+"raw": "Tuesdays 12-2pm | Thursdays 11-3pm",
+"status": "TIMES_FOUND",
+"structured": {
+"tue": [
+[
+"12:00",
+"14:00"
+]
 ],
+"thu": [
+[
+"11:00",
+"15:00"
+]
+]
+},
+"parsed_from_text": true,
 "source_url": "https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": []
 },
 "ifan-9fef48d4f0fd3a3f6896d2-0": {
 "raw": "Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm",
@@ -2017,35 +637,27 @@
 ],
 "source_url": "https://www.gcjc.co.uk/contact",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
-},
-"ifan-da5df633f7eabc8fbdb2a3-0": {
-"raw": "Mon, Tues, Wed 10am - 3pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"10:00",
-"15:00"
-]
-],
-"tue": [
-[
-"10:00",
-"15:00"
-]
-],
-"wed": [
-[
-"10:00",
-"15:00"
-]
+"reader": "times_finder",
+"pc_seen": [
+"WC1B3PP"
 ]
 },
-"parsed_from_text": true,
-"source_url": "https://castlemancommunity.wixsite.com/larder/contact-us",
+"ifan-a2fb0701e0208ee9e642a3-0": {
+"raw": "Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm",
+"status": "TIMES_TEXT_ONLY",
+"structured": null,
+"lines": [
+"Monday to Friday 9am - 8pm",
+"Saturday 9:30am -1pm",
+"Monday to Friday 8am - 8pm",
+"Saturday 8am - 4pm"
+],
+"source_url": "https://www.lambethlarder.org",
 "checked_date": "2026-10-23",
-"reader": "times_finder"
+"reader": "times_finder",
+"pc_seen": [
+"SW97QD"
+]
 }
 },
 "reasons": {
@@ -2059,7 +671,7 @@
 "river-of-life-church": "own site unreachable (HTTP None) after 3 tries",
 "beechdale-community-centre": "only a social media page (needs login; not read)",
 "tyisha": "only a social media page (needs login; not read)",
-"lchaim": "own site unreachable (HTTP None) after 3 tries",
+"lchaim": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ramsbottom-pantry": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "brigg": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "strand-centre": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -2097,7 +709,7 @@
 "st-helier": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "leytonstone-seventh-day-adventist-church": "only a social media page (needs login; not read)",
 "hessle-anlaby": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"feedo-needo": "found on own site",
+"feedo-needo": "times found look like office hours; skipped",
 "thornaby": "only a social media page (needs login; not read)",
 "silverton-community-larder": "only a social media page (needs login; not read)",
 "biggleswade": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -2120,7 +732,6 @@
 "gatehouse-community-church": "own site unreachable (HTTP 404) after 3 tries",
 "hearts-and-hands-stafford": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "kings-heath": "only a social media page (needs login; not read)",
-"storehouse-church-alford": "found on own site",
 "community-one-stop-shop": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "the-shack-food-project": "only a social media page (needs login; not read)",
 "leighton-linslade-helpers": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -2135,7 +746,7 @@
 "wolverhampton-muslim-forum": "only a social media page (needs login; not read)",
 "tay-bridgehead": "own site unreachable (HTTP 403) after 3 tries",
 "cleveleys-community-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"waveney": "found on own site",
+"waveney": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; times found look like office hours; skipped",
 "waveney/framlingham-delivery-team": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
 "waveney/halesworth-church-st-marys": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
 "waveney/st-johns-harleston": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
@@ -2144,7 +755,7 @@
 "aspire-supported-living": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "connect25": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "westerham": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"billericay": "no client times found on own site (home, sitemap and 2 linked pages read)",
+"billericay": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "roots": "only a social media page (needs login; not read)",
 "lampeter": "only a social media page (needs login; not read)",
 "tupton": "only a social media page (needs login; not read)",
@@ -2156,7 +767,6 @@
 "springbank-community-group": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "dorchester": "own site unreachable (HTTP 404) after 3 tries",
 "high-peak": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"the-community-storehouse": "found on own site",
 "stornoway-high-church": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "welshpool-and-district": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 0 linked pages read)",
 "sawtry": "no client times found on own site (home, sitemap and 4 linked pages read)",
@@ -2173,7 +783,7 @@
 "huntingdon": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "fair-frome": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "mexborough": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"readifood": "found on own site",
+"readifood": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "fitzjohns": "only a social media page (needs login; not read)",
 "durness-kinlochbervie": "own site unreachable (HTTP 403) after 3 tries",
 "slra": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2181,14 +791,13 @@
 "carterton-community": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "dunoon": "only a social media page (needs login; not read)",
 "rukhsana-khan-foundation": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"s20": "found on own site",
+"s20": "times found look like office hours; skipped",
 "one-big-family-kent": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "one-vision": "own site unreachable (HTTP None) after 3 tries",
 "one-can-trust-high-wycombe": "times found look like office hours; skipped",
 "lapford": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"burnley-fc-in-the-community": "times found look like office hours; skipped",
+"burnley-fc-in-the-community": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "my-2nd-chance": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"wycombe-food-hub": "found on own site",
 "sandbach": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "petersfield": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "castlehaven": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -2202,7 +811,7 @@
 "crookston-community-group": "own site unreachable (HTTP 404) after 3 tries",
 "cbc": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "angel-trust": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"glossopdale": "times found look like office hours; skipped",
+"glossopdale": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "heywood": "only a social media page (needs login; not read)",
 "lifeshare-llanelli": "no client times found on own site (home, sitemap and 9 linked pages read)",
 "liberty": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -2216,7 +825,6 @@
 "east-neuk": "only a social media page (needs login; not read)",
 "food-for-families-penzance": "only a social media page (needs login; not read)",
 "granville-community-kitchen": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"llangollen": "found on own site",
 "rushcliffe": "only a social media page (needs login; not read)",
 "ashbourne": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "leominster": "own site unreachable (HTTP None) after 3 tries",
@@ -2234,13 +842,9 @@
 "kilsyth-community": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "haslemere": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "assynt": "own site unreachable (HTTP 403) after 3 tries",
-"ryedale-community": "found on own site",
-"ryedale-community/pickering": "found on own site",
-"ryedale-community/kirkbymoorside": "found on own site",
 "bjo-amara-association": "own site unreachable (HTTP None) after 3 tries",
 "ludlow": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "the-besom-in-camberley": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"north-guildford": "found on own site",
 "west-dunbartonshire-community-foodshare": "times found look like office hours; skipped",
 "ilkley": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "bettws": "only a social media page (needs login; not read)",
@@ -2257,12 +861,6 @@
 "llandysul": "only a social media page (needs login; not read)",
 "brixham": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "canley": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"northampton": "found on own site",
-"northampton/briar-hill": "no client times found on own site (home, sitemap and 3 linked pages read)",
-"northampton/far-cotton": "found on own site",
-"northampton/duston": "found on own site",
-"northampton/eastfield": "found on own site",
-"northampton/spinney-hill": "found on own site",
 "the-brick": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "kirriemuir": "only a social media page (needs login; not read)",
 "jedburgh": "no client times found on own site (home, sitemap and 0 linked pages read)",
@@ -2317,7 +915,7 @@
 "newmarket-open-door": "own site unreachable (HTTP None) after 3 tries",
 "thrapston": "only a social media page (needs login; not read)",
 "newhaven": "no client times found on own site (home, sitemap and 5 linked pages read)",
-"blaenau-gwent": "found on own site",
+"blaenau-gwent": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; times found look like office hours; skipped",
 "st-mary-magdalene-church-maltby": "only a social media page (needs login; not read)",
 "crawley": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "blackpools-voice": "only a social media page (needs login; not read)",
@@ -2380,12 +978,6 @@
 "horton-bank-top-community": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "cleckheaton": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "cdw": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"lincoln-community-larder": "found on own site",
-"lincoln-community-larder/martin-village-hall": "found on own site",
-"lincoln-community-larder/st-giles-methodist-church": "found on own site",
-"lincoln-community-larder/st-john-the-baptist-church-hall": "no client times found on own site (home, sitemap and 4 linked pages read)",
-"lincoln-community-larder/all-saints-church": "no client times found on own site (home, sitemap and 4 linked pages read)",
-"lincoln-community-larder/st-marys-church-welton": "found on own site",
 "hooky-neighbours-pantry": "only a social media page (needs login; not read)",
 "salvation-army/jersey": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/guernsey": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2415,7 +1007,6 @@
 "salvation-army/bognor-regis": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/wimborne": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/gosport": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/portsmouth-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/portsmouth-north": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/brighton-congress-hall": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/ringwood": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2432,7 +1023,6 @@
 "salvation-army/bideford": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/winchester": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/horsham": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/hythe": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/barnstaple": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/folkestone": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/bridgwater": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2445,18 +1035,14 @@
 "salvation-army/ilfracombe": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/east-peckham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/deal": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/guildford": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/aldershot": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/basingstoke": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/maidstone": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/south-east": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/canterbury": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/midsomer-norton": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/caterham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/faversham": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/woking": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/minster": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/ramsgate": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/sittingbourne": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/new-addington": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/weston-super-mare": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2478,7 +1064,6 @@
 "salvation-army/mitcham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/wokingham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/raynes-park": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/penge": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/wimbledon": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/upper-norwood-crystal-palace-community-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/reading-lower-earley": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2508,7 +1093,6 @@
 "salvation-army/grays": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/cardiff-ely": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/cardiff-east": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/bristol-staple-hill": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/chelsea": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/cardiff-canton": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/cardiff-cathays": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2543,7 +1127,6 @@
 "salvation-army/hadleigh-temple": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/ilford": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/leytonstone": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/basildon": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/harrow": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/swindon-gorse-hill": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/newport": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2595,12 +1178,10 @@
 "salvation-army/braintree": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/dunstable": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/colchester-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/cheltenham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/stevenage": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/colchester-mount-zion": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/bicester": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/leighton-buzzard": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/harwich": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/felixstowe": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/letchworth": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/tewkesbury": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2686,9 +1267,7 @@
 "salvation-army/grantham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/derby-central": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/stapleford": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/sheringham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/nottingham-meadows": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/nottingham-william-booth-memorial-complex": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/nottingham-william-booth-memorial-halls": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/nottingham-aspley": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/boston": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2716,7 +1295,6 @@
 "salvation-army/mold": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/winsford": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/shirebrook": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/connahs-quay": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/lincoln": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/chesterfield": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/macclesfield": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2735,7 +1313,6 @@
 "salvation-army/north-west-england-north-wales": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/market-rasen": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/warrington": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/birkenhead": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/liverpool-valley": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/gainsborough": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/stockport-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2744,7 +1321,6 @@
 "salvation-army/liverpool-stoneycroft": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/stockport-heaton-norris": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/maltby": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/prescot": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/rotherham": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/stretford": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/st-helens": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2768,7 +1344,6 @@
 "salvation-army/wigan": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/farnworth": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/bolton-south": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/scunthorpe": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/shaw": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/bolton-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/royston": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2790,7 +1365,6 @@
 "salvation-army/preston": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/bradford-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/yorkshire-north-tees": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/bradford-holmewood": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/selby": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/south-leeds-outreach-centre": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/leeds-west-hunslet": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2815,7 +1389,6 @@
 "salvation-army/barrow-in-furness": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/ripon": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/carnforth": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/malton": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/douglas": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/newry": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/millom": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2833,7 +1406,6 @@
 "salvation-army/whitehaven": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/eston": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/thornaby": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/stockton": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/middlesbrough-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/belfast-temple": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/belfast-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2845,7 +1417,6 @@
 "salvation-army/penrith": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/hartlepool": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/west-cornforth": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/crook": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/langley-moor": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/horden": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/sherburn-hill": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2874,7 +1445,6 @@
 "salvation-army/ballymoney": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/cramlington": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/lockerbie": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/bedlington": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/ashington": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/newbiggin-by-the-sea": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/alnwick": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2936,7 +1506,6 @@
 "salvation-army/aberdeen-torry": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/aberdeen-citadel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/north-scotland": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"salvation-army/inverness": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/peterhead": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/buckie": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "salvation-army/invercairn": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2949,7 +1518,6 @@
 "salvation-army/lerwick": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "portland/easton-methodist-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "bournemouth/southbourne": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"poole/bourne-community-hub": "found on own site",
 "exeter/the-beacon-community-centre": "own site unreachable (HTTP 403) after 3 tries",
 "exeter/ex5-alive": "own site unreachable (HTTP 403) after 3 tries",
 "fareham-gosport-basics-bank/gosport": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -2984,8 +1552,8 @@
 "family-food-bank/sunshine-cc": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "family-food-bank/west-borough-cc": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "family-food-bank/east-borough-cc": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"andover/test-valley-borough-council-office": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
-"andover/the-castle-practice": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"andover/test-valley-borough-council-office": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"andover/the-castle-practice": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
 "canterbury/nailbourne": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "canterbury/chartham-stone-street": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "canterbury/wincheap": "no client times found on own site (home, sitemap and 3 linked pages read)",
@@ -3017,25 +1585,25 @@
 "purley/cr2": "found on own site",
 "purley/st-francis-church": "no client times found on own site (home, sitemap and 5 linked pages read)",
 "purley/cr0-4": "found on own site",
-"devizes-district/pewsey": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
-"devizes-district/marlborough": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"devizes-district/pewsey": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"devizes-district/marlborough": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
 "thanet-food-link/st-peters-baptist-church": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "margate/victoria-lights": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "the-community-cupboard/swanley-community-cupboard": "found on own site",
 "ceyp/gefferys-hall-community-centre": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "northfleet-hive-hope/disused-taxi-rank": "found on own site",
 "northfleet-hive-hope/rose-street": "found on own site",
-"woodley/emmanuel-church": "found on own site",
+"woodley/emmanuel-church": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "bristol-north-west/hope-chapel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "bristol-north-west/lawrence-weston-baptist-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "bristol-north-west/emmanuel-chapel": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "bristol-north-west/emmaus-church-centre": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "afril/church-of-the-good-shepherd": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"south-east-bristol/st-marks": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"south-east-bristol/st-marks": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read)",
 "st-pauls-hounslow/good-shepherd": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "windsor-food-share/alma-beacon": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "spring-community-hub/st-pauls-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"greenwich/woolwich": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"greenwich/woolwich": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
 "north-bristol-south-gloucestershire/lockleaze": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 19 linked pages read)",
 "north-bristol-south-gloucestershire/thornbury": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 19 linked pages read)",
 "ay-group/strutton-ground": "no client times found on own site (home, sitemap and 0 linked pages read)",
@@ -3045,56 +1613,37 @@
 "newham/rehoboth-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "newham/wgmi-centre": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "newham/manor-park-centre": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"swindon/st-michaels-church": "found on own site",
-"swindon/discovery-church": "no client times found on own site (home, sitemap and 10 linked pages read)",
-"swindon/st-bartholomews-church": "found on own site",
-"swindon/st-timothys-church": "found on own site",
-"swindon/freshbrook-church": "found on own site",
-"swindon/st-johns-church-hall": "found on own site",
-"swindon/st-margarets-centre": "found on own site",
-"swindon/st-andrews-methodist-church": "found on own site",
-"swindon/st-peters-church": "found on own site",
-"swindon/the-bridge": "found on own site",
 "st-vincents-centre/canvey": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "st-vincents-centre/westcliff": "no client times found on own site (home, sitemap and 10 linked pages read)",
-"hackney/hoxton": "found on own site",
-"hackney/dalston": "found on own site",
-"hackney/pembury": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 10 linked pages read)",
-"hackney/homerton": "found on own site",
-"hackney/stoke-newington": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 10 linked pages read)",
-"hackney/upper-clapton": "found on own site",
+"swindon/discovery-church": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "southend/leigh-road-baptist-church": "no card for this postcode/name",
 "southend/leigh": "no card for this postcode/name",
 "southend/earls-hall": "no card for this postcode/name",
 "southend/eastwood": "no card for this postcode/name",
 "churches/woodgrange-baptist-church": "own site unreachable (HTTP 403) after 3 tries",
 "highway-vineyard-church/manor-park-site": "no client times found on own site (home, sitemap and 1 linked pages read)",
+"hackney/pembury": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 10 linked pages read)",
+"hackney/stoke-newington": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 10 linked pages read)",
 "chiltern/chalfont-st-peter": "no card for this postcode/name",
 "dengie/burnham-united-reformed-church": "only a social media page (needs login; not read)",
 "dengie/st-nicholas-church-tillingham": "only a social media page (needs login; not read)",
 "abingdon/abingdon-foodbank-south": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
 "swansea/gorseinon-institute": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
-"patch/tenby": "found on own site",
+"patch/tenby": "times found look like office hours; skipped",
 "patch/pembroke": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "patch/pembroke-dock": "found on own site",
 "3food4u/waltham-abbey-baptist-church": "found on own site",
 "3food4u/budworth-hall": "found on own site",
-"merthyr-cynon/cornerstone-church-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
-"merthyr-cynon/carmel-chapel": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
-"rickmansworth/st-lawrence-abbots-langley": "several centres share this postcode",
-"rickmansworth/abbots-langley": "several centres share this postcode",
-"oxford-community-emergency/the-baptist-church": "found on own site",
-"oxford-community-emergency/st-francis-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"oxford-community-emergency/the-barton-community-church": "found on own site",
+"merthyr-cynon/cornerstone-church-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"merthyr-cynon/carmel-chapel": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
 "kings-langley/apsley": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "kings-langley/bennetts-end": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"dens/liberty-tea-rooms": "found on own site",
+"oxford-community-emergency/st-francis-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
+"dens/liberty-tea-rooms": "times found look like office hours; skipped",
 "dens/south-hill-centre": "found on own site",
 "dens/way-inn-christian-centre": "found on own site",
-"dens/st-peter-st-paul-church": "found on own site",
-"harlow/the-harvey-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"north-oxfordshire/woodstock-baptist-church": "found on own site",
-"north-oxfordshire/chipping-norton-baptist-church": "found on own site",
+"dens/st-peter-st-paul-church": "times found look like office hours; skipped",
+"harlow/the-harvey-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
 "gloucester/elim-church-gloucester": "card lists every day as Closed",
 "gloucester/bartongate-childrens-centre": "no card for this postcode/name",
 "gloucester/kingsholm": "no card for this postcode/name",
@@ -3107,16 +1656,8 @@
 "luton/high-town": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "luton/stopsley-baptist-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "luton/marsh-farm": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"bicester/open-doors-cafe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read)",
+"bicester/open-doors-cafe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
 "braintree-area/hedingham-baptist": "no card for this postcode/name",
-"milton-keynes/knowles-primary-school": "found on own site",
-"milton-keynes/frank-moran-centre-marc": "found on own site",
-"milton-keynes/moorlands-family-centre": "found on own site",
-"milton-keynes/hedgerows-family-centre": "found on own site",
-"milton-keynes/glebe-farm-school": "found on own site",
-"milton-keynes/unity-park": "found on own site",
-"milton-keynes/broughton-pavillion": "found on own site",
-"milton-keynes/rowans-family-centre": "found on own site",
 "northampton-hope-centre/brackley-community-larder": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "northampton-hope-centre/helmdon-community-larder": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "northampton-hope-centre/woodford-halse-community-larder": "no client times found on own site (home, sitemap and 10 linked pages read)",
@@ -3134,9 +1675,10 @@
 "stratford-upon-avon/escape-arts-heritage-centre": "no card for this postcode/name",
 "stratford-upon-avon/bishopton-community-centre": "no card for this postcode/name",
 "lowestoft-district/saxmundham": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"northampton/briar-hill": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "ely/burwell": "no card for this postcode/name",
-"arden/studley-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"still-good/freedom-church": "found on own site",
+"arden/studley-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read)",
+"still-good/freedom-church": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "warwick-district/westbury-centre-leamington-spa": "no card for this postcode/name",
 "warwick-district/st-marys-church-community-centre-leamington-sp": "no card for this postcode/name",
 "warwick-district/southorn-court-lillington": "no card for this postcode/name",
@@ -3168,10 +1710,10 @@
 "black-country/the-rock": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "black-country/the-thomas-project": "no client times found on own site (home, sitemap and 10 linked pages read)",
 "black-country/the-lamp-project": "no client times found on own site (home, sitemap and 10 linked pages read)",
-"sparkhill/st-johns-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"sparkhill/st-johns-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
 "erdington/connected-life-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"hinckley-area/earl-shilton-social-institute": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
-"peterborough/dogsthorpe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"hinckley-area/earl-shilton-social-institute": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"peterborough/dogsthorpe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
 "shrewsbury/minsterley": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "shrewsbury/pontesbury": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "shrewsbury/north-shrewsbury": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -3181,19 +1723,21 @@
 "soar-valley-community-food-project/rothley": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "soar-valley-community-food-project/sileby": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "soar-valley-community-food-project/barrow": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"leicester-south/sewstern-village-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"leicester-south/sewstern-village-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read)",
 "cafe-43-house-of-bread/cafe43": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"boston/st-marys-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"south-gwynedd/penrynduedraeth": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
-"east-west-nottingham/meadows": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"boston/st-marys-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"south-gwynedd/penrynduedraeth": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read)",
+"east-west-nottingham/meadows": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
 "himmah/sneinton": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "newcastle-staffs/elim-pentecostal-church": "no card for this postcode/name",
-"stoke-on-trent/wesley-hall-methodist-church": "found on own site",
-"mid-cheshire/ggo-bungalow": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"mid-cheshire/bethel-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"flintshire/sealand-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"stoke-on-trent/wesley-hall-methodist-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
+"mid-cheshire/ggo-bungalow": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"mid-cheshire/bethel-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"flintshire/sealand-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"lincoln-community-larder/st-john-the-baptist-church-hall": "no client times found on own site (home, sitemap and 4 linked pages read)",
+"lincoln-community-larder/all-saints-church": "no client times found on own site (home, sitemap and 4 linked pages read)",
 "west-cheshire/chester-new-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"chesterfield/hope-valley": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"chesterfield/hope-valley": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read)",
 "anglesey/holyhead": "several centres share this postcode",
 "hope-central/knutsford": "found on own site",
 "grace/gresley-road-meeting-rooms": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -3202,23 +1746,21 @@
 "widnes/crossing-point": "own site unreachable (HTTP 403) after 3 tries",
 "widnes/st-pauls-church": "own site unreachable (HTTP 403) after 3 tries",
 "widnes/former-st-bedes-club": "own site unreachable (HTTP 403) after 3 tries",
-"warrington/st-thomass-c-of-e-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"warrington/st-thomass-c-of-e-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
 "wirral/st-catherines-tranmere": "no card for this postcode/name",
 "wirral/north-birkenhead-development-trust": "no card for this postcode/name",
 "south-liverpool/jubilee-church": "no card for this postcode/name",
 "micah-liverpool/st-brides-church-liverpool": "own site unreachable (HTTP 403) after 3 tries",
 "micah-liverpool/the-parish-church-of-st-vincent-de-paul": "own site unreachable (HTTP 403) after 3 tries",
-"chelwood-foodbank-plus/the-olive-branch": "found on own site",
-"chelwood-foodbank-plus/brinnington-community-church": "found on own site",
-"trafford-south/st-albans-church-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"st-helens/the-mount": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"doncaster/rossington-holmescarr-community-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read)",
+"trafford-south/st-albans-church-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"st-helens/the-mount": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"doncaster/rossington-holmescarr-community-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read)",
 "mustard-tree/eccles": "own site unreachable (HTTP 403) after 3 tries",
 "mustard-tree/worsley": "own site unreachable (HTTP 403) after 3 tries",
 "barnsley/st-lukes-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
-"southport/st-peters-birkdale": "found on own site",
-"fusion/wakefield": "found on own site",
-"fusion/dewsbury": "found on own site",
+"southport/st-peters-birkdale": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"fusion/wakefield": "no client times found on own site (home, sitemap and 1 linked pages read)",
+"fusion/dewsbury": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "blackpool/holy-cross-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "blackpool/st-peters-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "blackpool/the-bridge-project": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -3234,11 +1776,8 @@
 "skipton/st-andrews-church-hall": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "isle-of-man/south": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "isle-of-man/north": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"north-lakes/egremont": "found on own site",
-"north-lakes/whitehaven": "found on own site",
-"north-lakes/maryport": "found on own site",
 "storehouse-influence-church/barnard-castle": "found on own site",
-"redcar-area/all-saints-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
+"redcar-area/all-saints-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
 "county-durham/newton-aycliffe": "own site unreachable (HTTP 403) after 3 tries",
 "county-durham/shildon": "own site unreachable (HTTP 403) after 3 tries",
 "county-durham/west-auckland": "own site unreachable (HTTP 403) after 3 tries",
@@ -3262,11 +1801,9 @@
 "county-durham/annfield-plain": "own site unreachable (HTTP 403) after 3 tries",
 "county-durham/stanley": "own site unreachable (HTTP 403) after 3 tries",
 "feeding-families/sedgefield": "no client times found on own site (home, sitemap and 4 linked pages read)",
-"washington-community/st-georges-church": "found on own site",
-"washington-community/oxclose-church": "found on own site",
-"washington-community/washington-community-furnishings": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "sunderland/pennywell-community-centre": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "sunderland/roker-methodist-church": "found on own site",
+"washington-community/washington-community-furnishings": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "first-base-dumfriesshire/citizens-advice-castle-douglas": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "first-base-dumfriesshire/citizens-advice-annan": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "first-base-dumfriesshire/social-work-department-annan": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -3285,7 +1822,7 @@
 "ayrshire-east/open-doors": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ayrshire-east/st-matthews-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ayrshire-east/the-centre": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"south-ayrshire/troon-old-parish-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read)",
+"south-ayrshire/troon-old-parish-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
 "galashiels-and-area/langlee-primary-school-car-park": "own site unreachable (HTTP 403) after 3 tries",
 "galashiels-and-area/focus-centre": "own site unreachable (HTTP 403) after 3 tries",
 "north-ayrshire/st-johns-church": "found on own site",
@@ -3295,20 +1832,18 @@
 "ek-community/claremont-parish-church": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "ek-community/east-mains-baptist-church": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "st-anthony-and-st-mark/st-marks": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"glasgow-nw/ruchill-kelvinside-parish-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"glasgow-nw/ruchill-kelvinside-parish-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read)",
 "west-lothian/armadale": "no card for this postcode/name",
 "west-lothian/bathgate": "card lists every day as Closed",
-"edinburgh-food-project/craigmillar": "found on own site",
 "edinburgh-food-project/prestonfield": "no client times found on own site (home, sitemap and 3 linked pages read)",
-"edinburgh-food-project/grassmarket": "found on own site",
-"edinburgh-food-project/broughton": "found on own site",
-"edinburgh-food-project/pilton": "found on own site",
-"edinburgh-food-project/south-queensferry": "found on own site",
-"east-dunbartonshire/st-josephs-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read)",
-"edinburgh-ne/pilrig-st-pauls-parish-church": "found on own site",
-"edinburgh-ne/leith-st-andrews-church-hall": "found on own site",
+"edinburgh-food-project/grassmarket": "no client times found on own site (home, sitemap and 3 linked pages read)",
+"edinburgh-food-project/broughton": "no client times found on own site (home, sitemap and 3 linked pages read)",
+"edinburgh-food-project/south-queensferry": "no client times found on own site (home, sitemap and 3 linked pages read)",
+"east-dunbartonshire/st-josephs-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read)",
+"edinburgh-ne/pilrig-st-pauls-parish-church": "no client times found on own site (home, sitemap and 4 linked pages read)",
+"edinburgh-ne/leith-st-andrews-church-hall": "no client times found on own site (home, sitemap and 4 linked pages read)",
 "food-for-thought-dumbarton/central-alexandria-tenants-residents-association": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"kirkcaldy/link-living": "found on own site",
+"kirkcaldy/link-living": "times found look like office hours; skipped",
 "kirkcaldy/new-volunteer-house": "found on own site",
 "kirkcaldy/linton-lane-centre": "found on own site",
 "dundee-angus/forfar": "no card for this postcode/name",
@@ -3318,18 +1853,14 @@
 "badenoch-strathspey/st-andrews-church-hall": "own site unreachable (HTTP None) after 3 tries",
 "ifan-00db218cd539582721f6a4-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "ifan-01c4e7b3eb5fb6efb0189d-1": "no client times found on own site (home, sitemap and 4 linked pages read)",
-"ifan-0696416ec3aadb29cb398b-0": "found on own site",
 "ifan-0ea12dd414fcb6a358d3f0-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-1f8203c780b955550f673f-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-25c84c4582b7e7c60aeeac-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"ifan-3287e57944ff0bdd42b2a6-0": "found on own site",
-"ifan-3287e57944ff0bdd42b2a6-1": "found on own site",
 "ifan-34121866eb63e9e50d317f-0": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "ifan-345925e365a20af9a2007e-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"ifan-3598d68070dfe141274bc6-0": "found on own site",
+"ifan-3598d68070dfe141274bc6-0": "times found look like office hours; skipped",
 "ifan-35c6027fbd4557dc7eb4bb-0": "times found look like office hours; skipped",
 "ifan-3c7cb974c7ac6c1966b83c-0": "found on own site",
-"ifan-3de702dac280937b2490eb-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-3e1f90aa3ff4d2ebf4b6d0-0": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "ifan-4794bf126a61365207fff5-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-47a9d1714fe97a62d62178-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -3350,121 +1881,248 @@
 "ifan-b5024cf18b57b8b3790909-0": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "ifan-bbedc864f82d0a852b5735-0": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "ifan-bcc7d26b922ed1d9edf4f5-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"ifan-d59b2e089746f7a97c1e15-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"ifan-da5df633f7eabc8fbdb2a3-0": "found on own site",
 "ifan-eddf2af4d3d092a3382b3c-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-edf226c522cd08e91d2afb-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"ifan-f4e21546df8eddabcf5d8e-0": "no client times found on own site (home, sitemap and 1 linked pages read)"
+"ifan-f4e21546df8eddabcf5d8e-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
+"ifan-3de702dac280937b2490eb-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
+"ifan-d59b2e089746f7a97c1e15-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
+"ifan-a2fb0701e0208ee9e642a3-0": "found on own site"
 },
-"review": [
-"feedo-needo",
-"storehouse-church-alford",
-"bow",
-"waveney",
-"the-community-storehouse",
-"readifood",
-"s20",
-"wycombe-food-hub",
-"llangollen",
-"ryedale-community",
-"ryedale-community/pickering",
-"ryedale-community/kirkbymoorside",
-"north-guildford",
-"upper-eden",
-"northampton",
-"northampton/far-cotton",
-"northampton/duston",
-"northampton/eastfield",
-"northampton/spinney-hill",
-"blaenau-gwent",
-"st-pauls-erith",
-"lincoln-community-larder",
-"lincoln-community-larder/martin-village-hall",
-"lincoln-community-larder/st-giles-methodist-church",
-"lincoln-community-larder/st-marys-church-welton",
-"poole/bourne-community-hub",
-"meon-valley/whiteley",
-"meon-valley/wickham-and-knowle",
-"meon-valley/swanmore",
-"meon-valley/droxford",
-"meon-valley/bishops-waltham",
-"meon-valley/west-meon",
-"purley/cr5",
-"purley/cr8",
-"purley/cr2",
-"purley/cr0-4",
-"the-community-cupboard/swanley-community-cupboard",
+"applied": [
+"3food4u/budworth-hall",
+"dens/way-inn-christian-centre",
+"hope-central/knutsford",
+"kirkcaldy/linton-lane-centre",
+"kirkcaldy/new-volunteer-house",
+"north-ayrshire/st-johns-church",
 "northfleet-hive-hope/disused-taxi-rank",
 "northfleet-hive-hope/rose-street",
-"woodley/emmanuel-church",
-"swindon/st-michaels-church",
-"swindon/st-bartholomews-church",
-"swindon/st-timothys-church",
-"swindon/freshbrook-church",
-"swindon/st-johns-church-hall",
-"swindon/st-margarets-centre",
-"swindon/st-andrews-methodist-church",
-"swindon/st-peters-church",
-"swindon/the-bridge",
-"hackney/hoxton",
-"hackney/dalston",
-"hackney/homerton",
-"hackney/upper-clapton",
-"patch/tenby",
 "patch/pembroke-dock",
-"3food4u/waltham-abbey-baptist-church",
-"3food4u/budworth-hall",
-"oxford-community-emergency/the-baptist-church",
-"oxford-community-emergency/the-barton-community-church",
-"dens/liberty-tea-rooms",
-"dens/south-hill-centre",
-"dens/way-inn-christian-centre",
-"dens/st-peter-st-paul-church",
-"north-oxfordshire/woodstock-baptist-church",
-"north-oxfordshire/chipping-norton-baptist-church",
-"milton-keynes/knowles-primary-school",
-"milton-keynes/frank-moran-centre-marc",
-"milton-keynes/moorlands-family-centre",
-"milton-keynes/hedgerows-family-centre",
-"milton-keynes/glebe-farm-school",
-"milton-keynes/unity-park",
-"milton-keynes/broughton-pavillion",
-"milton-keynes/rowans-family-centre",
-"still-good/freedom-church",
-"stoke-on-trent/wesley-hall-methodist-church",
-"hope-central/knutsford",
-"chelwood-foodbank-plus/the-olive-branch",
-"chelwood-foodbank-plus/brinnington-community-church",
-"southport/st-peters-birkdale",
-"fusion/wakefield",
-"fusion/dewsbury",
-"north-lakes/egremont",
-"north-lakes/whitehaven",
-"north-lakes/maryport",
 "storehouse-influence-church/barnard-castle",
-"washington-community/st-georges-church",
-"washington-community/oxclose-church",
 "sunderland/roker-methodist-church",
-"north-ayrshire/st-johns-church",
-"edinburgh-food-project/craigmillar",
-"edinburgh-food-project/grassmarket",
-"edinburgh-food-project/broughton",
-"edinburgh-food-project/pilton",
-"edinburgh-food-project/south-queensferry",
-"edinburgh-ne/pilrig-st-pauls-parish-church",
-"edinburgh-ne/leith-st-andrews-church-hall",
-"kirkcaldy/link-living",
-"kirkcaldy/new-volunteer-house",
-"kirkcaldy/linton-lane-centre",
-"ifan-0696416ec3aadb29cb398b-0",
-"ifan-3287e57944ff0bdd42b2a6-0",
-"ifan-3287e57944ff0bdd42b2a6-1",
-"ifan-3598d68070dfe141274bc6-0",
-"ifan-3c7cb974c7ac6c1966b83c-0",
-"ifan-53c68645aa831ab649ac43-0",
-"ifan-84cd0bf40986bfc9a427c6-0",
-"ifan-9cf9dd4ce1df051c2c0a59-0",
-"ifan-9fef48d4f0fd3a3f6896d2-0",
-"ifan-da5df633f7eabc8fbdb2a3-0"
+"the-community-cupboard/swanley-community-cupboard"
+],
+"review": [
+{
+"id": "3food4u/waltham-abbey-baptist-church",
+"name": "Waltham Abbey Baptist Church",
+"postcode": "EN9 1RL",
+"proposed": "1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm",
+"source_url": "https://3food4u.org",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "bow",
+"name": "Bow Foodbank",
+"postcode": "E3 5ED",
+"proposed": "Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00",
+"source_url": "https://www.bowfoodbank.org",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "dens/south-hill-centre",
+"name": "South Hill Centre",
+"postcode": "HP1 1JF",
+"proposed": "Monday-Friday 9am-5pm | Monday-Friday 8.30am-6pm",
+"source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "ifan-3c7cb974c7ac6c1966b83c-0",
+"name": "Neo Community",
+"postcode": "CH42 3YN",
+"proposed": "Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm",
+"source_url": "https://www.neocommunity.org.uk/",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "ifan-53c68645aa831ab649ac43-0",
+"name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
+"postcode": "SW19 6EW",
+"proposed": "Mondays 3.00 - 5.00 pm | Tuesdays 10.00 - 12.00 am | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm",
+"source_url": "https://www.stpaulsparkside.org.uk/",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "ifan-84cd0bf40986bfc9a427c6-0",
+"name": "St Laurence's Larder & Open Kitchen",
+"postcode": "NW6 7BJ",
+"proposed": "Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm | Monday 10.30am - 2.00pm",
+"source_url": "https://www.laurenceslarder.org.uk",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "ifan-9cf9dd4ce1df051c2c0a59-0",
+"name": "Healthy Living Platform",
+"postcode": "SW9 7AA",
+"proposed": "Tuesdays 12-2pm | Thursdays 11-3pm",
+"source_url": "https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9",
+"why": [
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "ifan-9fef48d4f0fd3a3f6896d2-0",
+"name": "The Gospel Church of Jesus Christ",
+"postcode": "WC1B 3PP",
+"proposed": "Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm",
+"source_url": "https://www.gcjc.co.uk/contact",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "ifan-a2fb0701e0208ee9e642a3-0",
+"name": "Lambeth Larder",
+"postcode": "SW9 7QD",
+"proposed": "Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm",
+"source_url": "https://www.lambethlarder.org",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "meon-valley/bishops-waltham",
+"name": "Bishops Waltham",
+"postcode": "",
+"proposed": "Mon 10AM–noon",
+"source_url": "https://meonvalleyfoodbank.co.uk/",
+"why": [
+"known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "meon-valley/droxford",
+"name": "Droxford",
+"postcode": "",
+"proposed": "Mon 10AM–noon",
+"source_url": "https://meonvalleyfoodbank.co.uk/",
+"why": [
+"known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "meon-valley/swanmore",
+"name": "Swanmore",
+"postcode": "",
+"proposed": "Mon 10AM–noon",
+"source_url": "https://meonvalleyfoodbank.co.uk/",
+"why": [
+"known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "meon-valley/west-meon",
+"name": "West Meon",
+"postcode": "",
+"proposed": "Mon 10AM–noon",
+"source_url": "https://meonvalleyfoodbank.co.uk/",
+"why": [
+"known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "meon-valley/whiteley",
+"name": "Whiteley",
+"postcode": "",
+"proposed": "Mon 10AM–noon",
+"source_url": "https://meonvalleyfoodbank.co.uk/",
+"why": [
+"known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "meon-valley/wickham-and-knowle",
+"name": "Wickham and Knowle",
+"postcode": "",
+"proposed": "Mon 10AM–noon",
+"source_url": "https://meonvalleyfoodbank.co.uk/",
+"why": [
+"known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
+"postcode not matched exactly on the page"
+]
+},
+{
+"id": "purley/cr0-4",
+"name": "CR0 4",
+"postcode": "",
+"proposed": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
+"source_url": "https://www.purleyfoodhub.net/get-help/",
+"why": [
+"postcode not matched exactly on the page",
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "purley/cr2",
+"name": "CR2",
+"postcode": "",
+"proposed": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
+"source_url": "https://www.purleyfoodhub.net/get-help/",
+"why": [
+"postcode not matched exactly on the page",
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "purley/cr5",
+"name": "CR5",
+"postcode": "",
+"proposed": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
+"source_url": "https://www.purleyfoodhub.net/get-help/",
+"why": [
+"postcode not matched exactly on the page",
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "purley/cr8",
+"name": "CR8",
+"postcode": "",
+"proposed": "Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12",
+"source_url": "https://www.purleyfoodhub.net/get-help/",
+"why": [
+"postcode not matched exactly on the page",
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "st-pauls-erith",
+"name": "St Paul's Erith Foodbank",
+"postcode": "DA8 1HN",
+"proposed": "Monday to Friday 9.00am - 12.00pm | Monday to Friday 12.00pm - 3.00pm | Monday to Friday 9.00am - 2.00pm | Monday to Friday 9.00am - 3.00pm",
+"source_url": "https://www.spnh.org.uk/preschool/session-information/",
+"why": [
+"not one clear weekly client-hours block (kept as text for review)"
+]
+},
+{
+"id": "upper-eden",
+"name": "Upper Eden Foodbank",
+"postcode": "CA16 6XR",
+"proposed": "Mon-Fri 9am-5pm | Mon & Wed 10am-12pm",
+"source_url": "https://upperedenfoodbank.org.uk/get-help-2/",
+"why": [
+"known skip: Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours",
+"not one clear weekly client-hours block (kept as text for review)"
+]
+}
 ]
 }

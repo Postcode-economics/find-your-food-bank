@@ -14007,11 +14007,24 @@
   }
  },
  "north-ayrshire/st-johns-church": {
-  "checked_date": "2026-10-20",
-  "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "raw": "Fri 12:30 - 14:00",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
   "source_url": "https://northayrshire.foodbank.org.uk/locations/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "KA204DE"
+  ],
+  "auto_applied": "2026-10-23"
  },
  "north-ayrshire/towerlands-community-centre": {
   "checked_date": "2026-10-20",
@@ -20293,11 +20306,24 @@
   "structured": null
  },
  "storehouse-influence-church/barnard-castle": {
-  "checked_date": "2026-10-20",
-  "raw": "Sundays Conference Alpha Life Groups YA (18-30",
+  "raw": "Fridays 4pm – 6pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "16:00",
+     "18:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
   "source_url": "https://www.influencechurch.co.uk/storehouse/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "DL128PW"
+  ],
+  "auto_applied": "2026-10-23"
  },
  "storehouse-influence-church/bishop-auckland-baptist-church": {
   "checked_date": "2026-10-20",
@@ -24924,5 +24950,271 @@
   "structured": null,
   "reader": "hand-reviewed 2026-10-23 (own site read; client hours only, matched by centre postcode)",
   "protected": true
+ },
+ "3food4u/budworth-hall": {
+  "raw": "Friday 12:30pm to 2:00pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://3food4u.org",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "CM59JG"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "dens/way-inn-christian-centre": {
+  "raw": "Tuesday-Friday 10am-12pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://www.dens.org.uk/need-help/need-emergency-food/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "HP41AQ"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "hope-central/knutsford": {
+  "raw": "Mondays 9.30-11am",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:30",
+     "11:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://hopecentral.org.uk/get-involved/giving-food/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "WA168EL"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "kirkcaldy/linton-lane-centre": {
+  "raw": "Monday 10am-12.30pm | Tuesday 10am-12.30pm | Thursday 10am-12.30pm | Friday 10am-12.30pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "KY26LF"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "kirkcaldy/new-volunteer-house": {
+  "raw": "Monday 10am-12.30pm | Wednesday 10am-12.30pm | Friday 10am-12.30pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "KY11XT"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "northfleet-hive-hope/disused-taxi-rank": {
+  "raw": "Saturdays 1:00-2:00pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "13:00",
+     "14:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://hivehope.org.uk/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "DA110DJ"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "northfleet-hive-hope/rose-street": {
+  "raw": "Mondays 10:00-10:45am",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "10:45"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://hivehope.org.uk/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "DA119EQ"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "patch/pembroke-dock": {
+  "raw": "Tuesday & Thursday 10am-1pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://patchcharity.org.uk/get-help/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "SA726PD"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "sunderland/roker-methodist-church": {
+  "raw": "Monday 13:00-15:00",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://sunderlandfoodbank.org.uk/get-help/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "SR69TB"
+  ],
+  "auto_applied": "2026-10-23"
+ },
+ "the-community-cupboard/swanley-community-cupboard": {
+  "raw": "Mon & Thurs 10am - 3pm | Sat 10am - 12",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "parsed_from_text": true,
+  "source_url": "https://thecommunitycupboard.co.uk/",
+  "checked_date": "2026-10-23",
+  "reader": "times_finder",
+  "pc_seen": [
+   "BR87DX"
+  ],
+  "auto_applied": "2026-10-23"
  }
 }
