@@ -26,6 +26,10 @@ jobs:
         run: python scripts/shelter_contacts.py check
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py shelters
+      - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/refresh_guard.py shelters
       - name: SWEP watch (council severe-weather pages; flags only, never changes the map)
         id: swep
         continue-on-error: true
@@ -45,7 +49,7 @@ jobs:
         run: python scripts/seo_meta.py
       - name: Commit if changed
         run: |
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md
           # district_cache.json is rewritten by build_seo.py; left unstaged it made 'git pull --rebase' refuse (07:41 + 19:44 23 Oct)
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
