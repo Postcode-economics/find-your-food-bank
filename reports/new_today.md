@@ -2,7 +2,7 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
-## Food banks: 71 added
+## Food banks: 72 added
 - Lincoln Foodbank · LN1 1UL · https://www.givefood.org.uk/needs/at/lincoln/
 - Caterham Foodbank · CR3 6NA · https://www.givefood.org.uk/needs/at/caterham/
 - Padiham Parish Foodbank · BB12 8HG · https://www.givefood.org.uk/needs/at/padiham-parish/
@@ -74,6 +74,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Hopeworx · SS6 7XJ
 - Highwayhope · M12 4QW
 - Hangar Community Hub CIC · CF11 8TT
+- Shipshape Health and Wellbeing · S11 8AE
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS

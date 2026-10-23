@@ -1,12 +1,6 @@
 {
  "shelters.js": {
-  "added": [
-   {
-    "id": "man-glasgow-city-mission-owc",
-    "name": "Glasgow City Mission Overnight Welcome Centre",
-    "tier": "verified"
-   }
-  ],
+  "added": [],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -112,7 +106,7 @@
    },
    {
     "id": "osm-way-753792449",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-931997512",
@@ -128,7 +122,7 @@
    },
    {
     "id": "osm-way-979361293",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-1104948217",
@@ -152,11 +146,11 @@
    },
    {
     "id": "hl-ymca-lincs-nomad-centre",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "hl-st-annes-hostel-birmingham",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "hl-st-georges-crypt-leeds",
@@ -166,40 +160,8 @@
  },
  "warmspaces.js": {
   "added": [],
-  "removed": [
-   {
-    "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
-    "name": "Saifee Mosque",
-    "reason": "not confirmed this run"
-   }
-  ],
-  "changed": [
-   {
-    "id": "ww-57979418",
-    "name": "Art4Space",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "10:00 - 18:00",
-      "Tue": "10:00 - 21:00",
-      "Wed": "10:00 - 18:00",
-      "Thu": "10:00 - 18:00",
-      "Fri": "10:00 - 18:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "10:00 - 15:00",
-      "Tue": "10:00 - 17:00",
-      "Wed": "10:00 - 15:00",
-      "Thu": "10:00 - 17:00",
-      "Fri": "10:00 - 15:00"
-     }
-    }
-   }
-  ],
+  "removed": [],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -347,7 +309,97 @@
   ]
  },
  "swep": {
-  "active": [],
-  "changes": []
+  "active": [
+   "Isle of Anglesey County Council",
+   "Cannock Chase District Council",
+   "East Hertfordshire District Council",
+   "Havant Borough Council",
+   "London Borough of Islington",
+   "London Borough of Merton",
+   "North Somerset  Council",
+   "Oxford City Council",
+   "Rotherham Metropolitan Borough Council",
+   "Swindon Borough Council",
+   "London Borough of Tower Hamlets"
+  ],
+  "changes": [
+   {
+    "council": "Isle of Anglesey County Council",
+    "url": "https://www.anglesey.gov.wales/en/Residents/Housing/Homeless-or-at-risk/Homeless-severe-weather-emergency-protocol.aspx",
+    "from": "new",
+    "to": "active",
+    "quote": "t Team is part of Housing Services in the council. When the Severe Weather Protocol is active, they contact other organisations and they will post information on social medi"
+   },
+   {
+    "council": "Cannock Chase District Council",
+    "url": "https://www.cannockchasedc.gov.uk/residents/housing/housing-options-homelessness/swep-severe-weather-emergency-protocol",
+    "from": "new",
+    "to": "active",
+    "quote": "e sleeping rough especially in freezing conditions When the SWEP protocol is activated anyone who is rough sleeping can contact us to access emergency accommodation f"
+   },
+   {
+    "council": "East Hertfordshire District Council",
+    "url": "https://www.eastherts.gov.uk/housing/homeless-or-threatened-homelessness/rough-sleepers",
+    "from": "new",
+    "to": "active",
+    "quote": " sleeping in severe weather In periods of Severe Weather, a Severe Weather Emergency Protocol (SWEP) &nbsp;is activated that aims to prevent deaths as a result of severe weather conditions. When does"
+   },
+   {
+    "council": "Havant Borough Council",
+    "url": "https://www.havant.gov.uk/emergency-advice/advice-rough-sleepers",
+    "from": "new",
+    "to": "active",
+    "quote": "d. All clients placed into emergency accommodation when the SWEP is in operation will be referred to a Community Housing Support Worker so that contact can be a"
+   },
+   {
+    "council": "London Borough of Islington",
+    "url": "https://www.islington.gov.uk/housing/finding-a-home/homelessness/how-we-support-rough-sleepers",
+    "from": "new",
+    "to": "active",
+    "quote": "When the temperature reaches 0C or below, Islington&rsquo;s Severe Weather Emergency Protocol (SWEP) is activated, and specially trained staff from the council and partner organisations work qu"
+   },
+   {
+    "council": "London Borough of Merton",
+    "url": "https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping",
+    "from": "new",
+    "to": "active",
+    "quote": "orecast to fall to 0°C or colder in any London borough, the Severe Weather Emergency Protocol (SWEP) is activated across Greater London. Arrangements for the SWEP in Merton are as follows: If y"
+   },
+   {
+    "council": "North Somerset  Council",
+    "url": "https://n-somerset.gov.uk/my-services/housing/help-if-you-are-homeless-or-need-support/people-who-are-sleeping-rough",
+    "from": "new",
+    "to": "active",
+    "quote": "vere weather During spells of particularly cold weather the severe weather emergency protocol (SWEP) is activated.&nbsp; Severe weather emergency protocol (SWEP) [551.18 KB] Homeless people who"
+   },
+   {
+    "council": "Oxford City Council",
+    "url": "https://www.oxford.gov.uk/homelessness/swep",
+    "from": "new",
+    "to": "active",
+    "quote": "gencies work to ensure that everyone who may need to access SWEP is aware that it is open and understands how they can access the service. OxSPOT will allocate SWEP spac"
+   },
+   {
+    "council": "Rotherham Metropolitan Borough Council",
+    "url": "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
+    "from": "new",
+    "to": "active",
+    "quote": ") How can we help Temporary accommodation Support available Severe weather emergency protocol (SWEP) The Severe Weather Emergency Protocol (SWEP) is in place to support people at risk of rough sleeping when extreme weather conditions are"
+   },
+   {
+    "council": "Swindon Borough Council",
+    "url": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
+    "from": "new",
+    "to": "active",
+    "quote": "g rough, you can still let us know using the details below. SWEP: currently active The Severe Weather Emergency Protocol is currently active in Swindon . We are providing emergency accommodation to anyone who is street h"
+   },
+   {
+    "council": "London Borough of Tower Hamlets",
+    "url": "https://www.towerhamlets.gov.uk/lgnl/housing/housing_options_service/helping_the_homeless.aspx",
+    "from": "new",
+    "to": "active",
+    "quote": "n the temperature reaches 0C or below,&#8239;London&rsquo;s Severe Weather Emergency Protocol (SWEP)&#8239;is activated. We work quickly to ensure all people sleeping rough in Tower Hamlets, whatever"
+   }
+  ]
  }
 }
