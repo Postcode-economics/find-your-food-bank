@@ -1,8 +1,8 @@
 {
  "run": "2026-10-23",
- "candidates": 59,
+ "candidates": 58,
  "already_on_map": 4,
- "new": 55,
+ "new": 54,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "1d7e626e70c4231b853a14fd58a0d4a0a4e8712bb5b3bbbca83fee24bcf21368",
+   "sha256": "6d735012dcfabc8018cbd4e455049b478ea72408b8f9c3f60b40b02b9b490e66",
    "etag": "",
    "last_modified": ""
   }
@@ -63,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "1ca474436608592231c6caf82b12cb50bac883b1ee0408bc783d5ff72ba97c74",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "48dcd3cd19abeea59d384c0859d44c4e82c4ce6954fa131308b5bbb659e8b02e",
    "etag": "",
    "last_modified": ""
   },
@@ -134,12 +134,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "ca666a840921510defef3798cc6442d2af52a14e5da33b98ea1872382bb95c3a",
+   "http": 202,
+   "sha256": "3a3db53dfa64394ed3554cf8d59a80ccc0908eca8087ff8b281646b67ee74fe3",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +211,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "65fcd3a1dd0f7e91cf7961c4f17c3ebf44ef77b69f449f4c0dcc41da0a67a7cd",
+   "sha256": "b4f8070149eeb8d4896718390247739d854cb9305cd856002ad96da8228285a8",
    "etag": "",
    "last_modified": ""
   },
@@ -676,7 +677,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "e5a52b67c1150de49b8091431245a4a2f6b19ec8cafe133ff01654a26c1f2975",
+   "sha256": "08f1b12b28b248bf0b6076bd0d4c9ea51115919d5097bd663900c1ef9e301844",
    "etag": "",
    "last_modified": ""
   },
@@ -926,23 +927,6 @@
    "website": "https://www.1625ip.co.uk/",
    "directory": "Homeless Link",
    "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-charles-england-house/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-bromford-hayward-road-hostel",
-   "name": "Bromford - Hayward Road Hostel",
-   "postcode": "BS15 9TR",
-   "website": "http://www.bromford.co.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
    "reasons": [
     "no valid postcode"
    ],
