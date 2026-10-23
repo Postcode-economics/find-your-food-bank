@@ -14006,26 +14006,6 @@
    ]
   }
  },
- "north-ayrshire/st-johns-church": {
-  "raw": "Fri 12:30 - 14:00",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "fri": [
-    [
-     "12:30",
-     "14:00"
-    ]
-   ]
-  },
-  "parsed_from_text": true,
-  "source_url": "https://northayrshire.foodbank.org.uk/locations/",
-  "checked_date": "2026-10-23",
-  "reader": "times_finder",
-  "pc_seen": [
-   "KA204DE"
-  ],
-  "auto_applied": "2026-10-23"
- },
  "north-ayrshire/towerlands-community-centre": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon 10:00 - 12:00 Tue Closed Wed 10:00 - 12:00 Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed ",
@@ -25009,26 +24989,6 @@
   ],
   "auto_applied": "2026-10-23"
  },
- "hope-central/knutsford": {
-  "raw": "Mondays 9.30-11am",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "09:30",
-     "11:00"
-    ]
-   ]
-  },
-  "parsed_from_text": true,
-  "source_url": "https://hopecentral.org.uk/get-involved/giving-food/",
-  "checked_date": "2026-10-23",
-  "reader": "times_finder",
-  "pc_seen": [
-   "WA168EL"
-  ],
-  "auto_applied": "2026-10-23"
- },
  "kirkcaldy/linton-lane-centre": {
   "raw": "Monday 10am-12.30pm | Tuesday 10am-12.30pm | Thursday 10am-12.30pm | Friday 10am-12.30pm",
   "status": "TIMES_FOUND",
@@ -25162,26 +25122,6 @@
   "reader": "times_finder",
   "pc_seen": [
    "SA726PD"
-  ],
-  "auto_applied": "2026-10-23"
- },
- "sunderland/roker-methodist-church": {
-  "raw": "Monday 13:00-15:00",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "13:00",
-     "15:00"
-    ]
-   ]
-  },
-  "parsed_from_text": true,
-  "source_url": "https://sunderlandfoodbank.org.uk/get-help/",
-  "checked_date": "2026-10-23",
-  "reader": "times_finder",
-  "pc_seen": [
-   "SR69TB"
   ],
   "auto_applied": "2026-10-23"
  },
