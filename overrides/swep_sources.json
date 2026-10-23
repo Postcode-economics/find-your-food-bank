@@ -2373,7 +2373,7 @@
   "code": "GWN",
   "council": "Gwynedd Council",
   "nation": "Wales",
-  "url": null,
+  "url": "https://www.gwynedd.llyw.cymru/en-gb/housing/homelessness/homelessness-severe-weather-emergency-protocol",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
@@ -2381,7 +2381,8 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01286 685100",
   "phone_source": "https://www.gwynedd.llyw.cymru/en-gb/housing",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "HAA",
@@ -3106,7 +3107,7 @@
   "code": "MON",
   "council": "Monmouthshire County Council",
   "nation": "Wales",
-  "url": null,
+  "url": "https://www.monmouthshire.gov.uk/housing/finding-a-home/homelessness-2/",
   "no_swep_page": true,
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [
@@ -3121,7 +3122,8 @@
   "phone_source": "https://www.monmouthshire.gov.uk/cynllun-pontio-digartrefedd/cy-homeless-transition-action-plan-cy-gb/",
   "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked",
   "homeless_url": "https://www.monmouthshire.gov.uk/housing/finding-a-home/homelessness-2/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
   "code": "MRT",
