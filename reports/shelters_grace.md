@@ -1,4 +1,4 @@
-# shelters: kept on 48-hour grace (2026-10-23T19:54:36+00:00)
+# shelters: kept on 48-hour grace (2026-10-23T21:09:12+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
