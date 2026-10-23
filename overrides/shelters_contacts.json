@@ -90,8 +90,10 @@
  },
  "sa-malachi-place": {
   "email": "Ilford@salvationarmy.org.uk",
-  "phone_source": "https://www.salvationarmy.org.uk/malachi-place",
-  "area": "redbridge"
+  "phone_source": "https://www.salvationarmy.org.uk/ilford",
+  "area": "redbridge",
+  "phone_fix": "020 8478 2961",
+  "confidence": "medium: Ilford Salvation Army corps line; corps page names the Malachi Place service manager and Malachi uses the same ilford@ mailbox (salvationarmy.org.uk/malachi-place)"
  },
  "osm-way-1237268020": {
   "phone": "028 9033 3500",
