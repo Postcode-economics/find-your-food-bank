@@ -25,6 +25,7 @@ def apply(items, data=None):
         if o.get("hours") and not x.get("hours"):  # hand-checked hours / access line (Dean: no blank hours)
             x["hours"] = o["hours"]; x["hours_source"] = o.get("hours_source", ""); x["hours_checked"] = o.get("hours_checked", "")
         if o.get("email") and not x.get("email"): x["email"] = o["email"]
+        if o.get("groups"): x["groups"] = o["groups"]; x["groups_source"] = o.get("groups_source", "")  # who it is for, hand-checked from own/operator page
         if o.get("referral_note"): x["referral"] = o["referral_note"]  # hand-checked: says whose phone line it is (no UI change)
         c = councils.get(o.get("area") or "") or {k: o[k] for k in ("council", "council_phone", "council_ooh", "council_url") if o.get(k)}
         if c:
