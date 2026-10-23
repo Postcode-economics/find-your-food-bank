@@ -6,7 +6,7 @@ gate <layer>: a NEW place (not in the live file, git HEAD) is not published unle
 check: CI. Fails if a published shelter lacks a phone or groups, or a warm space lacks a phone, unless the id is
   listed in overrides/known_gaps.json (existing gaps being worked on, each with a note). Food banks without a
   phone are reported only (count printed), never failing, so the live map is not blocked."""
-import datetime, json, os, subprocess, sys
+import datetime, json, os, re, subprocess, sys
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 FILES = {'foodbanks': 'data.full.js', 'shelters': 'shelters.js', 'warmspaces': 'warmspaces.js'}
 def split(t): a, b = t.index('{'), t.rindex('}') + 1; return t[:a], json.loads(t[a:b]), t[b:]
@@ -38,7 +38,10 @@ def gate(layer, ref='HEAD'):
     md = ['# New places held back for Dean (not published)', '', 'A new place needs a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
         md += [f'## {L} ({len(xs)})', ''] + [f"- {x['name']} ({x.get('postcode') or ''}) - {', '.join(x['why'])} - {x.get('source') or ''}" for x in xs] + ['']
-    open(os.path.join(ROOT, 'reports', 'pending_dean.md'), 'w').write('\n'.join(md))
+    pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
+    if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
+        m = re.search(r'(?s)<!-- times review -->.*?<!-- /times review -->', open(pd).read()); keep = '\n\n' + m.group(0) + '\n' if m else ''
+    open(pd, 'w').write('\n'.join(md) + keep)
     print(f'publish gate {layer}: {len(held)} new places held for Dean')
     return held
 def check():
