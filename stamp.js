@@ -1,1 +1,1 @@
-window.FB_STAMP={"run": "2026-10-23T20:55:04+01:00", "kind": "shelters", "label": "23 October 2026, 20:55"};
+window.FB_STAMP={"run": "2026-10-23T21:08:43+01:00", "kind": "refresh", "label": "23 October 2026, 21:08"};

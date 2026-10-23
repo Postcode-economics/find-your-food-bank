@@ -47,7 +47,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 ### Food banks: 301 queued, 0 rejected
 - QUEUED Hive Hope · DA11 0RB · https://www.hivehope.org.uk. — own site unreachable (HTTP error)
 - QUEUED Bethlehem House of Bread (Condorrat Parish Church) · G67 4DZ — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED The Bright Morning Star Prisons and Homelessness Outreach · SE11 4HZ · https://Www.thebrightmorningministries.com — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED The Bright Morning Star Prisons and Homelessness Outreach · SE11 4HZ · https://Www.thebrightmorningministries.com — own site unreachable (HTTP error)
 - QUEUED The Bright Morning Star Prisons and Homelessness Outreach · SW9 7PT · https://Www.thebrightmorningministries.com — own site unreachable (HTTP error)
 - QUEUED Eat or Heat · E4 8LT — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Preen Community Interest Company · SG18 0BP · https://www.preencic.org — own site unreachable (HTTP error)
@@ -126,7 +126,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Hope Food - North Birmingham · B75 5ED — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hope Food - North Birmingham · B23 7JH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hope Food - North Birmingham · B75 7LB — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Action Force Community Group · LU3 2DG · https://www.actionforce.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Action Force Community Group · LU3 2DG · https://www.actionforce.org.uk — own site unreachable (HTTP error)
 - QUEUED Huntingdonshire Community Group · PE29 1PE — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Pop Up Soup Kitchen · PO36 8DZ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Harvesters' Soup Kitchen · E2 8AN — directory listing only, with no 2026-27 season dates (latest stated start: none)
