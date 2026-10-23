@@ -24,7 +24,7 @@ jobs:
         run: python scripts/build.py
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py foodbanks
-      - name: Full check of every food bank's own site (access flips, hours, closures, contacts, items needed -> reports/daily_review.md)
+      - name: Full check of every food bank's own site (access flips, hours, closures, contacts, items needed -> reports/daily_review.md reports/fill_rates.json)
         id: full
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
         run: python scripts/full_check.py
@@ -32,6 +32,11 @@ jobs:
         run: python scripts/publish_gate.py foodbanks
       - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
         run: python scripts/publish_gate.py check
+      - name: Fill-rate check - flag a source whose times/phones/Facebook fill rate drops sharply (alert + daily_review; fail-safe)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/fill_rates.py foodbanks shelters warmspaces
       - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
         env:
           GH_TOKEN: ${{ github.token }}

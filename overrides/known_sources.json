@@ -1,0 +1,343 @@
+{
+ "_note": "Seeded 23 Oct 2026 from Dean's hand checks. pages: multi-centre pages, postcode -> centre id + the hand-checked client times. The finder reads these pages by postcode only and never copies one centre's times onto another. skip: never take times from these.",
+ "pages": {
+  "https://chelwoodfoodbankplus.org/": {
+   "centres": [
+    {
+     "postcode": "SK8 5QA",
+     "id": "chelwood-foodbank-plus",
+     "raw": "Tuesday 10am - 12pm | Wednesday 10am - 12pm | Thursday 12pm - 2pm"
+    },
+    {
+     "postcode": "SK5 8LS",
+     "id": "chelwood-foodbank-plus/brinnington-community-church",
+     "raw": "Wednesday 1pm - 3pm"
+    },
+    {
+     "postcode": "SK3 9AB",
+     "id": "chelwood-foodbank-plus/the-olive-branch",
+     "raw": "Wednesday 10am - 12pm"
+    }
+   ]
+  },
+  "https://edinburghfoodproject.org/locations/": {
+   "centres": [
+    {
+     "postcode": "EH16 4EA",
+     "id": "edinburgh-food-project/craigmillar",
+     "raw": "Tuesday 10:30am - 1pm | Thursday 10:30am - 1pm | Friday 10:30am - 1pm"
+    },
+    {
+     "postcode": "EH5 2JQ",
+     "id": "edinburgh-food-project/pilton",
+     "raw": "Monday 1pm - 3pm | Wednesday 1pm - 3pm | Friday 10am - 12pm"
+    }
+   ]
+  },
+  "https://mkfoodbank.org.uk/i-need-help/": {
+   "centres": [
+    {
+     "postcode": "MK10 9NJ",
+     "id": "milton-keynes/broughton-pavillion",
+     "raw": "Tuesday 10am - 4pm | Thursday 10am - 4pm"
+    },
+    {
+     "postcode": "MK3 6PA",
+     "id": "milton-keynes/frank-moran-centre-marc",
+     "raw": "Monday to Friday 9am - 4pm"
+    },
+    {
+     "postcode": "MK17 8XY",
+     "id": "milton-keynes/glebe-farm-school",
+     "raw": "Monday 1:30pm - 2:30pm | Wednesday 1:30pm - 2:30pm | Friday 1:30pm - 2:30pm"
+    },
+    {
+     "postcode": "MK6 4NP",
+     "id": "milton-keynes/hedgerows-family-centre",
+     "raw": "Monday to Friday 9am - 3:30pm (appointments only)"
+    },
+    {
+     "postcode": "MK2 2HB",
+     "id": "milton-keynes/knowles-primary-school",
+     "raw": "Friday 1:15pm - 2:30pm"
+    },
+    {
+     "postcode": "MK6 4LP",
+     "id": "milton-keynes/moorlands-family-centre",
+     "raw": "Thursday 9:30am - 10:30am"
+    },
+    {
+     "postcode": "MK11 2BD",
+     "id": "milton-keynes/rowans-family-centre",
+     "raw": "Monday to Friday 9am - 3:30pm (appointments only)"
+    },
+    {
+     "postcode": "MK9 1LR",
+     "id": "milton-keynes/unity-park",
+     "raw": "Wednesday 10am - 12:30pm | Thursday 10am - 12:30pm"
+    }
+   ]
+  },
+  "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are": {
+   "centres": [
+    {
+     "postcode": "OX7 5LL",
+     "id": "north-oxfordshire/chipping-norton-baptist-church",
+     "raw": "Monday 10am - 11:30am"
+    },
+    {
+     "postcode": "OX20 1TE",
+     "id": "north-oxfordshire/woodstock-baptist-church",
+     "raw": "Monday 9:30am - 11am"
+    }
+   ]
+  },
+  "https://rickmansworth.foodbank.org.uk/locations/": {
+   "centres": [
+    {
+     "postcode": "WD5 0AS",
+     "id": "rickmansworth/abbots-langley",
+     "raw": "Monday 10am - 2pm | Tuesday 10am - 2pm | Wednesday 10am - 12pm | Thursday 10am - 2pm"
+    },
+    {
+     "postcode": "WD5 0AS",
+     "id": "rickmansworth/st-lawrence-abbots-langley",
+     "raw": "Monday 10am - 2pm | Tuesday 10am - 2pm | Wednesday 10am - 12pm | Thursday 10am - 2pm"
+    }
+   ]
+  },
+  "https://ryedalecommunityfoodbank.co.uk/contact/": {
+   "centres": [
+    {
+     "postcode": "YO17 9BH",
+     "id": "ryedale-community",
+     "raw": "Wednesday 10am - 12pm | Friday 1pm - 3pm"
+    },
+    {
+     "postcode": "YO62 6DQ",
+     "id": "ryedale-community/kirkbymoorside",
+     "raw": "Thursday 9:30am - 11:30am"
+    },
+    {
+     "postcode": "YO18 7DG",
+     "id": "ryedale-community/pickering",
+     "raw": "Thursday 3:30pm - 5:30pm"
+    }
+   ]
+  },
+  "https://wcfp.org.uk/find-us/": {
+   "centres": [
+    {
+     "postcode": "NE38 7SD",
+     "id": "washington-community",
+     "raw": "Tuesday 12pm - 3pm | Wednesday 12pm - 3pm | Thursday 12pm - 3pm | Friday 12pm - 3pm"
+    },
+    {
+     "postcode": "NE38 0LA",
+     "id": "washington-community/oxclose-church",
+     "raw": "Monday 9:30am - 1pm | Tuesday 9:30am - 1pm | Thursday 9:30am - 1pm | Friday 9:30am - 1pm"
+    },
+    {
+     "postcode": "NE38 9AH",
+     "id": "washington-community/st-georges-church",
+     "raw": "Tuesday 10:30am - 2:30pm | Wednesday 10:30am - 2:30pm | Friday 10am - 11:30am"
+    }
+   ]
+  },
+  "https://www.cefoxford.co.uk/finding-us/": {
+   "centres": [
+    {
+     "postcode": "OX4 4QB",
+     "id": "oxford-community-emergency/the-baptist-church",
+     "raw": "Thursday 10am - 11:30am"
+    },
+    {
+     "postcode": "OX3 9LS",
+     "id": "oxford-community-emergency/the-barton-community-church",
+     "raw": "Monday 12pm - 2pm | Wednesday 12pm - 2pm"
+    }
+   ]
+  },
+  "https://www.hackney.foodbank.org.uk/locations/": {
+   "centres": [
+    {
+     "postcode": "N1 4AG",
+     "id": "hackney/dalston",
+     "raw": "Tuesday 11am - 1pm"
+    },
+    {
+     "postcode": "E5 0HL",
+     "id": "hackney/homerton",
+     "raw": "Monday 6pm - 7:30pm"
+    },
+    {
+     "postcode": "E2 8EA",
+     "id": "hackney/hoxton",
+     "raw": "Friday 10am - 12pm"
+    },
+    {
+     "postcode": "N16 5DU",
+     "id": "hackney/upper-clapton",
+     "raw": "Wednesday 5pm - 6:45pm"
+    }
+   ]
+  },
+  "https://www.jedidiah.org.uk/locations": {
+   "centres": [
+    {
+     "postcode": "MK18 1BP",
+     "id": "ifan-3287e57944ff0bdd42b2a6-0",
+     "raw": "Food pantry: Wednesday to Friday from 4pm; Saturday from 9am"
+    },
+    {
+     "postcode": "SG14 1AJ",
+     "id": "ifan-3287e57944ff0bdd42b2a6-1",
+     "raw": "Monday to Friday 12pm - 1pm"
+    }
+   ]
+  },
+  "https://www.lincolnlarder.co.uk/get-help/outreach-centres/": {
+   "centres": [
+    {
+     "postcode": "LN2 5AR",
+     "id": "lincoln-community-larder",
+     "raw": "Tuesday 1pm - 3pm | Friday 1pm - 3pm"
+    },
+    {
+     "postcode": "LN4 3QY",
+     "id": "lincoln-community-larder/martin-village-hall",
+     "raw": "Tuesday 3pm - 4pm (appointment only)"
+    },
+    {
+     "postcode": "LN2 4LQ",
+     "id": "lincoln-community-larder/st-giles-methodist-church",
+     "raw": "Wednesday 10am - 11:30am | Friday 10am - 11:30am"
+    },
+    {
+     "postcode": "LN2 3HZ",
+     "id": "lincoln-community-larder/st-marys-church-welton",
+     "raw": "Thursday 1:30pm - 3pm"
+    }
+   ]
+  },
+  "https://www.restorenorthampton.org.uk/distribution-points": {
+   "centres": [
+    {
+     "postcode": "NN1 2LZ",
+     "id": "northampton",
+     "raw": "Tuesday 11:30am - 1:30pm"
+    },
+    {
+     "postcode": "NN5 6JF",
+     "id": "northampton/duston",
+     "raw": "Saturday 10am - 12pm"
+    },
+    {
+     "postcode": "NN3 2RA",
+     "id": "northampton/eastfield",
+     "raw": "Friday 9am - 12pm"
+    },
+    {
+     "postcode": "NN4 8EZ",
+     "id": "northampton/far-cotton",
+     "raw": "Thursday 12:30pm - 2:30pm"
+    },
+    {
+     "postcode": "NN3 6BQ",
+     "id": "northampton/spinney-hill",
+     "raw": "Monday 12pm - 2pm"
+    }
+   ]
+  },
+  "https://www.swindonfoodcollective.org/distribution-centres/": {
+   "centres": [
+    {
+     "postcode": "SN5 8NU",
+     "id": "swindon/freshbrook-church",
+     "raw": "Tuesday 2:30pm - 4:30pm"
+    },
+    {
+     "postcode": "SN25 3DF",
+     "id": "swindon/st-andrews-methodist-church",
+     "raw": "Tuesday 12pm - 2pm | Friday 11am - 1pm"
+    },
+    {
+     "postcode": "SN4 7BQ",
+     "id": "swindon/st-bartholomews-church",
+     "raw": "Monday 1pm - 3pm (except bank holidays)"
+    },
+    {
+     "postcode": "SN3 2LG",
+     "id": "swindon/st-johns-church-hall",
+     "raw": "Wednesday 10am - 12pm"
+    },
+    {
+     "postcode": "SN3 4NY",
+     "id": "swindon/st-margarets-centre",
+     "raw": "Thursday 12pm - 2pm"
+    },
+    {
+     "postcode": "SN15 4PR",
+     "id": "swindon/st-michaels-church",
+     "raw": "Wednesday 1pm - 3pm"
+    },
+    {
+     "postcode": "SN2 5DU",
+     "id": "swindon/st-peters-church",
+     "raw": "Tuesday 10am - 12pm"
+    },
+    {
+     "postcode": "SN3 6HP",
+     "id": "swindon/st-timothys-church",
+     "raw": "Friday 10am - 12pm (except Good Friday)"
+    },
+    {
+     "postcode": "SN6 7AA",
+     "id": "swindon/the-bridge",
+     "raw": "Monday 10am - 12pm | Thursday 10am - 12pm"
+    }
+   ]
+  },
+  "https://www.thefoodbank.org.uk/centres": {
+   "centres": [
+    {
+     "postcode": "CA22 2DR",
+     "id": "north-lakes/egremont",
+     "raw": "Friday 1pm - 3pm"
+    },
+    {
+     "postcode": "CA15 6LL",
+     "id": "north-lakes/maryport",
+     "raw": "Tuesday 12pm - 2pm | Thursday 12pm - 2pm | Friday 2pm - 4pm"
+    },
+    {
+     "postcode": "CA28 7BY",
+     "id": "north-lakes/whitehaven",
+     "raw": "Monday 11:30am - 1:30pm | Tuesday 11:30am - 1:30pm | Thursday 11:30am - 1:30pm"
+    }
+   ]
+  }
+ },
+ "skip": {
+  "upper-eden": {
+   "url": "https://upperedenfoodbank.org.uk",
+   "reason": "Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours"
+  },
+  "horsham-district/*": {
+   "url": "https://horshamdistrict.foodbank.org.uk/locations/",
+   "reason": "centres on the live page do not match our centre list (postcodes differ); needs Dean's review"
+  },
+  "readifood": {
+   "url": "https://fcg.org.uk/reading-pantries/locations/",
+   "reason": "Reading Pantries are a separate membership pantry scheme, not ReadiFood food bank's client hours"
+  },
+  "meon-valley/*": {
+   "url": "https://meonvalleyfoodbank.co.uk/",
+   "reason": "village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)"
+  },
+  "northampton/briar-hill": {
+   "url": "https://www.restorenorthampton.org.uk/distribution-points",
+   "reason": "not listed on Restore Northampton's distribution-points page"
+  }
+ }
+}
