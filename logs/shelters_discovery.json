@@ -1,8 +1,8 @@
 {
  "run": "2026-10-23",
- "candidates": 58,
- "already_on_map": 4,
- "new": 54,
+ "candidates": 62,
+ "already_on_map": 5,
+ "new": 57,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -37,6 +37,18 @@
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
    "sha256": "1693028f05d7d26ffd8ba140b410c88b431e642fbd01e4fc46a65e0f6f1b5ee7",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-bridge-house-mission",
+   "name": "Bridge House Mission",
+   "postcode": "TS18 3AX",
+   "directory": "Homeless Link",
+   "url": "http://www.bridgehousemission.co.uk",
+   "final_url": "https://bridgehousemission.co.uk/",
+   "http": 200,
+   "sha256": "90092920695a41fcf5b52844e8744b83ba0e04fbe72d61a24b6d3e57c0c92db7",
    "etag": "",
    "last_modified": ""
   }
@@ -127,7 +139,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "8b3c7e013f244367548ea1a23164d3391b23756e99c3a19d9c49f02da021fa80",
+   "sha256": "89410050d07b8914ade38b3ac5fad80f13538e5a340d9057c9d90899cb84690c",
    "etag": "",
    "last_modified": ""
   },
@@ -180,8 +192,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "650e1c6fd0cfcd402cffd7492af5b24ee1096ea294e3b5ad50b1b532502f09c0",
-   "etag": "W/\"4697d9d58dcd55d0c0b36afc0c056fe1\"",
+   "sha256": "73dc5218fac072a12c1461dcd3c9f45effd731970de8348b79df206acc66423a",
+   "etag": "W/\"b5245eb2d4650ef5810089c079b5df25\"",
    "last_modified": ""
   },
   {
@@ -198,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "dbb06e55fbd0921ce97b60d05ec4042a02af27508635a0b3886c4759bbe8eee9",
+   "sha256": "8dd832f31728ffd4268df4dd5c57f39b1ea8f9517b550d4c325950cd9b62f0db",
    "etag": "",
    "last_modified": ""
   },
@@ -539,8 +551,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
-   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
+   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
+   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
    "last_modified": ""
   },
   {
@@ -664,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "0ecb7126e2e8e6ba2e80c06a58f960a2faf693b5e114e635625e4abd0c2a7418",
+   "sha256": "36ea0b3baa0efb8dd2445bf4aacad86374877728aded688bd3e8469cf94df6f1",
    "etag": "",
    "last_modified": ""
   },
@@ -869,8 +881,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "34b774aa0f823f971a3e0e494b8104580446a515fe0060fc465e90ae3ee0795d",
-   "etag": "W/\"21bbc-yVRUq5anlMgCvHoX5RqPO3ECJDo\"",
+   "sha256": "b07d5cbd37b8b27bdcac3f28455a70b6e4de9ec6d02647b879ed9d57c140afd3",
+   "etag": "W/\"21bba-6LlDA4JkkmSOgqWbgzpKYr4X3wg\"",
    "last_modified": ""
   },
   {
@@ -886,23 +898,6 @@
    "url": "http://https://www.wfcbranches.org.uk",
    "final_url": "http://https://www.wfcbranches.org.uk",
    "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-bridge-house-mission",
-   "name": "Bridge House Mission",
-   "postcode": "TS18 3AX",
-   "website": "http://www.bridgehousemission.co.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bridge-house-mission/",
-   "reasons": [
-    "own site unreachable (HTTP 500)"
-   ],
-   "url": "http://www.bridgehousemission.co.uk",
-   "final_url": "http://www.bridgehousemission.co.uk",
-   "http": 500,
    "sha256": null,
    "etag": null,
    "last_modified": null
@@ -940,6 +935,61 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  {
+   "id": "hl-bromford-hayward-road-hostel",
+   "name": "Bromford - Hayward Road Hostel",
+   "postcode": "BS15 9TR",
+   "website": "http://www.bromford.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-cardinal-hume-centre-hostel",
+   "name": "Cardinal Hume Centre Hostel",
+   "postcode": "",
+   "website": "http://https://www.cardinalhumecentre.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "222cd184c0d32c5f1336fcc1acb33f3bc39faea73b3d4c593d551f3e26e56d62",
+   "etag": "",
+   "last_modified": ""
   }
  ],
  "rejected": []

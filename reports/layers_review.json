@@ -2,33 +2,12 @@
  "shelters.js": {
   "added": [
    {
-    "id": "hab-barnet-winter-night-shelter",
-    "name": "Barnet Winter Night Shelter (Homeless Action in Barnet)",
-    "tier": "unverified"
-   },
-   {
-    "id": "osm-way-180604493",
-    "name": "Cosgarne Hall",
-    "tier": "verified"
-   },
-   {
-    "id": "osm-way-608979359",
-    "name": "Hills House",
-    "tier": "verified"
-   },
-   {
-    "id": "robes-winter-night-shelter",
-    "name": "Robes Winter Night Shelter (Southwark & Lambeth)",
-    "tier": "unverified"
-   }
-  ],
-  "removed": [
-   {
     "id": "hl-bridge-house-mission",
     "name": "Bridge House Mission",
-    "reason": "not confirmed this run"
+    "tier": "unverified"
    }
   ],
+  "removed": [],
   "changed": [],
   "tier_flips": [],
   "upcoming": [
