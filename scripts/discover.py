@@ -235,7 +235,9 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             i["_orig_times"] = i.get(field)
             st, new, why = confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"))
             rec.update(status=st, reason=why)
-            if st == "confirmed": i["times_status"] = "confirmed"; i["times_checked"] = today
+            if st == "confirmed":
+                i["times_status"] = "confirmed"; i["times_checked"] = today
+                if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
             elif st == "changed":
                 if kind == "fb": new = dict(new, checked_date=today, source_url=home["final_url"]); i[field] = new
                 else: i[field] = hours_from_ot(new) or i.get(field)

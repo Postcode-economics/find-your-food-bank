@@ -4,7 +4,7 @@ name: Daily deep sweep (councils + voluntary-sector lists)
 # Independent of the 3x-daily refresh workflows, which still re-check every entry against its source.
 on:
   schedule:
-    - cron: "5 3,11,19 * * *"
+    - cron: "5 3 * * *"
   workflow_dispatch:
 permissions:
   contents: write
