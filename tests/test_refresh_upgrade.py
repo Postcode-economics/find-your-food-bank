@@ -55,9 +55,12 @@ class Decide(unittest.TestCase):
     def ot(self, raw="Wednesday 10am - 12pm", url="https://ex.org/where", pc="AB12CD"):
         return dict(normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None}), source_url=url, reader="times_finder", pc_seen=[pc])
     def it(self, i="ex", pc="AB1 2CD", w="https://ex.org"): return {"id": i, "name": i, "postcode": pc, "website": w}
-    def test_strict_auto_apply(self):
+    def test_auto_apply_off_even_for_perfect_match(self):   # Dean, 24 Oct: strict mode got 3 of 12 wrong
         log, cur, md = self.run_decide({"ex": self.ot()}, [self.it()])
-        self.assertEqual(log["applied"], ["ex"]); self.assertIn("ex", cur); self.assertIn("Nothing pending", md)
+        self.assertEqual(log["applied"], []); self.assertNotIn("ex", cur); self.assertIn("auto-apply is off", md)
+    def test_sweep_workflow_has_no_apply(self):
+        w = open(os.path.join(R, ".github", "workflows", "sweep-daily.yml")).read()
+        self.assertNotIn("times_finder.py --apply", w); self.assertIn("times_finder.py --render", w)
     def test_oxford_copy_sent_to_review(self):   # same times read onto two centres with different postcodes
         f = {"a": self.ot(pc="OX39AA"), "b": self.ot(pc="OX41AA")}
         log, cur, md = self.run_decide(f, [self.it("a", "OX3 9AA"), self.it("b", "OX4 1AA")])
