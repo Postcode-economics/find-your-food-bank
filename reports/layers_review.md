@@ -1,25 +1,33 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 16 · removed 6 · changed 0 · tier flips 0 · opens later 0 · season ended 0 · recheck failed 30
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 2 · season ended 0 · recheck failed 38
 
-- REMOVED **Adullam Homes HA - Norman House** – not confirmed this run
-- REMOVED **Ashdown Medway Accommodation Trust (AMAT)** – not confirmed this run
-- REMOVED **Bradford Cyrenians - Hostel for Homeless Men** – not confirmed this run
-- REMOVED **Bridge House Mission** – not confirmed this run
-- REMOVED **Gilven House** – not confirmed this run
-- REMOVED **Talbot Association** – not confirmed this run
+- OPENS LATER Glass Door Winter Night Shelters (3 circuits) – Opens 21 Nov 2026 until 22 Mar 2027
+- OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 
 ## warmspaces.js
-added 18 · removed 0 · changed 15 · tier flips 0 · opens later 5 · season ended 0 · recheck failed 13
+added 180 · removed 11 · changed 0 · tier flips 0 · opens later 7 · season ended 0 · recheck failed 32
 
+- REMOVED **Elderberries Vintage Tea Rooms (8th Bexleyheath Scout Group)** – not confirmed this run
+- REMOVED **Marlborough Primary School** – not confirmed this run
+- REMOVED **Saifee Mosque** – not confirmed this run
+- REMOVED **The Midlands Greek & Cypriot Association** – not confirmed this run
+- REMOVED **Ash Vale Chapel Cafe** – not confirmed this run
+- REMOVED **Neston Community Youth Centre** – not confirmed this run
+- REMOVED **The Hub @ St Peter's, Woolton** – not confirmed this run
+- REMOVED **St Luke’s Church** – not confirmed this run
+- REMOVED **Cosy Crypt** – not confirmed this run
+- REMOVED **Hope Cafe** – not confirmed this run
+- REMOVED **The Meeting Place** – not confirmed this run
 - OPENS LATER Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026
 - OPENS LATER Desborough Baptist Church Warm Welcome Space – Opens 3 Nov 2026
 - OPENS LATER Greenmount Old School – Opens 5 Jan 2027
 - OPENS LATER NAN activity space/meeting room – Opens 5 Nov 2026
 - OPENS LATER North Warm Welcome – Opens 2 Nov 2026
+- OPENS LATER The Hub, South Brent (SBADC) – Opens 1 Nov 2026
+- OPENS LATER wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026
 
 ## SWEP
 Active: none found
-- Birmingham City Council: active → old notice (latest date on page 2026-07-29) (https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping) “g or when the temperature feels like 0&deg;C or below. When SWEP is active, extra emergency accommodation is available so that people do not have to sleep”
-- Birmingham City Council (news): active → old notice (latest date on page 2026-01-08) (https://www.birmingham.gov.uk/news/article/1704/birmingham_mobilises_to_protect_people_who_are_sleeping_rough_during_the_severe_weather) “le who sleep rough as temperatures fall. Birmingham&rsquo;s Severe Weather Emergency Protocol has been activated due to snow and very cold temperatures. The pro”
+- Plymouth City Council: active → unknown (https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep) “”

@@ -2,3 +2,180 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
+## Warm spaces: 175 added
+- Luckley House · TN25 5DY
+- Katherine Davies · OX7 5NP
+- St Georges Centre Netherfield · NG4 2NN
+- All Saints' Church, Rhiwbina · CF14 6NT
+- The Glebe · DE15 9RW
+- Soup and chat · CF15 8BP
+- Pebsham Warm Welcome · TN40 2SW
+- St Andrew's Well-Being Drop in and Cafe · NE10 8HR
+- Wells Methodist Church · BA5 1UG
+- Warm Space · BA20 1QF
+- St Michael the Archangel Church Aldershot · GU11 3SS
+- Alcester Methodist Church · B49 5DX
+- North Mymms Memorial Hall · AL9 7PG
+- Wawne 'Pop-Up' cafe · HU7 5XH
+- MAT Charity - Warm Welcome Space · S73 0AY
+- East Preston - Royal British Legion · BN16 1JL
+- The Bridge · DL9 4AF
+- Emsworth Community Hub · PO10 7JF
+- Southam Men's Shed at Galanos · CV47 2BL
+- Soup and a snack · LA18 4BH
+- Brotton Methodist Church · TS12 2QD
+- Sowerby Bridge Pool & Fitness Centre · HX6 3AB
+- Lounge and/or Pub · BH18 8AL
+- Grapevine Wellbeing Centre · SK17 6EQ
+- Wribbenhall Community Centre · DY12 1EU
+- Appolo Community Hub · ST1 1EG
+- Church of Christ · DE7 5BE
+- Linton Road Free Church · ME15 0AL
+- Woodbridge Town Football club · IP12 4LS
+- Stoke Christian Centre · PL3 4DS
+- Growing Together · NN3 8QD
+- Paxcroft Mead Community Centre · BA14 7GW
+- Warm Wednesdays · WV10 7TR
+- Warm Space Social · PL31 2HR
+- The Source, Riverside Church · NG34 7RY
+- Padgate Community Centre Warm Hub · WA2 0QS
+- Second Helpings Saturday Warm Space · PE9 2AE
+- Little Lever Men's Fellowship · BL3 1HH
+- Mablethorpe Wellbeing Hub · LN12 2DR
+- Haddon Hall · SE1 4TR
+- Ikhlas Education Centre · DE23 6LS
+- St. Andrew's Church Hall · CF14 4AE
+- Oasis Warm Welcome Space · BN3 8EQ
+- Shankill Leisure Centre · BT13 2BD
+- Indoor Tennis Centre and Ozone Complex · BT6 8LT
+- Falls Leisure Centre · BT12 4PB
+- Minehead Methodist Church · TA24 5AY
+- Ebenezer Chapel · L4 6SQ
+- Denby Institute and Recreation Ground · DE5 8NQ
+- ashley gardens activity room · ME15 8RA
+- Cafe Life Winter Warmer · SY11 2LQ
+- The Zone Downderry · PL11 3JZ
+- Village warm space@StNics · CT3 2EN
+- Warm Welcome - Coffee and Chat · SL6 1EE
+- The Phillip Whitehead Memorial Library · DE21 6LN
+- Warm welcome - Film Club · BD24 9JH
+- Belvedere Community Centre · DA17 6AA
+- ST PETERS CHURCH · SG18 8AL
+- The woodbine Centre, Marsh Lane, New Holland · DN19 7PY
+- Forum Cafe · NE2 1XU
+- Rugby Methodist Church Centre · CV22 7TB
+- Kings Head Village Club · DH8 0HX
+- Blackfordby Friendship Group. · DE11 8AB
+- St Michaels, Rocester Warm Welcome space · ST14 7EL
+- Chipping Norton Library · OX7 5NP
+- Childs Hill Library · NW2 2QE
+- Mickley Warm and Welcoming Space · DE55 6GJ
+- The Manor Warm Space · CA2 6JP
+- Craft & Cake · IV26 2UN
+- Farrow Court · TN23 5FT
+- Muamba House · BL1 2LU
+- St George's Parish Hall · SK22 4NP
+- Pinxton Warm and Welcome Club · NG16 6NA
+- Arley Warm hub · CV7 8FR
+- Marehay Methodist Church · DE5 8JE
+- Village Voices · BL3 1HH
+- The Hub at The Salvation Army, Mare Street · E8 4RT
+- Farnham Library · GU9 7DR
+- Ash Library · GU12 6LF
+- Looe Library & Community Hub · PL13 2AF
+- Takes a Village · SW11 5HD
+- Veolia Hammersmith and Fulham Warm Welcome Space · W11 4TX
+- Grendon Community Centre · CV9 2EL
+- Haslemere Court · DE23 8JJ
+- The Warm Hub · SS4 3PG
+- J D Craft and Sew Fabrics · LN12 2ET
+- Mens Drop in. · DN1 3NJ
+- Just Come Round · DA1 3ET
+- The Sandsgate · NR29 4JE
+- Veolia Birmingham Warm Welcome Space · B25 8FD
+- Veolia Camden Warm Welcome Space · N1C 4AG
+- Veolia Merseyside and Halton Warm Welcome Space · L10 5HA
+- Veolia Southwark Warm Welcome Space · SE15 1AL
+- Veolia Sutton Warm Welcome Space · CR0 4TG
+- Veolia Haringey Warm Welcome Space · N17 8DX
+- Veolia Nottinghamshire Warm Welcome Space · NG17 1DH
+- Veolia Westminster Warm Welcome Space · W2 5TF
+- Withington Library · M20 3BN
+- Warm Space · CO15 5ER
+- AllSaints community rooms · NR11 8BE
+- Alston Warm Hub · CA9 3RF
+- Biggleswade Warm Space · SG18 0LN
+- The Gate Inn Swanwick · DE55 1AQ
+- Coffee and Croissants · GL17 9BX
+- Gainsborough Men’s Shed · DN21 1NF
+- Jacksdale Community Centre · NG16 5JW
+- Tea and chatter · CH45 3HL
+- Summer Cool Hub · BN9 9BA
+- wee blether with soup and sandwich at Seescape · KY7 4NT (Opens 2026-11-05)
+- Friday Warm Welcome Space · NG12 5AN
+- Library Plus at Cymer Afan Library · SA13 3HR
+- Rhyl Salvation Army, Windsor Street Rhyl, LL18 1BW · LL18 1BW
+- Evington Library · LE5 6DH
+- Willenhall Library · CV3 3DG
+- Beddow Library · PO4 8PR
+- Kidsgrove Rotary Food Hub · ST7 4AB
+- Hungate Centre · YO18 7DG
+- St George's Church · DA11 0DJ
+- Warm Welcome at the Co-op Community Space · BN43 6PA
+- Tea and Toast · WA10 3ND
+- Downside Community Centre · PO30 2AX
+- St Matthew's Ashford · TW15 2NY
+- Christ Church Ramsbottom Drop-in cafe · BL0 0PX
+- Friends of Stourconnect Community Cafe · DT10 1JF
+- Oasis Hub Hull · HU5 2NB
+- Good News In The Community · LL18 2AB
+- Bradford Central Foodbank and The Light Church · BD1 4EJ
+- Saturday Breakfast · SO23 7AA
+- Tea4U Community Cafe · BT74 7BW
+- Granton Skills & Wellbeing Centre · EH5 1BZ
+- St Peter's Church, Edmonton · N9 8JP
+- Lunch Club · SA18 3HL
+- Emmanuel Church · LA4 5AJ
+- Cayton Community Drop In · YO11 3TF
+- Flitwick Tea & Chat · MK45 1EA
+- Community Support Hall · CO5 8JB
+- Abbey Community Centre-Kilburn, London · NW6 4BJ
+- Ringmer Village Library · BN8 5QH
+- Opening Doors at St Nath's · L9 2AJ
+- St Barnabas Church · BS4 1DQ
+- Warm Welcome - South Woodham Evangelical Church · CM3 5LJ
+- Wayfarers Caravan Park with St Hilary Church · TR20 9EF
+- Keyring · CM9 5BS
+- Highfields Library · LE2 0DS
+- Have a Meal on Us @ St Pauls · SO22 5AB
+- The Cornerstone Church · E10 6EH
+- EK Community Food Bank & Community Cafe · G74 3LW
+- Fisher Medical Community Centre  Skipton · BD23 1EU
+- Street Library · BA16 0HA
+- Friday at the Gap · NE61 4EG
+- Charlie's cafe harrogate court · DN12 4HB
+- St Michael's Church · TR7 1RA
+- The Pathways Centre · LE10 1PR
+- Open Door drop-in-café · NE20 9BE
+- The Hope Hub · BH9 2QL
+- Craft & Games Cafe · FK2 7JS
+- Nailsea Baptist Church · BS48 2DS
+- Thrive Community Café · TN1 1UT
+- Otley Welcome Space · LS21 2DP
+- St Luke's Community Hub · LS11 8PD
+- Corbett Community Library · SE6 1RQ
+- CAMEO · SS3 0AH
+- Wessex House · SP8 4AG
+- Community Coffee Morning · YO19 5PW
+- Thrive to Survive · CH66 3JT
+- Charlton Marshall Coffee Stop · DT11 9PA
+- Refresh · CV23 9AT
+- Community Meal at The Runway · BH23 3TG
+- St Saviour's Church · PR5 6AJ
+- Darwen Heritage Centre · BB3 2RG
+- Life and Light Community Place of Welcome · B21 0TT
+- St Athanasius Coffee Morning · L4 1QH
+- Warm Welcome · BD12 9JP
+- Renew @ JK Wellbeing Drop-in · KA3 5BZ
+- St John's Church, Yeadon · LS19 7XZ
+
