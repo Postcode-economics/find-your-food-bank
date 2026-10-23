@@ -36,7 +36,7 @@ def _fetch(u):
     return fetch_raw(u)
 def run(fetcher=None, run_day=None, threads=8):
     fetcher = fetcher or _fetch; run_day = run_day or datetime.date.today().isoformat()
-    srcs = json.load(open(SRC)) if os.path.exists(SRC) else []
+    srcs = [x for x in (json.load(open(SRC)) if os.path.exists(SRC) else []) if x.get("url")]  # council records without a SWEP page carry url null
     prev = {x["url"]: x for x in (json.load(open(LOG)).get("pages", []) if os.path.exists(LOG) else [])}
     def one(s):
         r = fetcher(s["url"]); h = r.get("html") or r.get("text") or ""
@@ -58,7 +58,7 @@ def discover(fetcher=None, councils_path="scripts/sweep_sources.json", budget_s=
     fetcher = fetcher or _fetch
     cs = json.load(open(councils_path))["councils"]
     have = json.load(open(SRC)) if os.path.exists(SRC) else []
-    seen = {x["url"] for x in have}; t0 = time.time()
+    seen = {x["url"] for x in have if x.get("url")}; t0 = time.time()
     def one(c):
         found = []
         for u in [c["site"]] + [u for u in c.get("known_pages", [])[:1]]:
@@ -78,6 +78,54 @@ def discover(fetcher=None, councils_path="scripts/sweep_sources.json", budget_s=
             if time.time() - t0 > budget_s: break
     json.dump(have, open(SRC, "w"), indent=1, ensure_ascii=False)
     return {"councils": len(cs), "sources": len(have), "added": len(added)}
+
+FULL_LOG, FULL_MD = "logs/swep_full.json", "reports/swep_daily.md"
+def full(fetcher=None, run_day=None, threads=8):
+    """Daily full-coverage check (Dean, 23 Oct 2026): every UK council in scripts/sweep_sources.json.
+    Re-checks each council's SWEP page, flags new / dead pages and status changes, lists councils with no SWEP page.
+    Writes logs/swep_full.json + reports/swep_daily.md. Never contacts anyone; reads public pages only."""
+    fetcher = fetcher or _fetch; run_day = run_day or datetime.date.today().isoformat()
+    cs = json.load(open("scripts/sweep_sources.json"))["councils"]
+    srcs = json.load(open(SRC)) if os.path.exists(SRC) else []
+    by = {}
+    for x in srcs:
+        k = x.get("code") or x.get("council"); by.setdefault(k, []).append(x)
+    prev = json.load(open(FULL_LOG)) if os.path.exists(FULL_LOG) else {}
+    pp = {c["code"]: c for c in prev.get("councils", [])}
+    def one(c):
+        recs = by.get(c["code"], []) + [x for x in by.get(c["name"], []) if x not in by.get(c["code"], [])]
+        urls = [x["url"] for x in recs if x.get("url")]
+        line = next((x for x in recs if x.get("homeless_phone") or x.get("ooh_phone")), {})
+        res = {"code": c["code"], "council": c["name"], "nation": c["nation"], "homeless_phone": line.get("homeless_phone"),
+               "ooh_phone": line.get("ooh_phone"), "phone_source": line.get("phone_source"), "pages": []}
+        for u in urls[:3]:
+            r = fetcher(u); h = r.get("html") or r.get("text") or ""
+            txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style).*?</\1>", " ", h))
+            st, q = classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
+            res["pages"].append({"url": u, "http": r.get("http"), "status": st, "quote": q})
+        res["status"] = next((p["status"] for p in res["pages"] if p["status"] == "active"), res["pages"][0]["status"] if res["pages"] else "no SWEP page")
+        o = pp.get(c["code"])
+        flags = []
+        if not o: flags.append("new council record")
+        else:
+            if o.get("status") != res["status"]: flags.append("status %s -> %s" % (o.get("status"), res["status"]))
+            ou = {p["url"] for p in o.get("pages", [])}
+            flags += ["new page " + p["url"] for p in res["pages"] if p["url"] not in ou]
+        flags += ["dead page %s (HTTP %s)" % (p["url"], p["http"]) for p in res["pages"] if p["status"] == "unreachable"]
+        res["flags"] = flags
+        return res
+    with cf.ThreadPoolExecutor(threads) as ex: out = list(ex.map(one, cs))
+    cov = {"councils": len(out), "with_swep_page": sum(1 for r in out if r["pages"]), "with_line": sum(1 for r in out if r["homeless_phone"] or r["ooh_phone"]),
+           "active": [r["council"] for r in out if r["status"] == "active"], "flagged": sum(1 for r in out if r["flags"])}
+    json.dump({"run": run_day, "coverage": cov, "councils": out}, open(FULL_LOG, "w"), indent=1, ensure_ascii=False)
+    os.makedirs("reports", exist_ok=True)
+    with open(FULL_MD, "w") as f:
+        f.write("# SWEP daily full check (%s)\n\n%d councils: %d with a SWEP page, %d with a homeless line, %d active, %d flagged.\n\n" % (run_day, cov["councils"], cov["with_swep_page"], cov["with_line"], len(cov["active"]), cov["flagged"]))
+        f.write("## Active now\n\n" + ("".join("- %s\n" % a for a in cov["active"]) or "None.\n") + "\n## Changes and flags\n\n")
+        f.write("".join("- %s: %s\n" % (r["council"], "; ".join(r["flags"])) for r in out if r["flags"]) or "None.\n")
+        f.write("\n## No SWEP page found\n\n" + "".join("- %s (%s)\n" % (r["council"], r["nation"]) for r in out if not r["pages"]))
+    return cov
 if __name__ == "__main__":
     if sys.argv[1:] == ["discover"]: print(discover())
+    elif sys.argv[1:] == ["full"]: print(json.dumps(full()))
     else: r = run(); print(r["sources"], "SWEP pages;", len(r["active"]), "active;", len(r["changes"]), "changes")
