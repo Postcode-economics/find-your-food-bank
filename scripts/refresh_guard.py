@@ -65,6 +65,10 @@ def guard(layer, old_items, new_items):
             for k in (('opening_times',) if layer == 'foodbanks' else ('hours', 'hours_source', 'hours_checked')):
                 if k in o: n[k] = o[k]
             rep['times'].append(o['id'])
+        if layer == 'shelters' and o.get('groups') and not n.get('groups'):  # who it's for never lost (Dean, 23 Oct)
+            n['groups'] = o['groups']
+            if o.get('groups_source'): n['groups_source'] = o['groups_source']
+            rep.setdefault('groups', []).append(o['id'])
     return out, rep
 
 def main(layer, ref='HEAD'):
