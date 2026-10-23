@@ -17,7 +17,7 @@ def stamp(root=ROOT):
 
 def pages(root=ROOT):
     out = [p for p in TOP if os.path.exists(os.path.join(root, p))]
-    for base in ('food-banks', 'warm-spaces'):
+    for base in ('food-banks', 'warm-spaces', 'shelters'):
         out += sorted(os.path.relpath(p, root) for p in glob.glob(os.path.join(root, base, '**', 'index.html'), recursive=True))
     return out
 
@@ -107,7 +107,7 @@ def run(root=ROOT):
             s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s at %s' % ('on %d %s' % (t.day, t.strftime('%B')), t.strftime('%H:%M')) + m.group(2), s)
-        if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/')) and rel.count('/') == 2:
+        if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/', 'shelters/')) and rel.count('/') == 2:
             s = put_chk(s, t, rel)
         if rel == 'faq.html':
             s = put(s, 'faq', ld('faq', faq_ld(s)))
