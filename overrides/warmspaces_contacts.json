@@ -513,7 +513,10 @@
  "ww-69069573": {
   "council": "Bury Metropolitan Borough Council",
   "council_phone": "01612 535000",
-  "council_url": "https://www.bury.gov.uk/"
+  "council_url": "https://www.bury.gov.uk/",
+  "phone": "0161 253 6000",
+  "phone_source": "https://www.personasupport.org/our-services/the-green-community-cafe/",
+  "confidence": "medium: operator Persona Support line printed on the cafe own page (+ theburydirectory.co.uk); operator main line, not council (checked 2026-10-23)"
  },
  "ww-55475700": {
   "phone": "01689 860113",
@@ -732,7 +735,10 @@
   "phone_source": "https://www.mps.bham.sch.uk/",
   "council": "Birmingham City Council",
   "council_phone": "0121 303 1111",
-  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers"
+  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers",
+  "hours": "Monday 8:45am to 9:30am (Parents Group)",
+  "hours_source": "https://www.birmingham.gov.uk/directory_record/670130/marlborough_primary_school",
+  "hours_checked": "2026-10-23"
  },
  "ww-55592264": {
   "phone": "01295 257193",
@@ -788,7 +794,10 @@
  "ww-69038953": {
   "council": "Leeds City Council",
   "council_phone": "01132 224444",
-  "council_url": "https://www.leeds.gov.uk/contact-us"
+  "council_url": "https://www.leeds.gov.uk/contact-us",
+  "phone": "07861 240104",
+  "phone_source": "https://newcomeraidnetwork.co.uk/",
+  "confidence": "high: Newcomer Aid Network own site (also lists 07379 604192) (checked 2026-10-23)"
  },
  "ww-57953160": {
   "phone": "01513 367805",
@@ -875,7 +884,10 @@
  "eln-pencaitland-lunch-club": {
   "council": "East Lothian Council",
   "council_phone": "01620 827827",
-  "council_url": "https://www.eastlothian.gov.uk/contact-us"
+  "council_url": "https://www.eastlothian.gov.uk/contact-us",
+  "phone": "07703 735664",
+  "phone_source": "https://www.pencaitlandparishchurch.org.uk/sites/default/files/Welcome%20Pack%202025.pdf",
+  "confidence": "medium: organiser line (Anne Robertson) in Pencaitland parish welcome pack + East Lothian lunch club directory (checked 2026-10-23)"
  },
  "cmn-people-speak-up": {
   "phone": "01554 292393",
@@ -1973,7 +1985,10 @@
  "swk-london-lgbtq-community-centre": {
   "council": "London Borough of Southwark",
   "council_phone": "020 7525 5000",
-  "council_url": "https://www.southwark.gov.uk/about-council/contact-us"
+  "council_url": "https://www.southwark.gov.uk/about-council/contact-us",
+  "phone": "07921 103201",
+  "phone_source": "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5210100/contact-information",
+  "confidence": "high: Charity Commission register + Apple Maps listing agree (checked 2026-10-23)"
  },
  "ww-64379342": {
   "phone": "07483 176929",
@@ -2284,7 +2299,10 @@
  "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj": {
   "phone": "01213266538",
   "phone_source": "https://www.midlandsgreek.org/",
-  "confidence": "cross-checked 23 Oct 2026: second source (web search/directory) agrees; was one source: venue/operator's own website (auto-extracted, single number on page), 2026-10-23"
+  "confidence": "cross-checked 23 Oct 2026: second source (web search/directory) agrees; was one source: venue/operator's own website (auto-extracted, single number on page), 2026-10-23",
+  "hours": "Monday and Wednesday 9:30am to midday (Stay and Play)",
+  "hours_source": "https://www.birmingham.gov.uk/directory_record/627826/the_midlands_greek_and_cypriot_association",
+  "hours_checked": "2026-10-23"
  },
  "ww-68611803": {
   "phone": "07548 124680",
