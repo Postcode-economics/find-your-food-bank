@@ -15,7 +15,7 @@ E = lambda s: html.escape(str(s or ''), quote=True)
 LEGAL = ('<div class="legal"><p>helpmap.uk is a free guide compiled from publicly available information. While we aim to keep it '
          'accurate, details can change, so please confirm with the service before visiting. We are not affiliated with the services '
          'listed and cannot accept liability for any loss arising from use of this information. In an emergency, please call '
-         '<a href="tel:999">999</a>.</p><p><a href="/terms.html">Terms of use</a> · <a href="/privacy.html">Privacy &amp; data protection</a> · '
+         '<a href="tel:999">999</a>.</p><p><a href="/faq.html">How we keep it up to date</a> · <a href="/terms.html">Terms of use</a> · <a href="/privacy.html">Privacy &amp; data protection</a> · '
          '<a href="/accessibility.html">Accessibility</a> · <a href="mailto:hello@helpmap.uk?subject=Report%20a%20mistake%20on%20helpmap.uk">Report a mistake</a></p></div>')
 CSS = ('body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#13233f;background:#fff}'
        'main,header,footer{max-width:760px;margin:0 auto;padding:0 16px}header{padding-top:14px}'
@@ -121,7 +121,7 @@ def section(kind, items, cache, updated, out, card):
         desc = '%d %s in %s with addresses, phone numbers and opening times. Free, no sign-up. Always call before you go.' % (n, noun if n != 1 else noun.rstrip('s'), d)
         body = ('<h1>%s in %s</h1><p>%d %s listed in the %s area, taken from the same checked data as the helpmap.uk map. '
                 'Details can change, so please call before you go.</p><a class="cta" href="/?q=%s">Open on the map</a>'
-                '<div class="call">Always call before you go</div><ul class="s">%s</ul><p><a href="/%s/">All areas</a></p>'
+                '<p class="chk3"><a href="/faq.html">Checked three times daily</a></p><div class="call">Always call before you go</div><ul class="s">%s</ul><p><a href="/%s/">All areas</a></p>'
                 % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(lst[0]['postcode'])), ''.join(card(i) for i in lst), base))
         write(path, page(path, title, desc, body, [('helpmap.uk', '/'), (label, '/%s/' % base), (d, path)], updated), out)
         urls.append(path)
@@ -155,7 +155,7 @@ def build(out=ROOT, fetch=True):
             if os.path.isdir(p) and not os.listdir(p): os.rmdir(p)
     lm = {'/': fb['fetched']}
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in ['/'] + urls + ['/privacy.html', '/terms.html', '/accessibility.html']:
+    for u in ['/'] + urls + ['/faq.html', '/privacy.html', '/terms.html', '/accessibility.html']:
         d = ws['updated'] if u.startswith('/warm-spaces') else fb['fetched']
         sm.append('<url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (SITE, u, d))
     sm.append('</urlset>')

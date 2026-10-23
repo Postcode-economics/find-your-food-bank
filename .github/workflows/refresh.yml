@@ -36,10 +36,13 @@ jobs:
         run: python scripts/build_seo.py
       - name: Stamp this run's UK date and time (footer last updated / checked)
         run: python scripts/stamp.py write refresh && python scripts/stamp.py verify
+      - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
+        continue-on-error: true
+        run: python scripts/seo_meta.py
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
-          git add logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces sitemap.xml logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

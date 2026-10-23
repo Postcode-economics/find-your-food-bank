@@ -34,9 +34,14 @@ jobs:
         id: seo
         continue-on-error: true   # never blocks the data publish; alerted below
         run: python scripts/build_seo.py
+      - name: Stamp this run's UK date and time (map 'Updated today at' line)
+        run: python scripts/stamp.py write warmspaces && python scripts/stamp.py verify
+      - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
+        continue-on-error: true
+        run: python scripts/seo_meta.py
       - name: Commit if changed
         run: |
-          git add logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces sitemap.xml logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
