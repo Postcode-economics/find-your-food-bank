@@ -119,7 +119,7 @@ def own_site_check(c, kind, fetcher=fetch_raw, today=None):
 
 # ---------- times cross-check ----------
 DAYN = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
-TIMESPAN = re.compile(r"((?:(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\.?(?:\s*(?:,|&|and|-|–|to)\s*)?)+)[\s:,(]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday))", re.I)
+TIMESPAN = re.compile(r"((?:\b(?:mon(?:day)?|tues?(?:day)?|wed(?:nesday)?|weds|thu(?:rs?)?(?:day)?|fri(?:day)?|sat(?:urday)?|sun(?:day)?)s?\b\.?(?:\s*(?:,|&|and|-|–|to)\s*)?)+)[\s:,(]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon|midday))", re.I)
 def norm_times(s):
     """'10.30am', '10:30', '10am' -> {'10:30','10:00'} in 24h (am/pm aware). Same rule as recheck.norm_times, kept here so
     the food bank build has no dependency on the shelter/warm-space modules."""
@@ -141,7 +141,16 @@ def want_times(ot):
     if isinstance(ot, dict):
         return norm_times(" ".join(map(str, ot.values()))), {k[:3].lower() for k in ot}
     return norm_times(str(ot)), {d for d in DAYN if d in str(ot).lower()}
-NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer", re.I)
+NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point", re.I)
+ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month", re.I)
+ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
+APPT = re.compile(r"by appointment|appointment only|appointments only", re.I)
+def not_client_context(t, at, prev_span_end=None):
+    """Up to 160 chars before the times, but not past the previous time span (that belongs to another line/centre).
+    Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""
+    lo = max(0, at - 160)
+    if prev_span_end is not None and prev_span_end > lo: lo = prev_span_end
+    return bool(NOT_CLIENT.search(t[lo:at]))
 def extract_times(text, postcode=None):
     """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block."""
     t = text or ""; pc = norm_pc(postcode)
@@ -150,15 +159,41 @@ def extract_times(text, postcode=None):
     if pc and len({a + b for a, b in (m.groups() for m in pcs)}) > 1:
         hit = [m for m in pcs if m.group(1) + m.group(2) == pc]
         if not hit: return None
-        s = hit[0].start(); t = t[max(0, s - 500):s + 500]
-    segs, seen = [], set()
+        # Each centre's block runs between its neighbours' postcodes, never across them, so one centre's times are
+        # never read onto another (Ryedale / Oxford CEF mistakes, 23 Oct). Page layout decides the side: if the
+        # page puts times AFTER each postcode, take [this postcode, next postcode); if BEFORE, take (previous, this].
+        s = hit[0].start(); e = hit[0].end()
+        ends = [m.end() for m in pcs if m.end() <= s]; starts = [m.start() for m in pcs if m.start() >= e]
+        first, last = pcs[0], pcs[-1]
+        after = bool(TIMESPAN.search(t[last.end():last.end() + 300]))          # times follow the last centre's postcode
+        before = bool(TIMESPAN.search(t[max(0, first.start() - 300):first.start()]))  # times precede the first one
+        if after and not before: lo, hi = s, min([e + 500] + starts)
+        elif before and not after: lo, hi = max([max(0, s - 500)] + ends), e
+        else: return None   # layout unclear: never guess, the finder sends it to Dean's review list
+        t = t[lo:hi]
+    segs, seen, prev_end, prev_skipped = [], set(), None, False
+    found = []
+    for m in ORD_SPAN.finditer(t):   # 'first Saturday of the month 9:30 - 11:30' kept as written (shown as text)
+        if not not_client_context(t, m.start()): found.append((m.start(), (m.group(1) + " " + m.group(2)).strip()))
+    ords = [(a, a + len(x) + 20) for a, x in found]
     for m in TIMESPAN.finditer(t):
-        if NOT_CLIENT.search(t[max(0, m.start() - 80):m.start()]): continue   # office / warehouse / donation hours are not client times
+        if any(a <= m.start() < b for a, b in ords): continue
+        follows = prev_end is not None and m.start() - prev_end < 40   # a list continuing straight on from the last line
+        skip = (prev_skipped and follows) or not_client_context(t, m.start(), prev_end)
+        prev_end, prev_skipped = m.end(), skip
+        if skip: continue   # office / warehouse / donation / bin hours are not client times
         seg = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip()
+        nxt = t[m.end():m.end() + 40]; nxt = nxt[:min([len(nxt)] + [x.start() for x in TIMESPAN.finditer(nxt)])]
+        if APPT.search(nxt) or APPT.search(t[max(0, m.start() - 30):m.start()]): seg += " (by appointment)"
+        found.append((m.start(), seg))
+    for _, seg in sorted(found):
         if seg.lower() not in seen: seen.add(seg.lower()); segs.append(seg)
     if not segs: return None
     from times import normalise
-    return normalise({"raw": " | ".join(segs), "status": "TIMES_TEXT_ONLY", "structured": None})
+    raw = " | ".join(segs)
+    if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
+        return {"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None, "lines": segs}
+    return normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None})
 def confirm_times(ot, texts, postcode=None):
     """-> (status, new_ot, reason). status: confirmed | changed | unconfirmed | none_published."""
     alltext = " ".join(texts); low = alltext.lower()
@@ -238,6 +273,11 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             if st == "confirmed":
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
+            elif st == "changed" and str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed"):
+                # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
+                rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
+                           new=new.get("structured") if new else None)
+                i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
             elif st == "changed":
                 if kind == "fb": new = dict(new, checked_date=today, source_url=home["final_url"]); i[field] = new
                 else: i[field] = hours_from_ot(new) or i.get(field)
