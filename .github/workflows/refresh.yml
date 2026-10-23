@@ -28,6 +28,10 @@ jobs:
         id: full
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
         run: python scripts/full_check.py
+      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
+        run: python scripts/publish_gate.py foodbanks
+      - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
+        run: python scripts/publish_gate.py check
       - name: Refresh guard - keep any place, phone or opening times this run would drop (report + alert, scripts/refresh_guard.py)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -46,7 +50,7 @@ jobs:
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
