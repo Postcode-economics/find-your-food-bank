@@ -40,7 +40,9 @@ def gate(layer, ref='HEAD'):
         md += [f'## {L} ({len(xs)})', ''] + [f"- {x['name']} ({x.get('postcode') or ''}) - {', '.join(x['why'])} - {x.get('source') or ''}" for x in xs] + ['']
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
-        m = re.search(r'(?s)<!-- times review -->.*?<!-- /times review -->', open(pd).read()); keep = '\n\n' + m.group(0) + '\n' if m else ''
+        t = open(pd).read()
+        for tag in ('times review', 'sweep shelters'):  # keep the times review (times_finder) and sweep shelter review sections
+            m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     print(f'publish gate {layer}: {len(held)} new places held for Dean')
     return held

@@ -98,3 +98,24 @@ class Run(unittest.TestCase):
         S.run(self.src(), fetcher=lambda u: page(LIST), geocoder=fake_geo)
         r = S.run(self.src(), fetcher=lambda u: page(LIST), geocoder=fake_geo); self.assertEqual(r["added"], [])
 if __name__ == "__main__": unittest.main()
+
+class NoShelterAdds(unittest.TestCase):
+    """Dean, 24 Oct: the sweep never adds shelters to the map (not even 'Unverified'); they go to pending_dean.md only."""
+    def test_shelter_candidate_never_added(self):
+        import tempfile, os as _os
+        cand = {"name": "Test Night Shelter", "postcode": "SW1A 1AA", "layer": "shelters", "tier": "verified", "source_url": "https://example.gov.uk/swep", "address": "x"}
+        orig_ex, orig_w = S.extract, S.write_shelter_review; got = {}
+        S.extract = lambda *a, **k: [dict(cand)]
+        S.write_shelter_review = lambda items, d, pd=None: got.setdefault("items", items)
+        try:
+            r = S.run(sources={"lists": [{"url": "https://example.gov.uk/swep", "name": "T", "layer": "shelters", "auto_add": True}], "councils": []},
+                      fetcher=lambda u: {"http": 200, "text": "x"}, geocoder=lambda pcs: {p: {"latitude": 51.5, "longitude": -0.14} for p in pcs}, write=False)
+        finally: S.extract, S.write_shelter_review = orig_ex, orig_w
+        self.assertFalse([a for a in r["added"] if a["layer"] == "shelters"])
+        self.assertGreaterEqual(r["shelter_review"], 1)
+    def test_review_section_written(self):
+        import tempfile, os as _os
+        pd = _os.path.join(tempfile.mkdtemp(), "pending_dean.md"); open(pd, "w").write("# x\n\n<!-- times review -->\nT\n<!-- /times review -->\n")
+        S.write_shelter_review([{"name": "A", "postcode": "SW1A 1AA", "source_url": "https://e.gov.uk"}], "2026-10-24", pd=pd)
+        S.write_shelter_review([{"name": "B", "postcode": "SW1A 1AA", "source_url": "https://e.gov.uk"}], "2026-10-24", pd=pd)
+        t = open(pd).read(); self.assertIn("<!-- times review -->", t); self.assertIn("- B (", t); self.assertNotIn("- A (", t)
