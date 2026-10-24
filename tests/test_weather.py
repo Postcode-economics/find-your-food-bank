@@ -55,6 +55,12 @@ class T(unittest.TestCase):
         f = lambda u: {"http": 200, "html": "Communicating the SWEP This web page will be updated if SWEP is activated or deactivated."}
         r = w.recheck([{"source": "Met Office", "title": "a", "level": "amber", "areas": ["Durham"]}], cs, src, f, "2026-10-24")[0]
         self.assertFalse(r["open_tonight"]); self.assertIn("not clear", r["review"])
+    def test_recheck_general_description_goes_to_review(self):
+        cs = [{"code": "ROT", "name": "Rotherham Metropolitan Borough Council", "nation": "England", "site": "https://www.rotherham.gov.uk"}]
+        src = [{"code": "ROT", "url": "https://www.rotherham.gov.uk/swep"}]
+        f = lambda u: {"http": 200, "html": "The Severe Weather Emergency Protocol (SWEP) is in place to support people at risk of rough sleeping."}
+        r = w.recheck([{"source": "Met Office", "title": "a", "level": "amber", "areas": ["Rotherham"]}], cs, src, f, "2026-10-24")[0]
+        self.assertFalse(r["open_tonight"]); self.assertIn("not clear", r["review"])
     def test_nation_alert(self):
         cs = [{"code": "A", "name": "Cardiff Council", "nation": "Wales"}, {"code": "B", "name": "Leeds City Council", "nation": "England"}]
         self.assertEqual([c["code"] for c in w.councils_hit({"areas": ["Wales"]}, cs)], ["A"])

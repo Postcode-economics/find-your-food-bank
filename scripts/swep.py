@@ -23,7 +23,12 @@ def classify(text, run_day=None):
     # ("updated if SWEP is activated", "When the temperature reaches 0C ... is activated", "During spells ... is activated").
     CONDW = re.compile(r"\b(if|when|whenever|during|once|until|as soon as|in the event|in periods of|under these conditions|will be updated)\b", re.I)
     sent = lambda m: t[max(t.rfind(". ", 0, m.start()) + 1, m.start() - 200, 0): m.end()]
-    on = [m for m in ON.finditer(t) if not cond(m) and not CONDW.search(sent(m))]; off = [m for m in OFF.finditer(t) if not cond(m)]
+    # 24 Oct 2026 11:45 (Dean): general descriptions ("has been put in place", "is in place to support") are NOT active.
+    # Active only when the page clearly says SWEP is on now: "currently active", "now active", "open tonight", "activated from <date>".
+    NOW = re.compile(r"\b(currently|now|tonight|today|this (evening|week|weekend)|with immediate effect)\b|\bfrom (\d{1,2}(st|nd|rd|th)? \w+|(mon|tues|wednes|thurs|fri|satur|sun)day|\d{1,2}[/.]\d{1,2})", re.I)
+    near = lambda m: "" if re.match(r"\s*to (support|help|protect|ensure|prevent)\b", t[m.end():m.end() + 20], re.I) else m.group(0) + t[m.end():m.end() + 30]   # "in place to support ..." = general description
+    on = [m for m in ON.finditer(t) if not cond(m) and not CONDW.search(sent(m)) and (NOW.search(near(m)) or re.search(r"has been (activated|triggered)", m.group(0), re.I))]
+    off = [m for m in OFF.finditer(t) if not cond(m)]   # 'has been activated/triggered' = a specific notice; old ones caught by the date check below
     if not on and not off: return "unknown", ""
     last_on = on[0] if on else None; last_off = off[0] if off else None  # first mention = page headline / latest news
     if last_on and (not last_off or last_on.start() < last_off.start()): m, st = last_on, "active"
