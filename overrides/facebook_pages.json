@@ -1,5 +1,5 @@
 {
- "_about": "Verified Facebook page per food bank with no phone (Dean 23 Oct 22:31). Page title read from the page's og:title on 2026-10-23 and matched to the food bank. Shown as a 'Message on Facebook' button only when the card has no phone.",
+ "_about": "Verified Facebook page per food bank with no phone (Dean 23 Oct 22:31). Page title read from the page's og:title on 2026-10-23 and matched to the food bank. Shown as a 'Message on Facebook' button only when the card has no phone. If a food bank's own Facebook page shows a phone, put it in overrides/phones.json (+ phone_sources.json); build.py then shows the phone and hides the button (fbbtn check, Dean 24 Oct).",
  "whitland-town-hall-community": {
   "url": "https://www.facebook.com/whitlandtownhallcommunityfoodbank/",
   "page_title": "Whitland Town Hall Community Food Bank",
