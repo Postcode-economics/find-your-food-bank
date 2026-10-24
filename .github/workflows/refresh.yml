@@ -55,6 +55,9 @@ jobs:
       - name: Validation report (point 33, scripts/validate.py, report only)
         continue-on-error: true
         run: python scripts/validate.py
+      - name: Source quality scores (point 8, scripts/source_score.py)
+        continue-on-error: true
+        run: python scripts/source_score.py
       - name: Alerts + morning digest (point 9, scripts/digest.py)
         continue-on-error: true
         env:
