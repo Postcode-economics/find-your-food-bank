@@ -203,6 +203,8 @@ def main():
     # because the earlier pass ran before IFAN entries existed). Only shown when the card has no phone (index.html).
     for i in items:
         if i['id'] in fbp: i['fb_page'] = fbp[i['id']]['url']
+    for i in items:  # checked phones again AFTER IFAN discovery too (24 Oct: FB-page phones for IFAN pins were missed)
+        if i['id'] in phones and not i.get('phone'): i['phone'] = phones[i['id']]; i['phone_checked'] = True; apply_phone(i)
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
