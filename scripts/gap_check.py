@@ -12,7 +12,9 @@ def gaps(rows, on_map_pcs, name_col, pc_col):
     return [r for r in rows if FOODISH.search(r.get(name_col) or "") and norm(r.get(pc_col)) and norm(r.get(pc_col)) not in on_map_pcs]
 def main(path, name_col="charity_name", pc_col="charity_contact_postcode"):
     s = open(DATA, encoding="utf-8").read(); pcs = {norm(i.get("postcode")) for i in json.loads(s[s.index("{"): s.rindex("}") + 1])["items"]}
-    rows = list(csv.DictReader(open(path, encoding="utf-8-sig", errors="replace")))
+    fh = open(path, encoding="utf-8-sig", errors="replace"); head = fh.readline(); fh.seek(0); tsv = "\t" in head
+    rows = list(csv.DictReader(fh, delimiter="\t" if tsv else ",", quoting=csv.QUOTE_NONE if tsv else csv.QUOTE_MINIMAL))
+    if rows and "charity_registration_status" in rows[0]: rows = [r for r in rows if r.get("charity_registration_status") == "Registered"]  # Charity Commission extract: live charities only
     g = gaps(rows, pcs, name_col, pc_col)
     L = ["# Gap check - %s" % os.path.basename(path), "", "%d food-bank-like names whose postcode is not on the map (to check by hand, not added automatically)." % len(g), ""]
     L += ["- %s - %s" % (r.get(name_col), r.get(pc_col)) for r in g]
