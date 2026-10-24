@@ -2404,8 +2404,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page found on guildford.gov.uk; SWEP described only on Ash Parish Council and Riverside (provider) pages)",
+  "looked_at": [
+   "https://www.ashpcsurrey.gov.uk/guildford-borough-council-help-for-people-who-are-rough-sleeping/"
+  ],
   "homeless_url": "https://www.guildford.gov.uk:443/article/25677/Worried-about-becoming-homeless?ccp=true#cookie-consent-prompt",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2457,8 +2459,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (housing and homeless advice page has no SWEP wording)",
+  "looked_at": [
+   "https://www.halton.gov.uk/planning-housing-your-environment/housing/housing-homeless-advice"
+  ],
   "homeless_url": "https://www3.halton.gov.uk/Pages/planning/Housingadvice.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2477,12 +2481,13 @@
   "code": "HAO",
   "council": "Harborough District Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://www.harborough.gov.uk/info/20017/housing/289/homelessness/9",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [],
   "homeless_url": "https://www.harborough.gov.uk/info/20017/housing/289/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-24: 'Help for rough sleepers' page: in extreme weather conditions the council assists rough sleepers to find accommodation (no SWEP acronym)"
  },
  {
   "code": "HAR",
@@ -2516,8 +2521,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless today page has no SWEP wording; SWEP only in strategy PDF)",
+  "looked_at": [
+   "https://www.hart.gov.uk/cost-living-support-hub/help-housing/homeless-today"
+  ],
   "homeless_url": "https://www.hart.gov.uk/housing/homelessness-and-housing",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2556,14 +2563,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless page only says temporary accommodation may be provided 'in severe weather conditions' within a homelessness application; no rough-sleeper SWEP wording)",
   "looked_at": [
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/",
-   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/adapting-to-extreme-weather.aspx",
    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx"
+   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+   "https://www.highpeak.gov.uk/article/1159/Homeless"
   ],
   "homeless_url": "https://www.highpeak.gov.uk/Homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -2574,9 +2582,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (search result for Hillingdon housing advice page (articleid=12444) now 404; no current SWEP page found on hillingdon.gov.uk)",
   "looked_at": [
-   "https://www.hillingdon.gov.uk/homelessness"
+   "https://www.hillingdon.gov.uk/homelessness",
+   "https://www.hillingdon.gov.uk/index.jsp?articleid=12444"
   ],
   "homeless_url": "https://pre.hillingdon.gov.uk/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
