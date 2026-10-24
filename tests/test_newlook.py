@@ -30,3 +30,13 @@ class NewLook(unittest.TestCase):
         css = rd("v3.css")
         self.assertIn("a.btn.call:not(.xfbk) *:not(svg):not(path){font-size:16px!important;font-weight:800!important", css)
         self.assertIn(".xnum,html body #list .card>a.btn.call:not(.xfbk) .xnum", css)
+    def test_call_type_identical_to_directions(self):  # Dean 17:10
+        css = rd("v3.css")
+        self.assertIn("html body .card a.btn.gm{letter-spacing:normal!important;transform:none!important", css)
+        self.assertIn("html body .card a.btn.cdir{font-size:16px!important;font-weight:800!important", css)
+        self.assertIn(":has(>small){flex-wrap:wrap!important;min-width:0!important;max-width:100%!important", css)
+    def test_council_button_two_centred_lines(self):  # Dean 17:33
+        js = rd("layers.js"); css = rd("v3.css")
+        self.assertEqual(js.count('<a class="btn call xfb"'), js.count('<span class="xcl">'))
+        self.assertEqual(js.count('<span class="xcl">'), js.count('<span class="xcn">${IC(\'phone\')}'))
+        self.assertIn("a.btn.call.xfb{display:flex!important;flex-direction:column!important", css)

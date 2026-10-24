@@ -537,3 +537,20 @@ html body .card a.btn.call:not(.xfbk) svg{flex:0 0 20px!important;width:20px!imp
 html body #xextra .card:is(.xsh,.xws)>a.btn.call:not(.xfbk) .xnum,html body #list .card>a.btn.call:not(.xfbk) .xnum,html body #xextra .card:is(.xsh,.xws) .xhow a.btn.call.xfb{font-size:16px!important;font-weight:800!important}
 html body #list .card a.btn.call:not(.xfbk):not(.xfb),html body #xextra .card a.btn.call:not(.xfbk):not(.xfb){min-width:max-content!important;padding:0 10px!important}
 html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb{text-align:center!important;justify-content:center!important}
+/* Dean 24 Oct 17:10: call numbers, council lines, Send a message and Directions all identical type — 16px/800, same family, normal letter-spacing, no transforms */
+html body #list .card a.btn.call,html body #xextra .card a.btn.call,html body #sheet .card a.btn.call,html body #list .card a.btn.call *,html body #xextra .card a.btn.call *,html body #sheet .card a.btn.call *,html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span,html body .card a.btn.gm{letter-spacing:normal!important;transform:none!important;font-stretch:normal!important}
+/* Donations-only food banks: call button carries a "Phone (to donate or ask)" note — number stays 16px/800, note goes on its own line, button grows instead of running off the card */
+html body #list .card a.btn.call:not(.xfbk):not(.xfb):has(>small),html body #xextra .card a.btn.call:not(.xfbk):not(.xfb):has(>small){flex-wrap:wrap!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:52px!important;padding:6px 12px!important;row-gap:2px!important;white-space:normal!important}
+html body #list .card a.btn.call:not(.xfbk):not(.xfb)>small:not(svg):not(path),html body #xextra .card a.btn.call:not(.xfbk):not(.xfb)>small:not(svg):not(path){flex:0 0 100%!important;font-size:13px!important;font-weight:600!important;line-height:1.25!important;text-align:center!important;white-space:normal!important}
+/* every call button stays inside its card */
+html body #list .card a.btn.call,html body #xextra .card a.btn.call{max-width:100%!important}
+/* centre-level Directions (multi-centre food banks) = same 16px/800 as every other Directions */
+html body .card a.btn.cdir{font-size:16px!important;font-weight:800!important;letter-spacing:normal!important}
+/* Dean 24 Oct 17:33: council / helpline buttons — label on its own centred line, handset + number centred on the next, equal green either side */
+html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb,html body .card a.btn.call.xfb{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:2px!important;padding:8px 12px!important;width:100%!important;box-sizing:border-box!important}
+html body .card a.btn.call.xfb>span.xcl{display:block!important;white-space:normal!important;text-wrap:balance;text-align:center!important;font-size:16px!important;font-weight:800!important;line-height:1.2!important;max-width:100%}
+html body .card a.btn.call.xfb>span.xcn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;white-space:nowrap!important;font-size:16px!important;font-weight:800!important;line-height:1.2!important}
+html body .card a.btn.call.xfb>span.xcn svg{flex:0 0 20px!important;width:20px!important;height:20px!important}
+html body #xextra .card a.btn.call.xfb>span.xcl,html body #list .card a.btn.call.xfb>span.xcl{font-size:13px!important;font-weight:700!important;text-wrap:balance}
+html body #xextra .card a.btn.call.xfb>span.xcn,html body #list .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
+html body #xextra .card a.btn.call.xfb>span.xcn svg,html body #list .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
