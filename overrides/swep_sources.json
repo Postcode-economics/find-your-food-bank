@@ -4298,8 +4298,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on stockport.gov.uk; full SWEP page on Stockport Homes (council housing company) - asked Dean)",
+  "looked_at": [
+   "https://www.stockporthomes.org/find-a-home/homelessness/severe-weather-emergency-protocol-swep/"
+  ],
   "homeless_url": "https://www.stockport.gov.uk/homeless-advice",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "ooh_phone": "01614 742818",
@@ -4356,8 +4358,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on sunderland.gov.uk; SWEP page on Sunderland Information Point directory (ownership unconfirmed) - asked Dean)",
+  "looked_at": [
+   "https://www.sunderlandinformationpoint.co.uk/kb5/sunderland/directory/advice.page?id=X6oyDIbWGws"
+  ],
   "homeless_url": "https://www.sunderland.gov.uk/homeless-and-housing-advice",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4417,8 +4421,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (housing and homelessness page has no SWEP wording; SWEP only in strategy/adverse-weather PDFs)",
+  "looked_at": [
+   "https://www.spelthorne.gov.uk/resident-services/housing-and-homelessness"
+  ],
   "homeless_url": "https://www.spelthorne.gov.uk/page/1376/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4492,8 +4498,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless page only mentions temporary accommodation in severe weather for priority-need applicants; severe weather page unreachable from the box)",
+  "looked_at": [
+   "https://www.staffsmoorlands.gov.uk/article/571/Homeless-or-at-risk-of-becoming-homeless"
+  ],
   "homeless_url": "https://www.staffsmoorlands.gov.uk/Homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4514,8 +4522,11 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (street homelessness page and heatwave news page show no SWEP wording that could be read from the box)",
+  "looked_at": [
+   "https://www.southampton.gov.uk/housing/housing-help",
+   "https://www.southampton.gov.uk/news/article/protection-rough-sleepers-heatwave/"
+  ],
   "homeless_url": "https://www.southampton.gov.uk/housing/housing-help/homelessness-advice/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4585,8 +4596,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on stockton.gov.uk (homelessness page 403 to scripts); Tees Valley SWEP protocol hosted on Middlesbrough/Darlington sites)",
+  "looked_at": [
+   "https://www.stockton.gov.uk/homelessness"
+  ],
   "homeless_url": "https://www.stockton.gov.uk/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
