@@ -12,3 +12,11 @@ def test_phone_label_west_ardsley():
     assert json.load(open(os.path.join(ROOT, 'overrides', 'phones.json')))['west-ardsley'] == '07896 911966'
     assert 'phone_labels.json' in open(os.path.join(ROOT, 'scripts', 'build.py')).read()
     assert 'i.phone_label?' in open(os.path.join(ROOT, 'index.html')).read()
+def test_west_ardsley_venue():
+    a = json.load(open(os.path.join(ROOT, 'overrides', 'foodbank_address_fixes.json')))['west-ardsley']
+    assert a['postcode'] == 'WF3 1HD' and 'Batley Road' in a['address']
+    t = json.load(open(os.path.join(ROOT, 'overrides', 'opening_times.json')))['west-ardsley']
+    assert t['structured'] == {'fri': [['11:00', '12:30']]}
+    for f in ('foodbank_address_fixes.json', 'phones.json', 'phone_sources.json', 'opening_times.json'):
+        s = open(os.path.join(ROOT, 'overrides', f)).read()
+        assert 'west-ardsley' not in s or ('2522927' not in s.replace(' ', '') and 'WF3 1EN' not in s)

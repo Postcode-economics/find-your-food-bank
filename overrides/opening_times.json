@@ -24973,5 +24973,21 @@
   "structured": null,
   "reader": "hand-reviewed 2026-10-24 (own site read; client hours only, matched by centre postcode)",
   "protected": true
+ },
+ "west-ardsley": {
+  "checked_date": "2026-10-24",
+  "raw": "Friday 11:00am to 12:30pm",
+  "source_url": "https://westardsleychurch.org.uk/calendar.html",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ]
+  },
+  "reader": "hand-set 2026-10-24 (Dean; church calendar, temporary venue)",
+  "protected": true
  }
 }
