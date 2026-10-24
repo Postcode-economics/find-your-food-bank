@@ -40,14 +40,14 @@
   "checked": "2026-10-24",
   "result": "none",
   "url": "https://www.lbbd.gov.uk/civil-protection-service/severe-weather",
-  "note": "Page is general severe-weather/emergency advice, no rough-sleeper SWEP wording."
+  "note": "No SWEP page on lbbd.gov.uk (rough sleeper page has StreetLink only)."
  },
  "BEN": {
   "council": "London Borough of Brent",
   "checked": "2026-10-24",
   "result": "none",
   "url": "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather",
-  "note": "Page is general severe-weather advice, no rough-sleeper SWEP wording."
+  "note": "No standing SWEP page on brent.gov.uk (only general severe-weather advice and committee papers)."
  },
  "BIR": {
   "council": "Birmingham City Council",
@@ -185,9 +185,9 @@
  "CMD": {
   "council": "London Borough of Camden",
   "checked": "2026-10-24",
-  "result": "none",
-  "url": "https://www.camden.gov.uk/cold-weather-advice",
-  "note": "Page is cold-weather health advice, no SWEP wording."
+  "result": "old",
+  "url": "https://news.camden.gov.uk/emergency-support-available-for-homeless-people-in-cold-weather/",
+  "note": "Only SWEP source on council site is a Dec 2022 activation news item; SWEP activated when below freezing. Not active now. No standing SWEP page found."
  },
  "CON": {
   "council": "Cornwall Council",
@@ -206,9 +206,9 @@
  "COV": {
   "council": "Coventry City Council",
   "checked": "2026-10-24",
-  "result": "none",
-  "url": "https://www.coventry.gov.uk/directory-record/59179/rough-sleeper-numbers-during-swep",
-  "note": "Page is an FOI response about SWEP numbers, not a SWEP information page."
+  "result": "ok",
+  "url": "https://www.coventry.gov.uk/homelessness-1/severe-weather-emergency-protocol-swep-extended-winter-provisions/2",
+  "note": "Council SWEP status page: \"Is SWEP active? NO\". When active, first point of contact is The Salvation Army, Harnall Lifehouse, 44 Harnall Lane West CV1 4EZ, 024 7601 1770 (venue line)."
  },
  "CRW": {
   "council": "Crawley Borough Council",
@@ -521,9 +521,9 @@
  "MAN": {
   "council": "Manchester City Council",
   "checked": "2026-10-24",
-  "result": "todo",
+  "result": "old",
   "url": "https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter",
-  "note": "Page timed out from both the box and the fetch service - retry."
+  "note": "Winter 2025 news: from 1 Nov increased outreach; SWEP called when forecast below zero even for one night. No 2026-27 notice yet; not active now."
  },
  "MAV": {
   "council": "Malvern Hills District Council",
@@ -563,9 +563,9 @@
  "NEW": {
   "council": "New Forest District Council",
   "checked": "2026-10-24",
-  "result": "todo",
-  "url": "https://www.newforest.gov.uk/article/4133/Support-to-rough-sleepers-during-colder-weather",
-  "note": "Stored page returns 404 (dead) - new council page needed."
+  "result": "old",
+  "url": "https://newforest.gov.uk/article/3846/Continuing-to-offer-support-to-rough-sleepers-this-winter",
+  "note": "SWEP described (0C or below, or other severe weather); latest activation notice is 20 Nov 2025 (old page article/4133). Not active now. Homeless line 023 8028 5222, out of hours 023 8028 5250 (council page)."
  },
  "NGM": {
   "council": "Nottingham City Council",
@@ -705,7 +705,7 @@
   "checked": "2026-10-24",
   "result": "none",
   "url": "https://www.stalbans.gov.uk/rough-sleeping",
-  "note": "Page lists Open Door Night Shelter etc; no SWEP wording found."
+  "note": "Only an undated news item (\"Extra help for rough sleepers during winter\", timed out) and a PDF leaflet; no standing SWEP page."
  },
  "SAW": {
   "council": "Sandwell Metropolitan Borough Council",
@@ -852,7 +852,7 @@
   "checked": "2026-10-24",
   "result": "none",
   "url": "https://www.thurrock.gov.uk/homelessness/rough-sleepers",
-  "note": "Page lists night shelters/hostels; no SWEP wording found."
+  "note": "Rough sleepers page; search summary mentions SWEP but our fetch found no SWEP wording - needs a browser look."
  },
  "TOR": {
   "council": "Torridge District Council",
