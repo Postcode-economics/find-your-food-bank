@@ -14,3 +14,6 @@ the refresh logic in the same change. Hand-checked times are protected (`"protec
 the robots never overwrite them, they only flag differences. Uncertain finder proposals go to the times review list in
 reports/pending_dean.md, never onto the map. Facebook pages are re-checked daily (reports/fb_pages_flagged.md), flagged
 never removed. Sharp fill-rate drops per source raise an alert at the top of daily_review.md (reports/fill_rates.json).
+
+## Lesson (24 Oct 2026): the sweep never adds shelters to the map
+The daily sweep could add shelters found on council pages (including the SWEP pages swep.py discovers) straight onto the map, marked "Unverified - call before you go". That breaks Dean's standing rule: unsure finder results go to his review list, never straight onto the map. None had been added, but it could have happened. Now `scripts/sweep_daily.py` sends every shelter candidate to the "Shelter candidates from the sweep" section of `reports/pending_dean.md` only (tests: `tests/test_sweep.py` NoShelterAdds). The same rule already applies to opening times (times_finder, review only). Any new finder must be review-only by default.
