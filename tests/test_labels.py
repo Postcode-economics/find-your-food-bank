@@ -9,7 +9,7 @@ class T(unittest.TestCase):
         self.assertEqual((C.EN, C.CY, C.DROP_EN, C.DROP_CY), ("Donations only", "Rhoddion yn unig", "Donations only", "Rhoddion yn unig"))
     def test_render_label(self):
         h = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-        self.assertIn("Food bank – get food here", h); self.assertNotIn("collect food here", h); self.assertNotIn("drop off food only", h)
+        self.assertIn(">Food bank<", h)  # Dean 24 Oct new look: exact mockup wording; self.assertNotIn("collect food here", h); self.assertNotIn("drop off food only", h)
     def test_b30_locked(self):
         m = json.load(open(os.path.join(ROOT, "overrides", "foodbank_manual.json")))
         self.assertTrue(m["b30-south-birmingham"]["locked"])
