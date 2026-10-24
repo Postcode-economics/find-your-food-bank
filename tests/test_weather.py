@@ -33,6 +33,31 @@ class T(unittest.TestCase):
         r = w.govuk(x, now=dt.datetime(2026, 10, 24, 10, tzinfo=dt.timezone.utc))
         self.assertEqual([(i["level"], i["areas"]) for i in r], [("red", ["Gwynedd", "Conwy"]), ("test", ["East Suffolk"])])
         self.assertEqual(len(w.urgent(r)), 1)
+    def test_recheck(self):
+        cs = [{"code": "GWN", "name": "Gwynedd Council", "nation": "Wales", "site": "https://www.gwynedd.llyw.cymru"},
+              {"code": "CNW", "name": "Conwy County Borough Council", "nation": "Wales", "site": "https://www.conwy.gov.uk"},
+              {"code": "LDS", "name": "Leeds City Council", "nation": "England", "site": "https://www.leeds.gov.uk"},
+              {"code": "KEN", "name": "Kent County Council", "nation": "England", "site": "https://www.kent.gov.uk"}]
+        src = [{"code": "GWN", "url": "https://www.gwynedd.llyw.cymru/swep"}, {"code": "CNW", "url": "https://other.org/swep"}]
+        pages = {"https://www.gwynedd.llyw.cymru/swep": "SWEP is now active tonight.", "https://other.org/swep": "SWEP is now active."}
+        f = lambda u: {"http": 200, "html": pages[u]}
+        ws = [{"source": "UK Emergency Alerts", "title": "x", "level": "red", "areas": ["Gwynedd", "Conwy"]},
+              {"source": "Met Office", "title": "y", "level": "yellow", "areas": ["Leeds"]},
+              {"source": "Environment Agency", "title": "z", "level": "flood warning", "areas": ["Kent"]}]
+        r = {x["code"]: x for x in w.recheck(ws, cs, src, f, "2026-10-24")}
+        self.assertEqual(sorted(r), ["CNW", "GWN", "KEN"])          # yellow Leeds does not trigger
+        self.assertTrue(r["GWN"]["open_tonight"])
+        self.assertFalse(r["CNW"]["open_tonight"]); self.assertIn("not clear", r["CNW"]["review"])   # third-party page -> review only
+        self.assertFalse(r["KEN"]["open_tonight"]); self.assertIn("no severe weather shelter page", r["KEN"]["review"])
+    def test_recheck_conditional_wording_goes_to_review(self):
+        cs = [{"code": "DUR", "name": "Durham County Council", "nation": "England", "site": "https://www.durham.gov.uk"}]
+        src = [{"code": "DUR", "url": "https://www.durham.gov.uk/swep"}]
+        f = lambda u: {"http": 200, "html": "Communicating the SWEP This web page will be updated if SWEP is activated or deactivated."}
+        r = w.recheck([{"source": "Met Office", "title": "a", "level": "amber", "areas": ["Durham"]}], cs, src, f, "2026-10-24")[0]
+        self.assertFalse(r["open_tonight"]); self.assertIn("not clear", r["review"])
+    def test_nation_alert(self):
+        cs = [{"code": "A", "name": "Cardiff Council", "nation": "Wales"}, {"code": "B", "name": "Leeds City Council", "nation": "England"}]
+        self.assertEqual([c["code"] for c in w.councils_hit({"areas": ["Wales"]}, cs)], ["A"])
 class D(unittest.TestCase):
     def test_digest_weather_alert(self):
         import digest

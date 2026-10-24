@@ -6,7 +6,7 @@
 Matches warning areas (council / county names) against shelter and warm space addresses and active SWEP councils, and
 writes reports/weather.json + reports/weather.md. Immediate alerts (via digest.py) only for Met Office AMBER/RED and
 severe flood warnings (EA severity 1, SEPA 'severe'). No map change. Never fails the job."""
-import json, os, re, urllib.request, xml.etree.ElementTree as ET
+import json, os, re, sys, urllib.request, xml.etree.ElementTree as ET
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 P = lambda *a: os.path.join(ROOT, *a)
 MET = "https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK"
@@ -87,6 +87,47 @@ def match(warnings, places, swep):
         w["swep"] = sorted({c for c in swep for a in w["areas"] if hits(a, c)})
     return warnings
 def urgent(warnings): return [w for w in warnings if w["level"] in ("amber", "red")]
+NATIONS = {"england", "wales", "scotland", "northern ireland"}
+def triggering(w): return w["level"] in ("amber", "red", "flood warning")   # Met Office amber/red, EA/SEPA/NRW (severe) flood warnings, live UK Emergency Alerts
+def councils_hit(w, councils):
+    out = []
+    for c in councils:
+        for a in w.get("areas", []):
+            if (a.strip().lower() in NATIONS and c.get("nation", "").lower() == a.strip().lower()) or hits(a, c["name"]) or hits(c["name"], a):
+                out.append(c); break
+    return out
+def own_site(url, site):
+    import urllib.parse as up
+    h = lambda u: up.urlparse(u).netloc.split(":")[0].lower().replace("www.", "")
+    return bool(site) and (h(url) == h(site) or h(url).endswith("." + h(site)))
+def recheck(warnings, councils, sources, fetcher, run_day, threads=8):
+    """Point 27 add-on (Dean 24 Oct 2026): when an alert covers a council area, re-check that council's own severe weather
+    shelter page in this run. Only a page on the council's own site saying it is active sets open_tonight. Everything
+    else (no page, unreachable, unclear, third-party page) goes to the review list. Never changes the map."""
+    import swep, concurrent.futures as cf
+    hit = {}
+    for w in warnings:
+        if not triggering(w): continue
+        for c in councils_hit(w, councils): hit.setdefault(c["code"], (c, []))[1].append(w["source"] + ": " + w["title"])
+    by = {}
+    for x in sources: by.setdefault(x.get("code") or x.get("council"), []).append(x)
+    def one(item):
+        c, why = item
+        urls = [x["url"] for x in by.get(c["code"], []) + by.get(c["name"], []) if x.get("url")]
+        urls = list(dict.fromkeys(urls))[:3]
+        res = {"code": c["code"], "council": c["name"], "alerts": why, "open_tonight": False, "pages": [], "review": None}
+        for u in urls:
+            r = fetcher(u); h = r.get("html") or r.get("text") or ""
+            txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style).*?</\1>", " ", h))
+            st, q = swep.classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
+            res["pages"].append({"url": u, "http": r.get("http"), "status": st, "quote": q, "own_site": own_site(u, c.get("site"))})
+        cond = lambda q: re.search(r"\b(if|when|whenever|until|will be updated)\b", q or "", re.I)   # e.g. "updated if SWEP is activated" is not an activation
+        good = [p for p in res["pages"] if p["status"] == "active" and p["own_site"] and not cond(p["quote"])]
+        if good: res["open_tonight"] = True; res["source_url"] = good[0]["url"]; res["quote"] = good[0]["quote"]
+        elif not urls: res["review"] = "no severe weather shelter page on file - check the council's homelessness page"
+        else: res["review"] = "council page not clear: " + "; ".join("%s (%s)" % (p["url"], p["status"]) for p in res["pages"])
+        return res
+    with cf.ThreadPoolExecutor(threads) as ex: return sorted(ex.map(one, hit.values()), key=lambda r: r["council"])
 def main():
     ws, errs = [], []
     for name, url, fn in (("Met Office", MET, met), ("Environment Agency", EA, ea), ("SEPA", SEPA, sepa), ("UK Emergency Alerts", GOVUK, govuk)):
@@ -101,9 +142,20 @@ def main():
     try: swep = json.load(open(P("logs", "swep_status.json"))).get("active", [])
     except Exception: swep = []
     match(ws, places, swep)
+    import datetime
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import swep as _s
+        cs = json.load(open(P("scripts", "sweep_sources.json")))["councils"]
+        srcs = json.load(open(P("overrides", "swep_sources.json"))) if os.path.exists(P("overrides", "swep_sources.json")) else []
+        rc = recheck(ws, cs, srcs, _s._fetch, datetime.date.today().isoformat())
+    except Exception as e: rc = []; errs.append("shelter page re-check: %s" % e.__class__.__name__)
+    json.dump({"run": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "councils": rc}, open(P("logs", "swep_triggered.json"), "w"), indent=1, ensure_ascii=False)
     json.dump({"warnings": ws, "errors": errs, "credits": [NRW_CREDIT]}, open(P("reports", "weather.json"), "w"), indent=1, ensure_ascii=False)
     L = ["# Weather and flood warnings (point 27)", "", "Sources: Met Office, Environment Agency, SEPA, Natural Resources Wales, UK Emergency Alerts (gov.uk/alerts).", "", NRW_CREDIT + ".", ""]
     L += ["- **%s** [%s] %s - shelters/warm spaces in area: %s; SWEP active: %s" % (w["source"], w["level"], w["title"], ", ".join(w["places"]) or "none matched", ", ".join(w["swep"]) or "none") for w in ws] or ["- no warnings"]
+    L += ["", "## Alert-triggered council shelter page re-check", "", "Only the council's own page can turn on 'open tonight'. Nothing here changes the map.", ""]
+    L += ["- **%s**: open tonight per council page %s" % (r["council"], r["source_url"]) for r in rc if r["open_tonight"]] or ["- no council page says open"]
+    L += ["", "### Review list (unclear - not on the map)", ""] + (["- %s: %s (alerts: %s)" % (r["council"], r["review"], "; ".join(r["alerts"][:3])) for r in rc if r["review"]] or ["- none"])
     L += ["", "Source errors: " + (", ".join(errs) or "none")]
     open(P("reports", "weather.md"), "w", encoding="utf-8").write("\n".join(L) + "\n"); return ws
 if __name__ == "__main__":
