@@ -25,7 +25,7 @@ def triggers(state, history, dups, since, weather=None):
     if sd: al.append(("source-score", "Source quality dropped", "; ".join("%s now %g (usually %g)" % d for d in sd) + " - see reports/source_scores.md"))
     wx = weather or []
     ur = [w for w in wx if w.get("level") in ("amber", "red")]
-    if ur: al.append(("weather", "Amber/red weather or severe flood warning", "; ".join("%s (shelters/warm spaces: %s; SWEP: %s)" % (w["title"], ", ".join(w.get("places", [])[:10]) or "none matched", ", ".join(w.get("swep", [])) or "none") for w in ur) + " - see reports/weather.md"))
+    if ur: al.append(("weather", "Amber/red weather or severe flood warning", "; ".join("%s (shelters/warm spaces: %s; SWEP: %s)" % (w["title"], ", ".join(w.get("places", [])[:10]) or "none matched", ", ".join(w.get("swep", [])) or "none") for w in ur) + " - see reports/weather.md" + ("".join(sorted({" " + w["credit"] + "." for w in ur if w.get("credit")})))))
     return al, likely, closed
 def main(now=None):
     now = now or datetime.datetime.now(datetime.timezone.utc)
