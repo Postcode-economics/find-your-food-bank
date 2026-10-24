@@ -90,6 +90,7 @@ def full(fetcher=None, run_day=None, threads=8):
     by = {}
     for x in srcs:
         k = x.get("code") or x.get("council"); by.setdefault(k, []).append(x)
+        for cc in x.get("covers") or []: by.setdefault(cc, []).append(x)  # one record covering several councils (e.g. NIHE for all NI councils)
     prev = json.load(open(FULL_LOG)) if os.path.exists(FULL_LOG) else {}
     pp = {c["code"]: c for c in prev.get("councils", [])}
     def one(c):
