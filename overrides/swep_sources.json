@@ -950,8 +950,10 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page; an adverse-weather policy is only mentioned in the Housing Support Programme strategy PDF)",
+  "looked_at": [
+   "https://www.blaenau-gwent.gov.uk/media/he4bhddm/blaenau-gwent-housing-support-programme-strategy-english.pdf"
+  ],
   "homeless_url": "https://www.blaenau-gwent.gov.uk/en/resident/health-wellbeing-social-care/getting-the-help-you-need/supporting-people/supporting-people-information/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -968,8 +970,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording)",
+  "looked_at": [
+   "https://www.blaby.gov.uk/housing/housing-and-homelessness/at-risk-of-being-homeless/"
+  ],
   "homeless_url": "https://www.blaby.gov.uk/housing/housing-and-homelessness/at-risk-of-being-homeless/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -1113,8 +1117,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on bromsgrove.gov.uk (site search none); SWEP activations only in local press and the council's LinkedIn)",
+  "looked_at": [
+   "https://www.bromsgrove.gov.uk/search?q=severe+weather+emergency+protocol"
+  ],
   "homeless_url": "https://www.bromsgrove.gov.uk/external-links/bromsgrove-district-housing-trust.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -1124,8 +1130,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (shared Broadland/South Norfolk rough sleepers page has no SWEP wording)",
+  "looked_at": [
+   "https://www.southnorfolkandbroadland.gov.uk/housing/homelessness/assistance-rough-sleepers"
+  ],
   "homeless_url": "https://www.southnorfolkandbroadland.gov.uk/housing/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "0808 168 2222",
@@ -1169,14 +1177,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (housing and homelessness rough sleeping page has no SWEP wording)",
   "looked_at": [
-   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx",
-   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
-   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
-   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+   "https://www.broxbourne.gov.uk/housing/housing-homelessness/3",
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/",
-   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx"
+   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/",
+   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/gritting-routes.aspx",
+   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/salt-bins/salt-bins.aspx",
+   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
+   "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx"
   ],
   "homeless_url": "https://www.broxbourne.gov.uk/housing",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -1311,8 +1320,10 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleepers page describes help in 'cold inclement weather' (food, warm clothing) but no SWEP/emergency beds wording)",
+  "looked_at": [
+   "https://www.caerphilly.gov.uk/services/housing/homeless-or-at-risk/rough-sleepers"
+  ],
   "homeless_url": "https://www.caerphilly.gov.uk/services/housing/homeless-or-at-risk",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4273,8 +4284,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (shared Broadland/South Norfolk rough sleepers page has no SWEP wording)",
+  "looked_at": [
+   "https://www.southnorfolkandbroadland.gov.uk/housing/homelessness/assistance-rough-sleepers"
+  ],
   "homeless_url": "https://www.southnorfolkandbroadland.gov.uk/housing/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "0808 168 2222",
