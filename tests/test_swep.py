@@ -19,3 +19,13 @@ class T(unittest.TestCase):
             r = W.run(fetcher=f2, run_day="2026-11-21"); self.assertEqual(r["changes"][0]["to"], "not active")
         finally: os.chdir(cwd)
 if __name__ == "__main__": unittest.main()
+
+class TSeason(unittest.TestCase):
+    def test_wrap(self):
+        import swep
+        self.assertTrue(swep.in_season("11-01", "11-01", "03-31")); self.assertTrue(swep.in_season("02-10", "11-01", "03-31"))
+        self.assertFalse(swep.in_season("10-24", "11-01", "03-31")); self.assertFalse(swep.in_season("04-01", "11-01", "03-31"))
+    def test_nty(self):
+        import swep, os
+        p = os.path.join(os.path.dirname(__file__), "..", "overrides", "swep_seasonal.json")
+        self.assertIsNone(swep.seasonal_active("NTY", "2026-10-24", p)); self.assertTrue(swep.seasonal_active("NTY", "2026-11-01", p))
