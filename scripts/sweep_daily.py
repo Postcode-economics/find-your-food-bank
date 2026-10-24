@@ -225,6 +225,17 @@ def atomic_dump(obj, path):
     os.replace(tmp, path)
 
 import discovery_rules as DR
+def write_shelter_review(items, d, pd=None):
+    """Shelter candidates found by the sweep go ONLY to the review section of reports/pending_dean.md (never the map)."""
+    import re as _re
+    pd = pd or os.path.join(ROOT, "reports", "pending_dean.md")
+    L = ["<!-- sweep shelters -->", "## Shelter candidates from the sweep (review only)", "", f"Run {d}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
+    L += [f"- {e.get('name')} ({e.get('postcode', '')}) - {e.get('source_url', '')}" for e in items] or ["- none this run"]
+    L.append("<!-- /sweep shelters -->")
+    prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
+    prev = _re.sub(r"(?s)\n*<!-- sweep shelters -->.*?<!-- /sweep shelters -->\n*", "\n", prev).rstrip("\n")
+    os.makedirs(os.path.dirname(pd), exist_ok=True)
+    open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
 def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     d = today().isoformat()
     S = sources or json.load(open(os.path.join(HERE, "sweep_sources.json")))
@@ -264,8 +275,11 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     try: G = geocoder([e["postcode"] for e in good]) if good else {}
     except Exception as ex: G = {}; report["status"] = "geocoder failed: " + str(ex)[:80]
     adds = []; EX = excluded()
+    shelter_review = []
     for e in cands:
         if e["postcode"].replace(" ", "").upper() in EX: continue
+        if e["layer"] == "shelters":  # Dean's rule (24 Oct): the sweep never adds shelters to the map, not even as 'Unverified'
+            shelter_review.append(e); continue
         st = state[e["layer"]]
         if e["tier"] == "pending": report["pending"].append(e); continue
         if is_dup(e["name"], e["postcode"], st["pool"]): continue
@@ -302,6 +316,8 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         os.makedirs(LOGS, exist_ok=True)
         atomic_dump({k: v for k, v in report.items() if k != "pending"}, os.path.join(LOGS, "sweep_log.json"))
         atomic_dump({"run": d, "items": report["pending"][:2000]}, os.path.join(LOGS, "sweep_pending.json"))
+        write_shelter_review(shelter_review, d)
+    report["shelter_review"] = len(shelter_review)
     if write:
         DR.record("sweep", d, [dict(a, upcoming=bool(a.get("scheme_start", "") > d)) for a in report["added"]],
                   [dict(x, id=x.get("name"), reasons=[x.get("reason", "")]) for x in report["pending"] if x.get("auto_rule") or x.get("reason", "").startswith(("on hold", "postcode"))],
