@@ -5,11 +5,9 @@
   "with_swep_page": 223,
   "with_line": 134,
   "active": [
-   "Bolton Metropolitan Borough Council",
-   "Rotherham Metropolitan Borough Council",
    "Swindon Borough Council"
   ],
-  "flagged": 37
+  "flagged": 40
  },
  "councils": [
   {
@@ -227,11 +225,11 @@
     {
      "url": "https://www.bassetlaw.gov.uk/housing-services/homelessness/",
      "http": 200,
-     "status": "old notice (latest date on page 2021-05-05)",
-     "quote": " before 4:00pm is required - you can present directly while SWEP is in operation. For further information on homelessness please visit Shelter’s website . You h"
+     "status": "unknown",
+     "quote": ""
     }
    ],
-   "status": "old notice (latest date on page 2021-05-05)",
+   "status": "unknown",
    "flags": []
   },
   {
@@ -486,12 +484,14 @@
     {
      "url": "https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton",
      "http": 200,
-     "status": "active",
-     "quote": ". The initiative is linked to the council&rsquo;s statutory Severe Weather Emergency Protocol (SWEP) responsibilities and has been put in place to support a cohort of vulnerable people who currently find themselves outside "
+     "status": "unknown",
+     "quote": ""
     }
    ],
-   "status": "active",
-   "flags": []
+   "status": "unknown",
+   "flags": [
+    "status active -> unknown"
+   ]
   },
   {
    "code": "BOS",
@@ -1698,23 +1698,19 @@
    "pages": [
     {
      "url": "https://www.eastherts.gov.uk/housing/homeless-or-threatened-homelessness/rough-sleepers",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     },
     {
      "url": "https://www.eastherts.gov.uk/severe-weather-and-emergencies",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "no SWEP wording",
      "quote": ""
     }
    ],
-   "status": "unreachable",
-   "flags": [
-    "status active -> unreachable",
-    "dead page https://www.eastherts.gov.uk/housing/homeless-or-threatened-homelessness/rough-sleepers (HTTP error)",
-    "dead page https://www.eastherts.gov.uk/severe-weather-and-emergencies (HTTP error)"
-   ]
+   "status": "unknown",
+   "flags": []
   },
   {
    "code": "ELI",
@@ -1799,13 +1795,16 @@
    "pages": [
     {
      "url": "https://www.enfield.gov.uk/services/housing/homelessness/sleeping-rough-or-on-the-streets",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.enfield.gov.uk/services/housing/homelessness/sleeping-rough-or-on-the-streets (HTTP 403)"
+   ]
   },
   {
    "code": "EPP",
@@ -2142,7 +2141,9 @@
     }
    ],
    "status": "unknown",
-   "flags": []
+   "flags": [
+    "status unreachable -> unknown"
+   ]
   },
   {
    "code": "GRE",
@@ -2283,16 +2284,13 @@
    "pages": [
     {
      "url": "https://www.hastings.gov.uk/housing/SWEP/",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
-   "flags": [
-    "status unknown -> unreachable",
-    "dead page https://www.hastings.gov.uk/housing/SWEP/ (HTTP error)"
-   ]
+   "status": "unknown",
+   "flags": []
   },
   {
    "code": "HAT",
@@ -2339,8 +2337,8 @@
     },
     {
      "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "no SWEP wording",
      "quote": ""
     },
     {
@@ -2351,9 +2349,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "dead page https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight (HTTP error)"
-   ]
+   "flags": []
   },
   {
    "code": "HEF",
@@ -2677,12 +2673,14 @@
     {
      "url": "https://www.rbkc.gov.uk/cold-weather",
      "http": 200,
-     "status": "old notice (latest date on page 2025-01-08)",
-     "quote": "y Protocol (SWEP) activated With temperatures dropping, the Severe Weather Emergency Protocol (SWEP) is now active to support anyone sleeping rough during freezing conditions. SWEP is used by lo"
+     "status": "unknown",
+     "quote": ""
     }
    ],
-   "status": "old notice (latest date on page 2025-01-08)",
-   "flags": []
+   "status": "unknown",
+   "flags": [
+    "status old notice (latest date on page 2025-01-08) -> unknown"
+   ]
   },
   {
    "code": "KEN",
@@ -3053,14 +3051,14 @@
    "pages": [
     {
      "url": "https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "unknown",
+   "status": "unreachable",
    "flags": [
-    "status unreachable -> unknown"
+    "dead page https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter (HTTP 403)"
    ]
   },
   {
@@ -3120,13 +3118,16 @@
    "pages": [
     {
      "url": "https://www.middevon.gov.uk/residents/homelessness/how-we-can-help/",
-     "http": 200,
-     "status": "unknown",
+     "http": "error",
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.middevon.gov.uk/residents/homelessness/how-we-can-help/ (HTTP error)"
+   ]
   },
   {
    "code": "MDW",
@@ -3380,13 +3381,16 @@
    "pages": [
     {
      "url": "https://www.newark-sherwooddc.gov.uk/housing/homelessness/severe-weather-emergency-protocol",
-     "http": 200,
-     "status": "not active",
-     "quote": "itable accommodation in these circumstances. Currently, the SWEP is not active. When the SWEP is active, we share an announcement and contact rough sleepers w"
+     "http": "error",
+     "status": "unreachable",
+     "quote": ""
     }
    ],
-   "status": "not active",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status not active -> unreachable",
+    "dead page https://www.newark-sherwooddc.gov.uk/housing/homelessness/severe-weather-emergency-protocol (HTTP error)"
+   ]
   },
   {
    "code": "NEC",
@@ -3422,9 +3426,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status active -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "NEL",
@@ -3609,13 +3611,15 @@
     },
     {
      "url": "https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": "error",
+     "status": "unreachable",
      "quote": ""
     }
    ],
    "status": "unknown",
-   "flags": []
+   "flags": [
+    "dead page https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/ (HTTP error)"
+   ]
   },
   {
    "code": "NNT",
@@ -3628,11 +3632,11 @@
     {
      "url": "https://www.northnorthants.gov.uk/housing/severe-weather-emergency-protocol-swep",
      "http": 200,
-     "status": "old notice (latest date on page 2025-10-02)",
-     "quote": "bilised to alert all people known to be sleeping rough that SWEP has been implemented in order that they can access shelter from the severe weather. Ensure that suit"
+     "status": "unknown",
+     "quote": ""
     }
    ],
-   "status": "old notice (latest date on page 2025-10-02)",
+   "status": "unknown",
    "flags": []
   },
   {
@@ -4253,12 +4257,14 @@
     {
      "url": "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
      "http": 200,
-     "status": "active",
-     "quote": ") How can we help Temporary accommodation Support available Severe weather emergency protocol (SWEP) The Severe Weather Emergency Protocol (SWEP) is in place to support people at risk of rough sleeping when extreme weather conditions are"
+     "status": "unknown",
+     "quote": ""
     }
    ],
-   "status": "active",
-   "flags": []
+   "status": "unknown",
+   "flags": [
+    "status active -> unknown"
+   ]
   },
   {
    "code": "RUG",
@@ -5108,9 +5114,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "TAM",
@@ -5848,11 +5852,11 @@
     {
      "url": "https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather",
      "http": 200,
-     "status": "old notice (latest date on page 2026-05-01)",
-     "quote": "o contact anyone known to be at risk of sleeping rough that SWEP has been implemented, so they can access shelter from the severe weather During SWEP what accommodat"
+     "status": "unknown",
+     "quote": ""
     }
    ],
-   "status": "old notice (latest date on page 2026-05-01)",
+   "status": "unknown",
    "flags": []
   },
   {

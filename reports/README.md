@@ -24,3 +24,11 @@ activation phrase whose sentence contains conditional wording (if, when, wheneve
 in periods of, under these conditions, will be updated). The 3x-daily watcher, the daily full check and the alert-triggered
 re-check (weather.py) all use this rule. 16 councils were cleared the same way. Only a plain present-tense statement
 ("SWEP is currently active") counts; tests in tests/test_swep.py (ConditionalWording).
+
+## Lesson (24 Oct 2026 11:45, Dean): general descriptions are not "active"
+Bolton ("has been put in place to support…") and Rotherham ("is in place to support people…") were marked active from
+descriptions of what SWEP is. swep.classify now counts an activation only when the page clearly says SWEP is on now: the
+wording itself says currently / now / tonight / today / this evening / with immediate effect / from <date or day>, or it is a
+specific notice ("has been activated / triggered", which the old-notice date check still screens). Any "… in place to support /
+help / protect / ensure / prevent" counts as a description. The watcher, daily full check and alert re-check (weather.py) all
+use this rule. Tests: tests/test_swep.py ClearlyOnNow, tests/test_weather.py test_recheck_general_description_goes_to_review.
