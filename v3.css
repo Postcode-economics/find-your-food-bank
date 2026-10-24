@@ -530,3 +530,10 @@ html body #list>.card,html body #xextra .card:is(.xsh,.xws),html body #xlist>.ca
 html body #xlist .card,html body #xextra .card{margin-bottom:26px!important}
 /* give the Facebook button a little more of the row so the padding either side of logo+label is visible on small phones */
 html body .card a.btn.call.xfbk{flex:1 1 0!important;min-width:max-content!important;padding:0 12px!important}
+/* Dean 24 Oct 16:51: phone number on every green call button and council/out-of-hours line = 16px/800, same as Directions and Send a message */
+html body #list .card a.btn.call:not(.xfbk),html body #xextra .card a.btn.call:not(.xfbk),html body #sheet .card a.btn.call:not(.xfbk),html body #list .card a.btn.call:not(.xfbk) *:not(svg):not(path),html body #xextra .card a.btn.call:not(.xfbk) *:not(svg):not(path),html body #sheet .card a.btn.call:not(.xfbk) *:not(svg):not(path){font-size:16px!important;font-weight:800!important;font-family:inherit}
+html body .card a.btn.call:not(.xfbk){justify-content:center!important;gap:8px!important}
+html body .card a.btn.call:not(.xfbk) svg{flex:0 0 20px!important;width:20px!important;height:20px!important}
+html body #xextra .card:is(.xsh,.xws)>a.btn.call:not(.xfbk) .xnum,html body #list .card>a.btn.call:not(.xfbk) .xnum,html body #xextra .card:is(.xsh,.xws) .xhow a.btn.call.xfb{font-size:16px!important;font-weight:800!important}
+html body #list .card a.btn.call:not(.xfbk):not(.xfb),html body #xextra .card a.btn.call:not(.xfbk):not(.xfb){min-width:max-content!important;padding:0 10px!important}
+html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb{text-align:center!important;justify-content:center!important}
