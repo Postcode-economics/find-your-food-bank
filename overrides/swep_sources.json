@@ -4075,8 +4075,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (only the homelessness strategy page mentions a past South Notts winter night shelter; no SWEP page)",
+  "looked_at": [
+   "https://www.rushcliffe.gov.uk/about-us/about-the-council/policies-strategies-and-other-documents/accessible-documents/homelessness-and-rough-sleeping-strategy/"
+  ],
   "homeless_url": "https://www.rushcliffe.gov.uk/housing/housing-advice-and-homelessness/homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4712,8 +4714,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless/housing advice page has no SWEP wording)",
+  "looked_at": [
+   "https://www.tandridge.gov.uk/Housing/Finding-a-home/Homeless-or-need-housing-advice"
+  ],
   "homeless_url": "https://www.tandridge.gov.uk/Housing/Finding-a-home/Homeless-or-need-housing-advice",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4745,12 +4749,14 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness advice page has no SWEP wording; council's own SWEP protocol is a November 2020 PDF on legacy.tendringdc.gov.uk - asked Dean (same as Warrington))",
   "looked_at": [
-   "https://www.essex.gov.uk/find-support-services-children-and-their-families/churches-homeless-emergency-support-scheme-chess",
+   "https://legacy.tendringdc.gov.uk/sites/default/files/Severe%20Weather%20Emergency%20Protocol%20Nov%202020.pdf",
+   "https://www.essex.gov.uk/adult-social-care-and-health/housing-options-and-care-homes/homelessness-get-advice-and-support",
    "https://www.essex.gov.uk/children-young-people-and-families/support-care-leavers/finding-somewhere-live/help-homelessness",
+   "https://www.essex.gov.uk/find-support-services-children-and-their-families/churches-homeless-emergency-support-scheme-chess",
    "https://www.essex.gov.uk/find-support-services-children-and-their-families/sanctus-homeless-charity",
-   "https://www.essex.gov.uk/adult-social-care-and-health/housing-options-and-care-homes/homelessness-get-advice-and-support"
+   "https://www.tendringdc.gov.uk/sub-content-pages/homelessness-advice"
   ],
   "homeless_url": "https://www.tendringdc.gov.uk/services/housing",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -4873,8 +4879,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP web page found (homelessness page unreachable from the box); SWEP protocol only as a committee annex PDF and on a parish council notice)",
+  "looked_at": [
+   "https://www.tmbc.gov.uk/housing/get-help-homelessness"
+  ],
   "homeless_url": "https://www.tmbc.gov.uk/housing/get-help-homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4896,14 +4904,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeping page now 404; SWEP only mentioned in an FOI response PDF)",
   "looked_at": [
-   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/our-legal-duties/prevention-duty",
-   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/veterans",
-   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/struggling-pay-your-rent-or-mortgage",
-   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/our-legal-duties/main-housing-duty",
    "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support",
-   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/young-people-and-care-leavers"
+   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/rough-sleeping",
+   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/struggling-pay-your-rent-or-mortgage",
+   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/veterans",
+   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/homelessness-advice-and-support/young-people-and-care-leavers",
+   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/our-legal-duties/main-housing-duty",
+   "https://www.trafford.gov.uk/housing/homelessness-and-rough-sleeping/our-legal-duties/prevention-duty"
   ],
   "homeless_url": "http://www.trafford.gov.uk/residents/housing/housing-advice/homelessness.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -4914,8 +4923,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless page has no SWEP wording; SWEP only in the 2026-31 strategy)",
+  "looked_at": [
+   "https://tunbridgewells.gov.uk/benefits/are-you-homeless-or-at-risk-of-becoming-homeless"
+  ],
   "homeless_url": "https://tunbridgewells.gov.uk/housing/homeless-vulnerable-or-at-risk",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4986,8 +4997,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (supporting rough sleepers page has no SWEP wording)",
+  "looked_at": [
+   "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless/concerned-about-a-rough-sleeper"
+  ],
   "homeless_url": "https://www.waverley.gov.uk/services/housing/finding-a-home/worried-about-becoming-homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
