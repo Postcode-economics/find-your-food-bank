@@ -199,19 +199,19 @@ class Checked9(unittest.TestCase):
         self.assertTrue(ot is None or "Friday" not in ot["raw"])
 class RenderThreads(unittest.TestCase):
     """23 Oct Actions run: every render failed with 'cannot switch to a different thread' (12 finder threads).
-    All Playwright calls must happen on ONE thread, whatever thread asks."""
+    Playwright calls must happen only on the dedicated render worker threads (24 Oct: several workers), never a caller's thread."""
     def test_all_renders_on_one_thread(self):
         import threading, types, concurrent.futures as cf, importlib
         import render_fetch as RF; RF = importlib.reload(RF)
         seen = set()
         class Page:
             url = "u"
-            def goto(self, u, **k): seen.add(threading.get_ident()); self.url = u; return types.SimpleNamespace(status=200)
-            def wait_for_selector(self, *a, **k): seen.add(threading.get_ident())
-            def content(self): seen.add(threading.get_ident()); return "<p>Collection times</p>"
+            def goto(self, u, **k): seen.add(threading.current_thread().name); self.url = u; return types.SimpleNamespace(status=200)
+            def wait_for_selector(self, *a, **k): seen.add(threading.current_thread().name)
+            def content(self): seen.add(threading.current_thread().name); return "<p>Collection times</p>"
             def close(self): pass
         class Br:
-            def new_page(self, **k): seen.add(threading.get_ident()); return Page()
+            def new_page(self, **k): seen.add(threading.current_thread().name); return Page()
             def close(self): pass
         class PW:
             def __enter__(self): return types.SimpleNamespace(chromium=types.SimpleNamespace(launch=lambda **k: Br()))
@@ -220,4 +220,21 @@ class RenderThreads(unittest.TestCase):
         with mock.patch.dict(sys.modules, {"playwright": types.ModuleType("playwright"), "playwright.sync_api": fake}):
             with cf.ThreadPoolExecutor(8) as ex: res = list(ex.map(RF.fetch, [f"https://x{n}.foodbank.org.uk" for n in range(16)]))
             RF.close()
-        self.assertTrue(all(r[0] == 200 for r in res)); self.assertEqual(len(seen), 1)
+        self.assertTrue(all(r[0] == 200 for r in res)); self.assertTrue(seen and all(n.startswith('render-fetch-') for n in seen)); self.assertLessEqual(len(seen), RF.WORKERS)
+
+
+def test_render_fetch_waits_for_queued_jobs_and_uses_several_workers():
+    """24 Oct: one render worker + 120s caller timeout gave http 0 on 41/45 Trussell sites in Actions."""
+    import render_fetch as R, inspect
+    src = inspect.getsource(R)
+    assert "done.wait(120)" not in src and R.WORKERS >= 2
+
+
+def test_render_fetch_launch_failure_returns_http0_not_hang(monkeypatch):
+    import render_fetch as R, importlib
+    importlib.reload(R)
+    monkeypatch.setenv("CHROME_PATH", "/nonexistent/chrome")
+    monkeypatch.setattr(R, "WORKERS", 1)
+    r = R.fetch("https://example.org/", tries=1)
+    R.close()
+    assert r[0] == 0
