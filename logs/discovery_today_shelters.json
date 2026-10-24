@@ -1,74 +1,11 @@
 {
- "day": "2026-10-23",
+ "day": "2026-10-24",
  "runs": [
   {
-   "at": "06:11Z",
+   "at": "05:13Z",
    "source": "shelters_discovery.json",
    "added": 4,
-   "queued": 51,
-   "rejected": 0
-  },
-  {
-   "at": "06:43Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 50,
-   "rejected": 0
-  },
-  {
-   "at": "06:54Z",
-   "source": "shelters_discovery.json",
-   "added": 3,
-   "queued": 51,
-   "rejected": 0
-  },
-  {
-   "at": "07:05Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 53,
-   "rejected": 0
-  },
-  {
-   "at": "07:53Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 34,
-   "rejected": 0
-  },
-  {
-   "at": "13:27Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 52,
-   "rejected": 0
-  },
-  {
-   "at": "18:27Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 52,
-   "rejected": 0
-  },
-  {
-   "at": "19:37Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 51,
-   "rejected": 0
-  },
-  {
-   "at": "19:52Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 52,
-   "rejected": 0
-  },
-  {
-   "at": "21:08Z",
-   "source": "shelters_discovery.json",
-   "added": 0,
-   "queued": 34,
+   "queued": 54,
    "rejected": 0
   }
  ],
@@ -81,8 +18,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "173a7c9f660f55c4f7aa70f6a3e86160e8874a2d913de9729006d6403a81d8d8",
-   "etag": "\"5313-1792728556;;;\"",
+   "sha256": "89729b8312fca5df6983f11c5d697ad287c2e35144ae1c607d9afa9f5bca82db",
+   "etag": "\"5438-1792770850;;;\"",
    "last_modified": "",
    "upcoming": null,
    "scheme_start": null,
@@ -111,7 +48,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "1693028f05d7d26ffd8ba140b410c88b431e642fbd01e4fc46a65e0f6f1b5ee7",
+   "sha256": "810a408d6079a4ccbc087d44724c51eef53634c3c6e7e478ade6ef3c79f13278",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -126,7 +63,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "1d7e626e70c4231b853a14fd58a0d4a0a4e8712bb5b3bbbca83fee24bcf21368",
+   "sha256": "f4310d16dcd3aaaae1c305ae6d1ea529105f8d4c69a4be61b182815cfa95cd0c",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -144,12 +81,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "f50a3e8940d020119b3fd9201fa8686e4bd0d4057d260aa35d2cd9e48711d300",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "0c54b4bee694ca919c9f90d0c194b5cbd9b2a5f56504e9b1ad011d1319f11e7b",
    "etag": "",
    "last_modified": ""
   },
@@ -215,12 +152,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "45247d4952e54ca79551000fa7c68180fc993ce253d75afb8279f9899098a894",
+   "http": 202,
+   "sha256": "da725dd97cf20df1154cb0bc9624f4799a7d70fe701a2b11f3ece58e89ee2df7",
    "etag": "",
    "last_modified": ""
   },
@@ -273,8 +211,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "6c977177a34e534152850824e3c5a90417e4c0e1e93e2906e306994884f8f99a",
-   "etag": "W/\"3609546319646cba2cedfc586edfea4d\"",
+   "sha256": "73dc5218fac072a12c1461dcd3c9f45effd731970de8348b79df206acc66423a",
+   "etag": "W/\"b5245eb2d4650ef5810089c079b5df25\"",
    "last_modified": ""
   },
   "osm-node-12804949354": {
@@ -291,7 +229,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "e5abe98e73cc25f82a33e0384c157f51de7ca150ac9167a777f0ebf55969358e",
+   "sha256": "ce63698903f20725108538a868b9b521e6d3cba9cb246118d25bd0741698c741",
    "etag": "",
    "last_modified": ""
   },
@@ -436,8 +374,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1792739250\"",
-   "last_modified": "Fri, 23 Oct 2026 07:07:30 GMT"
+   "etag": "\"1792790825\"",
+   "last_modified": "Fri, 23 Oct 2026 21:27:05 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -579,7 +517,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "13a4da85f67500d27b2d7217b06a373bf93c898e354dbe3f10da7b2c7cf4c86f",
+   "sha256": "94bf910de8fa5b55d2fc9e3de69b0377760d5c4b678b1dbeed456919128a5030",
    "etag": "",
    "last_modified": ""
   },
@@ -757,7 +695,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "b2dbeb226d845bef7c5c13a366d7dd22a44e4305b0e479ae928aa298fcd291da",
+   "sha256": "c9d03f098bc6ee5bb3f8a11cb2917142cf82f90a4f7880d5b46002b592d687ee",
    "etag": "",
    "last_modified": ""
   },
@@ -842,9 +780,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "abca39b82bf03e40664818c20c4cecdbb9517cbe83da02dabe06434ec719a6ff",
+   "sha256": "9a9fec7e96bac6f201af79420bba5c7c22bfaeb2b2246d0395d162100a1d41c3",
    "etag": "",
-   "last_modified": "Fri, 23 Oct 2026 15:51:32 GMT"
+   "last_modified": "Sat, 24 Oct 2026 00:00:53 GMT"
   },
   "hl-alabare-the-andover-foyer-sarum-house": {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -912,7 +850,7 @@
    "http": 200,
    "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
    "etag": "",
-   "last_modified": "Fri, 23 Oct 2026 16:13:30 GMT"
+   "last_modified": "Sat, 24 Oct 2026 04:19:32 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -962,8 +900,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "c7d440bd3fd7927bab9a9a86f3f5d528a733c02e4fecd8d489eb5f5e843578b1",
-   "etag": "W/\"21bae-D1TuzcqvtzaC97c8vcycoYf0Tz8\"",
+   "sha256": "dd888095090eadd8deeced2b922f1deaedf7ac6247fe0a7c6b1af3747a004132",
+   "etag": "W/\"21bd4-MGyiZ+AoYglLXkxnap54owrTwHs\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
@@ -1034,23 +972,6 @@
    "etag": null,
    "last_modified": null
   },
-  "hl-bridge-house-mission": {
-   "id": "hl-bridge-house-mission",
-   "name": "Bridge House Mission",
-   "postcode": "TS18 3AX",
-   "website": "http://www.bridgehousemission.co.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bridge-house-mission/",
-   "reasons": [
-    "own site unreachable (HTTP 500)"
-   ],
-   "url": "http://www.bridgehousemission.co.uk",
-   "final_url": "http://www.bridgehousemission.co.uk",
-   "http": 500,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
   "hl-cardinal-hume-centre-hostel": {
    "id": "hl-cardinal-hume-centre-hostel",
    "name": "Cardinal Hume Centre Hostel",
@@ -1089,25 +1010,22 @@
    "etag": "",
    "last_modified": ""
   },
-  "hl-catalyst-osborne-house": {
-   "id": "hl-catalyst-osborne-house",
-   "name": "Catalyst - Osborne House",
-   "postcode": "EN8 9NB",
-   "website": "http://www.broxbourne.gov.uk",
+  "hl-ccp-cheltenham-foyer-the-arkells": {
+   "id": "hl-ccp-cheltenham-foyer-the-arkells",
+   "name": "CCP - The Arkells",
+   "postcode": "GL50 3HW",
+   "website": "http://www.cheltborohomes.org",
    "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-osborne-house/",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-cheltenham-foyer-the-arkells/",
    "reasons": [
-    "directory link is a council page, not the place's own site",
-    "own site does not name it",
-    "own site does not show it is a shelter/emergency accommodation",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site unreachable (HTTP 522)"
    ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "e9a2941e511fd751dfe4d57cfa5441406c27bea2eeea21d3bf77f7c8532786f9",
-   "etag": "",
-   "last_modified": ""
+   "url": "http://www.cheltborohomes.org",
+   "final_url": "http://www.cheltborohomes.org",
+   "http": 522,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   }
  },
  "rejected": {}
