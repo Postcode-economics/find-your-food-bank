@@ -64,11 +64,7 @@
     "Wayfarers Caravan Park with St Hilary Church",
     "Winton Park Cafe"
    ],
-   "swep": [
-    "Mid Devon District Council",
-    "North Somerset  Council",
-    "Somerset Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -293,9 +289,7 @@
    "places": [
     "Coxhoe and Area Community Pantry and Foodbank"
    ],
-   "swep": [
-    "Durham County Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -324,9 +318,7 @@
     "Ryton Methodist Church",
     "Swan Lodge"
    ],
-   "swep": [
-    "Durham County Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -350,9 +342,7 @@
     "Ryton Methodist Church",
     "Swan Lodge"
    ],
-   "swep": [
-    "Durham County Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -645,9 +635,7 @@
     "Warm Welcome @ The Dolphin",
     "Wednesday Memories @ St Andrews"
    ],
-   "swep": [
-    "East Hampshire District Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -743,10 +731,7 @@
    "places": [
     "Renew 57"
    ],
-   "swep": [
-    "Isle of Anglesey County Council",
-    "Wrexham County Borough Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -789,10 +774,7 @@
     "Welcoming Warm Wednesdays, Trallwm Community Hall",
     "Women Connect First"
    ],
-   "swep": [
-    "Isle of Anglesey County Council",
-    "Wrexham County Borough Council"
-   ]
+   "swep": []
   },
   {
    "source": "Met Office",
@@ -980,6 +962,17 @@
   },
   {
    "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Upper Solway Firth",
+   "level": "flood warning",
+   "areas": [
+    "Upper Solway Firth"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27227/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
    "title": "A FLOOD WARNING has been issued for Outer Wigtown Bay",
    "level": "flood warning",
    "areas": [
@@ -1008,6 +1001,28 @@
     "West Luce Bay North"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27245/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for South West Rhins",
+   "level": "flood warning",
+   "areas": [
+    "South West Rhins"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27247/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Loch Ryan",
+   "level": "flood warning",
+   "areas": [
+    "Loch Ryan"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27249/",
    "places": [],
    "swep": []
   },
@@ -1054,7 +1069,25 @@
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26949/",
    "places": [],
    "swep": []
+  },
+  {
+   "source": "Natural Resources Wales",
+   "title": "Flood Warning: Tidal area at Borth",
+   "level": "flood warning",
+   "areas": [
+    "Ceredigion"
+   ],
+   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
+   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
+   "places": [
+    "Mwldan",
+    "St Paul's Methodist Centre"
+   ],
+   "swep": []
   }
  ],
- "errors": []
+ "errors": [],
+ "credits": [
+  "Contains Natural Resources Wales information © Natural Resources Wales and database right"
+ ]
 }

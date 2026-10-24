@@ -2,7 +2,7 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
-## Food banks: 72 added
+## Food banks: 73 added
 - Lincoln Foodbank · LN1 1UL · https://www.givefood.org.uk/needs/at/lincoln/
 - Caterham Foodbank · CR3 6NA · https://www.givefood.org.uk/needs/at/caterham/
 - Padiham Parish Foodbank · BB12 8HG · https://www.givefood.org.uk/needs/at/padiham-parish/
@@ -75,6 +75,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Eyres Monsell Club for Young People · LE2 9AQ
 - Hopeworx · SS6 7XJ
 - Hangar Community Hub CIC · CF11 8TT
+- United Reform Church, Horsham · RH12 2RG · https://www.givefood.org.uk/needs/at/horsham-district/
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS

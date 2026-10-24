@@ -1,0 +1,469 @@
+{
+ "run": "2026-10-24T11:33:54+00:00",
+ "councils": [
+  {
+   "code": "ABE",
+   "council": "Aberdeen City Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Grampian"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "ABD",
+   "council": "Aberdeenshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Grampian"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "ANS",
+   "council": "Angus Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "ANN",
+   "council": "Antrim and Newtownabbey Borough Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Northern Ireland"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "BPL",
+   "council": "Blackpool Borough Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting North West England"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown)"
+  },
+  {
+   "code": "CGN",
+   "council": "Ceredigion County Council",
+   "alerts": [
+    "Natural Resources Wales: Flood Warning: Tidal area at Borth"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "EDH",
+   "council": "City of Edinburgh Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "CLK",
+   "council": "Clackmannanshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "DND",
+   "council": "Dundee City Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "DUR",
+   "council": "Durham County Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting North East England"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers (unknown)"
+  },
+  {
+   "code": "EAY",
+   "council": "East Ayrshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "EDU",
+   "council": "East Dunbartonshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "ELN",
+   "council": "East Lothian Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian (no SWEP wording)"
+  },
+  {
+   "code": "ERW",
+   "council": "East Renfrewshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "FAL",
+   "council": "Falkirk Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.falkirk.gov.uk/homelessness/rough-sleeping",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.falkirk.gov.uk/homelessness/rough-sleeping (no SWEP wording)"
+  },
+  {
+   "code": "FIF",
+   "council": "Fife Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "GLG",
+   "council": "Glasgow City Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "IVC",
+   "council": "Inverclyde Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "LAN",
+   "council": "Lancashire County Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting North West England"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "MEA",
+   "council": "Mid and East Antrim Borough Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Northern Ireland"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "MLN",
+   "council": "Midlothian Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "NAY",
+   "council": "North Ayrshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "NLK",
+   "council": "North Lanarkshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "NYE",
+   "council": "North Yorkshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Yorkshire & Humber"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.northyorks.gov.uk/housing-and-homelessness/homelessness/housing-and-homelessness/homelessness/help-rough-sleepers",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.northyorks.gov.uk/housing-and-homelessness/homelessness/housing-and-homelessness/homelessness/help-rough-sleepers (unknown)"
+  },
+  {
+   "code": "NBL",
+   "council": "Northumberland County Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting North East England"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://nccform.northumberland.gov.uk/form/webfeedback?page=/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.northumberland.gov.uk/housing/homelessness-and-housing-options",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather (no SWEP wording); https://nccform.northumberland.gov.uk/form/webfeedback?page=/education-skills/schools/school-transport/information-parents-during-periods-severe-weather (no SWEP wording); https://www.northumberland.gov.uk/housing/homelessness-and-housing-options (unknown)"
+  },
+  {
+   "code": "RFW",
+   "council": "Renfrewshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather (no SWEP wording); https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather (no SWEP wording); https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers (unknown)"
+  },
+  {
+   "code": "SCB",
+   "council": "Scottish Borders Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (no SWEP wording)"
+  },
+  {
+   "code": "SAY",
+   "council": "South Ayrshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "SLK",
+   "council": "South Lanarkshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "STG",
+   "council": "Stirling Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "HLD",
+   "council": "The Highland Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Highlands & Eilean Siar"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "MRY",
+   "council": "The Moray Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Grampian"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "WDU",
+   "council": "West Dunbartonshire Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Strathclyde"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "WLA",
+   "council": "West Lancashire Borough Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting North West England"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "WLN",
+   "council": "West Lothian Council",
+   "alerts": [
+    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording)"
+  }
+ ]
+}
