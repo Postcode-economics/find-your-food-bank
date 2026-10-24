@@ -55,6 +55,9 @@ jobs:
       - name: Validation report (point 33, scripts/validate.py, report only)
         continue-on-error: true
         run: python scripts/validate.py
+      - name: Holiday hours calendar (point 4, scripts/holidays.py, data only)
+        continue-on-error: true
+        run: python scripts/holidays.py
       - name: Source quality scores (point 8, scripts/source_score.py)
         continue-on-error: true
         run: python scripts/source_score.py
