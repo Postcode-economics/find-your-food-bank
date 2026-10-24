@@ -21,5 +21,3 @@ added 0 · removed 0 · changed 0 · tier flips 0 · opens later 7 · season end
 
 ## SWEP
 Active: Swindon Borough Council
-- Bolton Metropolitan Borough Council: active → unknown (https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton) “”
-- Rotherham Metropolitan Borough Council: active → unknown (https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3) “”

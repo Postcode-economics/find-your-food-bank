@@ -21,6 +21,13 @@
    "added": 4,
    "queued": 51,
    "rejected": 0
+  },
+  {
+   "at": "21:02Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 34,
+   "rejected": 0
   }
  ],
  "added": [
@@ -100,7 +107,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "88f6ccbdeeb5c5ab86f9ef695f99bb010f912f6a8ff0f37ecec50908802a35c8",
+   "sha256": "6054570bd9f9cb49532b80f3def2b60282f6be231dad61f532d249e2a36d3102",
    "etag": "",
    "last_modified": ""
   },
@@ -171,7 +178,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "9660f2e98ad63a86c85e3839a6deebc719b35af0af3910dc694fc52a7fe0b5be",
+   "sha256": "46a6f50ae269e6592e2ec3aa910d1ccbf6e1bfa740b8592906ea5631459959f5",
    "etag": "",
    "last_modified": ""
   },
@@ -242,7 +249,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "7c18d6f19adc4e61017eacb93782168f85b130df928e02c47397dbba68c3da87",
+   "sha256": "ade2296294c043b3ba4f17028902a61b71f6a7761b48686a869f1c529d9b2396",
    "etag": "",
    "last_modified": ""
   },
@@ -387,8 +394,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1792790825\"",
-   "last_modified": "Fri, 23 Oct 2026 21:27:05 GMT"
+   "etag": "\"1792850700\"",
+   "last_modified": "Sat, 24 Oct 2026 14:05:00 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",

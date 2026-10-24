@@ -106,7 +106,7 @@
    },
    {
     "id": "osm-way-753792449",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-931997512",
@@ -122,7 +122,7 @@
    },
    {
     "id": "osm-way-979361293",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "osm-way-1104948217",
@@ -146,11 +146,11 @@
    },
    {
     "id": "hl-ymca-lincs-nomad-centre",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "hl-st-annes-hostel-birmingham",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "hl-st-georges-crypt-leeds",
@@ -276,21 +276,6 @@
   "active": [
    "Swindon Borough Council"
   ],
-  "changes": [
-   {
-    "council": "Bolton Metropolitan Borough Council",
-    "url": "https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton",
-    "from": "active",
-    "to": "unknown",
-    "quote": ""
-   },
-   {
-    "council": "Rotherham Metropolitan Borough Council",
-    "url": "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
-    "from": "active",
-    "to": "unknown",
-    "quote": ""
-   }
-  ]
+  "changes": []
  }
 }
