@@ -1725,14 +1725,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (about-homelessness page has no severe-weather/SWEP wording (cold-weather detail only in press))",
   "looked_at": [
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/",
-   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/adapting-to-extreme-weather.aspx",
    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx"
+   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+   "https://www.derbyshiredales.gov.uk/housing/advice-and-support/homelessness/about-homelessness"
   ],
   "homeless_url": "https://www.derbyshiredales.gov.uk/housing/advice-and-support/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -1743,14 +1744,15 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness contact page has no SWEP wording; SWEP only in a committee item and Shelter Cymru list)",
   "looked_at": [
    "https://www.denbighshire.gov.uk/en/emergencies/extreme-weather.aspx",
-   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/supporting-people.aspx",
-   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/private-housing/help-with-mortgage-debt-or-rent-arrears.aspx",
-   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/intentionally-homeless.aspx",
    "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/forms/request-a-social-housing-repair.aspx",
-   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/homelessness-who-can-get-help.aspx"
+   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/homelessness-contact-us.aspx",
+   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/homelessness-who-can-get-help.aspx",
+   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/intentionally-homeless.aspx",
+   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/supporting-people.aspx",
+   "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/private-housing/help-with-mortgage-debt-or-rent-arrears.aspx"
   ],
   "homeless_phone": "01824 712099",
   "phone_source": "https://www.denbighshire.gov.uk/en/housing-homelessness-and-landlords/homelessness/supporting-people.aspx",
@@ -2084,12 +2086,13 @@
   "code": "EPS",
   "council": "Epsom and Ewell Borough Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://www.epsom-ewell.gov.uk/residents/housing/homelessness/other-services-for-homeless-people",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [],
   "homeless_url": "http://www.epsom-ewell.gov.uk/residents/housing/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-24: page has a 'Severe weather emergency protocol (SWEP)' section for people sleeping rough in severe cold weather"
  },
  {
   "code": "ERE",
@@ -2097,14 +2100,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (housing options page has no SWEP wording; SWEP only in strategy committee PDFs)",
   "looked_at": [
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/",
-   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/adapting-to-extreme-weather.aspx",
    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx"
+   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+   "https://www.erewash.gov.uk/housing/preventing-you-losing-your-home/housing-options"
   ],
   "homeless_url": "https://www.erewash.gov.uk/housing/preventing-you-losing-your-home",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -2161,7 +2165,7 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (web search found no SWEP page on eaststaffsbc.gov.uk (only tender notices))",
   "looked_at": [],
   "homeless_url": "https://www.eaststaffsbc.gov.uk/housing-and-property/homelessness-advice/housing-options-team/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -2195,8 +2199,11 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (only a February 2018 press release on 'Extended Winter Provision' at Two Saints hostel; StreetLink page has no severe-weather wording)",
+  "looked_at": [
+   "https://www.fareham.gov.uk/housing/help_with_housing_homelessness/streetlink.aspx",
+   "https://www.fareham.gov.uk/latest_news/pr-180223-1.aspx"
+  ],
   "homeless_url": "https://www.fareham.gov.uk/housing/help_with_housing_homelessness/homelessness.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
