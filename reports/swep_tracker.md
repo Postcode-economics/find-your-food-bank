@@ -1,0 +1,148 @@
+# SWEP tracker - 2026-10-24
+
+Councils still to check (status unknown or unreachable): **138 of 382**.
+
+| day | still to check |
+|---|---|
+| 2026-10-24 | 138 |
+
+## Still to check
+
+- Adur District Council (England) - unknown
+- Arun District Council (England) - unknown
+- Ashford Borough Council (England) - unknown
+- Basingstoke and Deane Borough Council (England) - unknown
+- Birmingham City Council (England) - unknown
+- Blackpool Borough Council (England) - unknown
+- Borough Council of Kings Lynn and West Norfolk (England) - unknown
+- Bournemouth, Christchurch and Poole Council (England) - unknown
+- Braintree District Council (England) - unknown
+- Bristol City Council (England) - unknown
+- Buckinghamshire Council (England) - unknown
+- Burnley Borough Council (England) - unknown
+- Bury Metropolitan Borough Council (England) - unknown
+- Castle Point Borough Council (England) - unknown
+- Central Bedfordshire Council (England) - unknown
+- Cheltenham Borough Council (England) - unknown
+- Cherwell District Council (England) - unknown
+- Cheshire East Council (England) - unknown
+- Chesterfield Borough Council (England) - unknown
+- Chorley Borough Council (England) - unknown
+- City of Wolverhampton Council (England) - unknown
+- Conwy County Borough Council (Wales) - unknown
+- Cornwall Council (England) - unknown
+- Cotswold District Council (England) - unknown
+- Coventry City Council (England) - unknown
+- Crawley Borough Council (England) - unknown
+- Dartford Borough Council (England) - unknown
+- Derby City Council (England) - unknown
+- Dover District Council (England) - unknown
+- East Cambridgeshire District Council (England) - unknown
+- East Riding of Yorkshire Council (England) - unknown
+- Elmbridge Borough Council (England) - unknown
+- Forest of Dean District Council (England) - unknown
+- Gravesham Borough Council (England) - unknown
+- Gwynedd Council (Wales) - unknown
+- Hastings Borough Council (England) - unknown
+- Herefordshire Council (England) - unknown
+- Hertsmere Borough Council (England) - unknown
+- Hinckley and Bosworth Borough Council (England) - unknown
+- Hyndburn Borough Council (England) - unknown
+- Ipswich Borough Council (England) - unknown
+- Kirklees Council (England) - unknown
+- Leeds City Council (England) - unknown
+- Lichfield District Council (England) - unknown
+- London Borough of Brent (England) - unknown
+- London Borough of Croydon (England) - unknown
+- London Borough of Ealing (England) - unknown
+- London Borough of Haringey (England) - unknown
+- London Borough of Harrow (England) - unknown
+- London Borough of Hounslow (England) - unknown
+- London Borough of Lambeth (England) - unknown
+- London Borough of Redbridge (England) - unknown
+- London Borough of Southwark (England) - unknown
+- London Borough of Waltham Forest (England) - unknown
+- Maldon District Council (England) - unknown
+- Malvern Hills District Council (England) - unknown
+- Medway Council (England) - unknown
+- Monmouthshire County Council (Wales) - unknown
+- Newcastle City Council (England) - unknown
+- North Kesteven District Council (England) - unknown
+- North Norfolk District Council (England) - unknown
+- North West Leicestershire District Council (England) - unknown
+- North Yorkshire Council (England) - unknown
+- Nottingham City Council (England) - unknown
+- Peterborough City Council (England) - unknown
+- Reading Borough Council (England) - unknown
+- Redditch Borough Council (England) - unknown
+- Rochdale Metropolitan Borough Council (England) - unknown
+- Rossendale Borough Council (England) - unknown
+- Rother District Council (England) - unknown
+- Royal Borough of Kingston upon Thames (England) - unknown
+- Rugby Borough Council (England) - unknown
+- Runnymede Borough Council (England) - unknown
+- Rushmoor Borough Council (England) - unknown
+- Sandwell Metropolitan Borough Council (England) - unknown
+- Sheffield City Council (England) - unknown
+- Solihull Metropolitan Borough Council (England) - unknown
+- South Cambridgeshire District Council (England) - unknown
+- South Oxfordshire District Council (England) - unknown
+- South Ribble Borough Council (England) - unknown
+- St Albans City and District Council (England) - unknown
+- Stroud District Council (England) - unknown
+- Surrey Heath Borough Council (England) - unknown
+- Telford & Wrekin Council (England) - unknown
+- Thanet District Council (England) - unknown
+- Thurrock Council (England) - unknown
+- Vale of White Horse District Council (England) - unknown
+- Wakefield Metropolitan District Council (England) - unknown
+- Watford Borough Council (England) - unknown
+- Westmorland and Furness Council (England) - unknown
+- Worthing Borough Council (England) - unknown
+- Wyre Borough Council (England) - unknown
+- Wyre Forest District Council (England) - unknown
+- Basildon Borough Council (England) - unreachable
+- Bolsover District Council (England) - unreachable
+- Breckland District Council (England) - unreachable
+- Brighton and Hove City Council (England) - unreachable
+- Chichester District Council (England) - unreachable
+- Dacorum Borough Council (England) - unreachable
+- Dorset Council (England) - unreachable
+- East Devon District Council (England) - unreachable
+- East Lindsey District Council (England) - unreachable
+- East Suffolk Council (England) - unreachable
+- Eastbourne Borough Council (England) - unreachable
+- Eastleigh Borough Council (England) - unreachable
+- Epping Forest District Council (England) - unreachable
+- Exeter City Council (England) - unreachable
+- Fenland District Council (England) - unreachable
+- Great Yarmouth Borough Council (England) - unreachable
+- Isle of Wight Council (England) - unreachable
+- Lancaster City Council (England) - unreachable
+- Lewes District Council (England) - unreachable
+- London Borough of Barking and Dagenham (England) - unreachable
+- London Borough of Camden (England) - unreachable
+- London Borough of Enfield (England) - unreachable
+- Manchester City Council (England) - unreachable
+- New Forest District Council (England) - unreachable
+- North East Derbyshire District Council (England) - unreachable
+- North Tyneside Council (England) - unreachable
+- Plymouth City Council (England) - unreachable
+- Preston City Council (England) - unreachable
+- Redcar and Cleveland Borough Council (England) - unreachable
+- Royal Borough of Windsor and Maidenhead (England) - unreachable
+- South Gloucestershire Council (England) - unreachable
+- South Hams District Council (England) - unreachable
+- South Holland District Council (England) - unreachable
+- South Tyneside Council (England) - unreachable
+- Swale Borough Council (England) - unreachable
+- Tameside Metropolitan Borough Council (England) - unreachable
+- Teignbridge District Council (England) - unreachable
+- Test Valley Borough Council (England) - unreachable
+- Tewkesbury Borough Council (England) - unreachable
+- Torridge District Council (England) - unreachable
+- Uttlesford District Council (England) - unreachable
+- Wealden District Council (England) - unreachable
+- Wiltshire Council (England) - unreachable
+- Woking Borough Council (England) - unreachable
+- Worcester City Council (England) - unreachable
