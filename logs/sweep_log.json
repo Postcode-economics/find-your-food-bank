@@ -1,7 +1,7 @@
 {
  "run": "2026-10-23",
- "pages": 1704,
- "failed": 144,
+ "pages": 1727,
+ "failed": 143,
  "errors": [
   [
    "https://www.rugby.gov.uk/warmhubs",
@@ -140,15 +140,19 @@
    "error"
   ],
   [
-   "https://www.lincoln.gov.uk/downloads/file/1465/lincolnshire-homelessness-and-rough-sleeper-strategy-2022-2027",
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
    "error"
   ],
   [
-   "https://www.lincoln.gov.uk/downloads/file/1466/lincolnshire-homelessness-and-rough-sleeper-delivery-plan",
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
    "error"
   ],
   [
-   "https://www.lincoln.gov.uk/downloads/file/759/lincolnshires-severe-weather-emergency-protocol",
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
    "error"
   ],
   [
@@ -400,7 +404,7 @@
    405
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weather-s-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
    "error"
   ],
   [
@@ -425,7 +429,7 @@
   ],
   [
    "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-   403
+   302
   ],
   [
    "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
@@ -512,10 +516,6 @@
    403
   ],
   [
-   "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
-   429
-  ],
-  [
    "https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP",
    403
   ],
@@ -533,10 +533,6 @@
   ],
   [
    "https://www.sholland.gov.uk/article/22764/Severe-Weather",
-   403
-  ],
-  [
-   "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
    403
   ],
   [
@@ -580,15 +576,6 @@
    403
   ]
  ],
- "added": [
-  {
-   "id": "sw-age-uk-gloucester-house-le131je",
-   "layer": "warmspaces",
-   "tier": "unverified",
-   "name": "Age UK Gloucester House",
-   "postcode": "LE13 1JE",
-   "source_url": "https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/"
-  }
- ],
+ "added": [],
  "status": "ok"
 }
