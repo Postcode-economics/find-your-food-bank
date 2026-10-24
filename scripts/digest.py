@@ -2,6 +2,7 @@
 Immediate alerts (GitHub issue via alert.py, the existing mechanism):
   (1) a food bank closed (real closure in logs/entry_history.json this run)
   (2) likely duplicates spike: more than BASE+5 vs the median of the last 7 runs (logs/duplicates.json)
+  (4) weather/flood: Met Office amber/red or severe flood warning (point 27, reports/weather.json)
   (3) a source's quality score dropped (point 8, scripts/source_score.py: more than 15 points below its usual level)
   Sources disappearing are already alerted by fill_rates.py (0% / sharp drop).
 Everything else goes in reports/morning_digest.md. Never fails the job."""
@@ -22,6 +23,10 @@ def triggers(state, history, dups, since):
     try: sd = source_score.drops(rj(P("reports", "fill_rates.json"), {}).get("runs", []))[0]
     except Exception: sd = []
     if sd: al.append(("source-score", "Source quality dropped", "; ".join("%s now %g (usually %g)" % d for d in sd) + " - see reports/source_scores.md"))
+    try: wx = json.load(open(P("reports", "weather.json"))).get("warnings", [])
+    except Exception: wx = []
+    ur = [w for w in wx if w.get("level") in ("amber", "red")]
+    if ur: al.append(("weather", "Amber/red weather or severe flood warning", "; ".join("%s (shelters/warm spaces: %s; SWEP: %s)" % (w["title"], ", ".join(w.get("places", [])[:10]) or "none matched", ", ".join(w.get("swep", [])) or "none") for w in ur) + " - see reports/weather.md"))
     return al, likely, closed
 def main(now=None):
     now = now or datetime.datetime.now(datetime.timezone.utc)
@@ -33,6 +38,7 @@ def main(now=None):
     L = ["# Morning digest - %s" % now.date(), "", "## Alerts this run", ""] + (["- **%s**: %s" % (t, b) for _, t, b in al] or ["- none"]) + ["",
          "## Everything else", "", "- Changes since last run: %d (%d new, %d removed, %d field updates)" % (len(recent), sum(c["change"] == "added" for c in recent), sum(c["change"] == "removed" for c in recent), sum(c["change"] not in ("added", "removed") for c in recent)),
          "- Likely duplicates on the map: %d (reports/duplicates.md)" % likely,
+         "- Weather/flood warnings: %d (reports/weather.md)" % len(rj(P("reports", "weather.json"), {}).get("warnings", [])),
          "- Source quality scores: reports/source_scores.md",
          "- Source errors this run: %d (reports/source_errors.json)" % len(errs),
          "- SWEP councils still to check: %s (reports/swep_tracker.md)" % ("n/a" if swl is None else swl),
