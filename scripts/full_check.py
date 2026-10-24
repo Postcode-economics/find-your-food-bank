@@ -149,6 +149,15 @@ def load_access():
     try: s = open(ACC, encoding='utf-8').read(); return json.loads(s[s.index('{'):s.rindex('}') + 1])
     except Exception: return {}
 
+def source_errors(sites, results, by_site, when):
+    """Point 31 (24 Oct 2026): per-source error log (parse failure, timeout, HTTP error, paused, not reached)."""
+    errs = []
+    for u in sites:
+        r = results.get(u) or {}
+        if r.get('ok') is True: continue
+        errs.append(dict(website=u, name=(by_site.get(u) or [{}])[0].get('foodbank') or (by_site.get(u) or [{}])[0].get('name'), http=r.get('http'), error=r.get('error') or 'unknown', fail_runs=r.get('fail_runs')))
+    return dict(run=when, checked=len(sites), errors=errs)
+
 def retry_first(sites, queue):
     """Point 3 (24 Oct 2026): sites that failed or were not reached last run are checked first, so the time budget never starves them."""
     q = set(queue); return [u for u in sites if u in q] + [u for u in sites if u not in q]
@@ -276,6 +285,7 @@ def main():
         state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
+    wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
