@@ -161,7 +161,176 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-55474277",
+    "name": "Falmouth Drop In",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "10:00 - 12:00",
+      "Thu": "10:00 - 14:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 12:00",
+      "Thu": "10:00 - 15:00"
+     }
+    }
+   },
+   {
+    "id": "ww-58567193",
+    "name": "Gateway",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {}
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:30 - 15:30",
+      "Tue": "09:30 - 15:30",
+      "Wed": "09:30 - 15:30",
+      "Thu": "09:30 - 15:30",
+      "Fri": "09:30 - 15:30"
+     }
+    }
+   },
+   {
+    "id": "ww-55472844",
+    "name": "Granton Skills & Wellbeing Centre",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "12:30 - 14:00",
+      "Thu": "13:00 - 16:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 14:00",
+      "Wed": "10:00 - 14:00",
+      "Thu": "12:00 - 16:00",
+      "Fri": "11:00 - 13:00",
+      "Sun": "11:00 - 13:00"
+     }
+    }
+   },
+   {
+    "id": "ww-57990409",
+    "name": "Height Library",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "09:00 - 17:30",
+      "Wed": "09:00 - 17:30",
+      "Thu": "09:00 - 17:30",
+      "Fri": "09:00 - 17:30",
+      "Sat": "09:00 - 13:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Tue": "09:00 - 12:30 / 13:30 - 17:30",
+      "Wed": "09:00 - 12:30 / 13:30 - 17:30",
+      "Thu": "09:00 - 12:30 / 13:30 - 17:30",
+      "Fri": "09:00 - 12:30 / 13:30 - 17:30",
+      "Sat": "09:00 - 13:00"
+     }
+    }
+   },
+   {
+    "id": "ww-57952583",
+    "name": "St Bert's Church",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Sun": "13:00 - 17:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Wed": "09:30 - 12:00 / 14:00 - 16:00",
+      "Fri": "10:00 - 14:00",
+      "Sun": "10:00 - 11:30"
+     }
+    }
+   },
+   {
+    "id": "ww-57951802",
+    "name": "St Botolph's Church",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "09:00 - 14:30",
+      "Tue": "09:00 - 14:30",
+      "Wed": "09:00 - 14:30",
+      "Thu": "09:00 - 14:30",
+      "Fri": "09:00 - 14:30",
+      "Sat": "10:00 - 13:30"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:00 - 15:00",
+      "Tue": "09:00 - 15:00",
+      "Wed": "09:00 - 15:00",
+      "Thu": "09:00 - 15:00",
+      "Fri": "09:00 - 15:00",
+      "Sat": "10:00 - 14:00",
+      "Sun": "10:00 - 14:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55473520",
+    "name": "St Helen's Church Northwich",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Sun": "13:00 - 17:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Thu": "11:00 - 13:30"
+     }
+    }
+   },
+   {
+    "id": "hav-monday-meet-up",
+    "name": "The Monday Meet Up (The Hubb Café)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "10:00 - 14:00",
+      "Tue": "10:00 - 13:00",
+      "Thu": "10:00 - 14:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:30 - 12:00"
+     }
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -177,10 +346,6 @@
    {
     "id": "ww-57952860",
     "reason": "source no longer names this place"
-   },
-   {
-    "id": "ww-57979418",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-57952197",
@@ -207,10 +372,6 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-59130027",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-68642792",
     "reason": "published days not found on source this run"
    },
@@ -225,26 +386,6 @@
    {
     "id": "ww-69070265",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "ww-67979812",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-65437506",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-58358850",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-55592264",
-    "reason": "source unreachable this run (HTTP error)"
-   },
-   {
-    "id": "ww-57952705",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-68762729",
@@ -267,20 +408,8 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "ww-65437496",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
-   },
-   {
-    "id": "ww-69080400",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-68672320",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-67608542",
