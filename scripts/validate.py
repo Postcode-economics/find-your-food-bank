@@ -3,7 +3,7 @@ Checks every food bank, shelter and warm space for: (a) phone looks like a UK nu
 HH:MM ranges, (c) postcode matches the UK format, (d) name not empty. The single-word name rule is NOT applied
 (1,000+ real places such as Trussell centres named after the town are one word).
 Writes reports/validation.md + reports/validation.json. It never removes or blocks anything: new places are already
-held by publish_gate.py; whether a failed check should block publishing is Dean's call. postcodes.io lookups stay in build_outcodes.py."""
+held by publish_gate.py; only SEVERE failures block publishing (Dean 24 Oct, 'validate.py gate'): a data file that will not parse, or a count more than 10% below the last published run; everything else is a warning in the digest. postcodes.io lookups stay in build_outcodes.py."""
 import json, os, re, sys
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 FILES = {"foodbanks": "data.full.js", "shelters": "shelters.js", "warmspaces": "warmspaces.js"}
@@ -43,4 +43,30 @@ def main():
     L = ["# Validation report (point 33)", "", "Report only - nothing is blocked or removed.", ""]
     for k, v in rep.items(): L += ["## %s (%d)" % (k, len(v)), ""] + ["- %s (`%s`): %s - phone %s, postcode %s" % (x["name"], x["id"], ", ".join(x["problems"]), x["phone"], x["postcode"]) for x in v] + [""]
     open(os.path.join(ROOT, "reports", "validation.md"), "w", encoding="utf-8").write("\n".join(L)); return rep
-if __name__ == "__main__": print("validation:", {k: len(v) for k, v in main().items()})
+MAX_DROP = 0.10
+def count(text): return len(json.loads(text[text.index("{"): text.rindex("}") + 1]).get("items", []))
+def gate(now_text, last_text):
+    """Severe failures only (Dean 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}."""
+    bad = {}
+    for k, f in FILES.items():
+        t = now_text.get(k)
+        if t is None: continue
+        try: n = count(t)
+        except Exception as e: bad[k] = "%s will not parse (%s)" % (f, e.__class__.__name__); continue
+        try: last = count(last_text[k]) if last_text.get(k) else None
+        except Exception: last = None
+        if last and n < last * (1 - MAX_DROP): bad[k] = "%s count %d is more than 10%% below last published %d" % (f, n, last)
+    return bad
+def gate_main():
+    import subprocess
+    now = {k: (open(os.path.join(ROOT, f), encoding="utf-8").read() if os.path.exists(os.path.join(ROOT, f)) else None) for k, f in FILES.items()}
+    last = {}
+    for k, f in FILES.items():
+        r = subprocess.run(["git", "-C", ROOT, "show", "HEAD:" + f], capture_output=True, text=True)
+        last[k] = r.stdout if r.returncode == 0 else None
+    bad = gate(now, last)
+    for v in bad.values(): print("::error::SEVERE - not publishing:", v)
+    return bad
+if __name__ == "__main__":
+    if sys.argv[1:] == ["gate"]: sys.exit(1 if gate_main() else 0)
+    print("validation:", {k: len(v) for k, v in main().items()})

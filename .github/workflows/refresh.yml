@@ -72,6 +72,8 @@ jobs:
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
         continue-on-error: true
         run: python scripts/seo_meta.py
+      - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
+        run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
