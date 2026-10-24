@@ -31,6 +31,13 @@ def classify(text, run_day=None):
         if ds and (datetime.date.fromisoformat(run_day) - max(ds)).days > 10:
             return "old notice (latest date on page %s)" % max(ds).isoformat(), q
     return st, q
+def in_season(md, frm, to):
+    return frm <= md <= to if frm <= to else (md >= frm or md <= to)
+def seasonal_active(code, run_day, path="overrides/swep_seasonal.json"):
+    """Fixed-season SWEP stated on the council's own page (overrides/swep_seasonal.json, Dean 24 Oct 2026)."""
+    try: s = json.load(open(path)).get(code)
+    except Exception: return None
+    return s if s and in_season(run_day[5:], s["from"], s["to"]) else None
 def _fetch(u):
     from discover import fetch_raw
     return fetch_raw(u)
@@ -104,6 +111,8 @@ def full(fetcher=None, run_day=None, threads=8):
             st, q = classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
             res["pages"].append({"url": u, "http": r.get("http"), "status": st, "quote": q})
         res["status"] = next((p["status"] for p in res["pages"] if p["status"] == "active"), res["pages"][0]["status"] if res["pages"] else "no SWEP page")
+        sz = seasonal_active(c["code"], run_day)
+        if sz: res["status"] = "active"; res["pages"].append({"url": sz["url"], "http": None, "status": "active", "quote": "seasonal (council page): " + sz["quote"]})
         o = pp.get(c["code"])
         flags = []
         if not o: flags.append("new council record")
