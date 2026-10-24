@@ -1,12 +1,8 @@
 {
- "run": "2026-10-23",
- "pages": 1727,
- "failed": 143,
+ "run": "2026-10-24",
+ "pages": 1725,
+ "failed": 144,
  "errors": [
-  [
-   "https://www.rugby.gov.uk/warmhubs",
-   "error"
-  ],
   [
    "https://www.camden.gov.uk/warm-spaces-in-camden",
    403
@@ -66,14 +62,6 @@
   [
    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
    400
-  ],
-  [
-   "https://www.edinburgh.gov.uk/warm-welcoming-spaces",
-   404
-  ],
-  [
-   "https://www.edinburgh.gov.uk/warm-welcoming-spaces/recently-added-events-activities",
-   404
   ],
   [
    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
@@ -140,15 +128,11 @@
    "error"
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
-   "error"
+   "https://lewisham.gov.uk/inmyarea/publicsafety/emergencies/what-to-do-in-an-emergency/what-to-do-in-severe-weather",
+   403
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
-   "error"
-  ],
-  [
-   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "https://www.lincoln.gov.uk/downloads/file/1466/lincolnshire-homelessness-and-rough-sleeper-delivery-plan",
    "error"
   ],
   [
@@ -316,7 +300,15 @@
    400
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "https://www.sthelens.gov.uk/article/2259/Tell-us-about-rough-sleepers-or-street-begging",
+   "error"
+  ],
+  [
+   "https://www.sthelens.gov.uk/article/2985/Rough-sleeping",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
    "error"
   ],
   [
@@ -333,6 +325,10 @@
   ],
   [
    "http://default/page/883/homelessness-and-rough-sleeping-strategy",
+   "error"
+  ],
+  [
+   "https://www.sutton.gov.uk/news/2022/council-calls-warm-spaces-volunteers",
    "error"
   ],
   [
@@ -376,6 +372,10 @@
    403
   ],
   [
+   "https://tamworth.gov.uk/housing/homelessness/rough-sleeping",
+   500
+  ],
+  [
    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
    404
   ],
@@ -404,8 +404,8 @@
    405
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weather-s-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
-   "error"
+   "https://lewisham.gov.uk/myservices/education/schools/emergencies-at-school",
+   403
   ],
   [
    "http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
@@ -429,7 +429,7 @@
   ],
   [
    "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-   302
+   403
   ],
   [
    "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
@@ -438,6 +438,10 @@
   [
    "https://www.breckland.gov.uk/article/12299/Rough-sleeping-in-extreme-weather-conditions",
    403
+  ],
+  [
+   "https://www.castlepoint.gov.uk/w/rough-sleeping",
+   "error"
   ],
   [
    "https://www.chichester.gov.uk/homelessapplications",
