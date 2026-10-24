@@ -25,9 +25,12 @@ jobs:
         run: python -m unittest tests.test_swep_full -v
       - name: Full SWEP check (every council)
         run: python scripts/swep.py full
+      - name: SWEP tracker - still-to-check list (point 2)
+        continue-on-error: true
+        run: python scripts/swep_tracker.py
       - name: Commit logs
         run: |
-          git add logs/swep_full.json reports/swep_daily.md
+          git add logs/swep_full.json reports/swep_daily.md; git add logs/swep_tracker.json reports/swep_tracker.md 2>/dev/null || true
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
