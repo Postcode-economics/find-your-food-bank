@@ -54,3 +54,7 @@ RESUME HERE:
 - CofE: no national list exists. Methodist national page points to Warm Welcome (already the base layer).
 - NEW: .github/workflows/sweep-daily.yml (01:00 UTC) + scripts/sweep_daily.py + scripts/sweep_sources.json + overrides/sweep_exclude.json + tests/test_sweep.py (17 tests). First full run: 820 pages, 152 failed, 0 auto-added, 550 queued in logs/sweep_pending.json.
 RESUME HERE: review logs/sweep_pending.json (550 candidates) and mark more list sources auto_add once their layout has been checked; Riverside / Powys / NIHE are still blocked.
+
+## Refresh notes 24 Oct 2026: Facebook-page phones
+- If a food bank's own Facebook page shows a phone, it goes in overrides/phones.json, with its source in phone_sources.json. build.py applies it before and after IFAN discovery, and the card then shows the phone instead of the Message on Facebook button.
+- To do for the next map update (Dean's decision): keep these 6 cards on the map, and label their phone with whose number it is. They are ifan-53c68645aa831ab649ac43-0 (St Paul's Wimbledon Parkside, church office), ifan-5b3e01fe979d373d9ba679-0 (parent charity Caritas Salford), ifan-5b9fd1318a04132921a389-0 (Holy Trinity Wester Hailes, church office), ifan-762040c38571b1178c1e2d-0 (The Gospel Centre, church office), ifan-9cf9dd4ce1df051c2c0a59-0 (Healthy Living Platform, parent charity) and ifan-ca574aed6b4ff8c310060c-0 (Chapeltown Youth DC / CFYDC). The label needs a new phone-label field. That isn't built yet, so for now these cards keep the button.
