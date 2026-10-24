@@ -40,7 +40,24 @@ def apply_address_fixes(items, root):
         f = fx.get(i["id"])
         if f and not i["id"].startswith("_"):
             for k in ("address", "postcode", "lat", "lng"): i[k] = f[k]
+def add_added_foodbanks(items, root):
+    """Independent food banks hand-checked from public sources (overrides/foodbank_added.json, Dean 24 Oct 2026): standalone
+    food bank pins (own venue, own phone, own times). Idempotent; never overrides a Give Food/IFAN pin with the same id."""
+    p = os.path.join(root, "overrides", "foodbank_added.json")
+    if not os.path.exists(p): return 0
+    ex = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+    have = {i["id"] for i in items if not i.get("hand_added")}
+    items[:] = [i for i in items if not (i.get("hand_added") and i["id"] in ex)]
+    n = 0
+    for k, x in ex.items():
+        if k in have: print("warning: hand-added food bank id already listed:", k); continue
+        items.append({"id": k, "type": "foodbank", "name": x["name"], "foodbank": x["name"], "network": "Independent", "address": x["address"],
+            "postcode": x["postcode"], "lat": x["lat"], "lng": x["lng"], "phone": x["phone"], "tel": x["phone"], "website": x["website"], "givefood": "",
+            "opening_times": x["opening_times"], "pc_checked": True, "phone_checked": True, "manual": True, "hand_added": True, "evidence_url": x["evidence_url"]})
+        n += 1
+    return n
 def classify(items, root):
+    add_added_foodbanks(items, root)
     add_extra_locations(items, root)
     apply_address_fixes(items, root)
     man = {k: v for k, v in json.load(open(os.path.join(root, "overrides", "foodbank_manual.json"))).items() if not k.startswith("_")} \
