@@ -617,15 +617,6 @@
   "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
  },
  {
-  "code": "ABC",
-  "council": "Armagh City, Banbridge and Craigavon Borough Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
- },
- {
   "code": "ABD",
   "council": "Aberdeenshire Council",
   "nation": "Scotland",
@@ -715,26 +706,6 @@
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.ambervalley.gov.uk/housing/homelessness-and-housing-advice/",
   "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
- },
- {
-  "code": "AND",
-  "council": "Ards and North Down Borough Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [
-   "https://www.ardsandnorthdown.gov.uk/Extreme-weather-heat"
-  ]
- },
- {
-  "code": "ANN",
-  "council": "Antrim and Newtownabbey Borough Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
  },
  {
   "code": "ANS",
@@ -907,17 +878,6 @@
   "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
   "looked_at": [],
   "homeless_url": "https://www.bexley.gov.uk/services/housing/prevention-and-relief-duties/risk-losing-your-accommodation",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
- },
- {
-  "code": "BFS",
-  "council": "Belfast City Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
-  "homeless_url": "https://www.belfastcity.gov.uk/community/housing/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
  {
@@ -1327,17 +1287,6 @@
   "homeless_url": "https://www.centralbedfordshire.gov.uk/housing/homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
- },
- {
-  "code": "CCG",
-  "council": "Causeway Coast and Glens Borough Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
-  "homeless_url": "https://causewaycoastandglens.gov.uk/live/advice-services",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
  {
   "code": "CGN",
@@ -1800,15 +1749,6 @@
   "found_on": "hand search 2026-10-23: SWEP/severe-weather wording confirmed on council own page"
  },
  {
-  "code": "DRS",
-  "council": "Derry City and Strabane District Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
- },
- {
   "code": "DST",
   "council": "Dorset Council",
   "nation": "England",
@@ -2206,15 +2146,6 @@
   "looked_at": [],
   "homeless_url": "https://www.flintshire.gov.uk/en/Resident/Housing/Housing-and-Prevention/Homeless-or-At-Risk-of-Homelessness.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
- },
- {
-  "code": "FMO",
-  "council": "Fermanagh and Omagh District Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
  },
  {
   "code": "FOE",
@@ -2818,15 +2749,6 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
  {
-  "code": "LBC",
-  "council": "Lisburn and Castlereagh City Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
- },
- {
   "code": "LBH",
   "council": "London Borough of Lambeth",
   "nation": "England",
@@ -3057,15 +2979,6 @@
   "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked"
  },
  {
-  "code": "MEA",
-  "council": "Mid and East Antrim Borough Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
- },
- {
   "code": "MEL",
   "council": "Melton Borough Council",
   "nation": "England",
@@ -3192,15 +3105,6 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "ooh_phone": "01685 385231",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line"
- },
- {
-  "code": "MUL",
-  "council": "Mid Ulster District Council",
-  "nation": "Northern Ireland",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
  },
  {
   "code": "NAY",
@@ -5475,5 +5379,35 @@
   "council": "Thanet District Council",
   "url": "https://www.thanet.gov.uk/tag/winter-shelter/",
   "found_on": "https://www.thanet.gov.uk"
+ },
+ {
+  "code": "NIHE",
+  "council": "Northern Ireland Housing Executive (covers all 11 Northern Ireland councils)",
+  "nation": "Northern Ireland",
+  "url": "https://www.nihe.gov.uk/housing-help/homelessness/severe-weather-emergency-protocol",
+  "found_on": "https://www.nihe.gov.uk/housing-help/homelessness/severe-weather-emergency-protocol",
+  "covers": [
+   "ABC",
+   "AND",
+   "ANN",
+   "BFS",
+   "CCG",
+   "DRS",
+   "FMO",
+   "LBC",
+   "MEA",
+   "MUL",
+   "NMD"
+  ],
+  "covers_source": "https://www.nihe.gov.uk/about-us/corporate-governance/housing-council",
+  "covers_quote": "The Housing Council is made up of one representative from each of the 11 local councils in Northern Ireland.",
+  "swep_quote": "The Severe Weather Emergency Protocol (SWEP) is a set of arrangements which ensures that accommodation is available for people who are sleeping rough when there is an increased risk of death due to the weather. We are responsible for implementing the SWEP.",
+  "homeless_phone": "03448 920 900",
+  "homeless_phone_note": "Housing Executive homelessness contact as given on its SWEP page ('contact us: Tel: 03448 920 900'); office hours",
+  "ooh_phone": "03448 920 908",
+  "ooh_note": "Housing Executive out-of-hours homelessness service (Mon-Fri after 5pm, weekends and bank holidays). Not stated as 24h, so not labelled 24h.",
+  "phone_source": "https://www.nihe.gov.uk/emergency",
+  "phone_confidence": "hand-checked 2026-10-24 from search-engine copies of nihe.gov.uk (live site blocks non-browser fetches: curl 403, WebFetch 404); needs a live browser check before going live",
+  "note": "One NIHE entry instead of per-council NI rows (Dean, 24 Oct 06:25). In Northern Ireland councils have no homelessness function; SWEP is run by the NI Housing Executive. Built on branch nihe-swep-single, awaiting Dean's approval."
  }
 ]
