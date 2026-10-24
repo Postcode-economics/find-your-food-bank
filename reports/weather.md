@@ -44,16 +44,34 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **Met Office** [amber] Amber warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
 - **Met Office** [yellow] Yellow warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
 - **Met Office** [yellow] Yellow warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Keswick Campsite - shelters/warm spaces in area: none matched; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: Irish Sea at New Brighton - shelters/warm spaces in area: Friendly Faces, Moreton Methodist Church; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg - shelters/warm spaces in area: none matched; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Millingford Brook at Ashton in Makerfield - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Tue Brook at Clubmoor - shelters/warm spaces in area: The Hub @ St Peter's, Woolton; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven - shelters/warm spaces in area: none matched; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Lee's Bridge at Astley Bridge Central - shelters/warm spaces in area: Cafe Oasis, Christ Church Coffee Lounge, St Katharine's Church,  Blackrod; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Bessy Brook at Lostock - shelters/warm spaces in area: Cafe Oasis, Christ Church Coffee Lounge, St Katharine's Church,  Blackrod; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: River Barle from Simonsbath to Brushford, including Withypool - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland - shelters/warm spaces in area: Bamford Chapel & Norden URC, Cafe Oasis, Christ Church Coffee Lounge, Cornerstone United Reformed Church @ Parrs Wood Road, Fairhaven Methodist Church, Gateway, Greenmount Old School, Hope URC Denton, Leyland United Reformed Church, North Blackburn URC, Over Wyre URC, Parish of St John Henry Newman, Morecambe - Warm Welcome, Warm welcome, Wellness Hub At St Laurence's Church; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: River Exe at Winsford and Bridgetown - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Innerpeffray to Bridge of Earn - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Carse of Lennoch to Lochlane - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Glen Lyon - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Crieff to Innerpeffray - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Finavon and Tannadice - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Kinnaird/Bridge of Dun - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Vatersay Causeway - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Berneray Causeway - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Upper Solway Firth - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Nith Tidal - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Southerness Point - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Rough Firth - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Kirkcudbright Bay - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Fleet Bay - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Inner Wigtown Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Outer Wigtown Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for East Luce Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay North - shelters/warm spaces in area: none matched; SWEP active: none
@@ -64,7 +82,15 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Ayr to Troon - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Largs - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Dumbarton - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Burray and Ayre of Cara - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for St Margaret's Hope - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Longhope and Hoy - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Sanday - shelters/warm spaces in area: none matched; SWEP active: none
+- **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Talbot Green - shelters/warm spaces in area: none matched; SWEP active: none
 - **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Peterston Super Ely - shelters/warm spaces in area: none matched; SWEP active: none
+- **Natural Resources Wales** [flood warning] Flood Warning: River Ewenny at Ewenny Village - shelters/warm spaces in area: none matched; SWEP active: none
+- **Natural Resources Wales** [flood warning] Flood Warning: River Lower Clydach at Clydach Bridge - shelters/warm spaces in area: Caffi Cynefin; SWEP active: none
+- **Natural Resources Wales** [flood warning] Flood Warning: River Rhondda at Porth - shelters/warm spaces in area: none matched; SWEP active: none
 
 ## Alert-triggered council shelter page re-check
 
@@ -79,9 +105,12 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - Angus Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - Antrim and Newtownabbey Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Northern Ireland)
 - Blackpool Borough Council: council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown) (alerts: Met Office: Amber warning of wind affecting North West England)
+- Bolton Metropolitan Borough Council: council page not clear: https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton (unknown) (alerts: Environment Agency: Flood warning: Lee's Bridge at Astley Bridge Central; Environment Agency: Flood warning: Bessy Brook at Lostock)
+- City and County of Swansea Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Natural Resources Wales: Flood Warning: River Lower Clydach at Clydach Bridge)
 - City of Edinburgh Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
 - Clackmannanshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
-- Cumberland Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg; Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe; Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven)
+- Cumberland Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: Keswick Campsite; Environment Agency: Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg; Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe)
+- Devon County Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: River Barle from Simonsbath to Brushford, including Withypool; Environment Agency: Flood warning: River Exe at Winsford and Bridgetown)
 - Dundee City Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - Durham County Council: council page not clear: https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers (unknown) (alerts: Met Office: Amber warning of wind affecting North East England)
 - East Ayrshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
@@ -92,7 +121,8 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - Fife Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - Glasgow City Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
 - Inverclyde Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
-- Lancashire County Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting North West England)
+- Lancashire County Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting North West England; Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland)
+- Liverpool City Council: council page not clear: https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/ (no SWEP wording) (alerts: Environment Agency: Flood warning: Tue Brook at Clubmoor)
 - Mid and East Antrim Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Northern Ireland)
 - Midlothian Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
 - North Ayrshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
@@ -100,16 +130,19 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - North Yorkshire Council: council page not clear: https://www.northyorks.gov.uk/housing-and-homelessness/homelessness/housing-and-homelessness/homelessness/help-rough-sleepers (unknown) (alerts: Met Office: Amber warning of wind affecting Yorkshire & Humber)
 - Northumberland County Council: council page not clear: https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather (no SWEP wording); https://nccform.northumberland.gov.uk/form/webfeedback?page=/education-skills/schools/school-transport/information-parents-during-periods-severe-weather (no SWEP wording); https://www.northumberland.gov.uk/housing/homelessness-and-housing-options (unknown) (alerts: Met Office: Amber warning of wind affecting North East England)
 - Renfrewshire Council: council page not clear: https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather (no SWEP wording); https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather (no SWEP wording); https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers (unknown) (alerts: Met Office: Amber warning of wind affecting Strathclyde)
+- Rhondda Cynon Taf County Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Natural Resources Wales: Flood Warning: River Ely at Talbot Green; Natural Resources Wales: Flood Warning: River Rhondda at Porth)
 - Scottish Borders Council: council page not clear: https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (no SWEP wording) (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
+- Somerset Council: council page not clear: https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/ (unknown) (alerts: Environment Agency: Flood warning: River Barle from Simonsbath to Brushford, including Withypool; Environment Agency: Flood warning: River Exe at Winsford and Bridgetown)
 - South Ayrshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
 - South Lanarkshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
 - Stirling Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - The Highland Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Highlands & Eilean Siar)
 - The Moray Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Grampian)
-- Vale of Glamorgan Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely)
+- Vale of Glamorgan Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely; Natural Resources Wales: Flood Warning: River Ewenny at Ewenny Village)
 - West Dunbartonshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
-- West Lancashire Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting North West England)
+- West Lancashire Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting North West England; Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland)
 - West Lothian Council: council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording) (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
+- Wigan Metropolitan Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: Millingford Brook at Ashton in Makerfield)
 - Wirral Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: Irish Sea at New Brighton)
 
 Source errors: none

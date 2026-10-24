@@ -1,5 +1,5 @@
 {
- "run": "2026-10-24T13:37:43+00:00",
+ "run": "2026-10-24T21:08:22+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -60,6 +60,35 @@
    "review": "council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown)"
   },
   {
+   "code": "BOL",
+   "council": "Bolton Metropolitan Borough Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Lee's Bridge at Astley Bridge Central",
+    "Environment Agency: Flood warning: Bessy Brook at Lostock"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton (unknown)"
+  },
+  {
+   "code": "SWA",
+   "council": "City and County of Swansea Council",
+   "alerts": [
+    "Natural Resources Wales: Flood Warning: River Lower Clydach at Clydach Bridge"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
    "code": "EDH",
    "council": "City of Edinburgh Council",
    "alerts": [
@@ -83,10 +112,22 @@
    "code": "CBD",
    "council": "Cumberland Council",
    "alerts": [
+    "Environment Agency: Flood warning: Keswick Campsite",
     "Environment Agency: Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg",
     "Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
     "Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven",
     "Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "DEV",
+   "council": "Devon County Council",
+   "alerts": [
+    "Environment Agency: Flood warning: River Barle from Simonsbath to Brushford, including Withypool",
+    "Environment Agency: Flood warning: River Exe at Winsford and Bridgetown"
    ],
    "open_tonight": false,
    "pages": [],
@@ -220,11 +261,30 @@
    "code": "LAN",
    "council": "Lancashire County Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting North West England"
+    "Met Office: Amber warning of wind affecting North West England",
+    "Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland"
    ],
    "open_tonight": false,
    "pages": [],
    "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "LIV",
+   "council": "Liverpool City Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Tue Brook at Clubmoor"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/ (no SWEP wording)"
   },
   {
    "code": "MEA",
@@ -349,6 +409,17 @@
    "review": "council page not clear: https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather (no SWEP wording); https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather (no SWEP wording); https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers (unknown)"
   },
   {
+   "code": "RCT",
+   "council": "Rhondda Cynon Taf County Borough Council",
+   "alerts": [
+    "Natural Resources Wales: Flood Warning: River Ely at Talbot Green",
+    "Natural Resources Wales: Flood Warning: River Rhondda at Porth"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
    "code": "SCB",
    "council": "Scottish Borders Council",
    "alerts": [
@@ -365,6 +436,25 @@
     }
    ],
    "review": "council page not clear: https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (no SWEP wording)"
+  },
+  {
+   "code": "SMT",
+   "council": "Somerset Council",
+   "alerts": [
+    "Environment Agency: Flood warning: River Barle from Simonsbath to Brushford, including Withypool",
+    "Environment Agency: Flood warning: River Exe at Winsford and Bridgetown"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/ (unknown)"
   },
   {
    "code": "SAY",
@@ -420,7 +510,8 @@
    "code": "VGL",
    "council": "Vale of Glamorgan Council",
    "alerts": [
-    "Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely"
+    "Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely",
+    "Natural Resources Wales: Flood Warning: River Ewenny at Ewenny Village"
    ],
    "open_tonight": false,
    "pages": [],
@@ -440,7 +531,8 @@
    "code": "WLA",
    "council": "West Lancashire Borough Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting North West England"
+    "Met Office: Amber warning of wind affecting North West England",
+    "Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland"
    ],
    "open_tonight": false,
    "pages": [],
@@ -477,6 +569,16 @@
     }
    ],
    "review": "council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording)"
+  },
+  {
+   "code": "WGN",
+   "council": "Wigan Metropolitan Borough Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Millingford Brook at Ashton in Makerfield"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
    "code": "WRL",
