@@ -58,6 +58,9 @@ jobs:
       - name: Holiday hours calendar (point 4, scripts/holidays.py, data only)
         continue-on-error: true
         run: python scripts/holidays.py
+      - name: Data download files (point 20, scripts/export_data.py, no button)
+        continue-on-error: true
+        run: python scripts/export_data.py
       - name: Source quality scores (point 8, scripts/source_score.py)
         continue-on-error: true
         run: python scripts/source_score.py
@@ -80,7 +83,7 @@ jobs:
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json
+          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json export/
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
