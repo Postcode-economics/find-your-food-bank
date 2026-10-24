@@ -12708,17 +12708,6 @@
 "website": "https://horshamdistrict.foodbank.org.uk"
 },
 {
-"id": "horsham-district/united-reform-church-horsham",
-"name": "United Reform Church, Horsham",
-"network": "Trussell",
-"address": "United Reform Church, Springfield Road, Horsham, West Sussex, RH12 2RG",
-"postcode": "RH12 2RG",
-"lat": 51.0644088,
-"lng": -0.3311067,
-"phone": "03001240204",
-"website": "https://horshamdistrict.foodbank.org.uk"
-},
-{
 "id": "salvation-army/winchester",
 "name": "Winchester",
 "network": "Independent",
@@ -32420,17 +32409,6 @@
 "website": "https://www.jedidiah.org.uk"
 },
 {
-"id": "ifan-34121866eb63e9e50d317f-0",
-"name": "Shop and Donate CIC",
-"network": "IFAN",
-"address": "SW1V 1TA",
-"postcode": "SW1V 1TA",
-"lat": 51.493905,
-"lng": -0.139903,
-"phone": "",
-"website": "https://www.shopanddonate.org/"
-},
-{
 "id": "ifan-345925e365a20af9a2007e-0",
 "name": "Axminster Health & Wellbeing Centre",
 "network": "IFAN",
@@ -32440,17 +32418,6 @@
 "lng": -2.997227,
 "phone": "01297 32331",
 "website": "https://www.axminsterwellbeing.com"
-},
-{
-"id": "ifan-3598d68070dfe141274bc6-0",
-"name": "Eyres Monsell Club for Young People",
-"network": "IFAN",
-"address": "LE2 9AQ",
-"postcode": "LE2 9AQ",
-"lat": 52.592258,
-"lng": -1.147984,
-"phone": "",
-"website": "https://www.eyresmonsellcyp.co.uk"
 },
 {
 "id": "ifan-35c6027fbd4557dc7eb4bb-0",
@@ -32539,17 +32506,6 @@
 "lng": -1.841138,
 "phone": "",
 "website": "https://www.colnevalleyhelp.org.uk"
-},
-{
-"id": "ifan-4a6217d6ae69c4977d7d70-0",
-"name": "Hopeworx",
-"network": "IFAN",
-"address": "SS6 7XJ",
-"postcode": "SS6 7XJ",
-"lat": 51.577192,
-"lng": 0.61091,
-"phone": "",
-"website": "https://www.hopeworx.org.uk"
 },
 {
 "id": "ifan-53c68645aa831ab649ac43-0",
@@ -32673,17 +32629,6 @@
 "website": "https://www.healthylivingplatform.org"
 },
 {
-"id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
-"name": "Hangar Community Hub CIC",
-"network": "IFAN",
-"address": "CF11 8TT",
-"postcode": "CF11 8TT",
-"lat": 51.4605,
-"lng": -3.195666,
-"phone": "",
-"website": "https://hangarhub.org"
-},
-{
 "id": "ifan-9fef48d4f0fd3a3f6896d2-0",
 "name": "The Gospel Church of Jesus Christ",
 "network": "IFAN",
@@ -32750,6 +32695,17 @@
 "website": "https://www.cfydc.org.uk/"
 },
 {
+"id": "ifan-d59b2e089746f7a97c1e15-0",
+"name": "Chance Changing Lives",
+"network": "IFAN",
+"address": "CW1 4EJ",
+"postcode": "CW1 4EJ",
+"lat": 53.106894,
+"lng": -2.434173,
+"phone": "01270 211000",
+"website": "https://www.chancechanginglives.org"
+},
+{
 "id": "ifan-da5df633f7eabc8fbdb2a3-0",
 "name": "Castleman Community Larder CIC",
 "network": "IFAN",
@@ -32792,6 +32748,116 @@
 "lng": -1.941711,
 "phone": "0121 471 3677",
 "website": "https://www.thelifehouse.net"
+},
+{
+"id": "gleadless-valley",
+"name": "Gleadless Valley Foodbank",
+"network": "Independent",
+"address": "189 Blackstock Road, Gleadless Valley, Sheffield, S14 1FX",
+"postcode": "S14 1FX",
+"lat": 53.345065,
+"lng": -1.445734,
+"phone": "07840295401",
+"website": "https://gleadlessvalleyfoodbank.co.uk/"
+},
+{
+"id": "lancing-sompting-harriet-johnson-centre",
+"name": "Lancing & Sompting Churches Foodbank - Harriet Johnson Centre",
+"network": "Independent",
+"address": "Harriet Johnson Centre, Old School House, Loose Lane, Sompting, Lancing, BN15 0BG",
+"postcode": "BN15 0BG",
+"lat": 50.833834,
+"lng": -0.345506,
+"phone": "07719196735",
+"website": "https://www.lancingandsomptingchurchesfoodbank.org/about"
+},
+{
+"id": "lancing-sompting-adur-west-family-hub",
+"name": "Lancing & Sompting Churches Foodbank - Adur West Family Hub",
+"network": "Independent",
+"address": "Adur West Family Hub, 42 North Road, Lancing, BN15 9AB",
+"postcode": "BN15 9AB",
+"lat": 50.827927,
+"lng": -0.322356,
+"phone": "07719196735",
+"website": "https://www.lancingandsomptingchurchesfoodbank.org/about"
+},
+{
+"id": "shoreham-adur-community",
+"name": "Shoreham & Adur Community Foodbank",
+"network": "Independent",
+"address": "Huntington Hall, Shoreham Free Church, Shoreham-by-Sea, BN43 6WF",
+"postcode": "BN43 6WF",
+"lat": 50.834951,
+"lng": -0.269359,
+"phone": "07591076738",
+"website": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/"
+},
+{
+"id": "stannington",
+"name": "Stannington Foodbank",
+"network": "Independent",
+"address": "Stanwood Drive, Sheffield, S6 5HZ",
+"postcode": "S6 5HZ",
+"lat": 53.393186,
+"lng": -1.524088,
+"phone": "07754254462",
+"website": "https://www.sheffield.gov.uk/node/6758/stannington-food-bank"
+},
+{
+"id": "faringdon",
+"name": "Faringdon Foodbank",
+"network": "Independent",
+"address": "Town Council Offices, Pump House, 5 Market Place, Faringdon, SN7 7HL",
+"postcode": "SN7 7HL",
+"lat": 51.65863,
+"lng": -1.583376,
+"phone": "07548535855",
+"website": "https://www.faringdon-foodbank.com/"
+},
+{
+"id": "bevendean",
+"name": "Bevendean Food Bank",
+"network": "Independent",
+"address": "Church Hall, Norwich Drive, Brighton, BN2 4LA",
+"postcode": "BN2 4LA",
+"lat": 50.843603,
+"lng": -0.099976,
+"phone": "07856408522",
+"website": "https://bhfood.org.uk/directory/bevendean-food-bank/"
+},
+{
+"id": "dn6-askern",
+"name": "DN6 Foodbank (Askern, Norton & Campsall)",
+"network": "Independent",
+"address": "St Peter's Church, Church Street, Askern, Doncaster, DN6 0PH",
+"postcode": "DN6 0PH",
+"lat": 53.61734,
+"lng": -1.15264,
+"phone": "07554748284",
+"website": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/"
+},
+{
+"id": "queensbury",
+"name": "We Are Queensbury Foodbank & Community Hub",
+"network": "Independent",
+"address": "25 High Street, Queensbury, Bradford, BD13 2PE",
+"postcode": "BD13 2PE",
+"lat": 53.768107,
+"lng": -1.846025,
+"phone": "07842770791",
+"website": "https://queensburyfoodbank.co.uk/contact/"
+},
+{
+"id": "ethnic-food-bank-bedford",
+"name": "Ethnic Food Bank",
+"network": "Independent",
+"address": "Westbourne Community Centre, Westbourne Road, Bedford, MK40 4PQ",
+"postcode": "MK40 4PQ",
+"lat": 52.13471,
+"lng": -0.486807,
+"phone": "07417509996",
+"website": "https://ethnicfoodbank.org/contact-us"
 },
 {
 "id": "rugby/lawn-and-retreat",
@@ -32860,15 +32926,48 @@
 "website": "https://coventry.foodbank.org.uk/locations/"
 },
 {
-"id": "ifan-d59b2e089746f7a97c1e15-0",
-"name": "Chance Changing Lives",
+"id": "ifan-34121866eb63e9e50d317f-0",
+"name": "Shop and Donate CIC",
 "network": "IFAN",
-"address": "CW1 4EJ",
-"postcode": "CW1 4EJ",
-"lat": 53.106894,
-"lng": -2.434173,
-"phone": "01270 211000",
-"website": "https://www.chancechanginglives.org"
+"address": "SW1V 1TA",
+"postcode": "SW1V 1TA",
+"lat": 51.493905,
+"lng": -0.139903,
+"phone": "",
+"website": "https://www.shopanddonate.org/"
+},
+{
+"id": "ifan-3598d68070dfe141274bc6-0",
+"name": "Eyres Monsell Club for Young People",
+"network": "IFAN",
+"address": "LE2 9AQ",
+"postcode": "LE2 9AQ",
+"lat": 52.592258,
+"lng": -1.147984,
+"phone": "",
+"website": "https://www.eyresmonsellcyp.co.uk"
+},
+{
+"id": "ifan-4a6217d6ae69c4977d7d70-0",
+"name": "Hopeworx",
+"network": "IFAN",
+"address": "SS6 7XJ",
+"postcode": "SS6 7XJ",
+"lat": 51.577192,
+"lng": 0.61091,
+"phone": "",
+"website": "https://www.hopeworx.org.uk"
+},
+{
+"id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
+"name": "Hangar Community Hub CIC",
+"network": "IFAN",
+"address": "CF11 8TT",
+"postcode": "CF11 8TT",
+"lat": 51.4605,
+"lng": -3.195666,
+"phone": "",
+"website": "https://hangarhub.org"
 },
 {
 "id": "ifan-a2fb0701e0208ee9e642a3-0",
