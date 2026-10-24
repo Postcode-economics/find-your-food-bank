@@ -205,6 +205,13 @@ def main():
         if i['id'] in fbp: i['fb_page'] = fbp[i['id']]['url']
     for i in items:  # checked phones again AFTER IFAN discovery too (24 Oct: FB-page phones for IFAN pins were missed)
         if i['id'] in phones and not i.get('phone'): i['phone'] = phones[i['id']]; i['phone_checked'] = True; apply_phone(i)
+    notices = load_json(os.path.join(ROOT, 'overrides', 'foodbank_notices.json'), {})
+    for i in items:  # hand-set card notices (e.g. temporary closure), pin kept (Dean 24 Oct)
+        n = notices.get(i['id'])
+        if isinstance(n, dict) and n.get('notice'): i['notice'] = n['notice']
+    plabels = load_json(os.path.join(ROOT, 'overrides', 'phone_labels.json'), {})
+    for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct)
+        if i.get('phone') and isinstance(plabels.get(i['id']), str): i['phone_label'] = plabels[i['id']]
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
