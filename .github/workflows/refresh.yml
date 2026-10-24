@@ -52,6 +52,9 @@ jobs:
       - name: Possible duplicates report (point 6, scripts/dedup_report.py)
         continue-on-error: true
         run: python scripts/dedup_report.py
+      - name: Validation report (point 33, scripts/validate.py, report only)
+        continue-on-error: true
+        run: python scripts/validate.py
       - name: Alerts + morning digest (point 9, scripts/digest.py)
         continue-on-error: true
         env:
