@@ -59,10 +59,12 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay North - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for South West Rhins - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Loch Ryan - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Whitesands - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay South - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Ayr to Troon - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Largs - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Dumbarton - shelters/warm spaces in area: none matched; SWEP active: none
+- **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Peterston Super Ely - shelters/warm spaces in area: none matched; SWEP active: none
 
 ## Alert-triggered council shelter page re-check
 
@@ -104,6 +106,7 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - Stirling Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - The Highland Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Highlands & Eilean Siar)
 - The Moray Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Grampian)
+- Vale of Glamorgan Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely)
 - West Dunbartonshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
 - West Lancashire Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting North West England)
 - West Lothian Council: council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording) (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)

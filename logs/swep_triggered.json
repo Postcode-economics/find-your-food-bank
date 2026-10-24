@@ -1,5 +1,5 @@
 {
- "run": "2026-10-24T13:20:14+00:00",
+ "run": "2026-10-24T13:37:43+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -411,6 +411,16 @@
    "council": "The Moray Council",
    "alerts": [
     "Met Office: Amber warning of wind affecting Grampian"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "VGL",
+   "council": "Vale of Glamorgan Council",
+   "alerts": [
+    "Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely"
    ],
    "open_tonight": false,
    "pages": [],

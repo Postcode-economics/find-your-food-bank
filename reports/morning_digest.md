@@ -6,9 +6,9 @@
 
 ## Everything else
 
-- Changes since last run: 32 (0 new, 0 removed, 32 field updates)
+- Changes since last run: 25 (0 new, 0 removed, 25 field updates)
 - Likely duplicates on the map: 23 (reports/duplicates.md)
-- Weather/flood warnings: 59 (reports/weather.md)
+- Weather/flood warnings: 61 (reports/weather.md)
 - Source quality scores: reports/source_scores.md
 - Source errors this run: 0 (reports/source_errors.json)
 - SWEP councils still to check: 0 (reports/swep_tracker.md)

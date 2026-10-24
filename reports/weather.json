@@ -1130,6 +1130,17 @@
   },
   {
    "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Whitesands",
+   "level": "flood warning",
+   "areas": [
+    "Whitesands"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27029/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
    "title": "A FLOOD WARNING has been issued for West Luce Bay South",
    "level": "flood warning",
    "areas": [
@@ -1169,6 +1180,18 @@
     "Dumbarton"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26949/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Natural Resources Wales",
+   "title": "Flood Warning: River Ely at Peterston Super Ely",
+   "level": "flood warning",
+   "areas": [
+    "Vale of Glamorgan"
+   ],
+   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
+   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
    "places": [],
    "swep": []
   }
