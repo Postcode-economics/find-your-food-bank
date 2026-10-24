@@ -554,7 +554,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)

@@ -5,8 +5,9 @@ A new place needs a verified phone number (shelters also a sourced "who it's for
 ## foodbanks (0)
 
 
-## warmspaces (0)
+## warmspaces (1)
 
+- Age UK Gloucester House (LE13 1JE) - no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 
 ## shelters (0)
 
