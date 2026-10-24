@@ -1,148 +1,154 @@
 # SWEP tracker - 2026-10-24
 
-Councils still to check (status unknown or unreachable): **138 of 382**.
+Councils still to check (status unknown or unreachable): **2 of 382**.
 
 | day | still to check |
 |---|---|
-| 2026-10-24 | 138 |
+| 2026-10-24 | 2 |
 
 ## Still to check
 
-- Adur District Council (England) - unknown
-- Arun District Council (England) - unknown
-- Ashford Borough Council (England) - unknown
-- Basingstoke and Deane Borough Council (England) - unknown
-- Birmingham City Council (England) - unknown
-- Blackpool Borough Council (England) - unknown
-- Borough Council of Kings Lynn and West Norfolk (England) - unknown
-- Bournemouth, Christchurch and Poole Council (England) - unknown
-- Braintree District Council (England) - unknown
-- Bristol City Council (England) - unknown
-- Buckinghamshire Council (England) - unknown
-- Burnley Borough Council (England) - unknown
-- Bury Metropolitan Borough Council (England) - unknown
-- Castle Point Borough Council (England) - unknown
-- Central Bedfordshire Council (England) - unknown
-- Cheltenham Borough Council (England) - unknown
-- Cherwell District Council (England) - unknown
-- Cheshire East Council (England) - unknown
-- Chesterfield Borough Council (England) - unknown
-- Chorley Borough Council (England) - unknown
-- City of Wolverhampton Council (England) - unknown
-- Conwy County Borough Council (Wales) - unknown
-- Cornwall Council (England) - unknown
-- Cotswold District Council (England) - unknown
-- Coventry City Council (England) - unknown
-- Crawley Borough Council (England) - unknown
-- Dartford Borough Council (England) - unknown
-- Derby City Council (England) - unknown
-- Dover District Council (England) - unknown
-- East Cambridgeshire District Council (England) - unknown
-- East Riding of Yorkshire Council (England) - unknown
-- Elmbridge Borough Council (England) - unknown
-- Forest of Dean District Council (England) - unknown
-- Gravesham Borough Council (England) - unknown
-- Gwynedd Council (Wales) - unknown
-- Hastings Borough Council (England) - unknown
-- Herefordshire Council (England) - unknown
-- Hertsmere Borough Council (England) - unknown
-- Hinckley and Bosworth Borough Council (England) - unknown
-- Hyndburn Borough Council (England) - unknown
-- Ipswich Borough Council (England) - unknown
-- Kirklees Council (England) - unknown
-- Leeds City Council (England) - unknown
-- Lichfield District Council (England) - unknown
-- London Borough of Brent (England) - unknown
-- London Borough of Croydon (England) - unknown
-- London Borough of Ealing (England) - unknown
-- London Borough of Haringey (England) - unknown
-- London Borough of Harrow (England) - unknown
-- London Borough of Hounslow (England) - unknown
-- London Borough of Lambeth (England) - unknown
-- London Borough of Redbridge (England) - unknown
-- London Borough of Southwark (England) - unknown
-- London Borough of Waltham Forest (England) - unknown
-- Maldon District Council (England) - unknown
-- Malvern Hills District Council (England) - unknown
-- Medway Council (England) - unknown
-- Monmouthshire County Council (Wales) - unknown
-- Newcastle City Council (England) - unknown
-- North Kesteven District Council (England) - unknown
-- North Norfolk District Council (England) - unknown
-- North West Leicestershire District Council (England) - unknown
-- North Yorkshire Council (England) - unknown
-- Nottingham City Council (England) - unknown
-- Peterborough City Council (England) - unknown
-- Reading Borough Council (England) - unknown
-- Redditch Borough Council (England) - unknown
-- Rochdale Metropolitan Borough Council (England) - unknown
-- Rossendale Borough Council (England) - unknown
-- Rother District Council (England) - unknown
-- Royal Borough of Kingston upon Thames (England) - unknown
-- Rugby Borough Council (England) - unknown
-- Runnymede Borough Council (England) - unknown
-- Rushmoor Borough Council (England) - unknown
-- Sandwell Metropolitan Borough Council (England) - unknown
-- Sheffield City Council (England) - unknown
-- Solihull Metropolitan Borough Council (England) - unknown
-- South Cambridgeshire District Council (England) - unknown
-- South Oxfordshire District Council (England) - unknown
-- South Ribble Borough Council (England) - unknown
-- St Albans City and District Council (England) - unknown
-- Stroud District Council (England) - unknown
-- Surrey Heath Borough Council (England) - unknown
-- Telford & Wrekin Council (England) - unknown
-- Thanet District Council (England) - unknown
-- Thurrock Council (England) - unknown
-- Vale of White Horse District Council (England) - unknown
-- Wakefield Metropolitan District Council (England) - unknown
-- Watford Borough Council (England) - unknown
-- Westmorland and Furness Council (England) - unknown
-- Worthing Borough Council (England) - unknown
-- Wyre Borough Council (England) - unknown
-- Wyre Forest District Council (England) - unknown
-- Basildon Borough Council (England) - unreachable
-- Bolsover District Council (England) - unreachable
-- Breckland District Council (England) - unreachable
-- Brighton and Hove City Council (England) - unreachable
-- Chichester District Council (England) - unreachable
-- Dacorum Borough Council (England) - unreachable
-- Dorset Council (England) - unreachable
-- East Devon District Council (England) - unreachable
-- East Lindsey District Council (England) - unreachable
-- East Suffolk Council (England) - unreachable
-- Eastbourne Borough Council (England) - unreachable
-- Eastleigh Borough Council (England) - unreachable
-- Epping Forest District Council (England) - unreachable
-- Exeter City Council (England) - unreachable
-- Fenland District Council (England) - unreachable
-- Great Yarmouth Borough Council (England) - unreachable
-- Isle of Wight Council (England) - unreachable
-- Lancaster City Council (England) - unreachable
-- Lewes District Council (England) - unreachable
-- London Borough of Barking and Dagenham (England) - unreachable
-- London Borough of Camden (England) - unreachable
-- London Borough of Enfield (England) - unreachable
 - Manchester City Council (England) - unreachable
 - New Forest District Council (England) - unreachable
-- North East Derbyshire District Council (England) - unreachable
-- North Tyneside Council (England) - unreachable
-- Plymouth City Council (England) - unreachable
-- Preston City Council (England) - unreachable
-- Redcar and Cleveland Borough Council (England) - unreachable
-- Royal Borough of Windsor and Maidenhead (England) - unreachable
-- South Gloucestershire Council (England) - unreachable
-- South Hams District Council (England) - unreachable
-- South Holland District Council (England) - unreachable
-- South Tyneside Council (England) - unreachable
-- Swale Borough Council (England) - unreachable
-- Tameside Metropolitan Borough Council (England) - unreachable
-- Teignbridge District Council (England) - unreachable
-- Test Valley Borough Council (England) - unreachable
-- Tewkesbury Borough Council (England) - unreachable
-- Torridge District Council (England) - unreachable
-- Uttlesford District Council (England) - unreachable
-- Wealden District Council (England) - unreachable
-- Wiltshire Council (England) - unreachable
-- Woking Borough Council (England) - unreachable
-- Worcester City Council (England) - unreachable
+
+## Hand-checked - needs Dean or a better page (12)
+
+- Burnley Borough Council - flag: Page headline "SWEP activated in Burnley due to heat-health alerts" - undated, a summer heat notice still on the page in October. Treated as not active now. (https://burnley.gov.uk/housing/housing-advice-and-homelessness/)
+- Coventry City Council - none: Page is an FOI response about SWEP numbers, not a SWEP information page. (https://www.coventry.gov.uk/directory-record/59179/rough-sleeper-numbers-during-swep)
+- Herefordshire Council - flag: Winter Night Shelter described as "now open" (8pm-8am, 18+), page undated - is it open this winter yet? Not added to map. (https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/)
+- London Borough of Brent - none: Page is general severe-weather advice, no rough-sleeper SWEP wording. (https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather)
+- Nottingham City Council - flag: Only source is Street Support Network page ("SWEP Not Active"), not the council's own site - council page still needed. (https://streetsupport.net/nottingham/severe-weather-accommodation/)
+- St Albans City and District Council - none: Page lists Open Door Night Shelter etc; no SWEP wording found. (https://www.stalbans.gov.uk/rough-sleeping)
+- Thurrock Council - none: Page lists night shelters/hostels; no SWEP wording found. (https://www.thurrock.gov.uk/homelessness/rough-sleepers)
+- Wakefield Metropolitan District Council - flag: Cold weather shelter at Wakefield Baptist Church, Belle Isle Avenue WF1 5JY, 8pm-8am, venue phone 07477 897929 / 01924 923197 "when open". Not open now; candidate SWEP venue for the shelters layer (Dean to OK). (https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers)
+- London Borough of Barking and Dagenham - none: Page is general severe-weather/emergency advice, no rough-sleeper SWEP wording. (https://www.lbbd.gov.uk/civil-protection-service/severe-weather)
+- London Borough of Camden - none: Page is cold-weather health advice, no SWEP wording. (https://www.camden.gov.uk/cold-weather-advice)
+- North Tyneside Council - flag: Page says "SWEP is active between 1 November and 31 March" - becomes active 1 Nov 2026 by the council's own wording. (https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough)
+- Preston City Council - flag: Preston runs a SWEP offer "throughout the entirety of Winter"; page does not say the start date for 2026-27. (https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP)
+
+## Hand-checked, settled for 30 days (124)
+
+- Adur District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Arun District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Ashford Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Basingstoke and Deane Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Birmingham City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Blackpool Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Borough Council of Kings Lynn and West Norfolk - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Bournemouth, Christchurch and Poole Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Braintree District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Bristol City Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Buckinghamshire Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Bury Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Castle Point Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Central Bedfordshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Cheltenham Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Cherwell District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Cheshire East Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Chesterfield Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Chorley Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- City of Wolverhampton Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Conwy County Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Cornwall Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Cotswold District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Crawley Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Dartford Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Derby City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Dover District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- East Cambridgeshire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- East Riding of Yorkshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Elmbridge Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Forest of Dean District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Gravesham Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Gwynedd Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Hastings Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Hertsmere Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Hinckley and Bosworth Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Hyndburn Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Ipswich Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Kirklees Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Leeds City Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Lichfield District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Croydon - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Ealing - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Haringey - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Harrow - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Hounslow - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Lambeth - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- London Borough of Redbridge - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- London Borough of Southwark - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Waltham Forest - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Maldon District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Malvern Hills District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Medway Council - SWEP described (activates at 0C or below); read-only, Medway not contacted., checked 2026-10-24
+- Monmouthshire County Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Newcastle City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- North Kesteven District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- North Norfolk District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- North West Leicestershire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- North Yorkshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Peterborough City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Reading Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Redditch Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Rochdale Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Rossendale Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Rother District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Royal Borough of Kingston upon Thames - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Rugby Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Runnymede Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Rushmoor Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Sandwell Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Sheffield City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Solihull Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- South Cambridgeshire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- South Oxfordshire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- South Ribble Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Stroud District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Surrey Heath Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Telford & Wrekin Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Thanet District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Vale of White Horse District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Watford Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Westmorland and Furness Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Worthing Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Wyre Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Wyre Forest District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Basildon Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Bolsover District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Breckland District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Brighton and Hove City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Chichester District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Dacorum Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Dorset Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- East Devon District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- East Lindsey District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- East Suffolk Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Eastbourne Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Eastleigh Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Epping Forest District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Exeter City Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Fenland District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Great Yarmouth Borough Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- Isle of Wight Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Lancaster City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Lewes District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- London Borough of Enfield - SWEP described on council page; no current activation notice, checked 2026-10-24
+- North East Derbyshire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Plymouth City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Redcar and Cleveland Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Royal Borough of Windsor and Maidenhead - SWEP described on council page; no current activation notice, checked 2026-10-24
+- South Gloucestershire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- South Hams District Council - Only a dated past activation/news notice; not active now., checked 2026-10-24
+- South Holland District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- South Tyneside Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Swale Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Tameside Metropolitan Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Teignbridge District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Test Valley Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Tewkesbury Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Torridge District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Uttlesford District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Wealden District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Wiltshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Woking Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- Worcester City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
