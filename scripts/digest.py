@@ -23,13 +23,13 @@ def main(now=None):
     now = now or datetime.datetime.now(datetime.timezone.utc)
     state = rj(ST, {}); since = state.get("last_run", (now - datetime.timedelta(days=1)).isoformat(timespec="seconds"))
     al, likely, closed = triggers(state, rj(P("logs", "entry_history.json"), {}), rj(P("logs", "duplicates.json"), []), since)
-    errs = rj(P("logs", "source_errors.json"), {}).get("errors", [])
+    errs = rj(P("reports", "source_errors.json"), {}).get("errors", [])
     hist = rj(P("logs", "entry_history.json"), {}); recent = [c for v in hist.values() for c in v if c.get("when", "") >= since]
     sw = rj(P("logs", "swep_tracker.json"), {}).get("days", {}); swl = sw[max(sw)]["still_to_check"] if sw else None
     L = ["# Morning digest - %s" % now.date(), "", "## Alerts this run", ""] + (["- **%s**: %s" % (t, b) for _, t, b in al] or ["- none"]) + ["",
          "## Everything else", "", "- Changes since last run: %d (%d new, %d removed, %d field updates)" % (len(recent), sum(c["change"] == "added" for c in recent), sum(c["change"] == "removed" for c in recent), sum(c["change"] not in ("added", "removed") for c in recent)),
          "- Likely duplicates on the map: %d (reports/duplicates.md)" % likely,
-         "- Source errors this run: %d (logs/source_errors.json)" % len(errs),
+         "- Source errors this run: %d (reports/source_errors.json)" % len(errs),
          "- SWEP councils still to check: %s (reports/swep_tracker.md)" % ("n/a" if swl is None else swl),
          "- Daily review list: reports/daily_review.md", ""]
     open(MD, "w", encoding="utf-8").write("\n".join(L))
