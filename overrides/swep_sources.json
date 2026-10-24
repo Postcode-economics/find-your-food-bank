@@ -3261,10 +3261,11 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on merthyr.gov.uk; a 'Cold Weather Provision' page for rough sleepers is on livingmerthyrtydfil.org.uk (housing portal, ownership unconfirmed) - asked Dean)",
   "looked_at": [
-   "https://www.merthyr.gov.uk/resident/housing/homelessness-prevention/",
-   "https://www.merthyr.gov.uk/resident/housing/homelessness-prevention-fund/"
+   "https://www.livingmerthyrtydfil.org.uk/content/HousingSolutions/ColdWeatherProvision",
+   "https://www.merthyr.gov.uk/resident/housing/homelessness-prevention-fund/",
+   "https://www.merthyr.gov.uk/resident/housing/homelessness-prevention/"
   ],
   "homeless_phone": "01685 725000",
   "phone_source": "https://www.merthyr.gov.uk/resident/housing/",
@@ -3311,8 +3312,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeping page says the council provides overnight shelter during the winter months, but no severe-weather/SWEP wording - same question as York)",
+  "looked_at": [
+   "https://www.northdevon.gov.uk/housing/homelessness/rough-sleeping"
+  ],
   "homeless_url": "https://www.northdevon.gov.uk/housing/homelessness/homeless-or-at-risk-of-homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3435,9 +3438,9 @@
   "code": "NHE",
   "council": "North Hertfordshire District Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://www.north-herts.gov.uk/help-rough-sleepers",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/winter-self-help-gritting-your-road.aspx",
    "https://www.hertfordshire.gov.uk/services/highways-roads-and-pavements/roadworks-and-road-closures/severe-weather/gritting-the-road/winter-self-help-gritting-your-road/",
@@ -3451,7 +3454,8 @@
   "ooh_phone": "0300 777 4125",
   "ooh_note": "labelled on the council own homelessness page as the out-of-hours homeless emergency line",
   "phone_source": "https://www.north-herts.gov.uk/homelessness",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-24: 'Help for rough sleepers' page: during extreme weather, extra help is available to those sleeping rough in the district (no SWEP acronym)"
  },
  {
   "code": "NKE",
@@ -3499,8 +3503,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless services page has no SWEP wording (SWEP detail only in press))",
+  "looked_at": [
+   "https://www.northlincs.gov.uk/council-tax-benefits-and-housing/homeless-services-in-scunthorpe/"
+  ],
   "homeless_url": "https://www.northlincs.gov.uk/council-tax-benefits-and-housing/homeless-services-in-scunthorpe/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3602,14 +3608,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness contact page has no SWEP wording)",
   "looked_at": [
-   "https://www.warwickshire.gov.uk/severeweather",
-   "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
+   "https://www.northwarks.gov.uk/housing-options/homelessness-2/3",
+   "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm",
    "https://www.warwickshire.gov.uk/severe-weather",
+   "https://www.warwickshire.gov.uk/severe-weather/keeping-warm-winter",
    "https://www.warwickshire.gov.uk/severe-weather/riparian-ownership",
    "https://www.warwickshire.gov.uk/severe-weather/snow-wardens",
-   "https://www.warwickshire.gov.uk/news/article/489/cold-weather-warning-for-coventry-and-warwickshire-%E2%80%93-reminder-for-residents-to-be-a-good-neighbour-and-to-stay-warm"
+   "https://www.warwickshire.gov.uk/severeweather"
   ],
   "homeless_url": "https://www.northwarks.gov.uk/housing-options/homelessness-2",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -3645,11 +3652,11 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP/severe-weather wording)",
   "looked_at": [
-   "https://www.newport.gov.uk/housing/housing/homelessness/housing/housing/homelessness/homelessness-emergency-information",
    "https://www.newport.gov.uk/housing/homelessness/temporary-accommodation",
-   "https://www.newport.gov.uk/housing/housing/homelessness"
+   "https://www.newport.gov.uk/housing/housing/homelessness",
+   "https://www.newport.gov.uk/housing/housing/homelessness/housing/housing/homelessness/homelessness-emergency-information"
   ],
   "homeless_phone": "01633 656656",
   "phone_source": "https://www.newport.gov.uk/housing/housing/homelessness/housing/housing/homelessness/homelessness-emergency-information",
