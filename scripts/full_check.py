@@ -141,6 +141,10 @@ def load_access():
     try: s = open(ACC, encoding='utf-8').read(); return json.loads(s[s.index('{'):s.rindex('}') + 1])
     except Exception: return {}
 
+def retry_first(sites, queue):
+    """Point 3 (24 Oct 2026): sites that failed or were not reached last run are checked first, so the time budget never starves them."""
+    q = set(queue); return [u for u in sites if u in q] + [u for u in sites if u not in q]
+
 def phone_locked(i):
     """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
@@ -180,7 +184,7 @@ def main():
     for i in items:
         w = (i.get('website') or '').strip()
         if w.startswith('http'): by_site.setdefault(w, []).append(i)
-    sites = sorted(by_site)
+    sites = retry_first(sorted(by_site), state.get('retry_queue') or [])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
@@ -264,6 +268,7 @@ def main():
         state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
+    state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
