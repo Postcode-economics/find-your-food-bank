@@ -19,7 +19,11 @@ def classify(text, run_day=None):
     t = re.sub(r"\s+", " ", text or "")
     if not KW.search(t): return "no SWEP wording", ""
     cond = lambda m: re.search(r"\b(when|if|whenever|until)\s+$", t[max(0, m.start() - 12):m.start()], re.I) or re.match(r"\s*(when|if)\b", t[m.end():m.end() + 8], re.I)
-    on = [m for m in ON.finditer(t) if not cond(m)]; off = [m for m in OFF.finditer(t) if not cond(m)]
+    # 24 Oct 2026 (Durham false active): ignore activations stated conditionally anywhere in the same sentence
+    # ("updated if SWEP is activated", "When the temperature reaches 0C ... is activated", "During spells ... is activated").
+    CONDW = re.compile(r"\b(if|when|whenever|during|once|until|as soon as|in the event|in periods of|under these conditions|will be updated)\b", re.I)
+    sent = lambda m: t[max(t.rfind(". ", 0, m.start()) + 1, m.start() - 200, 0): m.end()]
+    on = [m for m in ON.finditer(t) if not cond(m) and not CONDW.search(sent(m))]; off = [m for m in OFF.finditer(t) if not cond(m)]
     if not on and not off: return "unknown", ""
     last_on = on[0] if on else None; last_off = off[0] if off else None  # first mention = page headline / latest news
     if last_on and (not last_off or last_on.start() < last_off.start()): m, st = last_on, "active"
