@@ -4,13 +4,14 @@ Licence check (24 Oct 2026):
   don't modify needed-item lists - none exported; don't bulk email/call). Exported with Give Food credit + link.
 - Shelters: OpenStreetMap-sourced and Homeless Link-directory ones EXCLUDED (Homeless Link: no reuse licence found) (ODbL share-alike would bind the whole file); the rest are facts from
   operators' own public pages, exported with their source URL.
-- Warm spaces: EXCLUDED - Warm Welcome (most entries) and the council/VCS directories state no reuse licence.
+- Warm spaces: INCLUDED from 24 Oct 09:24 (Dean: "if it's public data it's ok") - basic public facts only, each row credits its source + source_url.
 Only basic public facts are exported (no notes, internal flags or copied opening-times text).
 Writes export/foodbanks.csv|json and export/shelters.csv|json + export/README.txt."""
 import csv, datetime, json, os
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = os.path.join(ROOT, "export")
 FB = ["id", "name", "network", "address", "postcode", "lat", "lng", "phone", "website"]
+WS = ["id", "name", "address", "postcode", "lat", "lng", "phone", "website", "source", "source_url"]
 SH = ["id", "name", "operator", "address", "postcode", "lat", "lng", "phone", "website", "source", "source_url"]
 CREDIT_FB = "Food bank listings: Give Food (https://www.givefood.org.uk) and helpmap.uk (https://helpmap.uk)"
 def items(f):
@@ -25,8 +26,9 @@ def write(name, rows, cols, credit, today):
 def main(today=None):
     today = today or datetime.date.today().isoformat(); os.makedirs(OUT, exist_ok=True)
     n = {"foodbanks": write("foodbanks", items("data.full.js"), FB, CREDIT_FB, today),
-         "shelters": write("shelters", [i for i in items("shelters.js") if shareable_shelter(i)], SH, "Shelter listings: helpmap.uk (https://helpmap.uk), from each operator's own page (see source_url)", today)}
-    open(os.path.join(OUT, "README.txt"), "w").write("helpmap.uk data download - %s\n\n%s\nIf you reuse this data, credit Give Food and helpmap.uk with a link. Do not bulk email, call or message the contacts.\nDetails change daily - always check with the service before travelling.\nWarm spaces and OpenStreetMap / Homeless Link-sourced shelters are not included (no reuse licence / share-alike terms).\n" % (today, CREDIT_FB))
+         "shelters": write("shelters", [i for i in items("shelters.js") if shareable_shelter(i)], SH, "Shelter listings: helpmap.uk (https://helpmap.uk), from each operator's own page (see source_url)", today),
+         "warmspaces": write("warmspaces", items("warmspaces.js"), WS, "Warm space listings: helpmap.uk (https://helpmap.uk), credited per row to the original source (Warm Welcome https://www.warmwelcome.uk, councils, local VCS lists - see source / source_url)", today)}
+    open(os.path.join(OUT, "README.txt"), "w").write("helpmap.uk data download - %s\n\n%s\nIf you reuse this data, credit Give Food and helpmap.uk with a link. Do not bulk email, call or message the contacts.\nDetails change daily - always check with the service before travelling.\nWarm spaces: credit the source named on each row and helpmap.uk.\nOpenStreetMap / Homeless Link-sourced shelters are not included (no reuse licence / share-alike terms).\n" % (today, CREDIT_FB))
     return n
 if __name__ == "__main__":
     try: print("export:", main())
