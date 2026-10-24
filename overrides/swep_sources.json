@@ -1331,12 +1331,13 @@
   "code": "CBD",
   "council": "Cumberland Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://www.cumberland.gov.uk/housing/homelessness-and-rough-sleeping/report-someone-who-sleeping-rough",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [],
   "homeless_url": "https://www.cumberland.gov.uk/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-24: page has a 'Severe weather' section: extra support for people sleeping rough, including emergency accommodation when there is a risk to life"
  },
  {
   "code": "CBF",
@@ -1367,8 +1368,11 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness and rough sleeping pages have no severe-weather/SWEP wording)",
+  "looked_at": [
+   "https://www.ceredigion.gov.uk/resident/housing/homelessness/",
+   "https://www.ceredigion.gov.uk/resident/housing/rough-sleeping/"
+  ],
   "homeless_url": "https://www.ceredigion.gov.uk/resident/housing/homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -1378,8 +1382,11 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (emergency accommodation and StreetLink pages have no severe-weather/SWEP wording; protocol only in strategy PDF)",
+  "looked_at": [
+   "https://www.charnwood.gov.uk/pages/emergency_accomodation",
+   "https://www.charnwood.gov.uk/pages/streetlink"
+  ],
   "homeless_url": "https://www.charnwood.gov.uk/pages/homeless_or_at_risk_of_being_homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -1411,12 +1418,13 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness advice page has no SWEP wording; SWEP details only on Street Support and press)",
   "looked_at": [
-   "https://www.essex.gov.uk/find-support-services-children-and-their-families/churches-homeless-emergency-support-scheme-chess",
+   "https://www.chelmsford.gov.uk/housing/advice-about-homelessness/homelessness-advice/",
+   "https://www.essex.gov.uk/adult-social-care-and-health/housing-options-and-care-homes/homelessness-get-advice-and-support",
    "https://www.essex.gov.uk/children-young-people-and-families/support-care-leavers/finding-somewhere-live/help-homelessness",
-   "https://www.essex.gov.uk/find-support-services-children-and-their-families/sanctus-homeless-charity",
-   "https://www.essex.gov.uk/adult-social-care-and-health/housing-options-and-care-homes/homelessness-get-advice-and-support"
+   "https://www.essex.gov.uk/find-support-services-children-and-their-families/churches-homeless-emergency-support-scheme-chess",
+   "https://www.essex.gov.uk/find-support-services-children-and-their-families/sanctus-homeless-charity"
   ],
   "homeless_url": "https://www.chelmsford.gov.uk/housing/advice-about-homelessness/homelessness-advice/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -1498,14 +1506,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleepers and report pages have no SWEP wording)",
   "looked_at": [
-   "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice/rough-sleepers",
-   "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice-and-homelessness/rough-sleeping-and-homelessness-pledge",
-   "https://www.cheshirewestandchester.gov.uk/system-pages/privacy-notices/multi-agency-rough-sleeping-mars-group-privacy-notice",
-   "https://www.cheshirewestandchester.gov.uk/system-pages/privacy-notices/rough-sleeping-help-and-outreach-privacy-notice",
    "https://www.cheshirewestandchester.gov.uk/news-and-views/incidents/tips-for-cold-weather",
-   "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice/care-leavers"
+   "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice-and-homelessness/rough-sleeping-and-homelessness-pledge",
+   "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice/care-leavers",
+   "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice/rough-sleepers",
+   "https://www.cheshirewestandchester.gov.uk/residents/housing/report-rough-sleeping",
+   "https://www.cheshirewestandchester.gov.uk/system-pages/privacy-notices/multi-agency-rough-sleeping-mars-group-privacy-notice",
+   "https://www.cheshirewestandchester.gov.uk/system-pages/privacy-notices/rough-sleeping-help-and-outreach-privacy-notice"
   ],
   "homeless_url": "https://www.cheshirewestandchester.gov.uk/residents/housing/housing-advice-and-homelessness/housing-advice-and-homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
@@ -1556,8 +1565,10 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no severe-weather wording)",
+  "looked_at": [
+   "https://www.carmarthenshire.gov.wales/council-services/housing/homelessness/"
+  ],
   "homeless_url": "https://www.carmarthenshire.gov.wales/council-services/housing/homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01554 899389",
