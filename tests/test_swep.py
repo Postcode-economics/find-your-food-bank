@@ -44,3 +44,16 @@ class ConditionalWording(unittest.TestCase):
     def test_plain_active_still_active(self):
         import swep
         self.assertEqual(swep.classify("SWEP: currently active. The Severe Weather Emergency Protocol is currently active in Swindon.")[0], "active")
+
+class ClearlyOnNow(unittest.TestCase):
+    """24 Oct 2026 11:45 (Dean): general descriptions do not count as active."""
+    def test_general_descriptions_not_active(self):
+        import swep
+        for t in ["The initiative is linked to the council's statutory Severe Weather Emergency Protocol (SWEP) responsibilities and has been put in place to support a cohort of vulnerable people who currently find themselves outside.",
+                  "Severe weather emergency protocol (SWEP) The Severe Weather Emergency Protocol (SWEP) is in place to support people at risk of rough sleeping."]:
+            self.assertNotEqual(swep.classify(t)[0], "active", t)
+    def test_clear_now_active(self):
+        import swep
+        for t in ["SWEP: currently active. The Severe Weather Emergency Protocol is currently active in Swindon.",
+                  "SWEP has been activated from 25 October.", "Our SWEP is now open tonight."]:
+            self.assertEqual(swep.classify(t)[0], "active", t)
