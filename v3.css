@@ -557,3 +557,40 @@ html body #xextra .card a.btn.call.xfb>span.xcn svg,html body #list .card a.btn.
 /* Dean 24 Oct 19:02 (iPhone): bottom sheet — only the card body scrolls; the top strip (drag handle + close) stays solid and content is clipped cleanly below it */
 #sheet{display:flex!important;flex-direction:column!important;overflow:hidden!important;overscroll-behavior:contain}
 #sheet>#sheetBody{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;margin:0 -12px!important;padding:0 12px!important}
+
+/* Dean 24 Oct 21:31: bottom-sheet cards get the same green call / blue Facebook buttons as #list (generated copy of every #list .card a.btn.call rule, #list -> #sheetBody) */
+html body #sheetBody .card a.btn.call{display:inline-flex!important;flex-wrap:nowrap!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:48px!important;min-height:48px!important;padding:0 10px!important;font-size:17px!important;font-weight:800!important;line-height:1!important;white-space:nowrap!important;letter-spacing:-.01em;overflow:hidden}
+html body #sheetBody .card a.btn.call *{font-size:17px!important;font-weight:800!important;line-height:1!important;margin:0!important;flex:0 0 auto!important;display:inline!important;white-space:nowrap!important;letter-spacing:inherit}
+html body #sheetBody .card a.btn.call svg.ico{display:inline-block!important;width:20px!important;height:20px!important;flex:0 0 20px!important;stroke:none!important;shape-rendering:geometricPrecision}
+html body #sheetBody .card a.btn.call{background:#34C759!important;border-color:#34C759!important;color:#000!important}
+html body #sheetBody .card a.btn.call *:not(svg):not(path){color:#000!important}
+html body #sheetBody .card a.btn.call svg.ico,html body #sheetBody .card a.btn.call svg.ico *{color:#2B2B2B!important;fill:#2B2B2B!important;stroke:none!important}
+html body #sheetBody .card a.btn.call.xfbk{background:#1877F2!important;border-color:#1877F2!important;color:#fff!important;letter-spacing:-.02em!important;gap:6px!important;padding:0 6px!important}
+html body #sheetBody .card a.btn.call.xfbk span{color:#fff!important;font-size:15px!important;font-weight:800!important}
+html body #sheetBody .card a.btn.call.xfbk svg.fbg{fill:initial!important;color:initial!important;width:20px!important;height:20px!important}
+html body #sheetBody .card a.btn.call.xfbk svg.fbg circle{fill:#fff!important}
+html body #sheetBody .card a.btn.call.xfbk svg.fbg path{fill:#1877F2!important}
+html body #sheetBody .card a.btn.call.xfbk svg.fbg{width:18px!important;height:18px!important;flex:0 0 18px!important}
+html body #sheetBody .card a.btn.call.xfbk span{font-size:14px!important}
+html body #sheetBody .card a.btn.call.xfbk{gap:5px!important;padding:0 4px!important}
+html body #sheetBody .card a.btn.call.xfbk span{white-space:normal!important;line-height:1.1!important;text-align:left;flex:0 1 auto!important;font-size:15px!important}
+html body #sheetBody .card a.btn.call.xfbk{white-space:normal!important;gap:8px!important;padding:0 10px!important}
+html body #sheetBody .card a.btn.call.xfbk img.fboff{width:20px!important;height:20px!important;flex:0 0 20px!important;margin:5px 5px 5px 5px!important;display:block!important;object-fit:contain}
+html body #sheetBody .card a.btn.call.xfbk{gap:5px!important;padding:0 8px!important}
+html body #sheetBody .card a.btn.call.xfbk span{font-size:16px!important;white-space:nowrap!important}
+html body #sheetBody .card a.btn.call.xfbk span{font-size:15px!important}
+html body #sheetBody .card a.btn.call.xfbk{gap:0!important;padding:0 4px!important}
+html body #sheetBody .card a.btn.call.xfbk img.fboff{margin:5px 10px 5px 5px!important}
+html body #sheetBody .card a.btn.call.xfbk{justify-content:center!important;gap:8px!important;padding:0 12px!important;min-width:max-content!important;letter-spacing:0!important}
+html body #sheetBody .card a.btn.call.xfbk img.fboff{margin:0!important;flex:0 0 20px!important}
+html body #sheetBody .card a.btn.call.xfbk span{font-size:16px!important;font-weight:800!important;white-space:nowrap!important;flex:0 0 auto!important;letter-spacing:-.01em!important}
+html body #sheetBody .card a.btn.call:not(.xfbk),html body #sheetBody .card a.btn.call:not(.xfbk) *:not(svg):not(path){font-size:16px!important;font-weight:800!important;font-family:inherit}
+html body #sheetBody .card>a.btn.call:not(.xfbk) .xnum{font-size:16px!important;font-weight:800!important}
+html body #sheetBody .card a.btn.call:not(.xfbk):not(.xfb){min-width:max-content!important;padding:0 10px!important}
+html body #sheetBody .card a.btn.call,html body #sheetBody .card a.btn.call *,html body #sheetBody .card a.btn.call.xfbk span{letter-spacing:normal!important;transform:none!important;font-stretch:normal!important}
+html body #sheetBody .card a.btn.call:not(.xfbk):not(.xfb):has(>small){flex-wrap:wrap!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:52px!important;padding:6px 12px!important;row-gap:2px!important;white-space:normal!important}
+html body #sheetBody .card a.btn.call:not(.xfbk):not(.xfb)>small:not(svg):not(path){flex:0 0 100%!important;font-size:13px!important;font-weight:600!important;line-height:1.25!important;text-align:center!important;white-space:normal!important}
+html body #sheetBody .card a.btn.call{max-width:100%!important}
+html body #sheetBody .card a.btn.call.xfb>span.xcl{font-size:13px!important;font-weight:700!important;text-wrap:balance}
+html body #sheetBody .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
+html body #sheetBody .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
