@@ -12,6 +12,7 @@ P = lambda *a: os.path.join(ROOT, *a)
 MET = "https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK"
 EA = "https://environment.data.gov.uk/flood-monitoring/id/floods?min-severity=2"
 SEPA = "https://floodline.sepa.org.uk/feed/"
+GOVUK = "https://www.gov.uk/alerts/feed.atom"   # UK Emergency Alerts (OGL); point 27 add-on, Dean 24 Oct 2026
 NRW = "https://api.naturalresources.wales/floodwarnings/v3/all"
 NRW_CREDIT = "Contains Natural Resources Wales information \u00a9 Natural Resources Wales and database right"
 def nrw_key():
@@ -57,6 +58,22 @@ def sepa(xml):
         m = re.search(r"issued for (.+)$", t)
         out.append({"source": "SEPA", "title": t, "level": "red" if "SEVERE" in t.upper() else "flood warning", "areas": [m.group(1).strip()] if m else [], "link": it.findtext("link")})
     return out
+def govuk(xml, now=None):
+    """UK Emergency Alerts still in force: entries whose summary has no 'Stopped:' time, or one still in the future.
+    Government test alerts are kept out of the trigger (level 'test')."""
+    import datetime as dt
+    A = "{http://www.w3.org/2005/Atom}"; now = now or dt.datetime.now(dt.timezone.utc); out = []
+    for e in ET.fromstring(xml).findall(A + "entry"):
+        summ = e.findtext(A + "summary") or ""; title = e.findtext(A + "title") or ""
+        m = re.search(r"Stopped: .*?\[(\d{4}-\d\d-\d\d \d\d:\d\d) (GMT|BST)\]", summ)
+        if m:
+            stop = dt.datetime.strptime(m.group(1), "%Y-%m-%d %H:%M").replace(tzinfo=dt.timezone(dt.timedelta(hours=1 if m.group(2) == "BST" else 0)))
+            if stop <= now: continue
+        body = " ".join(e.find(A + "content").itertext()) if e.find(A + "content") is not None else ""
+        lnk = e.find(A + "link")
+        out.append({"source": "UK Emergency Alerts", "title": "Emergency Alert: " + title, "level": "test" if re.search(r"\btest(ing)?\b", body, re.I) else "red",
+                    "areas": [a.strip() for a in title.split(",") if a.strip()], "link": lnk.get("href") if lnk is not None else GOVUK})
+    return out
 def norm(a): return re.sub(r"\b(city of|county|council|borough|district|metropolitan|london borough of|royal borough of|and)\b", " ", a.lower()).split()
 def hits(area, text):
     w = norm(area); t = " %s " % re.sub(r"[^a-z ]", " ", (text or "").lower())
@@ -72,7 +89,7 @@ def match(warnings, places, swep):
 def urgent(warnings): return [w for w in warnings if w["level"] in ("amber", "red")]
 def main():
     ws, errs = [], []
-    for name, url, fn in (("Met Office", MET, met), ("Environment Agency", EA, ea), ("SEPA", SEPA, sepa)):
+    for name, url, fn in (("Met Office", MET, met), ("Environment Agency", EA, ea), ("SEPA", SEPA, sepa), ("UK Emergency Alerts", GOVUK, govuk)):
         try: ws += fn(get(url))
         except Exception as e: errs.append("%s: %s" % (name, e.__class__.__name__))
     k = nrw_key()
@@ -85,7 +102,7 @@ def main():
     except Exception: swep = []
     match(ws, places, swep)
     json.dump({"warnings": ws, "errors": errs, "credits": [NRW_CREDIT]}, open(P("reports", "weather.json"), "w"), indent=1, ensure_ascii=False)
-    L = ["# Weather and flood warnings (point 27)", "", "Sources: Met Office, Environment Agency, SEPA, Natural Resources Wales.", "", NRW_CREDIT + ".", ""]
+    L = ["# Weather and flood warnings (point 27)", "", "Sources: Met Office, Environment Agency, SEPA, Natural Resources Wales, UK Emergency Alerts (gov.uk/alerts).", "", NRW_CREDIT + ".", ""]
     L += ["- **%s** [%s] %s - shelters/warm spaces in area: %s; SWEP active: %s" % (w["source"], w["level"], w["title"], ", ".join(w["places"]) or "none matched", ", ".join(w["swep"]) or "none") for w in ws] or ["- no warnings"]
     L += ["", "Source errors: " + (", ".join(errs) or "none")]
     open(P("reports", "weather.md"), "w", encoding="utf-8").write("\n".join(L) + "\n"); return ws
