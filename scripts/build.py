@@ -178,6 +178,7 @@ def main():
     # recheck gate: same over-check as shelters / warm spaces (hash + fetched_at, HTTP, ETag/Last-Modified, schema, source URL)
     extra = load_json(os.path.join(ROOT, 'overrides', 'foodbank_extra_locations.json'), {})
     extra.update(load_json(os.path.join(ROOT, 'overrides', 'foodbank_own_pages.json'), {}))
+    extra.update({k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_added.json'), {}).items() if not k.startswith('_')})  # hand-added food banks (Dean 24 Oct): the checked record is their source
     for i in items:
         if i.get('manual') and i['id'] in extra: records[i['id']] = extra[i['id']]  # source = the human-checked own-site record
     allc = {i['id']: i.pop('_own_all_closed') for i in items if '_own_all_closed' in i}  # kept out of the recheck gate
