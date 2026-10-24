@@ -1,6 +1,6 @@
 # Facebook pages flagged for Dean
 
-Run 2026-10-23. 53 pages checked; 42 flagged. Nothing was removed from the map.
+Run 2026-10-24. 53 pages checked; 43 flagged. Nothing was removed from the map.
 
 - `amble` **changed**: https://www.facebook.com/Amblefoodbank/ (baseline 'Amble Food Bank', now 'Facebook', HTTP 200)
 - `birchgrove-community` **changed**: https://www.facebook.com/birchgrovecommunityfoodbank/ (baseline 'Birchgrove Community Foodbank | Swansea', now 'Facebook', HTTP 200)
@@ -21,6 +21,7 @@ Run 2026-10-23. 53 pages checked; 42 flagged. Nothing was removed from the map.
 - `ifan-4843e1fec06a8fc46989df-1` **changed**: https://www.facebook.com/ColneValleyHelp (baseline 'Colne Valley Help', now 'Facebook', HTTP 200)
 - `ifan-53c68645aa831ab649ac43-0` **changed**: https://www.facebook.com/stpaulsparkside.org.uk (baseline 'St Paul's Wimbledon Parkside | London', now 'Facebook', HTTP 200)
 - `ifan-5b3e01fe979d373d9ba679-0` **changed**: https://www.facebook.com/CaritasSalford (baseline 'Caritas Diocese of Salford | Manchester', now 'Facebook', HTTP 200)
+- `ifan-5b9fd1318a04132921a389-0` **changed**: https://www.facebook.com/holytrinitywesterhailes (baseline 'Holy Trinity Wester Hailes | Edinburgh', now 'Facebook', HTTP 200)
 - `ifan-762040c38571b1178c1e2d-0` **changed**: https://www.facebook.com/TheGospelCentreUK (baseline 'The Gospel Centre | London', now 'Facebook', HTTP 200)
 - `ifan-84cd0bf40986bfc9a427c6-0` **changed**: https://www.facebook.com/TheLarderNW6 (baseline 'Laurence's Larder and Open Kitchen | Kilburn, London', now 'Facebook', HTTP 200)
 - `ifan-85fc4f26365d8e7c333d57-0` **changed**: https://www.facebook.com/ibijokefoundationuk (baseline 'Ibijoke Foundation UK | Liverpool', now 'Facebook', HTTP 200)
