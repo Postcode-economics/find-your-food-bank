@@ -1,46 +1,15 @@
 {
- "day": "2026-10-23",
+ "day": "2026-10-24",
  "runs": [
   {
-   "at": "06:10Z",
+   "at": "03:39Z",
    "source": "council pages + SWEP pages",
    "added": 0,
-   "queued": 0,
-   "rejected": 0
-  },
-  {
-   "at": "11:35Z",
-   "source": "council pages + SWEP pages",
-   "added": 0,
-   "queued": 0,
-   "rejected": 0
-  },
-  {
-   "at": "19:36Z",
-   "source": "council pages + SWEP pages",
-   "added": 0,
-   "queued": 0,
-   "rejected": 0
-  },
-  {
-   "at": "23:00Z",
-   "source": "council pages + SWEP pages",
-   "added": 1,
    "queued": 0,
    "rejected": 0
   }
  ],
- "added": [
-  {
-   "id": "sw-age-uk-gloucester-house-le131je",
-   "layer": "warmspaces",
-   "tier": "unverified",
-   "name": "Age UK Gloucester House",
-   "postcode": "LE13 1JE",
-   "source_url": "https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/",
-   "upcoming": false
-  }
- ],
+ "added": [],
  "queued": {},
  "rejected": {}
 }

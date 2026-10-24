@@ -1,7 +1,7 @@
 {
- "run": "2026-10-23",
- "pages": 1704,
- "failed": 144,
+ "run": "2026-10-24",
+ "pages": 1722,
+ "failed": 141,
  "errors": [
   [
    "https://www.rugby.gov.uk/warmhubs",
@@ -68,14 +68,6 @@
    400
   ],
   [
-   "https://www.edinburgh.gov.uk/warm-welcoming-spaces",
-   404
-  ],
-  [
-   "https://www.edinburgh.gov.uk/warm-welcoming-spaces/recently-added-events-activities",
-   404
-  ],
-  [
    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
    404
   ],
@@ -140,15 +132,11 @@
    "error"
   ],
   [
-   "https://www.lincoln.gov.uk/downloads/file/1465/lincolnshire-homelessness-and-rough-sleeper-strategy-2022-2027",
+   "https://www.lincoln.gov.uk/downloads/file/1488/warm-welcome-spaces",
    "error"
   ],
   [
-   "https://www.lincoln.gov.uk/downloads/file/1466/lincolnshire-homelessness-and-rough-sleeper-delivery-plan",
-   "error"
-  ],
-  [
-   "https://www.lincoln.gov.uk/downloads/file/759/lincolnshires-severe-weather-emergency-protocol",
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
    "error"
   ],
   [
@@ -202,6 +190,10 @@
   [
    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
    400
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "error"
   ],
   [
    "https://norwich.gov.uk/news/2025/rough-sleeping-figures-rise-remain-line-national-trends",
@@ -312,7 +304,7 @@
    400
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "https://www.sthelens.gov.uk/article/2985/Rough-sleeping",
    "error"
   ],
   [
@@ -372,6 +364,10 @@
    403
   ],
   [
+   "https://tamworth.gov.uk/housing/homelessness/rough-sleeping",
+   500
+  ],
+  [
    "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
    404
   ],
@@ -400,10 +396,6 @@
    405
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
-   "error"
-  ],
-  [
    "http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
    "error"
   ],
@@ -425,7 +417,7 @@
   ],
   [
    "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-   403
+   302
   ],
   [
    "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
@@ -492,6 +484,10 @@
    403
   ],
   [
+   "https://www.ipswich.gov.uk/housing/homelessness/support-rough-sleepers",
+   "error"
+  ],
+  [
    "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
    403
   ],
@@ -512,10 +508,6 @@
    403
   ],
   [
-   "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
-   429
-  ],
-  [
    "https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP",
    403
   ],
@@ -533,10 +525,6 @@
   ],
   [
    "https://www.sholland.gov.uk/article/22764/Severe-Weather",
-   403
-  ],
-  [
-   "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
    403
   ],
   [
@@ -580,15 +568,6 @@
    403
   ]
  ],
- "added": [
-  {
-   "id": "sw-age-uk-gloucester-house-le131je",
-   "layer": "warmspaces",
-   "tier": "unverified",
-   "name": "Age UK Gloucester House",
-   "postcode": "LE13 1JE",
-   "source_url": "https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/"
-  }
- ],
+ "added": [],
  "status": "ok"
 }
