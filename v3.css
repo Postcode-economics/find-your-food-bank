@@ -489,8 +489,8 @@ html body #xextra .card.xsh>.v3sos details.hlp{margin-top:0!important}
 html body #xextra .card.xsh>.v3sos details.hlp summary{min-height:26px!important;height:26px;display:flex!important;align-items:center}
 html body #xextra .card.xsh>.v3sos .sosb{margin:8px 0 0!important}
 /* listing gap 16px -> 20px */
-#list>.card,#list .card,#xextra .card{margin-bottom:20px!important}
-html body #xextra #xlist>.card,html body #list>.card{margin-bottom:20px!important}
+#list>.card,#list .card,#xextra .card{margin-bottom:26px!important}
+html body #xextra #xlist>.card,html body #list>.card{margin-bottom:26px!important}
 /* ===== light-only fixes (24 Oct) ===== */
 html.light body #list .card *:not(a):not(a *):not(.btn):not(.btn *):not(.v3sos):not(.v3sos *):not(.tag):not(.ncb):not(.xacc):not(.xunv),html.light body #xextra .card *:not(a):not(a *):not(.btn):not(.btn *):not(.v3sos):not(.v3sos *):not(.tag):not(.ncb):not(.xacc):not(.xunv){color:#1F2937!important}
 html.light body #list .card :is(h3,.d,.v3st,.v3st *,b,strong),html.light body #xextra .card :is(h3,.d,.v3st,.v3st *,b,strong):not(.v3sos *){color:#000!important}
@@ -521,3 +521,12 @@ html body #xextra .card .xhow a.btn.call.xfb *,html body #list .card .xhow a.btn
 html body #xextra .card .xhow a.btn.call.xfb svg,html body #list .card .xhow a.btn.call.xfb svg{flex:0 0 auto!important}
 /* Dean 24 Oct: no fading — closed cards keep full-strength colours like the mockups */
 html body .card.v3closed>*,html body .card.v3closed{opacity:1!important;filter:none!important}
+/* Dean 24 Oct 16:25: Facebook button — logo+label centred with equal blue padding each side; label same size/weight as Directions (16px/800) */
+html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{justify-content:center!important;gap:8px!important;padding:0 12px!important;min-width:max-content!important;letter-spacing:0!important}
+html body #list .card a.btn.call.xfbk img.fboff,html body #xextra .card a.btn.call.xfbk img.fboff{margin:0!important;flex:0 0 20px!important}
+html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{font-size:16px!important;font-weight:800!important;white-space:nowrap!important;flex:0 0 auto!important;letter-spacing:-.01em!important}
+/* Dean 24 Oct 16:25: clearer gap between listings (design 20px -> 26px), list and layer cards, all widths, light and dark */
+html body #list>.card,html body #xextra .card:is(.xsh,.xws),html body #xlist>.card{margin-bottom:26px!important}
+html body #xlist .card,html body #xextra .card{margin-bottom:26px!important}
+/* give the Facebook button a little more of the row so the padding either side of logo+label is visible on small phones */
+html body .card a.btn.call.xfbk{flex:1 1 0!important;min-width:max-content!important;padding:0 12px!important}
