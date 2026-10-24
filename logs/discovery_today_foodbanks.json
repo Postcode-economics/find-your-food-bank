@@ -35,6 +35,13 @@
    "added": 69,
    "queued": 298,
    "rejected": 0
+  },
+  {
+   "at": "12:33Z",
+   "source": "Give Food + IFAN",
+   "added": 68,
+   "queued": 299,
+   "rejected": 0
   }
  ],
  "added": [
@@ -742,7 +749,7 @@
    "url": "https://Www.thebrightmorningministries.com",
    "final_url": "https://thebrightmorningministries.com/",
    "http": 200,
-   "sha256": "0c07c7794641989cd72f51cb90e9a3ece3147a112abaa7d69de2a4c82e7bf5fd",
+   "sha256": "cf7da884b6fdcebaec1a61262481d3f378f1dde220e34b32d1b09a4aba4bf4d7",
    "etag": "",
    "last_modified": ""
   },
@@ -1015,7 +1022,7 @@
    "url": "https://www.diamondhampers.org",
    "final_url": "https://diamondhampers.org/",
    "http": 200,
-   "sha256": "d9979d7c458c35f36a380551e47baa7a14916c664b9cdef1154b032bead082d7",
+   "sha256": "6ad2100ebc5fd35611959eb54ba0de8371c7ac3fae409ff3d5aad470dbd5ae9f",
    "etag": "",
    "last_modified": ""
   },
@@ -1063,7 +1070,7 @@
    "url": "https://www.burtonhope.co.uk",
    "final_url": "https://burtonhope.co.uk/",
    "http": 200,
-   "sha256": "01aafb346bf5a61ac0c20d27a7f218cc8e463ffda213887c526e7f1b4e6d7989",
+   "sha256": "7f5202835c2241722e2057d808608cd6ed255981a9c223115da92aa011d37e0a",
    "etag": "",
    "last_modified": ""
   },
@@ -1239,7 +1246,7 @@
    "url": "https://www.sifafireside.co.uk",
    "final_url": "https://sifafireside.co.uk/",
    "http": 200,
-   "sha256": "01a3ee6a5f36980c4aefb9071194caca167ac6d9a37fc37fd595dbbe986eb781",
+   "sha256": "116f31af5b9e0431c6cb925076e3da55adb393a746e696fe98a44714df1ebbe3",
    "etag": "",
    "last_modified": ""
   },
@@ -1303,7 +1310,7 @@
    "url": "https://www.southwayhousing.co.uk",
    "final_url": "https://www.southwayhousing.co.uk",
    "http": 200,
-   "sha256": "3daf48a4e8eb13c0192e2f1f00d5272178cb92d2e5ede3b3f2f3ac05899b66f5",
+   "sha256": "ee461f6b5ac1d70c507bd4fbcff7f516c2451bfc84b68e653fc55b5842648057",
    "etag": "",
    "last_modified": ""
   },
@@ -1474,16 +1481,14 @@
    "website": "https://www.teamisaac.co.uk",
    "directory": "IFAN",
    "reasons": [
-    "own site does not name it",
-    "own site does not show food aid",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site unreachable (HTTP error)"
    ],
    "url": "https://www.teamisaac.co.uk",
    "final_url": "https://www.teamisaac.co.uk",
-   "http": 200,
-   "sha256": "ae71d785f0094be9e6380d96c2edfc72da046e2ce70315c98012644095df7b46",
-   "etag": "",
-   "last_modified": ""
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "ifan-2382aee46075d858e813a9-3": {
    "id": "ifan-2382aee46075d858e813a9-3",
@@ -1492,16 +1497,14 @@
    "website": "https://www.teamisaac.co.uk",
    "directory": "IFAN",
    "reasons": [
-    "own site does not name it",
-    "own site does not show food aid",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site unreachable (HTTP error)"
    ],
    "url": "https://www.teamisaac.co.uk",
    "final_url": "https://www.teamisaac.co.uk",
-   "http": 200,
-   "sha256": "ae71d785f0094be9e6380d96c2edfc72da046e2ce70315c98012644095df7b46",
-   "etag": "",
-   "last_modified": ""
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "ifan-2518e0e42e77bd3f62bc28-0": {
    "id": "ifan-2518e0e42e77bd3f62bc28-0",
@@ -1611,7 +1614,7 @@
    "url": "https://www.shareitpreston.org.uk",
    "final_url": "https://shareitpreston.org.uk/",
    "http": 200,
-   "sha256": "7cfda3b582970f95fce81157b74874ee4e256535d23f4142ca53f410a9545827",
+   "sha256": "076f08a501f6e922db49b9e2fec447590ab958634f832d1651ec3f14473853e9",
    "etag": "",
    "last_modified": ""
   },
@@ -1803,7 +1806,7 @@
    "url": "https://www.kingschurchwarrington.co.uk",
    "final_url": "https://kingschurchwarrington.co.uk/",
    "http": 200,
-   "sha256": "62f38f07b3fe9802e56b7803fd32e549cac44dbcd8aa2093b981faab60a21806",
+   "sha256": "1f382ca30db7f6126bd5c80b9b75e874a6be60974f22a1fa7a8ec6a42e93890f",
    "etag": "",
    "last_modified": ""
   },
@@ -1819,7 +1822,7 @@
    "url": "https://www.shopanddonate.org/",
    "final_url": "https://www.shopanddonate.org/",
    "http": 202,
-   "sha256": "0faf4ac9c85dcfe4d1e8cfdae6a64785bb62ec48aedd150b7ba8000912103e37",
+   "sha256": "90c491f0ca85b3e7794463fc101b50e4f769a4b9f77efb14bd13c36badc10934",
    "etag": "",
    "last_modified": ""
   },
@@ -1868,7 +1871,7 @@
    "url": "https://www.cavc.ac.uk",
    "final_url": "https://cavc.ac.uk/en",
    "http": 200,
-   "sha256": "9eb3b3cc9c943b19763b737a8bc87bf35342a3a6c8dfcc75a28377dde09ea407",
+   "sha256": "1de1c57bc59af7f25acfceb48a27dffe6a71a8923eb6b019bf580fede1f78165",
    "etag": "",
    "last_modified": ""
   },
@@ -1896,12 +1899,12 @@
    "website": "https://www.eyresmonsellcyp.co.uk",
    "directory": "IFAN",
    "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not show food aid"
    ],
    "url": "https://www.eyresmonsellcyp.co.uk",
    "final_url": "https://www.eyresmonsellcyp.co.uk",
-   "http": 202,
-   "sha256": "cfd2694188a43b60dca72684cba48a1b31835fcf23ce14dfd201491377d80645",
+   "http": 200,
+   "sha256": "b259c45122acba6885a535c160b44a19acff4b91d63c9a7a63081ac85264299b",
    "etag": "",
    "last_modified": ""
   },
@@ -1998,7 +2001,7 @@
    "url": "https://www.actionforce.org.uk",
    "final_url": "https://actionforce.org.uk/",
    "http": 200,
-   "sha256": "96d3a727499ef75ce36de3bb7c3d3bbb88a6ab2bc4ba14eda9e06006305b699a",
+   "sha256": "eff94649faac8334ad04853b028fb6d183e63ab2d673f237603647d8eb835ffd",
    "etag": "",
    "last_modified": "Sat, 24 Oct 2026 02:52:51 GMT"
   },
@@ -2258,7 +2261,7 @@
    "url": "https://www.eggcup.org",
    "final_url": "https://www.eggcup.org",
    "http": 202,
-   "sha256": "878aae4ae6e4264956aa307cb80cb4c8d8179cf456ea181670c14eafc474d8d0",
+   "sha256": "10f30b284460a5e7c45ffb37d5c91c48185954dc8a895fa58dbadb72dd64cac3",
    "etag": "",
    "last_modified": ""
   },
@@ -2274,7 +2277,7 @@
    "url": "https://www.hopeworx.org.uk",
    "final_url": "https://www.hopeworx.org.uk",
    "http": 202,
-   "sha256": "44362553b3db63950410223e67a42f5375e33d73abb75cf54ae4843609058bcb",
+   "sha256": "ed6251c2e1a3da0e878bc09cac16485e775f455601532fddc8510a2c5deba0a9",
    "etag": "",
    "last_modified": ""
   },
@@ -2306,7 +2309,7 @@
    "url": "https://www.afrocommunity.co.uk",
    "final_url": "https://www.afrocommunity.co.uk",
    "http": 200,
-   "sha256": "ae763f0baff97d76b1ebd8ffb5f6907a90dc21525e178fd2a23c870d140ccc6a",
+   "sha256": "4a3034b5a11d7d414f934581bd1fdc8f8dde25ebdeec371349a7c1215209d65c",
    "etag": "",
    "last_modified": "Sat, 24 Oct 2026 03:20:10 GMT"
   },
@@ -2374,7 +2377,7 @@
    "http": 200,
    "sha256": "e18b536ec1b4648f01a3fe143f274b80a65c634d07a81167ec7498d12f7c8249",
    "etag": "",
-   "last_modified": "Sat, 24 Oct 2026 08:37:16 GMT"
+   "last_modified": "Sat, 24 Oct 2026 12:32:35 GMT"
   },
   "ifan-5685105afba5b67c62a6f3-0": {
    "id": "ifan-5685105afba5b67c62a6f3-0",
@@ -2499,10 +2502,10 @@
     "own site has no readable text"
    ],
    "url": "https://www.patchcharity.org.uk",
-   "final_url": "https://patchcharity.org.uk/",
+   "final_url": "https://www.patchcharity.org.uk",
    "http": 200,
    "sha256": "c9aef1417450e3e6b36230d53666dddd34d74810656ef50fe1fecf8c63660fce",
-   "etag": "",
+   "etag": "\"bf-642fce432f300\"",
    "last_modified": "Fri, 07 Nov 2025 08:23:08 GMT"
   },
   "ifan-5c5bed9a3e29f987f36754-2": {
@@ -2512,14 +2515,14 @@
    "website": "https://www.patchcharity.org.uk",
    "directory": "IFAN",
    "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site has no readable text"
    ],
    "url": "https://www.patchcharity.org.uk",
-   "final_url": "https://patchcharity.org.uk/",
+   "final_url": "https://www.patchcharity.org.uk",
    "http": 200,
-   "sha256": "2c75d76b245f38565735e590b0d079d77ee4542f3b5c07a980a266e997fc99cf",
-   "etag": "",
-   "last_modified": ""
+   "sha256": "c9aef1417450e3e6b36230d53666dddd34d74810656ef50fe1fecf8c63660fce",
+   "etag": "\"bf-642fce432f300\"",
+   "last_modified": "Fri, 07 Nov 2025 08:23:08 GMT"
   },
   "ifan-5e03993d10949e7aff8078-0": {
    "id": "ifan-5e03993d10949e7aff8078-0",
@@ -2533,7 +2536,7 @@
    "url": "https://www.activechristians.org.uk",
    "final_url": "https://www.activechristians.org.uk",
    "http": 200,
-   "sha256": "c5682bb1b043849e59182c4a66cdc9322b7784875f236ab7ffac0b25737ea4b8",
+   "sha256": "7291a42f6303a66768a3109a8f55e5b263a3e1d547e174f3bce80e2d7fe5796b",
    "etag": "",
    "last_modified": ""
   },
@@ -2550,8 +2553,8 @@
    "url": "https://www.neemawomen.com",
    "final_url": "https://www.neemawomen.com",
    "http": 200,
-   "sha256": "8e4621d25fa0688f2f71c2a8f975fae3a7a10081520933abecb5eae13695c094",
-   "etag": "W/\"ba9900fe17c4700851748f659e77e531\"",
+   "sha256": "25aacf363431ea1c4d4604510b1f9e8aa36598e28d23af705b97f3083fda1445",
+   "etag": "W/\"dd7f49d82937375d3a07d17cd412eafb\"",
    "last_modified": ""
   },
   "ifan-5eae8db21a4b9fcb1e65b2-1": {
@@ -2567,8 +2570,8 @@
    "url": "https://www.neemawomen.com",
    "final_url": "https://www.neemawomen.com",
    "http": 200,
-   "sha256": "8e4621d25fa0688f2f71c2a8f975fae3a7a10081520933abecb5eae13695c094",
-   "etag": "W/\"ba9900fe17c4700851748f659e77e531\"",
+   "sha256": "25aacf363431ea1c4d4604510b1f9e8aa36598e28d23af705b97f3083fda1445",
+   "etag": "W/\"dd7f49d82937375d3a07d17cd412eafb\"",
    "last_modified": ""
   },
   "ifan-5f22786ca407aa6695f3bd-0": {
@@ -2728,7 +2731,7 @@
    "url": "https://www.croydonrefugeedaycentre.co.uk",
    "final_url": "https://www.croydonrefugeedaycentre.co.uk",
    "http": 202,
-   "sha256": "1ad94385ce599df4139c0238234462d1058e2b25ffd55384b0ef2913d86543ba",
+   "sha256": "fe6d10a103e843ee2d023bcd0388f99d430fe16f2de2c06ab924a96e99901e2c",
    "etag": "",
    "last_modified": ""
   },
@@ -2842,7 +2845,7 @@
    "url": "https://www.eudaimonia-hmk.com",
    "final_url": "https://www.eudaimonia-hmk.com",
    "http": 200,
-   "sha256": "48d3b4bc2348fbc8cfe861225938f055ead03ec52b97f4850e5a89dfcf228ead",
+   "sha256": "daeea5a8b2081f3fb4b88e2b44fe6817b7602a3ad48d30ab9f1b1c8c6eae29cc",
    "etag": "",
    "last_modified": ""
   },
@@ -2874,7 +2877,7 @@
    "url": "https://www.themosesproject.co.uk",
    "final_url": "https://themosesproject.co.uk/",
    "http": 200,
-   "sha256": "05ae0e209c612d1f55b060a3bdffc0fa88e9216e22677ec9c0cde485225d231d",
+   "sha256": "dabbb47d8a36d7bbed05de5197502269d5339acb612a7cd5a6efda0e4a17a3d3",
    "etag": "",
    "last_modified": ""
   },
@@ -2942,7 +2945,7 @@
    "http": 200,
    "sha256": "bca8af2d6da4daf6c96d976acfbaf45041590402835f09fcac5d27ed5d862b52",
    "etag": "",
-   "last_modified": "Fri, 23 Oct 2026 20:41:19 GMT"
+   "last_modified": "Sat, 24 Oct 2026 01:05:11 GMT"
   },
   "ifan-742f6f8c5734b2ce9c4f41-0": {
    "id": "ifan-742f6f8c5734b2ce9c4f41-0",
@@ -3229,7 +3232,7 @@
    "url": "https://allcommunityconnect.org.uk",
    "final_url": "https://allcommunityconnect.org.uk",
    "http": 202,
-   "sha256": "02b70df2628b02e2c1cdd0c3d3365bef06407d2a863caeeed0a3dd104b810a07",
+   "sha256": "12a08bc0d0aeced93940da33790d96159f920f38bdf5962715967ac08bce5eb9",
    "etag": "",
    "last_modified": ""
   },
@@ -3245,8 +3248,8 @@
    "url": "https://www.214space.org",
    "final_url": "https://www.214space.org",
    "http": 200,
-   "sha256": "2fb97c3d68a1753b4cc4b18c8c4d42f10812cf3e4596a70046e97c5715bd7416",
-   "etag": "W/\"675a30da2f5d1452ee1dcbcb1c6fdac3\"",
+   "sha256": "9ebfdea6edbadf7f78ec4c18c12d115cf1d613c3a8314890cc0a28ea88027999",
+   "etag": "W/\"989d8571f4daa95f2d81466d9a236e7c\"",
    "last_modified": ""
   },
   "ifan-84e0d66c29279524acb952-0": {
@@ -3373,7 +3376,7 @@
    "url": "https://www.sufra-nwlondon.org.uk",
    "final_url": "https://www.sufra-nwlondon.org.uk",
    "http": 200,
-   "sha256": "da113d8557cc7d0c3210d66eff80f2ecebe4bde3dbef1954ec8f0a343a46daa3",
+   "sha256": "7d922cdd29571424c5fbe43c7ffd77d5add97821f80e4142e342684a6d56bc9f",
    "etag": "",
    "last_modified": ""
   },
@@ -3421,7 +3424,7 @@
    "url": "https://www.lancashirefirst.org",
    "final_url": "https://lancashirefirst.org/",
    "http": 200,
-   "sha256": "5c0e65f615f4afea9258f7ebc0e8c94125b1c362903d498aece193367f5c0327",
+   "sha256": "2570c63166152d1337d5a0b8cac3fded8793adfb375c8905b9c9be20467fef3e",
    "etag": "",
    "last_modified": ""
   },
@@ -3517,7 +3520,7 @@
    "url": "https://www.stepni.org",
    "final_url": "https://www.stepni.org",
    "http": 200,
-   "sha256": "86729179d2c90897f0b9bac4d491c8c5910166ab0065bbecc4e0f7377bb66172",
+   "sha256": "7d73d54db219da74bbd91b70e7032cfb8cbe4757aea584aafc3d038fc7d2f3f5",
    "etag": "",
    "last_modified": ""
   },
@@ -3599,7 +3602,7 @@
    "url": "https://www.bagn.co.uk",
    "final_url": "https://bagn.co.uk/",
    "http": 200,
-   "sha256": "b277aaf4b19490e6eca7521240e2b978b0c54e702c195f3f811d138e04c3d255",
+   "sha256": "4cb9cbb4ab2fdd042d708eddbfe6bcfcdef8959b36c8a8617bcb210714f2a42e",
    "etag": "",
    "last_modified": ""
   },
@@ -3743,7 +3746,7 @@
    "url": "https://hangarhub.org",
    "final_url": "https://hangarhub.org",
    "http": 202,
-   "sha256": "82fb1b1ea277015b837497f5052bbca94603deef5588a64bfe357a639b6bf001",
+   "sha256": "81630fe0b86f0c1c24358120e0a51020fe27d54e761b339bd92f11bcb0ab7932",
    "etag": "",
    "last_modified": ""
   },
@@ -3759,7 +3762,7 @@
    "url": "https://www.kingschurchwarrington.co.uk",
    "final_url": "https://kingschurchwarrington.co.uk/",
    "http": 200,
-   "sha256": "62f38f07b3fe9802e56b7803fd32e549cac44dbcd8aa2093b981faab60a21806",
+   "sha256": "1f382ca30db7f6126bd5c80b9b75e874a6be60974f22a1fa7a8ec6a42e93890f",
    "etag": "",
    "last_modified": ""
   },
@@ -3904,7 +3907,7 @@
    "url": "https://www.buildingblocksfamilycentre.co.uk",
    "final_url": "https://buildingblocksfamilycentre.co.uk/",
    "http": 200,
-   "sha256": "eb5a4337f45120c38caedaf7bcb18f837fc8f5c710e1e531b46009ba688482bb",
+   "sha256": "7fe71f5cfd942595e98703df7b6d6224a5422c0b1bd267ee84d20d3aa24e9faa",
    "etag": "",
    "last_modified": ""
   },
@@ -4315,7 +4318,7 @@
    "url": "https://www.maundyrelief.org.uk",
    "final_url": "https://maundyrelief.org.uk/",
    "http": 200,
-   "sha256": "a193777bd051a70b4500859f0357a7ee009b3a0243de1ac27b26111b441f5ab5",
+   "sha256": "73f7264ac7fbf5e8e1618479420048bc6015f062eb2fce4dfc53055e608ea897",
    "etag": "",
    "last_modified": ""
   },
@@ -4523,7 +4526,7 @@
    "url": "https://www.youthaidcouncil.org",
    "final_url": "https://youthaidcouncil.org/",
    "http": 200,
-   "sha256": "22defd568eed5eef6a644783003278db755580190d7a6b459340815def69c543",
+   "sha256": "6676bdccfc781d3404002dde6416d56eae127affe525cdd6b83896e3e93d4c75",
    "etag": "",
    "last_modified": ""
   },
@@ -4539,7 +4542,7 @@
    "url": "https://www.youthaidcouncil.org",
    "final_url": "https://youthaidcouncil.org/",
    "http": 200,
-   "sha256": "22defd568eed5eef6a644783003278db755580190d7a6b459340815def69c543",
+   "sha256": "6676bdccfc781d3404002dde6416d56eae127affe525cdd6b83896e3e93d4c75",
    "etag": "",
    "last_modified": ""
   },
@@ -4555,7 +4558,7 @@
    "url": "https://www.themagicwishingwell.org.uk",
    "final_url": "https://themagicwishingwell.org.uk/",
    "http": 200,
-   "sha256": "db1d76d6917a8352c55b9ad6a33e11474ea459b8f0d7d353621eef423d945ab6",
+   "sha256": "3e011c8690708539514e9ec500f0bbc2f0d653ad4606a2111485d59e6f0dccf2",
    "etag": "",
    "last_modified": ""
   },
@@ -4587,8 +4590,8 @@
    "url": "https://www.huttonparish.com",
    "final_url": "https://www.huttonparish.com",
    "http": 200,
-   "sha256": "e3b2f01283f4e078a0084b59938bb6393f3b11cd4602dcd03c376c130e527eba",
-   "etag": "W/\"aede4310d21b6d6d4d7fd14c4d1fb9ff\"",
+   "sha256": "a3e90b41b604b5f445f27c42686fb92ffbfc88645c45302c5e00b63bc1b61f65",
+   "etag": "W/\"04ef24588c235ce13a758287cde93050\"",
    "last_modified": ""
   },
   "ifan-c915d9601b5f7917fbfcc9-0": {
@@ -4670,7 +4673,7 @@
    "http": 200,
    "sha256": "244d42ce114a3d5da286657bc6c833495384ed98077144c0075eaee0bd7754b5",
    "etag": "",
-   "last_modified": "Sat, 24 Oct 2026 02:15:06 GMT"
+   "last_modified": "Sat, 24 Oct 2026 08:34:48 GMT"
   },
   "ifan-cb6c37f190b4af6460846c-0": {
    "id": "ifan-cb6c37f190b4af6460846c-0",
@@ -4871,15 +4874,14 @@
    "website": "https://www.houseofjudah.org.uk",
    "directory": "IFAN",
    "reasons": [
-    "own site does not show food aid",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site unreachable (HTTP 429)"
    ],
    "url": "https://www.houseofjudah.org.uk",
    "final_url": "https://www.houseofjudah.org.uk",
-   "http": 200,
-   "sha256": "856b98e5deff5da1db34f3decd1e9be340ef7635d40a4a9722c311c9e0f2c1a0",
-   "etag": "W/\"14107f706900bf5665dedc5148bf7e80\"",
-   "last_modified": ""
+   "http": 429,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "ifan-d6e96f2307510ff02fd272-0": {
    "id": "ifan-d6e96f2307510ff02fd272-0",
@@ -5022,9 +5024,9 @@
    "url": "https://www.boldonca.co.uk",
    "final_url": "https://www.boldonca.co.uk",
    "http": 200,
-   "sha256": "59d25b204de90c920bca07746962f993f0b595515ad760fa7453c5126b32a95a",
+   "sha256": "1f371574365e6200a62418d44ebcecbc332050d861d582f85c27b0d1490fd5b1",
    "etag": "",
-   "last_modified": "Sat, 24 Oct 2026 11:39:40 GMT"
+   "last_modified": "Sat, 24 Oct 2026 12:32:48 GMT"
   },
   "ifan-e2466004ac51cd788aa0de-0": {
    "id": "ifan-e2466004ac51cd788aa0de-0",
@@ -5166,7 +5168,7 @@
    "url": "https://www.footholdcymru.org.uk",
    "final_url": "https://footholdcymru.org.uk/",
    "http": 200,
-   "sha256": "ba631b806dba1fe665f8a73d4d399be7462c01f03417bb492e62b408777f168c",
+   "sha256": "2d7244e503d99307229aef57df025d1255dad7d0f1ac0bf1ed30b61397993fa6",
    "etag": "",
    "last_modified": ""
   },
@@ -5182,7 +5184,7 @@
    "url": "https://yourmoneyyourwaycic.co.uk",
    "final_url": "https://yourmoneyyourwaycic.co.uk",
    "http": 200,
-   "sha256": "a8eefdc94585a16f4233684ae8c90d4cf203ab0ac07d910c8a73569fde4a12cd",
+   "sha256": "1cadcb2131a9bb8b00b547a73be0f122c5b32a650d5cc86a98b0f80077ceda22",
    "etag": "",
    "last_modified": ""
   },
@@ -5422,7 +5424,7 @@
    "url": "https://www.startupstirling.org.uk/",
    "final_url": "https://startupstirling.org.uk/",
    "http": 200,
-   "sha256": "28d7eb5e97e35dca26b74d927e009448ac59483eac18468a10c38e962769233c",
+   "sha256": "cb327ff6262ee2b28e69e5d202daa2aa6d46894890adacd5b3ed196c324aceb9",
    "etag": "",
    "last_modified": ""
   },
@@ -5438,7 +5440,7 @@
    "url": "https://www.startupstirling.org.uk/",
    "final_url": "https://startupstirling.org.uk/",
    "http": 200,
-   "sha256": "b4daccd5540c1b738df02beb4fd2649031c6d521e4260b028ae827d8bdc17df0",
+   "sha256": "454cfae81f08c3313eb1b5e8b7ad40e9f63cdc3576f820e2d09356b47be97ec9",
    "etag": "",
    "last_modified": ""
   },
@@ -5502,7 +5504,7 @@
    "url": "https://www.govanhillbaths.com/pantry/",
    "final_url": "https://www.govanhillbaths.com/pantry/",
    "http": 202,
-   "sha256": "c46435f9b99fd6643ecba5e6e5beab8df79997f06911acee6a22f86ad61c66a7",
+   "sha256": "4e99e4bcd0ef91c53c1dacc6b20fb18207b8ca135db58cf6910f5412f87ee603",
    "etag": "",
    "last_modified": ""
   },
@@ -5521,6 +5523,22 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  "ifan-b595a2208802ba38bef45d-0": {
+   "id": "ifan-b595a2208802ba38bef45d-0",
+   "name": "Shipshape Health and Wellbeing",
+   "postcode": "S11 8AE",
+   "website": "https://www.shipshape.org.uk",
+   "directory": "IFAN",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "https://www.shipshape.org.uk",
+   "final_url": "https://www.shipshape.org.uk",
+   "http": 200,
+   "sha256": "a49ff6d5a23a6ee9f4fde16754be7fe453fedeafd5c39942a9554ade96336cb8",
+   "etag": "",
+   "last_modified": ""
   }
  },
  "rejected": {}

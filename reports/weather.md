@@ -44,7 +44,12 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **Met Office** [amber] Amber warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
 - **Met Office** [yellow] Yellow warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
 - **Met Office** [yellow] Yellow warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Irish Sea at New Brighton - shelters/warm spaces in area: Friendly Faces, Moreton Methodist Church; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Vatersay Causeway - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Berneray Causeway - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Upper Solway Firth - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Southerness Point - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Rough Firth - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Outer Wigtown Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for East Luce Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay North - shelters/warm spaces in area: none matched; SWEP active: none
@@ -54,7 +59,6 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Ayr to Troon - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Largs - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Dumbarton - shelters/warm spaces in area: none matched; SWEP active: none
-- **Natural Resources Wales** [flood warning] Flood Warning: Tidal area at Borth - shelters/warm spaces in area: Mwldan, St Paul's Methodist Centre; SWEP active: none
 
 ## Alert-triggered council shelter page re-check
 
@@ -69,7 +73,6 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - Angus Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - Antrim and Newtownabbey Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Northern Ireland)
 - Blackpool Borough Council: council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown) (alerts: Met Office: Amber warning of wind affecting North West England)
-- Ceredigion County Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Natural Resources Wales: Flood Warning: Tidal area at Borth)
 - City of Edinburgh Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
 - Clackmannanshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - Dundee City Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
@@ -99,5 +102,6 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - West Dunbartonshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)
 - West Lancashire Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting North West England)
 - West Lothian Council: council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording) (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
+- Wirral Borough Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: Irish Sea at New Brighton)
 
 Source errors: none

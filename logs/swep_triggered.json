@@ -1,5 +1,5 @@
 {
- "run": "2026-10-24T11:48:25+00:00",
+ "run": "2026-10-24T12:44:15+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -58,16 +58,6 @@
     }
    ],
    "review": "council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown)"
-  },
-  {
-   "code": "CGN",
-   "council": "Ceredigion County Council",
-   "alerts": [
-    "Natural Resources Wales: Flood Warning: Tidal area at Borth"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
    "code": "EDH",
@@ -464,6 +454,16 @@
     }
    ],
    "review": "council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording)"
+  },
+  {
+   "code": "WRL",
+   "council": "Wirral Borough Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Irish Sea at New Brighton"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
   }
  ]
 }
