@@ -29,3 +29,18 @@ class TSeason(unittest.TestCase):
         import swep, os
         p = os.path.join(os.path.dirname(__file__), "..", "overrides", "swep_seasonal.json")
         self.assertIsNone(swep.seasonal_active("NTY", "2026-10-24", p)); self.assertTrue(swep.seasonal_active("NTY", "2026-11-01", p))
+
+class ConditionalWording(unittest.TestCase):
+    """24 Oct 2026: Durham was marked active from 'This web page will be updated if SWEP is activated'."""
+    def test_conditional_not_active(self):
+        import swep
+        for t in ["Communicating the SWEP This web page will be updated if SWEP is activated or deactivated.",
+                  "When the temperature reaches 0C or below, the Severe Weather Emergency Protocol (SWEP) is activated.",
+                  "During spells of cold weather the severe weather emergency protocol (SWEP) is activated.",
+                  "As soon as temperatures reading 0C for three days, cold weather provision is activated.",
+                  "Under these conditions something called the Severe Weather Emergency Protocol (SWEP) is activated and the Council can offer emergency shelter.",
+                  "In periods of Severe Weather, a Severe Weather Emergency Protocol (SWEP) is activated that aims to prevent deaths."]:
+            self.assertNotEqual(swep.classify(t)[0], "active", t)
+    def test_plain_active_still_active(self):
+        import swep
+        self.assertEqual(swep.classify("SWEP: currently active. The Severe Weather Emergency Protocol is currently active in Swindon.")[0], "active")
