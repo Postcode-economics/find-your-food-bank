@@ -2,7 +2,24 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "man-wakefield-swep",
+    "name": "Wakefield Cold Weather Shelter (SWEP)",
+    "fields": [
+     "phone",
+     "hours"
+    ],
+    "before": {
+     "phone": "01924 304360",
+     "hours": "8pm-8am, only when severe weather provision is open"
+    },
+    "after": {
+     "phone": "07477 897929 or 01924 923197",
+     "hours": "Winter: 8pm-8am, only on nights the council opens it in severe weather"
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
@@ -62,15 +79,11 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+    "reason": "source no longer names this place"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "osm-way-180604493",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -95,10 +108,6 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
-   },
-   {
-    "id": "osm-way-608979359",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -163,194 +172,13 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "robes-winter-night-shelter",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "hab-barnet-winter-night-shelter",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "man-glasgow-city-mission-owc",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    }
   ]
  },
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "ww-55474277",
-    "name": "Falmouth Drop In",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "10:00 - 12:00",
-      "Thu": "10:00 - 14:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "10:00 - 12:00",
-      "Thu": "10:00 - 15:00"
-     }
-    }
-   },
-   {
-    "id": "ww-58567193",
-    "name": "Gateway",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {}
-    },
-    "after": {
-     "hours": {
-      "Mon": "09:30 - 15:30",
-      "Tue": "09:30 - 15:30",
-      "Wed": "09:30 - 15:30",
-      "Thu": "09:30 - 15:30",
-      "Fri": "09:30 - 15:30"
-     }
-    }
-   },
-   {
-    "id": "ww-55472844",
-    "name": "Granton Skills & Wellbeing Centre",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Tue": "12:30 - 14:00",
-      "Thu": "13:00 - 16:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "10:00 - 14:00",
-      "Wed": "10:00 - 14:00",
-      "Thu": "12:00 - 16:00",
-      "Fri": "11:00 - 13:00",
-      "Sun": "11:00 - 13:00"
-     }
-    }
-   },
-   {
-    "id": "ww-57990409",
-    "name": "Height Library",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Tue": "09:00 - 17:30",
-      "Wed": "09:00 - 17:30",
-      "Thu": "09:00 - 17:30",
-      "Fri": "09:00 - 17:30",
-      "Sat": "09:00 - 13:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Tue": "09:00 - 12:30 / 13:30 - 17:30",
-      "Wed": "09:00 - 12:30 / 13:30 - 17:30",
-      "Thu": "09:00 - 12:30 / 13:30 - 17:30",
-      "Fri": "09:00 - 12:30 / 13:30 - 17:30",
-      "Sat": "09:00 - 13:00"
-     }
-    }
-   },
-   {
-    "id": "ww-57952583",
-    "name": "St Bert's Church",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Sun": "13:00 - 17:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Wed": "09:30 - 12:00 / 14:00 - 16:00",
-      "Fri": "10:00 - 14:00",
-      "Sun": "10:00 - 11:30"
-     }
-    }
-   },
-   {
-    "id": "ww-57951802",
-    "name": "St Botolph's Church",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "09:00 - 14:30",
-      "Tue": "09:00 - 14:30",
-      "Wed": "09:00 - 14:30",
-      "Thu": "09:00 - 14:30",
-      "Fri": "09:00 - 14:30",
-      "Sat": "10:00 - 13:30"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "09:00 - 15:00",
-      "Tue": "09:00 - 15:00",
-      "Wed": "09:00 - 15:00",
-      "Thu": "09:00 - 15:00",
-      "Fri": "09:00 - 15:00",
-      "Sat": "10:00 - 14:00",
-      "Sun": "10:00 - 14:00"
-     }
-    }
-   },
-   {
-    "id": "ww-55473520",
-    "name": "St Helen's Church Northwich",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Sun": "13:00 - 17:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Thu": "11:00 - 13:30"
-     }
-    }
-   },
-   {
-    "id": "hav-monday-meet-up",
-    "name": "The Monday Meet Up (The Hubb Café)",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "10:00 - 14:00",
-      "Tue": "10:00 - 13:00",
-      "Thu": "10:00 - 14:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "10:30 - 12:00"
-     }
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -484,70 +312,6 @@
    "London Borough of Tower Hamlets",
    "Wrexham County Borough Council"
   ],
-  "changes": [
-   {
-    "council": "Bolton Metropolitan Borough Council",
-    "url": "https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton",
-    "from": "new",
-    "to": "active",
-    "quote": ". The initiative is linked to the council&rsquo;s statutory Severe Weather Emergency Protocol (SWEP) responsibilities and has been put in place to support a cohort of vulnerable people who currently find themselves outside "
-   },
-   {
-    "council": "Durham County Council",
-    "url": "https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers",
-    "from": "new",
-    "to": "active",
-    "quote": "nights of a temperature of 1°C or higher. Communicating the SWEP This web page will be updated if SWEP is activated or deactivated. An activation notification will be sent immediately to the rele"
-   },
-   {
-    "council": "East Hampshire District Council",
-    "url": "https://www.easthants.gov.uk/emergency-advice/rough-sleepers-advice",
-    "from": "new",
-    "to": "active",
-    "quote": "es or other extreme weather conditions may also trigger the SWEP such as torrential rain/flooding etc If SWEP is activated staff will assess the circumstances of those rough sleeping to determine the mo"
-   },
-   {
-    "council": "Mid Devon District Council",
-    "url": "https://www.middevon.gov.uk/residents/homelessness/how-we-can-help/",
-    "from": "new",
-    "to": "active",
-    "quote": "mperatures reading 0ºC or lower for three consecutive days, cold weather provision is activated and those who require accommodation under this provision need to contact us . E"
-   },
-   {
-    "council": "Norwich City Council",
-    "url": "https://www.norwich.gov.uk/housing-and-community-safety/apply-housing-housing-advice-and-homelessness/support-people-sleeping/severe-weather-emergency-protocol",
-    "from": "new",
-    "to": "active",
-    "quote": "le who may not usually engage with support services. How is SWEP communicated? When SWEP is activated: partner organisations are notified updates are posted on the&nbsp;council’s we"
-   },
-   {
-    "council": "Nuneaton and Bedworth Borough Council",
-    "url": "https://www.nuneatonandbedworth.gov.uk/swep",
-    "from": "new",
-    "to": "active",
-    "quote": "sp;will manage the emergency accommodation bookings. If the SWEP has been triggered outside of office hours, then this will be managed by the out of hours service."
-   },
-   {
-    "council": "Somerset Council",
-    "url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/",
-    "from": "new",
-    "to": "active",
-    "quote": " links below to navigate directly to sections of this page. SWEP status About SWEP When SWEP is activated Support that is provided Local charities and outreach services How you can help"
-   },
-   {
-    "council": "Southend-on-Sea Borough Council",
-    "url": "https://www.southend.gov.uk/housing-1/severe-weather-emergency-protocol-swep",
-    "from": "new",
-    "to": "active",
-    "quote": "n be placed in accommodation and be given support, when the Severe Weather Emergency Protocol (SWEP) is activated. SWEP is activated when the Met Office forecasts a temperature of below zero Ce"
-   },
-   {
-    "council": "Wrexham County Borough Council",
-    "url": "https://www.wrexham.gov.uk/services/housing/homeless-or-risk/help-and-advice",
-    "from": "new",
-    "to": "active",
-    "quote": "art. When temperatures are predicted to reach 0°C or lower, SWEP is activated. Once active, our team will inform people sleeping rough and visit known rough "
-   }
-  ]
+  "changes": []
  }
 }
