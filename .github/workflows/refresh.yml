@@ -66,6 +66,8 @@ jobs:
         run: python scripts/source_score.py
       - name: Weather and flood warnings (point 27, scripts/weather.py)
         continue-on-error: true
+        env:
+          NRW_FLOOD_API_KEY: ${{ secrets.NRW_FLOOD_API_KEY }}
         run: python scripts/weather.py
       - name: Alerts + morning digest (point 9, scripts/digest.py)
         continue-on-error: true
