@@ -14,7 +14,7 @@ ST = P("logs", "digest_state.json"); MD = P("reports", "morning_digest.md")
 def rj(p, d):
     try: return json.load(open(p))
     except Exception: return d
-def triggers(state, history, dups, since):
+def triggers(state, history, dups, since, weather=None):
     al = []
     closed = [c for v in history.values() for c in v if c.get("label", "").startswith("real closure") and c.get("when", "") >= since]
     if closed: al.append(("closure", "Food bank closed", "Removed because its own site says it closed: " + ", ".join(sorted({c.get('name') or c['id'] for c in closed}))))
@@ -23,15 +23,14 @@ def triggers(state, history, dups, since):
     try: sd = source_score.drops(rj(P("reports", "fill_rates.json"), {}).get("runs", []))[0]
     except Exception: sd = []
     if sd: al.append(("source-score", "Source quality dropped", "; ".join("%s now %g (usually %g)" % d for d in sd) + " - see reports/source_scores.md"))
-    try: wx = json.load(open(P("reports", "weather.json"))).get("warnings", [])
-    except Exception: wx = []
+    wx = weather or []
     ur = [w for w in wx if w.get("level") in ("amber", "red")]
     if ur: al.append(("weather", "Amber/red weather or severe flood warning", "; ".join("%s (shelters/warm spaces: %s; SWEP: %s)" % (w["title"], ", ".join(w.get("places", [])[:10]) or "none matched", ", ".join(w.get("swep", [])) or "none") for w in ur) + " - see reports/weather.md"))
     return al, likely, closed
 def main(now=None):
     now = now or datetime.datetime.now(datetime.timezone.utc)
     state = rj(ST, {}); since = state.get("last_run", (now - datetime.timedelta(days=1)).isoformat(timespec="seconds"))
-    al, likely, closed = triggers(state, rj(P("logs", "entry_history.json"), {}), rj(P("logs", "duplicates.json"), []), since)
+    al, likely, closed = triggers(state, rj(P("logs", "entry_history.json"), {}), rj(P("logs", "duplicates.json"), []), since, rj(P("reports", "weather.json"), {}).get("warnings", []))
     errs = rj(P("reports", "source_errors.json"), {}).get("errors", [])
     hist = rj(P("logs", "entry_history.json"), {}); recent = [c for v in hist.values() for c in v if c.get("when", "") >= since]
     sw = rj(P("logs", "swep_tracker.json"), {}).get("days", {}); swl = sw[max(sw)]["still_to_check"] if sw else None
