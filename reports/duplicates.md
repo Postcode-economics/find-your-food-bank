@@ -2,7 +2,7 @@
 
 Proposed merges for Dean. Nothing is merged automatically.
 
-## likely duplicate (24)
+## likely duplicate (23)
 
 - CB248RX: Cottenham (`salvation-army/cottenham`) / Cottenham (`ely/cottenham`), 56 m apart
 - CH22BN: Crossroads Community Hub Foodbank (`crossroads-community-hub`) / Chester City - Crossroads Community Hub (`west-cheshire/chester-city-crossroads-community-hub`), 30 m apart
@@ -20,7 +20,6 @@ Proposed merges for Dean. Nothing is merged automatically.
 - NP116BA: Risca Foodbank (`risca`) / Risca (`salvation-army/risca`), 10 m apart
 - PL198BD: Tavistock Foodbank (`tavistock`) / Tavistock (`salvation-army/tavistock`), 37 m apart
 - RG141BU: Newbury (`salvation-army/newbury`) / Salvation Army Newbury (`west-berks/salvation-army-newbury`), 14 m apart
-- RH122RG: United Reform Church (`horsham-district/united-reform-church`) / United Reform Church, Horsham (`horsham-district/united-reform-church-horsham`), 60 m apart
 - S639DW: Goldthorpe (`barnsley/goldthorpe`) / Goldthorpe (`salvation-army/goldthorpe`), 36 m apart
 - S714QJ: Royston (`barnsley/royston`) / Royston (`salvation-army/royston`), 15 m apart
 - SA44AD: Gorseinon Institute (`swansea/gorseinon-institute`) / Gorseinon (`salvation-army/gorseinon`), 93 m apart

@@ -45,6 +45,8 @@ Sources: Met Office, Environment Agency, SEPA (NRW needs an API key - Wales via 
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Outer Wigtown Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for East Luce Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay North - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay South - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Ayr to Troon - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Largs - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Dumbarton - shelters/warm spaces in area: none matched; SWEP active: none
 
