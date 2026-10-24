@@ -36,21 +36,29 @@ _locks, _last, _g = {}, {}, threading.Lock()
 TRUSSELL = threading.Semaphore(2)
 def _hostlock(h):
     with _g: return _locks.setdefault(h, threading.Lock())
+MIN_GAP, ERR_LIMIT, PAUSE = 2.0, 3, 600  # point 21: ~1 request / 2 s per domain; 3 errors in a row pause that domain 10 min
+_errs, _paused = {}, {}
+def _note(h, ok):
+    if ok: _errs[h] = 0; return
+    _errs[h] = _errs.get(h, 0) + 1
+    if _errs[h] >= ERR_LIMIT: _paused[h] = time.time() + PAUSE; _errs[h] = 0
+
 def fetch(url):
     h = urllib.parse.urlparse(url).netloc.lower()
     sem = TRUSSELL if h.endswith('foodbank.org.uk') else None
     if sem: sem.acquire()
     try:
         with _hostlock(h):
-            wait = 1.0 - (time.time() - _last.get(h, 0))
+            if _paused.get(h, 0) > time.time(): return {'ok': False, 'http': None, 'error': 'source paused for 10 min after %d errors in a row' % ERR_LIMIT}
+            wait = MIN_GAP - (time.time() - _last.get(h, 0))
             if wait > 0: time.sleep(wait)
             try:
                 req = urllib.request.Request(url, headers=UA)
                 with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                     body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
-                    return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
-            except urllib.error.HTTPError as e: return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
-            except Exception as e: return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
+                    _note(h, True); return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
+            except urllib.error.HTTPError as e: _note(h, False); return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
+            except Exception as e: _note(h, False); return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
             finally: _last[h] = time.time()
     finally:
         if sem: sem.release()
