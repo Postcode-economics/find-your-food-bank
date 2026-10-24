@@ -2,24 +2,7 @@
  "shelters.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "man-wakefield-swep",
-    "name": "Wakefield Cold Weather Shelter (SWEP)",
-    "fields": [
-     "phone",
-     "hours"
-    ],
-    "before": {
-     "phone": "01924 304360",
-     "hours": "8pm-8am, only when severe weather provision is open"
-    },
-    "after": {
-     "phone": "07477 897929 or 01924 923197",
-     "hours": "Winter: 8pm-8am, only on nights the council opens it in severe weather"
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
@@ -291,26 +274,7 @@
  },
  "swep": {
   "active": [
-   "Isle of Anglesey County Council",
-   "Bolton Metropolitan Borough Council",
-   "Cannock Chase District Council",
-   "Durham County Council",
-   "East Hampshire District Council",
-   "East Hertfordshire District Council",
-   "Havant Borough Council",
-   "London Borough of Islington",
-   "Mid Devon District Council",
-   "London Borough of Merton",
-   "Norwich City Council",
-   "North Somerset  Council",
-   "Nuneaton and Bedworth Borough Council",
-   "Oxford City Council",
-   "Rotherham Metropolitan Borough Council",
-   "Somerset Council",
-   "Southend-on-Sea Borough Council",
-   "Swindon Borough Council",
-   "London Borough of Tower Hamlets",
-   "Wrexham County Borough Council"
+   "Swindon Borough Council"
   ],
   "changes": []
  }

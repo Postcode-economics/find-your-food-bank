@@ -1,7 +1,7 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 0 · changed 1 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 36
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 36
 
 - OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027
@@ -20,4 +20,4 @@ added 0 · removed 0 · changed 0 · tier flips 0 · opens later 7 · season end
 - OPENS LATER wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026
 
 ## SWEP
-Active: Isle of Anglesey County Council, Bolton Metropolitan Borough Council, Cannock Chase District Council, Durham County Council, East Hampshire District Council, East Hertfordshire District Council, Havant Borough Council, London Borough of Islington, Mid Devon District Council, London Borough of Merton, Norwich City Council, North Somerset  Council, Nuneaton and Bedworth Borough Council, Oxford City Council, Rotherham Metropolitan Borough Council, Somerset Council, Southend-on-Sea Borough Council, Swindon Borough Council, London Borough of Tower Hamlets, Wrexham County Borough Council
+Active: Swindon Borough Council
