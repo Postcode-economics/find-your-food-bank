@@ -1,0 +1,293 @@
+{
+ "_comment": "Independent food banks with no Give Food/IFAN listing, hand-checked from public sources (Charity Commission gap check, Dean approved 24 Oct 2026 09:24). Each is a public venue with its own phone and opening times; never a home/trustee address. Added as standalone food bank pins by classify.add_added_foodbanks. Lat/lng from postcodes.io.",
+ "gleadless-valley": {
+  "name": "Gleadless Valley Foodbank",
+  "address": "189 Blackstock Road, Gleadless Valley, Sheffield, S14 1FX",
+  "postcode": "S14 1FX",
+  "lat": 53.345065,
+  "lng": -1.445734,
+  "phone": "07840295401",
+  "website": "https://gleadlessvalleyfoodbank.co.uk/",
+  "evidence": "Own site: Tue & Fri 10:00-14:30, 189 Blackstock Road S14 1FX, 07840 295401. Sheffield Council lists 10:30-14:00 (own site used). No referral needed.",
+  "evidence_url": "https://gleadlessvalleyfoodbank.co.uk/",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://gleadlessvalleyfoodbank.co.uk/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "14:30"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "14:30"
+     ]
+    ]
+   }
+  }
+ },
+ "lancing-sompting-harriet-johnson-centre": {
+  "name": "Lancing & Sompting Churches Foodbank - Harriet Johnson Centre",
+  "address": "Harriet Johnson Centre, Old School House, Loose Lane, Sompting, Lancing, BN15 0BG",
+  "postcode": "BN15 0BG",
+  "lat": 50.833834,
+  "lng": -0.345506,
+  "phone": "07719196735",
+  "website": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+  "evidence": "Own site: Tuesdays 10:00-11:30 Harriet Johnson Centre BN15 0BG; tel 07719 196735; referral by partners. Also Lancing Parish Council + Adur & Worthing council pages.",
+  "evidence_url": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "11:30"
+     ]
+    ]
+   }
+  }
+ },
+ "lancing-sompting-adur-west-family-hub": {
+  "name": "Lancing & Sompting Churches Foodbank - Adur West Family Hub",
+  "address": "Adur West Family Hub, 42 North Road, Lancing, BN15 9AB",
+  "postcode": "BN15 9AB",
+  "lat": 50.827927,
+  "lng": -0.322356,
+  "phone": "07719196735",
+  "website": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+  "evidence": "Own site: Thursdays 10:00-12:00 Adur West Family Hub, 42 North Road BN15 9AB (council page says to 12:30; own site used); tel 07719 196735.",
+  "evidence_url": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "shoreham-adur-community": {
+  "name": "Shoreham & Adur Community Foodbank",
+  "address": "Huntington Hall, Shoreham Free Church, Shoreham-by-Sea, BN43 6WF",
+  "postcode": "BN43 6WF",
+  "lat": 50.834951,
+  "lng": -0.269359,
+  "phone": "07591076738",
+  "website": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/",
+  "evidence": "Adur & Worthing Councils foodbanks page: Friday 10:00-12:00, Huntington Hall, Shoreham Free Church BN43 6WF, mobile 07591 076738. Separate from Trussell Shoreham Foodbank (Shoreham Baptist Church, Tuesdays).",
+  "evidence_url": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "stannington": {
+  "name": "Stannington Foodbank",
+  "address": "Stanwood Drive, Sheffield, S6 5HZ",
+  "postcode": "S6 5HZ",
+  "lat": 53.393186,
+  "lng": -1.524088,
+  "phone": "07754254462",
+  "website": "https://www.sheffield.gov.uk/node/6758/stannington-food-bank",
+  "evidence": "Sheffield City Council food support page: Monday 12:00-13:00, Stanwood Drive S6 5HZ, tel 07754 254462; voucher from a referral agency.",
+  "evidence_url": "https://www.sheffield.gov.uk/node/6758/stannington-food-bank",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://www.sheffield.gov.uk/node/6758/stannington-food-bank",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "12:00",
+      "13:00"
+     ]
+    ]
+   }
+  }
+ },
+ "faringdon": {
+  "name": "Faringdon Foodbank",
+  "address": "Town Council Offices, Pump House, 5 Market Place, Faringdon, SN7 7HL",
+  "postcode": "SN7 7HL",
+  "lat": 51.65863,
+  "lng": -1.583376,
+  "phone": "07548535855",
+  "website": "https://www.faringdon-foodbank.com/",
+  "evidence": "Own site: Mon, Wed, Fri 10:00-12:00 at Town Council Offices, 5 Market Place, Pump House SN7 7HL; 07548 535855 (answered during opening hours only).",
+  "evidence_url": "https://www.faringdon-foodbank.com/",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://www.faringdon-foodbank.com/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "bevendean": {
+  "name": "Bevendean Food Bank",
+  "address": "Church Hall, Norwich Drive, Brighton, BN2 4LA",
+  "postcode": "BN2 4LA",
+  "lat": 50.843603,
+  "lng": -0.099976,
+  "phone": "07856408522",
+  "website": "https://bhfood.org.uk/directory/bevendean-food-bank/",
+  "evidence": "Brighton & Hove Food Partnership directory (updated Nov 2025): Wednesdays 09:30-12:00, Church Hall, Norwich Drive BN2 4LA, tel 07856 408522; referral preferred, drop in with proof of postcode.",
+  "evidence_url": "https://bhfood.org.uk/directory/bevendean-food-bank/",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://bhfood.org.uk/directory/bevendean-food-bank/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "09:30",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "dn6-askern": {
+  "name": "DN6 Foodbank (Askern, Norton & Campsall)",
+  "address": "St Peter's Church, Church Street, Askern, Doncaster, DN6 0PH",
+  "postcode": "DN6 0PH",
+  "lat": 53.61734,
+  "lng": -1.15264,
+  "phone": "07554748284",
+  "website": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/",
+  "evidence": "St Peter's Askern church page: open Thursday 10:30-12:00, walk-ins and self referrals accepted, tel 07554 748284. Askern Town Council page gives the same phone and Thursday mornings.",
+  "evidence_url": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "10:30",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "queensbury": {
+  "name": "We Are Queensbury Foodbank & Community Hub",
+  "address": "25 High Street, Queensbury, Bradford, BD13 2PE",
+  "postcode": "BD13 2PE",
+  "lat": 53.768107,
+  "lng": -1.846025,
+  "phone": "07842770791",
+  "website": "https://queensburyfoodbank.co.uk/contact/",
+  "evidence": "Own site: Foodbank Tue-Wed-Thu 10:30-12:30, 25 High Street Queensbury BD13 2PE, 07842 770 791, no appointment needed.",
+  "evidence_url": "https://queensburyfoodbank.co.uk/contact/",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://queensburyfoodbank.co.uk/contact/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ],
+    "wed": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ],
+    "thu": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ]
+   }
+  }
+ },
+ "ethnic-food-bank-bedford": {
+  "name": "Ethnic Food Bank",
+  "address": "Westbourne Community Centre, Westbourne Road, Bedford, MK40 4PQ",
+  "postcode": "MK40 4PQ",
+  "lat": 52.13471,
+  "lng": -0.486807,
+  "phone": "07417509996",
+  "website": "https://ethnicfoodbank.org/contact-us",
+  "evidence": "Own site: distribution at Westbourne Community Centre MK40 4PQ, every Wednesday 17:30-19:30, tel 07417 509 996; referral (food voucher code) needed.",
+  "evidence_url": "https://ethnicfoodbank.org/contact-us",
+  "checked": "2026-10-24",
+  "opening_times": {
+   "checked_date": "2026-10-24",
+   "raw": null,
+   "source_url": "https://ethnicfoodbank.org/contact-us",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "17:30",
+      "19:30"
+     ]
+    ]
+   }
+  }
+ }
+}
