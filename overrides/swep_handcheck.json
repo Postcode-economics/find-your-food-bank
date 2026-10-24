@@ -1,0 +1,969 @@
+{
+ "_comment": "Hand checks (Dean 24 Oct 09:24) of councils the daily SWEP classifier could not settle (unknown/unreachable). Read-only checks of council pages; nobody contacted. Valid 30 days, then the council returns to the to-check list. result: ok = SWEP described, not active now; old = only an old dated activation notice (not active now); none = page has no SWEP info (better page needed); flag = needs Dean; todo = still unchecked.",
+ "ADU": {
+  "council": "Adur District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ARU": {
+  "council": "Arun District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.arun.gov.uk/rough-sleeping-support-services",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ASF": {
+  "council": "Ashford Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.ashford.gov.uk/housing/housing-help/homelessness-support-and-guidance/severe-weather-emergency-protocol-swep/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BAI": {
+  "council": "Basildon Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.basildon.gov.uk/article/5897/Rough-Sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BAN": {
+  "council": "Basingstoke and Deane Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.basingstoke.gov.uk/homelessness",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BDG": {
+  "council": "London Borough of Barking and Dagenham",
+  "checked": "2026-10-24",
+  "result": "none",
+  "url": "https://www.lbbd.gov.uk/civil-protection-service/severe-weather",
+  "note": "Page is general severe-weather/emergency advice, no rough-sleeper SWEP wording."
+ },
+ "BEN": {
+  "council": "London Borough of Brent",
+  "checked": "2026-10-24",
+  "result": "none",
+  "url": "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather",
+  "note": "Page is general severe-weather advice, no rough-sleeper SWEP wording."
+ },
+ "BIR": {
+  "council": "Birmingham City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BNH": {
+  "council": "Brighton and Hove City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BOS": {
+  "council": "Bolsover District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BPC": {
+  "council": "Bournemouth, Christchurch and Poole Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.bcpcouncil.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-protocol",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BPL": {
+  "council": "Blackpool Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BRA": {
+  "council": "Braintree District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.braintree.gov.uk/housing/rough-sleepers-emergency-arrangements",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BRE": {
+  "council": "Breckland District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.breckland.gov.uk/article/12299/Rough-sleeping-in-extreme-weather-conditions",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "BST": {
+  "council": "Bristol City Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://news.bristol.gov.uk/press-releases/e9f2f484-4536-4918-adf0-64b58a095d66/swep-deactivated-in-bristol",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "BUC": {
+  "council": "Buckinghamshire Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.buckinghamshire.gov.uk/news/severe-weather-emergency-provision/",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "BUN": {
+  "council": "Burnley Borough Council",
+  "checked": "2026-10-24",
+  "result": "flag",
+  "url": "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
+  "note": "Page headline \"SWEP activated in Burnley due to heat-health alerts\" - undated, a summer heat notice still on the page in October. Treated as not active now."
+ },
+ "BUR": {
+  "council": "Bury Metropolitan Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.bury.gov.uk/housing/homelessness/aben",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CAS": {
+  "council": "Castle Point Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.castlepoint.gov.uk/w/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CBF": {
+  "council": "Central Bedfordshire Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.centralbedfordshire.gov.uk/environmental-issues/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CHE": {
+  "council": "Cheshire East Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.cheshireeast.gov.uk/housing/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CHI": {
+  "council": "Chichester District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.chichester.gov.uk/homelessapplications",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CHO": {
+  "council": "Chorley Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://chorley.gov.uk/housing/severe-weather-emergency-protocol",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CHR": {
+  "council": "Cherwell District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.cherwell.gov.uk/info/80/homeless-or-risk-of-homelessness/250/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CHS": {
+  "council": "Chesterfield Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.chesterfield.gov.uk/housing/homelessness/homelessness-prevention/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CHT": {
+  "council": "Cheltenham Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://cheltenham.gov.uk/housing/housing-advice-and-options/homelessness-support-and-advice/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CMD": {
+  "council": "London Borough of Camden",
+  "checked": "2026-10-24",
+  "result": "none",
+  "url": "https://www.camden.gov.uk/cold-weather-advice",
+  "note": "Page is cold-weather health advice, no SWEP wording."
+ },
+ "CON": {
+  "council": "Cornwall Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.cornwall.gov.uk/housing/homeless-or-at-risk/street-homeless-or-rough-sleeping/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "COT": {
+  "council": "Cotswold District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://cotswold.gov.uk/housing/homelessness-support-and-advice/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "COV": {
+  "council": "Coventry City Council",
+  "checked": "2026-10-24",
+  "result": "none",
+  "url": "https://www.coventry.gov.uk/directory-record/59179/rough-sleeper-numbers-during-swep",
+  "note": "Page is an FOI response about SWEP numbers, not a SWEP information page."
+ },
+ "CRW": {
+  "council": "Crawley Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://crawley.gov.uk/housing/finding-home/homelessness/severe-weather-accommodation",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CRY": {
+  "council": "London Borough of Croydon",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.croydon.gov.uk/housing/housing-support/homelessness/help-someone-who-homeless-or-risk/get-help-someone-who-sleeping-rough",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "CWY": {
+  "council": "Conwy County Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.conwy.gov.uk/en/Spotlight/Whats-New/Pages/Severe-Weather-Emergency-Protocol-SWEP.aspx",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "DAC": {
+  "council": "Dacorum Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.dacorum.gov.uk/home/housing/housing-advice-and-options/homeless-or-at-risk/rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "DAR": {
+  "council": "Dartford Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.dartford.gov.uk/downloads/download/1806/severe-weather-emergency-protocol-swep-for-rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "DER": {
+  "council": "Derby City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.derby.gov.uk/housing/homelessness/concerned-about-rough-sleeper/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "DOV": {
+  "council": "Dover District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "DST": {
+  "council": "Dorset Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.dorsetcouncil.gov.uk/w/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "EAL": {
+  "council": "London Borough of Ealing",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.ealing.gov.uk/info/201102/finding_a_home/2558/rough_sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "EAS": {
+  "council": "Eastbourne Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "EAT": {
+  "council": "Eastleigh Borough Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.eastleigh.gov.uk/latest-news/cold-weather-support-for-people-sleeping-rough",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "ECA": {
+  "council": "East Cambridgeshire District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://eastcambs.gov.uk/services/housing-and-community-advice/homelessness/severe-weather-enforcement-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "EDE": {
+  "council": "East Devon District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://eastdevon.gov.uk/housing-and-homelessness/homelessness/rough-sleepers/severe-weather-provision/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ELI": {
+  "council": "East Lindsey District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.e-lindsey.gov.uk/article/7964/Rough-Sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ELM": {
+  "council": "Elmbridge Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://elmbridge.gov.uk/housing/homelessness/shelter-during-severe-weather",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ENF": {
+  "council": "London Borough of Enfield",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.enfield.gov.uk/services/housing/homelessness/sleeping-rough-or-on-the-streets",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "EPP": {
+  "council": "Epping Forest District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.eppingforestdc.gov.uk/housing/homelessness/rough-sleeping-and-homeless-emergencies/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ERY": {
+  "council": "East Riding of Yorkshire Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ESK": {
+  "council": "East Suffolk Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.eastsuffolk.gov.uk/housing/housing/homelessness-advice-and-prevention/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "EXE": {
+  "council": "Exeter City Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://news.exeter.gov.uk/extra-measures-to-bring-rough-sleepers-inside-as-temperatures-dip/",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "FEN": {
+  "council": "Fenland District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://fenland.gov.uk/roughsleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "FOE": {
+  "council": "Forest of Dean District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.fdean.gov.uk/housing/homelessness-support-and-advice/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "GRA": {
+  "council": "Gravesham Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.gravesham.gov.uk/advice/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "GRY": {
+  "council": "Great Yarmouth Borough Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.great-yarmouth.gov.uk/article/8832/Council-ramps-up-rough-sleeper-support-in-the-heat-and-you-can-help",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "GWN": {
+  "council": "Gwynedd Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.gwynedd.llyw.cymru/en-gb/housing/homelessness/homelessness-severe-weather-emergency-protocol",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HAS": {
+  "council": "Hastings Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.hastings.gov.uk/housing/SWEP/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HEF": {
+  "council": "Herefordshire Council",
+  "checked": "2026-10-24",
+  "result": "flag",
+  "url": "https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/",
+  "note": "Winter Night Shelter described as \"now open\" (8pm-8am, 18+), page undated - is it open this winter yet? Not added to map."
+ },
+ "HER": {
+  "council": "Hertsmere Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.hertsmere.gov.uk/housing-private-property/housing-advice-and-homelessness/emergency-accommodation-and-night-shelters",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HIN": {
+  "council": "Hinckley and Bosworth Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.hinckley-bosworth.gov.uk/info/200117/homelessness/2041/rough_sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HNS": {
+  "council": "London Borough of Hounslow",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.hounslow.gov.uk/community-safety/severe-weather-emergency-protocol",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HRW": {
+  "council": "London Borough of Harrow",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.harrow.gov.uk/roughsleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HRY": {
+  "council": "London Borough of Haringey",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://haringey.gov.uk/housing/homelessness/rough-sleeping/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "HYN": {
+  "council": "Hyndburn Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.hyndburnbc.gov.uk/swep/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "IOW": {
+  "council": "Isle of Wight Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.iow.gov.uk/article/1750/Rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "IPS": {
+  "council": "Ipswich Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.ipswich.gov.uk/housing/homelessness/support-rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "KIN": {
+  "council": "Borough Council of Kings Lynn and West Norfolk",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "KIR": {
+  "council": "Kirklees Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.kirklees.gov.uk/beta/housing/sleeping-rough.aspx",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "KTT": {
+  "council": "Royal Borough of Kingston upon Thames",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "LAC": {
+  "council": "Lancaster City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.lancaster.gov.uk/housing/help-for-rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "LBH": {
+  "council": "London Borough of Lambeth",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://love.lambeth.gov.uk/lambeth-council-activates-its-severe-weather-emergency-protocol-swep-for-rough-sleepers/",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "LDS": {
+  "council": "Leeds City Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://news.leeds.gov.uk/news/extra-support-for-rough-sleepers-as-council-applies-its-cold-weather-protocol-from-next-monday",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "LEE": {
+  "council": "Lewes District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "LIF": {
+  "council": "Lichfield District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.lichfielddc.gov.uk/homelessness/concerned-someone-sleeping-rough",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "MAL": {
+  "council": "Maldon District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.maldon.gov.uk/info/20056/homelessness/9630/emergency_accommodation_and_rough_sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "MAN": {
+  "council": "Manchester City Council",
+  "checked": "2026-10-24",
+  "result": "todo",
+  "url": "https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter",
+  "note": "Page timed out from both the box and the fetch service - retry."
+ },
+ "MAV": {
+  "council": "Malvern Hills District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.malvernhills.gov.uk/housing/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "MDW": {
+  "council": "Medway Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.medway.gov.uk/info/200857/homelessness_and_at_risk_of_homelessness_support/1957/help_for_rough_sleepers/2",
+  "note": "SWEP described (activates at 0C or below); read-only, Medway not contacted."
+ },
+ "MON": {
+  "council": "Monmouthshire County Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.monmouthshire.gov.uk/housing/finding-a-home/homelessness-2/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "NED": {
+  "council": "North East Derbyshire District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.ne-derbyshire.gov.uk/housing-and-health/homelessness",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "NET": {
+  "council": "Newcastle City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://new.newcastle.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-help-newcastle",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "NEW": {
+  "council": "New Forest District Council",
+  "checked": "2026-10-24",
+  "result": "todo",
+  "url": "https://www.newforest.gov.uk/article/4133/Support-to-rough-sleepers-during-colder-weather",
+  "note": "Stored page returns 404 (dead) - new council page needed."
+ },
+ "NGM": {
+  "council": "Nottingham City Council",
+  "checked": "2026-10-24",
+  "result": "flag",
+  "url": "https://streetsupport.net/nottingham/severe-weather-accommodation/",
+  "note": "Only source is Street Support Network page (\"SWEP Not Active\"), not the council's own site - council page still needed."
+ },
+ "NKE": {
+  "council": "North Kesteven District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "NNO": {
+  "council": "North Norfolk District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "NTY": {
+  "council": "North Tyneside Council",
+  "checked": "2026-10-24",
+  "result": "flag",
+  "url": "https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough",
+  "note": "Page says \"SWEP is active between 1 November and 31 March\" - becomes active 1 Nov 2026 by the council's own wording."
+ },
+ "NWL": {
+  "council": "North West Leicestershire District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "NYE": {
+  "council": "North Yorkshire Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.northyorks.gov.uk/housing-and-homelessness/homelessness/housing-and-homelessness/homelessness/help-rough-sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "PLY": {
+  "council": "Plymouth City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.plymouth.gov.uk/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "PRE": {
+  "council": "Preston City Council",
+  "checked": "2026-10-24",
+  "result": "flag",
+  "url": "https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP",
+  "note": "Preston runs a SWEP offer \"throughout the entirety of Winter\"; page does not say the start date for 2026-27."
+ },
+ "PTE": {
+  "council": "Peterborough City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.peterborough.gov.uk/housing/rough-sleeper-support-services",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "RCC": {
+  "council": "Redcar and Cleveland Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "RCH": {
+  "council": "Rochdale Metropolitan Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.rochdale.gov.uk/housing/support-people-risk-homelessness",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "RDB": {
+  "council": "London Borough of Redbridge",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.redbridge.gov.uk/news/january-2023/do-you-know-anyone-sleeping-rough-in-the-cold-weather/",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "RDG": {
+  "council": "Reading Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.reading.gov.uk/housing/rough-sleeping/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "RED": {
+  "council": "Redditch Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.redditchbc.gov.uk/residents/my-home/find-me-a-home/homeless-services-and-advice/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ROH": {
+  "council": "Rother District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.rother.gov.uk/housing/housing-options-and-homelessness/rough-sleepers/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "ROS": {
+  "council": "Rossendale Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.rossendale.gov.uk/housing-homelessness/homeless-housing-options/3",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "RUG": {
+  "council": "Rugby Borough Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "RUH": {
+  "council": "Rushmoor Borough Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.rushmoor.gov.uk/your-council/news-and-your-views/council-news/news-releases/june-2026/severe-weather-emergency-protocol/",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "RUN": {
+  "council": "Runnymede Borough Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.runnymede.gov.uk/news/article/307/severe-weather-emergency-protocol-active-22-june-2026-26-june-2026",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "SAL": {
+  "council": "St Albans City and District Council",
+  "checked": "2026-10-24",
+  "result": "none",
+  "url": "https://www.stalbans.gov.uk/rough-sleeping",
+  "note": "Page lists Open Door Night Shelter etc; no SWEP wording found."
+ },
+ "SAW": {
+  "council": "Sandwell Metropolitan Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.sandwell.gov.uk/find-home/concerned-rough-sleeper",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SCA": {
+  "council": "South Cambridgeshire District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.scambs.gov.uk/housing/housing-advice-and-homelessness/homelessness-advice/severe-weather-emergency-provision-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SGC": {
+  "council": "South Gloucestershire Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://life.southglos.gov.uk/kb5/southglos/directory/advice.page?id=2sQ79T30fdg",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SHA": {
+  "council": "South Hams District Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://www.southhams.gov.uk/news/2025/stay-safe-cold-weather",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "SHF": {
+  "council": "Sheffield City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SHO": {
+  "council": "South Holland District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.sholland.gov.uk/article/22764/Severe-Weather",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SOL": {
+  "council": "Solihull Metropolitan Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.solihull.gov.uk/housing/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SOX": {
+  "council": "South Oxfordshire District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/housing/are-you-homeless/severe-weather-emergency-protocol-swep/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SRI": {
+  "council": "South Ribble Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://southribble.gov.uk/housing/severe-weather-emergency-protocol",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "STO": {
+  "council": "Stroud District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.stroud.gov.uk/housing/homelessness/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "STY": {
+  "council": "South Tyneside Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.southtyneside.gov.uk/article/20226/Severe-Weather-Emergency-Protocol-SWEP",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SUR": {
+  "council": "Surrey Heath Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.surreyheath.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SWK": {
+  "council": "London Borough of Southwark",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.southwark.gov.uk/housing/homelessness/sleeping-rough/rough-sleeping-very-cold-weather",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "SWL": {
+  "council": "Swale Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://swale.gov.uk/your-council/strategies-and-policies/severe-weather-emergency-protocol-guidance",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "TAM": {
+  "council": "Tameside Metropolitan Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "TEI": {
+  "council": "Teignbridge District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.teignbridge.gov.uk/housing/rough-sleeping/severe-weather-provisions-for-rough-sleepers/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "TES": {
+  "council": "Test Valley Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.testvalley.gov.uk/severe-weather/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "TEW": {
+  "council": "Tewkesbury Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://tewkesbury.gov.uk/services/housing/homelessness-and-housing-options/homeless-advice-and-prevention/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "TFW": {
+  "council": "Telford & Wrekin Council",
+  "checked": "2026-10-24",
+  "result": "old",
+  "url": "https://newsroom.telford.gov.uk/news/council-continues-to-make-great-strides-tackling-homelessness",
+  "note": "Only a dated past activation/news notice; not active now."
+ },
+ "THA": {
+  "council": "Thanet District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.thanet.gov.uk/info-pages/rough-sleeping/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "THR": {
+  "council": "Thurrock Council",
+  "checked": "2026-10-24",
+  "result": "none",
+  "url": "https://www.thurrock.gov.uk/homelessness/rough-sleepers",
+  "note": "Page lists night shelters/hostels; no SWEP wording found."
+ },
+ "TOR": {
+  "council": "Torridge District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.torridge.gov.uk/article/17676/Severe-Weather-Provision-for-Rough-Sleepers",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "UTT": {
+  "council": "Uttlesford District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.uttlesford.gov.uk/article/6001/Help-with-your-housing-needs",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "VAL": {
+  "council": "Vale of White Horse District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/housing/are-you-homeless/severe-weather-emergency-protocol-swep/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WAF": {
+  "council": "Westmorland and Furness Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/sleeping-rough-or-street-homeless",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WAT": {
+  "council": "Watford Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.watford.gov.uk/homelessness/im-homeless-risk-homeless/12",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WEA": {
+  "council": "Wealden District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WFT": {
+  "council": "London Borough of Waltham Forest",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/severe-weather-support-people-sleeping-rough",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WIL": {
+  "council": "Wiltshire Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.wiltshire.gov.uk/article/2026/Rough-Sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WKF": {
+  "council": "Wakefield Metropolitan District Council",
+  "checked": "2026-10-24",
+  "result": "flag",
+  "url": "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
+  "note": "Cold weather shelter at Wakefield Baptist Church, Belle Isle Avenue WF1 5JY, 8pm-8am, venue phone 07477 897929 / 01924 923197 \"when open\". Not open now; candidate SWEP venue for the shelters layer (Dean to OK)."
+ },
+ "WLV": {
+  "council": "City of Wolverhampton Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WNM": {
+  "council": "Royal Borough of Windsor and Maidenhead",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.rbwm.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WOC": {
+  "council": "Worcester City Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.worcester.gov.uk/housing/homeless-or-at-risk-of-homelessness/rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WOI": {
+  "council": "Woking Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.woking.gov.uk/housing/homelessness-rough-sleeping",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WOT": {
+  "council": "Worthing Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WYE": {
+  "council": "Wyre Forest District Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://wyreforestdc.gov.uk/housing-and-homes/homelessness/getting-a-home/housing-advice-for-specific-groups-of-people/housing-advice-for-rough-sleepers/",
+  "note": "SWEP described on council page; no current activation notice"
+ },
+ "WYR": {
+  "council": "Wyre Borough Council",
+  "checked": "2026-10-24",
+  "result": "ok",
+  "url": "https://www.wyre.gov.uk/housing-options-homelessness/duty-refer/3",
+  "note": "SWEP described on council page; no current activation notice"
+ }
+}
