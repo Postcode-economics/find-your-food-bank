@@ -3680,8 +3680,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness advisory page has no SWEP wording)",
+  "looked_at": [
+   "https://www.oadby-wigston.gov.uk/pages/homelessness_advisory_services"
+  ],
   "homeless_url": "https://www.oadby-wigston.gov.uk/pages/homelessness_advisory_services",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3691,14 +3693,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page; A Bed Every Night directory entry has no severe-weather wording)",
   "looked_at": [
-   "https://www.oldham.gov.uk/info/200257/homelessness/798/let_us_know_about_someone_sleeping_rough",
+   "https://services.oldham.gov.uk/livewell-service/a-bed-every-night-2/",
+   "https://www.oldham.gov.uk/Housingandhomelessnessadvicereferraltool",
    "https://www.oldham.gov.uk/a_to_z/service/539/let_us_know_about_someone_sleeping_rough",
-   "https://www.oldham.gov.uk/rough-sleepers-referral",
-   "https://www.oldham.gov.uk/info/200257/homelessness/2113/refer_someone_to_the_housing_options_team",
    "https://www.oldham.gov.uk/homelessness",
-   "https://www.oldham.gov.uk/Housingandhomelessnessadvicereferraltool"
+   "https://www.oldham.gov.uk/info/200257/homelessness/2113/refer_someone_to_the_housing_options_team",
+   "https://www.oldham.gov.uk/info/200257/homelessness/798/let_us_know_about_someone_sleeping_rough",
+   "https://www.oldham.gov.uk/rough-sleepers-referral"
   ],
   "homeless_phone": "0161 770 4605",
   "phone_source": "https://www.oldham.gov.uk/info/200257/homelessness/2113/refer_someone_to_the_housing_options_team",
@@ -3754,8 +3757,10 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (housing advice page has no severe-weather wording; emergency shelter openings only in press)",
+  "looked_at": [
+   "https://www.pembrokeshire.gov.uk/housing-advice/temporary-accommodation-homeless-pods"
+  ],
   "homeless_url": "https://www.pembrokeshire.gov.uk/housing-advice",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3765,13 +3770,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (bad weather and homelessness pages have no SWEP wording; SWEP only in the Winter Resilience Plan PDF)",
   "looked_at": [
    "https://live.lancashire.gov.uk/council/transparency/access-to-information/service-and-project-specific-privacy-notices/youth-homelessness-prevention-trailblazer/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
    "https://live.lancashire.gov.uk/lancashire-insight/population-and-households/households-and-housing/homeless-households/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/"
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "https://www.pendle.gov.uk/badweather",
+   "https://www.pendle.gov.uk/info/20052/homelessness_and_emergency_housing/400/homelessness"
   ],
   "ooh_phone": "0300 123 6722",
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
@@ -3796,7 +3803,7 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (web search found no SWEP page on powys.gov.uk (site blocks scripts); only press)",
   "looked_at": [],
   "homeless_url": "https://en.powys.gov.uk/homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -3863,14 +3870,15 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness advice page has no SWEP wording (per search copy; page unreachable from the box); plan only in 2018 cabinet PDF)",
   "looked_at": [
-   "https://www.rctcbc.gov.uk/CY/Resident/Housing/Homelessoratrisk/",
+   "https://rctcbc.gov.uk/EN/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx",
    "https://www.rctcbc.gov.uk/CY/Council/DataProtectionandFreedomofInformation/DataProtection/serviceprivacynotices/CommunityandChildrensServices/HousingAdviceHomelessnessPrivacyNotice.aspx",
-   "https://www.rctcbc.gov.uk/EN/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx",
+   "https://www.rctcbc.gov.uk/CY/Resident/Housing/Homelessoratrisk/",
+   "https://www.rctcbc.gov.uk/CY/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx",
    "https://www.rctcbc.gov.uk/EN/Council/DataProtectionandFreedomofInformation/DataProtection/serviceprivacynotices/CommunityandChildrensServices/HousingAdviceHomelessnessPrivacyNotice.aspx",
    "https://www.rctcbc.gov.uk/EN/Resident/Housing/Homelessoratrisk/",
-   "https://www.rctcbc.gov.uk/CY/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx"
+   "https://www.rctcbc.gov.uk/EN/Resident/Housing/Homelessoratrisk/Homelessnessadviceandsupport.aspx"
   ],
   "homeless_phone": "01443 495188",
   "ooh_phone": "01443 425011",
