@@ -114,3 +114,30 @@ class SheetGreen(unittest.TestCase):  # Dean 24 Oct 21:31: sheet cards = same gr
                 self.assertEqual(out['selkirk'], ['rgb(52, 199, 89)', 'rgb(43, 43, 43)'])
                 self.assertEqual(out['whitland-town-hall-community'][0], 'rgb(24, 119, 242)')
             finally: b.close()
+
+
+class HelplineBoxNotInCards(unittest.TestCase):
+    """Dean 24 Oct: the 'Sleeping rough… StreetLink / Call 999' box shows ONCE, above the list (#v3sos), never inside a card or the sheet."""
+    def test_card_template_has_no_strip(self):
+        s = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'layers.js'), encoding='utf-8').read()
+        self.assertNotIn('V3.strip()', s)
+    def test_rendered_shelters_box_only_on_top(self):
+        try:
+            from playwright.sync_api import sync_playwright
+            import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import newlook_render as R
+        except Exception as e:
+            raise unittest.SkipTest("playwright not available: %s" % e)
+        with sync_playwright() as pw:
+            b, p = R.open_page(pw, 'dark')
+            try:
+                p.click('.v3b[data-l=sh]'); p.wait_for_timeout(1200)
+                p.evaluate("()=>nearest(50.797102,-1.0773661,'PO1 1PT')"); p.wait_for_timeout(2000)
+                p.evaluate("()=>{const c=document.querySelector('#xlist .card.xsh');if(c)c.click()}"); p.wait_for_timeout(800)
+                s = p.evaluate("""()=>({cards:document.querySelectorAll('#xlist .card.xsh').length,
+                  top:document.querySelectorAll('#v3sos .v3sos').length,topShown:!document.getElementById('v3sos').hidden,
+                  stray:[...document.querySelectorAll('.v3sos')].filter(e=>!e.closest('#v3sos')).length})""")
+            finally:
+                b.close()
+        self.assertGreater(s['cards'], 0)
+        self.assertEqual(s, {'cards': s['cards'], 'top': 1, 'topShown': True, 'stray': 0})
