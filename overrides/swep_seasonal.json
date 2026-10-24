@@ -1,0 +1,11 @@
+{
+ "_comment": "Councils whose own SWEP page says it is active for a fixed season every year (Dean approved 24 Oct 2026). swep.py full() reports them 'active' between from and to (MM-DD, inclusive, wraps the new year). Re-check the quote each winter.",
+ "NTY": {
+  "council": "North Tyneside Council",
+  "from": "11-01",
+  "to": "03-31",
+  "url": "https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough",
+  "quote": "SWEP is active between 1 November and 31 March",
+  "checked": "2026-10-24"
+ }
+}
