@@ -5079,8 +5079,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 ('Supporting rough sleepers this winter' article now 404; no current SWEP page on westberks.gov.uk)",
+  "looked_at": [
+   "https://www.westberks.gov.uk/article/43505/Supporting-rough-sleepers-this-winter"
+  ],
   "homeless_url": "https://www.westberks.gov.uk/homelessnesssupport",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -5170,8 +5172,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless recovery accommodation page has no SWEP wording; SWEP only in an FOI disclosure PDF)",
+  "looked_at": [
+   "https://www.wigan.gov.uk/Resident/Housing/Council-homes/Find-a-home/Homelessness/Homeless-Recovery-Accommodation-Pathways.aspx"
+  ],
   "homeless_url": "https://www.wigan.gov.uk/Resident/Housing/Council-homes/Find-a-home/Homelessness/index.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -5215,13 +5219,14 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page found on westlancs.gov.uk (homelessness page unreachable from the box); SWEP not in search results)",
   "looked_at": [
    "https://live.lancashire.gov.uk/council/transparency/access-to-information/service-and-project-specific-privacy-notices/youth-homelessness-prevention-trailblazer/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
    "https://live.lancashire.gov.uk/lancashire-insight/population-and-households/households-and-housing/homeless-households/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/"
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "https://www.westlancs.gov.uk/housing/i-want-to-be-a-council-tenant/homelessness-advice-prevention.aspx"
   ],
   "ooh_phone": "0300 123 6722",
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
@@ -5259,8 +5264,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (sleeping rough page has no SWEP/severe-weather wording (read only; no contact))",
+  "looked_at": [
+   "https://www.wandsworth.gov.uk/housing/worried-about-losing-your-home/sleeping-rough/"
+  ],
   "homeless_url": "https://www.wandsworth.gov.uk/housing/worried-about-losing-your-home/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -5356,9 +5363,9 @@
   "code": "WOX",
   "council": "West Oxfordshire District Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://westoxon.gov.uk/single-pages/emergency-updates/",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [
    "http://www.oxfordshire.gov.uk/transport-and-travel/severe-weather-road-closures"
   ],
@@ -5366,7 +5373,8 @@
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01993 861000",
   "phone_source": "https://www.westoxon.gov.uk/housing/homelessness-support-and-advice/",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-24: emergency updates page: 'Our Severe Weather Emergency Protocol (SWEP) has been activated' to protect people rough sleeping during extreme heat (to Fri 26 June)"
  },
  {
   "code": "WRL",
@@ -5374,8 +5382,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording; activations only in press)",
+  "looked_at": [
+   "https://www.wirral.gov.uk/housing/housing-information-and-advice/housing-advice/preventing-and-dealing-homelessness"
+  ],
   "homeless_url": "https://www.wirral.gov.uk/housing/housing-information-and-advice",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
