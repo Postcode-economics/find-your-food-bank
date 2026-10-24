@@ -12,3 +12,7 @@ class T(unittest.TestCase):
     def test_sepa_skips_alerts(self):
         x = b'<rss><channel><item><title>A FLOOD ALERT has been issued for Tayside</title></item><item><title>A SEVERE FLOOD WARNING has been issued for Perth</title></item></channel></rss>'
         self.assertEqual([i["level"] for i in w.sepa(x)], ["red"])
+class D(unittest.TestCase):
+    def test_digest_weather_alert(self):
+        import digest
+        self.assertEqual([a[0] for a in digest.triggers({}, {}, [], "9", [{"level": "amber", "title": "t", "places": [], "swep": []}, {"level": "yellow", "title": "y"}])[0]], ["weather"])
