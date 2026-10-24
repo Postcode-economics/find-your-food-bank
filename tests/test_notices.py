@@ -20,3 +20,8 @@ def test_west_ardsley_venue():
     for f in ('foodbank_address_fixes.json', 'phones.json', 'phone_sources.json', 'opening_times.json'):
         s = open(os.path.join(ROOT, 'overrides', f)).read()
         assert 'west-ardsley' not in s or ('2522927' not in s.replace(' ', '') and 'WF3 1EN' not in s)
+def test_invergordon_joss_street():
+    a = json.load(open(os.path.join(ROOT, 'overrides', 'foodbank_address_fixes.json')))
+    assert a['invergordon']['postcode'] == 'IV18 0AP' and '9 Joss Street' in a['invergordon']['address']
+    assert 'highland/alness-invergordon' not in a
+    assert json.load(open(os.path.join(ROOT, 'overrides', 'phones.json')))['invergordon'] == '07803259452'
