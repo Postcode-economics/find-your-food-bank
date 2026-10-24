@@ -17,3 +17,10 @@ never removed. Sharp fill-rate drops per source raise an alert at the top of dai
 
 ## Lesson (24 Oct 2026): the sweep never adds shelters to the map
 The daily sweep could add shelters found on council pages (including the SWEP pages swep.py discovers) straight onto the map, marked "Unverified - call before you go". That breaks Dean's standing rule: unsure finder results go to his review list, never straight onto the map. None had been added, but it could have happened. Now `scripts/sweep_daily.py` sends every shelter candidate to the "Shelter candidates from the sweep" section of `reports/pending_dean.md` only (tests: `tests/test_sweep.py` NoShelterAdds). The same rule already applies to opening times (times_finder, review only). Any new finder must be review-only by default.
+
+## Lesson (24 Oct 2026): conditional SWEP wording is not an activation
+Durham's page said "This web page will be updated if SWEP is activated" and was marked active. swep.classify now ignores any
+activation phrase whose sentence contains conditional wording (if, when, whenever, during, once, until, as soon as, in the event,
+in periods of, under these conditions, will be updated). The 3x-daily watcher, the daily full check and the alert-triggered
+re-check (weather.py) all use this rule. 16 councils were cleared the same way. Only a plain present-tense statement
+("SWEP is currently active") counts; tests in tests/test_swep.py (ConditionalWording).
