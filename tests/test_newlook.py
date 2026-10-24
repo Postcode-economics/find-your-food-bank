@@ -19,3 +19,10 @@ class NewLook(unittest.TestCase):
         self.assertTrue(os.path.exists(os.path.join(ROOT, "fb_secondary.png")))
     def test_tag_wording(self):
         self.assertIn("[/^Food bank$/,'Banc bwyd']", rd("layers.js"))
+    def test_review_1625(self):  # Dean 16:25: wider card gap, FB label = Directions size, centred logo+label
+        css = rd("v3.css")
+        self.assertIn("html body #xextra #xlist>.card,html body #list>.card{margin-bottom:26px!important}", css)
+        self.assertIn("a.btn.call.xfbk span{font-size:16px!important;font-weight:800!important", css)
+        self.assertIn("justify-content:center!important;gap:8px!important;padding:0 12px!important", css)
+    def test_no_venue_number_sentence_only_without_phone(self):  # Dean 16:40
+        self.assertIn(":tel?'':`<p class=\"sub\">${cy?'Dim rhif i’r lle ei hun.", rd("layers.js"))
