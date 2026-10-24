@@ -49,6 +49,8 @@ jobs:
         run: python scripts/seo_meta.py
       - name: Every entry has a phone or a labelled council fallback (overrides/*_contacts.json)
         run: python scripts/shelter_contacts.py check
+      - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
+        run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
           git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/pending_dean.json reports/pending_dean.md
