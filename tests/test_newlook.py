@@ -40,3 +40,8 @@ class NewLook(unittest.TestCase):
         self.assertEqual(js.count('<a class="btn call xfb"'), js.count('<span class="xcl">'))
         self.assertEqual(js.count('<span class="xcl">'), js.count('<span class="xcn">${IC(\'phone\')}'))
         self.assertIn("a.btn.call.xfb{display:flex!important;flex-direction:column!important", css)
+    def test_sheet_body_scrolls_header_fixed(self):  # Dean 19:02 iPhone: content must not slide behind the sheet header
+        css = rd("v3.css"); html = rd("index.html")
+        self.assertIn("#sheet{display:flex!important;flex-direction:column!important;overflow:hidden!important", css)
+        self.assertIn("#sheet>#sheetBody{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important", css)
+        self.assertIn("$('sheetBody').scrollTop>0", html)
