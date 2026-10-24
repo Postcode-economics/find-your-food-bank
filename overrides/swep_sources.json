@@ -3925,8 +3925,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeping page has no SWEP/severe-weather wording)",
+  "looked_at": [
+   "https://www.reigate-banstead.gov.uk/info/20299/housing_options/180/facing_homelessness/4"
+  ],
   "homeless_url": "https://www.reigate-banstead.gov.uk/info/20299/housing_advice_and_options/180/facing_homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3936,13 +3938,14 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness and emergency housing page has no SWEP wording)",
   "looked_at": [
    "https://live.lancashire.gov.uk/council/transparency/access-to-information/service-and-project-specific-privacy-notices/youth-homelessness-prevention-trailblazer/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
    "https://live.lancashire.gov.uk/lancashire-insight/population-and-households/households-and-housing/homeless-households/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/"
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "https://www.ribblevalley.gov.uk/homelessness-emergency-housing/homelessness-emergency-housing-1"
   ],
   "ooh_phone": "0300 123 6722",
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
@@ -3956,8 +3959,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (sleeping rough page has no SWEP wording)",
+  "looked_at": [
+   "https://www.richmond.gov.uk/services/housing/worried_about_losing_your_home/sleeping_rough_homeless"
+  ],
   "homeless_url": "http://www.richmond.gov.uk/if_you_are_homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4137,14 +4142,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless prevention page has no SWEP wording)",
   "looked_at": [
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/",
-   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/adapting-to-extreme-weather.aspx",
    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx"
+   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
+   "https://www.southderbyshire.gov.uk/our-services/housing/homeless-prevention"
   ],
   "homeless_url": "https://www.southderbyshire.gov.uk/our-services/housing/homeless-prevention",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -4155,8 +4161,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeper page has no SWEP wording; SWEP only in the September 2026 strategy review PDF)",
+  "looked_at": [
+   "https://www.sevenoaks.gov.uk/info/20045/homelessness_and_finding_a_home/379/rough_sleeper_-_advice_and_report"
+  ],
   "homeless_url": "https://www.sevenoaks.gov.uk/info/20045/housing_options/115/homelessness_prevention_and_advice",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4177,8 +4185,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeper page has no SWEP wording (sit-up/crash beds only))",
+  "looked_at": [
+   "https://www.sefton.gov.uk/housing/homelessness/rough-sleeper-seen"
+  ],
   "homeless_url": "https://www.sefton.gov.uk/housing/homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
