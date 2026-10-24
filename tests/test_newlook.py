@@ -26,3 +26,7 @@ class NewLook(unittest.TestCase):
         self.assertIn("justify-content:center!important;gap:8px!important;padding:0 12px!important", css)
     def test_no_venue_number_sentence_only_without_phone(self):  # Dean 16:40
         self.assertIn(":tel?'':`<p class=\"sub\">${cy?'Dim rhif i’r lle ei hun.", rd("layers.js"))
+    def test_call_buttons_16_800(self):  # Dean 16:51
+        css = rd("v3.css")
+        self.assertIn("a.btn.call:not(.xfbk) *:not(svg):not(path){font-size:16px!important;font-weight:800!important", css)
+        self.assertIn(".xnum,html body #list .card>a.btn.call:not(.xfbk) .xnum", css)
