@@ -653,7 +653,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.aberdeencity.gov.uk/Council-Services/housing/help-if-you-are-homeless)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page; direct retry 2026-10-24 still unreachable (curl SSL error 60 / JavaScript-only shell; WebFetch timed out) - needs browser or Dean's connection. Council homeless help: https://www.aberdeencity.gov.uk/Council-Services/housing/help-if-you-are-homeless)",
   "looked_at": [
    "https://www.aberdeencity.gov.uk/Council-Services/housing/help-if-you-are-homeless"
   ],
@@ -1805,8 +1805,12 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: see council site)",
-  "looked_at": []
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.dumfriesandgalloway.gov.uk/housing/homelessness was read (WebFetch; also /housing/homelessness/homeless-services) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.dumfriesandgalloway.gov.uk/housing/homelessness)",
+  "looked_at": [
+   "https://www.dumfriesandgalloway.gov.uk/housing/homelessness"
+  ],
+  "homeless_url": "https://www.dumfriesandgalloway.gov.uk/housing/homelessness",
+  "homeless_url_source": "council own page, verified by direct retry 2026-10-24 (old URL moved)"
  },
  {
   "code": "DNC",
@@ -2068,7 +2072,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: see council site)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk was read (curl 200) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk)",
   "looked_at": [
    "https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk",
    "https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk/assessing-your-application",
@@ -2080,7 +2084,9 @@
   "homeless_phone": "01851 822821",
   "ooh_phone": "01851 701702",
   "phone_source": "https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk",
-  "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked"
+  "phone_confidence": "auto-extracted from council page 2026-10-23 (number next to homeless/out-of-hours wording); not hand-checked",
+  "homeless_url": "https://www.cne-siar.gov.uk/housing/homeless-services/are-you-homeless-or-risk",
+  "homeless_url_source": "council own page, verified by direct retry 2026-10-24 (old URL moved)"
  },
  {
   "code": "ENF",
@@ -2144,12 +2150,13 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.eastrenfrewshire.gov.uk/homelessness)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://eastrenfrewshire.gov.uk/homelessness was read (WebFetch) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://eastrenfrewshire.gov.uk/homelessness)",
   "looked_at": [
+   "https://eastrenfrewshire.gov.uk/homelessness",
    "https://www.eastrenfrewshire.gov.uk/homelessness"
   ],
-  "homeless_url": "https://www.eastrenfrewshire.gov.uk/homelessness",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url": "https://eastrenfrewshire.gov.uk/homelessness",
+  "homeless_url_source": "council own page, verified by direct retry 2026-10-24 (old URL moved)"
  },
  {
   "code": "ERY",
@@ -2259,7 +2266,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.fife.gov.uk/housing/homelessness-and-prevention)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.fife.gov.uk/housing/homelessness-and-prevention was read (WebFetch; also /rough-sleeping subpage) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.fife.gov.uk/housing/homelessness-and-prevention)",
   "looked_at": [
    "https://www.fife.gov.uk/housing/homelessness-and-prevention"
   ],
@@ -2822,7 +2829,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.inverclyde.gov.uk/health-and-social-care/mental-health-addictions-homelessness/homelessness/)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.inverclyde.gov.uk/health-and-social-care/mental-health-addictions-homelessness/homelessness/ was read (WebFetch) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.inverclyde.gov.uk/health-and-social-care/mental-health-addictions-homelessness/homelessness/)",
   "looked_at": [
    "https://www.inverclyde.gov.uk/health-and-social-care/mental-health-addictions-homelessness/homelessness/"
   ],
@@ -3217,18 +3224,19 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk/227/help_if_you_are_homeless was read (curl 200) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk/227/help_if_you_are_homeless)",
   "looked_at": [
    "https://www.midlothian.gov.uk/download/downloads/id/2463/map_of_routes_we_grit_first_in_extreme_weather.pdf",
    "https://www.midlothian.gov.uk/downloads/file/2462/list_of_routes_we_grit_first_in_extreme_weather",
    "https://www.midlothian.gov.uk/downloads/file/2463/map_of_routes_we_grit_first_in_extreme_weather",
    "https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk",
+   "https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk/227/help_if_you_are_homeless",
    "https://www.midlothian.gov.uk/info/200270/severe_weather",
    "https://www.midlothian.gov.uk/info/200270/severe_weather/571/council_housing_repairs_in_severe_weather",
    "https://www.midlothian.gov.uk/severe-weather"
   ],
-  "homeless_url": "https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url": "https://www.midlothian.gov.uk/info/1078/homeless_or_at_risk/227/help_if_you_are_homeless",
+  "homeless_url_source": "council own page, verified by direct retry 2026-10-24 (old URL moved)"
  },
  {
   "code": "MOL",
@@ -3281,12 +3289,13 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: http://www.moray.gov.uk/moray_section/section_47320.html)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.moray.gov.uk/housing-and-homelessness/housing-options-homelessness-and-support/i-need-to-find-somewhere-to-live/ was read (curl 200) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.moray.gov.uk/housing-and-homelessness/housing-options-homelessness-and-support/i-need-to-find-somewhere-to-live/)",
   "looked_at": [
-   "http://www.moray.gov.uk/moray_section/section_47320.html"
+   "http://www.moray.gov.uk/moray_section/section_47320.html",
+   "https://www.moray.gov.uk/housing-and-homelessness/housing-options-homelessness-and-support/i-need-to-find-somewhere-to-live/"
   ],
-  "homeless_url": "http://www.moray.gov.uk/moray_section/section_47320.html",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url": "https://www.moray.gov.uk/housing-and-homelessness/housing-options-homelessness-and-support/i-need-to-find-somewhere-to-live/",
+  "homeless_url_source": "council own page, verified by direct retry 2026-10-24 (old URL moved)"
  },
  {
   "code": "MSS",
@@ -3864,7 +3873,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.pkc.gov.uk/article/18670/Advice-for-people-who-are-or-become-homeless)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.pkc.gov.uk/article/18670/Advice-for-people-who-are-or-become-homeless was read (WebFetch) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.pkc.gov.uk/article/18670/Advice-for-people-who-are-or-become-homeless)",
   "looked_at": [
    "https://www.pkc.gov.uk/article/18670/Advice-for-people-who-are-or-become-homeless"
   ],
@@ -4194,7 +4203,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.south-ayrshire.gov.uk/article/27507/Homeless-or-at-risk)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.south-ayrshire.gov.uk/article/27507/Homeless-or-at-risk was read (WebFetch) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.south-ayrshire.gov.uk/article/27507/Homeless-or-at-risk)",
   "looked_at": [
    "https://www.south-ayrshire.gov.uk/article/27507/Homeless-or-at-risk"
   ],
@@ -4592,7 +4601,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.stirling.gov.uk/housing/homelessness/)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24, confirmed on direct retry 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page https://www.stirling.gov.uk/housing/homelessness/ was read (curl 200 + WebFetch) and has no severe-weather/cold-weather/winter-shelter wording for rough sleepers. Council homeless help: https://www.stirling.gov.uk/housing/homelessness/)",
   "looked_at": [
    "https://www.stirling.gov.uk/housing/homelessness/"
   ],
@@ -5626,7 +5635,7 @@
   "nation": "Scotland",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page. Council homeless help: https://www.shetland.gov.uk/housing/homelessness)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (Scotland: SWEP is an England/Wales protocol; the council homelessness page could not be read from the box, and web search found no council winter or cold-weather rough-sleeper provision page; direct retry 2026-10-24 still unreachable (WAF 'Web Page Blocked!' (HTTP 500) to curl and WebFetch) - needs browser or Dean's connection. Council homeless help: https://www.shetland.gov.uk/housing/homelessness)",
   "looked_at": [
    "https://www.shetland.gov.uk/housing/homelessness"
   ],
