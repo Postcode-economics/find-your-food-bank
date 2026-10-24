@@ -86,3 +86,31 @@ class NewLookRendered(unittest.TestCase):
     def test_rendered_sheet_only_body_scrolls(self):
         s = self.p.evaluate("()=>({sheet:getComputedStyle(document.getElementById('sheet')).overflowY,body:getComputedStyle(document.getElementById('sheetBody')).overflowY})")
         self.assertEqual(s, {'sheet': 'hidden', 'body': 'auto'})
+
+
+class SheetGreen(unittest.TestCase):  # Dean 24 Oct 21:31: sheet cards = same green call / blue Facebook as #list
+    def test_static_sheet_rules(self):
+        css = rd("v3.css")
+        self.assertIn("html body #sheetBody .card a.btn.call{background:#34C759!important;border-color:#34C759!important;color:#000!important}", css)
+        self.assertIn("html body #sheetBody .card a.btn.call svg.ico,html body #sheetBody .card a.btn.call svg.ico *{color:#2B2B2B!important;fill:#2B2B2B!important", css)
+        self.assertIn("html body #sheetBody .card a.btn.call.xfbk{background:#1877F2!important", css)
+    def test_rendered_sheet_from_pin(self):
+        try:
+            from playwright.sync_api import sync_playwright
+            import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import newlook_render as R
+        except Exception as e:
+            raise unittest.SkipTest("playwright not available: %s" % e)
+        with sync_playwright() as pw:
+            try: b, p = R.open_page(pw, 'light')
+            except Exception as e: raise unittest.SkipTest("no browser: %s" % e)
+            try:
+                out = {}
+                for fid in ('selkirk', 'whitland-town-hall-community'):
+                    p.evaluate("id=>{const k=items.findIndex(x=>x.id===id);map.setView(markers[k].getLatLng(),16);markers[k].fire('click')}", fid)
+                    p.wait_for_timeout(700)
+                    out[fid] = p.evaluate("""()=>{const a=document.querySelector('#sheetBody .card a.btn.call'),i=a.querySelector('svg.ico');
+                      return [getComputedStyle(a).backgroundColor,i?getComputedStyle(i).fill:null]}""")
+                self.assertEqual(out['selkirk'], ['rgb(52, 199, 89)', 'rgb(43, 43, 43)'])
+                self.assertEqual(out['whitland-town-hall-community'][0], 'rgb(24, 119, 242)')
+            finally: b.close()
