@@ -194,7 +194,7 @@ function pcb(){document.querySelectorAll('#list .card>p:not(.sub):not(.warn):not
 new MutationObserver(pcb).observe(document.body,{childList:true,subtree:true});pcb()})();
 
 // final4_green siteD (24 Oct): one-line phone buttons (icon + number), UK number spacing, solid handset glyph
-(()=>{const uk=s=>{const d=s.replace(/\D/g,'');if(d.length!==11)return s;return /^02/.test(d)?d.replace(/(\d{3})(\d{4})(\d{4})/,'$1 $2 $3'):d.replace(/(\d{5})(\d{6})/,'$1 $2')};
+(()=>{const uk=s=>{const d=s.replace(/\D/g,'');if(d.length!==11)return s;if(window.ukfmt)return ukfmt(d);return /^02/.test(d)?d.replace(/(\d{3})(\d{4})(\d{4})/,'$1 $2 $3'):d.replace(/(\d{5})(\d{6})/,'$1 $2')};
 const P='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z';
 const fmt=e=>{const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())n.textContent=n.textContent.replace(/0[\d ]{9,12}\d/g,uk)};
 function f(){document.querySelectorAll('#list .card a.btn.call:not([data-ph]),#xextra .card a.btn.call:not([data-ph]),#xextra .card .v3sos a.sosl.s999:not([data-ph])').forEach(b=>{b.dataset.ph=1;
