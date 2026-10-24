@@ -699,14 +699,15 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeping page has no SWEP wording)",
   "looked_at": [
+   "https://www.ambervalley.gov.uk/housing/homelessness-and-housing-advice/rough-sleeping/",
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
+   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/",
-   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx",
    "https://www.derbyshire.gov.uk/environment/environmental-sustainability/adapting-to-extreme-weather/adapting-to-extreme-weather.aspx",
    "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/",
-   "https://www.derbyshire.gov.uk/council/gdpr/privacy-notices/public-health/homeless/derbyshire-homeless-health-needs-audit-privacy-notice.aspx"
+   "https://www.derbyshire.gov.uk/social-health/health-and-wellbeing/health-protection/severe-weather-planning/severe-weather-planning.aspx"
   ],
   "homeless_url": "https://www.ambervalley.gov.uk/housing/homelessness-and-housing-advice/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
@@ -840,8 +841,11 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless page has no SWEP wording; only a 2016 reconnection policy PDF mentions SWEP)",
+  "looked_at": [
+   "https://www.bathnes.gov.uk/if-youre-homeless-sleeping-rough-or-threatened-homelessness",
+   "https://www.bathnes.gov.uk/sites/default/files/Reconnection-policy-2016.pdf"
+  ],
   "homeless_url": "https://www.bathnes.gov.uk/homelessness-and-rough-sleeping",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -851,8 +855,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (SWEP only named as a strategy action (delivery plan priority four), no SWEP information page)",
+  "looked_at": [
+   "https://blackburn.gov.uk/homelessness-and-rough-sleeping-strategy-delivery-plan/homelessness-and-rough-sleeping-strategy-delivery-plan-html/priority-four-end-rough-sleeping"
+  ],
   "homeless_url": "https://www.blackburn.gov.uk/housing/housing-advice-and-support/housing-and-homelessness-advice/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -862,13 +868,13 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleepers page has no SWEP wording)",
   "looked_at": [
-   "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/rough-sleepers",
-   "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/temporary-accommodation",
+   "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation",
    "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/domestic-abuse-and-homelessness",
    "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/homeless-now",
-   "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation",
+   "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/rough-sleepers",
+   "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/temporary-accommodation",
    "https://www.bedford.gov.uk/housing/homelessness-and-temporary-accommodation/worried-about-becoming-homeless"
   ],
   "homeless_phone": "01234 718058",
@@ -904,8 +910,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on bexley.gov.uk; only a charity winter shelter listing in the care directory)",
+  "looked_at": [
+   "https://careservices.bexley.gov.uk/Services/1949/Bexley-Winter-Shelte"
+  ],
   "homeless_url": "https://www.bexley.gov.uk/services/housing/prevention-and-relief-duties/risk-losing-your-accommodation",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -926,7 +934,7 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording)",
   "looked_at": [
    "https://www.bridgend.gov.uk/residents/housing/homelessness/"
   ],
@@ -971,8 +979,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on barnet.gov.uk; Barnet Homes (council housing company) has a news post 'SWEP activated across London' - asked Dean)",
+  "looked_at": [
+   "https://www.barnethomes.org/2024/11/swep-activated-across-london/"
+  ],
   "homeless_url": "https://www.barnet.gov.uk/housing",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -1177,12 +1187,13 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleepers page mentions cold weather but not SWEP)",
   "looked_at": [
+   "https://www.bromley.gov.uk/a-to-z/service/185/homelessness",
+   "https://www.bromley.gov.uk/directory-record/6061/bromley-homeless",
    "https://www.bromley.gov.uk/downloads/file/3439/bromley-homelessness-and-rough-sleeping-strategy-2025-%E2%80%93-2030",
    "https://www.bromley.gov.uk/homelessness",
-   "https://www.bromley.gov.uk/directory-record/6061/bromley-homeless",
-   "https://www.bromley.gov.uk/a-to-z/service/185/homelessness"
+   "https://www.bromley.gov.uk/housing-advice-options/rough-sleepers"
   ],
   "homeless_phone": "0300 500 0914",
   "ooh_phone": "0300 303 8671",
