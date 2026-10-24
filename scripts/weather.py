@@ -1,6 +1,8 @@
 """Point 27 (24 Oct 2026, approved by Dean 08:59): weather / flood trigger. Official sources only (all Open Government Licence):
   Met Office UK warnings RSS, Environment Agency flood-monitoring API (England), SEPA flood warning feed (Scotland).
-  Natural Resources Wales: its flood API needs a registered key, so Wales is covered by Met Office warnings only.
+  Natural Resources Wales (24 Oct 2026, Dean): Live Flood Warnings & Alerts API v3 (key from env NRW_FLOOD_API_KEY or
+  /workspace/secrets/nrw_flood_key.txt, never printed; 1 call per run, limit 10/min). Points mapped to a council via postcodes.io.
+  Credit shown wherever NRW data is used: NRW_CREDIT.
 Matches warning areas (council / county names) against shelter and warm space addresses and active SWEP councils, and
 writes reports/weather.json + reports/weather.md. Immediate alerts (via digest.py) only for Met Office AMBER/RED and
 severe flood warnings (EA severity 1, SEPA 'severe'). No map change. Never fails the job."""
@@ -10,7 +12,32 @@ P = lambda *a: os.path.join(ROOT, *a)
 MET = "https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK"
 EA = "https://environment.data.gov.uk/flood-monitoring/id/floods?min-severity=2"
 SEPA = "https://floodline.sepa.org.uk/feed/"
-def get(u): return urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "helpmap.uk"}), timeout=30).read()
+NRW = "https://api.naturalresources.wales/floodwarnings/v3/all"
+NRW_CREDIT = "Contains Natural Resources Wales information \u00a9 Natural Resources Wales and database right"
+def nrw_key():
+    k = os.environ.get("NRW_FLOOD_API_KEY", "").strip()
+    if not k:
+        try: k = open("/workspace/secrets/nrw_flood_key.txt").read().strip()
+        except Exception: k = ""
+    return k
+def get(u, headers=None): return urllib.request.urlopen(urllib.request.Request(u, headers=dict({"User-Agent": "helpmap.uk"}, **(headers or {}))), timeout=30).read()
+def council_at(lat, lon):
+    """Council (admin_district) for a point via postcodes.io reverse lookup; None if no postcode within 2 km."""
+    try:
+        r = json.loads(get("https://api.postcodes.io/postcodes?lon=%s&lat=%s&radius=2000&limit=1" % (lon, lat))).get("result") or []
+        return r[0].get("admin_district") if r else None
+    except Exception: return None
+def nrw(js, locate=council_at):
+    """NRW severity 1 = severe flood warning, 2 = flood warning (kept); 3 = flood alert, 4 = no longer in force (skipped, like SEPA alerts)."""
+    out = []
+    for f in json.loads(js).get("features", []):
+        q = f.get("properties") or {}
+        if q.get("SEVERITYVALUE") not in (1, 2): continue
+        c = (f.get("geometry") or {}).get("coordinates") or [None, None]
+        d = locate(c[1], c[0]) if c[0] is not None else None
+        out.append({"source": "Natural Resources Wales", "title": "%s: %s" % (q.get("SEVERITY"), q.get("DESCRIPTION")), "level": "red" if q.get("SEVERITYVALUE") == 1 else "flood warning",
+                    "areas": [d] if d else [], "link": "https://naturalresources.wales/flooding/check-flood-warnings/", "credit": NRW_CREDIT})
+    return out
 def met(xml):
     out = []
     for it in ET.fromstring(xml).iter("item"):
@@ -48,12 +75,17 @@ def main():
     for name, url, fn in (("Met Office", MET, met), ("Environment Agency", EA, ea), ("SEPA", SEPA, sepa)):
         try: ws += fn(get(url))
         except Exception as e: errs.append("%s: %s" % (name, e.__class__.__name__))
+    k = nrw_key()
+    if not k: errs.append("Natural Resources Wales: no API key")
+    else:
+        try: ws += nrw(get(NRW, {"Ocp-Apim-Subscription-Key": k}))
+        except Exception as e: errs.append("Natural Resources Wales: %s" % e.__class__.__name__)   # class name only: never echo the key
     places = items("shelters.js") + items("warmspaces.js")
     try: swep = json.load(open(P("logs", "swep_status.json"))).get("active", [])
     except Exception: swep = []
     match(ws, places, swep)
-    json.dump({"warnings": ws, "errors": errs}, open(P("reports", "weather.json"), "w"), indent=1, ensure_ascii=False)
-    L = ["# Weather and flood warnings (point 27)", "", "Sources: Met Office, Environment Agency, SEPA (NRW needs an API key - Wales via Met Office only).", ""]
+    json.dump({"warnings": ws, "errors": errs, "credits": [NRW_CREDIT]}, open(P("reports", "weather.json"), "w"), indent=1, ensure_ascii=False)
+    L = ["# Weather and flood warnings (point 27)", "", "Sources: Met Office, Environment Agency, SEPA, Natural Resources Wales.", "", NRW_CREDIT + ".", ""]
     L += ["- **%s** [%s] %s - shelters/warm spaces in area: %s; SWEP active: %s" % (w["source"], w["level"], w["title"], ", ".join(w["places"]) or "none matched", ", ".join(w["swep"]) or "none") for w in ws] or ["- no warnings"]
     L += ["", "Source errors: " + (", ".join(errs) or "none")]
     open(P("reports", "weather.md"), "w", encoding="utf-8").write("\n".join(L) + "\n"); return ws

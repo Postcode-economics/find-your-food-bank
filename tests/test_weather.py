@@ -12,6 +12,18 @@ class T(unittest.TestCase):
     def test_sepa_skips_alerts(self):
         x = b'<rss><channel><item><title>A FLOOD ALERT has been issued for Tayside</title></item><item><title>A SEVERE FLOOD WARNING has been issued for Perth</title></item></channel></rss>'
         self.assertEqual([i["level"] for i in w.sepa(x)], ["red"])
+    def test_nrw(self):
+        import json
+        js = json.dumps({"features": [{"geometry": {"coordinates": [-4.04, 52.50]}, "properties": {"SEVERITYVALUE": 2, "SEVERITY": "Flood Warning", "DESCRIPTION": "Tidal area at Borth"}},
+                                      {"geometry": {"coordinates": [-3.0, 53.2]}, "properties": {"SEVERITYVALUE": 3, "SEVERITY": "Flood Alert", "DESCRIPTION": "x"}},
+                                      {"geometry": {"coordinates": [-3.9, 51.9]}, "properties": {"SEVERITYVALUE": 1, "SEVERITY": "Severe Flood Warning", "DESCRIPTION": "y"}}]})
+        r = w.nrw(js, locate=lambda la, lo: "Ceredigion")
+        self.assertEqual([(i["level"], i["areas"]) for i in r], [("flood warning", ["Ceredigion"]), ("red", ["Ceredigion"])])
+        self.assertTrue(all(i["credit"] == w.NRW_CREDIT for i in r))
+        self.assertIn("Natural Resources Wales and database right", w.NRW_CREDIT)
+    def test_nrw_key_env(self):
+        from unittest import mock
+        with mock.patch.dict(os.environ, {"NRW_FLOOD_API_KEY": " abc "}): self.assertEqual(w.nrw_key(), "abc")
 class D(unittest.TestCase):
     def test_digest_weather_alert(self):
         import digest
