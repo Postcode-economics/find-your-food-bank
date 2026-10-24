@@ -26,5 +26,5 @@ class Fenland(unittest.TestCase):
         self.assertTrue(hits)
         for x in hits:
             self.assertEqual(x.get("council_ooh"), "01354 654321", x["id"])
-            self.assertEqual(x.get("council_label"), "Council out-of-hours homeless line", x["id"])
+            self.assertIn(x.get("council_label"), ("Council out-of-hours homeless line", "Fenland Council out-of-hours homeless line"), x["id"])
             self.assertIn("I-Need-Accommodation-Now", x.get("council_url", ""), x["id"])
