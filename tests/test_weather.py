@@ -24,6 +24,15 @@ class T(unittest.TestCase):
     def test_nrw_key_env(self):
         from unittest import mock
         with mock.patch.dict(os.environ, {"NRW_FLOOD_API_KEY": " abc "}): self.assertEqual(w.nrw_key(), "abc")
+    def test_govuk(self):
+        import datetime as dt
+        x = b"""<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>Cornwall</title><content type="xhtml"><div>Severe flooding</div></content><link href="https://www.gov.uk/alerts/a"/>
+<summary>Alert area: Cornwall. Sent: 5:00pm (GMT) on Thursday 08 January 2026 [2026-01-08 17:00 GMT]. Stopped: 11:06pm (GMT) on Thursday 08 January 2026 [2026-01-08 23:06 GMT]</summary></entry>
+<entry><title>Gwynedd, Conwy</title><content type="xhtml"><div>Danger to life</div></content><summary>Alert area: Gwynedd, Conwy. Sent: 6:57pm (BST) on Friday 23 October 2026 [2026-10-23 18:57 BST]</summary></entry>
+<entry><title>East Suffolk</title><content type="xhtml"><div>The UK government is testing Emergency Alerts</div></content><summary>Alert area: East Suffolk. Sent: x</summary></entry></feed>"""
+        r = w.govuk(x, now=dt.datetime(2026, 10, 24, 10, tzinfo=dt.timezone.utc))
+        self.assertEqual([(i["level"], i["areas"]) for i in r], [("red", ["Gwynedd", "Conwy"]), ("test", ["East Suffolk"])])
+        self.assertEqual(len(w.urgent(r)), 1)
 class D(unittest.TestCase):
     def test_digest_weather_alert(self):
         import digest
