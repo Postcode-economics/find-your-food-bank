@@ -2393,8 +2393,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP web page found; SWEP described only in the July 2026 Rough Sleeping and Health JSNA PDF on the council data observatory)",
+  "looked_at": [
+   "https://dataobservatory.royalgreenwich.gov.uk/wp-content/uploads/Rough-Sleeping-and-Health-JSNA-July-2026.pdf"
+  ],
   "homeless_url": "https://www.royalgreenwich.gov.uk/housing/get-urgent-housing-support/get-help-if-youre-homeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3034,8 +3036,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (dedicated SWEP page (seasonal advice) now redirects to the seasonal-advice index; search copy shows a full SWEP page - asked Dean)",
+  "looked_at": [
+   "https://maidstone.gov.uk/home/other-services/seasonal-advice/tier-2-primary-areas/severe-weather-emergency-protocol-swep"
+  ],
   "homeless_url": "https://maidstone.gov.uk/home/primary-services/housing/homeless-or-at-risk",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3072,15 +3076,16 @@
   "code": "MAS",
   "council": "Mansfield District Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://www.mansfield.gov.uk/homelessness-housing-advice/homelessness-2/6",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [],
   "homeless_url": "https://www.mansfield.gov.uk/homelessness-housing-advice/homelessness-2/4?documentId=64&amp;categoryId=20072",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "homeless_phone": "01623 463121",
   "phone_source": "https://www.mansfield.gov.uk/homelessness-housing-advice/homelessness-2/4?documentId=64&amp;categoryId=20072",
-  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded"
+  "phone_confidence": "hand-checked 2026-10-23: number labelled on council own homelessness page (homeless/housing options or out-of-hours homeless line); switchboards excluded",
+  "found_on": "hand search 2026-10-24: homelessness page 'Rough sleepers' section names the Severe Weather Emergency Protocol (SWEP), overnight accommodation for rough sleepers"
  },
  {
   "code": "MAV",
@@ -3141,8 +3146,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless or at risk page has no SWEP wording; SWEP only in committee papers and press)",
+  "looked_at": [
+   "https://www.melton.gov.uk/housing/housing-and-homelessness-advice/homeless-or-at-risk/"
+  ],
   "homeless_url": "https://www.melton.gov.uk/housing/housing-and-homelessness-advice/homeless-or-at-risk/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3170,8 +3177,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeping page has no SWEP/severe-weather wording)",
+  "looked_at": [
+   "https://www.molevalley.gov.uk/housing/rough-sleeping/"
+  ],
   "homeless_url": "https://www.molevalley.gov.uk/housing/are-you-facing-homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -3239,8 +3248,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (report rough sleeping page has no SWEP wording; activations only on the councils' LinkedIn)",
+  "looked_at": [
+   "https://www.midsuffolk.gov.uk/w/report-rough-sleeping"
+  ],
   "homeless_url": "https://www.midsuffolk.gov.uk/home?p_p_state=maximized&p_p_mode=view&refererPlid=1644&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Flogin&saveLastPath=false&p_p_id=com_liferay_login_web_portlet_LoginPortlet&p_p_lifecycle=0&_com_liferay_login_web_portlet_LoginPortlet_redirect=%2Fhomelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
