@@ -141,6 +141,24 @@ def load_access():
     try: s = open(ACC, encoding='utf-8').read(); return json.loads(s[s.index('{'):s.rindex('}') + 1])
     except Exception: return {}
 
+def phone_locked(i):
+    """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
+    return bool(i.get('phone_checked') or i.get('locked'))
+
+def apply_phone_fixes(by_site, fixes, flag):
+    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list."""
+    n = 0
+    for u, lst in by_site.items():
+        f = fixes.get(u)
+        if not f: continue
+        for i in lst:
+            if norm_phone(i.get('phone')) != f['old']: continue
+            if phone_locked(i):
+                flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
+                continue
+            i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
+    return n
+
 def main():
     os.makedirs(REP, exist_ok=True)
     raw, d = load_data(); items = d['items']; n0 = len(items)
@@ -247,10 +265,7 @@ def main():
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    for u, lst in by_site.items():
-        f = fixes.get(u)
-        for i in lst:
-            if f and norm_phone(i.get('phone')) == f['old']: i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']
+    apply_phone_fixes(by_site, fixes, flag)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
