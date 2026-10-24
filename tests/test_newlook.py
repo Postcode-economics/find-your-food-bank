@@ -1,20 +1,21 @@
-import subprocess, os, json, unittest
+"""New look (Dean's mockups 24 Oct): ported from Motion Designer's design source (siteD = call button, siteFB = Facebook button)."""
+import os, re, unittest
 ROOT = os.path.join(os.path.dirname(__file__), "..")
-def js(expr):
-    return json.loads(subprocess.check_output(["node", "-e", f"const N=require('./newlook.js');console.log(JSON.stringify({expr}))"], cwd=ROOT))
+rd = lambda f: open(os.path.join(ROOT, f), encoding="utf-8").read()
 
-class NewLookButtons(unittest.TestCase):
-    def test_phone_wins_over_facebook(self):  # Dean 24 Oct: phone button wherever there's a venue number
-        self.assertEqual(js("N.contact('07803259452','https://facebook.com/x')"), "call")
-    def test_facebook_only_without_phone(self):
-        self.assertEqual(js("N.contact('','https://facebook.com/x')"), "fb")
-    def test_no_contact_button(self):
-        self.assertIsNone(js("N.contact('','')"))
-    def test_phone_format(self):
-        self.assertEqual(js("['07803259452','02392825673','01132522927','01353860850','03001231966'].map(N.fmt)"),
-                         ["07803 259452", "023 9282 5673", "0113 252 2927", "01353 860850", "0300 123 1966"])
-    def test_domain(self):
-        self.assertEqual(js("N.domain('https://www.cambsacre.org.uk/projects/x')"), "cambsacre.org.uk")
-    def test_loaded_after_v3(self):
-        s = open(os.path.join(ROOT, "index.html")).read()
-        self.assertLess(s.index('src="v3.js'), s.index('src="newlook.js'))
+class NewLook(unittest.TestCase):
+    def test_tokens(self):
+        css = rd("v3.css"); html = rd("index.html")
+        for v in ("#0A1628", "#13223d", "#34C759", "#1877F2", "#C9A96E", "#8A6A2E", "#00D1FF", "#00739E", "#D55E00", "#FF3B30"):
+            self.assertIn(v.lower(), (css + html).lower(), v)
+    def test_no_faded_cards(self):  # Dean: full-strength colours on every card, closed ones too
+        css = rd("v3.css")
+        self.assertTrue("html body .card.v3closed>*,html body .card.v3closed{opacity:1!important" in css, "closed cards must be reset to full opacity")
+    def test_facebook_only_without_phone(self):  # Dean 14:50: phone wins; Facebook only when no phone
+        html = rd("index.html")
+        i = html.index('!tel&&i.fb_page?`<a class="btn call xfbk"')
+        self.assertIn('href="${esc(i.fb_page)}"', html[i:i + 300])
+        self.assertIn("Send a message", html[i:i + 400])
+        self.assertTrue(os.path.exists(os.path.join(ROOT, "fb_secondary.png")))
+    def test_tag_wording(self):
+        self.assertIn("[/^Food bank$/,'Banc bwyd']", rd("layers.js"))

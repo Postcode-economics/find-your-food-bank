@@ -307,3 +307,217 @@ html.light #v3filt>#v3open.on{background:#F5C518;border-color:#F5C518;color:#0A1
 html.light #v3filt.fclosed>#ftab{border-color:#8A5A00}
 #ftab .fb{background:transparent!important;color:inherit!important;padding:0!important;min-width:0!important}
 #v3filt>#v3tools.v3tight{gap:2px!important}#v3filt>#v3tools.v3tight .v3t{padding:0 3px!important}
+/* card separation: hairline border + 10px gap (left colour bar untouched) */
+#list .card,#xextra .card{border-top:1px solid rgba(201,209,222,.30);border-right:1px solid rgba(201,209,222,.30);border-bottom:1px solid rgba(201,209,222,.30);margin:0 0 10px;box-shadow:0 2px 6px rgba(0,0,0,.28)}
+#list .lh+.card,#xextra .lh+.card{margin-top:6px}
+/* dark mode: every secondary link in a card is brand gold, incl. :visited (light mode unchanged) */
+html:not(.light) :is(#list,#xextra) .card a:not(.btn):not(.sosl):not(.v3sos a),html:not(.light) :is(#list,#xextra) .card a:not(.btn):not(.sosl):not(.v3sos a):visited{color:#F5C518!important;text-decoration:underline}
+/* ===== results card redesign (CSS only; food bank list; top bar/filters untouched) ===== */
+#list .card{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;padding:16px!important;margin:0 0 16px!important;border-radius:12px}
+#list .card>*{flex:1 1 100%;margin:0!important;order:20}
+/* 1. type label: small pill on top */
+#list .card>.tag,#list .card>.ncb{order:1;flex:0 1 auto;font-size:13px!important;line-height:1.2;padding:4px 8px!important;border-radius:6px;margin-bottom:8px!important}
+/* 2. name */
+#list .card>h3{order:2;font-size:17px!important;font-weight:800;line-height:1.3}
+/* 3. distance + walk time on one line, address muted beneath */
+#list .card>.d{order:3;flex:0 0 auto;font-size:15px!important;font-weight:700;color:var(--white);margin-top:4px!important}
+#list .card>.v3wk{order:3;flex:1 1 0;min-width:0;font-size:15px!important;color:var(--muted)!important;margin-top:4px!important}
+#list .card>.v3wk::before{content:'· '}
+#list .card>p:not(.sub):not(.warn){order:4;font-size:15px!important;color:var(--muted);margin-top:4px!important}
+#list .card>p.sub{order:5;font-size:14px!important;color:var(--muted)}
+#list .card>.warn{order:6;font-size:14px!important}
+/* 4. one status line */
+#list .card>.v3st{order:7;flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;background:transparent!important;border:0!important;padding:0!important;margin-top:12px!important;font-size:15px!important;font-weight:700;min-height:0;color:var(--white)!important}
+#list .card>.v3st::before{content:'';width:10px;height:10px;border-radius:50%;background:#C9D1DE;flex:0 0 10px}
+#list .card>.v3st.open::before{background:#3DDC84}
+#list .card>.v3st.shut::before{background:#E63946}
+#list .card>.ot,#list .card>.tnl{order:8;margin-top:8px!important;font-size:15px!important}
+#list .card>.tnl{order:7}
+/* 5. action row: equal buttons, 48px */
+#list .card>.btn.gm,#list .card>.btn.call{order:10;flex:1 1 0;min-width:0;min-height:48px!important;margin-top:16px!important;padding:0 8px!important;font-size:16px!important;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+/* 6. secondary: share, links, source notes, report — quiet and grouped */
+#list .card>.v3share{order:11;min-height:44px!important;margin-top:8px!important;font-size:15px!important;background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;color:var(--white)!important;border-radius:10px}
+#list .card>.links{order:12;margin-top:12px!important;gap:16px;font-size:15px!important}
+#list .card>.links a{min-height:44px;display:inline-flex;align-items:center;font-size:15px!important}
+#list .card>.psrc,#list .card>.palt{order:13;font-size:13px!important;color:var(--muted)!important}
+#list .card>.note,#list .card>div.sub{order:14;font-size:13px!important;color:var(--muted)!important;margin-top:4px!important}
+#list .card>.rpb{order:15;flex:0 0 auto;min-height:44px!important;margin-top:8px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:14px!important;text-decoration:underline;justify-content:flex-start;width:auto}
+/* light mode keeps its high-contrast look */
+html.light #list .card>.v3st,html.light #list .card>.v3share,html.light #list .card>.d{color:#000!important}
+html.light #list .card>p:not(.sub):not(.warn),html.light #list .card>.v3wk,html.light #list .card>p.sub,html.light #list .card>.psrc,html.light #list .card>.note,html.light #list .card>div.sub,html.light #list .card>.rpb{color:#4A5568!important}
+html.light #list .card>.v3share{border-color:#000!important}
+#list .card>.v3st{flex:1 1 100%}
+/* venue dividers: clear top + bottom line (left type bar kept) */
+html:not(.light) #list .card,html:not(.light) #xextra .card{border-top:2px solid rgba(201,169,110,.65)!important;border-bottom:2px solid rgba(201,169,110,.65)!important}
+html.light #list .card,html.light #xextra .card{border-top:2px solid #000!important;border-bottom:2px solid #000!important}
+/* closed-today cards are dimmed to 60%; keep their links + times readable at full strength */
+#list .card.v3closed>:is(.links,.ot,.tnl),#xextra .card.v3closed>:is(.links,.ot,.tnl){opacity:1}
+/* ===== final: small print merged into one muted line (food bank cards) ===== */
+#list .card>:is(.psrc,.note,div.sub){flex:0 1 auto;display:inline;margin-top:8px!important;line-height:1.45}
+#list .card>.note::before,#list .card>div.sub::before{content:'· '}
+/* ===== final: shelter + warm-space cards, same hierarchy (scoped to their markup) ===== */
+#xextra .card:is(.xsh,.xws){display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;padding:16px!important;margin:0 0 16px!important;border-radius:12px}
+#xextra .card:is(.xsh,.xws)>*{flex:1 1 100%;margin:4px 0 0!important;order:20;font-size:15px!important}
+#xextra .card:is(.xsh,.xws)>:is(.xunv,.xacc){order:1;flex:0 1 auto;margin:0 0 8px!important;font-size:13px!important;padding:4px 8px!important;border-radius:6px}
+#xextra .card:is(.xsh,.xws)>h3{order:2;font-size:17px!important;font-weight:800;line-height:1.3}
+#xextra .card:is(.xsh,.xws)>.d{order:3;font-weight:700}
+#xextra .card:is(.xsh,.xws)>.v3sos+p{order:4;color:var(--muted)}
+#xextra .card:is(.xsh,.xws)>.v3st{order:5;display:flex;align-items:center;gap:6px;background:transparent!important;border:0!important;padding:0!important;margin-top:12px!important;font-weight:700;color:var(--white)!important}
+#xextra .card:is(.xsh,.xws)>.v3st::before{content:'';width:10px;height:10px;border-radius:50%;background:#C9D1DE;flex:0 0 10px}
+#xextra .card:is(.xsh,.xws)>.v3st.open::before{background:#3DDC84}#xextra .card:is(.xsh,.xws)>.v3st.shut::before{background:#E63946}
+#xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call){order:6;flex:1 1 0;min-width:0;min-height:48px!important;margin-top:16px!important;padding:0 8px!important;font-size:16px!important;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+#xextra .card:is(.xsh,.xws)>.xalt{order:7;font-size:14px!important}
+#xextra .card:is(.xsh,.xws)>:is(.v3share,.btn.web){order:8;flex:1 1 0;min-width:0;min-height:44px!important;margin-top:8px!important;font-size:14px!important;background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;color:var(--white)!important;border-radius:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px!important}
+#xextra .card:is(.xsh,.xws)>.v3sos{order:9;margin-top:16px!important}
+#xextra .card:is(.xsh,.xws)>.xhow{order:10;margin-top:12px!important}
+#xextra .card:is(.xsh,.xws)>:is(.xchk,.xlst){order:30;font-size:13px!important;color:var(--muted)!important;margin-top:8px!important}
+#xextra .card:is(.xsh,.xws)>.rpb{order:31;flex:0 0 auto;width:auto;min-height:44px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:14px!important;text-decoration:underline}
+html.light #xextra .card:is(.xsh,.xws)>:is(.v3st,.v3share,.btn.web){color:#000!important}html.light #xextra .card:is(.xsh,.xws)>:is(.v3share,.btn.web){border-color:#000!important}
+html.light #xextra .card:is(.xsh,.xws)>:is(.v3sos+p,.xchk,.xlst,.rpb){color:#4A5568!important}
+/* final tweaks: tight small-print block; long shelter button labels wrap instead of clipping */
+#list .card>:is(.psrc,.note,div.sub){flex:1 1 100%;margin-top:0!important;line-height:1.35}
+#list .card>.psrc{margin-top:12px!important}
+#list .card>.note::before,#list .card>div.sub::before{content:none}
+#xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call,.v3share,.btn.web){white-space:normal!important;line-height:1.2;text-align:center;padding:6px 8px!important;font-size:15px!important;overflow-wrap:anywhere}
+/* ===== final2: shelter + warm-space cards ===== */
+/* action row: Directions | Call (number on a 2nd line inside the button, never mid-word) */
+#xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call){flex:1 1 0!important;min-width:0;min-height:52px!important;overflow-wrap:normal!important;word-break:normal!important;white-space:nowrap!important;flex-wrap:wrap;align-content:center;row-gap:0;font-size:16px!important}
+#xextra .card:is(.xsh,.xws)>.btn.call .xnum{flex:1 1 100%;font-size:13px;font-weight:600;line-height:1.2;text-align:center}
+/* quieter row: Share | Website (domain on a 2nd line) */
+#xextra .card:is(.xsh,.xws)>:is(.v3share,.btn.web){flex:1 1 0!important;white-space:normal!important;overflow-wrap:normal!important;font-size:14px!important;font-weight:600;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-height:48px!important}
+#xextra .card:is(.xsh,.xws)>.btn.web .xdom{font-size:12px;font-weight:400;color:var(--muted);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* compact help box */
+#xextra .card:is(.xsh,.xws)>.v3sos{padding:12px!important;font-size:14px!important;line-height:1.35;border-radius:10px}
+#xextra .card:is(.xsh,.xws)>.v3sos *{font-size:14px!important}
+#xextra .card:is(.xsh,.xws)>.v3sos .sosb{display:flex;gap:8px;margin-top:8px}
+#xextra .card:is(.xsh,.xws)>.v3sos a.sosl{flex:1 1 0;min-height:44px!important;padding:0 8px!important;font-size:15px!important;white-space:nowrap}
+#xextra .card:is(.xsh,.xws)>.xhow{font-size:14px!important;padding:8px 12px!important}
+#xextra .card:is(.xsh,.xws)>.xhow *{font-size:14px!important}
+/* tidy muted details list */
+#xextra .card:is(.xsh,.xws)>.xrow{order:12;font-size:14px!important;line-height:1.4;color:var(--muted)!important;margin-top:4px!important}
+#xextra .card:is(.xsh,.xws)>.xrow:first-of-type,#xextra .card:is(.xsh,.xws)>.xhow+.xrow{margin-top:16px!important}
+#xextra .card:is(.xsh,.xws)>.xrow b{color:var(--white);font-weight:700}
+#xextra .card:is(.xsh,.xws)>table{order:13;font-size:14px!important;color:var(--muted);margin-top:2px!important}
+#xextra .card:is(.xsh,.xws)>table *{font-size:14px!important}
+#xextra .card:is(.xsh,.xws)>p:empty{display:none}
+#xextra .card:is(.xsh,.xws)>:is(.xalt,.sub){order:14}
+html.light #xextra .card:is(.xsh,.xws)>:is(.xrow,table){color:#4A5568!important}html.light #xextra .card:is(.xsh,.xws)>.xrow b{color:#000}
+html.light #xextra .card:is(.xsh,.xws)>.btn.web .xdom{color:#4A5568}
+/* no-information-loss: un-hide anything hidden earlier; domain wraps instead of truncating */
+#list .card>.btn.call small{display:block!important;flex:1 1 100%;font-size:13px!important;font-weight:600}
+#list .card>.btn.call{flex-wrap:wrap;align-content:center}
+#xextra .card:is(.xsh,.xws)>.btn.web .xdom{overflow:visible;text-overflow:clip;white-space:normal;overflow-wrap:anywhere}
+/* final2: compact help box + 'How to get a place' (all text kept; slim pills, 44px tap height) */
+#xextra .card:is(.xsh,.xws)>.v3sos{padding:8px 10px!important;border-left-width:4px!important;line-height:1.3}
+#xextra .card:is(.xsh,.xws)>.v3sos *{font-size:14px!important;line-height:1.3}
+#xextra .card:is(.xsh,.xws)>.v3sos .sosb{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 0!important}
+#xextra .card:is(.xsh,.xws)>.v3sos a.sosl{flex:0 0 auto!important;min-height:44px!important;height:44px;padding:0 12px!important;border-radius:999px!important;font-size:14px!important;font-weight:700;display:inline-flex;align-items:center;gap:4px;box-sizing:border-box;width:auto!important;margin:0!important}
+#xextra .card:is(.xsh,.xws)>.v3sos details.hlp{margin-top:2px!important}
+#xextra .card:is(.xsh,.xws)>.v3sos details.hlp summary{min-height:44px;display:flex;align-items:center;padding:0!important}
+#xextra .card:is(.xsh,.xws)>.xhow{padding:8px 10px!important;line-height:1.3}
+#xextra .card:is(.xsh,.xws)>.xhow *{line-height:1.3}
+#xextra .card:is(.xsh,.xws)>.xhow :is(p,div){margin:4px 0 0!important}
+#xextra .card:is(.xsh,.xws)>.xhow .btn{display:inline-flex!important;width:auto!important;min-height:44px!important;padding:0 12px!important;margin:6px 0 0!important;border-radius:999px!important;border-width:1px!important;font-size:14px!important;font-weight:700;gap:4px;align-items:center;white-space:normal}
+#xextra .card:is(.xsh,.xws)>:is(.v3sos,.xhow){border:1px solid rgba(201,209,222,.45)!important;border-left:4px solid currentColor!important;border-radius:10px}
+#xextra .card:is(.xsh,.xws)>.v3sos{border-left-color:#56B4E9!important}#xextra .card:is(.xsh,.xws)>.xhow{border-left-color:#F5C518!important}
+html.light #xextra .card:is(.xsh,.xws)>:is(.v3sos,.xhow){border-color:#000!important}
+/* type-coloured top/bottom lines, matching each card's own left bar */
+html:not(.light) #xextra .card.xsh{border-top-color:rgba(0,209,255,.65)!important;border-bottom-color:rgba(0,209,255,.65)!important}
+html:not(.light) #xextra .card.xws{border-top-color:rgba(213,94,0,.65)!important;border-bottom-color:rgba(213,94,0,.65)!important}
+html.light #xextra .card.xws{border-top-color:#D55E00!important;border-bottom-color:#D55E00!important}
+/* compact help panel v2: 32px pill visuals with a 44px invisible hit area */
+#xextra .card:is(.xsh,.xws)>.v3sos,#xextra .card:is(.xsh,.xws)>.v3sos *{font-size:13px!important;line-height:1.3!important}
+#xextra .card:is(.xsh,.xws)>.v3sos .sosb{gap:12px 8px!important;margin:8px 0 6px!important}
+#xextra .card:is(.xsh,.xws)>.v3sos a.sosl,#xextra .card:is(.xsh,.xws)>.xhow .btn{position:relative;min-height:32px!important;height:32px!important;padding:0 12px!important;font-size:13px!important}
+#xextra .card:is(.xsh,.xws)>.v3sos a.sosl::after,#xextra .card:is(.xsh,.xws)>.xhow .btn::after,#xextra .card:is(.xsh,.xws)>.v3sos details.hlp summary::after{content:'';position:absolute;left:0;right:0;top:-6px;bottom:-6px}
+#xextra .card:is(.xsh,.xws)>.v3sos details.hlp summary{position:relative;min-height:28px!important;font-size:13px!important}
+#xextra .card:is(.xsh,.xws)>.xhow .btn{height:auto!important;min-height:32px!important;padding:4px 12px!important}
+#xextra .card:is(.xsh,.xws)>.xhow,#xextra .card:is(.xsh,.xws)>.xhow *{font-size:13px!important}
+/* rows: Directions|Call on one row, Share|Website on the next (never four across) */
+#xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call,.v3share,.btn.web){flex:0 0 calc(50% - 4px)!important;max-width:calc(50% - 4px)}
+#xextra .card:is(.xsh,.xws)>.btn.call{flex-direction:row!important}
+#xextra .card:is(.xsh,.xws)>.btn.call .xnum{font-size:14px!important;white-space:nowrap}
+#xextra .card:is(.xsh,.xws)>.v3wk{order:3;flex:0 0 auto!important;color:var(--muted)!important;font-size:15px!important}
+#xextra .card:is(.xsh,.xws)>.d{flex:0 0 auto!important}
+#xextra .card:is(.xsh,.xws)>.v3wk+p{order:4;color:var(--muted)}
+#xextra .card:is(.xsh,.xws)>.xhow>*:empty{display:none}
+html.light #xextra .card:is(.xsh,.xws)>.v3wk,html.light #xextra .card:is(.xsh,.xws)>.v3wk+p{color:#4A5568!important}
+/* ===== final4 (24 Oct): final2 + pure white text (dark), no fades, full-strength type borders, light spacing polish ===== */
+#list .card *,#xextra .card *{opacity:1!important}
+html:not(.light) body #list .card *:not(h3):not(h3 *):not(a):not(a *):not(.btn):not(.btn *):not(.v3sos):not(.v3sos *):not(.tag):not(.ncb):not(.xacc),html:not(.light) body #xextra .card *:not(h3):not(h3 *):not(a):not(a *):not(.btn):not(.btn *):not(.v3sos):not(.v3sos *):not(.tag):not(.ncb):not(.xacc){color:#FFFFFF!important}
+html:not(.light) body #list .card,html:not(.light) body #xextra .card{opacity:1!important}
+html:not(.light) #list .card{border:2px solid #C9A96E!important;border-left:6px solid #C9A96E!important}
+html:not(.light) #xextra .card.xsh{border:2px solid #00D1FF!important;border-left:6px solid #00D1FF!important}
+html:not(.light) #xextra .card.xws{border:2px solid #D55E00!important;border-left:6px solid #D55E00!important}
+#xextra .card>p:empty,#list .card>p:empty{display:none!important}
+#xextra .card .xhow>*{margin:0!important}#xextra .card .xhow>*+*{margin-top:8px!important}
+#xextra .card:is(.xsh,.xws)>:is(.xchk,.xlst) a{display:inline!important;min-height:0!important;padding:0!important;line-height:inherit!important}
+#xextra .card:is(.xsh,.xws)>:is(.xchk,.xlst){margin-top:12px!important;line-height:1.45!important}
+#xextra .card:is(.xsh,.xws)>.xchk+.xlst{margin-top:4px!important}
+#xextra .card:is(.xsh,.xws)>.rpb,#list .card>.rpb{margin-top:12px!important}
+#list .card>.psrc{margin-top:16px!important}
+#xextra .card .xhow p a{display:inline!important;min-height:0!important;padding:0!important;line-height:inherit!important}
+#xextra .card .xhow p.sub{line-height:1.45!important}
+html:not(.light) body #list .card>.rpb,html:not(.light) body #list .card>.rpb *,html:not(.light) body #xextra .card>.rpb,html:not(.light) body #xextra .card>.rpb *,html:not(.light) body #xextra .card .btn.web .xdom,html:not(.light) body #xextra .card .v3share,html:not(.light) body #list .card .v3share{color:#FFFFFF!important}
+html:not(.light) body #list .card .v3share *,html:not(.light) body #xextra .card .v3share *,html:not(.light) body #xextra .card .btn.web *:not(svg):not(path){color:#FFFFFF!important}
+/* ===== final4_green siteD (24 Oct): green phone buttons #34C759, black number, charcoal solid handset; 999 #FF3B30 white; one-line layout ===== */
+html body #list .card a.btn.call,html body #xextra .card a.btn.call,html body #xextra .card .v3sos a.sosl.s999{display:inline-flex!important;flex-wrap:nowrap!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:48px!important;min-height:48px!important;padding:0 10px!important;font-size:17px!important;font-weight:800!important;line-height:1!important;white-space:nowrap!important;letter-spacing:-.01em;overflow:hidden}
+html body #list .card a.btn.call *,html body #xextra .card a.btn.call *,html body #xextra .card .v3sos a.sosl.s999 *{font-size:17px!important;font-weight:800!important;line-height:1!important;margin:0!important;flex:0 0 auto!important;display:inline!important;white-space:nowrap!important;letter-spacing:inherit}
+html body #list .card a.btn.call svg.ico,html body #xextra .card a.btn.call svg.ico,html body #xextra .card .v3sos a.sosl.s999 svg.ico{display:inline-block!important;width:20px!important;height:20px!important;flex:0 0 20px!important;stroke:none!important;shape-rendering:geometricPrecision}
+html body #xextra .card a.btn.call.xfb{width:100%!important;max-width:100%}
+html body #list .card a.btn.call,html body #xextra .card a.btn.call{background:#34C759!important;border-color:#34C759!important;color:#000!important}
+html body #list .card a.btn.call *:not(svg):not(path),html body #xextra .card a.btn.call *:not(svg):not(path){color:#000!important}
+html body #list .card a.btn.call svg.ico,html body #list .card a.btn.call svg.ico *,html body #xextra .card a.btn.call svg.ico,html body #xextra .card a.btn.call svg.ico *{color:#2B2B2B!important;fill:#2B2B2B!important;stroke:none!important}
+html body #xextra .card .v3sos a.sosl.s999{background:#FF3B30!important;border-color:#FF3B30!important;color:#fff!important}
+html body #xextra .card .v3sos a.sosl.s999 *:not(svg):not(path){background:transparent!important;color:#fff!important;font-size:19px!important;font-weight:800!important}
+html body #xextra .card .v3sos a.sosl.s999{font-size:19px!important}
+html body #xextra .card .v3sos a.sosl.s999 svg.ico,html body #xextra .card .v3sos a.sosl.s999 svg.ico *{color:#fff!important;fill:#fff!important;stroke:none!important}
+/* closed status dot: emergency red, solid, 10px */
+html body #xextra .card:is(.xsh,.xws)>.v3st.shut::before,html body #list .card>.v3st.shut::before{background:#FF3B30!important;width:10px!important;height:10px!important;flex:0 0 10px!important;box-shadow:none!important}
+/* compact StreetLink box: both buttons on one row at 40px */
+html body #xextra .card.xsh>.v3sos{padding:10px 12px!important}
+html body #xextra .card.xsh>.v3sos .sosr,html body #xextra .card.xsh>.v3sos a.sosl{vertical-align:middle}
+html body #xextra .card.xsh>.v3sos a.sosl{height:40px!important;min-height:40px!important;margin:8px 8px 0 0!important;padding:0 14px!important;display:inline-flex!important;align-items:center!important;box-sizing:border-box}
+html body #xextra .card.xsh>.v3sos a.sosl.s999{height:40px!important;min-height:40px!important;padding:0 14px!important;gap:6px!important}
+html body #xextra .card.xsh>.v3sos a.sosl.s999 svg.ico{width:18px!important;height:18px!important;flex:0 0 18px!important}
+html body #xextra .card.xsh>.v3sos details.hlp{margin-top:6px!important}
+html body #xextra .card.xsh>.v3sos details.hlp summary{min-height:28px!important}
+html body #xextra .card.xsh>.v3sos{padding:8px 12px!important}
+html body #xextra .card.xsh>.v3sos .sosb{display:flex!important;flex-wrap:nowrap!important;gap:8px!important;margin:8px 0 2px!important}
+html body #xextra .card.xsh>.v3sos .sosb a.sosl{margin:0!important}
+html body #xextra .card.xsh>.v3sos details.hlp{margin-top:0!important}
+html body #xextra .card.xsh>.v3sos details.hlp summary{min-height:26px!important;height:26px;display:flex!important;align-items:center}
+html body #xextra .card.xsh>.v3sos .sosb{margin:8px 0 0!important}
+/* listing gap 16px -> 20px */
+#list>.card,#list .card,#xextra .card{margin-bottom:20px!important}
+html body #xextra #xlist>.card,html body #list>.card{margin-bottom:20px!important}
+/* ===== light-only fixes (24 Oct) ===== */
+html.light body #list .card *:not(a):not(a *):not(.btn):not(.btn *):not(.v3sos):not(.v3sos *):not(.tag):not(.ncb):not(.xacc):not(.xunv),html.light body #xextra .card *:not(a):not(a *):not(.btn):not(.btn *):not(.v3sos):not(.v3sos *):not(.tag):not(.ncb):not(.xacc):not(.xunv){color:#1F2937!important}
+html.light body #list .card :is(h3,.d,.v3st,.v3st *,b,strong),html.light body #xextra .card :is(h3,.d,.v3st,.v3st *,b,strong):not(.v3sos *){color:#000!important}
+html.light #list .card{border:2px solid #8A6A2E!important;border-left:6px solid #8A6A2E!important}
+html.light #xextra .card.xsh{border:2px solid #00739E!important;border-left:6px solid #00739E!important}
+html.light #xextra .card.xws{border:2px solid #D55E00!important;border-left:6px solid #D55E00!important}
+html.light body #list .card>.rpb,html.light body #list .card>.rpb *,html.light body #xextra .card>.rpb,html.light body #xextra .card>.rpb *{color:#1F2937!important}
+/* siteFB: Facebook-blue venue buttons (mock) */
+html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{background:#1877F2!important;border-color:#1877F2!important;color:#fff!important;letter-spacing:-.02em!important;gap:6px!important;padding:0 6px!important}
+html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{color:#fff!important;font-size:15px!important;font-weight:800!important}
+html body #list .card a.btn.call.xfbk svg.fbg,html body #xextra .card a.btn.call.xfbk svg.fbg{fill:initial!important;color:initial!important;width:20px!important;height:20px!important}
+html body a.btn.call.xfbk svg.fbg path{fill:#1877F2!important}html body a.btn.call.xfbk svg.fbg circle{fill:#fff!important}
+html body #list .card a.btn.call.xfbk svg.fbg circle,html body #xextra .card a.btn.call.xfbk svg.fbg circle{fill:#fff!important}
+html body #list .card a.btn.call.xfbk svg.fbg path,html body #xextra .card a.btn.call.xfbk svg.fbg path{fill:#1877F2!important}
+html body #list .card a.btn.call.xfbk svg.fbg,html body #xextra .card a.btn.call.xfbk svg.fbg{width:18px!important;height:18px!important;flex:0 0 18px!important}
+html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{font-size:14px!important}
+html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{gap:5px!important;padding:0 4px!important}
+html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{white-space:normal!important;line-height:1.1!important;text-align:left;flex:0 1 auto!important;font-size:15px!important}
+html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{white-space:normal!important;gap:8px!important;padding:0 10px!important}
+/* official logo: 20px, clear space >= 1/4 width (5px) all round, ~1/2 width (10px) to the label */
+html body #list .card a.btn.call.xfbk img.fboff,html body #xextra .card a.btn.call.xfbk img.fboff{width:20px!important;height:20px!important;flex:0 0 20px!important;margin:5px 5px 5px 5px!important;display:block!important;object-fit:contain}
+html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{gap:5px!important;padding:0 8px!important}
+html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{font-size:16px!important;white-space:nowrap!important}
+html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{font-size:15px!important}html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{gap:0!important;padding:0 4px!important}html body #list .card a.btn.call.xfbk img.fboff,html body #xextra .card a.btn.call.xfbk img.fboff{margin:5px 10px 5px 5px!important}
+/* new-look port: long council-line labels wrap inside the box instead of running past the card edge */
+html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb{white-space:normal!important;max-width:100%!important;box-sizing:border-box!important;height:auto!important;min-height:44px!important;padding:6px 12px!important;line-height:1.2!important;text-align:left}
+html body #xextra .card .xhow a.btn.call.xfb *,html body #list .card .xhow a.btn.call.xfb *{white-space:normal!important;line-height:1.2!important}
+html body #xextra .card .xhow a.btn.call.xfb svg,html body #list .card .xhow a.btn.call.xfb svg{flex:0 0 auto!important}
+/* Dean 24 Oct: no fading — closed cards keep full-strength colours like the mockups */
+html body .card.v3closed>*,html body .card.v3closed{opacity:1!important;filter:none!important}
