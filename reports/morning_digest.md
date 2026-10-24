@@ -6,7 +6,7 @@
 
 ## Everything else
 
-- Changes since last run: 74 (0 new, 0 removed, 74 field updates)
+- Changes since last run: 30 (0 new, 0 removed, 30 field updates)
 - Likely duplicates on the map: 23 (reports/duplicates.md)
 - Weather/flood warnings: 51 (reports/weather.md)
 - Source quality scores: reports/source_scores.md

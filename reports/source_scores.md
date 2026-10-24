@@ -8,7 +8,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 
 ## All sources (lowest first)
 
-- IFAN: 1.3
+- IFAN: 23.1
 - own site southend.foodbank.org.uk: 38.9
 - warmspaces: Cambridgeshire ACRE: 40
 - warmspaces: Council directory: 46.6
