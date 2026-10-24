@@ -554,3 +554,6 @@ html body .card a.btn.call.xfb>span.xcn svg{flex:0 0 20px!important;width:20px!i
 html body #xextra .card a.btn.call.xfb>span.xcl,html body #list .card a.btn.call.xfb>span.xcl{font-size:13px!important;font-weight:700!important;text-wrap:balance}
 html body #xextra .card a.btn.call.xfb>span.xcn,html body #list .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
 html body #xextra .card a.btn.call.xfb>span.xcn svg,html body #list .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
+/* Dean 24 Oct 19:02 (iPhone): bottom sheet — only the card body scrolls; the top strip (drag handle + close) stays solid and content is clipped cleanly below it */
+#sheet{display:flex!important;flex-direction:column!important;overflow:hidden!important;overscroll-behavior:contain}
+#sheet>#sheetBody{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;margin:0 -12px!important;padding:0 12px!important}

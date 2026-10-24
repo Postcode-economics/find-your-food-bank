@@ -8,7 +8,7 @@
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=sh20261023"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=nl20261024f"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=sh20261023"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=nl20261024g"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -149,7 +149,7 @@ const applyF=()=>{const on=F.open;cl.clearLayers();cl.addLayers(markers.filter((
  closeSheet();if(lastNear)nearest(...lastNear)};
 function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icFor(selected));selected=k;m.setIcon(nc(i)?whIcon:selIcon);
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
- const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;
+ const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;$('sheetBody').scrollTop=0;
    const h=$('sheet').offsetHeight,y=map.latLngToContainerPoint(m.getLatLng()).y;map.panTo(m.getLatLng(),{animate:!fromList});
   }else{m.unbindPopup();m.bindPopup(pop(i),{maxWidth:280,autoPanPaddingTopLeft:[20,20],autoPanPaddingBottomRight:[20,20]}).openPopup()}};
  if(fromList)cl.zoomToShowLayer(m,show);else show()}
@@ -157,7 +157,7 @@ function closeSheet(){$('sheet').classList.remove('open');$('sheet').setAttribut
 document.querySelector('#sheet .x').onclick=closeSheet;
 // swipe-down to close (bottom-sheet): drag from handle anywhere, or from body only when scrolled to top; >80px or fast flick closes, else snaps back
 (()=>{const sh=$('sheet');let y0=null,t0=0,dy=0,id=null,fromHandle=false;
- const start=(y,pid,target)=>{fromHandle=!!target.closest('.handle');if(target.closest('.x,a,button,input'))return;if(!fromHandle&&sh.scrollTop>0)return;y0=y;t0=performance.now();dy=0;id=pid};
+ const start=(y,pid,target)=>{fromHandle=!!target.closest('.handle');if(target.closest('.x,a,button,input'))return;if(!fromHandle&&($('sheetBody').scrollTop>0||sh.scrollTop>0))return;y0=y;t0=performance.now();dy=0;id=pid};
  const move=(y,e)=>{if(y0==null)return;const d=y-y0;if(!fromHandle&&d<=0&&!dy){y0=null;return}  // upward on body = normal scroll
   dy=Math.max(0,d);if(dy>4){sh.classList.add('drag');sh.style.transform=`translateY(${dy}px)`;if(e.cancelable)e.preventDefault()}};
  const end=()=>{if(y0==null)return;const v=dy/Math.max(1,performance.now()-t0);sh.classList.remove('drag');sh.style.transform='';
