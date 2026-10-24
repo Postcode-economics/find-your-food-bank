@@ -51,6 +51,8 @@ jobs:
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
         continue-on-error: true
         run: python scripts/seo_meta.py
+      - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
+        run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
           git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md
