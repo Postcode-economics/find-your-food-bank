@@ -1,0 +1,167 @@
+# Source quality scores (point 8)
+
+Score = average of opening-times and phone fill rates (0-100). Flagged if it drops more than 15 points below its usual level.
+
+## Dropped
+
+- none
+
+## All sources (lowest first)
+
+- IFAN: 1.3
+- own site southend.foodbank.org.uk: 38.9
+- warmspaces: Cambridgeshire ACRE: 40
+- warmspaces: Council directory: 46.6
+- warmspaces: Warm Welcome: 48
+- own site blackcountryfoodbank.org.uk: 50
+- own site cvoea.co.uk: 50
+- own site thebigfoodproject.co.uk: 50
+- own site southamptoncitymission.co.uk: 50
+- own site wcravenfoodbank.org: 50
+- own site durhamfoodbank.org.uk: 50
+- own site newhamfoodbank.org.uk: 50
+- own site northamptonhopecentre.org.uk: 50
+- own site purleyfoodhub.net: 50
+- own site widnesfoodbank.org.uk: 50
+- own site canterburyfoodbank.org: 50
+- warmspaces: Southwark Council warm spaces page: 50
+- warmspaces: Voluntary Action Islington warm spaces list: 50
+- warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
+- own site firstbasedumfries.co.uk: 53.9
+- own site salvationarmy.org.uk: 54.2
+- own site thurrock.foodbank.org.uk: 54.6
+- own site familyfoodbank.org: 57.1
+- own site meonvalleyfoodbank.co.uk: 57.1
+- own site calderwoodbaptist.co.uk: 58.4
+- own site lutonfoodbank.org.uk: 58.4
+- own site loveworks.org.uk: 58.4
+- own site winchesterbasicsbank.co.uk: 60
+- own site reachhaverhill.org.uk: 60
+- own site dens.org.uk: 60
+- own site edinburghnefoodbank.com: 60
+- own site bristolnorthwestfoodbank.org.uk: 60
+- Give Food (independent): 61.4
+- own site soarvalleyoutreach.org.uk: 62.5
+- own site stratforduponavon.foodbank.org.uk: 70
+- own site warwickdistrict.foodbank.org.uk: 71.5
+- own site gloucester.foodbank.org.uk: 71.5
+- own site waveney.foodbank.org.uk: 75
+- own site edinburghfoodproject.org: 75
+- own site horshamdistrict.foodbank.org.uk: 81.2
+- own site lincolnlarder.co.uk: 83.3
+- own site westlothian.foodbank.org.uk: 85
+- own site andover.foodbank.org.uk: 85.7
+- own site newcastlestaffs.foodbank.org.uk: 85.7
+- own site hackney.foodbank.org.uk: 85.7
+- own site ely.foodbank.org.uk: 87.5
+- own site southliverpool.foodbank.org.uk: 87.5
+- own site braintreearea.foodbank.org.uk: 87.5
+- own site swindonfoodcollective.org: 87.5
+- own site sunderlandfoodbank.org.uk: 88.5
+- own site nbsg.foodbank.org.uk: 88.9
+- own site merthyrcynon.foodbank.org.uk: 88.9
+- own site sparkhill.foodbank.org.uk: 90
+- own site sthelens.foodbank.org.uk: 90
+- own site southport.foodbank.org.uk: 90
+- own site traffordsouth.foodbank.org.uk: 90
+- own site midcheshire.foodbank.org.uk: 90.9
+- own site southgwynedd.foodbank.org.uk: 91.7
+- own site peterborough.foodbank.org.uk: 91.7
+- own site restorenorthampton.org.uk: 91.7
+- own site bournemouth.foodbank.org.uk: 91.7
+- own site wirral.foodbank.org.uk: 91.7
+- shelters: Manual (verified from source pages): 91.7
+- shelters: Homeless Link Find help + 2026 corroboration: 91.7
+- own site swansea.foodbank.org.uk: 92.8
+- own site eastbristol.foodbank.org.uk: 92.8
+- own site chesterfield.foodbank.org.uk: 92.8
+- own site northnorfolk.foodbank.org.uk: 92.8
+- own site basingstoke.foodbank.org.uk: 93.8
+- own site taffely.foodbank.org.uk: 93.8
+- own site greenwich.foodbank.org.uk: 93.8
+- own site salford.foodbank.org.uk: 93.8
+- own site 3food4u.org: 93.8
+- own site hinckleyarea.foodbank.org.uk: 94.5
+- own site cambridgecity.foodbank.org.uk: 94.5
+- own site salisbury.foodbank.org.uk: 94.5
+- own site stalbansdistrict.foodbank.org.uk: 95
+- own site southayrshire.foodbank.org.uk: 95
+- own site redcararea.foodbank.org.uk: 95
+- own site flintshire.foodbank.org.uk: 95
+- Trussell Trust pages: 95.2
+- shelters: OpenStreetMap: 95.2
+- own site eastwestnottingham.foodbank.org.uk: 96.5
+- own site leicestersouth.foodbank.org.uk: 96.7
+- own site barnsley.foodbank.org.uk: 96.7
+- own site westcheshire.foodbank.org.uk: 96.9
+- own site stokeontrent.foodbank.org.uk: 97
+- own site colchester.foodbank.org.uk: 100
+- own site bksv.foodbank.org.uk: 100
+- own site mkfoodbank.org.uk: 100
+- own site leedssouthandeast.foodbank.org.uk: 100
+- own site northliverpool.foodbank.org.uk: 100
+- own site faith-works.org.uk: 100
+- own site aberdeenshirenorth.foodbank.org.uk: 100
+- own site leedsnorthandwest.foodbank.org.uk: 100
+- own site runcorndistrict.foodbank.org.uk: 100
+- own site wadebridgefoodbank.org: 100
+- own site wythenshawe.foodbank.org.uk: 100
+- own site wrexham.foodbank.org.uk: 100
+- own site bridgend.foodbank.org.uk: 100
+- own site hull.foodbank.org.uk: 100
+- own site glasgowne.foodbank.org.uk: 100
+- own site northayrshire.foodbank.org.uk: 100
+- own site wandsworth.foodbank.org.uk: 100
+- own site chelmsford.foodbank.org.uk: 100
+- own site bedford.foodbank.org.uk: 100
+- own site isleofwight.foodbank.org.uk: 100
+- own site norwich.foodbank.org.uk: 100
+- own site richmond.foodbank.org.uk: 100
+- own site slough.foodbank.org.uk: 100
+- own site sutton.foodbank.org.uk: 100
+- own site newstarthighland.org: 100
+- own site tamesideeast.foodbank.org.uk: 100
+- own site redbridge.foodbank.org.uk: 100
+- own site york.foodbank.org.uk: 100
+- own site sheffields6.foodbank.org.uk: 100
+- own site nuneaton.foodbank.org.uk: 100
+- own site dunfermline.foodbank.org.uk: 100
+- own site pembrokeshire.foodbank.org.uk: 100
+- own site wimbledon.foodbank.org.uk: 100
+- own site northerndevon.foodbank.org.uk: 100
+- own site shepway.foodbank.org.uk: 100
+- own site middlesbrough.foodbank.org.uk: 100
+- own site bradfordnorth.foodbank.org.uk: 100
+- own site cardiff.foodbank.org.uk: 100
+- own site eastyorkshire.foodbank.org.uk: 100
+- own site newcastlefoodbank.org: 100
+- own site aylesbury.foodbank.org.uk: 100
+- own site dealarea.foodbank.org.uk: 100
+- own site ealing.foodbank.org.uk: 100
+- own site southsefton.foodbank.org.uk: 100
+- own site vale.foodbank.org.uk: 100
+- own site hillingdon.foodbank.org.uk: 100
+- own site lambethcroydon.foodbank.org.uk: 100
+- own site thefoodbank.org.uk: 100
+- own site easternvalley.foodbank.org.uk: 100
+- own site westberks.foodbank.org.uk: 100
+- own site glasgowsw.foodbank.org.uk: 100
+- own site renfrewshire.foodbank.org.uk: 100
+- own site watfordfoodbank.co.uk: 100
+- own site medway.foodbank.org.uk: 100
+- own site harrow.foodbank.org.uk: 100
+- own site eastbourne.foodbank.org.uk: 100
+- own site runnymede.foodbank.org.uk: 100
+- own site bromleyborough.foodbank.org.uk: 100
+- own site strouddistrict.foodbank.org.uk: 100
+- own site eppingforest.foodbank.org.uk: 100
+- own site northcotswold.foodbank.org.uk: 100
+- own site coventry.foodbank.org.uk: 100
+- own site epsomewell.foodbank.org.uk: 100
+- own site stockport.foodbank.org.uk: 100
+- own site lewisham.foodbank.org.uk: 100
+- own site rickmansworth.foodbank.org.uk: 100
+- own site antrim.foodbank.org.uk: 100
+- shelters: The Salvation Army (operator page): 100
+- shelters: Operator website: 100
+- shelters: Simon Community NI (operator page): 100
