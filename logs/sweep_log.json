@@ -1,12 +1,8 @@
 {
  "run": "2026-10-24",
- "pages": 1722,
- "failed": 141,
+ "pages": 1721,
+ "failed": 139,
  "errors": [
-  [
-   "https://www.rugby.gov.uk/warmhubs",
-   "error"
-  ],
   [
    "https://www.camden.gov.uk/warm-spaces-in-camden",
    403
@@ -132,7 +128,7 @@
    "error"
   ],
   [
-   "https://www.lincoln.gov.uk/downloads/file/1488/warm-welcome-spaces",
+   "https://www.lincoln.gov.uk/downloads/file/1466/lincolnshire-homelessness-and-rough-sleeper-delivery-plan",
    "error"
   ],
   [
@@ -190,10 +186,6 @@
   [
    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
    400
-  ],
-  [
-   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
-   "error"
   ],
   [
    "https://norwich.gov.uk/news/2025/rough-sleeping-figures-rise-remain-line-national-trends",
@@ -302,10 +294,6 @@
   [
    "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
    400
-  ],
-  [
-   "https://www.sthelens.gov.uk/article/2985/Rough-sleeping",
-   "error"
   ],
   [
    "http://default/page/1350/warm-hubs-and-spaces-spelthorne",
@@ -484,10 +472,6 @@
    403
   ],
   [
-   "https://www.ipswich.gov.uk/housing/homelessness/support-rough-sleepers",
-   "error"
-  ],
-  [
    "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
    403
   ],
@@ -528,6 +512,10 @@
    403
   ],
   [
+   "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
+   403
+  ],
+  [
    "https://swale.gov.uk/your-council/strategies-and-policies/severe-weather-emergency-protocol-guidance",
    403
   ],
@@ -565,6 +553,10 @@
   ],
   [
    "https://www.woking.gov.uk/housing/homelessness-rough-sleeping",
+   403
+  ],
+  [
+   "https://newforest.gov.uk/article/3846/Continuing-to-offer-support-to-rough-sleepers-this-winter",
    403
   ]
  ],
