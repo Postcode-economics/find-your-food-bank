@@ -2243,8 +2243,10 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless page has no severe-weather/SWEP wording; SWEP only in committee papers and press)",
+  "looked_at": [
+   "https://www.flintshire.gov.uk/en/Resident/Housing/Housing-Support-and-Homelessness/Homeless-or-At-Risk-of-Homelessness.aspx"
+  ],
   "homeless_url": "https://www.flintshire.gov.uk/en/Resident/Housing/Housing-and-Prevention/Homeless-or-At-Risk-of-Homelessness.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2275,13 +2277,14 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording (rough-sleepers page 404); SWEP shelter run by Helping Hearts Fylde (charity))",
   "looked_at": [
    "https://live.lancashire.gov.uk/council/transparency/access-to-information/service-and-project-specific-privacy-notices/youth-homelessness-prevention-trailblazer/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
    "https://live.lancashire.gov.uk/lancashire-insight/population-and-households/households-and-housing/homeless-households/",
-   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/"
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/helping-young-people-to-avoid-becoming-homeless/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/",
+   "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
+   "https://new.fylde.gov.uk/resident/housing/homelessness-and-housing-advice-2/"
   ],
   "ooh_phone": "0300 123 6722",
   "phone_source": "https://live.lancashire.gov.uk/youth-zone/support-and-information-for-young-people/leaving-home-and-homelessness/help-if-you-are-16-or-17-and-homeless-or-at-risk-of-becoming-homeless/",
@@ -2295,8 +2298,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording; SWEP advice only on Changing Lives (charity))",
+  "looked_at": [
+   "https://www.gateshead.gov.uk/article/11776/Homelessness"
+  ],
   "homeless_url": "https://www.gateshead.gov.uk/article/11776/Homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2306,8 +2311,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (help with homelessness page has no SWEP wording; SWEP only in democracy decision papers)",
+  "looked_at": [
+   "https://www.gedling.gov.uk/housing/help-homelessness"
+  ],
   "homeless_url": "https://www.gedling.gov.uk/resident/housing/helpwithhomelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2333,12 +2340,13 @@
   "code": "GLO",
   "council": "Gloucester City Council",
   "nation": "England",
-  "url": null,
-  "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "url": "https://www.gloucester.gov.uk/news/2026-news/gloucester-activates-heatwave-emergency-protocol-to-support-vulnerable-residents/",
+  "no_swep_page": false,
+  "note": "SWEP page found by hand search 2026-10-24",
   "looked_at": [],
   "homeless_url": "https://www.gloucester.gov.uk/housing/homelessness/",
-  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
+  "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
+  "found_on": "hand search 2026-10-24: council news 22.06.2026: Gloucester City Council activated its Severe Weather Emergency Protocol (SWEP) for people sleeping rough (heat; no accommodation offer under Heat-SWEP)"
  },
  {
   "code": "GLS",
@@ -2357,8 +2365,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on gosport.gov.uk; SWEP described on safergosport.co.uk (council-led community safety partnership site) - asked Dean)",
+  "looked_at": [
+   "https://www.safergosport.co.uk/street-homeless/"
+  ],
   "homeless_url": "https://www.gosport.gov.uk/848",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
