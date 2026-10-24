@@ -2626,8 +2626,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleeping page has no SWEP wording; SWEP only in committee papers)",
+  "looked_at": [
+   "https://www.lbhf.gov.uk/housing/homelessness/rough-sleeping"
+  ],
   "homeless_url": "https://www.lbhf.gov.uk/housing/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2637,8 +2639,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording (per search copy; page returns 403 to scripts))",
+  "looked_at": [
+   "https://www.horsham.gov.uk/housing/homelessness/what-to-do-if-you-are-facing-homelessness"
+  ],
   "homeless_url": "https://www.horsham.gov.uk/housing/homelessness/what-to-do-if-you-are-facing-homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -2692,10 +2696,11 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (accessing support page has no SWEP wording)",
   "looked_at": [
    "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well",
-   "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1"
+   "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1",
+   "https://www.huntingdonshire.gov.uk/housing/homelessness/accessing-support-for-homeless-people/"
   ],
   "homeless_url": "http://www.huntingdonshire.gov.uk/housing/homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
@@ -2967,8 +2972,9 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording; the county Lincolnshire SWEP protocol is hosted on other districts' sites)",
   "looked_at": [
+   "https://www.lincoln.gov.uk/housing-council-tax/homelessness-housing-advice/7",
    "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving"
   ],
   "homeless_url": "https://www.lincoln.gov.uk/housing-council-tax/homelessness-housing-advice",
@@ -3006,8 +3012,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleepers page has no SWEP wording; SWEP protocol PDF only on a third-party site)",
+  "looked_at": [
+   "https://www.cityoflondon.gov.uk/services/housing-and-homelessness/homelessness-or-at-risk/rough-sleepers-in-the-city"
+  ]
  },
  {
   "code": "LUT",
@@ -3015,8 +3023,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page found on luton.gov.uk (strategy page 403 to scripts); SWEP info only on Street Support and NOAH)",
+  "looked_at": [
+   "https://www.luton.gov.uk/council-elections/strategies-policies-plans/luton-rough-sleeping-strategy"
+  ]
  },
  {
   "code": "MAI",
