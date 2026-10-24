@@ -43,6 +43,9 @@ jobs:
         run: python scripts/refresh_guard.py foodbanks
       - name: Write compact browser data.js from data.full.js
         run: python scripts/compact.py
+      - name: Monthly counts for trends (point 34, scripts/monthly_counts.py)
+        continue-on-error: true
+        run: python scripts/monthly_counts.py
       - name: Rebuild area pages, sitemap.xml and robots.txt for Google (scripts/build_seo.py)
         id: seo
         continue-on-error: true   # never blocks the data publish; alerted below
