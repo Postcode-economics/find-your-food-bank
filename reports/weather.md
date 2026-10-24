@@ -45,6 +45,10 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **Met Office** [yellow] Yellow warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
 - **Met Office** [yellow] Yellow warning of wind affecting Strathclyde - shelters/warm spaces in area: Glasgow City Mission Overnight Welcome Centre, Talbot Association; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: Irish Sea at New Brighton - shelters/warm spaces in area: Friendly Faces, Moreton Methodist Church; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven - shelters/warm spaces in area: none matched; SWEP active: none
+- **Environment Agency** [flood warning] Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Vatersay Causeway - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Berneray Causeway - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Upper Solway Firth - shelters/warm spaces in area: none matched; SWEP active: none
@@ -75,6 +79,7 @@ Only the council's own page can turn on 'open tonight'. Nothing here changes the
 - Blackpool Borough Council: council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown) (alerts: Met Office: Amber warning of wind affecting North West England)
 - City of Edinburgh Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders)
 - Clackmannanshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
+- Cumberland Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Environment Agency: Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg; Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe; Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven)
 - Dundee City Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Central, Tayside & Fife)
 - Durham County Council: council page not clear: https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers (unknown) (alerts: Met Office: Amber warning of wind affecting North East England)
 - East Ayrshire Council: no severe weather shelter page on file - check the council's homelessness page (alerts: Met Office: Amber warning of wind affecting Strathclyde)

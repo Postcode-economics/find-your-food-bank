@@ -1,37 +1,27 @@
-# Refresh guard: foodbanks (2026-10-24T12:53:32+00:00)
+# Refresh guard: foodbanks (2026-10-24T13:11:20+00:00)
 
-foodbanks: kept 8 places, 0 phones, 30 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 4 places, 0 phones, 24 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (8)
+## places kept (4)
 
 - ifan-d59b2e089746f7a97c1e15-0
-- ifan-34121866eb63e9e50d317f-0
-- ifan-3598d68070dfe141274bc6-0
-- ifan-4a6217d6ae69c4977d7d70-0
-- ifan-9d9a5ae13b3923c3fd7d0b-0
 - ifan-a2fb0701e0208ee9e642a3-0
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 
-## times kept (30)
+## times kept (24)
 
 - godalming
 - pantry
 - kintyre
 - ledbury
-- crescent
 - carntyne-riddrie
-- salford-food-parcels
-- corsham-churches
-- community-works
 - alnwick-district
 - klsb
 - honiton
 - jacobs-well
-- cann-hall
 - brighton
 - sutton-coldfield
-- rushden-and-higham
 - purley/old-lodge-lane-baptist-church
 - swindon/st-aldhelms-centre
 - newark/tuxford

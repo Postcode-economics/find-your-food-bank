@@ -1,5 +1,5 @@
 {
- "run": "2026-10-24T12:53:42+00:00",
+ "run": "2026-10-24T13:11:28+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -74,6 +74,19 @@
    "council": "Clackmannanshire Council",
    "alerts": [
     "Met Office: Amber warning of wind affecting Central, Tayside & Fife"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "CBD",
+   "council": "Cumberland Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg",
+    "Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
+    "Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven",
+    "Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven"
    ],
    "open_tonight": false,
    "pages": [],
