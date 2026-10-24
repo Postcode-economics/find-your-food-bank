@@ -55,7 +55,8 @@ def check(now, history):
                 alerts.append({"source": src, "metric": met, "now": pct, "baseline": round(base, 1), "n": n,
                                "text": f"{src} returned {pct:g}% {NICE.get(met, met)} today, down from {base:.0f}%. Possible site change."})
     return alerts
-def prepend_review(alerts, path=REVIEW):
+def prepend_review(alerts, path=None):
+    path = path or REVIEW  # looked up at call time so tests that patch REVIEW never touch the real reports/daily_review.md
     old = open(path).read() if os.path.exists(path) else ""
     old = re.sub(r"(?s)^<!-- fill-rate alerts -->.*?<!-- /fill-rate alerts -->\n*", "", old)
     if not alerts: open(path, "w").write(old); return
