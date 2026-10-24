@@ -47,5 +47,5 @@ if __name__ == '__main__':
             for fid in ids:
                 c = show_in_list(p, fid); assert c, fid
                 c.scroll_into_view_if_needed(); print(tag, scheme, fid, card_style(c))
-                c.screenshot(path=os.path.join(out, '%s_%s_390_%s.png' % (tag, fid, scheme)))
+                c.screenshot(path=os.path.join(out, '%s_%s_390_%s.png' % (tag, fid.replace('/', '_'), scheme)))
             b.close()
