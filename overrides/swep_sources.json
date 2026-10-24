@@ -2735,8 +2735,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": []
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homelessness page has no SWEP wording; severe weather page is general emergency planning)",
+  "looked_at": [
+   "https://www.scilly.gov.uk/community-safety/housing/social-housing/homelessness"
+  ]
  },
  {
   "code": "IOW",
@@ -4652,8 +4654,11 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (own article 'Always a bed for rough sleepers during the cold weather' and 'Helping rough sleepers' page block the box (403/timeout), so wording unverified - asked Dean)",
+  "looked_at": [
+   "https://www.swansea.gov.uk/article/20247/Always-a-bed-for-rough-sleepers-during-the-cold-weather",
+   "https://www.swansea.gov.uk/helpingroughsleepers"
+  ],
   "homeless_url": "https://www.swansea.gov.uk/helpforhomeless",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -4982,8 +4987,10 @@
   "nation": "Wales",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (homeless duty page has no SWEP wording)",
+  "looked_at": [
+   "https://www.valeofglamorgan.gov.uk/en/living/Housing/Housing-Support/Homeless-Duty-Criteria.aspx"
+  ],
   "homeless_url": "https://www.valeofglamorgan.gov.uk/en/living/Housing/Housing-Support/Housing-Support.aspx",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "ooh_phone": "01446 721534",
@@ -5092,8 +5099,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (rough sleepers page has no SWEP/severe-weather wording)",
+  "looked_at": [
+   "https://www.westdevon.gov.uk/housing/housing-support/homelessness/rough-sleepers"
+  ],
   "homeless_url": "https://www.westdevon.gov.uk/housing/housing-support/homelessness/",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
  },
@@ -5422,8 +5431,10 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
-  "looked_at": [],
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (only news releases (2022) with no SWEP wording on the page; no SWEP page)",
+  "looked_at": [
+   "https://www.westsuffolk.gov.uk/news/pr221114ws02.cfm"
+  ],
   "homeless_url": "https://www.westsuffolk.gov.uk/housing/find_a_home/homelessness.cfm",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23",
   "ooh_phone": "01284 763252",
@@ -5455,7 +5466,7 @@
   "nation": "England",
   "url": null,
   "no_swep_page": true,
-  "note": "No SWEP page found yet: automated scan of the council sitemap + homepage links 2026-10-23 (not yet hand-searched)",
+  "note": "No SWEP page on the council own site: hand search 2026-10-24 (no SWEP page on wychavon.gov.uk; activations only on the council's LinkedIn and tender notices)",
   "looked_at": [],
   "homeless_url": "https://www.wychavon.gov.uk/housing/homelessness",
   "homeless_url_source": "GOV.UK local links (https://www.gov.uk/homelessness-help-from-council) -> council own page, loads 2026-10-23"
