@@ -323,7 +323,17 @@ def main():
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
         r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+    brake = learning.anomaly_brake(LS.get('change_counts') or [], len(log))
+    if not brake['stop'] and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
+        LS.setdefault('change_counts', []); LS['change_counts'] = (LS['change_counts'] + [{'day': DAY, 'changes': len(log)}])[-30:]
+    elif brake['stop']:
+        LS['anomaly'] = dict(brake, day=DAY)
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
+    if brake['stop']:
+        os.makedirs(REP, exist_ok=True)
+        open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write('# Stopped\n\n%s\n\nNothing from this run was published.\n' % brake['reason'])
+        today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
+        print('ANOMALY BRAKE:', brake['reason']); return
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
