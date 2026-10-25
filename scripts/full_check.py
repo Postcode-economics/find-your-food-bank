@@ -323,7 +323,8 @@ def main():
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
         r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
-    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
+        learning.prune(LS, DAY, sites); learning.snapshot(LS, DAY); learning.save(LS)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
