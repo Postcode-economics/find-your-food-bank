@@ -7,10 +7,18 @@
 
 ## Everything else
 
-- Changes since last run: 70 (0 new, 1 removed, 69 field updates)
+- Changes since last run: 49 (0 new, 0 removed, 49 field updates)
 - Likely duplicates on the map: 23 (reports/duplicates.md)
 - Weather/flood warnings: 81 (reports/weather.md)
 - Source quality scores: reports/source_scores.md
-- Source errors this run: 51 (reports/source_errors.json)
+- Source errors this run: 50 (reports/source_errors.json)
 - SWEP councils still to check: 25 (reports/swep_tracker.md)
 - Daily review list: reports/daily_review.md
+
+## What the system learned
+
+- Checks recorded so far: 1065 across 1065 sources/places
+- Top movers up: none
+- Top movers down: none
+- Sources/places with useful finds today: http://breadlineproject.org, http://portlandfoodbank.co.uk, http://www.foodbank4whitby.org.uk, http://www.sidvalleyfoodbank.org.uk, https://3food4u.org
+- Backing off (repeated failures, retried within 7 days): none

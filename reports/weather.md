@@ -55,8 +55,8 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Strath Oykel - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Strath Carron - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Sluggan to Dulnain Bridge - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] A FLOOD WARNING has been issued for Vatersay Causeway - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] A FLOOD WARNING has been issued for Berneray Causeway - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] The FLOOD WARNING for Vatersay Causeway is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] The FLOOD WARNING for Berneray Causeway is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Upper Solway Firth - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Nith Tidal - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Southerness Point - shelters/warm spaces in area: none matched; SWEP active: none

@@ -1,6 +1,6 @@
 # New places held back for Dean (not published)
 
-A new place needs a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
+New food banks are never added automatically: each waits here for your OK (add its id to overrides/foodbank_approved_new.json). A new shelter / warm space needs a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
 ## foodbanks (0)
 
@@ -113,3 +113,12 @@ Run 2026-10-25. Nothing here is on the map. Each needs a hand check before it is
 - Vineyard Church (AL1 5UG) - https://www.stalbans.gov.uk/rough-sleeping
 - YMCA Watford Charter House (WD17 2RT) - https://www.stalbans.gov.uk/rough-sleeping
 <!-- /sweep shelters -->
+
+
+<!-- closures -->
+## Possible closures - still on the map with "May have closed" note (1)
+
+To remove one, add its id to overrides/foodbank_closed.json; to clear the note, delete it from reports/closures_pending.json.
+
+- Welshpool and District Foodbank (welshpool-and-district) - dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank - https://welshpooldistrict.foodbank.org.uk/welshpool-and-district-foodbank-now-closed/, since 2026-10-25
+<!-- /closures -->
