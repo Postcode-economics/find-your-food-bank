@@ -1,7 +1,7 @@
 {
  "run": "2026-10-25",
- "candidates": 59,
- "already_on_map": 4,
+ "candidates": 60,
+ "already_on_map": 5,
  "new": 55,
  "added": [
   {
@@ -12,8 +12,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "0e7418cc971bbe1f8bf8c9e89d312337ac6a097ff0bee48ab765dfc0ea2309ec",
-   "etag": "\"5475-1792829744;;;\"",
+   "sha256": "2b506ed4506b25fe1307b9dbb601005a279022abf667fb482878182d55f432a1",
+   "etag": "\"5558-1792916311;;;\"",
    "last_modified": ""
   },
   {
@@ -36,7 +36,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "43f7dddc29e387094285e11d19e0f3bb62857665366863f02bbeb4f4aef85e6d",
+   "sha256": "96b6b945694e9cf9f5ec3bfbcc07fad3280136a4951c5423f2b950649ac63e05",
    "etag": "",
    "last_modified": ""
   },
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "ba627f3401c58fade7f2d99c9728d8f41106088a0c8fdf573534632d38b23f9b",
+   "sha256": "2d3cd95ef49b1945f7f31ee4163cd6a87806613e8e28fb108eaf065e16dbb805",
    "etag": "",
    "last_modified": ""
   }
@@ -63,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not show it is a shelter/emergency accommodation"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://www.thegap.wales/",
-   "http": 202,
-   "sha256": "f9475844ebb31d94c00b81fe78fc28e3885a107dd8266cf3bc3a1e0147abb17a",
+   "final_url": "https://thegap.wales/",
+   "http": 200,
+   "sha256": "87c40cbcb85cdb9fc56a392d0f8dd0c187ed5ddf25c7e053d768fd9d302214f5",
    "etag": "",
    "last_modified": ""
   },
@@ -134,13 +134,12 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 202,
-   "sha256": "4b14e7f2b0c65f05b3b60e232b2577b654cdbaea1069db5a62194dc607ba16c6",
+   "http": 200,
+   "sha256": "5007ee7be7b82a2da9fa5d0f9ce86228f0805fa8208e516053c0cd8f2c797d40",
    "etag": "",
    "last_modified": ""
   },
@@ -193,8 +192,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "6d7b30bb98f1e9276e67400eea8206ebeeed1a0e99998394731c7fd5fd006472",
-   "etag": "W/\"5261489f494361530027a0ceddcc6c68\"",
+   "sha256": "4767c98c2184fc9c811e5baa65148c5a5adb5bdc7ef4e9fb7829c9481e8a3b5a",
+   "etag": "W/\"0393d65f759c58bb183fd8e3c902150c\"",
    "last_modified": ""
   },
   {
@@ -211,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "4e8fa5fcaf2d6000856b43157bb0e717bb2fd9214163d7bd7f8cecf762730a25",
+   "sha256": "6dff73d18a5e1a1990ccc76afe28047c1a810c48c88819da4966f74b5581778a",
    "etag": "",
    "last_modified": ""
   },
@@ -228,9 +227,9 @@
    "url": "https://999club.org/",
    "final_url": "https://999club.org/",
    "http": 200,
-   "sha256": "83c035a7f3f028df0d10ec38d91b99cacb44c17ba3f0b20756b83cbe6bb188c6",
+   "sha256": "b87ab1442a59bdd446a565f0a2ae582d947eb1ed7681569860a87e847549e71e",
    "etag": "",
-   "last_modified": "Sat, 24 Oct 2026 10:41:05 GMT"
+   "last_modified": "Sun, 25 Oct 2026 10:42:05 GMT"
   },
   {
    "id": "osm-node-13661455428",
@@ -499,7 +498,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "e7054fe0703f8ee8e72fe797911331978f75521d182edd8a2f8cc7280467d5fa",
+   "sha256": "fb18ea2a406f0548edc50c4be19d676ceb324e5205e320f87cc4ae33bd192311",
    "etag": "",
    "last_modified": ""
   },
@@ -552,8 +551,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
-   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
+   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
+   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
    "last_modified": ""
   },
   {
@@ -677,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "89fbd1f9410cf22804863020c31800df0c3a75e71dd3aa09784ba298a27aa26e",
+   "sha256": "f97c1f94136fcea04ed0602c40286c5d53e6216f20e0e96b869b882a3040b211",
    "etag": "",
    "last_modified": ""
   },
@@ -832,7 +831,7 @@
    "http": 200,
    "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
    "etag": "",
-   "last_modified": "Sun, 25 Oct 2026 01:53:26 GMT"
+   "last_modified": "Sun, 25 Oct 2026 07:58:03 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -882,8 +881,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "5d04b54dd239327081f19e99f5fc4da405d977b171596b0f99f63de500c9c5b4",
-   "etag": "W/\"21bbc-5WCm9oDGCvIc5pjVKi9+6DdyXW8\"",
+   "sha256": "97e142f12de6fe7b1f1bad54f1f60ca427169d36973e125a36bd67c289f66243",
+   "etag": "W/\"21bd6-Y8fpXrbxNik0kiMwy9Oka2keMWw\"",
    "last_modified": ""
   },
   {
@@ -938,12 +937,12 @@
    "last_modified": null
   },
   {
-   "id": "hl-bromford-hayward-road-hostel",
-   "name": "Bromford - Hayward Road Hostel",
-   "postcode": "BS15 9TR",
-   "website": "http://www.bromford.co.uk",
+   "id": "hl-cardinal-hume-centre-hostel",
+   "name": "Cardinal Hume Centre Hostel",
+   "postcode": "",
+   "website": "http://https://www.cardinalhumecentre.org.uk",
    "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
    "reasons": [
     "no valid postcode"
    ],
