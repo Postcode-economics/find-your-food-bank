@@ -1,8 +1,16 @@
 {
  "run": "2026-10-25",
- "pages": 1724,
- "failed": 136,
+ "pages": 1692,
+ "failed": 117,
  "errors": [
+  [
+   "https://www.castlepoint.gov.uk/w/rough-sleeping",
+   "error"
+  ],
+  [
+   "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
+   "error"
+  ],
   [
    "https://www.rugby.gov.uk/warmhubs",
    "error"
@@ -40,14 +48,6 @@
    403
   ],
   [
-   "https://www.camden.gov.uk/warm-spaces-in-camden",
-   403
-  ],
-  [
-   "https://www.camden.gov.uk/warm-spaces-in-camden",
-   403
-  ],
-  [
    "https://www.coventry.gov.uk/warmwelcomeprivacynotice",
    404
   ],
@@ -70,6 +70,10 @@
   [
    "https://www.gravesham.gov.uk/rough-sleepers",
    404
+  ],
+  [
+   "https://www.guildford.gov.uk/article/25648/Help-for-rough-sleepers-in-Guildford",
+   "error"
   ],
   [
    "https://www.hastings.gov.uk/my-community/foreshoretrust/large-grants/rough-sleepers-outreach/",
@@ -284,96 +288,12 @@
    403
   ],
   [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/about-the-council/news/press-releases/come-in-from-the-cold-to-one-of-hertfordshire&#39;s-warm-spaces.aspx",
-   404
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
-   "https://www.hertfordshire.gov.uk/microsites/herts-careline/about/news/new-&#39;warm-spaces&#39;-directory-launched-in-hertfordshire.aspx",
-   400
-  ],
-  [
    "https://www.walthamforest.gov.uk/health-and-wellbeing/support-and-community-services-your-area/forest-churches-emergency-night-shelter-fcens",
    405
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weather-s-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
   ],
   [
    "http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
@@ -397,7 +317,7 @@
   ],
   [
    "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-   302
+   403
   ],
   [
    "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
@@ -460,14 +380,6 @@
    403
   ],
   [
-   "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
-   403
-  ],
-  [
-   "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
-   403
-  ],
-  [
    "https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter",
    403
   ],
@@ -501,6 +413,10 @@
   ],
   [
    "https://www.sholland.gov.uk/article/22764/Severe-Weather",
+   403
+  ],
+  [
+   "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
    403
   ],
   [
@@ -546,6 +462,14 @@
   [
    "https://newforest.gov.uk/article/3846/Continuing-to-offer-support-to-rough-sleepers-this-winter",
    403
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "error"
   ]
  ],
  "added": [],
