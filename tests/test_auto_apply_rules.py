@@ -98,3 +98,11 @@ class GateAllLayers(unittest.TestCase):
         try: held = G.gate('shelters')
         finally: G.ROOT = old
         self.assertEqual([i['id'] for i, _ in held], ['b']); shutil.rmtree(d)
+
+class ApprovedRemovals(unittest.TestCase):
+    def test_dean_approved_removal_stays_off(self):
+        """Welshpool (Dean 25 Oct 08:57): ids in overrides/foodbank_closed.json are dropped by full_check and never on the pending list."""
+        src = open(os.path.join(HERE, '..', 'scripts', 'full_check.py')).read()
+        self.assertIn("remove |= {i['id'] for i in items if i['id'] in approved_off}", src)
+        self.assertIn("if k not in approved_off", src)
+        self.assertIn('welshpool-and-district', json.load(open(os.path.join(HERE, '..', 'overrides', 'foodbank_closed.json'))))

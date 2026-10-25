@@ -212,6 +212,10 @@ def main():
     try: closed_raw = json.load(open(CLP, encoding='utf-8'))
     except Exception: closed_raw = {}
     closed_ov, closed_hold, remove = {}, set(closed_raw.get('_hold_for_review', [])), set()
+    # Removals Dean approved / confirmed by hand (overrides/foodbank_closed.json, e.g. Welshpool 25 Oct 08:57) always stay off,
+    # whichever build step let them back in, and never sit on the 'may have closed' list.
+    approved_off = {k for k in closed_raw if not k.startswith('_')}
+    remove |= {i['id'] for i in items if i['id'] in approved_off}
     for x, t in tags.items():
         if x in acc: acc[x] = t['tag']   # build_access.py regenerated access.js from the CSVs; re-apply our flips
     fixes = rj('phone_fixes.json', {})      # website -> {"old", "new", "since", "source"}
@@ -230,7 +234,7 @@ def main():
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
-    closure_pending = rj('closures_pending.json', {})  # id -> evidence; Dean decides (25 Oct 08:20)
+    closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])

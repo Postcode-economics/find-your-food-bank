@@ -1,0 +1,41 @@
+{
+ "base": null,
+ "at": "2026-10-25T15:14:26Z",
+ "journeys": {
+  "J1 search lands on list": {
+   "pass": 312,
+   "fail": 0,
+   "failures": []
+  },
+  "J2 type tiles": {
+   "pass": 24,
+   "fail": 0,
+   "failures": []
+  },
+  "J3 Open today": {
+   "pass": 60,
+   "fail": 0,
+   "failures": []
+  },
+  "J4 filters": {
+   "pass": 40,
+   "fail": 0,
+   "failures": []
+  },
+  "J5 card buttons": {
+   "pass": 16,
+   "fail": 0,
+   "failures": []
+  },
+  "J6 pin pop-up": {
+   "pass": 12,
+   "fail": 0,
+   "failures": []
+  },
+  "J7 two-finger note": {
+   "pass": 2,
+   "fail": 0,
+   "failures": []
+  }
+ }
+}

@@ -144,12 +144,36 @@ def put_counts(s, n):
         s = re.sub(r'(<span data-n="%s">)[^<]*(</span>)' % re.escape(k), lambda m: m.group(1) + format(v, ',') + m.group(2), s)
     return s
 
+DESC = {'privacy.html': 'Privacy and data protection at helpmap.uk: what information the map uses, what is kept, and your rights.',
+        'terms.html': 'Terms of use for helpmap.uk, the free UK map of food banks, homeless shelters and warm spaces, and how the data may be reused.',
+        'accessibility.html': 'Accessibility statement for helpmap.uk, the free UK map of food banks, homeless shelters and warm spaces, and how to report a problem.',
+        'faq.html': 'How helpmap.uk works and keeps food bank, shelter and warm space details up to date, checked three times a day against each source.'}
+OG_IMG, OG_ALT = SITE + '/og_launch.png', 'Free UK food bank, shelter and warm space map'
+def _meta_content(s, attr, name):
+    m = re.search(r'<meta %s="%s" content="([^"]*)"' % (attr, re.escape(name)), s)
+    return html.unescape(m.group(1)) if m else None
+def put_social(s, rel):
+    """25 Oct 2026: every page carries title, description, canonical, og:* and twitter:* (added only where missing)."""
+    head, sep, rest = s.partition('</head>')
+    if not sep: return s
+    title = title_of(s); url = url_of(rel) if rel != '404.html' else SITE + '/404.html'
+    desc = _meta_content(head, 'name', 'description') or DESC.get(rel) or title
+    esc = lambda x: html.escape(x, quote=True); add = []
+    want = [('name', 'description', desc), ('property', 'og:type', 'website'), ('property', 'og:title', title), ('property', 'og:description', desc),
+            ('property', 'og:url', url), ('property', 'og:image', OG_IMG), ('property', 'og:image:alt', OG_ALT), ('property', 'og:image:width', '1200'),
+            ('property', 'og:image:height', '630'), ('property', 'og:locale', 'en_GB'), ('property', 'og:site_name', 'helpmap.uk'), ('name', 'twitter:card', 'summary_large_image'),
+            ('name', 'twitter:title', title), ('name', 'twitter:description', desc), ('name', 'twitter:image', OG_IMG)]
+    for a, n, v in want:
+        if '<meta %s="%s"' % (a, n) not in head: add.append('<meta %s="%s" content="%s">' % (a, n, esc(v)))
+    if 'rel="canonical"' not in head and rel != '404.html': add.append('<link rel="canonical" href="%s">' % esc(url))
+    return head + ''.join(add) + sep + rest if add else s
+
 def run(root=ROOT):
     t = stamp(root); iso = t.isoformat(timespec='seconds'); day = t.date().isoformat()
     ps = pages(root); L = stamp_layers(root); pd = os.path.join(root, 'overrides', 'page_dates.json')
     dates = json.load(open(pd)) if os.path.exists(pd) else {}
     if os.path.exists(os.path.join(root, '404.html')):
-        p4 = os.path.join(root, '404.html'); s4 = open(p4, encoding='utf-8').read(); n4 = put_info(s4, '404.html', t, L)
+        p4 = os.path.join(root, '404.html'); s4 = open(p4, encoding='utf-8').read(); n4 = put_social(put_info(s4, '404.html', t, L), '404.html')
         if n4 != s4: open(p4, 'w', encoding='utf-8').write(n4)
     for rel in ps:
         p = os.path.join(root, rel); s = open(p, encoding='utf-8').read(); s0 = s
@@ -162,6 +186,7 @@ def run(root=ROOT):
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
         s = put_info(s, rel, t, L)
+        s = put_social(s, rel)
         if rel in TOP: s = put_upd(s, rel, t, dates)
         if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/', 'shelters/')) and rel.count('/') == 2:
             s = put_chk(s, t, rel)

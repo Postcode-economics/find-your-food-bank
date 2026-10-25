@@ -54,13 +54,13 @@ window.V3={sched,status,badge,walk,share,strip,shutToday,openTodayL};
 const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div class="d">[^<]*<\/div>)/,'$1'+add):h.replace(/(<\/h3>)/,'$1'+add);
 const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return insAfterD(h,walk(d));
  h=badge('fb',i)+insAfterD(h,walk(d));return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};
-const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i))};
+const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i)).replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};  // Dean 25 Oct design lock: pop-up has Share too
 const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
  const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
  cs.map((c,n)=>({c,n,s:sc(c)})).sort((a,b)=>a.n-b.n).forEach(x=>{x.c.classList.toggle('v3closed',x.s===2);l.append(x.c)})}catch(e){}return r};
 // ---- top: three big task buttons; toggle bar + search become secondary
 const hdr=document.querySelector('header');const big=document.createElement('div');big.id='v3big';
-const NB=[['fb','food','Food bank','Banc bwyd','Collect food','Casglu bwyd'],['ws','mug','Warm space','Man cynnes','Somewhere warm','Rhywle cynnes'],['sh','bed','Shelter tonight','Lloches heno','A bed tonight','Gwely heno']];
+const NB=[['fb','food','Food bank','Banc bwyd','Collect food','Casglu bwyd'],['ws','mug','Warm space','Man cynnes','Somewhere warm','Rhywle cynnes'],['sh','bed','Shelter','Lloches','A bed tonight','Gwely heno']];
 big.setAttribute('role','radiogroup');big.setAttribute('aria-label','Find help near you');
 big.innerHTML=NB.map(([k,ic,en,cy,sen,scy])=>`<button type="button" class="v3b" role="radio" data-l="${k}" aria-checked="false" tabindex="-1"><span class="ic" aria-hidden="true">${IC(ic)}</span><span class="v3bt"><span class="v3bl">${B(en,cy)}</span><span class="v3bs">${B(sen,scy)}</span></span><span class="v3tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg></span><span class="v3sr">${B(', selected',', wedi’i ddewis')}</span></button>`).join('');
 {const f=document.getElementById('f');if(f){hdr.querySelector('h1').after(f);f.after(big)}else hdr.querySelector('h1').after(big)}
@@ -91,7 +91,19 @@ function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0
  const n=t.querySelectorAll('.card').length;if(k!=='fb'&&!n&&!t.textContent.trim())return;  // layer data still loading: stay busy, the observer calls again
  big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});clearTimeout(busyT);
  const W={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];
- pl.innerHTML=`<a href="#${t.id}" class="v3pl">${B(`Showing ${W[0]}: ${n} nearby · see list ↓`,`Yn dangos ${W[1]}: ${n} gerllaw · gweld y rhestr ↓`)}</a>`;flash()}
+ {/* Dean 25 Oct 13:32: short status line, never clipped: 'Food banks near you' / 'Food banks near Suffolk' (place ellipsised only if needed) */
+ const T={fb:['Food banks','Banciau bwyd'],ws:['Warm spaces','Mannau cynnes'],sh:['Shelters','Llochesi']}[k];let lb='';try{lb=(typeof lastNear!=='undefined'&&lastNear&&lastNear[2])||''}catch(_){}
+ lb=v3short(lb);const me=!lb||/^your location$/i.test(lb),P=x=>`<span class="v3plc">${esc3(x)}</span>`;
+ pl.innerHTML=`<a href="#${t.id}" class="v3pl">${me?B(`${T[0]} near you`,`${T[1]} yn agos atoch`):B(`${T[0]} near ${P(lb)}`,`${T[1]} ger ${P(lb)}`)}</a>`;pl.dataset.place=me?'':lb;v3fitPill()}flash()}
+/* Dean 25 Oct 13:35: fixed font, ONE line, fixed header height, never an ellipsis. If 'Food banks near Place' does not fit,
+   show just the place name (the selected type tile already shows the type). The font size is never changed. */
+/* Dean 25 Oct 14:09: status line place name. Drop ', County'. Over-long council names use a short form (confirmed by Dean 14:11; edit here). Never cut off. */
+const V3SHORT={'Armagh City, Banbridge and Craigavon':'Craigavon','Bournemouth, Christchurch and Poole':'Bournemouth'};
+window.v3short=v3short;function v3short(lb){lb=String(lb||'').trim();if(V3SHORT[lb])return V3SHORT[lb];const i=lb.indexOf(',');return i>0?lb.slice(0,i).trim():lb}
+function v3fitPill(){const a=pl.querySelector('.v3pl');if(!a||!pl.dataset.place)return;if(a.scrollWidth>a.clientWidth+1)
+ a.querySelectorAll('.v-en,.v-cy').forEach(e=>{e.innerHTML=`<span class="v3plc">${esc3(pl.dataset.place)}</span>`})}
+addEventListener('resize',()=>{if(window.v3fitPill&&pl.querySelector('.v3pl'))v3fitPill()});
+function esc3(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c])}
 function flash(){pl.classList.remove('v3flash');void pl.offsetWidth;pl.classList.add('v3flash');
  ['#list>.lh','#xlist>.lh'].forEach(q=>{const h=document.querySelector(q);if(h){h.classList.remove('v3flash');void h.offsetWidth;h.classList.add('v3flash')}})}  // brief pulse: every update (incl. the same search again or re-tapping the chosen type) is visible
 // one shared scroll (Dean 25 Oct): the 'see list' pill, Search/Enter, place picks and Find nearest all land the chosen type's list at the top, no map above it
@@ -145,7 +157,7 @@ try{map.options.wheelPxPerZoomLevel=180;map.options.wheelDebounceTime=80;map.scr
  let n=sp.nextElementSibling;while(n&&!(n.classList&&n.classList.contains('share'))&&n.tagName!=='FOOTER'){const nx=n.nextElementSibling;col.append(n);n=nx}
  const xb=document.getElementById('xbefore'),fw=document.getElementById('fwrap'),ft=document.getElementById('ftab'),chg=document.getElementById('v3chg');
  col.prepend(chg);  // round 3 (Dean): filters, 'Always call' and List only/Light mode back above the map, right under the type buttons
- {const fl=document.createElement('div');fl.id='v3filt';const r2=document.createElement('div');r2.id='v3row2';const tl=document.getElementById('v3tools');r2.append(...[xb].filter(Boolean));const ot=document.querySelector('label.tog');if(ot)ot.id='v3open';fl.append(...[fw,ot,tl,ft,r2].filter(Boolean));fl.classList.toggle('fclosed',!!window.fbFiltersClosed);{const al=()=>{const o=document.getElementById('v3open'),x=document.getElementById('fhide'),w=document.querySelector('#v3filt [data-f=walk]');if(!o||!x||!w)return;const t=document.getElementById('v3tools'),vc=document.querySelector('#v3filt [data-f=vouch]');if(t){t.style.removeProperty('order');t.classList.remove('v3tight')}if(innerWidth>=1024||!w.offsetParent){o.style.removeProperty('margin-left');return}o.style.setProperty('margin-left',Math.max(0,Math.round(w.getBoundingClientRect().left-fl.getBoundingClientRect().left-parseFloat(getComputedStyle(fl).paddingLeft||0)))+'px','important');if(t&&vc){const top=e=>e.getBoundingClientRect().top;if(top(vc)>top(w)+5)t.style.setProperty('order','3','important');else if(top(t)>top(o)+5){t.classList.add('v3tight')}}};addEventListener('resize',al);if(window.ResizeObserver){const ro=new ResizeObserver(al);['fhide'].forEach(i=>{const e=document.getElementById(i);if(e)ro.observe(e)});ro.observe(fl)}setTimeout(al,0);window.v3align=al}big.after(fl);
+ {const fl=document.createElement('div');fl.id='v3filt';const r2=document.createElement('div');r2.id='v3row2';const tl=document.getElementById('v3tools');r2.append(...[xb].filter(Boolean));const ot=document.querySelector('label.tog');if(ot)ot.id='v3open';fl.append(...[fw,ot,tl,ft,r2].filter(Boolean));fl.classList.toggle('fclosed',!!window.fbFiltersClosed);{const al=()=>{const o=document.getElementById('v3open'),t=document.getElementById('v3tools');if(o)o.style.removeProperty('margin-left');if(t){t.style.removeProperty('order');t.classList.remove('v3tight')}};setTimeout(al,0);window.v3align=al}  /* header option A (Dean 25 Oct): layout is pure CSS (header.css) */big.after(fl);
     if(ot){const vr=document.getElementById('v3res'),mq=matchMedia('not all'),place=()=>{if(mq.matches){if(ot.parentElement!==vr)vr.prepend(ot)}else if(ot.parentElement!==fl)fl.insertBefore(ot,tl)};place();mq.addEventListener('change',place)}  // MD4: Open today sits with the chips where it fits (>=340px); below 340px it stays above the list so the map isn't pushed down
     const pr=document.createElement('div');pr.id='v3prow';fl.after(pr);pr.append(pl)}  // filters + 'Always call' + tools stay directly under the type buttons (Dean); pill row follows
  const xl=document.getElementById('xlist'),so=document.getElementById('v3sos');if(xl&&so)xl.before(so);
@@ -169,3 +181,10 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
  let bad=0;const on=l=>{if(!l||!l.on||l._v3t)return;l._v3t=1;l.on('tileerror',()=>{if(!navigator.onLine){bad++;n.hidden=false}});l.on('tileload',()=>{if(bad>0)bad--;})};
  map.eachLayer(on);map.on('layeradd',e=>on(e.layer));addEventListener('online',()=>{n.hidden=true;bad=0});map.on('movestart',()=>{if(navigator.onLine)n.hidden=true})})();
 })();
+
+/* Header option A (Dean, 25 Oct 2026): type tiles, then filters, then 'Find nearest', then one info strip
+   (see-list line + Always call before you go + Updated). Built once the pieces exist; behaviour unchanged. */
+(function(){function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear');
+ if(!big||!filt||!pill||!xb||!fr||!near)return false;if(document.getElementById('h2info'))return true;
+ big.after(filt);filt.after(near);const info=document.createElement('div');info.id='h2info';near.after(info);info.append(pill,xb,fr);return true}
+ if(h2())return;const mo=new MutationObserver(()=>{if(h2())mo.disconnect()});mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>{h2();mo.disconnect()},15000)})();
