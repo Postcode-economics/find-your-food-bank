@@ -23,6 +23,7 @@ button{font-size:15px;font-weight:700;border:0;border-radius:10px;padding:0 14px
 #msg{font-size:15px;color:var(--gold);margin-top:4px}#msg:empty{display:none}
 #msg.err{color:var(--navy);background:var(--gold);padding:8px 10px;border-radius:8px;font-weight:600}
 #map{height:48vh;min-height:320px}
+.mgest{position:absolute;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;background:rgba(0,0,0,.55);color:#fff;font-size:18px;font-weight:600;pointer-events:none;opacity:0;transition:opacity .25s}.mgest.on{opacity:1}
 #list{padding:0 12px}#list:empty{display:none}
 .lh{font-weight:800;color:var(--gold);margin:12px 0 4px;font-size:16px}
 .card{background:var(--card);border-left:4px solid var(--gold);border-radius:10px;padding:12px;margin:10px 0}
@@ -143,6 +144,12 @@ function card(i,dist){const tel=telOf(i);
  ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call ahead.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call ahead</div>':''}${window.repB?repB('fb',i):''}`}
 function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
+// touch devices: one finger scrolls the page, two fingers pan/zoom (pinch); desktop unchanged (Dean, 25 Oct 2026)
+const TOUCH_MAP=matchMedia('(hover:none) and (pointer:coarse)').matches;
+if(TOUCH_MAP){map.dragging.disable();const mc=map.getContainer(),ov=L.DomUtil.create('div','mgest',mc);ov.setAttribute('aria-hidden','true');let sx=0,sy=0,tm=0;
+ const show=()=>{ov.textContent=document.documentElement.lang==='cy'?'Defnyddiwch ddau fys i symud y map':'Use two fingers to move the map';ov.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>ov.classList.remove('on'),1500)};
+ mc.addEventListener('touchstart',e=>{if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY}else ov.classList.remove('on')},{passive:true});
+ mc.addEventListener('touchmove',e=>{if(e.touches.length===1&&Math.hypot(e.touches[0].clientX-sx,e.touches[0].clientY-sy)>10)show()},{passive:true})}
 addTiles(map);  // tiles.js: ordered provider list with automatic fallback
 const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
 const icon=L.divIcon({className:'pin',html:pinSvg,iconSize:[22,28],iconAnchor:[11,27],popupAnchor:[0,-24]});
