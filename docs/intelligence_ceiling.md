@@ -2,9 +2,11 @@
 
 Owner: Dean. Written 25 October 2026, after the 14 sweep upgrades and proposals 1–20. Proposal 21 and the "Recommend no" list in `docs/future_proofing_proposals.md` are not built, and this note does not build them.
 
-**Answer:** No. The queue-scoring part is close to as intelligent as it can usefully be. More weights will not make the map more true. What is still missing is facts the scorer never sees, parsers that break when a page changes, and one person's time to say yes or no.
+**Answer:** The queue score is close to as useful as it can be. More weights will not make the map more true. That is not the furthest system worth designing.
 
-The hard rules still apply to every idea below. Nothing here may invent a phone, an hour, a date, or a council. Nothing may add or remove a place. You approve changes in the files, the same way as now. The clock times stay put. The weekly floor stays 7 days. The shared boost cap stays 3.0. A disagreement is flagged and never picked.
+The furthest system, the one worth calling super-intelligent for this job, reads every source it is allowed to read, quotes every fact it keeps, lays every source side by side, predicts a change only when a real date or a repeated history says so, explains each row, and gets better at proposing after you say yes or no. It still does not invent a fact, and it still does not change the live site except through the guards that already exist.
+
+The hard rules apply to every stage below. Nothing may invent a phone, an hour, a date, or a council. You approve a new place or a removal in the files, the same way as now. An automatic edit still has to pass `overrides/auto_apply_rules.json`, the two-run confirmation, the confidence hold, the anomaly brake, the publish gate, and the refresh guard. The clock times stay put. The weekly floor stays 7 days. The shared boost cap stays 3.0. When sources disagree, the result is an open row. Nothing is picked.
 
 ## What is already about as good as this design gets
 
@@ -14,7 +16,7 @@ That is the right shape. A further formula on top of the same files will mostly 
 
 The Sunday grade has a second limit. A "find" is a flag or an automatic edit on that run, not a later yes from you. A signal that flags too much can look successful. Grading it harder will not create a truth the run never recorded.
 
-Freshness has a hard stop that is not a bug. A place is guaranteed a look at least every seven days, inside runs that were already scheduled. A wrong phone or a closure can sit until the next of those runs. The rules forbid an extra run when the weather is bad. Inside that clock, reordering is the whole of what "smarter" can mean.
+Freshness has a hard stop that is not a bug. A place is guaranteed a look at least every seven days, inside runs that were already scheduled. A wrong phone or a closure can sit until the next of those runs. The rules forbid an extra run when the weather is bad. Inside that clock, reordering is the whole of what the score can do. Reading, reconciling, and predicting, in the roadmap below, still spend those same runs.
 
 ## The biggest remaining gaps
 
@@ -109,8 +111,8 @@ These would feel intelligent and would not make a listing truer, or they would b
 | Idea | Why it is overkill |
 |---|---|
 | Another learned weight, a second cap, or a bandit over the signals | The shared cap is already the limit. Most added signals have no facts behind them. A new weight competes with the weekly floor and the signals that do have facts. |
-| A model that extracts hours or phones from page text | It will invent a digit. The rejected list already covers a model rewriting listings, and training on visitor free text. The example pages are for catching a human parser change, not for training one. |
-| A model that summarises the morning note | It can drop the one row that needed a decision. A shorter decision list is the version that keeps every row. |
+| A model that writes a listing, or fills a field it cannot quote from text we actually fetched | That is an invented digit. Stage B below is the allowed version: a reader that proposes a field only when the value is a substring of the fetched text, in shadow first, and that never writes the live file itself. |
+| A summary that can drop a row from the morning note | The explanation in Stage E keeps every decision. A paraphrase that omits one is a lost closure. |
 | Saving full page HTML so a future parser can replay it | Already refused. The replay store keeps the extracted fields. Full pages are someone else's site, kept forever. |
 | Treating a silent site, a missing feed, or a Companies House row as a closure | A failed fetch is not a closure. The pin stays until you say so. |
 | An extra scheduled run on a cold day | The clock is locked. Those councils already move up inside the next run that was going to happen. |
@@ -122,6 +124,110 @@ These would feel intelligent and would not make a listing truer, or they would b
 
 ## What not to do next
 
-Do not add a twenty-first signal to the boost. Do not raise the cap. Do not let the system publish a place, remove a place, or pick a value because the queue is long.
+Do not add a twenty-first signal to the boost. Do not raise the cap. Do not let the system publish a place, remove a place, or pick a value because the queue is long. Do not skip to a reader that writes the live site.
 
-If one thing is built from this note, build the decision list, and beside it the count of days from first flag to your answer. Those two show whether the sweeps are actually getting a true listing onto the map sooner. Everything else in the "worth doing" list is smaller than that, and everything in the overkill list should stay unbuilt.
+If one thing is built first, build the decision list, and beside it the count of days from first flag to your answer. That is Stage A. The quoted reader, the ledger, the predictions, and the self-improvement loop come after it, in that order, each one still unable to apply itself.
+
+## The most capable sweep system
+
+This is the end state the rules allow. It is ambitious on purpose. It is also a machine that works from evidence, so it is not a mind that knows a food bank better than the pages do.
+
+On a weekday morning it has already done six things.
+
+1. **It has read.** For every food bank, shelter, warm space, council page, and official feed it is allowed to fetch, it has tried to pull out phone, hours, access, closure wording, end date, and a moved link. A page it has never been given a hand-written parser for is still readable. Each kept value is a substring of the text that was fetched on that run. A value with no quote is dropped. A page disallowed by robots.txt is not read. A host that is not on the official list is flagged, not fetched. A missing API key is reported, and no area is invented to fill it.
+
+2. **It has reconciled.** Every place has a ledger: one row per field per source, with the quote, the URL, and the time. The proposed card is filled in only where the non-empty sources agree, or where an edit is already on the automatic list and has been seen twice. A clash stays open, with every value shown and `chosen` empty. Give Food, IFAN, the own site, a council page, and a hand file are all just sources in that ledger. None of them wins because it is trusted.
+
+3. **It has predicted.** Some changes are visible before the day they happen, because somebody has already written the date, or because this place has already changed on a measured rhythm. The system moves that place to the front of the next run that was already going to happen, and it says why. It does not mark the place closed. A prediction with no date, no quote, and no two observed gaps is not emitted.
+
+4. **It has explained.** Each row you see is a short argument: what was read, the quote, what was refused, which rule would allow an automatic edit, what would change on the live site if the guards passed, and how often you have agreed with this kind of row. The argument is the record. It does not decide.
+
+5. **It has held the line.** New places and removals wait in the files you already approve. Automatic edits still pass the rules, the two-run check, the confidence hold, the anomaly brake, the publish gate, and the refresh guard. A candidate reader that has not beaten the current one on the example pages does not run in the publishing path.
+
+6. **It has improved.** Your yes and your no are the labels. A reader or a predictor you reject more often than you accept is turned down. A candidate replacement is scored offline against the example pages and against your past corrections. It replaces the current reader only as a code change you can review. Overnight it writes what it got wrong, by source and by extractor. It does not edit the rules file, the clock, or the live data files by itself.
+
+What this achieves, when the stages below are real, is a sweep that notices an announced closure before the morning it happens, reads a council page it has never seen, shows you every source instead of hiding a clash, tells you why the row is in front of you, and gets quieter at the kinds of proposal you keep refusing. The live map changes only when the guards that exist today say it may.
+
+## Roadmap
+
+Each stage is usable on its own. A later stage does not turn an earlier guard off. Effort is **S** one small change with a test, **M** a few files and tests, **L** a new store or a long offline harness.
+
+### Stage A. A queue a person can finish, and a clock on each decision
+
+This is the "worth doing" list above, and it is the foundation. The flags already exist. They become one list: new place, closure, phone clash, empty parse, source gone, oldest first, with a closure kept at the top. Beside it, the days from the first flag to the date you wrote the hand file.
+
+**What it really achieves.** You can clear a morning, and you can see whether any later cleverness made a true change reach the map sooner. Until this number exists, a smarter reader has nothing honest to learn from.
+
+**Risk.** A short list hides a hard case. The days-to-decision average lies when the count is small, so the count is shown beside it.
+
+**Effort.** M for the list, S for the clock.
+
+### Stage B. A reader that quotes, in shadow
+
+A second reader runs beside the hand-written parsers. It may be a stricter set of patterns, or a model, provided the contract is the same: output a field only when the characters of the value appear in the fetched text. The quote stored is that short span, not the page. For a run of weeks it writes a shadow file and changes nothing that is published. Each morning compares shadow against the current parser and, later, against your corrections.
+
+**What it really achieves.** A redesigned page, and a council page with no parser yet, can produce a proposal with evidence. The current parsers keep publishing. You see the shadow's misses before it is allowed near an automatic edit.
+
+**Risk.** A quote can be real text and still be the wrong fact: the funder's phone in the footer, last year's hours in a news item, "closed" inside "we are not closed". Shadow mode is how that shows up. A model that paraphrases instead of quoting will invent a digit; that output fails the contract and is dropped. Storing the whole page is still refused.
+
+**Effort.** L.
+
+### Stage C. A ledger, and reconciliation that knows when it does not know
+
+The shadow fields, the current extracts, the feeds, and the hand files go into one ledger per place. The proposed value for a field is set only when every non-empty source agrees, or when the existing automatic rule already allows that kind of edit after two runs. Otherwise the field is unresolved and becomes a decision row. Trust never breaks the tie.
+
+**What it really achieves.** Hours, access, and address clashes become visible the way phone clashes already are. Agreement can flow through the guards that already exist. Disagreement waits for you, with the values side by side.
+
+**Risk.** Early on, almost everything is unresolved, and the decision list gets longer. Stage A has to be in place first, or the ledger buries you. A blank source must not count as agreement.
+
+**Effort.** L.
+
+### Stage D. Prediction from dated evidence only
+
+The predictor emits "likely to change" or "likely to close" only from evidence already in hand:
+
+- a scheme end date, or a quoted sentence that names a future date ("last session 1 December", "closed from Monday");
+- a change rhythm computed after two observed gaps, which the learning record already knows how to store;
+- a week of year that has been busier in at least two past years of the real change tally;
+- a cluster of real changes already seen this week at other places in the same council, used only to move the remaining places up.
+
+The effect is order inside the next scheduled run, plus a row on the decision list when the date is close. The place stays open on the map until a closure is confirmed the way it is today. No evidence of that kind means no prediction. Silence, a failed fetch, and a vanished feed are not predictions.
+
+**What it really achieves.** The check happens on the run before a known date, and you see the announcement with its quote before the morning people turn up and find the door shut. Seasonal intelligence starts only once two years of real tallies exist, which is the rule already written down.
+
+**Risk.** A quoted date can be last year's poster. The year has to be in the quote, as the warm-space end-date parser already requires. A rhythm can fire on a place that changed twice for unrelated reasons. The prediction moves a check forward. It must not write `closed`.
+
+**Effort.** M once the ledger and the tally exist. The rhythm and the season code are partly there; the missing piece is the quoted future date and the rule that refuses a prediction with no evidence.
+
+### Stage E. An explanation on every row
+
+The morning note's decision rows become the argument from Stage C and Stage D: sources, quotes, the rule, the refusals (robots, empty parse, low confidence, anomaly brake, missing district), and the sentence "if you say yes, the card changes from X to Y" or "this would not change the card". How often you have agreed with this kind of row is shown once the Stage A clock has a history. Nothing is omitted to make the note shorter. The decision list is the shortening.
+
+**What it really achieves.** You can approve or refuse without opening the page first, and you can see when the system is unsure. A later audit can replay the argument from the quotes and the ledger without the original HTML.
+
+**Risk.** A fluent sentence that is not tied to a quote will be trusted too quickly. The sentence is generated from the ledger fields. A row with no quote does not get a smooth explanation; it gets "no quote, no effect".
+
+**Effort.** M.
+
+### Stage F. A loop that improves the reader and the predictor
+
+The labels are your yes, your no, and any later hand correction. Once a week the system reports, for each reader and each predictor, how many proposals you accepted and how many you refused. One you refuse more often than you accept is turned down, the same way a weak signal is already turned down on Sunday, and it is never turned up by this grade.
+
+A candidate reader is scored offline on the example pages plus every field you have corrected. It can replace the publishing reader only as a reviewed code change, and only when it is at least as good on that set and it does not increase fields that fail the quote check. The previous reader stays so the change can be reverted. The candidate does not edit `auto_apply_rules.json`, the workflows, or the live data files.
+
+**What it really achieves.** The system gets better at the proposals you keep confirming, and it gets quieter at the ones you keep rejecting, without a person rewriting a parser for every new council template. A bad candidate cannot reach the site by itself.
+
+**Risk.** It will copy a past yes that was wrong, and then defend it. You need a way to mark a past yes as a mistake, or the golden set freezes the error. It will also under-flag a new kind of change that looks like an old refusal. A closure is never turned down by this loop. With few decisions the grade says "not enough" and changes nothing, which is the same honesty the Sunday grade already uses.
+
+**Effort.** L.
+
+## Limits that stay, however far this is built
+
+- **No written evidence, no knowledge.** A closure, a new phone, or a new site that exists only because someone knows it is invisible. Predicting it would be inventing it.
+- **Some sources stay unread.** A scan with no text, a login wall, a robots.txt disallow, a missing weather key, and a host that is not on the official list do not become facts. The place stays on the map. The gap is named.
+- **Disagreement is a finished result.** The super-intelligent act, when two real sources differ, is to show both and wait. Picking the trusted one is the failure.
+- **The clock does not become intelligent.** Prediction spends attention inside the next run that was already scheduled. It does not add a run, and a quiet place is still guaranteed only a weekly look.
+- **A true quote can still be the wrong fact.** Footer phones, old news, and "we are not closed" will get through a quote check. Shadow mode, two-run confirmation, and your approval are the backstop. The reader does not get a wider automatic list than the rules file has today.
+- **Self-improvement is only as good as your labels.** Few decisions, or a wrong yes left in the set, and the loop should change nothing. It must say so.
+- **"Any source" still means the sources whose terms you have accepted.** The yearly reminder stays. A newly spotted feed is flagged. It is not added to the map and it is not scraped just because the reader could read it.
+- **This ceiling is an evidence machine.** It can be earlier, broader, and clearer than the sweeps are today. It cannot be more true than the pages, the feeds, and your decisions.
