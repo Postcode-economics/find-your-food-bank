@@ -1,10 +1,26 @@
 {
- "_comment": "Dean 25 Oct 2026 - auto-apply rules. Read by scripts/auto_rules.py (full_check.py, publish_gate.py). Refresh fails if this file is missing.",
- "add_new_places": {"foodbanks": false, "why": "New food banks go to reports/pending_dean.md; added only once their id is in overrides/foodbank_approved_new.json (or hand-added in foodbank_added.json)."},
+ "_comment": "Dean 25 Oct 2026 - auto-apply rules. Single source, read via scripts/auto_rules.py by build.py, closure.py, full_check.py, publish_gate.py, refresh_guard.py, build_shelters.py, build_warmspaces.py, sweep_daily.py, swep.py, times_finder.py. Refresh stops if this file is missing.",
+ "add_new_places": {
+  "foodbanks": false,
+  "shelters": false,
+  "warmspaces": false,
+  "why": "Dean 25 Oct 2026: no new place on any layer goes on the map automatically. Held in reports/pending_dean.md; published once its id is in overrides/approved_new_places.json (layer -> {id: note}) or, for food banks, overrides/foodbank_approved_new.json / foodbank_added.json."
+ },
  "remove_confirmed_closures": false,
- "closure_card_note": "May have closed \u2013 call before you go",
+ "closure_card_note": "May have closed – call before you go",
  "confirm_runs": 2,
- "automatic": ["opening times", "temporary closures", "voucher/walk-in flips", "clear single new phone on own site", "warm space end dates", "SWEP open/close", "moved link to same organisation"],
+ "automatic": [
+  "opening times",
+  "temporary closures",
+  "voucher/walk-in flips",
+  "clear single new phone on own site",
+  "warm space end dates",
+  "SWEP open/close",
+  "moved link to same organisation"
+ ],
  "dead_links": "hidden and listed for Dean",
- "needs_dean": ["new places", "permanent closures (pin kept with card note)"]
+ "needs_dean": [
+  "new places",
+  "permanent closures (pin kept with card note)"
+ ]
 }

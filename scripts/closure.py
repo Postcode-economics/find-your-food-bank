@@ -5,7 +5,9 @@ when the text block that holds THAT pin's postcode clearly says it has closed (e
 "closed on bank holidays", "temporarily closed", "closed for Christmas") never counts. Unreachable sites change nothing.
 Manual confirmations live in overrides/foodbank_closed.json. Omitted pins are logged to logs/foodbank_closed.json and
 kept there for 30 days as the 'recently closed' list."""
-import re, os, json, html, ssl, datetime, urllib.request, urllib.parse, concurrent.futures as cf
+import re, os, sys, json, html, ssl, datetime, urllib.request, urllib.parse, concurrent.futures as cf
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
 CTX = ssl._create_unverified_context()
 PC_ANY = re.compile(r"\b[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}\b")
 MONTHS = {m: i + 1 for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"])}
@@ -94,6 +96,9 @@ def apply(items, root, today=None, fetcher=fetch, auto=True):
     for i in items:
         hit = man.get(i["id"]) or found.get(i["id"])
         if not hit: continue
+        if i["id"] not in man and not RULES["remove_confirmed_closures"]:  # Dean 25 Oct 2026: never auto-removed; pin kept with note, listed for Dean
+            i["notice"] = RULES["closure_card_note"]
+            held.append({"id": i["id"], "name": i["name"], "url": hit.get("url"), "evidence": hit.get("evidence"), "why": "auto-detected closure - kept with note, awaiting Dean"}); continue
         if i["id"] not in man and i["id"] in hold:
             held.append({"id": i["id"], "name": i["name"], "url": hit.get("url"), "evidence": hit.get("evidence")}); continue
         gone.append(i["id"])

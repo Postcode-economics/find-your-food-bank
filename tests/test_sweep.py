@@ -52,14 +52,21 @@ class Parsers(unittest.TestCase):
         c = S.extract(t.replace("2026 – 2027", "winter 2026-27"), "u", "src", "warmspaces", trusted=True, parser="location_fields")
         self.assertEqual([e["postcode"] for e in c], ["GL54 5EE"])
 class Run(unittest.TestCase):
+    # These tests cover the add logic itself, as if Dean had approved every id (Dean 25 Oct 2026 rules hold all new
+    # places by default; see test_default_holds_new_places).
     def setUp(self):
         os.environ["SWEEP_TODAY"] = "2026-10-21"
+        self._may = S.auto_rules.may_add; S.auto_rules.may_add = lambda *a: True
         self.tmp = tempfile.mkdtemp(); ov = os.path.join(self.tmp, "overrides"); os.makedirs(ov)
         for l in ("warmspaces", "shelters"):
             json.dump([{"id": "old", "name": "Old Hall", "postcode": "CB6 2AJ"}] if l == "warmspaces" else [], open(os.path.join(ov, l + "_manual.json"), "w"))
             json.dump({}, open(os.path.join(ov, l + "_verified.json"), "w")); json.dump({}, open(os.path.join(ov, l + "_unverified.json"), "w"))
         self.saved = (S.OV, S.LOGS, S.ROOT); S.OV, S.LOGS, S.ROOT = ov, os.path.join(self.tmp, "logs"), self.tmp
-    def tearDown(self): S.OV, S.LOGS, S.ROOT = self.saved; shutil.rmtree(self.tmp)
+    def tearDown(self): S.OV, S.LOGS, S.ROOT = self.saved; shutil.rmtree(self.tmp); S.auto_rules.may_add = self._may
+    def test_default_holds_new_places(self):
+        S.auto_rules.may_add = self._may
+        r = S.run(self.src(), fetcher=lambda u: page(LIST), geocoder=fake_geo)
+        self.assertEqual(r["added"], []); self.assertTrue(any("waiting for Dean" in x.get("reason", "") for x in r["pending"]))
     def src(self, n=1): return {"councils": [], "lists": [{"url": f"https://example.gov.uk/warm-spaces/{i}", "name": "Test list", "layer": "warmspaces", "auto_add": True} for i in range(n)]}
     def load(self, f): return json.load(open(os.path.join(S.OV, f)))
     def test_adds_new_with_source_and_skips_dup(self):

@@ -35,10 +35,10 @@ def gate(layer, ref='HEAD'):
     try: live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
     except Exception: print('gate: no live baseline, skipped'); return []
     pre, d, post = split(open(f).read()); keep, held = [], []
-    ok = approved_new() if layer == 'foodbanks' else set()
+    ok = auto_rules.approved(layer, ROOT)
     for i in d['items']:
         pr = [] if i['id'] in live else problems(layer, i)
-        if layer == 'foodbanks' and not RULES['add_new_places']['foodbanks'] and i['id'] not in live and i['id'] not in ok: pr = ['new food bank - waiting for your OK'] + pr
+        if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
         (held if pr else keep).append((i, pr))
     if held:
         d['items'] = [i for i, _ in keep]
@@ -46,7 +46,7 @@ def gate(layer, ref='HEAD'):
     lg = load('logs/pending_dean.json', {}); now = datetime.date.today().isoformat()
     lg[layer] = [dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now) for i, pr in held]
     json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_dean.json'), 'w'), indent=1, ensure_ascii=False)
-    md = ['# New places held back for Dean (not published)', '', 'New food banks are never added automatically: each waits here for your OK (add its id to overrides/foodbank_approved_new.json). A new shelter / warm space needs a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
+    md = ['# New places held back for Dean (not published)', '', 'No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
         md += [f'## {L} ({len(xs)})', ''] + [f"- {x['name']} ({x.get('postcode') or ''}) - {', '.join(x['why'])} - {x.get('source') or ''}" for x in xs] + ['']
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''

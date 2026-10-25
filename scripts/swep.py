@@ -7,6 +7,8 @@
 Nothing here changes the map: SWEP is reached through outreach/StreetLink, not a walk-in address, so it is
 flagged for review, never auto-pinned."""
 import json, os, re, sys, datetime, concurrent.futures as cf, urllib.parse, time
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 SRC, LOG = "overrides/swep_sources.json", "logs/swep_status.json"
 KW = re.compile(r"\bSWEP\b|severe weather emergency|severe weather protocol|cold weather (shelter|provision|protocol)", re.I)

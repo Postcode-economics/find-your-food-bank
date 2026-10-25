@@ -20,6 +20,7 @@ import os, re, sys, json, datetime, tempfile, urllib.request, concurrent.futures
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
 from recheck import fetch, schema_errors
 import learning
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
 from sweep_hours import parse as parse_hours
 OV = os.path.join(ROOT, "overrides"); LOGS = os.path.join(ROOT, "logs")
 MAX_NEW = int(os.environ.get("SWEEP_MAX_NEW", "150"))
@@ -305,6 +306,8 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
             if e0: man["scheme_end"] = e0
         errs = schema_errors(dict(man, hours=man["hours"] if isinstance(man["hours"], dict) else {}), "ws" if e["layer"] == "warmspaces" else "sh")
         if errs: report["pending"].append(dict(e, reason="schema: " + "; ".join(map(str, errs))[:120])); continue
+        if not auto_rules.may_add(e["layer"], RULES) and i not in auto_rules.approved(e["layer"], ROOT):  # Dean 25 Oct 2026: new places wait for his OK
+            report["pending"].append(dict(e, id=i, reason="new place - waiting for Dean's OK (overrides/approved_new_places.json)")); continue
         st["pool"].append(man); adds.append((e, i, man, ov))
     if len(adds) > MAX_NEW:
         report["status"] = f"HELD: {len(adds)} new entries > SWEEP_MAX_NEW={MAX_NEW}; nothing written, all pending review"

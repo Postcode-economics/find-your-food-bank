@@ -2,6 +2,8 @@
 Writes warmspaces.js and logs/warmspaces_log.json. Seasonal: entries whose scheme end date has passed are
 marked 'ended' (shown greyed); they become active again automatically when a new listing/date appears."""
 import json, seasonal, sys, os, re, datetime
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
 from hours_fix import fix_hours, phone_ok, apply_phone
