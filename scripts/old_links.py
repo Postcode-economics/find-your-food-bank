@@ -57,6 +57,7 @@ def run(base=None):
                     try: pg.wait_for_function("!!(navigator.serviceWorker&&navigator.serviceWorker.controller)", timeout=20000); r['old_sw'] = True
                     except Exception: r['old_sw'] = False
                     pg.wait_for_timeout(4000)   # let the old worker finish activating (v83-v86 workers reload their pages)
+                    pg.close(); pg = c.new_page()   # fresh tab: an old worker reloading its install tab (v83-v86 did) can't race the test
                     c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
                     try: pg.goto(base + link, wait_until='load', timeout=30000)
                     except Exception as e: r['slow_load'] = str(e)[:80]   # judged by what the visitor sees next, below
