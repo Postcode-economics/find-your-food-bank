@@ -78,14 +78,19 @@ def dataset(iso):
         'temporalCoverage': '2026/..', 'measurementTechnique': 'Automated checks of each listing against its own or official source page, three times a day',
         'subjectOf': {'@type': 'WebPage', 'url': SITE + '/faq.html', 'name': 'How our information is kept up to date'},
         'isBasedOn': [
-            {'@type': 'Dataset', 'name': 'Give Food', 'url': 'https://www.givefood.org.uk/'},
-            {'@type': 'Dataset', 'name': 'Independent Food Aid Network (IFAN)', 'url': 'https://www.foodaidnetwork.org.uk/'},
-            {'@type': 'Dataset', 'name': 'Warm Welcome', 'url': 'https://www.warmwelcome.uk/'},
-            {'@type': 'Dataset', 'name': 'Open Innovations warm spaces', 'url': 'https://open-innovations.org/'},
-            {'@type': 'Dataset', 'name': 'Homeless Link', 'url': 'https://homeless.org.uk/homeless-england/'},
-            {'@type': 'Dataset', 'name': 'OpenStreetMap', 'url': 'https://www.openstreetmap.org/', 'license': 'https://opendatacommons.org/licenses/odbl/'},
-            {'@type': 'Dataset', 'name': 'postcodes.io (contains OS data © Crown copyright and database right 2026; Royal Mail, National Statistics and NRS data)',
+            {'@type': 'CreativeWork', 'name': 'Give Food', 'url': 'https://www.givefood.org.uk/'},
+            {'@type': 'CreativeWork', 'name': 'Independent Food Aid Network (IFAN)', 'url': 'https://www.foodaidnetwork.org.uk/'},
+            {'@type': 'CreativeWork', 'name': 'Warm Welcome', 'url': 'https://www.warmwelcome.uk/'},
+            {'@type': 'CreativeWork', 'name': 'Open Innovations warm spaces', 'url': 'https://open-innovations.org/'},
+            {'@type': 'CreativeWork', 'name': 'Homeless Link', 'url': 'https://homeless.org.uk/homeless-england/'},
+            {'@type': 'CreativeWork', 'name': 'OpenStreetMap', 'url': 'https://www.openstreetmap.org/', 'license': 'https://opendatacommons.org/licenses/odbl/'},
+            {'@type': 'CreativeWork', 'name': 'postcodes.io (contains OS data © Crown copyright and database right 2026; Royal Mail, National Statistics and NRS data)',
              'url': 'https://postcodes.io/', 'license': 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'}],
+        # GSC 'Datasets' fixes (25 Oct 2026): sources are CreativeWork (a nested Dataset must itself carry description etc.);
+        # license = our terms of use page (reuse terms in export/README.txt); distribution = the real public download files.
+        'license': SITE + '/terms.html', 'keywords': ['food banks', 'homeless shelters', 'warm spaces', 'United Kingdom'],
+        'distribution': [{'@type': 'DataDownload', 'encodingFormat': f, 'contentUrl': SITE + '/export/%s.%s' % (n, e)}
+                         for n in ('foodbanks', 'shelters', 'warmspaces') for e, f in (('csv', 'text/csv'), ('json', 'application/json'))],
         'creditText': 'Data: Give Food, Independent Food Aid Network, Warm Welcome, Open Innovations, Homeless Link, council pages, OpenStreetMap contributors, postcodes.io (OGL v3.0). Map © MapTiler © OpenStreetMap contributors.'}
 
 def faq_ld(text):
