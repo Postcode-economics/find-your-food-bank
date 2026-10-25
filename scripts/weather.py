@@ -21,6 +21,10 @@ def nrw_key():
         try: k = open("/workspace/secrets/nrw_flood_key.txt").read().strip()
         except Exception: k = ""
     return k
+def error_line(name, exc):
+    """Name the feed and, for an HTTP error, the status code. Never the body, and never a key."""
+    if isinstance(exc, urllib.error.HTTPError): return "%s: HTTP %s" % (name, exc.code)
+    return "%s: %s" % (name, exc.__class__.__name__)
 def get(u, headers=None):
     import rate_ledger
     if not rate_ledger.LEDGER.allow(u):
@@ -142,12 +146,12 @@ def main():
     ws, errs = [], []
     for name, url, fn in (("Met Office", MET, met), ("Environment Agency", EA, ea), ("SEPA", SEPA, sepa), ("UK Emergency Alerts", GOVUK, govuk)):
         try: ws += fn(get(url))
-        except Exception as e: errs.append("%s: %s" % (name, e.__class__.__name__))
+        except Exception as e: errs.append(error_line(name, e))
     k = nrw_key()
     if not k: errs.append("Natural Resources Wales: no API key")
     else:
         try: ws += nrw(get(NRW, {"Ocp-Apim-Subscription-Key": k}))
-        except Exception as e: errs.append("Natural Resources Wales: %s" % e.__class__.__name__)   # class name only: never echo the key
+        except Exception as e: errs.append(error_line("Natural Resources Wales", e))   # status code only: never echo the key
     places = items("shelters.js") + items("warmspaces.js")
     try: swep = json.load(open(P("logs", "swep_status.json"))).get("active", [])
     except Exception: swep = []

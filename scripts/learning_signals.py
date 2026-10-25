@@ -347,6 +347,16 @@ def empty_parses(state):
     if not sites: return {}, 'no page answered with an empty parser result - no effect'
     return sites, '%d sites answered but the parser found nothing, after a run that had found records' % len(sites)
 
+def weather_key_note():
+    """Say when a weather feed recorded HTTP 401 or 403, or the Natural Resources Wales key is missing.
+    The failure does not add areas. Real warning areas already in the file are left for weather_priority."""
+    wx = rj('reports/weather.json', None)
+    if not isinstance(wx, dict): return 'no weather file - no effect'
+    marks = ('401', '403', 'Natural Resources Wales: no API key')
+    bad = [str(e) for e in (wx.get('errors') or []) if any(m in str(e) for m in marks)]
+    if not bad: return 'no weather-key failure recorded. No areas were added from a key error.'
+    return 'A weather feed failed (%s). No areas were added because of that failure.' % '; '.join(bad)
+
 def weather_priority(items):
     """Councils named in reports/weather.json (written by scripts/weather.py) move up the next run.
     No weather file, or a warning with no area: no effect. Areas are not guessed."""
@@ -421,7 +431,7 @@ def build(today=None):
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
     stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
     gap_n, gap_note = cache_gaps(items)
-    wx_sites, wx_councils, wx_note = weather_priority(items)
+    wx_sites, wx_councils, wx_note = weather_priority(items); key_note = weather_key_note()
     empty_sites, empty_note = empty_parses(state)
     gone, gone_note = source_watch(); pin_note = pins.note(); feed_note = official_feed_note(); calls_note = rate_note(); prov_note = provenance_note()
     import brake_drill
@@ -472,7 +482,7 @@ def build(today=None):
                signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), tally_note=tally_line, demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note, cache_gap_note=gap_note,
-               forecast_note=forecast_note, weather_note=wx_note, empty_note=empty_note, source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note, provenance_note=prov_note, drill_note=drill_note,
+               forecast_note=forecast_note, weather_note=wx_note, weather_key_note=key_note, empty_note=empty_note, source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note, provenance_note=prov_note, drill_note=drill_note,
                council_boost={k: round(W['weather'] * v, 3) for k, v in wx_councils.items()},
                conflicts=rows, accuracy=grades,
                healed=sorted(k for k, e in (LS.get('keys') or {}).items() if e.get('healed_to'))[:40],
@@ -518,6 +528,7 @@ def digest_lines(out, full=False):
     L.append('- Food-bank postcodes with no council row: ' + (out.get('cache_gap_note') or 'no effect'))
     L.append('- Cold snaps, benefit payment dates and school holidays: ' + (out.get('forecast_note') or ''))
     L.append('- Weather warnings: ' + (out.get('weather_note') or ''))
+    L.append('- Weather feed keys: ' + (out.get('weather_key_note') or 'no effect'))
     L.append('- Pages that answered but the parser found nothing: ' + (out.get('empty_note') or 'no effect'))
     L.append('- Sources that have stopped answering: ' + (out.get('source_gone_note') or 'no effect'))
     L.append('- Library pins (nothing is upgraded from this note): ' + (out.get('pin_note') or 'no effect'))

@@ -192,6 +192,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 18. Say when the weather key failed, without inventing a warning
 
+**Status:** Built. A 401, a 403, or a missing Natural Resources Wales key is named in the morning note. That failure does not add areas. A real warning already in the file can still move the councils it names.
+
 - **Benefit:** If `reports/weather.json` records a 401 or 403, or the Natural Resources Wales key is missing, the morning note says the feed failed. Councils are not moved up.
 - **Risk:** A key failure is mistaken for a weather warning. The note must not add areas.
 - **Effort:** S.
