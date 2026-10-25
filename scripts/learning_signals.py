@@ -25,7 +25,7 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'conflict': 0.5}
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -59,6 +59,21 @@ def agreement(items, state):
         if not s or not p or not s.get('phones') or s.get('fail_runs'): continue
         hit = p in {norm(x) for x in s['phones']}; src = source_of(i); n[src] += 1; ok[src] += hit; per_site[i['website'].strip()] = hit
     return {s: round((ok[s] + 1) / (n[s] + 2), 4) for s in n}, {s: n[s] for s in n}, per_site
+
+def conflicts(items, state):
+    """Stored phone vs the phones on the place's own site. Disagreement is flagged for Dean.
+    chosen is always None: this never picks a winner and never writes a phone."""
+    rows = []
+    for i in items:
+        u = (i.get('website') or '').strip()
+        s = (state.get('sites') or {}).get(u)
+        if not u or not s or s.get('fail_runs'): continue
+        stored = norm(i.get('tel') or i.get('phone'))
+        found = sorted({norm(x) for x in (s.get('phones') or []) if norm(x)})
+        if stored and found and stored not in set(found):
+            rows.append({'id': i['id'], 'name': i.get('name'), 'website': u, 'field': 'phone',
+                         'values': {'stored': stored, 'own_site': found}, 'chosen': None, 'action': 'flag_for_dean'})
+    return rows
 
 def change_signals(items, state):
     """Places with a sign that something is changing: dead link, 'closed' wording, FB page gone/renamed, bounced email."""
@@ -134,6 +149,7 @@ def build(today=None):
     today = today or datetime.date.today(); items = [i for i in items_of('data.full.js') if i.get('type') == 'foodbank']
     state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
+    rows = conflicts(items, state); conflicted = {r['website'] for r in rows}
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
@@ -154,6 +170,7 @@ def build(today=None):
         if season: parts['season'] = W['season'] * season
         if dem.get(u): parts['demand'] = W['demand'] * dem[u]
         if vis.get(u): parts['visitor'] = W['visitor'] * min(vis[u], 3) / 3
+        if u in conflicted: parts['conflict'] = W['conflict']
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -166,6 +183,7 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
+               conflicts=rows,
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
@@ -191,6 +209,7 @@ def digest_lines(out, full=False):
         len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor'))))
     L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
     L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
+    L.append('- Sources disagree on %d places. Nothing was picked; they are flagged for Dean.' % len(out.get('conflicts') or []))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
