@@ -6,14 +6,14 @@ const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call befor
  disc:'<b>Listings can change without notice.</b> Always call before you travel. We list services from public information and do not visit or inspect them. In an emergency call 999. If you are sleeping rough in England, contact your local council or StreetLink.',
  add:'Add or update your service',closed:'Recently closed (last 30 days)',report:'Report an error',call:'Call',dir:'Directions',
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
- src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',unv:'Unverified – call before you go',seen:'Seen open',refOnly:'Referral only',selfRef:'Self-referral',openAcc:'Open access',verOnly:'Verified only',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
+ src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',unv:'Unverified – call before you go',tchk:'Times checked {d} – call before you go',seen:'Seen open',refOnly:'Referral only',selfRef:'Self-referral',openAcc:'Open access',verOnly:'Verified only',stale:'Not verified for over 7 days, call first',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline – showing saved data from ',chk:'Listings last checked ',none:'None listed',
  h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'miles',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Rydym yn rhestru gwasanaethau o wybodaeth gyhoeddus ac nid ydym yn ymweld â nhw nac yn eu harolygu. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
  add:'Ychwanegu neu ddiweddaru eich gwasanaeth',closed:'Wedi cau’n ddiweddar (30 diwrnod diwethaf)',report:'Rhoi gwybod am gamgymeriad',call:'Ffonio',dir:'Cyfarwyddiadau',
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
- src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',unv:'Heb ei wirio – ffoniwch cyn mynd',seen:'Gwelwyd ar agor',refOnly:'Atgyfeirio yn unig',selfRef:'Hunangyfeirio',openAcc:'Mynediad agored',verOnly:'Wedi’u gwirio yn unig',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
+ src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',unv:'Heb ei wirio – ffoniwch cyn mynd',tchk:'Amseroedd wedi’u gwirio {d} – ffoniwch cyn mynd',seen:'Gwelwyd ar agor',refOnly:'Atgyfeirio yn unig',selfRef:'Hunangyfeirio',openAcc:'Mynediad agored',verOnly:'Wedi’u gwirio yn unig',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch yn gyntaf',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein – yn dangos data a gadwyd ar ',chk:'Gwiriwyd y rhestrau ddiwethaf ',none:'Dim wedi’u rhestru',
  h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
@@ -89,7 +89,12 @@ function addr(i){const pc=(i.postcode||'').trim(),re=pc?new RegExp('\\s*'+pc.rep
 const known=x=>x&&!/^not stated/i.test(String(x).trim());
 const CHIP=[['Food Available','Food','Bwyd'],['Charging Facilities','Charging','Gwefru'],['Free Wifi','Wifi','Wifi'],['Accessible Toilets','Toilets','Toiledau']];
 const chips=i=>{const p=i.provided||[];const c=CHIP.filter(([k])=>p.includes(k));return c.length?`<div class="chips">${c.map(([,en,cy])=>`<span class="chip">${lang==='cy'?cy:en}</span>`).join('')}</div>`:''};
-const tierTop=i=>(i.tier==='unverified'?`<div class="xunv">${t('unv')}</div>`:'')+(i.access_type?`<span class="xacc xacc-${i.access_type}">${t(i.access_type==='referral_only'?'refOnly':i.access_type==='self_referral'?'selfRef':'openAcc')}</span>`:'');
+// Dean 25 Oct: 'Unverified' only when the hours are not confirmed. Times confirmed on the place's own page (times_status confirmed/updated/by hand)
+// or hours taken from a named page (hours_checked) within the last 7 days show 'Times checked {date}'. Computed from the data each load, window rolls.
+const HAS_T=/\d{1,2}:\d{2}|\d{1,2}(\.\d{2})?\s*(am|pm)|24 hours|midday|noon/i;  // hours_checked counts only when the hours hold real times
+const timesChecked=(i,now=Date.now())=>{const d=['confirmed','updated','confirmed_by_hand'].includes(i.times_status)&&i.times_checked?i.times_checked:(HAS_T.test(typeof i.hours==='string'?i.hours:JSON.stringify(i.hours||''))?i.hours_checked:null);if(!d||!/^\d{4}-\d{2}-\d{2}$/.test(d))return null;const age=(now-new Date(d+'T12:00:00').getTime())/864e5;return age<=7.5&&age>=-1?d:null};
+window.timesChecked=timesChecked;
+const tierTop=i=>(i.tier==='unverified'?(timesChecked(i)?`<div class="xunv xtchk">${t('tchk').replace('{d}',fmt(timesChecked(i)))}</div>`:`<div class="xunv">${t('unv')}</div>`):'')+(i.access_type?`<span class="xacc xacc-${i.access_type}">${t(i.access_type==='referral_only'?'refOnly':i.access_type==='self_referral'?'selfRef':'openAcc')}</span>`:'');
 // Contact block (23 Oct): website + email up top; council line and national fallbacks, always labelled as NOT the venue's own number
 const tl=x=>String(x||'').replace(/[^\d+]/g,'');
 function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';
