@@ -65,7 +65,8 @@ function paint(){document.documentElement.lang=lang;document.querySelectorAll('[
  document.getElementById('q').placeholder=t('ph');if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
  paint.done=true;trAll();stamp('fb');banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
 function $x(i){return document.getElementById(i)}
-function stamp(k){if(k==='fb'){$x('u_fb').textContent=`${t('upd')} ${fmt(String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];$x('u_'+k).textContent=L_.data?`${t('upd')} ${fmt(L_.data.updated)}`:t('notLoaded')}
+function stamp(k){if(k==='fb'){const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers.fb;$x('u_fb').textContent=`${t('upd')} ${fmt(S?String(S.run).slice(0,10):String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers[k];const d=S?String(S.run).slice(0,10):L_.data&&L_.data.updated;$x('u_'+k).textContent=d?`${t('upd')} ${fmt(d)}`:t('notLoaded')}  // Dean 25 Oct: shelters/warm spaces show their own refresh date even before the layer is opened
+window.keyStamps=()=>['fb','sh','ws'].forEach(stamp);
 $x('xlang').onclick=()=>{lang=lang==='en'?'cy':'en';try{localStorage.setItem('lang',lang)}catch(e){}paint()};
 // Re-check expiry/staleness against today's date in the browser too, so a warm space greys out the day its scheme ends
 // and a shelter is flagged once 7 days pass, even between nightly builds. ?testdate=YYYY-MM-DD simulates a date (testing only).

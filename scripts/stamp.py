@@ -1,5 +1,6 @@
 """Write stamp.js: the UK date+time of this refresh/sweep run. The footer's 'last updated' and
 'checked' read it, so every 3x-daily refresh and overnight sweep bakes in its own run time.
+layers: {fb|sh|ws: {run,label}} = each layer's own last published refresh (kept across runs).
 Usage: stamp.py write <kind> | stamp.py verify  (verify fails loudly if the stamp is not from this run)."""
 import datetime, json, os, sys
 from zoneinfo import ZoneInfo
@@ -9,6 +10,12 @@ def main():
     if sys.argv[1] == 'write':
         s = dict(run=now.isoformat(timespec='seconds'), kind=sys.argv[2] if len(sys.argv) > 2 else 'refresh',
                  label=f"{now.day} {now:%B %Y}, {now:%H:%M}")
+        try: prev = json.loads(open(P).read().split('=', 1)[1].rstrip().rstrip(';'))
+        except Exception: prev = {}
+        layers = dict(prev.get('layers') or {})  # Dean 25 Oct: each layer keeps its own last refresh (key + footer dates)
+        k = {'refresh': 'fb', 'shelters': 'sh', 'warmspaces': 'ws'}.get(s['kind'])
+        if k: layers[k] = dict(run=s['run'], label=s['label'])
+        s['layers'] = layers
         open(P, 'w').write('window.FB_STAMP=' + json.dumps(s) + ';\n'); print('stamped', s['label'])
     else:
         s = json.loads(open(P).read().split('=', 1)[1].rstrip().rstrip(';'))
