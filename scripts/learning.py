@@ -177,6 +177,15 @@ def confidence_for(website, conflicted):
     if website and website in (conflicted or ()): return 0.0
     return None
 
+def provenance(kind, confidence, source, rules):
+    """A log line for an automatic edit the rules already allowed. decides is always False:
+    the rules file still decides, and this note cannot grant a change. A kind the rules
+    would refuse, including a new place or a removal, returns None. Confidence can only refuse."""
+    rules = rules or {}
+    if kind not in (rules.get("automatic") or []): return None
+    if not allow_under_rules(kind, rules, confidence): return None
+    return {"rule": kind, "confidence": confidence, "source": source, "decides": False}
+
 def empty_parse(http, extracted, previous, minimum=1):
     """True when a page answered HTTP 200 and the parser found fewer than `minimum` records,
     after a previous run that had found at least `minimum`. No previous count: False.

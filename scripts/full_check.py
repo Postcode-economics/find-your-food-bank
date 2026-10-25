@@ -204,8 +204,9 @@ def phone_locked(i):
     """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
 
-def apply_phone_fixes(by_site, fixes, flag):
-    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list."""
+def apply_phone_fixes(by_site, fixes, flag, applied=None):
+    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
+    `applied` collects (website, fix) only for numbers that were actually written."""
     n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
@@ -216,6 +217,7 @@ def apply_phone_fixes(by_site, fixes, flag):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
                 continue
             i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
+            if applied is not None: applied.append((u, f))
     return n
 
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
@@ -268,6 +270,7 @@ def main():
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
+    prov = []  # why an automatic edit was allowed; written only if this run publishes
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
@@ -324,6 +327,8 @@ def main():
                     changes.insert(0, entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
                 today['items'].pop('access flip pending (confirms next run)|' + u, None)
                 log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
+                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted), r.get('final_url'), RULES)
+                if note: prov.append(dict(note, when=NOW.isoformat()))
             elif todo:
                 flag(u, 'access flip pending (confirms next run)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='clear %s wording found; applied automatically if seen again next run' % r['access'])
         elif r['access'] == 'mixed':
@@ -390,7 +395,15 @@ def main():
         today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
         print('ANOMALY BRAKE:', brake['reason']); return
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    apply_phone_fixes(by_site, fixes, flag)
+    applied_phones = []
+    apply_phone_fixes(by_site, fixes, flag, applied_phones)
+    for u, f in applied_phones:
+        note = learning.provenance('clear single new phone on own site', learning.confidence_for(u, conflicted), f.get('source'), RULES)
+        if note: prov.append(dict(note, when=NOW.isoformat()))
+    if prov:
+        prev_p = rj('provenance.json', [])
+        if not isinstance(prev_p, list): prev_p = []
+        wj('provenance.json', (prev_p + prov)[-200:])
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
