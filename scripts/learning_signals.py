@@ -25,7 +25,7 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8}
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -138,6 +138,20 @@ def visitor(items):
     by = {i['id']: (i.get('website') or '').strip() for i in items}
     return {by[k]: len(x) for k, x in v.items() if by.get(k)}, ('%d places reported by visitors' % len(v)) if v else 'no visitor reports recorded yet - no effect'
 
+def problem_reports(items):
+    """Report a problem submissions (overrides/problem_reports.json), added by hand from the form emails.
+    Shape: {listing id: [{when, what}]}. The form itself only sends email, so a missing file has no effect.
+    Submissions raise that place's check priority. They do not change the listing."""
+    raw = rj('overrides/problem_reports.json', None)
+    if not raw: return {}, 'no Report a problem submissions on file (overrides/problem_reports.json) - no effect'
+    rows = {k: v for k, v in raw.items() if not str(k).startswith('_') and v}
+    by = {i['id']: (i.get('website') or '').strip() for i in items}; out = {}
+    for k, v in rows.items():
+        u = by.get(k)
+        if not u: continue
+        out[u] = out.get(u, 0) + (len(v) if isinstance(v, list) else 1)
+    return out, ('%d Report a problem submissions' % sum(out.values())) if out else 'no matching places - no effect'
+
 def crawl_timing(state, LS):
     """Per-host failure rate (and latency where recorded). Slow / failing hosts are spread out, never dropped."""
     f, n = collections.Counter(), collections.Counter()
@@ -170,7 +184,7 @@ def build(today=None):
     state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
-    dean_sites, dean_wording, dean_note = dean_learning(items)
+    dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     stored = prev.get('weights') or {}
@@ -193,6 +207,7 @@ def build(today=None):
         rf = learning.rhythm_factor(LS.get('keys', {}).get(u) or {}, today.isoformat())
         if rf: parts['rhythm'] = W['rhythm'] * rf
         if u in dean_sites: parts['dean'] = W['dean']  # priority only; publishing still asks Dean
+        if problems.get(u): parts['problem'] = W['problem'] * min(problems[u], 3) / 3
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -205,7 +220,7 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
-               dean_wording=dean_wording, dean_note=dean_note,
+               dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note,
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
@@ -233,6 +248,7 @@ def digest_lines(out, full=False):
     L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
     L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
     L.append("- Dean's past decisions: " + out.get('dean_note', 'no hand decisions to learn from yet - no effect'))
+    L.append('- Report a problem: ' + out.get('problem_note', 'no Report a problem submissions on file - no effect'))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
