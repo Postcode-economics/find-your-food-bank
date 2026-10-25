@@ -203,6 +203,7 @@ def main():
         if w.startswith('http'): by_site.setdefault(w, []).append(i)
     sites = retry_first(sorted(by_site), state.get('retry_queue') or [])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
+    log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
@@ -220,7 +221,7 @@ def main():
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
-    log = []; stats = dict(sites=len(sites), ok=0, failed=0, skipped=0, voucher=0, walkin=0, mixed=0, unclear=0, flips=0, phone_fixes=0, closures=0)
+    stats = dict(sites=len(sites), ok=0, failed=0, skipped=0, voucher=0, walkin=0, mixed=0, unclear=0, flips=0, phone_fixes=0, closures=0)
     for u in sites:
         r, prev = results[u], state['sites'].get(u, {}); names = sorted({i['foodbank'] for i in by_site[u]}); name = names[0]
         if r.get('ok') is None: stats['skipped'] += 1; continue

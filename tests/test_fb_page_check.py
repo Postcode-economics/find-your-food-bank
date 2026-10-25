@@ -3,10 +3,10 @@ R = os.path.join(os.path.dirname(__file__), ".."); sys.path.insert(0, os.path.jo
 import fb_page_check as F
 def pg(t): return f'<html><head><meta property="og:title" content="{t}"></head></html>'
 class T(unittest.TestCase):
-    def test_baseline_is_the_53_verified_pages(self):
+    def test_baseline_is_the_verified_pages_minus_2_removed_25oct(self):
         P = json.load(open(os.path.join(R, "overrides", "facebook_pages.json")))
         pages = {k: v for k, v in P.items() if not k.startswith("_")}
-        self.assertEqual(len(pages), 53); self.assertTrue(all(v.get("page_title") and v.get("url") for v in pages.values()))
+        self.assertEqual(len(pages), 51); self.assertTrue(all(v.get("page_title") and v.get("url") for v in pages.values()))
     def test_ok_changed_dead_unreachable(self):
         self.assertEqual(F.classify("Whitland Town Hall Community Food Bank", 200, pg("Whitland Town Hall Community Food Bank | Facebook"))[0], "ok")
         self.assertEqual(F.classify("Whitland Town Hall Community Food Bank", 200, pg("Cheap Watches Online"))[0], "changed")

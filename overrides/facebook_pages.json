@@ -234,12 +234,6 @@
   "checked": "2026-10-23",
   "second_source": "linked from own site https://www.gospelcentre.co.uk/get-involved.html"
  },
- "ifan-84cd0bf40986bfc9a427c6-0": {
-  "url": "https://www.facebook.com/TheLarderNW6",
-  "page_title": "Laurence's Larder and Open Kitchen | Kilburn, London",
-  "checked": "2026-10-23",
-  "second_source": "linked from own site https://www.laurenceslarder.org.uk"
- },
  "ifan-85fc4f26365d8e7c333d57-0": {
   "url": "https://www.facebook.com/ibijokefoundationuk",
   "page_title": "Ibijoke Foundation UK | Liverpool",
@@ -251,12 +245,6 @@
   "page_title": "Healthy Living Platform",
   "checked": "2026-10-23",
   "second_source": "linked from own site https://www.healthylivingplatform.org"
- },
- "ifan-9fef48d4f0fd3a3f6896d2-0": {
-  "url": "https://www.facebook.com/The-Gospel-Church-of-Jesus-Christ-103189552325576",
-  "page_title": "The Gospel Church of Jesus Christ",
-  "checked": "2026-10-23",
-  "second_source": "linked from own site https://www.gcjc.co.uk"
  },
  "ifan-ca574aed6b4ff8c310060c-0": {
   "url": "https://www.facebook.com/ChapeltownYouthDC",
@@ -317,5 +305,23 @@
   "page_title": "Southend Foodbank",
   "checked": "2026-10-23",
   "second_source": "linked from own site https://southend.foodbank.org.uk"
+ },
+ "_removed": {
+  "ifan-84cd0bf40986bfc9a427c6-0": {
+   "url": "https://www.facebook.com/TheLarderNW6",
+   "page_title": "Laurence's Larder and Open Kitchen | Kilburn, London",
+   "checked": "2026-10-23",
+   "second_source": "linked from own site https://www.laurenceslarder.org.uk",
+   "removed": "2026-10-25",
+   "why": "Dean 25 Oct 08:10: page inactive (last post 2023/2022); check still open"
+  },
+  "ifan-9fef48d4f0fd3a3f6896d2-0": {
+   "url": "https://www.facebook.com/The-Gospel-Church-of-Jesus-Christ-103189552325576",
+   "page_title": "The Gospel Church of Jesus Christ",
+   "checked": "2026-10-23",
+   "second_source": "linked from own site https://www.gcjc.co.uk",
+   "removed": "2026-10-25",
+   "why": "Dean 25 Oct 08:10: page inactive (last post 2023/2022); check still open"
+  }
  }
 }
