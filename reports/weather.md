@@ -77,14 +77,17 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for West Luce Bay South - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Ayr to Troon - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Largs - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Skelmorlie A78 - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Millport - shelters/warm spaces in area: none matched; SWEP active: none
+- **SEPA** [flood warning] A FLOOD WARNING has been issued for Saltcoats and Ardrossan - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Dumbarton - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Burray and Ayre of Cara - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for St Margaret's Hope - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Longhope and Hoy - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Sanday - shelters/warm spaces in area: none matched; SWEP active: none
+- **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Talbot Green - shelters/warm spaces in area: none matched; SWEP active: none
 - **Natural Resources Wales** [flood warning] Flood Warning: River Ely at St. Fagans - shelters/warm spaces in area: South Riverside Community Development Centre Ltd, St Peter's Parish Night Shelter (Roath), Women Connect First; SWEP active: none
 - **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Ely Bridge - shelters/warm spaces in area: South Riverside Community Development Centre Ltd, St Peter's Parish Night Shelter (Roath), Women Connect First; SWEP active: none
-- **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Talbot Green - shelters/warm spaces in area: none matched; SWEP active: none
 - **Natural Resources Wales** [flood warning] Flood Warning: River Ely at Peterston Super Ely - shelters/warm spaces in area: none matched; SWEP active: none
 - **Natural Resources Wales** [flood warning] Flood Warning: River Rhondda at Porth - shelters/warm spaces in area: none matched; SWEP active: none
 

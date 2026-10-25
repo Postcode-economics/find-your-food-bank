@@ -1,6 +1,6 @@
-# Refresh guard: foodbanks (2026-10-25T07:30:09+00:00)
+# Refresh guard: foodbanks (2026-10-25T08:16:40+00:00)
 
-foodbanks: kept 3 places, 0 phones, 24 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 3 places, 0 phones, 23 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
 ## places kept (3)
 
@@ -8,7 +8,7 @@ foodbanks: kept 3 places, 0 phones, 24 opening times that this run would have dr
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 
-## times kept (24)
+## times kept (23)
 
 - godalming
 - kintyre
@@ -22,7 +22,6 @@ foodbanks: kept 3 places, 0 phones, 24 opening times that this run would have dr
 - sutton-coldfield
 - purley/old-lodge-lane-baptist-church
 - swindon/st-aldhelms-centre
-- aylesbury/tabitha-foodbank
 - newark/tuxford
 - sunderland/downhill-centre-community-hub
 - edinburgh-ne/st-margarets-parish-church-halls

@@ -85,7 +85,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site salisbury.foodbank.org.uk: 94.5
 - own site stalbansdistrict.foodbank.org.uk: 95
 - own site southayrshire.foodbank.org.uk: 95
-- own site aylesbury.foodbank.org.uk: 95
 - own site redcararea.foodbank.org.uk: 95
 - own site flintshire.foodbank.org.uk: 95
 - Trussell Trust pages: 95.2
@@ -136,6 +135,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site cardiff.foodbank.org.uk: 100
 - own site eastyorkshire.foodbank.org.uk: 100
 - own site newcastlefoodbank.org: 100
+- own site aylesbury.foodbank.org.uk: 100
 - own site dealarea.foodbank.org.uk: 100
 - own site ealing.foodbank.org.uk: 100
 - own site southsefton.foodbank.org.uk: 100
