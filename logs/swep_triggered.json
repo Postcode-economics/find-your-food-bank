@@ -1,5 +1,5 @@
 {
- "run": "2026-10-24T21:08:22+00:00",
+ "run": "2026-10-25T05:12:49+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -79,14 +79,23 @@
    "review": "council page not clear: https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton (unknown)"
   },
   {
-   "code": "SWA",
-   "council": "City and County of Swansea Council",
+   "code": "CRF",
+   "council": "City of Cardiff Council",
    "alerts": [
-    "Natural Resources Wales: Flood Warning: River Lower Clydach at Clydach Bridge"
+    "Natural Resources Wales: Flood Warning: River Ely at Ely Bridge",
+    "Natural Resources Wales: Flood Warning: River Ely at St. Fagans"
    ],
    "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
+   "pages": [
+    {
+     "url": "https://www.cardiffhousing.co.uk/homelessness/homeless-now/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": false
+    }
+   ],
+   "review": "council page not clear: https://www.cardiffhousing.co.uk/homelessness/homeless-now/ (no SWEP wording)"
   },
   {
    "code": "EDH",
@@ -262,7 +271,8 @@
    "council": "Lancashire County Council",
    "alerts": [
     "Met Office: Amber warning of wind affecting North West England",
-    "Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland"
+    "Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland",
+    "Environment Agency: Flood warning: Rainford Brook at Rainford North"
    ],
    "open_tonight": false,
    "pages": [],
@@ -510,8 +520,7 @@
    "code": "VGL",
    "council": "Vale of Glamorgan Council",
    "alerts": [
-    "Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely",
-    "Natural Resources Wales: Flood Warning: River Ewenny at Ewenny Village"
+    "Natural Resources Wales: Flood Warning: River Ely at Peterston Super Ely"
    ],
    "open_tonight": false,
    "pages": [],

@@ -8,7 +8,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 
 ## All sources (lowest first)
 
-- IFAN: 29.2
+- IFAN: 27.4
 - own site southend.foodbank.org.uk: 38.9
 - warmspaces: Cambridgeshire ACRE: 40
 - warmspaces: Council directory: 46.6
@@ -40,7 +40,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site dens.org.uk: 60
 - own site edinburghnefoodbank.com: 60
 - own site bristolnorthwestfoodbank.org.uk: 60
-- Give Food (independent): 62.2
+- Give Food (independent): 62.3
 - own site soarvalleyoutreach.org.uk: 62.5
 - own site stratforduponavon.foodbank.org.uk: 70
 - own site warwickdistrict.foodbank.org.uk: 71.5
