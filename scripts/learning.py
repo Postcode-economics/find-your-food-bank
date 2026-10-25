@@ -51,7 +51,13 @@ def record(s, key, today, ok, finds=0, method=None, changed=False, kind="source"
     if ok:
         e["consec_fail"] = 0
         if finds: e["finds"] += 1; e["decayed_finds"] = faded_finds + 1; e["last_find"] = today
-        if changed: e["last_change"] = today
+        if changed:
+            prev = e.get("last_change")
+            if prev and prev != today:
+                gap = _days(prev, today)
+                if 0 < gap < 10 ** 5:
+                    e.setdefault("change_gaps", []).append(gap); e["change_gaps"] = e["change_gaps"][-12:]
+            e["last_change"] = today
         if method:
             m = e["methods"].setdefault(method, {"ok": 0, "fail": 0}); m["ok"] += 1; e["last_method"] = method
     else:
@@ -76,6 +82,16 @@ def _fade_counts(e, today):
         if 0 < days < 10 ** 5:
             f = _decay_factor(days); finds *= f; checks *= f
     return finds, checks
+
+def rhythm_factor(e, today):
+    """0..1 once a place is due again by its own observed gap between real changes.
+    Fewer than two observed gaps: 0 (the rhythm is not invented)."""
+    gaps = [g for g in (e.get("change_gaps") or []) if isinstance(g, (int, float)) and g > 0]
+    if len(gaps) < 2 or not e.get("last_change") or not today: return 0.0
+    typical = sorted(gaps)[len(gaps) // 2]
+    elapsed = _days(e["last_change"], today)
+    if typical <= 0 or elapsed >= 10 ** 5 or elapsed < typical * 0.5: return 0.0
+    return round(min(elapsed / typical, 1.0), 3)
 
 def reward(e, today=None):
     finds, checks = _fade_counts(e, today)
