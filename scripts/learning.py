@@ -153,6 +153,30 @@ def note_heal(s, key, tried, method, today=None):
         e = entry(s, key); e["healed_from"], e["healed_to"] = tried[0], method
         if today: e["healed_on"] = today
 
+CONFIDENCE_MIN = 0.8  # sits under auto_apply_rules.json: a lower score holds the change for Dean. It never grants a change the rules forbid.
+
+def allow_under_rules(kind, rules, confidence=None, layer=None):
+    """Rules first. Confidence can only refuse a change the rules would have allowed.
+    A new place or a removal the rules forbid stays forbidden even at confidence 1.
+    confidence None means no extra doubt: the rules alone decide (today's behaviour)."""
+    rules = rules or {}
+    if kind == "new_place":
+        adds = rules.get("add_new_places") or {}
+        allowed = bool(adds.get(layer)) if layer else any(bool(v) for v in adds.values())
+    elif kind == "remove_place":
+        allowed = bool(rules.get("remove_confirmed_closures"))
+    else:
+        allowed = kind in (rules.get("automatic") or [])
+    if not allowed: return False
+    if confidence is None: return True
+    try: return float(confidence) >= CONFIDENCE_MIN
+    except (TypeError, ValueError): return False
+
+def confidence_for(website, conflicted):
+    """0 when sources already disagree for this site. Otherwise None, so the rules stand."""
+    if website and website in (conflicted or ()): return 0.0
+    return None
+
 def heal(s, key, today, methods, attempt):
     """Try each method in method_order until one works, then remember that method.
     attempt(name) -> (ok, result). If every method fails, the result is None. Nothing is invented."""
