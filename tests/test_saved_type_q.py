@@ -16,9 +16,10 @@ class T(unittest.TestCase):
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path=CH)
                 for k, want in (('ws', 'Warm spaces near'), ('sh', 'Shelters near'), ('fb', 'Food banks near')):
-                    for w in (390, 1366):
+                    for w, slow in ((390, False), (1366, False), (390, True), (1366, True)):
                         c = b.new_context(viewport={'width': w, 'height': 800}, service_workers='block')
                         c.add_init_script("try{if(!sessionStorage.getItem('t4')){sessionStorage.setItem('t4','1');localStorage.setItem('v3layer','%s');localStorage.setItem('lastSearch',JSON.stringify({lat:51.5,lng:-0.12,label:'London'}))}}catch(e){}" % k); pg = c.new_page()
+                        if slow: c.route('**/v3.js*', lambda r: (__import__('time').sleep(2.5), r.continue_()))   # v3.js restores the type AFTER the ?q search lands (fast cached lookup)
                         pg.goto('http://127.0.0.1:%d/?nocount&q=LN5%%207PR' % s.server_address[1], wait_until='load')
                         txt = ''
                         for _ in range(40):
@@ -30,7 +31,7 @@ class T(unittest.TestCase):
                         lst = pg.evaluate("(()=>{const l=document.getElementById(%s);return l&&l.offsetParent?l.querySelectorAll('.card').length:0})()" % ("'list'" if k == 'fb' else "'xlist'"))
                         if lst < 1: bad.append((k, w, 'no %s cards shown' % k))
                         sel = pg.evaluate("(document.querySelector('#v3big .v3b[aria-checked=true]')||{}).dataset.l")
-                        if not txt.startswith(want) or sel != k: bad.append((k, w, sel, txt))
+                        if not txt.startswith(want) or sel != k: bad.append((k, w, slow, sel, txt))
                         c.close()
                 b.close()
         finally: s.shutdown()
