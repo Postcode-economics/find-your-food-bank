@@ -78,3 +78,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
+## Warm spaces: 2 added
+- Saifee Mosque · B18 6PU
+- The Midlands Greek & Cypriot Association · B23 7SJ
+
