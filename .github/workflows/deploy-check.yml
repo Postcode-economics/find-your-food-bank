@@ -22,15 +22,20 @@ jobs:
       - name: Wait for the deploy (live version.json = this commit's build)
         run: |
           want=$(python -c "import json;print(json.load(open('version.json'))['build'])")
-          for i in $(seq 1 40); do got=$(curl -s "https://helpmap.uk/version.json?t=$RANDOM" | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null); [ "$got" = "$want" ] && exit 0; sleep 15; done
-          echo "::warning::live build $got != $want after 10 min; testing anyway"
+          got=""
+          for i in $(seq 1 40); do
+            got=$(curl -fsS -A "Mozilla/5.0 helpmap-check" "https://helpmap.uk/version.json?t=$RANDOM" 2>/dev/null | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null || true)
+            if [ "$got" = "$want" ]; then echo "live is $got"; exit 0; fi
+            sleep 15
+          done
+          echo "::warning::live build '$got' != '$want' after 10 min; testing anyway"
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py https://helpmap.uk
       - name: Revert the deploying commit (push only) and alert
         if: failure() && github.event_name == 'push'
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |
           git config user.name "helpmap-bot"; git config user.email "hello@helpmap.uk"
-          git pull --rebase origin main && git revert --no-edit ${{ github.sha }} && git push origin HEAD:main
+          git pull --rebase origin main && bash scripts/revert_site.sh ${{ github.sha }} && git push origin HEAD:main
           python scripts/alert.py open old-links "Live old-links check failed - deploy reverted" "Commit ${{ github.sha }} failed; see run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Alert (daily check)
         if: failure() && github.event_name != 'push'
