@@ -25,7 +25,8 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8, 'stale_area': 0.4}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8, 'stale_area': 0.4, 'forecast': 0.4}
+COLD_WORDS = ('snow', 'ice', 'cold', 'freezing', 'frost', 'blizzard')
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -187,6 +188,74 @@ def stale_areas(items, state, today):
         for u, _ in rows: out[u] = round(max(out.get(u, 0), factor), 3)
     return out, '%d areas; those older than the median checked date move up' % len(age)
 
+def _documented_dates(obj):
+    """A calendar counts only when it names an http(s) source and lists dates. Otherwise it is ignored."""
+    if not isinstance(obj, dict): return False
+    src, dates = obj.get('source'), obj.get('dates')
+    return isinstance(src, str) and src.startswith('http') and isinstance(dates, list)
+
+def demand_forecast(items, today):
+    """Cold snaps, benefit payment dates, school holidays. Real files only.
+    Cold snaps: a Met Office warning in reports/weather.json (written by scripts/weather.py) whose title
+    mentions snow, ice or cold. Benefit dates: reports/benefit_dates.json with a source URL and a dates list.
+    School holidays: reports/holidays.json only when school_holidays is a list AND school_holiday_source is an
+    http(s) URL. scripts/holidays.py leaves school holidays out on purpose (no single official UK list), so
+    that string note has no effect. This function never writes dates."""
+    notes, per = [], {}
+    areas = districts_for(items)
+    wx = rj('reports/weather.json', None)
+    cold_areas = []
+    if not isinstance(wx, dict):
+        notes.append('cold snaps: no reports/weather.json from scripts/weather.py - no effect')
+    else:
+        for w in wx.get('warnings') or []:
+            blob = '%s %s' % (w.get('title') or '', w.get('level') or '')
+            if any(word in blob.lower() for word in COLD_WORDS): cold_areas.extend(w.get('areas') or [])
+        if not cold_areas:
+            notes.append('cold snaps: no snow, ice or cold warning in reports/weather.json - no effect')
+        else:
+            import weather as WX
+            n = 0
+            for u, d in areas.items():
+                if any(WX.hits(a, d) or WX.hits(d, a) for a in cold_areas):
+                    per[u] = 1.0; n += 1
+            notes.append('cold snaps: Met Office warnings via scripts/weather.py (%d places)' % n)
+    ben = rj('reports/benefit_dates.json', None)
+    if not _documented_dates(ben):
+        notes.append('benefit payment dates: no documented calendar (reports/benefit_dates.json needs an http(s) source and a dates list) - no effect')
+    else:
+        window = []
+        for raw in ben['dates']:
+            try: dd = datetime.date.fromisoformat(str(raw)[:10])
+            except Exception: continue
+            if 0 <= (dd - today).days <= 3: window.append(dd.isoformat())
+        if not window:
+            notes.append('benefit payment dates: nothing in the next 3 days (%s) - no effect' % ben['source'])
+        else:
+            for i in items:
+                u = (i.get('website') or '').strip()
+                if u.startswith('http'): per[u] = min(1.0, per.get(u, 0) + 0.5)
+            notes.append('benefit payment dates: %s (%s)' % (', '.join(window), ben['source']))
+    hol = rj('reports/holidays.json', {})
+    sch = hol.get('school_holidays') if isinstance(hol, dict) else None
+    src = hol.get('school_holiday_source') if isinstance(hol, dict) else None
+    if not (isinstance(sch, list) and isinstance(src, str) and src.startswith('http')):
+        notes.append('school holidays: %s - no effect' % (sch if isinstance(sch, str) else 'no documented school-holiday calendar'))
+    else:
+        hit = False
+        for block in sch:
+            if not isinstance(block, dict): continue
+            try:
+                start, end = datetime.date.fromisoformat(block['start'][:10]), datetime.date.fromisoformat(block['end'][:10])
+            except Exception: continue
+            if not (start <= today <= end): continue
+            hit = True; where = (block.get('nation') or block.get('council') or '').lower()
+            for u, d in areas.items():
+                if not where or where in d.lower() or d.lower() in where:
+                    per[u] = min(1.0, per.get(u, 0) + 0.5)
+        notes.append('school holidays: %s (%s)' % ('in force' if hit else 'none today', src))
+    return per, ' '.join(notes)
+
 def crawl_timing(state, LS):
     """Per-host failure rate (and latency where recorded). Slow / failing hosts are spread out, never dropped."""
     f, n = collections.Counter(), collections.Counter()
@@ -220,7 +289,7 @@ def build(today=None):
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
-    stale, stale_note = stale_areas(items, state, today)
+    stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     stored = prev.get('weights') or {}
@@ -245,6 +314,7 @@ def build(today=None):
         if u in dean_sites: parts['dean'] = W['dean']  # priority only; publishing still asks Dean
         if problems.get(u): parts['problem'] = W['problem'] * min(problems[u], 3) / 3
         if stale.get(u): parts['stale_area'] = W['stale_area'] * stale[u]
+        if forecast.get(u): parts['forecast'] = W['forecast'] * forecast[u]
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -258,6 +328,7 @@ def build(today=None):
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
+               forecast_note=forecast_note,
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
@@ -287,6 +358,7 @@ def digest_lines(out, full=False):
     L.append("- Dean's past decisions: " + out.get('dean_note', 'no hand decisions to learn from yet - no effect'))
     L.append('- Report a problem: ' + out.get('problem_note', 'no Report a problem submissions on file - no effect'))
     L.append('- Areas with old checked dates: ' + out.get('stale_note', ''))
+    L.append('- Demand prediction: ' + out.get('forecast_note', ''))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
