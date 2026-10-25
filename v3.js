@@ -56,7 +56,7 @@ const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if
 const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i))};
 const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
  const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
- cs.map((c,n)=>({c,n,s:sc(c)})).sort((a,b)=>a.s-b.s||a.n-b.n).forEach(x=>{x.c.classList.toggle('v3closed',x.s===2);l.append(x.c)})}catch(e){}return r};
+ cs.map((c,n)=>({c,n,s:sc(c)})).sort((a,b)=>(typeof F!=='undefined'&&F.open?0:a.s-b.s)||a.n-b.n).forEach(x=>{x.c.classList.toggle('v3closed',x.s===2);l.append(x.c)})}catch(e){}return r};
 // ---- top: three big task buttons; toggle bar + search become secondary
 const hdr=document.querySelector('header');const big=document.createElement('div');big.id='v3big';
 const NB=[['fb','food','Food bank','Banc bwyd','Collect food','Casglu bwyd'],['ws','mug','Warm space','Man cynnes','Somewhere warm','Rhywle cynnes'],['sh','bed','Shelter tonight','Lloches heno','A bed tonight','Gwely heno']];

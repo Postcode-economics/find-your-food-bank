@@ -187,7 +187,7 @@ let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></d
 function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.removeLayer(here);closeSheet();
  here=L.marker([lat,lng],{icon:hereIcon,zIndexOffset:2000,keyboard:false}).addTo(map).bindTooltip(label==='your location'?'You are here':'Searched: '+label);
  Object.keys(dists).forEach(k=>delete dists[k]);items.forEach((i,k)=>dists[k]=hav(lat,lng,i.lat,i.lng));
- const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>(F.open?openToday(b.i)-openToday(a.i):0)||a.d-b.d).slice(0,5);  // Open today (Dean 25 Oct): open today first by distance, then no listed times by distance; closed today hidden
+ const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>a.d-b.d).slice(0,F.open?10:5).sort((a,b)=>(F.open?openToday(b.i)-openToday(a.i):0)||a.d-b.d).slice(0,5);  // Open today (Dean 25 Oct): of the 10 nearest not closed today, open today first by distance, then no listed times by distance (so a far-off place never jumps the list)
  $('list').innerHTML=`<div class="lh">Nearest 5${F.open?' (open today first)':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  window._fitB=L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2);map.fitBounds(window._fitB);msg(note||'');
