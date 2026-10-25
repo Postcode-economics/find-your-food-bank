@@ -364,6 +364,7 @@ def build(today=None):
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
                forecast_note=forecast_note, conflicts=rows, accuracy=grades,
+               healed=sorted(k for k, e in (LS.get('keys') or {}).items() if e.get('healed_to'))[:40],
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
@@ -395,6 +396,7 @@ def digest_lines(out, full=False):
     L.append('- Areas with old checked dates: ' + out.get('stale_note', ''))
     L.append('- Demand prediction: ' + out.get('forecast_note', ''))
     L.append('- Sources disagree on %d places. Nothing was picked; they are flagged for Dean.' % len(out.get('conflicts') or []))
+    L.append('- Scrapers that switched to a method which worked before: %d' % len(out.get('healed') or []))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
