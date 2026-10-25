@@ -399,7 +399,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2251 queued, 2 rejected
+### Warm spaces: 2252 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -501,7 +501,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Age Connects West Midlands - Boldmere · B73 5TJ · https://www.birmingham.gov.uk/directory_record/430256/age_connects_west_midlands_-_boldmere — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Hawkesley Community Centre · B38 9RN · https://www.birmingham.gov.uk/directory_record/430263/age_connects_west_midlands_-_hawkesley_community_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Moorfield · B34 6QX · https://www.birmingham.gov.uk/directory_record/430262/age_connects_west_midlands_-_moorfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Al Mahdi Institute · B29 6RB · https://almahdi.edu/ — own site does not mention a warm space
+- QUEUED Al Mahdi Institute · B29 6RB · https://almahdi.edu/ — own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED All Saint's Church and Centre · B74 4TR · https://www.birmingham.gov.uk/directory_record/580351/all_saints_church_and_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED All Saints Parish Church Gravelly Hill · B23 7QB · https://www.birmingham.gov.uk/directory_record/494179/all_saints_parish_church_gravelly_hill — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Allies Network C.I.C. · B12 9LX · https://www.birmingham.gov.uk/directory_record/424484/allies_network_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -549,7 +549,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -626,7 +626,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Nansen Primary School · B8 3HG · https://www.birmingham.gov.uk/directory_record/680431/nansen_primary_school — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Nechells POD · B7 4NX · https://www.birmingham.gov.uk/directory_record/424252/nechells_pod — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED New Heights Community Café · B44 0QN · https://www.birmingham.gov.uk/directory_record/436289/new_heights_community_caf%C3%A9 — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED New Life Wesleyan Church · B21 0LA · https://wesleyanchurch.org.uk — own site has no readable text
+- QUEUED New Life Wesleyan Church · B21 0LA · https://wesleyanchurch.org.uk — own site does not mention a warm space
 - QUEUED New Testament Church of God · B19 1NP · https://www.birmingham.gov.uk/directory_record/438732/new_testament_church_of_god — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Newbigin Community Trust - Lodge Road Church Centre · B18 5BU · https://www.birmingham.gov.uk/directory_record/438730/newbigin_community_trust_-_lodge_road_church_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Newbigin Community Trust - Newbigin House · B18 4PT · https://newbigintrust.uk/ — own site does not mention a warm space

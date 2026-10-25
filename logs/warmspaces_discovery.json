@@ -5,14 +5,14 @@
  "new": 2255,
  "added": [
   {
-   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
-   "name": "Saifee Mosque",
-   "postcode": "B18 6PU",
+   "id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
+   "name": "Marlborough Primary School",
+   "postcode": "B10 9NY",
    "directory": "Open Innovations: Birmingham Council",
-   "url": "https://uk.thedawoodibohras.com/birmingham/",
-   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
+   "url": "https://www.mps.bham.sch.uk/",
+   "final_url": "https://www.mps.bham.sch.uk/",
    "http": 200,
-   "sha256": "bbe5643cc05f102a571b336b3232ed6fa1d0024ac8c90787f2bf1214aae40ed5",
+   "sha256": "dc07a770964855fb5beaaec524821b9dfe299db064b4165524bdf049c350aba6",
    "etag": "",
    "last_modified": ""
   },
@@ -24,7 +24,7 @@
    "url": "https://www.midlandsgreek.org/",
    "final_url": "https://www.midlandsgreek.org/",
    "http": 200,
-   "sha256": "061e12f2bb33cb6f8834dac6d3adaf55769561d5fffb8ff35945f58662ea2e62",
+   "sha256": "c43fcacdf1267c2ff274522cec35e154860d09d8437a2ae235b226ec40b33508",
    "etag": "",
    "last_modified": ""
   }
@@ -1670,7 +1670,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "a58b86dd55082808b345f81edb97573bb39c04b994a012a7aab83e1e0ab6d2ef",
+   "sha256": "49df192a1ee2a193b7db36585f2e12bf1e00f4e8f6fed4fce2ef6321638243cb",
    "etag": "",
    "last_modified": ""
   },
@@ -1769,14 +1769,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/876246/al_mahdi_institute",
    "reasons": [
-    "own site does not mention a warm space"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
-   "http": 200,
-   "sha256": "62063524c8f4f5531856b18f4c0885304298eb6dbf748b2bd093fd75f7487e3d",
+   "http": 202,
+   "sha256": "bf057b0c596985628c65430e8b56d88c003f25de754eb22016ae522a5c65cacb",
    "etag": "",
-   "last_modified": "Sat, 24 Oct 2026 19:41:23 GMT"
+   "last_modified": ""
   },
   {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -2080,7 +2080,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "e0c9edc68b23df0c203bf669a27a60487b84cf47f4ade4f0bcf61d01e2c4d0b6",
+   "sha256": "2545568f1bf30e577f2d3509edbddd7b63fd6122d3b71859d685830d6f916a6b",
    "etag": "",
    "last_modified": ""
   },
@@ -2199,7 +2199,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "e65581607e008e9dbbee4d442f163db0688889ddcb22f460280a56f46dcc715c",
+   "sha256": "f36564926f77cb269587351aec49b332144497c69d87d7944813b659d717281c",
    "etag": "",
    "last_modified": ""
   },
@@ -2587,13 +2587,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site does not mention a warm space",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
-   "http": 200,
-   "sha256": "1b866a08e9b4bf5bc1cb72262e58cd23125161f718e54430dc547942dc222bef",
+   "http": 202,
+   "sha256": "63fd7272cd11ae1dc8ffcf325a26eda961193d0e8971fbf41e8beea848476cba",
    "etag": "",
    "last_modified": ""
   },
@@ -3003,7 +3002,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "fdf67af670d795c4164881e036eab600338084791afa0e480dbae26c588bb007",
+   "sha256": "9dd7aa0a3fbcabb3b2cc18f333916e66294494dbe2b4e64aba238278117eecdd",
    "etag": "",
    "last_modified": ""
   },
@@ -3692,23 +3691,6 @@
    "last_modified": null
   },
   {
-   "id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
-   "name": "Marlborough Primary School",
-   "postcode": "B10 9NY",
-   "website": "https://www.mps.bham.sch.uk/",
-   "directory": "Open Innovations: Birmingham Council",
-   "directory_url": "https://www.birmingham.gov.uk/directory_record/670130/marlborough_primary_school",
-   "reasons": [
-    "own site unreachable (HTTP error)"
-   ],
-   "url": "https://www.mps.bham.sch.uk/",
-   "final_url": "https://www.mps.bham.sch.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-birmingham-council-martineau-gardens-b5-7ug",
    "name": "Martineau Gardens",
    "postcode": "B5 7UG",
@@ -3792,8 +3774,8 @@
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "http": 200,
    "sha256": "34f5bbabaaf90a986a73b66b34b515eab7ab67c7650575aa471c7f3f9f26ee77",
-   "etag": "\"1792845836\"",
-   "last_modified": "Sat, 24 Oct 2026 12:43:56 GMT"
+   "etag": "\"1792926327\"",
+   "last_modified": "Sun, 25 Oct 2026 11:05:27 GMT"
   },
   {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -3905,13 +3887,13 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/836242/new_life_wesleyan_church",
    "reasons": [
-    "own site has no readable text"
+    "own site does not mention a warm space"
    ],
    "url": "https://wesleyanchurch.org.uk",
    "final_url": "https://wesleyanchurch.org.uk",
    "http": 200,
-   "sha256": "4846bcf80def177d3d31ce636221f71a9c0ecaf178313f16defca97ad1830efb",
-   "etag": "",
+   "sha256": "9d1920ce0fb8708649d9628ba4fbf4bd4d3d6cb2eae322b8da926408d8ae42c5",
+   "etag": "\"5-1792754571;;;\"",
    "last_modified": ""
   },
   {
@@ -3978,7 +3960,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "560b143b9a50ad2d80b9c4472d3d8794bc3611385b69b20073e51965241e8d2d",
+   "sha256": "e2dfd1afa0a1c1fa541343d6da99ae54a5e7490c24a767db21262795a7bfbedb",
    "etag": "",
    "last_modified": ""
   },
@@ -4409,6 +4391,23 @@
    "last_modified": null
   },
   {
+   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+   "name": "Saifee Mosque",
+   "postcode": "B18 6PU",
+   "website": "https://uk.thedawoodibohras.com/birmingham/",
+   "directory": "Open Innovations: Birmingham Council",
+   "directory_url": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://uk.thedawoodibohras.com/birmingham/",
+   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
+   "http": 202,
+   "sha256": "705b9b676b247f75a38c491a7ee137e06c949b52454f527ce1b5ef17ace9b44d",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
    "id": "oi-birmingham-council-selly-oak-neighbourhood-network-scheme-at-stirchley-baths-b30-2jt",
    "name": "Selly Oak Neighbourhood Network Scheme at Stirchley Baths",
    "postcode": "B30 2JT",
@@ -4557,7 +4556,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "674ed081c622871a60d401475c2f6e31ab9c273a95035ff182e5d4cb3537ae80",
+   "sha256": "ae73b47c5c5a6c85aa30f7372d369fc60b81dfdf0b6a5a1388b09b6f89aa088d",
    "etag": "",
    "last_modified": ""
   },
@@ -5017,7 +5016,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "b272cf16a1b81418fe90643e223cdd6a49da790582c80bdfa2fa7059637ce664",
+   "sha256": "0915867cdaf064f8fd8cf4d807f56e8d0848b6c13074be4a276300a44c7a2e09",
    "etag": "",
    "last_modified": ""
   },
@@ -5068,7 +5067,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "8bb1f2278ee480433c60708cffd386be653fa125fb0b756fb2d53705ebdc24dc",
+   "sha256": "a28dc7a1b12e09c1fc73db2c8ff9b727b50eccd0658b2d9458362f67460fb2dd",
    "etag": "",
    "last_modified": ""
   },
@@ -5443,7 +5442,7 @@
    "url": "https://fullgospeltab.co.uk/",
    "final_url": "https://fullgospeltab.co.uk/",
    "http": 200,
-   "sha256": "9c5fa1720df6749d33fb7255c70e0f19505d4f536eea146baaa1b9967d37390c",
+   "sha256": "8d4623dfef36a8feb5c1f88d6370da2028f436c707b94161b15c0d289c63d75c",
    "etag": "",
    "last_modified": ""
   },
@@ -5596,7 +5595,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "97ccd6756033dfe6e4ecdb845206846024287c0a32cc829aeacf6dad12c29a15",
+   "sha256": "e3a9f33826d9e1f0ced8ee25550886431b4f0828007c9bef8d5ed732c43fdcb3",
    "etag": "",
    "last_modified": ""
   },
@@ -5614,7 +5613,7 @@
    "url": "https://yourmoneyyourwaycic.co.uk/",
    "final_url": "https://yourmoneyyourwaycic.co.uk/",
    "http": 200,
-   "sha256": "330ecf9af47c8b44904cc1755589980d5861e9e9db5b2af95a5f21c5a020f2ea",
+   "sha256": "604d1f462bd8732ad64ff226c189c2aa3fc485eea514296149bdc2aebd717044",
    "etag": "",
    "last_modified": ""
   },
@@ -5784,7 +5783,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "a9ef1f2728a75d7671dfb9673196fc6ef0d6ab4deea1cb2d8c58f85a1c9e708a",
+   "sha256": "148cc08ca96fff35766e0880d632a1142f6cc6fcbdabfd9c242748eeb27cf6e7",
    "etag": "",
    "last_modified": ""
   },
@@ -12637,7 +12636,7 @@
    "url": "https://park-play.com/register",
    "final_url": "https://park-play.com/register/",
    "http": 200,
-   "sha256": "61dba41c7475cad59d234718e25afe297732f5afc3927d6fb902c1da5f59c472",
+   "sha256": "942f3d9358b51949cea43568dd7949f7b6c20e981874a1f3b84d36bd570519a1",
    "etag": "",
    "last_modified": ""
   },

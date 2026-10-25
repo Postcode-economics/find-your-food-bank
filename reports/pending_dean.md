@@ -1,40 +1,17 @@
 # New places held back for Dean (not published)
 
-New food banks are never added automatically: each waits here for your OK (add its id to overrides/foodbank_approved_new.json). A new shelter / warm space needs a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
+No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
 ## foodbanks (0)
 
 
 ## warmspaces (1)
 
-- Age UK Gloucester House (LE13 1JE) - no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
+- Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 
 ## shelters (0)
-<!-- closures -->
-## Possible closures - still on the map with "May have closed" note (1)
 
-To remove one, add its id to overrides/foodbank_closed.json; to clear the note, delete it from reports/closures_pending.json.
 
-- Welshpool and District Foodbank (welshpool-and-district) - dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank - https://welshpooldistrict.foodbank.org.uk/welshpool-and-district-foodbank-now-closed/, since 2026-10-25
-<!-- /closures -->
-
-<!-- sweep shelters -->
-## Shelter candidates from the sweep (review only)
-
-Run 2026-10-25. Nothing here is on the map. Each needs a hand check before it is added.
-
-- Victory House (CT17 9BZ) - https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers
-- who a) have been verified rough sleeping (TN34 1EA) - https://www.hastings.gov.uk/housing/SWEP/
-- 451100 (TN34 3UY) - https://www.hastings.gov.uk/housing/SWEP/
-- Rough sleepers placed out-of-hours should approach the Merton Housing Advice Service at the Civic Centre (SM4 5DX) - https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping
-- Victoria Hall Methodist Church (S1 2PF) - https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather
-- at the Housing Options Service (M27 5AW) - https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/
-- (freephone (WV1 4BL) - https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision
-- Mary Rose Court (RG21 8ZY) - https://www.basingstoke.gov.uk/homelessness
-- Eastrop Way (RG21 4QD) - https://www.basingstoke.gov.uk/homelessness
-- Vineyard Church (AL1 5UG) - https://www.stalbans.gov.uk/rough-sleeping
-- YMCA Watford Charter House (WD17 2RT) - https://www.stalbans.gov.uk/rough-sleeping
-<!-- /sweep shelters -->
 
 <!-- times review -->
 ## Opening-times review list (times_finder)
@@ -117,3 +94,31 @@ Run 2026-10-25. Nothing here is on the map. Each needs a hand check before it is
   source: https://upperedenfoodbank.org.uk/get-help-2/  
   why: known skip: Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
 <!-- /times review -->
+
+
+<!-- sweep shelters -->
+## Shelter candidates from the sweep (review only)
+
+Run 2026-10-25. Nothing here is on the map. Each needs a hand check before it is added.
+
+- Victory House (CT17 9BZ) - https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers
+- who a) have been verified rough sleeping (TN34 1EA) - https://www.hastings.gov.uk/housing/SWEP/
+- 451100 (TN34 3UY) - https://www.hastings.gov.uk/housing/SWEP/
+- Rough sleepers placed out-of-hours should approach the Merton Housing Advice Service at the Civic Centre (SM4 5DX) - https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping
+- Victoria Hall Methodist Church (S1 2PF) - https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather
+- at the Housing Options Service (M27 5AW) - https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/
+- (freephone (WV1 4BL) - https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision
+- Mary Rose Court (RG21 8ZY) - https://www.basingstoke.gov.uk/homelessness
+- Eastrop Way (RG21 4QD) - https://www.basingstoke.gov.uk/homelessness
+- Vineyard Church (AL1 5UG) - https://www.stalbans.gov.uk/rough-sleeping
+- YMCA Watford Charter House (WD17 2RT) - https://www.stalbans.gov.uk/rough-sleeping
+<!-- /sweep shelters -->
+
+
+<!-- closures -->
+## Possible closures - still on the map with "May have closed" note (1)
+
+To remove one, add its id to overrides/foodbank_closed.json; to clear the note, delete it from reports/closures_pending.json.
+
+- Welshpool and District Foodbank (welshpool-and-district) - dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank - https://welshpooldistrict.foodbank.org.uk/welshpool-and-district-foodbank-now-closed/, since 2026-10-25
+<!-- /closures -->
