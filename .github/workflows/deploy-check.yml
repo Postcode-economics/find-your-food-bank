@@ -13,7 +13,7 @@ concurrency: {group: deploy-check, cancel-in-progress: false}
 jobs:
   live:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -32,8 +32,18 @@ jobs:
           # has moved past this commit, a newer run checks the live site - this one stands down (no checks, never a revert).
           if [ "$(git ls-remote origin refs/heads/main | cut -f1)" != "${{ github.sha }}" ]; then echo "::notice::superseded by a newer main commit; live is '$got'"; echo "SUPERSEDED=1" >> "$GITHUB_ENV"; exit 0; fi
           echo "::warning::live build '$got' != '$want' after 10 min; testing anyway"
-      - if: env.SUPERSEDED != '1'
-        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py https://helpmap.uk && python scripts/journeys.py https://helpmap.uk && python scripts/design_lock.py https://helpmap.uk
+      - name: Old links
+        if: success() && env.SUPERSEDED != '1'
+        timeout-minutes: 20
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py https://helpmap.uk
+      - name: User journeys
+        if: success() && env.SUPERSEDED != '1'
+        timeout-minutes: 15
+        run: python scripts/journeys.py https://helpmap.uk
+      - name: Card design lock
+        if: success() && env.SUPERSEDED != '1'
+        timeout-minutes: 15
+        run: python scripts/design_lock.py https://helpmap.uk
       - name: Revert the deploying commit (push only) and alert
         if: failure() && github.event_name == 'push'
         env: {GH_TOKEN: "${{ github.token }}"}
