@@ -45,6 +45,9 @@ def _note(h, ok):
     if _errs[h] >= ERR_LIMIT: _paused[h] = time.time() + PAUSE; _errs[h] = 0
 
 def fetch(url):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        return {'ok': None, 'http': 429, 'error': 'paused this run after HTTP 429 - still due on a later scheduled run'}
     h = urllib.parse.urlparse(url).netloc.lower()
     sem = TRUSSELL if h.endswith('foodbank.org.uk') else None
     if sem: sem.acquire()
@@ -57,9 +60,9 @@ def fetch(url):
                 req = urllib.request.Request(url, headers=UA)
                 with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                     body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
-                    _note(h, True); return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
-            except urllib.error.HTTPError as e: _note(h, False); return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
-            except Exception as e: _note(h, False); return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
+                    _note(h, True); rate_ledger.LEDGER.record(url, r.status); return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
+            except urllib.error.HTTPError as e: _note(h, False); rate_ledger.LEDGER.record(url, e.code); return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
+            except Exception as e: _note(h, False); rate_ledger.LEDGER.record(url, None); return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
             finally: _last[h] = time.time()
     finally:
         if sem: sem.release()
@@ -360,6 +363,10 @@ def main():
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts and not os.environ.get('SAMPLE'): rate_ledger.save(day=DAY)
+    except Exception: pass
     print('full check:', json.dumps(stats))
     apply_closure_notes(items, closure_pending); wj('closures_pending.json', closure_pending); write_pending_closures(closure_pending)
     if remove:
