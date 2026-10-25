@@ -7,7 +7,7 @@ Immediate alerts (GitHub issue via alert.py, the existing mechanism):
   Sources disappearing are already alerted by fill_rates.py (0% / sharp drop).
 Everything else goes in reports/morning_digest.md. Never fails the job."""
 import datetime, json, os, statistics, subprocess, sys
-sys.path.insert(0, os.path.dirname(__file__)); import source_score
+sys.path.insert(0, os.path.dirname(__file__)); import source_score, learning
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 P = lambda *a: os.path.join(ROOT, *a)
 ST = P("logs", "digest_state.json"); MD = P("reports", "morning_digest.md")
@@ -42,6 +42,8 @@ def main(now=None):
          "- Source errors this run: %d (reports/source_errors.json)" % len(errs),
          "- SWEP councils still to check: %s (reports/swep_tracker.md)" % ("n/a" if swl is None else swl),
          "- Daily review list: reports/daily_review.md", ""]
+    try: L += learning.digest_lines(learning.load(), now.date().isoformat())  # Dean 25 Oct 08:01
+    except Exception as e: L += ['## What the system learned', '', '- unavailable: %r' % e, '']
     open(MD, "w", encoding="utf-8").write("\n".join(L))
     if os.environ.get("GITHUB_ACTIONS"):
         for k, t, b in al: subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b])

@@ -17,6 +17,7 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
 import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (Dean 25 Oct 08:01)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
@@ -158,6 +159,12 @@ def source_errors(sites, results, by_site, when):
         errs.append(dict(website=u, name=(by_site.get(u) or [{}])[0].get('foodbank') or (by_site.get(u) or [{}])[0].get('name'), http=r.get('http'), error=r.get('error') or 'unknown', fail_runs=r.get('fail_runs')))
     return dict(run=when, checked=len(sites), errors=errs)
 
+def site_gap(pins):
+    """Share of missing facts for a website's pins (no phone, no own-site opening times): 0 = complete, 1 = nothing."""
+    if not pins: return 0.0
+    miss = sum((not (i.get('phone') or '').strip()) + (not (i.get('opening_times') or {}).get('status') == 'TIMES_FOUND') for i in pins)
+    return round(miss / (2 * len(pins)), 3)
+
 def retry_first(sites, queue):
     """Point 3 (24 Oct 2026): sites that failed or were not reached last run are checked first, so the time budget never starves them."""
     q = set(queue); return [u for u in sites if u in q] + [u for u in sites if u not in q]
@@ -216,7 +223,11 @@ def main():
     for i in items:
         w = (i.get('website') or '').strip()
         if w.startswith('http'): by_site.setdefault(w, []).append(i)
-    sites = retry_first(sorted(by_site), state.get('retry_queue') or [])  # point 3: last run's failed/unchecked sites go first
+    # Dean 25 Oct 08:01: self-learning order (scripts/learning.py) - weekly floor first, then high-yield / gap-heavy sites;
+    # sites failing repeatedly rest (back-off, never past the weekly floor). Only the ORDER/selection changes, never the rules below.
+    LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
+    order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps)
+    sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = rj('closures_pending.json', {})  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
@@ -304,6 +315,10 @@ def main():
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
+    found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
+    for u in sites:
+        r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today

@@ -19,6 +19,7 @@ schema check. Every new entry carries source_url so the 3x-daily recheck can re-
 import os, re, sys, json, datetime, tempfile, urllib.request, concurrent.futures as cf
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
 from recheck import fetch, schema_errors
+import learning
 from sweep_hours import parse as parse_hours
 OV = os.path.join(ROOT, "overrides"); LOGS = os.path.join(ROOT, "logs")
 MAX_NEW = int(os.environ.get("SWEEP_MAX_NEW", "150"))
@@ -250,6 +251,11 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         jobs += [(x["url"], x.get("council", "council"), "shelters", False, "dash", None) for x in json.load(open(os.path.join(OV, "swep_sources.json"))) if x.get("url")]
     except Exception as ex: errors.append(("swep_sources", str(ex)[:80]))
     jobs = list({(j[0], j[1]): j for j in jobs}.values())
+    # Dean 25 Oct 08:01: self-learning order (scripts/learning.py). Pages that keep failing rest (back-off, never past the
+    # weekly floor); productive pages go first. Only order/selection - the discovery rules and guards below are unchanged.
+    LS = learning.load() if (write and sources is None) else learning.load(os.devnull)
+    order, resting_urls, _ = learning.plan(LS, [j[0] for j in jobs], d)
+    pos = {u: n for n, u in enumerate(order)}; jobs = sorted((j for j in jobs if j[0] in pos), key=lambda j: pos[j[0]])
     def one(j):
         u, name, hint, auto, parser, sect = j
         try:
@@ -318,6 +324,11 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         atomic_dump({"run": d, "items": report["pending"][:2000]}, os.path.join(LOGS, "sweep_pending.json"))
         write_shelter_review(shelter_review, d)
     report["shelter_review"] = len(shelter_review)
+    useful = {e.get("source_url") for e in report["added"]} | {e.get("source_url") for e in report["pending"]} | {e.get("source_url") for e in shelter_review}
+    for (u, name, hint, auto, parser, sect), r in zip(jobs, R):
+        learning.record(LS, u, d, r[0] == "ok", finds=int(u in useful), method=("list_page:" + parser) if auto else ("swep_page" if hint == "shelters" else "council_page"), kind="sweep_page")
+    report["learning"] = {"resting": len(resting_urls), "planned": len(jobs)}
+    if write and sources is None: learning.snapshot(LS, d); learning.save(LS)
     if write:
         DR.record("sweep", d, [dict(a, upcoming=bool(a.get("scheme_start", "") > d)) for a in report["added"]],
                   [dict(x, id=x.get("name"), reasons=[x.get("reason", "")]) for x in report["pending"] if x.get("auto_rule") or x.get("reason", "").startswith(("on hold", "postcode"))],
