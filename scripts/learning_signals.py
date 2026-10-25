@@ -52,6 +52,19 @@ def corrections(items):
         if x in by: per[source_of(by[x])] += 1
     return ids, {s: round(per[s] / tot[s], 4) for s in tot}
 
+def source_blame(items):
+    """Which source the hand fix had to correct, by field. The same files as corrections().
+    This records the blame. It does not pick a replacement value."""
+    by = {i['id']: i for i in items}; blame = collections.defaultdict(lambda: collections.Counter())
+    def add(ids, field):
+        for x in ids:
+            it = by.get(x)
+            if it: blame[source_of(it)][field] += 1
+    add({k for k in rj('overrides/phones.json', {}) if not str(k).startswith('_')}, 'phone')
+    add({k for k in rj('overrides/foodbank_notices.json', {}) if not str(k).startswith('_')}, 'notice')
+    add({k for k, v in rj('overrides/foodbank_closed.json', {}).items() if not str(k).startswith('_') and isinstance(v, dict) and 'auto' not in str(v.get('confirmed', ''))[:5]}, 'closure')
+    return {s: dict(c) for s, c in blame.items() if c}
+
 def agreement(items, state):
     """Cross-source agreement: is the stored phone one of the phones on the place's own site? Beta(1,1) per source."""
     ok, n = collections.Counter(), collections.Counter(); per_site = {}
@@ -315,7 +328,7 @@ def self_review(LS, prev_signals, today):
 def build(today=None):
     today = today or datetime.date.today(); items = [i for i in items_of('data.full.js') if i.get('type') == 'foodbank']
     state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
-    cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
+    cids, corr_rate = corrections(items); blame = source_blame(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     rows = conflicts(items, state); conflicted = {r['website'] for r in rows}
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
@@ -360,7 +373,7 @@ def build(today=None):
     pt = {'day': today.isoformat(), 'reachable': round(ok / n, 4), 'phone_agreement': round(sum(per_site.values()) / len(per_site), 4) if per_site else None, 'corrections': len(cids)}
     trend = [t for t in prev.get('trend', []) if t.get('day') != pt['day']] + [pt]
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
-               signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
+               signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
                forecast_note=forecast_note, conflicts=rows, accuracy=grades,
@@ -371,7 +384,7 @@ def build(today=None):
 def write(out):
     tmp = OUT + '.tmp'; json.dump(out, open(tmp, 'w', encoding='utf-8'), indent=0, sort_keys=True); os.replace(tmp, OUT)
     open(MD, 'w', encoding='utf-8').write('\n'.join(digest_lines(out, full=True)) + '\n')
-    extra = {'signal_weights': out.get('weights'), 'dean_wording': out.get('dean_wording') or {}, 'accuracy': out.get('accuracy') or {}}
+    extra = {'signal_weights': out.get('weights'), 'dean_wording': out.get('dean_wording') or {}, 'accuracy': out.get('accuracy') or {}, 'source_blame': out.get('source_blame') or {}}
     s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), extra); learning.save(s, learning.STATE)
 
 def weekly(trend):
@@ -386,6 +399,8 @@ def digest_lines(out, full=False):
     L = ['## What the system learned (signals)', '']
     T = sorted(out.get('trust', {}).items(), key=lambda x: x[1])
     L.append('- Source trust (phone agrees with own site, minus hand corrections): ' + (', '.join('%s %.2f (%s checked)' % (s, v, out['agreement_n'].get(s, 0)) for s, v in T) or 'none yet'))
+    blame = out.get('source_blame') or {}
+    L.append('- Hand corrections blamed on a source: ' + (', '.join('%s (%s)' % (s, ', '.join('%s %d' % kv for kv in sorted(v.items()))) for s, v in sorted(blame.items())) or 'none recorded'))
     L.append('- Places with change signals (dead link, closure wording, Facebook, bounce): %d' % len(out.get('signals', {})))
     L.append('- Checks moved up for next run: %d sites (corrections %d, signals %d, season %d, demand %d, visitor reports %d, rhythm %d)' % (
         len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor', 'rhythm'))))
