@@ -132,6 +132,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 12. A weekly change count that outlives the 50-change cap
 
+**Status:** Built. `logs/week_counts.json` counts real changes per week, with no names or phone numbers. The season boost is unchanged.
+
 - **Benefit:** Season comparison can still work in later years. `logs/entry_history.json` keeps only the last 50 changes per place, so a busy place forgets earlier years, and the file also stores old and new phones and addresses.
 - **Risk:** Counting ordinary "website/feed update" noise as a busy week. Count only the same real changes the season signal already uses.
 - **Effort:** S.

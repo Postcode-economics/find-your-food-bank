@@ -102,6 +102,15 @@ def change_signals(items, state):
         if not k.startswith('_') and by.get(k): sig[by[k]].append('contact email bounced')
     return dict(sig)
 
+def tally_note():
+    """The weekly count is a record only. The season boost stays on the existing history."""
+    t = rj('logs/week_counts.json', None)
+    counts = t.get('counts') if isinstance(t, dict) else None
+    if not counts: return 'no weekly change tally yet. The season boost is unchanged.'
+    import entry_history
+    years = entry_history.years_of(counts)
+    return '%d weeks stored across %d year(s). The season boost is unchanged.' % (len(counts), len(years))
+
 def seasonal(today):
     """Real changes per ISO week (from entry_history). A week with more than average changes gets a boost, scaled 0..1."""
     wk = collections.Counter(); years = set()
@@ -384,7 +393,7 @@ def build(today=None):
     state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); blame = source_blame(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     rows = conflicts(items, state); conflicted = {r['website'] for r in rows}
-    season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
+    season, weeks, season_note = seasonal(today); tally_line = tally_note(); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
     stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
     wx_sites, wx_councils, wx_note = weather_priority(items)
@@ -432,7 +441,7 @@ def build(today=None):
     pt = {'day': today.isoformat(), 'reachable': round(ok / n, 4), 'phone_agreement': round(sum(per_site.values()) / len(per_site), 4) if per_site else None, 'corrections': len(cids)}
     trend = [t for t in prev.get('trend', []) if t.get('day') != pt['day']] + [pt]
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
-               signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
+               signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), tally_note=tally_line, demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
                forecast_note=forecast_note, weather_note=wx_note, empty_note=empty_note, source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note,
@@ -473,6 +482,7 @@ def digest_lines(out, full=False):
         len(out.get('boost') or {}), len(bb.get('correction') or []), len(bb.get('signal') or []), len(bb.get('season') or []),
         len(bb.get('demand') or []), len(bb.get('visitor') or []), len(bb.get('rhythm') or [])))
     L.append('- Time of year: the extra priority this week is %.2f. %s' % (season.get('boost', 0), season.get('note', '')))
+    L.append('- Weekly change tally: ' + (out.get('tally_note') or 'The season boost is unchanged.'))
     L.append('- Visitor demand: ' + (out.get('demand_note') or '') + '. Visitor reports: ' + (out.get('visitor_note') or ''))
     L.append("- What your past decisions taught the queue (you are still asked every time): " + out.get('dean_note', 'no hand decisions to learn from yet - no effect'))
     L.append('- Report a problem submissions: ' + out.get('problem_note', 'no Report a problem submissions on file - no effect'))
