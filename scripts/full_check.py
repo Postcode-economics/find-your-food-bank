@@ -240,6 +240,7 @@ def main():
     LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
     import learning_signals  # corrections, change signals, source trust, season, demand, visitor reports (last run's file)
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
+    conflicted = {c.get('website') for c in (learning_signals.rj('reports/learning_signals.json', {}).get('conflicts') or []) if isinstance(c, dict) and c.get('website')}
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
@@ -285,7 +286,9 @@ def main():
             if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
-            if todo and prev.get('access') == r['access']:
+            if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
+            elif todo and prev.get('access') == r['access']:
                 for x in todo:
                     entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
                     changes.insert(0, entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
@@ -306,7 +309,7 @@ def main():
         if r['perm_closed'] and prev.get('perm_closed'):
             ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
             for x in ids_:
-                if RULES['remove_confirmed_closures']: closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
+                if learning.allow_under_rules('remove_place', RULES, learning.confidence_for(u, conflicted)): closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
                 if x not in closure_pending:
                     closure_pending[x] = dict(name=name, website=u, url=r['final_url'], evidence=r['perm_closed'], since=DAY)
                     e = dict(when=NOW.isoformat(), id=x, website=u, name=name, kind='closure', old='on map', new='kept on map with "May have closed" note - waiting for your OK', source=r['final_url'], evidence=r['perm_closed'])
@@ -318,7 +321,9 @@ def main():
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if stored and r['phones'] and not (stored & set(r['phones'])):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
+            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
+            elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
                 today['items'].pop('phone number not on own site|' + u, None)
