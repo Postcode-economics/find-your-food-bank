@@ -1,0 +1,174 @@
+/* Header option A (Dean, 25 Oct 2026; mock-ups HEADER2_FINAL_light/dark.png). Loaded after v3.css.
+   Light mode uses the dark accent palette: gold #F5C518, orange #D55E00, blue #56B4E9; text --white #F2F4F8 (dark) / navy #0A1628 (light); info strip edge --red #E63946. */
+
+/* ---- header.css ---- */
+/* header_v1 scratch mock – matches final4_green card redesign */
+/* 1 type selector: outlined, selected = thicker border + tick */
+#v3big .v3b,#v3big .v3b[aria-checked]{background:#13223d!important;color:#FFFFFF!important;border:2px solid var(--c)!important;box-shadow:none!important}
+#v3big .v3b .ic{color:var(--c)!important}
+#v3big .v3b .ic .ico>*{fill:none!important}
+#v3big .v3b .v3bs{opacity:1!important;color:#FFFFFF!important}
+#v3big .v3b[aria-checked=true]{border-width:4px!important;padding-left:12px!important;padding-right:12px!important}
+#v3big .v3b[aria-checked=true] .v3tick{display:flex!important;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--c);color:#0A1628!important;margin-left:auto}
+#v3big .v3b[aria-checked=true] .v3tick svg{width:18px;height:18px}
+#v3big .v3b[data-l=ws][aria-checked=true] .v3tick{color:#FFFFFF!important}
+/* 2 Search outlined; pill as plain text link; one primary button */
+#f .go{background:transparent!important;color:#FFFFFF!important;border:2px solid #F5C518!important}
+#v3pill,#v3pill .v3pl,#v3pill .v3ph{background:transparent!important;border:0!important;box-shadow:none!important;color:#FFFFFF!important;opacity:1!important;padding-left:0!important;padding-right:0!important;min-height:0!important;font-weight:700}
+#v3pill a,#v3pill .v3pl a,#v3pill button{color:#FFFFFF!important;text-decoration:underline!important;text-underline-offset:3px;background:transparent!important}
+#v3prow{flex-wrap:wrap!important}
+#v3prow #v3pill{flex:1 1 100%!important;order:2;margin:4px 0 0!important}
+/* 3 Before-you-go bar: dark navy + red left edge */
+#xbefore,#xbefore summary{background:#13223d!important;color:#FFFFFF!important}
+#xbefore{border:2px solid #3A5378!important;border-left:6px solid #FF3B30!important;border-radius:10px!important;overflow:hidden}
+#xbefore summary{border:0!important}
+#xbefore .bs,#xbefore summary::after{color:#FFFFFF!important}
+/* 4 filter chips: uniform 44px, tidy rows */
+#v3filt .fchip,#v3filt>label#v3open,#v3filt>#v3tools .v3t{height:44px!important;min-height:44px!important;border-radius:22px!important;border:2px solid #F5C518!important;background:#13223d!important;color:#FFFFFF!important;opacity:1!important;font-size:14px!important;font-weight:700!important;padding:0 10px!important;display:inline-flex!important;align-items:center;gap:8px;box-sizing:border-box;text-decoration:none!important}
+#v3filt .fchip.hide{width:44px;padding:0!important;justify-content:center;border-color:#FFFFFF!important}
+#v3filt>#v3open{margin:0!important}
+#v3filt>#v3tools .v3t{height:36px!important;min-height:36px!important;font-size:14px!important;padding:0 12px!important;border-color:#FFFFFF!important;border-radius:18px!important}
+#v3filt>#v3tools .v3t[aria-pressed=true]{background:#FFFFFF!important;color:#0A1628!important}
+/* 5 updated line */
+header .fresh,header .fresh a,#freshtxt{color:#FFFFFF!important;opacity:1!important}
+
+/* ---------- light ---------- */
+html.light #v3big .v3b{--c:#8A6A2E!important}html.light #v3big .v3b[data-l=ws]{--c:#D55E00!important}html.light #v3big .v3b[data-l=sh]{--c:#00739E!important}
+html.light #v3big .v3b,html.light #v3big .v3b[aria-checked]{background:#FFFFFF!important;color:#0A1628!important}
+html.light #v3big .v3b .v3bs{color:#1F2937!important}
+html.light #v3big .v3b[aria-checked=true] .v3tick{color:#FFFFFF!important}
+html.light #f .go{color:#0A1628!important;border-color:#8A6A2E!important}
+html.light #v3pill,html.light #v3pill *{color:#0A1628!important}
+html.light #v3filt .fchip,html.light #v3filt>label#v3open,html.light #v3filt>#v3tools .v3t{background:#FFFFFF!important;color:#0A1628!important;border-color:#8A6A2E!important}
+html.light #v3filt .fchip.hide,html.light #v3filt>#v3tools .v3t{border-color:#0A1628!important}
+html.light #v3filt>#v3tools .v3t[aria-pressed=true]{background:#0A1628!important;color:#FFFFFF!important}
+html.light header .fresh,html.light header .fresh a,html.light #freshtxt{color:#1F2937!important}
+/* before-you-go stays dark navy in light (like StreetLink box) */
+#v3filt>label#v3open::before,#v3filt .fchip .ck{border-color:#FFFFFF!important;opacity:1!important}
+html.light #v3filt>label#v3open::before,html.light #v3filt .fchip .ck{border-color:#0A1628!important}
+#v3filt>#v3tools{gap:6px!important}
+#v3filt>#v3tools .v3t{padding:0 10px!important;font-size:13px!important}
+#v3filt .fchip,#v3filt>label#v3open{padding:0 8px!important;gap:6px!important}
+#v3filt .fchip.hide{padding:0!important}
+/* Open today only is unavailable for warm spaces/shelters: keep text pure white, show state with dashed border instead of greying */
+#v3filt>label#v3open.v3off{filter:none!important;opacity:1!important;border-style:dashed!important;border-color:#FFFFFF!important}
+html.light #v3filt>label#v3open.v3off{border-color:#0A1628!important}
+#v3filt .fchip,#v3filt>label#v3open{font-size:13.5px!important;padding:0 7px!important}
+#v3filt>#v3tools.v3tight{gap:6px!important}#v3filt>#v3tools.v3tight .v3t{padding:0 10px!important;font-size:13px!important}
+
+/* ---- header2.css ---- */
+/* header_v2 – calm rhythm: 14px between groups */
+header h1{margin-bottom:14px!important}
+#f{margin-bottom:14px!important}
+/* type tiles: one row of 3, single-line label, subtitle kept for screen readers */
+#v3big{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:10px!important;margin:0 0 14px!important}
+#v3big .v3b,#v3big .v3b[aria-checked]{position:relative;flex-direction:column!important;justify-content:center!important;gap:6px!important;min-height:76px!important;height:76px;padding:8px 4px!important;border-radius:14px!important;white-space:normal!important;text-align:center!important}
+#v3big .v3b .ic{width:auto!important;flex:0 0 auto!important}#v3big .v3b .ic .ico{width:26px!important;height:26px!important}
+#v3big .v3b .v3bl{font-size:15px!important;font-weight:800;line-height:1.1;white-space:nowrap}
+#v3big .v3b .v3bs{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#v3big .v3b[aria-checked=true] .v3tick{position:absolute;top:-8px;right:-8px;width:24px!important;height:24px!important;margin:0!important;box-shadow:0 0 0 3px #0A1628}
+#v3big .v3b[aria-checked=true] .v3tick svg{width:14px!important;height:14px!important}
+html.light #v3big .v3b[aria-checked=true] .v3tick{box-shadow:0 0 0 3px #FFFFFF}
+/* Filters chip + small text tools on one row */
+#h2bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}
+#h2fbtn{display:inline-flex;align-items:center;gap:8px;height:44px;min-height:44px;padding:0 14px;border-radius:22px;border:2px solid #FFFFFF;background:transparent;color:#FFFFFF;font-size:15px;font-weight:700;cursor:pointer}
+#h2fbtn .h2n{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:11px;background:#F5C518;color:#0A1628;font-size:13px;font-weight:800;padding:0 6px}
+#h2fbtn[aria-expanded=true] .h2chev{transform:rotate(180deg)}
+#h2bar>#v3tools,#h2bar>#v3tools.v3tight{display:flex!important;gap:16px!important;margin:0!important}
+#h2bar>#v3tools .v3t,#h2bar>#v3tools.v3tight .v3t{height:44px!important;min-height:44px!important;border:0!important;background:transparent!important;color:#FFFFFF!important;font-size:14px!important;font-weight:600!important;text-decoration:underline!important;text-underline-offset:4px;padding:0 2px!important}
+#h2bar>#v3tools .v3t[aria-pressed=true]{color:#FFFFFF!important;font-weight:800!important}
+/* panel */
+#h2panel{margin:0 0 14px;padding:14px;border-radius:14px;border:2px solid #3A5378;background:#13223d}
+#h2panel[hidden]{display:none!important}
+#h2panel #v3filt{margin:0!important;gap:10px!important}
+#h2panel #v3filt::before{display:none!important}
+#h2panel #v3filt>*,#h2panel #v3filt .fchip{margin-top:0!important}
+#h2panel #fhide,#h2panel #ftab{display:none!important}
+#h2panel #v3filt>label#v3open{margin-left:0!important}
+/* primary */
+#xnear{margin:0 0 14px!important;min-height:52px!important}
+/* one calm info strip */
+#h2info{margin:0 0 14px;border-radius:12px;border:2px solid #3A5378;border-left:6px solid #FF3B30;background:#13223d;padding:4px 14px;display:flex;flex-direction:column}
+#h2info>*{margin:0!important}
+#h2info #v3pill{min-height:40px!important;border-bottom:1px solid #3A5378!important;font-size:15px}
+#h2info #xbefore{border:0!important;border-radius:0!important;background:transparent!important;border-bottom:1px solid #3A5378!important}
+#h2info #xbefore summary{background:transparent!important;min-height:40px!important;padding:0 26px 0 0!important;justify-content:flex-start!important}
+#h2info #xbefore .bs{font-size:15px!important;font-weight:700}
+#h2info .fresh{min-height:36px;display:flex;align-items:center;font-size:13px}
+#h2info .fresh a{color:#FFFFFF!important}
+/* light */
+html.light #h2fbtn{border-color:#0A1628;color:#0A1628}
+html.light #h2bar>#v3tools .v3t{color:#0A1628!important}
+html.light #h2panel{background:#FFFFFF;border-color:#8A6A2E}
+#v3row2:empty,#v3prow:empty,#msg:empty{display:none!important}header{padding-bottom:2px!important}
+
+/* ---- f.css ---- */
+/* reference-style filters, always visible */
+#v3filt{display:flex!important;flex-wrap:wrap!important;overflow:visible!important;gap:10px 8px!important;margin:0 0 16px!important;align-items:center}
+#v3filt::before{display:block!important;content:''!important;order:4!important;flex:0 0 100%!important;height:0!important}
+#v3filt>*,#v3filt .fchip{margin-top:0!important}
+#v3filt #fhide{display:inline-flex!important;order:1!important}
+#v3filt>label#v3open{order:5!important;margin-left:0!important}
+#v3filt .fchip,#v3filt>label#v3open{height:44px!important;min-height:44px!important;font-size:13.5px!important;padding:0 8px!important}
+#v3filt>label#v3open.on{background:#F5C518!important;color:#0A1628!important;border-color:#F5C518!important}
+#v3filt>label#v3open.on::before{border-color:#0A1628!important}
+#v3filt>#v3tools,#v3filt>#v3tools.v3tight{order:6!important;margin-left:auto!important;display:flex!important;gap:14px!important}
+#v3filt>#v3tools .v3t,#v3filt>#v3tools.v3tight .v3t{border:0!important;background:transparent!important;color:#FFFFFF!important;font-size:14px!important;font-weight:700!important;text-decoration:underline!important;text-underline-offset:3px;padding:0 2px!important;height:44px!important;min-height:44px!important;border-radius:0!important}
+#v3filt #ftab{display:none!important}
+html.light #v3filt>#v3tools .v3t{color:#0A1628!important;background:transparent!important}
+html.light #h2info{background:#F2F4F8;border-color:#C9D1DE}
+html.light #h2info,html.light #h2info *,html.light #h2info .fresh a{color:#0A1628!important}
+html.light #h2info #v3pill,html.light #h2info #xbefore{border-bottom-color:#C9D1DE!important}
+html.light #v3filt>#v3tools .v3t[aria-pressed=true]{background:transparent!important;color:#0A1628!important}
+html.light #h2info{border-left-color:#FF3B30}
+html.light #h2info #xbefore summary::after,html.light #h2info #xbefore summary *{color:#0A1628!important;fill:#0A1628!important}
+#v3filt{gap:10px 6px!important}
+#v3filt .fchip,#v3filt>label#v3open{font-size:13px!important;padding:0 7px!important}
+#v3filt #fhide{order:3!important;margin-left:auto!important}
+#v3filt .fchip{order:2!important}
+/* X matches chips */
+#v3filt #fhide{border-color:#F5C518!important}
+/* light = same palette as dark */
+html.light #v3filt .fchip,html.light #v3filt>label#v3open,html.light #v3filt #fhide{border-color:#F5C518!important}
+html.light #v3filt>label#v3open.on{background:#F5C518!important}
+html.light .go,html.light #xloc,html.light #f .go{border-color:#F5C518!important}
+html.light #v3big .v3b{--c:#F5C518!important;border-color:#F5C518!important}
+html.light #v3big .v3b[data-l=ws]{--c:#D55E00!important;border-color:#D55E00!important}
+html.light #v3big .v3b[data-l=sh]{--c:#56B4E9!important;border-color:#56B4E9!important}
+html.light #v3big .v3b[aria-checked=true]{background:#fff!important}
+html.light #v3big .v3b .ic{color:var(--c)!important}
+html.light #f button{border-color:#F5C518!important}
+/* uniform font + text colours */
+header,header *:not(svg):not(path){font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important}
+header h1{color:#FFFFFF!important}
+html.light header h1,html.light #xlang,html.light #xlang *{color:#0A1628!important}
+html.light #xlang,html.light #q{border-color:#0A1628!important}
+#v3big{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+#v3big .v3b{min-width:0!important;width:100%!important}
+#v3big .v3b .v3bl{font-size:15px!important}
+/* site variables: --white #F2F4F8, --red #E63946 */
+header h1,header #v3filt .fchip,header #v3filt #fhide,header #v3filt>label#v3open:not(.on),header .v3t,header .go,header #v3big .v3bl,header #h2info,header #h2info *{color:#F2F4F8!important}
+#h2info{border-left-color:#E63946!important}
+html.light header h1,html.light header #v3filt .fchip,html.light header #v3filt #fhide,html.light header #v3filt>label#v3open,html.light header .v3t,html.light header .go,html.light header #v3big .v3bl,html.light header #h2info,html.light header #h2info *,html.light #xlang *{color:#0A1628!important}
+html:not(.light) header button.go,html:not(.light) #v3filt>#v3tools .v3t,html:not(.light) #h2info #xbefore summary,html:not(.light) #h2info #xbefore .bs,html:not(.light) #h2info .fresh,html:not(.light) #h2info .fresh *,html:not(.light) #v3tools .v3t{color:#F2F4F8!important}
+html.light #xlang b,html.light #xlang a,html.light #xlang span,html.light #xlang button{color:#0A1628!important}
+html:not(.light) body header form button.go,html:not(.light) .go{color:#F2F4F8!important}
+
+/* collapsed Filters tab matches the chips (gold) */
+#v3filt #ftab,html.light #v3filt #ftab{border-color:#F5C518!important}
+
+/* status line (Dean 25 Oct 13:32/13:34): ONE line, never clipped, never an ellipsis; v3fitPill() in v3.js shrinks the font
+   (min 12px) and, if still needed, shows just the place name. The header height never changes. */
+#v3pill .v3pl{display:block!important;max-width:100%;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important}
+#v3pill .v3plc{white-space:nowrap}
+
+/* Dean 25 Oct 14:06: every line in the list panel starts at the same left edge (notes, headings, cards; all 3 types) */
+#v3res .tnote,#list .tnote,#xlist .tnote,#xbefore .tnote,.tnote{margin-left:0!important;padding-left:0!important;text-align:left!important}
+#v3res>*,#list>.lh,#xlist>.lh{margin-left:0!important;text-align:left!important}
+
+/* Dean 25 Oct 13:40 design lock: pin pop-up cards (desktop pop-up and phone sheet) use the same locked status dots
+   (red closed, green open, grey unknown) and the same green call button as list cards. */
+html body .leaflet-popup-content .pop>.v3st::before,html body #sheet .card>.v3st::before{content:""!important;display:inline-block!important;width:10px!important;height:10px!important;border-radius:50%!important;margin-right:8px!important;vertical-align:middle!important;background:#C9D1DE!important;box-shadow:none!important}
+html body .leaflet-popup-content .pop>.v3st.open::before,html body #sheet .card>.v3st.open::before{background:#3DDC84!important}
+html body .leaflet-popup-content .pop>.v3st.shut::before,html body #sheet .card>.v3st.shut::before{background:#FF3B30!important}
+html body .leaflet-popup-content .pop a.btn.call:not(.xfbk){background:#34C759!important;color:#0A1628!important;border-color:#34C759!important}
