@@ -88,7 +88,8 @@ def run(base=None, measure=False):
                         ok = r.status == 200 and 'image' in (r.headers.get('content-type') or '')
                         tiles['ok' if ok else 'bad'] += 1
                 pg.on('response', _t)
-                pg.goto(base + '/?nocount', wait_until='networkidle'); pg.wait_for_timeout(1000)
+                pg.goto(base + '/?nocount', wait_until='load', timeout=45000)
+                pg.wait_for_function("()=>!!document.querySelector('#q')&&typeof items!=='undefined'&&items.length>100", timeout=30000); pg.wait_for_timeout(1000)
                 pg.evaluate("m=>{document.documentElement.classList.toggle('light',m==='light');try{localStorage.setItem('theme',m)}catch(e){}}", mode)
                 for k, sel in (('fb', '#list .card'), ('ws', '#xlist .card.xws'), ('sh', '#xlist .card.xsh')):
                     pg.evaluate("k=>{const t=document.querySelector('#v3big [data-l='+k+']');if(t)t.click()}", k); pg.wait_for_timeout(500)

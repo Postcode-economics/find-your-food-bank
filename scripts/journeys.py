@@ -57,8 +57,19 @@ def fresh(b, w, scheme, geo=False):
     if geo: kw.update(geolocation={'latitude': LH[0], 'longitude': LH[1]}, permissions=['geolocation'])
     c = b.new_context(**kw); c.add_init_script(INIT); return c
 
+READY = "()=>!!document.querySelector('#q')&&typeof items!=='undefined'&&items.length>100&&!!document.querySelector('#map .leaflet-pane')"
 def load(c, base):
-    pg = c.new_page(); pg.goto(base, wait_until='networkidle'); pg.wait_for_timeout(1200); return pg
+    # 25 Oct: 'networkidle' can time out on live (long-lived requests); wait for 'load' + the app being ready, retry once.
+    for attempt in (1, 2):
+        pg = c.new_page()
+        try:
+            pg.goto(base, wait_until='load', timeout=45000)
+            pg.wait_for_function(READY, timeout=30000)
+            pg.wait_for_timeout(1200); return pg
+        except Exception:
+            pg.close()
+            if attempt == 2: raise
+
 
 def settle(pg, first=1800):
     pg.wait_for_timeout(first); last = None
@@ -88,7 +99,8 @@ def run(base=None, chrome=None, quick=False):
         srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=srv.serve_forever, daemon=True).start()
         base = 'http://127.0.0.1:%d/' % srv.server_address[1]
     base = base.rstrip('/') + '/?nocount'
-    r = R(); combos = [(390, 'light'), (390, 'dark'), (1366, 'light'), (1366, 'dark')]
+    global LAST
+    r = R(); LAST = r; combos = [(390, 'light'), (390, 'dark'), (1366, 'light'), (1366, 'dark')]
     with sync_playwright() as p:
         b = p.chromium.launch(**({'executable_path': chrome} if chrome else {}))
         for w, sc in combos:
@@ -207,6 +219,8 @@ def run(base=None, chrome=None, quick=False):
     if srv: srv.shutdown()
     return r.res
 
+LAST = None
+
 def report(res, base):
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
     json.dump(dict(base=base, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), journeys=res), open(os.path.join(ROOT, 'logs', 'journeys.json'), 'w'), indent=1, ensure_ascii=False)
@@ -220,7 +234,12 @@ def report(res, base):
 if __name__ == '__main__':
     base = sys.argv[1] if len(sys.argv) > 1 else None
     chrome = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
-    res = run(base, chrome); n = report(res, base)
+    try: res = run(base, chrome)
+    except Exception as e:   # a crash is a failure with a report, not just a traceback
+        res = LAST.res if LAST else {}
+        res.setdefault('J0 suite ran to the end', {'pass': 0, 'fail': 0, 'failures': []})
+        res['J0 suite ran to the end']['fail'] += 1; res['J0 suite ran to the end']['failures'].append('crash: %s' % str(e).splitlines()[0][:300])
+    n = report(res, base)
     for j, v in sorted(res.items()): print('%-28s pass %4d  fail %d' % (j, v['pass'], v['fail']))
     for j, v in sorted(res.items()):
         for f in v['failures'][:15]: print(' FAIL', j, '-', f)
