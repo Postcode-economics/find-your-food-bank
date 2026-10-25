@@ -1,5 +1,5 @@
 {
- "run": "2026-10-25T08:17:13+00:00",
+ "run": "2026-10-25T08:50:12+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -64,8 +64,7 @@
    "code": "BOL",
    "council": "Bolton Metropolitan Borough Council",
    "alerts": [
-    "Environment Agency: Flood warning: Lee's Bridge at Astley Bridge Central",
-    "Environment Agency: Flood warning: Bessy Brook at Lostock"
+    "Environment Agency: Flood warning: Lee's Bridge at Astley Bridge Central"
    ],
    "open_tonight": false,
    "pages": [
@@ -267,31 +266,11 @@
    "code": "LAN",
    "council": "Lancashire County Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting North West England",
-    "Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland",
-    "Environment Agency: Flood warning: Rainford Brook at Rainford North"
+    "Met Office: Amber warning of wind affecting North West England"
    ],
    "open_tonight": false,
    "pages": [],
    "review": "no severe weather shelter page on file - check the council's homelessness page"
-  },
-  {
-   "code": "LIV",
-   "council": "Liverpool City Council",
-   "alerts": [
-    "Environment Agency: Flood warning: Tue Brook at Clubmoor"
-   ],
-   "open_tonight": false,
-   "pages": [
-    {
-     "url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": "",
-     "own_site": true
-    }
-   ],
-   "review": "council page not clear: https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/ (no SWEP wording)"
   },
   {
    "code": "MEA",
@@ -419,8 +398,7 @@
    "code": "RCT",
    "council": "Rhondda Cynon Taf County Borough Council",
    "alerts": [
-    "Natural Resources Wales: Flood Warning: River Ely at Talbot Green",
-    "Natural Resources Wales: Flood Warning: River Rhondda at Porth"
+    "Natural Resources Wales: Flood Warning: River Ely at Talbot Green"
    ],
    "open_tonight": false,
    "pages": [],
@@ -537,8 +515,7 @@
    "code": "WLA",
    "council": "West Lancashire Borough Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting North West England",
-    "Environment Agency: Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland"
+    "Met Office: Amber warning of wind affecting North West England"
    ],
    "open_tonight": false,
    "pages": [],
@@ -575,16 +552,6 @@
     }
    ],
    "review": "council page not clear: https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements (no SWEP wording); https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077 (no SWEP wording); https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717 (no SWEP wording)"
-  },
-  {
-   "code": "WGN",
-   "council": "Wigan Metropolitan Borough Council",
-   "alerts": [
-    "Environment Agency: Flood warning: Millingford Brook at Ashton in Makerfield"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
    "code": "WRL",

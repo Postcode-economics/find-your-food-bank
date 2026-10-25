@@ -1,9 +1,10 @@
-# Refresh guard: foodbanks (2026-10-25T08:16:40+00:00)
+# Refresh guard: foodbanks (2026-10-25T08:50:04+00:00)
 
-foodbanks: kept 3 places, 0 phones, 23 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 4 places, 0 phones, 23 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (3)
+## places kept (4)
 
+- ifan-d59b2e089746f7a97c1e15-0
 - ifan-a2fb0701e0208ee9e642a3-0
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
@@ -33,3 +34,8 @@ foodbanks: kept 3 places, 0 phones, 23 opening times that this run would have dr
 - ifan-85fc4f26365d8e7c333d57-0
 - ifan-ca574aed6b4ff8c310060c-0
 - ifan-da5df633f7eabc8fbdb2a3-0
+
+## fb_pages kept (2)
+
+- ifan-84cd0bf40986bfc9a427c6-0
+- ifan-9fef48d4f0fd3a3f6896d2-0

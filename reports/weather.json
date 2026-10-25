@@ -729,51 +729,12 @@
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Millingford Brook at Ashton in Makerfield",
-   "level": "flood warning",
-   "areas": [
-    "Wigan"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWFGM84",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Tue Brook at Clubmoor",
-   "level": "flood warning",
-   "areas": [
-    "Liverpool"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/012FWFM22",
-   "places": [
-    "The Hub @ St Peter's, Woolton"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
    "title": "Flood warning: Lee's Bridge at Astley Bridge Central",
    "level": "flood warning",
    "areas": [
     "Bolton"
    ],
    "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWFGM104",
-   "places": [
-    "Cafe Oasis",
-    "Christ Church Coffee Lounge",
-    "St Katharine's Church,  Blackrod"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Bessy Brook at Lostock",
-   "level": "flood warning",
-   "areas": [
-    "Bolton"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWFGM101",
    "places": [
     "Cafe Oasis",
     "Christ Church Coffee Lounge",
@@ -794,49 +755,12 @@
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Skirden Beck and Kirk Beck at Bolton by Bowland",
-   "level": "flood warning",
-   "areas": [
-    "Lancashire"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/012FWFL64",
-   "places": [
-    "Bamford Chapel & Norden URC",
-    "Cafe Oasis",
-    "Christ Church Coffee Lounge",
-    "Cornerstone United Reformed Church @ Parrs Wood Road",
-    "Fairhaven Methodist Church",
-    "Gateway",
-    "Greenmount Old School",
-    "Hope URC Denton",
-    "Leyland United Reformed Church",
-    "North Blackburn URC",
-    "Over Wyre URC",
-    "Parish of St John Henry Newman, Morecambe - Warm Welcome",
-    "Warm welcome",
-    "Wellness Hub At St Laurence's Church"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
    "title": "Flood warning: River Exe at Winsford and Bridgetown",
    "level": "flood warning",
    "areas": [
     "Devon, Somerset"
    ],
    "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/113FWFEXE02",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Rainford Brook at Rainford North",
-   "level": "flood warning",
-   "areas": [
-    "Lancashire, St. Helens"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWFM4",
    "places": [],
    "swep": []
   },
@@ -943,6 +867,17 @@
     "Strath Oykel"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26845/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Strath Carron",
+   "level": "flood warning",
+   "areas": [
+    "Strath Carron"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26847/",
    "places": [],
    "swep": []
   },
@@ -1245,6 +1180,18 @@
   },
   {
    "source": "Natural Resources Wales",
+   "title": "Flood Warning: River Ely at Peterston Super Ely",
+   "level": "flood warning",
+   "areas": [
+    "Vale of Glamorgan"
+   ],
+   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
+   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Natural Resources Wales",
    "title": "Flood Warning: River Ely at Talbot Green",
    "level": "flood warning",
    "areas": [
@@ -1285,30 +1232,6 @@
     "St Peter's Parish Night Shelter (Roath)",
     "Women Connect First"
    ],
-   "swep": []
-  },
-  {
-   "source": "Natural Resources Wales",
-   "title": "Flood Warning: River Ely at Peterston Super Ely",
-   "level": "flood warning",
-   "areas": [
-    "Vale of Glamorgan"
-   ],
-   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
-   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Natural Resources Wales",
-   "title": "Flood Warning: River Rhondda at Porth",
-   "level": "flood warning",
-   "areas": [
-    "Rhondda Cynon Taf"
-   ],
-   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
-   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
-   "places": [],
    "swep": []
   }
  ],

@@ -1,1 +1,541 @@
-[]
+[
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "weymouth/littlemoor",
+  "website": "https://www.weymouthfoodbank.co.uk",
+  "name": "Weymouth Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "without a referral"
+  ],
+  "source": "https://www.weymouthfoodbank.co.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "weymouth/westham-methodist-church",
+  "website": "https://www.weymouthfoodbank.co.uk",
+  "name": "Weymouth Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "without a referral"
+  ],
+  "source": "https://www.weymouthfoodbank.co.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "weymouth",
+  "website": "https://www.weymouthfoodbank.co.uk",
+  "name": "Weymouth Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "without a referral"
+  ],
+  "source": "https://www.weymouthfoodbank.co.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://www.wantageandgrovefoodbank.org.uk",
+  "name": "Wantage and Grove Foodbank",
+  "kind": "phone",
+  "old": "01865297403",
+  "new": "01235765348",
+  "source": "https://www.wantageandgrovefoodbank.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ifan-604a74f1cb3c7d624b7f35-0",
+  "website": "https://www.teignvalley.org/larder/",
+  "name": "Teign Valley Larder CIC (Christow)",
+  "old": "unconfirmed",
+  "new": "voucher",
+  "evidence": [
+   "need to be referred"
+  ],
+  "source": "https://teignvalley.org/larder/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "st-johns",
+  "website": "https://www.stjohnskitchen.org.uk/",
+  "name": "St John's Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "voucher is required",
+   "need a referral"
+  ],
+  "source": "https://www.stjohnskitchen.org.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ceyp/gefferys-hall-community-centre",
+  "website": "https://www.se9foodbank.org/",
+  "name": "CEYP Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self referral",
+   "self referral"
+  ],
+  "source": "https://www.se9foodbank.org/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "perrys-pantry",
+  "website": "https://www.perryspantry.org/the-foodbank",
+  "name": "Perry's Pantry Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "without a referral"
+  ],
+  "source": "https://www.perryspantry.org/the-foodbank"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ludlow",
+  "website": "https://www.ludlowfoodbank.co.uk",
+  "name": "Ludlow Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self referral",
+   "self referral"
+  ],
+  "source": "https://www.ludlowfoodbank.co.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "hornsey",
+  "website": "https://www.hornseyfoodbank.com",
+  "name": "Hornsey Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "voucher needed"
+  ],
+  "source": "https://www.hornseyfoodbank.org.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "chorley-help-the-homeless",
+  "website": "https://www.chorleyhelpthehomeless.org",
+  "name": "Chorley Help the Homeless Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self-referral"
+  ],
+  "source": "https://www.chorleyhelpthehomeless.org"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ifan-5b3e01fe979d373d9ba679-0",
+  "website": "https://www.caritassalford.org.uk/service/cornerstone-centre/",
+  "name": "Cornerstone Day Centre - Caritas Diocese of Salford",
+  "old": "unconfirmed",
+  "new": "walkin",
+  "evidence": [
+   "no referral needed"
+  ],
+  "source": "https://www.caritassalford.org.uk/service/cornerstone-centre/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "brackley",
+  "website": "https://www.brackleyfoodbank.org",
+  "name": "Brackley Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "need a referral",
+   "voucher is required"
+  ],
+  "source": "https://www.brackleyfoodbank.org"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://welshpooldistrict.foodbank.org.uk",
+  "name": "Welshpool and District Foodbank",
+  "kind": "closure",
+  "old": "on map (1 pins)",
+  "new": "removed - own site says closed",
+  "source": "https://welshpooldistrict.foodbank.org.uk/welshpool-and-district-foodbank-now-closed/",
+  "evidence": "dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "care-project",
+  "website": "https://theparishtrust.org.uk/care/",
+  "name": "Care Project Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "you will need a referral",
+   "need a referral"
+  ],
+  "source": "https://theparishtrust.org.uk/care/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "the-need-project",
+  "website": "https://theneedproject.org",
+  "name": "The Need Project Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self referral"
+  ],
+  "source": "https://theneedproject.org"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "lords-larder",
+  "website": "https://thelordslarder.org.uk",
+  "name": "Lord's Larder Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "referral is required"
+  ],
+  "source": "https://www.thelordslarder.org.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "rye",
+  "website": "https://ryefoodbank.com",
+  "name": "Rye Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "voucher is required"
+  ],
+  "source": "https://ryefoodbank.com"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "red-trust-bushey",
+  "website": "https://redtrustbushey.org/foodbank",
+  "name": "Red Trust Bushey Foodbank",
+  "old": "walkin",
+  "new": "voucher",
+  "evidence": [
+   "referral is needed"
+  ],
+  "source": "https://redtrustbushey.org/foodbank"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://pontefractandknottingley.foodbank.org.uk/",
+  "name": "Pontefract & Knottingley Foodbank",
+  "kind": "phone",
+  "old": "01977339278",
+  "new": "07747168988",
+  "source": "https://pontefractandknottingley.foodbank.org.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank",
+  "name": "Quex Road Foodbank",
+  "kind": "phone",
+  "old": "02076241701",
+  "new": "02077989025",
+  "source": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "brigg",
+  "website": "https://oikos-brigg.org.uk/what-we-do/food-and-more/",
+  "name": "Brigg Foodbank",
+  "old": "unconfirmed",
+  "new": "voucher",
+  "evidence": [
+   "requires a referral"
+  ],
+  "source": "https://oikos-brigg.org.uk/what-we-do/food-and-more/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://launceston.foodbank.org.uk",
+  "name": "Launceston Foodbank",
+  "kind": "phone",
+  "old": "07849260486",
+  "new": "01566779550",
+  "source": "https://launceston.foodbank.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "key-to-life",
+  "website": "https://keycommunity.org.uk/what-we-do/key-to-life-foodbank/",
+  "name": "Key To Life Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self-referral"
+  ],
+  "source": "https://keycommunity.org.uk/what-we-do/key-to-life-foodbank/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://hull.foodbank.org.uk",
+  "name": "Hull Foodbank",
+  "kind": "phone",
+  "old": "01482224783",
+  "new": "01482328196",
+  "source": "https://hull.foodbank.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "hounslow-community-foodbox",
+  "website": "https://hounslowfoodbox.org.uk",
+  "name": "Hounslow Community FoodBox Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self-refer"
+  ],
+  "source": "https://hounslowfoodbox.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://hartlepool.foodbank.org.uk",
+  "name": "Hartlepool Foodbank",
+  "kind": "phone",
+  "old": "01429405543",
+  "new": "01429806895",
+  "source": "https://hartlepool.foodbank.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "focus4hope",
+  "website": "https://focus4hope.co.uk/",
+  "name": "Focus4Hope Foodbank",
+  "old": "unconfirmed",
+  "new": "voucher",
+  "evidence": [
+   "vouchers required"
+  ],
+  "source": "https://focus4hope.co.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://euston.foodbank.org.uk",
+  "name": "Euston Foodbank",
+  "kind": "phone",
+  "old": "07400053838",
+  "new": "02046159770",
+  "source": "https://euston.foodbank.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "eastleigh-basics-bank",
+  "website": "https://eastleighbasicsbank.co.uk",
+  "name": "Eastleigh Basics Bank Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self referred"
+  ],
+  "source": "https://eastleighbasicsbank.co.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "carterton-community",
+  "website": "https://cartertonfoodbank.co.uk",
+  "name": "Carterton Community Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self-referral"
+  ],
+  "source": "https://cartertonfoodbank.co.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "website": "https://bognorregis.foodbank.org.uk",
+  "name": "Bognor Regis Foodbank",
+  "kind": "phone",
+  "old": "01243866952",
+  "new": "01243841275",
+  "source": "https://bognorregis.foodbank.org.uk"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "biggleswade",
+  "website": "https://bbchurch.org.uk/foodbank",
+  "name": "Biggleswade Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self referral"
+  ],
+  "source": "https://bbchurch.org.uk/foodbank"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "sid-valley",
+  "website": "http://www.sidvalleyfoodbank.org.uk",
+  "name": "Sid Valley Foodbank",
+  "old": "unconfirmed",
+  "new": "walkin",
+  "evidence": [
+   "without a referral"
+  ],
+  "source": "https://www.sidvalleyfoodbank.org.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "eat-or-heat",
+  "website": "http://eatorheat.org",
+  "name": "Eat Or Heat Foodbank",
+  "old": "voucher",
+  "new": "walkin",
+  "evidence": [
+   "self referral"
+  ],
+  "source": "https://eatorheat.org"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "lincoln",
+  "website": "",
+  "name": "lincoln",
+  "kind": "removed",
+  "old": "on map",
+  "new": "gone (no longer in the feed / closed on own site / excluded)",
+  "source": "logs/foodbank_closed.json"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ifan-efde0ad76e7a121fb1cf96-0",
+  "website": "",
+  "name": "ifan-efde0ad76e7a121fb1cf96-0",
+  "kind": "removed",
+  "old": "on map",
+  "new": "gone (no longer in the feed / closed on own site / excluded)",
+  "source": "logs/foodbank_closed.json"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ifan-e0054aa041ea174c4f6921-0",
+  "website": "",
+  "name": "ifan-e0054aa041ea174c4f6921-0",
+  "kind": "removed",
+  "old": "on map",
+  "new": "gone (no longer in the feed / closed on own site / excluded)",
+  "source": "logs/foodbank_closed.json"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ifan-a2fb0701e0208ee9e642a3-0",
+  "website": "",
+  "name": "ifan-a2fb0701e0208ee9e642a3-0",
+  "kind": "removed",
+  "old": "on map",
+  "new": "gone (no longer in the feed / closed on own site / excluded)",
+  "source": "logs/foodbank_closed.json"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "stannington",
+  "website": "https://www.sheffield.gov.uk/node/6758/stannington-food-bank",
+  "name": "Stannington Foodbank",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (S6 5HZ)",
+  "source": "https://www.sheffield.gov.uk/node/6758/stannington-food-bank"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "shoreham-adur-community",
+  "website": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/",
+  "name": "Shoreham & Adur Community Foodbank",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (BN43 6WF)",
+  "source": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "queensbury",
+  "website": "https://queensburyfoodbank.co.uk/contact/",
+  "name": "We Are Queensbury Foodbank & Community Hub",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (BD13 2PE)",
+  "source": "https://queensburyfoodbank.co.uk/contact/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "lancing-sompting-harriet-johnson-centre",
+  "website": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+  "name": "Lancing & Sompting Churches Foodbank - Harriet Johnson Centre",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (BN15 0BG)",
+  "source": "https://www.lancingandsomptingchurchesfoodbank.org/about"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "lancing-sompting-adur-west-family-hub",
+  "website": "https://www.lancingandsomptingchurchesfoodbank.org/about",
+  "name": "Lancing & Sompting Churches Foodbank - Adur West Family Hub",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (BN15 9AB)",
+  "source": "https://www.lancingandsomptingchurchesfoodbank.org/about"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "gleadless-valley",
+  "website": "https://gleadlessvalleyfoodbank.co.uk/",
+  "name": "Gleadless Valley Foodbank",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (S14 1FX)",
+  "source": "https://gleadlessvalleyfoodbank.co.uk/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "faringdon",
+  "website": "https://www.faringdon-foodbank.com/",
+  "name": "Faringdon Foodbank",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (SN7 7HL)",
+  "source": "https://www.faringdon-foodbank.com/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "ethnic-food-bank-bedford",
+  "website": "https://ethnicfoodbank.org/contact-us",
+  "name": "Ethnic Food Bank",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (MK40 4PQ)",
+  "source": "https://ethnicfoodbank.org/contact-us"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "dn6-askern",
+  "website": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/",
+  "name": "DN6 Foodbank (Askern, Norton & Campsall)",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (DN6 0PH)",
+  "source": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/"
+ },
+ {
+  "when": "2026-10-25T08:23:58+00:00",
+  "id": "bevendean",
+  "website": "https://bhfood.org.uk/directory/bevendean-food-bank/",
+  "name": "Bevendean Food Bank",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (BN2 4LA)",
+  "source": "https://bhfood.org.uk/directory/bevendean-food-bank/"
+ }
+]

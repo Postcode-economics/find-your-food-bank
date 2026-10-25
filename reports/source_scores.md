@@ -8,7 +8,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 
 ## All sources (lowest first)
 
-- IFAN: 27.9
+- IFAN: 27.4
 - own site southend.foodbank.org.uk: 38.9
 - warmspaces: Cambridgeshire ACRE: 40
 - warmspaces: Council directory: 46.6
@@ -87,8 +87,8 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site southayrshire.foodbank.org.uk: 95
 - own site redcararea.foodbank.org.uk: 95
 - own site flintshire.foodbank.org.uk: 95
-- Trussell Trust pages: 95.2
 - shelters: OpenStreetMap: 95.2
+- Trussell Trust pages: 95.3
 - own site eastwestnottingham.foodbank.org.uk: 96.5
 - own site leicestersouth.foodbank.org.uk: 96.7
 - own site barnsley.foodbank.org.uk: 96.7
