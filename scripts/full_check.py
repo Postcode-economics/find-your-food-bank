@@ -180,6 +180,21 @@ def apply_phone_fixes(by_site, fixes, flag):
             i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
     return n
 
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+MAY_CLOSED = RULES['closure_card_note']
+def apply_closure_notes(items, pending):
+    """Dean 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
+    for i in items:
+        if i['id'] in pending: i['notice'] = MAY_CLOSED
+def write_pending_closures(pending):
+    """Closure section of reports/pending_dean.md (kept between markers; publish_gate.py preserves it)."""
+    pd = os.path.join(REP, 'pending_dean.md'); t = open(pd, encoding='utf-8').read() if os.path.exists(pd) else ''
+    t = re.sub(r'(?s)\n*<!-- closures -->.*?<!-- /closures -->\n?', '', t)
+    L = ['<!-- closures -->', '## Possible closures - still on the map with "May have closed" note (%d)' % len(pending), '',
+         'To remove one, add its id to overrides/foodbank_closed.json; to clear the note, delete it from reports/closures_pending.json.', '']
+    L += ['- %s (%s) - %s - %s, since %s' % (v.get('name'), k, v.get('evidence'), v.get('url') or v.get('website'), v.get('since')) for k, v in sorted(pending.items())] or ['- none']
+    open(pd, 'w', encoding='utf-8').write(t.rstrip() + '\n\n' + '\n'.join(L + ['<!-- /closures -->']) + '\n')
+
 def main():
     os.makedirs(REP, exist_ok=True)
     raw, d = load_data(); items = d['items']; n0 = len(items)
@@ -203,6 +218,7 @@ def main():
         if w.startswith('http'): by_site.setdefault(w, []).append(i)
     sites = retry_first(sorted(by_site), state.get('retry_queue') or [])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
+    closure_pending = rj('closures_pending.json', {})  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
@@ -257,19 +273,19 @@ def main():
         if r['seasonal'] and r['seasonal'] != prev.get('seasonal'): flag(u, 'seasonal/holiday hours notice', name=name, website=u, text=r['seasonal'])
         if prev.get('hours_hash') and r['hours_hash'] and r['hours_hash'] != prev['hours_hash']:
             flag(u, 'opening hours changed on own site', name=name, website=u, before=prev.get('hours_sample'), now=r['hours_sample'])
-        # (3) closure: clear permanent wording on 2 runs in a row -> removed automatically (overrides/foodbank_closed.json),
-        # unless Dean put the pin on _hold_for_review. Temporary / holiday closures stay flags.
+        # (3) closure: clear permanent wording on 2 runs in a row. Dean 25 Oct 08:20: NEVER removed automatically -
+        # the pin stays with the card note MAY_CLOSED and goes to Dean's pending list (reports/closures_pending.json -> pending_dean.md).
         if r['perm_closed'] and prev.get('perm_closed'):
             ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
             for x in ids_:
-                closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto: own site said permanently closed on 2 runs in a row (scripts/full_check.py %s)' % DAY)
-                remove.add(x)
+                if RULES['remove_confirmed_closures']: closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
+                if x not in closure_pending:
+                    closure_pending[x] = dict(name=name, website=u, url=r['final_url'], evidence=r['perm_closed'], since=DAY)
+                    e = dict(when=NOW.isoformat(), id=x, website=u, name=name, kind='closure', old='on map', new='kept on map with "May have closed" note - waiting for your OK', source=r['final_url'], evidence=r['perm_closed'])
+                    changes.insert(0, e); log.append(e); stats['closures'] += 1
             today['items'].pop('closure pending (confirms next run)|' + u, None)
-            if ids_:
-                e = dict(when=NOW.isoformat(), website=u, name=name, kind='closure', old='on map (%d pins)' % len(ids_), new='removed - own site says closed', source=r['final_url'], evidence=r['perm_closed'])
-                changes.insert(0, e); log.append(e); stats['closures'] += 1
             if len(ids_) < len(by_site[u]): flag(u, 'closure on hold (your hold list)', name=name, website=u, text=r['perm_closed'])
-        elif r['perm_closed']: flag(u, 'closure pending (confirms next run)', name=name, website=u, text=r['perm_closed'], note='removed automatically if the wording is still there next run')
+        elif r['perm_closed']: flag(u, 'closure pending (confirms next run)', name=name, website=u, text=r['perm_closed'], note='if the wording is still there next run the card gets a "May have closed" note and it goes to your pending list (never removed automatically)')
         elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
@@ -294,6 +310,7 @@ def main():
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
     print('full check:', json.dumps(stats))
+    apply_closure_notes(items, closure_pending); wj('closures_pending.json', closure_pending); write_pending_closures(closure_pending)
     if remove:
         items[:] = [i for i in items if i['id'] not in remove]
         for x in remove: acc.pop(x, None)
