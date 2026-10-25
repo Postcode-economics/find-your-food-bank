@@ -125,9 +125,29 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
+_robots_cache = {}
+def _robots_text(url):
+    import robots_check
+    parts = urllib.parse.urlsplit(url)
+    if not parts.scheme or not parts.netloc: return "", "/"
+    base = "%s://%s" % (parts.scheme, parts.netloc)
+    if base not in _robots_cache:
+        try:
+            rb = fetch(base + "/robots.txt")
+            _robots_cache[base] = (rb.get("html") or "") if rb.get("http") == 200 else ""
+        except Exception:
+            _robots_cache[base] = ""
+    return _robots_cache[base], parts.path or "/"
+
 def check_site(url, order=None):
     """Fetch with the methods in `order` (plain, then https for an http URL). Stops at the first that works.
-    The order comes from per-site method memory so a method that healed this site last time is tried first."""
+    The order comes from per-site method memory so a method that healed this site last time is tried first.
+    A robots.txt Disallow skips the fetch. Hours are not guessed, and the place is not removed."""
+    text, path = _robots_text(url)
+    import robots_check
+    if robots_check.blocked(text, path):
+        return {'url': url, 'checked_at': NOW.isoformat(), 'ok': False, 'robots': True, 'http': None,
+                'error': 'not fetched, robots', 'hours_hash': '', 'phones': [], 'hours_sample': [], 'method': None, 'methods_tried': []}
     order = list(order or (['plain', 'https'] if str(url).startswith('http://') else ['plain']))
     home = {'ok': False, 'http': None, 'error': 'not tried'}; used, tried = None, []
     for m in order:
@@ -273,6 +293,10 @@ def main():
     for u in sites:
         r, prev = results[u], state['sites'].get(u, {}); names = sorted({i['foodbank'] for i in by_site[u]}); name = names[0]
         if r.get('ok') is None: stats['skipped'] += 1; continue
+        if r.get('robots'):
+            stats['robots'] = stats.get('robots', 0) + 1; r['fail_runs'] = prev.get('fail_runs', 0)
+            flag(u, 'not fetched, robots', name=name, website=u, note='the site asks us not to read this page. Opening hours were not guessed. The place stays on the map.')
+            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'robots', 'fail_runs')}; continue
         if not r['ok']:
             stats['failed'] += 1; r['fail_runs'] = prev.get('fail_runs', 0) + 1
             for k in ('access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed'): r[k] = prev.get(k)
@@ -346,7 +370,9 @@ def main():
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
         r = results[u]; learning.note_heal(LS, u, r.get('methods_tried') or [], r.get('method'), DAY)
-        learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method=r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+        # a robots block is a completed permission check, not a failed fetch and not a dead link
+        checked = True if r.get('robots') else r.get('ok')
+        learning.record(LS, u, DAY, checked, finds=int(u in found), method=('robots' if r.get('robots') else r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site'), changed=u in {e.get('website') for e in log}, kind='foodbank_site')
     brake = learning.anomaly_brake(LS.get('change_counts') or [], len(log))
     if not brake['stop'] and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
         LS.setdefault('change_counts', []); LS['change_counts'] = (LS['change_counts'] + [{'day': DAY, 'changes': len(log)}])[-30:]
