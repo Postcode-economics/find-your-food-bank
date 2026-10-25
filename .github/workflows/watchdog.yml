@@ -16,3 +16,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py stale 10
+      - name: Check the shown dates match the published data and the live site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py dates
