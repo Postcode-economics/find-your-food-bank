@@ -142,6 +142,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 13. Remember old phones and addresses for 90 days, then drop the text
 
+**Status:** Built. After 90 days the old and new values are dropped. The label, the field and the date stay.
+
 - **Benefit:** The change log stops holding old phone numbers and addresses forever, while the label ("phone changed on this date") remains.
 - **Risk:** After 90 days the morning note cannot show the previous phone. Git history of the data file still can.
 - **Effort:** S.
