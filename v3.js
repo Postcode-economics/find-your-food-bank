@@ -93,8 +93,10 @@ function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0
  pl.innerHTML=`<a href="#${t.id}" class="v3pl">${B(`Showing ${W[0]}: ${n} nearby · see list ↓`,`Yn dangos ${W[1]}: ${n} gerllaw · gweld y rhestr ↓`)}</a>`;flash()}
 function flash(){pl.classList.remove('v3flash');void pl.offsetWidth;pl.classList.add('v3flash');
  ['#list>.lh','#xlist>.lh'].forEach(q=>{const h=document.querySelector(q);if(h){h.classList.remove('v3flash');void h.offsetWidth;h.classList.add('v3flash')}})}  // brief pulse: every update (incl. the same search again or re-tapping the chosen type) is visible
-pl.addEventListener('click',e=>{const a=e.target.closest('a.v3pl');if(!a)return;e.preventDefault();const t=tgt(window.v3focus);if(!t)return;
- const sosE=document.getElementById('v3sos'),h=(window.v3focus==='sh'&&sosE&&!sosE.hidden)?sosE:(t.querySelector('.lh')||t);h.style.scrollMarginTop='12px';h.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+// one shared scroll (Dean 25 Oct): the 'see list' pill, Search/Enter, place picks and Find nearest all land the chosen type's list at the top, no map above it
+function scrollList(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t)return false;const sosE=document.getElementById('v3sos'),h=(k==='sh'&&sosE&&!sosE.hidden)?sosE:(t.querySelector('.lh')||t);h.style.scrollMarginTop='12px';h.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return true}
+window.v3scrollList=scrollList;
+pl.addEventListener('click',e=>{const a=e.target.closest('a.v3pl');if(!a)return;e.preventDefault();if(!tgt(window.v3focus))return;scrollList(window.v3focus);
  const c=t.querySelector('.card a,.card button,.card h3');if(c)setTimeout(()=>{(t.querySelector('.lh')||t).setAttribute('tabindex','-1');(t.querySelector('.lh')||t).focus({preventScroll:true})},400)});
 {const ob=new MutationObserver(()=>{if(LN())pill(window.v3focus)});['list','xlist'].forEach(id=>{const e=document.getElementById(id);if(e)ob.observe(e,{childList:true})})}
 big.addEventListener('click',e=>{const b=e.target.closest('.v3b');if(b)want(b.dataset.l)});

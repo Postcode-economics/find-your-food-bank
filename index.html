@@ -8,7 +8,7 @@
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=sh20261023"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=cb20261025a"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=sh20261023"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=cb20261025b"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -191,7 +191,7 @@ function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.r
  $('list').innerHTML=`<div class="lh">Nearest 5${F.open?' (open today first)':''} to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  window._fitB=L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2);map.fitBounds(window._fitB);msg(note||'');
- const go=window.__go;window.__go=false;const c=document.querySelector('#list .card');if(go&&c){const rt=c.getBoundingClientRect();if(rt.top<0||rt.top>innerHeight*0.8){const y=rt.top+scrollY-Math.round(innerHeight*(innerWidth>=1024?0.2:0.45));scrollTo({top:Math.max(0,y),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}  // UX 22 Oct: scroll only after an explicit search (Search/Enter, place pick, my location); type buttons and restores never move the page
+ const go=window.__go;window.__go=false;const c=document.querySelector('#list .card');if(go&&window.v3scrollList){setTimeout(()=>v3scrollList(window.v3focus),0)}else if(go&&c){const rt=c.getBoundingClientRect();if(rt.top<0||rt.top>innerHeight*0.8){const y=rt.top+scrollY-Math.round(innerHeight*(innerWidth>=1024?0.2:0.45));scrollTo({top:Math.max(0,y),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}  // UX 22 Oct: scroll only after an explicit search (Search/Enter, place pick, my location); type buttons and restores never move the page
  lastQ=label==='your location'?null:lastQ}
 let lastQ=null;const PC=/^[A-Z]{1,2}\d[A-Z\d]?\s*\d?[A-Z]{0,2}$/i;
 // postcodes.io with a 4 s timeout; successful postcode/outcode lookups cached in localStorage (max 200)
@@ -286,5 +286,5 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  // pull down on the tab also restores
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
-</script><script src="layers.js?v=cb20261025a"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=cb20261025a"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
+</script><script src="layers.js?v=cb20261025b"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=cb20261025b"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6a7058ad322d49b481a8849a493add24"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
