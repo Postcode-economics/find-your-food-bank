@@ -112,6 +112,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 10. Label dates in UK time, and leave the clock times alone
 
+**Status:** Built. The morning note names the London time. The cron lines are unchanged.
+
 - **Benefit:** The morning note says which London day and time a run was, so a 4am UTC job in summer is not misread as 4am British Summer Time.
 - **Risk:** Someone "corrects" the GitHub cron into London time and shifts every run. The tests that lock the cron strings have to stay.
 - **Effort:** S.
