@@ -50,9 +50,15 @@ def main():
     api_meta = {}
     try:
         fb, api_meta['foodbanks'] = fb_recheck.fetch_api(API + 'foodbanks/'); loc, api_meta['locations'] = fb_recheck.fetch_api(API + 'locations/')
-    except Exception as e: die('fetch failed: %r' % e)
+    except Exception as e:
+        try: import learning; learning.record_sources(os.path.join(ROOT, 'reports', 'source_health.json'), {'Give Food': False})
+        except Exception: pass
+        die('fetch failed: %r' % e)
     records = {}  # id -> exact source record, hashed per entry by the recheck gate
-    if not isinstance(fb, list) or not isinstance(loc, list): die('unexpected API shape')
+    if not isinstance(fb, list) or not isinstance(loc, list):
+        try: import learning; learning.record_sources(os.path.join(ROOT, 'reports', 'source_health.json'), {'Give Food': False})
+        except Exception: pass
+        die('unexpected API shape')
     fbs = {f['slug']: f for f in fb}
     items = []
     for f in fb:
@@ -126,6 +132,11 @@ def main():
         prev = load_prev_items(); cands = [x for x in prev if x.get('directory') == 'IFAN']; st['kept_from_last_run'] = len(cands)
     disc['sources']['IFAN (foodaidnetwork.org.uk)'] = st
     disc['sources']['Trussell find-a-foodbank'] = directories.trussell()[1]
+    try:
+        import learning
+        learning.record_sources(os.path.join(ROOT, 'reports', 'source_health.json'), {
+            'Give Food': True, 'IFAN': st.get('status') == 'ok' and not st.get('empty_parse')})
+    except Exception: pass
     new_c, dup = discover.dedupe(cands, items); st['already_on_map'] = dup; st['new_candidates'] = len(new_c)
     import discovery_rules as DR  # Dean's auto-add rule (23 Oct 2026): valid in-area postcode, not a duplicate, working source, current
     live = st.get('status') == 'ok'

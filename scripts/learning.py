@@ -189,6 +189,36 @@ def empty_parse(http, extracted, previous, minimum=1):
     except (TypeError, ValueError): return False
     return previous >= minimum
 
+def source_history_update(history, marks, keep=12):
+    """Append one success or failure per source. Older rows are kept, up to `keep`. Places are not touched."""
+    out = {}
+    for name, row in (history or {}).items():
+        if isinstance(row, list): out[name] = [x for x in row if isinstance(x, bool)][-keep:]
+    for name, ok in (marks or {}).items():
+        if not name: continue
+        out[name] = (out.get(name) or []) + [bool(ok)]
+        out[name] = out[name][-keep:]
+    return out
+
+def sources_gone(history, need=3):
+    """Sources whose last `need` recorded runs all failed. Fewer than `need` runs: not flagged.
+    This is a flag only. It does not remove a place."""
+    gone = []
+    for name in sorted(history or {}):
+        row = [x for x in (history.get(name) or []) if isinstance(x, bool)]
+        if len(row) >= need and not any(row[-need:]): gone.append(name)
+    return gone
+
+def record_sources(path, marks, keep=12):
+    """Update the source-health file. A missing file starts empty. Nothing is invented."""
+    try: cur = json.load(open(path))
+    except Exception: cur = {}
+    if not isinstance(cur, dict): cur = {}
+    nxt = source_history_update(cur, marks, keep)
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"; json.dump(nxt, open(tmp, "w"), indent=0, sort_keys=True); os.replace(tmp, path)
+    return nxt
+
 def anomaly_brake(history, proposed):
     """Stop when this run would change many more places than recent runs.
     Fewer than four recorded runs: do not stop (there is no baseline to compare with, and none is invented).

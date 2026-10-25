@@ -286,6 +286,12 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         except Exception as ex: return ("fail", u, str(ex)[:80])
     with cf.ThreadPoolExecutor(16) as ex: R = list(ex.map(one, jobs))
     fails = [r for r in R if r[0] == "fail"]; cands = [e for r in R if r[0] == "ok" for e in r[2]]
+    if write and sources is None and jobs:
+        marks = {}
+        for (u, name, *_rest), r in zip(jobs, R):
+            marks[name] = marks.get(name, False) or r[0] == "ok"
+        try: learning.record_sources(os.path.join(os.path.dirname(HERE), "reports", "source_health.json"), marks)
+        except Exception: pass
     report = {"run": d, "pages": len(jobs), "failed": len(fails), "errors": errors[:200] + [[f[1], f[2]] for f in fails][:300], "added": [], "pending": [], "status": "ok"}
     if jobs and len(fails) / len(jobs) > MAX_FAIL_RATE:
         report["status"] = f"ABORTED: {len(fails)}/{len(jobs)} pages failed (> {MAX_FAIL_RATE:.0%}); nothing written"
