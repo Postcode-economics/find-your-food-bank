@@ -32,6 +32,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 2. Watch for a whole source disappearing
 
+**Status:** Built. A flag after three failed runs. Places stay on the map.
+
 - **Benefit:** If Give Food, IFAN, or a council directory stops answering, Dean hears "this source is gone" instead of a slow drip of single dead links.
 - **Risk:** A short outage is mistaken for a permanent loss and the morning note nags.
 - **Effort:** S.
