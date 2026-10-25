@@ -238,6 +238,20 @@ def write_shelter_review(items, d, pd=None):
     prev = _re.sub(r"(?s)\n*<!-- sweep shelters -->.*?<!-- /sweep shelters -->\n*", "\n", prev).rstrip("\n")
     os.makedirs(os.path.dirname(pd), exist_ok=True)
     open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+def _weather_boosts(jobs):
+    """Councils named by the last weather report move up. Missing file: no change to order. Schedule is untouched."""
+    try:
+        import learning_signals, weather as WX
+        named = learning_signals.council_boosts()
+    except Exception:
+        return {}
+    out = {}
+    for job in jobs:
+        u, name = job[0], job[1]
+        for area, b in (named or {}).items():
+            if name == area or WX.hits(area, name) or WX.hits(name, area):
+                out[u] = max(out.get(u, 0.0), float(b))
+    return out
 def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     d = today().isoformat()
     S = sources or json.load(open(os.path.join(HERE, "sweep_sources.json")))
@@ -256,6 +270,8 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     # weekly floor); productive pages go first. Only order/selection - the discovery rules and guards below are unchanged.
     LS = learning.load() if (write and sources is None) else learning.load(os.devnull)
     order, resting_urls, _ = learning.plan(LS, [j[0] for j in jobs], d)
+    wb = _weather_boosts(jobs)
+    if wb: order, _, _ = learning.plan(LS, order, d, boosts=wb)  # weather only reorders this run
     pos = {u: n for n, u in enumerate(order)}; jobs = sorted((j for j in jobs if j[0] in pos), key=lambda j: pos[j[0]])
     def one(j):
         u, name, hint, auto, parser, sect = j
