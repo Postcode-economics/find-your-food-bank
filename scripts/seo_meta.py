@@ -95,6 +95,20 @@ def put_chk(s, t, rel):
     js = '<!--mapchkjs--><script src="/stamp.js?v=r%s"></script>%s<!--/mapchkjs-->' % (t.strftime('%Y%m%dT%H%M'), CHK_JS)
     return s.replace('</body>', js + '</body>', 1)
 
+def swep_counts(root=ROOT):
+    """Dean 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited)."""
+    try:
+        src = json.load(open(os.path.join(root, 'overrides', 'swep_sources.json')))
+        st = json.load(open(os.path.join(root, 'logs', 'swep_status.json')))
+        return {'swep-councils': len({x.get('council') for x in src if isinstance(x, dict) and x.get('council')}), 'swep-pages': st['sources'] if isinstance(st.get('sources'), int) else len(st.get('sources') or [])}
+    except Exception:
+        return {}
+
+def put_counts(s, n):
+    for k, v in n.items():
+        s = re.sub(r'(<span data-n="%s">)[^<]*(</span>)' % re.escape(k), lambda m: m.group(1) + format(v, ',') + m.group(2), s)
+    return s
+
 def run(root=ROOT):
     t = stamp(root); iso = t.isoformat(timespec='seconds'); day = t.date().isoformat()
     ps = pages(root)
@@ -107,6 +121,7 @@ def run(root=ROOT):
             s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s at %s' % ('on %d %s' % (t.day, t.strftime('%B')), t.strftime('%H:%M')) + m.group(2), s)
+        if rel == 'faq.html': s = put_counts(s, swep_counts(root))
         if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/', 'shelters/')) and rel.count('/') == 2:
             s = put_chk(s, t, rel)
         if rel == 'faq.html':
