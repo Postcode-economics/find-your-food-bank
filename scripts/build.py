@@ -2,6 +2,8 @@
 """Rebuild data.js from the Give Food API. Stdlib only. Fails safe: data.js is
 only replaced if the fetch succeeds and the entry count is >= 80% of the current one."""
 import json, math, os, sys, urllib.request, datetime
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'foodbank-map-refresh (github actions)'}

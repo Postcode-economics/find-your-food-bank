@@ -10,6 +10,8 @@
 Output: logs/times_finder.json (proposals + reasons). With --apply, proposals are added to
 overrides/opening_times.json ONLY when strict (see decide()); all else -> reports/pending_dean.md; the normal refresh then re-confirms them on the own site every run (cross_check_times)."""
 import json, os, re, sys, time, threading, subprocess, tempfile, urllib.parse, datetime, collections, concurrent.futures as cf
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 import trussell_times as TT
 import discover as D

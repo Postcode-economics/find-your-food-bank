@@ -8,6 +8,8 @@ Nothing is lost silently: every restore is listed in reports/refresh_guard_<laye
 and (in CI, with GH_TOKEN) a 'refresh-alert' issue is opened. Never fails the job; the restored file is published.
 Usage: refresh_guard.py foodbanks|shelters|warmspaces [baseline-git-ref, default HEAD]"""
 import datetime, json, os, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 FILES = {'foodbanks': 'data.full.js', 'shelters': 'shelters.js', 'warmspaces': 'warmspaces.js'}
 

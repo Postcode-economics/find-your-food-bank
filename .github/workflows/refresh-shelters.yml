@@ -55,7 +55,7 @@ jobs:
         run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
-          git add stamp.js index.html faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md
+          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md
           # district_cache.json is rewritten by build_seo.py; left unstaged it made 'git pull --rebase' refuse (07:41 + 19:44 23 Oct)
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
@@ -67,7 +67,7 @@ jobs:
             if git pull --rebase -X theirs; then
               python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
-              git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
+              git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
               git add reports/new_today.md reports/manual_review.md
               git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"
               if git push; then exit 0; fi
@@ -79,7 +79,7 @@ jobs:
               if GIT_EDITOR=true git rebase --continue; then
                 python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
-              git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
+              git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
                 git add reports/new_today.md reports/manual_review.md
                 git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"
                 if git push; then exit 0; fi

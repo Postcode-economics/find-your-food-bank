@@ -177,3 +177,4 @@ def run(root=ROOT):
 
 if __name__ == '__main__':
     run()
+    import sw_version; sw_version.sync()  # version.json + index build meta from sw.js (single source)

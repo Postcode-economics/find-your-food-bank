@@ -1,6 +1,8 @@
 """Shelters layer scraper. Separate from food banks (data.js) and warm spaces.
 Writes shelters.js and logs/shelters_log.json. Never invents data: every entry comes from a source record."""
 import json, sys, os, urllib.parse
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
 RUN = today()
