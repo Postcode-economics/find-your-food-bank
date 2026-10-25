@@ -42,7 +42,7 @@ It **never decides what is published**.
 | - | Per-host crawl timing: failure rate per host (and latency where recorded); hard-to-reach hosts are spread out, never dropped | `crawl_timing()` + `full_check.py` per-host pause | Built 25 Oct |
 | 7 | Weekly self-review: did the places each signal moved up produce more finds than the rest? Each weight moves ±10% within the bounds | `self_review()`, `weights()` (Sundays) | Built 25 Oct (needs 1 week of data) |
 | - | Weekly accuracy trend: share of sites reachable, phone agreement, hand corrections | `trend`, `weekly()` | Built 25 Oct |
-| - | "What the system learned" in the morning digest | `learning.digest_lines()` + `learning_signals.digest_lines()` in `scripts/digest.py` | Core live; signals section in this batch |
+| 21 | "What the system learned" in the morning digest, written in plain sentences. Same facts; no new decision | `learning.digest_lines()` + `learning_signals.digest_lines()` in `scripts/digest.py` | **Live** (25 Oct) |
 | 6 | Discovery of new places, last | existing discovery (`build.py`, `sweep_daily.py`) feeds the publish gate | Every add is held for Dean's OK (`approved_new_places.json`); a dedicated "found by learning" queue is still to do |
 
 ## How it runs
