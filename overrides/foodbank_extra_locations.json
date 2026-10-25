@@ -89,5 +89,55 @@
     ]
    }
   }
+ },
+ "first-base-dumfriesshire/dalbeattie-customer-services": {
+  "parent": "first-base-dumfriesshire",
+  "name": "Dalbeattie Customer Services",
+  "address": "Dalbeattie Library Customer Service Centre, High Street, Dalbeattie, DG5 4AD",
+  "postcode": "DG5 4AD",
+  "lat": 54.932771,
+  "lng": -3.821805,
+  "evidence": "First Base 'Get Help Now' page lists Dalbeattie Customer Services as an emergency parcel pick-up point (hours as listed there); address from Dumfries and Galloway Council's DG Customer Services – Dalbeattie page. Checked 25 Oct 2026.",
+  "evidence_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "address_source": "https://www.dumfriesandgalloway.gov.uk/contact-us/find-customer-service-centre/dg-customer-services-dalbeattie",
+  "opening_times": {
+   "checked_date": "2026-10-25",
+   "raw": null,
+   "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "tue": [
+     [
+      "09:00",
+      "12:00"
+     ]
+    ],
+    "wed": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "thu": [
+     [
+      "13:00",
+      "18:00"
+     ]
+    ],
+    "fri": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ]
+   },
+   "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+  }
  }
 }

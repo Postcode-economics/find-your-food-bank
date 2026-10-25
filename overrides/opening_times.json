@@ -7603,11 +7603,43 @@
   "structured": null
  },
  "first-base-dumfriesshire": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday: 12:00 – 14:00 | Tuesday: 12:00 – 14:00 | Wednesday: 12:00 – 14:00 | Thursday: 12:00 – 14:00 | Friday: 12:00 – 14:00",
-  "source_url": "https://www.firstbasedumfries.co.uk/foodbank-service/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
  },
  "flintshire": {
   "checked_date": "2026-10-20",
@@ -24989,5 +25021,413 @@
   },
   "reader": "hand-set 2026-10-24 (Dean; church calendar, temporary venue)",
   "protected": true
+ },
+ "first-base-dumfriesshire/citizens-advice-castle-douglas": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/kelloholm-library-sanquhar": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "14:00",
+     "19:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/sanquhar-library-sanquhar": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "fri": [
+    [
+     "14:00",
+     "19:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/clarks-little-ark": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/thornhill-library": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "14:00",
+     "18:00"
+    ]
+   ],
+   "fri": [
+    [
+     "14:00",
+     "19:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/citizens-advice-annan": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/kates-kitchen": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/social-work-department-annan": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/gretna-library": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "14:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "fri": [
+    [
+     "11:00",
+     "17:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/lockerbie-library": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "14:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "fri": [
+    [
+     "11:00",
+     "17:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/moffat-library": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "19:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "sat": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "first-base-dumfriesshire/langholm-library": {
+  "checked_date": "2026-10-25",
+  "raw": null,
+  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "14:00",
+     "19:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "18:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
  }
 }
