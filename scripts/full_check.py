@@ -277,6 +277,9 @@ def main():
             if r['fail_runs'] >= 2: flag(u, 'dead or unreachable website', name=name, website=u, error=r['error'], failed_runs=r['fail_runs'], phone=by_site[u][0].get('phone'), note='site failed %d runs in a row - check contact details' % r['fail_runs'])
             state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
         stats['ok'] += 1; r['fail_runs'] = 0; stats[r['access']] += 1
+        got = (1 if r.get('hours_hash') else 0) + len(r.get('phones') or [])
+        had = ((1 if prev.get('hours_hash') else 0) + len(prev.get('phones') or [])) if prev.get('checked_at') else None
+        r['empty_parse'] = bool(learning.empty_parse(r.get('http'), got, had))
         # (1) access - per pin, against access.js (hand-read CSVs + earlier auto flips). A flip needs the
         # same clear own-site result on 2 runs in a row; unclear never changes anything (= walk-ins welcome).
         curs = {i['id']: acc.get(i['id'], 'unconfirmed') for i in by_site[u] if i['id'] in acc}
@@ -332,7 +335,7 @@ def main():
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse')}
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest

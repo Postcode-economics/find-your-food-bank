@@ -2,7 +2,7 @@
 
 Owner: Dean. Written 25 October 2026, after the 14 sweep upgrades.
 
-**Proposals only.** Nothing in this note is switched on, and nothing here should be built from this file alone. Each item needs its own yes before any code.
+**Status:** items 1–20 were approved and are being built one at a time. Item 21 and the "Recommend no" list are not approved and stay off.
 
 ## Hard rules that still apply
 
@@ -21,6 +21,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 ## Recommend yes
 
 ### 1. Notice when a page answers but the parser finds nothing
+
+**Status:** Built. A flag and a higher place in the existing queue. The place stays on the map.
 
 - **Benefit:** A site that still returns HTTP 200, but whose parser suddenly extracts no records, is flagged before weeks of silent empty checks.
 - **Risk:** A genuinely empty week (a council page between seasons) looks like a broken parser and moves that site up the queue.
