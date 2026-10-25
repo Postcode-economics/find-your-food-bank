@@ -1,10 +1,13 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // map tiles (any provider in tiles.js) cache-first, bounded to the 300 most recent.
-const C='fyfb-v83',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=cb20261025d','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=cb20261025d','v3.css','v3.css?v=cb20261025d','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','tiles.js','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
+const C='fyfb-v84',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=cb20261025d','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=cb20261025d','v3.css','v3.css?v=cb20261025d','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','tiles.js','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==T).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
+// Self-heal (25 Oct 2026, Instagram in-app browser kept the old layout): on activate, drop old caches, take control and reload open map
+// pages once, so a page served by an old worker/cached HTML comes back as the current build. Navigation always revalidates (no-cache).
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>{const old=k.filter(x=>x!==C&&x!==T);return Promise.all(old.map(x=>caches.delete(x))).then(()=>old.length)})
+ .then(n=>self.clients.claim().then(()=>n?self.clients.matchAll({type:'window'}).then(cs=>Promise.all(cs.map(c=>{try{return c.navigate(c.url)}catch(_){}}))):0)))});
 const tell=()=>self.clients.matchAll().then(cs=>cs.forEach(c=>c.postMessage('offline')));
 let trimming=false;const trim=c=>{if(trimming)return;trimming=true;c.keys().then(k=>Promise.all(k.slice(0,Math.max(0,k.length-TMAX)).map(r=>c.delete(r)))).finally(()=>{trimming=false})};
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
@@ -13,11 +16,11 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
- if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
+ if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
    e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
- if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
+ if(e.request.mode==='navigate'){e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
  e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
    if(hit){e.waitUntil(net.catch(()=>{}));return hit}
    return net.catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||Response.error()})}))});
