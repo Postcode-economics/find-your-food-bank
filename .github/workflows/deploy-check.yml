@@ -34,8 +34,13 @@ jobs:
         if: failure() && github.event_name == 'push'
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |
+          set -euo pipefail   # 25 Oct: '&&' chains hid a failed pull (test logs left the tree dirty) and the step still passed
           git config user.name "helpmap-bot"; git config user.email "hello@helpmap.uk"
-          git pull --rebase origin main && bash scripts/revert_site.sh ${{ github.sha }} && git push origin HEAD:main
+          git reset -q --hard && git clean -fdq   # drop logs/reports the checks wrote
+          git pull --rebase origin main
+          bash scripts/revert_site.sh ${{ github.sha }}
+          git push origin HEAD:main
+          git log -1 --format=%s | grep -q "^Auto-revert" || { echo "::error::revert commit not created"; exit 1; }
           python scripts/alert.py open old-links "Live old-links check failed - deploy reverted" "Commit ${{ github.sha }} failed; see run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Alert (daily check)
         if: failure() && github.event_name != 'push'

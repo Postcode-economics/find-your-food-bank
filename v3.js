@@ -138,9 +138,7 @@ document.getElementById('v3light').onclick=()=>setP('v3light','light',!document.
 setP('v3list','nomap',pref('nomap'));
 {let m=null;try{m=localStorage.getItem('light')}catch(e){}
  if(m==='1'||m==='0')setP('v3light','light',m==='1');
- else{const sysL=matchMedia('(prefers-color-scheme: light)').matches,sysD=matchMedia('(prefers-color-scheme: dark)').matches,h=ukH(),night=h>=19||h<7;
-  const L_=sysL?true:sysD?false:!night&&false;// no system preference: app default (dark); at night always dark
-  document.documentElement.classList.toggle('light',L_);document.getElementById('v3light').setAttribute('aria-pressed',String(L_))}}
+ else{/* Dean 25 Oct 17:05: first visit (no saved choice) is always DARK, whatever the phone setting */document.documentElement.classList.remove('light');document.getElementById('v3light').setAttribute('aria-pressed','false')}}
 // ---- share / text this address
 document.addEventListener('click',async e=>{const b=e.target.closest('.v3share');if(!b)return;const txt=`${b.dataset.n}, ${b.dataset.a}. https://www.google.com/maps/dir/?api=1&destination=${b.dataset.ll}&travelmode=walking`;
  if(navigator.share){try{await navigator.share({title:b.dataset.n,text:txt});return}catch(err){if(err&&err.name==='AbortError')return}}

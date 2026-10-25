@@ -12,6 +12,9 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OLD_COMMITS = {'3dc505a65': True, '384b862f1': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
 IG = ('Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 '
       'Instagram 330.0.0.0 (iPhone14,5; iOS 17_4; en_GB; en-GB; scale=3.00; 1170x2532; 600000000) helpmap-check')
+IGA = ('Mozilla/5.0 (Linux; Android 14; SM-S911B Build/UP1A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0.6668.100 '
+       'Mobile Safari/537.36 Instagram 352.0.0.38.100 Android (34/14; 450dpi; 1080x2340; samsung; SM-S911B; dm1q; qcom; en_GB; 600000000) helpmap-check')
+UAS = (IG, IGA)   # Dean 25 Oct 18:55: broken old link was opened from Instagram's in-app browser - test iOS and Android IG WebViews
 CHROME = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
 
 def snapshot(commit):
@@ -45,10 +48,10 @@ def run(base=None):
                 f = os.path.join(old, path.lstrip('/')); f = os.path.join(f, 'index.html') if os.path.isdir(f) else f
                 if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
-            for link in links():
-                c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, has_touch=True, is_mobile=True)
+            for link, ua in [(l, u) for l in links() for u in UAS]:
+                c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True)
                 c.route('**/*', serve_old); pg = c.new_page(); errs = []
-                r = dict(old=commit, link=link)
+                r = dict(old=commit, link=link, ua='ios' if ua is IG else 'android')
                 try:
                     for _ in range(2):   # install the old release (its own worker may reload the page itself: tolerate aborts)
                         try: pg.goto(base + '/?nocount', wait_until='load', timeout=30000)
@@ -71,7 +74,7 @@ def run(base=None):
                     if errs: r['ok'] = False; r['why'] += ', errors: ' + '; '.join(errs[:2])
                 except Exception as e:
                     r.update(ok=False, why='page hung or failed: %s' % str(e)[:150])
-                res.append(r); print('PASS' if r['ok'] else 'FAIL', commit, link, r['why'], flush=True); c.close()
+                res.append(r); print('PASS' if r['ok'] else 'FAIL', commit, r['ua'], link, r['why'], flush=True); c.close()
         b.close()
     if srv: srv.shutdown()
     bad = [r for r in res if not r['ok']]
