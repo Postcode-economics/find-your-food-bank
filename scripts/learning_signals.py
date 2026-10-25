@@ -25,7 +25,7 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8, 'stale_area': 0.4, 'forecast': 0.4, 'conflict': 0.5, 'weather': 0.6}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8, 'stale_area': 0.4, 'forecast': 0.4, 'conflict': 0.5, 'weather': 0.6, 'empty_parse': 0.5}
 COLD_WORDS = ('snow', 'ice', 'cold', 'freezing', 'frost', 'blizzard')
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
@@ -284,6 +284,13 @@ def demand_forecast(items, today):
         notes.append('school holidays: %s (%s)' % ('in force' if hit else 'none today', src))
     return per, ' '.join(notes)
 
+def empty_parses(state):
+    """Sites whose own page answered HTTP 200 but the parser found nothing, after a run that had found records.
+    The flag moves them up the next check. It does not remove them. No such site: no effect."""
+    sites = {u: 1.0 for u, s in (state.get('sites') or {}).items() if s.get('empty_parse')}
+    if not sites: return {}, 'no page answered with an empty parser result - no effect'
+    return sites, '%d sites answered but the parser found nothing, after a run that had found records' % len(sites)
+
 def weather_priority(items):
     """Councils named in reports/weather.json (written by scripts/weather.py) move up the next run.
     No weather file, or a warning with no area: no effect. Areas are not guessed."""
@@ -358,6 +365,7 @@ def build(today=None):
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
     stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
     wx_sites, wx_councils, wx_note = weather_priority(items)
+    empty_sites, empty_note = empty_parses(state)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     grades = accuracy_grades(LS, prev, today) if sunday else {}
@@ -389,6 +397,7 @@ def build(today=None):
         if forecast.get(u): parts['forecast'] = W['forecast'] * forecast[u]
         if u in conflicted: parts['conflict'] = W['conflict']
         if wx_sites.get(u): parts['weather'] = W['weather'] * wx_sites[u]
+        if empty_sites.get(u): parts['empty_parse'] = W['empty_parse'] * empty_sites[u]
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -402,7 +411,8 @@ def build(today=None):
                signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
-               forecast_note=forecast_note, weather_note=wx_note, council_boost={k: round(W['weather'] * v, 3) for k, v in wx_councils.items()},
+               forecast_note=forecast_note, weather_note=wx_note, empty_note=empty_note,
+               council_boost={k: round(W['weather'] * v, 3) for k, v in wx_councils.items()},
                conflicts=rows, accuracy=grades,
                healed=sorted(k for k, e in (LS.get('keys') or {}).items() if e.get('healed_to'))[:40],
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
@@ -445,6 +455,7 @@ def digest_lines(out, full=False):
     L.append('- Areas whose last check is older than the others: ' + (out.get('stale_note') or ''))
     L.append('- Cold snaps, benefit payment dates and school holidays: ' + (out.get('forecast_note') or ''))
     L.append('- Weather warnings: ' + (out.get('weather_note') or ''))
+    L.append('- Pages that answered but the parser found nothing: ' + (out.get('empty_note') or 'no effect'))
     L.append('- Sources disagree on %d places. Nothing was picked; they are flagged for Dean.' % len(out.get('conflicts') or []))
     L.append('- Fetches that switched to a method which had already worked for that site: %d' % len(out.get('healed') or []))
     slow = sorted((out.get('hosts') or {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
