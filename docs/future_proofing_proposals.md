@@ -172,6 +172,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 16. A monthly drill of the anomaly brake, on a copy
 
+**Status:** Built. On the first day of the month the brake is tried against a copy. The spike is not added to the real counts, `reports/anomaly_brake.md` is not written, and nothing is published.
+
 - **Benefit:** Once a month we prove the brake would still stop a run that tried to change far more places than usual, without waiting for a real accident.
 - **Risk:** The drill writes the real `reports/anomaly_brake.md` or the real learning state. It must use a temporary copy and publish nothing.
 - **Effort:** M.
