@@ -152,6 +152,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 14. Treat a robots.txt disallow as a result, not as a hint to guess
 
+**Status:** Built. A disallowed page is not fetched. Hours are not guessed. The place stays on the map and is not counted as a dead link.
+
 - **Benefit:** When a site's robots.txt disallows the page, that fact is recorded, the own-site fetch is skipped, and opening hours are not guessed from a page we were asked not to read.
 - **Risk:** A very broad disallow stops a useful check. Dean is told, and another method that is allowed can still run. The place is not deleted.
 - **Effort:** M.
