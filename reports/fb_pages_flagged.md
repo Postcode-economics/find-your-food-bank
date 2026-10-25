@@ -1,6 +1,6 @@
 # Facebook pages flagged for Dean
 
-Run 2026-10-24. 53 pages checked; 43 flagged. Nothing was removed from the map.
+Run 2026-10-25. 53 pages checked; 45 flagged. Nothing was removed from the map.
 
 - `amble` **changed**: https://www.facebook.com/Amblefoodbank/ (baseline 'Amble Food Bank', now 'Facebook', HTTP 200)
 - `birchgrove-community` **changed**: https://www.facebook.com/birchgrovecommunityfoodbank/ (baseline 'Birchgrove Community Foodbank | Swansea', now 'Facebook', HTTP 200)
@@ -31,6 +31,7 @@ Run 2026-10-24. 53 pages checked; 43 flagged. Nothing was removed from the map.
 - `ifan-e0054aa041ea174c4f6921-0` **changed**: https://www.facebook.com/lifeafterhummus (baseline 'Lifeafterhummus Community Benefit Society | London', now 'Facebook', HTTP 200)
 - `ignite-life` **changed**: https://www.facebook.com/IgniteLifeUK (baseline 'Ignite Life UK | Bristol', now 'Facebook', HTTP 200)
 - `islay` **changed**: https://www.facebook.com/islayfoodbank (baseline 'Islay Food Bank', now 'Facebook', HTTP 200)
+- `kirriemuir` **changed**: https://www.facebook.com/kirriefoodhub/ (baseline 'Kirriemuir Food Hub', now 'Facebook', HTTP 200)
 - `llandysul` **changed**: https://www.facebook.com/BancBwydLlandysul/ (baseline 'Banc Bwyd Llandysul Food Bank', now 'Facebook', HTTP 200)
 - `melksham` **changed**: https://www.facebook.com/profile.php?id=61583973532045 (baseline 'Melksham Food Bank & Lifeline CIO', now 'Facebook', HTTP 200)
 - `miners-lamp` **changed**: https://www.facebook.com/minerslampcafe (baseline 'Miners Lamp Cafe and Community Hub | Prudhoe', now 'Facebook', HTTP 200)
@@ -45,3 +46,4 @@ Run 2026-10-24. 53 pages checked; 43 flagged. Nothing was removed from the map.
 - `southend/westcliff` **changed**: https://www.facebook.com/southendfoodbank (baseline 'Southend Foodbank', now 'Facebook', HTTP 200)
 - `still-good` **changed**: https://www.facebook.com/Best-Before-Project-Bury-St-Edmunds-1044405312332973 (baseline 'Still Good Food | Bury St. Edmunds', now 'Facebook', HTTP 200)
 - `still-good/freedom-church` **changed**: https://www.facebook.com/Best-Before-Project-Bury-St-Edmunds-1044405312332973 (baseline 'Still Good Food | Bury St. Edmunds', now 'Facebook', HTTP 200)
+- `west-ardsley` **changed**: https://www.facebook.com/WAMCCommunity (baseline 'West Ardsley Methodist Church', now 'Facebook', HTTP 200)
