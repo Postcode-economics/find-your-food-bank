@@ -102,6 +102,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 9. Replay from the fields we already extracted, not from saved HTML
 
+**Status:** Built. A replay case keeps the URL, HTTP status, hours hash, phones, access and ok flag. Page text is refused.
+
 - **Benefit:** A future bug can be re-run against the hours hash, the phone list, and the HTTP status we stored, without keeping page text for years.
 - **Risk:** Saving full HTML would keep names, phones and addresses we do not need. This proposal refuses that.
 - **Effort:** L.
