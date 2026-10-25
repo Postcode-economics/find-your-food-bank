@@ -25,7 +25,7 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4}
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -98,6 +98,41 @@ def demand(items):
         if v and i.get('website'): out[i['website'].strip()] = round(math.log1p(v) / math.log1p(mx), 3)
     return out, 'from reports/demand.json (%d areas/places)' % len(d)
 
+def dean_effect(kind):
+    """What learning from Dean's past decisions is allowed to do.
+    He is asked every time. The only things kept are queue priority and his wording. Nothing is published."""
+    return {'ask': True, 'learns': 'priority_or_wording', 'publishes': False, 'kind': kind}
+
+def dean_learning(items):
+    """Hand decisions (phones, notices, manual closures, places he has already OK'd).
+    Same-host places move up the queue. His wording is remembered and never copied onto another place.
+    A past yes is not a yes for the next place."""
+    phones = {k: v for k, v in rj('overrides/phones.json', {}).items() if not str(k).startswith('_')}
+    notices = {k: v for k, v in rj('overrides/foodbank_notices.json', {}).items() if not str(k).startswith('_')}
+    closed = {k for k, v in rj('overrides/foodbank_closed.json', {}).items()
+              if not str(k).startswith('_') and isinstance(v, dict) and 'auto' not in str(v.get('confirmed', ''))[:5]}
+    approved = {k for k in rj('overrides/foodbank_approved_new.json', {}) if not str(k).startswith('_')}
+    approved |= {k for k in rj('overrides/foodbank_added.json', {}) if not str(k).startswith('_')}
+    for layer, ids in rj('overrides/approved_new_places.json', {}).items():
+        if str(layer).startswith('_') or not isinstance(ids, dict): continue
+        approved |= set(ids)
+    by = {i['id']: i for i in items}; wording = {}; hosts = set()
+    for pid, text in phones.items():
+        if isinstance(text, str) and text.strip():
+            wording[pid] = {'field': 'phone', 'text': text.strip(), 'from': 'overrides/phones.json'}
+    for pid, v in notices.items():
+        if isinstance(v, dict) and (v.get('notice') or '').strip():
+            wording[pid] = {'field': 'notice', 'text': v['notice'].strip(), 'from': 'overrides/foodbank_notices.json'}
+    for pid in set(phones) | set(notices) | closed | approved:
+        it = by.get(pid)
+        if not it: continue
+        h = host(it.get('website'))
+        if h: hosts.add(h)
+    sites = {(i.get('website') or '').strip() for i in items if host(i.get('website')) in hosts}
+    sites.discard('')
+    note = 'remembers priority and wording only; Dean is still asked every time (%d sites)' % len(sites) if sites else 'no hand decisions to learn from yet - no effect'
+    return sites, wording, note
+
 def visitor(items):
     v = {k: x for k, x in rj('overrides/visitor_reports.json', {}).items() if not k.startswith('_')}
     by = {i['id']: (i.get('website') or '').strip() for i in items}
@@ -135,6 +170,7 @@ def build(today=None):
     state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
+    dean_sites, dean_wording, dean_note = dean_learning(items)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     stored = prev.get('weights') or {}
@@ -156,6 +192,7 @@ def build(today=None):
         if vis.get(u): parts['visitor'] = W['visitor'] * min(vis[u], 3) / 3
         rf = learning.rhythm_factor(LS.get('keys', {}).get(u) or {}, today.isoformat())
         if rf: parts['rhythm'] = W['rhythm'] * rf
+        if u in dean_sites: parts['dean'] = W['dean']  # priority only; publishing still asks Dean
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -168,13 +205,15 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
+               dean_wording=dean_wording, dean_note=dean_note,
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
 def write(out):
     tmp = OUT + '.tmp'; json.dump(out, open(tmp, 'w', encoding='utf-8'), indent=0, sort_keys=True); os.replace(tmp, OUT)
     open(MD, 'w', encoding='utf-8').write('\n'.join(digest_lines(out, full=True)) + '\n')
-    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), {'signal_weights': out.get('weights')}); learning.save(s, learning.STATE)
+    extra = {'signal_weights': out.get('weights'), 'dean_wording': out.get('dean_wording') or {}}
+    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), extra); learning.save(s, learning.STATE)
 
 def weekly(trend):
     """Average per ISO week of the daily accuracy points."""
@@ -193,6 +232,7 @@ def digest_lines(out, full=False):
         len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor', 'rhythm'))))
     L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
     L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
+    L.append("- Dean's past decisions: " + out.get('dean_note', 'no hand decisions to learn from yet - no effect'))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
