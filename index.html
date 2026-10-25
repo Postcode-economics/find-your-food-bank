@@ -252,7 +252,7 @@ QI.addEventListener('keydown',e=>{if(AC.hidden)return;const n=acItems.length;
  else if(e.key==='Enter'&&acI>=0){e.preventDefault();acPick(acI)}else if(e.key==='Escape'){e.preventDefault();acSeq++;acHide()}});
 QI.addEventListener('blur',()=>setTimeout(acHide,150));
 $('f').addEventListener('submit',()=>{clearTimeout(acT);acSeq++;acHide()},true);$('me').addEventListener('click',()=>{acSeq++;acHide()});
-$('f').onsubmit=e=>{e.preventDefault();$('q').blur();window.__go=true;search($('q').value)};
+$('f').onsubmit=e=>{e.preventDefault();$('q').blur();window.__go=true;{const k=window.v3focus;window.__nearK=(k==='sh'||k==='ws')?k:null}search($('q').value)};  // Dean 25 Oct: Search/Enter with Warm spaces or Shelters selected lands on that list, like Find nearest
 $('me').onclick=()=>{if(!navigator.geolocation)return msg('Location isn’t available on this device. Enter a postcode instead.',true);msg('Finding you…');
  navigator.geolocation.getCurrentPosition(p=>{window.__go=true;nearest(p.coords.latitude,p.coords.longitude,'your location')},
   err=>msg(err.code===1?'No problem, location is off. Type a postcode instead and we’ll find the nearest food banks.':'Couldn’t get your location. Type a postcode instead.',true),{enableHighAccuracy:true,timeout:10000})};
