@@ -91,7 +91,7 @@ def card_sh(i):
     hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
-    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
             % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone')), web, sh_contact(i), ref, hrs))
 
 def ws_fallback(i):
@@ -120,9 +120,9 @@ def card_fb(i, acc):
     a = acc.get(i['id'], 'unconfirmed')
     tag = ('<div class="tag v">Foodbank voucher needed – no walk-ins without a referral</div>' if a == 'voucher'
            else '<div class="tag">Food bank – get food here</div>')
-    extra = '<div class="sub">Walk-in not confirmed – call ahead</div>' if a == 'unconfirmed' else ''
+    extra = '<div class="sub">Walk-in not confirmed – call before you go</div>' if a == 'unconfirmed' else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
-    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s<div class="sub">Times change, call ahead.</div></li>'
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s<div class="sub">Times change, call before you go.</div></li>'
             % (E(i['name']), tag, extra, E(i.get('address')), phone_html(i.get('phone')) + ws_fallback(i), hours_fb(i), web))
 
 def card_ws(i):
@@ -137,9 +137,18 @@ def card_ws(i):
     ref = ''
     if i.get('booking') and i['booking'] != 'Not stated': ref += '<div class="ref"><b>%s</b></div>' % E(i['booking'])
     if 'referr' in (i.get('notes') or '').lower(): ref += '<div class="ref"><b>Referral:</b> %s</div>' % E(i['notes'])
-    hrs = '<div class="sub">Times unknown – call first</div>' if i.get('call_check') else hours_ws(i)
-    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s<div class="sub">Times change, call ahead.</div></li>'
+    hrs = '<div class="sub">Times unknown – call before you go</div>' if i.get('call_check') else hours_ws(i)
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
             % (E(i['name']), tag, opens, E(i.get('address')), phone_html(i.get('phone')), hrs, ref, web))
+
+SH_CREDIT = ''
+SH_SRC = [('homeless.org.uk', 'Homeless Link', 'https://homeless.org.uk/homeless-england/'), ('openstreetmap.org', 'OpenStreetMap contributors', 'https://www.openstreetmap.org/copyright'),
+          ('salvationarmy.org.uk', 'The Salvation Army', 'https://www.salvationarmy.org.uk/'), ('simoncommunity.org', 'Simon Community', 'https://simoncommunity.org/')]
+def shelter_credit(items):
+    """Dean 25 Oct: footers credit the shelter sources actually used in shelters.js (data-driven)."""
+    urls = ' '.join(str(i.get('source_url') or '') + ' ' + str(i.get('hours_source') or '') for i in items)
+    used = ['<a href="%s" rel="noopener">%s</a>' % (u, n) for d, n, u in SH_SRC if d in urls]
+    return (' and, for shelters, ' + ', '.join(used) + ' and providers’ own websites') if used else ''
 
 def page(path, title, desc, body, crumbs, updated):
     url = SITE + path
@@ -153,9 +162,9 @@ def page(path, title, desc, body, crumbs, updated):
             '<meta name="twitter:card" content="summary_large_image"><style>%s</style>'
             '<script type="application/ld+json">%s</script></head><body><header><div class="top"><a href="/">helpmap.uk</a></div></header>'
             '<main>%s</main><footer><p>Information last updated %s. Data: <a href="https://www.givefood.org.uk/" rel="noopener">Give Food</a>, '
-            'the <a href="https://www.foodaidnetwork.org.uk/" rel="noopener">Independent Food Aid Network</a> and local warm space directories. '
+            'the <a href="https://www.foodaidnetwork.org.uk/" rel="noopener">Independent Food Aid Network</a>, local warm space directories%s. '
             'Areas from <a href="https://postcodes.io/" rel="noopener">postcodes.io</a> (contains OS data © Crown copyright and database right 2026).</p>%s</footer></body></html>\n'
-            % (E(title), E(desc), url, E(title), E(desc), url, CSS, json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'), body, E(updated), LEGAL))
+            % (E(title), E(desc), url, E(title), E(desc), url, CSS, json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'), body, E(updated), SH_CREDIT, LEGAL))
 
 def write(rel, text, out):
     p = os.path.join(out, rel.lstrip('/'))
@@ -193,7 +202,8 @@ def section(kind, items, cache, updated, out, card):
 def build(out=ROOT, fetch=True):
     fb = load_js('data.full.js', 'FB_DATA'); acc = load_js('access.js', 'FB_ACCESS'); ws = load_js('warmspaces.js', 'WARMSPACES')
     fbi = [i for i in fb['items'] if i.get('kind') not in ('warehouse', 'dropoff') and i.get('postcode')]
-    sh = load_js('shelters.js', 'SHELTERS'); shi = [i for i in sh['items'] if shelter_public(i)]
+    global SH_CREDIT
+    sh = load_js('shelters.js', 'SHELTERS'); shi = [i for i in sh['items'] if shelter_public(i)]; SH_CREDIT = shelter_credit(sh['items'])
     wsi = [i for i in ws['items'] if not i.get('ended') and not i.get('stale') and i.get('postcode')]
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     lookup(sorted({norm_pc(i['postcode']) for i in fbi + wsi + shi}), cache, fetch)

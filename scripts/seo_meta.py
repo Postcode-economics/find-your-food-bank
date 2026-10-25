@@ -11,6 +11,35 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 SITE = 'https://helpmap.uk'
 TOP = ['index.html', 'faq.html', 'terms.html', 'privacy.html', 'accessibility.html']
 
+def lab(t):
+    """Dean 25 Oct: the one date format on the site, '25 Oct 2026, 05:12' (UK time)."""
+    return '%d %s, %s' % (t.day, t.strftime('%b %Y'), t.strftime('%H:%M'))
+
+def stamp_layers(root=ROOT):
+    s = json.loads(open(os.path.join(root, 'stamp.js')).read().split('=', 1)[1].rstrip().rstrip(';'))
+    L = {k: datetime.datetime.fromisoformat(v['run']).astimezone(ZoneInfo('Europe/London')) for k, v in (s.get('layers') or {}).items()}
+    return L
+
+def put_info(s, rel, t, L):
+    """'Information last updated <date>.' footers: the refresh time of that page's own layer (404/other: latest run)."""
+    k = 'ws' if rel.startswith('warm-spaces/') else 'sh' if rel.startswith('shelters/') else 'fb' if rel.startswith('food-banks/') else None
+    return re.sub(r'Information last updated [^.<]*\.', 'Information last updated %s.' % lab(L.get(k) or t), s)
+
+def body_hash(s):
+    import hashlib
+    x = re.sub(r'<script type="application/ld\+json".*?</script>', '', s, flags=re.S)
+    x = re.sub(r'<!--mapchk(?:-cy|js)?-->.*?<!--/mapchk(?:js)?-->', '', x, flags=re.S)
+    x = re.sub(r'<p class="upd">[^<]*</p>', '', x); x = re.sub(r'(<span data-n="[^"]+">)[^<]*', r'\1', x)
+    return hashlib.sha256(x.encode()).hexdigest()[:16]
+
+def put_upd(s, rel, t, dates):
+    """Policy pages' 'Last updated': set automatically when the page's own text changes (never hand-edited)."""
+    if '<p class="upd">' not in s: return s
+    h = body_hash(s); e = dates.get(rel)
+    if not e or e.get('hash') != h: dates[rel] = e = {'hash': h, 'at': t.isoformat(timespec='seconds')}
+    at = datetime.datetime.fromisoformat(e['at']).astimezone(ZoneInfo('Europe/London'))
+    return re.sub(r'<p class="upd">[^<]*</p>', '<p class="upd">Last updated %s</p>' % lab(at), s, count=1)
+
 def stamp(root=ROOT):
     s = json.loads(open(os.path.join(root, 'stamp.js')).read().split('=', 1)[1].rstrip().rstrip(';'))
     return datetime.datetime.fromisoformat(s['run']).astimezone(ZoneInfo('Europe/London'))
@@ -73,14 +102,14 @@ def faq_ld(text):
 CYM = ['Ionawr', 'Chwefror', 'Mawrth', 'Ebrill', 'Mai', 'Mehefin', 'Gorffennaf', 'Awst', 'Medi', 'Hydref', 'Tachwedd', 'Rhagfyr']
 CHK_JS = ("<script>(function(){var s=window.FB_STAMP;if(!s||!s.run)return;var m=s.run.match(/^(\\d{4})-(\\d\\d)-(\\d\\d)T(\\d\\d:\\d\\d)/);if(!m)return;"
           "var td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(new Date()),same=(m[1]+'-'+m[2]+'-'+m[3])===td,d=+m[3],mo=+m[2]-1,"
-          "EN=['January','February','March','April','May','June','July','August','September','October','November','December'],"
+          "EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],"
           "CY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'];"
           "document.querySelectorAll('.mapchk').forEach(function(e){var cy=e.getAttribute('lang')==='cy';"
-          "e.textContent=cy?('Gwiriwyd data’r map ddiwethaf '+(same?'heddiw':'ar '+d+' '+CY[mo]+' '+m[1])+' am '+m[4]):('Map data last checked '+(same?'today':'on '+d+' '+EN[mo]+' '+m[1])+' at '+m[4]);e.setAttribute('data-run',s.run)})})()</script>")
+          "e.textContent=cy?('Gwiriwyd data’r map ddiwethaf '+(same?'heddiw, ':d+' '+CY[mo]+' '+m[1]+', ')+m[4]):('Map data last checked '+(same?'today, ':d+' '+EN[mo]+' '+m[1]+', ')+m[4]);e.setAttribute('data-run',s.run)})})()</script>")
 
 def chk_line(t, cy=False):
-    if cy: txt = 'Gwiriwyd data’r map ddiwethaf ar %d %s %d am %s' % (t.day, CYM[t.month - 1], t.year, t.strftime('%H:%M'))
-    else: txt = 'Map data last checked on %d %s at %s' % (t.day, t.strftime('%B %Y'), t.strftime('%H:%M'))
+    if cy: txt = 'Gwiriwyd data’r map ddiwethaf %d %s %d, %s' % (t.day, CYM[t.month - 1], t.year, t.strftime('%H:%M'))
+    else: txt = 'Map data last checked %s' % lab(t)
     return '<p class="mapchk"%s data-run="%s">%s</p>' % (' lang="cy"' if cy else '', t.isoformat(timespec='seconds'), txt)
 
 def put_chk(s, t, rel):
@@ -112,7 +141,11 @@ def put_counts(s, n):
 
 def run(root=ROOT):
     t = stamp(root); iso = t.isoformat(timespec='seconds'); day = t.date().isoformat()
-    ps = pages(root)
+    ps = pages(root); L = stamp_layers(root); pd = os.path.join(root, 'overrides', 'page_dates.json')
+    dates = json.load(open(pd)) if os.path.exists(pd) else {}
+    if os.path.exists(os.path.join(root, '404.html')):
+        p4 = os.path.join(root, '404.html'); s4 = open(p4, encoding='utf-8').read(); n4 = put_info(s4, '404.html', t, L)
+        if n4 != s4: open(p4, 'w', encoding='utf-8').write(n4)
     for rel in ps:
         p = os.path.join(root, rel); s = open(p, encoding='utf-8').read(); s0 = s
         s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
@@ -121,13 +154,16 @@ def run(root=ROOT):
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
             s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
-            s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s at %s' % ('on %d %s' % (t.day, t.strftime('%B')), t.strftime('%H:%M')) + m.group(2), s)
+            s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
+        s = put_info(s, rel, t, L)
+        if rel in TOP: s = put_upd(s, rel, t, dates)
         if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/', 'shelters/')) and rel.count('/') == 2:
             s = put_chk(s, t, rel)
         if rel == 'faq.html':
             s = put(s, 'faq', ld('faq', faq_ld(s)))
         if s != s0: open(p, 'w', encoding='utf-8').write(s)
+    if os.path.isdir(os.path.dirname(pd)): json.dump(dates, open(pd, 'w'), indent=1, sort_keys=True)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += ['<url><loc>%s</loc><lastmod>%s</lastmod></url>' % (url_of(r), day) for r in ps]
     open(os.path.join(root, 'sitemap.xml'), 'w').write('\n'.join(sm + ['</urlset>']) + '\n')

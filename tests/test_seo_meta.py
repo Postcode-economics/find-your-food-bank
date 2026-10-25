@@ -18,7 +18,7 @@ class T(unittest.TestCase):
             pg = [x for x in b if x.get('@type') == 'WebPage']
             self.assertEqual(len(pg), 1, rel); self.assertEqual(pg[0]['dateModified'], '2026-10-23T13:29:05+01:00')
         home = open(os.path.join(self.d, 'index.html')).read()
-        self.assertIn('>Updated on 23 October at 13:29</a>', home)
+        self.assertIn('>Updated 23 Oct 2026, 13:29</a>', home)
         self.assertIn('<script src="data.js?v=r20261023T1329"></script>', home); self.assertIn('stamp.js?v=r20261023T1329', home)
         ds = [x for x in blocks(home) if x.get('@type') == 'Dataset'][0]
         self.assertEqual(ds['creator']['name'], 'Postcode Economics'); self.assertNotRegex(json.dumps(ds), r'\b0\d{9,10}\b')
@@ -32,10 +32,10 @@ class T(unittest.TestCase):
         SM.run(self.d); SM.run(self.d)
         fq = open(os.path.join(self.d, 'faq.html')).read(); tw = open(os.path.join(self.d, 'food-banks', 'x', 'index.html')).read()
         self.assertEqual(fq.count('class="mapchk"'), 2); self.assertEqual(tw.count('class="mapchk"'), 1)
-        self.assertIn('>Map data last checked on 23 October 2026 at 13:29</p>', fq)
-        self.assertIn('lang="cy" data-run="2026-10-23T13:29:05+01:00">Gwiriwyd data’r map ddiwethaf ar 23 Hydref 2026 am 13:29</p>', fq)
-        self.assertIn('>Map data last checked on 23 October 2026 at 13:29</p><!--/mapchk--><p class="chk3">', tw)
-        self.assertRegex(fq, r'<p class="upd">Last updated \d{1,2} \w+ 20\d\d</p><!--mapchk-->')
+        self.assertIn('>Map data last checked 23 Oct 2026, 13:29</p>', fq)
+        self.assertIn('lang="cy" data-run="2026-10-23T13:29:05+01:00">Gwiriwyd data’r map ddiwethaf 23 Hydref 2026, 13:29</p>', fq)
+        self.assertIn('>Map data last checked 23 Oct 2026, 13:29</p><!--/mapchk--><p class="chk3">', tw)
+        self.assertRegex(fq, r'<p class="upd">Last updated \d{1,2} \w{3} 20\d\d, \d\d:\d\d</p><!--mapchk-->')
         for s in (fq, tw):
             self.assertEqual(s.count('<script src="/stamp.js?v=r20261023T1329"></script>'), 1); self.assertEqual(s.count('<!--mapchkjs-->'), 1)
         home = open(os.path.join(self.d, 'index.html')).read(); self.assertNotIn('mapchk', home)

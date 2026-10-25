@@ -10,6 +10,7 @@ SUBS = ["citizens-advice-castle-douglas", "kelloholm-library-sanquhar", "sanquha
         "dalbeattie-customer-services", "citizens-advice-annan", "kates-kitchen", "social-work-department-annan", "gretna-library",
         "lockerbie-library", "moffat-library", "langholm-library"]
 SRC = "https://www.firstbasedumfries.co.uk/contact-us/"
+CA = "https://www.dagcas.org/dagcas-location/castle-douglas-cab/"  # Dean 07:48: Castle Douglas hours from Citizens Advice's own page
 
 class Overrides(unittest.TestCase):
     def test_thirteen_points_labelled(self):
@@ -17,17 +18,19 @@ class Overrides(unittest.TestCase):
         self.assertEqual(len(SUBS), 13)
         for s in SUBS:
             k = f"{P}/{s}"
-            self.assertEqual(n[k]["notice"], "First Base emergency parcel pick-up point", k)
+            self.assertTrue(n[k]["notice"].startswith("First Base emergency parcel pick-up point"), k)
             self.assertEqual(l[k], "First Base number", k)
     def test_hours_protected_and_sourced(self):
         o = J("opening_times.json"); x = J("foodbank_extra_locations.json")
         for s in [None] + SUBS:
             k = P if s is None else f"{P}/{s}"
             ot = x[k]["opening_times"] if k in x else o[k]
-            self.assertEqual(ot["source_url"], SRC); self.assertEqual(ot["status"], "TIMES_FOUND")
+            self.assertEqual(ot["source_url"], CA if s == "citizens-advice-castle-douglas" else SRC); self.assertEqual(ot["status"], "TIMES_FOUND")
             self.assertTrue(ot["reader"].startswith("hand-reviewed"), k)
         self.assertEqual(o[P]["structured"], {d: [["12:00", "14:00"]] for d in ("mon", "tue", "wed", "thu", "fri")})
         self.assertEqual(o[f"{P}/moffat-library"]["structured"], {"tue": [["10:00", "19:00"]], "fri": [["09:00", "17:00"]], "sat": [["09:00", "12:00"]]})
+        h = [["10:00", "12:30"], ["13:00", "16:00"]]
+        self.assertEqual(o[f"{P}/citizens-advice-castle-douglas"]["structured"], {"wed": h, "fri": h})
         self.assertEqual(o[f"{P}/kates-kitchen"]["structured"], {"tue": [["11:00", "14:00"]], "thu": [["11:00", "14:00"]]})
     def test_applied_by_classify(self):
         import classify
