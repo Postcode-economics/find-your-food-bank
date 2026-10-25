@@ -66,6 +66,7 @@ def faq_ld(text):
         q = html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).strip()
         a = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', m.group(2)))).strip()
         a = re.sub(r' ([,.;:)])', r'\1', a)
+        a = a.replace('( ', '(')
         qa.append({'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}})
     return {'@context': 'https://schema.org', '@type': 'FAQPage', 'inLanguage': 'en-GB', 'mainEntity': qa}
 

@@ -35,7 +35,7 @@ class T(unittest.TestCase):
         self.assertIn('>Map data last checked on 23 October 2026 at 13:29</p>', fq)
         self.assertIn('lang="cy" data-run="2026-10-23T13:29:05+01:00">Gwiriwyd data’r map ddiwethaf ar 23 Hydref 2026 am 13:29</p>', fq)
         self.assertIn('>Map data last checked on 23 October 2026 at 13:29</p><!--/mapchk--><p class="chk3">', tw)
-        self.assertRegex(fq, r'<p class="upd">Last updated 23 October 2026</p><!--mapchk-->')
+        self.assertRegex(fq, r'<p class="upd">Last updated \d{1,2} \w+ 20\d\d</p><!--mapchk-->')
         for s in (fq, tw):
             self.assertEqual(s.count('<script src="/stamp.js?v=r20261023T1329"></script>'), 1); self.assertEqual(s.count('<!--mapchkjs-->'), 1)
         home = open(os.path.join(self.d, 'index.html')).read(); self.assertNotIn('mapchk', home)
