@@ -120,6 +120,20 @@ def weights(prev, review):
         w[k] = round(min(base * HI, max(base * LO, w.get(k, base) * (1 + STEP if r > 0 else 1 - STEP if r < 0 else 1))), 4)
     return w
 
+def accuracy_grades(LS, prev, today):
+    """Weekly self-grade: of the places a signal moved up, what share produced a find in the last 7 days,
+    compared with the places it did not move. Weak (below 90% of the others, and at least 5 places each)
+    is turned down one step. Not enough data: no change. This does not turn a signal up."""
+    out = {}; K = LS.get('keys', {}); since = (today - datetime.timedelta(days=7)).isoformat()
+    for comp, keys in (prev.get('boosted_by') or {}).items():
+        keys = [k for k in keys if k in K]; rest = [k for k in K if k not in set(keys)]
+        if len(keys) < 5 or len(rest) < 5:
+            out[comp] = {'grade': None, 'weak': False, 'note': 'not enough data'}; continue
+        rate = lambda ks: sum(1 for k in ks if (K[k].get('last_find') or '') >= since) / float(len(ks))
+        a, b = rate(keys), rate(rest); weak = a < b * 0.9
+        out[comp] = {'grade': round(a, 3), 'others': round(b, 3), 'weak': weak, 'note': 'turned down' if weak else 'kept'}
+    return out
+
 def self_review(LS, prev_signals, today):
     """Did last week's boosted keys produce finds at a higher rate than the rest? +1 / -1 / None (not enough data)."""
     out = {}; K = LS.get('keys', {}); since = (today - datetime.timedelta(days=7)).isoformat()
@@ -132,11 +146,15 @@ def self_review(LS, prev_signals, today):
 
 def build(today=None):
     today = today or datetime.date.today(); items = [i for i in items_of('data.full.js') if i.get('type') == 'foodbank']
-    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(); prev = rj('reports/learning_signals.json', {})
+    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
+    grades = accuracy_grades(LS, prev, today) if sunday else {}
+    if sunday:
+        for k, g in grades.items():
+            if g.get('weak'): review[k] = -1  # one step down; a weak signal is not also turned up
     stored = prev.get('weights') or {}
     W = {k: stored.get(k, base) for k, base in DEFAULT_W.items()}  # a new signal starts at its default
     if sunday: W = weights(W, review)
@@ -166,13 +184,15 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
+               accuracy=grades,
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
 def write(out):
     tmp = OUT + '.tmp'; json.dump(out, open(tmp, 'w', encoding='utf-8'), indent=0, sort_keys=True); os.replace(tmp, OUT)
     open(MD, 'w', encoding='utf-8').write('\n'.join(digest_lines(out, full=True)) + '\n')
-    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), {'signal_weights': out.get('weights')}); learning.save(s, learning.STATE)
+    extra = {'signal_weights': out.get('weights'), 'accuracy': out.get('accuracy') or {}}
+    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), extra); learning.save(s, learning.STATE)
 
 def weekly(trend):
     """Average per ISO week of the daily accuracy points."""
@@ -194,6 +214,7 @@ def digest_lines(out, full=False):
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
+    if out.get('accuracy'): L.append('- Weekly accuracy grade: ' + ', '.join('%s %s' % (k, v.get('note')) for k, v in sorted(out['accuracy'].items())))
     wk = weekly(out.get('trend', []))
     L.append('- Weekly accuracy trend: ' + ('; '.join('%s reachable %.0f%%, phones agree %s, corrections %d' % (w, r * 100, ('%.0f%%' % (p * 100)) if p else 'n/a', c) for w, r, p, c in wk[-4:]) or 'first week'))
     L.append('- New places found are never added automatically: they wait in reports/pending_dean.md for your OK.')
