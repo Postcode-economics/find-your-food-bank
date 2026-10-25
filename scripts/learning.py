@@ -177,6 +177,18 @@ def confidence_for(website, conflicted):
     if website and website in (conflicted or ()): return 0.0
     return None
 
+def empty_parse(http, extracted, previous, minimum=1):
+    """True when a page answered HTTP 200 and the parser found fewer than `minimum` records,
+    after a previous run that had found at least `minimum`. No previous count: False.
+    Nothing is invented, and this does not remove a place."""
+    try: http, extracted = int(http), int(extracted)
+    except (TypeError, ValueError): return False
+    if http != 200 or extracted >= minimum: return False
+    if previous is None: return False
+    try: previous = int(previous)
+    except (TypeError, ValueError): return False
+    return previous >= minimum
+
 def anomaly_brake(history, proposed):
     """Stop when this run would change many more places than recent runs.
     Fewer than four recorded runs: do not stop (there is no baseline to compare with, and none is invented).

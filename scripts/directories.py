@@ -21,12 +21,15 @@ def parse_ifan(page):
                         "lat": float(la), "lng": float(ln), "website": web.group(1) if web else "", "address": "",
                         "directory": "IFAN", "directory_url": IFAN_URL})
     return out
-def ifan(fetcher=fetch_raw):
+def ifan(fetcher=fetch_raw, previous=None):
     r = fetcher(IFAN_URL)
     if r["http"] != 200: return [], {"status": f"failed: HTTP {r['http']}"}
     c = parse_ifan(r["html"])
-    if len(c) < 200: return [], {"status": f"failed: schema check ({len(c)} records parsed, expected 500+)", "sha256": r.get("sha256")}
-    return c, {"status": "ok", "count": len(c), "sha256": r.get("sha256"), "last_modified": r.get("last_modified")}
+    import learning
+    short = len(c) < 200
+    status = {"status": f"failed: schema check ({len(c)} records parsed, expected 500+)", "sha256": r.get("sha256")} if short else {"status": "ok", "count": len(c), "sha256": r.get("sha256"), "last_modified": r.get("last_modified")}
+    if learning.empty_parse(r["http"], len(c), previous, minimum=200): status["empty_parse"] = True
+    return ([], status) if short else (c, status)
 def trussell(fetcher=fetch_raw):
     """Trussell's finder is a postcode search behind Google reCAPTCHA with no public data feed. We do not bypass it.
     Trussell food banks are already in Give Food (network='Trussell'), so coverage comes from there."""
