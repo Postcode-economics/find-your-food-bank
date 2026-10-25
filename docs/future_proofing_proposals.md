@@ -182,6 +182,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 17. Report postcode-to-council cache gaps, and do not fill them by guessing
 
+**Status:** Built. The morning note counts food-bank postcodes with no row in `overrides/district_cache.json`. Nothing is looked up and no council is guessed. A missing row still means no area boost.
+
 - **Benefit:** The morning note says how many food-bank postcodes have no row in `overrides/district_cache.json`, which is the only council lookup used for stale areas and weather.
 - **Risk:** Someone fills a gap by guessing the council from the postcode prefix. That is invented geography and would move the wrong councils up.
 - **Effort:** S.

@@ -196,6 +196,24 @@ def problem_reports(items):
         out[u] = out.get(u, 0) + (len(v) if isinstance(v, list) else 1)
     return out, ('%d Report a problem submissions' % sum(out.values())) if out else 'no matching places - no effect'
 
+def cache_gaps(items):
+    """How many food-bank postcodes have no row in overrides/district_cache.json.
+    A missing file has no effect. Nothing is looked up and no council is guessed.
+    A missing row still means no area boost."""
+    path = os.path.join(ROOT, 'overrides', 'district_cache.json')
+    if not os.path.exists(path): return None, 'no district cache on file - no effect'
+    try: cache = json.load(open(path, encoding='utf-8'))
+    except Exception: return None, 'district cache could not be read - no effect'
+    if not isinstance(cache, dict): return None, 'district cache could not be read - no effect'
+    seen, missing = set(), 0
+    for i in items:
+        pc = (i.get('postcode') or '').upper().strip()
+        if not pc or pc in seen: continue
+        seen.add(pc)
+        if not (cache.get(pc) or cache.get(pc.replace(' ', ''))): missing += 1
+    noun = 'postcode has' if missing == 1 else 'postcodes have'
+    return missing, '%d food-bank %s no council row. Nothing was looked up and no council was guessed.' % (missing, noun)
+
 def districts_for(items):
     """website -> council, from overrides/district_cache.json (postcodes.io admin_district, already fetched).
     A postcode that is not in the cache is skipped. Nothing is looked up or invented here."""
@@ -402,6 +420,7 @@ def build(today=None):
     season, weeks, season_note = seasonal(today); tally_line = tally_note(); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
     stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
+    gap_n, gap_note = cache_gaps(items)
     wx_sites, wx_councils, wx_note = weather_priority(items)
     empty_sites, empty_note = empty_parses(state)
     gone, gone_note = source_watch(); pin_note = pins.note(); feed_note = official_feed_note(); calls_note = rate_note(); prov_note = provenance_note()
@@ -452,7 +471,7 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), tally_note=tally_line, demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
-               dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
+               dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note, cache_gap_note=gap_note,
                forecast_note=forecast_note, weather_note=wx_note, empty_note=empty_note, source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note, provenance_note=prov_note, drill_note=drill_note,
                council_boost={k: round(W['weather'] * v, 3) for k, v in wx_councils.items()},
                conflicts=rows, accuracy=grades,
@@ -496,6 +515,7 @@ def digest_lines(out, full=False):
     L.append("- What your past decisions taught the queue (you are still asked every time): " + out.get('dean_note', 'no hand decisions to learn from yet - no effect'))
     L.append('- Report a problem submissions: ' + out.get('problem_note', 'no Report a problem submissions on file - no effect'))
     L.append('- Areas whose last check is older than the others: ' + (out.get('stale_note') or ''))
+    L.append('- Food-bank postcodes with no council row: ' + (out.get('cache_gap_note') or 'no effect'))
     L.append('- Cold snaps, benefit payment dates and school holidays: ' + (out.get('forecast_note') or ''))
     L.append('- Weather warnings: ' + (out.get('weather_note') or ''))
     L.append('- Pages that answered but the parser found nothing: ' + (out.get('empty_note') or 'no effect'))
