@@ -52,6 +52,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 4. A version number on the published data
 
+**Status:** Built. `data.full.js` carries schema_version 1. Readers accept 1 and the previous unstamped file. The browser `data.js` field list is unchanged.
+
 - **Benefit:** `data.js` carries a `schema_version`, and the site accepts the current version and the one before, so a field rename does not blank the map for everyone on an old cached page.
 - **Risk:** A version bump that skips a number, or a reader that only accepts the newest file, takes the map down. Bump only when a field really changes, and keep N and N-1 both valid.
 - **Effort:** M.
