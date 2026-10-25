@@ -117,9 +117,9 @@ Run 2026-10-25. Nothing here is on the map. Each needs a hand check before it is
 
 
 <!-- closures -->
-## Possible closures - still on the map with "May have closed" note (1)
+## Possible closures - still on the map with "May have closed" note (0)
 
 To remove one, add its id to overrides/foodbank_closed.json; to clear the note, delete it from reports/closures_pending.json.
 
-- Welshpool and District Foodbank (welshpool-and-district) - dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank - https://welshpooldistrict.foodbank.org.uk/welshpool-and-district-foodbank-now-closed/, since 2026-10-25
+- none
 <!-- /closures -->

@@ -1,131 +1,138 @@
 {
- "run": "2026-10-25T13:18:02+00:00",
- "checked": 1067,
+ "run": "2026-10-25T21:07:28+00:00",
+ "checked": 1066,
  "errors": [
   {
    "website": "https://ccg.scot/projects/1073/",
    "name": "Crookston Community Group Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://dwellingplaceglasgow.org/storehouse/",
    "name": "Glasgow Vineyard Storehouse Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.vulcancentre.co.uk/food-distribution/",
    "name": "The Vulcan Centre Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/",
    "name": "Eastwood Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.bjoamaraassociation.org.uk/",
    "name": "BJO Amara Association Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.northlochs.co.uk",
    "name": "North Lochs Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.thorne-moorends.gov.uk/community/community-groups/",
    "name": "Thorne and Moorends Community Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "http://www.caistorfoodbank.org",
    "name": "Caistor Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "http://www.churchesfoodbank.org.uk",
    "name": "Churches Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "http://www.onevisionproject.org",
    "name": "One Vision Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
    "name": "Alhuda Welfare Foundation Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://assyntdevelopmenttrust.org/assynt-food-bank/",
    "name": "Assynt Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://communitykitchenhub.org.uk",
    "name": "Dartmoor Community Kitchen Hub Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://durhamfoodbank.org.uk",
    "name": "County Durham Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://kentonfoodbank.org.uk/",
    "name": "Kenton Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://kingschurchleicester.org/foodbank",
    "name": "Manor House Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://lesliecommunitypantry.co.uk",
    "name": "Leslie Community Pantry Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://newmarketopendoor.org.uk/foodbank",
    "name": "Newmarket Open Door Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
+   "fail_runs": 4
+  },
+  {
+   "website": "https://okfp.org.uk",
+   "name": "Old Kilpatrick Food Parcels Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
    "fail_runs": 3
   },
   {
@@ -133,6 +140,13 @@
    "name": "Orchard Primary School Foodbank",
    "http": 404,
    "error": "HTTP 404",
+   "fail_runs": 4
+  },
+  {
+   "website": "https://riveroflife.org.uk/food-project/",
+   "name": "River of Life Church Foodbank",
+   "http": 500,
+   "error": "HTTP 500",
    "fail_runs": 3
   },
   {
@@ -140,83 +154,90 @@
    "name": "Conwy Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://southamptoncitymission.co.uk/basics-banks",
    "name": "Southampton Basics Bank Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://stmary-sutton.org.uk/page/marys-food-bank",
    "name": "Mary's (Sutton) Foodbank",
    "http": null,
    "error": "URLError: <urlopen error timed out>",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://wecockchurch.org.uk/waterlooville-foodbank/",
    "name": "Waterlooville Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.betheltrustpt.co.uk/food-share",
    "name": "Bethel Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.dorchesterbc.org.uk/foodbank",
    "name": "Dorchester Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
    "name": "Gatehouse Community Church Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.leominsterfoodbank.org",
    "name": "Leominster Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.taybridgeheadfoodbank.org.uk",
    "name": "Tay Bridgehead Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.thearchesrhayader.co.uk/foodbank",
    "name": "Rhayader Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.widdstobpc.org/foodbank",
    "name": "Widdrington Station & Stobswood Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.thefoodbank.org.uk/",
    "name": "North Lakes Foodbank",
    "http": 429,
    "error": "HTTP 429",
+   "fail_runs": 4
+  },
+  {
+   "website": "https://gleadlessvalleyfoodbank.co.uk/",
+   "name": "Gleadless Valley Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
    "fail_runs": 3
   },
   {
@@ -224,81 +245,74 @@
    "name": "Newcastle Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 3
+   "fail_runs": 4
   },
   {
    "website": "https://www.thewelcomecentre.org",
    "name": "The Welcome Centre",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 3
-  },
-  {
-   "website": "https://okfp.org.uk",
-   "name": "Old Kilpatrick Food Parcels Foodbank",
-   "http": null,
-   "error": "TimeoutError: The read operation timed out",
-   "fail_runs": 2
-  },
-  {
-   "website": "https://riveroflife.org.uk/food-project/",
-   "name": "River of Life Church Foodbank",
-   "http": 500,
-   "error": "HTTP 500",
-   "fail_runs": 2
-  },
-  {
-   "website": "http://bsfoodhub.org.uk",
-   "name": "Badenoch & Strathspey Foodbank",
-   "http": null,
-   "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-   "fail_runs": 3
-  },
-  {
-   "website": "https://gleadlessvalleyfoodbank.co.uk/",
-   "name": "Gleadless Valley Foodbank",
-   "http": 403,
-   "error": "HTTP 403",
-   "fail_runs": 2
-  },
-  {
-   "website": "https://www.gcjc.co.uk",
-   "name": "The Gospel Church of Jesus Christ",
-   "http": 429,
-   "error": "HTTP 429",
-   "fail_runs": 1
-  },
-  {
-   "website": "https://www.sdcvs.org.uk/food-hub",
-   "name": "South Derbyshire CVS Foodbank",
-   "http": 429,
-   "error": "HTTP 429",
-   "fail_runs": 1
-  },
-  {
-   "website": "https://patchcharity.org.uk",
-   "name": "PATCH Foodbank",
-   "http": null,
-   "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostn",
-   "fail_runs": 2
+   "fail_runs": 4
   },
   {
    "website": "https://okehamptonfoodbank.co.uk",
    "name": "Okehampton Foodbank",
    "http": 401,
    "error": "HTTP 401",
+   "fail_runs": 2
+  },
+  {
+   "website": "https://cetma.org.uk/projects/pbp-food-bank/",
+   "name": "PBP Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
+   "fail_runs": 2
+  },
+  {
+   "website": "https://www.sdcvs.org.uk/food-hub",
+   "name": "South Derbyshire CVS Foodbank",
+   "http": 429,
+   "error": "HTTP 429",
+   "fail_runs": 2
+  },
+  {
+   "website": "https://zink.org.uk/food-and-supplies/",
+   "name": "High Peak Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
    "fail_runs": 1
   },
   {
-   "website": "https://www.foodshare.charity",
-   "name": "Maidenhead Foodbank",
+   "website": "http://www.raftfoundation.org",
+   "name": "The Raft Foundation Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.lchaimfoodbank.co.uk/",
+   "name": "L'chaim Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error timed out>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.lochaberfoodbank.org",
+   "name": "Lochaber Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.salma-foodbank.org",
+   "name": "Salma Foodbank",
    "http": 429,
    "error": "HTTP 429",
    "fail_runs": 1
   },
   {
-   "website": "https://cetma.org.uk/projects/pbp-food-bank/",
-   "name": "PBP Foodbank",
+   "website": "https://northoxfordshirecommunityfoodbank.org.uk/",
+   "name": "North Oxfordshire Foodbank",
    "http": null,
    "error": "TimeoutError: The read operation timed out",
    "fail_runs": 1

@@ -2408,6 +2408,20 @@
     "flips": 6,
     "phone_fixes": 1,
     "closures": 0
+   },
+   {
+    "at": "2026-10-25T21:07:28+00:00",
+    "sites": 1066,
+    "ok": 1021,
+    "failed": 45,
+    "skipped": 0,
+    "voucher": 129,
+    "walkin": 65,
+    "mixed": 30,
+    "unclear": 797,
+    "flips": 0,
+    "phone_fixes": 0,
+    "closures": 0
    }
   ],
   "items": {
@@ -2417,9 +2431,9 @@
     "name": "Eastwood Foodbank",
     "website": "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/",
     "error": "HTTP 403",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://www.bjoamaraassociation.org.uk/": {
     "category": "dead or unreachable website",
@@ -2427,9 +2441,9 @@
     "name": "BJO Amara Association Foodbank",
     "website": "https://www.bjoamaraassociation.org.uk/",
     "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "seasonal/holiday hours notice|https://www.hopeworx.org.uk": {
     "category": "seasonal/holiday hours notice",
@@ -2456,9 +2470,9 @@
     "name": "North Lochs Foodbank",
     "website": "https://www.northlochs.co.uk",
     "error": "HTTP 403",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://www.thorne-moorends.gov.uk/community/community-groups/": {
     "category": "dead or unreachable website",
@@ -2466,9 +2480,9 @@
     "name": "Thorne and Moorends Community Foodbank",
     "website": "https://www.thorne-moorends.gov.uk/community/community-groups/",
     "error": "HTTP 403",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "Trussell site with walk-in wording|https://southend.foodbank.org.uk": {
     "category": "Trussell site with walk-in wording",
@@ -2510,9 +2524,9 @@
     "name": "Caistor Foodbank",
     "website": "http://www.caistorfoodbank.org",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07714624608",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|http://www.churchesfoodbank.org.uk": {
     "category": "dead or unreachable website",
@@ -2520,9 +2534,9 @@
     "name": "Churches Foodbank",
     "website": "http://www.churchesfoodbank.org.uk",
     "error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "02085341164",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|http://www.onevisionproject.org": {
     "category": "dead or unreachable website",
@@ -2530,9 +2544,9 @@
     "name": "One Vision Foodbank",
     "website": "http://www.onevisionproject.org",
     "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01923372699",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|http://www.raftfoundation.org": {
     "category": "dead or unreachable website",
@@ -2550,9 +2564,9 @@
     "name": "Alhuda Welfare Foundation Foodbank",
     "website": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07913121096",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://allsaintschildshill.com/childs-hill-food-bank/": {
     "category": "phone number not on own site",
@@ -2575,9 +2589,9 @@
     "name": "Assynt Foodbank",
     "website": "https://assyntdevelopmenttrust.org/assynt-food-bank/",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01571844275",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://bethanycc.uk/our-community/ministries/food-bank/": {
     "category": "phone number not on own site",
@@ -2606,9 +2620,9 @@
     "name": "Crookston Community Group Foodbank",
     "website": "https://ccg.scot/projects/1073/",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01418824333",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://communitykitchenhub.org.uk": {
     "category": "dead or unreachable website",
@@ -2616,9 +2630,9 @@
     "name": "Dartmoor Community Kitchen Hub Foodbank",
     "website": "https://communitykitchenhub.org.uk",
     "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01626836899",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://dover.foodbank.org.uk/": {
     "category": "phone number not on own site",
@@ -2639,9 +2653,9 @@
     "name": "County Durham Foodbank",
     "website": "https://durhamfoodbank.org.uk",
     "error": "HTTP 403",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01913037559",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://dwellingplaceglasgow.org/storehouse/": {
     "category": "dead or unreachable website",
@@ -2649,9 +2663,9 @@
     "name": "Glasgow Vineyard Storehouse Foodbank",
     "website": "https://dwellingplaceglasgow.org/storehouse/",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "0141 334 6746",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "access mixed|https://encompasscharity.org.uk/raunds-foodbank": {
     "category": "access mixed",
@@ -2824,9 +2838,9 @@
     "name": "Kenton Foodbank",
     "website": "https://kentonfoodbank.org.uk/",
     "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01912864640",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://kingschurchleicester.org/foodbank": {
     "category": "dead or unreachable website",
@@ -2834,9 +2848,9 @@
     "name": "Manor House Foodbank",
     "website": "https://kingschurchleicester.org/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07469759475",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://landportra.wordpress.com/2016/05/31/landport-foodbank/": {
     "category": "phone number not on own site",
@@ -2860,9 +2874,9 @@
     "name": "Leslie Community Pantry Foodbank",
     "website": "https://lesliecommunitypantry.co.uk",
     "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07730789255",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://newmarketopendoor.org.uk/foodbank": {
     "category": "dead or unreachable website",
@@ -2870,9 +2884,9 @@
     "name": "Newmarket Open Door Foodbank",
     "website": "https://newmarketopendoor.org.uk/foodbank",
     "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01638561711",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://openheavenshatfield.com/food-bank/": {
     "category": "phone number not on own site",
@@ -2894,9 +2908,9 @@
     "name": "Orchard Primary School Foodbank",
     "website": "https://orchardprimary.org/orchard-primary-school-food-bank",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01332810078",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://sanctuarytrust.org.uk/projects/conwyfoodbank/": {
     "category": "dead or unreachable website",
@@ -2904,9 +2918,9 @@
     "name": "Conwy Foodbank",
     "website": "https://sanctuarytrust.org.uk/projects/conwyfoodbank/",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07484024671",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://southamptoncitymission.co.uk/basics-banks": {
     "category": "dead or unreachable website",
@@ -2914,9 +2928,9 @@
     "name": "Southampton Basics Bank Foodbank",
     "website": "https://southamptoncitymission.co.uk/basics-banks",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "02380550435",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://staugustineschurch0.wixsite.com/home": {
     "category": "phone number not on own site",
@@ -2937,9 +2951,9 @@
     "name": "Mary's (Sutton) Foodbank",
     "website": "https://stmary-sutton.org.uk/page/marys-food-bank",
     "error": "URLError: <urlopen error timed out>",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01623553579",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://stpaulsparkside.org.uk/": {
     "category": "phone number not on own site",
@@ -2996,9 +3010,9 @@
     "name": "Waterlooville Foodbank",
     "website": "https://wecockchurch.org.uk/waterlooville-foodbank/",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "02392255288",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://www.12apostles.co.uk/": {
     "category": "phone number not on own site",
@@ -3034,9 +3048,9 @@
     "name": "Bethel Foodbank",
     "website": "https://www.betheltrustpt.co.uk/food-share",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07971700105",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "seasonal/holiday hours notice|https://www.bridportfoodbank.org": {
     "category": "seasonal/holiday hours notice",
@@ -3095,9 +3109,9 @@
     "name": "Dorchester Foodbank",
     "website": "https://www.dorchesterbc.org.uk/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07554983978",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank": {
     "category": "dead or unreachable website",
@@ -3105,9 +3119,9 @@
     "name": "Gatehouse Community Church Foodbank",
     "website": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07753370425",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "access mixed|https://www.hangletonfoodbank.org": {
     "category": "access mixed",
@@ -3144,9 +3158,9 @@
     "name": "Leominster Foodbank",
     "website": "https://www.leominsterfoodbank.org",
     "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07715410575",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "access mixed|https://www.nbil-community.org": {
     "category": "access mixed",
@@ -3227,9 +3241,9 @@
     "name": "Tay Bridgehead Foodbank",
     "website": "https://www.taybridgeheadfoodbank.org.uk",
     "error": "HTTP 403",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07840957039",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://www.thearchesrhayader.co.uk/foodbank": {
     "category": "dead or unreachable website",
@@ -3237,16 +3251,16 @@
     "name": "Rhayader Foodbank",
     "website": "https://www.thearchesrhayader.co.uk/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01597810921",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "items-needed list updated|https://www.thebesomincamberley.com": {
     "category": "items-needed list updated",
     "first_flagged": "2026-10-25T09:02:53+00:00",
     "name": "The Besom in Camberley Foodbank",
     "website": "https://www.thebesomincamberley.com",
-    "list": "Shopping List | Referrers | More | Use tab to navigate through the menu items. | Helping families in crisis across Surrey Heath | with food and household essentials | WELCOME | Christmas is coming! | ​​ ​ | Are you in need of help? | Please see list of organisations for support in the following areas: | Managing finances - Citizens Advice or Frontline Debt & Benefit Advice. ​"
+    "list": "Shopping List | Referrers | Contact | Contact Us | Newsletter | More | Use tab to navigate through the menu items. | Helping families in crisis across Surrey Heath | with food and household essentials | WELCOME | Christmas is coming! | ​​ ​"
    },
    "dead or unreachable website|https://www.vulcancentre.co.uk/food-distribution/": {
     "category": "dead or unreachable website",
@@ -3254,9 +3268,9 @@
     "name": "The Vulcan Centre Foodbank",
     "website": "https://www.vulcancentre.co.uk/food-distribution/",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01482 229230",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "dead or unreachable website|https://www.widdstobpc.org/foodbank": {
     "category": "dead or unreachable website",
@@ -3264,9 +3278,9 @@
     "name": "Widdrington Station & Stobswood Foodbank",
     "website": "https://www.widdstobpc.org/foodbank",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07391548264",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://www.wsfoodcupboard.org.uk/": {
     "category": "phone number not on own site",
@@ -3570,9 +3584,9 @@
     "name": "North Lakes Foodbank",
     "website": "https://www.thefoodbank.org.uk/",
     "error": "HTTP 429",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "07502311452",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "access mixed|https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/": {
     "category": "access mixed",
@@ -4075,9 +4089,9 @@
     "name": "Newcastle Foodbank",
     "website": "https://www.newcastlefoodbank.org",
     "error": "HTTP 403",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01912753019",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://www.redhillfoodbank.org.uk": {
     "category": "phone number not on own site",
@@ -4118,9 +4132,9 @@
     "name": "The Welcome Centre",
     "website": "https://www.thewelcomecentre.org",
     "error": "HTTP 404",
-    "failed_runs": 3,
+    "failed_runs": 4,
     "phone": "01484515086",
-    "note": "site failed 3 runs in a row - check contact details"
+    "note": "site failed 4 runs in a row - check contact details"
    },
    "phone number not on own site|https://wythenshawe.foodbank.org.uk": {
     "category": "phone number not on own site",
@@ -4176,9 +4190,9 @@
     "name": "Old Kilpatrick Food Parcels Foodbank",
     "website": "https://okfp.org.uk",
     "error": "TimeoutError: The read operation timed out",
-    "failed_runs": 2,
+    "failed_runs": 3,
     "phone": "01389717792",
-    "note": "site failed 2 runs in a row - check contact details"
+    "note": "site failed 3 runs in a row - check contact details"
    },
    "dead or unreachable website|https://riveroflife.org.uk/food-project/": {
     "category": "dead or unreachable website",
@@ -4186,9 +4200,9 @@
     "name": "River of Life Church Foodbank",
     "website": "https://riveroflife.org.uk/food-project/",
     "error": "HTTP 500",
-    "failed_runs": 2,
+    "failed_runs": 3,
     "phone": "01387264646",
-    "note": "site failed 2 runs in a row - check contact details"
+    "note": "site failed 3 runs in a row - check contact details"
    },
    "dead or unreachable website|https://gleadlessvalleyfoodbank.co.uk/": {
     "category": "dead or unreachable website",
@@ -4196,9 +4210,9 @@
     "name": "Gleadless Valley Foodbank",
     "website": "https://gleadlessvalleyfoodbank.co.uk/",
     "error": "HTTP 403",
-    "failed_runs": 2,
+    "failed_runs": 3,
     "phone": "07840295401",
-    "note": "site failed 2 runs in a row - check contact details"
+    "note": "site failed 3 runs in a row - check contact details"
    },
    "dead or unreachable website|https://patchcharity.org.uk": {
     "category": "dead or unreachable website",
@@ -4209,6 +4223,79 @@
     "failed_runs": 2,
     "phone": "01646699275",
     "note": "site failed 2 runs in a row - check contact details"
+   },
+   "dead or unreachable website|https://okehamptonfoodbank.co.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Okehampton Foodbank",
+    "website": "https://okehamptonfoodbank.co.uk",
+    "error": "HTTP 401",
+    "failed_runs": 2,
+    "phone": "07585300537",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "dead or unreachable website|https://cetma.org.uk/projects/pbp-food-bank/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "PBP Foodbank",
+    "website": "https://cetma.org.uk/projects/pbp-food-bank/",
+    "error": "TimeoutError: The read operation timed out",
+    "failed_runs": 2,
+    "phone": "01554227540",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "dead or unreachable website|https://www.sdcvs.org.uk/food-hub": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "South Derbyshire CVS Foodbank",
+    "website": "https://www.sdcvs.org.uk/food-hub",
+    "error": "HTTP 429",
+    "failed_runs": 2,
+    "phone": "07458305314",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "access now uncertain|https://www.hornseyfoodbank.com": {
+    "category": "access now uncertain",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Hornsey Foodbank",
+    "website": "https://www.hornseyfoodbank.com",
+    "current_tag": "voucher",
+    "note": "voucher wording no longer found - tag kept until you decide"
+   },
+   "items-needed list updated|https://www.thewellwolverhampton.co.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Wolverhampton Foodbank",
+    "website": "https://www.thewellwolverhampton.co.uk",
+    "list": "shopping list and start now.<\\/p>\", | \"button\": { | \"buttonText\": \"Shopping List\", | \"buttonLink\": \"/s/The-Well-Shopping-List-Downloadable.pdf\", | \"buttonNewWindow\": true | \"imageId\": \"6a8379b44aad106f441c3988\", | \"image\": { | \"id\": \"6a8379b44aad106f441c3988\", | \"recordType\": 2, | \"addedOn\": 1618422235028, | \"updatedOn\": 1618426532265, | \"starred\": false, | \"passthrough\": false,"
+   },
+   "seasonal/holiday hours notice|https://oadbyfoodbank.org.uk/": {
+    "category": "seasonal/holiday hours notice",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Oadby Foodbank",
+    "website": "https://oadbyfoodbank.org.uk/",
+    "text": "tails, and not the church phone number. CHRISTMAS CLOSURE – The Foodbank will be closed on 24th, 25th, 26th, 31st December and 1st January 2027 How can I reach you? Text/Call: 07723 121794 Email: ku.gr 1792962960 o.kna 1"
+   },
+   "items-needed list updated|https://ringwood.foodbank.org.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Ringwood Foodbank",
+    "website": "https://ringwood.foodbank.org.uk",
+    "list": "shopping list | Urgently needed food items | Donate Food Online | Your supermarket can deliver donations to RFB Warehouse | Change of Charity Governance | This will change on the 1st July 2024 click for details | View our Instagram Page Here | Show previous slide | Show next slide | Where we are | Get directions & opening times | 25 Oct 2026 | Annual Report 2025/26 | 25 Aug 2026"
+   },
+   "seasonal/holiday hours notice|https://rutherglencambuslang.foodbank.org.uk": {
+    "category": "seasonal/holiday hours notice",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Rutherglen & Cambuslang Foodbank",
+    "website": "https://rutherglencambuslang.foodbank.org.uk",
+    "text": "ons & opening times 1 Oct 2026 Foodbank Festive Donation Opening Hours 1 Oct 2026 Foodbank Christmas Campaigns 2026 25 Oct 2026 Community Warmth at the Foodbank 31 Jan 2024 BanktheFood App Make a donation We rely on our"
+   },
+   "items-needed list updated|https://worcester.foodbank.org.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-25T21:07:28+00:00",
+    "name": "Worcester Foodbank",
+    "website": "https://worcester.foodbank.org.uk",
+    "list": "Items we need | As of 25/10/2026 | Adult toothpaste | Cereal | Children's toothpaste | Cold tinned meat | Cooking sauce in packets | Deodorant | Instant coffee | Instant mashed potato | Jam | Long-life juice | Long-life milk | Men's deodorant"
    }
   }
  }
