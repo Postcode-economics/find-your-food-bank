@@ -82,6 +82,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 7. Prune learning scores that have not been seen for about 90 days
 
+**Status:** Built. A key unseen for 90 days is forgotten, with a tombstone. It is not removed from the map. An empty list prunes nothing.
+
 - **Benefit:** `reports/learning_state.json` does not grow forever with sites that have left the lists, so a sweep stays fast years from now.
 - **Risk:** A pruned place is treated as new for ordering, so it jumps toward the front of the next queue. That is exploration, not a new pin. Rhythm and faded scores for that place are forgotten.
 - **Effort:** S.

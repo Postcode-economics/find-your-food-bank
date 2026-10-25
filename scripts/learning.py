@@ -219,6 +219,26 @@ def record_sources(path, marks, keep=12):
     tmp = path + ".tmp"; json.dump(nxt, open(tmp, "w"), indent=0, sort_keys=True); os.replace(tmp, path)
     return nxt
 
+PRUNE_DAYS = 90
+
+def prune(s, today, seen, days=PRUNE_DAYS):
+    """Forget scores for keys that are not in this run's list and were last checked at least `days` ago.
+    No last_check: kept, because the age would be a guess. An empty seen list prunes nothing.
+    A tombstone records the key, the last day and the word pruned. The map is not touched.
+    A later check of that key starts again as a new key."""
+    if not seen: return s
+    seen = set(seen); tomb = list(s.get("tombstones") or [])
+    for k, e in list((s.get("keys") or {}).items()):
+        if k in seen: continue
+        last = e.get("last_check")
+        if not last: continue
+        age = _days(last, today)
+        if age < days or age >= 10 ** 5: continue
+        tomb.append({"key": k, "last_day": str(last)[:10], "reason": "pruned"})
+        del s["keys"][k]
+    s["tombstones"] = tomb[-200:]
+    return s
+
 def anomaly_brake(history, proposed):
     """Stop when this run would change many more places than recent runs.
     Fewer than four recorded runs: do not stop (there is no baseline to compare with, and none is invented).
