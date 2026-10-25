@@ -278,11 +278,15 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         try:
             r = fetcher(u)
             if r.get("http") != 200 or not r.get("text"): return ("fail", u, r.get("http"))
+            try:
+                import official_feeds
+                feeds = official_feeds.scan(r.get("text") or "")
+            except Exception: feeds = []
             c = extract(r["text"], r.get("final_url") or u, name, hint, r.get("last_modified", ""), trusted=auto, parser=parser, sect=sect)
             if not auto:  # layout not proven for this source: auto-add only as tier 2 ('Unverified - call before you go') and only
                 # if Dean's auto-add rule passes below (valid postcode, not within 150 m of anything, dated page, not held)
                 c = [dict(e, proposed_tier=e["tier"], tier="unverified", auto_rule=True) if e["tier"] in ("verified", "unverified") else e for e in c]
-            return ("ok", u, c)
+            return ("ok", u, c, feeds)
         except Exception as ex: return ("fail", u, str(ex)[:80])
     with cf.ThreadPoolExecutor(16) as ex: R = list(ex.map(one, jobs))
     fails = [r for r in R if r[0] == "fail"]; cands = [e for r in R if r[0] == "ok" for e in r[2]]
@@ -291,6 +295,13 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         for (u, name, *_rest), r in zip(jobs, R):
             marks[name] = marks.get(name, False) or r[0] == "ok"
         try: learning.record_sources(os.path.join(os.path.dirname(HERE), "reports", "source_health.json"), marks)
+        except Exception: pass
+        found = []
+        for r in R:
+            if len(r) > 3: found.extend(r[3])
+        try:
+            import official_feeds
+            official_feeds.write(found)
         except Exception: pass
     report = {"run": d, "pages": len(jobs), "failed": len(fails), "errors": errors[:200] + [[f[1], f[2]] for f in fails][:300], "added": [], "pending": [], "status": "ok"}
     if jobs and len(fails) / len(jobs) > MAX_FAIL_RATE:
