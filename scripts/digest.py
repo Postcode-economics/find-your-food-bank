@@ -44,6 +44,9 @@ def main(now=None):
          "- Daily review list: reports/daily_review.md", ""]
     try: L += learning.digest_lines(learning.load(), now.date().isoformat())  # Dean 25 Oct 08:01
     except Exception as e: L += ['## What the system learned', '', '- unavailable: %r' % e, '']
+    try:
+        import learning_signals; L += learning_signals.digest_lines(rj(P('reports', 'learning_signals.json'), {})) if os.path.exists(P('reports', 'learning_signals.json')) else []
+    except Exception as e: L += ['- learning signals unavailable: %r' % e, '']
     open(MD, "w", encoding="utf-8").write("\n".join(L))
     if os.environ.get("GITHUB_ACTIONS"):
         for k, t, b in al: subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b])

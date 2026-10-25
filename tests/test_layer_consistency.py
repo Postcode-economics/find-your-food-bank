@@ -36,8 +36,9 @@ class Browser(unittest.TestCase):
                         oo:document.querySelectorAll('.v3oo').length})""")
                     self.assertEqual(r["oo"], 0, k)
                     heads = pg.evaluate("()=>[...document.querySelectorAll('#list>.lh,#xlist>.lh')].filter(e=>e.offsetParent!==null).map(e=>e.textContent)")
-                    self.assertTrue(heads and all(("(open today first)" in h) == on for h in heads), (k, on, heads))
-                    self.assertEqual(r["notes"], ["Places with no listed times are shown below those open today."] if on else [], (k, on))
+                    self.assertTrue(heads and all("(open today first)" not in h for h in heads), (k, on, heads))
+                    self.assertEqual(pg.evaluate("(document.getElementById('hid')||{}).textContent||''"), '', k)  # no counts line
+                    self.assertEqual(r["notes"], ["Showing places open today. If no times are listed, call before you go."] if on else [], (k, on))
             for k in ("ws", "sh"):
                 pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)
                 if pg.evaluate("document.getElementById('openToday').checked"): pg.click("#v3open"); pg.wait_for_timeout(300)

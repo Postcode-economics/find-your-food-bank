@@ -74,7 +74,7 @@ class Wiring(unittest.TestCase):
     def test_sweeps_use_learning_only_for_order(self):
         fc = open(os.path.join(ROOT, "scripts", "full_check.py")).read(); sw = open(os.path.join(ROOT, "scripts", "sweep_daily.py")).read()
         dg = open(os.path.join(ROOT, "scripts", "digest.py")).read()
-        self.assertIn("learning.plan(LS, sorted(by_site), DAY, gaps)", fc); self.assertIn("learning.record(LS, u, DAY", fc)
+        self.assertIn("learning.plan(LS, sorted(by_site), DAY, gaps", fc); self.assertIn("learning.record(LS, u, DAY", fc)
         self.assertIn("learning.plan(LS, [j[0] for j in jobs], d)", sw); self.assertIn("MAX_FAIL_RATE", sw); self.assertIn("MAX_NEW", sw)
         self.assertIn("learning.digest_lines", dg)
     def test_sweep_with_test_sources_does_not_touch_state(self):

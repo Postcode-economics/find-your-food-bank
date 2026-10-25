@@ -61,21 +61,21 @@ def resting(e, today):
 
 def due_floor(e, today): return not e.get("last_check") or _days(e["last_check"], today) >= FLOOR_DAYS
 
-def priority(s, key, today, gap=0.0):
+def priority(s, key, today, gap=0.0, boost=0.0):
     e = s["keys"].get(key) or {"checks": 0, "finds": 0, "last_check": None}
     explore = C * math.sqrt(math.log(s.get("total_checks", 0) + 1) / (e["checks"] + 1))
     stale = 1.0 if not e.get("last_check") else min(_days(e["last_check"], today) / FLOOR_DAYS, 1.0)
-    return round(reward(e) + explore + GAP_W * max(0.0, min(gap, 1.0)) + STALE_W * stale, 4)
+    return round(reward(e) + explore + GAP_W * max(0.0, min(gap, 1.0)) + STALE_W * stale + max(0.0, min(boost, 3.0)), 4)  # boost: learning_signals.py (bounded)
 
-def plan(s, keys, today, gaps=None, budget=None):
+def plan(s, keys, today, gaps=None, budget=None, boosts=None):
     """Order keys for this run. Floor-due keys first (always kept), then by priority; resting keys (back-off) are
     left out unless the weekly floor makes them due. `budget` caps how many non-floor keys are kept."""
-    gaps = gaps or {}; floor, rest, skipped = [], [], []
+    gaps = gaps or {}; boosts = boosts or {}; floor, rest, skipped = [], [], []
     for k in keys:
         e = s["keys"].get(k)
-        if e and resting(e, today) and not due_floor(e, today): skipped.append(k); continue
+        if e and resting(e, today) and not due_floor(e, today) and boosts.get(k, 0) < 0.8: skipped.append(k); continue  # a strong change signal ends the rest early
         (floor if (e is None or due_floor(e, today)) else rest).append(k)
-    p = {k: priority(s, k, today, gaps.get(k, 0.0)) for k in keys}
+    p = {k: priority(s, k, today, gaps.get(k, 0.0), boosts.get(k, 0.0)) for k in keys}
     floor.sort(key=lambda k: -p[k]); rest.sort(key=lambda k: -p[k])
     if budget is not None: rest = rest[:max(0, budget - len(floor))]
     return floor + rest, skipped, p

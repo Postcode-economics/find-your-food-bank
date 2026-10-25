@@ -166,7 +166,9 @@ def page(path, title, desc, body, crumbs, updated):
             'Areas from <a href="https://postcodes.io/" rel="noopener">postcodes.io</a> (contains OS data © Crown copyright and database right 2026).</p>%s</footer></body></html>\n'
             % (E(title), E(desc), url, E(title), E(desc), url, CSS, json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'), body, E(updated), SH_CREDIT, LEGAL))
 
+import beacon  # analytics beacon on every generated page (25 Oct 2026)
 def write(rel, text, out):
+    text = beacon.inject(text)
     p = os.path.join(out, rel.lstrip('/'))
     if p.endswith('/'): p += 'index.html'
     os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -241,7 +243,7 @@ def build(out=ROOT, fetch=True):
     open(os.path.join(out, 'robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /logs/\nDisallow: /reports/\nDisallow: /overrides/\nDisallow: /scripts/\nDisallow: /tests/\n\nSitemap: %s/sitemap.xml\n' % SITE)
     body = ('<h1>Page not found</h1><p>Sorry, that page isn’t here. It may have moved.</p><a class="cta" href="/">Open the helpmap.uk map</a>'
             '<p><a href="/food-banks/">Food banks by area</a> · <a href="/warm-spaces/">Warm spaces by area</a> · <a href="/shelters/">Shelters by area</a></p>')
-    open(os.path.join(out, '404.html'), 'w').write(page('/404.html', 'Page not found – helpmap.uk', 'Page not found.', body, [('helpmap.uk', '/')], fb['fetched']).replace('<link rel="canonical" href="https://helpmap.uk/404.html">', '<meta name="robots" content="noindex">'))
+    open(os.path.join(out, '404.html'), 'w').write(beacon.inject(page('/404.html', 'Page not found – helpmap.uk', 'Page not found.', body, [('helpmap.uk', '/')], fb['fetched']).replace('<link rel="canonical" href="https://helpmap.uk/404.html">', '<meta name="robots" content="noindex">')))
     print('seo pages: %d (+ sitemap, robots, 404)' % len(urls))
     return urls
 

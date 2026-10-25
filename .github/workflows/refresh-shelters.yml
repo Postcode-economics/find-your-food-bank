@@ -34,6 +34,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/refresh_guard.py shelters
+      - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/sense_check.py
       - name: SWEP watch (council severe-weather pages; flags only, never changes the map)
         id: swep
         continue-on-error: true

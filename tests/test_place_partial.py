@@ -22,8 +22,8 @@ class Browser(unittest.TestCase):
             c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
             c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(LH if "Littlehampton" in r.request.url else SH if "places" in r.request.url else {"status": 404})))
             pg = c.new_page(); pg.goto(f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1", wait_until="networkidle"); pg.wait_for_timeout(1200)
-            pg.fill("#q", "Suffolk"); pg.press("#q", "Enter"); pg.wait_for_timeout(1500)
-            self.assertIn("couldn’t find a town called “Suffolk”", pg.inner_text(".v3err"))
+            pg.fill("#q", "Suffolkh"); pg.press("#q", "Enter"); pg.wait_for_timeout(1500)  # 'Suffolk' itself is now a county (counties.json)
+            self.assertIn("couldn’t find a town called “Suffolkh”", pg.inner_text(".v3err"))
             self.assertEqual(pg.locator("#list>.card").count(), 0)
             self.assertTrue(pg.locator(".didyou").is_visible())
             pg.click(".didyou"); pg.wait_for_timeout(1500)
@@ -31,3 +31,14 @@ class Browser(unittest.TestCase):
             pg.fill("#q", "Littlehampton"); pg.press("#q", "Enter"); pg.wait_for_timeout(1500)
             self.assertIn("Littlehampton", pg.inner_text("#list"))
             c.close(); b.close()
+
+
+class County(unittest.TestCase):
+    """Dean 25 Oct 09:18: county names (ONS CTYUA label points) win over small place matches."""
+    def test_counties_present(self):
+        import os
+        d = json.load(open(os.path.join(os.path.dirname(__file__), "..", "counties.json")))
+        n = {a["name"]: a for a in d["areas"]}
+        for c in ("Suffolk", "Kent", "Devon", "West Sussex", "Fife"): self.assertIn(c, n)
+        self.assertTrue(52.0 < n["Suffolk"]["lat"] < 52.5 and 0.5 < n["Suffolk"]["lng"] < 1.6)
+        self.assertIn("ONS", d["_source"])
