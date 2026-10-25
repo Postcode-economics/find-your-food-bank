@@ -1,10 +1,3 @@
-# Refresh guard: shelters (2026-10-24T21:02:45+00:00)
+# Refresh guard: shelters (2026-10-25T05:19:05+00:00)
 
-shelters: kept 4 places, 0 phones, 0 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
-
-## places kept (4)
-
-- hl-adullam-homes-ha-norman-house
-- hl-amat-uk
-- hl-bradford-cyrenians-hostel-for-homeless-men
-- hl-bridge-house-mission
+shelters: kept 0 places, 0 phones, 0 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.

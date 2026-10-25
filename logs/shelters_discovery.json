@@ -1,9 +1,58 @@
 {
- "run": "2026-10-24",
- "candidates": 35,
- "already_on_map": 1,
- "new": 34,
- "added": [],
+ "run": "2026-10-25",
+ "candidates": 59,
+ "already_on_map": 4,
+ "new": 55,
+ "added": [
+  {
+   "id": "hl-adullam-homes-ha-norman-house",
+   "name": "Adullam Homes HA - Norman House",
+   "postcode": "B70 9LS",
+   "directory": "Homeless Link",
+   "url": "http://www.adullam.org.uk",
+   "final_url": "https://www.adullam.org.uk/",
+   "http": 200,
+   "sha256": "0e7418cc971bbe1f8bf8c9e89d312337ac6a097ff0bee48ab765dfc0ea2309ec",
+   "etag": "\"5475-1792829744;;;\"",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-amat-uk",
+   "name": "Ashdown Medway Accommodation Trust (AMAT)",
+   "postcode": "ME4 4PB",
+   "directory": "Homeless Link",
+   "url": "http://www.amatuk.org",
+   "final_url": "https://www.amatuk.org/",
+   "http": 200,
+   "sha256": "372f815df0e95de2f02cbd178b94f2cd106fabfb48fd46b8c6a018f094c2c7ab",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-bradford-cyrenians-hostel-for-homeless-men",
+   "name": "Bradford Cyrenians - Hostel for Homeless Men",
+   "postcode": "BD8 7EP",
+   "directory": "Homeless Link",
+   "url": "http://www.bradfordcyrenians.org.uk",
+   "final_url": "https://www.bradfordcyrenians.org.uk/",
+   "http": 200,
+   "sha256": "43f7dddc29e387094285e11d19e0f3bb62857665366863f02bbeb4f4aef85e6d",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-bridge-house-mission",
+   "name": "Bridge House Mission",
+   "postcode": "TS18 3AX",
+   "directory": "Homeless Link",
+   "url": "http://www.bridgehousemission.co.uk",
+   "final_url": "https://bridgehousemission.co.uk/",
+   "http": 200,
+   "sha256": "ba627f3401c58fade7f2d99c9728d8f41106088a0c8fdf573534632d38b23f9b",
+   "etag": "",
+   "last_modified": ""
+  }
+ ],
  "flagged": [
   {
    "id": "osm-node-1243077938",
@@ -14,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "6054570bd9f9cb49532b80f3def2b60282f6be231dad61f532d249e2a36d3102",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "f9475844ebb31d94c00b81fe78fc28e3885a107dd8266cf3bc3a1e0147abb17a",
    "etag": "",
    "last_modified": ""
   },
@@ -85,12 +134,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "46a6f50ae269e6592e2ec3aa910d1ccbf6e1bfa740b8592906ea5631459959f5",
+   "http": 202,
+   "sha256": "4b14e7f2b0c65f05b3b60e232b2577b654cdbaea1069db5a62194dc607ba16c6",
    "etag": "",
    "last_modified": ""
   },
@@ -161,7 +211,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "ade2296294c043b3ba4f17028902a61b71f6a7761b48686a869f1c529d9b2396",
+   "sha256": "4e8fa5fcaf2d6000856b43157bb0e717bb2fd9214163d7bd7f8cecf762730a25",
    "etag": "",
    "last_modified": ""
   },
@@ -306,8 +356,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1792850700\"",
-   "last_modified": "Sat, 24 Oct 2026 14:05:00 GMT"
+   "etag": "\"1792892789\"",
+   "last_modified": "Sun, 25 Oct 2026 01:46:29 GMT"
   },
   {
    "id": "osm-way-172932545",
@@ -449,7 +499,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "7c475dda800cbbc065a9f3f0341b51d47b26a4035e3183f56c4695bb07496b1c",
+   "sha256": "e7054fe0703f8ee8e72fe797911331978f75521d182edd8a2f8cc7280467d5fa",
    "etag": "",
    "last_modified": ""
   },
@@ -608,6 +658,296 @@
     "no own website in directory"
    ],
    "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-1625-independent-people-st-georges-house",
+   "name": "1625 Independent People - St George's House",
+   "postcode": "BS1 5UP",
+   "website": "http://www.1625ip.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/1625-independent-people-st-georges-house/",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.1625ip.co.uk",
+   "final_url": "https://www.1625ip.co.uk/",
+   "http": 200,
+   "sha256": "89fbd1f9410cf22804863020c31800df0c3a75e71dd3aa09784ba298a27aa26e",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-a2dominion-matilda-house",
+   "name": "a2Dominion - Matilda House",
+   "postcode": "OX4 3LA",
+   "website": "https://a2dominion.co.uk/services/Supported-housing",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/a2dominion-matilda-house/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://a2dominion.co.uk/services/Supported-housing",
+   "final_url": "https://a2dominion.co.uk/services/Supported-housing",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-action-homeless-leicester",
+   "name": "Action Homeless Leicester",
+   "postcode": "",
+   "website": "http://www.actionhomeless.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/action-homeless-leicester/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-adullam-homes-ha-bury-aben-phase-3",
+   "name": "Adullam Homes HA - Bury ABEN (Phase 3)",
+   "postcode": "",
+   "website": "https://www.bury.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/adullam-homes-ha-bury-aben-phase-3/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-adullam-homes-ha-fleet-house",
+   "name": "Adullam Homes HA - Fleet House",
+   "postcode": "",
+   "website": "http://www.irwellvalleyha.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/adullam-homes-ha-fleet-house/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-alabare-christian-care-alabare-north-devon",
+   "name": "Alabaré- North Devon",
+   "postcode": "EX39 2AU",
+   "website": "http://www.alabare.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-christian-care-alabare-north-devon/",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.alabare.co.uk",
+   "final_url": "https://alabare.co.uk/",
+   "http": 200,
+   "sha256": "17824d9524faeb9b1f03d8c0bd280f964ad8bb5ed7e85c013d196f8f715352e6",
+   "etag": "",
+   "last_modified": "Sun, 25 Oct 2026 00:04:56 GMT"
+  },
+  {
+   "id": "hl-alabare-the-andover-foyer-sarum-house",
+   "name": "Alabaré - The Andover Foyer Sarum House",
+   "postcode": "",
+   "website": "http://www.alabare.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-the-andover-foyer-sarum-house/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-amplius-the-new-haven",
+   "name": "Amplius - The New Haven",
+   "postcode": "",
+   "website": "https://www.longhurst-group.org.uk/search-for-independent-living-extra-care-specialist-housing-and-support/the-new-haven/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/amplius-the-new-haven/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ashley-foundation-elm-house",
+   "name": "Homeless Action - Elm House",
+   "postcode": "FY1 5DA",
+   "website": "https://homelessaction.org/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ashley-foundation-elm-house/",
+   "reasons": [
+    "own site unreachable (HTTP 403)"
+   ],
+   "url": "https://homelessaction.org/",
+   "final_url": "https://homelessaction.org/",
+   "http": 403,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-barnardos-bay-6-project-emergency-accommodation",
+   "name": "Barnardo's - Bay 6 Project - Emergency Accommodation",
+   "postcode": "PR25 2YA",
+   "website": "http://www.barnardos.org.uk/bay6project.htm",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/barnardos-bay-6-project-emergency-accommodation/",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.barnardos.org.uk/bay6project.htm",
+   "final_url": "https://www.barnardos.org.uk/get-support/services",
+   "http": 200,
+   "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
+   "etag": "",
+   "last_modified": "Sun, 25 Oct 2026 01:53:26 GMT"
+  },
+  {
+   "id": "hl-barnardos-merriweather-home",
+   "name": "Barnardo's - Merriweather Home",
+   "postcode": "PR1 8JB",
+   "website": "https://www.barnardos.org.uk/what-we-do/services/merriweather",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/barnardos-merriweather-home/",
+   "reasons": [
+    "own site unreachable (HTTP 404)"
+   ],
+   "url": "https://www.barnardos.org.uk/what-we-do/services/merriweather",
+   "final_url": "https://www.barnardos.org.uk/what-we-do/services/merriweather",
+   "http": 404,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-basildon-emergency-night-shelter",
+   "name": "Basildon Emergency Night Shelter",
+   "postcode": "",
+   "website": "",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/basildon-emergency-night-shelter/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bournemouth-churches-ha-st-pauls-hostel",
+   "name": "Bournemouth Churches HA - St Paul's Hostel",
+   "postcode": "BH2 6LL",
+   "website": "http://www.bournemouth.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bournemouth-churches-ha-st-pauls-hostel/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site redirects to a different site (bcpcouncil.gov.uk)"
+   ],
+   "url": "http://www.bournemouth.gov.uk",
+   "final_url": "https://www.bcpcouncil.gov.uk/",
+   "http": 200,
+   "sha256": "5d04b54dd239327081f19e99f5fc4da405d977b171596b0f99f63de500c9c5b4",
+   "etag": "W/\"21bbc-5WCm9oDGCvIc5pjVKi9+6DdyXW8\"",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-branches-hostel",
+   "name": "Branches Hostel",
+   "postcode": "E17 3HR",
+   "website": "http://https://www.wfcbranches.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/branches-hostel/",
+   "reasons": [
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "http://https://www.wfcbranches.org.uk",
+   "final_url": "http://https://www.wfcbranches.org.uk",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-brighton-hove-city-council-new-steine-mews-hostel",
+   "name": "Brighton & Hove City Council - New Steine Mews Hostel",
+   "postcode": "BN2 1QP",
+   "website": "http://www.nsmhostel.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/brighton-hove-city-council-new-steine-mews-hostel/",
+   "reasons": [
+    "own site has no readable text"
+   ],
+   "url": "http://www.nsmhostel.org.uk",
+   "final_url": "https://www.nsmhostel.org.uk/",
+   "http": 200,
+   "sha256": "74efa9563195f1fc99273a150359aed2f46015d4df38b225c41c9dcc27033e05",
+   "etag": "\"167-65e8055870200\"",
+   "last_modified": "Fri, 23 Oct 2026 11:32:24 GMT"
+  },
+  {
+   "id": "hl-bromford-charles-england-house",
+   "name": "1625 Independent People - Charles England House",
+   "postcode": "BS15 9TR",
+   "website": "https://www.1625ip.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-charles-england-house/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bromford-hayward-road-hostel",
+   "name": "Bromford - Hayward Road Hostel",
+   "postcode": "BS15 9TR",
+   "website": "http://www.bromford.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
    "final_url": null,
    "http": null,
    "sha256": null,
