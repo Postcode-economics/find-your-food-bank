@@ -122,6 +122,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 11. Check the override files before a publish
 
+**Status:** Built. Broken JSON, or a hand file that drops below half its last count, stops the publish until Dean confirms the new size in `overrides/shrink_ok.json`.
+
 - **Benefit:** A broken or suddenly much smaller `phones.json`, notices file, or closures file stops the publish and tells Dean, instead of wiping hand corrections.
 - **Risk:** A real bulk edit Dean just made is held until he confirms it. That is the point of the check.
 - **Effort:** S.
