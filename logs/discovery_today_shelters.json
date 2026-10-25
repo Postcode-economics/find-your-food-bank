@@ -14,6 +14,13 @@
    "added": 4,
    "queued": 51,
    "rejected": 0
+  },
+  {
+   "at": "21:10Z",
+   "source": "shelters_discovery.json",
+   "added": 4,
+   "queued": 51,
+   "rejected": 0
   }
  ],
  "added": [
@@ -164,7 +171,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "5007ee7be7b82a2da9fa5d0f9ce86228f0805fa8208e516053c0cd8f2c797d40",
+   "sha256": "f9c96f75d8e1863912a9d92e559652529892c0df516027991318f6c5fdddd7e7",
    "etag": "",
    "last_modified": ""
   },
@@ -235,7 +242,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "6dff73d18a5e1a1990ccc76afe28047c1a810c48c88819da4966f74b5581778a",
+   "sha256": "5a48c9c8cabcbdd4519333a302fd98e4395988b67d0f04040df008b4e4621be0",
    "etag": "",
    "last_modified": ""
   },
@@ -379,9 +386,9 @@
    "url": "https://centrepoint.org.uk/",
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
-   "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1792892789\"",
-   "last_modified": "Sun, 25 Oct 2026 01:46:29 GMT"
+   "sha256": "5489dc54585e66185e8e6434b951e585e4d4e02944aef45478046f04784cd8f8",
+   "etag": "\"1792947914\"",
+   "last_modified": "Sun, 25 Oct 2026 17:05:14 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -701,7 +708,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "f97c1f94136fcea04ed0602c40286c5d53e6216f20e0e96b869b882a3040b211",
+   "sha256": "6dddc210a2a2b135f025cb086741651a5b79ad7fb493529e00031617e79fa5fe",
    "etag": "",
    "last_modified": ""
   },
@@ -856,7 +863,7 @@
    "http": 200,
    "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
    "etag": "",
-   "last_modified": "Sun, 25 Oct 2026 07:58:03 GMT"
+   "last_modified": "Sun, 25 Oct 2026 19:58:36 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -906,8 +913,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "97e142f12de6fe7b1f1bad54f1f60ca427169d36973e125a36bd67c289f66243",
-   "etag": "W/\"21bd6-Y8fpXrbxNik0kiMwy9Oka2keMWw\"",
+   "sha256": "cf5e58f7e6ee78ad935cb0ec30e397996ab0292ec0f051ea320ebb0bbd60c041",
+   "etag": "W/\"21bba-7oxm0pTjvfUu3WHbdyLXNa5jcBY\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
