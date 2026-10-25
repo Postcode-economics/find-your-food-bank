@@ -13,12 +13,20 @@ def die(msg):
     print('FAIL SAFE:', msg, '- data.js not changed'); sys.exit(1)
 
 def get(url, data=None, tries=3):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        rate_ledger.LEDGER.record(url, 429)
+        raise RuntimeError('paused this run after HTTP 429')
     for n in range(tries):
         try:
             h = dict(UA)
             if data is not None: h['Content-Type'] = 'application/json'
             req = urllib.request.Request(url, data=data, headers=h)
-            return json.load(urllib.request.urlopen(req, timeout=90))
+            out = json.load(urllib.request.urlopen(req, timeout=90))
+            rate_ledger.LEDGER.record(url, 200)
+            return out
+        except urllib.error.HTTPError as e:
+            rate_ledger.LEDGER.record(url, e.code); err = e
         except Exception as e:
             err = e
     raise err
@@ -231,6 +239,10 @@ def main():
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
     tmp = OUT + '.tmp'; open(tmp, 'w').write(new); os.replace(tmp, OUT)
     print('wrote %d entries (previous %d)' % (len(items), cur))
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts: rate_ledger.save(day=datetime.date.today().isoformat())
+    except Exception: pass
     import compact; compact.main()  # browser-facing compact data.js
     import build_access; build_access.main(ROOT)  # filter chips: regenerate access.js from overrides/access/*.csv
 
