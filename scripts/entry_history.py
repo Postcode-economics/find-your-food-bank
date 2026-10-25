@@ -49,6 +49,20 @@ def add_tally(path, changes):
 def years_of(counts):
     return sorted({k.split("-")[0] for k in (counts or {}) if "-W" in k})
 
+def redact(hist, today, days=90):
+    """Drop old and new values once a change is `days` old. The label, the field and the date stay."""
+    try: today_d = datetime.date.fromisoformat(str(today)[:10])
+    except Exception: return hist
+    for rows in (hist or {}).values():
+        if not isinstance(rows, list): continue
+        for c in rows:
+            if not isinstance(c, dict): continue
+            try: age = (today_d - datetime.date.fromisoformat(str(c.get("when"))[:10])).days
+            except Exception: continue
+            if age >= days:
+                c.pop("old", None); c.pop("new", None)
+    return hist
+
 def update(data=DATA, snap_p=SNAP, hist_p=HIST, closed_p=CLOSED, when=None, tally_p=None):
     when = when or datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     new = snap(load_items(data))
@@ -59,6 +73,7 @@ def update(data=DATA, snap_p=SNAP, hist_p=HIST, closed_p=CLOSED, when=None, tall
         old = json.load(open(snap_p)); ch = diff(old, new, closed, when)
         if len(ch) > 5000: print("entry history: %d changes looks wrong, not recorded" % len(ch)); return []
         for c in ch: hist.setdefault(c["id"], []).append(c); hist[c["id"]] = hist[c["id"]][-KEEP:]
+        redact(hist, when)
     json.dump(hist, open(hist_p, "w"), separators=(",", ":"), sort_keys=True)
     json.dump(new, open(snap_p, "w"), separators=(",", ":"), sort_keys=True)
     add_tally(tally_p or os.path.join(os.path.dirname(hist_p), "week_counts.json"), ch)
