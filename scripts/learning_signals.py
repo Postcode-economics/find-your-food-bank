@@ -25,7 +25,7 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4}
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -132,7 +132,7 @@ def self_review(LS, prev_signals, today):
 
 def build(today=None):
     today = today or datetime.date.today(); items = [i for i in items_of('data.full.js') if i.get('type') == 'foodbank']
-    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(); prev = rj('reports/learning_signals.json', {})
+    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
@@ -154,6 +154,8 @@ def build(today=None):
         if season: parts['season'] = W['season'] * season
         if dem.get(u): parts['demand'] = W['demand'] * dem[u]
         if vis.get(u): parts['visitor'] = W['visitor'] * min(vis[u], 3) / 3
+        rf = learning.rhythm_factor(LS.get('keys', {}).get(u) or {}, today.isoformat())
+        if rf: parts['rhythm'] = W['rhythm'] * rf
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -187,8 +189,8 @@ def digest_lines(out, full=False):
     T = sorted(out.get('trust', {}).items(), key=lambda x: x[1])
     L.append('- Source trust (phone agrees with own site, minus hand corrections): ' + (', '.join('%s %.2f (%s checked)' % (s, v, out['agreement_n'].get(s, 0)) for s, v in T) or 'none yet'))
     L.append('- Places with change signals (dead link, closure wording, Facebook, bounce): %d' % len(out.get('signals', {})))
-    L.append('- Checks moved up for next run: %d sites (corrections %d, signals %d, season %d, demand %d, visitor reports %d)' % (
-        len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor'))))
+    L.append('- Checks moved up for next run: %d sites (corrections %d, signals %d, season %d, demand %d, visitor reports %d, rhythm %d)' % (
+        len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor', 'rhythm'))))
     L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
     L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
