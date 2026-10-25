@@ -280,42 +280,6 @@
   },
   {
    "source": "Met Office",
-   "title": "Amber warning of wind affecting Northern Ireland",
-   "level": "amber",
-   "areas": [
-    "County Antrim",
-    "County Londonderry"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-24&id=3df474a5-8801-44ff-b9e9-3bfa2021355a&referrer=rss",
-   "places": [
-    "Simon Community – 242 Antrim Road",
-    "Simon Community – Bonds Hill"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
-   "title": "Yellow warning of wind affecting Northern Ireland",
-   "level": "yellow",
-   "areas": [
-    "County Antrim",
-    "County Armagh",
-    "County Down",
-    "County Fermanagh",
-    "County Londonderry",
-    "County Tyrone"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-24&id=43d25d86-b917-4419-9e92-d7e72817fbdd&referrer=rss",
-   "places": [
-    "Simon Community – 242 Antrim Road",
-    "Simon Community – Armagh",
-    "Simon Community – Bonds Hill",
-    "The Meeting Place"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Northern Ireland",
    "level": "yellow",
    "areas": [
@@ -704,6 +668,44 @@
   },
   {
    "source": "Environment Agency",
+   "title": "Flood warning: North Sea at Scarborough - Sandside",
+   "level": "flood warning",
+   "areas": [
+    "North Yorkshire"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/122FWC045",
+   "places": [
+    "Glusburn Community & Arts Centre",
+    "Munch and Mingle",
+    "Norton Hive Community Library and Hub",
+    "Sherburn and Villages Community Library & Information Hub",
+    "St Luke’s Church",
+    "St. Thomas Church, Sutton-in-Craven",
+    "YMCA Scarborough"
+   ],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
+   "title": "Flood warning: North Sea at Scarborough - Foreshore Road",
+   "level": "flood warning",
+   "areas": [
+    "North Yorkshire"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/122FWC048",
+   "places": [
+    "Glusburn Community & Arts Centre",
+    "Munch and Mingle",
+    "Norton Hive Community Library and Hub",
+    "Sherburn and Villages Community Library & Information Hub",
+    "St Luke’s Church",
+    "St. Thomas Church, Sutton-in-Craven",
+    "YMCA Scarborough"
+   ],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
    "title": "Flood warning: Keswick Campsite",
    "level": "flood warning",
    "areas": [
@@ -729,39 +731,30 @@
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Lee's Bridge at Astley Bridge Central",
+   "title": "Flood warning: The tidal River Waveney from Ellingham Marshes to Belton",
    "level": "flood warning",
    "areas": [
-    "Bolton"
+    "Norfolk, Suffolk"
    ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWFGM104",
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/054FWTBT3A",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
+   "title": "Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham",
+   "level": "flood warning",
+   "areas": [
+    "Norfolk"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/054FWTBT2A",
    "places": [
-    "Cafe Oasis",
-    "Christ Church Coffee Lounge",
-    "St Katharine's Church,  Blackrod"
+    "Cozy Cafe Holt Community Centre",
+    "Revive Community Cafe",
+    "St Mary's Church Hall",
+    "Unity Cafe",
+    "Wymondham Abbey"
    ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: River Barle from Simonsbath to Brushford, including Withypool",
-   "level": "flood warning",
-   "areas": [
-    "Devon, Somerset"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/113FWF2G2A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: River Exe at Winsford and Bridgetown",
-   "level": "flood warning",
-   "areas": [
-    "Devon, Somerset"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/113FWFEXE02",
-   "places": [],
    "swep": []
   },
   {
@@ -777,44 +770,36 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Carse of Lennoch to Lochlane",
+   "title": "The FLOOD WARNING for Carse of Lennoch to Lochlane is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Carse of Lennoch to Lochlane"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26777/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Glen Lyon",
+   "title": "The FLOOD WARNING for Glen Lyon is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Glen Lyon"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26803/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Crieff to Innerpeffray",
+   "title": "The FLOOD WARNING for Crieff to Innerpeffray is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Crieff to Innerpeffray"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26809/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Bridge of Ruthven to Leitfie",
+   "title": "The FLOOD WARNING for Bridge of Ruthven to Leitfie is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Bridge of Ruthven to Leitfie"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27045/",
    "places": [],
    "swep": []
@@ -883,6 +868,17 @@
   },
   {
    "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Spey Dam to Newtonmore",
+   "level": "flood warning",
+   "areas": [
+    "Spey Dam to Newtonmore"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26875/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
    "title": "A FLOOD WARNING has been issued for Sluggan to Dulnain Bridge",
    "level": "flood warning",
    "areas": [
@@ -912,154 +908,137 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Upper Solway Firth",
+   "title": "A FLOOD WARNING has been issued for Strathglass",
    "level": "flood warning",
    "areas": [
-    "Upper Solway Firth"
+    "Strathglass"
    ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26859/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "The FLOOD WARNING for Upper Solway Firth is No longer in force",
+   "level": "flood warning",
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27227/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Nith Tidal",
+   "title": "The FLOOD WARNING for Nith Tidal is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Nith Tidal"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27229/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Southerness Point",
+   "title": "The FLOOD WARNING for Southerness Point is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Southerness Point"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27231/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Rough Firth",
+   "title": "The FLOOD WARNING for Rough Firth is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Rough Firth"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27233/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Kirkcudbright Bay",
+   "title": "The FLOOD WARNING for Kirkcudbright Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Kirkcudbright Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27235/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Fleet Bay",
+   "title": "The FLOOD WARNING for Fleet Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Fleet Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27237/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Inner Wigtown Bay",
+   "title": "The FLOOD WARNING for Inner Wigtown Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Inner Wigtown Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27239/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Outer Wigtown Bay",
+   "title": "The FLOOD WARNING for Outer Wigtown Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Outer Wigtown Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27241/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for East Luce Bay",
+   "title": "The FLOOD WARNING for East Luce Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "East Luce Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27243/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for West Luce Bay North",
+   "title": "The FLOOD WARNING for West Luce Bay North is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "West Luce Bay North"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27245/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for South West Rhins",
+   "title": "The FLOOD WARNING for South West Rhins is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "South West Rhins"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27247/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Loch Ryan",
+   "title": "The FLOOD WARNING for Loch Ryan is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Loch Ryan"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27249/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Whitesands",
+   "title": "The FLOOD WARNING for Whitesands is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Whitesands"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27029/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for West Luce Bay South",
+   "title": "The FLOOD WARNING for West Luce Bay South is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "West Luce Bay South"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27397/",
    "places": [],
    "swep": []
@@ -1121,23 +1100,52 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Dumbarton",
+   "title": "The FLOOD WARNING for Dumbarton is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Dumbarton"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26949/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Burray and Ayre of Cara",
+   "title": "A FLOOD WARNING has been issued for Stonehaven",
    "level": "flood warning",
    "areas": [
-    "Burray and Ayre of Cara"
+    "Stonehaven"
    ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27183/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Peterhead to Boddam",
+   "level": "flood warning",
+   "areas": [
+    "Peterhead to Boddam"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27309/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "The FLOOD WARNING for Burray and Ayre of Cara is No longer in force",
+   "level": "flood warning",
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27289/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Churchill Barriers",
+   "level": "flood warning",
+   "areas": [
+    "Churchill Barriers"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27291/",
    "places": [],
    "swep": []
   },
@@ -1154,22 +1162,18 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Longhope and Hoy",
+   "title": "The FLOOD WARNING for Longhope and Hoy is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Longhope and Hoy"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27295/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Sanday",
+   "title": "The FLOOD WARNING for Sanday is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Sanday"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27299/",
    "places": [],
    "swep": []

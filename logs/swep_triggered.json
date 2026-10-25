@@ -1,5 +1,5 @@
 {
- "run": "2026-10-25T09:33:58+00:00",
+ "run": "2026-10-25T13:52:09+00:00",
  "councils": [
   {
    "code": "ABE",
@@ -33,16 +33,6 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "ANN",
-   "council": "Antrim and Newtownabbey Borough Council",
-   "alerts": [
-    "Met Office: Amber warning of wind affecting Northern Ireland"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
-  },
-  {
    "code": "BPL",
    "council": "Blackpool Borough Council",
    "alerts": [
@@ -61,22 +51,22 @@
    "review": "council page not clear: https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx (unknown)"
   },
   {
-   "code": "BOL",
-   "council": "Bolton Metropolitan Borough Council",
+   "code": "KIN",
+   "council": "Borough Council of Kings Lynn and West Norfolk",
    "alerts": [
-    "Environment Agency: Flood warning: Lee's Bridge at Astley Bridge Central"
+    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
    ],
    "open_tonight": false,
    "pages": [
     {
-     "url": "https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton",
+     "url": "https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation",
      "http": 200,
      "status": "unknown",
      "quote": "",
      "own_site": true
     }
    ],
-   "review": "council page not clear: https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton (unknown)"
+   "review": "council page not clear: https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation (unknown)"
   },
   {
    "code": "CRF",
@@ -122,17 +112,6 @@
    "council": "Cumberland Council",
    "alerts": [
     "Environment Agency: Flood warning: Keswick Campsite"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
-  },
-  {
-   "code": "DEV",
-   "council": "Devon County Council",
-   "alerts": [
-    "Environment Agency: Flood warning: River Barle from Simonsbath to Brushford, including Withypool",
-    "Environment Agency: Flood warning: River Exe at Winsford and Bridgetown"
    ],
    "open_tonight": false,
    "pages": [],
@@ -273,20 +252,21 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "MEA",
-   "council": "Mid and East Antrim Borough Council",
+   "code": "MLN",
+   "council": "Midlothian Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting Northern Ireland"
+    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
    ],
    "open_tonight": false,
    "pages": [],
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "MLN",
-   "council": "Midlothian Council",
+   "code": "NFK",
+   "council": "Norfolk County Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting Dumfries, Galloway, Lothian & Borders"
+    "Environment Agency: Flood warning: The tidal River Waveney from Ellingham Marshes to Belton",
+    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
    ],
    "open_tonight": false,
    "pages": [],
@@ -313,10 +293,44 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
+   "code": "NNO",
+   "council": "North Norfolk District Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/",
+     "http": 200,
+     "status": "unknown",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homelessness-and-rough-sleeping-strategy/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    },
+    {
+     "url": "https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/ (unknown); https://www.north-norfolk.gov.uk/tasks/housing-services/homelessness-and-rough-sleeping-strategy/ (no SWEP wording); https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/ (no SWEP wording)"
+  },
+  {
    "code": "NYE",
    "council": "North Yorkshire Council",
    "alerts": [
-    "Met Office: Amber warning of wind affecting Yorkshire & Humber"
+    "Met Office: Amber warning of wind affecting Yorkshire & Humber",
+    "Environment Agency: Flood warning: North Sea at Scarborough - Sandside",
+    "Environment Agency: Flood warning: North Sea at Scarborough - Foreshore Road"
    ],
    "open_tonight": false,
    "pages": [
@@ -423,25 +437,6 @@
    "review": "council page not clear: https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (no SWEP wording)"
   },
   {
-   "code": "SMT",
-   "council": "Somerset Council",
-   "alerts": [
-    "Environment Agency: Flood warning: River Barle from Simonsbath to Brushford, including Withypool",
-    "Environment Agency: Flood warning: River Exe at Winsford and Bridgetown"
-   ],
-   "open_tonight": false,
-   "pages": [
-    {
-     "url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/",
-     "http": 200,
-     "status": "unknown",
-     "quote": "",
-     "own_site": true
-    }
-   ],
-   "review": "council page not clear: https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/ (unknown)"
-  },
-  {
    "code": "SAY",
    "council": "South Ayrshire Council",
    "alerts": [
@@ -462,6 +457,16 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
+   "code": "SNO",
+   "council": "South Norfolk District Council",
+   "alerts": [
+    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
    "code": "STG",
    "council": "Stirling Council",
    "alerts": [
@@ -470,6 +475,24 @@
    "open_tonight": false,
    "pages": [],
    "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "SFK",
+   "council": "Suffolk County Council",
+   "alerts": [
+    "Environment Agency: Flood warning: The tidal River Waveney from Ellingham Marshes to Belton"
+   ],
+   "open_tonight": false,
+   "pages": [
+    {
+     "url": "https://www.suffolk.gov.uk/about/severe-weather-information-and-services",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "own_site": true
+    }
+   ],
+   "review": "council page not clear: https://www.suffolk.gov.uk/about/severe-weather-information-and-services (no SWEP wording)"
   },
   {
    "code": "HLD",

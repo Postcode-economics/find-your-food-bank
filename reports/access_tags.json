@@ -219,5 +219,60 @@
   ],
   "source": "https://www.weymouthfoodbank.co.uk",
   "was": "voucher"
+ },
+ "carterton-community": {
+  "tag": "walkin",
+  "since": "2026-10-25",
+  "evidence": [
+   "self-referral"
+  ],
+  "source": "https://cartertonfoodbank.co.uk",
+  "was": "voucher"
+ },
+ "eat-or-heat": {
+  "tag": "walkin",
+  "since": "2026-10-25",
+  "evidence": [
+   "self referral"
+  ],
+  "source": "http://eatorheat.org",
+  "was": "voucher"
+ },
+ "telford": {
+  "tag": "voucher",
+  "since": "2026-10-25",
+  "evidence": [
+   "require referral"
+  ],
+  "source": "https://telfordcrisissupport.org.uk/",
+  "was": "walkin"
+ },
+ "the-river": {
+  "tag": "walkin",
+  "since": "2026-10-25",
+  "evidence": [
+   "self-refer"
+  ],
+  "source": "https://therivermanchester.org.uk/",
+  "was": "voucher"
+ },
+ "dn6-askern": {
+  "tag": "walkin",
+  "since": "2026-10-25",
+  "evidence": [
+   "self referral",
+   "self referral"
+  ],
+  "source": "https://www.achurchnearyou.com/church/17619/service-and-events/events/900428/",
+  "was": "unconfirmed"
+ },
+ "stannington": {
+  "tag": "voucher",
+  "since": "2026-10-25",
+  "evidence": [
+   "require a foodbank voucher"
+  ],
+  "source": "https://www.sheffield.gov.uk/cost-of-living/food-support/find-food-support-sheffield/stannington-food-bank",
+  "was": "unconfirmed"
  }
 }

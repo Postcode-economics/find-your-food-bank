@@ -2,7 +2,7 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
-## Food banks: 72 added
+## Food banks: 73 added
 - Lincoln Foodbank · LN1 1UL · https://www.givefood.org.uk/needs/at/lincoln/
 - Caterham Foodbank · CR3 6NA · https://www.givefood.org.uk/needs/at/caterham/
 - Padiham Parish Foodbank · BB12 8HG · https://www.givefood.org.uk/needs/at/padiham-parish/
@@ -75,6 +75,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Bridge Church Food Bank · DN22 6AA
 - The Life House · B29 6PB
 - Chance Changing Lives · CW1 4EJ
+- Sidley · TN39 4FL · https://www.givefood.org.uk/needs/at/bexhill/
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS
