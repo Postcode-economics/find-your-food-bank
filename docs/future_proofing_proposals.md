@@ -42,6 +42,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 3. A dependency pin report, never an automatic upgrade
 
+**Status:** Built. A report only. Nothing is installed or upgraded.
+
 - **Benefit:** The morning note says whether the runner still matches the pinned Playwright, and names anything imported that is not pinned, before a silent upgrade changes a scrape.
 - **Risk:** The note is noisy if the runner image drifts for a harmless reason.
 - **Effort:** S.
