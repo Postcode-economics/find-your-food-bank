@@ -1,6 +1,7 @@
 """Two-finger map note (Dean 25 Oct 11:31): shown at most 2 times per visitor (localStorage hmTwoFinger), then never again."""
 import functools, http.server, os, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
+import importlib.util; HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None  # CI 'test' job has Chrome but no playwright
 DRAG = """()=>{const m=document.querySelector('#map');const r=m.getBoundingClientRect();const x=r.left+r.width/2,y=r.top+r.height/2;
  const t=(cx,cy)=>new Touch({identifier:1,target:m,clientX:cx,clientY:cy});
  m.dispatchEvent(new TouchEvent('touchstart',{touches:[t(x,y)],targetTouches:[t(x,y)],bubbles:true,cancelable:true}));
@@ -11,7 +12,7 @@ class T(unittest.TestCase):
     def test_static(self):
         h = open(os.path.join(R, 'index.html'), encoding='utf-8').read()
         self.assertIn("localStorage.getItem('hmTwoFinger')", h); self.assertIn('if(n>=2)return', h)
-    @unittest.skipUnless(os.path.exists(CH), 'needs chrome')
+    @unittest.skipUnless(HAVE, 'needs chrome + playwright')
     def test_max_two(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
