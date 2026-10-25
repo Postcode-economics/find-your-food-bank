@@ -137,7 +137,9 @@ def build(today=None):
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
-    W = weights(prev.get('weights'), review) if sunday else (prev.get('weights') or dict(DEFAULT_W))
+    stored = prev.get('weights') or {}
+    W = {k: stored.get(k, base) for k, base in DEFAULT_W.items()}  # a new signal starts at its default
+    if sunday: W = weights(W, review)
     by_site = collections.defaultdict(list)
     for i in items:
         if (i.get('website') or '').startswith('http'): by_site[i['website'].strip()].append(i)
@@ -152,8 +154,9 @@ def build(today=None):
         if season: parts['season'] = W['season'] * season
         if dem.get(u): parts['demand'] = W['demand'] * dem[u]
         if vis.get(u): parts['visitor'] = W['visitor'] * min(vis[u], 3) / 3
-        b = round(sum(parts.values()), 4)
-        if b > 0: boost[u] = b; why[u] = {k: round(v, 3) for k, v in parts.items() if v}
+        capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
+        b = round(sum(capped.values()), 4)
+        if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
         for k, v in parts.items():
             if v and k != 'trust': boosted_by[k].append(u)
     # weekly accuracy trend (real measures only): share of reachable sites, phone agreement, hand corrections
@@ -169,6 +172,7 @@ def build(today=None):
 def write(out):
     tmp = OUT + '.tmp'; json.dump(out, open(tmp, 'w', encoding='utf-8'), indent=0, sort_keys=True); os.replace(tmp, OUT)
     open(MD, 'w', encoding='utf-8').write('\n'.join(digest_lines(out, full=True)) + '\n')
+    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), {'signal_weights': out.get('weights')}); learning.save(s, learning.STATE)
 
 def weekly(trend):
     """Average per ISO week of the daily accuracy points."""
