@@ -92,6 +92,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 8. One saved example page per parser
 
+**Status:** Built. Small synthetic examples for the IFAN, Homeless Link and Open Innovations parsers live in `tests/fixtures/parsers/`. They are not full pages.
+
 - **Benefit:** A test fails when a parser edit would no longer read a page shape we already accepted, which is the usual way a scraper rots.
 - **Risk:** The saved page goes stale and blocks a real fix. Replace the example only when Dean accepts the new shape.
 - **Effort:** M.

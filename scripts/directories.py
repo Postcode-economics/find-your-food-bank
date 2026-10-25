@@ -1,4 +1,5 @@
 """Machine-readable national directories used for discovery each run. Each returns (candidates, status_dict).
+The small examples in tests/fixtures/parsers/ are the page shapes these parsers must keep reading.
 On any failure the candidate list is empty and status says why: callers keep their existing data (fail safe)."""
 import re, json, html, urllib.request, urllib.parse, concurrent.futures as cf
 from discover import fetch_raw, text_of, norm_pc
