@@ -21,13 +21,24 @@ def problems(layer, i):
 def load(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))
     except Exception: return d
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+def approved_new():
+    """Dean 25 Oct 08:20: no new food bank is auto-added. Only ids Dean OK'd (overrides/foodbank_approved_new.json) or
+    hand-added (overrides/foodbank_added.json) may go on the map; everything else waits in reports/pending_dean.md."""
+    ok = set()
+    for f in ('overrides/foodbank_approved_new.json', 'overrides/foodbank_added.json'):
+        ok |= {k for k in load(f, {}) if not k.startswith('_')}
+    return ok
 def gate(layer, ref='HEAD'):
     f = os.path.join(ROOT, FILES[layer])
     try: live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
     except Exception: print('gate: no live baseline, skipped'); return []
     pre, d, post = split(open(f).read()); keep, held = [], []
+    ok = approved_new() if layer == 'foodbanks' else set()
     for i in d['items']:
         pr = [] if i['id'] in live else problems(layer, i)
+        if layer == 'foodbanks' and not RULES['add_new_places']['foodbanks'] and i['id'] not in live and i['id'] not in ok: pr = ['new food bank - waiting for your OK'] + pr
         (held if pr else keep).append((i, pr))
     if held:
         d['items'] = [i for i, _ in keep]
@@ -35,13 +46,13 @@ def gate(layer, ref='HEAD'):
     lg = load('logs/pending_dean.json', {}); now = datetime.date.today().isoformat()
     lg[layer] = [dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now) for i, pr in held]
     json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_dean.json'), 'w'), indent=1, ensure_ascii=False)
-    md = ['# New places held back for Dean (not published)', '', 'A new place needs a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
+    md = ['# New places held back for Dean (not published)', '', 'New food banks are never added automatically: each waits here for your OK (add its id to overrides/foodbank_approved_new.json). A new shelter / warm space needs a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
         md += [f'## {L} ({len(xs)})', ''] + [f"- {x['name']} ({x.get('postcode') or ''}) - {', '.join(x['why'])} - {x.get('source') or ''}" for x in xs] + ['']
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'sweep shelters'):  # keep the times review (times_finder) and sweep shelter review sections
+        for tag in ('times review', 'sweep shelters', 'closures'):  # keep the times review (times_finder) and sweep shelter review sections
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     print(f'publish gate {layer}: {len(held)} new places held for Dean')
