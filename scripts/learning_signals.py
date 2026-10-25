@@ -25,7 +25,7 @@ RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'rhythm': 0.4, 'dean': 0.4, 'problem': 0.8, 'stale_area': 0.4}
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -152,6 +152,41 @@ def problem_reports(items):
         out[u] = out.get(u, 0) + (len(v) if isinstance(v, list) else 1)
     return out, ('%d Report a problem submissions' % sum(out.values())) if out else 'no matching places - no effect'
 
+def districts_for(items):
+    """website -> council, from overrides/district_cache.json (postcodes.io admin_district, already fetched).
+    A postcode that is not in the cache is skipped. Nothing is looked up or invented here."""
+    cache = rj('overrides/district_cache.json', {})
+    if not isinstance(cache, dict): return {}
+    out = {}
+    for i in items:
+        u = (i.get('website') or '').strip(); pc = (i.get('postcode') or '').upper().strip()
+        d = cache.get(pc) or cache.get(pc.replace(' ', ''))
+        if u.startswith('http') and d and u not in out: out[u] = d
+    return out
+
+def stale_areas(items, state, today):
+    """Areas whose checked dates are older than the median area move up. Uses checked_at already on file.
+    No cache, or fewer than two areas with a checked date: no effect."""
+    areas = districts_for(items)
+    if not areas: return {}, 'no council cache (overrides/district_cache.json) - no effect'
+    by = collections.defaultdict(list)
+    for u, area in areas.items():
+        checked = ((state.get('sites') or {}).get(u) or {}).get('checked_at')
+        if not checked: continue
+        days = learning._days(str(checked), today.isoformat())
+        if days >= 10 ** 5: continue
+        by[area].append((u, days))
+    if len(by) < 2: return {}, 'not enough areas with checked dates - no effect'
+    age = {a: sorted(d for _, d in rows)[len(rows) // 2] for a, rows in by.items()}
+    med, hi = sorted(age.values())[len(age) // 2], max(age.values())
+    if hi <= med: return {}, 'no area is older than the median checked date - no effect'
+    span = float(hi - med); out = {}
+    for a, rows in by.items():
+        if age[a] <= med: continue
+        factor = (age[a] - med) / span
+        for u, _ in rows: out[u] = round(max(out.get(u, 0), factor), 3)
+    return out, '%d areas; those older than the median checked date move up' % len(age)
+
 def crawl_timing(state, LS):
     """Per-host failure rate (and latency where recorded). Slow / failing hosts are spread out, never dropped."""
     f, n = collections.Counter(), collections.Counter()
@@ -185,6 +220,7 @@ def build(today=None):
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
     dean_sites, dean_wording, dean_note = dean_learning(items); problems, problem_note = problem_reports(items)
+    stale, stale_note = stale_areas(items, state, today)
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     stored = prev.get('weights') or {}
@@ -208,6 +244,7 @@ def build(today=None):
         if rf: parts['rhythm'] = W['rhythm'] * rf
         if u in dean_sites: parts['dean'] = W['dean']  # priority only; publishing still asks Dean
         if problems.get(u): parts['problem'] = W['problem'] * min(problems[u], 3) / 3
+        if stale.get(u): parts['stale_area'] = W['stale_area'] * stale[u]
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -220,7 +257,7 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
-               dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note,
+               dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
@@ -249,6 +286,7 @@ def digest_lines(out, full=False):
     L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
     L.append("- Dean's past decisions: " + out.get('dean_note', 'no hand decisions to learn from yet - no effect'))
     L.append('- Report a problem: ' + out.get('problem_note', 'no Report a problem submissions on file - no effect'))
+    L.append('- Areas with old checked dates: ' + out.get('stale_note', ''))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
