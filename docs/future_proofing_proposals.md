@@ -62,6 +62,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 5. Spot a new official feed, and only flag it
 
+**Status:** Built. A new link on a hand-listed host is flagged. No place is added.
+
 - **Benefit:** When a council or a directory page we already fetch links a new official list, that URL is shown to Dean.
 - **Risk:** A news article or a blog is mistaken for an official list.
 - **Effort:** M.
