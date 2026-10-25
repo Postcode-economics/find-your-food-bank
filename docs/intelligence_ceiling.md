@@ -8,6 +8,8 @@ The furthest system, the one worth calling super-intelligent for this job, reads
 
 The hard rules apply to every stage below. Nothing may invent a phone, an hour, a date, or a council. You approve a new place or a removal in the files, the same way as now. An automatic edit still has to pass `overrides/auto_apply_rules.json`, the two-run confirmation, the confidence hold, the anomaly brake, the publish gate, and the refresh guard. The clock times stay put. The weekly floor stays 7 days. The shared boost cap stays 3.0. When sources disagree, the result is an open row. Nothing is picked.
 
+**Facebook is read-only.** It blocks automation, and it is not scraped. No stage may log in, fetch a page, or call an API on Facebook, Instagram, or any other Meta host. The only Facebook signal is an occasional manual check of a small batch, written down by hand. If that note is missing, Facebook has no effect. The automated signals are the place's own website, Give Food, IFAN, council pages, inbox reports, and visitor problem reports.
+
 ## What is already about as good as this design gets
 
 The sweeps already decide order, frequency inside a scheduled run, and whether to try plain HTTP or HTTPS first. They fade old results, remember how often a place changes, move up a hand correction, a problem report, a stale area, a named weather warning, and a cold snap. They hold an automatic edit back when two sources already disagree. They stop a run that would change far more places than usual. They flag an empty parse, a source that failed three times, a robots.txt disallow, and a shrunken hand file. They do not publish a new place or take a pin off the map.
@@ -119,12 +121,13 @@ These would feel intelligent and would not make a listing truer, or they would b
 | Letting the trusted source win a phone or hours clash | A trusted source is sometimes wrong. The clash stays a flag. |
 | Upgrading Playwright on a timer so more sites parse | A new browser build changes what is extracted, with nobody looking. Upgrade when you ask, with the example pages green before and after. |
 | Ignoring robots.txt so the weekly check still "sees" the page | The weekly floor is our schedule. It is not permission. |
+| Any automated Facebook fetch, login, or API, including a smarter reader aimed at a Facebook page | Facebook blocks automation, and the owner's rule is read-only. The only Facebook input is a small batch checked by hand and written down. A missing note has no effect. |
 | Auto-approval because a deputy is named, or because an email said yes | Not approved. A second person, if you ever name one, uses the same files you use. Software must not treat that name as a yes. |
 | Checking all ~1,060 sites on every run so the score matters less | The time budget and the polite gaps are what keep the sweeps welcome. Order exists because everything cannot be first. |
 
 ## What not to do next
 
-Do not add a twenty-first signal to the boost. Do not raise the cap. Do not let the system publish a place, remove a place, or pick a value because the queue is long. Do not skip to a reader that writes the live site.
+Do not add a twenty-first signal to the boost. Do not raise the cap. Do not let the system publish a place, remove a place, or pick a value because the queue is long. Do not skip to a reader that writes the live site. Do not build a Facebook fetcher, and do not make any stage wait on one. A manual note is the whole of that signal.
 
 If one thing is built first, build the decision list, and beside it the count of days from first flag to your answer. That is Stage A. The quoted reader, the ledger, the predictions, and the self-improvement loop come after it, in that order, each one still unable to apply itself.
 
@@ -134,9 +137,9 @@ This is the end state the rules allow. It is ambitious on purpose. It is also a 
 
 On a weekday morning it has already done six things.
 
-1. **It has read.** For every food bank, shelter, warm space, council page, and official feed it is allowed to fetch, it has tried to pull out phone, hours, access, closure wording, end date, and a moved link. A page it has never been given a hand-written parser for is still readable. Each kept value is a substring of the text that was fetched on that run. A value with no quote is dropped. A page disallowed by robots.txt is not read. A host that is not on the official list is flagged, not fetched. A missing API key is reported, and no area is invented to fill it.
+1. **It has read.** For every food bank, shelter, warm space, and council page it is allowed to fetch, and for Give Food and IFAN, it has tried to pull out phone, hours, access, closure wording, end date, and a moved link. A page it has never been given a hand-written parser for is still readable. Each kept value is a substring of the text that was fetched on that run. A value with no quote is dropped. A page disallowed by robots.txt is not read. A host that is not on the official list is flagged, not fetched. A missing API key is reported, and no area is invented to fill it. Facebook is not among these fetches.
 
-2. **It has reconciled.** Every place has a ledger: one row per field per source, with the quote, the URL, and the time. The proposed card is filled in only where the non-empty sources agree, or where an edit is already on the automatic list and has been seen twice. A clash stays open, with every value shown and `chosen` empty. Give Food, IFAN, the own site, a council page, and a hand file are all just sources in that ledger. None of them wins because it is trusted.
+2. **It has reconciled.** Every place has a ledger: one row per field per source, with the quote, the URL, and the time. The proposed card is filled in only where the non-empty sources agree, or where an edit is already on the automatic list and has been seen twice. A clash stays open, with every value shown and `chosen` empty. The automated sources in that ledger are the own website, Give Food, IFAN, and council pages. Inbox reports and visitor problem reports sit beside them as signals that a person sent in: they raise priority, and they do not by themselves change the card. A hand note from a small manual Facebook check can sit in the ledger too, dated and unsigned by any fetcher. None of them wins because it is trusted. No row is fetched from Facebook.
 
 3. **It has predicted.** Some changes are visible before the day they happen, because somebody has already written the date, or because this place has already changed on a measured rhythm. The system moves that place to the front of the next run that was already going to happen, and it says why. It does not mark the place closed. A prediction with no date, no quote, and no two observed gaps is not emitted.
 
@@ -164,7 +167,7 @@ This is the "worth doing" list above, and it is the foundation. The flags alread
 
 ### Stage B. A reader that quotes, in shadow
 
-A second reader runs beside the hand-written parsers. It may be a stricter set of patterns, or a model, provided the contract is the same: output a field only when the characters of the value appear in the fetched text. The quote stored is that short span, not the page. For a run of weeks it writes a shadow file and changes nothing that is published. Each morning compares shadow against the current parser and, later, against your corrections.
+A second reader runs beside the hand-written parsers, on the place's own website, Give Food, IFAN, and council pages. It may be a stricter set of patterns, or a model, provided the contract is the same: output a field only when the characters of the value appear in the fetched text. The quote stored is that short span, not the page. For a run of weeks it writes a shadow file and changes nothing that is published. Each morning compares shadow against the current parser and, later, against your corrections. The reader has no Facebook client. A `facebook.com` URL in a listing is left for a person to open.
 
 **What it really achieves.** A redesigned page, and a council page with no parser yet, can produce a proposal with evidence. The current parsers keep publishing. You see the shadow's misses before it is allowed near an automatic edit.
 
@@ -174,7 +177,7 @@ A second reader runs beside the hand-written parsers. It may be a stricter set o
 
 ### Stage C. A ledger, and reconciliation that knows when it does not know
 
-The shadow fields, the current extracts, the feeds, and the hand files go into one ledger per place. The proposed value for a field is set only when every non-empty source agrees, or when the existing automatic rule already allows that kind of edit after two runs. Otherwise the field is unresolved and becomes a decision row. Trust never breaks the tie.
+The shadow fields, the current extracts, Give Food, IFAN, council pages, and the hand files go into one ledger per place. Inbox reports and visitor problem reports are attached as "someone wrote to us" signals, not as a new phone or a new hour. A manual Facebook batch is included only when a person has typed it. The proposed value for a field is set only when every non-empty automated source agrees, or when the existing automatic rule already allows that kind of edit after two runs. Otherwise the field is unresolved and becomes a decision row. Trust never breaks the tie. A Facebook note never counts as the second confirming run for an automatic edit.
 
 **What it really achieves.** Hours, access, and address clashes become visible the way phone clashes already are. Agreement can flow through the guards that already exist. Disagreement waits for you, with the values side by side.
 
@@ -224,7 +227,8 @@ A candidate reader is scored offline on the example pages plus every field you h
 ## Limits that stay, however far this is built
 
 - **No written evidence, no knowledge.** A closure, a new phone, or a new site that exists only because someone knows it is invisible. Predicting it would be inventing it.
-- **Some sources stay unread.** A scan with no text, a login wall, a robots.txt disallow, a missing weather key, and a host that is not on the official list do not become facts. The place stays on the map. The gap is named.
+- **Some sources stay unread.** A scan with no text, a login wall, a robots.txt disallow, a missing weather key, and a host that is not on the official list do not become facts. Facebook is unread by machine even when the listing links to it. The place stays on the map. The gap is named.
+- **Facebook is a manual signal only.** Occasional small batches, recorded by hand, can move a place up or sit in the ledger as a note. They cannot confirm an automatic edit, add a place, or remove one. The automated signals stay the own website, Give Food, IFAN, council pages, inbox reports, and visitor problem reports. Today's change signal still knows how to read `logs/fb_page_check.json` if that file is present. This plan does not extend that job, and no later stage may depend on it.
 - **Disagreement is a finished result.** The super-intelligent act, when two real sources differ, is to show both and wait. Picking the trusted one is the failure.
 - **The clock does not become intelligent.** Prediction spends attention inside the next run that was already scheduled. It does not add a run, and a quiet place is still guaranteed only a weekly look.
 - **A true quote can still be the wrong fact.** Footer phones, old news, and "we are not closed" will get through a quote check. Shadow mode, two-run confirmation, and your approval are the backstop. The reader does not get a wider automatic list than the rules file has today.
