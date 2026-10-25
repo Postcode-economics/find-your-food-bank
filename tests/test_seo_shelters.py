@@ -20,7 +20,7 @@ class T(unittest.TestCase):
     def test_ws_card(self):
         c = B.card_ws(dict(name='W', address='a', upcoming=True, scheme_start='2026-11-04', scheme_dates='Opens 4 Nov 2026', booking='Booking needed', notes='By referral from GP', hours={}))
         self.assertIn('<div class="opens">Opens 4 Nov 2026</div>', c); self.assertIn('Booking needed', c); self.assertIn('Referral:', c)
-        self.assertIn('Times unknown – call first', B.card_ws(dict(name='W', address='a', call_check=True, hours={})))
+        self.assertIn('Times unknown – call before you go', B.card_ws(dict(name='W', address='a', call_check=True, hours={})))
     def test_built_pages(self):   # the committed pages: meta, line, cross-links, sitemap
         import glob
         both = [f for f in sorted(glob.glob(os.path.join(ROOT, 'shelters', '*', 'index.html'))) if os.path.exists(f.replace(os.sep + 'shelters' + os.sep, os.sep + 'food-banks' + os.sep))]

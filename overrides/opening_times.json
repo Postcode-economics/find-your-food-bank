@@ -25024,42 +25024,32 @@
  },
  "first-base-dumfriesshire/citizens-advice-castle-douglas": {
   "checked_date": "2026-10-25",
-  "raw": null,
-  "source_url": "https://www.firstbasedumfries.co.uk/contact-us/",
+  "raw": "Wednesdays 10am-4pm (closed 12.30-1.00pm) for drop ins and Fridays from 10am-4pm (closed 12.30-1.00pm) for Appointments only.",
+  "source_url": "https://www.dagcas.org/dagcas-location/castle-douglas-cab/",
   "status": "TIMES_FOUND",
   "structured": {
-   "mon": [
-    [
-     "09:00",
-     "17:00"
-    ]
-   ],
-   "tue": [
-    [
-     "09:00",
-     "17:00"
-    ]
-   ],
    "wed": [
     [
-     "09:00",
-     "17:00"
-    ]
-   ],
-   "thu": [
+     "10:00",
+     "12:30"
+    ],
     [
-     "09:00",
-     "17:00"
+     "13:00",
+     "16:00"
     ]
    ],
    "fri": [
     [
-     "09:00",
-     "17:00"
+     "10:00",
+     "12:30"
+    ],
+    [
+     "13:00",
+     "16:00"
     ]
    ]
   },
-  "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+  "reader": "hand-reviewed 2026-10-25 (Citizens Advice's own Castle Douglas page: Wed drop-in, Fri appointments only; Dean approved 07:48)"
  },
  "first-base-dumfriesshire/kelloholm-library-sanquhar": {
   "checked_date": "2026-10-25",

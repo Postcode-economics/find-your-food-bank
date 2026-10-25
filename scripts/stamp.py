@@ -9,7 +9,7 @@ def main():
     now = datetime.datetime.now(ZoneInfo('Europe/London'))
     if sys.argv[1] == 'write':
         s = dict(run=now.isoformat(timespec='seconds'), kind=sys.argv[2] if len(sys.argv) > 2 else 'refresh',
-                 label=f"{now.day} {now:%B %Y}, {now:%H:%M}")
+                 label=f"{now.day} {now:%b %Y}, {now:%H:%M}")  # Dean 25 Oct: one format "25 Oct 2026, 05:12"
         try: prev = json.loads(open(P).read().split('=', 1)[1].rstrip().rstrip(';'))
         except Exception: prev = {}
         layers = dict(prev.get('layers') or {})  # Dean 25 Oct: each layer keeps its own last refresh (key + footer dates)

@@ -39,7 +39,8 @@ function badge(layer,i){const r=status(layer,i);
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
   return `<div class="v3st shut" role="note">${B(`Closed · Next open <b>${DEN[r.dd]} ${clk(r.at)}⁠–⁠${clk(r.to)}</b>`,`Ar gau · Ar agor nesaf <b>${DCY[r.dd]} ${clk(r.at)}⁠–⁠${clk(r.to)}</b>`)}</div>`}
- return `<div class="v3st unk" role="note">${B('Times unknown – call first','Amseroedd heb eu rhestru – ffoniwch yn gyntaf')}</div>`}
+ if(layer==='sh'&&window.REFONLY&&REFONLY(i))return `<div class="v3st unk" role="note">${B('By referral – call before you go','Drwy atgyfeiriad – ffoniwch cyn mynd')}</div>`;
+ return `<div class="v3st unk" role="note">${B('Times unknown – call before you go','Amseroedd heb eu rhestru – ffoniwch cyn mynd')}</div>`}
 const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*60));// est.: straight line x1.3 at 4.8 km/h
  if(min>120)return'';
  return `<div class="v3wk">${IC('walk')}${B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
