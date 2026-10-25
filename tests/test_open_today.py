@@ -67,11 +67,15 @@ class Browser(unittest.TestCase):
                     out.fb=[...document.querySelectorAll('#list .card')].map(c=>{const i=items[+c.dataset.k];return [openToday(i)?0:closedToday(i)?2:1,dists[+c.dataset.k]]});
                     for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(!D)continue;
                       out[k]=[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>{const i=D.items.find(x=>x.name===h.textContent);return [V3.openTodayL(k,i)?0:(i.ended||V3.shutToday(k,i))?2:1,hav(a,b,i.lat,i.lng)]})}
+                    out.lim={fb:items.map((i,k)=>({i,k})).filter(x=>vis(x.k)&&!nc(x.i)).map(x=>dists[x.k]).sort((x,y)=>x-y)[9]};
+                    for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(D)out.lim[k]=D.items.filter(i=>!(i.ended||V3.shutToday(k,i))).map(i=>hav(a,b,i.lat,i.lng)).sort((x,y)=>x-y)[9]}
                     return out}""", [lat, lng])
+                  lim = r.pop("lim")
                   self.assertTrue({"fb", sel} <= set(r), r.keys())
                   for k, rows in r.items():
                       if k not in ('fb', sel): continue
                       self.assertTrue(rows, (k, lat))
                       self.assertTrue(all(g < 2 for g, _ in rows), (k, lat, rows))
                       self.assertEqual(rows, sorted(rows), (k, lat, rows))
+                      self.assertLessEqual(max(d for _, d in rows), lim[k] + 1e-9, (k, lat))  # only the 10 nearest: far-off places never jump in
             c.close(); b.close()
