@@ -129,8 +129,10 @@ list.before(res);res.before(sos);res.append(tog,document.querySelector('.tnote')
 const tools=document.createElement('div');tools.id='v3tools';
 tools.innerHTML=`<button type="button" class="v3t" id="v3list" aria-pressed="false">${B('List only','Rhestr yn unig')}</button><button type="button" class="v3t" id="v3light" aria-pressed="false">${B('Light mode','Modd golau')}</button>`;
 document.getElementById('xbar').after(tools);document.getElementById('xbar').hidden=true;// layer row removed: the 3 need buttons set the layer
-const pref=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k)==='1';localStorage.setItem(k,v?'1':'0')}catch(e){}};
-function setP(id,cls,on){document.documentElement.classList.toggle(cls,on);document.getElementById(id).setAttribute('aria-pressed',String(on));pref(cls,on);if(cls==='nomap'&&!on)setTimeout(()=>map.invalidateSize(),50)}
+/* Dean 25 Oct 19:17: if storage is blocked (Instagram in-app browser), a read must be FALSE, never undefined - classList.toggle(c, undefined)
+   ADDS the class, which switched 'List only' on and hid the map. */
+const pref=(k,v)=>{if(v===undefined){try{return localStorage.getItem(k)==='1'}catch(e){return false}}try{localStorage.setItem(k,v?'1':'0')}catch(e){}};
+function setP(id,cls,on){on=on===true;document.documentElement.classList.toggle(cls,on);document.getElementById(id).setAttribute('aria-pressed',String(on));pref(cls,on);if(cls==='nomap'&&!on)setTimeout(()=>window.mapFix?mapFix():map.invalidateSize(),50)}
 document.getElementById('v3list').onclick=()=>setP('v3list','nomap',!document.documentElement.classList.contains('nomap'));
 document.getElementById('v3light').onclick=()=>setP('v3light','light',!document.documentElement.classList.contains('light'));
 setP('v3list','nomap',pref('nomap'));

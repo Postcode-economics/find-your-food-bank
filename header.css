@@ -29,6 +29,8 @@
 #v3filt>#v3open{margin:0!important}
 #v3filt>#v3tools .v3t{height:36px!important;min-height:36px!important;font-size:14px!important;padding:0 12px!important;border-color:#FFFFFF!important;border-radius:18px!important}
 #v3filt>#v3tools .v3t[aria-pressed=true]{background:#FFFFFF!important;color:#0A1628!important}
+/* Dean 25 Oct 19:15 (Instagram iPhone screenshot): 'List only' ON was a white box with white text. ON = same link style as 'Light mode', gold text + tick */
+html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true],html:not(.light) #v3tools .v3t[aria-pressed=true]{background:transparent!important;color:#F5C518!important;-webkit-appearance:none;appearance:none}
 /* 5 updated line */
 header .fresh,header .fresh a,#freshtxt{color:#FFFFFF!important;opacity:1!important}
 
@@ -172,3 +174,10 @@ html body .leaflet-popup-content .pop>.v3st::before,html body #sheet .card>.v3st
 html body .leaflet-popup-content .pop>.v3st.open::before,html body #sheet .card>.v3st.open::before{background:#3DDC84!important}
 html body .leaflet-popup-content .pop>.v3st.shut::before,html body #sheet .card>.v3st.shut::before{background:#FF3B30!important}
 html body .leaflet-popup-content .pop a.btn.call:not(.xfbk){background:#34C759!important;color:#0A1628!important;border-color:#34C759!important}
+
+#v3tools .v3t{-webkit-appearance:none;appearance:none}
+/* Dean 25 Oct 19:16: 'List only' / 'Light mode' never turn into a white box on iPhone (tap highlight, focus, active, pressed) in dark mode */
+#v3tools .v3t,#v3filt>#v3tools .v3t{-webkit-tap-highlight-color:transparent}
+html:not(.light) #v3tools .v3t,html:not(.light) #v3filt>#v3tools .v3t,html:not(.light) #v3tools .v3t:focus,html:not(.light) #v3filt>#v3tools .v3t:focus,html:not(.light) #v3tools .v3t:active,html:not(.light) #v3filt>#v3tools .v3t:active,html:not(.light) #v3tools .v3t:hover,html:not(.light) #v3filt>#v3tools .v3t:hover{background:transparent!important;color:#F2F4F8!important;opacity:1!important}
+html:not(.light) #v3tools .v3t[aria-pressed=true],html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true],html:not(.light) #v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3tools .v3t[aria-pressed=true]:active,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:active{background:transparent!important;color:#F5C518!important}
+#v3tools .v3t:focus:not(:focus-visible),#v3filt>#v3tools .v3t:focus:not(:focus-visible){outline:none}#v3tools .v3t:focus-visible,#v3filt>#v3tools .v3t:focus-visible{outline:3px solid #F5C518;outline-offset:2px}
