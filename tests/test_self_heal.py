@@ -17,3 +17,9 @@ class T(unittest.TestCase):
             self.assertIn(x, s)
         self.assertIn("updateViaCache:'none'", rd('layers.js'))
 if __name__ == '__main__': unittest.main()
+
+class Beacon(unittest.TestCase):
+    def test_beacon_skips_automation(self):
+        h = rd('index.html')
+        self.assertNotIn("<script type='module' src='https://static.cloudflareinsights.com", h)
+        for s in ('navigator.webdriver', 'HeadlessChrome', 'nocount', 'data-cf-beacon'): self.assertIn(s, h)
