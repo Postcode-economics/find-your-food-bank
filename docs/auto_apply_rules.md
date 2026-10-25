@@ -78,5 +78,5 @@ never grows, never an ellipsis. If it doesn't fit, show just the place name. ', 
 Screenshots sent to Dean must never show error tiles from a local or demo copy: use the live site, or a working tile source.
 
 ## Theme default (Dean 25 Oct 2026)
-First-time visitors with no saved theme get DARK, whatever their phone setting. A saved choice (localStorage 'light') is always
+STANDING RULE (Dean, 25 Oct 2026, asked 3 times): helpmap.uk opens in DARK mode by default, ignoring the OS/phone light preference. Only the visitor's own saved Light mode choice overrides it; if storage fails (Instagram in-app browser) the site is dark. Guarded by tests/test_default_dark.py, tests/test_dark_default_engines.py, tests/test_webkit_instagram.py (WebKit, OS light) and scripts/dark_default.py in the live Deploy check. First-time visitors with no saved theme get DARK, whatever their phone setting. A saved choice (localStorage 'light') is always
 kept, and is applied by an inline script in <head> before first paint (no flash). Test: tests/test_default_dark.py.
