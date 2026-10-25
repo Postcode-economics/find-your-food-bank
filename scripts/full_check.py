@@ -122,10 +122,18 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
-def check_site(url):
-    home = fetch(url)
-    if not home['ok'] and url.startswith('http://'): home = fetch('https://' + url[7:])  # many sites redirect anyway
-    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http')}
+def check_site(url, order=None):
+    """Fetch with the methods in `order` (plain, then https for an http URL). Stops at the first that works.
+    The order comes from per-site method memory so a method that healed this site last time is tried first."""
+    order = list(order or (['plain', 'https'] if str(url).startswith('http://') else ['plain']))
+    home = {'ok': False, 'http': None, 'error': 'not tried'}; used, tried = None, []
+    for m in order:
+        if m == 'plain': home = fetch(url)
+        elif m == 'https' and str(url).startswith('http://'): home = fetch('https://' + str(url)[7:])
+        else: continue
+        tried.append(m); used = m
+        if home.get('ok'): break
+    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http'), 'method': used if home.get('ok') else None, 'methods_tried': tried}
     if not home['ok']: res.update(ok=False, error=home['error']); return res
     pages = [(home['final_url'], home['html'])]
     for u in links(home['html'], home['final_url']):
@@ -249,7 +257,11 @@ def main():
     t0 = time.time(); results = {}
     def job(u):
         if time.time() - t0 > BUDGET: return u, {'url': u, 'ok': None, 'error': 'time budget reached - not checked this run'}
-        try: return u, check_site(u)
+        try:
+            avail = ['plain', 'https'] if u.startswith('http://') else ['plain']
+            order = learning.method_order(LS, u, avail)
+            try: return u, check_site(u, order)
+            except TypeError: return u, check_site(u)  # a one-argument stand-in (tests) still works
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
@@ -322,7 +334,8 @@ def main():
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
-        r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+        r = results[u]; learning.note_heal(LS, u, r.get('methods_tried') or [], r.get('method'), DAY)
+        learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method=r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
