@@ -729,28 +729,6 @@
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN3A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN1A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
    "title": "Flood warning: Millingford Brook at Ashton in Makerfield",
    "level": "flood warning",
    "areas": [
@@ -771,28 +749,6 @@
    "places": [
     "The Hub @ St Peter's, Woolton"
    ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN2B",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN2A",
-   "places": [],
    "swep": []
   },
   {
@@ -936,6 +892,28 @@
     "Bridge of Ruthven to Leitfie"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27045/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Aberbothrie",
+   "level": "flood warning",
+   "areas": [
+    "Aberbothrie"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27087/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for The River Isla at Coupar Angus",
+   "level": "flood warning",
+   "areas": [
+    "The River Isla at Coupar Angus"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27089/",
    "places": [],
    "swep": []
   },
@@ -1234,6 +1212,22 @@
   },
   {
    "source": "Natural Resources Wales",
+   "title": "Flood Warning: River Ely at St. Fagans",
+   "level": "flood warning",
+   "areas": [
+    "Cardiff"
+   ],
+   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
+   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
+   "places": [
+    "South Riverside Community Development Centre Ltd",
+    "St Peter's Parish Night Shelter (Roath)",
+    "Women Connect First"
+   ],
+   "swep": []
+  },
+  {
+   "source": "Natural Resources Wales",
    "title": "Flood Warning: River Ely at Ely Bridge",
    "level": "flood warning",
    "areas": [
@@ -1282,22 +1276,6 @@
    "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
    "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
    "places": [],
-   "swep": []
-  },
-  {
-   "source": "Natural Resources Wales",
-   "title": "Flood Warning: River Ely at St. Fagans",
-   "level": "flood warning",
-   "areas": [
-    "Cardiff"
-   ],
-   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
-   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
-   "places": [
-    "South Riverside Community Development Centre Ltd",
-    "St Peter's Parish Night Shelter (Roath)",
-    "Women Connect First"
-   ],
    "swep": []
   }
  ],

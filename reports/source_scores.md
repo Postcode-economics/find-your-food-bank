@@ -8,7 +8,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 
 ## All sources (lowest first)
 
-- IFAN: 27.4
+- IFAN: 27.9
 - own site southend.foodbank.org.uk: 38.9
 - warmspaces: Cambridgeshire ACRE: 40
 - warmspaces: Council directory: 46.6
@@ -27,7 +27,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - warmspaces: Southwark Council warm spaces page: 50
 - warmspaces: Voluntary Action Islington warm spaces list: 50
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
-- own site firstbasedumfries.co.uk: 53.9
 - own site salvationarmy.org.uk: 54.2
 - own site thurrock.foodbank.org.uk: 54.6
 - own site familyfoodbank.org: 57.1
@@ -40,8 +39,8 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site dens.org.uk: 60
 - own site edinburghnefoodbank.com: 60
 - own site bristolnorthwestfoodbank.org.uk: 60
-- Give Food (independent): 62.3
 - own site soarvalleyoutreach.org.uk: 62.5
+- Give Food (independent): 62.7
 - own site stratforduponavon.foodbank.org.uk: 70
 - own site warwickdistrict.foodbank.org.uk: 71.5
 - own site gloucester.foodbank.org.uk: 71.5
@@ -86,6 +85,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site salisbury.foodbank.org.uk: 94.5
 - own site stalbansdistrict.foodbank.org.uk: 95
 - own site southayrshire.foodbank.org.uk: 95
+- own site aylesbury.foodbank.org.uk: 95
 - own site redcararea.foodbank.org.uk: 95
 - own site flintshire.foodbank.org.uk: 95
 - Trussell Trust pages: 95.2
@@ -125,6 +125,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site york.foodbank.org.uk: 100
 - own site sheffields6.foodbank.org.uk: 100
 - own site nuneaton.foodbank.org.uk: 100
+- own site firstbasedumfries.co.uk: 100
 - own site dunfermline.foodbank.org.uk: 100
 - own site pembrokeshire.foodbank.org.uk: 100
 - own site wimbledon.foodbank.org.uk: 100
@@ -135,7 +136,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site cardiff.foodbank.org.uk: 100
 - own site eastyorkshire.foodbank.org.uk: 100
 - own site newcastlefoodbank.org: 100
-- own site aylesbury.foodbank.org.uk: 100
 - own site dealarea.foodbank.org.uk: 100
 - own site ealing.foodbank.org.uk: 100
 - own site southsefton.foodbank.org.uk: 100
