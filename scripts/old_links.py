@@ -50,8 +50,10 @@ def run(base=None):
                 c.route('**/*', serve_old); pg = c.new_page(); errs = []
                 r = dict(old=commit, link=link)
                 try:
-                    pg.goto(base + '/?nocount', wait_until='load', timeout=30000); pg.wait_for_timeout(2500)
-                    pg.reload(wait_until='load', timeout=30000); pg.wait_for_timeout(2000)
+                    for _ in range(2):   # install the old release (its own worker may reload the page itself: tolerate aborts)
+                        try: pg.goto(base + '/?nocount', wait_until='load', timeout=30000)
+                        except Exception: pass
+                        pg.wait_for_timeout(3000)
                     r['old_sw'] = pg.evaluate("!!(navigator.serviceWorker&&navigator.serviceWorker.controller)")
                     c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
                     pg.goto(base + link, wait_until='load', timeout=30000); pg.wait_for_timeout(7000)
