@@ -1,6 +1,8 @@
 """List panel alignment (Dean 25 Oct 14:06): the Open today note, other notes, headings and cards all start at the same
 left x, on all three types, at 390 and 1366 px, light and dark."""
-import functools, http.server, importlib.util, os, threading, unittest
+import functools, http.server, importlib.util, os, sys, threading, unittest
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
 HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None
 JS = """k=>{const root=k==='fb'?document.getElementById('list'):document.getElementById('xlist');const panel=root.parentElement;
@@ -22,7 +24,7 @@ class T(unittest.TestCase):
                 for w in (390, 1366):
                     for mode in ('light', 'dark'):
                         c = b.new_context(viewport={'width': w, 'height': 900}, color_scheme=mode, service_workers='block'); pg = c.new_page()
-                        pg.goto('http://127.0.0.1:%d/?nocount' % s.server_address[1], wait_until='networkidle'); pg.wait_for_timeout(800)
+                        open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                         pg.evaluate("m=>document.documentElement.classList.toggle('light',m==='light')", mode)
                         for k in ('fb', 'ws', 'sh'):
                             pg.evaluate("k=>{const t=document.querySelector('#v3big [data-l='+k+']');if(t)t.click()}", k); pg.wait_for_timeout(400)
