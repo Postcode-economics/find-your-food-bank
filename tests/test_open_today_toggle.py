@@ -4,7 +4,8 @@ phone + desktop: no page errors, Open today turns on AND off, the choice is save
 and the Filters tab reopens."""
 import functools, http.server, os, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
-@unittest.skipUnless(os.path.exists(CH), 'needs chrome')
+import importlib.util; HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None  # CI 'test' job has Chrome but no playwright
+@unittest.skipUnless(HAVE, 'needs chrome + playwright')
 class T(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
