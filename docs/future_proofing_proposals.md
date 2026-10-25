@@ -72,6 +72,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 6. A cost and rate-limit ledger
 
+**Status:** Built. Calls are counted. A host that answers 429 is paused for the rest of that run and stays due later. The clock is unchanged.
+
 - **Benefit:** Each run records how many calls it made to postcodes.io, Natural Resources Wales, the Met Office feeds, and Facebook, and pauses a host that answers 429 for the rest of that run.
 - **Risk:** A pause that drops the weekly check. The remainder has to be picked up by a later run that was already scheduled, not by a new clock time, and not by skipping the place.
 - **Effort:** M.
