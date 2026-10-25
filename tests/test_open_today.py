@@ -7,7 +7,7 @@ LJ = open(os.path.join(ROOT, "layers.js"), encoding="utf-8").read()
 
 class Static(unittest.TestCase):
     def test_open_not_dimmed(self):
-        self.assertIn("['fwrap','ftab'].forEach(id=>", V3)
+        self.assertIn("document.querySelectorAll('#chips [data-f]').forEach(e=>{e.classList.toggle('v3off'", V3)  # only fb-only chips dim (25 Oct live bug: ✕ was inert)
         self.assertNotIn("'v3open'].forEach", V3)
     def test_layers_follow_open_today(self):
         self.assertIn("shutToday", V3); self.assertIn("ot&&(i.ended||V3.shutToday(k,i))", LJ)

@@ -1,13 +1,14 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // map tiles (any provider in tiles.js) cache-first, bounded to the 300 most recent.
-const C='fyfb-v86',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=cb20261025e','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=cb20261025e','v3.css','v3.css?v=cb20261025e','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
+const C='fyfb-v87',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=cb20261025g','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=cb20261025g','v3.css','v3.css?v=cb20261025g','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 // Self-heal (25 Oct 2026, Instagram in-app browser kept the old layout): on activate, drop old caches, take control and reload open map
 // pages once, so a page served by an old worker/cached HTML comes back as the current build. Navigation always revalidates (no-cache).
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>{const old=k.filter(x=>x!==C&&x!==T);return Promise.all(old.map(x=>caches.delete(x))).then(()=>old.length)})
- .then(n=>self.clients.claim().then(()=>n?self.clients.matchAll({type:'window'}).then(cs=>Promise.all(cs.map(c=>{try{return c.navigate(c.url)}catch(_){}}))):0)))});
+// 25 Oct 11:29 live bug: navigating open pages from 'activate' left old-link visits (Instagram webview) blank/hung mid-load.
+// Activate only drops old caches and takes control; stale pages are healed by the version check in index.html.
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==T).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 const tell=()=>self.clients.matchAll().then(cs=>cs.forEach(c=>c.postMessage('offline')));
 let trimming=false;const trim=c=>{if(trimming)return;trimming=true;c.keys().then(k=>Promise.all(k.slice(0,Math.max(0,k.length-TMAX)).map(r=>c.delete(r)))).finally(()=>{trimming=false})};
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;

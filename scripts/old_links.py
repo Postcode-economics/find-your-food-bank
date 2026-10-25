@@ -1,0 +1,78 @@
+"""Old links always load a working site (Dean 25 Oct 11:29/11:31). Runs in CI (local checkout), after each deploy (live) and daily.
+For every link ever sent out (scripts/old_links.json) and the forms apps add (?igsh, ?utm_*, ?fbclid, hashes, old paths), with the
+Instagram in-app browser UA at 390px: first install an OLD release (service worker + caches; files served from a git snapshot via
+request routing), then open the link against the current site and check the map and listings render with no page errors and the
+current build. Usage: python scripts/old_links.py [BASE_URL] (default: local checkout). Exit 1 on any failure.
+Report: reports/old_links.md + logs/old_links.json."""
+import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
+from playwright.sync_api import sync_playwright
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+# commit -> must the FIRST open already show the latest build? v80's worker served HTML cache-first, so its first open shows the
+# old (working) page and the next open is the latest; v85+ pages carry the self-heal check and must show the latest at once.
+OLD_COMMITS = {'3dc505a65': True, '384b862f1': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
+IG = ('Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 '
+      'Instagram 330.0.0.0 (iPhone14,5; iOS 17_4; en_GB; en-GB; scale=3.00; 1170x2532; 600000000) helpmap-check')
+CHROME = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
+
+def snapshot(commit):
+    d = tempfile.mkdtemp(prefix='old_%s_' % commit)
+    subprocess.run('git -C "%s" archive %s | tar -x -C "%s"' % (ROOT, commit, d), shell=True, check=True)
+    return d
+
+def links():
+    j = json.load(open(os.path.join(ROOT, 'scripts', 'old_links.json'))); return j['sent'] + j['variants']
+
+def page_ok(pg, link):
+    if link.rstrip('/').split('/')[-1] and link.split('?')[0].split('#')[0].count('/') > 1:   # area pages: static listings
+        return pg.evaluate("(()=>({ok:document.querySelectorAll('main li,main .card,main a[href^=\"tel:\"],table tr').length>0, why:'area page listings'}))()")
+    return pg.evaluate("""(()=>{const pins=document.querySelectorAll('#map .leaflet-marker-icon').length,pane=!!document.querySelector('#map .leaflet-pane');
+      const n=typeof items!=='undefined'?items.length:0;return {ok:pane&&pins>0&&n>500,why:'pins '+pins+', items '+n+', map '+pane}})()""")
+
+def run(base=None):
+    srv = None
+    if not base:
+        h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT); h.log_message = lambda *a: None
+        srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=srv.serve_forever, daemon=True).start()
+        base = 'http://localhost:%d' % srv.server_address[1]
+    base = base.rstrip('/'); build = json.load(open(os.path.join(ROOT, 'version.json')))['build']
+    res = []
+    with sync_playwright() as p:
+        b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
+        for commit in OLD_COMMITS:
+            old = snapshot(commit)
+            def serve_old(route):
+                path = route.request.url.split(base, 1)[-1].split('?')[0].split('#')[0] or '/'
+                f = os.path.join(old, path.lstrip('/')); f = os.path.join(f, 'index.html') if os.path.isdir(f) else f
+                if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
+                route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
+            for link in links():
+                c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, has_touch=True, is_mobile=True)
+                c.route('**/*', serve_old); pg = c.new_page(); errs = []
+                r = dict(old=commit, link=link)
+                try:
+                    pg.goto(base + '/?nocount', wait_until='load', timeout=30000); pg.wait_for_timeout(2500)
+                    pg.reload(wait_until='load', timeout=30000); pg.wait_for_timeout(2000)
+                    r['old_sw'] = pg.evaluate("!!(navigator.serviceWorker&&navigator.serviceWorker.controller)")
+                    c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
+                    pg.goto(base + link, wait_until='load', timeout=30000); pg.wait_for_timeout(7000)
+                    st = page_ok(pg, link); r.update(st)
+                    if OLD_COMMITS[commit] and link.split('?')[0].split('#')[0] in ('/', '/index.html'):
+                        got = pg.evaluate("(document.querySelector('meta[name=helpmap-build]')||{}).content||''")
+                        if got != build: r['ok'] = False; r['why'] += ', build %s != %s' % (got, build)
+                    if errs: r['ok'] = False; r['why'] += ', errors: ' + '; '.join(errs[:2])
+                except Exception as e:
+                    r.update(ok=False, why='page hung or failed: %s' % str(e)[:150])
+                res.append(r); print('PASS' if r['ok'] else 'FAIL', commit, link, r['why'], flush=True); c.close()
+        b.close()
+    if srv: srv.shutdown()
+    bad = [r for r in res if not r['ok']]
+    os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
+    json.dump(res, open(os.path.join(ROOT, 'logs', 'old_links.json'), 'w'), indent=1)
+    md = ['# Old links check (%s)' % base, '', '%d of %d passed (old service worker installed first, Instagram in-app UA, 390px).' % (len(res) - len(bad), len(res)), '']
+    md += ['- FAIL %s %s: %s' % (r['old'], r['link'], r['why']) for r in bad]
+    open(os.path.join(ROOT, 'reports', 'old_links.md'), 'w').write('\n'.join(md) + '\n')
+    return res, bad
+
+if __name__ == '__main__':
+    res, bad = run(sys.argv[1] if len(sys.argv) > 1 else None)
+    sys.exit(1 if bad else 0)

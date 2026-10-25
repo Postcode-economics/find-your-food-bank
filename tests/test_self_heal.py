@@ -13,8 +13,9 @@ class T(unittest.TestCase):
         self.assertLess(h.index('helpmap-build'), h.index('</head>'))
     def test_sw_html_network_first_and_takeover(self):
         s = rd('sw.js')
-        for x in ('self.skipWaiting()', 'self.clients.claim()', 'c.navigate(c.url)', "fetch(e.request.url,{cache:'no-cache'", 'version\\.json)$/'):
+        for x in ('self.skipWaiting()', 'self.clients.claim()', "fetch(e.request.url,{cache:'no-cache'", 'version\\.json)$/'):
             self.assertIn(x, s)
+        self.assertNotIn('.navigate(', s)  # 25 Oct 11:29: navigating clients from activate left old-link visits blank
         self.assertIn("updateViaCache:'none'", rd('layers.js'))
 if __name__ == '__main__': unittest.main()
 
