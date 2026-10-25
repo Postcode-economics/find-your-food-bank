@@ -594,3 +594,4 @@ html body #sheetBody .card a.btn.call{max-width:100%!important}
 html body #sheetBody .card a.btn.call.xfb>span.xcl{font-size:13px!important;font-weight:700!important;text-wrap:balance}
 html body #sheetBody .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
 html body #sheetBody .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
+#fhide{min-width:44px}  /* Dean 25 Oct: every button at least 44x44 (was 37-40px wide) */
