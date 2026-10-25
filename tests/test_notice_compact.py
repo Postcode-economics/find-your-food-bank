@@ -10,5 +10,5 @@ class T(unittest.TestCase):
         import compact
         full = {i["id"]: i.get("notice") for i in compact.load_full()["items"] if i.get("notice")}
         s = open(os.path.join(ROOT, "data.js"), encoding="utf-8").read()
-        for n in set(full.values()): self.assertIn(json.dumps(n)[1:-1], s)
+        for n in set(full.values()): self.assertTrue(json.dumps(n)[1:-1] in s or json.dumps(n, ensure_ascii=False)[1:-1] in s, n)
         self.assertIn("First Base emergency parcel pick-up point", set(full.values()))
