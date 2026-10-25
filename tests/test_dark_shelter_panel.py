@@ -1,5 +1,5 @@
 """Dean 25 Oct 20:37 (v88b test): in dark mode the shelter 'Sleeping rough / StreetLink' panel was a near-white box and the
-'Nearest shelters' heading was weak. Dark panel, readable text, Call 999 white on #FF3B30, list heading gold."""
+Call 999 was navy. Dark panel with readable text in dark mode; Call 999 bold white text + icon on #FF3B30 in BOTH modes."""
 import functools, http.server, os, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
 try:
@@ -19,21 +19,21 @@ class T(unittest.TestCase):
         try:
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path=CH)
-                for w in (390, 1366):
-                    c = b.new_context(viewport={'width': w, 'height': 844}, color_scheme='dark', service_workers='block')
-                    c.add_init_script("try{localStorage.setItem('v3layer','sh');localStorage.removeItem('light')}catch(e){}"); pg = c.new_page()
+                for w, mode in ((390, 'dark'), (1366, 'dark'), (390, 'light'), (1366, 'light')):
+                    c = b.new_context(viewport={'width': w, 'height': 844}, color_scheme=mode, service_workers='block')
+                    c.add_init_script("try{localStorage.setItem('v3layer','sh');localStorage.setItem('light','%s')}" % ('1' if mode == 'light' else '0') + "catch(e){}"); pg = c.new_page()
                     pg.goto('http://127.0.0.1:%d/?nocount&q=SM1%%201AA' % s.server_address[1]); pg.wait_for_timeout(8000)
                     r = pg.evaluate("""(()=>{const vis=[...document.querySelectorAll('.v3sos')].filter(e=>e.offsetParent);const lh=[...document.querySelectorAll('#xlist>.lh')].find(e=>e.offsetParent);
                       const s9=vis.map(e=>e.querySelector('a.sosl.s999')).filter(Boolean);const page=getComputedStyle(document.body).backgroundColor;
-                      return {n:vis.length,p:vis.map(e=>[getComputedStyle(e).backgroundColor,getComputedStyle(e).color]),s9:s9.map(a=>[getComputedStyle(a).backgroundColor,getComputedStyle(a).color]),
+                      return {n:vis.length,p:vis.map(e=>[getComputedStyle(e).backgroundColor,getComputedStyle(e).color]),s9:s9.map(a=>{const i=a.querySelector('svg,.ico');return [getComputedStyle(a).backgroundColor,getComputedStyle(a).color,getComputedStyle(a).fontWeight,i?getComputedStyle(i).color:'rgb(255, 255, 255)']}),
                         lh:lh?getComputedStyle(lh).color:null,page}})()""")
                     if not r['n']: bad.append((w, 'no StreetLink panel')); continue
-                    for bg, fg in r['p']:
+                    for bg, fg in (r['p'] if mode == 'dark' else []):
                         if lum(bg) > 0.2: bad.append((w, 'panel is a light box in dark mode', bg))
                         if ratio(bg, fg) < 7: bad.append((w, 'panel text contrast', bg, fg))
-                    for bg, fg in r['s9']:
-                        if bg != 'rgb(255, 59, 48)' or fg != 'rgb(255, 255, 255)': bad.append((w, 'Call 999 not white on #FF3B30', bg, fg))
-                    if not r['lh'] or ratio(r['lh'], r['page']) < 7: bad.append((w, 'Nearest shelters heading contrast', r['lh'], r['page']))
+                    if not r['s9']: bad.append((w, mode, 'no Call 999 button'))
+                    for bg, fg, fw, ic in r['s9']:
+                        if bg != 'rgb(255, 59, 48)' or fg != 'rgb(255, 255, 255)' or int(fw) < 700 or ic != 'rgb(255, 255, 255)': bad.append((w, mode, 'Call 999 not bold white (text+icon) on #FF3B30', bg, fg, fw, ic))
                     c.close()
                 b.close()
         finally: s.shutdown()

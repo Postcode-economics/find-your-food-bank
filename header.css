@@ -186,5 +186,5 @@ html:not(.light) #v3tools .v3t[aria-pressed=true],html:not(.light) #v3filt>#v3to
 html:not(.light) .v3sos,html:not(.light) #v3sos .v3sos{background:#13223d!important;color:#F2F4F8!important;border:2px solid #3A5378!important;border-left:6px solid #56B4E9!important}
 html:not(.light) .v3sos a:not(.sosl){color:#F2F4F8!important}
 html:not(.light) .v3sos a.sosl:not(.s999){background:transparent!important;color:#F2F4F8!important;border:2px solid #F2F4F8!important}
-html:not(.light) .v3sos a.sosl.s999{background:#FF3B30!important;color:#FFFFFF!important;border:2px solid #FF3B30!important}
-html:not(.light) #xlist>.lh,html:not(.light) #list>.lh{color:#F5C518!important;font-weight:800}
+html .v3sos a.sosl.s999,html body #v3sos .v3sos a.sosl.s999,html.light .v3sos a.sosl.s999,html.light #v3sos .v3sos a.sosl.s999{background:#FF3B30!important;color:#FFFFFF!important;border:2px solid #FF3B30!important;font-weight:800!important}
+html .v3sos a.sosl.s999 .ico,html .v3sos a.sosl.s999 svg{color:#FFFFFF!important;fill:currentColor}
