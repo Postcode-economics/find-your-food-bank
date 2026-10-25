@@ -79,7 +79,8 @@ function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed'
  // and the 'results updated' pill below the buttons says what changed, with a link down to the list
  let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
  const p=LN()||(s&&typeof s.lat==='number'?[s.lat,s.lng,s.label]:null);
- if(p){busy(k);const run=()=>{if(window.v3focus!==k)return;const y=scrollY;nearest(p[0],p[1],p[2],p[3]);if(scrollY!==y)scrollTo({top:y,behavior:'auto'});pill(k)};requestAnimationFrame(()=>setTimeout(run,0))}  // round 4: the pressed state paints first, then the list re-runs
+ if(p){busy(k);const ln0=LN(),run=()=>{if(window.v3focus!==k)return;if(LN()!==ln0){busy(null);pill(k);return}  /* 25 Oct: a newer search landed before this deferred re-run (rAF can lag): never overwrite it with the old place */
+ const y=scrollY;nearest(p[0],p[1],p[2],p[3]);if(scrollY!==y)scrollTo({top:y,behavior:'auto'});pill(k)};requestAnimationFrame(()=>setTimeout(run,0))}  // round 4: the pressed state paints first, then the list re-runs
  else{busy(null);pill(k)}}  // before any search: just select; the pill line (space always reserved) asks for a postcode
 const LN=()=>{try{return typeof lastNear!=='undefined'&&lastNear?lastNear:null}catch(e){return null}};  // index.html's script-level let
 // ---- 'results updated' pill (aria-live) + pressed/loading state
