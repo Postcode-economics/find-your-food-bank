@@ -54,9 +54,15 @@ def run(base=None):
                         try: pg.goto(base + '/?nocount', wait_until='load', timeout=30000)
                         except Exception: pass
                         pg.wait_for_timeout(3000)
-                    r['old_sw'] = pg.evaluate("!!(navigator.serviceWorker&&navigator.serviceWorker.controller)")
+                    try: pg.wait_for_function("!!(navigator.serviceWorker&&navigator.serviceWorker.controller)", timeout=20000); r['old_sw'] = True
+                    except Exception: r['old_sw'] = False
+                    pg.wait_for_timeout(4000)   # let the old worker finish activating (v83-v86 workers reload their pages)
                     c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
-                    pg.goto(base + link, wait_until='load', timeout=30000); pg.wait_for_timeout(7000)
+                    try: pg.goto(base + link, wait_until='load', timeout=30000)
+                    except Exception as e: r['slow_load'] = str(e)[:80]   # judged by what the visitor sees next, below
+                    pg.wait_for_timeout(7000)
+                    try: pg.wait_for_function("document.readyState==='complete'", timeout=15000)
+                    except Exception: pass
                     st = page_ok(pg, link); r.update(st)
                     if OLD_COMMITS[commit] and link.split('?')[0].split('#')[0] in ('/', '/index.html'):
                         got = pg.evaluate("(document.querySelector('meta[name=helpmap-build]')||{}).content||''")
