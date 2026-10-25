@@ -35,6 +35,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/refresh_guard.py warmspaces
+      - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/sense_check.py
       - name: Review list for Dean (adds, removals, tier flips, opens-later)
         continue-on-error: true
         run: python scripts/layer_review.py

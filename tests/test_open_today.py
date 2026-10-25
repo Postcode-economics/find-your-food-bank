@@ -56,9 +56,9 @@ class Browser(unittest.TestCase):
             vis = lambda: pg.evaluate("()=>{const e=document.querySelector('.tnote');return !e.hidden&&e.offsetParent!==null}")
             self.assertFalse(vis())
             pg.click("#v3open"); pg.wait_for_timeout(300)
-            self.assertTrue(vis()); self.assertEqual(pg.evaluate("document.querySelector('.tnote').textContent"), "Places with no listed times are shown below those open today.")
+            self.assertTrue(vis()); self.assertEqual(pg.evaluate("document.querySelector('.tnote').textContent"), "Showing places open today. If no times are listed, call before you go.")
             pg.click("#v3open"); pg.wait_for_timeout(300); self.assertFalse(vis())
-            # order, every layer: open today first (by distance), then no listed times (by distance); none closed today
+            # Dean 25 Oct 09:37: Open today ON = places closed today hidden (no-times stay), strictly nearest first (every layer)
             pg.click("#v3open")
             for sel in ("ws", "sh"):
               pg.click(f".v3b[data-l={sel}]"); pg.wait_for_timeout(1000)
@@ -67,8 +67,8 @@ class Browser(unittest.TestCase):
                     out.fb=[...document.querySelectorAll('#list .card')].map(c=>{const i=items[+c.dataset.k];return [openToday(i)?0:closedToday(i)?2:1,dists[+c.dataset.k]]});
                     for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(!D)continue;
                       out[k]=[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>{const i=D.items.find(x=>x.name===h.textContent);return [V3.openTodayL(k,i)?0:(i.ended||V3.shutToday(k,i))?2:1,hav(a,b,i.lat,i.lng)]})}
-                    out.lim={fb:items.map((i,k)=>({i,k})).filter(x=>vis(x.k)&&!nc(x.i)).map(x=>dists[x.k]).sort((x,y)=>x-y)[9]};
-                    for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(D)out.lim[k]=D.items.filter(i=>!(i.ended||V3.shutToday(k,i))).map(i=>hav(a,b,i.lat,i.lng)).sort((x,y)=>x-y)[9]}
+                    out.lim={fb:items.map((i,k)=>({i,k})).filter(x=>vis(x.k)&&!nc(x.i)).map(x=>dists[x.k]).sort((x,y)=>x-y)};
+                    for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(D)out.lim[k]=D.items.filter(i=>!(i.ended||V3.shutToday(k,i))).map(i=>hav(a,b,i.lat,i.lng)).sort((x,y)=>x-y)}
                     return out}""", [lat, lng])
                   lim = r.pop("lim")
                   self.assertTrue({"fb", sel} <= set(r), r.keys())
@@ -76,6 +76,19 @@ class Browser(unittest.TestCase):
                       if k not in ('fb', sel): continue
                       self.assertTrue(rows, (k, lat))
                       self.assertTrue(all(g < 2 for g, _ in rows), (k, lat, rows))
-                      self.assertEqual(rows, sorted(rows), (k, lat, rows))
-                      self.assertLessEqual(max(d for _, d in rows), lim[k] + 1e-9, (k, lat))  # only the 10 nearest: far-off places never jump in
+                      ds = [d for _, d in rows]; self.assertEqual(ds, sorted(ds), (k, lat, rows))
+                      self.assertEqual([round(d, 6) for d in ds], [round(d, 6) for d in lim[k][:len(ds)]], (k, lat))  # exactly the nearest places not closed today
+            # Open today OFF: every place, strictly nearest first (every layer)
+            pg.click("#v3open"); pg.wait_for_timeout(300)
+            for sel in ("ws", "sh"):
+              pg.click(f".v3b[data-l={sel}]"); pg.wait_for_timeout(1000)
+              for lat, lng in ((51.5074, -0.1278), (50.8095, -0.5405)):
+                  r = pg.evaluate("""([a,b])=>{nearest(a,b,'test');const out={fb:[...document.querySelectorAll('#list .card')].map(c=>dists[+c.dataset.k])};
+                    for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(!D)continue;
+                      out[k]=[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>{const i=D.items.find(x=>x.name===h.textContent);return hav(a,b,i.lat,i.lng)});
+                      out['n'+k]=D.items.filter(i=>!i.ended).map(i=>hav(a,b,i.lat,i.lng)).sort((x,y)=>x-y).slice(0,3)}
+                    return out}""", [lat, lng])
+                  for k in ('fb', sel):
+                      self.assertTrue(r[k], (k, lat)); self.assertEqual(r[k], sorted(r[k]), (k, lat))
+                  self.assertEqual([round(x, 6) for x in r[sel]], [round(x, 6) for x in r['n' + sel]], (sel, lat))  # exactly the nearest, closed-today included
             c.close(); b.close()

@@ -177,4 +177,5 @@ def run(root=ROOT):
 
 if __name__ == '__main__':
     run()
-    import sw_version; sw_version.sync()  # version.json + index build meta from sw.js (single source)
+    import sw_version; sw_version.sync()
+    import beacon; print('beacon added to', beacon.inject_all(ROOT), 'pages')  # version.json + index build meta from sw.js (single source)
