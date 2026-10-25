@@ -202,6 +202,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 19. A draft inbox for "Report a problem" emails
 
+**Status:** Built, draft only. A draft is stored with `place_id` null and `apply` false. It is not read by the priority signal. It never applies itself, and free text never changes a listing.
+
 - **Benefit:** Problem emails waiting in Dean's inbox can sit in a draft file, so the priority signal is not stuck until someone retypes them by hand.
 - **Risk:** A bad parse files the wrong place, or copies a visitor's free text onto the map.
 - **Effort:** M.
