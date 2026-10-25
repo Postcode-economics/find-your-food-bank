@@ -2,7 +2,7 @@
 
 `wait_until="networkidle"` also waits for map tiles. A tile connection that
 stays open makes `Page.goto` time out after the local files have already
-loaded. These checks need the search box and the food-bank data, not the tiles.
+loaded. These checks need the search box, the food-bank data and the map pane, not the tiles.
 """
 READY = "() => !!(document.getElementById('q') && window.FB_DATA && FB_DATA.items && FB_DATA.items.length > 100 && document.querySelector('#map .leaflet-pane'))"
 
