@@ -84,7 +84,9 @@ def run(base=None, measure=False):
                 c = b.new_context(**kw); pg = c.new_page()
                 tiles = {'ok': 0, 'bad': 0}
                 def _t(r, tiles=tiles):
-                    if 'api.maptiler.com' in r.url and '/tiles/' in r.url or 'api.maptiler.com/maps/' in r.url and r.url.endswith(('.png', '.jpg', '.webp')):
+                    # MapTiler tile URLs are .../256/z/x/y.png?key=... so the query must be stripped before the suffix check.
+                    u = r.url.split('?', 1)[0]
+                    if 'api.maptiler.com' in u and u.endswith(('.png', '.jpg', '.webp')):
                         ok = r.status == 200 and 'image' in (r.headers.get('content-type') or '')
                         tiles['ok' if ok else 'bad'] += 1
                 pg.on('response', _t)
