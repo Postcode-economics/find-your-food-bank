@@ -162,6 +162,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 
 ### 15. Write down why an automatic edit was allowed
 
+**Status:** Built. When a voucher or walk-in flip, or one clear new phone, is actually applied, the rule name, the confidence and the source URL are logged. The log does not decide. `decides` stays false. A change the rules would refuse is not logged.
+
 - **Benefit:** Each automatic change (opening times, a temporary closure, a voucher or walk-in flip, one clear new phone, a warm-space end date, SWEP open or close, a moved link to the same organisation) keeps the rule name, the confidence, and the source URL beside it.
 - **Risk:** The note gets treated as a new source of truth. It is a log. The rules file still decides.
 - **Effort:** S.

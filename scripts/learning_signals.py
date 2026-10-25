@@ -102,6 +102,12 @@ def change_signals(items, state):
         if not k.startswith('_') and by.get(k): sig[by[k]].append('contact email bounced')
     return dict(sig)
 
+def provenance_note():
+    """How many automatic edits were logged. The log does not decide, and a missing file has no effect."""
+    rows = rj('reports/provenance.json', None)
+    if not isinstance(rows, list) or not rows: return 'no automatic edits logged yet - the rules file still decides'
+    return '%d automatic edits logged. The log does not decide; the rules file does.' % len(rows)
+
 def tally_note():
     """The weekly count is a record only. The season boost stays on the existing history."""
     t = rj('logs/week_counts.json', None)
@@ -398,7 +404,7 @@ def build(today=None):
     stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
     wx_sites, wx_councils, wx_note = weather_priority(items)
     empty_sites, empty_note = empty_parses(state)
-    gone, gone_note = source_watch(); pin_note = pins.note(); feed_note = official_feed_note(); calls_note = rate_note()
+    gone, gone_note = source_watch(); pin_note = pins.note(); feed_note = official_feed_note(); calls_note = rate_note(); prov_note = provenance_note()
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     grades = accuracy_grades(LS, prev, today) if sunday else {}
@@ -444,7 +450,7 @@ def build(today=None):
                signals=sig, source_blame=blame, season=dict(boost=season, weeks=weeks, note=season_note), tally_note=tally_line, demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                dean_wording=dean_wording, dean_note=dean_note, problem_note=problem_note, stale_note=stale_note,
-               forecast_note=forecast_note, weather_note=wx_note, empty_note=empty_note, source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note,
+               forecast_note=forecast_note, weather_note=wx_note, empty_note=empty_note, source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note, provenance_note=prov_note,
                council_boost={k: round(W['weather'] * v, 3) for k, v in wx_councils.items()},
                conflicts=rows, accuracy=grades,
                healed=sorted(k for k, e in (LS.get('keys') or {}).items() if e.get('healed_to'))[:40],
@@ -494,6 +500,7 @@ def digest_lines(out, full=False):
     L.append('- Library pins (nothing is upgraded from this note): ' + (out.get('pin_note') or 'no effect'))
     L.append('- New official feeds: ' + (out.get('feed_note') or 'no effect'))
     L.append('- Calls and rate limits: ' + (out.get('calls_note') or 'no effect'))
+    L.append('- Why an automatic edit was allowed: ' + (out.get('provenance_note') or 'the rules file still decides'))
     L.append('- Sources disagree on %d places. Nothing was picked; they are flagged for Dean.' % len(out.get('conflicts') or []))
     L.append('- Fetches that switched to a method which had already worked for that site: %d' % len(out.get('healed') or []))
     slow = sorted((out.get('hosts') or {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
