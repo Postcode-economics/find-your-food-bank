@@ -1,6 +1,8 @@
 """Touch map gestures (Dean, 25 Oct 2026, 07:42): on touch devices one finger over the map scrolls the page and shows
 'Use two fingers to move the map'; two fingers pan/zoom; marker taps and +/- still work. Desktop unchanged."""
-import os, unittest, threading, functools, http.server
+import os, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SHOT = os.environ.get("TOUCH_SHOT")
 
@@ -29,7 +31,7 @@ class Browser(unittest.TestCase):
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
             for scheme in ("light", "dark"):
                 c = b.new_context(viewport={"width": 390, "height": 844}, has_touch=True, is_mobile=True, color_scheme=scheme, service_workers="block")
-                pg = c.new_page(); pg.goto(self.base(), wait_until="networkidle"); pg.wait_for_timeout(1500)
+                pg = c.new_page(); open_map(pg, self.base()); pg.wait_for_timeout(1500)
                 pg.evaluate("()=>{map.setView([50.81,-0.54],13,{animate:false})}"); pg.wait_for_timeout(800)
                 self.assertFalse(pg.evaluate("map.dragging.enabled()"))
                 r = pg.evaluate("(()=>{const r=map.getContainer().getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2}})()")
@@ -61,6 +63,6 @@ class Browser(unittest.TestCase):
                 c.close()
             # desktop unchanged
             c = b.new_context(viewport={"width": 1366, "height": 900}, service_workers="block"); pg = c.new_page()
-            pg.goto(self.base(), wait_until="networkidle"); pg.wait_for_timeout(1000)
+            open_map(pg, self.base()); pg.wait_for_timeout(1000)
             self.assertTrue(pg.evaluate("map.dragging.enabled()")); self.assertEqual(pg.locator(".mgest").count(), 0)
             self.assertFalse(pg.evaluate("map.scrollWheelZoom.enabled()")); pg.click("#map", position={"x": 300, "y": 150}); self.assertTrue(pg.evaluate("map.scrollWheelZoom.enabled()")); c.close()  # existing v3 desktop rule: wheel zoom after a click; b.close()
