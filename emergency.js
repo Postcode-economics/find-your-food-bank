@@ -1,7 +1,7 @@
 /* Emergency shelter preview. Runs only after index.html adds html.em-preview for ?preview=emergency.
    House pictogram: UN OCHA Humanitarian Icons, House.svg, CC0 1.0.
    https://github.com/UN-OCHA/humanitarian-icons
-   Map pin red is #FF3B30. Banner mockup icons reuse pin() so they stay that red. */
+   Map pin red is #FF3B30. The banner uses the same pin() logo as the example map pin: same shape, white outline, red unchanged. */
 (function(){
 if(!document.documentElement.classList.contains('em-preview'))return;
 var HOUSE='M18.66437.2525a1.00028,1.00028,0,0,0-1.32874,0l-17.008,15.45A1,1,0,0,0,0,16.44266v27.5574H14v-10a2.00588,2.00588,0,0,1,2-2h4a2.00588,2.00588,0,0,1,2,2v10H36V16.44266a1,1,0,0,0-.32761-.7402Z';
@@ -9,8 +9,6 @@ var TERMS=['emergency shelter','rest centre','power cut','emergency','evacuation
 var PHONE='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>';
 var qs=new URLSearchParams(location.search);
 var sample=qs.get('sample')==='1';
-var bannerKind=qs.get('banner');
-if(bannerKind==='a'||bannerKind==='b')document.documentElement.classList.add('em-banner-'+bannerKind);
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function pin(){return '<svg class="em-pin" width="34" height="44" viewBox="0 0 34 44" role="img" aria-label="Emergency shelter"><path d="M17 1C8 1 1 8 1 17c0 11 16 26 16 26s16-15 16-26C33 8 26 1 17 1z" fill="#FF3B30" stroke="#FFFFFF" stroke-width="2"/><g transform="translate(8.5,6.2) scale(0.47)"><path fill="#FFFFFF" d="'+HOUSE+'"/></g></svg>'}
 function emergencySearch(q){q=String(q||'').toLowerCase();return TERMS.some(function(t){return q.indexOf(t)>=0})}
@@ -22,7 +20,7 @@ function hideExpired(root){var now=Date.now();root.querySelectorAll('[data-open-
 function row(label,value){if(value==null||value==='')return '';return '<dt>'+esc(label)+'</dt><dd>'+esc(value)+'</dd>'}
 function buttons(c,example){var call=c.phone?'<a class="em-call" href="tel:'+esc(String(c.phone).replace(/[^\d+]/g,''))+'">'+PHONE+esc(c.phone)+(example?' (example)':'')+'</a>':'';
  var dir=example?'<a class="em-dir" href="#em-root">Directions</a>':(c.lat!=null&&c.lng!=null?'<a class="em-dir" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(c.lat+','+c.lng)+'&travelmode=walking">Directions</a>':'');
- return '<a class="em-999" href="tel:999">'+PHONE+'999 Emergency services</a>'+(call||dir?'<div class="em-row">'+call+dir+'</div>':'')}
+ return '<a class="em-999" href="tel:999">'+PHONE+'999 Emergency services</a>'+(call||dir?'<div class="em-row">'+dir+call+'</div>':'')}
 function attrs(c){var id=c.id||c.name||'';return ' data-em="'+esc(id)+'" data-lat="'+(c.lat==null?'':esc(c.lat))+'" data-lng="'+(c.lng==null?'':esc(c.lng))+'" data-open-until="'+esc(c.open_until||'')+'"'}
 function listCard(c,example){var fl=flood(c.postcode,c.nation),sw=c.swep_badge?'<div class="em-swep">'+esc(c.swep_badge)+'</div>':'';
  var dl=row('Opened by',c.opened_by)+row('Opened for',c.opened_for)+row('Open until',c.open_until_label)+row('Pets',c.pets)+row('Access',c.access)+row('Beds',c.beds)+row('Last checked',c.last_checked);
@@ -38,9 +36,9 @@ if(col)col.insertAdjacentElement('afterbegin',root);else document.body.appendChi
 function setKey(on){var leg=document.getElementById('em-keyleg');if(!on){if(leg)leg.remove();return}
  if(leg)return;var host=document.getElementById('xupd');if(!host)return;leg=document.createElement('span');leg.id='em-keyleg';
  leg.innerHTML='<b>Emergency shelter</b> <small>rest centre, wording needs Dean’s OK</small>';host.appendChild(leg)}
-function iconHtml(){if(bannerKind!=='a'&&bannerKind!=='b')return '';return '<span class="em-ico" aria-hidden="true">'+pin()+'</span>'}
+function iconHtml(){return '<span class="em-ico" aria-hidden="true">'+pin()+'</span>'}
 function fillBanner(html){banner.hidden=!html;if(!html){hit.innerHTML='';var old=banner.querySelector('a.em-text');if(old)old.remove();return}
- hit.innerHTML='<span class="em-top">'+iconHtml()+'<span class="em-cta">CLICK HERE FOR YOUR NEAREST SHELTER</span></span><span class="em-body">'+html+'</span>';
+ hit.innerHTML='<span class="em-top">'+iconHtml()+'<span class="em-cta">CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER</span></span><span class="em-body">'+html+'</span>';
  if(!banner.querySelector('a.em-text')){var a=document.createElement('a');a.className='em-text';a.href='emergency.txt';a.textContent='Text-only list';banner.appendChild(a)}}
 function centresForEveryone(data){
  /* Every live rest centre stays on the page for every visitor. Not filtered by the visitor's location or the warning area. */

@@ -435,13 +435,17 @@ class Plan(unittest.TestCase):
         """Dean 26 Oct: the list is national. Do not filter it by the visitor or the warning area."""
         js = rd("emergency.js").replace(" ", "")
         self.assertIn("return!!(c&&c.live&&!c.example)", js)
-        self.assertIn("CLICK HERE FOR YOUR NEAREST SHELTER", rd("emergency.js"))
-        self.assertIn("Go to nearest open rest centre", rd("emergency.js"))
+        js_raw = rd("emergency.js")
+        self.assertIn("CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER", js_raw)
+        self.assertIn("Go to nearest open rest centre", js_raw)
+        self.assertIn("'<div class=\"em-row\">'+dir+call", js_raw)
         css = rd("emergency.css").replace(" ", "")
         self.assertIn("text-decoration:underline", css)
         self.assertIn("text-transform:uppercase", css)
-        self.assertIn("em-banner-b#em-banner{background:#000000}", css)
-        self.assertIn('fill="#FF3B30"', rd("emergency.js"))
+        self.assertNotIn("em-banner-b#em-banner{background:#000000}", css)
+        self.assertIn("a.em-call{order:2}", css)
+        self.assertIn('fill="#FF3B30"', js_raw)
+        self.assertIn('stroke="#FFFFFF"', js_raw)
 
 
 def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
@@ -544,14 +548,22 @@ class BannerClick(unittest.TestCase):
             self.assertIn(info["tag"], ("BUTTON", "A"), scheme)
             self.assertEqual(info["name"], "Go to nearest open rest centre", scheme)
             self.assertGreaterEqual(info["tab"], 0, scheme)
-            self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST SHELTER", scheme)
+            self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER", scheme)
             self.assertEqual(info["deco"], "underline", scheme)
             self.assertEqual(info["transform"], "uppercase", scheme)
             self.assertIn(info["weight"], ("900", "800", "bold"), scheme)
             self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", scheme)
             self.assertEqual(info["color"], "rgb(255, 255, 255)", scheme)
             self.assertEqual(info["bg"], "rgb(255, 59, 48)", scheme)
-            self.assertEqual(info["icons"], 0, scheme)
+            self.assertEqual(info["icons"], 1, scheme)
+            self.assertTrue(pg.evaluate("""()=>{const ico=document.querySelector('#em-banner .em-ico');const cta=document.querySelector('#em-banner .em-cta');
+              const pin=document.querySelector('.em-pinrow svg');const b=ico.querySelector('svg');
+              return ico&&cta&&pin&&b&&ico.compareDocumentPosition(cta)===Node.DOCUMENT_POSITION_FOLLOWING
+                &&b.getAttribute('viewBox')===pin.getAttribute('viewBox')
+                &&b.querySelector('path').getAttribute('d')===pin.querySelector('path').getAttribute('d')
+                &&b.querySelector('path').getAttribute('fill')==='#FF3B30'
+                &&b.querySelector('path').getAttribute('stroke')==='#FFFFFF'
+                &&ico.getBoundingClientRect().right<=cta.getBoundingClientRect().left+1}"""), scheme)
             self.assertFalse(info["overflow"], scheme)
             pg.set_viewport_size({"width": 320, "height": 700})
             self.assertFalse(self._banner_info(pg)["overflow"], scheme)
@@ -629,31 +641,47 @@ class BannerClick(unittest.TestCase):
         self._go(pg, "Aberdeen Rest Centre")
         self.assertGreaterEqual(pg.evaluate("window.__geoCalls"), 1)
 
-    def test_banner_variants_keep_the_map_pin_red(self):
-        for kind, bg, circle in (("a", "rgb(255, 59, 48)", True), ("b", "rgb(0, 0, 0)", False)):
+    def test_call_button_sits_on_the_right(self):
+        """Dean 26 Oct: the green call button is on the right of Directions, on the list and the pop-up card."""
+        for width in (390, 1366):
             for scheme in ("dark", "light"):
-                pg = self._page(390, scheme); self._open(pg, "&sample=1&banner=%s" % kind); self._theme(pg, scheme)
+                pg = self._page(width, scheme); self._open(pg, "&sample=1"); self._theme(pg, scheme)
+                pg.wait_for_selector("#em-root .em-card .em-call")
+                places = pg.evaluate("""()=>[...document.querySelectorAll('#em-root .em-row')].map(row=>{
+                  const call=row.querySelector('.em-call'), dir=row.querySelector('.em-dir');
+                  const c=call.getBoundingClientRect(), d=dir.getBoundingClientRect();
+                  const cs=getComputedStyle(call);
+                  return {callLeft:c.left, dirRight:d.right, sameRow:Math.abs(c.top-d.top)<8, green:cs.backgroundColor}})""")
+                self.assertGreaterEqual(len(places), 2, (width, scheme))
+                for place in places:
+                    self.assertGreaterEqual(place["callLeft"], place["dirRight"] - 1, (width, scheme, place))
+                    self.assertTrue(place["sameRow"], (width, scheme, place))
+                    self.assertEqual(place["green"], "rgb(52, 199, 89)", (width, scheme, place))
+                pg.close()
+
+    def test_default_banner_uses_the_map_pin(self):
+        """Option A is the preview banner. Plain red and the black banner are not offered."""
+        for scheme in ("dark", "light"):
+            for query in ("&sample=1", "&sample=1&banner=b", "&sample=1&banner=a"):
+                pg = self._page(390, scheme); self._open(pg, query); self._theme(pg, scheme)
                 pg.wait_for_selector("#em-banner .em-ico")
                 info = self._banner_info(pg)
-                self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST SHELTER", (kind, scheme))
-                self.assertEqual(info["bg"], bg, (kind, scheme))
-                self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", (kind, scheme))
-                self.assertEqual(info["name"], "Go to nearest open rest centre", (kind, scheme))
-                fills = pg.eval_on_selector_all("#em-banner .em-ico svg path", "els=>els.map(e=>e.getAttribute('fill'))")
-                self.assertIn("#FF3B30", fills, (kind, scheme))
-                box = pg.evaluate("""()=>{const e=document.querySelector('#em-banner .em-ico');const s=getComputedStyle(e);const r=e.getBoundingClientRect();
-                  return {bg:s.backgroundColor,w:r.width,h:r.height,rad:parseFloat(s.borderTopLeftRadius)}}""")
-                if circle:
-                    self.assertEqual(box["bg"], "rgb(255, 255, 255)", (kind, scheme))
-                    self.assertAlmostEqual(box["w"], box["h"], delta=1)
-                    self.assertGreaterEqual(box["rad"], box["w"] / 2 - 1)
-                else:
-                    self.assertNotEqual(box["bg"], "rgb(255, 255, 255)", (kind, scheme))
+                self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER", (query, scheme))
+                self.assertEqual(info["bg"], "rgb(255, 59, 48)", (query, scheme))
+                self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", (query, scheme))
+                self.assertEqual(info["icons"], 1, (query, scheme))
+                same = pg.evaluate("""()=>{const pin=document.querySelector('.em-pinrow svg');const b=document.querySelector('#em-banner .em-ico svg');
+                  const ico=getComputedStyle(document.querySelector('#em-banner .em-ico'));
+                  return {view:b.getAttribute('viewBox')===pin.getAttribute('viewBox'),
+                    d:b.querySelector('path').getAttribute('d')===pin.querySelector('path').getAttribute('d'),
+                    fill:b.querySelector('path').getAttribute('fill'), stroke:b.querySelector('path').getAttribute('stroke'),
+                    circle:ico.backgroundColor==='rgb(255, 255, 255)'&&parseFloat(ico.borderTopLeftRadius)>10}}""")
+                self.assertTrue(same["view"] and same["d"], (query, scheme, same))
+                self.assertEqual(same["fill"], "#FF3B30", (query, scheme))
+                self.assertEqual(same["stroke"], "#FFFFFF", (query, scheme))
+                self.assertFalse(same["circle"], (query, scheme))
                 pg.set_viewport_size({"width": 320, "height": 700})
-                self.assertFalse(self._banner_info(pg)["overflow"], (kind, scheme))
-                pg.click("#em-banner .em-cta")
-                pg.wait_for_selector(".em-card.em-go")
-                self.assertEqual(pg.locator(".em-card.em-go h3").inner_text(), "Example Leisure Centre (example)")
+                self.assertFalse(self._banner_info(pg)["overflow"], (query, scheme))
                 pg.close()
 
     def test_live_default_has_no_banner(self):

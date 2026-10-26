@@ -11,13 +11,9 @@ html.em-preview #em-banner .em-hit:focus-visible{outline:3px solid #FFFFFF;outli
 html.em-preview #em-banner .em-top{display:flex;align-items:flex-start;gap:8px;max-width:100%;margin:0 0 8px}
 html.em-preview #em-banner .em-cta{display:block;flex:1 1 auto;min-width:0;margin:0;font-weight:900!important;text-decoration:underline;text-decoration-color:#FFFFFF;text-underline-offset:2px;text-transform:uppercase;letter-spacing:0;overflow-wrap:anywhere}
 html.em-preview #em-banner .em-body{overflow-wrap:anywhere}
-html.em-preview #em-banner .em-ico{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;line-height:0;background:transparent}
-html.em-preview.em-banner-a #em-banner .em-ico{width:40px;height:40px;border-radius:50%;background:#FFFFFF}
-html.em-preview.em-banner-a #em-banner .em-ico svg{width:20px;height:26px;display:block}
-html.em-preview.em-banner-b #em-banner{background:#000000}
-html.em-preview.em-banner-b #em-banner .em-ico svg{width:28px;height:36px;display:block}
+html.em-preview #em-banner .em-ico{display:inline-flex;align-items:flex-start;justify-content:center;flex:0 0 auto;line-height:0;background:transparent}
+html.em-preview #em-banner .em-ico svg{width:34px;height:44px;display:block}
 html.light.em-preview #em-banner,html.light.em-preview #em-banner .em-cta,html.light.em-preview #em-banner .em-body,html.light.em-preview #em-banner a{color:#FFFFFF!important}
-html.light.em-preview.em-banner-b #em-banner{background:#000000}
 html.em-preview .em-card.em-go,html.em-preview .em-card:focus{outline:3px solid #F5C518;outline-offset:3px}
 html.em-preview .em-pinwrap.leaflet-div-icon{background:transparent;border:0}
 html.em-preview #em-root{max-width:480px;box-sizing:border-box;padding:4px 12px 8px}
@@ -40,8 +36,10 @@ html.light.em-preview .em-dl dt{color:rgba(10,22,40,.68)!important}
 html.em-preview .em-dl dd{margin:0;font-weight:400;overflow-wrap:anywhere}
 html.em-preview a.em-999{display:flex!important;width:100%;box-sizing:border-box;justify-content:center;align-items:center;gap:8px;margin-top:16px;min-height:48px;padding:11px 22px;background:#FF3B30!important;color:#FFFFFF!important;font-size:17px;font-weight:900;line-height:1.2;border-radius:999px;text-decoration:none;border:0}
 html.em-preview a.em-999 svg{width:20px;height:20px;flex:0 0 20px;fill:#FFFFFF}
-html.em-preview .em-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-html.em-preview a.em-call,html.em-preview a.em-dir{display:flex!important;flex:1 1 140px;box-sizing:border-box;min-height:48px;align-items:center;justify-content:center;gap:8px;padding:0 16px;font-weight:800;text-decoration:none;border:0}
+html.em-preview .em-row{display:flex;flex-wrap:nowrap;gap:8px;margin-top:10px;align-items:stretch}
+html.em-preview a.em-call,html.em-preview a.em-dir{display:flex!important;flex:1 1 0;min-width:0;box-sizing:border-box;min-height:48px;align-items:center;justify-content:center;gap:8px;padding:0 12px;font-weight:800;text-decoration:none;border:0}
+html.em-preview a.em-dir{order:1}
+html.em-preview a.em-call{order:2}
 html.em-preview a.em-call{background:#34C759!important;color:#000!important;border-radius:999px;font-size:17px}
 html.em-preview a.em-call svg{width:20px;height:20px;flex:0 0 20px;fill:#2B2B2B}
 html.em-preview a.em-dir{background:#F5C518!important;color:#0A1628!important;border-radius:10px;font-size:16px}
