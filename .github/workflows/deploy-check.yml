@@ -19,6 +19,23 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - id: scripts
+        name: Workflow scripts are in the tree
+        run: |
+          python - <<'PY'
+          import glob, os, re, sys
+          missing = []
+          pat = re.compile(r'(?:python3?|bash)\s+(scripts/[\w./-]+\.(?:py|sh))')
+          for yml in sorted(glob.glob('.github/workflows/*.yml')):
+              text = open(yml, encoding='utf-8').read()
+              for m in pat.finditer(text):
+                  path = m.group(1)
+                  if not os.path.isfile(path):
+                      missing.append('%s calls %s' % (yml, path))
+          if missing:
+              print('::error::auto-revert restores site files and leaves the workflow in place, so a workflow calls a script that is not in this tree: %s' % '; '.join(missing))
+              sys.exit(1)
+          PY
       - id: wait
         name: Wait for the deploy (live version.json = this commit's build)
         run: |
@@ -48,6 +65,7 @@ jobs:
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 15
         run: python scripts/design_lock.py https://helpmap.uk
+      # 26 Oct: check_browser retries one challenge or edge block (not a tile 403, not a broken app). A second block, a missing script, or a wrong theme still fails this step and still reverts.
       - id: darkdefault
         name: Dark by default
         if: success() && env.SUPERSEDED != '1'
@@ -65,6 +83,7 @@ jobs:
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
           case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
+          case "${{ steps.scripts.outcome }}" in failure) failed="${failed:+$failed }scripts";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
           case "${{ github.sha }}" in ad54c561*) echo "::error::v88 (ad54c56) is never auto-reverted (Dean 25 Oct 18:56) - fix forward"; python scripts/alert.py open old-links "Live check failed ($failed) on v88 - NOT reverted (Dean's rule), fix forward" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; exit 0;; esac
@@ -86,6 +105,7 @@ jobs:
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
           case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
+          case "${{ steps.scripts.outcome }}" in failure) failed="${failed:+$failed }scripts";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
           python scripts/alert.py open old-links "Daily live check failed ($failed)" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
