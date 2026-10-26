@@ -101,12 +101,10 @@ jobs:
           # fresh build (overrides are re-applied on every run, so nothing hand-made is lost for more than one run)
           for n in 1 2 3; do
             ok=0
-            if git pull --rebase -X theirs; then ok=1
+            if git pull --rebase; then ok=1
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
-              for f in $(git diff --name-only --diff-filter=U); do
-                if git cat-file -e ":3:$f" 2>/dev/null; then git checkout --theirs -- "$f" && git add -- "$f"; else git rm -q -- "$f"; fi
-              done
+              bash scripts/refresh_rebase_conflicts.sh
               GIT_EDITOR=true git rebase --continue && ok=1
             fi
             if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json; git add reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
