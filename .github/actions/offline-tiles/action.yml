@@ -36,4 +36,5 @@ runs:
         else
           echo "HELPMAP_OFFLINE_TILES=blank" >> "$GITHUB_ENV"; echo "offline tiles: blank fallback"; tail -20 tileserver.log 2>/dev/null || true
         fi
+        echo "HELPMAP_OFFLINE_TILES_STRICT=1" >> "$GITHUB_ENV"   # any tile to another host fails the job
         echo "offline map start: $(( $(date +%s) - t0 ))s"

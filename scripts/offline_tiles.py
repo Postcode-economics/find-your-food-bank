@@ -48,6 +48,19 @@ def blank_png():
             + c(b'IDAT', zlib.compress(raw)) + c(b'IEND', b''))
 
 
+_ALL = []
+_ZXY_ANY = re.compile(r'/\d+/\d+/\d+(?:@2x)?\.(?:png|jpg|jpeg|webp|pbf|mvt)(?:\?|$)')
+
+
+def _strict_exit():
+    bad = [u for st in _ALL for u in st.external]
+    if bad:
+        import sys
+        sys.stderr.write('OFFLINE TILES: %d tile request(s) went to a host other than the CI-local tileserver '
+                         'or the blank fallback:\n  %s\n' % (len(bad), '\n  '.join(sorted(set(bad))[:20])))
+        os._exit(3)
+
+
 class Stats:
     def __init__(self):
         self.served = 0
@@ -83,6 +96,23 @@ def attach(context, base=None, fetch=None):
                                                       'access-control-allow-origin': '*',
                                                       'cache-control': 'no-store'})
 
+    local_prefix = base if base.startswith('http') else None
+
+    def watch(req):
+        u = req.url
+        if is_external_tile_host(u) or (local_prefix and u.startswith(local_prefix)):
+            return  # answered by our route / the local server
+        if _ZXY_ANY.search(u.split('#', 1)[0]) and not u.startswith(('http://127.0.0.1', 'http://localhost')):
+            stats.external.append(u)   # a tile-shaped request to some other outside host
+
     context.route(_HOST_RE, handle)
+    try:
+        context.on('request', watch)
+    except Exception:
+        pass
+    _ALL.append(stats)
+    if os.environ.get(ENV + '_STRICT') == '1' and len(_ALL) == 1:
+        import atexit
+        atexit.register(_strict_exit)
     context.offline_tile_stats = stats
     return stats
