@@ -54,7 +54,32 @@ class Helper(unittest.TestCase):
         self.assertFalse(B.is_network_blip(Exception('net::ERR_ABORTED')))  # the old worker cancels its own load
         self.assertFalse(B.is_network_blip(B.BotPage('bot page')))
         self.assertFalse(B.is_network_blip(B.AppNotReady('app not ready')))
+        self.assertFalse(B.is_network_blip(B.BlockedPage('blocked')))
         self.assertFalse(B.is_network_blip(AssertionError('list not nearest first')))
+
+    def test_only_an_edge_block_of_the_document_or_a_boot_script_is_inconclusive(self):
+        tile = 'http://127.0.0.1/tile.openstreetmap.org/5/15/9.png'
+        self.assertTrue(B.is_map_tile(tile))  # same-origin path still a tile, so the test never calls a tile server
+        self.assertFalse(B.is_external_block(403, tile, 'image'))
+        self.assertFalse(B.is_external_block(403, 'https://tile.openstreetmap.org/6/31/20.png', 'image'))
+        self.assertFalse(B.is_external_block(200, 'http://127.0.0.1/data.js', 'script'))
+        self.assertFalse(B.is_external_block(404, 'http://127.0.0.1/data.js?v=1', 'script'))  # our missing file
+        self.assertFalse(B.is_external_block(500, 'http://127.0.0.1/data.js', 'script'))
+        self.assertFalse(B.is_external_block(403, 'http://127.0.0.1/v3.js', 'script'))  # runs after the pane exists
+        self.assertFalse(B.is_external_block(403, 'http://127.0.0.1/icon-192.png', 'image'))
+        self.assertTrue(B.is_external_block(403, 'http://127.0.0.1/data.js?v=1', 'script'))
+        self.assertTrue(B.is_external_block(429, 'http://127.0.0.1/vendor/leaflet.js', 'script'))
+        self.assertTrue(B.is_external_block(503, 'http://127.0.0.1/?nocount', 'document'))
+        self.assertTrue(B.is_external_block(401, 'http://127.0.0.1/', 'document'))
+        broken = {'ok': False, 'wall': False, 'n': 0, 'pane': False, 'boot': True, 'title': 'helpmap.uk'}
+        self.assertIsInstance(B.ready_failure(broken, []), B.AppNotReady)
+        self.assertIsInstance(B.ready_failure({'ok': False, 'n': 0, 'pane': False, 'title': 'helpmap.uk'}, []), B.AppNotReady)
+        self.assertIsNone(B.ready_failure({'ok': True, 'wall': False, 'boot': True}, [(403, 'http://127.0.0.1/data.js')]))
+        challenged = {'ok': False, 'wall': False, 'n': 0, 'pane': False, 'boot': False,
+                      'title': 'Find a food bank, warm space or shelter near you – helpmap.uk'}
+        self.assertIsInstance(B.ready_failure(challenged, []), B.BlockedPage)
+        self.assertIsInstance(B.ready_failure(broken, [(403, 'http://127.0.0.1/data.js')]), B.BlockedPage)
+        self.assertIsInstance(B.ready_failure({'ok': False, 'wall': True, 'title': 'Just a moment...'}, []), B.BotPage)
 
     def test_maptiler_tile_with_a_key_counts(self):
         self.assertFalse(broken_tile_count(TILE))  # the counter that printed tiles [] 
@@ -77,6 +102,7 @@ class _Page:
         self.title_text = title
         self.gotos = 0
         self.reloads = 0
+        self.navs = 0
         self.body = ''
 
     def set_default_timeout(self, t):
@@ -90,6 +116,7 @@ class _Page:
             self.gotos += 1
         else:
             self.reloads += 1
+        self.navs += 1
         ev = self.events.pop(0)
         if isinstance(ev, Exception):
             raise ev
@@ -106,6 +133,8 @@ class _Page:
         # The ready probe also mentions innerText; only the short bot-page read is the body.
         if js.startswith("()=>(document.body"):
             return self.body
+        if isinstance(self.state, list):
+            return self.state[min(self.navs, len(self.state)) - 1]
         return self.state
 
     def title(self):
@@ -133,17 +162,41 @@ class Navigation(unittest.TestCase):
         self.assertEqual(pg.gotos, 2)
         self.assertEqual(len(logs), 1)
 
-    def test_bot_page_is_not_retried(self):
+    def test_a_challenge_is_retried_once_and_a_second_challenge_fails(self):
         logs = []
-        pg = _Page([None], state={'ok': False, 'wall': True, 'n': 0, 'pane': False, 'title': 'Just a moment...'})
+        wall = {'ok': False, 'wall': True, 'n': 0, 'pane': False, 'title': 'Just a moment...'}
+        pg = _Page([None, None], state=wall)
         with self.assertRaises(B.BotPage):
-            B.goto(pg, 'https://helpmap.uk/', log=logs.append)
-        self.assertEqual(pg.gotos, 1)
-        self.assertEqual(logs, [])
+            B.goto(pg, 'http://127.0.0.1/', log=logs.append)
+        self.assertEqual(pg.gotos, 2)
+        self.assertEqual(len(logs), 1)
+        self.assertIn('retry: blocked or challenged', logs[0])
+
+    def test_a_challenge_then_the_app_is_not_a_failure(self):
+        logs = []
+        wall = {'ok': False, 'wall': True, 'n': 0, 'pane': False, 'boot': False, 'title': 'Just a moment...'}
+        good = {'ok': True, 'wall': False, 'n': 3000, 'pane': True, 'boot': True, 'title': 'Food banks near you'}
+        pg = _Page([None, None], state=[wall, good])
+        B.goto(pg, 'http://127.0.0.1/', log=logs.append)
+        self.assertEqual(pg.gotos, 2)
+        self.assertEqual(len(logs), 1)
+
+    def test_a_replaced_page_is_retried_once_then_fails(self):
+        # The 11:07 log: real title, n=0, pane=False, wall=False. With no data.js tag this is not our document.
+        logs = []
+        replaced = {'ok': False, 'wall': False, 'n': 0, 'pane': False, 'boot': False,
+                    'title': 'Find a food bank, warm space or shelter near you – helpmap.uk'}
+        pg = _Page([None, None], state=replaced)
+        with self.assertRaises(B.BlockedPage):
+            B.goto(pg, 'http://127.0.0.1/', log=logs.append, ready_timeout=200)
+        self.assertEqual(pg.gotos, 2)
+        self.assertEqual(len(logs), 1)
+        self.assertIn('blocked or challenged', logs[0])
 
     def test_app_not_ready_is_not_retried(self):
         logs = []
-        pg = _Page([None], state={'ok': False, 'wall': False, 'n': 0, 'pane': False, 'title': 'helpmap.uk'})
+        # boot True: our HTML, scripts returned, the map still did not come up. That is our failure.
+        pg = _Page([None], state={'ok': False, 'wall': False, 'n': 0, 'pane': False, 'boot': True, 'title': 'helpmap.uk'})
         with self.assertRaises(B.AppNotReady):
             B.goto(pg, 'http://127.0.0.1/', log=logs.append, ready_timeout=300)
         self.assertEqual(pg.gotos, 1)
@@ -164,6 +217,15 @@ class Navigation(unittest.TestCase):
             B.goto(pg, 'http://127.0.0.1/', log=logs.append)
         self.assertEqual(pg.gotos, 1)
         self.assertEqual(logs, [])
+
+    def test_reload_retries_a_challenge_once(self):
+        logs = []
+        wall = {'ok': False, 'wall': True, 'n': 0, 'pane': False, 'title': 'Just a moment...'}
+        pg = _Page([None, None], state=wall)
+        with self.assertRaises(B.BotPage):
+            B.reload(pg, log=logs.append)
+        self.assertEqual(pg.reloads, 2)
+        self.assertEqual(len(logs), 1)
 
     def test_reload_logs_one_blip(self):
         logs = []
@@ -235,3 +297,147 @@ class Wired(unittest.TestCase):
             text = open(os.path.join(R, rel), encoding='utf-8').read()
             self.assertIn('from site_ready import', text, rel)
             self.assertIn('open_map(', text, rel)
+
+
+def _have_playwright():
+    try:
+        import playwright  # the plain test job has no browser; the browser job does
+        return bool(playwright)
+    except Exception:
+        return False
+
+
+@unittest.skipUnless(_have_playwright(), 'needs playwright')
+class BlockRetry(unittest.TestCase):
+    """Headless Chromium, cold context, tile-shaped responses answered on 127.0.0.1.
+    Nothing is requested from a map tile host or from helpmap.uk."""
+
+    def _run(self, mode, ready_timeout=700):
+        import threading
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        from playwright.sync_api import sync_playwright
+        app = ('<!doctype html><html><head><title>Find a food bank, warm space or shelter near you</title></head>'
+               '<body><input id="q"><div id="map"></div>'
+               '<img src="/tile.openstreetmap.org/5/15/9.png" alt="">'
+               '<script src="/data.js"></script>'
+               '<script>var m=document.getElementById("map");if(window.FB_DATA)m.innerHTML="<div class=\\"leaflet-pane\\"></div>"</script>'
+               '</body></html>')
+        challenge = ('<!doctype html><html><head><title>Just a moment...</title></head>'
+                     '<body>Checking your browser before accessing</body></html>')
+        replaced = ('<!doctype html><html><head><title>Find a food bank, warm space or shelter near you – helpmap.uk</title></head>'
+                    '<body><p>Find help near you</p></body></html>')
+        ok_js = 'window.FB_DATA={items:new Array(201)};'
+        bug_js = 'throw new Error("our bug");'
+
+        class H(BaseHTTPRequestHandler):
+            def do_GET(self):
+                self.send_response(200)
+                self.end_headers()
+            def log_message(self, *a):
+                pass
+
+        httpd = ThreadingHTTPServer(('127.0.0.1', 0), H)
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        base = 'http://127.0.0.1:%d/?nocount' % httpd.server_address[1]
+        docs, offbox, logs, scripts = [], [], [], []
+
+        def handle(route):
+            req = route.request
+            host = req.url.split('/')[2]
+            if not host.startswith('127.0.0.1'):
+                offbox.append(req.url)
+                route.fulfill(status=403, body='off box', content_type='text/plain')
+                return
+            if req.resource_type == 'document':
+                docs.append(req.url)
+                if mode == 'challenge-twice' or (mode == 'challenge-once' and len(docs) == 1):
+                    route.fulfill(status=200, body=challenge, content_type='text/html')
+                elif mode == 'replaced':
+                    route.fulfill(status=200, body=replaced, content_type='text/html')
+                else:
+                    route.fulfill(status=200, body=app, content_type='text/html')
+                return
+            if 'tile.openstreetmap.org' in req.url:
+                route.fulfill(status=403, body='', content_type='image/png')
+                return
+            if 'data.js' in req.url:
+                scripts.append(req.url)
+                if mode == 'script-403' or (mode == 'script-403-once' and len(scripts) == 1):
+                    route.fulfill(status=403, body='no', content_type='text/javascript')
+                elif mode == 'script-404':
+                    route.fulfill(status=404, body='missing', content_type='text/javascript')
+                elif mode == 'script-bug':
+                    route.fulfill(status=200, body=bug_js, content_type='text/javascript')
+                else:
+                    route.fulfill(status=200, body=ok_js, content_type='text/javascript')
+                return
+            route.fulfill(status=404, body='', content_type='text/plain')
+
+        err = None
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch()  # headless bundled Chromium
+                context = B.new_context(browser, viewport={'width': 390, 'height': 700})
+                context.route('**/*', handle)
+                page = context.new_page()
+                try:
+                    B.goto(page, base, log=logs.append, ready_timeout=ready_timeout)
+                except Exception as e:
+                    err = e
+                context.close()
+                browser.close()
+        finally:
+            httpd.shutdown()
+        self.assertEqual(offbox, [])
+        return docs, logs, err, scripts
+
+    def test_tile_403_and_a_ready_page_is_one_load(self):
+        docs, logs, err, _ = self._run('ok')
+        self.assertIsNone(err)
+        self.assertEqual(len(docs), 1)
+        self.assertEqual(logs, [])
+
+    def test_boot_script_403_is_retried_once_and_then_passes(self):
+        docs, logs, err, scripts = self._run('script-403-once')
+        self.assertIsNone(err)
+        self.assertEqual(len(docs), 2)
+        self.assertEqual(len(scripts), 2)
+        self.assertEqual(len(logs), 1)
+        self.assertIn('blocked or challenged', logs[0])
+
+    def test_boot_script_403_twice_is_a_failure(self):
+        docs, logs, err, _ = self._run('script-403')
+        self.assertIsInstance(err, B.BlockedPage)
+        self.assertIn('n', str(err))
+        self.assertEqual(len(docs), 2)
+        self.assertEqual(len(logs), 1)
+
+    def test_missing_boot_script_is_a_real_failure_with_no_retry(self):
+        docs, logs, err, _ = self._run('script-404')
+        self.assertIsInstance(err, B.AppNotReady)
+        self.assertIn("'n': 0", str(err))
+        self.assertIn('pane', str(err))
+        self.assertEqual(len(docs), 1)
+        self.assertEqual(logs, [])
+
+    def test_our_script_throwing_is_a_real_failure_even_when_a_tile_403s(self):
+        docs, logs, err, _ = self._run('script-bug')
+        self.assertIsInstance(err, B.AppNotReady)
+        self.assertEqual(len(docs), 1)
+        self.assertEqual(logs, [])
+
+    def test_challenge_then_the_app_passes_and_a_second_challenge_fails(self):
+        docs, logs, err, _ = self._run('challenge-once')
+        self.assertIsNone(err)
+        self.assertEqual(len(docs), 2)
+        self.assertEqual(len(logs), 1)
+        docs, logs, err, _ = self._run('challenge-twice')
+        self.assertIsInstance(err, B.BotPage)
+        self.assertEqual(len(docs), 2)
+
+    def test_titled_block_page_is_retried_then_fails(self):
+        docs, logs, err, _ = self._run('replaced')
+        self.assertIsInstance(err, B.BlockedPage)
+        self.assertIn('pane', str(err))
+        self.assertEqual(len(docs), 2)
+        self.assertEqual(len(logs), 1)

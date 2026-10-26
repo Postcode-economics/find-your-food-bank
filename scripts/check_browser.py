@@ -10,8 +10,11 @@ box, the food-bank list and a map pane are on the page. Nothing here waits for n
 the load event: a MapTiler tile connection stays open, so both of those waits hang after the page
 itself is already there.
 
-A navigation is tried again once only for a real network blip (the connection failed). The retry is
-printed. A bot page, a page that loaded but is not the app, and any other error are not tried again.
+A navigation is tried again once for a real network blip (the connection failed), and once when
+the response was a challenge or an edge block rather than this app. The retry is printed. A page that
+loaded and is this app but is not ready, a timeout, and any other error are not tried again. A second
+challenge or block is a failure. Tile responses are not a block: a 403 image does not explain a page
+that never started, and it must not hide one.
 """
 import time
 
@@ -47,8 +50,9 @@ APP_READY_JS = """()=>{let n=0;try{n=(window.FB_DATA&&FB_DATA.items&&FB_DATA.ite
   const title=document.title||'',body=(document.body&&document.body.innerText||'').slice(0,500);
   const wall=/just a moment|performing security verification|checking your browser|cf-browser-verification/i.test(title+' '+body)
     ||/challenges\\.cloudflare\\.com/.test(document.documentElement.innerHTML.slice(0,2000));
+  const boot=!!document.querySelector('script[src*="data.js"]');
   return {ok:!!document.querySelector('#q')&&n>100&&!!document.querySelector('#map .leaflet-pane')&&!wall,
-          n:n,pane:!!document.querySelector('#map .leaflet-pane'),wall:wall,title:title.slice(0,80)}}"""
+          n:n,pane:!!document.querySelector('#map .leaflet-pane'),wall:wall,boot:boot,title:title.slice(0,80)}}"""
 
 
 class BotPage(Exception):
@@ -56,7 +60,11 @@ class BotPage(Exception):
 
 
 class AppNotReady(Exception):
-    """The document loaded, and it was not the map. Not a network blip."""
+    """The document loaded, and it was not the map. Not a network blip and not a block."""
+
+
+class BlockedPage(Exception):
+    """A challenge or an edge block, not this app. One retry, then it is a failure."""
 
 
 def user_agent(width=1366, instagram=False):
@@ -78,7 +86,7 @@ def bot_page(title='', body=''):
 
 
 def is_network_blip(exc):
-    if isinstance(exc, (BotPage, AppNotReady)):
+    if isinstance(exc, (BotPage, AppNotReady, BlockedPage)):
         return False
     s = str(exc)
     if 'networkidle' in s:
@@ -91,6 +99,67 @@ def is_map_tile(url):
     u = (url or '').split('?', 1)[0].split('#', 1)[0]
     hosts = ('api.maptiler.com', 'tile.openstreetmap.org', 'tiles.stadiamaps.com')
     return any(h in u for h in hosts) and u.endswith(('.png', '.jpg', '.webp'))
+
+
+# An edge or a bot fight. 404 and 500 are this site (a missing file, a broken response) and are not retried.
+_BLOCK_STATUSES = (401, 403, 429, 503)
+# Scripts whose refusal leaves the map unbuilt. Later scripts (v3.js) run after the pane exists.
+_BOOT_SCRIPTS = ('/data.js', '/vendor/leaflet.js')
+
+
+def is_external_block(status, url, resource_type=''):
+    """True when an edge refused the document or a boot script. A tile 403 is not one: the pane
+    exists before any tile returns, and a tile error must not turn a broken app into a retry."""
+    try:
+        status = int(status)
+    except (TypeError, ValueError):
+        return False
+    if status not in _BLOCK_STATUSES or is_map_tile(url):
+        return False
+    if (resource_type or '') == 'document':
+        return True
+    path = (url or '').split('?', 1)[0].split('#', 1)[0]
+    return any(bit in path for bit in _BOOT_SCRIPTS)
+
+
+def ready_failure(state, hits):
+    """BotPage, BlockedPage, AppNotReady, or None when the app is up. hits are this attempt's blocks."""
+    state = state or {}
+    if state.get('ok'):
+        return None
+    if state.get('wall'):
+        return BotPage('bot page instead of the map (%s)' % (state.get('title') or 'Just a moment'))
+    # boot False: the HTML has no data.js, so this is not our document (a challenge that kept the
+    # title, or a block page). boot missing means the probe did not say, and that stays a real failure.
+    if hits or state.get('boot') is False:
+        return BlockedPage('blocked or challenged, not the app %s' % state)
+    return AppNotReady('app not ready %s' % state)
+
+
+def _block_hits(page):
+    """Statuses seen on this page. Attached once; each navigation clears the list itself."""
+    hits = getattr(page, '_hm_block_hits', None)
+    if hits is None:
+        hits = []
+        page._hm_block_hits = hits
+        on = getattr(page, 'on', None)
+        if on:
+            def on_response(resp):
+                try:
+                    kind = ''
+                    try:
+                        kind = resp.request.resource_type or ''
+                    except Exception:
+                        kind = ''
+                    if is_external_block(resp.status, resp.url, kind):
+                        hits.append((resp.status, resp.url))
+                except Exception:
+                    pass
+            try:
+                on('response', on_response)
+            except Exception:
+                pass
+    return hits
 
 
 def new_context(browser, **kw):
@@ -106,7 +175,7 @@ def new_context(browser, **kw):
     return c
 
 
-def _ready(page, timeout_ms):
+def _ready(page, timeout_ms, hits=None):
     deadline = time.time() + timeout_ms / 1000.0
     state = {'ok': False, 'wall': False, 'title': ''}
     while time.time() < deadline:
@@ -114,7 +183,9 @@ def _ready(page, timeout_ms):
             state = page.evaluate(APP_READY_JS) or state
         except Exception:
             state = {'ok': False, 'wall': False, 'title': ''}
-        if state.get('ok') or state.get('wall'):
+        # A refused boot script or a document that is not ours will not become the map in this
+        # navigation. A page that is ours and merely slow keeps waiting: that is a real failure.
+        if state.get('ok') or state.get('wall') or hits or state.get('boot') is False:
             return state
         page.wait_for_timeout(250)
     return state
@@ -133,66 +204,66 @@ def _bot_now(page):
     return bot_page(title, body), title
 
 
-def _finish(page, ready, ready_timeout):
+def _finish(page, ready, ready_timeout, hits):
     if ready:
-        state = _ready(page, ready_timeout)
-        if state.get('wall'):
-            raise BotPage('bot page instead of the map (%s)' % (state.get('title') or 'Just a moment'))
-        if not state.get('ok'):
-            raise AppNotReady('app not ready %s' % state)
+        err = ready_failure(_ready(page, ready_timeout, hits), hits)
+        if err:
+            raise err
         return
     wall, title = _bot_now(page)
     if wall:
         raise BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
+    if hits:
+        raise BlockedPage('blocked or challenged page (%s)' % (title or '')[:80])
+
+
+def _navigate(page, navigate, ready, log, ready_timeout):
+    """domcontentloaded, then the app. One logged retry for a network blip or for a challenge/block.
+    The same attempt is not used twice: a block followed by a blip is the failure."""
+    hits = _block_hits(page)
+    page.set_default_timeout(STEP_TIMEOUT)
+    page.set_default_navigation_timeout(NAV_TIMEOUT)
+    last = None
+    for attempt in (1, 2):
+        try:
+            hits.clear()
+            navigate()
+            _finish(page, ready, ready_timeout, hits)
+            return page
+        except (BlockedPage, BotPage) as e:
+            last = e
+            if attempt == 1:
+                log('retry: blocked or challenged (%s)' % str(e).splitlines()[0][:180])
+                continue
+            raise
+        except AppNotReady:
+            raise
+        except Exception as e:
+            last = e
+            wall, title = _bot_now(page)
+            if wall:
+                e = BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
+                if attempt == 1:
+                    log('retry: blocked or challenged (%s)' % str(e).splitlines()[0][:180])
+                    continue
+                raise e
+            if attempt == 1 and is_network_blip(e):
+                log('retry: network blip (%s)' % str(e).splitlines()[0][:180])
+                continue
+            raise
+    raise last
 
 
 def goto(page, url, ready=True, log=print, ready_timeout=READY_TIMEOUT):
-    """Open url on an existing page. Wait for domcontentloaded, then for the app when ready is set.
-    One retry, and only for a network blip, which is printed."""
-    page.set_default_timeout(STEP_TIMEOUT)
-    page.set_default_navigation_timeout(NAV_TIMEOUT)
-    last = None
-    for attempt in (1, 2):
-        try:
-            page.goto(url, wait_until='domcontentloaded', timeout=NAV_TIMEOUT)
-            _finish(page, ready, ready_timeout)
-            return page
-        except (BotPage, AppNotReady):
-            raise
-        except Exception as e:
-            last = e
-            wall, title = _bot_now(page)
-            if wall:
-                raise BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
-            if attempt == 1 and is_network_blip(e):
-                log('retry: network blip (%s)' % str(e).splitlines()[0][:180])
-                continue
-            raise
-    raise last
+    """Open url on an existing page. Wait for domcontentloaded, then for the app when ready is set."""
+    return _navigate(page, lambda: page.goto(url, wait_until='domcontentloaded', timeout=NAV_TIMEOUT),
+                     ready, log, ready_timeout)
 
 
 def reload(page, ready=True, log=print, ready_timeout=READY_TIMEOUT):
-    """Reload. Same rule as goto: domcontentloaded, then the app, and one logged retry for a network blip."""
-    page.set_default_timeout(STEP_TIMEOUT)
-    page.set_default_navigation_timeout(NAV_TIMEOUT)
-    last = None
-    for attempt in (1, 2):
-        try:
-            page.reload(wait_until='domcontentloaded', timeout=NAV_TIMEOUT)
-            _finish(page, ready, ready_timeout)
-            return page
-        except (BotPage, AppNotReady):
-            raise
-        except Exception as e:
-            last = e
-            wall, title = _bot_now(page)
-            if wall:
-                raise BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
-            if attempt == 1 and is_network_blip(e):
-                log('retry: network blip (%s)' % str(e).splitlines()[0][:180])
-                continue
-            raise
-    raise last
+    """Reload. Same rule as goto."""
+    return _navigate(page, lambda: page.reload(wait_until='domcontentloaded', timeout=NAV_TIMEOUT),
+                     ready, log, ready_timeout)
 
 
 def open_page(context, url, ready=True, log=print, ready_timeout=READY_TIMEOUT):

@@ -52,6 +52,8 @@ jobs:
         name: Dark by default
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 10
+        # 26 Oct: check_browser retries one challenge or edge block (not a tile 403, not a broken app).
+        # A second block, a missing script, or a wrong theme still fails this step and still reverts.
         run: python scripts/dark_default.py https://helpmap.uk
       - name: Revert the deploying commit (push only) and alert
         if: failure() && github.event_name == 'push'
