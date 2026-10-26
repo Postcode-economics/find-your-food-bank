@@ -70,6 +70,14 @@ class T(unittest.TestCase):
                             if m['top'] < m['htop'] - 1: bad.append((tag, 'map overlaps header', m))
                             print(tag, 'map', m, pg.evaluate('document.documentElement.className'))
                         c.close()
+                # Dean's standing rule: DARK by default even with the phone set to light; storage blocked = dark
+                for block in (False, True):
+                    c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, is_mobile=True, color_scheme='light')
+                    if block: c.add_init_script("for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});")
+                    c.route(base + '/**', local); c.route(base + '/', local); pg = c.new_page()
+                    pg.goto(base + '/?nocount', wait_until='load'); pg.wait_for_timeout(1500)
+                    if pg.evaluate("document.documentElement.classList.contains('light')"): bad.append(('webkit OS light, block=%s' % block, 'opened LIGHT, must be dark'))
+                    c.close()
                 b.close()
         finally: pass
         self.assertEqual(bad, [])
