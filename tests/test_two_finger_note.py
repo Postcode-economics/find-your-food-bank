@@ -1,5 +1,7 @@
 """Two-finger map note (Dean 25 Oct 11:31): shown at most 2 times per visitor (localStorage hmTwoFinger), then never again."""
-import functools, http.server, os, threading, unittest
+import functools, http.server, os, sys, threading, unittest
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map, reload_map
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
 import importlib.util; HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None  # CI 'test' job has Chrome but no playwright
 DRAG = """()=>{const m=document.querySelector('#map');const r=m.getBoundingClientRect();const x=r.left+r.width/2,y=r.top+r.height/2;
@@ -21,12 +23,12 @@ class T(unittest.TestCase):
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path=CH)
                 c = b.new_context(viewport={'width': 390, 'height': 844}, has_touch=True, is_mobile=True, service_workers='block'); pg = c.new_page()
-                pg.goto('http://127.0.0.1:%d/?nocount' % s.server_address[1], wait_until='networkidle'); pg.wait_for_timeout(800)
+                open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                 pg.evaluate("document.querySelector('#map').scrollIntoView()")
                 shown = []
                 for _ in range(4):
                     shown.append(pg.evaluate(DRAG)); pg.wait_for_timeout(1800)
                 self.assertEqual(shown, [True, True, False, False])
-                pg.reload(wait_until='networkidle'); pg.wait_for_timeout(800); pg.evaluate("document.querySelector('#map').scrollIntoView()")
+                reload_map(pg); pg.wait_for_timeout(800); pg.evaluate("document.querySelector('#map').scrollIntoView()")
                 self.assertFalse(pg.evaluate(DRAG)); b.close()
         finally: s.shutdown()
