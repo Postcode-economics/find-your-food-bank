@@ -2,9 +2,10 @@
 
 Clean numbers, shared venue lines and library service lines are in the override
 files, so a refresh keeps them. A named or personal number that the venue's own
-page gives as its contact is shown with that role (Team Rector, Pastor).
-Numbers the own page does not confirm stay out. The 40 places with no number
-stay on their website or email.
+page, including a host church contact page, gives as its contact is shown with
+that role (Team Rector, Pastor). Council-directory numbers stay under the normal
+checks and are labelled with that directory. Numbers the own page does not
+confirm stay out. Places with no number stay on their website or email.
 """
 import json, os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -17,7 +18,6 @@ def digits(s):
 CLEAN = {
     'windsor-food-share': ('07972 646613', 'https://www.givefood.org.uk/needs/at/windsor-food-share/'),
     'brigg': ('07946 109069', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5130830/contact-information'),
-    'leyland': ('07435 330900', 'https://servicefinder.lancashire.gov.uk/lancashire-service-finder-directory/directory-details-page/?id=f012af0f-fa60-43e2-8304-b4670116e647'),
     'eastwood': ('01773 535255', 'https://www.eastwoodvb.org.uk/contact/'),
     'hornsey': ('07833 930183', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5221780/contact-information'),
     'bounds-green': ('07933 680869', 'https://www.boundsgreenfoodbank.org/copy-of-contact-us'),
@@ -27,7 +27,6 @@ CLEAN = {
     'islay': ('07563 968518', 'https://www.islayfoodbank.com/contact-us'),
     'banbury': ('01865 670569', 'https://banbury.foodbank.org.uk/contact-us/'),
     'kirkcaldy': ('01592 655422', 'https://www.lintonlanecentre.com/blank-2'),
-    'granville-community-kitchen': ('07543 824439', 'https://www.brent.gov.uk/neighbourhoods-and-communities/community-directory/granville-community-kitchen'),
     'ignite-life': ('0117 235 3192', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5119141/contact-information'),
     'melksham': ('07493 738894', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5235288/contact-information'),
     'windsor-food-share/alma-beacon': ('07972 646613', 'https://www.givefood.org.uk/needs/at/windsor-food-share/'),
@@ -64,7 +63,7 @@ CLEAN = {
     'ifan-4a6217d6ae69c4977d7d70-0': ('01268 743232', 'https://hopeworx.org.uk/Contact'),
     'ifan-bcc7d26b922ed1d9edf4f5-0': ('01704 601090', 'https://www.shorelinechurch.org.uk'),
     'ifan-eddf2af4d3d092a3382b3c-0': ('01902 601600', 'https://cacmor.org.uk/contact/'),
-    # Rechecked 26 Oct 08:29: the venue's own page publishes this number as its contact.
+    # Rechecked 26 Oct 08:37 before going live: own site footer still publishes this number.
     'nomad': ('01491 635737', 'https://www.nomadhenley.co.uk'),
     'ifan-79789d4df6b2024369673c-0': ('07723 447200', 'https://www.Highwayhope.co.uk'),
     'ifan-84cd0bf40986bfc9a427c6-0': ('07498 775019', 'https://www.laurenceslarder.org.uk/contact'),
@@ -73,15 +72,18 @@ CLEAN = {
 # Named or personal contact the venue's own page gives. Label is the role on that page.
 NAMED = {
     'kings-langley': ('01923 903531', 'https://beneficeoflangelei.org.uk/allsaints/contact/', 'Team Rector'),
-    'kings-langley/bennetts-end': ('01923 903531', 'https://beneficeoflangelei.org.uk/allsaints/contact/', 'Team Rector'),
     'leytonstone-seventh-day-adventist-church': ('07985 566592', 'https://leytonstone.adventistchurch.org.uk/contact-us', 'Pastor'),
 }
 SHARED = {
     'whitland-town-hall-community': ('01994 241231', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/504650/contact-information'),
     'storehouse-melton': ('07438 458514', 'https://meltonteamparish.org.uk/storehouse/'),
-    'life-line': ('07305 869103', 'https://birmingham.connecttosupport.org/search/directory-search/?id=09469875-25f9-46de-a339-abe301381ff5'),
     'sacred-heart': ('020 7607 3594', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5241909/contact-information'),
     'allenby-primary-school': ('020 8578 6636', 'https://www.allenbyprimaryschool.com/ealing/primary/allenby/site/pages/contactus'),
+}
+# Council directory only. Shown, labelled with that directory, and still under the normal checks.
+COUNCIL = {
+    'life-line': ('07305 869103', 'https://birmingham.connecttosupport.org/search/directory-search/?id=09469875-25f9-46de-a339-abe301381ff5', 'Birmingham council directory'),
+    'granville-community-kitchen': ('07543 824439', 'https://www.brent.gov.uk/neighbourhoods-and-communities/community-directory/granville-community-kitchen', 'Brent council directory'),
 }
 LIBRARY = {
     'ww-68618605': ('0300 123 2224', 'https://www.librarieswest.org.uk/-/bruton-community-library'),
@@ -100,8 +102,10 @@ HELD = {
     'ifan-4843e1fec06a8fc46989df-0': 'own site says the phone is temporarily inactive',
     'ifan-4843e1fec06a8fc46989df-1': 'own site says the phone is temporarily inactive',
     'ifan-9d9a5ae13b3923c3fd7d0b-0': 'displayed number conflicts with the tel link',
+    'leyland': 'own site says no phone enquiries',
 }
 NOT_FOUND = [
+    'kings-langley/bennetts-end',
     'the-food-pantry-feltwell',
     'silverton-community-larder',
     'heston-farm',
@@ -160,6 +164,11 @@ def test_exactly_the_approved_rows_and_no_held_rows():
     for i, (num, url) in SHARED.items():
         assert phones[i] == num and sources[i]["phone"] == num and sources[i]["source"] == url, i
         assert labels[i] == "Shared venue line", i
+    for i, (num, url, lab) in COUNCIL.items():
+        assert phones[i] == num and sources[i]["phone"] == num and sources[i]["source"] == url, i
+        assert labels[i] == lab, i
+        assert "council directory" in sources[i]["note"].lower(), i
+        assert "contact page" not in sources[i]["note"].lower(), i
     for i, (num, url) in LIBRARY.items():
         e = ws[i]
         assert e["phone"] == num and e["phone_source"] == url, i
@@ -169,10 +178,14 @@ def test_exactly_the_approved_rows_and_no_held_rows():
         e = ws[i]
         assert e["phone"] == num and e["phone_source"] == url, i
         assert "phone_label" not in e, i
+    holds = load("phone_holds.json")
+    for i, reason in HELD.items():
+        assert holds[i]["reason"] == reason and holds[i]["phone"], i
+        assert holds[i].get("verified") is False, i
     blocked = list(HELD) + NOT_FOUND
-    assert len(NOT_FOUND) == 40
-    assert len(HELD) == 4
-    assert len(CLEAN) == 53 and len(NAMED) == 3 and len(SHARED) == 5 and len(LIBRARY) == 6 and len(WARM_CLEAN) == 1
+    assert len(NOT_FOUND) == 41
+    assert len(HELD) == 5
+    assert len(CLEAN) == 51 and len(NAMED) == 2 and len(SHARED) == 4 and len(COUNCIL) == 2 and len(LIBRARY) == 6 and len(WARM_CLEAN) == 1
     for i in blocked:
         assert i not in phones and i not in sources and i not in labels, i
         if i in ws:

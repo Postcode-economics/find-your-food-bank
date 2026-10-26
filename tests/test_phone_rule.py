@@ -43,8 +43,9 @@ class Audit(unittest.TestCase):
         self.assertEqual([c["id"] for c in bad], [])
         ids = {c["id"] for c in P.override_candidates(ROOT)}
         self.assertIn("kings-langley", ids)
-        self.assertIn("kings-langley/bennetts-end", ids)
+        self.assertNotIn("kings-langley/bennetts-end", ids)
         self.assertIn("leytonstone-seventh-day-adventist-church", ids)
+        self.assertTrue(P.own_page_source({"note": "host church contact page"}))
         bare = dict(id="x", phone="01923 903531", own_page=True, verified=True, shown=False, reason="")
         self.assertEqual([c["id"] for c in P.audit([bare])], ["x"])
         self.assertEqual(len(P.audit([dict(bare, reason="personal")])), 1)
@@ -110,6 +111,8 @@ class Pipeline(unittest.TestCase):
         self.assertTrue(rules["phone_rule"]["show_verified_own_page"])
         self.assertTrue(rules["phone_rule"]["named_or_personal_is_not_a_reason_to_hold"])
         self.assertIn("verified own-page contact, including a named or personal number, with the page's label", rules["automatic"])
+        self.assertIn("host church contact page counts as the venue's own page", rules["automatic"])
+        self.assertTrue(rules["phone_rule"]["host_church_contact_counts_as_own_page"])
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,6 +2,7 @@
 
 A verified number that the venue's own source page gives as its contact is shown,
 including a named person's or personal number, with the label that page gives.
+A host church's contact page counts as that venue's own page (Dean 26 Oct 2026, 08:37).
 An unverified or doubtful number is held, and the reason is recorded.
 Dean's own details are never published.
 
