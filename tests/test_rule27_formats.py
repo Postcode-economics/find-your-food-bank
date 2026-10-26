@@ -102,5 +102,36 @@ class Validity(unittest.TestCase):
                 "Monday 12:00 am to 12:00 am Tuesday-Sunday Closed See more information")
         self.assertIsNone(D.extract_times(card, "AB1 2CD"))
 
+class Extra(unittest.TestCase):
+    """Cases from the 26 Oct brief: Basingstoke, Northampton, nbsp postcodes, phone wording, bank holidays."""
+    def test_basingstoke_neighbour_not_grabbed(self):
+        t = fx("trussell_new_basingstoke.txt")
+        self.assertIn("The phone is manned Monday to Friday, 9am-4pm", t)
+        self.assertEqual(D.extract_times(t, "RG21 8SR")["structured"], {"thu": [["10:30", "12:30"]]})
+        self.assertEqual(D.extract_times(t, "RG26 3BF")["structured"], {"tue": [["10:30", "12:30"]]})
+        self.assertIsNone(D.extract_times(t, "RG26 4HN"))   # card postcode not on the page: unclear, not the neighbour's table
+
+    def test_northampton_day_headings(self):
+        t = fx("day_headings_northampton.txt")
+        for pc, want in (("NN1 2LZ", {"tue": [["11:30", "13:30"]]}), ("NN5 6JF", {"sat": [["10:00", "12:00"]]}),
+                         ("NN4 8EZ", {"thu": [["12:30", "14:30"]]}), ("NN3 2RA", {"fri": [["09:00", "12:00"]]})):
+            self.assertEqual(D.extract_times(t, pc)["structured"], want)
+            self.assertTrue(D.live_hours_ok(want, t, pc)[0])
+        self.assertFalse(D.live_hours_ok({"thu": [["12:30", "14:30"]]}, t, "NN1 2LZ")[0])   # the neighbour's day
+
+    def test_bs16_nbsp(self):
+        t = "Mangotsfield Foodbank, Resound Church, Bristol BS16\xa09BP. Open Fridays 10am - 12pm."
+        self.assertEqual(D.extract_times(t, "BS16 9BP")["structured"], {"fri": [["10:00", "12:00"]]})
+
+    def test_phone_wordings_dropped(self):
+        for w in ("Our phone lines are monitored Monday - Friday 09:30-13:30.", "Phoneline open Tuesday to Friday, 10am to 12:30pm.",
+                  "Please note that the office and telephones are manned as follows: Tuesdays 9.30am - 3.00pm."):
+            t = "Hope Foodbank, Hall Lane, AB1 2CD. %s Collect your parcel Thursday 1pm - 3pm." % w
+            self.assertEqual(D.extract_times(t, "AB1 2CD")["structured"], {"thu": [["13:00", "15:00"]]}, w)
+
+    def test_except_bank_holidays_day_list(self):
+        t = "Hope Foodbank, Hall Lane, AB1 2CD. Open Monday (except bank holidays) & Thursday 10am - 12pm."
+        self.assertEqual(D.extract_times(t, "AB1 2CD")["structured"], {"mon": [["10:00", "12:00"]], "thu": [["10:00", "12:00"]]})
+
 if __name__ == "__main__":
     unittest.main()
