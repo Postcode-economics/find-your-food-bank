@@ -1,6 +1,8 @@
 """'Suffolk' silently jumped to Suffolk Hill, Dumfries (live sweep, 25 Oct 2026): a place search that isn't an exact
 name match is offered as a button, never assumed. Exact names still go straight to the list."""
-import os, json, unittest, threading, functools, http.server
+import os, json, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SH = {"status": 200, "result": [{"name_1": "Suffolk Hill", "local_type": "Suburban Area", "county_unitary": "Dumfries and Galloway", "country": "Scotland", "latitude": 55.07, "longitude": -3.6}]}
 LH = {"status": 200, "result": [{"name_1": "Littlehampton", "local_type": "Town", "county_unitary": "West Sussex", "country": "England", "latitude": 50.81, "longitude": -0.54}]}
@@ -21,7 +23,7 @@ class Browser(unittest.TestCase):
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
             c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
             c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(LH if "Littlehampton" in r.request.url else SH if "places" in r.request.url else {"status": 404})))
-            pg = c.new_page(); pg.goto(f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1", wait_until="networkidle"); pg.wait_for_timeout(1200)
+            pg = c.new_page(); open_map(pg, f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"); pg.wait_for_timeout(1200)
             pg.fill("#q", "Suffolkh"); pg.press("#q", "Enter"); pg.wait_for_timeout(1500)  # 'Suffolk' itself is now a county (counties.json)
             self.assertIn("couldn’t find a town called “Suffolkh”", pg.inner_text(".v3err"))
             self.assertEqual(pg.locator("#list>.card").count(), 0)

@@ -1,7 +1,9 @@
 """'Unverified – call before you go' only when hours are not confirmed (Dean, 25 Oct 2026).
 Confirmed/updated times (or real hours from a named page) checked in the last 7 days show
 'Times checked {date} – call before you go'. Computed from data fields at load; the window rolls."""
-import os, unittest, threading, functools, http.server
+import os, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 LJ = open(os.path.join(ROOT, "layers.js"), encoding="utf-8").read()
 DAY = 864e5
@@ -33,7 +35,7 @@ class Browser(unittest.TestCase):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
-            pg = b.new_page(); pg.goto(f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1", wait_until="networkidle"); pg.wait_for_timeout(1500)
+            pg = b.new_page(); open_map(pg, f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"); pg.wait_for_timeout(1500)
             now = pg.evaluate("new Date('2026-10-25T12:00:00').getTime()")
             T = lambda i, n=now: pg.evaluate("([i,n])=>timesChecked(i,n)", [i, n])
             self.assertEqual(T({"times_status": "confirmed", "times_checked": "2026-10-25"}), "2026-10-25")

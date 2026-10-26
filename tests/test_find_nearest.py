@@ -1,5 +1,7 @@
 """'Find nearest' button follows the selected type (Dean, 23 Oct 2026)."""
-import os, re, unittest, threading, functools, http.server
+import os, re, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SRC = open(os.path.join(ROOT, "layers.js"), encoding="utf-8").read()
 
@@ -34,7 +36,7 @@ class Browser(unittest.TestCase):
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
             for k, lab, head in (("sh", "Find nearest shelter", "Nearest shelters"), ("ws", "Find nearest warm space", "Nearest warm spaces"), ("fb", "Find nearest food bank", None)):
                 c = b.new_context(viewport={"width": 390, "height": 844}, geolocation={"latitude": 51.539, "longitude": -0.1426}, permissions=["geolocation"])
-                pg = c.new_page(); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+                pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
                 pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1200)
                 self.assertEqual(pg.locator("#xnear").inner_text().strip(), lab)
                 pg.click("#xnear"); pg.wait_for_timeout(3500)
