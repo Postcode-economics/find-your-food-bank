@@ -113,8 +113,7 @@ def run(base=None, chrome=None, quick=False):
         srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=srv.serve_forever, daemon=True).start()
         base = 'http://127.0.0.1:%d/' % srv.server_address[1]
     base = base.rstrip('/') + '/?nocount'
-    global LAST
-    r = R(); LAST = r; combos = [(390, 'light'), (390, 'dark'), (1366, 'light'), (1366, 'dark')]
+    r = R(); combos = [(390, 'light'), (390, 'dark'), (1366, 'light'), (1366, 'dark')]
     scenario.deadline = time.time() + SUITE_LIMIT
     with sync_playwright() as p:
         b = p.chromium.launch(**({'executable_path': chrome} if chrome else {}))
@@ -267,8 +266,6 @@ def run(base=None, chrome=None, quick=False):
     if srv: srv.shutdown()
     return r.res
 
-LAST = None
-
 def report(res, base):
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
     json.dump(dict(base=base, at=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), journeys=res), open(os.path.join(ROOT, 'logs', 'journeys.json'), 'w'), indent=1, ensure_ascii=False)
@@ -282,12 +279,7 @@ def report(res, base):
 if __name__ == '__main__':
     base = sys.argv[1] if len(sys.argv) > 1 else None
     chrome = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
-    try: res = run(base, chrome)
-    except Exception as e:   # a crash is a failure with a report, not just a traceback
-        res = LAST.res if LAST else {}
-        res.setdefault('J0 suite ran to the end', {'pass': 0, 'fail': 0, 'failures': []})
-        res['J0 suite ran to the end']['fail'] += 1; res['J0 suite ran to the end']['failures'].append('crash: %s' % str(e).splitlines()[0][:300])
-    n = report(res, base)
+    res = run(base, chrome); n = report(res, base)
     for j, v in sorted(res.items()): print('%-28s pass %4d  fail %d' % (j, v['pass'], v['fail']))
     for j, v in sorted(res.items()):
         for f in v['failures'][:15]: print(' FAIL', j, '-', f)
