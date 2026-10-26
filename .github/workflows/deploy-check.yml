@@ -25,7 +25,7 @@ jobs:
           want=$(python -c "import json;print(json.load(open('version.json'))['build'])")
           got=""
           for i in $(seq 1 40); do
-            got=$(curl -fsS -A "Mozilla/5.0 helpmap-check" "https://helpmap.uk/version.json?t=$RANDOM" 2>/dev/null | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null || true)
+            got=$(curl -fsS -A "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check" "https://helpmap.uk/version.json?t=$RANDOM" 2>/dev/null | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null || true)
             if [ "$got" = "$want" ]; then echo "live is $got"; exit 0; fi
             sleep 15
           done
