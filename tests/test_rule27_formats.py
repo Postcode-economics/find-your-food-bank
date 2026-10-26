@@ -119,6 +119,11 @@ class Extra(unittest.TestCase):
             self.assertTrue(D.live_hours_ok(want, t, pc)[0])
         self.assertFalse(D.live_hours_ok({"thu": [["12:30", "14:30"]]}, t, "NN1 2LZ")[0])   # the neighbour's day
 
+    def test_day_range_is_not_a_heading(self):
+        t = ("Storehouse Foodbank, Unit 1, Feltham TW13 7LX. MONDAY - THURSDAY 9:30AM - 4:30PM. FRIDAY Closed. "
+             "SATURDAY Closed. SUNDAY Closed.")
+        self.assertIsNone(R.day_headings(R.clean(t), "TW13 7LX"))
+
     def test_bs16_nbsp(self):
         t = "Mangotsfield Foodbank, Resound Church, Bristol BS16\xa09BP. Open Fridays 10am - 12pm."
         self.assertEqual(D.extract_times(t, "BS16 9BP")["structured"], {"fri": [["10:00", "12:00"]]})
