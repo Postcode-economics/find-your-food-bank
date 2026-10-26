@@ -20,8 +20,12 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
  if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
-   e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
- if(e.request.mode==='navigate'){e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
- e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
-   if(hit){e.waitUntil(net.catch(()=>{}));return hit}
-   return net.catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||Response.error()})}))});
+   e.respondWith(fetch(new Request(e.request,{cache:'no-cache'})).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
+ if(e.request.mode==='navigate'){const home=/^\/(index\.html)?$/.test(u.pathname);  // the map page is also saved as the shell, so offline always opens the newest copy seen
+   e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(r=>{if(r.ok&&home){const cp=r.clone();caches.open(C).then(c=>Promise.all([c.put(u.origin+'/',cp.clone()),c.put(u.origin+'/index.html',cp)]))}return put(r)}).catch(async()=>{tell();return (await caches.match(e.request))||(home?await caches.match(u.origin+'/'):null)||(await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
+ // Freshness (26 Oct 2026, Dean): a returning visitor must never get an old copy after a deploy. Only files with a ?v= version
+ // stamp are served cache-first (a new deploy changes the stamp, so a cached copy can never be stale). Everything else on this
+ // site (pages, data, JSON, unstamped scripts and styles) is network-first, revalidated past the HTTP cache, with the saved copy
+ // used only when the network fails (offline mode keeps working).
+ if(/(^|&)v=/.test(u.search.slice(1))){e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||Response.error()})));return}
+ e.respondWith(fetch(new Request(e.request,{cache:'no-cache'})).then(put).catch(async()=>{tell();return (await caches.match(e.request))||(await caches.match(e.request,{ignoreSearch:true}))||Response.error()}))});
