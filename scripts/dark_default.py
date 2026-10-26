@@ -4,12 +4,13 @@ Only the visitor's own saved 'Light mode' choice (localStorage light=1) override
 Playwright's default headless agent is answered with a "Just a moment..." page: no light class, and a
 transparent background (black when the phone is set to dark). Saved light then looks like a failure and
 the other cases look like passes. This uses the same browser identity and ready check as the journey
-and old-links checks. A challenge page or an unstyled background is a failure.
+and old-links checks. A challenge, an edge block, or a core script that does not arrive is retried once
+there; if the retry is still blocked or still not the app, this fails. An unstyled background is a failure.
+A tile error, a 404, a 500, a timeout, and a script error after the file loaded are not retried.
 
 Usage: python scripts/dark_default.py [BASE_URL] [--webkit]. Checks Chromium (and WebKit if asked / available). Exit 1 on failure."""
 import os, re, sys
 import check_browser as B
-from playwright.sync_api import sync_playwright
 BLOCK = "for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});"
 NAVY = (10, 22, 40)    # --navy on html,body
 WHITE = (255, 255, 255)  # html.light, html.light body
@@ -22,6 +23,8 @@ def ok_case(case, light, bg):
     want_light = case == 'saved-light'
     return light is want_light and parse_rgb(bg) == (WHITE if want_light else NAVY)
 def run(base, engines):
+    # Imported here so ok_case can be tested by the plain pytest job, which does not install Playwright.
+    from playwright.sync_api import sync_playwright
     bad = []
     with sync_playwright() as p:
         for eng in engines:

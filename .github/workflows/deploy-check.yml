@@ -52,6 +52,8 @@ jobs:
         name: Dark by default
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 10
+        # 26 Oct: check_browser retries once, for a challenge, an edge block, or a core script that never arrived.
+        # A second block, a 404 or 500, a script error after load, a timeout, or a wrong theme still fails and still reverts.
         run: python scripts/dark_default.py https://helpmap.uk
       - name: Revert the deploying commit (push only) and alert
         if: failure() && github.event_name == 'push'

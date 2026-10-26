@@ -23,7 +23,7 @@ class T(unittest.TestCase):
         self.assertIn("name: 'maptiler', key: ''", tiles)
         self.assertIn('tile.openstreetmap.org', tiles)
     def test_unstyled_page_does_not_pass(self):
-        import dark_default
+        import dark_default  # colour check only; Playwright is imported inside run()
         for scheme_case in ('fresh', 'blocked', 'saved-dark', 'saved-light'):
             self.assertFalse(dark_default.ok_case(scheme_case, False, 'rgba(0, 0, 0, 0)'))
             self.assertFalse(dark_default.ok_case(scheme_case, False, 'rgb(0, 0, 0)'))
