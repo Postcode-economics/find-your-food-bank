@@ -94,6 +94,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - uses: ./.github/actions/offline-tiles
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
   journeys:
     needs: changes
@@ -113,6 +114,8 @@ jobs:
         if: steps.site.outputs.run == '1'
         with: {python-version: "3.12"}
       - if: steps.site.outputs.run == '1'
+        uses: ./.github/actions/offline-tiles
+      - if: steps.site.outputs.run == '1'
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/journeys.py
   browser-tests:
     needs: changes
@@ -127,6 +130,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
+      - uses: ./.github/actions/offline-tiles
       - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
   design-lock:
     needs: changes

@@ -39,6 +39,17 @@ class Units(unittest.TestCase):
             os.environ.pop(T.ENV, None)
             if old is not None: os.environ[T.ENV] = old
 
+    def test_blank_fallback_answers_without_a_server(self):
+        class R:
+            def __init__(s, u): s.request = type('Q', (), {'url': u})(); s.out = None
+            def fulfill(s, **kw): s.out = kw
+            def abort(s): s.out = 'abort'
+        class Ctx:
+            def route(s, pat, h): s.h = h
+        c = Ctx(); st = T.attach(c, 'blank'); r = R('https://tile.openstreetmap.org/6/31/20.png'); c.h(r)
+        self.assertEqual(r.out['status'], 200); self.assertTrue(r.out['body'].startswith(b'\x89PNG'))
+        self.assertEqual((st.served, st.external), (1, []))
+
     def test_tile_url_mapping(self):
         b = 'http://127.0.0.1:8091'
         self.assertEqual(T.local_tile_url('https://tile.openstreetmap.org/6/31/20.png', b),
