@@ -342,7 +342,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Community Food Bank Skye & Lochalsh · IV51 9EH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
 
-### Shelters: 51 queued, 0 rejected
+### Shelters: 53 queued, 0 rejected
 - QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
@@ -394,6 +394,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Brighton & Hove City Council - New Steine Mews Hostel · BN2 1QP · http://www.nsmhostel.org.uk — own site has no readable text
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
+- QUEUED Brighter Futures - 90 Hope Street · ST1 5BY · http://www.brighter-futures.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Cardinal Hume Centre Hostel · http://https://www.cardinalhumecentre.org.uk — no valid postcode
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
