@@ -1,27 +1,5 @@
 {
- "foodbanks": [
-  {
-   "id": "bexhill/sidley",
-   "name": "Sidley",
-   "postcode": "TN39 4FL",
-   "source": "https://bexhill.foodbank.org.uk",
-   "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)"
-   ],
-   "held_on": "2026-10-26"
-  },
-  {
-   "id": "ifan-b595a2208802ba38bef45d-0",
-   "name": "Shipshape Health and Wellbeing",
-   "postcode": "S11 8AE",
-   "source": "https://www.shipshape.org.uk",
-   "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
-    "no verified phone"
-   ],
-   "held_on": "2026-10-26"
-  }
- ],
+ "foodbanks": [],
  "warmspaces": [
   {
    "id": "sw-age-uk-gloucester-house-le131je",

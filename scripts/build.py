@@ -208,6 +208,9 @@ def main():
         if i['id'] in fbp: i['fb_page'] = fbp[i['id']]['url']
     for i in items:  # checked phones again AFTER IFAN discovery too (24 Oct: FB-page phones for IFAN pins were missed)
         if i['id'] in phones and not i.get('phone'): i['phone'] = phones[i['id']]; i['phone_checked'] = True; apply_phone(i)
+    sites = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_websites.json'), {}).items() if not str(k).startswith('_')}
+    for i in items:  # own site when the directory URL no longer holds the page (Dean 26 Oct: Shipshape)
+        if isinstance(sites.get(i['id']), str) and sites[i['id']]: i['website'] = sites[i['id']]
     notices = load_json(os.path.join(ROOT, 'overrides', 'foodbank_notices.json'), {})
     for i in items:  # hand-set card notices (e.g. temporary closure), pin kept (Dean 24 Oct)
         n = notices.get(i['id'])

@@ -33,10 +33,15 @@ def refresh(items):
     own_locations.protect_times(items, ROOT)
     classify.classify(items, ROOT)
     notes, labels = J("foodbank_notices.json"), J("phone_labels.json")
+    phones = {k: v for k, v in J("phones.json").items() if not str(k).startswith("_")}
+    sites = {k: v for k, v in J("foodbank_websites.json").items() if not str(k).startswith("_") and isinstance(v, str)}
     for i in items:
         n = notes.get(i["id"])
         if isinstance(n, dict) and n.get("notice"): i["notice"] = n["notice"]
         if i.get("phone") and isinstance(labels.get(i["id"]), str): i["phone_label"] = labels[i["id"]]
+        # build.py overwrites a Give Food phone from phones.json, and fills an IFAN phone only when the directory has none
+        if i["id"] in phones and (not i["id"].startswith("ifan-") or not i.get("phone")): i["phone"] = phones[i["id"]]
+        if i["id"] in sites: i["website"] = sites[i["id"]]
     return items
 
 KY_HTML = """
@@ -254,6 +259,79 @@ class Published(unittest.TestCase):
         self.assertEqual(out["helensburgh-lomond"], "walkin")
         for i in ("kirkcaldy/park-road-centre", "kirkcaldy/linton-lane-centre", "kirkcaldy/new-volunteer-house", "kirkcaldy/link-living", "galashiels-and-area", "helensburgh-lomond", *VOUCHER):
             self.assertEqual(live.get(i), out[i], i)
+
+class SidleyShipshape(unittest.TestCase):
+    """Dean 26 Oct 2026: publish the two food banks the refresh was holding.
+    Sidley hours and address are from Bexhill Foodbank's voucher page.
+    Shipshape's phone and the venue note are from shipshape.website. The pin stays on the IFAN postcode.
+    No food-session hours are stored: the current site does not list them."""
+    SID = "bexhill/sidley"
+    SHP = "ifan-b595a2208802ba38bef45d-0"
+    PAGE = "https://bexhill.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+    SITE = "https://www.shipshape.website/contact-us"
+    def published(self):
+        t = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read()
+        return json.loads(t[t.index("=") + 1:].strip().rstrip(";"))["items"]
+    def test_approved_so_the_gate_keeps_them(self):
+        import auto_rules
+        ok = auto_rules.approved("foodbanks", ROOT)
+        self.assertIn(self.SID, ok); self.assertIn(self.SHP, ok)
+        self.assertEqual(J("phones.json")[self.SID], "01424 322541")
+        self.assertEqual(J("phones.json")[self.SHP], "0114 250 0222")
+        self.assertEqual(J("foodbank_websites.json")[self.SHP], "https://www.shipshape.website/")
+        self.assertIn("foodbank_websites.json", open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8").read())
+    def test_published_and_a_refresh_keeps_them(self):
+        items = self.published()
+        self.check(items)
+        # a later refresh sees Give Food's shorter address and empty hours, then the overrides put the page back
+        by = {i["id"]: i for i in items}
+        by[self.SID]["address"] = "Canada Way, Bexhill, Bexhill-on-Sea, TN39 4FL"
+        by[self.SID]["phone"] = "07866046106"
+        by[self.SID]["opening_times"] = None
+        by[self.SHP]["website"] = "https://www.shipshape.org.uk"
+        by[self.SHP]["phone"] = ""
+        by[self.SHP].pop("notice", None)
+        refresh(items)
+        self.check(items)
+        by = {i["id"]: i for i in items}
+        self.assertEqual(by[self.SID]["phone"], "01424 322541")
+        self.assertEqual(by[self.SHP]["phone"], "0114 250 0222")
+        self.assertEqual(by[self.SHP]["website"], "https://www.shipshape.website/")
+    def check(self, items):
+        by = {i["id"]: i for i in items}
+        s = by[self.SID]
+        self.assertEqual(s["postcode"], "TN39 4FL")
+        self.assertIn("Canada Way (Off Buxton Drive)", s["address"])
+        self.assertEqual(s["opening_times"]["structured"], {"fri": [["10:00", "11:30"]]})
+        self.assertEqual(s["opening_times"]["source_url"], self.PAGE)
+        self.assertTrue(s["opening_times"].get("protected") or str(s["opening_times"].get("reader", "")).startswith("hand-reviewed"))
+        parent = by["bexhill"]
+        self.assertIn(self.SID, {c["id"] for c in parent["centres"]})
+        centre = next(c for c in parent["centres"] if c["id"] == self.SID)
+        self.assertIn("Canada Way (Off Buxton Drive)", centre["address"])
+        h = by[self.SHP]
+        self.assertEqual(h["postcode"], "S11 8AE")
+        self.assertEqual(h["name"], "Shipshape Health and Wellbeing")
+        self.assertEqual((h["lat"], h["lng"]), (53.367068, -1.477234))
+        self.assertIsNone(h.get("opening_times"))
+        self.assertIn("Highfield Trinity Church", h["notice"])
+        self.assertIn("S2 4UR", h["notice"])
+        self.assertIn("S1 4SR", h["notice"])
+        self.assertEqual(J("foodbank_notices.json")[self.SHP]["source"], self.SITE)
+    def test_access_chips(self):
+        import csv, glob, build_access
+        d = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read()
+        items = json.loads(d[d.index("{"):d.rindex("}") + 1])["items"]
+        files = sorted(glob.glob(os.path.join(ROOT, "overrides", "access", "voucher_split_*.csv")), key=lambda f: (("pass2" in f) or ("final" in f), f))
+        m = {}
+        for f in files:
+            for r in csv.DictReader(open(f, encoding="utf-8", newline="")): m[r["id"]] = build_access.classify(r)
+        out = {i["id"]: m.get(i["id"], "unconfirmed") for i in items if i.get("kind") not in ("warehouse", "dropoff")}
+        live = json.loads(open(os.path.join(ROOT, "access.js"), encoding="utf-8").read().split("=", 1)[1].strip().rstrip(";"))
+        self.assertEqual(out[self.SID], "voucher")
+        self.assertEqual(out[self.SHP], "unconfirmed")
+        self.assertEqual(live[self.SID], "voucher")
+        self.assertEqual(live[self.SHP], "unconfirmed")
 
 class Hours(unittest.TestCase):
     def test_normalise_leaves_hand_reviewed_table(self):

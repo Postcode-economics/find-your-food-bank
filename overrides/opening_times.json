@@ -2093,6 +2093,22 @@
    ]
   }
  },
+ "bexhill/sidley": {
+  "checked_date": "2026-10-26",
+  "raw": "Friday 10:00 am to 11:30 am. Monday-Thursday closed. Saturday-Sunday closed.",
+  "source_url": "https://bexhill.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
+ },
  "bexley": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu 11:30 - 13:30 Fri Closed Sat Closed Sun Closed ",
