@@ -1,31 +1,43 @@
 {
  "run": "2026-10-26",
- "pages": 1587,
- "failed": 6,
+ "pages": 1590,
+ "failed": 9,
  "errors": [
   [
-   "https://www.castlepoint.gov.uk/w/housing-swep-alert-wording",
+   "https://www.castlepoint.gov.uk/w/rough-sleeping",
    "error"
   ],
   [
-   "https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping",
-   500
+   "https://www.edinburgh.gov.uk/severe-weather/emergency-closures",
+   404
   ],
   [
-   "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
+   "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
    "error"
   ],
   [
-   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weather-s-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update",
+   404
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
    "error"
   ],
   [
-   "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
-   429
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
   ],
   [
-   "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
-   403
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "error"
   ]
  ],
  "added": [],
