@@ -69,5 +69,30 @@
   "notice": "First Base emergency parcel pick-up point",
   "source": "https://www.firstbasedumfries.co.uk/contact-us/",
   "set": "2026-10-25"
+ },
+ "chiltern/prestwood": {
+  "notice": "Delivery only, Tuesday to Friday 9am to 12pm. Please do not turn up in person.",
+  "source": "https://chiltern.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "set": "2026-10-26",
+  "quote": [
+   "HP16 0HJ\nGet directions\nDelivery only\nDelivery times",
+   "Monday\nClosed\nTuesday-Friday\n9:00 am to 12:00 pm\nSaturday-Sunday\nClosed\nWendover"
+  ]
+ },
+ "lambeth-croydon": {
+  "notice": "Appointment only. The food bank will contact you to arrange collection; please do not turn up until they have been in touch.",
+  "source": "https://lambethcroydon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "set": "2026-10-26",
+  "quote": [
+   "We will contact you to arrange collection, please do not turn up until we have been in touch."
+  ]
+ },
+ "lambeth-croydon/dulwich": {
+  "notice": "Appointment only. The food bank will contact you to arrange collection; please do not turn up until they have been in touch.",
+  "source": "https://lambethcroydon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "set": "2026-10-26",
+  "quote": [
+   "We will contact you to arrange collection, please do not turn up until we have been in touch."
+  ]
  }
 }
