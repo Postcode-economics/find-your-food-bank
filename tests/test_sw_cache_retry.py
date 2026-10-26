@@ -159,6 +159,11 @@ class T(unittest.TestCase):
                 self.assertGreater(blocked['data'], 0, blocked)
                 self.assertGreater(blocked['leaflet'], 0, blocked)
                 # Tiles are cache-first: a cached tile never hits the network, an uncached one is aborted.
+                # Leaflet may ask for its tiles a moment after the app is ready, so give them up to 10s to arrive.
+                for _ in range(40):
+                    if blocked['tiles'] or any(_tile(row[0]) and row[3] for row in served):
+                        break
+                    page2.wait_for_timeout(250)
                 tile_hits = [row for row in served if _tile(row[0])]
                 self.assertTrue(blocked['tiles'] or any(sw for _, _, _, sw in tile_hits), (blocked, tile_hits))
                 self.assertTrue(any(p == '/data.js' and st == 200 and sw for _, p, st, sw in served), served)
