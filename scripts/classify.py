@@ -93,7 +93,15 @@ def classify(items, root):
             if s: ev.append(f"address/name contains '{s.group(0)}'")
             elif w: ev.append(f"address/name contains '{w.group(0)}'")
             ev.append(times)
-            if n: kind, conf = "warehouse", "high"   # rule (Dean, 21 Oct 2026): parent pin with separate client locations = office/warehouse
+            # Parent with other centres is the warehouse (Dean, 21 Oct 2026), unless this same postcode is a collection
+            # centre on the food bank's own page. Chichester District Foodbank is Unit 10, PO19 8ET, and that page
+            # says "Collect your parcel" there on Monday, Wednesday and Friday; hiding it left no town-centre pin.
+            collects_here = ot.get("collection") is True and ot.get("status") == "TIMES_FOUND" and bool(ot.get("structured"))
+            if collects_here:
+                import discover as _discover
+                if _discover.office_like(ot.get("structured")): collects_here = False
+            if n and not collects_here: kind, conf = "warehouse", "high"
+            elif n and collects_here: kind, conf = "client", "high"; ev.append("own site lists collection hours at this address, so this pin stays a place to get food")
             elif s or re.search(r"\boffice\b", txt, re.I): kind, conf = "unclear", "low"; ev.append("single address with office/industrial wording: not yet confirmed by the food bank's own site")
             else: kind, conf = "client", "medium"; ev.append("only address listed for this food bank")
         else:
