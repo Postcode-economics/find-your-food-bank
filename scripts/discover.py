@@ -213,9 +213,20 @@ def confirm_times(ot, texts, postcode=None):
         if nw != want: return "changed", new, "own site now shows different times"
     return "unconfirmed", None, "published times not found on own site this run"
 def hours_from_ot(ot):
-    """times.normalise structured table -> shelter/warm-space hours dict {'Mon': '10:00 - 14:00 / 18:00 - 20:00'}."""
-    if not ot or not ot.get("structured"): return None
-    return {d.title(): " / ".join(f"{a} - {b}" for a, b in r) for d, r in ot["structured"].items()}
+    """times.normalise structured table -> shelter/warm-space hours dict, Mon..Sun, closed days included."""
+    if not ot: return None
+    order = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    if ot.get("all_closed"): return {d: "Closed" for d in order}
+    if not ot.get("structured") and not ot.get("closed"): return None
+    notes = ot.get("notes") or {}
+    out = {}
+    for d, r in (ot.get("structured") or {}).items():
+        cell = " / ".join("%s - %s" % (a, b) for a, b in r)
+        if notes.get(d): cell += " " + notes[d]
+        out[d[:3].title()] = cell
+    for d in ot.get("closed") or []:
+        out.setdefault(d[:3].title(), "Closed")
+    return {d: out[d] for d in order if d in out} or None
 
 # Dean's standing default (21 Oct 2026): the place's OWN website is the main source. Where it gives times or says closed,
 # it overrides Give Food and every directory. Directory times are only a fallback, kept but marked unconfirmed.
