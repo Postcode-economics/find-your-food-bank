@@ -1,7 +1,7 @@
 """Opt-in offline map tiles for the browser checks (rules 23 and 26).
 
 By default nothing changes: checks behave exactly as before. When HELPMAP_OFFLINE_TILES is set to the
-base URL of a local tile server (for example http://127.0.0.1:8089, the UK OpenStreetMap server on the
+base URL of a local tile server (for example http://127.0.0.1:8091, the UK OpenStreetMap server on the
 bot box: /workspace/offline_map/start.sh), every map tile request the site makes to
 tile.openstreetmap.org, MapTiler or Stadia is answered from that local server instead, so the map
 shows real streets and no request ever reaches a public tile host.
