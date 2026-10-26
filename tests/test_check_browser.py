@@ -142,6 +142,8 @@ class Navigation(unittest.TestCase):
         self.assertEqual(logs, [])
 
     def test_app_not_ready_is_not_retried(self):
+        # Scripts loaded (the double reports no script failure and the data.js tag is not missing).
+        # A real app that never becomes the map is still a failure on the first navigation.
         logs = []
         pg = _Page([None], state={'ok': False, 'wall': False, 'n': 0, 'pane': False, 'title': 'helpmap.uk'})
         with self.assertRaises(B.AppNotReady):
@@ -177,6 +179,124 @@ class Navigation(unittest.TestCase):
         logs = []
         pg = _Page([None], state={'ok': False, 'wall': False, 'n': 0, 'pane': False, 'title': 'Food banks in Belfast'})
         B.goto(pg, 'https://helpmap.uk/food-banks/belfast/', ready=False, log=logs.append)
+        self.assertEqual(pg.gotos, 1)
+        self.assertEqual(logs, [])
+
+
+class _Req:
+    def __init__(self, url, resource_type='script', failure=None, status=200, content_type='text/javascript'):
+        self.url = url
+        self.resource_type = resource_type
+        self.failure = failure
+        self.status = status
+        self.headers = {'content-type': content_type}
+        self.request = self
+
+
+class _Shell(_Page):
+    """A page double that can report a failed core script, then a good load."""
+
+    def __init__(self, states, problems, missing=None):
+        super().__init__([None] * len(states))
+        self.states = list(states)
+        self.problems = list(problems)
+        self.missing_flags = list(missing or [False] * len(states))
+        self.handlers = {}
+
+    def on(self, ev, fn):
+        self.handlers.setdefault(ev, []).append(fn)
+
+    def goto(self, url, wait_until='load', timeout=0):
+        self.wait_until = wait_until
+        self._step('goto')
+        self.state = self.states[self.gotos - 1]
+        self.missing = self.missing_flags[self.gotos - 1]
+        for ev, obj in self.problems[self.gotos - 1]:
+            for fn in self.handlers.get(ev, []):
+                fn(obj)
+
+    def evaluate(self, js, *a):
+        if js.startswith("()=>(document.body"):
+            return self.body
+        if 'document.scripts' in js:
+            return self.missing
+        return self.state
+
+
+_NOT_READY = {'ok': False, 'wall': False, 'n': 0, 'pane': False,
+              'title': 'Find a food bank, warm space or shelter near you – helpmap.uk'}
+_READY = {'ok': True, 'wall': False, 'n': 3000, 'pane': True, 'title': _NOT_READY['title']}
+
+
+class ScriptNeverArrived(unittest.TestCase):
+    """Run 40305441261: the document title was the real site, wall was false, and the map never
+    started (n 0, no pane). That is a core script that did not run, not a theme failure."""
+
+    def test_a_failed_data_script_is_retried_once_and_logged(self):
+        logs = []
+        pg = _Shell(
+            [_NOT_READY, _READY],
+            [[('requestfailed', _Req('https://helpmap.uk/data.js?v=1', failure='net::ERR_CONNECTION_RESET'))], []])
+        B.goto(pg, 'https://helpmap.uk/?nocount', log=logs.append, ready_timeout=3000)
+        self.assertEqual(pg.gotos, 2)
+        self.assertEqual(len(logs), 1)
+        self.assertIn('retry: script failed to load', logs[0])
+        self.assertIn('data.js', logs[0])
+
+    def test_html_in_place_of_a_script_is_a_challenge_and_retried_once(self):
+        logs = []
+        pg = _Shell(
+            [_NOT_READY, _READY],
+            [[('response', _Req('https://helpmap.uk/data.js?v=1', status=200, content_type='text/html; charset=UTF-8'))], []])
+        B.goto(pg, 'https://helpmap.uk/?nocount', log=logs.append, ready_timeout=3000)
+        self.assertEqual(pg.gotos, 2)
+        self.assertIn('retry: challenge page in place of a script', logs[0])
+
+    def test_a_script_that_keeps_failing_is_still_a_failure(self):
+        logs = []
+        bad = ('response', _Req('https://helpmap.uk/data.js?v=1', status=200, content_type='text/html'))
+        pg = _Shell([_NOT_READY, _NOT_READY], [[bad], [bad]])
+        with self.assertRaises(B.AppNotReady) as cm:
+            B.goto(pg, 'https://helpmap.uk/?nocount', log=logs.append, ready_timeout=3000)
+        self.assertEqual(pg.gotos, 2)  # once, not a loop
+        self.assertEqual(len(logs), 1)
+        self.assertIn('data.js', str(cm.exception))
+
+    def test_a_page_cut_off_before_data_js_is_retried_once(self):
+        logs = []
+        pg = _Shell([_NOT_READY, _READY], [[], []], missing=[True, False])
+        B.goto(pg, 'https://helpmap.uk/?nocount', log=logs.append, ready_timeout=3000)
+        self.assertEqual(pg.gotos, 2)
+        self.assertIn('no data.js', logs[0])
+
+    def test_a_loaded_page_that_is_not_the_app_is_not_retried_even_with_listeners(self):
+        logs = []
+        pg = _Shell([_NOT_READY], [[]])
+        with self.assertRaises(B.AppNotReady):
+            B.goto(pg, 'https://helpmap.uk/?nocount', log=logs.append, ready_timeout=300)
+        self.assertEqual(pg.gotos, 1)
+        self.assertEqual(logs, [])
+
+    def test_a_bot_page_is_still_not_retried_when_a_script_failed(self):
+        logs = []
+        wall = {'ok': False, 'wall': True, 'n': 0, 'pane': False, 'title': 'Just a moment...'}
+        pg = _Shell(
+            [wall],
+            [[('requestfailed', _Req('https://helpmap.uk/data.js', failure='net::ERR_FAILED'))]])
+        with self.assertRaises(B.BotPage):
+            B.goto(pg, 'https://helpmap.uk/', log=logs.append, ready_timeout=3000)
+        self.assertEqual(pg.gotos, 1)
+        self.assertEqual(logs, [])
+
+    def test_tiles_are_not_a_reason_to_retry(self):
+        logs = []
+        # The map is up. A tile request dying must not be treated as the app failing to load.
+        ready = dict(_READY)
+        pg = _Shell(
+            [ready],
+            [[('requestfailed', _Req('https://tile.openstreetmap.org/6/31/20.png', resource_type='image',
+                                     failure='net::ERR_BLOCKED_BY_RESPONSE'))]])
+        B.goto(pg, 'https://helpmap.uk/?nocount', log=logs.append, ready_timeout=3000)
         self.assertEqual(pg.gotos, 1)
         self.assertEqual(logs, [])
 

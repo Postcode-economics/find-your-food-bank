@@ -10,8 +10,11 @@ box, the food-bank list and a map pane are on the page. Nothing here waits for n
 the load event: a MapTiler tile connection stays open, so both of those waits hang after the page
 itself is already there.
 
-A navigation is tried again once only for a real network blip (the connection failed). The retry is
-printed. A bot page, a page that loaded but is not the app, and any other error are not tried again.
+A navigation is tried again once only in two cases, and the retry is printed. A dropped connection
+is tried again. So is a document that is the site shell but whose core script never ran: the request
+failed, Cloudflare (or anyone else) answered it with a challenge or an HTML page, or the HTML was cut
+off before data.js. A bot page, a page whose scripts did load but which is still not the app, and any
+other error are not tried again.
 """
 import time
 
@@ -57,6 +60,10 @@ class BotPage(Exception):
 
 class AppNotReady(Exception):
     """The document loaded, and it was not the map. Not a network blip."""
+
+    def __init__(self, msg, state=None):
+        super().__init__(msg)
+        self.state = state or {}
 
 
 def user_agent(width=1366, instagram=False):
@@ -106,7 +113,120 @@ def new_context(browser, **kw):
     return c
 
 
-def _ready(page, timeout_ms):
+# Scripts the map cannot come up without. A failed image (a tile) is not one of these.
+_CORE_SCRIPTS = ('data.js', 'leaflet.js', 'leaflet.markercluster.js', 'tiles.js', 'v3.js', 'layers.js',
+                 'icons.js', 'stamp.js', 'access.js', 'register.js', 'report.js')
+
+
+class _ScriptTraffic:
+    """Core script responses for one navigation. A challenge page served as data.js leaves the real
+    title in place and never sets FB_DATA, which is the 26 Oct deploy failure."""
+
+    def __init__(self):
+        self.bad = []
+
+    def reset(self):
+        self.bad = []
+
+    def _core(self, url):
+        u = url or ''
+        return any(name in u for name in _CORE_SCRIPTS)
+
+    def _cf(self, headers):
+        for k, v in (headers or {}).items():
+            if k.lower() == 'cf-mitigated':
+                return v or 'challenge'
+        return ''
+
+    def fail(self, req):
+        if getattr(req, 'resource_type', '') != 'script' or not self._core(getattr(req, 'url', '')):
+            return
+        err = getattr(req, 'failure', '') or ''
+        if isinstance(err, dict):
+            err = err.get('errorText') or ''
+        self.bad.append('failed %s (%s)' % ((req.url or '').split('?')[0][-70:], str(err)[:80]))
+
+    def resp(self, resp):
+        req = getattr(resp, 'request', None)
+        url = getattr(req, 'url', '') or getattr(resp, 'url', '') or ''
+        kind = getattr(req, 'resource_type', '')
+        headers = getattr(resp, 'headers', None) or {}
+        cf = self._cf(headers)
+        if cf and (kind in ('script', 'document') or self._core(url)):
+            self.bad.append('cloudflare %s %s' % (cf, url.split('?')[0][-70:]))
+            return
+        if kind != 'script' or not self._core(url):
+            return
+        ctype = ''
+        try:
+            ctype = (headers.get('content-type') or headers.get('Content-Type') or '').lower()
+        except Exception:
+            ctype = ''
+        status = getattr(resp, 'status', 0) or 0
+        if status >= 400 or 'html' in ctype:
+            self.bad.append('http %s %s %s' % (status, ctype.split(';')[0][:40], url.split('?')[0][-70:]))
+
+    def err(self, error):
+        s = str(error).replace('\n', ' ')
+        low = s.lower()
+        if ('unexpected token' in low or 'syntaxerror' in low or "reading 'items'" in low
+                or 'reading "items"' in low or 'd.items' in low or 'failed to fetch' in low):
+            self.bad.append('pageerror %s' % s[:140])
+
+    def core_problem(self):
+        return bool(self.bad)
+
+    def retry_reason(self):
+        if not self.bad:
+            return 'document had no data.js (page ended before the scripts)'
+        blob = ' '.join(self.bad).lower()
+        kind = ('challenge page in place of a script'
+                if ('html' in blob or 'cloudflare' in blob or 'just a moment' in blob or 'unexpected token' in blob)
+                else 'script failed to load')
+        return '%s (%s)' % (kind, '; '.join(self.bad)[:180])
+
+    def suffix(self):
+        return (' scripts %s' % '; '.join(self.bad)[:180]) if self.bad else ''
+
+
+def _arm(page):
+    """Listen for script failures once per page. Pages in the unit tests have no `on`."""
+    net = getattr(page, '_hm_script_net', None)
+    if net is None:
+        net = _ScriptTraffic()
+        page._hm_script_net = net
+        on = getattr(page, 'on', None)
+        if on:
+            on('requestfailed', net.fail)
+            on('response', net.resp)
+            on('pageerror', net.err)
+    else:
+        net.reset()
+    return net
+
+
+def _data_script_missing(page):
+    """True only when the parsed document has no data.js tag. A dict from a test double is not missing."""
+    try:
+        v = page.evaluate("()=>![...document.scripts].some(s=>/data\\.js(?:\\?|$)/.test(s.src||''))")
+    except Exception:
+        return False
+    return v is True
+
+
+def _should_retry_shell(page, exc, net):
+    """The app never started. A page that loaded its scripts and is still wrong is not retried."""
+    state = getattr(exc, 'state', None) or {}
+    if state.get('wall') or state.get('ok'):
+        return False
+    if state.get('n') and state.get('pane'):
+        return False
+    if net.core_problem():
+        return True
+    return (not state.get('n') and not state.get('pane') and _data_script_missing(page))
+
+
+def _ready(page, timeout_ms, net=None):
     deadline = time.time() + timeout_ms / 1000.0
     state = {'ok': False, 'wall': False, 'title': ''}
     while time.time() < deadline:
@@ -115,6 +235,10 @@ def _ready(page, timeout_ms):
         except Exception:
             state = {'ok': False, 'wall': False, 'title': ''}
         if state.get('ok') or state.get('wall'):
+            return state
+        # data.js / leaflet already failed, or the HTML was cut off. Another 15s will not create the map.
+        if (not state.get('n') and not state.get('pane') and net is not None
+                and (net.core_problem() or _data_script_missing(page))):
             return state
         page.wait_for_timeout(250)
     return state
@@ -133,31 +257,35 @@ def _bot_now(page):
     return bot_page(title, body), title
 
 
-def _finish(page, ready, ready_timeout):
+def _finish(page, ready, ready_timeout, net=None):
     if ready:
-        state = _ready(page, ready_timeout)
+        state = _ready(page, ready_timeout, net)
         if state.get('wall'):
             raise BotPage('bot page instead of the map (%s)' % (state.get('title') or 'Just a moment'))
         if not state.get('ok'):
-            raise AppNotReady('app not ready %s' % state)
+            raise AppNotReady('app not ready %s%s' % (state, net.suffix() if net else ''), state)
         return
     wall, title = _bot_now(page)
     if wall:
         raise BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
 
 
-def goto(page, url, ready=True, log=print, ready_timeout=READY_TIMEOUT):
-    """Open url on an existing page. Wait for domcontentloaded, then for the app when ready is set.
-    One retry, and only for a network blip, which is printed."""
-    page.set_default_timeout(STEP_TIMEOUT)
-    page.set_default_navigation_timeout(NAV_TIMEOUT)
+def _navigate(page, go, ready, log, ready_timeout):
+    """One navigation. A blip, or a shell whose core script never arrived, is tried once more."""
+    net = _arm(page)
     last = None
     for attempt in (1, 2):
         try:
-            page.goto(url, wait_until='domcontentloaded', timeout=NAV_TIMEOUT)
-            _finish(page, ready, ready_timeout)
+            go()
+            _finish(page, ready, ready_timeout, net)
             return page
-        except (BotPage, AppNotReady):
+        except BotPage:
+            raise
+        except AppNotReady as e:
+            if attempt == 1 and _should_retry_shell(page, e, net):
+                log('retry: %s' % net.retry_reason()[:220])
+                net.reset()
+                continue
             raise
         except Exception as e:
             last = e
@@ -166,33 +294,29 @@ def goto(page, url, ready=True, log=print, ready_timeout=READY_TIMEOUT):
                 raise BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
             if attempt == 1 and is_network_blip(e):
                 log('retry: network blip (%s)' % str(e).splitlines()[0][:180])
+                net.reset()
                 continue
             raise
     raise last
+
+
+def goto(page, url, ready=True, log=print, ready_timeout=READY_TIMEOUT):
+    """Open url on an existing page. Wait for domcontentloaded, then for the app when ready is set.
+    One retry, printed, for a network blip or a shell whose core script never arrived."""
+    page.set_default_timeout(STEP_TIMEOUT)
+    page.set_default_navigation_timeout(NAV_TIMEOUT)
+    return _navigate(
+        page, lambda: page.goto(url, wait_until='domcontentloaded', timeout=NAV_TIMEOUT),
+        ready, log, ready_timeout)
 
 
 def reload(page, ready=True, log=print, ready_timeout=READY_TIMEOUT):
-    """Reload. Same rule as goto: domcontentloaded, then the app, and one logged retry for a network blip."""
+    """Reload. Same rule as goto."""
     page.set_default_timeout(STEP_TIMEOUT)
     page.set_default_navigation_timeout(NAV_TIMEOUT)
-    last = None
-    for attempt in (1, 2):
-        try:
-            page.reload(wait_until='domcontentloaded', timeout=NAV_TIMEOUT)
-            _finish(page, ready, ready_timeout)
-            return page
-        except (BotPage, AppNotReady):
-            raise
-        except Exception as e:
-            last = e
-            wall, title = _bot_now(page)
-            if wall:
-                raise BotPage('bot page instead of the site (%s)' % (title or 'Just a moment')[:80])
-            if attempt == 1 and is_network_blip(e):
-                log('retry: network blip (%s)' % str(e).splitlines()[0][:180])
-                continue
-            raise
-    raise last
+    return _navigate(
+        page, lambda: page.reload(wait_until='domcontentloaded', timeout=NAV_TIMEOUT),
+        ready, log, ready_timeout)
 
 
 def open_page(context, url, ready=True, log=print, ready_timeout=READY_TIMEOUT):

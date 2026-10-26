@@ -4,7 +4,9 @@ Only the visitor's own saved 'Light mode' choice (localStorage light=1) override
 Playwright's default headless agent is answered with a "Just a moment..." page: no light class, and a
 transparent background (black when the phone is set to dark). Saved light then looks like a failure and
 the other cases look like passes. This uses the same browser identity and ready check as the journey
-and old-links checks. A challenge page or an unstyled background is a failure.
+and old-links checks. A challenge page or an unstyled background is a failure. If a core script
+comes back as a challenge or does not load, that navigation is tried once more; the theme
+assertions below are the same either way.
 
 Usage: python scripts/dark_default.py [BASE_URL] [--webkit]. Checks Chromium (and WebKit if asked / available). Exit 1 on failure."""
 import os, re, sys
