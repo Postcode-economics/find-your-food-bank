@@ -18,7 +18,7 @@ class Units(unittest.TestCase):
     def test_default_is_off(self):
         self.assertIsNone(T.base_url({}))
         self.assertIsNone(T.base_url({T.ENV: '  '}))
-        self.assertEqual(T.base_url({T.ENV: 'http://127.0.0.1:8089/'}), 'http://127.0.0.1:8089')
+        self.assertEqual(T.base_url({T.ENV: 'http://127.0.0.1:8091/'}), 'http://127.0.0.1:8091')
 
     def test_default_context_is_not_routed(self):
         class Ctx:
@@ -40,7 +40,7 @@ class Units(unittest.TestCase):
             if old is not None: os.environ[T.ENV] = old
 
     def test_tile_url_mapping(self):
-        b = 'http://127.0.0.1:8089'
+        b = 'http://127.0.0.1:8091'
         self.assertEqual(T.local_tile_url('https://tile.openstreetmap.org/6/31/20.png', b),
                          b + '/styles/bright/256/6/31/20.png')
         self.assertEqual(T.local_tile_url('https://api.maptiler.com/maps/streets-v2/256/7/63/42.png?key=x', b),
@@ -50,7 +50,7 @@ class Units(unittest.TestCase):
                   'https://tiles.stadiamaps.com/tiles/osm_bright/1/0/0.png', 'https://tiles.openfreemap.org/x'):
             self.assertTrue(T.is_external_tile_host(h), h)
         self.assertFalse(T.is_external_tile_host('https://helpmap.uk/tile.openstreetmap.org/1/0/0.png'))
-        self.assertFalse(T.is_external_tile_host('http://127.0.0.1:8089/styles/bright/256/1/0/0.png'))
+        self.assertFalse(T.is_external_tile_host('http://127.0.0.1:8091/styles/bright/256/1/0/0.png'))
 
 
 class Browser(unittest.TestCase):
