@@ -131,11 +131,23 @@ def put_chk(s, t, rel):
     return s.replace('</body>', js + '</body>', 1)
 
 def swep_counts(root=ROOT):
-    """Dean 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited)."""
+    """FAQ council and severe-weather figures, from the data each run (never hand-typed).
+
+    swep-councils: distinct council names in overrides/swep_sources.json.
+    swep-pages: distinct severe-weather and homelessness page URLs. The source list
+    and logs/swep_status.json must name the same URLs. The status file's "sources"
+    field counts source rows, so a page shared by two councils is counted twice there
+    and is not the number of pages.
+    """
     try:
         src = json.load(open(os.path.join(root, 'overrides', 'swep_sources.json')))
         st = json.load(open(os.path.join(root, 'logs', 'swep_status.json')))
-        return {'swep-councils': len({x.get('council') for x in src if isinstance(x, dict) and x.get('council')}), 'swep-pages': st['sources'] if isinstance(st.get('sources'), int) else len(st.get('sources') or [])}
+        councils = {x.get('council') for x in src if isinstance(x, dict) and x.get('council')}
+        src_urls = {x.get('url') for x in src if isinstance(x, dict) and x.get('url')}
+        st_urls = {p.get('url') for p in (st.get('pages') or []) if isinstance(p, dict) and p.get('url')}
+        if not councils or not src_urls or src_urls != st_urls:
+            return {}
+        return {'swep-councils': len(councils), 'swep-pages': len(src_urls)}
     except Exception:
         return {}
 

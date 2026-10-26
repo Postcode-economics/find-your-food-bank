@@ -1,5 +1,6 @@
-"""Public page claims match the code and data (Dean, 25 Oct 2026): FAQ times come from the workflow crons (UTC -> UK time,
-GMT and BST), SWEP figures are baked from data, no season-only wording, the 44x44 touch claim holds, label texts match."""
+"""Public page claims match the code and data (Dean, 25 Oct 2026): FAQ times come from the workflow crons (UTC,
+stated as GMT while UK clocks are on GMT), SWEP figures are distinct councils and page URLs baked from data,
+no summer-time wording, the 44x44 touch claim holds, label texts match."""
 import os, re, sys, json, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))
 from site_ready import open_map
@@ -17,24 +18,42 @@ def times(wf, offset, round5=True):
 class Faq(unittest.TestCase):
     def setUp(self): self.s = rd("faq.html")
     def test_refresh_times_from_cron(self):
-        for off in (0, 1):  # GMT, BST
-            a, b, c = times("refresh.yml", off)
-            self.assertIn(f"{a}, {b} and {c}", self.s, off)
+        a, b, c = times("refresh.yml", 0)  # cron is UTC; UK is on GMT
+        self.assertIn(f"{a}, {b} and {c}", self.s)
+        a, b, c = times("refresh.yml", 1)  # summer (BST) clock times are not stated
+        self.assertNotIn(f"{a}, {b} and {c}", self.s)
         f, _ = cron("refresh.yml"); sh, _ = cron("refresh-shelters.yml"); ws, _ = cron("refresh-warmspaces.yml")
         self.assertIn(f"about {sh - f} minutes later and warm spaces about {ws - sh} minutes after", self.s)
     def test_sweep_times_from_cron(self):
-        for off in (0, 1):
-            a, b, c = times("sweep-daily.yml", off, round5=False)
-            self.assertIn(f"{a}, {b} and {c}", self.s, off)
+        a, b, c = times("sweep-daily.yml", 0, round5=False)
+        self.assertIn(f"{a}, {b} and {c}", self.s)
+        a, b, c = times("sweep-daily.yml", 1, round5=False)
+        self.assertNotIn(f"{a}, {b} and {c}", self.s)
     def test_no_season_only_wording(self):
-        for bad in ("UK summer time", "amser haf y DU", "64 councils", "64 o gynghorau"):
+        for bad in ("UK summer time", "amser haf y DU", "64 councils", "64 o gynghorau", "BST", "in summer", "yn yr haf", "in winter"):
             self.assertNotIn(bad, self.s)
     def test_swep_counts_baked_from_data(self):
         sys.path.insert(0, os.path.join(ROOT, "scripts")); import seo_meta
         n = seo_meta.swep_counts(ROOT); self.assertEqual(set(n), {"swep-councils", "swep-pages"})
+        src = json.load(open(os.path.join(ROOT, "overrides", "swep_sources.json")))
+        st = json.load(open(os.path.join(ROOT, "logs", "swep_status.json")))
+        src_urls = {x.get("url") for x in src if isinstance(x, dict) and x.get("url")}
+        st_urls = {p.get("url") for p in st.get("pages") or [] if isinstance(p, dict) and p.get("url")}
+        councils = {x.get("council") for x in src if isinstance(x, dict) and x.get("council")}
+        self.assertEqual(src_urls, st_urls)
+        self.assertEqual(n["swep-councils"], len(councils))
+        self.assertEqual(n["swep-pages"], len(src_urls))
+        # status "sources" counts rows; a shared page is two rows and one URL
+        self.assertGreaterEqual(st["sources"], len(st_urls))
+        self.assertEqual(n["swep-pages"], len(st_urls))
         for k, v in n.items():
             got = re.findall(r'<span data-n="%s">([^<]*)</span>' % k, self.s)
             self.assertEqual(len(got), 2, k); self.assertTrue(all(g == format(v, ",") for g in got), (k, got, v))
+        c, p = format(n["swep-councils"], ","), format(n["swep-pages"], ",")
+        self.assertIn("we've looked up every UK council (<span data-n=\"swep-councils\">%s</span>), and <span data-n=\"swep-pages\">%s</span> of their severe weather and homelessness pages are checked every day, with the main ones checked on every shelter refresh, three times a day." % (c, p), self.s)
+        self.assertIn("o’u tudalennau tywydd garw a digartrefedd eu gwirio bob dydd, gyda’r prif rai’n cael eu gwirio ar bob adnewyddiad llochesi, dair gwaith y dydd.", self.s)
+        self.assertNotIn("Every council is also re-checked once a day", self.s)
+        self.assertNotIn("severe weather emergency (SWEP)", self.s)
     def test_swep_never_changes_map(self):
         self.assertIn("never changes the map", rd(os.path.join(".github", "workflows", "refresh-shelters.yml")))
         self.assertNotIn("swep", (rd("layers.js") + rd("v3.js") + rd("index.html")).lower())
