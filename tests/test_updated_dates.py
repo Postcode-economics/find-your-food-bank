@@ -2,6 +2,8 @@
 footer food bank lines = food bank refresh, key = each layer's refresh (shelters/warm spaces even before opening).
 No date is hardcoded in the page; stamp.py keeps per-layer stamps; the watchdog compares shown dates with the data."""
 import os, re, json, shutil, subprocess, sys, tempfile, unittest, threading, functools, http.server, mimetypes
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
+import check_browser as B
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 M = '(January|February|March|April|May|June|July|August|September|October|November|December)'
 DATE = re.compile(r'\b\d{1,2} ' + M + r'( 20\d\d)?|' + M + r' 20\d\d|\b20\d\d-\d\d-\d\d\b')
@@ -88,6 +90,7 @@ class Browser(unittest.TestCase):
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
             c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block"); pg = c.new_page(); pg.route("**/*", serve)
+            B.stub_map_tiles(pg)  # after the catch-all, so a tile URL is the placeholder and not an aborted network request
             pg.goto(H + "index.html?fresh=1", wait_until="load"); pg.wait_for_timeout(2500)
             g = lambda s: pg.evaluate("s=>{const e=document.querySelector(s);return e?e.textContent:''}", s)
             self.assertIn("7 March 2031", g("#freshtxt")); self.assertIn("09:41", g("#freshtxt"))   # latest of all layers

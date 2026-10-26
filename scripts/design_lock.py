@@ -76,6 +76,8 @@ def run(base=None, measure=False):
         srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=srv.serve_forever, daemon=True).start()
         base = 'http://127.0.0.1:%d' % srv.server_address[1]
     base = base.rstrip('/'); bad, seen, counts, meas = [], 0, None, {}
+    # Rule 23: map tiles are stubbed (new_context). No real tile is ever requested here.
+    probe = {'status': 'not requested (rule 23)', 'url': '', 'ok': True, 'detail': ''}
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
         for w in (390, 1366):
@@ -141,16 +143,18 @@ def run(base=None, measure=False):
                 c.close()
         b.close()
     if srv: srv.shutdown()
+    if base.startswith('https://') and not probe.get('ok'):
+        bad.append('real tile check: %s status %s%s' % (probe.get('url'), probe.get('status'), (' ' + probe['detail']) if probe.get('detail') else ''))
     if measure:
         print(json.dumps({m: {k: sorted(v) for k, v in d.items()} for m, d in meas.items()}, indent=1)); print(counts); return [], counts, seen
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
-    json.dump({'base': base, 'cards': seen, 'counts': counts, 'bad': bad, 'known': sorted(set(KNOWN)), 'tiles': TILES}, open(os.path.join(ROOT, 'logs', 'design_lock.json'), 'w'), indent=1)
-    open(os.path.join(ROOT, 'reports', 'design_lock.md'), 'w').write('# Card design lock (%s)\n\n%d cards checked, %d problems.\n\nData: %s\n\nTiles (w, mode, ok, failed): %s\n\n%s\n\n## Known, not failing (%d)\n\n%s\n' % (
-        base, seen, len(bad), json.dumps(counts), TILES, '\n'.join('- ' + x for x in bad[:300]), len(KNOWN), '\n'.join('- ' + x for x in sorted(set(KNOWN)))))
+    json.dump({'base': base, 'cards': seen, 'counts': counts, 'bad': bad, 'known': sorted(set(KNOWN)), 'tiles': TILES, 'real_tile': probe}, open(os.path.join(ROOT, 'logs', 'design_lock.json'), 'w'), indent=1)
+    open(os.path.join(ROOT, 'reports', 'design_lock.md'), 'w').write('# Card design lock (%s)\n\n%d cards checked, %d problems.\n\nData: %s\n\nTiles (w, mode, ok, failed): %s\n\nReal tile (one request, not a pan): %s %s%s\n\n%s\n\n## Known, not failing (%d)\n\n%s\n' % (
+        base, seen, len(bad), json.dumps(counts), TILES, probe.get('status'), probe.get('url'), (' ' + probe['detail']) if probe.get('detail') else '', '\n'.join('- ' + x for x in bad[:300]), len(KNOWN), '\n'.join('- ' + x for x in sorted(set(KNOWN)))))
     base_c = LOCK.get('baseline_counts_v87', {})
     for k2, v in base_c.items():
         if isinstance(counts, dict) and isinstance(counts.get(k2), int) and counts[k2] < v * 0.97: bad.append('count %s dropped: %s vs v87 %s' % (k2, counts[k2], v))
-    print('cards', seen, 'problems', len(bad), 'known', len(set(KNOWN)), 'tiles', TILES, 'counts', counts)
+    print('cards', seen, 'problems', len(bad), 'known', len(set(KNOWN)), 'tiles', TILES, 'real_tile', probe.get('status'), 'counts', counts)
     for x in bad[:40]: print(' FAIL', x)
     return bad, counts, seen
 
