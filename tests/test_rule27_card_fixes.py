@@ -1,4 +1,4 @@
-"""Rule 27 card fixes (Dean, 26 Oct 2026 14:21): 29 cards re-read live and protected, Prestwood dropped.
+"""Rule 27 card fixes (Dean, 26 Oct 2026 14:21): 29 cards re-read live and protected. Prestwood and King's Darlington Wednesday held for a second pass.
 Guards that each hand fix keeps its evidence and stays protected from the 3x-daily refresh."""
 import json, os, sys
 ROOT = os.path.join(os.path.dirname(__file__), '..')
@@ -29,16 +29,6 @@ def test_fixed_cards_protected_with_quotes():
 def test_normalise_keeps_hand_fixes():
     from times import normalise
     for k in FIXED: assert normalise(OT[k]) == OT[k]
-
-def test_prestwood_delivery_only_not_restored():
-    assert 'chiltern/prestwood' not in OT
-    g = json.load(open(os.path.join(ROOT, 'overrides', 'guard_wrong_times.json')))
-    assert 'chiltern/prestwood' in g['foodbanks']
-    import refresh_guard
-    old = [{'id': 'chiltern/prestwood', 'name': 'Prestwood', 'lat': 51.7, 'lng': -0.7, 'opening_times': {'raw': 'Tuesday to Friday, 10am to 12:30pm'}}]
-    new = [{'id': 'chiltern/prestwood', 'name': 'Prestwood', 'lat': 51.7, 'lng': -0.7}]
-    out, rep = refresh_guard.guard('foodbanks', old, new)
-    assert 'opening_times' not in out[0] and not rep['times']
 
 def test_discover_keeps_hand_reviewed_times():
     import discover, inspect
