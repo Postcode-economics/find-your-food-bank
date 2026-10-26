@@ -37,7 +37,9 @@ class T(unittest.TestCase):
                             for q in ('Croydon', 'BN17 5LF', 'Newcastle-under-Lyme', 'Llanfair Pwllgwyngyll', 'Bradford-on-Avon', 'Bournemouth, Christchurch and Poole'):
                                 pg.fill('#q', q); pg.press('#q', 'Enter'); pg.wait_for_timeout(2200)
                                 r = pg.evaluate(CHECK)
-                                if not r['ok']: pg.wait_for_timeout(1500); r = pg.evaluate(CHECK)   # search still settling
+                                for _ in range(12):   # search still settling (slow place lookup under load): wait for THIS query's result, up to ~12 s more; clip checks unchanged
+                                    if r['ok'] and (q == 'BN17 5LF' or q.split(',')[0].lower()[:6] in r.get('text', '').lower()): break
+                                    pg.wait_for_timeout(1000); r = pg.evaluate(CHECK)
                                 if ref is None: ref = r.get('hh')
                                 elif abs(r.get('hh', 0) - ref) > 0.5: bad.append((w, mode, k, q, 'header height %s != %s' % (r.get('hh'), ref)))
                                 want = {'fb': 'Food banks near', 'ws': 'Warm spaces near', 'sh': 'Shelters near'}[k]

@@ -136,12 +136,13 @@ function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data)continue;
   const ot=typeof F!=='undefined'&&F.open&&window.V3&&V3.shutToday;const all=L_.data.items.filter(i=>(!verOnly[k]||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d);const oo=false;const sc=x=>oo?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:0;
   const st=x=>window.V3?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:1;const r=ot?all.slice(0,3):(oo?all.slice(0,60).filter(x=>sc(x)<2&&!x.i.ended).sort((a,b)=>sc(a)-sc(b)||a.d-b.d):all.slice(0,3)).slice(0,3);
+  (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
  const nk=window.__nearK;window.__nearK=null;if(nk&&!window.v3scrollList){const h=[...document.querySelectorAll('#xlist .lh')].find(e=>e.textContent===t(nk==='sh'?'nSh':'nWs'));if(h){const y=h.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.15);setTimeout(()=>scrollTo({top:Math.max(0,y),behavior:'auto'}),0)}}  // Find nearest shelter / warm space: land on that list, not the food banks
  map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
- const fit=()=>{if(window._fitB){map.invalidateSize();map.fitBounds(window._fitB,{animate:false})}};fit();setTimeout(fit,250);return r};  // map can resize when results appear: re-fit so one Search press is enough
+ const fit=()=>{const k=window.v3focus,fx=window._fitX&&window._fitX[k],B=(k==='ws'||k==='sh')&&fx&&innerWidth<1024?fx:window._fitB;if(B){map.invalidateSize();map.fitBounds(B,{animate:false})}};/* phones: fit the LISTED type results (never filters anything) */fit();setTimeout(fit,250);return r};  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];

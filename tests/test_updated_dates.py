@@ -29,6 +29,29 @@ class StampLayers(unittest.TestCase):
     def test_committed_stamp_has_layers(self):
         s = json.loads(open(os.path.join(ROOT, "stamp.js")).read().split("=", 1)[1].rstrip().rstrip(";"))
         self.assertTrue({"fb", "sh", "ws"} <= set(s.get("layers", {})))
+    def test_combine_keeps_the_later_date_of_each_layer(self):
+        # 26 Oct: the food-bank refresh rebased with -X theirs and replaced stamp.js outright,
+        # so the shelters and warm-space refreshes from the same morning disappeared.
+        sys.path.insert(0, os.path.join(ROOT, "scripts"))
+        import stamp
+        fb = {"run": "2026-10-26T05:55:03+00:00", "kind": "refresh", "label": "26 Oct 2026, 05:55",
+              "layers": {"fb": {"run": "2026-10-26T05:55:03+00:00", "label": "26 Oct 2026, 05:55"},
+                         "ws": {"run": "2026-10-25T05:19:00+00:00", "label": "old"},
+                         "sh": {"run": "2026-10-25T05:19:45+00:00", "label": "old"}}}
+        sh = {"run": "2026-10-26T05:34:43+00:00", "kind": "shelters", "label": "26 Oct 2026, 05:34",
+              "layers": {"fb": {"run": "2026-10-25T21:43:05+00:00", "label": "old"},
+                         "ws": {"run": "2026-10-26T05:32:27+00:00", "label": "26 Oct 2026, 05:32"},
+                         "sh": {"run": "2026-10-26T05:34:43+00:00", "label": "26 Oct 2026, 05:34"}}}
+        m = stamp.combine(fb, sh)
+        self.assertEqual(m["layers"]["fb"]["run"], "2026-10-26T05:55:03+00:00")
+        self.assertEqual(m["layers"]["ws"]["run"], "2026-10-26T05:32:27+00:00")
+        self.assertEqual(m["layers"]["sh"]["run"], "2026-10-26T05:34:43+00:00")
+        self.assertEqual(m["run"], "2026-10-26T05:55:03+00:00")
+        for rel in (".github/workflows/refresh.yml", ".github/workflows/refresh-shelters.yml",
+                    ".github/workflows/refresh-warmspaces.yml", ".github/workflows/sweep-daily.yml"):
+            y = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+            self.assertNotIn("pull --rebase -X theirs", y, rel)
+            self.assertIn("refresh_rebase_conflicts.sh", y, rel)
 
 class Watchdog(unittest.TestCase):
     def _mod(self):
