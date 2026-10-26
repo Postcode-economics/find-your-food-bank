@@ -179,9 +179,36 @@ def split_rows(t, pc):
     if listed and set(listed) != got: return {"layout": "split_rows", "unclear": "days listed %s but rows cover %s" % (listed, sorted(got))}
     return {"layout": "split_rows", "structured": _table(rows), "raw": seg[:ms[-1].end()].strip(), "quote": seg[:ms[-1].end()].strip(), "unclear_days": {}}
 
+HEAD = re.compile(r"\b(" + "|".join(f.upper() for f in FULL) + r")\b")
+def day_headings(t, pc):
+    """Upper-case day headings, each over one centre: 'MONDAY Spinney Hill 12pm–2pm ... NN3 6BQ View map TUESDAY ...'
+    (Restore Northampton). The centre's entry runs from its heading to the next heading. The page may repeat the
+    list in a second format; every entry with this postcode must give the same day and time."""
+    hs = list(HEAD.finditer(t))
+    if len(hs) < 3: return None
+    ents = []
+    for i, h in enumerate(hs):
+        body = t[h.end(): hs[i + 1].start() if i + 1 < len(hs) else h.end() + 400]
+        m = re.search("(" + T + r")\s*(?:-|–|—|to)\s*(" + T + ")", body[:80], re.I)
+        if m: ents.append((h.group(1)[:3].lower(), m, body, h))
+    if len(ents) < 3: return None
+    mine = [e for e in ents if _pc_hits(e[2], pc)]
+    if not mine: return {"layout": "day_headings", "unclear": "no day heading over this postcode"}
+    got = set()
+    for d, m, body, h in mine:
+        if len(PC.findall(body.upper())) != 1 or NOT_CLIENT.search(body[:m.start()]):
+            return {"layout": "day_headings", "unclear": "entry is not one centre"}
+        r = rng(m.group(1), m.group(2))
+        if not r: return {"layout": "day_headings", "unclear": "invalid time %s" % m.group(0)}
+        got.add((d, tuple(r)))
+    if len(got) != 1: return {"layout": "day_headings", "unclear": "the page gives this centre different times"}
+    (d, r), = got
+    q = mine[0][3].group(0) + " " + mine[0][2][:mine[0][1].end()].strip()
+    return {"layout": "day_headings", "structured": {d: [list(r)]}, "raw": q, "quote": q, "unclear_days": {}}
+
 def read_centre(text, postcode):
     t = clean(text)
-    for f in (trussell_new, trussell_old, columns, split_rows):
+    for f in (trussell_new, trussell_old, columns, split_rows, day_headings):
         r = f(t, postcode)
         if r is not None: return r
     return None
