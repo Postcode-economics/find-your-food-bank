@@ -110,8 +110,27 @@
     }
   }
 
-  function keep(x, y) {
-    if (window.scrollX !== x || window.scrollY !== y) window.scrollTo(x, y);
+  /* Chromium scrolls a newly focused card into view on a later frame. Put the
+     scroll position back, including when that frame arrives. */
+  function pinScroll(x, y) {
+    var lock = true, busy = false;
+    function fix() {
+      if (!lock || busy) return;
+      if (window.scrollX === x && window.scrollY === y) return;
+      busy = true;
+      window.scrollTo(x, y);
+      busy = false;
+    }
+    fix();
+    window.addEventListener('scroll', fix, true);
+    requestAnimationFrame(function () {
+      fix();
+      requestAnimationFrame(function () {
+        fix();
+        lock = false;
+        window.removeEventListener('scroll', fix, true);
+      });
+    });
   }
 
   window.showMoreResults = function () {
@@ -131,8 +150,7 @@
       var b = document.getElementById('showmore');
       if (b && !b.hidden) b.focus({preventScroll: true});
     }
-    keep(x, y);
-    requestAnimationFrame(function () { keep(x, y); });
+    pinScroll(x, y);
     return added.length;
   };
 
