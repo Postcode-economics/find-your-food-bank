@@ -29,7 +29,7 @@ runs:
         if [ -f uk.mbtiles ] && [ -f config.json ]; then
           sed -i "s#\"root\": *\"[^\"]*\"#\"root\": \"$HOME/offline_map\"#" config.json
           sudo apt-get install -y -qq --no-install-recommends libopengl0 libegl1 libgles2 xvfb >/dev/null 2>&1 || true
-          nohup xvfb-run -a node node_modules/tileserver-gl/src/main.js --config config.json --bind 127.0.0.1 --port 8091 > tileserver.log 2>&1 &
+          LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libpng16.so.16 nohup xvfb-run -a node node_modules/tileserver-gl/src/main.js --config config.json --bind 127.0.0.1 --port 8091 > tileserver.log 2>&1 &
           for i in $(seq 60); do curl -sf -o /dev/null http://127.0.0.1:8091/styles/bright/256/6/31/20.png && break; sleep 1; done
         fi
         if curl -sf -o /dev/null http://127.0.0.1:8091/styles/bright/256/6/31/20.png; then
