@@ -2,6 +2,8 @@
 (served from this checkout via Playwright routing), with cards shown in #list exactly as live does.
 Never render standalone cards. Usage: python3 tests/newlook_render.py OUTDIR id1 id2 ..."""
 import mimetypes, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'scripts'))
+import check_browser as B
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOST = 'https://fyfb.local/'
 CHROME = next((p for p in ('/usr/bin/google-chrome', '/usr/bin/chromium') if os.path.exists(p)), None)
@@ -18,6 +20,7 @@ def open_page(pw, scheme='dark', width=390, base=None):
     ctx = b.new_context(viewport={'width': width, 'height': 844}, device_scale_factor=2, color_scheme=scheme, service_workers='block')
     p = ctx.new_page()
     if base is None: p.route('**/*', _serve); base = HOST + 'index.html'
+    B.stub_map_tiles(p)  # after the catch-all, which aborts anything that is not this checkout
     p.goto(base + '?fresh=1', wait_until='load'); p.wait_for_function('()=>{try{return items.length>1000}catch(e){return false}}', timeout=60000)
     p.wait_for_timeout(800)
     return b, p

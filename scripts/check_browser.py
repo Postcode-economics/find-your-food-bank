@@ -7,13 +7,17 @@ The agent still contains helpmap-check, which is how the site's own analytics be
 
 A page is opened on domcontentloaded, then — the same way as tests/site_ready.py — when the search
 box, the food-bank list and a map pane are on the page. Nothing here waits for networkidle, or for
-the load event: a MapTiler tile connection stays open, so both of those waits hang after the page
-itself is already there.
+the load event: a tile connection stays open, so both of those waits hang after the page itself
+is already there.
+
+new_context() answers tile hosts with scripts/tile_placeholder.png (HTTP 200) so a check never pans
+OpenStreetMap or any other tile server. Set HELPMAP_REAL_TILES=1 to leave that route off. design_lock
+still makes one identified tile request of its own and reports that response.
 
 A navigation is tried again once only for a real network blip (the connection failed). The retry is
 printed. A bot page, a page that loaded but is not the app, and any other error are not tried again.
 """
-import time
+import os, re, time, urllib.error, urllib.request
 
 PHONE_UA = ('Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) '
             'Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check')
@@ -86,16 +90,80 @@ def is_network_blip(exc):
     return any(m in s for m in _BLIPS)
 
 
+# Hosts a map tile can come from. The three in tiles.js, plus hosts a page or an old test might
+# still request. Widening this list does not add a provider to the map.
+_TILE_HOST = (
+    r'(?:[a-z0-9-]+\.)*tile\.openstreetmap\.org'
+    r'|api\.maptiler\.com'
+    r'|tiles\.stadiamaps\.com'
+    r'|tiles\.openfreemap\.org'
+    r'|(?:[a-z0-9-]+\.)*basemaps\.cartocdn\.com'
+    r'|(?:[a-z0-9-]+\.)*tile\.jawg\.io'
+    r'|server\.arcgisonline\.com'
+    r'|(?:[a-z0-9-]+\.)*tile\.thunderforest\.com'
+)
+TILE_RE = re.compile(r'https://(?:%s)/' % _TILE_HOST, re.I)
+TILE_PNG = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tile_placeholder.png'), 'rb').read()
+# One identified tile. OpenStreetMap allows this; it does not allow a headless browser to pan.
+TILE_PROBE_URL = 'https://tile.openstreetmap.org/6/31/20.png'
+TILE_PROBE_UA = 'helpmap.uk-tile-monitor/1.0 (+https://helpmap.uk; hello@helpmap.uk)'
+TILE_PROBE_REFERER = 'https://helpmap.uk/'
+
+
 def is_map_tile(url):
-    """A map image. MapTiler tile URLs end in .png?key=..., so the query is stripped first."""
-    u = (url or '').split('?', 1)[0].split('#', 1)[0]
-    hosts = ('api.maptiler.com', 'tile.openstreetmap.org', 'tiles.stadiamaps.com')
-    return any(h in u for h in hosts) and u.endswith(('.png', '.jpg', '.webp'))
+    """A map tile. The query is stripped first (MapTiler tiles end in .png?key=...).
+    style.json and other non-tiles on those hosts are not tiles. A tile path with no
+    suffix (ArcGIS /tile/z/y/x) still counts."""
+    if not TILE_RE.search(url or ''):
+        return False
+    path = (url or '').split('?', 1)[0].split('#', 1)[0]
+    name = path.rsplit('/', 1)[-1].lower()
+    if name.endswith(('.json', '.js', '.css', '.html', '.svg', '.txt')):
+        return False
+    return True
+
+
+def stub_map_tiles(target):
+    """Fulfill tile-host requests with the bundled placeholder, status 200. No network.
+
+    HELPMAP_REAL_TILES=1 does not register the route. Call this again after unroute(), and
+    after any catch-all route(): the later route is the one Playwright uses, and unroute of
+    a catch-all can drop this one too.
+    """
+    if os.environ.get('HELPMAP_REAL_TILES') == '1':
+        return False
+
+    def _stub(route):
+        route.fulfill(status=200, content_type='image/png', body=TILE_PNG, headers={
+            'access-control-allow-origin': '*',
+            'cache-control': 'public, max-age=604800',
+            'x-helpmap-tile': 'stub',
+        })
+
+    target.route(TILE_RE, _stub)
+    return True
+
+
+def one_real_tile(open_url=None, url=None):
+    """A single tile request with a real user agent and Referer. Not a pan."""
+    url = url or TILE_PROBE_URL
+    req = urllib.request.Request(url, headers={'User-Agent': TILE_PROBE_UA, 'Referer': TILE_PROBE_REFERER}, method='GET')
+    opener = open_url or urllib.request.urlopen
+    try:
+        with opener(req, timeout=20) as r:
+            status = getattr(r, 'status', None) or r.getcode()
+            r.read(64)
+    except urllib.error.HTTPError as e:
+        status = e.code
+    except Exception as e:
+        return {'url': url, 'status': 0, 'ok': False, 'detail': str(e).splitlines()[0][:180]}
+    return {'url': url, 'status': status, 'ok': status == 200, 'detail': ''}
 
 
 def new_context(browser, **kw):
     """A browser context with a normal user agent and the shared time limits. Service workers are
-    blocked unless the caller asks for them (the old-links check is the one that needs them)."""
+    blocked unless the caller asks for them (the old-links check is the one that needs them).
+    Tile hosts are stubbed unless HELPMAP_REAL_TILES=1."""
     instagram = kw.pop('instagram', False)
     width = (kw.get('viewport') or {}).get('width', 1366)
     kw.setdefault('user_agent', user_agent(width, instagram))
@@ -103,6 +171,7 @@ def new_context(browser, **kw):
     c = browser.new_context(**kw)
     c.set_default_timeout(STEP_TIMEOUT)
     c.set_default_navigation_timeout(NAV_TIMEOUT)
+    stub_map_tiles(c)
     return c
 
 

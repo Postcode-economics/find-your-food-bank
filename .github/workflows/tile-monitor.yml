@@ -1,0 +1,22 @@
+# One tile from each configured provider, once a day. Not a map pan.
+# OpenStreetMap's tile policy allows a single identified request and forbids headless browsers
+# sweeping tiles. A non-200 exits 1 so the run is red. MapTiler is skipped while its key is blank.
+# Stadia answers 401 for https://helpmap.uk until the domain is registered on their free plan
+# (or a key is pasted into tiles.js). That 401 is a real flag: the backup cannot paint in production yet.
+name: Tile monitor
+on:
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tiles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/tile_monitor.py

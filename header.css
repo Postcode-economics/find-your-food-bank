@@ -181,3 +181,6 @@ html body .leaflet-popup-content .pop a.btn.call:not(.xfbk){background:#34C759!i
 html:not(.light) #v3tools .v3t,html:not(.light) #v3filt>#v3tools .v3t,html:not(.light) #v3tools .v3t:focus,html:not(.light) #v3filt>#v3tools .v3t:focus,html:not(.light) #v3tools .v3t:active,html:not(.light) #v3filt>#v3tools .v3t:active,html:not(.light) #v3tools .v3t:hover,html:not(.light) #v3filt>#v3tools .v3t:hover{background:transparent!important;color:#F2F4F8!important;opacity:1!important}
 html:not(.light) #v3tools .v3t[aria-pressed=true],html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true],html:not(.light) #v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3tools .v3t[aria-pressed=true]:active,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:active{background:transparent!important;color:#F5C518!important}
 #v3tools .v3t:focus:not(:focus-visible),#v3filt>#v3tools .v3t:focus:not(:focus-visible){outline:none}#v3tools .v3t:focus-visible,#v3filt>#v3tools .v3t:focus-visible{outline:3px solid #F5C518;outline-offset:2px}
+
+/* Tiles stay the provider's own light drawing in dark mode and in light mode. No invert, darken or recolour. */
+#map .leaflet-tile-pane,#map .leaflet-tile,#map .leaflet-tile-container{filter:none!important}

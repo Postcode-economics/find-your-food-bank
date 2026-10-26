@@ -46,7 +46,9 @@ def run(base=None):
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
             for link in links():
                 c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=B.IG_UA, has_touch=True, is_mobile=True, service_workers='allow')
-                c.route('**/*', serve_old); pg = c.new_page(); errs = []
+                c.route('**/*', serve_old)
+                B.stub_map_tiles(c)  # after the catch-all: continue_() would otherwise send tiles to the network
+                pg = c.new_page(); errs = []
                 r = dict(old=commit, link=link)
                 try:
                     for _ in range(2):   # install the old release (its own worker may reload the page itself: tolerate aborts)
@@ -57,7 +59,9 @@ def run(base=None):
                     except Exception: r['old_sw'] = False
                     pg.wait_for_timeout(4000)   # let the old worker finish activating (v83-v86 workers reload their pages)
                     pg.close(); pg = c.new_page()   # fresh tab: an old worker reloading its install tab (v83-v86 did) can't race the test
-                    c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
+                    c.unroute('**/*', serve_old)
+                    B.stub_map_tiles(c)  # unroute drops routes; put the tile stub back before the live page loads
+                    pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
                     try: B.goto(pg, base + link, ready=False)  # area pages have no map app; a bot page fails this link
                     except B.BotPage as e:
                         r.update(ok=False, why=str(e))
