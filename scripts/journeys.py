@@ -16,6 +16,7 @@ Journeys (each counted pass/fail):
 Usage: journeys.py [base-url]   (default: serve this checkout locally). Exit 1 on any failure.
 Results: reports/journeys.md, logs/journeys.json, screenshots of failures in logs/journeys/."""
 import functools, http.server, json, os, sys, threading, time
+import check_browser as B
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 SHOTS = os.path.join(ROOT, 'logs', 'journeys')
 NOTE = 'Showing places open today. If no times are listed, call before you go.'
@@ -54,56 +55,20 @@ def order_ok(pg, k):
         d=[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>{const j=pool.findIndex((x,ix)=>x.n===h.textContent&&!used.has(ix));used.add(j);return j<0?1e9:pool[j].d})}
       const s=[...d].sort((x,y)=>x-y);return {ok:d.length>0&&JSON.stringify(d)===JSON.stringify(s),why:d.length+' cards '+JSON.stringify(d.map(x=>Math.round(x)))}}""", k)
 
-# 25 Oct: the default headless UA contains "HeadlessChrome". Cloudflare then answers with a bot check
-# ("Just a moment...") and holds that connection open, so waiting for networkidle — or for the search box,
-# the food-bank list and the map — times out and the journeys never start. A normal phone or desktop UA
-# is given the real site. ?nocount still keeps the analytics beacon off.
-PHONE_UA = ('Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) '
-            'Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check')
-DESK_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-           'Chrome/129.0.6668.29 Safari/537.36 helpmap-check')
-STEP_TIMEOUT = 15000   # one click, fill or locator
-NAV_TIMEOUT = 20000
-READY_TIMEOUT = 15000  # search box + food-bank data + map pane after the load event
 SUITE_LIMIT = 14 * 60  # finish and print before the 15-minute job step is killed
 
 def fresh(b, w, scheme, geo=False):
-    kw = dict(viewport={'width': w, 'height': 844 if w < 800 else 900}, color_scheme=scheme, service_workers='block',
-              user_agent=PHONE_UA if w < 800 else DESK_UA)
+    kw = dict(viewport={'width': w, 'height': 844 if w < 800 else 900}, color_scheme=scheme)
     if w < 800: kw.update(has_touch=True, is_mobile=True)
     if geo: kw.update(geolocation={'latitude': LH[0], 'longitude': LH[1]}, permissions=['geolocation'])
-    c = b.new_context(**kw); c.set_default_timeout(STEP_TIMEOUT); c.set_default_navigation_timeout(NAV_TIMEOUT)
+    c = B.new_context(b, **kw)  # normal phone or desktop agent, shared time limits, service worker blocked
     c.add_init_script(INIT); return c
 
-def app_state(pg):
-    return pg.evaluate("""()=>{let n=0;try{n=(window.FB_DATA&&FB_DATA.items&&FB_DATA.items.length)||0}catch(e){}
-      const title=document.title||'',wall=/just a moment|performing security verification/i.test(title);
-      return {ok:!!document.querySelector('#q')&&n>100&&!!document.querySelector('#map .leaflet-pane')&&!wall,
-              n:n,pane:!!document.querySelector('#map .leaflet-pane'),wall:wall,title:title.slice(0,80)}}""")
-
 def load(c, base):
-    """Open the map. Wait until the real page is up (not network idle: tiles and a bot check never go idle)."""
-    last = None
-    for attempt in (1, 2):
-        pg = c.new_page()
-        try:
-            pg.goto(base, wait_until='load', timeout=NAV_TIMEOUT)
-            deadline = time.time() + READY_TIMEOUT / 1000
-            state = None
-            while time.time() < deadline:
-                state = app_state(pg)
-                if state.get('ok'):
-                    pg.wait_for_timeout(1000); return pg
-                if state.get('wall'): break
-                pg.wait_for_timeout(250)
-            why = 'Cloudflare showed a bot check instead of the map (%s)' % (state or {}).get('title', '') if state and state.get('wall') else 'app not ready %s' % state
-            raise TimeoutError(why)
-        except Exception as e:
-            last = e
-            try: pg.close()
-            except Exception: pass
-            if attempt == 2 or (isinstance(e, TimeoutError) and 'bot check' in str(e)): raise
-    raise last
+    """Open the map through the shared helper (domcontentloaded, then search, list and map pane)."""
+    pg = B.open_page(c, base)
+    pg.wait_for_timeout(1000)
+    return pg
 
 def scenario(r, journey, tag, body):
     """One page. A timeout or crash is this journey's failure; the suite carries on with the next page."""

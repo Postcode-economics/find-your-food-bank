@@ -1,6 +1,8 @@
 """Search lands exactly where the 'see list' pill does (Dean, 25 Oct 2026, 07:04): one shared scroll for
 food banks, warm spaces and shelters; the list heading sits at the top with no map visible above it."""
-import os, json, unittest, threading, functools, http.server
+import os, json, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 PC = {"status": 200, "result": {"postcode": "BN17 5LF", "latitude": 50.8095, "longitude": -0.5405}}
 POS = """k=>{const t=document.getElementById(k==='fb'?'list':'xlist');const s=document.getElementById('v3sos');
@@ -34,7 +36,7 @@ class Browser(unittest.TestCase):
                 for k in ("fb", "ws", "sh"):
                     c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block", reduced_motion="reduce")
                     c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(PC)))
-                    pg = c.new_page(); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+                    pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
                     pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)
                     pg.fill("#q", "BN17 5LF"); pg.press("#q", "Enter"); pg.wait_for_timeout(3500)
                     a = pg.evaluate(POS, k)

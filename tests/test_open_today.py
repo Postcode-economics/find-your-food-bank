@@ -1,6 +1,8 @@
 """Open today (Dean, 25 Oct 2026): the control stays tappable with Warm spaces or Shelters selected,
 and it hides warm spaces / shelters listed as closed today (places with no times stay listed)."""
-import os, json, unittest, threading, functools, http.server
+import os, json, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 V3 = open(os.path.join(ROOT, "v3.js"), encoding="utf-8").read()
 LJ = open(os.path.join(ROOT, "layers.js"), encoding="utf-8").read()
@@ -34,7 +36,7 @@ class Browser(unittest.TestCase):
             for w in (390, 1366):
                 for k in ("ws", "sh", "fb"):
                     c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block")
-                    pg = c.new_page(); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+                    pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
                     pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(800)
                     pg.click("#v3open", timeout=3000)   # a real tap on the visible chip
                     pg.wait_for_timeout(300)
@@ -42,7 +44,7 @@ class Browser(unittest.TestCase):
                     c.close()
             # filtering: every listed warm space / shelter is open today or has no times
             c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
-            pg = c.new_page(); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+            pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
             pg.click(".v3b[data-l=ws]"); pg.wait_for_timeout(800); pg.click("#v3open"); pg.wait_for_timeout(300)
             for lat, lng in ((51.5074, -0.1278), (53.4808, -2.2426), (55.9533, -3.1883), (50.8095, -0.5405)):
                 bad = pg.evaluate("""([a,b])=>{nearest(a,b,'test');const out=[];let n=0;for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(!D)continue;
@@ -52,7 +54,7 @@ class Browser(unittest.TestCase):
             c.close()
             # note: hidden when off, shown with the exact text when on
             c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
-            pg = c.new_page(); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+            pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
             vis = lambda: pg.evaluate("()=>{const e=document.querySelector('.tnote');return !e.hidden&&e.offsetParent!==null}")
             self.assertFalse(vis())
             pg.click("#v3open"); pg.wait_for_timeout(300)
