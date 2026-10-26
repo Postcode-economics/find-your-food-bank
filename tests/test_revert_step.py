@@ -8,8 +8,13 @@ class T(unittest.TestCase):
         self.assertIn('set -euo pipefail', blk); self.assertIn('git reset -q --hard', blk)
         self.assertNotIn('main && bash', blk); self.assertIn('Auto-revert', blk)
     def test_journeys_no_networkidle_load(self):
+        # PR 127 replaced the blanket wait_until='load' retry (it also retried a bot page) with
+        # check_browser.open_page: domcontentloaded, then the search box, list and map pane.
         s = open(os.path.join(R, 'scripts', 'journeys.py')).read()
-        self.assertIn("wait_until='load'", s); self.assertIn('J0 suite ran to the end', s)
+        self.assertNotIn("wait_until='networkidle'", s)
+        self.assertNotIn('for attempt in (1, 2)', s)
+        self.assertIn('open_page', s)
+        self.assertIn('J0 suite ran to the end', s)
 
 
 class SupersededAndV88(__import__('unittest').TestCase):

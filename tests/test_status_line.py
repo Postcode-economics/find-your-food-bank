@@ -1,6 +1,8 @@
 """Header status line (Dean 25 Oct 13:32): 'Food banks near you' / 'Food banks near <place>', never overflowing or clipped
 at 320, 360, 390 and 1366 px, light and dark, on all three types; Dean 13:35: fixed font, ONE line, header height identical to the short-text case, no overflow, no ellipsis; if it does not fit, just the place name."""
-import functools, http.server, importlib.util, os, threading, unittest
+import functools, http.server, importlib.util, os, sys, threading, unittest
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
 HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None
 CHECK = r"""()=>{const a=document.querySelector('#v3pill .v3pl');if(!a||!a.offsetParent)return {ok:false,why:'no status line'};
@@ -27,7 +29,7 @@ class T(unittest.TestCase):
                 for w in (320, 360, 390, 1366):
                     for mode in ('light', 'dark'):
                         c = b.new_context(viewport={'width': w, 'height': 800}, color_scheme=mode, service_workers='block'); pg = c.new_page()
-                        pg.goto('http://127.0.0.1:%d/?nocount' % s.server_address[1], wait_until='networkidle'); pg.wait_for_timeout(800)
+                        open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                         pg.evaluate("m=>document.documentElement.classList.toggle('light',m==='light')", mode)
                         for k in ('fb', 'ws', 'sh'):
                             pg.evaluate("k=>{const t=document.querySelector('#v3big [data-l='+k+']');if(t)t.click()}", k)
@@ -75,7 +77,7 @@ class LongestNames(unittest.TestCase):
         try:
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path=CH); pg = b.new_page(viewport={'width': 320, 'height': 800}, service_workers='block')
-                pg.goto('http://127.0.0.1:%d/?nocount' % s.server_address[1], wait_until='networkidle'); pg.wait_for_timeout(800)
+                open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                 pg.fill('#q', 'Croydon'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
                 names = pg.evaluate("ns=>ns.map(v3short)", names)   # what the status line actually shows
                 too_long = pg.evaluate("""ns=>{const a=document.querySelector('#v3pill .v3pl');const out=[];const fs=getComputedStyle(a).fontSize;

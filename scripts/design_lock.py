@@ -8,6 +8,7 @@ On list cards AND pin pop-up cards, all three types, 390 and 1366 px, light and 
 Usage: python scripts/design_lock.py [BASE_URL] [--measure]. Report: reports/design_lock.md, logs/design_lock.json."""
 import functools, http.server, json, os, sys, threading
 from playwright.sync_api import sync_playwright
+import check_browser as B
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 CHROME = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
 LOCK = json.load(open(os.path.join(ROOT, 'scripts', 'design_lock.json')))
@@ -79,19 +80,26 @@ def run(base=None, measure=False):
         b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
         for w in (390, 1366):
             for mode in ('light', 'dark'):
-                kw = dict(viewport={'width': w, 'height': 900}, color_scheme=mode, service_workers='block', user_agent='Mozilla/5.0 helpmap-check')
+                kw = dict(viewport={'width': w, 'height': 900}, color_scheme=mode)
                 if w < 800: kw.update(has_touch=True, is_mobile=True)
-                c = b.new_context(**kw); pg = c.new_page()
+                c = B.new_context(b, **kw); pg = c.new_page()
                 tiles = {'ok': 0, 'bad': 0}
                 def _t(r, tiles=tiles):
-                    if 'api.maptiler.com' in r.url and '/tiles/' in r.url or 'api.maptiler.com/maps/' in r.url and r.url.endswith(('.png', '.jpg', '.webp')):
+                    if B.is_map_tile(r.url):
                         ok = r.status == 200 and 'image' in (r.headers.get('content-type') or '')
                         tiles['ok' if ok else 'bad'] += 1
                 pg.on('response', _t)
-                pg.goto(base + '/?nocount', wait_until='load', timeout=45000)
-                pg.wait_for_function("()=>!!document.querySelector('#q')&&typeof items!=='undefined'&&items.length>100", timeout=30000); pg.wait_for_timeout(1000)
+                before = len(bad)
+                try:
+                    B.goto(pg, base + '/?nocount')
+                    pg.wait_for_timeout(1000)
+                except Exception as e:
+                    bad.append('%dpx %s: page did not open: %s' % (w, mode, str(e).splitlines()[0][:200]))
+                    print('FAIL design-lock %dpx %s (page)' % (w, mode), flush=True)
+                    c.close(); continue
                 pg.evaluate("m=>{document.documentElement.classList.toggle('light',m==='light');try{localStorage.setItem('theme',m)}catch(e){}}", mode)
-                for k, sel in (('fb', '#list .card'), ('ws', '#xlist .card.xws'), ('sh', '#xlist .card.xsh')):
+                try:
+                  for k, sel in (('fb', '#list .card'), ('ws', '#xlist .card.xws'), ('sh', '#xlist .card.xsh')):
                     pg.evaluate("k=>{const t=document.querySelector('#v3big [data-l='+k+']');if(t)t.click()}", k); pg.wait_for_timeout(500)
                     for q in PLACES:
                         pg.fill('#q', q); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
@@ -120,9 +128,13 @@ def run(base=None, measure=False):
                     if not pc: bad.append('%dpx %s %s pin pop-up: pin tapped, no pop-up card' % (w, mode, k))
                     elif not measure: bad += check(pc, mode, '%dpx %s %s pin pop-up' % (w, mode, k), k)
                     pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
-                if base.startswith('https://'):   # cheap live tile check (local copies have no key for the domain)
+                except Exception as e:
+                    bad.append('%dpx %s: %s' % (w, mode, str(e).splitlines()[0][:200]))
+                TILES.append((w, mode, tiles['ok'], tiles['bad']))
+                if base.startswith('https://'):   # live: the map must actually load tiles. A local run reports the count and still passes if the tile host is unreachable.
                     if not tiles['ok'] or tiles['bad'] > tiles['ok'] // 10: bad.append('%dpx %s map tiles: %d ok, %d failed' % (w, mode, tiles['ok'], tiles['bad']))
-                    TILES.append((w, mode, tiles['ok'], tiles['bad']))
+                added = len(bad) - before
+                print(('PASS' if added == 0 else 'FAIL'), 'design-lock %dpx %s' % (w, mode), '' if added == 0 else '(%d)' % added, flush=True)
                 if counts is None or not counts.get('ws'):
                     try: counts = data_counts(pg)   # after all three tabs loaded their data
                     except Exception as e: counts = {'error': str(e)[:100]}

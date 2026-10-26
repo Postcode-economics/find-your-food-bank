@@ -1,6 +1,8 @@
 """Public page claims match the code and data (Dean, 25 Oct 2026): FAQ times come from the workflow crons (UTC -> UK time,
 GMT and BST), SWEP figures are baked from data, no season-only wording, the 44x44 touch claim holds, label texts match."""
 import os, re, sys, json, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 rd = lambda f: open(os.path.join(ROOT, f), encoding="utf-8").read()
 def cron(wf):
@@ -59,7 +61,7 @@ class TouchTargets(unittest.TestCase):
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
                 for w in (390, 1366):
-                    pg = b.new_page(viewport={"width": w, "height": 844}); pg.goto(f"http://127.0.0.1:{srv.server_address[1]}/?fresh=1", wait_until="networkidle"); pg.wait_for_timeout(1500)
+                    pg = b.new_page(viewport={"width": w, "height": 844}); open_map(pg, f"http://127.0.0.1:{srv.server_address[1]}/?fresh=1"); pg.wait_for_timeout(1500)
                     pg.evaluate("()=>nearest(50.8095,-0.5405,'BN17 5LF')"); pg.wait_for_timeout(800)
                     small = pg.evaluate("()=>[...document.querySelectorAll('button, a.btn, .fchip, label.tog')].filter(e=>e.offsetParent!==null&&!e.closest('.leaflet-container')).map(e=>{const r=e.getBoundingClientRect();return [e.id||String(e.className).slice(0,30),Math.round(r.width),Math.round(r.height)]}).filter(x=>x[1]&&(x[1]<44||x[2]<44))")
                     self.assertEqual(small, [], w)

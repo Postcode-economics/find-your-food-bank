@@ -9,6 +9,7 @@ For a fixed set of real searches on all three types it drives the real page (loc
 Searches use the live postcodes.io API. If postcodes.io cannot be reached at all, the check reports SKIPPED (exit 0)
 rather than blocking a refresh on someone else's outage. Results: reports/sense_check.md + logs/sense_check.json."""
 import functools, http.server, json, math, os, sys, threading, urllib.request
+import check_browser as B
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 TOL_KM = 40
 # query -> ONS CTYUA name the result must be near (counties.json)
@@ -42,8 +43,8 @@ def run(base=None, chrome=None):
         kw = {'executable_path': chrome} if chrome else {}
         b = p.chromium.launch(**kw)
         for w in (390, 1366):
-            c = b.new_context(viewport={'width': w, 'height': 844}, service_workers='block'); pg = c.new_page()
-            pg.goto(base, wait_until='networkidle'); pg.wait_for_timeout(1500)
+            c = B.new_context(b, viewport={'width': w, 'height': 844}); pg = c.new_page()
+            B.goto(pg, base); pg.wait_for_timeout(1500)
             for q, area in (SEARCHES if w == 390 else SEARCHES[:4]):  # desktop: a smaller set (same code path)
                 for k in TYPES:
                     for on in (False, True):

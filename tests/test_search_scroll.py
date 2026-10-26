@@ -1,6 +1,8 @@
 """Search/Enter follows the selected type (Dean, 25 Oct 2026): with Warm spaces or Shelters selected,
 an explicit search lands on that list, not the food bank cards. Food banks / no type: unchanged."""
-import os, json, unittest, threading, functools, http.server
+import os, json, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SRC = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
 PC = {"status": 200, "result": {"postcode": "BN17 5LF", "latitude": 50.8095, "longitude": -0.5405}}
@@ -33,7 +35,7 @@ class Browser(unittest.TestCase):
                     for how in ("enter", "button"):
                         c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block")
                         c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(PC)))
-                        pg = c.new_page(); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+                        pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
                         pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)
                         pg.fill("#q", "BN17 5LF")
                         if how == "enter": pg.press("#q", "Enter")

@@ -1,5 +1,6 @@
 import json,sys
 from playwright.sync_api import sync_playwright
+import check_browser as B
 JS=r"""async()=>{
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const sig=c=>{const links=[...c.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).sort();
@@ -14,11 +15,11 @@ for(const [k,src] of [['ws','WARMSPACES'],['sh','SHELTERS']])await run(k,(window
 return out}"""
 def grab(port):
     with sync_playwright() as p:
-        b=p.chromium.launch(executable_path="/usr/bin/google-chrome");pg=b.new_page(viewport={"width":390,"height":844})
+        b=p.chromium.launch(executable_path="/usr/bin/google-chrome");c=B.new_context(b,viewport={"width":390,"height":844});pg=c.new_page()
         def rt(route):
             r=route.fetch();t=r.text();i=t.index('\n})();')+1;route.fulfill(response=r,body=t[:i]+'window.__detail=detail;'+t[i:])
         pg.route('**/layers.js*',rt)
-        pg.goto(f"http://127.0.0.1:{port}/?fresh=1",wait_until="networkidle");pg.wait_for_timeout(1500)
+        B.goto(pg,f"http://127.0.0.1:{port}/?fresh=1");pg.wait_for_timeout(1500)
         for f in ("shelters.js","warmspaces.js"): pg.add_script_tag(url=f"http://127.0.0.1:{port}/{f}")
         pg.wait_for_timeout(800);r=pg.evaluate(JS);b.close();return r
 a=grab(8766);b=grab(8765)
