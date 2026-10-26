@@ -6,15 +6,16 @@ current build. Usage: python scripts/old_links.py [BASE_URL] (default: local che
 Report: reports/old_links.md + logs/old_links.json."""
 import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
 from playwright.sync_api import sync_playwright
+import check_browser as B
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # commit -> must the FIRST open already show the latest build? v80's worker served HTML cache-first, so its first open shows the
 # old (working) page and the next open is the latest; v85+ pages carry the self-heal check and must show the latest at once.
 OLD_COMMITS = {'3dc505a65': True, '384b862f1': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
-IG = ('Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 '
-      'Instagram 330.0.0.0 (iPhone14,5; iOS 17_4; en_GB; en-GB; scale=3.00; 1170x2532; 600000000) helpmap-check')
+# Dean 25 Oct 18:55: the broken old link was opened from Instagram's in-app browser. iOS uses B.IG_UA
+# (the shared agent, so a HeadlessChrome identity cannot draw Cloudflare's bot page). Android is the same check.
 IGA = ('Mozilla/5.0 (Linux; Android 14; SM-S911B Build/UP1A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0.6668.100 '
        'Mobile Safari/537.36 Instagram 352.0.0.38.100 Android (34/14; 450dpi; 1080x2340; samsung; SM-S911B; dm1q; qcom; en_GB; 600000000) helpmap-check')
-UAS = (IG, IGA)   # Dean 25 Oct 18:55: broken old link was opened from Instagram's in-app browser - test iOS and Android IG WebViews
+UAS = (('ios', B.IG_UA), ('android', IGA))
 CHROME = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
 
 def snapshot(commit):
@@ -48,10 +49,10 @@ def run(base=None):
                 f = os.path.join(old, path.lstrip('/')); f = os.path.join(f, 'index.html') if os.path.isdir(f) else f
                 if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
-            for link, ua in [(l, u) for l in links() for u in UAS]:
-                c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True)
+            for link, (uaname, ua) in [(l, u) for l in links() for u in UAS]:
+                c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True, service_workers='allow')
                 c.route('**/*', serve_old); pg = c.new_page(); errs = []
-                r = dict(old=commit, link=link, ua='ios' if ua is IG else 'android')
+                r = dict(old=commit, link=link, ua=uaname)
                 try:
                     for _ in range(2):   # install the old release (its own worker may reload the page itself: tolerate aborts)
                         try: pg.goto(base + '/?nocount', wait_until='load', timeout=30000)
@@ -62,7 +63,10 @@ def run(base=None):
                     pg.wait_for_timeout(4000)   # let the old worker finish activating (v83-v86 workers reload their pages)
                     pg.close(); pg = c.new_page()   # fresh tab: an old worker reloading its install tab (v83-v86 did) can't race the test
                     c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
-                    try: pg.goto(base + link, wait_until='load', timeout=30000)
+                    try: B.goto(pg, base + link, ready=False)  # area pages have no map app; a bot page fails this link
+                    except B.BotPage as e:
+                        r.update(ok=False, why=str(e))
+                        res.append(r); print('FAIL', commit, r['ua'], link, r['why'], flush=True); c.close(); continue
                     except Exception as e: r['slow_load'] = str(e)[:80]   # judged by what the visitor sees next, below
                     pg.wait_for_timeout(7000)
                     try: pg.wait_for_function("document.readyState==='complete'", timeout=15000)
@@ -74,7 +78,7 @@ def run(base=None):
                     if errs: r['ok'] = False; r['why'] += ', errors: ' + '; '.join(errs[:2])
                 except Exception as e:
                     r.update(ok=False, why='page hung or failed: %s' % str(e)[:150])
-                res.append(r); print('PASS' if r['ok'] else 'FAIL', commit, r['ua'], link, r['why'], flush=True); c.close()
+                res.append(r); print('PASS' if r['ok'] else 'FAIL', commit, r.get('ua', ''), link, r['why'], flush=True); c.close()
         b.close()
     if srv: srv.shutdown()
     bad = [r for r in res if not r['ok']]

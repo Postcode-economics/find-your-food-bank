@@ -1,4 +1,4 @@
-# New today (2026-10-25)
+# New today (2026-10-26)
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
@@ -11,6 +11,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Oldham Foodbank · OL1 4ER · https://www.givefood.org.uk/needs/at/oldham/
 - Sunderland Foodbank · SR2 8AH · https://www.givefood.org.uk/needs/at/sunderland/
 - Blyth Foodbank · NE24 1AY · https://www.givefood.org.uk/needs/at/blyth/
+- Welshpool and District Foodbank · SY21 7LN · https://www.givefood.org.uk/needs/at/welshpool-and-district/
 - Gatehouse (Bury St Edmunds) Foodbank · IP33 3TU · https://www.givefood.org.uk/needs/at/gatehouse-bury-st-edmunds/
 - Trafford South Foodbank · WA14 5NX · https://www.givefood.org.uk/needs/at/trafford-south/
 - Belton Pantry Foodbank · NR31 9LD · https://www.givefood.org.uk/needs/at/belton-pantry/
@@ -26,6 +27,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Antrim Foodbank · BT41 1JZ · https://www.givefood.org.uk/needs/at/antrim/
 - Oxford Food Hub · OX2 0LX · https://www.givefood.org.uk/needs/at/oxford-food-hub/
 - Oasis Food Bank · BN3 8EQ · https://www.givefood.org.uk/needs/at/shoreham/
+- Sidley · TN39 4FL · https://www.givefood.org.uk/needs/at/bexhill/
 - United Reform Church, Horsham · RH12 2RG · https://www.givefood.org.uk/needs/at/horsham-district/
 - Worcester · WR1 2PN · https://www.givefood.org.uk/needs/at/salvation-army/
 - Fressingfield Methodist Church · IP21 5PG · https://www.givefood.org.uk/needs/at/waveney/
@@ -54,7 +56,6 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Hopeworx · SS6 7XJ
 - St Paul's Pantry (St Paul's Wimbledon Parkside) · SW19 6EW
 - Cornerstone Day Centre - Caritas Diocese of Salford · M15 6JS
-- Holy Trinity Church, Wester Hailes · EH14 2SL
 - Teign Valley Larder CIC (Christow) · EX6 7LZ
 - Carpenters Cafe · E15 2JL
 - AROUND AGAIN CHARITY · B37 6DX
@@ -66,6 +67,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Hangar Community Hub CIC · CF11 8TT
 - The Gospel Church of Jesus Christ · WC1B 3PP
 - Dorchester Community Church FOOD SHARE · DT1 3DF
+- Shipshape Health and Wellbeing · S11 8AE
 - Bryncynon Strategy · CF45 4XZ
 - Shoreline Church Food Bank · PR9 0TS
 - Touch of Love Outreach · AB11 9LA
@@ -74,8 +76,6 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Christ Apostolic Church Mount of Rehoboth · WV13 1QU
 - Bridge Church Food Bank · DN22 6AA
 - The Life House · B29 6PB
-- Chance Changing Lives · CW1 4EJ
-- Sidley · TN39 4FL · https://www.givefood.org.uk/needs/at/bexhill/
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS
@@ -86,8 +86,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 3 added
+## Warm spaces: 2 added
 - Saifee Mosque · B18 6PU
 - The Midlands Greek & Cypriot Association · B23 7SJ
-- Marlborough Primary School · B10 9NY
 

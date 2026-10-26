@@ -7,7 +7,10 @@ try:
 except Exception: HAVE = False
 class T(unittest.TestCase):
     def test_wired_into_deploy_check(self):
-        s = open(os.path.join(R, '.github', 'workflows', 'deploy-check.yml')).read(); self.assertIn('scripts/dark_default.py https://helpmap.uk', s)
+        s = open(os.path.join(R, '.github', 'workflows', 'deploy-check.yml')).read()
+        self.assertIn('scripts/dark_default.py https://helpmap.uk', s)
+        self.assertIn('steps.darkdefault.outcome', s)  # its own step, named in the alert, not chained with &&
+        self.assertNotIn('&& python scripts/dark_default.py', s)
     @unittest.skipUnless(HAVE, 'needs playwright')
     def test_dark_default_local(self):
         import dark_default

@@ -62,11 +62,15 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source no longer names this place"
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "osm-way-180604493",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -91,6 +95,10 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
+   },
+   {
+    "id": "osm-way-608979359",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -126,7 +134,7 @@
    },
    {
     "id": "osm-way-1104948217",
-    "reason": "source unreachable this run (HTTP error)"
+    "reason": "source no longer names this place"
    },
    {
     "id": "osm-way-1262733230",
@@ -155,6 +163,18 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "robes-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "hab-barnet-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "man-glasgow-city-mission-owc",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    }
   ]
  },
@@ -219,22 +239,6 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-67979812",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-65437506",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-58358850",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-57952705",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-68762729",
     "reason": "published times not found on source this run"
    },
@@ -255,20 +259,8 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "ww-65437496",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
-   },
-   {
-    "id": "ww-69080400",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-68672320",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-67608542",

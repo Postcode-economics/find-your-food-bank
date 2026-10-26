@@ -42,9 +42,9 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - Fixed: Christine Court, Men's Hostel Belfast, Talbot Association and DENS The Elms phones (operator numbers); St Johns Community Hub removed as duplicate; Crossways, Jubilee Centre, Soham, Kings Baptist, Neighbourhood Table dates confirmed current; Chittlehampton set to "Call to check".
 
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
-## Auto-discovery queue (2026-10-25) — failed one auto-add check, not on the map
+## Auto-discovery queue (2026-10-26) — failed one auto-add check, not on the map
 
-### Food banks: 298 queued, 0 rejected
+### Food banks: 296 queued, 0 rejected
 - QUEUED Hive Hope · DA11 0RB · https://www.hivehope.org.uk. — own site unreachable (HTTP error)
 - QUEUED Bethlehem House of Bread (Condorrat Parish Church) · G67 4DZ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Bright Morning Star Prisons and Homelessness Outreach · SE11 4HZ · https://Www.thebrightmorningministries.com — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -93,8 +93,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Wells Vineyard Foodbank / The Wells Storehouse · BA5 1DA · https://www.wellsvineyard.com — own site unreachable (HTTP 404)
 - QUEUED Rokzkool Academy (SCIO) · IV4 7EH · https://www.rokzkoolacademy.org — own site unreachable (HTTP 403)
 - QUEUED Rokzkool Academy (SCIO) · IV3 8HE · https://www.rokzkoolacademy.org — own site unreachable (HTTP 403)
-- QUEUED Friends of Isaacs Food Bank · B97 6HX · https://www.teamisaac.co.uk — own site does not name it; own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Friends of Isaacs Food Bank · B98 9HL · https://www.teamisaac.co.uk — own site does not name it; own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Friends of Isaacs Food Bank · B97 6HX · https://www.teamisaac.co.uk — own site unreachable (HTTP error)
+- QUEUED Friends of Isaacs Food Bank · B98 9HL · https://www.teamisaac.co.uk — own site unreachable (HTTP error)
 - QUEUED Food4All · E7 9LW · https://www.food4alluk.org/ — own site unreachable (HTTP error)
 - QUEUED Saint Vincent de Paul Society (St Mary's Cathedral) · AB10 1SH · https://www.stmaryscathedralaberdeen.org/groups/groups-2/non-liturgical/st-vincent/ — own site does not show food aid
 - QUEUED Social Echo North Huntingdonshire · PE7 3AT · https://www.socialecho.uk — own site unreachable (HTTP 403)
@@ -143,7 +143,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Swansea Eastside Foodbank · SA1 7JR — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Sunderland African Community Association (SACA) · SR4 7BN · https://www.afrocommunity.co.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hearts and Hands Stafford · ST18 0BF · https://www.heartsandhands-stafford.co.uk — own site unreachable (HTTP error)
-- QUEUED Spring Community Hub · SE5 8LU · https://www.cschub.co.uk — own site does not name it; own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Spring Community Hub · SE5 8LU · https://www.cschub.co.uk — own site unreachable (HTTP 403)
 - QUEUED The Peoples Pantry NE · NE38 8AQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Feed A Child Torbay · TQ2 8GR · https://www.feedachildtorbay.org.uk — own site does not show food aid
 - QUEUED Edinburgh City Mission - Granton Foodbank+ · EH5 2NW · https://www.edinburghcitymission.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -152,10 +152,11 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED NGC Community Hub · NG6 0JU · https://www.ngcnottingham.com/ngchub — own site unreachable (HTTP 404)
 - QUEUED Machars Churches Basics Food Bank · DG8 6EL · https://www.angycarehealth.co.uk — own site does not name it; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The5es Development · E16 3PJ · https://www.the5es.org — own site unreachable (HTTP error)
+- QUEUED Holy Trinity Church, Wester Hailes · EH14 2SL · https://www.holytrinitywesterhailes.org.uk — own site unreachable (HTTP 522)
 - QUEUED The Bus Shelter Ipswich CIC · IP2 8LR — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — own site has no readable text
 - QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA61 1QE · https://www.patchcharity.org.uk — own site has no readable text
-- QUEUED Homeschool Social Enterprise/ Active Christians · WS10 0GB · https://www.activechristians.org.uk — own site has no readable text
+- QUEUED Homeschool Social Enterprise/ Active Christians · WS10 0GB · https://www.activechristians.org.uk — own site unreachable (HTTP error)
 - QUEUED Neema Women Community · B12 8LF · https://www.neemawomen.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Neema Women Community · B29 7EL · https://www.neemawomen.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hurst Green Community Fridge · RH8 0LB — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -194,7 +195,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED EMS Ltd · HU9 3QB · https://www.emsyorkshire.co.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Caritas Portsmouth · PO9 1LP · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
 - QUEUED Caritas Portsmouth · PO1 3QA · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
-- QUEUED Caritas Portsmouth · SO17 3SB · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
+- QUEUED Caritas Portsmouth · SO17 3SB · https://www.caritasportsmouth.org.uk — own site unreachable (HTTP 502)
 - QUEUED Trust House Whitefield · BL9 9AU · https://www.trusthousewhitefield.org — own site redirects to a different site (trusthousebury.org)
 - QUEUED Littleport Independent Foodbank · CB6 1PS — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Collective Sharehouse · YO23 1BW · https://www.thecollectivesharehouse.co.uk — own site does not show food aid
@@ -248,7 +249,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED The Easter Team · RH10 1FP · https://www.theeasterteam.org — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Baby Box Isle of Wight · PO38 1AS — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Second Chance Charity · ME4 4DH · https://www.2ndchancemedway.org — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Spring Community Hub (Foursquare Church) · SE17 1RW · https://www.cschub.co.uk — own site does not name it; own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Spring Community Hub (Foursquare Church) · SE17 1RW · https://www.cschub.co.uk — own site unreachable (HTTP 403)
 - QUEUED StarRizeUK · N15 4BN · https://starrize.uk/ & https://woodgreenfoodbank.org/ — own site unreachable (HTTP error)
 - QUEUED Wythenshawe Food Poverty Group · M23 0PH · https://www.st-matthews.org.uk/food-bank/ — own site unreachable (HTTP 404)
 - QUEUED RMUK Wellbeing Community Interest Company · SE12 0ST · https://www.rmukwellbeing.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -256,7 +257,6 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Be Enriched · SW4 8EP · https://www.be-enriched.org — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Be Enriched · SE1 6SN · https://www.be-enriched.org — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Be Enriched · SW17 9NQ · https://www.be-enriched.org — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Shipshape Health and Wellbeing · S11 8AE · https://www.shipshape.org.uk — own site has no readable text
 - QUEUED Glossopdale Foodbank · SK13 0LU · https://www.glossopdalefoodbank.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED St Aidan's Church Leeds -Food Share · LS8 5DQ · https://www.staidan-leeds.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Reverse The Trend Foundation · NW10 5YT · https://www.reversethetrend.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -341,15 +341,13 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Heart of the Community Foodbank Swadlincote · DE11 0TW — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Community Food Bank Skye & Lochalsh · IV51 9EH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
-- QUEUED The Bright Morning Star Prisons and Homelessness Outreach · SW9 7PT · https://Www.thebrightmorningministries.com — own site unreachable (HTTP error)
-- QUEUED Highwayhope · M12 4QW · https://www.Highwayhope.co.uk — own site unreachable (HTTP error)
 
-### Shelters: 52 queued, 0 rejected
-- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
+### Shelters: 51 queued, 0 rejected
+- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Alms Houses · B48 7SE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added
+- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED The Wellspring Stockport · SK1 1YD — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED The Wallich · NP4 6JQ · https://thewallich.com/services/torfaen-tenancy-support/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
 - QUEUED The Shrewsbury Ark · SY1 2EH · https://www.shrewsburyark.co.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
@@ -396,11 +394,10 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Brighton & Hove City Council - New Steine Mews Hostel · BN2 1QP · http://www.nsmhostel.org.uk — own site has no readable text
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
-- QUEUED Cardinal Hume Centre Hostel · http://https://www.cardinalhumecentre.org.uk — no valid postcode
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2252 queued, 2 rejected
+### Warm spaces: 2251 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -502,7 +499,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Age Connects West Midlands - Boldmere · B73 5TJ · https://www.birmingham.gov.uk/directory_record/430256/age_connects_west_midlands_-_boldmere — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Hawkesley Community Centre · B38 9RN · https://www.birmingham.gov.uk/directory_record/430263/age_connects_west_midlands_-_hawkesley_community_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Age Connects West Midlands - Moorfield · B34 6QX · https://www.birmingham.gov.uk/directory_record/430262/age_connects_west_midlands_-_moorfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Al Mahdi Institute · B29 6RB · https://almahdi.edu/ — own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED Al Mahdi Institute · B29 6RB · https://almahdi.edu/ — own site does not mention a warm space
 - QUEUED All Saint's Church and Centre · B74 4TR · https://www.birmingham.gov.uk/directory_record/580351/all_saints_church_and_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED All Saints Parish Church Gravelly Hill · B23 7QB · https://www.birmingham.gov.uk/directory_record/494179/all_saints_parish_church_gravelly_hill — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Allies Network C.I.C. · B12 9LX · https://www.birmingham.gov.uk/directory_record/424484/allies_network_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -550,7 +547,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -593,7 +590,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Haymillscc · B25 8LD · https://www.birmingham.gov.uk/directory_record/580146/haymillscc — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Heath Street Practice (Saathi House) · B18 7AL · https://www.birmingham.gov.uk/directory_record/858814/heath_street_practice_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Help Harry Help Others Drop In Cancer Support Centre · B33 0AW · https://www.birmingham.gov.uk/directory_record/691951/help_harry_help_others_drop_in_cancer_support_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Highgate Medical Centre- Saheli Hub · B12 0YA · https://saheli.co.uk — own site has no readable text
+- QUEUED Highgate Medical Centre- Saheli Hub · B12 0YA · https://saheli.co.uk — own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Holloway Hall · B31 1TT · https://www.birmingham.gov.uk/directory_record/424485/holloway_hall — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Home-Start Birmingham Central and South West · B16 9NX · https://www.birmingham.gov.uk/directory_record/619065/home-start_birmingham_central_and_south_west — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Home-Start Birmingham Ladywood · B16 8UR · https://www.birmingham.gov.uk/directory_record/619066/home-start_birmingham_ladywood — directory listing only, with no 2026-27 season dates (latest stated start: none)

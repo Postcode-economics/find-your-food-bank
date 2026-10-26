@@ -1,6 +1,8 @@
 """One Open today control and one note for all three lists (Dean, 25 Oct 2026 07:18); 'Verified only' hides exactly
 the cards labelled 'Unverified – call before you go'."""
-import os, json, unittest, threading, functools, http.server
+import os, json, sys, unittest, threading, functools, http.server
+sys.path.insert(0, os.path.dirname(__file__))
+from site_ready import open_map
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 LJ = open(os.path.join(ROOT, "layers.js"), encoding="utf-8").read()
 
@@ -26,7 +28,7 @@ class Browser(unittest.TestCase):
         base = f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
-            pg = b.new_page(viewport={"width": 390, "height": 844}); pg.goto(base, wait_until="networkidle"); pg.wait_for_timeout(1500)
+            pg = b.new_page(viewport={"width": 390, "height": 844}); open_map(pg, base); pg.wait_for_timeout(1500)
             for k in ("fb", "ws", "sh"):
                 pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)
                 for on in (False, True):

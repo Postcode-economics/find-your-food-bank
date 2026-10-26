@@ -1,11 +1,12 @@
-# SWEP tracker - 2026-10-25
+# SWEP tracker - 2026-10-26
 
-Councils still to check (status unknown or unreachable): **25 of 382**.
+Councils still to check (status unknown or unreachable): **23 of 382**.
 
 | day | still to check |
 |---|---|
 | 2026-10-24 | 0 |
 | 2026-10-25 | 25 |
+| 2026-10-26 | 23 |
 
 ## Still to check
 
@@ -31,9 +32,7 @@ Councils still to check (status unknown or unreachable): **25 of 382**.
 - Stevenage Borough Council (England) - unknown
 - West Northamptonshire Council (England) - unknown
 - Wrexham County Borough Council (Wales) - unknown
-- Rutland County Council (England) - unreachable
 - Tamworth Borough Council (England) - unreachable
-- West Lindsey District Council (England) - unreachable
 
 ## Hand-checked - needs Dean or a better page (10)
 
@@ -107,6 +106,7 @@ Councils still to check (status unknown or unreachable): **25 of 382**.
 - Medway Council - SWEP described (activates at 0C or below); read-only, Medway not contacted., checked 2026-10-24
 - Monmouthshire County Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Newcastle City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
+- North Kesteven District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - North Norfolk District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - North Yorkshire Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Peterborough City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
@@ -160,7 +160,6 @@ Councils still to check (status unknown or unreachable): **25 of 382**.
 - Manchester City Council - Winter 2025 news: from 1 Nov increased outreach; SWEP called when forecast below zero even for one night. No 2026-27 notice yet; not active now., checked 2026-10-24
 - New Forest District Council - SWEP described (0C or below, or other severe weather); latest activation notice is 20 Nov 2025 (old page article/4133). Not active now. Homeless line 023 8028 5222, out of hours 023 8028 5250 (council page)., checked 2026-10-24
 - North East Derbyshire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
-- North Kesteven District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - North West Leicestershire District Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Plymouth City Council - SWEP described on council page; no current activation notice, checked 2026-10-24
 - Redcar and Cleveland Borough Council - SWEP described on council page; no current activation notice, checked 2026-10-24
