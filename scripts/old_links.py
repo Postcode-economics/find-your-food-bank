@@ -2,7 +2,8 @@
 For every link ever sent out (scripts/old_links.json) and the forms apps add (?igsh, ?utm_*, ?fbclid, hashes, old paths), with the
 Instagram in-app browser UA at 390px: first install an OLD release (service worker + caches; files served from a git snapshot via
 request routing), then open the link against the current site and check the map and listings render with no page errors and the
-current build. Usage: python scripts/old_links.py [BASE_URL] (default: local checkout). Exit 1 on any failure.
+current build. Usage: python scripts/old_links.py [BASE_URL] [--shard i/N] [--list] (default: local checkout, full run; OLD_LINKS_SHARD=i/N
+also works). Sharding splits the (old release, link, UA) cases round-robin; every case runs in exactly one shard. Exit 1 on any failure.
 Report: reports/old_links.md + logs/old_links.json."""
 import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
 from playwright.sync_api import sync_playwright
@@ -32,7 +33,18 @@ def page_ok(pg, link):
     return pg.evaluate("""(()=>{const pins=document.querySelectorAll('#map .leaflet-marker-icon').length,pane=!!document.querySelector('#map .leaflet-pane');
       const n=typeof items!=='undefined'?items.length:0;return {ok:pane&&pins>0&&n>500,why:'pins '+pins+', items '+n+', map '+pane}})()""")
 
-def run(base=None):
+def cases():
+    return [(c, l, u) for c in OLD_COMMITS for l in links() for u in UAS]
+
+def shard_of(n, shard):
+    if not shard: return list(range(n))
+    i, k = (int(x) for x in shard.split('/')); assert 1 <= i <= k, shard
+    return [j for j in range(n) if j % k == i - 1]
+
+def case_id(c): return '%s %s %s' % (c[0], c[2][0], c[1])
+
+def run(base=None, shard=None):
+    allc = cases(); mine = set(case_id(allc[j]) for j in shard_of(len(allc), shard))
     srv = None
     if not base:
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT); h.log_message = lambda *a: None
@@ -43,6 +55,7 @@ def run(base=None):
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
         for commit in OLD_COMMITS:
+            if not any(x.startswith(commit + ' ') for x in mine): continue
             old = snapshot(commit)
             def serve_old(route):
                 path = route.request.url.split(base, 1)[-1].split('?')[0].split('#')[0] or '/'
@@ -50,6 +63,7 @@ def run(base=None):
                 if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
             for link, (uaname, ua) in [(l, u) for l in links() for u in UAS]:
+                if case_id((commit, link, (uaname, ua))) not in mine: continue
                 c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True, service_workers='allow')
                 c.route('**/*', serve_old); pg = c.new_page(); errs = []
                 r = dict(old=commit, link=link, ua=uaname)
@@ -90,5 +104,10 @@ def run(base=None):
     return res, bad
 
 if __name__ == '__main__':
-    res, bad = run(sys.argv[1] if len(sys.argv) > 1 else None)
+    a = sys.argv[1:]; shard = os.environ.get('OLD_LINKS_SHARD') or None
+    if '--shard' in a: k = a.index('--shard'); shard = a[k + 1]; del a[k:k + 2]
+    if '--list' in a:
+        allc = cases(); print('\n'.join(sorted(case_id(allc[j]) for j in shard_of(len(allc), shard)))); sys.exit(0)
+    res, bad = run(a[0] if a else None, shard)
+    if shard: print('shard %s: %d cases' % (shard, len(res)))
     sys.exit(1 if bad else 0)

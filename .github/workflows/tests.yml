@@ -86,8 +86,14 @@ jobs:
     if: needs.changes.outputs.oldlinks == '1'
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
+    # Split into 7 shards (Dean 26 Oct 15:22): every (old release, link, UA) case runs in exactly one shard; shard-coverage checks it.
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix: {shard: [1, 2, 3, 4, 5, 6, 7]}
+    env:
+      OLD_LINKS_SHARD: ${{ matrix.shard }}/7
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -99,6 +105,11 @@ jobs:
       - uses: actions/cache@v4
         with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
+      - if: always()
+        run: python -c "import json;print(''.join('%s %s %s\n'%(r['old'],r['ua'],r['link']) for r in json.load(open('logs/old_links.json'))),end='')" > ran.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: "ran-old-links-${{ matrix.shard }}", path: ran.txt}
   journeys:
     needs: changes
     if: needs.changes.outputs.journeys == '1'
@@ -126,8 +137,15 @@ jobs:
     if: needs.changes.outputs.browser == '1'
     # Dean 25 Oct 2026: browser tests (status line never cut off, list panel alignment, open-today, two-finger note, ...)
     # really run here; the plain test job has no Playwright so it skips them.
+    # Split into 7 shards (Dean 26 Oct 15:22) via tests/conftest.py: every test runs in exactly one shard; shard-coverage checks it.
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix: {shard: [1, 2, 3, 4, 5, 6, 7]}
+    env:
+      PYTEST_SHARD: ${{ matrix.shard }}/7
+      PYTEST_SHARD_LIST: ran.txt
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -139,6 +157,9 @@ jobs:
         with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: "ran-browser-tests-${{ matrix.shard }}", path: ran.txt}
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
@@ -156,3 +177,25 @@ jobs:
       - uses: actions/cache@v4
         with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/design_lock.py
+  shard-coverage:
+    # The union of the shards must equal the unsharded set: no case dropped, none run twice.
+    needs: [changes, old-links, browser-tests]
+    if: always() && (needs.changes.outputs.browser == '1' || needs.changes.outputs.oldlinks == '1')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      - run: pip install -q pytest==9.1.1 playwright==1.47.0
+      - uses: actions/download-artifact@v4
+        with: {path: ran}
+      - run: |
+          set -e
+          check() {  # name, full list file
+            cat ran/ran-$1-*/ran.txt | sort > got.txt; sort "$2" > want.txt
+            dup=$(uniq -d got.txt | wc -l); echo "$1: full $(wc -l < want.txt), shards ran $(wc -l < got.txt), duplicates $dup"
+            [ "$dup" -eq 0 ] && diff want.txt <(uniq got.txt)
+          }
+          if [ "${{ needs.changes.outputs.oldlinks }}" = 1 ]; then python scripts/old_links.py --list > full_ol.txt; check old-links full_ol.txt; fi
+          if [ "${{ needs.changes.outputs.browser }}" = 1 ]; then python -m pytest -q --collect-only tests | grep '::' > full_bt.txt; check browser-tests full_bt.txt; fi
