@@ -202,6 +202,7 @@ class Wired(unittest.TestCase):
         self.assertNotIn("user_agent='Mozilla/5.0 helpmap-check'", d)
         o = open(os.path.join(R, 'scripts', 'old_links.py'), encoding='utf-8').read()
         self.assertIn('IG_UA', o)
+        self.assertIn('android', o)  # Instagram Android webview as well as iOS
 
     def test_deploy_check_names_the_check_that_failed(self):
         y = open(os.path.join(R, '.github', 'workflows', 'deploy-check.yml'), encoding='utf-8').read()
