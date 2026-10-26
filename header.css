@@ -181,17 +181,3 @@ html body .leaflet-popup-content .pop a.btn.call:not(.xfbk){background:#34C759!i
 html:not(.light) #v3tools .v3t,html:not(.light) #v3filt>#v3tools .v3t,html:not(.light) #v3tools .v3t:focus,html:not(.light) #v3filt>#v3tools .v3t:focus,html:not(.light) #v3tools .v3t:active,html:not(.light) #v3filt>#v3tools .v3t:active,html:not(.light) #v3tools .v3t:hover,html:not(.light) #v3filt>#v3tools .v3t:hover{background:transparent!important;color:#F2F4F8!important;opacity:1!important}
 html:not(.light) #v3tools .v3t[aria-pressed=true],html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true],html:not(.light) #v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3tools .v3t[aria-pressed=true]:active,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:active{background:transparent!important;color:#F5C518!important}
 #v3tools .v3t:focus:not(:focus-visible),#v3filt>#v3tools .v3t:focus:not(:focus-visible){outline:none}#v3tools .v3t:focus-visible,#v3filt>#v3tools .v3t:focus-visible{outline:3px solid #F5C518;outline-offset:2px}
-/* Dean 25 Oct 20:37 (v88b test): shelter 'Sleeping rough / StreetLink' panel and 'Nearest shelters' heading in the dark look.
-   Panel = dark card with the shelter sky-blue edge; StreetLink = outlined link button; Call 999 = white on bright red #FF3B30 (design lock). */
-html:not(.light) .v3sos,html:not(.light) #v3sos .v3sos{background:#13223d!important;color:#F2F4F8!important;border:2px solid #3A5378!important;border-left:6px solid #56B4E9!important}
-html:not(.light) .v3sos a:not(.sosl){color:#F2F4F8!important}
-html:not(.light) .v3sos a.sosl:not(.s999){background:transparent!important;color:#F2F4F8!important;border:2px solid #F2F4F8!important}
-html .v3sos a.sosl.s999,html body #v3sos .v3sos a.sosl.s999,html.light .v3sos a.sosl.s999,html.light #v3sos .v3sos a.sosl.s999{background:#FF3B30!important;color:#FFFFFF!important;border:2px solid #FF3B30!important;font-weight:800!important}
-html .v3sos a.sosl.s999 .ico,html .v3sos a.sosl.s999 svg{color:#FFFFFF!important;fill:currentColor}
-/* Dean 26 Oct 06:46: dark-mode postcode box matches the header. Colours only: size, font and layout stay the light-mode box.
-   Map tiles stay the ordinary light tiles. Do not darken, invert or recolour them. */
-html:not(.light) #q{background:#13223d!important;color:#F2F4F8!important;caret-color:#F2F4F8;box-shadow:inset 0 0 0 2px #3A5378}
-html:not(.light) #q::placeholder{color:#b9c2d3!important;opacity:1}
-html:not(.light) #q:focus,html:not(.light) #q:focus-visible{outline:3px solid #F5C518!important;outline-offset:2px}
-html:not(.light) #q:-webkit-autofill,html:not(.light) #q:-webkit-autofill:focus{-webkit-text-fill-color:#F2F4F8;caret-color:#F2F4F8;box-shadow:inset 0 0 0 1000px #13223d}
-html:not(.light) #map,html:not(.light) #map .leaflet-tile-pane,html:not(.light) #map .leaflet-tile,html:not(.light) #map .leaflet-tile-container{filter:none!important}
