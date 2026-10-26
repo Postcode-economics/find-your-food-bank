@@ -1,5 +1,5 @@
 {
- "run": "2026-10-25",
+ "run": "2026-10-26",
  "candidates": 59,
  "already_on_map": 4,
  "new": 55,
@@ -12,8 +12,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "2b506ed4506b25fe1307b9dbb601005a279022abf667fb482878182d55f432a1",
-   "etag": "\"5558-1792916311;;;\"",
+   "sha256": "7a8154274e4e2872b514bce023cd13446b4ff8642cd7faf0382b9622b2848f44",
+   "etag": "\"5630-1792988897;;;\"",
    "last_modified": ""
   },
   {
@@ -36,7 +36,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "96b6b945694e9cf9f5ec3bfbcc07fad3280136a4951c5423f2b950649ac63e05",
+   "sha256": "04dec236c975bf0afa72f9d158e709181a49527956a72fae469e43aceb2d77e0",
    "etag": "",
    "last_modified": ""
   },
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "674282fb9b1396d658a50a6c9b07829f2b78b82fc124b9934e61da65f0a64e52",
+   "sha256": "12c3c0fc4fa1fcb0c7bd7c81a9b16993fdf476100bc3f4b7f129d415647e1bda",
    "etag": "",
    "last_modified": ""
   }
@@ -63,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "87c40cbcb85cdb9fc56a392d0f8dd0c187ed5ddf25c7e053d768fd9d302214f5",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "89f50314f4017afb0e1b155d1482a71a357960286cece264b6e1515225c54124",
    "etag": "",
    "last_modified": ""
   },
@@ -134,12 +134,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "f9c96f75d8e1863912a9d92e559652529892c0df516027991318f6c5fdddd7e7",
+   "http": 202,
+   "sha256": "8792f596fce82d5b366510b1dcb4023be79239869a5bd8118485c405e8cbeb17",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +211,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "5a48c9c8cabcbdd4519333a302fd98e4395988b67d0f04040df008b4e4621be0",
+   "sha256": "53b56aca8a09f6d4e748ec2da4848a521b5546cd58194aaa9390da1d0ebb9722",
    "etag": "",
    "last_modified": ""
   },
@@ -498,7 +499,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "fb18ea2a406f0548edc50c4be19d676ceb324e5205e320f87cc4ae33bd192311",
+   "sha256": "bfa4bf16787a69ebd90695fd51daecb1b2750e1d7573c5bf80048c1e93df6305",
    "etag": "",
    "last_modified": ""
   },
@@ -676,7 +677,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "6dddc210a2a2b135f025cb086741651a5b79ad7fb493529e00031617e79fa5fe",
+   "sha256": "04d4e70d727de41b818dae2f3eec0e8487b03cd535f97e4a690e38332d745de1",
    "etag": "",
    "last_modified": ""
   },
@@ -761,9 +762,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "17824d9524faeb9b1f03d8c0bd280f964ad8bb5ed7e85c013d196f8f715352e6",
+   "sha256": "724a068087c3364f89e94f983c76e1a1b03694633b86cb3a0594035ec6bc1f0b",
    "etag": "",
-   "last_modified": "Sun, 25 Oct 2026 00:04:56 GMT"
+   "last_modified": "Mon, 26 Oct 2026 00:01:51 GMT"
   },
   {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -831,7 +832,7 @@
    "http": 200,
    "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
    "etag": "",
-   "last_modified": "Sun, 25 Oct 2026 19:58:36 GMT"
+   "last_modified": "Mon, 26 Oct 2026 02:00:46 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -881,8 +882,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "cf5e58f7e6ee78ad935cb0ec30e397996ab0292ec0f051ea320ebb0bbd60c041",
-   "etag": "W/\"21bba-7oxm0pTjvfUu3WHbdyLXNa5jcBY\"",
+   "sha256": "34b774aa0f823f971a3e0e494b8104580446a515fe0060fc465e90ae3ee0795d",
+   "etag": "W/\"21bbc-yVRUq5anlMgCvHoX5RqPO3ECJDo\"",
    "last_modified": ""
   },
   {
