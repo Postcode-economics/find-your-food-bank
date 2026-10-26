@@ -161,7 +161,29 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-65441941",
+    "name": "St. Mary's, Broughty Ferry",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Wed": "11:15 - 16:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:00 - 17:00",
+      "Tue": "09:00 - 17:00",
+      "Wed": "09:00 - 17:00",
+      "Thu": "09:00 - 17:00",
+      "Fri": "09:00 - 17:00"
+     }
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -237,6 +259,10 @@
    {
     "id": "ww-55592295",
     "reason": "source unreachable this run (HTTP 404)"
+   },
+   {
+    "id": "ww-65441920",
+    "reason": "source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)"
    },
    {
     "id": "ww-68769406",

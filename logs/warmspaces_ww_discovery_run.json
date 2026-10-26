@@ -1,53 +1,23 @@
 {
  "run": "2026-10-26",
- "candidates": 3,
+ "candidates": 1,
  "already_on_map": 0,
- "new": 3,
- "added": [
-  {
-   "id": "ww-69389599",
-   "name": "Bishops Offley Open House (BOOH!)",
-   "postcode": "ST21 6HE",
-   "directory": "Warm Welcome",
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  }
- ],
+ "new": 1,
+ "added": [],
  "flagged": [
   {
-   "id": "ww-69388174",
-   "name": "St David's Community Food Larder and Cafe",
-   "postcode": "NN2 7QB",
-   "website": "",
+   "id": "ww-69405086",
+   "name": "St Nicholas Hall (Tuesday Coffee Morning)",
+   "postcode": "HU4 6SA",
+   "website": "http://www.stnicholashull.org",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28652",
+   "directory_url": "https://www.warmwelcome.uk/space?l=23053",
    "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "own site unreachable (HTTP error)"
    ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69396060",
-   "name": "Rugby Methodist Church Centre",
-   "postcode": "CV22 7TB",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=27440",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
+   "url": "http://www.stnicholashull.org",
+   "final_url": "http://www.stnicholashull.org",
+   "http": "error",
    "sha256": null,
    "etag": null,
    "last_modified": null
