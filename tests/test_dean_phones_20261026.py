@@ -1,7 +1,10 @@
 """Dean-approved phones from the 26 Oct 2026 missing-number list.
+
 Clean numbers, shared venue lines and library service lines are in the override
-files (so a refresh keeps them). Named-person numbers and doubtful numbers are
-not added. The 40 places with no number stay on their website or email.
+files, so a refresh keeps them. A named or personal number that the venue's own
+page gives as its contact is shown with that role (Team Rector, Pastor).
+Numbers the own page does not confirm stay out. The 40 places with no number
+stay on their website or email.
 """
 import json, os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -61,6 +64,17 @@ CLEAN = {
     'ifan-4a6217d6ae69c4977d7d70-0': ('01268 743232', 'https://hopeworx.org.uk/Contact'),
     'ifan-bcc7d26b922ed1d9edf4f5-0': ('01704 601090', 'https://www.shorelinechurch.org.uk'),
     'ifan-eddf2af4d3d092a3382b3c-0': ('01902 601600', 'https://cacmor.org.uk/contact/'),
+    # Rechecked 26 Oct 08:29: the venue's own page publishes this number as its contact.
+    'nomad': ('01491 635737', 'https://www.nomadhenley.co.uk'),
+    'ifan-79789d4df6b2024369673c-0': ('07723 447200', 'https://www.Highwayhope.co.uk'),
+    'ifan-84cd0bf40986bfc9a427c6-0': ('07498 775019', 'https://www.laurenceslarder.org.uk/contact'),
+    'ifan-9fef48d4f0fd3a3f6896d2-0': ('07828 138118', 'https://www.gcjc.co.uk'),
+}
+# Named or personal contact the venue's own page gives. Label is the role on that page.
+NAMED = {
+    'kings-langley': ('01923 903531', 'https://beneficeoflangelei.org.uk/allsaints/contact/', 'Team Rector'),
+    'kings-langley/bennetts-end': ('01923 903531', 'https://beneficeoflangelei.org.uk/allsaints/contact/', 'Team Rector'),
+    'leytonstone-seventh-day-adventist-church': ('07985 566592', 'https://leytonstone.adventistchurch.org.uk/contact-us', 'Pastor'),
 }
 SHARED = {
     'whitland-town-hall-community': ('01994 241231', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/504650/contact-information'),
@@ -80,19 +94,12 @@ LIBRARY = {
 WARM_CLEAN = {
     'ww-65070433': ('07523 424686', 'https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5197459/contact-information'),
 }
-# Held for a recheck. Must not be published.
+# Still held. The venue's own page does not confirm a current contact number.
 HELD = {
-    'kings-langley': 'Team Rector line: The Revd. James McDonald',
-    'kings-langley/bennetts-end': 'same Team Rector number as kings-langley',
-    'leytonstone-seventh-day-adventist-church': 'Pastor Vaugh Thorpe mobile',
-    'beechdale-community-centre': 'charity reporting overdue; check still current',
-    'nomad': 'council directory last updated 03/2023',
+    'beechdale-community-centre': 'charity register phone, reporting overdue by 1640 days',
     'ifan-4843e1fec06a8fc46989df-0': 'own site says the phone is temporarily inactive',
     'ifan-4843e1fec06a8fc46989df-1': 'own site says the phone is temporarily inactive',
     'ifan-9d9a5ae13b3923c3fd7d0b-0': 'displayed number conflicts with the tel link',
-    'ifan-79789d4df6b2024369673c-0': 'mobile still to be verified as org-published',
-    'ifan-84cd0bf40986bfc9a427c6-0': 'mobile still to be verified as org-published',
-    'ifan-9fef48d4f0fd3a3f6896d2-0': 'mobile still to be verified as org-published',
 }
 NOT_FOUND = [
     'the-food-pantry-feltwell',
@@ -146,6 +153,10 @@ def test_exactly_the_approved_rows_and_no_held_rows():
         assert url.startswith("https://"), i
         assert digits(num) == digits(sources[i]["phone"])
         assert i not in labels, i
+    for i, (num, url, lab) in NAMED.items():
+        assert phones[i] == num and sources[i]["phone"] == num and sources[i]["source"] == url, i
+        assert labels[i] == lab, i
+        assert url.startswith("https://"), i
     for i, (num, url) in SHARED.items():
         assert phones[i] == num and sources[i]["phone"] == num and sources[i]["source"] == url, i
         assert labels[i] == "Shared venue line", i
@@ -160,8 +171,8 @@ def test_exactly_the_approved_rows_and_no_held_rows():
         assert "phone_label" not in e, i
     blocked = list(HELD) + NOT_FOUND
     assert len(NOT_FOUND) == 40
-    assert len(HELD) == 11
-    assert len(CLEAN) == 49 and len(SHARED) == 5 and len(LIBRARY) == 6 and len(WARM_CLEAN) == 1
+    assert len(HELD) == 4
+    assert len(CLEAN) == 53 and len(NAMED) == 3 and len(SHARED) == 5 and len(LIBRARY) == 6 and len(WARM_CLEAN) == 1
     for i in blocked:
         assert i not in phones and i not in sources and i not in labels, i
         if i in ws:
