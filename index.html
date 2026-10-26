@@ -17,7 +17,7 @@ Promise.all(p).catch(function(){}).then(function(){location.reload()})}catch(_){
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=sh20261023"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=v1792959725"><link rel="stylesheet" href="header.css?v=v1792997200"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=off20261026"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=v1792959725"><link rel="stylesheet" href="header.css?v=v1792997200"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -97,7 +97,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a> and the <a href="https://www.foodaidnetwork.org.uk/" target="_blank" rel="noopener">Independent Food Aid Network</a>, last updated <span id="upd"></span>. Times change, call before you go. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io/" target="_blank" rel="noopener">postcodes.io</a>, which contains OS data © Crown copyright and database right 2026, Royal Mail data © Royal Mail copyright and database right 2026, National Statistics data © Crown copyright and database right 2026, and NRS data © Crown copyright and database right 2026 (<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>). Map © OpenStreetMap contributors. Backup map: OpenFreeMap © OpenMapTiles. © MapTiler. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div class="legal" id="legal"><p>helpmap.uk is a free guide compiled from publicly available information. While we aim to keep it accurate, details can change, so please confirm with the service before visiting. We are not affiliated with the services listed and cannot accept liability for any loss arising from use of this information. In an emergency, please call <a href="tel:999">999</a>.</p><p class="lgl"><a href="faq.html">How we keep it up to date</a> · <a href="shelters/">Shelters by area</a> · <a href="terms.html">Terms of use</a> · <a href="privacy.html">Privacy &amp; data protection</a> · <a href="accessibility.html">Accessibility</a> · <a href="mailto:hello@helpmap.uk?subject=Report%20a%20mistake%20on%20helpmap.uk">Report a mistake</a></p></div>
 <div id="sheet" aria-hidden="true"><div class="handle" aria-hidden="true" title="Swipe down to close"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
-<script src="data.js?v=r20261027T0553"></script><script src="stamp.js?v=r20261027T0553"></script><script src="access.js?v=r20261027T0553"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="tiles.js?v=ofm20261026"></script>
+<script src="data.js?v=r20261027T0553"></script><script src="stamp.js?v=r20261027T0553"></script><script src="access.js?v=r20261027T0553"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="tiles.js?v=off20261027"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
@@ -227,6 +227,7 @@ let lastQ=null;const PC=/^[A-Z]{1,2}\d[A-Z\d]?\s*\d?[A-Z]{0,2}$/i;
 const PCK='pcache1',pcR=()=>{try{return JSON.parse(localStorage.getItem(PCK)||'{}')}catch(e){return {}}};
 function pcPut(p,v){try{const c=pcR();c[p]=v;const k=Object.keys(c);if(k.length>200)delete c[k[0]];localStorage.setItem(PCK,JSON.stringify(c))}catch(e){}}
 async function api(p){const ck=/^(postcodes|outcodes)\/[^?/]+$/.test(p);if(ck){const h=pcR()[p];if(h)return h}
+ if(!navigator.onLine)throw new Error('offline');  // a postcode already looked up is returned above; otherwise outcodes.json and the town list
  const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),4000);
  try{const r=await fetch('https://api.postcodes.io/'+p,{signal:ac.signal});if(r.status>=500||r.status===429)throw new Error('postcodes.io '+r.status);
   const j=await r.json();if(ck&&j.status===200)pcPut(p,j);return j}finally{clearTimeout(tm)}}
@@ -273,15 +274,16 @@ function acSet(i){acI=i;[...AC.children].forEach((li,k)=>li.setAttribute('aria-s
 function acPick(i){const p=acItems[i];if(!p)return;acHide();acSeq++;QI.value=p.name;QI.blur();lastQ=p.name;window.__go=true;nearest(p.lat,p.lng,p.label,`Showing the centre of ${p.label}. Add a postcode for exact distances.`)}
 QI.addEventListener('input',()=>{clearTimeout(acT);const v=QI.value.trim();const my=++acSeq;
  if(v.length<3||/^[A-Z]{1,2}\d/i.test(v)){acHide();return}
- acT=setTimeout(async()=>{try{const r=await api('places?q='+encodeURIComponent(v)+'&limit=10');if(my!==acSeq)return;
-  const seen=new Set(),out=[],vl=v.toLowerCase();
+ acT=setTimeout(async()=>{const seen=new Set(),out=[],vl=v.toLowerCase();  // towns are in the page, so suggestions still work offline when postcodes.io cannot be reached
   for(const t of TOWNS){if(out.length>=4)break;if(t[0].toLowerCase().startsWith(vl)){const k=(t[0]+'|'+t[1]).toLowerCase();if(!seen.has(k)){seen.add(k);out.push({name:t[0],county:t[1],label:t[0]+', '+t[1],lat:t[2],lng:t[3]})}}}
-  for(const x of r.result||[]){if(!x.latitude||!['England','Scotland','Wales','Northern Ireland'].includes(x.country))continue;
-   const c=x.county_unitary||x.region||x.country,k=(x.name_1+'|'+c).toLowerCase();if(seen.has(k))continue;seen.add(k);out.push({name:x.name_1,county:c,label:x.name_1+', '+c,lat:x.latitude,lng:x.longitude});if(out.length>=6)break}
-  if(!out.length)return acHide();acItems=out;acI=-1;
+  try{const r=await api('places?q='+encodeURIComponent(v)+'&limit=10');if(my!==acSeq)return;
+   for(const x of r.result||[]){if(!x.latitude||!['England','Scotland','Wales','Northern Ireland'].includes(x.country))continue;
+    const c=x.county_unitary||x.region||x.country,k=(x.name_1+'|'+c).toLowerCase();if(seen.has(k))continue;seen.add(k);out.push({name:x.name_1,county:c,label:x.name_1+', '+c,lat:x.latitude,lng:x.longitude});if(out.length>=6)break}
+  }catch(e){}
+  if(my!==acSeq)return;if(!out.length)return acHide();acItems=out;acI=-1;
   AC.innerHTML=out.map((p,i)=>`<li id="ac${i}" role="option" aria-selected="false">${esc(p.name)}<small>${esc(p.county)}</small></li>`).join('');
   [...AC.children].forEach((li,i)=>li.addEventListener('pointerdown',e=>{e.preventDefault();acPick(i)}));
-  AC.hidden=false;QI.setAttribute('aria-expanded','true')}catch(e){if(my===acSeq)acHide()}},250)});
+  AC.hidden=false;QI.setAttribute('aria-expanded','true')},250)});
 QI.addEventListener('keydown',e=>{if(AC.hidden)return;const n=acItems.length;
  if(e.key==='ArrowDown'){e.preventDefault();acSet((acI+1)%n)}else if(e.key==='ArrowUp'){e.preventDefault();acSet(acI<=0?n-1:acI-1)}
  else if(e.key==='Enter'&&acI>=0){e.preventDefault();acPick(acI)}else if(e.key==='Escape'){e.preventDefault();acSeq++;acHide()}});
@@ -318,5 +320,5 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  // pull down on the tab also restores
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
-</script><script src="layers.js?v=v1792959725"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=v1792959725"></script><!-- Cloudflare Web Analytics --><script>/* Analytics beacon, skipped for our own automated checks (webdriver/headless, ?nocount, or localStorage nocount=1) - 25 Oct 2026 */(function(){try{var q=location.search,ua=navigator.userAgent||'';if(navigator.webdriver||/HeadlessChrome|helpmap-check/i.test(ua)||/[?&]nocount\b/.test(q)||localStorage.getItem('nocount')==='1'){if(/[?&]nocount\b/.test(q))localStorage.setItem('nocount','1');return}var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "6a7058ad322d49b481a8849a493add24"}');document.head.appendChild(s)}catch(_){}})();</script><!-- End Cloudflare Web Analytics -->
+</script><script src="layers.js?v=off20261026"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=v1792959725"></script><!-- Cloudflare Web Analytics --><script>/* Analytics beacon, skipped for our own automated checks (webdriver/headless, ?nocount, or localStorage nocount=1) - 25 Oct 2026 */(function(){try{var q=location.search,ua=navigator.userAgent||'';if(navigator.webdriver||/HeadlessChrome|helpmap-check/i.test(ua)||/[?&]nocount\b/.test(q)||localStorage.getItem('nocount')==='1'){if(/[?&]nocount\b/.test(q))localStorage.setItem('nocount','1');return}var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "6a7058ad322d49b481a8849a493add24"}');document.head.appendChild(s)}catch(_){}})();</script><!-- End Cloudflare Web Analytics -->
 </body></html>

@@ -110,14 +110,14 @@ window.addTiles = function (map) {
           if (r.status === 401 || r.status === 403 || r.status === 429) {
             window.TILE_STATS.error++;
             note(false);
-            done(new Error(String(r.status)), img);
+            done(new Error(String(r.status)), img); plainIfEmpty();
             giveUp(r.status);
             return;
           }
           if (!r.ok) {
             window.TILE_STATS.error++;
             var missed = note(false);
-            done(new Error(String(r.status || 'tile')), img);
+            done(new Error(String(r.status || 'tile')), img); plainIfEmpty();
             if (missed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
             return;
           }
@@ -126,12 +126,12 @@ window.addTiles = function (map) {
           /* The status is known now. The image uses the real tile URL, answered from the service worker
              or HTTP cache the fetch just filled, so img.src still names the provider (offline checks rely on it). */
           img.crossOrigin = 'anonymous';
-          img.onload = function () { done(null, img); };
+          img.onload = function () { paintPlain(false); done(null, img); };
           img.onerror = function () {
             if (tileGen !== gen) return;
             window.TILE_STATS.error++;
             var failed = note(false);
-            done(new Error('decode'), img);
+            done(new Error('decode'), img); plainIfEmpty();
             if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
           };
           img.src = url;
@@ -139,7 +139,7 @@ window.addTiles = function (map) {
           if (tileGen !== gen) return;
           window.TILE_STATS.error++;
           var failed = note(false);
-          done(new Error('network'), img);
+          done(new Error('network'), img); plainIfEmpty();
           if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
         });
         return img;
@@ -157,12 +157,20 @@ window.addTiles = function (map) {
       if (my !== gen) return;
       layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, attributionControl: { customAttribution: p.attribution } });
       layer.addTo(map);
-      window.TILE_VECTOR = 'ready';
+      window.TILE_VECTOR = 'ready'; paintPlain(false);
     }).catch(function (e) {
       if (my !== gen) return;
       window.TILE_VECTOR = 'failed: ' + (e && e.message);
       if (i < list.length - 1) use(i + 1);
     });
+  }
+  /* No tiles (every provider failed, or this area was never cached): plain light background, markers untouched. */
+  function paintPlain(on) {
+    var el = document.getElementById('map');
+    if (el) el.classList.toggle('notiles', !!on);
+  }
+  function plainIfEmpty() {
+    if (!map.getContainer().querySelector('.leaflet-tile-loaded')) paintPlain(true);
   }
   map._hmTileStop = function () {
     gen++;
