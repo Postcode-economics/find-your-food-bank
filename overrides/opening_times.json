@@ -9488,11 +9488,32 @@
   "structured": null
  },
  "hedge-end": {
-  "checked_date": "2026-10-20",
-  "raw": "Thursdays 10:00-12:30",
+  "checked_date": "2026-10-26",
+  "previous": "Thursdays 10:00-12:30",
+  "protected": true,
+  "quote": [
+   "We run the Food Centre in two different formats: a Food Bank on Mondays and a Food Pantry on Thursdays.",
+   "Time: Mondays 10:00-13:00",
+   "Time: Thursdays 10:00-12:30"
+  ],
+  "raw": "We run the Food Centre in two different formats: a Food Bank on Mondays and a Food Pantry on Thursdays. | Time: Mondays 10:00-13:00 | Time: Thursdays 10:00-12:30",
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)",
   "source_url": "https://www.kingscommunitychurch.co.uk/foodcentre",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  }
  },
  "helensburgh-lomond": {
   "checked_date": "2026-10-20",
@@ -12581,11 +12602,25 @@
   "structured": null
  },
  "meon-valley": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon 10AM–noon | Tues 10AM–2PM",
+  "checked_date": "2026-10-26",
+  "previous": "Mon 10AM–noon | Tues 10AM–2PM",
+  "protected": true,
+  "quote": [
+   "Mon 10AM–noon (Donations)",
+   "Tues 10AM–2PM (Collections)"
+  ],
+  "raw": "Mon 10AM–noon (Donations) | Tues 10AM–2PM (Collections)",
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)",
   "source_url": "https://meonvalleyfoodbank.co.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  }
  },
  "merthyr-cynon": {
   "checked_date": "2026-10-20",
@@ -23835,11 +23870,30 @@
   }
  },
  "worthing-food-foundation": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday-Friday 9-11am | Wednesdays and Fridays from 10-11.30am",
+  "checked_date": "2026-10-26",
+  "previous": "Tuesday-Friday 9-11am | Wednesdays and Fridays from 10-11.30am",
+  "protected": true,
+  "quote": [
+   "Food collections and deliveries take place on Wednesdays and Fridays from 10-11.30am."
+  ],
+  "raw": "Food collections and deliveries take place on Wednesdays and Fridays from 10-11.30am.",
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)",
   "source_url": "https://www.worthingfoodfoundation.org.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  }
  },
  "wrexham": {
   "checked_date": "2026-10-20",
