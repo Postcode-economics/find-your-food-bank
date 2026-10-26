@@ -113,6 +113,11 @@ def norm_phone(p):
     if d.startswith('44'): d = '0' + d[2:]
     if d.startswith('00'): d = d[1:]
     return d if len(d) == 11 and d[0] == '0' else ''
+
+def own_site_misses_stored(stored, site_phones):
+    """True when the own page lists numbers and none of them is the stored one.
+    A page that still shows the stored number, even among others, does not replace it."""
+    return bool(stored and site_phones and not (set(stored) & set(site_phones)))
 def snippet(t, rx, n=220):
     m = rx.search(t)
     if not m: return ''
@@ -312,7 +317,7 @@ def main():
         elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
-        if stored and r['phones'] and not (stored & set(r['phones'])):
+        if own_site_misses_stored(stored, r['phones']):
             if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 lab = (r.get('contact_labels') or {}).get(new, '')
