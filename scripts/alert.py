@@ -41,9 +41,18 @@ def date_problems(root=None, live=None):
     rd = lambda f: open(os.path.join(root, f), encoding='utf-8').read()
     s = json.loads(rd('stamp.js').split('=', 1)[1].rstrip().rstrip(';')); L = s.get('layers') or {}; out = []
     data = {'fb': re.search(r'\{"f":"(\d{4}-\d\d-\d\d)"', rd('data.js')), 'sh': re.search(r'"updated":"(\d{4}-\d\d-\d\d)"', rd('shelters.js')[:200]), 'ws': re.search(r'"updated":"(\d{4}-\d\d-\d\d)"', rd('warmspaces.js')[:200])}
+    def _iso(v):
+        try: return datetime.datetime.fromisoformat(v)
+        except Exception: return None
     for k, m in data.items():
         if k not in L: out.append(f'stamp.js has no {k} date'); continue
         if m and L[k]['run'][:10] < m.group(1): out.append(f"{k}: shown date {L[k]['run'][:10]} is older than its data ({m.group(1)})")
+        fp = os.path.join(root, 'stamps', k + '.json')
+        if os.path.exists(fp):
+            try: f = json.loads(open(fp, encoding='utf-8').read())
+            except Exception: f = None
+            if f and _iso(f.get('run')) and _iso(L[k].get('run')) and _iso(f['run']) > _iso(L[k]['run']):
+                out.append(f"{k}: stamp.js {L[k]['run']} is behind stamps/{k}.json {f['run']} (a refresh was overwritten)")
     if live is not None:
         try:
             ls = json.loads(live.split('=', 1)[1].rstrip().rstrip(';'))

@@ -17,6 +17,8 @@ class T(unittest.TestCase):
         for s in ('Referral only', 'Via HAB', 'You need a referral', '<div class="opens">Opens 8 Nov 2026</div>', 'Unverified – call before you go', 'faq.html#times'):
             self.assertIn(s, c)
         self.assertEqual(c.count('Referral only'), 1)
+        iso = B.card_sh(dict(name='One Roof', address='6 St Martins', scheme_dates='Until 2027-03-31', hours=''))
+        self.assertIn('Until 31 Mar 2027', iso); self.assertNotIn('2027-03-31', iso)
     def test_ws_card(self):
         c = B.card_ws(dict(name='W', address='a', upcoming=True, scheme_start='2026-11-04', scheme_dates='Opens 4 Nov 2026', booking='Booking needed', notes='By referral from GP', hours={}))
         self.assertIn('<div class="opens">Opens 4 Nov 2026</div>', c); self.assertIn('Booking needed', c); self.assertIn('Referral:', c)

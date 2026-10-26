@@ -345,6 +345,8 @@ def main():
         json.dump(closed_raw, open(t, 'w', encoding='utf-8'), indent=2, ensure_ascii=False); os.replace(t, CLP)
     if acc:
         t = ACC + '.tmp'; open(t, 'w', encoding='utf-8').write('window.FB_ACCESS=' + json.dumps(acc, separators=(',', ':')) + ';\n'); os.replace(t, ACC)
+    import stamp  # only once the own-site phone and hours check has finished; not the later publish stamp
+    stamp.record('check')
 
 def write_md(today, log, stats):
     L = ['# Daily review - food banks - %s' % today['date'], '',

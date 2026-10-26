@@ -100,8 +100,10 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <script src="data.js?v=r20261027T0353"></script><script src="stamp.js?v=r20261027T0353"></script><script src="access.js?v=r20261027T0353"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="tiles.js?v=ofm20261026"></script>
 <script>
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function deanDate(v){const m=String(v||'').match(/^(\d{4})-(\d\d)-(\d\d)(?:T(\d\d):(\d\d))?/);if(!m)return '';const s=(+m[3])+' '+MON[+m[2]-1]+' '+m[1];return m[4]?s+', '+m[4]+':'+m[5]:s}  // Dean 25 Oct: "25 Oct 2026, 05:12", or the date alone when no time was recorded
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
-$('upd').textContent=new Date(D.fetched).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+$('upd').textContent=deanDate(D.fetched);
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking`;
 const narrow=()=>window.innerWidth<600;
@@ -112,15 +114,15 @@ const closedToday=i=>{const s=parsed(i);return !!(s&&!(s[DK[new Date().getDay()]
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()];
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
- const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
+ const ck=t&&t.checked_date?`, checked ${deanDate(t.checked_date)}`:'';
  if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
  if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
  return `<div class="ot">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`}
-{const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
-function showStamp(){if(!window.FB_STAMP)return;const FS=(FB_STAMP.layers&&FB_STAMP.layers.fb)||FB_STAMP;$('upd').textContent=FS.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FS.label}  // Dean 25 Oct: footer food bank lines read the food bank refresh, the header the latest refresh of any layer
+{const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||L>String(F).slice(0,10)))$('upd').textContent=deanDate(L);}
+function showStamp(){if(!window.FB_STAMP)return;const layers=FB_STAMP.layers||{},FS=layers.fb||FB_STAMP;$('upd').textContent=FS.label;var best=null,bt=-1;['fb','sh','ws'].forEach(function(k){var x=layers[k];if(!x||!x.run)return;var t=Date.parse(x.run);if(!isNaN(t)&&t>=bt){bt=t;best=x}});var src=best||FB_STAMP,e=$('freshtxt');if(e)e.textContent='Updated '+(src.label||FB_STAMP.label||deanDate(src.run));var C=FB_STAMP.checked;$('chk').textContent='checked '+((C&&C.label)||FS.label)}  // header = newest layer refresh, always "D Mon YYYY, HH:MM" (a sweep does not count); #upd = food bank publish; #chk = the phone/times check, not the publish time
 window.showStamp=showStamp;
 {let seen=Date.now();document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='visible'||Date.now()-seen<6e5)return;seen=Date.now();const sc=document.createElement('script');sc.src='stamp.js?t='+seen;sc.onload=()=>{showStamp();if(window.keyStamps)keyStamps()};document.head.appendChild(sc)})}  // a tab left open overnight re-reads stamp.js when it comes back
-if(window.FB_STAMP)showStamp();else $('chk').textContent=chkDates.length?'checked '+new Date(chkDates[chkDates.length-1]).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'not yet checked';
+if(window.FB_STAMP)showStamp();else $('chk').textContent=chkDates.length?'checked '+deanDate(chkDates[chkDates.length-1]):'not yet checked';
 const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m.toFixed(1)==='1.0'?' mile':' miles')};
 const site=i=>i.website||i.givefood;
 const tag=i=>acc(i)==='voucher'?'<div class="tag vtag" role="note">Food bank · voucher needed</div>':'<div class="tag" role="note">Food bank</div>';  // voucher-only per access.js (overrides/access CSVs)  // one label for every place clients can collect food

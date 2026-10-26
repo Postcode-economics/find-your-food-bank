@@ -72,6 +72,11 @@ def shelter_public(i):
     return True
 
 ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open_access': 'Open access'}
+_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+def shown_date(s):
+    """Dean 25 Oct: a YYYY-MM-DD in a sentence is shown as '25 Oct 2026'."""
+    return re.sub(r'(\d{4})-(\d{2})-(\d{2})', lambda m: '%d %s %s' % (int(m.group(3)), _MON[int(m.group(2)) - 1], m.group(1)), s or '')
 
 def card_sh(i):
     tag = '<div class="tag">Shelter</div>'
@@ -84,9 +89,9 @@ def card_sh(i):
         if i.get('access_type') == 'referral_only': ref += '<div class="sub">You need a referral before you go, usually from an outreach team, day centre or the council.</div>'
     opens = ''
     if i.get('upcoming') or (i.get('scheme_dates') and str(i['scheme_dates']).startswith('Opens')):
-        opens = '<div class="opens">%s</div>' % E(i.get('scheme_dates') or ('Opens ' + i.get('scheme_start', '')))
+        opens = '<div class="opens">%s</div>' % E(shown_date(i.get('scheme_dates') or ('Opens ' + i.get('scheme_start', ''))))
     elif i.get('scheme_dates'):
-        opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])
+        opens = '<div class="sub">Scheme dates: %s</div>' % E(shown_date(i['scheme_dates']))
     h = (i.get('hours') or '').strip() if isinstance(i.get('hours'), str) else ''
     hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
@@ -131,9 +136,9 @@ def card_ws(i):
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
     opens = ''
     if i.get('upcoming') and (i.get('scheme_dates') or i.get('scheme_start')):
-        opens = '<div class="opens">%s</div>' % E(i.get('scheme_dates') if str(i.get('scheme_dates', '')).startswith('Opens') else 'Opens ' + i['scheme_start'])
+        opens = '<div class="opens">%s</div>' % E(shown_date(i.get('scheme_dates') if str(i.get('scheme_dates', '')).startswith('Opens') else 'Opens ' + i['scheme_start']))
     elif i.get('scheme_dates'):
-        opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])
+        opens = '<div class="sub">Scheme dates: %s</div>' % E(shown_date(i['scheme_dates']))
     ref = ''
     if i.get('booking') and i['booking'] != 'Not stated': ref += '<div class="ref"><b>%s</b></div>' % E(i['booking'])
     if 'referr' in (i.get('notes') or '').lower(): ref += '<div class="ref"><b>Referral:</b> %s</div>' % E(i['notes'])

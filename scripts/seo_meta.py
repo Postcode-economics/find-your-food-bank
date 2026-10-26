@@ -1,7 +1,7 @@
 """Bake the refresh time into every public page (fail-safe; run after stamp.py write).
 - WebPage JSON-LD with dateModified on every page (block marked data-ld="page")
 - Dataset JSON-LD on the home page (data-ld="dataset"), FAQPage JSON-LD on faq.html (data-ld="faq")
-- the no-JS text of the home page's 'Updated today at HH:MM' line
+- the no-JS text of the home page's 'Updated 25 Oct 2026, 05:12' line
 - sitemap.xml lastmod for every page
 - ?v=r<run time> on data.js, stamp.js and access.js in index.html (edge cache-bust).
 Usage: python scripts/seo_meta.py"""
@@ -20,9 +20,30 @@ def stamp_layers(root=ROOT):
     L = {k: datetime.datetime.fromisoformat(v['run']).astimezone(ZoneInfo('Europe/London')) for k, v in (s.get('layers') or {}).items()}
     return L
 
+def latest_layer(L, t):
+    """Newest real layer refresh. A sweep's top-level run is not a layer refresh."""
+    return max(L.values()) if L else t
+
+def layer_of(rel):
+    if rel.startswith('warm-spaces/'): return 'ws'
+    if rel.startswith('shelters/'): return 'sh'
+    if rel.startswith('food-banks/'): return 'fb'
+    return None
+
+POLICY = ('privacy.html', 'terms.html', 'accessibility.html')
+
+def page_time(rel, L, t, dates):
+    """When this page's own information last changed. Policy pages: their text. Area pages: that layer. The rest: newest layer."""
+    if rel in POLICY:
+        e = dates.get(rel) or {}
+        if e.get('at'): return datetime.datetime.fromisoformat(e['at']).astimezone(ZoneInfo('Europe/London'))
+    k = layer_of(rel)
+    if k and k in L: return L[k]
+    return latest_layer(L, t)
+
 def put_info(s, rel, t, L):
-    """'Information last updated <date>.' footers: the refresh time of that page's own layer (404/other: latest run)."""
-    k = 'ws' if rel.startswith('warm-spaces/') else 'sh' if rel.startswith('shelters/') else 'fb' if rel.startswith('food-banks/') else None
+    """'Information last updated <date>.' footers: the refresh time of that page's own layer (404/other: newest layer)."""
+    k = layer_of(rel)
     return re.sub(r'Information last updated [^.<]*\.', 'Information last updated %s.' % lab(L.get(k) or t), s)
 
 def body_hash(s):
@@ -104,17 +125,17 @@ def faq_ld(text):
         qa.append({'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}})
     return {'@context': 'https://schema.org', '@type': 'FAQPage', 'inLanguage': 'en-GB', 'mainEntity': qa}
 
-CYM = ['Ionawr', 'Chwefror', 'Mawrth', 'Ebrill', 'Mai', 'Mehefin', 'Gorffennaf', 'Awst', 'Medi', 'Hydref', 'Tachwedd', 'Rhagfyr']
-CHK_JS = ("<script>(function(){var s=window.FB_STAMP;if(!s||!s.run)return;var m=s.run.match(/^(\\d{4})-(\\d\\d)-(\\d\\d)T(\\d\\d:\\d\\d)/);if(!m)return;"
-          "var td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(new Date()),same=(m[1]+'-'+m[2]+'-'+m[3])===td,d=+m[3],mo=+m[2]-1,"
-          "EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],"
-          "CY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'];"
+CHK_JS = ("<script>(function(){var s=window.FB_STAMP;if(!s)return;var L=s.layers||{},p=location.pathname,"
+          "k=p.indexOf('/warm-spaces/')===0?'ws':p.indexOf('/shelters/')===0?'sh':p.indexOf('/food-banks/')===0?'fb':'';"
+          "var src=k&&L[k]&&L[k].run?L[k]:null;if(!src){var bt=-1;['fb','sh','ws'].forEach(function(i){var x=L[i];if(!x||!x.run)return;var t=Date.parse(x.run);if(!isNaN(t)&&t>=bt){bt=t;src=x}})}"
+          "if(!src)src=s;var m=String(src.run||'').match(/^(\\d{4})-(\\d\\d)-(\\d\\d)T(\\d\\d:\\d\\d)/);if(!m)return;"
+          "var EN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],"
+          "label=(src.label&&/^\\d{1,2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4}, \\d\\d:\\d\\d$/.test(src.label))?src.label:((+m[3])+' '+EN[+m[2]-1]+' '+m[1]+', '+m[4]);"
           "document.querySelectorAll('.mapchk').forEach(function(e){var cy=e.getAttribute('lang')==='cy';"
-          "e.textContent=cy?('Gwiriwyd data’r map ddiwethaf '+(same?'heddiw, ':d+' '+CY[mo]+' '+m[1]+', ')+m[4]):('Map data last checked '+(same?'today, ':d+' '+EN[mo]+' '+m[1]+', ')+m[4]);e.setAttribute('data-run',s.run)})})()</script>")
+          "e.textContent=(cy?'Gwiriwyd data’r map ddiwethaf ':'Map data last checked ')+label;e.setAttribute('data-run',src.run)})})()</script>")
 
 def chk_line(t, cy=False):
-    if cy: txt = 'Gwiriwyd data’r map ddiwethaf %d %s %d, %s' % (t.day, CYM[t.month - 1], t.year, t.strftime('%H:%M'))
-    else: txt = 'Map data last checked %s' % lab(t)
+    txt = ('Gwiriwyd data’r map ddiwethaf %s' if cy else 'Map data last checked %s') % lab(t)
     return '<p class="mapchk"%s data-run="%s">%s</p>' % (' lang="cy"' if cy else '', t.isoformat(timespec='seconds'), txt)
 
 def put_chk(s, t, rel):
@@ -169,16 +190,16 @@ def put_social(s, rel):
     return head + ''.join(add) + sep + rest if add else s
 
 def run(root=ROOT):
-    t = stamp(root); iso = t.isoformat(timespec='seconds'); day = t.date().isoformat()
-    ps = pages(root); L = stamp_layers(root); pd = os.path.join(root, 'overrides', 'page_dates.json')
+    t_pub = stamp(root); L = stamp_layers(root); t = latest_layer(L, t_pub)
+    iso = t.isoformat(timespec='seconds')
+    ps = pages(root); pd = os.path.join(root, 'overrides', 'page_dates.json')
     dates = json.load(open(pd)) if os.path.exists(pd) else {}
     if os.path.exists(os.path.join(root, '404.html')):
         p4 = os.path.join(root, '404.html'); s4 = open(p4, encoding='utf-8').read(); n4 = put_social(put_info(s4, '404.html', t, L), '404.html')
         if n4 != s4: open(p4, 'w', encoding='utf-8').write(n4)
+    when_of = {}
     for rel in ps:
         p = os.path.join(root, rel); s = open(p, encoding='utf-8').read(); s0 = s
-        s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
-                                        'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
             s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
@@ -188,14 +209,17 @@ def run(root=ROOT):
         s = put_info(s, rel, t, L)
         s = put_social(s, rel)
         if rel in TOP: s = put_upd(s, rel, t, dates)
+        when = page_time(rel, L, t, dates); when_of[rel] = when
+        s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
+                                        'dateModified': when.isoformat(timespec='seconds'), 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/', 'shelters/')) and rel.count('/') == 2:
-            s = put_chk(s, t, rel)
+            s = put_chk(s, when, rel)
         if rel == 'faq.html':
             s = put(s, 'faq', ld('faq', faq_ld(s)))
         if s != s0: open(p, 'w', encoding='utf-8').write(s)
     if os.path.isdir(os.path.dirname(pd)): json.dump(dates, open(pd, 'w'), indent=1, sort_keys=True)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    sm += ['<url><loc>%s</loc><lastmod>%s</lastmod></url>' % (url_of(r), day) for r in ps]
+    sm += ['<url><loc>%s</loc><lastmod>%s</lastmod></url>' % (url_of(r), when_of[r].date().isoformat()) for r in ps]
     open(os.path.join(root, 'sitemap.xml'), 'w').write('\n'.join(sm + ['</urlset>']) + '\n')
     print('seo_meta: %d pages stamped %s' % (len(ps), iso))
     return ps

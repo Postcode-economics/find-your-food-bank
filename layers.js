@@ -19,20 +19,16 @@ cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn 
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 12742*Math.asin(Math.sqrt(x))};
-const MCY=['Ionawr','Chwefror','Mawrth','Ebrill','Mai','Mehefin','Gorffennaf','Awst','Medi','Hydref','Tachwedd','Rhagfyr'],MEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MEN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const p2=n=>String(n).padStart(2,'0');
-const dstr=(dt,time)=>`${dt.getDate()} ${(lang==='cy'?MCY:MEN)[dt.getMonth()]} ${dt.getFullYear()}`+(time?(lang==='cy'?' am ':', ')+p2(dt.getHours())+':'+p2(dt.getMinutes()):'');
-const MLONG=['January','February','March','April','May','June','July','August','September','October','November','December'];
-const cyDates=s=>s.replace(/(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})/g,(m,d,mo,y)=>{let i=MLONG.indexOf(mo);if(i<0)i=MEN.indexOf(mo);
- try{const f=new Intl.DateTimeFormat('cy-GB',{day:'numeric',month:'long',year:'numeric'}).format(new Date(+y,i,+d));if(MCY.some(x=>f.includes(x)))return f}catch(e){}
- return d+' '+MCY[i]+' '+y});  // Welsh footer dates: cy-GB, manual month fallback
+function london(iso){const dt=new Date(iso);if(isNaN(+dt))return '';const parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).formatToParts(dt),g=t=>{const x=parts.find(p=>p.type===t);return x?x.value:''};return (+g('day'))+' '+MEN[+g('month')-1]+' '+g('year')+', '+g('hour')+':'+g('minute')}  // UK wall clock, GMT and BST
 const hDisp=h=>{let x=String(h||'');x=x.replace(/^Mo-Su\s+/,lang==='cy'?'Bob dydd ':'Every day ');return x.replace(/(\d{1,2}):(\d{2})-(\d{1,2}):(\d{2})/g,(m,a,b,c,d)=>a+':'+b+'–'+c+':'+d+((+c*60+ +d)<=(+a*60+ +b)?(lang==='cy'?' (drannoeth)':' (next day)'):''))};
-const fmt=d=>d?dstr(new Date(d+'T12:00:00')):'';
-const slab=S=>lang==='cy'?cyDates(S.label):S.label;  // stamp label '25 Oct 2026, 05:12' (UK time of that layer's refresh)
+const fmt=d=>{const m=String(d||'').match(/^(\d{4})-(\d\d)-(\d\d)/);return m?(+m[3])+' '+MEN[+m[2]-1]+' '+m[1]:''};  // a recorded day with no clock time: "25 Oct 2026"
+const slab=S=>S&&S.label||'';  // stamp label '25 Oct 2026, 05:12' (UK time), same words in English and Welsh
 // Welsh for source-data values (shown as-is in English)
 const VCY={'Hot Drinks':'Diodydd poeth','Accessible Toilets':'Toiledau hygyrch','Free Wifi':'Wifi am ddim','Child Friendly':'Croeso i blant','Charging Facilities':'Cyfleusterau gwefru','Parking':'Parcio','Other Refreshments':'Lluniaeth arall','Food Available':'Bwyd ar gael','Computer Access':'Mynediad at gyfrifiadur','Volunteers':'Gwirfoddolwyr','Co-working Desks':'Desgiau cydweithio','TV':'Teledu','Cool Space':'Man oer','Dog Friendly':'Croeso i gŵn','Energy Advice':'Cyngor ar ynni','Volunteers Needed':'Angen gwirfoddolwyr','Not stated':'Heb ei nodi','Not stated by source':'Heb ei nodi gan y ffynhonnell','Winter-only':'Gaeaf yn unig','Year-round':'Drwy’r flwyddyn','men':'dynion','women':'menywod','families':'teuluoedd','young people':'pobl ifanc','Booking needed':'Rhaid archebu','No booking needed':'Dim angen archebu','Mon':'Llun','Tue':'Maw','Wed':'Mer','Thu':'Iau','Fri':'Gwe','Sat':'Sad','Sun':'Sul'};
 const v=x=>lang==='cy'&&VCY[x]?VCY[x]:x;
-const vdates=x=>lang==='cy'&&/^Until /.test(x||'')?'Tan '+fmt(x.slice(6)):v(x);
+const vdates=x=>{let s=String(x||'').replace(/\d{4}-\d{2}-\d{2}/g,m=>fmt(m));return lang==='cy'?s.replace(/^Until /,'Tan '):s};
 const vreason=x=>lang==='cy'?String(x||'').replace(/^No longer listed by source \(unseen (\d+) days\)$/,'Nid yw’r ffynhonnell yn ei restru mwyach (heb ei weld ers $1 diwrnod)'):x;
 const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:false,data:null,group:null},ws:{file:'warmspaces.js',var:'WARMSPACES',col:'#D55E00',shape:'dia',on:false,data:null,group:null}};
 const SHP={sq:(c)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M9 18l7-7 7 7v6H9z" fill="#0A1628"/></svg>`,
@@ -149,7 +145,7 @@ $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const
  for(const k of ['sh','ws']){try{const d=await load(k);const c=d.recently_closed||[];parts.push(`<div class="lh">${t(k)}</div>`+(c.length?c.map(i=>`<p><b>${esc(i.name)}</b>, ${esc(i.postcode)}<br><span class="sub">${esc(vreason(i.closed_reason))} · ${fmt(i.closed_on)}</span></p>`).join(''):`<p class="sub">${t('noClosed')}</p>`))}catch(_){}}
  $x('xcl').innerHTML=parts.join('')});
 // ---- Welsh for existing food bank UI: rewrites displayed text only, never data or behaviour
-const FBX=[[/^Closed$/,'Ar gau'],[/^Updated today at (\d\d:\d\d)$/,'Diweddarwyd heddiw am $1'],[/^Checked three times daily$/,'Gwirio dair gwaith y dydd'],[/^Food bank$/,'Banc bwyd'],[/^Food bank · voucher needed$/,'Banc bwyd · angen taleb'],[/^Walk-in not confirmed – call before you go$/,'Galw heibio heb ei gadarnhau – ffoniwch cyn mynd'],[/^Times change, call before you go\.$/,'Mae amseroedd yn newid, ffoniwch cyn mynd.'],[/^Call for opening times$/,'Ffoniwch am yr oriau agor'],
+const FBX=[[/^Closed$/,'Ar gau'],[/^Updated (\d{1,2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4}, \d\d:\d\d)$/,'Diweddarwyd $1'],[/^Checked three times daily$/,'Gwirio dair gwaith y dydd'],[/^Food bank$/,'Banc bwyd'],[/^Food bank · voucher needed$/,'Banc bwyd · angen taleb'],[/^Walk-in not confirmed – call before you go$/,'Galw heibio heb ei gadarnhau – ffoniwch cyn mynd'],[/^Times change, call before you go\.$/,'Mae amseroedd yn newid, ffoniwch cyn mynd.'],[/^Call for opening times$/,'Ffoniwch am yr oriau agor'],
 [/^Opening times$/,'Oriau agor'],[/^Today:$/,'Heddiw:'],[/^Or: (.+)$/,'Neu: $1'],[/^Check times on their website$/,'Gwiriwch yr amseroedd ar eu gwefan'],[/^Directions$/,'Cyfarwyddiadau'],[/^Their website$/,'Eu gwefan'],
 [/^Give Food page$/,'Tudalen Give Food'],[/^Check times$/,'Gwirio amseroedd'],[/^source$/,'ffynhonnell'],[/^Share this map$/,'Rhannu’r map hwn'],[/^Link copied ✓$/,'Dolen wedi’i chopïo ✓'],
 [/^Pin placed at the postcode centre\. Check the address\.$/,'Pin wedi’i osod yng nghanol y cod post. Gwiriwch y cyfeiriad.'],[/^Phone \(from Give Food\)$/,'Ffôn (gan Give Food)'],[/^Phone \(checked on their site\)$/,'Ffôn (wedi’i wirio ar eu gwefan)'],[/^Phone number from Give Food$/,'Rhif ffôn gan Give Food'],[/^Phone number checked on their site$/,'Rhif ffôn wedi’i wirio ar eu gwefan'],
@@ -167,8 +163,7 @@ const FBX=[[/^Closed$/,'Ar gau'],[/^Updated today at (\d\d:\d\d)$/,'Diweddarwyd 
 [/^Mon$/,'Llun'],[/^Tue$/,'Maw'],[/^Wed$/,'Mer'],[/^Thu$/,'Iau'],[/^Fri$/,'Gwe'],[/^Sat$/,'Sad'],[/^Sun$/,'Sul'],[/^You are here$/,'Rydych chi yma'],[/^Searched: (.*)$/,'Chwiliwyd: $1'],
 [/^Made by @postcode_economics\. $/,'Gwnaed gan @postcode_economics. '],[/^Follow for more UK money maps$/,'Dilynwch am fwy o fapiau arian y DU'],
 [/^Data: $/,'Data: '],[/^, last updated $/,', diweddarwyd ddiwethaf '],[/^ and the $/,' a’r '],[/^ \(checked on each food bank's own website\), last updated $/,' (wedi’u gwirio ar wefan pob banc bwyd), diweddarwyd ddiwethaf '],[/^\. Times change, call before you go\. Phone numbers and opening times $/,'. Mae amseroedd yn newid, ffoniwch cyn mynd. Rhifau ffôn ac oriau agor '],
-[/^\. Postcodes: $/,'. Codau post: '],[/^\)\. Map © OpenStreetMap contributors\. Backup map: OpenFreeMap © OpenMapTiles\. © MapTiler\. Built by $/, '). Map © cyfranwyr OpenStreetMap. Map wrth gefn: OpenFreeMap © OpenMapTiles. © MapTiler. Adeiladwyd gan '],[/^checked (.*)$/,(m,a)=>'gwiriwyd '+cyDates(a)],
-[/^(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4})$/,(m,d,mo,y)=>d+' '+MCY[MEN.indexOf(mo.slice(0,3))]+' '+y]];
+[/^\. Postcodes: $/,'. Codau post: '],[/^\)\. Map © OpenStreetMap contributors\. Backup map: OpenFreeMap © OpenMapTiles\. © MapTiler\. Built by $/, '). Map © cyfranwyr OpenStreetMap. Map wrth gefn: OpenFreeMap © OpenMapTiles. © MapTiler. Adeiladwyd gan '],[/^checked (.*)$/,(m,a)=>'gwiriwyd '+a]];
 const ATTR=[['q','aria-label','Postcode or town','Cod post neu dref'],['fhide','aria-label','Hide filters','Cuddio hidlwyr'],['chips','aria-label','Food bank filters (swipe up to hide)','Hidlwyr banc bwyd (llithro i fyny i guddio)'],['me','aria-label','Use my location','Defnyddio fy lleoliad'],['me','title','Use my location','Defnyddio fy lleoliad']];
 const skip=n=>n.parentElement&&n.parentElement.closest('#rpm,.rpb,#xextra,#xbar,#xleg,#xbefore summary,#xoff,#xnear,#xlang,script,style,.leaflet-control-attribution');
 function trNode(n){if(n.nodeType!==3||skip(n))return;if(n.__en==null||n.nodeValue!==n.__cy)n.__en=n.nodeValue;
@@ -185,7 +180,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[data-cid]');if
 // ---- offline banner (EN/CY) + last saved search
 const ban=document.createElement('div');ban.id='xoff';ban.setAttribute('role','status');ban.hidden=true;document.body.insertBefore(ban,document.body.firstChild);
 let isOff=false;const savedAt=()=>{try{return localStorage.getItem('savedAt')}catch(e){return null}};
-function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();const st=window.FB_STAMP&&FB_STAMP.run?dstr(new Date(FB_STAMP.run),true):'';ban.textContent=d?t('offline')+dstr(new Date(d),true)+(st?'. '+t('chkL')+st+'.':''):t('offline').replace(/ (from|ar) $/,'')+(st?'. '+t('chkL')+st+'.':'');ban.hidden=false}
+function banner(){if(!isOff){ban.hidden=true;return}const d=savedAt();const st=window.FB_STAMP&&(FB_STAMP.label||(FB_STAMP.run?london(FB_STAMP.run):''));ban.textContent=d?t('offline')+london(d)+(st?'. '+t('chkL')+st+'.':''):t('offline').replace(/ (from|ar) $/,'')+(st?'. '+t('chkL')+st+'.':'');ban.hidden=false}
 function goOffline(){if(isOff)return;isOff=true;banner();try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');
  if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x}}catch(e){}}
 addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false;banner()});
