@@ -14,6 +14,13 @@
    "added": 4,
    "queued": 17,
    "rejected": 0
+  },
+  {
+   "at": "21:17Z",
+   "source": "shelters_discovery.json",
+   "added": 4,
+   "queued": 53,
+   "rejected": 0
   }
  ],
  "added": [
@@ -88,12 +95,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not show it is a shelter/emergency accommodation"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://www.thegap.wales/",
-   "http": 202,
-   "sha256": "89f50314f4017afb0e1b155d1482a71a357960286cece264b6e1515225c54124",
+   "final_url": "https://thegap.wales/",
+   "http": 200,
+   "sha256": "f0ba0c19a64d5ae91737a44804e071ec1625a34d6382bf0846c49fcf0b1cdd62",
    "etag": "",
    "last_modified": ""
   },
@@ -159,13 +166,12 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 202,
-   "sha256": "8792f596fce82d5b366510b1dcb4023be79239869a5bd8118485c405e8cbeb17",
+   "http": 200,
+   "sha256": "f3c67e85ec932a17f47be187112c8519d43a61b49f5f00178e563f867871b440",
    "etag": "",
    "last_modified": ""
   },
@@ -236,7 +242,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "53b56aca8a09f6d4e748ec2da4848a521b5546cd58194aaa9390da1d0ebb9722",
+   "sha256": "3284deb58b9032fb3df121152ceaf527da94fd0027d9493ca326762f1b3b8861",
    "etag": "",
    "last_modified": ""
   },
@@ -253,9 +259,9 @@
    "url": "https://999club.org/",
    "final_url": "https://999club.org/",
    "http": 200,
-   "sha256": "b87ab1442a59bdd446a565f0a2ae582d947eb1ed7681569860a87e847549e71e",
+   "sha256": "6c516eb730b889fdcbbba0c0d5afd018965e2215078f3c38cffc88cf236c21f8",
    "etag": "",
-   "last_modified": "Sun, 25 Oct 2026 10:42:05 GMT"
+   "last_modified": "Mon, 26 Oct 2026 10:42:16 GMT"
   },
   "osm-node-13661455428": {
    "id": "osm-node-13661455428",
@@ -381,8 +387,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "5489dc54585e66185e8e6434b951e585e4d4e02944aef45478046f04784cd8f8",
-   "etag": "\"1792947914\"",
-   "last_modified": "Sun, 25 Oct 2026 17:05:14 GMT"
+   "etag": "\"1793031902\"",
+   "last_modified": "Mon, 26 Oct 2026 16:25:02 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -519,14 +525,15 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site unreachable (HTTP error)"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": 200,
-   "sha256": "bfa4bf16787a69ebd90695fd51daecb1b2750e1d7573c5bf80048c1e93df6305",
-   "etag": "",
-   "last_modified": ""
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "osm-way-699201604": {
    "id": "osm-way-699201604",
@@ -577,8 +584,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
-   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
+   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
+   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {
@@ -702,7 +709,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "ea4ba0c87f9adfffc7eab439e911d578f55e1eebeeeee2042359d96762cb3d9c",
+   "sha256": "3eebcc889be13d197be617720574edaf88b3f06943b858ebb6416c5c5289d7a0",
    "etag": "",
    "last_modified": ""
   },
@@ -857,7 +864,7 @@
    "http": 200,
    "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 12:57:06 GMT"
+   "last_modified": "Mon, 26 Oct 2026 19:36:30 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -907,8 +914,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "3bd157d6d8df018b596265f48f6c4cde64ea995920647dfcee344838dab641f7",
-   "etag": "W/\"21d74-mry7uFVM2nTNFZJFdQlX1AyKMps\"",
+   "sha256": "86927de8d9a8cc9c2a32a5a6a8d21d70894ea447d66d4c41fcd3c4a745fa4306",
+   "etag": "W/\"21f5b-lV1BdIFaaMH6qMiWozNIpjxEpAA\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
@@ -1012,6 +1019,27 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  "hl-catalyst-britannia-foyer": {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "6d59a12be4d31cd81b36c918da7abdaa65ad36cff0a297a08f24168ce2831ae5",
+   "etag": "",
+   "last_modified": ""
   }
  },
  "rejected": {}

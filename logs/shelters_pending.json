@@ -1,5 +1,1157 @@
 [
  {
+  "id": "osm-node-839135604",
+  "name": "North Hertfordshire Sanctuary",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://oneymca.org/blog/north-herts-sanctuary/",
+   "final_url": "https://oneymca.org/blog/north-herts-sanctuary/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "228f5cfdcf1726305f1ec125ab8a2080db21613d0e1324bdf9dba3f95506071b"
+  }
+ },
+ {
+  "id": "osm-node-1243077938",
+  "name": "The Gap Centre",
+  "address": "42 Stow Hill, Newport",
+  "postcode": "NP20 1JG",
+  "source_url": "https://www.openstreetmap.org/node/1243077938",
+  "website": "https://www.thegap.wales/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.thegap.wales/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-3126125844",
+  "name": "HARP",
+  "address": "",
+  "postcode": "SS0 8AE",
+  "source_url": "https://www.openstreetmap.org/node/3126125844",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-3724769904",
+  "name": "Julian House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: schema: referral requirement not stated",
+  "recheck": {
+   "url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
+   "final_url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "cd27c64ef4db347d110cb32f46300bf7b4b70344b9e18e05aef28d756f27bce7"
+  }
+ },
+ {
+  "id": "osm-node-4490110694",
+  "name": "Willow Lodge",
+  "address": "1-3 Wolverton Avenue, Blackpool",
+  "postcode": "FY2 9NT",
+  "source_url": "https://www.openstreetmap.org/node/4490110694",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-5048168684",
+  "name": "Alms Houses",
+  "address": "",
+  "postcode": "B48 7SE",
+  "source_url": "https://www.openstreetmap.org/node/5048168684",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter",
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-5113222471",
+  "name": "Foyer",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.sng.org.uk/rent-or-buy/the-foyer-isle-of-wight",
+   "final_url": "https://www.sng.org.uk/rent-or-buy/the-foyer-isle-of-wight",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "180df4a7d9a03ecbbcf64198a4f06bb0d87a89795a0b682438adfe08a829b626"
+  }
+ },
+ {
+  "id": "osm-node-6480884322",
+  "name": "Home 4 Good",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
+   "final_url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-node-7257703002",
+  "name": "House The Homeless",
+  "address": "237 Knight's Hill, London",
+  "postcode": "SE27 0QT",
+  "source_url": "https://www.openstreetmap.org/node/7257703002",
+  "website": "https://housethehomeless.com",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://housethehomeless.com",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-9067373694",
+  "name": "The Wellspring Stockport",
+  "address": "Harvey Street, Stockport",
+  "postcode": "SK1 1YD",
+  "source_url": "https://www.openstreetmap.org/node/9067373694",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-9596043207",
+  "name": "Pobl Clifton Place",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
+   "final_url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "038ed60c90b7f3fdb0648d3da2680128c71af1bdee0468c6f7c8a204e8869e73"
+  }
+ },
+ {
+  "id": "osm-node-9696469499",
+  "name": "The Wallich",
+  "address": "12 Hanbury Road, Pontypool",
+  "postcode": "NP4 6JQ",
+  "source_url": "https://www.openstreetmap.org/node/9696469499",
+  "website": "https://thewallich.com/services/torfaen-tenancy-support/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://thewallich.com/services/torfaen-tenancy-support/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-11702060791",
+  "name": "The Shrewsbury Ark",
+  "address": "32 Castle Foregate, Shrewsbury",
+  "postcode": "SY1 2EH",
+  "source_url": "https://www.openstreetmap.org/node/11702060791",
+  "website": "https://www.shrewsburyark.co.uk/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.shrewsburyark.co.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-11815272405",
+  "name": "Llamau",
+  "address": "70 Stow Hill, Newport",
+  "postcode": "NP20 4DX",
+  "source_url": "https://www.openstreetmap.org/node/11815272405",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-12804949354",
+  "name": "Sandwood House",
+  "address": "27 Sandon Road",
+  "postcode": "B17 8DR",
+  "source_url": "https://www.openstreetmap.org/node/12804949354",
+  "website": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-12876936676",
+  "name": "999 Club",
+  "address": "21 Deptford Broadway, London",
+  "postcode": "SE8 4PA",
+  "source_url": "https://www.openstreetmap.org/node/12876936676",
+  "website": "https://999club.org/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://999club.org/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-13078865908",
+  "name": "Open Door",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.hightownha.org.uk/care-support/homeless-services/need-a-bed-tonight/",
+   "final_url": "https://www.hightownha.org.uk/care-support/homeless-services/need-a-bed-tonight/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "654fc1b7cf68809cf8732fe172613f0e9502d21a3694c821e7f006be02efe78c"
+  }
+ },
+ {
+  "id": "osm-node-13661455428",
+  "name": "Help The Homeless Leicester",
+  "address": "",
+  "postcode": "LE1 3QN",
+  "source_url": "https://www.openstreetmap.org/node/13661455428",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-node-14178877191",
+  "name": "Centrepoint",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
+   "final_url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "ce41fb0129cb879d1b07ee61fac7b62af65abf47adf0472088f6ec6a831d84d6"
+  }
+ },
+ {
+  "id": "osm-way-32349145",
+  "name": "Queens Hotel",
+  "address": "122 Church Road, London",
+  "postcode": "SE19 2UG",
+  "source_url": "https://www.openstreetmap.org/way/32349145",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter",
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-56777384",
+  "name": "Derby City Mission",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.derbycitymission.org.uk/what-is-safe-space",
+   "final_url": "https://www.derbycitymission.org.uk/what-is-safe-space",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "44dc8d8e66a33b15aed699c26ad5b4b02ba8e7917d57bcea800ef4f406818460"
+  }
+ },
+ {
+  "id": "osm-way-81353303",
+  "name": "YMCA London City and North",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
+   "final_url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "28ed62616a40b02ebb47fd2fdcd781d9c87b93dce85fee6131b015e9134e3859"
+  }
+ },
+ {
+  "id": "osm-way-86915090",
+  "name": "Guildry House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://newsroom.moray.gov.uk/news/morays-homelessness-support-partnership-renewed",
+   "final_url": "https://newsroom.moray.gov.uk/news/morays-homelessness-support-partnership-renewed",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "a2631b325be9bb2c3a0d22959d82d663b2ab5ef50a1bcaf1b09268a83b0ace4e"
+  }
+ },
+ {
+  "id": "osm-way-97716790",
+  "name": "O'Hanlon House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: schema: referral requirement not stated",
+  "recheck": {
+   "url": "https://homelessoxfordshire.uk/our-work/",
+   "final_url": "https://homelessoxfordshire.uk/our-work/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "aa2b032087b79a2cea386785fc90048508448f7540ed4d9bc4698ca5d94d2a37"
+  }
+ },
+ {
+  "id": "osm-way-97799459",
+  "name": "The Queens Arms",
+  "address": "24 Great Knollys Street, Reading",
+  "postcode": "RG1 7HN",
+  "source_url": "https://www.openstreetmap.org/way/97799459",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-103443901",
+  "name": "Ben's Centre",
+  "address": "22 Wilkinson Street, Sheffield",
+  "postcode": "S10 2GB",
+  "source_url": "https://www.openstreetmap.org/way/103443901",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-112817892",
+  "name": "St Martins House Under 1 Roof",
+  "address": "100 - 102 Westwick Street, Norwich",
+  "postcode": "NR2 4SZ",
+  "source_url": "https://www.openstreetmap.org/way/112817892",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-136647984",
+  "name": "Riverside",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/the-springs-cambridge",
+   "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/the-springs-cambridge",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-147871099",
+  "name": "Evolve Housing",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
+   "final_url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "2a850966ecf71c3db4b55fc0761a177b7a455e83c1567078863c19bc4d33db03"
+  }
+ },
+ {
+  "id": "osm-way-152789142",
+  "name": "Catching Lives",
+  "address": "",
+  "postcode": "CT1 3PJ",
+  "source_url": "https://www.openstreetmap.org/way/152789142",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-157731534",
+  "name": "Wirral Ark",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://wirralark.org.uk/supported-accommodation/",
+   "final_url": "https://wirralark.org.uk/supported-accommodation/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-171300312",
+  "name": "Centrepoint Camberwell Foyer",
+  "address": "90 Denmark Hill, London",
+  "postcode": "SE5 8RX",
+  "source_url": "https://www.openstreetmap.org/way/171300312",
+  "website": "https://centrepoint.org.uk/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter"
+   ],
+   "where_to_check": [
+    "https://centrepoint.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-172932545",
+  "name": "St. Mungo's Broadway",
+  "address": "53 Chichester Road, London",
+  "postcode": "NW6 5QW",
+  "source_url": "https://www.openstreetmap.org/way/172932545",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-173078399",
+  "name": "Saint Wilfrid's Centre",
+  "address": "524 Queens Road, Sheffield",
+  "postcode": "S2 4DT",
+  "source_url": "https://www.openstreetmap.org/way/173078399",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-318977041",
+  "name": "Fairholme House",
+  "address": "40 Kenbury Street, London",
+  "postcode": "SE5 9DD",
+  "source_url": "https://www.openstreetmap.org/way/318977041",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-327576971",
+  "name": "Aidan House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.frameworkha.org/about-us/our-services/",
+   "final_url": "https://www.frameworkha.org/about-us/our-services/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-369362320",
+  "name": "Roffey Place",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.turning-tides.org.uk/what-we-do/accommodation/",
+   "final_url": "https://www.turning-tides.org.uk/what-we-do/accommodation/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "f8b8bc901adb4e45090fec5b3256774a3641abab8322da9961e72451f2a177ae"
+  }
+ },
+ {
+  "id": "osm-way-379771476",
+  "name": "The Beacon Centre",
+  "address": "Horsefair, Banbury",
+  "postcode": "OX16 0AA",
+  "source_url": "https://www.openstreetmap.org/way/379771476",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-408710018",
+  "name": "The Trinity Foyer",
+  "address": "20 Church Street, Maidstone",
+  "postcode": "ME14 1BS",
+  "source_url": "https://www.openstreetmap.org/way/408710018",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter",
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-453369056",
+  "name": "The Dawn Centre",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://leicester.gov.uk/your-community/housing/homelessness/temporary-accommodation/the-dawn-centre",
+   "final_url": "https://leicester.gov.uk/your-community/housing/homelessness/temporary-accommodation/the-dawn-centre",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-560767993",
+  "name": "Newbury House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
+   "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-567941601",
+  "name": "LDHAS Lancaster Homeless Action",
+  "address": "2 Aalborg Place, Lancaster",
+  "postcode": "LA1 1BJ",
+  "source_url": "https://www.openstreetmap.org/way/567941601",
+  "website": "https://www.ldhas.org.uk/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.ldhas.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-569033362",
+  "name": "The Limes",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.salvationarmyhomes.org.uk/homes/the-limes",
+   "final_url": "https://www.salvationarmyhomes.org.uk/homes/the-limes",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "3a1483172a54b50b7e017ab27e3806df1e59e3f595644cd7f995fd12e4a1f3d5"
+  }
+ },
+ {
+  "id": "osm-way-585259224",
+  "name": "Town View Fields Hostel",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/support-if-you-are-homeless-or-risk-becoming-homeless",
+   "final_url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/support-if-you-are-homeless-or-risk-becoming-homeless",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "4e838c7ec50e04694936dafa7a14679559bfbcea21203527234807df1234d256"
+  }
+ },
+ {
+  "id": "osm-way-639048084",
+  "name": "St Mungo's",
+  "address": "217-221 Harrow Road, London",
+  "postcode": "W2 5XQ",
+  "source_url": "https://www.openstreetmap.org/way/639048084",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-642121557",
+  "name": "Abbott Lodge",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.salvationarmyhomes.org.uk/homes/abbott-lodge",
+   "final_url": "https://www.salvationarmyhomes.org.uk/homes/abbott-lodge",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "258033e7bcc16a17feb8677dfff085dd6a043e457b22e46598e1915b21f24eea"
+  }
+ },
+ {
+  "id": "osm-way-673331522",
+  "name": "Tresillian House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
+   "final_url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-679300044",
+  "name": "Manna House",
+  "address": "Ann Street, Kendal",
+  "postcode": "LA9 6AA",
+  "source_url": "https://www.openstreetmap.org/way/679300044",
+  "website": "https://www.manna-house.org.uk/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.manna-house.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-699201604",
+  "name": "Refugee Reception Centre - Former Defence Fire Fighting Training Establishment",
+  "address": "Manston Road",
+  "postcode": "CT12 5BS",
+  "source_url": "https://www.openstreetmap.org/way/699201604",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter",
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-699839857",
+  "name": "Anchor House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 404)",
+  "recheck": {
+   "url": "https://anchorhouseperth.org/crieff-rd-accomodation/",
+   "final_url": "https://anchorhouseperth.org/crieff-rd-accomodation/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 404,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-753792449",
+  "name": "St Mungo's",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP error)",
+  "recheck": {
+   "url": "https://homeless.org.uk/homeless-england/service/st-mungos-great-guildford-street/",
+   "final_url": "https://homeless.org.uk/homeless-england/service/st-mungos-great-guildford-street/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": "error",
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-774694067",
+  "name": "Norfolk Hotel",
+  "address": "34 Norfolk Street, Sunderland",
+  "postcode": "SR1 1EE",
+  "source_url": "https://www.openstreetmap.org/way/774694067",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter",
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-931997512",
+  "name": "Hafan Wrexham",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "final_url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "b33871d16911054382e4035c4864e5c2072db73c59eadb34a77f67e315d419f7"
+  }
+ },
+ {
+  "id": "osm-way-931997513",
+  "name": "Wrexham Foyer",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "final_url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "b33871d16911054382e4035c4864e5c2072db73c59eadb34a77f67e315d419f7"
+  }
+ },
+ {
+  "id": "osm-way-936508369",
+  "name": "Wayside Hostel",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.keychange.org.uk/wayside-community/",
+   "final_url": "https://www.keychange.org.uk/wayside-community/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "014e71aa42a4ce862b9b13e69f095fb5da9d7cadfa5229e18daaf908ca3e92ce"
+  }
+ },
+ {
+  "id": "osm-way-979361293",
+  "name": "Salford Foyer",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP error)",
+  "recheck": {
+   "url": "https://homeless.org.uk/homeless-england/service/places-for-people-salford-foyer/",
+   "final_url": "https://homeless.org.uk/homeless-england/service/places-for-people-salford-foyer/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": "error",
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-1104948217",
+  "name": "Cotswold House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
+   "final_url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "c9bde17a7f203e9cf8919f7ea6924fc5d0d8b26aabd8fc3f67a21fbd43b9a95a"
+  }
+ },
+ {
+  "id": "osm-way-1110034236",
+  "name": "East Clayton Farm",
+  "address": "Storrington Road",
+  "postcode": "RH20 4AG",
+  "source_url": "https://www.openstreetmap.org/way/1110034236",
+  "website": "https://www.eastclaytonfarm.org.uk/",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [],
+   "where_to_check": [
+    "https://www.eastclaytonfarm.org.uk/",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-1126940021",
+  "name": "Mary and Joseph House",
+  "address": "217 Palmerston Street",
+  "postcode": "M12 6PT",
+  "source_url": "https://www.openstreetmap.org/way/1126940021",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-1224548824",
+  "name": "The Haven",
+  "address": "Queens Drive, Swindon",
+  "postcode": "SN3 1AR",
+  "source_url": "https://www.openstreetmap.org/way/1224548824",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-1262733230",
+  "name": "Ty Parc",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
+   "final_url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "33713f0a67af840192f27bba962842888d8d668ce0860b55da1bea51b2cdf25b"
+  }
+ },
+ {
+  "id": "osm-way-1268379059",
+  "name": "Trevanion Lodge",
+  "address": "Southbourne Road",
+  "postcode": "PL25 4SA",
+  "source_url": "https://www.openstreetmap.org/way/1268379059",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-1279024352",
+  "name": "Sussex Edwardian Hotel",
+  "address": "Eisenhower Drive, St Leonards-on-Sea",
+  "postcode": "TN37 7BS",
+  "source_url": "https://www.openstreetmap.org/way/1279024352",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "name suggests not a shelter",
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-1311059304",
+  "name": "Womens Center M.W.Y.S. & E.F.",
+  "address": "",
+  "postcode": "L8 2TU",
+  "source_url": "https://www.openstreetmap.org/way/1311059304",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
+  "id": "osm-way-1383660740",
+  "name": "Dunedin Harbour",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
+   "final_url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-way-1499433619",
+  "name": "Bethany House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: OpenStreetMap-only: own-site page does not show this place's postcode or street address this run",
+  "recheck": {
+   "url": "https://www.bethanychristiantrust.com/service/bethany-house/",
+   "final_url": "https://www.bethanychristiantrust.com/service/bethany-house/",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 200,
+   "sha256": "0c19287e912d4334d9b0c8562efb8a0cfea7c5dc0765946b3462d06384329519"
+  }
+ },
+ {
+  "id": "osm-relation-2707322",
+  "name": "Wilson Carlile House",
+  "first_seen": "2026-10-26",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
+   "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "osm-relation-3996349",
+  "name": "Glanrafon",
+  "address": "",
+  "postcode": "CH5 1SA",
+  "source_url": "https://www.openstreetmap.org/relation/3996349",
+  "website": "",
+  "first_seen": "2026-10-26",
+  "reason": "not on allowlist",
+  "autocheck": {
+   "result": "needs manual evidence",
+   "flags": [
+    "no operator website in source"
+   ],
+   "where_to_check": [
+    "",
+    "https://homeless.org.uk/homeless-england/",
+    "council homelessness page"
+   ]
+  }
+ },
+ {
   "id": "hl-ymca-lincs-nomad-centre",
   "name": "YMCA Lincolnshire – Nomad Centre",
   "first_seen": "2026-10-21",
@@ -7,7 +1159,7 @@
   "recheck": {
    "url": "https://homeless.org.uk/homeless-england/service/ymca-lincolnshire-nomad-trust-night-shelter/",
    "final_url": "https://homeless.org.uk/homeless-england/service/ymca-lincolnshire-nomad-trust-night-shelter/",
-   "fetched_at": "2026-10-26T15:28:15+00:00",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -20,7 +1172,7 @@
   "recheck": {
    "url": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
    "final_url": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
-   "fetched_at": "2026-10-26T15:28:15+00:00",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -33,7 +1185,7 @@
   "recheck": {
    "url": "https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/",
    "final_url": "https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/",
-   "fetched_at": "2026-10-26T15:28:15+00:00",
+   "fetched_at": "2026-10-26T21:17:47+00:00",
    "http": 403,
    "sha256": ""
   }

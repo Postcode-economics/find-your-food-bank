@@ -343,12 +343,12 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
 - QUEUED Shipshape Health and Wellbeing · S11 8AE · https://www.shipshape.org.uk — own site has no readable text
 
-### Shelters: 53 queued, 0 rejected
-- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
+### Shelters: 54 queued, 0 rejected
+- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Alms Houses · B48 7SE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added
 - QUEUED The Wellspring Stockport · SK1 1YD — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED The Wallich · NP4 6JQ · https://thewallich.com/services/torfaen-tenancy-support/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
 - QUEUED The Shrewsbury Ark · SY1 2EH · https://www.shrewsburyark.co.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
@@ -368,7 +368,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED The Trinity Foyer · ME14 1BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; name says foyer / supported housing / day centre, not an emergency shelter; no own website in directory
 - QUEUED LDHAS Lancaster Homeless Action · LA1 1BJ · https://www.ldhas.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site unreachable (HTTP error)
 - QUEUED St Mungo's · W2 5XQ — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Manna House · LA9 6AA · https://www.manna-house.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
+- QUEUED Manna House · LA9 6AA · https://www.manna-house.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site unreachable (HTTP error)
 - QUEUED Refugee Reception Centre - Former Defence Fire Fighting Training Establishment · CT12 5BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Norfolk Hotel · SR1 1EE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED East Clayton Farm · RH20 4AG · https://www.eastclaytonfarm.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
@@ -397,6 +397,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
 - QUEUED Brighter Futures - 90 Hope Street · ST1 5BY · http://www.brighter-futures.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Cardinal Hume Centre Hostel · http://https://www.cardinalhumecentre.org.uk — no valid postcode
+- QUEUED Catalyst - Britannia Foyer · EN8 9XD · http://www.broxbourne.gov.uk — directory link is a council page, not the place's own site; name says foyer / supported housing / day centre, not an emergency shelter; own site does not name it; own site does not show it is a shelte
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 

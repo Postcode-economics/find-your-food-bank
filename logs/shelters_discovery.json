@@ -1,8 +1,8 @@
 {
  "run": "2026-10-26",
- "candidates": 23,
- "already_on_map": 2,
- "new": 21,
+ "candidates": 61,
+ "already_on_map": 4,
+ "new": 57,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -24,7 +24,7 @@
    "url": "http://www.amatuk.org",
    "final_url": "https://www.amatuk.org/",
    "http": 200,
-   "sha256": "2a5925446ef8e6d21b60bc33b21307a53bc35b317e99718cf0ec26167948177e",
+   "sha256": "372f815df0e95de2f02cbd178b94f2cd106fabfb48fd46b8c6a018f094c2c7ab",
    "etag": "",
    "last_modified": ""
   },
@@ -48,12 +48,622 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "8fb8563298b8656014d44c3e3b4171fb1bef256344ce0e1a606d10ea99d91cbf",
+   "sha256": "6685b4ca6469cd57eb0f76196522f9b5570956dbf92aa03e54d744558963288e",
    "etag": "",
    "last_modified": ""
   }
  ],
  "flagged": [
+  {
+   "id": "osm-node-1243077938",
+   "name": "The Gap Centre",
+   "postcode": "NP20 1JG",
+   "website": "https://www.thegap.wales/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site does not show it is a shelter/emergency accommodation"
+   ],
+   "url": "https://www.thegap.wales/",
+   "final_url": "https://thegap.wales/",
+   "http": 200,
+   "sha256": "f0ba0c19a64d5ae91737a44804e071ec1625a34d6382bf0846c49fcf0b1cdd62",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-3126125844",
+   "name": "HARP",
+   "postcode": "SS0 8AE",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-4490110694",
+   "name": "Willow Lodge",
+   "postcode": "FY2 9NT",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-5048168684",
+   "name": "Alms Houses",
+   "postcode": "B48 7SE",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-7257703002",
+   "name": "House The Homeless",
+   "postcode": "SE27 0QT",
+   "website": "https://housethehomeless.com",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+   ],
+   "url": "https://housethehomeless.com",
+   "final_url": "https://housethehomeless.com",
+   "http": 200,
+   "sha256": "f3c67e85ec932a17f47be187112c8519d43a61b49f5f00178e563f867871b440",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-9067373694",
+   "name": "The Wellspring Stockport",
+   "postcode": "SK1 1YD",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-node-9696469499",
+   "name": "The Wallich",
+   "postcode": "NP4 6JQ",
+   "website": "https://thewallich.com/services/torfaen-tenancy-support/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "postcode not on own site"
+   ],
+   "url": "https://thewallich.com/services/torfaen-tenancy-support/",
+   "final_url": "https://thewallich.com/services/torfaen-tenancy-support/",
+   "http": 200,
+   "sha256": "f12ba4486e4d072b00e662235c2b30dd613c1440ac04a7511c1f980a3d722072",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-11702060791",
+   "name": "The Shrewsbury Ark",
+   "postcode": "SY1 2EH",
+   "website": "https://www.shrewsburyark.co.uk/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+   ],
+   "url": "https://www.shrewsburyark.co.uk/",
+   "final_url": "https://www.shrewsburyark.co.uk/",
+   "http": 200,
+   "sha256": "4767c98c2184fc9c811e5baa65148c5a5adb5bdc7ef4e9fb7829c9481e8a3b5a",
+   "etag": "W/\"0393d65f759c58bb183fd8e3c902150c\"",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-12804949354",
+   "name": "Sandwood House",
+   "postcode": "B17 8DR",
+   "website": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "postcode not on own site"
+   ],
+   "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
+   "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
+   "http": 200,
+   "sha256": "3284deb58b9032fb3df121152ceaf527da94fd0027d9493ca326762f1b3b8861",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-node-12876936676",
+   "name": "999 Club",
+   "postcode": "SE8 4PA",
+   "website": "https://999club.org/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+   ],
+   "url": "https://999club.org/",
+   "final_url": "https://999club.org/",
+   "http": 200,
+   "sha256": "6c516eb730b889fdcbbba0c0d5afd018965e2215078f3c38cffc88cf236c21f8",
+   "etag": "",
+   "last_modified": "Mon, 26 Oct 2026 10:42:16 GMT"
+  },
+  {
+   "id": "osm-node-13661455428",
+   "name": "Help The Homeless Leicester",
+   "postcode": "LE1 3QN",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-32349145",
+   "name": "Queens Hotel",
+   "postcode": "SE19 2UG",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-97799459",
+   "name": "The Queens Arms",
+   "postcode": "RG1 7HN",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-103443901",
+   "name": "Ben's Centre",
+   "postcode": "S10 2GB",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-112817892",
+   "name": "St Martins House Under 1 Roof",
+   "postcode": "NR2 4SZ",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-152789142",
+   "name": "Catching Lives",
+   "postcode": "CT1 3PJ",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-171300312",
+   "name": "Centrepoint Camberwell Foyer",
+   "postcode": "SE5 8RX",
+   "website": "https://centrepoint.org.uk/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "postcode not on own site"
+   ],
+   "url": "https://centrepoint.org.uk/",
+   "final_url": "https://centrepoint.org.uk/",
+   "http": 200,
+   "sha256": "5489dc54585e66185e8e6434b951e585e4d4e02944aef45478046f04784cd8f8",
+   "etag": "\"1793031902\"",
+   "last_modified": "Mon, 26 Oct 2026 16:25:02 GMT"
+  },
+  {
+   "id": "osm-way-172932545",
+   "name": "St. Mungo's Broadway",
+   "postcode": "NW6 5QW",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-173078399",
+   "name": "Saint Wilfrid's Centre",
+   "postcode": "S2 4DT",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-318977041",
+   "name": "Fairholme House",
+   "postcode": "SE5 9DD",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-379771476",
+   "name": "The Beacon Centre",
+   "postcode": "OX16 0AA",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-408710018",
+   "name": "The Trinity Foyer",
+   "postcode": "ME14 1BS",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-567941601",
+   "name": "LDHAS Lancaster Homeless Action",
+   "postcode": "LA1 1BJ",
+   "website": "https://www.ldhas.org.uk/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.ldhas.org.uk/",
+   "final_url": "https://www.ldhas.org.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-639048084",
+   "name": "St Mungo's",
+   "postcode": "W2 5XQ",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-679300044",
+   "name": "Manna House",
+   "postcode": "LA9 6AA",
+   "website": "https://www.manna-house.org.uk/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site unreachable (HTTP error)"
+   ],
+   "url": "https://www.manna-house.org.uk/",
+   "final_url": "https://www.manna-house.org.uk/",
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-699201604",
+   "name": "Refugee Reception Centre - Former Defence Fire Fighting Training Establishment",
+   "postcode": "CT12 5BS",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-774694067",
+   "name": "Norfolk Hotel",
+   "postcode": "SR1 1EE",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1110034236",
+   "name": "East Clayton Farm",
+   "postcode": "RH20 4AG",
+   "website": "https://www.eastclaytonfarm.org.uk/",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+   ],
+   "url": "https://www.eastclaytonfarm.org.uk/",
+   "final_url": "https://www.eastclaytonfarm.org.uk/",
+   "http": 200,
+   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
+   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
+   "last_modified": ""
+  },
+  {
+   "id": "osm-way-1126940021",
+   "name": "Mary and Joseph House",
+   "postcode": "M12 6PT",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1224548824",
+   "name": "The Haven",
+   "postcode": "SN3 1AR",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1268379059",
+   "name": "Trevanion Lodge",
+   "postcode": "PL25 4SA",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1279024352",
+   "name": "Sussex Edwardian Hotel",
+   "postcode": "TN37 7BS",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-way-1311059304",
+   "name": "Womens Center M.W.Y.S. & E.F.",
+   "postcode": "L8 2TU",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "osm-relation-3996349",
+   "name": "Glanrafon",
+   "postcode": "CH5 1SA",
+   "website": "",
+   "directory": null,
+   "directory_url": null,
+   "reasons": [
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "no own website in directory"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   {
    "id": "hl-1625-independent-people-st-georges-house",
    "name": "1625 Independent People - St George's House",
@@ -67,7 +677,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "ea4ba0c87f9adfffc7eab439e911d578f55e1eebeeeee2042359d96762cb3d9c",
+   "sha256": "3eebcc889be13d197be617720574edaf88b3f06943b858ebb6416c5c5289d7a0",
    "etag": "",
    "last_modified": ""
   },
@@ -222,7 +832,7 @@
    "http": 200,
    "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 12:57:06 GMT"
+   "last_modified": "Mon, 26 Oct 2026 19:36:30 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -272,8 +882,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "3bd157d6d8df018b596265f48f6c4cde64ea995920647dfcee344838dab641f7",
-   "etag": "W/\"21d74-mry7uFVM2nTNFZJFdQlX1AyKMps\"",
+   "sha256": "86927de8d9a8cc9c2a32a5a6a8d21d70894ea447d66d4c41fcd3c4a745fa4306",
+   "etag": "W/\"21f5b-lV1BdIFaaMH6qMiWozNIpjxEpAA\"",
    "last_modified": ""
   },
   {
@@ -294,23 +904,6 @@
    "last_modified": null
   },
   {
-   "id": "hl-brighter-futures-90-hope-street",
-   "name": "Brighter Futures - 90 Hope Street",
-   "postcode": "ST1 5BY",
-   "website": "http://www.brighter-futures.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/brighter-futures-90-hope-street/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "http://www.brighter-futures.org.uk",
-   "final_url": "https://brighter-futures.org.uk/",
-   "http": 200,
-   "sha256": "4f18afbd3fec2afaf220967f27674910b7423e157dfdb19860a701285badca72",
-   "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 12:27:43 GMT"
-  },
-  {
    "id": "hl-brighton-hove-city-council-new-steine-mews-hostel",
    "name": "Brighton & Hove City Council - New Steine Mews Hostel",
    "postcode": "BN2 1QP",
@@ -328,6 +921,40 @@
    "last_modified": "Fri, 23 Oct 2026 11:32:24 GMT"
   },
   {
+   "id": "hl-bromford-charles-england-house",
+   "name": "1625 Independent People - Charles England House",
+   "postcode": "BS15 9TR",
+   "website": "https://www.1625ip.co.uk/",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-charles-england-house/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-bromford-hayward-road-hostel",
+   "name": "Bromford - Hayward Road Hostel",
+   "postcode": "BS15 9TR",
+   "website": "http://www.bromford.co.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
    "id": "hl-cardinal-hume-centre-hostel",
    "name": "Cardinal Hume Centre Hostel",
    "postcode": "",
@@ -343,6 +970,27 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "6d59a12be4d31cd81b36c918da7abdaa65ad36cff0a297a08f24168ce2831ae5",
+   "etag": "",
+   "last_modified": ""
   }
  ],
  "rejected": []
