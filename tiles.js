@@ -123,19 +123,18 @@ window.addTiles = function (map) {
           }
           window.TILE_STATS.load++;
           if (note(true) >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-          return r.blob().then(function (blob) {
+          /* The status is known now. The image uses the real tile URL, answered from the service worker
+             or HTTP cache the fetch just filled, so img.src still names the provider (offline checks rely on it). */
+          img.crossOrigin = 'anonymous';
+          img.onload = function () { done(null, img); };
+          img.onerror = function () {
             if (tileGen !== gen) return;
-            var obj = URL.createObjectURL(blob);
-            img.onload = function () { URL.revokeObjectURL(obj); done(null, img); };
-            img.onerror = function () {
-              URL.revokeObjectURL(obj);
-              window.TILE_STATS.error++;
-              var failed = note(false);
-              done(new Error('decode'), img);
-              if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-            };
-            img.src = obj;
-          });
+            window.TILE_STATS.error++;
+            var failed = note(false);
+            done(new Error('decode'), img);
+            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+          };
+          img.src = url;
         }, function () {
           if (tileGen !== gen) return;
           window.TILE_STATS.error++;
