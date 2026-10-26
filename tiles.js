@@ -1,13 +1,15 @@
 /* Map tile providers, in order of preference (Dean, 22 Oct 2026: hardening against traffic spikes).
    The first provider with a key (or no key needed) is used; if its tiles keep failing the map switches to the next one.
-   To add a keyed provider, paste the key into `key` below. Nothing else needs changing (CSP + service worker already allow these hosts). */
+   26 Oct 2026: the MapTiler free key is invalidated until 22 Nov, so it is blank and OpenStreetMap is used.
+   To switch provider, paste a key into `key` below. The OpenStreetMap URL is the standard tile.openstreetmap.org path.
+   Nothing else needs changing (CSP + service worker already allow these hosts). */
 window.TILE_PROVIDERS = [
-  { name: 'maptiler', key: 'xl3BtUpxQak69583G9Q6', url: 'https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key={key}', maxZoom: 19,
+  { name: 'maptiler', key: '', url: 'https://api.maptiler.com/maps/streets-v2/256/{z}/{x}/{y}.png?key={key}', maxZoom: 19,
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a>' },
   { name: 'stadia', key: '', url: 'https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}.png?api_key={key}', maxZoom: 20,
     attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank" rel="noopener">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>' },
   { name: 'osm', url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>' }
 ];
 /* addTiles(map): adds the first usable provider, and moves down the list when >=6 of the last ~20 tile loads fail. */
 window.addTiles = function (map) {
