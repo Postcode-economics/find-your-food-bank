@@ -122,10 +122,12 @@ TILE_PNG = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tile_p
 def is_map_tile(url):
     """A map tile. The query is stripped first (MapTiler tiles end in .png?key=...).
     style.json and other non-tiles on those hosts are not tiles. A tile path with no
-    suffix (ArcGIS /tile/z/y/x) still counts."""
-    if not TILE_RE.search(url or ''):
-        return False
+    suffix (ArcGIS /tile/z/y/x) still counts. A same-origin copy of a tile path
+    (http://127.0.0.1/tile.openstreetmap.org/5/15/9.png) is a tile too, so tests never call a tile server."""
     path = (url or '').split('?', 1)[0].split('#', 1)[0]
+    if not TILE_RE.search(url or ''):
+        hosts = ('api.maptiler.com', 'tile.openstreetmap.org', 'tiles.stadiamaps.com', 'tiles.openfreemap.org')
+        return any(h in path for h in hosts) and path.lower().endswith(('.png', '.jpg', '.webp', '.pbf'))
     name = path.rsplit('/', 1)[-1].lower()
     if name.endswith(('.json', '.js', '.css', '.html', '.svg', '.txt')):
         return False
