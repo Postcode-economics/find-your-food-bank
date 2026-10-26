@@ -35,6 +35,10 @@ Manual corrections live in `overrides/` and are re-applied on every refresh. Key
 { "example-foodbank": "01234 567890" }
 ```
 
+`overrides/phone_labels.json` (optional, food banks) says whose number that is. The list card and the pin pop-up show it under the phone, in full, in light and dark. A label that ends in "number" or "line" is shown as written (for example "Library service line", "Central service line", "Shared venue line"). Anything else is shown as "Number for …".
+
+Shelters (`overrides/shelters_contacts.json`) and warm spaces (`overrides/warmspaces_contacts.json`) take the same optional `phone_label` on that place's contact entry. `scripts/shelter_contacts.py` copies it on every refresh, and only when the place has a phone. Adding a label does not add or change a number.
+
 `overrides/opening_times.json` (free text per entry, or structured if the page supports it):
 ```json
 { "example-foodbank": "Mon & Thu 10:00-12:00" }

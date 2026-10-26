@@ -212,8 +212,9 @@ def main():
         n = notices.get(i['id'])
         if isinstance(n, dict) and n.get('notice'): i['notice'] = n['notice']
     plabels = load_json(os.path.join(ROOT, 'overrides', 'phone_labels.json'), {})
-    for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct)
-        if i.get('phone') and isinstance(plabels.get(i['id']), str): i['phone_label'] = plabels[i['id']]
+    for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct). Optional; blank is ignored.
+        lab = plabels.get(i['id'])
+        if i.get('phone') and isinstance(lab, str) and lab.strip(): i['phone_label'] = lab.strip()
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return

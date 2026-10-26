@@ -1,5 +1,5 @@
 {
- "_about": "Warm space phone numbers. 'phone' = number on the venue's own website (phone_source). 'council_*' = host council main number from the council's own website, shown labelled 'Council main number', never as the venue's. Read by scripts/shelter_contacts.py on every warm spaces build. Checked 2026-10-23.",
+ "_about": "Warm space phone numbers. 'phone' = number on the venue's own website (phone_source). 'council_*' = host council main number from the council's own website, shown labelled 'Council main number', never as the venue's. Optional 'phone_label' (e.g. 'Library service line', 'Shared venue line') is copied when the place has a phone and shown under the number on the list card and the pin pop-up; it does not add a number. Read by scripts/shelter_contacts.py on every warm spaces build. Checked 2026-10-23.",
  "cacre-march-st-john-s-community-hub": {
   "phone": "01353 860850",
   "phone_source": "https://www.cambsacre.org.uk/projects/cambridgeshire-community-hubs-network/",

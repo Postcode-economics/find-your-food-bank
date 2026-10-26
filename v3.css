@@ -595,3 +595,11 @@ html body #sheetBody .card a.btn.call.xfb>span.xcl{font-size:13px!important;font
 html body #sheetBody .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
 html body #sheetBody .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
 #fhide{min-width:44px}  /* Dean 25 Oct: every button at least 44x44 (was 37-40px wide) */
+/* Optional phone label: full text under the number on list cards and pin pop-ups.
+   Wraps inside the card. Never ellipsis, never one-line clip. Light text on dark cards,
+   dark text on light cards and on the leaflet pop-up (that pop-up stays a light card in both themes). */
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) p.plab{display:block!important;box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;max-height:none!important;margin:8px 0 0!important;padding:0!important;flex:1 1 100%!important;order:10!important;font-size:15px!important;font-weight:650!important;line-height:1.4!important;letter-spacing:normal!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere!important;word-break:break-word!important;-webkit-line-clamp:unset!important;line-clamp:unset!important}
+html body #xextra .card:is(.xsh,.xws)>p.plab{order:6!important}
+html:not(.light) body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#F2F4F8!important}
+html.light body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#0A1628!important}
+html body .leaflet-popup-content p.plab{color:#0A1628!important;background:transparent!important}
