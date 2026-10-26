@@ -44,7 +44,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
 ## Auto-discovery queue (2026-10-26) — failed one auto-add check, not on the map
 
-### Food banks: 296 queued, 0 rejected
+### Food banks: 297 queued, 0 rejected
 - QUEUED Hive Hope · DA11 0RB · https://www.hivehope.org.uk. — own site unreachable (HTTP error)
 - QUEUED Bethlehem House of Bread (Condorrat Parish Church) · G67 4DZ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Bright Morning Star Prisons and Homelessness Outreach · SE11 4HZ · https://Www.thebrightmorningministries.com — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -74,7 +74,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Food For Your Future Community Pantry · KY11 4UG — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Sapphire Foundation · E1 6LS · https://www.sapphirecommunitygroup.org — own site unreachable (HTTP error)
 - QUEUED Nancy's Community Meals Service · SE16 3TY · https://www.my2ndchance.co.uk/store/Nancys-Community-Meals-Service-NCMS-c46114071 — own site unreachable (HTTP 404)
-- QUEUED Holbeck Food Bank · LS11 0AB · https://www.holbeckfoodbank.org.uk/ — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Holbeck Food Bank · LS11 0AB · https://www.holbeckfoodbank.org.uk/ — own site unreachable (HTTP 404)
 - QUEUED Noah's Ark Food Bank · E17 9AH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Noah's Ark Food Bank · ME5 9QG — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hungry No More · GL3 1HX — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -195,7 +195,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED EMS Ltd · HU9 3QB · https://www.emsyorkshire.co.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Caritas Portsmouth · PO9 1LP · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
 - QUEUED Caritas Portsmouth · PO1 3QA · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
-- QUEUED Caritas Portsmouth · SO17 3SB · https://www.caritasportsmouth.org.uk — own site unreachable (HTTP 502)
+- QUEUED Caritas Portsmouth · SO17 3SB · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
 - QUEUED Trust House Whitefield · BL9 9AU · https://www.trusthousewhitefield.org — own site redirects to a different site (trusthousebury.org)
 - QUEUED Littleport Independent Foodbank · CB6 1PS — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Collective Sharehouse · YO23 1BW · https://www.thecollectivesharehouse.co.uk — own site does not show food aid
@@ -341,8 +341,9 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Heart of the Community Foodbank Swadlincote · DE11 0TW — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Community Food Bank Skye & Lochalsh · IV51 9EH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
+- QUEUED Shipshape Health and Wellbeing · S11 8AE · https://www.shipshape.org.uk — own site has no readable text
 
-### Shelters: 51 queued, 0 rejected
+### Shelters: 53 queued, 0 rejected
 - QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
@@ -394,6 +395,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Brighton & Hove City Council - New Steine Mews Hostel · BN2 1QP · http://www.nsmhostel.org.uk — own site has no readable text
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
+- QUEUED Brighter Futures - 90 Hope Street · ST1 5BY · http://www.brighter-futures.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Cardinal Hume Centre Hostel · http://https://www.cardinalhumecentre.org.uk — no valid postcode
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 

@@ -1,5 +1,5 @@
 {
- "run": "2026-10-26T05:55:02+00:00",
+ "run": "2026-10-26T15:49:38+00:00",
  "councils": [
   {
    "code": "KIN",
@@ -20,6 +20,27 @@
    "review": "council page not clear: https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation (unknown)"
   },
   {
+   "code": "CMN",
+   "council": "Carmarthenshire County Council",
+   "alerts": [
+    "Natural Resources Wales: Flood Warning: Tidal area at Pendine",
+    "Natural Resources Wales: Flood Warning: Tidal area at Carmarthen Bay Holiday Park, Kidwelly"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
+   "code": "CGN",
+   "council": "Ceredigion County Council",
+   "alerts": [
+    "Natural Resources Wales: Flood Warning: Tidal area at Cardigan"
+   ],
+   "open_tonight": false,
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
+  },
+  {
    "code": "CBD",
    "council": "Cumberland Council",
    "alerts": [
@@ -30,58 +51,28 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "ERY",
-   "council": "East Riding of Yorkshire Council",
+   "code": "EHA",
+   "council": "East Hampshire District Council",
    "alerts": [
-    "Environment Agency: Flood warning: North Sea coast at Easington and Kilnsea"
+    "Environment Agency: Flood warning: South Hayling and South Eastoke seafront"
    ],
    "open_tonight": false,
    "pages": [
     {
-     "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
+     "url": "https://www.easthants.gov.uk/emergency-advice/rough-sleepers-advice",
      "http": 200,
      "status": "unknown",
      "quote": "",
      "own_site": true
     }
    ],
-   "review": "council page not clear: https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (unknown)"
+   "review": "council page not clear: https://www.easthants.gov.uk/emergency-advice/rough-sleepers-advice (unknown)"
   },
   {
-   "code": "ESK",
-   "council": "East Suffolk Council",
+   "code": "HAM",
+   "council": "Hampshire County Council",
    "alerts": [
-    "Environment Agency: Flood warning: Bawdsey Quay and Felixstowe Ferry"
-   ],
-   "open_tonight": false,
-   "pages": [
-    {
-     "url": "https://www.eastsuffolk.gov.uk/housing/housing/homelessness-advice-and-prevention/rough-sleeping",
-     "http": 405,
-     "status": "unreachable",
-     "quote": "",
-     "own_site": true
-    }
-   ],
-   "review": "council page not clear: https://www.eastsuffolk.gov.uk/housing/housing/homelessness-advice-and-prevention/rough-sleeping (unreachable)"
-  },
-  {
-   "code": "ESS",
-   "council": "Essex County Council",
-   "alerts": [
-    "Environment Agency: Flood warning: The Essex coast from Clacton, to and including, Lee-over-Sands",
-    "Environment Agency: Flood warning: Maldon Town waterfront and the Hythe",
-    "Environment Agency: Flood warning: The Essex coast at West Mersea, including The Strood and surrounding marshland"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
-  },
-  {
-   "code": "MSU",
-   "council": "Mid Suffolk District Council",
-   "alerts": [
-    "Environment Agency: Flood warning: Bawdsey Quay and Felixstowe Ferry"
+    "Environment Agency: Flood warning: South Hayling and South Eastoke seafront"
    ],
    "open_tonight": false,
    "pages": [],
@@ -91,8 +82,8 @@
    "code": "NFK",
    "council": "Norfolk County Council",
    "alerts": [
-    "Environment Agency: Flood warning: The tidal River Waveney from Ellingham Marshes to Belton",
-    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
+    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham",
+    "Environment Agency: Flood warning: Isolated low lying properties along the tidal River Waveney"
    ],
    "open_tonight": false,
    "pages": [],
@@ -144,8 +135,7 @@
    "code": "SFK",
    "council": "Suffolk County Council",
    "alerts": [
-    "Environment Agency: Flood warning: The tidal River Waveney from Ellingham Marshes to Belton",
-    "Environment Agency: Flood warning: Bawdsey Quay and Felixstowe Ferry"
+    "Environment Agency: Flood warning: Isolated low lying properties along the tidal River Waveney"
    ],
    "open_tonight": false,
    "pages": [
@@ -158,26 +148,6 @@
     }
    ],
    "review": "council page not clear: https://www.suffolk.gov.uk/about/severe-weather-information-and-services (no SWEP wording)"
-  },
-  {
-   "code": "WSK",
-   "council": "West Suffolk Council",
-   "alerts": [
-    "Environment Agency: Flood warning: Bawdsey Quay and Felixstowe Ferry"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
-  },
-  {
-   "code": "WSX",
-   "council": "West Sussex County Council",
-   "alerts": [
-    "Environment Agency: Flood warning: Bosham and West Itchenor"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
    "code": "WRL",

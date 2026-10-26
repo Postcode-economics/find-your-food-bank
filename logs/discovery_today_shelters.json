@@ -7,6 +7,13 @@
    "added": 4,
    "queued": 51,
    "rejected": 0
+  },
+  {
+   "at": "15:28Z",
+   "source": "shelters_discovery.json",
+   "added": 4,
+   "queued": 17,
+   "rejected": 0
   }
  ],
  "added": [
@@ -695,7 +702,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "04d4e70d727de41b818dae2f3eec0e8487b03cd535f97e4a690e38332d745de1",
+   "sha256": "ea4ba0c87f9adfffc7eab439e911d578f55e1eebeeeee2042359d96762cb3d9c",
    "etag": "",
    "last_modified": ""
   },
@@ -780,9 +787,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "724a068087c3364f89e94f983c76e1a1b03694633b86cb3a0594035ec6bc1f0b",
+   "sha256": "9ccd92af85cf1ecc0006f95260fab2ce53d526659dca56498692dc8ea3d1008b",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 00:01:51 GMT"
+   "last_modified": "Mon, 26 Oct 2026 09:31:51 GMT"
   },
   "hl-alabare-the-andover-foyer-sarum-house": {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -848,9 +855,9 @@
    "url": "http://www.barnardos.org.uk/bay6project.htm",
    "final_url": "https://www.barnardos.org.uk/get-support/services",
    "http": 200,
-   "sha256": "c51d4d434d04c6e233bac47d50ccf96126f6555574693dbabb759b332486363d",
+   "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 02:00:46 GMT"
+   "last_modified": "Mon, 26 Oct 2026 12:57:06 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -900,8 +907,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "34b774aa0f823f971a3e0e494b8104580446a515fe0060fc465e90ae3ee0795d",
-   "etag": "W/\"21bbc-yVRUq5anlMgCvHoX5RqPO3ECJDo\"",
+   "sha256": "3bd157d6d8df018b596265f48f6c4cde64ea995920647dfcee344838dab641f7",
+   "etag": "W/\"21d74-mry7uFVM2nTNFZJFdQlX1AyKMps\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
@@ -962,6 +969,40 @@
    "website": "http://www.bromford.co.uk",
    "directory": "Homeless Link",
    "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "hl-brighter-futures-90-hope-street": {
+   "id": "hl-brighter-futures-90-hope-street",
+   "name": "Brighter Futures - 90 Hope Street",
+   "postcode": "ST1 5BY",
+   "website": "http://www.brighter-futures.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/brighter-futures-90-hope-street/",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.brighter-futures.org.uk",
+   "final_url": "https://brighter-futures.org.uk/",
+   "http": 200,
+   "sha256": "4f18afbd3fec2afaf220967f27674910b7423e157dfdb19860a701285badca72",
+   "etag": "",
+   "last_modified": "Mon, 26 Oct 2026 12:27:43 GMT"
+  },
+  "hl-cardinal-hume-centre-hostel": {
+   "id": "hl-cardinal-hume-centre-hostel",
+   "name": "Cardinal Hume Centre Hostel",
+   "postcode": "",
+   "website": "http://https://www.cardinalhumecentre.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
    "reasons": [
     "no valid postcode"
    ],

@@ -1,10 +1,9 @@
-# Refresh guard: foodbanks (2026-10-26T05:45:37+00:00)
+# Refresh guard: foodbanks (2026-10-26T15:40:20+00:00)
 
-foodbanks: kept 6 places, 0 phones, 24 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 5 places, 0 phones, 24 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (6)
+## places kept (5)
 
-- ifan-5b9fd1318a04132921a389-0
 - ifan-d59b2e089746f7a97c1e15-0
 - colchester/wivenhoe
 - ifan-a2fb0701e0208ee9e642a3-0
@@ -17,6 +16,7 @@ foodbanks: kept 6 places, 0 phones, 24 opening times that this run would have dr
 - kintyre
 - ledbury
 - carntyne-riddrie
+- corsham-churches
 - alnwick-district
 - klsb
 - honiton
@@ -27,7 +27,6 @@ foodbanks: kept 6 places, 0 phones, 24 opening times that this run would have dr
 - swindon/st-aldhelms-centre
 - newark/tuxford
 - sunderland/downhill-centre-community-hub
-- blyth/7-seaforth-street
 - edinburgh-ne/st-margarets-parish-church-halls
 - edinburgh-ne/south-leith-parish-church-halls
 - ifan-0696416ec3aadb29cb398b-0
