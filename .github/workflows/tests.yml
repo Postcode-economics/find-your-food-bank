@@ -2,6 +2,9 @@
 name: tests
 on:
   push:
+    # Release tags only carry data assets (e.g. the offline map); their commit is already tested on main.
+    tags-ignore: ['offline-map-*']
+    branches: ['**']
   pull_request:
 # One run per branch. A push and the pull request for that branch share it, and a newer
 # push cancels the older run. This account can run 20 jobs at once. Without this, every
