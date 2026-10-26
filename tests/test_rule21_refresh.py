@@ -4,7 +4,6 @@ A dry run / fixture. The verified named-person numbers stay, with the venue labe
 the source pages give:
 
   kings-langley                         01923 903531   Team Rector
-  kings-langley/bennetts-end            01923 903531   Team Rector
   leytonstone-seventh-day-adventist-church  07985 566592  Pastor
 
 The daily sweep (scripts/sweep_daily.py, write=False), learning.py, and the
@@ -27,7 +26,6 @@ from hours_fix import apply_phone
 
 VENUES = {
     "kings-langley": ("01923 903531", "01923903531", "Team Rector"),
-    "kings-langley/bennetts-end": ("01923 903531", "01923903531", "Team Rector"),
     "leytonstone-seventh-day-adventist-church": ("07985 566592", "07985566592", "Pastor"),
 }
 PHONE_FILES = (
