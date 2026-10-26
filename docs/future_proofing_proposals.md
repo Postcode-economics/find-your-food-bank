@@ -2,7 +2,7 @@
 
 Owner: Dean. Written 25 October 2026, after the 14 sweep upgrades.
 
-**Status:** items 1–20 were approved and are being built one at a time. Item 21 and the "Recommend no" list are not approved and stay off.
+**Status:** items 1–20 are built. Item 21 and the "Recommend no" list are not approved and stay off.
 
 ## Hard rules that still apply
 
@@ -211,6 +211,8 @@ Atomic saves of the learning state (write a temp file, then replace). The combin
 - **Recommendation:** Yes, draft only.
 
 ### 20. A once-a-year reminder to re-read source terms
+
+**Status:** Built. On or after 25 October each year, starting in 2027, the morning note asks Dean to re-read the terms. 25 October 2026 is not a reminder. The reminder adds no URLs, and it is stored so it does not repeat in the same year.
 
 - **Benefit:** Give Food, IFAN, council pages, the Met Office and Natural Resources Wales can change their terms. A dated line asks Dean to re-read them, so a scrape that was fine in 2026 is not assumed fine in 2029.
 - **Risk:** The reminder is ignored, or it is turned into an excuse to scrape more. It adds no URLs.

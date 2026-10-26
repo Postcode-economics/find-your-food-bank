@@ -10,6 +10,8 @@ Searches use the live postcodes.io API. If postcodes.io cannot be reached at all
 rather than blocking a refresh on someone else's outage. Results: reports/sense_check.md + logs/sense_check.json."""
 import functools, http.server, json, math, os, sys, threading, urllib.request
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+sys.path.insert(0, os.path.join(ROOT, 'tests'))
+from site_ready import open_map
 TOL_KM = 40
 # query -> ONS CTYUA name the result must be near (counties.json)
 SEARCHES = [('Littlehampton', 'West Sussex'), ('Suffolk', 'Suffolk'), ('Kent', 'Kent'), ('Devon', 'Devon'), ('West Sussex', 'West Sussex'),
@@ -43,14 +45,14 @@ def run(base=None, chrome=None):
         b = p.chromium.launch(**kw)
         for w in (390, 1366):
             c = b.new_context(viewport={'width': w, 'height': 844}, service_workers='block'); pg = c.new_page()
-            pg.goto(base, wait_until='networkidle'); pg.wait_for_timeout(1500)
+            open_map(pg, base); pg.wait_for_timeout(1500)
             for q, area in (SEARCHES if w == 390 else SEARCHES[:4]):  # desktop: a smaller set (same code path)
                 for k in TYPES:
                     for on in (False, True):
                         if pg.evaluate("document.getElementById('openToday').checked") != on: pg.click('#v3open'); pg.wait_for_timeout(200)
                         pg.click('.v3b[data-l=%s]' % k); pg.wait_for_timeout(500)
                         pg.evaluate('()=>{scrollTo(0,0);lastNear=null}'); pg.fill('#q', q); pg.press('#q', 'Enter'); settle(pg, 2500)
-                        r = pg.evaluate("""([k,on])=>{const D=k==='ws'?window.WARMSPACES:k==='sh'?window.SHELTERS:null;
+                        READ = """([k,on])=>{const D=k==='ws'?window.WARMSPACES:k==='sh'?window.SHELTERS:null;
                           const lat=lastNear?lastNear[0]:null,lng=lastNear?lastNear[1]:null;
                           const fbShown=[...document.querySelectorAll('#list .card')].map(c=>dists[+c.dataset.k]);
                           const fbAll=items.map((i,j)=>({i,j})).filter(x=>vis(x.j)&&!nc(x.i)).map(x=>dists[x.j]).sort((a,b)=>a-b);
@@ -58,7 +60,14 @@ def run(base=None, chrome=None):
                             const pool=D.items.filter(i=>!i.ended&&(!on||!V3.shutToday(k,i))).map(i=>({n:i.name,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>a.d-b.d);
                             xa=pool.slice(0,nm.length).map(x=>x.n);  // names can repeat (e.g. 'The Meeting Place'): compare by name to the true nearest set
                             const used=new Set();xs=nm.map(n=>{const j=pool.findIndex((x,ix)=>x.n===n&&!used.has(ix));used.add(j);return j<0?-1:pool[j].d})}
-                          return {lat,lng,fbShown,fbAll:fbAll.slice(0,fbShown.length),xs,xa,nm:D?[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>h.textContent):[],err:(document.querySelector('.v3err')||{}).textContent||''}}""", [k, on])
+                          return {lat,lng,fbShown,fbAll:fbAll.slice(0,fbShown.length),xs,xa,nm:D?[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>h.textContent):[],err:(document.querySelector('.v3err')||{}).textContent||''}}"""
+                        r = pg.evaluate(READ, [k, on])
+                        # The same commit passed this check on the push run and failed it on the pull request:
+                        # the lists were read while a type change was still re-running the search. Read once more.
+                        if r['lat'] is not None:
+                            R6 = lambda xs: [round(x, 4) for x in xs]
+                            if R6(r['fbShown']) != R6(r['fbAll']) or (k != 'fb' and r['nm'] != r['xa']):
+                                pg.wait_for_timeout(1000); r = pg.evaluate(READ, [k, on])
                         tag = '%s | %s | %s | open today %s | %dpx' % (q, k, area, 'on' if on else 'off', w); bad = []
                         if r['lat'] is None: bad.append('no result (%s)' % r['err'][:80])
                         else:
