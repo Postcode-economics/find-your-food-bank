@@ -33,6 +33,10 @@ jobs:
           # has moved past this commit, a newer run checks the live site - this one stands down (no checks, never a revert).
           if [ "$(git ls-remote origin refs/heads/main | cut -f1)" != "${{ github.sha }}" ]; then echo "::notice::superseded by a newer main commit; live is '$got'"; echo "SUPERSEDED=1" >> "$GITHUB_ENV"; exit 0; fi
           echo "::warning::live build '$got' != '$want' after 10 min; testing anyway"
+      - id: dates
+        name: Shown dates match the stamps
+        if: success() && env.SUPERSEDED != '1'
+        run: python scripts/date_check.py
       - id: oldlinks
         name: Old links
         if: success() && env.SUPERSEDED != '1'
@@ -61,6 +65,7 @@ jobs:
         run: |
           failed=""
           case "${{ steps.wait.outcome }}" in failure) failed="deploy-wait";; esac
+          case "${{ steps.dates.outcome }}" in failure) failed="${failed:+$failed }dates";; esac
           case "${{ steps.oldlinks.outcome }}" in failure) failed="${failed:+$failed }old-links";; esac
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
           case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
@@ -82,6 +87,7 @@ jobs:
         run: |
           failed=""
           case "${{ steps.wait.outcome }}" in failure) failed="deploy-wait";; esac
+          case "${{ steps.dates.outcome }}" in failure) failed="${failed:+$failed }dates";; esac
           case "${{ steps.oldlinks.outcome }}" in failure) failed="${failed:+$failed }old-links";; esac
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
           case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac

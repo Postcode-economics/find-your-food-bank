@@ -68,6 +68,17 @@ class StampLayers(unittest.TestCase):
         self.assertEqual(s["layers"]["sh"]["run"], "2026-10-26T05:34:43+00:00")
         self.assertEqual(s["layers"]["ws"]["run"], "2026-10-26T05:32:27+00:00")
         self.assertEqual(s["run"], "2026-10-26T05:55:03+00:00")  # header stays the newest layer, which is the food bank publish
+    def test_assemble_writes_checked_when_the_stamp_has_none(self):
+        """A sweep's stamp.js has layers and no checked key. assemble must write the phone-check time."""
+        d = tempfile.mkdtemp(); os.makedirs(os.path.join(d, "scripts")); os.makedirs(os.path.join(d, "stamps"))
+        shutil.copy(os.path.join(ROOT, "scripts", "stamp.py"), os.path.join(d, "scripts"))
+        open(os.path.join(d, "stamp.js"), "w").write('window.FB_STAMP={"run":"2026-10-26T11:58:28+00:00","kind":"sweep","label":"26 Oct 2026, 11:58","layers":{"fb":{"run":"2026-10-26T05:55:03+00:00","label":"26 Oct 2026, 05:55"},"sh":{"run":"2026-10-26T05:34:43+00:00","label":"26 Oct 2026, 05:34"},"ws":{"run":"2026-10-26T05:32:27+00:00","label":"26 Oct 2026, 05:32"}}};\n')
+        json.dump({"run": "2026-10-26T05:45:36+00:00", "label": "26 Oct 2026, 05:45"}, open(os.path.join(d, "stamps", "checked.json"), "w"))
+        subprocess.run([sys.executable, os.path.join(d, "scripts", "stamp.py"), "assemble"], check=True, capture_output=True)
+        s = json.loads(open(os.path.join(d, "stamp.js")).read().split("=", 1)[1].rstrip().rstrip(";"))
+        self.assertIn("checked", s)
+        self.assertEqual(s["checked"]["run"], "2026-10-26T05:45:36+00:00")
+        self.assertEqual(s["run"], "2026-10-26T05:55:03+00:00")  # the sweep time is not the date the site shows
     def test_sweep_does_not_move_shown_dates(self):
         d = tempfile.mkdtemp(); os.makedirs(os.path.join(d, "scripts")); os.makedirs(os.path.join(d, "stamps"))
         shutil.copy(os.path.join(ROOT, "scripts", "stamp.py"), os.path.join(d, "scripts"))

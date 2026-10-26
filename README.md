@@ -22,6 +22,22 @@ Automatic schedules (all times UTC; UK time is UTC+1 in summer, UTC in winter), 
 
 Problems are made visible: a failed run, or a food bank run whose full own-site check failed (the run still publishes the fresh discovery data), opens or updates a GitHub issue labelled `refresh-alert` (`scripts/alert.py`); the next good run closes it. GitHub emails the repository owner about new issues.
 
+## Dates
+
+Every visible date is `26 Oct 2026, 05:55` (UK time, `Europe/London`). A record that has no clock time is the date alone, `26 Oct 2026`. Do not write "today", a long month, or a Welsh month name.
+
+Which source a date uses:
+
+| What the page says | Source | Moves when |
+|---|---|---|
+| Food banks / shelters / warm spaces "updated", and "Information last updated" on that layer's pages | `stamps/fb.json`, `stamps/sh.json`, `stamps/ws.json` (assembled into `stamp.js`) | that layer's refresh actually publishes |
+| Home header "Updated", the FAQ "Map data last checked" line, and the 404 footer | the newest of those three layer stamps | the newest layer refresh |
+| "Phone numbers and opening times checked" | `stamps/checked.json` | a full own-site check finishes |
+| "Last updated" on the FAQ, terms, privacy and accessibility pages, plus their `dateModified` and sitemap `lastmod` | `overrides/page_dates.json` | that page's own wording changes |
+| A card's "checked", "closed" or scheme date, and a rest centre's "open until" | that listing's own field | that listing changes |
+
+Never overwrite another layer's stamp. Each refresh writes only its own file under `stamps/`. `scripts/date_check.py` fails the PR, the refresh, and the deploy check when a data time disagrees across pages, a visible date uses another format, a label is not the stamp time, or a layer's stamp is older than its data file. A failed check does not publish.
+
 Avoid pushing to `main` within a few minutes of a scheduled run: the refresh jobs rebase onto `main` and keep their own generated files (`data.js`, `access.js`, `logs/`, `reports/`) if both sides changed them.
 
 ## Overrides

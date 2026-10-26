@@ -88,6 +88,8 @@ jobs:
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
         continue-on-error: true
         run: python scripts/seo_meta.py
+      - name: Date check - stop publishing if a stamp, a page or a format disagrees
+        run: python scripts/date_check.py
       - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
         run: python scripts/validate.py gate
       - name: Commit if changed
@@ -104,11 +106,11 @@ jobs:
             ok=0
             if git pull --rebase; then ok=1
             else
-              # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
+              # conflicts the rebase could not settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version. stamp.js keeps the later time of each layer.
               bash scripts/refresh_rebase_conflicts.sh
               GIT_EDITOR=true git rebase --continue && ok=1
             fi
-            if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/stamp.py assemble && python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; git add stamp.js stamps && git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json; git add reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
+            if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/stamp.py assemble && python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; python scripts/date_check.py || exit 1; git add stamp.js stamps && git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json export/README.txt; git add reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
             git rebase --abort 2>/dev/null || true; sleep $((n * 10))
           done
           exit 1

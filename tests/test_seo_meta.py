@@ -68,3 +68,12 @@ class T(unittest.TestCase):
         self.assertIn('<loc>https://helpmap.uk/food-banks/x/</loc><lastmod>2026-10-26</lastmod>', sm)
         self.assertIn('<loc>https://helpmap.uk/privacy.html</loc><lastmod>2026-10-25</lastmod>', sm)
         self.assertNotIn('<loc>https://helpmap.uk/privacy.html</loc><lastmod>2026-10-26</lastmod>', sm)
+        dates['faq.html']['at'] = '2026-10-25T12:45:21+00:00'
+        json.dump(dates, open(os.path.join(self.d, 'overrides', 'page_dates.json'), 'w'))
+        SM.run(self.d)
+        fq = open(os.path.join(self.d, 'faq.html'), encoding='utf-8').read()
+        self.assertEqual(modified('faq.html'), '2026-10-25T12:45:21+00:00')  # the page text, not the food-bank publish
+        self.assertIn('Last updated 25 Oct 2026, 12:45', fq)
+        self.assertIn('Map data last checked 26 Oct 2026, 05:55', fq)  # the data refresh
+        sm = open(os.path.join(self.d, 'sitemap.xml'), encoding='utf-8').read()
+        self.assertIn('<loc>https://helpmap.uk/faq.html</loc><lastmod>2026-10-25</lastmod>', sm)

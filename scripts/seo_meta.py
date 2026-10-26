@@ -30,16 +30,20 @@ def layer_of(rel):
     if rel.startswith('food-banks/'): return 'fb'
     return None
 
-POLICY = ('privacy.html', 'terms.html', 'accessibility.html')
+TEXT_PAGES = ('privacy.html', 'terms.html', 'accessibility.html', 'faq.html')  # 'Last updated' is the page text, not the map
 
-def page_time(rel, L, t, dates):
-    """When this page's own information last changed. Policy pages: their text. Area pages: that layer. The rest: newest layer."""
-    if rel in POLICY:
-        e = dates.get(rel) or {}
-        if e.get('at'): return datetime.datetime.fromisoformat(e['at']).astimezone(ZoneInfo('Europe/London'))
+def data_time(rel, L, t):
+    """The data refresh this page describes. Area and list pages: that layer. Home, FAQ map line, 404: the newest layer."""
     k = layer_of(rel)
     if k and k in L: return L[k]
     return latest_layer(L, t)
+
+def page_time(rel, L, t, dates):
+    """dateModified and sitemap lastmod. Text pages keep the moment their own wording changed. Every other page uses its data time."""
+    if rel in TEXT_PAGES:
+        e = dates.get(rel) or {}
+        if e.get('at'): return datetime.datetime.fromisoformat(e['at']).astimezone(ZoneInfo('Europe/London'))
+    return data_time(rel, L, t)
 
 def put_info(s, rel, t, L):
     """'Information last updated <date>.' footers: the refresh time of that page's own layer (404/other: newest layer)."""
@@ -61,9 +65,11 @@ def put_upd(s, rel, t, dates):
     at = datetime.datetime.fromisoformat(e['at']).astimezone(ZoneInfo('Europe/London'))
     return re.sub(r'<p class="upd">[^<]*</p>', '<p class="upd">Last updated %s</p>' % lab(at), s, count=1)
 
+def read_stamp(root=ROOT):
+    return json.loads(open(os.path.join(root, 'stamp.js'), encoding='utf-8').read().split('=', 1)[1].rstrip().rstrip(';'))
+
 def stamp(root=ROOT):
-    s = json.loads(open(os.path.join(root, 'stamp.js')).read().split('=', 1)[1].rstrip().rstrip(';'))
-    return datetime.datetime.fromisoformat(s['run']).astimezone(ZoneInfo('Europe/London'))
+    return datetime.datetime.fromisoformat(read_stamp(root)['run']).astimezone(ZoneInfo('Europe/London'))
 
 def pages(root=ROOT):
     out = [p for p in TOP if os.path.exists(os.path.join(root, p))]
@@ -204,7 +210,12 @@ def run(root=ROOT):
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
             s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
+            raw = read_stamp(root); layers = raw.get('layers') or {}
+            fb_lab = (layers.get('fb') or {}).get('label') or lab(L.get('fb') or t)
+            chk_lab = (raw.get('checked') or {}).get('label') or fb_lab
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
+            s = re.sub(r'(<span id="upd">)[^<]*', lambda m, fb=fb_lab: m.group(1) + fb, s, count=1)
+            s = re.sub(r'(<span id="chk">)[^<]*', lambda m, ck=chk_lab: m.group(1) + 'checked ' + ck, s, count=1)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
         s = put_info(s, rel, t, L)
         s = put_social(s, rel)
@@ -213,11 +224,17 @@ def run(root=ROOT):
         s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
                                         'dateModified': when.isoformat(timespec='seconds'), 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'faq.html' or rel.startswith(('food-banks/', 'warm-spaces/', 'shelters/')) and rel.count('/') == 2:
-            s = put_chk(s, when, rel)
+            s = put_chk(s, data_time(rel, L, t), rel)  # the map line is the data refresh, even on the FAQ, whose own 'Last updated' is the text
         if rel == 'faq.html':
             s = put(s, 'faq', ld('faq', faq_ld(s)))
         if s != s0: open(p, 'w', encoding='utf-8').write(s)
     if os.path.isdir(os.path.dirname(pd)): json.dump(dates, open(pd, 'w'), indent=1, sort_keys=True)
+    readme = os.path.join(root, 'export', 'README.txt')
+    if os.path.exists(readme):
+        fb_lab = ((read_stamp(root).get('layers') or {}).get('fb') or {}).get('label') or lab(L.get('fb') or t)
+        rt = open(readme, encoding='utf-8').read()
+        nt = re.sub(r'(helpmap\.uk data download - )[^\n]*', lambda m: m.group(1) + fb_lab, rt, count=1)
+        if nt != rt: open(readme, 'w', encoding='utf-8').write(nt)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += ['<url><loc>%s</loc><lastmod>%s</lastmod></url>' % (url_of(r), when_of[r].date().isoformat()) for r in ps]
     open(os.path.join(root, 'sitemap.xml'), 'w').write('\n'.join(sm + ['</urlset>']) + '\n')

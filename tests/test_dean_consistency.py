@@ -72,11 +72,14 @@ class Dates(unittest.TestCase):
             vis = re.sub(r"<script\b[^>]*>.*?</script>", " ", raw, flags=re.S | re.I)
             vis = re.sub(r"<style\b[^>]*>.*?</style>", " ", vis, flags=re.S | re.I)
             vis = html_mod.unescape(re.sub(r"<[^>]+>", " ", vis))
+            vis = re.sub(r"Scheme dates:\s*Until \d{4}-\d{2}-\d{2}", "Scheme dates: Until scheme-end", vis)
             for m in find.finditer(vis):
                 if not ok.match(m.group(0)): bad.append("%s: %s" % (os.path.relpath(p, ROOT), m.group(0)))
             for m in stamp_phrase.finditer(vis):
                 if not timed.match(m.group(1)): bad.append("%s: %s" % (os.path.relpath(p, ROOT), m.group(0)))
         self.assertFalse(bad, "\n".join(bad[:30]))
+        self.assertIn("Scheme dates: Until 2027-03-12", R("warm-spaces/hinckley-and-bosworth/index.html"))
+        self.assertIn("Scheme dates: Until 2027-03-31", R("shelters/leicester/index.html"))
 
     def test_rendered_dates_in_the_browser(self):
         """Header, footer, key and a card use the same format, in English and in Welsh."""

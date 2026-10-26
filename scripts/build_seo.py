@@ -91,7 +91,7 @@ def card_sh(i):
     if i.get('upcoming') or (i.get('scheme_dates') and str(i['scheme_dates']).startswith('Opens')):
         opens = '<div class="opens">%s</div>' % E(shown_date(i.get('scheme_dates') or ('Opens ' + i.get('scheme_start', ''))))
     elif i.get('scheme_dates'):
-        opens = '<div class="sub">Scheme dates: %s</div>' % E(shown_date(i['scheme_dates']))
+        opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])  # a scheme end date stays as recorded
     h = (i.get('hours') or '').strip() if isinstance(i.get('hours'), str) else ''
     hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
@@ -138,7 +138,7 @@ def card_ws(i):
     if i.get('upcoming') and (i.get('scheme_dates') or i.get('scheme_start')):
         opens = '<div class="opens">%s</div>' % E(shown_date(i.get('scheme_dates') if str(i.get('scheme_dates', '')).startswith('Opens') else 'Opens ' + i['scheme_start']))
     elif i.get('scheme_dates'):
-        opens = '<div class="sub">Scheme dates: %s</div>' % E(shown_date(i['scheme_dates']))
+        opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])  # a scheme end date stays as recorded
     ref = ''
     if i.get('booking') and i['booking'] != 'Not stated': ref += '<div class="ref"><b>%s</b></div>' % E(i['booking'])
     if 'referr' in (i.get('notes') or '').lower(): ref += '<div class="ref"><b>Referral:</b> %s</div>' % E(i['notes'])

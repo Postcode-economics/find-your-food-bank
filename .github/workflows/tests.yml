@@ -84,6 +84,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pytest==9.1.1
+      - name: Date check - stamps, pages and the approved format
+        run: python scripts/date_check.py
       - run: python -m pytest -q tests
   old-links:
     needs: changes

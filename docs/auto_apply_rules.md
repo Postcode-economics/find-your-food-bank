@@ -10,6 +10,10 @@ Config: `overrides/auto_apply_rules.json` (loaded by `scripts/auto_rules.py`; re
 - Opening times and temporary closures; voucher/walk-in flips; a clear single new phone on the food bank's own site; warm space end dates; SWEP open/close; a moved link to the same organisation.
 - Dead links are hidden and listed for Dean.
 
+## Shown dates (permanent)
+
+Visible dates use `26 Oct 2026, 05:55` (UK). A field with no clock time uses the date alone, `26 Oct 2026`. Data times come from `stamps/{fb,sh,ws,checked}.json`: the same event shows the same time on every page. The FAQ, terms, privacy and accessibility "Last updated" lines follow `overrides/page_dates.json` and stay put when only the map data refreshes. A card's checked date and a rest centre's open-until time stay on that record. Never overwrite another layer's stamp: a job writes only its own file. `scripts/date_check.py` blocks the PR, the refresh publish and the deploy check if dates drift, the format slips, or a stamp is older than its data file.
+
 ## Old links always work (Dean, 25 Oct 2026, permanent rule)
 `scripts/old_links.py` opens every helpmap.uk link ever sent out, listed in `scripts/old_links.json`. That covers launch emails, X/Threads/Instagram copy, the signature QR code, area pages, and the forms apps add to links (`?igsh`, `?utm_*`, `?fbclid`, hashes, `/index.html`).
 
