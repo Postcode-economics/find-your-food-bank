@@ -430,3 +430,233 @@ class Plan(unittest.TestCase):
         self.assertIn("background:#34C759", css)
         self.assertIn("background:#F5C518", css)
         self.assertIn("999 Emergency services", rd("emergency.js"))
+
+    def test_38_every_live_centre_is_kept_for_every_visitor(self):
+        """Dean 26 Oct: the list is national. Do not filter it by the visitor or the warning area."""
+        js = rd("emergency.js").replace(" ", "")
+        self.assertIn("return!!(c&&c.live&&!c.example)", js)
+        self.assertIn("CLICK HERE FOR YOUR NEAREST SHELTER", rd("emergency.js"))
+        self.assertIn("Go to nearest open rest centre", rd("emergency.js"))
+        css = rd("emergency.css").replace(" ", "")
+        self.assertIn("text-decoration:underline", css)
+        self.assertIn("text-transform:uppercase", css)
+        self.assertIn("em-banner-b#em-banner{background:#000000}", css)
+        self.assertIn('fill="#FF3B30"', rd("emergency.js"))
+
+
+def _centre(name, lat, lng, until="2099-01-01T12:00:00+00:00", **kw):
+    row = {"id": name.lower().replace(" ", "-"), "name": name, "live": True, "lat": lat, "lng": lng,
+           "open_until": until, "open_until_label": "later", "phone": "01234 000000"}
+    row.update(kw)
+    return row
+
+
+class BannerClick(unittest.TestCase):
+    """Dean 26 Oct: the red banner jumps to the nearest open rest centre. These fail on the old banner."""
+
+    @classmethod
+    def setUpClass(cls):
+        try:
+            from playwright.sync_api import sync_playwright
+        except Exception:
+            raise unittest.SkipTest("playwright not available")
+        if not os.path.exists("/usr/bin/google-chrome"):
+            raise unittest.SkipTest("no chrome")
+        import functools, http.server, threading
+        cls._feed = os.path.join(ROOT, "reports", "emergency_preview.json")
+        h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=ROOT); h.log_message = lambda *a: None
+        cls.srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), h)
+        threading.Thread(target=cls.srv.serve_forever, daemon=True).start()
+        cls.base = "http://127.0.0.1:%d" % cls.srv.server_address[1]
+        cls._pw = sync_playwright().start()
+        cls.browser = cls._pw.chromium.launch(executable_path="/usr/bin/google-chrome")
+
+    @classmethod
+    def tearDownClass(cls):
+        if getattr(cls, "browser", None): cls.browser.close()
+        if getattr(cls, "_pw", None): cls._pw.stop()
+        if getattr(cls, "srv", None): cls.srv.shutdown()
+        if getattr(cls, "_feed", None) and os.path.exists(cls._feed): os.remove(cls._feed)
+
+    def setUp(self):
+        if os.path.exists(self._feed): os.remove(self._feed)
+
+    def tearDown(self):
+        if os.path.exists(self._feed): os.remove(self._feed)
+
+    def _page(self, width=390, scheme="light", geo=None):
+        kw = dict(viewport={"width": width, "height": 844}, color_scheme=scheme, device_scale_factor=1)
+        if geo:
+            kw["permissions"] = ["geolocation"]
+            kw["geolocation"] = geo
+        ctx = self.browser.new_context(**kw)
+        ctx.add_init_script("window.__geoCalls=0;try{const g=navigator.geolocation;const o=g.getCurrentPosition.bind(g);g.getCurrentPosition=function(){window.__geoCalls++;return o.apply(this,arguments)}}catch(e){}")
+        pg = ctx.new_page()
+        self.addCleanup(ctx.close)
+        return pg
+
+    def _open(self, pg, query):
+        pg.goto(self.base + "/?preview=emergency&fresh=1&nocount=1" + query, wait_until="load")
+        if "light" in (pg.evaluate("()=>matchMedia('(prefers-color-scheme: light)').matches") and "light" or ""):
+            pass
+        return pg
+
+    def _feed_cards(self, cards, warnings=None):
+        os.makedirs(os.path.dirname(self._feed), exist_ok=True)
+        json.dump({"preview_only": True, "cards": cards, "warnings": warnings or []}, open(self._feed, "w"), ensure_ascii=False)
+
+    def _theme(self, pg, scheme):
+        pg.evaluate("(m)=>document.documentElement.classList.toggle('light', m==='light')", scheme)
+
+    def _banner_info(self, pg):
+        return pg.evaluate("""()=>{const b=document.getElementById('em-banner');const hit=b.querySelector('button,a.em-hit')||b;
+          const cta=b.querySelector('.em-cta');const cs=cta?getComputedStyle(cta):null;const bs=getComputedStyle(b);
+          const br=b.getBoundingClientRect();const cr=cta?cta.getBoundingClientRect():br;
+          return {tag:hit.tagName,name:hit.getAttribute('aria-label')||'',cta:cta?cta.textContent:'',
+            weight:cs?cs.fontWeight:'',deco:cs?cs.textDecorationLine:'',transform:cs?cs.textTransform:'',
+            ctaColor:cs?cs.color:'',bg:bs.backgroundColor,color:bs.color,
+            overflow:b.scrollWidth>b.clientWidth+1||br.right>innerWidth+1||br.left<-1||cr.right>innerWidth+1||cr.left<-1,
+            icons:b.querySelectorAll('.em-ico').length,tab:hit.tabIndex}}""")
+
+    def _go(self, pg, name):
+        pg.click("#em-banner .em-cta")
+        pg.wait_for_selector(".em-card.em-go h3", timeout=8000)
+        got = pg.locator(".em-card.em-go h3").inner_text()
+        self.assertEqual(got, name, pg.evaluate("()=>({geo:window.__geoCalls,names:[...document.querySelectorAll('.em-card h3')].map(h=>h.textContent),on:[...document.querySelectorAll('.em-card')].filter(e=>!e.hidden).map(e=>e.getAttribute('data-em'))})"))
+
+    def _map(self, pg, name, lat, lng):
+        pg.wait_for_selector(".leaflet-popup-content", timeout=8000)
+        last = None
+        for _ in range(50):
+            last = pg.evaluate("""([n,la,ln])=>{const pop=document.querySelector('.leaflet-popup-content');const c=map.getCenter();
+              return {ok:!!(pop&&pop.innerText.indexOf(n)>=0&&Math.abs(c.lat-la)<0.45&&Math.abs(c.lng-ln)<0.45),
+                pop:pop?pop.innerText.slice(0,80):'',lat:c.lat,lng:c.lng}}""", [name, lat, lng])
+            if last["ok"]:
+                return
+            pg.wait_for_timeout(100)
+        self.fail(last)
+
+    def test_banner_is_clickable(self):
+        for scheme in ("dark", "light"):
+            pg = self._page(390, scheme); self._open(pg, "&sample=1"); self._theme(pg, scheme)
+            pg.wait_for_selector("#em-banner .em-cta")
+            info = self._banner_info(pg)
+            self.assertIn(info["tag"], ("BUTTON", "A"), scheme)
+            self.assertEqual(info["name"], "Go to nearest open rest centre", scheme)
+            self.assertGreaterEqual(info["tab"], 0, scheme)
+            self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST SHELTER", scheme)
+            self.assertEqual(info["deco"], "underline", scheme)
+            self.assertEqual(info["transform"], "uppercase", scheme)
+            self.assertIn(info["weight"], ("900", "800", "bold"), scheme)
+            self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", scheme)
+            self.assertEqual(info["color"], "rgb(255, 255, 255)", scheme)
+            self.assertEqual(info["bg"], "rgb(255, 59, 48)", scheme)
+            self.assertEqual(info["icons"], 0, scheme)
+            self.assertFalse(info["overflow"], scheme)
+            pg.set_viewport_size({"width": 320, "height": 700})
+            self.assertFalse(self._banner_info(pg)["overflow"], scheme)
+            pg.locator("#em-banner button").focus()
+            pg.keyboard.press("Enter")
+            pg.wait_for_selector(".em-card.em-go")
+            self.assertEqual(pg.locator(".em-card.em-go h3").inner_text(), "Example Leisure Centre (example)")
+            pg.close()
+
+    def test_sample_goes_to_nearest_open_centre_with_a_location(self):
+        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-banner .em-cta")
+        pg.evaluate("()=>nearest(51.5074,-0.1278,'London')")
+        self._go(pg, "Example Community Hall (example)")
+        self._map(pg, "Example Community Hall (example)", 51.5074, -0.1278)
+        self.assertEqual(pg.evaluate("document.activeElement&&document.activeElement.getAttribute('data-em')"), "example-hall")
+
+    def test_goes_to_the_first_centre_without_a_location(self):
+        cards = [_centre("Aberdeen Rest Centre", 57.1499, -2.0938, area="Aberdeen"),
+                 _centre("Birmingham Rest Centre", 52.4793, -1.9029, area="Birmingham")]
+        self._feed_cards(cards, [{"areas": ["Cornwall"], "level": "red", "title": "Severe Flood Warning: Cornwall"}])
+        pg = self._page(); self._open(pg, ""); pg.wait_for_selector("#em-banner .em-cta")
+        pg.wait_for_selector(".em-card h3")
+        self._go(pg, "Aberdeen Rest Centre")
+        self.assertEqual(pg.evaluate("window.__geoCalls"), 0)
+        self._map(pg, "Aberdeen Rest Centre", 57.1499, -2.0938)
+
+    def test_expired_centres_are_skipped(self):
+        cards = [_centre("London Rest Centre", 51.50, -0.12, until="2000-01-01T00:00:00+00:00"),
+                 _centre("Aberdeen Rest Centre", 57.1499, -2.0938),
+                 _centre("Birmingham Rest Centre", 52.4793, -1.9029)]
+        self._feed_cards(cards)
+        pg = self._page(); self._open(pg, ""); pg.wait_for_selector("text=Birmingham Rest Centre")
+        self.assertTrue(pg.evaluate("document.querySelector('[data-em=\"london-rest-centre\"]').hidden"))
+        pg.evaluate("()=>nearest(51.5074,-0.1278,'London')")
+        self._go(pg, "Birmingham Rest Centre")
+        self._map(pg, "Birmingham Rest Centre", 52.4793, -1.9029)
+        self.assertNotEqual(pg.locator(".em-card.em-go").get_attribute("data-em"), "london-rest-centre")
+
+    def test_text_only_link_still_opens_emergency_txt(self):
+        pg = self._page(); self._open(pg, "&sample=1"); pg.wait_for_selector("#em-banner a.em-text")
+        self.assertEqual(pg.locator("#em-banner a.em-text").get_attribute("href"), "emergency.txt")
+        held = self._page(); self._open(held, "&sample=1"); held.wait_for_selector("#em-banner a.em-text")
+        held.evaluate("document.querySelector('#em-banner a.em-text').addEventListener('click',e=>e.preventDefault(),true)")
+        held.click("#em-banner a.em-text")
+        held.wait_for_timeout(400)
+        self.assertEqual(held.locator(".em-card.em-go").count(), 0)
+        with pg.expect_navigation(wait_until="load", timeout=8000):
+            pg.click("#em-banner a.em-text")
+        self.assertTrue(pg.url.endswith("emergency.txt"), pg.url)
+        body = pg.locator("body").inner_text()
+        self.assertIn("999", body)
+        self.assertIn("Floodline", body)
+
+    def test_all_live_centres_stay_visible(self):
+        cards = [_centre("Penzance Rest Centre", 50.1186, -5.5371, area="Cornwall"),
+                 _centre("Aberdeen Rest Centre", 57.1499, -2.0938, area="Aberdeen"),
+                 _centre("Birmingham Rest Centre", 52.4793, -1.9029, area="Birmingham"),
+                 _centre("Should Not Show", 51.5, -0.1, example=True),
+                 _centre("Held Centre", 51.5, -0.1, live=False)]
+        self._feed_cards(cards, [{"areas": ["Cornwall"], "level": "red", "title": "Severe Flood Warning: Cornwall"}])
+        pg = self._page(); self._open(pg, ""); pg.wait_for_selector("text=Penzance Rest Centre")
+        names = lambda: pg.evaluate("[...document.querySelectorAll('.em-card h3')].map(h=>h.textContent)")
+        self.assertEqual(names(), ["Penzance Rest Centre", "Aberdeen Rest Centre", "Birmingham Rest Centre"])
+        pg.evaluate("()=>nearest(51.5074,-0.1278,'London')")
+        pg.wait_for_timeout(400)
+        self.assertEqual(names(), ["Penzance Rest Centre", "Aberdeen Rest Centre", "Birmingham Rest Centre"])
+        self.assertNotIn("Should Not Show", names())
+        self.assertNotIn("Held Centre", names())
+
+    def test_granted_geolocation_is_used_without_a_search(self):
+        cards = [_centre("Birmingham Rest Centre", 52.4793, -1.9029), _centre("Aberdeen Rest Centre", 57.1499, -2.0938)]
+        self._feed_cards(cards)
+        pg = self._page(geo={"latitude": 57.15, "longitude": -2.09})
+        self._open(pg, ""); pg.wait_for_selector("#em-banner .em-cta")
+        self._go(pg, "Aberdeen Rest Centre")
+        self.assertGreaterEqual(pg.evaluate("window.__geoCalls"), 1)
+
+    def test_banner_variants_keep_the_map_pin_red(self):
+        for kind, bg, circle in (("a", "rgb(255, 59, 48)", True), ("b", "rgb(0, 0, 0)", False)):
+            for scheme in ("dark", "light"):
+                pg = self._page(390, scheme); self._open(pg, "&sample=1&banner=%s" % kind); self._theme(pg, scheme)
+                pg.wait_for_selector("#em-banner .em-ico")
+                info = self._banner_info(pg)
+                self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST SHELTER", (kind, scheme))
+                self.assertEqual(info["bg"], bg, (kind, scheme))
+                self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", (kind, scheme))
+                self.assertEqual(info["name"], "Go to nearest open rest centre", (kind, scheme))
+                fills = pg.eval_on_selector_all("#em-banner .em-ico svg path", "els=>els.map(e=>e.getAttribute('fill'))")
+                self.assertIn("#FF3B30", fills, (kind, scheme))
+                box = pg.evaluate("""()=>{const e=document.querySelector('#em-banner .em-ico');const s=getComputedStyle(e);const r=e.getBoundingClientRect();
+                  return {bg:s.backgroundColor,w:r.width,h:r.height,rad:parseFloat(s.borderTopLeftRadius)}}""")
+                if circle:
+                    self.assertEqual(box["bg"], "rgb(255, 255, 255)", (kind, scheme))
+                    self.assertAlmostEqual(box["w"], box["h"], delta=1)
+                    self.assertGreaterEqual(box["rad"], box["w"] / 2 - 1)
+                else:
+                    self.assertNotEqual(box["bg"], "rgb(255, 255, 255)", (kind, scheme))
+                pg.set_viewport_size({"width": 320, "height": 700})
+                self.assertFalse(self._banner_info(pg)["overflow"], (kind, scheme))
+                pg.click("#em-banner .em-cta")
+                pg.wait_for_selector(".em-card.em-go")
+                self.assertEqual(pg.locator(".em-card.em-go h3").inner_text(), "Example Leisure Centre (example)")
+                pg.close()
+
+    def test_live_default_has_no_banner(self):
+        pg = self._page(); pg.goto(self.base + "/?fresh=1&nocount=1", wait_until="load")
+        self.assertEqual(pg.locator("#em-banner").count(), 0)
+        self.assertNotIn("em-preview", pg.evaluate("document.documentElement.className"))
