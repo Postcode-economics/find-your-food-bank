@@ -9,7 +9,6 @@ and old-links checks. A challenge page or an unstyled background is a failure.
 Usage: python scripts/dark_default.py [BASE_URL] [--webkit]. Checks Chromium (and WebKit if asked / available). Exit 1 on failure."""
 import os, re, sys
 import check_browser as B
-from playwright.sync_api import sync_playwright
 BLOCK = "for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});"
 NAVY = (10, 22, 40)    # --navy on html,body
 WHITE = (255, 255, 255)  # html.light, html.light body
@@ -22,6 +21,7 @@ def ok_case(case, light, bg):
     want_light = case == 'saved-light'
     return light is want_light and parse_rgb(bg) == (WHITE if want_light else NAVY)
 def run(base, engines):
+    from playwright.sync_api import sync_playwright  # the plain pytest job has no Playwright; ok_case does not need it
     bad = []
     with sync_playwright() as p:
         for eng in engines:
