@@ -13,7 +13,8 @@ itself is already there.
 A navigation is tried again once only for a real network blip (the connection failed). The retry is
 printed. A bot page, a page that loaded but is not the app, and any other error are not tried again.
 """
-import time
+import os, time
+from urllib.parse import urlparse
 
 PHONE_UA = ('Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) '
             'Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check')
@@ -93,6 +94,28 @@ def is_map_tile(url):
     return any(h in u for h in hosts) and u.endswith(('.png', '.jpg', '.webp'))
 
 
+def is_tile_host(url):
+    """Tile hosts that must not be fetched from a local preview (rule 23)."""
+    try:
+        host = (urlparse(url).hostname or '').lower()
+    except Exception:
+        return False
+    return host in ('tile.openstreetmap.org', 'api.maptiler.com', 'tiles.stadiamaps.com', 'stadiamaps.com', 'openfreemap.org') or host.endswith('.openfreemap.org')
+
+
+def page_is_local(url):
+    try:
+        host = (urlparse(url or '').hostname or '').lower()
+    except Exception:
+        return False
+    return host in ('localhost', '127.0.0.1')
+
+
+def blank_png():
+    p = os.path.join(os.path.dirname(__file__), '..', 'vendor', 'blank-tile.png')
+    return open(p, 'rb').read()
+
+
 def new_context(browser, **kw):
     """A browser context with a normal user agent and the shared time limits. Service workers are
     blocked unless the caller asks for them (the old-links check is the one that needs them)."""
@@ -103,6 +126,20 @@ def new_context(browser, **kw):
     c = browser.new_context(**kw)
     c.set_default_timeout(STEP_TIMEOUT)
     c.set_default_navigation_timeout(NAV_TIMEOUT)
+    png = blank_png()
+
+    def _stub_tiles(route):
+        frame = ''
+        try:
+            frame = route.request.frame.url or ''
+        except Exception:
+            frame = ''
+        if page_is_local(frame) and is_tile_host(route.request.url):
+            route.fulfill(status=200, content_type='image/png', body=png)
+        else:
+            route.fallback()
+
+    c.route('**/*', _stub_tiles)
     return c
 
 

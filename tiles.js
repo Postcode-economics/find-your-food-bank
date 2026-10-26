@@ -11,6 +11,10 @@ window.TILE_PROVIDERS = [
   { name: 'osm', url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>' }
 ];
+/* Local preview (localhost / 127.0.0.1) never requests live tiles. Playwright also stubs tile hosts. */
+if (typeof location !== 'undefined' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+  window.TILE_PROVIDERS = [{ name: 'stub', url: 'vendor/blank-tile.png', maxZoom: 19, attribution: 'Local preview' }];
+}
 /* addTiles(map): adds the first usable provider, and moves down the list when >=6 of the last ~20 tile loads fail. */
 window.addTiles = function (map) {
   var list = window.TILE_PROVIDERS.filter(function (p) { return !/\{key\}/.test(p.url) || p.key; }), n = 0, layer = null;

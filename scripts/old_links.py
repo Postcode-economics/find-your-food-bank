@@ -45,9 +45,11 @@ def run(base=None):
         for commit in OLD_COMMITS:
             old = snapshot(commit)
             def serve_old(route):
+                if B.page_is_local(base) and B.is_tile_host(route.request.url):
+                    return route.fulfill(status=200, content_type='image/png', body=B.blank_png())
                 path = route.request.url.split(base, 1)[-1].split('?')[0].split('#')[0] or '/'
                 f = os.path.join(old, path.lstrip('/')); f = os.path.join(f, 'index.html') if os.path.isdir(f) else f
-                if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
+                if not route.request.url.startswith(base) or not os.path.exists(f): return route.fallback()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
             for link, (uaname, ua) in [(l, u) for l in links() for u in UAS]:
                 c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True, service_workers='allow')
