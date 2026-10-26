@@ -2,7 +2,9 @@
 (1) 'List only' ON is readable and styled like the 'Light mode' link (no white box: text and background must contrast, background transparent);
 (2) with List only OFF the map really paints (tiles loaded, pins shown) and sits on the phone page below the header;
 (3) with List only ON the list still shows; (4) with storage blocked the page still works."""
-import mimetypes, os, unittest
+import mimetypes, os, sys, unittest
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
+import check_browser as B
 R = os.path.join(os.path.dirname(__file__), '..')
 IG = ('Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 '
       'Instagram 330.0.0.0 (iPhone14,5; iOS 17_4; en_GB; en-GB; scale=3.00; 1170x2532; 600000000) helpmap-check')
@@ -42,6 +44,7 @@ class T(unittest.TestCase):
                         c.add_init_script("try{localStorage.setItem('nomap','%s')}catch(e){}" % nomap)
                         if block: c.add_init_script("for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});")
                         c.route(base + '/**', local); c.route(base + '/', local)
+                        B.stub_map_tiles(c)  # those routes only serve this checkout; tiles must not go to the network
                         pg = c.new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)[:120]))
                         pg.goto(base + '/?nocount&q=SM1%201AA', wait_until='commit'); pg.wait_for_timeout(300); pg.set_viewport_size({'width': 390, 'height': 664})   # in-app toolbar resize mid-load
                         pg.wait_for_load_state('load'); tag = 'nomap=%s block=%s' % (nomap, block)
@@ -63,7 +66,7 @@ class T(unittest.TestCase):
                             m = pg.evaluate("""()=>{const m=document.getElementById('map').getBoundingClientRect(),h=document.querySelector('header').getBoundingClientRect();
                               return {tiles:document.querySelectorAll('#map .leaflet-tile-loaded').length,pins:document.querySelectorAll('#map .leaflet-marker-icon').length,
                                 w:m.width,h:m.height,top:m.top+scrollY,htop:h.bottom+scrollY}}""")
-                            # tiles come from MapTiler over the network; offline CI may get none, so pins + size + position are the hard checks
+                            # tiles are the local placeholder (OpenStreetMap must not be panned from CI); pins + size + position are the hard checks
                             m['z'] = pg.evaluate('map.getZoom()')
                             if m['z'] < 6: bad.append((tag, 'map zoomed out (whole world)', m))
                             if m['pins'] < 1 or m['w'] < 300 or m['h'] < 200: bad.append((tag, 'map not painted', m))

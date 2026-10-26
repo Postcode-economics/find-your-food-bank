@@ -33,9 +33,11 @@ MEASURE = r"""()=>{const q=document.getElementById('q');q.focus();
 class T(unittest.TestCase):
     def test_tiles_stay_a_light_style(self):
         tiles = open(os.path.join(R, 'tiles.js'), encoding='utf-8').read()
-        self.assertIn('streets-v2', tiles)
-        self.assertIn('osm_bright', tiles)
+        self.assertIn('streets-v2', tiles)  # MapTiler (disabled) light style
+        self.assertIn('tiles.openfreemap.org/styles/positron', tiles)  # OpenFreeMap backup: light style
         self.assertNotIn('dark-matter', tiles)
+        self.assertNotIn('styles/dark', tiles)
+        self.assertNotIn('styles/fiord', tiles)
         for rel in ('header.css', 'v3.css', 'layers.css', 'index.html'):
             text = open(os.path.join(R, rel), encoding='utf-8').read()
             self.assertNotIn('invert(', text, rel)
