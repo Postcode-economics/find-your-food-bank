@@ -82,6 +82,10 @@ def main():
     phones = load_json(os.path.join(ROOT, 'overrides', 'phones.json'), {})
     times = load_json(os.path.join(ROOT, 'overrides', 'opening_times.json'), {})
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import phone_rule  # rule 21: a verified own-page contact is shown, including a named or personal number
+    sources = load_json(os.path.join(ROOT, 'overrides', 'phone_sources.json'), {})
+    holds = load_json(os.path.join(ROOT, 'overrides', 'phone_holds.json'), {})
+    phones = phone_rule.phones_to_apply(phones, sources, holds)
     from times import normalise  # scraped text -> clean Mon-Sun table, or deduped text 'as written'
     for i in items:
         i['opening_times'] = normalise(times.get(i['id']))
@@ -215,6 +219,7 @@ def main():
     for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct). Optional; blank is ignored.
         lab = plabels.get(i['id'])
         if i.get('phone') and isinstance(lab, str) and lab.strip(): i['phone_label'] = lab.strip()
+    phone_rule.suppress(items, holds)  # doubtful holds and Dean's own details stay off the card
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
