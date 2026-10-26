@@ -6,12 +6,11 @@ current build. Usage: python scripts/old_links.py [BASE_URL] (default: local che
 Report: reports/old_links.md + logs/old_links.json."""
 import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
 from playwright.sync_api import sync_playwright
+import check_browser as B
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # commit -> must the FIRST open already show the latest build? v80's worker served HTML cache-first, so its first open shows the
 # old (working) page and the next open is the latest; v85+ pages carry the self-heal check and must show the latest at once.
 OLD_COMMITS = {'3dc505a65': True, '384b862f1': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
-IG = ('Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 '
-      'Instagram 330.0.0.0 (iPhone14,5; iOS 17_4; en_GB; en-GB; scale=3.00; 1170x2532; 600000000) helpmap-check')
 CHROME = '/usr/bin/google-chrome' if os.path.exists('/usr/bin/google-chrome') else None
 
 def snapshot(commit):
@@ -46,7 +45,7 @@ def run(base=None):
                 if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
             for link in links():
-                c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, has_touch=True, is_mobile=True)
+                c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=B.IG_UA, has_touch=True, is_mobile=True, service_workers='allow')
                 c.route('**/*', serve_old); pg = c.new_page(); errs = []
                 r = dict(old=commit, link=link)
                 try:
@@ -59,7 +58,10 @@ def run(base=None):
                     pg.wait_for_timeout(4000)   # let the old worker finish activating (v83-v86 workers reload their pages)
                     pg.close(); pg = c.new_page()   # fresh tab: an old worker reloading its install tab (v83-v86 did) can't race the test
                     c.unroute('**/*', serve_old); pg.on('pageerror', lambda e: errs.append(str(e)[:150]))
-                    try: pg.goto(base + link, wait_until='load', timeout=30000)
+                    try: B.goto(pg, base + link, ready=False)  # area pages have no map app; a bot page fails this link
+                    except B.BotPage as e:
+                        r.update(ok=False, why=str(e))
+                        res.append(r); print('FAIL', commit, link, r['why'], flush=True); c.close(); continue
                     except Exception as e: r['slow_load'] = str(e)[:80]   # judged by what the visitor sees next, below
                     pg.wait_for_timeout(7000)
                     try: pg.wait_for_function("document.readyState==='complete'", timeout=15000)

@@ -5,7 +5,7 @@ name: Deploy check (live old links + user journeys + card design lock)
 on:
   push:
     branches: [main]
-    paths: ['**.html', '**.css', '**.js', 'scripts/old_links.py', 'scripts/old_links.json', 'scripts/journeys.py', 'scripts/design_lock.py', 'scripts/design_lock.json']
+    paths: ['**.html', '**.css', '**.js', 'scripts/old_links.py', 'scripts/old_links.json', 'scripts/journeys.py', 'scripts/design_lock.py', 'scripts/design_lock.json', 'scripts/check_browser.py']
   schedule: [{cron: "15 6 * * *"}]
   workflow_dispatch:
 permissions: {contents: write, issues: write}
@@ -19,7 +19,8 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - name: Wait for the deploy (live version.json = this commit's build)
+      - id: wait
+        name: Wait for the deploy (live version.json = this commit's build)
         run: |
           want=$(python -c "import json;print(json.load(open('version.json'))['build'])")
           got=""
@@ -32,15 +33,18 @@ jobs:
           # has moved past this commit, a newer run checks the live site - this one stands down (no checks, never a revert).
           if [ "$(git ls-remote origin refs/heads/main | cut -f1)" != "${{ github.sha }}" ]; then echo "::notice::superseded by a newer main commit; live is '$got'"; echo "SUPERSEDED=1" >> "$GITHUB_ENV"; exit 0; fi
           echo "::warning::live build '$got' != '$want' after 10 min; testing anyway"
-      - name: Old links
+      - id: oldlinks
+        name: Old links
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 20
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py https://helpmap.uk
-      - name: User journeys
+      - id: journeys
+        name: User journeys
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 15
         run: python scripts/journeys.py https://helpmap.uk
-      - name: Card design lock
+      - id: designlock
+        name: Card design lock
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 15
         run: python scripts/design_lock.py https://helpmap.uk
@@ -48,7 +52,14 @@ jobs:
         if: failure() && github.event_name == 'push'
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |
-          case "${{ github.sha }}" in ad54c561*) echo "::error::v88 (ad54c56) is never auto-reverted (Dean 25 Oct 18:56) - fix forward"; python scripts/alert.py open old-links "Live check failed on v88 - NOT reverted (Dean's rule), fix forward" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; exit 0;; esac
+          failed=""
+          case "${{ steps.wait.outcome }}" in failure) failed="deploy-wait";; esac
+          case "${{ steps.oldlinks.outcome }}" in failure) failed="${failed:+$failed }old-links";; esac
+          case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
+          case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
+          [ -n "$failed" ] || failed="live check"
+          echo "failed check: $failed"
+          case "${{ github.sha }}" in ad54c561*) echo "::error::v88 (ad54c56) is never auto-reverted (Dean 25 Oct 18:56) - fix forward"; python scripts/alert.py open old-links "Live check failed ($failed) on v88 - NOT reverted (Dean's rule), fix forward" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; exit 0;; esac
           set -euo pipefail   # 25 Oct: '&&' chains hid a failed pull (test logs left the tree dirty) and the step still passed
           git config user.name "helpmap-bot"; git config user.email "hello@helpmap.uk"
           git reset -q --hard && git clean -fdq   # drop logs/reports the checks wrote
@@ -56,11 +67,19 @@ jobs:
           bash scripts/revert_site.sh ${{ github.sha }}
           git push origin HEAD:main
           git log -1 --format=%s | grep -q "^Auto-revert" || { echo "::error::revert commit not created"; exit 1; }
-          python scripts/alert.py open old-links "Live old-links check failed - deploy reverted" "Commit ${{ github.sha }} failed; see run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          python scripts/alert.py open old-links "Live check failed ($failed) - deploy reverted" "Commit ${{ github.sha }} failed ($failed); see run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - name: Alert (daily check)
         if: failure() && github.event_name != 'push'
         env: {GH_TOKEN: "${{ github.token }}"}
-        run: python scripts/alert.py open old-links "Daily live old-links check failed" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+        run: |
+          failed=""
+          case "${{ steps.wait.outcome }}" in failure) failed="deploy-wait";; esac
+          case "${{ steps.oldlinks.outcome }}" in failure) failed="${failed:+$failed }old-links";; esac
+          case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
+          case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
+          [ -n "$failed" ] || failed="live check"
+          echo "failed check: $failed"
+          python scripts/alert.py open old-links "Daily live check failed ($failed)" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - if: success() && env.SUPERSEDED != '1'
         env: {GH_TOKEN: "${{ github.token }}"}
         run: python scripts/alert.py resolve old-links
