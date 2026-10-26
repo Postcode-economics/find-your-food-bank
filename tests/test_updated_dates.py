@@ -96,10 +96,11 @@ class StampLayers(unittest.TestCase):
     def test_committed_stamp_has_layers(self):
         s = json.loads(open(os.path.join(ROOT, "stamp.js")).read().split("=", 1)[1].rstrip().rstrip(";"))
         self.assertTrue({"fb", "sh", "ws"} <= set(s.get("layers", {})))
-        self.assertEqual(s["layers"]["sh"]["run"], "2026-10-26T05:34:43+00:00")  # shelters refresh that the 05:55 publish had wiped
-        self.assertEqual(s["layers"]["ws"]["run"], "2026-10-26T15:19:09+00:00")  # later warm-spaces refresh, kept over the morning one
-        self.assertEqual(s["run"], "2026-10-26T15:19:09+00:00")  # header is the newest layer
-        self.assertEqual(s["checked"]["run"], "2026-10-26T05:45:36+00:00")  # own-site phone and hours check, not the 05:55 publish
+        self.assertEqual(s["layers"]["fb"]["run"], "2026-10-26T15:49:39+00:00")
+        self.assertEqual(s["layers"]["sh"]["run"], "2026-10-26T15:39:49+00:00")
+        self.assertEqual(s["layers"]["ws"]["run"], "2026-10-26T15:19:09+00:00")
+        self.assertEqual(s["run"], "2026-10-26T15:49:39+00:00")  # header is the newest layer, the food-bank refresh
+        self.assertEqual(s["checked"]["run"], "2026-10-26T05:45:36+00:00")  # own-site phone and hours check, not the publish
         self.assertNotEqual(s["checked"]["label"], s["layers"]["fb"]["label"])
     def test_combine_keeps_the_later_date_of_each_layer(self):
         # 26 Oct: the food-bank refresh rebased with -X theirs and replaced stamp.js outright,
