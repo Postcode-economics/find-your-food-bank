@@ -26,13 +26,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68851205": {
   "http": 200,
   "final_url": "https://www.stpaulscantley.co.uk/index.php/social-justice/neighbourhood-centre.html",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:41 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:25 GMT",
   "sha256": "149ab0e9c945a7c8cdb4d70cdf92dd4a54c49fd8ce9b6bd8f86e124a7c1c003d",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -53,7 +53,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stpaulscantley.co.uk/index.php/social-justice/neighbourhood-centre.html",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55472884": {
   "http": 200,
@@ -74,7 +74,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://abbeycc-kilburn.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68697409": {
   "ok": true,
@@ -83,7 +83,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432668": {
   "ok": true,
@@ -92,7 +92,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68904940": {
   "ok": true,
@@ -101,35 +101,14 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474132": {
   "http": 200,
   "final_url": "https://www.allnationselim.org/events/warm-welcome/",
-  "etag": "\"10017-1792962689;;;\"",
+  "etag": "\"11355-1792992136;;;\"",
   "last_modified": "",
-  "sha256": "897524b3a8d9c71bc056c8662c32ecc9a080ab66494c628bb9ed3b7fabda12d7",
-  "changed_since_last_run": false,
-  "headers_changed": true,
-  "name_found": true,
-  "times_quoted": [],
-  "times_found": [],
-  "days_found": [],
-  "postcode_found": true,
-  "closed_words": false,
-  "referral_found": null,
-  "ok": true,
-  "reason": "confirmed this run",
-  "schema_errors": [],
-  "url": "https://www.allnationselim.org/events/warm-welcome/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "ww-55474670": {
-  "http": 200,
-  "final_url": "https://allsaintskingston.co.uk/",
-  "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 20:39:14 GMT",
-  "sha256": "610ee11e922a24747d221342c0db818544af0f348be7f28d7148a7ab4848b36c",
+  "sha256": "f3e1c29967a68f6bdca8aa03ff06a794a4bf927254ca0e3500fe523cf2f3781e",
   "changed_since_last_run": true,
   "headers_changed": true,
   "name_found": true,
@@ -142,14 +121,35 @@
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
+  "url": "https://www.allnationselim.org/events/warm-welcome/",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
+ },
+ "ww-55474670": {
+  "http": 200,
+  "final_url": "https://allsaintskingston.co.uk/",
+  "etag": "",
+  "last_modified": "Sun, 25 Oct 2026 20:39:14 GMT",
+  "sha256": "610ee11e922a24747d221342c0db818544af0f348be7f28d7148a7ab4848b36c",
+  "changed_since_last_run": false,
+  "headers_changed": false,
+  "name_found": true,
+  "times_quoted": [],
+  "times_found": [],
+  "days_found": [],
+  "postcode_found": true,
+  "closed_words": false,
+  "referral_found": null,
+  "ok": true,
+  "reason": "confirmed this run",
+  "schema_errors": [],
   "url": "https://allsaintskingston.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952860": {
   "http": 200,
   "final_url": "https://www.newdaychurch.uk/serving-our-community/the-well",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:32 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:21 GMT",
   "sha256": "c6ed5ba09d4c2b032f512b9c5bbf5858a032541e1b0cc65ae24799ca94c7b393",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -164,7 +164,7 @@
   "reason": "source no longer names this place",
   "schema_errors": [],
   "url": "https://www.newdaychurch.uk/serving-our-community/the-well",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952302": {
   "http": 200,
@@ -185,7 +185,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.archwayproject.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68922383": {
   "http": 200,
@@ -215,7 +215,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.altrinchamurc.org.uk/church-life/art-faith-and-wellbeing-hub",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57979418": {
   "http": 200,
@@ -236,7 +236,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://art4space.co.uk/whats-on/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592180": {
   "http": 200,
@@ -245,7 +245,7 @@
   "last_modified": "",
   "sha256": "0c66e7348c9500e5b445737eedb65f150dde8d449e3269df7a90a569141737f1",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -257,7 +257,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ashvalechapel.com",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065195": {
   "http": 200,
@@ -286,7 +286,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69211163": {
   "ok": true,
@@ -295,7 +295,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441837": {
   "ok": true,
@@ -304,7 +304,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432711": {
   "http": 200,
@@ -325,7 +325,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://belgravecoop.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475166": {
   "http": 200,
@@ -346,7 +346,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "http://www.bentileevolunteers.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077073": {
   "http": 200,
@@ -375,7 +375,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63519117": {
   "http": 200,
@@ -384,7 +384,7 @@
   "last_modified": "",
   "sha256": "2b406e80d5b0605f79f29c67ad807e9b7daab2467079dba56a9085f6c626ac87",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -396,7 +396,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.bishopsuttonvillagehall.com",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379621": {
   "http": 200,
@@ -417,7 +417,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.bsm-church.org.uk/welcome.htm",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68737520": {
   "http": 200,
@@ -444,13 +444,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.cornwall.gov.uk/libraries-museums-and-archives/libraries/your-local-library/bodmin-library-and-information-service/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952197": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/brighton-bevendean",
-  "etag": "\"1792962693-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:33 GMT",
+  "etag": "\"1792988777-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:26:17 GMT",
   "sha256": "53814f41e86ee2a1b109acaf3ace4a43fe6c6ae654d87cacd63a0ea3871ce4e9",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -467,16 +467,16 @@
    "hours value invalid: Sat=Closed Monthly"
   ],
   "url": "https://www.salvationarmy.org.uk/brighton-bevendean",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68618605": {
   "http": 200,
   "final_url": "https://connectsomerset.org.uk/warm_spaces/bruton-community-library/",
-  "etag": "\"35043-1792717841;;;\"",
+  "etag": "\"41587-1792988188;;;\"",
   "last_modified": "",
   "sha256": "be643753f324f34a15c7b5fc3d477f61ecb9c388ee27559cb5517fed07aee199",
   "changed_since_last_run": false,
-  "headers_changed": false,
+  "headers_changed": true,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -490,7 +490,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.connectsomerset.org.uk/warm_spaces/bruton-community-library/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68777255": {
   "http": 200,
@@ -518,13 +518,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://bucklandbrewerparishcouncil.gov.uk/wednesday-coffee-mornings/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437410": {
   "http": 200,
   "final_url": "https://christchurchguildford.com/cafe-friday-2/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 16:31:33 GMT",
+  "last_modified": "Mon, 26 Oct 2026 03:31:33 GMT",
   "sha256": "98473384086847d55f0afec3c274cf33843871890c6b7dc7320803a4451c672b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -539,7 +539,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://christchurchguildford.com/cafe-friday-2/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69054594": {
   "http": 200,
@@ -566,21 +566,21 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.bristol.anglican.org/churchlife/resourcesforparishes/warm-spaces/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69189484": {
   "http": 200,
   "final_url": "https://soulsurvivor.church/cafeno7",
-  "etag": "W/\"33d7db7e17e8ae2874935807ee0cf65b\"",
+  "etag": "W/\"33d7db7e17e8ae2874935807ee0cf65b--gzip\"",
   "last_modified": "",
   "sha256": "d6ae0e11072ee4bf4ac393db41289eed2d271fd92dcbbc1abc7868fa89d1c5c5",
   "changed_since_last_run": false,
-  "headers_changed": false,
+  "headers_changed": true,
   "ok": false,
   "reason": "source URL now redirects to a different site (soulsurvivor.church)",
   "schema_errors": [],
   "url": "https://www.soulsurvivorwatford.co.uk/cafeno7",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64378921": {
   "http": 200,
@@ -588,7 +588,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "a4376832548877f50658f267580212bea21cc89785293d7430730a991bf956cb",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -601,7 +601,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/33204/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65238466": {
   "http": 200,
@@ -622,7 +622,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.llanrhidian.swansea.sch.uk/community-events",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441901": {
   "http": 200,
@@ -651,12 +651,12 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441939": {
   "http": 200,
   "final_url": "https://coalvillecan.coop/pages/buildings-for-the-community",
-  "etag": "W/\"page_cache:79079604513:PageDetailsController:6fde5ec990e68d814863d8cc24616399:add685f6e0076df1ca8c0195fd95fe89\"",
+  "etag": "W/\"page_cache:79079604513:PageDetailsController:6fde5ec990e68d814863d8cc24616399:ab7936c13145fd942e308e82c62616bb\"",
   "last_modified": "",
   "sha256": "23f0ec214aba0c45b06e84c6dc012fa428ad1bfa35569dfc177a05faae9a39f0",
   "changed_since_last_run": false,
@@ -678,7 +678,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://coalvillecan.coop/pages/buildings-for-the-community",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55476118": {
   "http": 200,
@@ -699,7 +699,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://canley.org.uk/how-we-serve/#cafe",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473321": {
   "http": 200,
@@ -720,7 +720,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.better.org.uk/healthy-communities/warm-spaces#:~:text=GLL%20are%20pleased%20to%20welcome,and%20welcoming%20space%20to%20sit.",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475042": {
   "http": 200,
@@ -741,12 +741,12 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.centenarymethodistchurchboston.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379178": {
   "http": 200,
   "final_url": "https://www.barchester.com/home/cepen-lodge-care-home",
-  "etag": "\"3ty5xkdn7gcrl9\"",
+  "etag": "\"17dxz7bu4vqcrtv\"",
   "last_modified": "",
   "sha256": "c48a948210438549e853bcb49482b264ce9f852735bde8dcbd843257b4c2952a",
   "changed_since_last_run": false,
@@ -762,7 +762,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.barchester.com/home/cepen-lodge-care-home",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475528": {
   "http": 200,
@@ -783,7 +783,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://goodshepherdsandhills.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-58212607": {
   "http": 200,
@@ -792,7 +792,7 @@
   "last_modified": "",
   "sha256": "5f691d9971bda0439b26eb53527eb48456e730936e31c6c3ed11db8b5b8c9062",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -804,7 +804,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.jewishislington.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077074": {
   "http": 200,
@@ -833,12 +833,12 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63443263": {
   "http": 200,
   "final_url": "https://chittlehamptonvillagehall.co.uk/",
-  "etag": "W/\"21-1792763319;gz\"",
+  "etag": "W/\"1-1792707360;gz\"",
   "last_modified": "",
   "sha256": "359a17f88e5cb42838527dcd341df509a091540535cbc98647676bdd8d28fa8e",
   "changed_since_last_run": false,
@@ -854,7 +854,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://chittlehamptonvillagehall.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672287": {
   "http": 200,
@@ -875,7 +875,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.chorlton-central.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69150223": {
   "http": 200,
@@ -904,7 +904,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.christchurchlittlelever.co.uk/warm-welcome-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475500": {
   "http": 200,
@@ -913,7 +913,7 @@
   "last_modified": "",
   "sha256": "6b3d70bb58f4edaa43ed275778b394d6cae08179817d8ca7ea552dc67375f00b",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -925,15 +925,15 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://christchurchb29.org/warm-welcome-2025/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64668882": {
   "http": 200,
   "final_url": "https://mountsorrelchurch.org/worship/",
   "etag": "",
   "last_modified": "",
-  "sha256": "f699aa7abbd2db8006359cc20caa2952a6cb11b91033f7188264d630dc7c40b2",
-  "changed_since_last_run": false,
+  "sha256": "971b21505b0ccb9fa90e5f70fe541260e170794a849913aa552e8fe3da347605",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -946,7 +946,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://mountsorrelchurch.org/worship/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077081": {
   "http": 200,
@@ -980,7 +980,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62359159": {
   "http": 200,
@@ -1001,7 +1001,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/5267/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62358275": {
   "http": 200,
@@ -1022,7 +1022,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/16258/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63353220": {
   "http": 200,
@@ -1043,7 +1043,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://circlefunerals.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475769": {
   "http": 200,
@@ -1052,7 +1052,7 @@
   "last_modified": "Sun, 25 Oct 2026 21:11:30 GMT",
   "sha256": "f4f42dbc43f138703de485a8deca0a46533d92cdf2b945d20a2a51c240193461",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -1064,7 +1064,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.kenkennettcentre.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077080": {
   "http": 200,
@@ -1093,7 +1093,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441903": {
   "http": 200,
@@ -1122,7 +1122,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59953387": {
   "http": 200,
@@ -1151,7 +1151,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441855": {
   "http": 200,
@@ -1172,7 +1172,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://swcd-churches.org.uk/Groups/382368/Coffee_chat_and.aspx",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68775963": {
   "http": 403,
@@ -1186,7 +1186,7 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://silvertonmethodist.church/blog/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69223235": {
   "http": 200,
@@ -1215,7 +1215,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://headleyparkchurch.org.uk/for-adults/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59500982": {
   "http": 200,
@@ -1236,7 +1236,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.coplestoncentre.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952336": {
   "http": 200,
@@ -1257,7 +1257,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.rowsleyvillagehall.org",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951602": {
   "http": 200,
@@ -1278,7 +1278,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.aylesford-church.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69177710": {
   "ok": true,
@@ -1287,7 +1287,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437525": {
   "http": 200,
@@ -1308,7 +1308,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://clackmannandevelopmenttrust.org/community/community-space-and-one-stop-shop/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379057": {
   "http": 200,
@@ -1329,7 +1329,7 @@
   "reason": "source no longer names this place",
   "schema_errors": [],
   "url": "https://www.bishopbaptists.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67203567": {
   "http": 200,
@@ -1338,7 +1338,7 @@
   "last_modified": "",
   "sha256": "2bfa1a1c7dc88b6f35d0e3c5c917671911daf7f7ca77b7668ad6d93c473080da",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -1350,7 +1350,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.crbchurch.org.uk/midweek-ministries",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672284": {
   "http": 404,
@@ -1364,7 +1364,7 @@
   "reason": "source unreachable this run (HTTP 404)",
   "schema_errors": [],
   "url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68980095": {
   "ok": true,
@@ -1373,7 +1373,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592291": {
   "http": 200,
@@ -1394,7 +1394,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://rugeleycc.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68972336": {
   "http": 200,
@@ -1403,7 +1403,7 @@
   "last_modified": "",
   "sha256": "e26bbd337eadb51c9eeedb275006ab9b5d35fcaa2c8b892cc0f598370351ca9e",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [
    "10:00",
@@ -1423,7 +1423,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.christchurchstleonards.co.uk/cosy-crypt",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474971": {
   "http": 200,
@@ -1444,7 +1444,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.coxhoevillagehall.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951671": {
   "http": 200,
@@ -1465,7 +1465,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://thevenueholt.com/groups/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69025981": {
   "http": 200,
@@ -1495,7 +1495,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://kwmc.org.uk/whats-on/sessions/creative-cuppa/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62890200": {
   "http": 200,
@@ -1516,7 +1516,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.crossways.info/crossways-community-cafe",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69004052": {
   "ok": true,
@@ -1525,15 +1525,15 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62730894": {
   "http": 200,
   "final_url": "https://darfieldallsaintschurch.org.uk",
   "etag": "",
   "last_modified": "",
-  "sha256": "95741395bafe35f8e25bcbc3dd5ee64bab8067c552db3d965692dd3e952339f2",
-  "changed_since_last_run": false,
+  "sha256": "130c9f8f7b995099004d5ddcc4638f62b6b48212ee7175f4f449ab0add2f55b6",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -1546,7 +1546,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://darfieldallsaintschurch.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59782766": {
   "http": 403,
@@ -1560,7 +1560,7 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://dcctelford.wordpress.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951784": {
   "http": 200,
@@ -1581,7 +1581,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.redemptionhill.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437345": {
   "ok": true,
@@ -1590,7 +1590,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952616": {
   "http": 200,
@@ -1611,7 +1611,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://deptfordlounge.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69206790": {
   "http": 200,
@@ -1640,7 +1640,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.northnorthants.gov.uk/directory/support-offer/warm-space-desborough-baptist-church-warm-welcome-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432722": {
   "http": 200,
@@ -1661,7 +1661,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://thedockyardcollective.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077083": {
   "http": 200,
@@ -1690,7 +1690,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379285": {
   "http": 200,
@@ -1711,7 +1711,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.gloslibraries.uk/news/warm-welcome-week-2026",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441902": {
   "http": 200,
@@ -1740,7 +1740,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65913527": {
   "http": 200,
@@ -1761,7 +1761,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://dwica.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67830599": {
   "http": 200,
@@ -1770,7 +1770,7 @@
   "last_modified": "",
   "sha256": "e88aa73ea95dab484abd7c7766e2113af4076e3987f6ea21222df5fde9ae6408",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -1782,13 +1782,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ebe.org.uk/welcomingspace",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437310": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/edinburgh-city",
-  "etag": "\"1792961735-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 20:55:35 GMT",
+  "etag": "\"1792989059-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:30:59 GMT",
   "sha256": "da2aa601e6fef952ee366185d2fcd0974f801598160198e2a5c1804094d6f3f0",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -1803,7 +1803,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/edinburgh-city",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69155575": {
   "ok": true,
@@ -1812,7 +1812,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065196": {
   "http": 200,
@@ -1841,7 +1841,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077618": {
   "http": 200,
@@ -1870,7 +1870,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379462": {
   "http": 200,
@@ -1891,7 +1891,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.gloslibraries.uk/library/fairford-library",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59130027": {
   "http": 200,
@@ -1899,7 +1899,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "62d4f21bc1f6b104a017b0982c3604d377f588313e2adda9db565923231f2452",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -1912,13 +1912,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://fairhavenmethodist.org.uk/seniors-youth-group/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474277": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/falmouth",
-  "etag": "\"1792962693-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:33 GMT",
+  "etag": "\"1792992142-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:22 GMT",
   "sha256": "c89402fd56467c99201316d720ba66f0223e5824ae8ad7f6e26fbe5be0c16ac4",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -1933,7 +1933,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/falmouth",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952231": {
   "http": 200,
@@ -1954,7 +1954,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://feedoneedo.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69062943": {
   "ok": true,
@@ -1963,7 +1963,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69275865": {
   "ok": true,
@@ -1972,7 +1972,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065201": {
   "http": 200,
@@ -2001,7 +2001,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68911571": {
   "ok": true,
@@ -2010,13 +2010,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68642792": {
   "http": 200,
   "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:19 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:09 GMT",
   "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2036,13 +2036,13 @@
   "reason": "published days not found on source this run",
   "schema_errors": [],
   "url": "https://haylincolnshire.co.uk/activities/fozzys/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68642793": {
   "http": 200,
   "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:19 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:09 GMT",
   "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2062,7 +2062,7 @@
   "reason": "published days not found on source this run",
   "schema_errors": [],
   "url": "https://haylincolnshire.co.uk/activities/fozzys/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077615": {
   "http": 200,
@@ -2091,7 +2091,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672298": {
   "http": 200,
@@ -2112,7 +2112,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://sites.google.com/view/sainte",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59806670": {
   "http": 200,
@@ -2120,7 +2120,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "0c3f4565dfef16581c2365272ad74449caa848bf47d4accbaf96c583de37f227",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -2133,7 +2133,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://standrewsbebington.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441937": {
   "http": 200,
@@ -2154,7 +2154,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ageconcernhampshire.org.uk/care-and-wellbeing-services-hampshire/lockswood-care-and-wellbeing-centre-hampshire/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-58567193": {
   "http": 200,
@@ -2175,7 +2175,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://gatewayleisure.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64711952": {
   "ok": true,
@@ -2184,13 +2184,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951978": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/gillingham",
-  "etag": "\"1792960014-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 20:26:54 GMT",
+  "etag": "\"1792990192-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:49:52 GMT",
   "sha256": "e3986a9bf0c30fe92b9ae9b19b4a032e1fda906f439c3164eb7053d2fc83a825",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2205,7 +2205,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/gillingham",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63057566": {
   "http": 200,
@@ -2234,13 +2234,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473505": {
   "http": 200,
   "final_url": "https://gicac.org.uk/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:18 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:07 GMT",
   "sha256": "3603f635668e99f6b1205c6ced41eeb16cb88bb6aa7045f74ff3fecaf2b872b8",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2255,7 +2255,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://gicac.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64378989": {
   "http": 200,
@@ -2284,7 +2284,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.goodnewschurch.co.uk/tntyouthdropin.htm",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441894": {
   "http": 200,
@@ -2305,13 +2305,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.grangeparkmethodistchurch.com",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55472844": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/edinburgh-granton",
-  "etag": "\"1792962693-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:33 GMT",
+  "etag": "\"1792988929-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:28:49 GMT",
   "sha256": "a7ec10385c0ec4941f6e3bbe00ee9ad46e49abdc3795518085127f2b03c99907",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2326,7 +2326,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/edinburgh-granton",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69069573": {
   "http": 200,
@@ -2361,7 +2361,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.personasupport.org/our-services/the-green-community-cafe/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475700": {
   "http": 200,
@@ -2370,7 +2370,7 @@
   "last_modified": "Sat, 24 Oct 2026 21:10:42 GMT",
   "sha256": "afe1c30ce4143d942476219340b8c9130074b730aac11579891af1db3bd93cfb",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -2382,7 +2382,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.gsgbaptist.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67506955": {
   "http": 200,
@@ -2403,7 +2403,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://greensynergy.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69068971": {
   "ok": true,
@@ -2412,12 +2412,12 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68750306": {
   "http": 200,
   "final_url": "https://southmead.org/greenway-centre",
-  "etag": "\"176240-1792947117;;;\"",
+  "etag": "\"208346-1792988871;;;\"",
   "last_modified": "",
   "sha256": "05c1eeb92e66e54c8fe4839e2f53304f0c232fade6dd306b5f05833e4e2102da",
   "changed_since_last_run": false,
@@ -2433,7 +2433,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://southmead.org/greenway-centre",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69100298": {
   "http": 200,
@@ -2454,7 +2454,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.kirklees.gov.uk/beta/cost-of-living/warm-spaces.aspx",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065202": {
   "http": 200,
@@ -2484,7 +2484,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67460238": {
   "http": 410,
@@ -2498,7 +2498,7 @@
   "reason": "source unreachable this run (HTTP 410)",
   "schema_errors": [],
   "url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69336207": {
   "ok": true,
@@ -2507,7 +2507,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68917333": {
   "ok": true,
@@ -2516,13 +2516,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592162": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/newcastle-city-temple",
-  "etag": "\"1792962256-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 21:04:16 GMT",
+  "etag": "\"1792989907-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:45:07 GMT",
   "sha256": "b88fa1f3d4dc1c3861eed5067baa45ae6903deea7619e753526e9ca9f81d2773",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2537,7 +2537,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/newcastle-city-temple",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69070265": {
   "http": 403,
@@ -2551,16 +2551,16 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57990409": {
   "http": 200,
   "final_url": "https://salfordcommunityleisure.co.uk/location/height-library/",
   "etag": "",
-  "last_modified": "",
+  "last_modified": "Sun, 25 Oct 2026 21:11:21 GMT",
   "sha256": "2723395b41c4cf312ef03821245da3d893dbe29989214032d3a2de51b48f1cc1",
-  "changed_since_last_run": true,
-  "headers_changed": false,
+  "changed_since_last_run": false,
+  "headers_changed": true,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -2572,7 +2572,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://salfordcommunityleisure.co.uk/location/height-library/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67979812": {
   "http": 200,
@@ -2580,7 +2580,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "aa07bc913bac76f7bd377772474047809f9477c4b4a8f20d33c82d5d12f7bd5c",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -2593,7 +2593,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://bassetlawfoodbank.org/bfb-hive/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592296": {
   "http": 200,
@@ -2602,7 +2602,7 @@
   "last_modified": "",
   "sha256": "fcbdf54184e7244d5b1da5a82b759243d928aef2620f310d88c08e224831af5a",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -2614,15 +2614,15 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.horfieldparishchurch.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379139": {
   "http": 200,
   "final_url": "https://htwarrington.org.uk/regular-activities-events/coffee-bar/",
   "etag": "",
   "last_modified": "",
-  "sha256": "bd5fc42c8aaf64ecc0f6d4fe448b571bcee2b27c7a3bc1b1e0eaa6cfaa1ea3aa",
-  "changed_since_last_run": false,
+  "sha256": "a09eb652077260ec18e0994b98c825b3ad7139d347f268f5d126f08caad06024",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -2635,28 +2635,28 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://htwarrington.org.uk/regular-activities-events/coffee-bar/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473766": {
   "http": 200,
   "final_url": "https://trinitychurchnottingham.org/compassion",
   "etag": "W/\"749c4de460c38851c199a80390d20151\"",
   "last_modified": "",
-  "sha256": "c8ddb59e43dc3c301e4f0db55777fb3157c5917b14a5993d95a9abf8f2ad0946",
-  "changed_since_last_run": false,
-  "headers_changed": true,
+  "sha256": "d5995382c18c224be349755064ae6d6550c29ac5fa7abfe95931b6e8f4f47a1f",
+  "changed_since_last_run": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
   "days_found": [],
-  "postcode_found": true,
+  "postcode_found": false,
   "closed_words": false,
   "referral_found": null,
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://trinitychurchnottingham.org/compassion",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68997961": {
   "http": 200,
@@ -2685,16 +2685,16 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://christchurchmission.co.uk/hope-caf%C3%A9",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473713": {
   "http": 200,
   "final_url": "https://hopewinchester.org/",
-  "etag": "\"6add254d-d0e2\"",
-  "last_modified": "Sat, 24 Oct 2026 21:38:21 GMT",
+  "etag": "\"6add254e-d0e2\"",
+  "last_modified": "Sat, 24 Oct 2026 21:38:22 GMT",
   "sha256": "2b0ab5c9254b6dcea83a8c08a55b0d45ef107dd5dd31873036a9c3e76205b331",
   "changed_since_last_run": false,
-  "headers_changed": false,
+  "headers_changed": true,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -2706,7 +2706,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://hopewinchester.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68990442": {
   "ok": true,
@@ -2715,7 +2715,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-58326832": {
   "http": 200,
@@ -2736,7 +2736,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.horniman.ac.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63057571": {
   "http": 200,
@@ -2765,7 +2765,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441971": {
   "http": 200,
@@ -2786,7 +2786,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ageconcernhampshire.org.uk/care-and-wellbeing-services-hampshire/lockswood-care-and-wellbeing-centre-hampshire/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69100241": {
   "ok": true,
@@ -2795,13 +2795,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475357": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/hull-citadel",
-  "etag": "\"1792960283-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 20:31:23 GMT",
+  "etag": "\"1792988911-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:28:31 GMT",
   "sha256": "7f3b6ec1d8ef6f54ea01b28c6e4f8a37a375b18fb53f6eed4e4f62a9f42dcb12",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -2816,7 +2816,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/hull-citadel",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432690": {
   "http": 200,
@@ -2825,7 +2825,7 @@
   "last_modified": "",
   "sha256": "f945949e716c1f3985f912e634e4324ca55a9ae23e79b96533697114669ea156",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -2837,7 +2837,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.tajmahalcommunityhub.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475981": {
   "http": 200,
@@ -2858,7 +2858,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.whalleyrange.org",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-56707093": {
   "http": 200,
@@ -2879,7 +2879,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.hillsidechurch.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437446": {
   "http": 200,
@@ -2908,7 +2908,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65420029": {
   "http": 200,
@@ -2929,7 +2929,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.notdull.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437506": {
   "http": 200,
@@ -2937,7 +2937,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "bbf65bb1c5c0d92fd9fbce184bc7d98263bd180035939ae2db18c6b697bf3f0d",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -2950,7 +2950,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://jubileechurchwirral.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-58358850": {
   "http": 200,
@@ -2958,7 +2958,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "43572c52b1fc6209e25375b701e4242cd8c5b34949c33a27724df8a21f378fad",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -2971,7 +2971,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://kidlingtonmethodists.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69208833": {
   "ok": true,
@@ -2980,7 +2980,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/space?l=28585",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473134": {
   "http": 200,
@@ -3001,16 +3001,16 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.kirklistonparish.org",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473196": {
   "http": 200,
   "final_url": "https://www.southbristolmc.org.uk/",
-  "etag": "W/\"8adc8832eb133ad119492b667c605bd4\"",
+  "etag": "W/\"8adc8832eb133ad119492b667c605bd4--gzip\"",
   "last_modified": "",
   "sha256": "30ac6f84af169127f68d6c3aa1b50875f60871f3fb0b5b14bcaf36b1a906a8ab",
   "changed_since_last_run": false,
-  "headers_changed": false,
+  "headers_changed": true,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -3022,7 +3022,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southbristolmc.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68783153": {
   "http": 200,
@@ -3051,7 +3051,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.knowlewesthealthpark.co.uk/project/pop-up-cafe-at-the-healthy-living-centre/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437319": {
   "http": 200,
@@ -3072,7 +3072,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://lambournjunction.uk/lambourn-lunch-club/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63057573": {
   "http": 200,
@@ -3101,7 +3101,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57993936": {
   "http": 200,
@@ -3122,7 +3122,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.elimleigh.co.uk/Groups/428324/Elim_Leigh_Church.aspx",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69005962": {
   "http": 200,
@@ -3151,7 +3151,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://southribble.gov.uk/cost-living-support-1/warm-welcome",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57953101": {
   "http": 200,
@@ -3159,8 +3159,8 @@
   "etag": "",
   "last_modified": "Sun, 25 Oct 2026 21:11:31 GMT",
   "sha256": "a08d529526588ab825d7c31ba2319d005bf353fe0b3d5e742b362a543940a6c0",
-  "changed_since_last_run": true,
-  "headers_changed": true,
+  "changed_since_last_run": false,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -3172,7 +3172,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.mylifechurch.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63057583": {
   "http": 200,
@@ -3201,7 +3201,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065203": {
   "http": 200,
@@ -3230,7 +3230,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065213": {
   "http": 200,
@@ -3264,7 +3264,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475504": {
   "http": 200,
@@ -3297,7 +3297,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.kirklees.gov.uk/beta/libraries/services-and-resources/local-study-library.aspx",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952547": {
   "http": 200,
@@ -3318,7 +3318,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ageconcernhampshire.org.uk/care-and-wellbeing-services-hampshire/lockswood-care-and-wellbeing-centre-hampshire/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379342": {
   "http": 200,
@@ -3348,7 +3348,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63077616": {
   "http": 200,
@@ -3377,7 +3377,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592264": {
   "http": 200,
@@ -3398,7 +3398,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.mrrd.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57953292": {
   "http": 200,
@@ -3406,8 +3406,8 @@
   "etag": "",
   "last_modified": "Sun, 25 Oct 2026 16:31:34 GMT",
   "sha256": "85048a684e0c49b7ab370320a8a99f9ef8d3470f8de17991a20c8bb5826f5703",
-  "changed_since_last_run": true,
-  "headers_changed": true,
+  "changed_since_last_run": false,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -3419,7 +3419,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://martyrs.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63058939": {
   "http": 200,
@@ -3449,7 +3449,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69068910": {
   "ok": true,
@@ -3458,7 +3458,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065214": {
   "http": 200,
@@ -3487,7 +3487,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65344928": {
   "http": 200,
@@ -3508,7 +3508,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.merrowmethodistchurch.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63382937": {
   "http": 200,
@@ -3529,7 +3529,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://themint.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475350": {
   "http": 200,
@@ -3550,7 +3550,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.better.org.uk/healthy-communities/warm-spaces?gad_source=1&gclid=EAIaIQobChMIlofh2bKlggMVv4pQBh1ZMAzIEAAYASAAEgLXOfD_BwE&gclsrc=aw.ds",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475561": {
   "http": 200,
@@ -3558,36 +3558,6 @@
   "etag": "",
   "last_modified": "Fri, 23 Oct 2026 13:31:10 GMT",
   "sha256": "b3aeb265126ea43e1151a93397fb2df3d9ef7da5d9e4ea1395da2dce2d4f5c18",
-  "changed_since_last_run": false,
-  "headers_changed": true,
-  "name_found": true,
-  "times_quoted": [],
-  "times_found": [],
-  "days_found": [],
-  "postcode_found": true,
-  "closed_words": false,
-  "referral_found": null,
-  "ok": true,
-  "reason": "confirmed this run",
-  "schema_errors": [],
-  "url": "https://moretonmethodist.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "ww-68881001": {
-  "ok": true,
-  "http": "feed",
-  "final_url": "https://www.warmwelcome.uk/find-a-space",
-  "reason": "listed in this run's Warm Welcome feed",
-  "schema_errors": [],
-  "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "ww-55473898": {
-  "http": 200,
-  "final_url": "https://museumofthehome.org.uk/",
-  "etag": "",
-  "last_modified": "",
-  "sha256": "d9c1cac4d4c66effa7f88202477648e8789d821bc96a8c4982524e474b5dc726",
   "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
@@ -3600,15 +3570,45 @@
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
+  "url": "https://moretonmethodist.org.uk/",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
+ },
+ "ww-68881001": {
+  "ok": true,
+  "http": "feed",
+  "final_url": "https://www.warmwelcome.uk/find-a-space",
+  "reason": "listed in this run's Warm Welcome feed",
+  "schema_errors": [],
+  "url": "https://www.warmwelcome.uk/find-a-space",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
+ },
+ "ww-55473898": {
+  "http": 200,
+  "final_url": "https://museumofthehome.org.uk/",
+  "etag": "",
+  "last_modified": "",
+  "sha256": "ba48b4cde3cbc3efb567008c3d02122cebfcc20407ba17f28692c2f988a402b6",
+  "changed_since_last_run": true,
+  "headers_changed": false,
+  "name_found": true,
+  "times_quoted": [],
+  "times_found": [],
+  "days_found": [],
+  "postcode_found": true,
+  "closed_words": false,
+  "referral_found": null,
+  "ok": true,
+  "reason": "confirmed this run",
+  "schema_errors": [],
   "url": "https://museumofthehome.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57953124": {
   "http": 200,
   "final_url": "https://www.mwldan.co.uk/",
   "etag": "",
   "last_modified": "",
-  "sha256": "be3de34d9841246fe4bf9a8ba4e5a1599c89f8926a239adc2fdb349effe247ef",
+  "sha256": "3e44a70823e127b471f52c57f9276ebe984d01c2aecfd86c7af032b82cfb70f9",
   "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
@@ -3622,7 +3622,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.mwldan.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952223": {
   "http": 200,
@@ -3649,7 +3649,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://pinnaclemyattsfieldnorth.co.uk/news/warm-space-now-open",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69038953": {
   "ok": true,
@@ -3658,7 +3658,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57953160": {
   "http": 200,
@@ -3679,7 +3679,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ncyc.charity/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379177": {
   "http": 200,
@@ -3700,13 +3700,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://gloslibraries.uk/library/newent-library",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69004845": {
   "http": 200,
   "final_url": "https://newmount.net/about/warm-spaces",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:20 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:09 GMT",
   "sha256": "4897ca823c40dc5fb4edfbb08d3b4bcd2cc7053fdf6a80063f58e624b81bfa88",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -3729,7 +3729,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://newmount.net/about/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952705": {
   "http": 200,
@@ -3737,7 +3737,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "6057874493257e844accf20ded1a9c0cea8e35be074d4704622d831fd314aa52",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -3750,13 +3750,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://oundlebaptist.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475924": {
   "http": 200,
   "final_url": "https://northbaddesleybaptistchurch.weebly.com",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:20 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:09 GMT",
   "sha256": "dc17147e18525c0ddc1095f4e2faeb41fd9cce94b53b488efddded7687ac4248",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -3771,7 +3771,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://northbaddesleybaptistchurch.weebly.com",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69174313": {
   "ok": true,
@@ -3780,7 +3780,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69082337": {
   "ok": true,
@@ -3789,7 +3789,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68472828": {
   "http": 200,
@@ -3810,7 +3810,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://nwcab.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63058940": {
   "http": 200,
@@ -3839,7 +3839,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475831": {
   "http": 200,
@@ -3860,35 +3860,14 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://nortonhivelibrary.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69042541": {
   "http": 200,
   "final_url": "https://www.nottinghamwomenscentre.com/",
   "etag": "",
   "last_modified": "",
-  "sha256": "00b09e2d4947800d013df73685c19d9fb75bc6606ad0d56f403e7f793418e0bf",
-  "changed_since_last_run": false,
-  "headers_changed": false,
-  "name_found": true,
-  "times_quoted": [],
-  "times_found": [],
-  "days_found": [],
-  "postcode_found": true,
-  "closed_words": false,
-  "referral_found": null,
-  "ok": true,
-  "reason": "confirmed this run",
-  "schema_errors": [],
-  "url": "https://www.nottinghamwomenscentre.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "ww-55472824": {
-  "http": 200,
-  "final_url": "https://oasishull.org/",
-  "etag": "",
-  "last_modified": "",
-  "sha256": "a064b0b35c6e6a91d36e87218cd4312c4194b85f353bb4a8953704c4c7c33cca",
+  "sha256": "555845447fd345b17296d8ec661df735a2b12a97fb745096b2bba28784ee9c49",
   "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
@@ -3901,8 +3880,29 @@
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
+  "url": "https://www.nottinghamwomenscentre.com/",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
+ },
+ "ww-55472824": {
+  "http": 200,
+  "final_url": "https://oasishull.org/",
+  "etag": "",
+  "last_modified": "",
+  "sha256": "a064b0b35c6e6a91d36e87218cd4312c4194b85f353bb4a8953704c4c7c33cca",
+  "changed_since_last_run": false,
+  "headers_changed": false,
+  "name_found": true,
+  "times_quoted": [],
+  "times_found": [],
+  "days_found": [],
+  "postcode_found": true,
+  "closed_words": false,
+  "referral_found": null,
+  "ok": true,
+  "reason": "confirmed this run",
+  "schema_errors": [],
   "url": "https://oasishull.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475000": {
   "http": 200,
@@ -3931,7 +3931,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62981326": {
   "http": 200,
@@ -3952,14 +3952,14 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.jigsawhomes.org.uk/information-article/oldham/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65345106": {
   "http": 200,
   "final_url": "https://eyamchurch.org/upcoming-events",
   "etag": "W/\"b2bb76dd3c3772d903a419b1ab8cad2f\"",
   "last_modified": "",
-  "sha256": "b9fc540c6307df24cecd992465a613abcdf226d601055ef3347c38baf816e51d",
+  "sha256": "b8993b75975cef37fff3434e122561c79351a59716652a195adf75c16543e481",
   "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
@@ -3983,7 +3983,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://eyamchurch.org/upcoming-events",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69333095": {
   "http": 200,
@@ -4012,7 +4012,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.otleyactionforolderpeople.org.uk/activities/weekly-timetable/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69002757": {
   "http": 200,
@@ -4049,7 +4049,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.wyre.gov.uk/directory-record/2428/over-wyre-united-reformed-church",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952398": {
   "http": 200,
@@ -4058,7 +4058,7 @@
   "last_modified": "",
   "sha256": "7525d426701eebe31f19782b9b7033eb1237073654654f21c632c6486b5a370a",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -4070,7 +4070,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.sjhn.org/warm-welcome",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474103": {
   "http": 200,
@@ -4078,7 +4078,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "7cecc4771a93f0d7164325706227f7fcc351b7ae2ea08b50f42d1cce97789ea9",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -4091,7 +4091,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.peterheadbaptist.org",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62486419": {
   "http": 200,
@@ -4112,7 +4112,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.farnboroughbaptist.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68762729": {
   "http": 200,
@@ -4137,15 +4137,15 @@
   "reason": "published times not found on source this run",
   "schema_errors": [],
   "url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65413943": {
   "http": 200,
   "final_url": "https://www.stoswaldsoswestry.org.uk/",
   "etag": "",
   "last_modified": "",
-  "sha256": "f85181a7ce018eb451d35a8b9009647c4639a8d05cbceffd1efe8f3cb4aa1c97",
-  "changed_since_last_run": false,
+  "sha256": "924b854fcf9bcacfc3bbb78ee60967b761a43c4c57adf7f34aed36b9ef8c5a82",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -4158,7 +4158,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stoswaldsoswestry.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67428559": {
   "ok": true,
@@ -4167,7 +4167,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59803888": {
   "http": 200,
@@ -4188,7 +4188,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://projectstthomas.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68719263": {
   "http": 200,
@@ -4217,7 +4217,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.bathcommunitykitchen.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65420071": {
   "ok": true,
@@ -4226,7 +4226,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68641659": {
   "ok": true,
@@ -4235,13 +4235,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68901813": {
   "http": 200,
   "final_url": "https://www.ramsdenstreeturc.org.uk/?page=midweek",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:31 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:21 GMT",
   "sha256": "a6c78cf64d7c1903569c558c71b694c8efd44d8ed203b9bb6c1313dd727f079a",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -4264,7 +4264,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ramsdenstreeturc.org.uk/?page=midweek",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67300210": {
   "http": 200,
@@ -4273,7 +4273,7 @@
   "last_modified": "",
   "sha256": "f7d985ed2e4bf3a156ea78c6ff08424dc159cffc0aca55627af8a07a9673f46a",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -4285,7 +4285,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.theelitechurch.org/service-page/refreshment-stop-place-of-welcome?referral=service_list_widget",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474726": {
   "http": 200,
@@ -4306,7 +4306,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.penrallt.org/renew57/index.php",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475882": {
   "http": 200,
@@ -4327,7 +4327,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "http://knaphillbaptist.org.uk/whats-happening/renew-88/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65442002": {
   "http": 200,
@@ -4348,7 +4348,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.qeparkbaptist.org.uk/Groups/372127/Renew_QE_Park.aspx",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69336193": {
   "ok": true,
@@ -4357,13 +4357,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68737547": {
   "http": 200,
   "final_url": "https://renewwellbeing.org.uk/our-centres/west/159-north-somerset-bristol/727-clifton-renew-tyndale",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:25 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:13 GMT",
   "sha256": "7e4ec63ab03ee5cb5ef03062392eb31f7cc9d942a04c39c93799ef8ce2d5a702",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -4386,15 +4386,15 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://renewwellbeing.org.uk/our-centres/west/159-north-somerset-bristol/727-clifton-renew-tyndale",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65438881": {
   "http": 200,
   "final_url": "https://www.inspireculture.org.uk/reading-information/find-a-library/retford-library/",
   "etag": "",
   "last_modified": "",
-  "sha256": "96664a4e8aff03dc212b9fe3ab54cde07b89ed1de0ddb49a1f61f6377e6e6f9a",
-  "changed_since_last_run": false,
+  "sha256": "032e5ca0bf49870f6574f37a517d65ac2b193beac3609e469f5cb6b818a46036",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -4407,7 +4407,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.inspireculture.org.uk/retford",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437466": {
   "http": 200,
@@ -4428,12 +4428,12 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://revive-cafe.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952142": {
   "http": 200,
   "final_url": "https://www.theroseandcrownbrentwood.co.uk/",
-  "etag": "W/\"d4859faf331389fbb84704267f36e0f3\"",
+  "etag": "W/\"5a698a4f173dd002b374144409a7236c\"",
   "last_modified": "",
   "sha256": "11bba14be2729479cb1feb9074d9e5b01edfb0f90afc972caf7a41f0f162b36a",
   "changed_since_last_run": false,
@@ -4449,7 +4449,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.theroseandcrownbrentwood.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69056096": {
   "ok": true,
@@ -4458,7 +4458,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432631": {
   "http": 200,
@@ -4479,7 +4479,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.friendlyfacesofkent.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69082269": {
   "ok": true,
@@ -4488,7 +4488,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-60906681": {
   "http": 200,
@@ -4509,7 +4509,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.rytonmethodistchurch.org",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474542": {
   "http": 200,
@@ -4530,13 +4530,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/2830/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474480": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/whitleigh",
-  "etag": "\"1792962693-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:33 GMT",
+  "etag": "\"1792992142-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:22 GMT",
   "sha256": "19cf6950b2c4d36e8ec91f6084bbe9a9c3321418ba070ec3a7d0e341314e5dfc",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -4551,13 +4551,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/whitleigh",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473335": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/southport",
-  "etag": "\"1792949671-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 17:34:31 GMT",
+  "etag": "\"1792971931-gzip\"",
+  "last_modified": "Sun, 25 Oct 2026 23:45:31 GMT",
   "sha256": "0e6ec9ba5e1ca413926f9ba98e00073e4d822e8700dd1a9d4c990381e35d527f",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -4572,7 +4572,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/southport",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952842": {
   "http": 200,
@@ -4593,7 +4593,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.egremontmethodist.org.uk/activities.html",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473794": {
   "http": 200,
@@ -4614,7 +4614,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://seaviewproject.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68797190": {
   "http": 200,
@@ -4637,7 +4637,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://shamawomenscentre.co.uk/wp-content/uploads/2026/10/October-January-2027-programme.pdf",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379483": {
   "http": 200,
@@ -4658,7 +4658,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://savct.uk/community-centre/winter-support-free-hot-drinks-and-soup/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65413950": {
   "http": 200,
@@ -4679,7 +4679,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.shwp.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952739": {
   "http": 200,
@@ -4688,7 +4688,7 @@
   "last_modified": "",
   "sha256": "bdff1d42bf4e77b4f7f9a8b6938c8207527310c33007be80894ef47598ba34d0",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -4700,7 +4700,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.shrewsburyhouse.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62350386": {
   "http": 200,
@@ -4721,7 +4721,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.signature-care-homes.co.uk/our-homes-list/caversham/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68685671": {
   "http": 200,
@@ -4750,7 +4750,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/13358/page/84248/view/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952222": {
   "http": 200,
@@ -4771,7 +4771,7 @@
   "reason": "source no longer names this place",
   "schema_errors": [],
   "url": "https://www.gc4ehr.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57979477": {
   "http": 200,
@@ -4792,7 +4792,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "http://www.glossoplabourclub.org.uk/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63060796": {
   "http": 200,
@@ -4821,7 +4821,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69210060": {
   "ok": true,
@@ -4830,7 +4830,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441857": {
   "http": 200,
@@ -4839,7 +4839,7 @@
   "last_modified": "",
   "sha256": "7c7ba0fa9306f555e857f7620d26f4d918128889f3ada8b0caeb1f78f15504bd",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -4851,7 +4851,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southamcongregational.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69208997": {
   "ok": true,
@@ -4860,7 +4860,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473488": {
   "http": 200,
@@ -4881,7 +4881,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/4642/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952583": {
   "http": 200,
@@ -4902,7 +4902,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stbertschurch.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951802": {
   "http": 200,
@@ -4923,7 +4923,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://parish-of-boston.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65438700": {
   "http": 200,
@@ -4944,7 +4944,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://ryepark.com",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473520": {
   "http": 200,
@@ -4965,7 +4965,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/6775/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65420068": {
   "http": 200,
@@ -4974,7 +4974,7 @@
   "last_modified": "",
   "sha256": "003ac13527fb5b073117c910881d1e8014b9d45a645a5d3282db0d66abc7a2f9",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -4986,7 +4986,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stjohnspevenseyroad.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62854883": {
   "http": 200,
@@ -5015,7 +5015,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68275372": {
   "http": 200,
@@ -5036,7 +5036,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.judes.org.uk/community/hub-cafe/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672270": {
   "http": 200,
@@ -5065,7 +5065,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/16047/facilities/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68719796": {
   "http": 200,
@@ -5074,7 +5074,7 @@
   "last_modified": "",
   "sha256": "501d3be2f896ff934083dd9f35de2ac18c5d3060a78fd88e9934acb60650882a",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [
    "11:30",
@@ -5094,7 +5094,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stlukesscarborough.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474997": {
   "http": 200,
@@ -5102,7 +5102,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "054c5978fe7faecfe1002d114a7b4b5589824888462e0cc75e82f1709f6c3bb8",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -5115,7 +5115,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/8641/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475671": {
   "http": 200,
@@ -5136,7 +5136,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/4605/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65420022": {
   "http": 200,
@@ -5157,15 +5157,15 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.earlham.church/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-66574549": {
   "http": 200,
   "final_url": "https://www.stmarys-bromley.org.uk/",
   "etag": "",
   "last_modified": "",
-  "sha256": "b65300bc9199208c366431bb67c64d973e08791945bb91aff89bd20267f60f0d",
-  "changed_since_last_run": false,
+  "sha256": "4c88d55dc4d848920fc59270588467274b2592df576f7baa291f0bf12e9ab6a5",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -5178,7 +5178,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stmarys-bromley.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68737211": {
   "http": 200,
@@ -5205,7 +5205,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/213/facilities/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65420055": {
   "http": 403,
@@ -5219,36 +5219,15 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952133": {
   "http": 200,
   "final_url": "https://www.sph.org/comingup",
-  "etag": "W/\"c8fcc46534c696e354174f88f0665c6e--gzip\"",
+  "etag": "W/\"c8fcc46534c696e354174f88f0665c6e\"",
   "last_modified": "",
-  "sha256": "7ae3b5e3a948b2839db2cf2ea435547ae7ceb9309a653a97f6a91460199235f5",
+  "sha256": "daea4174524d7d1940d527e342338e2bd8a1255ea2498de6317d59a8a6065dac",
   "changed_since_last_run": true,
-  "headers_changed": true,
-  "name_found": true,
-  "times_quoted": [],
-  "times_found": [],
-  "days_found": [],
-  "postcode_found": false,
-  "closed_words": false,
-  "referral_found": null,
-  "ok": true,
-  "reason": "confirmed this run",
-  "schema_errors": [],
-  "url": "https://www.sph.org/comingup",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "ww-65437367": {
-  "http": 200,
-  "final_url": "https://www.ceredigionmethodists.org.uk/st-paul",
-  "etag": "W/\"c1ecb05f838f339cfbe4a849cb95c7c2\"",
-  "last_modified": "",
-  "sha256": "bf7db8cd089340584cdbec3bb8aba1c62a71e5ae765e273f3acb7ee9b69a5d58",
-  "changed_since_last_run": false,
   "headers_changed": true,
   "name_found": true,
   "times_quoted": [],
@@ -5260,15 +5239,15 @@
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
-  "url": "https://www.ceredigionmethodists.org.uk/st-paul",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "url": "https://www.sph.org/comingup",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
- "ww-58107219": {
+ "ww-65437367": {
   "http": 200,
-  "final_url": "https://www.stpeterandstpaul.org.uk/",
-  "etag": "",
+  "final_url": "https://www.ceredigionmethodists.org.uk/st-paul",
+  "etag": "W/\"c1ecb05f838f339cfbe4a849cb95c7c2\"",
   "last_modified": "",
-  "sha256": "91b23a9046be73808d3007d07219b4a5e1a32b9efe5fd7574d39f1a19dca34c9",
+  "sha256": "bf7db8cd089340584cdbec3bb8aba1c62a71e5ae765e273f3acb7ee9b69a5d58",
   "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
@@ -5281,8 +5260,29 @@
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
+  "url": "https://www.ceredigionmethodists.org.uk/st-paul",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
+ },
+ "ww-58107219": {
+  "http": 200,
+  "final_url": "https://www.stpeterandstpaul.org.uk/",
+  "etag": "",
+  "last_modified": "",
+  "sha256": "a83916406f7773c542bf53817e11ea14454578b19320cfb191e3bc2c639bedd4",
+  "changed_since_last_run": true,
+  "headers_changed": false,
+  "name_found": true,
+  "times_quoted": [],
+  "times_found": [],
+  "days_found": [],
+  "postcode_found": true,
+  "closed_words": false,
+  "referral_found": null,
+  "ok": true,
+  "reason": "confirmed this run",
+  "schema_errors": [],
   "url": "https://www.stpeterandstpaul.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55472853": {
   "http": 200,
@@ -5303,7 +5303,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/15616/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672296": {
   "http": 403,
@@ -5317,7 +5317,7 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://timberscombevillage.com/church-services/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474027": {
   "http": 200,
@@ -5338,7 +5338,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.cinderford-churches.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68700096": {
   "http": 200,
@@ -5367,7 +5367,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.hull.gov.uk/homepage/135/community-hubs",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951889": {
   "http": 200,
@@ -5388,7 +5388,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/19363/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441941": {
   "http": 200,
@@ -5397,7 +5397,7 @@
   "last_modified": "",
   "sha256": "30d4fac2af2a2692b6185152bd30fedddfe696d3f650ca28736e81808252b239",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -5409,7 +5409,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.smbfsec.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592295": {
   "http": 404,
@@ -5423,15 +5423,15 @@
   "reason": "source unreachable this run (HTTP 404)",
   "schema_errors": [],
   "url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-60625347": {
   "http": 200,
   "final_url": "https://www.ubscl.org.uk/",
   "etag": "",
   "last_modified": "",
-  "sha256": "12c5e2b128eb953cc4d5504d047e89074080e67c28e58104748ec15843b307ec",
-  "changed_since_last_run": false,
+  "sha256": "39e90680b44d74e2fd8d3e9284101516d22f75a8513ac476f1c631b90393ab10",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -5444,7 +5444,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.ubscl.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65419943": {
   "http": 200,
@@ -5465,7 +5465,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.saintbarnabaswalthamstow.com",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55592226": {
   "http": 200,
@@ -5486,13 +5486,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://staplehursturc.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474433": {
   "http": 200,
   "final_url": "https://www.starfishhealthandwellbeing.co.uk/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:36 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:24 GMT",
   "sha256": "93c50ab230405060c4497d4d4d8e5a32bce16492095c6d61a481e505c7846807",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -5507,7 +5507,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.starfishhealthandwellbeing.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67491277": {
   "http": 200,
@@ -5528,7 +5528,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.strandcentre.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672344": {
   "http": 200,
@@ -5536,7 +5536,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "7daabab8e30f00202e5926f0e26d01906c09e259c8d8537292c1b1baf5dc0392",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -5549,7 +5549,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.rowlandsgill.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63065216": {
   "http": 200,
@@ -5578,7 +5578,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65437496": {
   "http": 200,
@@ -5586,7 +5586,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "8db8944bda7e835abe8312911a7398e882ca548f5a2f0430b774bd95d03de259",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -5599,7 +5599,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://swayvillagehall.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379394": {
   "http": 200,
@@ -5620,7 +5620,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.sway-pc.gov.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473170": {
   "http": 200,
@@ -5641,7 +5641,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.better.org.uk/healthy-communities/warm-spaces#:~:text=GLL%20are%20pleased%20to%20welcome,and%20welcoming%20space%20to%20sit.",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63059342": {
   "http": 200,
@@ -5670,7 +5670,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68557006": {
   "http": 200,
@@ -5679,7 +5679,7 @@
   "last_modified": "",
   "sha256": "5623eebd3df551d4d4eefa6755d8cfb511e87d6b610d3a9d46ac002df5c715d4",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -5691,7 +5691,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stockingfordcc.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62827950": {
   "http": 200,
@@ -5712,7 +5712,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://theangelcafelangport.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68896770": {
   "http": 200,
@@ -5742,7 +5742,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://newlifecommunitychurch.co.uk/connect/the-branch/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64623495": {
   "http": 200,
@@ -5763,13 +5763,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.heartofnewhaven.co.uk/regular-activities",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475202": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/sheerness",
-  "etag": "\"1792959978-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 20:26:18 GMT",
+  "etag": "\"1792988980-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:29:40 GMT",
   "sha256": "e0ab019541e66f40919990c2d224965eaa2ea84803d87cf2c6df15ba5a4609a5",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -5784,7 +5784,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/sheerness",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68506647": {
   "http": 200,
@@ -5805,7 +5805,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.trinitymission.co.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672266": {
   "http": 200,
@@ -5814,7 +5814,7 @@
   "last_modified": "",
   "sha256": "381764bb32ca71b62b5cb5b9f280ad9fb578b4470fdd1268131e352e944d67bf",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [
    "10:00",
@@ -5832,7 +5832,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.christchurchcreekmoor.org/the-hub-cafe-1",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672262": {
   "http": 200,
@@ -5841,7 +5841,7 @@
   "last_modified": "",
   "sha256": "8a734a9b488154fc9f87fff9b8e7cb570543bd54e82440067c127a72801e071f",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [
    "09:00",
@@ -5859,14 +5859,14 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stpeters-woolton.org.uk/the-hub",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65438865": {
   "http": 200,
   "final_url": "https://www.lockleazent.co.uk/",
   "etag": "",
   "last_modified": "",
-  "sha256": "bb1aa202931c9e2dd96bd7fc384d4fcba2d939cbc42e144412b233a93d21ddd3",
+  "sha256": "1e4401d08a11281592464a5eba1c7bfa2a3fa78befff7907b7d8891321b1e2c0",
   "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
@@ -5880,7 +5880,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.lockleazent.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441920": {
   "http": 200,
@@ -5901,7 +5901,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://kingschurchhx.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474363": {
   "http": 200,
@@ -5922,7 +5922,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.liferooms.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65441818": {
   "http": 200,
@@ -5943,16 +5943,16 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://latchfordbaptistchurch.co.uk/church-life/little-shop-at-latchford/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68769406": {
   "http": 200,
   "final_url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 11:05:12 GMT",
+  "last_modified": "Sun, 25 Oct 2026 21:57:16 GMT",
   "sha256": "72ce99cbfa56ed4ac7f1c3ff817180e6b888a50023c505207d2e3435589e2783",
   "changed_since_last_run": false,
-  "headers_changed": false,
+  "headers_changed": true,
   "name_found": true,
   "times_quoted": [
    "09:00",
@@ -5969,13 +5969,13 @@
   "reason": "published times not found on source this run",
   "schema_errors": [],
   "url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473691": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/portsmouth-citadel",
-  "etag": "\"1792960172-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 20:29:32 GMT",
+  "etag": "\"1792990312-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:51:52 GMT",
   "sha256": "96c4b1233d58a06bbc128b67b74afd9596d4e0b0204caa7db74dc9b093f3a28a",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -5990,7 +5990,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/portsmouth-citadel",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68620249": {
   "http": 200,
@@ -6019,7 +6019,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://thewigtownploughman.co.uk/meet/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68651323": {
   "http": 200,
@@ -6052,13 +6052,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.hinckley-bosworth.gov.uk/info/200419/warm_welcome/1883/warm_welcome_locations/3",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68792800": {
   "http": 200,
   "final_url": "https://www.salvationarmy.org.uk/hamilton",
-  "etag": "\"1792960596-gzip\"",
-  "last_modified": "Sun, 25 Oct 2026 20:36:36 GMT",
+  "etag": "\"1792988925-gzip\"",
+  "last_modified": "Mon, 26 Oct 2026 04:28:45 GMT",
   "sha256": "354ac4ac20cb64bd8c50794829a426688feeeac4ee6a3520f848312825ff332b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -6081,7 +6081,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.salvationarmy.org.uk/hamilton",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68895885": {
   "ok": true,
@@ -6090,7 +6090,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69080400": {
   "http": 200,
@@ -6098,7 +6098,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "aa63188b24d575536135815c298b2fd0403c7dfeab30a3ea2af36eddd52c658a",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [
@@ -6118,14 +6118,14 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.budleighbaptistchurch.org.uk/activities/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951953": {
   "http": 200,
   "final_url": "https://themille17.org/",
   "etag": "",
   "last_modified": "",
-  "sha256": "9c3f6e52c6af6368b18cf38613e95d8f5e4909d37be70484e47e3aa1e54ccbb7",
+  "sha256": "1f740005b493630c639b80914eb60d7b08f1ec80c3a96c09391526ad6fe3ad2e",
   "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
@@ -6139,7 +6139,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://themille17.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68611803": {
   "ok": true,
@@ -6148,15 +6148,15 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-66561578": {
   "http": 200,
   "final_url": "https://newquaymethodist.org/",
   "etag": "",
   "last_modified": "",
-  "sha256": "63f03a7e805f6896d90c758e5f5e18a349549cfab52107b65d2e0fde31a9dad6",
-  "changed_since_last_run": false,
+  "sha256": "2850d5ee6172aef69c433120e48a15b569ef821e3f7b0e3cf9154241cf8e93f6",
+  "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -6169,7 +6169,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.newquaymethodist.org",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379104": {
   "http": 200,
@@ -6190,7 +6190,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.cs-bc.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432678": {
   "http": 200,
@@ -6211,7 +6211,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://theoneloveproject.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473455": {
   "http": 200,
@@ -6232,7 +6232,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://theplacefallowfield.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68672320": {
   "http": 200,
@@ -6240,7 +6240,7 @@
   "etag": "",
   "last_modified": "",
   "sha256": "02e69da381fafb6a5a3914f1f63bdda1d9c8380dc3912b9232c98269caa1c4fe",
-  "changed_since_last_run": true,
+  "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
@@ -6253,7 +6253,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://buxtoncrescentexperience.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69343435": {
   "ok": true,
@@ -6262,7 +6262,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57953168": {
   "http": 200,
@@ -6283,7 +6283,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.regenthall.net/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952988": {
   "http": 200,
@@ -6304,14 +6304,14 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.shawlane.com/community-activities/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68652450": {
   "http": 200,
   "final_url": "https://new.calderdale.gov.uk/benefits/money/find-warm-welcoming-place/space-community-hub-rastrick",
   "etag": "",
   "last_modified": "",
-  "sha256": "30d36fbb5cdca3b33b64d6c86bf979a1454afbe187493ceba8e3e0249431ba7c",
+  "sha256": "194e3d02a839b1ec75370490f2b335168f1495514d030d94d17019e4dbc2d078",
   "changed_since_last_run": true,
   "headers_changed": false,
   "name_found": true,
@@ -6338,7 +6338,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://new.calderdale.gov.uk/benefits/money/find-warm-welcoming-place/space-community-hub-rastrick",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67526400": {
   "http": 200,
@@ -6359,7 +6359,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://valepantry.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68255736": {
   "http": 200,
@@ -6380,7 +6380,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.avonmouthcca.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55473189": {
   "http": 200,
@@ -6389,7 +6389,7 @@
   "last_modified": "Fri, 23 Oct 2026 13:29:02 GMT",
   "sha256": "aaa01c7e2a817bfbc868d47d87a5750d58abaf5c7f4a9f490911cb9b0393c5e0",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -6401,7 +6401,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.arunchurch.com/community/wickbourne",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55472899": {
   "http": 200,
@@ -6422,7 +6422,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://wayfarerspark.co.uk/the-flying-duck-bistro/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65438771": {
   "http": 200,
@@ -6443,7 +6443,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.westbank.org.uk/warmwell",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474118": {
   "http": 200,
@@ -6464,7 +6464,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://parksfoundation.org.uk/cafes/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-67608542": {
   "http": 403,
@@ -6478,7 +6478,7 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68972466": {
   "ok": true,
@@ -6487,7 +6487,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68923940": {
   "ok": true,
@@ -6496,7 +6496,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69189234": {
   "http": 403,
@@ -6510,7 +6510,7 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-58352841": {
   "http": 200,
@@ -6531,7 +6531,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://svp.org.uk/st-vincents-centre-brighton-tower-house",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952338": {
   "http": 200,
@@ -6552,7 +6552,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://womenconnectfirst.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68639359": {
   "ok": true,
@@ -6561,13 +6561,13 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-61263084": {
   "http": 200,
   "final_url": "https://www.osjct.co.uk/care-home/westgate-house",
-  "etag": "\"1792962691\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:31 GMT",
+  "etag": "\"1792992140\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:20 GMT",
   "sha256": "56d7c148d2a773f5c433dde7a15b436af4708c865d37b6001bf77c30ca92bd15",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -6582,7 +6582,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.osjct.co.uk/care-home/westgate-house",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-65070433": {
   "http": 200,
@@ -6603,7 +6603,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://werest.art/wcch",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475956": {
   "http": 200,
@@ -6624,12 +6624,12 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.better.org.uk/healthy-communities/warm-spaces#:~:text=GLL%20are%20pleased%20to%20welcome,and%20welcoming%20space%20to%20sit.",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64379220": {
   "http": 200,
   "final_url": "https://barnet.adventistchurch.org.uk/community-services",
-  "etag": "W/\"54fbbbdcd360312bca09e5c265be860c\"",
+  "etag": "W/\"be8ee2eb602bfcb8cdb134e53f8c7c3f\"",
   "last_modified": "",
   "sha256": "70c45f77b5d2a3d082798ed8efc75b5af7fde48ec7f691076da7f9a5cca635ca",
   "changed_since_last_run": false,
@@ -6645,7 +6645,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://barnet.adventistchurch.org.uk/community-services",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55476124": {
   "http": 200,
@@ -6666,7 +6666,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.suttonvineyard.org/warmwelcome",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55476019": {
   "http": 200,
@@ -6687,7 +6687,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "http://www.stpeterdebeauvoir.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59974983": {
   "http": 200,
@@ -6695,8 +6695,8 @@
   "etag": "W/\"427d549b9638380bda402d3af9a195a6\"",
   "last_modified": "",
   "sha256": "cd1d5e996a34e6a2428c1240cd00a5ad04518b4ec62de03e7d224bd73a941a4a",
-  "changed_since_last_run": true,
-  "headers_changed": true,
+  "changed_since_last_run": false,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -6708,7 +6708,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.aldhelms.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69253373": {
   "http": 200,
@@ -6737,7 +6737,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.towergardens.org.uk/case-for-tg-park/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952419": {
   "http": 200,
@@ -6758,7 +6758,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.emmanuelww.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-64432641": {
   "http": 200,
@@ -6779,7 +6779,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://stmargaretschurchbarking.com/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57953021": {
   "http": 200,
@@ -6787,27 +6787,6 @@
   "etag": "W/\"7ee0e855656432fc7df36f2478da7b91\"",
   "last_modified": "",
   "sha256": "314ab41da501f5146d1ab588a499fee0c00e27cc9eaa34d2e35dc60fd58ff719",
-  "changed_since_last_run": false,
-  "headers_changed": true,
-  "name_found": true,
-  "times_quoted": [],
-  "times_found": [],
-  "days_found": [],
-  "postcode_found": true,
-  "closed_words": false,
-  "referral_found": null,
-  "ok": true,
-  "reason": "confirmed this run",
-  "schema_errors": [],
-  "url": "https://www.roystonmuseum.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "ww-55474116": {
-  "http": 200,
-  "final_url": "https://wesleymethodist.org.uk/",
-  "etag": "",
-  "last_modified": "",
-  "sha256": "300b1a62d1a184f5ba87323ae3825e5ecce981ac26503d268e423cac5a8c21ca",
   "changed_since_last_run": false,
   "headers_changed": false,
   "name_found": true,
@@ -6820,8 +6799,29 @@
   "ok": true,
   "reason": "confirmed this run",
   "schema_errors": [],
+  "url": "https://www.roystonmuseum.org.uk/",
+  "fetched_at": "2026-10-26T05:22:05+00:00"
+ },
+ "ww-55474116": {
+  "http": 200,
+  "final_url": "https://wesleymethodist.org.uk/",
+  "etag": "",
+  "last_modified": "",
+  "sha256": "68e6ac437607f72aebff041b58b5f601a8cf45eefef6cbd9130182f7b8dbb725",
+  "changed_since_last_run": true,
+  "headers_changed": false,
+  "name_found": true,
+  "times_quoted": [],
+  "times_found": [],
+  "days_found": [],
+  "postcode_found": true,
+  "closed_words": false,
+  "referral_found": null,
+  "ok": true,
+  "reason": "confirmed this run",
+  "schema_errors": [],
   "url": "https://wesleymethodist.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55474493": {
   "http": 200,
@@ -6830,7 +6830,7 @@
   "last_modified": "",
   "sha256": "0a8c5971e85b791c6aa490cde971bf73d691f8691018331f82b0c99cacceb6c7",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -6842,7 +6842,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.westheathcommunity.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69189528": {
   "ok": true,
@@ -6851,7 +6851,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68789946": {
   "http": 404,
@@ -6865,7 +6865,7 @@
   "reason": "source unreachable this run (HTTP 404)",
   "schema_errors": [],
   "url": "https://ullesthorpe.org/amenities/village-hall/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63059343": {
   "http": 200,
@@ -6896,7 +6896,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63059428": {
   "http": 200,
@@ -6925,16 +6925,16 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63610903": {
   "http": 200,
   "final_url": "https://www.vineccl.org.uk/",
   "etag": "W/\"958fe78ffa19fa634d16b1e3fe199d81--gzip\"",
   "last_modified": "",
-  "sha256": "7bc48a0a18381793a4ce6e7ad1d832a985c3eac5f81d121d7d2bc8b71bf71890",
-  "changed_since_last_run": false,
-  "headers_changed": true,
+  "sha256": "7832a53b511d837a05165fa1e3772edf1c7c035fce6d34e0fb167708844a8e2c",
+  "changed_since_last_run": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [],
   "times_found": [],
@@ -6946,7 +6946,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vineccl.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63059429": {
   "http": 200,
@@ -6975,7 +6975,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-63059344": {
   "http": 200,
@@ -6996,7 +6996,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952293": {
   "http": 200,
@@ -7017,13 +7017,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.wymondhamabbey.org.uk/about-us/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-55475339": {
   "http": 200,
   "final_url": "https://aylshamcommunitychurch.org/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:16 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:06 GMT",
   "sha256": "fb5351b6065f8a3f5d2b125495e63a37e4bf9c92d73648e4bb90be2ea899c4ef",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -7038,7 +7038,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://aylshamcommunitychurch.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68833847": {
   "ok": false,
@@ -7049,7 +7049,7 @@
    "hours value invalid: Wed=Closed - 14:00"
   ],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62729499": {
   "http": 200,
@@ -7070,7 +7070,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.chorlton-central.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57951578": {
   "http": 200,
@@ -7091,7 +7091,7 @@
   "reason": "source no longer names this place",
   "schema_errors": [],
   "url": "https://bulwellurc.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69334476": {
   "http": 200,
@@ -7118,13 +7118,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://adwickcarcroft.co.uk/Woodlands-Community-Library",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62760741": {
   "http": 200,
   "final_url": "https://www.burtonweb.org.uk/bmh/",
   "etag": "",
-  "last_modified": "Sun, 25 Oct 2026 21:11:27 GMT",
+  "last_modified": "Mon, 26 Oct 2026 05:22:17 GMT",
   "sha256": "c2ed298eb13d67f82c954fc948fc88a1a9d54e5ee08c514bf4d52545f3994657",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -7139,7 +7139,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.burtonweb.org.uk/bmh/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-59951280": {
   "http": 200,
@@ -7160,7 +7160,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.stlaurencechorley.co.uk/Articles/698575/Wellness_Hub.aspx",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68524251": {
   "http": 200,
@@ -7191,7 +7191,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://wesleysbaildon.org/wesleys-cafe/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-62854861": {
   "http": 200,
@@ -7212,12 +7212,12 @@
   "reason": "source no longer names this place",
   "schema_errors": [],
   "url": "https://www.christchurchhalifax.co.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-57952849": {
   "http": 200,
   "final_url": "https://www.willerbymc.org.uk/",
-  "etag": "W/\"31f6dd413b5eed22224c910ed13f215e\"",
+  "etag": "W/\"c3de0bdaa58075d023e0fba85a7d2f19\"",
   "last_modified": "",
   "sha256": "d311c25c6e2cc3575923965ae9a2b122570d8aa1dfb707d7f90e94c54a6b4336",
   "changed_since_last_run": false,
@@ -7233,7 +7233,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.willerbymc.org.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-69175071": {
   "ok": true,
@@ -7242,7 +7242,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/find-a-space",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68735413": {
   "ok": true,
@@ -7251,7 +7251,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/space?l=28473",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "ww-68256592": {
   "ok": true,
@@ -7260,7 +7260,7 @@
   "reason": "listed in this run's Warm Welcome feed",
   "schema_errors": [],
   "url": "https://www.warmwelcome.uk/space?l=28372",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cambs-little-downham-book-club-hub": {
   "http": 200,
@@ -7289,7 +7289,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cambs-elm-community-living-room": {
   "http": 200,
@@ -7318,7 +7318,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cambs-whittlesey-community-hub": {
   "http": 200,
@@ -7347,7 +7347,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cambs-wisbech-north-coffee-morning": {
   "http": 200,
@@ -7376,7 +7376,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cambs-caxton-community-cafe": {
   "http": 200,
@@ -7409,7 +7409,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://cambsacre.org.uk/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-monday-meet-up": {
   "http": 200,
@@ -7436,7 +7436,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-st-georges-centre": {
   "http": 200,
@@ -7466,7 +7466,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-salvation-army-harold-hill": {
   "http": 200,
@@ -7498,7 +7498,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-friendship-cafe-myplace": {
   "http": 200,
@@ -7531,7 +7531,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-elm-park-assembly-hall": {
   "http": 200,
@@ -7560,7 +7560,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-mardyke-community": {
   "http": 200,
@@ -7589,7 +7589,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-wild-goose-cafe": {
   "http": 200,
@@ -7618,7 +7618,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "hav-new-windmill-hall": {
   "http": 200,
@@ -7647,7 +7647,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.havering.gov.uk/warmspaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-ystradowen-cc": {
   "http": 200,
@@ -7677,7 +7677,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-black-mountain-centre": {
   "http": 200,
@@ -7708,7 +7708,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-trallwm-hall": {
   "http": 200,
@@ -7739,7 +7739,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-people-speak-up": {
   "http": 200,
@@ -7775,7 +7775,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-living-well-centre": {
   "http": 200,
@@ -7806,7 +7806,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-gwenllian-centre": {
   "http": 200,
@@ -7837,7 +7837,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-towy-community-church": {
   "http": 200,
@@ -7871,7 +7871,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-carway-hall": {
   "http": 200,
@@ -7901,7 +7901,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-llanarthne-hall": {
   "http": 200,
@@ -7933,7 +7933,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-everybody-counts-llandysul": {
   "http": 200,
@@ -7961,7 +7961,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-the-gate-st-clears": {
   "http": 200,
@@ -7995,7 +7995,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-llanelli-queer-collective": {
   "http": 200,
@@ -8024,7 +8024,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-llandovery-warm-hub": {
   "http": 200,
@@ -8054,7 +8054,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-garnant-family-centre": {
   "http": 200,
@@ -8084,7 +8084,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-calon-y-fferi": {
   "http": 200,
@@ -8115,7 +8115,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cmn-pontyberem-hall": {
   "http": 200,
@@ -8153,13 +8153,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "eln-faside-community-kitchen": {
   "http": 200,
   "final_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "etag": "\"1792962688\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:28 GMT",
+  "etag": "\"1792992138\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:18 GMT",
   "sha256": "5cbc5fc06c4e7619f55c5427e8fd5ef15a37c364dcd024024e4c3e3d8fead04c",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -8183,13 +8183,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "eln-new-winton-hall": {
   "http": 200,
   "final_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "etag": "\"1792962688\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:28 GMT",
+  "etag": "\"1792992138\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:18 GMT",
   "sha256": "5cbc5fc06c4e7619f55c5427e8fd5ef15a37c364dcd024024e4c3e3d8fead04c",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -8212,13 +8212,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "eln-macmerry-miners": {
   "http": 200,
   "final_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "etag": "\"1792962688\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:28 GMT",
+  "etag": "\"1792992138\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:18 GMT",
   "sha256": "5cbc5fc06c4e7619f55c5427e8fd5ef15a37c364dcd024024e4c3e3d8fead04c",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -8241,13 +8241,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "eln-pencaitland-lunch-club": {
   "http": 200,
   "final_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "etag": "\"1792962688\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:28 GMT",
+  "etag": "\"1792992138\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:18 GMT",
   "sha256": "5cbc5fc06c4e7619f55c5427e8fd5ef15a37c364dcd024024e4c3e3d8fead04c",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -8270,13 +8270,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "eln-connections-cafe": {
   "http": 200,
   "final_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "etag": "\"1792962688\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:28 GMT",
+  "etag": "\"1792992138\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:18 GMT",
   "sha256": "5cbc5fc06c4e7619f55c5427e8fd5ef15a37c364dcd024024e4c3e3d8fead04c",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -8299,13 +8299,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "eln-roots-and-fruits": {
   "http": 200,
   "final_url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "etag": "\"1792962688\"",
-  "last_modified": "Sun, 25 Oct 2026 21:11:28 GMT",
+  "etag": "\"1792992138\"",
+  "last_modified": "Mon, 26 Oct 2026 05:22:18 GMT",
   "sha256": "5cbc5fc06c4e7619f55c5427e8fd5ef15a37c364dcd024024e4c3e3d8fead04c",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -8328,7 +8328,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.eastlothian.gov.uk/benefits-and-support/community-support/warm-place-friendly-face/faside",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-andover-community-centre": {
   "http": 200,
@@ -8362,7 +8362,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-arachne-women-s-support": {
   "http": 200,
@@ -8391,7 +8391,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-archway-library": {
   "http": 200,
@@ -8423,7 +8423,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-brickworks-community-centre": {
   "http": 200,
@@ -8453,7 +8453,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-cat-and-mouse-library": {
   "http": 200,
@@ -8491,7 +8491,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-caxton-house-community-centre": {
   "http": 200,
@@ -8520,7 +8520,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-central-library": {
   "http": 200,
@@ -8559,7 +8559,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-elizabeth-house": {
   "http": 200,
@@ -8588,7 +8588,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-finsbury-park-mosque": {
   "http": 200,
@@ -8618,7 +8618,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-finsbury-library": {
   "http": 200,
@@ -8648,7 +8648,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-highbury-roundhouse": {
   "http": 200,
@@ -8679,7 +8679,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-hornsey-lane-estate-community-centre": {
   "http": 200,
@@ -8708,7 +8708,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-king-s-house-church": {
   "http": 200,
@@ -8741,7 +8741,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-margins-project-at-union-chapel": {
   "http": 200,
@@ -8771,7 +8771,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-mildmay-library": {
   "http": 200,
@@ -8809,7 +8809,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-n4-library": {
   "http": 200,
@@ -8846,7 +8846,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-south-library": {
   "http": 200,
@@ -8880,7 +8880,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-st-clement-s-church": {
   "http": 200,
@@ -8909,7 +8909,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-st-jude-and-st-paul-s-church": {
   "http": 200,
@@ -8938,7 +8938,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-st-mary-s-hornsey-rise-church": {
   "http": 200,
@@ -8968,7 +8968,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-the-rock-tower": {
   "http": 200,
@@ -8997,7 +8997,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "vai-west-library": {
   "http": 200,
@@ -9031,13 +9031,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/warm-spaces-in-islington/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-blackfriars-settlement": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9061,13 +9061,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-london-lgbtq-community-centre": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9090,13 +9090,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-camberwell-leisure-centre": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9128,13 +9128,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-southwark-pensioners-centre": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9158,13 +9158,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-southwark-carers": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9193,13 +9193,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-brandon-2-tra-hall": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9233,13 +9233,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-latin-american-disabled-people-s-project": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9266,13 +9266,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-christ-church-east-dulwich": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9295,13 +9295,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-kingswood-arts": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9325,13 +9325,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-1st-place-family-hub": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9355,13 +9355,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-pembroke-house-walworth-living-room": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9392,13 +9392,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-dulwich-leisure-centre": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9430,13 +9430,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-link-age-southwark": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9459,13 +9459,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-south-london-mission": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9488,13 +9488,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-southwark-day-centre-for-asylum-seekers": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9517,13 +9517,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-victory-family-hub": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9547,13 +9547,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-astley-and-cooper-asco-tra": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9577,13 +9577,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-golden-oldies": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9606,13 +9606,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-nunhead-s-voice": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9636,13 +9636,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-southwark-park-sports-and-athletics-cent": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9674,13 +9674,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-time-talents": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9702,13 +9702,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-time-talents-2": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9731,13 +9731,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-age-uk-lewisham-southwark": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9761,13 +9761,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-castle-leisure-centre": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9799,13 +9799,13 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "swk-the-spring-community-hub": {
   "http": 200,
   "final_url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "etag": "\"1792953218\"",
-  "last_modified": "Sun, 25 Oct 2026 18:33:38 GMT",
+  "etag": "\"1792986149\"",
+  "last_modified": "Mon, 26 Oct 2026 03:42:29 GMT",
   "sha256": "e3b314e7aad4b9d11e95baf7f818137747a93e9334bce1082ff7641c93dc584b",
   "changed_since_last_run": false,
   "headers_changed": true,
@@ -9833,7 +9833,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "cacre-march-st-john-s-community-hub": {
   "http": 200,
@@ -9862,7 +9862,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.cambsacre.org.uk/projects/cambridgeshire-community-hubs-network/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "tbc-encounter-church-winchcombe": {
   "http": 403,
@@ -9876,7 +9876,7 @@
   "reason": "source unreachable this run (HTTP 403)",
   "schema_errors": [],
   "url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sw-st-andrew-s-thornhill-square-n11bq": {
   "http": 200,
@@ -9905,7 +9905,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/community-support/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sw-st-george-s-tufnell-park-n70nd": {
   "http": 200,
@@ -9940,7 +9940,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/community-support/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sw-st-john-s-hoxton-n16np": {
   "http": 200,
@@ -9969,7 +9969,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/community-support/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sw-st-luke-s-community-centre-ec1v8aj": {
   "http": 200,
@@ -10008,7 +10008,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/community-support/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sw-vibast-community-centre-ec1v9nh": {
   "http": 200,
@@ -10038,7 +10038,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://vai.org.uk/community-support/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "evergreen-elderberries-welling": {
   "http": 200,
@@ -10047,7 +10047,7 @@
   "last_modified": "",
   "sha256": "32b73b5d7d05ab1cdc0f10cbe2b85872b0683a630196664c1078e9d3c7f1f7ff",
   "changed_since_last_run": false,
-  "headers_changed": true,
+  "headers_changed": false,
   "name_found": true,
   "times_quoted": [
    "10:30",
@@ -10067,7 +10067,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.evergreencareuk.org/elderberries-tearooms",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "signpost-tendring-kettles-on": {
   "http": 200,
@@ -10097,7 +10097,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.sign-post.info/home/core-services/signpost-tendring",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sbadc-the-hub-south-brent": {
   "http": 200,
@@ -10118,7 +10118,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.sbadc.org.uk",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "sw-age-uk-gloucester-house-le131je": {
   "http": 200,
@@ -10139,28 +10139,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
- },
- "oi-birmingham-council-marlborough-primary-school-b10-9ny": {
-  "http": 200,
-  "final_url": "https://www.mps.bham.sch.uk/",
-  "etag": "",
-  "last_modified": "",
-  "sha256": "e800e7363c50274e14a1df8b886d24b9c55c884effc4afd7376af7101bd31a07",
-  "changed_since_last_run": false,
-  "headers_changed": false,
-  "name_found": true,
-  "times_quoted": [],
-  "times_found": [],
-  "days_found": [],
-  "postcode_found": true,
-  "closed_words": false,
-  "referral_found": null,
-  "ok": true,
-  "reason": "confirmed this run",
-  "schema_errors": [],
-  "url": "https://www.mps.bham.sch.uk/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "oi-birmingham-council-saifee-mosque-b18-6pu": {
   "http": 200,
@@ -10181,7 +10160,7 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://uk.thedawoodibohras.com/birmingham/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj": {
   "http": 200,
@@ -10202,12 +10181,12 @@
   "reason": "confirmed this run",
   "schema_errors": [],
   "url": "https://www.midlandsgreek.org/",
-  "fetched_at": "2026-10-25T21:11:16+00:00"
+  "fetched_at": "2026-10-26T05:22:05+00:00"
  },
  "_run": {
-  "fetched_at": "2026-10-25T21:11:16+00:00",
-  "entries": 439,
-  "ok": 415,
-  "urls": 272
+  "fetched_at": "2026-10-26T05:22:05+00:00",
+  "entries": 438,
+  "ok": 414,
+  "urls": 271
  }
 }
