@@ -46,9 +46,23 @@ class Units(unittest.TestCase):
             def abort(s): s.out = 'abort'
         class Ctx:
             def route(s, pat, h): s.h = h
+            def on(s, *a): pass
         c = Ctx(); st = T.attach(c, 'blank'); r = R('https://tile.openstreetmap.org/6/31/20.png'); c.h(r)
         self.assertEqual(r.out['status'], 200); self.assertTrue(r.out['body'].startswith(b'\x89PNG'))
         self.assertEqual((st.served, st.external), (1, []))
+
+    def test_strict_flags_other_tile_hosts(self):
+        class Ctx:
+            def route(s, pat, h): pass
+            def on(s, ev, f): s.f = f
+        c = Ctx(); st = T.attach(c, 'blank')
+        for u in ('https://tile.openstreetmap.org/1/0/0.png', 'https://helpmap.uk/icon-192.png',
+                  'http://127.0.0.1:8091/styles/bright/256/1/0/0.png'):
+            c.f(type('Q', (), {'url': u})())
+        self.assertEqual(st.external, [])
+        c.f(type('Q', (), {'url': 'https://maps.example.net/7/63/42.png'})())
+        self.assertEqual(st.external, ['https://maps.example.net/7/63/42.png'])
+        st.external.clear()
 
     def test_tile_url_mapping(self):
         b = 'http://127.0.0.1:8091'
