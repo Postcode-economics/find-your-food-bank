@@ -42,5 +42,42 @@
     "centres": [],
     "phone": "07360162919",
     "evidence": "Aberdeen South Foodbank site: 'TLC 18 Palmerston Road (Office Only)'; 'provide a home delivery service on Mondays and Fridays, but do not offer a drop in or collection service'. https://aberdeensouth.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
+  },
+  "kirkcaldy": {
+    "kind": "warehouse",
+    "drop_opening_times": true,
+    "centres": [
+      "kirkcaldy/park-road-centre",
+      "kirkcaldy/linton-lane-centre",
+      "kirkcaldy/new-volunteer-house"
+    ],
+    "evidence": "Dean approved 26 Oct 2026. Give Food's single pin is Viewforth Church Hall, Viewforth Terrace, KY1 3BW, which is not a distribution point. The food bank's own get-food page lists Park Road KY1 3EL, Linton Lane KY2 6LF and New Volunteer House KY1 1XT as places to come without getting in touch first. Link Living KY1 1TE stays as its own pin (agency referrals only, a voucher is required) and is not one of these three. https://www.kirkcaldyfoodbankcharity.org.uk/get-food"
+  },
+  "southend": {
+    "kind": "warehouse",
+    "drop_opening_times": true,
+    "centres": [
+      "southend/hawkwell-hockley",
+      "southend/belle-vue-baptist-church",
+      "southend/westcliff",
+      "southend/shoeburyness"
+    ],
+    "evidence": "Dean approved showing Southend's voucher centres instead of Friendship House. The food bank's own locations page (checked 26 Oct 2026) says Friendship House, 484 Southchurch Road, SS1 2QA is the office and warehouse, open for donations only, and that you cannot get a voucher or collect food there. It lists 4 distribution centres, not 8: Hawkwell SS4 1UP, Belle Vue SS1 2QZ, St Saviour's SS0 8LL and Shoeburyness SS3 9JD. A 12 Dec 2025 news post says four of the eight centres closed from the end of January 2026. https://southend.foodbank.org.uk/about-us/locations https://southend.foodbank.org.uk/news/announcement-on-changes-to-our-distribution-centres-from-2026"
+  },
+  "kings-langley": {
+    "kind": "warehouse",
+    "centres": [
+      "kings-langley/apsley",
+      "kings-langley/bennetts-end"
+    ],
+    "evidence": "Dean approved 26 Oct 2026: show All Saints Church, Church Lane, Kings Langley WD4 8JS as donations only and point people to the Apsley (HP3 9ST) and Bennetts End (HP3 8EP) centres Give Food lists. https://www.givefood.org.uk/api/2/foodbank/kings-langley/ https://beneficeoflangelei.org.uk/allsaints/community/all-saints-foodbank/ FLAG: the same church's community page and homepage say All Saints has an open-table food bank every Tuesday 10:00-11:30 (https://beneficeoflangelei.org.uk/allsaints/community/ and https://beneficeoflangelei.org.uk/allsaints/). Those hours are not on this donations-only card because this approved fix says donations only."
+  },
+  "galashiels-and-area": {
+    "kind": "client",
+    "evidence": "St Peter's Church, 1 Parsonage Road, Galashiels TD1 3HS is a place to collect food, including the Wednesday emergency walk-in. It is not donations only. https://galashielsfoodbank.wordpress.com/get-food/ https://galashielsfoodbank.wordpress.com/"
+  },
+  "helensburgh-lomond": {
+    "kind": "client",
+    "evidence": "The Helensburgh Community Hub, 116 East Princes Street, G84 7DQ is a drop-in food bank session (Monday 10-12 and Thursday 3-7pm), not a donations-only office. https://helensburghlomondfoodbank.org/"
   }
 }

@@ -1,4 +1,17 @@
 {
  "_comment": "Food banks whose OWN locations page is the authority for their centres. Re-scraped on every 3x-daily refresh (scripts/own_locations.py via build.py) and every daily deep sweep (sweep_daily.py). Each centre on the page becomes a pin with the page's address, postcode and Mon-Sun times; that food bank's Give Food location pins not on the page are dropped. Fail-safe: if the page fails or parses fewer than min_centres, the last good snapshot (overrides/foodbank_own_pages.json) is used and nothing is dropped. Added 22 Oct 2026 from Katy at Coventry Foodbank's email.",
- "coventry": {"url": "https://coventry.foodbank.org.uk/locations/", "min_centres": 10}
+ "coventry": {
+  "url": "https://coventry.foodbank.org.uk/locations/",
+  "min_centres": 10
+ },
+ "kirkcaldy": {
+  "url": "https://www.kirkcaldyfoodbankcharity.org.uk/get-food",
+  "min_centres": 4,
+  "format": "kirkcaldy_distribution"
+ },
+ "southend": {
+  "url": "https://southend.foodbank.org.uk/about-us/locations",
+  "min_centres": 4,
+  "format": "southend_locations"
+ }
 }

@@ -9495,18 +9495,42 @@
   "structured": null
  },
  "helensburgh-lomond": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 10-12 | Thursday 3-7pm | Wednesday; 1-3pm | Monday 10-12am | Wednesday 1-3pm",
+  "checked_date": "2026-10-26",
+  "raw": "Monday 10-12 & Thursday 3-7pm",
   "source_url": "https://helensburghlomondfoodbank.org/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "15:00",
+     "19:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  },
  "helensburgh-lomond/st-modans-church-community-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Wednesday; 1-3pm",
+  "checked_date": "2026-10-26",
+  "raw": "Wednesday 1-3pm",
   "source_url": "https://helensburghlomondfoodbank.org/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  },
  "helston-the-lizard": {
   "checked_date": "2026-10-20",
@@ -19203,12 +19227,9 @@
   "structured": null
  },
  "southend/belle-vue-baptist-church": {
-  "card_name": "Southchurch (Belle Vue) DISTRIBUTION CENTRE",
-  "checked_date": "2026-10-23",
-  "matched_by": "postcode",
-  "raw": "Tuesday 1:00 pm to 3:00 pm",
-  "reader": "trussell_cards",
-  "source_url": "https://southend.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-26",
+  "raw": "Tuesday 1pm - 3pm",
+  "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -19217,22 +19238,30 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  },
  "southend/hawkwell-hockley": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday and Thursday between 9am - 2pm | Monday 5pm - 6.30pm",
+  "checked_date": "2026-10-26",
+  "raw": "Monday 5pm - 6.30pm",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "17:00",
+     "18:30"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  },
  "southend/shoeburyness": {
-  "card_name": "Shoeburyness DISTRIBUTION CENTRE",
-  "checked_date": "2026-10-23",
-  "matched_by": "postcode",
-  "raw": "Thursday 12:30 pm to 2:30 pm",
-  "reader": "trussell_cards",
-  "source_url": "https://southend.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-26",
+  "raw": "Thursday 12.30pm - 2.30pm",
+  "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -19241,14 +19270,25 @@
      "14:30"
     ]
    ]
-  }
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  },
  "southend/westcliff": {
-  "checked_date": "2026-10-20",
+  "checked_date": "2026-10-26",
   "raw": "Wednesday 1pm - 3pm",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  },
  "southgate-mosque": {
   "checked_date": "2026-10-20",
@@ -24953,21 +24993,65 @@
   "protected": true
  },
  "kirkcaldy/linton-lane-centre": {
-  "checked_date": "2026-10-24",
-  "raw": "Monday 10am - 12:30pm | Tuesday 10am - 12:30pm | Thursday 10am - 12:30pm | Friday 10am - 12:30pm",
-  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "reader": "hand-reviewed 2026-10-24 (own site read; client hours only, matched by centre postcode)",
+  "checked_date": "2026-10-26",
+  "raw": "Monday: 10am-12.30pm | Tuesday: 10am-12.30pm | Wednesday: Closed | Thursday: 10am-12.30pm | Friday: 10am-12.30pm",
+  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/get-food",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
   "protected": true
  },
  "kirkcaldy/new-volunteer-house": {
-  "checked_date": "2026-10-24",
-  "raw": "Monday 10am - 12:30pm | Wednesday 10am - 12:30pm | Friday 10am - 12:30pm",
-  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "reader": "hand-reviewed 2026-10-24 (own site read; client hours only, matched by centre postcode)",
+  "checked_date": "2026-10-26",
+  "raw": "Monday: 10am-12.30pm | Tuesday: Closed | Wednesday: 10am-12.30pm | Thursday: Closed | Friday: 10am-12.30pm",
+  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/get-food",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
   "protected": true
  },
  "northfleet-hive-hope/disused-taxi-rank": {
@@ -25419,5 +25503,101 @@
    ]
   },
   "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "kirkcaldy/link-living": {
+  "checked_date": "2026-10-26",
+  "raw": "Monday:10am-4pm | Tuesday:10am-4pm | Wednesday:10am-4pm | Thursday: 10am-4pm | Friday: 10am-4pm",
+  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/get-food",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
+ },
+ "kirkcaldy/park-road-centre": {
+  "checked_date": "2026-10-26",
+  "raw": "Mondays: 10am-3pm | Tuesdays: 10am-1pm | Wednesdays: 10am-1pm | Thursdays: 10am-3pm | Friday: Closed",
+  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/get-food",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
+ },
+ "galashiels-and-area": {
+  "checked_date": "2026-10-26",
+  "raw": "Wednesday 1.00pm – 2.45pm | Thursday 5.00-6.00 pm",
+  "source_url": "https://galashielsfoodbank.wordpress.com/get-food/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "14:45"
+    ]
+   ],
+   "thu": [
+    [
+     "17:00",
+     "18:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (own site read; client hours only)",
+  "protected": true
  }
 }

@@ -172,6 +172,7 @@ def main():
     json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)
     json.dump(disc, open(os.path.join(ROOT, 'logs', 'foodbank_discovery.json'), 'w'), indent=1, ensure_ascii=False)
     print('discovery: %d new candidates, %d added, %d flagged; times %s' % (len(new_c), len(disc['added']), len(disc['flagged']), disc['times']))
+    print('protected hand-checked times reapplied:', own_locations.protect_times(items, ROOT))  # after the scrape and the times pass, so a refresh cannot undo them
     import hours_norm  # stored opening_times: structured in Mon-Sun order, text lines once (part of every refresh)
     n_ot = hours_norm.apply(items, 'opening_times')
     write_csv(classify(items, ROOT), os.path.join(ROOT, 'logs', 'foodbank_audit.csv'))

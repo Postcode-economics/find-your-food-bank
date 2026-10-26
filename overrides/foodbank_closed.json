@@ -57,5 +57,29 @@
     "evidence": "dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank",
     "confirmed": "Dean approved removal 25 Oct 2026 08:57 (own site says closed; auto-detected by full_check.py 2026-10-25)",
     "approved_by": "Dean 2026-10-25"
+  },
+  "southend/earls-hall": {
+    "url": "https://southend.foodbank.org.uk/about-us/locations",
+    "evidence": "Earls Hall Baptist Church, 120 Hobleythick Lane, SS0 0RJ is not one of the 4 distribution centres on Southend Foodbank's locations page (checked 26 Oct 2026). The 12 Dec 2025 news post says four of eight centres closed from the end of January 2026. The locations page does not name the closed centres.",
+    "confirmed": "own locations page checked 26 Oct 2026; Dean approved showing the voucher centres the food bank itself lists, not Friendship House",
+    "approved_by": "Dean 2026-10-26"
+  },
+  "southend/eastwood": {
+    "url": "https://southend.foodbank.org.uk/about-us/locations",
+    "evidence": "Eastwood Baptist Church, Rayleigh Road, SS9 5PY is not one of the 4 distribution centres on Southend Foodbank's locations page (checked 26 Oct 2026). The 12 Dec 2025 news post says four of eight centres closed from the end of January 2026. The locations page does not name the closed centres.",
+    "confirmed": "own locations page checked 26 Oct 2026; Dean approved showing the voucher centres the food bank itself lists, not Friendship House",
+    "approved_by": "Dean 2026-10-26"
+  },
+  "southend/leigh": {
+    "url": "https://southend.foodbank.org.uk/about-us/locations",
+    "evidence": "West Leigh Baptist Church, 1150 London Road, SS9 2AJ is not one of the 4 distribution centres on Southend Foodbank's locations page (checked 26 Oct 2026). The 12 Dec 2025 news post says four of eight centres closed from the end of January 2026. The locations page does not name the closed centres.",
+    "confirmed": "own locations page checked 26 Oct 2026; Dean approved showing the voucher centres the food bank itself lists, not Friendship House",
+    "approved_by": "Dean 2026-10-26"
+  },
+  "southend/leigh-road-baptist-church": {
+    "url": "https://southend.foodbank.org.uk/about-us/locations",
+    "evidence": "Leigh Road Baptist Church, Marguerite Drive, SS9 1NN is not one of the 4 distribution centres on Southend Foodbank's locations page (checked 26 Oct 2026). Give Food still lists it. The food bank's voucher page does not. Not named in the 12 Dec 2025 closure post.",
+    "confirmed": "own locations page checked 26 Oct 2026; Dean approved showing the voucher centres the food bank itself lists, not Friendship House",
+    "approved_by": "Dean 2026-10-26"
   }
 }
