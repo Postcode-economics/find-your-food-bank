@@ -102,9 +102,9 @@ class Config(unittest.TestCase):
         home = open(os.path.join(R, 'index.html'), encoding='utf-8').read()
         footer = re.search(r'<footer>.*?</footer>', home, re.S).group(0)
         node = [p for p in re.split(r'<[^>]+>', footer) if 'OpenStreetMap contributors' in p and 'Built by' in p][0]
-        self.assertEqual(node, '). Map © OpenStreetMap contributors. Built by ')
+        self.assertEqual(node, '). Map © OpenStreetMap contributors. Backup map: OpenFreeMap © OpenMapTiles. © MapTiler. Built by ')
         layers = open(os.path.join(R, 'layers.js'), encoding='utf-8').read()
-        self.assertIn(r'/^\)\. Map © OpenStreetMap contributors\. Built by $/', layers)
+        self.assertIn(r'/^\)\. Map © OpenStreetMap contributors\. Backup map: OpenFreeMap © OpenMapTiles\. © MapTiler\. Built by $/', layers)
 
     def test_old_mix_of_cached_successes_and_a_few_403s_did_not_switch(self):
         # What a mostly-cached view looked like: many 200s, fewer than 6 errors.
