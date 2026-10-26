@@ -11,3 +11,25 @@ For each food-bank listing that shows a source URL:
 5. A failed open, a redirect, a mismatch, a skipped site, or anything else that cannot be confirmed goes on the unclear list. The line for that listing is: Opening times not listed. Call before you go. Nothing is guessed, and the previous run's hours hash is not carried forward as a verified reading.
 
 Access flips, phone fixes, and closure notes still need the same result on two runs before they are applied. Those checks are unchanged. This rule does not auto-apply a new timetable from the sweep; it stops a stale reading from being treated as confirmed.
+
+## Page formats the checker reads (26 Oct 2026, `scripts/rule27_formats.py`)
+
+The layout is detected for each page. A recognised layout decides the result on its own, and the prose reader does not guess over it.
+
+- **Trussell 2026 cards** (`/emergency-food/i-have-a-food-voucher`): times come after `<POSTCODE> Get directions`, in the `Collection times` block only. Day ranges such as `Monday-Wednesday Closed` and day lists such as `Monday, Wednesday and Friday` are read. The phone-line text, `Delivery times`, and the next card are never read. A card with `Delivery only` and no collection times is unclear.
+- **Old Trussell `/locations` tab table**: times come before the address (`Opening times Mon … Sun … Address … <POSTCODE>`). The block whose address holds the postcode is used, so a postcode repeated in the next centre's heading does not pull in that centre's times. All 7 days must be listed.
+- **Columns**: all the day labels come first, then all the values (`Monday: Tuesday: … 10:00am - 4:00pm Closed …`). A value without an end time, such as `12:00pm (Taste & See)`, is an unclear day. The live check does not confirm a card while any listed day is unclear.
+- **Split rows**: `12pm - 2pm (Tues) 11am - 1pm (Fri)` gives each range only to its own days.
+- **Prose clean-up before reading**:
+  - Non-breaking and zero-width spaces become normal spaces, including inside postcodes.
+  - `12 noon` and `midday` become 12pm.
+  - `between 12pm and 2pm` becomes `12pm - 2pm`.
+  - `10-12am` becomes 10am–12pm.
+  - `Fridays from 10` becomes `Fridays 10`.
+  - `(except bank holidays)` is removed.
+- **Excluded**:
+  - Phone-line, office, `manned`, `monitored`, donation, drop-off, warehouse and volunteer hours.
+  - Church or Sunday service, worship and mass times. The context for these stops at the previous sentence.
+- **Rejected as invalid**: end at or before start, a 00:00 start, and `12:00 am to 12:00 am` placeholders.
+
+Fixtures for each format are in `tests/fixtures/rule27/`, and the tests are in `tests/test_rule27_formats.py`.

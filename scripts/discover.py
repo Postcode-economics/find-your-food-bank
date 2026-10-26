@@ -154,7 +154,8 @@ def want_times(ot):
     if isinstance(ot, dict):
         return norm_times(" ".join(map(str, ot.values()))), {k[:3].lower() for k in ot}
     return norm_times(str(ot)), {d for d in DAYN if d in str(ot).lower()}
-NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point", re.I)
+NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point"
+                        r"|phone ?lines? (?:is |are )?(?:open|monitored|answered)|phone answered|phoneline|manned|church services?|sunday services?|\bworship\b|\bmass\b", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours
 ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month", re.I)
 ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
 APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
@@ -164,6 +165,8 @@ def not_client_context(t, at, prev_span_end=None):
     Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""
     lo = max(0, at - 160)
     if prev_span_end is not None and prev_span_end > lo: lo = prev_span_end
+    k = max(t.rfind(". ", lo, at), t.rfind("; ", lo, at))   # rule 27 (26 Oct): context stops at the previous sentence
+    if k >= 0: lo = k + 2
     return bool(NOT_CLIENT.search(t[lo:at]))
 def postcode_block(text, postcode):
     """The slice of `text` that belongs to this postcode, or None when that slice cannot be fixed.
@@ -187,7 +190,17 @@ def postcode_block(text, postcode):
     else: return None
     return t[lo:hi]
 def extract_times(text, postcode=None):
-    """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block."""
+    """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block.
+    Recognised layouts (Trussell 2026 cards, Trussell /locations tables, day/value columns, '(Tues)/(Fri)' rows) are
+    read by rule27_formats first; prose is cleaned (non-breaking spaces, '12 noon', 'between X and Y', '10-12am',
+    'except bank holidays') and phone/office/donation/service sentences are dropped before reading."""
+    import rule27_formats as R27
+    lay = R27.read_centre(text, postcode)
+    if lay is not None:
+        if not lay.get("structured"): return None   # recognised layout, but this centre is unclear: never guess
+        return {"raw": lay["raw"], "status": "TIMES_FOUND", "structured": lay["structured"], "layout": lay["layout"],
+                "quote": lay["quote"], "unclear_days": lay.get("unclear_days") or {}}
+    text = R27.clean(text)
     t = postcode_block(text, postcode)
     if t is None: return None   # postcode not on the page, or the layout is unclear: never guess
     segs, seen, prev_end, prev_skipped = [], set(), None, False
@@ -197,7 +210,7 @@ def extract_times(text, postcode=None):
     ords = [(a, a + len(x) + 20) for a, x in found]
     for m in TIMESPAN.finditer(t):
         if any(a <= m.start() < b for a, b in ords): continue
-        follows = prev_end is not None and m.start() - prev_end < 40   # a list continuing straight on from the last line
+        follows = prev_end is not None and m.start() - prev_end < 40 and not re.search(r"[.;]\s", t[prev_end:m.start()])   # a list continuing straight on from the last line (a full stop ends it)
         skip = (prev_skipped and follows) or not_client_context(t, m.start(), prev_end)
         prev_end, prev_skipped = m.end(), skip
         if skip: continue   # office / warehouse / donation / bin hours are not client times
@@ -251,6 +264,13 @@ def live_hours_ok(table, text, postcode):
     and every clock time recorded there is written on that block, and every open day the block lists is
     in the table (a Monday–Friday range counts as each day in the range). quote is a short slice copied
     from `text`. Anything else is not confirmed."""
+    import rule27_formats as R27
+    lay = R27.read_centre(text or "", postcode)
+    if lay is not None:   # a recognised layout decides on its own; its quote is copied from the cleaned page text
+        if not lay.get("structured") or not isinstance(table, dict) or lay.get("unclear_days"): return False, ""
+        rec = {d: [list(p) for p in v] for d, v in table.items() if v}
+        return (rec == lay["structured"], lay["quote"] if rec == lay["structured"] else "")
+    text = R27.clean(text or "")   # office/phone days are NOT dropped here: a day the page lists must be accounted for
     block = postcode_block(text or "", postcode)
     if block is None or not isinstance(table, dict): return False, ""
     from times import _days, DAYS, _range
