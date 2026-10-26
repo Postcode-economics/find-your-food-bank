@@ -20,7 +20,7 @@ import os, re, sys, json, datetime, tempfile, urllib.request, concurrent.futures
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
 from recheck import fetch, schema_errors
 import learning
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026
 from sweep_hours import parse as parse_hours
 OV = os.path.join(ROOT, "overrides"); LOGS = os.path.join(ROOT, "logs")
 MAX_NEW = int(os.environ.get("SWEEP_MAX_NEW", "150"))
@@ -228,13 +228,13 @@ def atomic_dump(obj, path):
 
 import discovery_rules as DR
 def write_shelter_review(items, d, pd=None):
-    """Shelter candidates found by the sweep go ONLY to the review section of reports/pending_dean.md (never the map)."""
+    """Shelter candidates found by the sweep go ONLY to the review section of reports/pending_owner.md (never the map)."""
     import re as _re
-    pd = pd or os.path.join(ROOT, "reports", "pending_dean.md")
+    pd = pd or os.path.join(ROOT, "reports", "pending_owner.md")
     L = ["<!-- sweep shelters -->", "## Shelter candidates from the sweep (review only)", "", f"Run {d}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
     L += [f"- {e.get('name')} ({e.get('postcode', '')}) - {e.get('source_url', '')}" for e in items] or ["- none this run"]
     L.append("<!-- /sweep shelters -->")
-    prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
+    prev = open(pd).read() if os.path.exists(pd) else "# Pending for owner\n"
     prev = _re.sub(r"(?s)\n*<!-- sweep shelters -->.*?<!-- /sweep shelters -->\n*", "\n", prev).rstrip("\n")
     os.makedirs(os.path.dirname(pd), exist_ok=True)
     open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
@@ -252,7 +252,7 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         jobs += [(x["url"], x.get("council", "council"), "shelters", False, "dash", None) for x in json.load(open(os.path.join(OV, "swep_sources.json"))) if x.get("url")]
     except Exception as ex: errors.append(("swep_sources", str(ex)[:80]))
     jobs = list({(j[0], j[1]): j for j in jobs}.values())
-    # Dean 25 Oct 08:01: self-learning order (scripts/learning.py). Pages that keep failing rest (back-off, never past the
+    # owner 25 Oct 08:01: self-learning order (scripts/learning.py). Pages that keep failing rest (back-off, never past the
     # weekly floor); productive pages go first. Only order/selection - the discovery rules and guards below are unchanged.
     LS = learning.load() if (write and sources is None) else learning.load(os.devnull)
     order, resting_urls, _ = learning.plan(LS, [j[0] for j in jobs], d)
@@ -264,7 +264,7 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
             if r.get("http") != 200 or not r.get("text"): return ("fail", u, r.get("http"))
             c = extract(r["text"], r.get("final_url") or u, name, hint, r.get("last_modified", ""), trusted=auto, parser=parser, sect=sect)
             if not auto:  # layout not proven for this source: auto-add only as tier 2 ('Unverified - call before you go') and only
-                # if Dean's auto-add rule passes below (valid postcode, not within 150 m of anything, dated page, not held)
+                # if owner's auto-add rule passes below (valid postcode, not within 150 m of anything, dated page, not held)
                 c = [dict(e, proposed_tier=e["tier"], tier="unverified", auto_rule=True) if e["tier"] in ("verified", "unverified") else e for e in c]
             return ("ok", u, c)
         except Exception as ex: return ("fail", u, str(ex)[:80])
@@ -285,7 +285,7 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     shelter_review = []
     for e in cands:
         if e["postcode"].replace(" ", "").upper() in EX: continue
-        if e["layer"] == "shelters":  # Dean's rule (24 Oct): the sweep never adds shelters to the map, not even as 'Unverified'
+        if e["layer"] == "shelters":  # owner's rule (24 Oct): the sweep never adds shelters to the map, not even as 'Unverified'
             shelter_review.append(e); continue
         st = state[e["layer"]]
         if e["tier"] == "pending": report["pending"].append(e); continue
@@ -306,8 +306,8 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
             if e0: man["scheme_end"] = e0
         errs = schema_errors(dict(man, hours=man["hours"] if isinstance(man["hours"], dict) else {}), "ws" if e["layer"] == "warmspaces" else "sh")
         if errs: report["pending"].append(dict(e, reason="schema: " + "; ".join(map(str, errs))[:120])); continue
-        if not auto_rules.may_add(e["layer"], RULES) and i not in auto_rules.approved(e["layer"], ROOT):  # Dean 25 Oct 2026: new places wait for his OK
-            report["pending"].append(dict(e, id=i, reason="new place - waiting for Dean's OK (overrides/approved_new_places.json)")); continue
+        if not auto_rules.may_add(e["layer"], RULES) and i not in auto_rules.approved(e["layer"], ROOT):  # owner 25 Oct 2026: new places wait for his OK
+            report["pending"].append(dict(e, id=i, reason="new place - waiting for owner's OK (overrides/approved_new_places.json)")); continue
         st["pool"].append(man); adds.append((e, i, man, ov))
     if len(adds) > MAX_NEW:
         report["status"] = f"HELD: {len(adds)} new entries > SWEEP_MAX_NEW={MAX_NEW}; nothing written, all pending review"

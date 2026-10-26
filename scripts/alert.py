@@ -35,7 +35,7 @@ def stale(hours):
     if age > hours: open_('stale', f'No refresh published for {age:.1f} hours', f"The last published run was {s['label']} ({s['kind']}). Check the Actions tab: a refresh may be failing or disabled.")
     else: resolve('stale')
 def date_problems(root=None, live=None):
-    """Dean 25 Oct: the shown dates come from stamp.js layers; they must match each layer's data file and the live site."""
+    """owner 25 Oct: the shown dates come from stamp.js layers; they must match each layer's data file and the live site."""
     import re
     root = root or os.path.join(os.path.dirname(__file__), '..')
     rd = lambda f: open(os.path.join(root, f), encoding='utf-8').read()

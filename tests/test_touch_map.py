@@ -1,4 +1,4 @@
-"""Touch map gestures (Dean, 25 Oct 2026, 07:42): on touch devices one finger over the map scrolls the page and shows
+"""Touch map gestures (owner, 25 Oct 2026, 07:42): on touch devices one finger over the map scrolls the page and shows
 'Use two fingers to move the map'; two fingers pan/zoom; marker taps and +/- still work. Desktop unchanged."""
 import os, sys, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))

@@ -1,6 +1,6 @@
-"""Point 27 (24 Oct 2026, approved by Dean 08:59): weather / flood trigger. Official sources only (all Open Government Licence):
+"""Point 27 (24 Oct 2026, approved by owner 08:59): weather / flood trigger. Official sources only (all Open Government Licence):
   Met Office UK warnings RSS, Environment Agency flood-monitoring API (England), SEPA flood warning feed (Scotland).
-  Natural Resources Wales (24 Oct 2026, Dean): Live Flood Warnings & Alerts API v3 (key from env NRW_FLOOD_API_KEY or
+  Natural Resources Wales (24 Oct 2026, owner): Live Flood Warnings & Alerts API v3 (key from env NRW_FLOOD_API_KEY or
   /workspace/secrets/nrw_flood_key.txt, never printed; 1 call per run, limit 10/min). Points mapped to a council via postcodes.io.
   Credit shown wherever NRW data is used: NRW_CREDIT.
 Matches warning areas (council / county names) against shelter and warm space addresses and active SWEP councils, and
@@ -12,7 +12,7 @@ P = lambda *a: os.path.join(ROOT, *a)
 MET = "https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK"
 EA = "https://environment.data.gov.uk/flood-monitoring/id/floods?min-severity=2"
 SEPA = "https://floodline.sepa.org.uk/feed/"
-GOVUK = "https://www.gov.uk/alerts/feed.atom"   # UK Emergency Alerts (OGL); point 27 add-on, Dean 24 Oct 2026
+GOVUK = "https://www.gov.uk/alerts/feed.atom"   # UK Emergency Alerts (OGL); point 27 add-on, owner 24 Oct 2026
 NRW = "https://api.naturalresources.wales/floodwarnings/v3/all"
 NRW_CREDIT = "Contains Natural Resources Wales information \u00a9 Natural Resources Wales and database right"
 def nrw_key():
@@ -101,7 +101,7 @@ def own_site(url, site):
     h = lambda u: up.urlparse(u).netloc.split(":")[0].lower().replace("www.", "")
     return bool(site) and (h(url) == h(site) or h(url).endswith("." + h(site)))
 def recheck(warnings, councils, sources, fetcher, run_day, threads=8):
-    """Point 27 add-on (Dean 24 Oct 2026): when an alert covers a council area, re-check that council's own severe weather
+    """Point 27 add-on (owner 24 Oct 2026): when an alert covers a council area, re-check that council's own severe weather
     shelter page in this run. Only a page on the council's own site saying it is active sets open_tonight. Everything
     else (no page, unreachable, unclear, third-party page) goes to the review list. Never changes the map."""
     import swep, concurrent.futures as cf

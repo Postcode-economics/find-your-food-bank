@@ -1,6 +1,6 @@
 # Possible duplicates on the map
 
-Proposed merges for Dean. Nothing is merged automatically.
+Proposed merges for owner. Nothing is merged automatically.
 
 ## likely duplicate (23)
 

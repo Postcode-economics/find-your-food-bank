@@ -1,4 +1,4 @@
-"""Shown dates come from each layer's own refresh stamp (Dean, 25 Oct 2026): header = latest refresh of any layer,
+"""Shown dates come from each layer's own refresh stamp (owner, 25 Oct 2026): header = latest refresh of any layer,
 footer food bank lines = food bank refresh, key = each layer's refresh (shelters/warm spaces even before opening).
 No date is hardcoded in the page; stamp.py keeps per-layer stamps; the watchdog compares shown dates with the data."""
 import os, re, json, shutil, subprocess, sys, tempfile, unittest, threading, functools, http.server, mimetypes

@@ -1,4 +1,4 @@
-# Facebook pages flagged for Dean
+# Facebook pages flagged for owner
 
 Run 2026-10-25. 53 pages checked; 45 flagged. Nothing was removed from the map.
 

@@ -1,4 +1,4 @@
-"""Labels per Dean 21 Oct 2026 (commit 2ededef): 'Food bank – get food here' on the map, 'Donations only' on non-client
+"""Labels per owner 21 Oct 2026 (commit 2ededef): 'Food bank – get food here' on the map, 'Donations only' on non-client
 sites, B30 locked wording untouched; classify.py must keep them on every rebuild."""
 import sys, os, json, unittest, re
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -9,7 +9,7 @@ class T(unittest.TestCase):
         self.assertEqual((C.EN, C.CY, C.DROP_EN, C.DROP_CY), ("Donations only", "Rhoddion yn unig", "Donations only", "Rhoddion yn unig"))
     def test_render_label(self):
         h = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-        self.assertIn(">Food bank<", h)  # Dean 24 Oct new look: exact mockup wording; self.assertNotIn("collect food here", h); self.assertNotIn("drop off food only", h)
+        self.assertIn(">Food bank<", h)  # owner 24 Oct new look: exact mockup wording; self.assertNotIn("collect food here", h); self.assertNotIn("drop off food only", h)
     def test_b30_locked(self):
         m = json.load(open(os.path.join(ROOT, "overrides", "foodbank_manual.json")))
         self.assertTrue(m["b30-south-birmingham"]["locked"])

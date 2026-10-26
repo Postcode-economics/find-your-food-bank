@@ -1,4 +1,4 @@
-"""Dean's consistency decisions (25 Oct 2026, 07:48): 'call before you go' everywhere; one date format
+"""owner's consistency decisions (25 Oct 2026, 07:48): 'call before you go' everywhere; one date format
 '25 Oct 2026, 05:12' (data-driven); hours tables 'Closed' / 'Not listed'; referral-only shelters say
 'By referral – call before you go'; footers credit shelter sources; policy 'Last updated' set automatically."""
 import os, re, sys, json, glob, unittest

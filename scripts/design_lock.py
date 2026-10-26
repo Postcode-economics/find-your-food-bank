@@ -1,4 +1,4 @@
-"""Card design lock (Dean 25 Oct 13:40/13:39). Runs in CI (local checkout), after each deploy (live) and daily.
+"""Card design lock (owner 25 Oct 13:40/13:39). Runs in CI (local checkout), after each deploy (live) and daily.
 On list cards AND pin pop-up cards, all three types, 390 and 1366 px, light and dark, it checks:
   call button green, shows the number, tel: link = the number in the data; Directions yellow, Google Maps link;
   Share / text this address; Message on Facebook only where there is no phone, href = the verified Facebook page;
@@ -55,7 +55,7 @@ def check(cards, mode, where, k='fb'):
             if not h.startswith(('http://', 'https://', 'faq.html', '/')): bad.append(n + ': link %s' % h)
         if c['status'] in LOCK['dot'][mode] and c['dot'] != LOCK['dot'][mode][c['status']]: bad.append(n + ': %s dot %s' % (c['status'], c['dot']))
         if c['timesShown'] and 'Times unknown' in c['statusText']:
-            # KNOWN until the opening-times job is merged (Dean 13:39): reported, then enforced by flipping ENFORCE_TIMES.
+            # KNOWN until the opening-times job is merged (owner 13:39): reported, then enforced by flipping ENFORCE_TIMES.
             (bad if ENFORCE_TIMES else KNOWN).append(n + ': times listed but status says Times unknown')
         bad += [n + ': tap target ' + s for s in c['small']]
     return bad

@@ -1,4 +1,4 @@
-# Dean 25 Oct 2026 (permanent rule): after every deploy of a site change, open every link ever sent out (old service worker
+# owner 25 Oct 2026 (permanent rule): after every deploy of a site change, open every link ever sent out (old service worker
 # installed first, Instagram in-app UA) against the LIVE site. On failure the deploying commit is reverted and an alert opened.
 # Also runs daily at 06:15 UTC (alert only). Runs the old-links check and the click-through journey suite.
 name: Deploy check (live old links + user journeys + card design lock)
@@ -67,7 +67,7 @@ jobs:
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
-          case "${{ github.sha }}" in ad54c561*) echo "::error::v88 (ad54c56) is never auto-reverted (Dean 25 Oct 18:56) - fix forward"; python scripts/alert.py open old-links "Live check failed ($failed) on v88 - NOT reverted (Dean's rule), fix forward" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; exit 0;; esac
+          case "${{ github.sha }}" in ad54c561*) echo "::error::v88 (ad54c56) is never auto-reverted (owner 25 Oct 18:56) - fix forward"; python scripts/alert.py open old-links "Live check failed ($failed) on v88 - NOT reverted (owner's rule), fix forward" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; exit 0;; esac
           set -euo pipefail   # 25 Oct: '&&' chains hid a failed pull (test logs left the tree dirty) and the step still passed
           git config user.name "helpmap-bot"; git config user.email "hello@helpmap.uk"
           git reset -q --hard && git clean -fdq   # drop logs/reports the checks wrote

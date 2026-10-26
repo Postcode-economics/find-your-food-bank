@@ -1,4 +1,4 @@
-"""Dean 25 Oct 2026 auto-apply rules: no map place added or removed without his OK; config must exist."""
+"""owner 25 Oct 2026 auto-apply rules: no map place added or removed without his OK; config must exist."""
 import sys, os, json, unittest, tempfile, subprocess, shutil
 HERE = os.path.dirname(__file__); sys.path.insert(0, os.path.join(HERE, "..", "scripts"))
 import auto_rules, full_check as F, publish_gate as G
@@ -8,7 +8,7 @@ class Config(unittest.TestCase):
         r = auto_rules.load()
         self.assertFalse(r['add_new_places']['foodbanks']); self.assertFalse(r['remove_confirmed_closures'])
         self.assertEqual(r['confirm_runs'], 2); self.assertIn('May have closed', r['closure_card_note'])
-        self.assertIn('Dean 25 Oct 2026', r['_comment'])
+        self.assertIn('owner 25 Oct 2026', r['_comment'])
     def test_missing_config_fails(self):
         old = auto_rules.P; auto_rules.P = '/nonexistent/auto_apply_rules.json'
         try: self.assertRaises(Exception, auto_rules.load)
@@ -32,8 +32,8 @@ class Closure(unittest.TestCase):
         finally: F.rj, F.wj, F.load_data, F.load_access, F.write_md, F.REP, F.check_site = orig; os.environ.pop('DRY_RUN')
         self.assertEqual([i['id'] for i in items], ['a'])          # not removed
         self.assertEqual(items[0]['notice'], F.MAY_CLOSED)          # card note
-        self.assertIn('a', written['closures_pending.json'])         # on Dean's list
-        self.assertIn('Possible closures', open(os.path.join(rep, 'pending_dean.md')).read())
+        self.assertIn('a', written['closures_pending.json'])         # on owner's list
+        self.assertIn('Possible closures', open(os.path.join(rep, 'pending_owner.md')).read())
 
 class NewPlace(unittest.TestCase):
     def test_new_foodbank_held_even_with_phone(self):
@@ -50,7 +50,7 @@ class NewPlace(unittest.TestCase):
         self.assertEqual([i['id'] for i, _ in held], ['new'])
         ids = [i['id'] for i in G.split(open(os.path.join(d, 'data.full.js')).read())[1]['items']]
         self.assertEqual(ids, ['old', 'ok1'])
-        self.assertIn('waiting for your OK', open(os.path.join(d, 'reports', 'pending_dean.md')).read())
+        self.assertIn('waiting for your OK', open(os.path.join(d, 'reports', 'pending_owner.md')).read())
         shutil.rmtree(d)
 
 if __name__ == '__main__': unittest.main()
@@ -92,7 +92,7 @@ class GateAllLayers(unittest.TestCase):
         w = lambda items: open(os.path.join(d, 'shelters.js'), 'w').write('window.SH=' + json.dumps({'items': items}) + ';')
         w([dict(id='a', tel='01', groups=['men'], name='A')]); run('git', 'init', '-q'); run('git', 'add', '-A')
         run('git', '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'b')
-        json.dump({'shelters': {'ok': 'Dean'}}, open(os.path.join(d, 'overrides', 'approved_new_places.json'), 'w'))
+        json.dump({'shelters': {'ok': 'owner'}}, open(os.path.join(d, 'overrides', 'approved_new_places.json'), 'w'))
         w([dict(id='a', tel='01', groups=['men'], name='A'), dict(id='b', tel='02', groups=['men'], name='B'), dict(id='ok', tel='03', groups=['men'], name='OK')])
         old = G.ROOT; G.ROOT = d
         try: held = G.gate('shelters')
@@ -100,8 +100,8 @@ class GateAllLayers(unittest.TestCase):
         self.assertEqual([i['id'] for i, _ in held], ['b']); shutil.rmtree(d)
 
 class ApprovedRemovals(unittest.TestCase):
-    def test_dean_approved_removal_stays_off(self):
-        """Welshpool (Dean 25 Oct 08:57): ids in overrides/foodbank_closed.json are dropped by full_check and never on the pending list."""
+    def test_owner_approved_removal_stays_off(self):
+        """Welshpool (owner 25 Oct 08:57): ids in overrides/foodbank_closed.json are dropped by full_check and never on the pending list."""
         src = open(os.path.join(HERE, '..', 'scripts', 'full_check.py')).read()
         self.assertIn("remove |= {i['id'] for i in items if i['id'] in approved_off}", src)
         self.assertIn("if k not in approved_off", src)

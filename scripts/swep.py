@@ -3,12 +3,12 @@
   overnight sweep: each council site in scripts/sweep_sources.json is scanned (homepage + known pages, 1-2
   requests per council, polite) for links about SWEP / severe weather / rough sleeping.
 * Every run: fetch each SWEP page and classify it from the council's own wording: active / not active / unknown.
-  Writes logs/swep_status.json and lists changes (activated / deactivated) for Dean's daily review.
+  Writes logs/swep_status.json and lists changes (activated / deactivated) for owner's daily review.
 Nothing here changes the map: SWEP is reached through outreach/StreetLink, not a walk-in address, so it is
 flagged for review, never auto-pinned."""
 import json, os, re, sys, datetime, concurrent.futures as cf, urllib.parse, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 SRC, LOG = "overrides/swep_sources.json", "logs/swep_status.json"
 KW = re.compile(r"\bSWEP\b|severe weather emergency|severe weather protocol|cold weather (shelter|provision|protocol)", re.I)
@@ -25,7 +25,7 @@ def classify(text, run_day=None):
     # ("updated if SWEP is activated", "When the temperature reaches 0C ... is activated", "During spells ... is activated").
     CONDW = re.compile(r"\b(if|when|whenever|during|once|until|as soon as|in the event|in periods of|under these conditions|will be updated)\b", re.I)
     sent = lambda m: t[max(t.rfind(". ", 0, m.start()) + 1, m.start() - 200, 0): m.end()]
-    # 24 Oct 2026 11:45 (Dean): general descriptions ("has been put in place", "is in place to support") are NOT active.
+    # 24 Oct 2026 11:45 (owner): general descriptions ("has been put in place", "is in place to support") are NOT active.
     # Active only when the page clearly says SWEP is on now: "currently active", "now active", "open tonight", "activated from <date>".
     NOW = re.compile(r"\b(currently|now|tonight|today|this (evening|week|weekend)|with immediate effect)\b|\bfrom (\d{1,2}(st|nd|rd|th)? \w+|(mon|tues|wednes|thurs|fri|satur|sun)day|\d{1,2}[/.]\d{1,2})", re.I)
     near = lambda m: "" if re.match(r"\s*to (support|help|protect|ensure|prevent)\b", t[m.end():m.end() + 20], re.I) else m.group(0) + t[m.end():m.end() + 30]   # "in place to support ..." = general description
@@ -45,7 +45,7 @@ def classify(text, run_day=None):
 def in_season(md, frm, to):
     return frm <= md <= to if frm <= to else (md >= frm or md <= to)
 def seasonal_active(code, run_day, path="overrides/swep_seasonal.json"):
-    """Fixed-season SWEP stated on the council's own page (overrides/swep_seasonal.json, Dean 24 Oct 2026)."""
+    """Fixed-season SWEP stated on the council's own page (overrides/swep_seasonal.json, owner 24 Oct 2026)."""
     try: s = json.load(open(path)).get(code)
     except Exception: return None
     return s if s and in_season(run_day[5:], s["from"], s["to"]) else None
@@ -99,7 +99,7 @@ def discover(fetcher=None, councils_path="scripts/sweep_sources.json", budget_s=
 
 FULL_LOG, FULL_MD = "logs/swep_full.json", "reports/swep_daily.md"
 def full(fetcher=None, run_day=None, threads=8):
-    """Daily full-coverage check (Dean, 23 Oct 2026): every UK council in scripts/sweep_sources.json.
+    """Daily full-coverage check (owner, 23 Oct 2026): every UK council in scripts/sweep_sources.json.
     Re-checks each council's SWEP page, flags new / dead pages and status changes, lists councils with no SWEP page.
     Writes logs/swep_full.json + reports/swep_daily.md. Never contacts anyone; reads public pages only."""
     fetcher = fetcher or _fetch; run_day = run_day or datetime.date.today().isoformat()

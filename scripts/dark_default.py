@@ -1,4 +1,4 @@
-"""Dean's standing rule (25 Oct 2026, asked 3 times): helpmap.uk opens DARK by default, whatever the OS/phone light setting.
+"""owner's standing rule (25 Oct 2026, asked 3 times): helpmap.uk opens DARK by default, whatever the OS/phone light setting.
 Only the visitor's own saved 'Light mode' choice (localStorage light=1) overrides it; storage failing (Instagram webview) = dark.
 
 Playwright's default headless agent is answered with a "Just a moment..." page: no light class, and a

@@ -1,4 +1,4 @@
-"""Open today (Dean, 25 Oct 2026): the control stays tappable with Warm spaces or Shelters selected,
+"""Open today (owner, 25 Oct 2026): the control stays tappable with Warm spaces or Shelters selected,
 and it hides warm spaces / shelters listed as closed today (places with no times stay listed)."""
 import os, json, sys, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))
@@ -60,7 +60,7 @@ class Browser(unittest.TestCase):
             pg.click("#v3open"); pg.wait_for_timeout(300)
             self.assertTrue(vis()); self.assertEqual(pg.evaluate("document.querySelector('.tnote').textContent"), "Showing places open today. If no times are listed, call before you go.")
             pg.click("#v3open"); pg.wait_for_timeout(300); self.assertFalse(vis())
-            # Dean 25 Oct 09:37: Open today ON = places closed today hidden (no-times stay), strictly nearest first (every layer)
+            # owner 25 Oct 09:37: Open today ON = places closed today hidden (no-times stay), strictly nearest first (every layer)
             pg.click("#v3open")
             for sel in ("ws", "sh"):
               pg.click(f".v3b[data-l={sel}]"); pg.wait_for_timeout(1000)

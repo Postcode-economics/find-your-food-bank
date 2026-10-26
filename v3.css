@@ -93,7 +93,7 @@ html.light .v3t{color:#000!important}
 html.light .cen a.cdir{background:#F5C518!important;color:#0A1628!important;border:2px solid #000!important}
 header h1{min-height:46px;display:flex;align-items:center;margin:6px 0 12px!important}
 
-/* v6 (Motion Designer verdict, approved by Dean): one line-icon set, short labels, tidier cards */
+/* v6 (Motion Designer verdict, approved by owner): one line-icon set, short labels, tidier cards */
 .ico{width:1.15em;height:1.15em;flex:0 0 auto;vertical-align:-.2em;margin-right:6px}
 .v3b .ic{display:flex;align-items:center;justify-content:center;width:34px;font-size:30px}.v3b .ic .ico{margin:0;width:30px;height:30px}
 .v3b .ic{color:var(--c)}.v3b[aria-pressed=true] .ic{color:#0A1628}
@@ -125,7 +125,7 @@ html.light #xextra .card.xws{border-left-color:#D55E00!important}
 .psrc{display:block;font-size:15px!important;margin:-4px 0 8px;color:#C9D1DE}html.light .psrc{color:#000!important}
 .v3st.shut b{font-weight:800;white-space:nowrap!important}
 
-/* v7 toggle (Dean approved 21 Oct 2026): stacked radio rows, solid lit fill, no glow, night cue */
+/* v7 toggle (owner approved 21 Oct 2026): stacked radio rows, solid lit fill, no glow, night cue */
 #v3big{gap:12px}
 .v3b,.v3b[aria-pressed]{min-height:64px;border:3px solid var(--c);background:#1A2D4D;color:#F4E6C6;box-shadow:none!important;outline:none;padding:6px 14px;gap:12px;transition:background-color 150ms,border-color 150ms,transform 100ms}
 .v3b .ic{color:var(--c);width:30px;flex:0 0 30px}.v3b .ic .ico{width:28px;height:28px}
@@ -156,7 +156,7 @@ html.light .v3b:focus-visible{outline-color:#0A1628}
 html.light .v3sos{background:#0A1628;color:#F4E6C6}html.light .v3sos a.sosl.s999{background:#F4E6C6;color:#0A1628!important;border-color:#F4E6C6}
 html.light .v3sos a.sosl:not(.s999){background:transparent;color:#F4E6C6!important;border:2px solid #F4E6C6}
 #f{position:relative;z-index:1200;margin-bottom:12px}
-/* UX 22 Oct (Dean): results pill, pressed/loading state, change-type link, desktop side by side */
+/* UX 22 Oct (owner): results pill, pressed/loading state, change-type link, desktop side by side */
 #v3pill{min-height:40px;margin:0 0 6px;display:flex;align-items:center}.v3ph{font-size:13px;opacity:.85}
 .v3pl{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;background:#F5C518;color:#0A1628;font-weight:700;text-decoration:none}
 .v3pl:focus-visible{outline:2px solid #fff;outline-offset:2px}html.light .v3pl{background:#F5C518;color:#0A1628}
@@ -265,12 +265,12 @@ html{scroll-padding-top:8px}
 #fwrap.off .fchip{display:none}
 #v3tilenote{left:56px!important}
 
-/* legal footer (draft for Dean) */
+/* legal footer (draft for owner) */
 .legal{max-width:760px;margin:8px auto 0;padding:10px 12px 28px;font-size:12.5px!important;line-height:1.5;color:#C9D1DE;border-top:1px solid rgba(201,209,222,.25)}
 .legal p{margin:0 0 6px}.legal .lgl{margin:0}.legal a{color:#F5C518}
 .legal .lgl a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
 html.light .legal{color:#333}html.light .legal a{color:#00379E}
-/* footer-draft: uniform bottom-of-page lines (Dean) - inline links in running text (WCAG 2.5.8 inline exception), one font size/line-height, no extra gaps */
+/* footer-draft: uniform bottom-of-page lines (owner) - inline links in running text (WCAG 2.5.8 inline exception), one font size/line-height, no extra gaps */
 html body footer,html body .legal{font-size:14px!important;line-height:1.6!important}
 html body footer a:not(.btn),html body .legal a,html body .legal .lgl a{display:inline!important;min-height:0!important;line-height:inherit!important;padding:0!important;vertical-align:baseline}
 html body footer{padding-bottom:0!important}
@@ -287,7 +287,7 @@ html.light .v3sos details.hlp a,html.light .v3sos details.hlp summary{color:#F4E
 html.light #v3sos .v3sos details.hlp a,html.light #v3col .v3sos details.hlp a,html.light #xextra .v3sos details.hlp a,html.light #sheet .v3sos details.hlp a,html.light #v3sos .v3sos details.hlp summary,html.light #v3col .v3sos details.hlp summary,html.light #xextra .v3sos details.hlp summary,html.light #sheet .v3sos details.hlp summary{color:#F4E6C6!important}
 
 
-/* round 5g (Dean 21:30): Dean's layout - row 1 = x | Walk-ins welcome | Voucher needed; row 2 = Open today chip (left) ... List only, Light mode (right). x collapses all of it to the Filters tab. */
+/* round 5g (owner 21:30): owner's layout - row 1 = x | Walk-ins welcome | Voucher needed; row 2 = Open today chip (left) ... List only, Light mode (right). x collapses all of it to the Filters tab. */
 #v3filt #fhide{order:1!important}#v3filt [data-f=walk]{order:2!important}#v3filt [data-f=vouch]{order:3!important}#v3filt>#v3open{order:5!important}#v3filt>#v3tools{order:6!important;margin-left:auto!important}#v3filt>#ftab{order:0!important}#v3filt>#v3row2{order:7!important}
 @media (max-width:1023px){#v3filt>#v3open{flex:0 0 auto!important}#v3filt::before{content:'';order:4;flex:0 0 100%;height:0}#v3filt{row-gap:0!important;margin-top:-5px!important}#v3filt>*,#v3filt .fchip{margin-top:5px!important}#v3filt>#fwrap,#v3filt #chips{margin-top:0!important}}
 #v3filt>#v3open{position:relative;border:2px solid var(--gold);border-radius:999px;min-height:44px!important;height:44px;box-sizing:border-box;padding:0 12px!important;gap:8px!important;display:inline-flex;align-items:center;color:var(--white);font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:15px!important;white-space:nowrap;cursor:pointer;margin-left:0!important;margin-right:0!important}
@@ -519,25 +519,25 @@ html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xf
 html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb{white-space:normal!important;max-width:100%!important;box-sizing:border-box!important;height:auto!important;min-height:44px!important;padding:6px 12px!important;line-height:1.2!important;text-align:left}
 html body #xextra .card .xhow a.btn.call.xfb *,html body #list .card .xhow a.btn.call.xfb *{white-space:normal!important;line-height:1.2!important}
 html body #xextra .card .xhow a.btn.call.xfb svg,html body #list .card .xhow a.btn.call.xfb svg{flex:0 0 auto!important}
-/* Dean 24 Oct: no fading — closed cards keep full-strength colours like the mockups */
+/* owner 24 Oct: no fading — closed cards keep full-strength colours like the mockups */
 html body .card.v3closed>*,html body .card.v3closed{opacity:1!important;filter:none!important}
-/* Dean 24 Oct 16:25: Facebook button — logo+label centred with equal blue padding each side; label same size/weight as Directions (16px/800) */
+/* owner 24 Oct 16:25: Facebook button — logo+label centred with equal blue padding each side; label same size/weight as Directions (16px/800) */
 html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{justify-content:center!important;gap:8px!important;padding:0 12px!important;min-width:max-content!important;letter-spacing:0!important}
 html body #list .card a.btn.call.xfbk img.fboff,html body #xextra .card a.btn.call.xfbk img.fboff{margin:0!important;flex:0 0 20px!important}
 html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span{font-size:16px!important;font-weight:800!important;white-space:nowrap!important;flex:0 0 auto!important;letter-spacing:-.01em!important}
-/* Dean 24 Oct 16:25: clearer gap between listings (design 20px -> 26px), list and layer cards, all widths, light and dark */
+/* owner 24 Oct 16:25: clearer gap between listings (design 20px -> 26px), list and layer cards, all widths, light and dark */
 html body #list>.card,html body #xextra .card:is(.xsh,.xws),html body #xlist>.card{margin-bottom:26px!important}
 html body #xlist .card,html body #xextra .card{margin-bottom:26px!important}
 /* give the Facebook button a little more of the row so the padding either side of logo+label is visible on small phones */
 html body .card a.btn.call.xfbk{flex:1 1 0!important;min-width:max-content!important;padding:0 12px!important}
-/* Dean 24 Oct 16:51: phone number on every green call button and council/out-of-hours line = 16px/800, same as Directions and Send a message */
+/* owner 24 Oct 16:51: phone number on every green call button and council/out-of-hours line = 16px/800, same as Directions and Send a message */
 html body #list .card a.btn.call:not(.xfbk),html body #xextra .card a.btn.call:not(.xfbk),html body #sheet .card a.btn.call:not(.xfbk),html body #list .card a.btn.call:not(.xfbk) *:not(svg):not(path),html body #xextra .card a.btn.call:not(.xfbk) *:not(svg):not(path),html body #sheet .card a.btn.call:not(.xfbk) *:not(svg):not(path){font-size:16px!important;font-weight:800!important;font-family:inherit}
 html body .card a.btn.call:not(.xfbk){justify-content:center!important;gap:8px!important}
 html body .card a.btn.call:not(.xfbk) svg{flex:0 0 20px!important;width:20px!important;height:20px!important}
 html body #xextra .card:is(.xsh,.xws)>a.btn.call:not(.xfbk) .xnum,html body #list .card>a.btn.call:not(.xfbk) .xnum,html body #xextra .card:is(.xsh,.xws) .xhow a.btn.call.xfb{font-size:16px!important;font-weight:800!important}
 html body #list .card a.btn.call:not(.xfbk):not(.xfb),html body #xextra .card a.btn.call:not(.xfbk):not(.xfb){min-width:max-content!important;padding:0 10px!important}
 html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb{text-align:center!important;justify-content:center!important}
-/* Dean 24 Oct 17:10: call numbers, council lines, Send a message and Directions all identical type — 16px/800, same family, normal letter-spacing, no transforms */
+/* owner 24 Oct 17:10: call numbers, council lines, Send a message and Directions all identical type — 16px/800, same family, normal letter-spacing, no transforms */
 html body #list .card a.btn.call,html body #xextra .card a.btn.call,html body #sheet .card a.btn.call,html body #list .card a.btn.call *,html body #xextra .card a.btn.call *,html body #sheet .card a.btn.call *,html body #list .card a.btn.call.xfbk span,html body #xextra .card a.btn.call.xfbk span,html body .card a.btn.gm{letter-spacing:normal!important;transform:none!important;font-stretch:normal!important}
 /* Donations-only food banks: call button carries a "Phone (to donate or ask)" note — number stays 16px/800, note goes on its own line, button grows instead of running off the card */
 html body #list .card a.btn.call:not(.xfbk):not(.xfb):has(>small),html body #xextra .card a.btn.call:not(.xfbk):not(.xfb):has(>small){flex-wrap:wrap!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:52px!important;padding:6px 12px!important;row-gap:2px!important;white-space:normal!important}
@@ -546,7 +546,7 @@ html body #list .card a.btn.call:not(.xfbk):not(.xfb)>small:not(svg):not(path),h
 html body #list .card a.btn.call,html body #xextra .card a.btn.call{max-width:100%!important}
 /* centre-level Directions (multi-centre food banks) = same 16px/800 as every other Directions */
 html body .card a.btn.cdir{font-size:16px!important;font-weight:800!important;letter-spacing:normal!important}
-/* Dean 24 Oct 17:33: council / helpline buttons — label on its own centred line, handset + number centred on the next, equal green either side */
+/* owner 24 Oct 17:33: council / helpline buttons — label on its own centred line, handset + number centred on the next, equal green either side */
 html body #xextra .card .xhow a.btn.call.xfb,html body #list .card .xhow a.btn.call.xfb,html body .card a.btn.call.xfb{display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:2px!important;padding:8px 12px!important;width:100%!important;box-sizing:border-box!important}
 html body .card a.btn.call.xfb>span.xcl{display:block!important;white-space:normal!important;text-wrap:balance;text-align:center!important;font-size:16px!important;font-weight:800!important;line-height:1.2!important;max-width:100%}
 html body .card a.btn.call.xfb>span.xcn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;white-space:nowrap!important;font-size:16px!important;font-weight:800!important;line-height:1.2!important}
@@ -554,11 +554,11 @@ html body .card a.btn.call.xfb>span.xcn svg{flex:0 0 20px!important;width:20px!i
 html body #xextra .card a.btn.call.xfb>span.xcl,html body #list .card a.btn.call.xfb>span.xcl{font-size:13px!important;font-weight:700!important;text-wrap:balance}
 html body #xextra .card a.btn.call.xfb>span.xcn,html body #list .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
 html body #xextra .card a.btn.call.xfb>span.xcn svg,html body #list .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
-/* Dean 24 Oct 19:02 (iPhone): bottom sheet — only the card body scrolls; the top strip (drag handle + close) stays solid and content is clipped cleanly below it */
+/* owner 24 Oct 19:02 (iPhone): bottom sheet — only the card body scrolls; the top strip (drag handle + close) stays solid and content is clipped cleanly below it */
 #sheet{display:flex!important;flex-direction:column!important;overflow:hidden!important;overscroll-behavior:contain}
 #sheet>#sheetBody{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;margin:0 -12px!important;padding:0 12px!important}
 
-/* Dean 24 Oct 21:31: bottom-sheet cards get the same green call / blue Facebook buttons as #list (generated copy of every #list .card a.btn.call rule, #list -> #sheetBody) */
+/* owner 24 Oct 21:31: bottom-sheet cards get the same green call / blue Facebook buttons as #list (generated copy of every #list .card a.btn.call rule, #list -> #sheetBody) */
 html body #sheetBody .card a.btn.call{display:inline-flex!important;flex-wrap:nowrap!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:48px!important;min-height:48px!important;padding:0 10px!important;font-size:17px!important;font-weight:800!important;line-height:1!important;white-space:nowrap!important;letter-spacing:-.01em;overflow:hidden}
 html body #sheetBody .card a.btn.call *{font-size:17px!important;font-weight:800!important;line-height:1!important;margin:0!important;flex:0 0 auto!important;display:inline!important;white-space:nowrap!important;letter-spacing:inherit}
 html body #sheetBody .card a.btn.call svg.ico{display:inline-block!important;width:20px!important;height:20px!important;flex:0 0 20px!important;stroke:none!important;shape-rendering:geometricPrecision}
@@ -594,4 +594,4 @@ html body #sheetBody .card a.btn.call{max-width:100%!important}
 html body #sheetBody .card a.btn.call.xfb>span.xcl{font-size:13px!important;font-weight:700!important;text-wrap:balance}
 html body #sheetBody .card a.btn.call.xfb>span.xcn{gap:0!important;column-gap:0!important}
 html body #sheetBody .card a.btn.call.xfb>span.xcn svg{margin:0 8px 0 0!important}
-#fhide{min-width:44px}  /* Dean 25 Oct: every button at least 44x44 (was 37-40px wide) */
+#fhide{min-width:44px}  /* owner 25 Oct: every button at least 44x44 (was 37-40px wide) */

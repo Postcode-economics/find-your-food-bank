@@ -1,4 +1,4 @@
-"""Self-learning part 2 (Dean, 25 Oct 2026): corrections, change signals, trust/agreement, season, demand, visitor,
+"""Self-learning part 2 (owner, 25 Oct 2026): corrections, change signals, trust/agreement, season, demand, visitor,
 weekly self-review (bounded), accuracy trend, digest. Order of checks only - never map data."""
 import os, sys, json, tempfile, shutil, datetime, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); sys.path.insert(0, os.path.join(R, 'scripts'))

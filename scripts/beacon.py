@@ -1,4 +1,4 @@
-"""Cloudflare Web Analytics beacon for helpmap.uk (token from Dean, 25 Oct 2026), on every generated page.
+"""Cloudflare Web Analytics beacon for helpmap.uk (token from owner, 25 Oct 2026), on every generated page.
 Skipped for our own automated checks (webdriver/headless, ?nocount, localStorage nocount=1). build_seo.py emits it in
 every area page and 404.html; seo_meta.py (runs in every workflow) makes sure every HTML page in the site carries it."""
 import glob, os

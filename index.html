@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head>
-<script>/* Dean 25 Oct: theme before first paint - saved light choice kept, otherwise dark */try{if(localStorage.getItem('light')==='1')document.documentElement.classList.add('light')}catch(e){}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>/* owner 25 Oct: theme before first paint - saved light choice kept, otherwise dark */try{if(localStorage.getItem('light')==='1')document.documentElement.classList.add('light')}catch(e){}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="helpmap-build" content="fyfb-v89"><meta http-equiv="Cache-Control" content="no-cache"><script>/* Self-heal (25 Oct 2026): if this HTML is older than the live build (stale webview / old service worker), clear the worker + caches and reload once */(function(){var b='fyfb-v89',k='hmHeal';try{fetch('/version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(v){if(!v||!v.build||v.build===b){try{sessionStorage.removeItem(k)}catch(_){}return}if(sessionStorage.getItem(k)===v.build)return;sessionStorage.setItem(k,v.build);var p=[];if(navigator.serviceWorker)p.push(navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.unregister()}))}));if(window.caches)p.push(caches.keys().then(function(ks){return Promise.all(ks.map(function(x){return caches.delete(x)}))}));Promise.all(p).catch(function(){}).then(function(){location.reload()})}).catch(function(){})}catch(_){}})();</script>
 <script>/* Boot watchdog (25 Oct 11:29): if the map or data has not come up 10 s after load (e.g. an old service worker served
 mismatched files to an old link), clear the worker + caches and reload once per tab session. */
@@ -117,7 +117,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
  if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
  return `<div class="ot">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`}
 {const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
-function showStamp(){if(!window.FB_STAMP)return;const FS=(FB_STAMP.layers&&FB_STAMP.layers.fb)||FB_STAMP;$('upd').textContent=FS.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FS.label}  // Dean 25 Oct: footer food bank lines read the food bank refresh, the header the latest refresh of any layer
+function showStamp(){if(!window.FB_STAMP)return;const FS=(FB_STAMP.layers&&FB_STAMP.layers.fb)||FB_STAMP;$('upd').textContent=FS.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FS.label}  // owner 25 Oct: footer food bank lines read the food bank refresh, the header the latest refresh of any layer
 window.showStamp=showStamp;
 {let seen=Date.now();document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='visible'||Date.now()-seen<6e5)return;seen=Date.now();const sc=document.createElement('script');sc.src='stamp.js?t='+seen;sc.onload=()=>{showStamp();if(window.keyStamps)keyStamps()};document.head.appendChild(sc)})}  // a tab left open overnight re-reads stamp.js when it comes back
 if(window.FB_STAMP)showStamp();else $('chk').textContent=chkDates.length?'checked '+new Date(chkDates[chkDates.length-1]).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'not yet checked';
@@ -127,7 +127,7 @@ const tag=i=>acc(i)==='voucher'?'<div class="tag vtag" role="note">Food bank · 
 // B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
 const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
 const telOf=i=>i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(i.phone||'').replace(/[^\d+]/g,'');  // build sets tel = first valid UK number
-/* UK number display grouping (Dean 24 Oct 21:31). Display only: tel: links untouched. Anything not a plain UK number is shown as written. */
+/* UK number display grouping (owner 24 Oct 21:31). Display only: tel: links untouched. Anything not a plain UK number is shown as written. */
 const UK6=['013873','015242','015394','015395','015396','016973','016974','016977','017683','017684','017687','019467'];
 function ukfmt(v){const s=String(v==null?'':v).trim(),m=s.match(/^(?:\+44\s?\(0\)\s?|\+44\s?|0)([\d\s\-]+)$/);if(!m)return s;const d='0'+m[1].replace(/[\s\-]/g,'');
  if(d.length===11){if(/^02/.test(d))return d.slice(0,3)+' '+d.slice(3,7)+' '+d.slice(7);
@@ -153,7 +153,7 @@ function card(i,dist){const tel=telOf(i);
  ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
 function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
-/* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
+/* owner 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
    0 px high (in-app browser toolbars/header still laying out) zooms Leaflet out to the world. So: never zoom out past the UK, never fit
    a 0-size map (remember it and fit when the box gets a size), and re-measure on every resize / viewport / orientation / back-forward. */
 map.setMinZoom(4);map.setMaxBounds(L.latLngBounds([[47.5,-15],[62,6]]).pad(0.1));
@@ -165,10 +165,10 @@ map.setMinZoom(4);map.setMaxBounds(L.latLngBounds([[47.5,-15],[62,6]]).pad(0.1))
  window.mapFix=fix;try{new ResizeObserver(fix).observe(el)}catch(e){}
  addEventListener('resize',fix);addEventListener('orientationchange',()=>setTimeout(fix,300));addEventListener('pageshow',fix);addEventListener('load',fix);
  if(window.visualViewport)visualViewport.addEventListener('resize',fix)})();
-// touch devices: one finger scrolls the page, two fingers pan/zoom (pinch); desktop unchanged (Dean, 25 Oct 2026)
+// touch devices: one finger scrolls the page, two fingers pan/zoom (pinch); desktop unchanged (owner, 25 Oct 2026)
 const TOUCH_MAP=matchMedia('(hover:none) and (pointer:coarse)').matches;
 if(TOUCH_MAP){map.dragging.disable();const mc=map.getContainer(),ov=L.DomUtil.create('div','mgest',mc);ov.setAttribute('aria-hidden','true');let sx=0,sy=0,tm=0;
- const show=()=>{/* Dean 25 Oct 11:31: at most 2 times per visitor, then never again */let n=0;try{n=+localStorage.getItem('hmTwoFinger')||0}catch(_){}if(!ov.classList.contains('on')){if(n>=2)return;try{localStorage.setItem('hmTwoFinger',String(n+1))}catch(_){}}ov.textContent=document.documentElement.lang==='cy'?'Defnyddiwch ddau fys i symud y map':'Use two fingers to move the map';ov.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>ov.classList.remove('on'),1500)};
+ const show=()=>{/* owner 25 Oct 11:31: at most 2 times per visitor, then never again */let n=0;try{n=+localStorage.getItem('hmTwoFinger')||0}catch(_){}if(!ov.classList.contains('on')){if(n>=2)return;try{localStorage.setItem('hmTwoFinger',String(n+1))}catch(_){}}ov.textContent=document.documentElement.lang==='cy'?'Defnyddiwch ddau fys i symud y map':'Use two fingers to move the map';ov.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>ov.classList.remove('on'),1500)};
  mc.addEventListener('touchstart',e=>{if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY}else ov.classList.remove('on')},{passive:true});
  mc.addEventListener('touchmove',e=>{if(e.touches.length===1&&Math.hypot(e.touches[0].clientX-sx,e.touches[0].clientY-sy)>10)show()},{passive:true})}
 addTiles(map);  // tiles.js: ordered provider list with automatic fallback
@@ -182,11 +182,11 @@ items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon:icFor(k),title
 map.addLayer(cl);
 const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};
 const accOk=i=>{if(!F.walk&&!F.vouch)return true;if(nc(i))return false;const a=acc(i);return (F.walk&&a!=='voucher')||(F.vouch&&a==='voucher')};
-const vis=k=>accOk(items[k])&&(!F.open||(!closedToday(items[k])&&!nc(items[k])));  // Dean 25 Oct 09:37: Open today hides places closed today; no-times places stay; always nearest first
+const vis=k=>accOk(items[k])&&(!F.open||(!closedToday(items[k])&&!nc(items[k])));  // owner 25 Oct 09:37: Open today hides places closed today; no-times places stay; always nearest first
 let lastNear=null;
 const applyF=()=>{const on=F.open;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)));
  const op=items.filter(openToday).length,shut=items.filter(closedToday).length,unk=items.length-op-shut;
- $('hid').textContent='';  // Dean 25 Oct 09:37: one short line (.tnote) on all lists, no counts
+ $('hid').textContent='';  // owner 25 Oct 09:37: one short line (.tnote) on all lists, no counts
  closeSheet();if(lastNear)nearest(...lastNear)};
 function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icFor(selected));selected=k;m.setIcon(nc(i)?whIcon:selIcon);
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
@@ -216,7 +216,7 @@ let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></d
 function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.removeLayer(here);closeSheet();
  here=L.marker([lat,lng],{icon:hereIcon,zIndexOffset:2000,keyboard:false}).addTo(map).bindTooltip(label==='your location'?'You are here':'Searched: '+label);
  Object.keys(dists).forEach(k=>delete dists[k]);items.forEach((i,k)=>dists[k]=hav(lat,lng,i.lat,i.lng));
- const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>a.d-b.d).slice(0,5);  // Dean 25 Oct 09:18: every list strictly nearest first; Open today never lifts or reorders (the Open today only filter still hides places closed today)
+ const r=items.map((i,k)=>({i,k,d:dists[k]})).filter(x=>vis(x.k)&&!nc(x.i)).sort((a,b)=>a.d-b.d).slice(0,5);  // owner 25 Oct 09:18: every list strictly nearest first; Open today never lifts or reorders (the Open today only filter still hides places closed today)
  $('list').innerHTML=`<div class="lh">Nearest 5 to ${esc(label)}</div>`+r.map(x=>`<div class="card" data-k="${x.k}">${card(x.i,x.d)}</div>`).join('');
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  window._fitB=L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2);map.fitBounds(window._fitB);msg(note||'');
@@ -238,7 +238,7 @@ async function offline(q){const s=q.toUpperCase().replace(/\s+/g,'');
  const t=TOWNS.find(x=>x[0].toLowerCase()===q.toLowerCase());
  if(t)return nearest(t[2],t[3],t[0]+', '+t[1],`Showing the centre of ${t[0]}. Add a postcode for exact distances.`);
  msg('Search failed. Check your connection and try again.',true)}
-let CTY=null;async function county(q){const n=s=>(s||'').toLowerCase().replace(/[^a-z]/g,'');try{CTY=CTY||(await (await fetch('counties.json')).json()).areas}catch(e){return null}return CTY.find(a=>n(a.name)===n(q)||(a.name_cy&&n(a.name_cy)===n(q)))||null}  // Dean 25 Oct 09:18: UK counties / unitary areas (ONS CTYUA Dec 2024 label points, counties.json) win over small place matches
+let CTY=null;async function county(q){const n=s=>(s||'').toLowerCase().replace(/[^a-z]/g,'');try{CTY=CTY||(await (await fetch('counties.json')).json()).areas}catch(e){return null}return CTY.find(a=>n(a.name)===n(q)||(a.name_cy&&n(a.name_cy)===n(q)))||null}  // owner 25 Oct 09:18: UK counties / unitary areas (ONS CTYUA Dec 2024 label points, counties.json) win over small place matches
 async function place(q){msg('Searching…');{const c=await county(q);if(c){lastQ=q;return nearest(c.lat,c.lng,c.name,`Showing the centre of ${c.name}. Add a postcode or town for exact distances.`)}}try{const r=await api('places?q='+encodeURIComponent(q)+'&limit=10');
  const L0=(r.result||[]).filter(x=>x.latitude&&['England','Scotland','Wales','Northern Ireland'].includes(x.country));
  const n=s=>s.toLowerCase().replace(/[^a-z]/g,''),rank=x=>(n(x.name_1)===n(q)?0:10)+(({City:0,Town:1,Village:2,Hamlet:3,'Suburban Area':4})[x.local_type]??5);
@@ -287,7 +287,7 @@ QI.addEventListener('keydown',e=>{if(AC.hidden)return;const n=acItems.length;
  else if(e.key==='Enter'&&acI>=0){e.preventDefault();acPick(acI)}else if(e.key==='Escape'){e.preventDefault();acSeq++;acHide()}});
 QI.addEventListener('blur',()=>setTimeout(acHide,150));
 $('f').addEventListener('submit',()=>{clearTimeout(acT);acSeq++;acHide()},true);$('me').addEventListener('click',()=>{acSeq++;acHide()});
-$('f').onsubmit=e=>{e.preventDefault();$('q').blur();window.__go=true;{const k=window.v3focus;window.__nearK=(k==='sh'||k==='ws')?k:null}search($('q').value)};  // Dean 25 Oct: Search/Enter with Warm spaces or Shelters selected lands on that list, like Find nearest
+$('f').onsubmit=e=>{e.preventDefault();$('q').blur();window.__go=true;{const k=window.v3focus;window.__nearK=(k==='sh'||k==='ws')?k:null}search($('q').value)};  // owner 25 Oct: Search/Enter with Warm spaces or Shelters selected lands on that list, like Find nearest
 $('me').onclick=()=>{if(!navigator.geolocation)return msg('Location isn’t available on this device. Enter a postcode instead.',true);msg('Finding you…');
  navigator.geolocation.getCurrentPosition(p=>{window.__go=true;nearest(p.coords.latitude,p.coords.longitude,'your location')},
   err=>msg(err.code===1?'No problem, location is off. Type a postcode instead and we’ll find the nearest food banks.':'Couldn’t get your location. Type a postcode instead.',true),{enableHighAccuracy:true,timeout:10000})};

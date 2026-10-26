@@ -1,4 +1,4 @@
-"""One Open today control and one note for all three lists (Dean, 25 Oct 2026 07:18); 'Verified only' hides exactly
+"""One Open today control and one note for all three lists (owner, 25 Oct 2026 07:18); 'Verified only' hides exactly
 the cards labelled 'Unverified – call before you go'."""
 import os, json, sys, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))

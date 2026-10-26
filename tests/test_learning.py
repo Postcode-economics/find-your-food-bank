@@ -1,4 +1,4 @@
-"""Self-learning sweeps (Dean, 25 Oct 2026, 08:01): scoring, ordering, weekly floor, back-off, method memory,
+"""Self-learning sweeps (owner, 25 Oct 2026, 08:01): scoring, ordering, weekly floor, back-off, method memory,
 persistence across runs, digest section; and that the sweeps only change ORDER, never the published-data rules."""
 import os, sys, json, tempfile, unittest
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

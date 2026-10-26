@@ -1,4 +1,4 @@
-"""New look (Dean's mockups 24 Oct): ported from Motion Designer's design source (siteD = call button, siteFB = Facebook button)."""
+"""New look (owner's mockups 24 Oct): ported from Motion Designer's design source (siteD = call button, siteFB = Facebook button)."""
 import os, re, unittest
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 rd = lambda f: open(os.path.join(ROOT, f), encoding="utf-8").read()
@@ -8,10 +8,10 @@ class NewLook(unittest.TestCase):
         css = rd("v3.css"); html = rd("index.html")
         for v in ("#0A1628", "#13223d", "#34C759", "#1877F2", "#C9A96E", "#8A6A2E", "#00D1FF", "#00739E", "#D55E00", "#FF3B30"):
             self.assertIn(v.lower(), (css + html).lower(), v)
-    def test_no_faded_cards(self):  # Dean: full-strength colours on every card, closed ones too
+    def test_no_faded_cards(self):  # owner: full-strength colours on every card, closed ones too
         css = rd("v3.css")
         self.assertTrue("html body .card.v3closed>*,html body .card.v3closed{opacity:1!important" in css, "closed cards must be reset to full opacity")
-    def test_facebook_only_without_phone(self):  # Dean 14:50: phone wins; Facebook only when no phone
+    def test_facebook_only_without_phone(self):  # owner 14:50: phone wins; Facebook only when no phone
         html = rd("index.html")
         i = html.index('!tel&&i.fb_page?`<a class="btn call xfbk"')
         self.assertIn('href="${esc(i.fb_page)}"', html[i:i + 300])
@@ -19,33 +19,33 @@ class NewLook(unittest.TestCase):
         self.assertTrue(os.path.exists(os.path.join(ROOT, "fb_secondary.png")))
     def test_tag_wording(self):
         self.assertIn("[/^Food bank$/,'Banc bwyd']", rd("layers.js"))
-    def test_review_1625(self):  # Dean 16:25: wider card gap, FB label = Directions size, centred logo+label
+    def test_review_1625(self):  # owner 16:25: wider card gap, FB label = Directions size, centred logo+label
         css = rd("v3.css")
         self.assertIn("html body #xextra #xlist>.card,html body #list>.card{margin-bottom:26px!important}", css)
         self.assertIn("a.btn.call.xfbk span{font-size:16px!important;font-weight:800!important", css)
         self.assertIn("justify-content:center!important;gap:8px!important;padding:0 12px!important", css)
-    def test_no_venue_number_sentence_only_without_phone(self):  # Dean 16:40
+    def test_no_venue_number_sentence_only_without_phone(self):  # owner 16:40
         self.assertIn(":tel?'':`<p class=\"sub\">${cy?'Dim rhif i’r lle ei hun.", rd("layers.js"))
-    def test_call_buttons_16_800(self):  # Dean 16:51
+    def test_call_buttons_16_800(self):  # owner 16:51
         css = rd("v3.css")
         self.assertIn("a.btn.call:not(.xfbk) *:not(svg):not(path){font-size:16px!important;font-weight:800!important", css)
         self.assertIn(".xnum,html body #list .card>a.btn.call:not(.xfbk) .xnum", css)
-    def test_call_type_identical_to_directions(self):  # Dean 17:10
+    def test_call_type_identical_to_directions(self):  # owner 17:10
         css = rd("v3.css")
         self.assertIn("html body .card a.btn.gm{letter-spacing:normal!important;transform:none!important", css)
         self.assertIn("html body .card a.btn.cdir{font-size:16px!important;font-weight:800!important", css)
         self.assertIn(":has(>small){flex-wrap:wrap!important;min-width:0!important;max-width:100%!important", css)
-    def test_council_button_two_centred_lines(self):  # Dean 17:33
+    def test_council_button_two_centred_lines(self):  # owner 17:33
         js = rd("layers.js"); css = rd("v3.css")
         self.assertEqual(js.count('<a class="btn call xfb"'), js.count('<span class="xcl">'))
         self.assertEqual(js.count('<span class="xcl">'), js.count('<span class="xcn">${IC(\'phone\')}'))
         self.assertIn("a.btn.call.xfb{display:flex!important;flex-direction:column!important", css)
-    def test_sheet_body_scrolls_header_fixed(self):  # Dean 19:02 iPhone: content must not slide behind the sheet header
+    def test_sheet_body_scrolls_header_fixed(self):  # owner 19:02 iPhone: content must not slide behind the sheet header
         css = rd("v3.css"); html = rd("index.html")
         self.assertIn("#sheet{display:flex!important;flex-direction:column!important;overflow:hidden!important", css)
         self.assertIn("#sheet>#sheetBody{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important", css)
         self.assertIn("$('sheetBody').scrollTop>0", html)
-    def test_green_call_button_dark_handset(self):  # Dean 21:25 'lock in the new format'
+    def test_green_call_button_dark_handset(self):  # owner 21:25 'lock in the new format'
         css = rd("v3.css")
         self.assertIn("html body #list .card a.btn.call,html body #xextra .card a.btn.call{background:#34C759!important;border-color:#34C759!important;color:#000!important}", css)
         self.assertIn("html body #list .card a.btn.call svg.ico,html body #list .card a.btn.call svg.ico *,html body #xextra .card a.btn.call svg.ico,html body #xextra .card a.btn.call svg.ico *{color:#2B2B2B!important;fill:#2B2B2B!important", css)
@@ -88,7 +88,7 @@ class NewLookRendered(unittest.TestCase):
         self.assertEqual(s, {'sheet': 'hidden', 'body': 'auto'})
 
 
-class SheetGreen(unittest.TestCase):  # Dean 24 Oct 21:31: sheet cards = same green call / blue Facebook as #list
+class SheetGreen(unittest.TestCase):  # owner 24 Oct 21:31: sheet cards = same green call / blue Facebook as #list
     def test_static_sheet_rules(self):
         css = rd("v3.css")
         self.assertIn("html body #sheetBody .card a.btn.call{background:#34C759!important;border-color:#34C759!important;color:#000!important}", css)
@@ -117,7 +117,7 @@ class SheetGreen(unittest.TestCase):  # Dean 24 Oct 21:31: sheet cards = same gr
 
 
 class HelplineBoxNotInCards(unittest.TestCase):
-    """Dean 24 Oct: the 'Sleeping rough… StreetLink / Call 999' box shows ONCE, above the list (#v3sos), never inside a card or the sheet."""
+    """owner 24 Oct: the 'Sleeping rough… StreetLink / Call 999' box shows ONCE, above the list (#v3sos), never inside a card or the sheet."""
     def test_card_template_has_no_strip(self):
         s = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'layers.js'), encoding='utf-8').read()
         self.assertNotIn('V3.strip()', s)

@@ -1,4 +1,4 @@
-"""Refresh guard (Dean, 23 Oct 2026: 'it was absolutely essential we had all the information').
+"""Refresh guard (owner, 23 Oct 2026: 'it was absolutely essential we had all the information').
 Run after a layer is rebuilt and before anything is committed. Compares the new file with the live one (git HEAD):
  - a place that vanished is put back with its previous record (unless deliberately removed: food bank exclusion /
    own-site closure lists, or overrides/guard_allow_remove.json),
@@ -9,7 +9,7 @@ and (in CI, with GH_TOKEN) a 'refresh-alert' issue is opened. Never fails the jo
 Usage: refresh_guard.py foodbanks|shelters|warmspaces [baseline-git-ref, default HEAD]"""
 import datetime, json, os, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 FILES = {'foodbanks': 'data.full.js', 'shelters': 'shelters.js', 'warmspaces': 'warmspaces.js'}
 
@@ -73,7 +73,7 @@ def guard(layer, old_items, new_items):
             rep['times'].append(o['id'])
         if layer == 'foodbanks' and o.get('fb_page') and not n.get('fb_page'):  # verified Facebook page never silently lost (24 Oct)
             n['fb_page'] = o['fb_page']; rep.setdefault('fb_pages', []).append(o['id'])
-        if layer == 'shelters' and o.get('groups') and not n.get('groups'):  # who it's for never lost (Dean, 23 Oct)
+        if layer == 'shelters' and o.get('groups') and not n.get('groups'):  # who it's for never lost (owner, 23 Oct)
             n['groups'] = o['groups']
             if o.get('groups_source'): n['groups_source'] = o['groups_source']
             rep.setdefault('groups', []).append(o['id'])

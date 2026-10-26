@@ -1,4 +1,4 @@
-"""Discovery + own-site cross-check, shared by all three layers (Dean, 21 Oct 2026).
+"""Discovery + own-site cross-check, shared by all three layers (owner, 21 Oct 2026).
 Every 3x-daily run:
  1. Pull each major directory in full (food banks: Give Food + IFAN; shelters: OSM + Homeless Link 'Find help';
     warm spaces: Warm Welcome + Open Innovations aggregator of council/VCS directories).
@@ -34,7 +34,7 @@ def host(u):
 
 def is_dup(c, existing):
     """True if candidate c is already on the map: same postcode + shared name word, within 300 m + shared name word,
-    within 150 m regardless of name (Dean's auto-add rule, 23 Oct 2026), or same website host within 2 km."""
+    within 150 m regardless of name (owner's auto-add rule, 23 Oct 2026), or same website host within 2 km."""
     pc, ct, ch = norm_pc(c.get("postcode")), tokens(c.get("name")), host(c.get("website"))
     for e in existing:
         same_name = bool(ct & tokens(e.get("name")) or ct & tokens(e.get("foodbank")))
@@ -170,7 +170,7 @@ def extract_times(text, postcode=None):
         before = bool(TIMESPAN.search(t[max(0, first.start() - 300):first.start()]))  # times precede the first one
         if after and not before: lo, hi = s, min([e + 500] + starts)
         elif before and not after: lo, hi = max([max(0, s - 500)] + ends), e
-        else: return None   # layout unclear: never guess, the finder sends it to Dean's review list
+        else: return None   # layout unclear: never guess, the finder sends it to owner's review list
         t = t[lo:hi]
     segs, seen, prev_end, prev_skipped = [], set(), None, False
     found = []
@@ -217,14 +217,14 @@ def hours_from_ot(ot):
     if not ot or not ot.get("structured"): return None
     return {d.title(): " / ".join(f"{a} - {b}" for a, b in r) for d, r in ot["structured"].items()}
 
-# Dean's standing default (21 Oct 2026): the place's OWN website is the main source. Where it gives times or says closed,
+# owner's standing default (21 Oct 2026): the place's OWN website is the main source. Where it gives times or says closed,
 # it overrides Give Food and every directory. Directory times are only a fallback, kept but marked unconfirmed.
 UNCONF_NOTE_UNUSED = {"fb": "Times from Give Food – not confirmed on the food bank's own site, call ahead",
                "sh": "Times from the directory listing – not confirmed on the shelter's own site, call before you go",
                "ws": "Times from the directory listing – not confirmed on the warm space's own site, call before you go"}
 def _unconfirm(i, kind, field, reason):
     """Own site could not confirm: keep the main database's times (Give Food / listing directory) and show them normally
-    (Dean, 21 Oct 17:31). Source/confirmation is logged internally only (times_source / times_status), never displayed."""
+    (owner, 21 Oct 17:31). Source/confirmation is logged internally only (times_source / times_status), never displayed."""
     i["times_status"] = "unconfirmed"; i["times_reason"] = reason
     i["times_source"] = "main database" if i.get(field) else ""
     i.pop("times_note", None)
@@ -275,10 +275,10 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             rec.update(status=st, reason=why)
             if st == "confirmed":
                 i["times_status"] = "confirmed"; i["times_checked"] = today
-                if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
+                if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (owner, 23 Oct 10:39)
             elif st == "changed" and str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed"):
-                # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
-                rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
+                # Protected hand-checked times (owner, 23 Oct 23:37): never overwritten by the robots, only flagged for review
+                rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for owner",
                            new=new.get("structured") if new else None)
                 i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
             elif st == "changed":
@@ -322,7 +322,7 @@ def geocode(pcs, fetcher=None):
 
 GOV = re.compile(r"(\.gov\.uk|\.gov\.wales|\.gov\.scot|nidirect\.gov\.uk)$")
 def pre_flags(c, kind):
-    """'100% categorically' rules (Dean, 21 Oct 2026). A discovered candidate is never auto-added when:
+    """'100% categorically' rules (owner, 21 Oct 2026). A discovered candidate is never auto-added when:
     * its only source is OpenStreetMap: OSM finds go to the flagged list and need a human-checked own-site record
       in overrides/<layer>_verified.json or _unverified.json before they can appear;
     * the directory's 'website' is a council page, not the place's own site (it cannot confirm this place);

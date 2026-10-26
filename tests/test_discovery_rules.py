@@ -1,4 +1,4 @@
-"""Dean's auto-add rule (23 Oct 2026): add when valid in-area postcode, not a duplicate (name+postcode or 150 m),
+"""owner's auto-add rule (23 Oct 2026): add when valid in-area postcode, not a duplicate (name+postcode or 150 m),
 working source page and current/future dates; otherwise queue for manual review. Held places are never auto-added."""
 import os, sys, json, tempfile, unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
@@ -32,7 +32,7 @@ class Assess(unittest.TestCase):
     def test_closed_rejected(self):
         self.assertEqual(DR.assess(c(), {"result": "flag", "reasons": ["own site says closed: permanently closed"]}, G, T, H=[])[0], "reject")
     def test_held_never_added(self):
-        d, why = DR.assess(c(), OK, G, T, H=[{"postcode": "LE1 5DB", "reason": "awaiting Dean"}]); self.assertEqual(d, "queue")
+        d, why = DR.assess(c(), OK, G, T, H=[{"postcode": "LE1 5DB", "reason": "awaiting owner"}]); self.assertEqual(d, "queue")
     def test_hold_by_postcode_not_common_name(self):
         self.assertIsNone(DR.held(c(name="The Hub"), [{"name": "The Hub", "postcode": "TQ10 9BP"}]))
     def test_rule_error_is_queue_not_add(self):

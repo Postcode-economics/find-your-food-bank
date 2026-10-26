@@ -1,4 +1,4 @@
-"""Real-click user-journey suite (Dean, 25 Oct 2026 - must be flawless). Drives the page the way a visitor does,
+"""Real-click user-journey suite (owner, 25 Oct 2026 - must be flawless). Drives the page the way a visitor does,
 headless Chromium, at 390px and 1366px, light and dark, on all three types. Runs:
   - before every merge (tests.yml, required check on any push/PR touching site html/css/js),
   - against the live site after each deploy (deploy-check.yml; on failure the deploy commit is reverted),

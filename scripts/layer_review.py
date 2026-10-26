@@ -1,4 +1,4 @@
-"""Daily review list for shelters + warm spaces (Dean's rules: only uncertain or changed items go to Dean).
+"""Daily review list for shelters + warm spaces (owner's rules: only uncertain or changed items go to owner).
 Compares the published layer files with the previous commit (or given files) and the recheck/SWEP logs.
 Writes reports/layers_review.md and reports/layers_review.json. Never changes data.
 Usage: python scripts/layer_review.py [--old-dir DIR]   (DIR holds the previous shelters.js / warmspaces.js)"""

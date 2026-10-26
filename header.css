@@ -1,4 +1,4 @@
-/* Header option A (Dean, 25 Oct 2026; mock-ups HEADER2_FINAL_light/dark.png). Loaded after v3.css.
+/* Header option A (owner, 25 Oct 2026; mock-ups HEADER2_FINAL_light/dark.png). Loaded after v3.css.
    Light mode uses the dark accent palette: gold #F5C518, orange #D55E00, blue #56B4E9; text --white #F2F4F8 (dark) / navy #0A1628 (light); info strip edge --red #E63946. */
 
 /* ---- header.css ---- */
@@ -29,7 +29,7 @@
 #v3filt>#v3open{margin:0!important}
 #v3filt>#v3tools .v3t{height:36px!important;min-height:36px!important;font-size:14px!important;padding:0 12px!important;border-color:#FFFFFF!important;border-radius:18px!important}
 #v3filt>#v3tools .v3t[aria-pressed=true]{background:#FFFFFF!important;color:#0A1628!important}
-/* Dean 25 Oct 19:15 (Instagram iPhone screenshot): 'List only' ON was a white box with white text. ON = same link style as 'Light mode', gold text + tick */
+/* owner 25 Oct 19:15 (Instagram iPhone screenshot): 'List only' ON was a white box with white text. ON = same link style as 'Light mode', gold text + tick */
 html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true],html:not(.light) #v3tools .v3t[aria-pressed=true]{background:transparent!important;color:#F5C518!important;-webkit-appearance:none;appearance:none}
 /* 5 updated line */
 header .fresh,header .fresh a,#freshtxt{color:#FFFFFF!important;opacity:1!important}
@@ -159,16 +159,16 @@ html:not(.light) body header form button.go,html:not(.light) .go{color:#F2F4F8!i
 /* collapsed Filters tab matches the chips (gold) */
 #v3filt #ftab,html.light #v3filt #ftab{border-color:#F5C518!important}
 
-/* status line (Dean 25 Oct 13:32/13:34): ONE line, never clipped, never an ellipsis; v3fitPill() in v3.js shrinks the font
+/* status line (owner 25 Oct 13:32/13:34): ONE line, never clipped, never an ellipsis; v3fitPill() in v3.js shrinks the font
    (min 12px) and, if still needed, shows just the place name. The header height never changes. */
 #v3pill .v3pl{display:block!important;max-width:100%;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important}
 #v3pill .v3plc{white-space:nowrap}
 
-/* Dean 25 Oct 14:06: every line in the list panel starts at the same left edge (notes, headings, cards; all 3 types) */
+/* owner 25 Oct 14:06: every line in the list panel starts at the same left edge (notes, headings, cards; all 3 types) */
 #v3res .tnote,#list .tnote,#xlist .tnote,#xbefore .tnote,.tnote{margin-left:0!important;padding-left:0!important;text-align:left!important}
 #v3res>*,#list>.lh,#xlist>.lh{margin-left:0!important;text-align:left!important}
 
-/* Dean 25 Oct 13:40 design lock: pin pop-up cards (desktop pop-up and phone sheet) use the same locked status dots
+/* owner 25 Oct 13:40 design lock: pin pop-up cards (desktop pop-up and phone sheet) use the same locked status dots
    (red closed, green open, grey unknown) and the same green call button as list cards. */
 html body .leaflet-popup-content .pop>.v3st::before,html body #sheet .card>.v3st::before{content:""!important;display:inline-block!important;width:10px!important;height:10px!important;border-radius:50%!important;margin-right:8px!important;vertical-align:middle!important;background:#C9D1DE!important;box-shadow:none!important}
 html body .leaflet-popup-content .pop>.v3st.open::before,html body #sheet .card>.v3st.open::before{background:#3DDC84!important}
@@ -176,19 +176,19 @@ html body .leaflet-popup-content .pop>.v3st.shut::before,html body #sheet .card>
 html body .leaflet-popup-content .pop a.btn.call:not(.xfbk){background:#34C759!important;color:#0A1628!important;border-color:#34C759!important}
 
 #v3tools .v3t{-webkit-appearance:none;appearance:none}
-/* Dean 25 Oct 19:16: 'List only' / 'Light mode' never turn into a white box on iPhone (tap highlight, focus, active, pressed) in dark mode */
+/* owner 25 Oct 19:16: 'List only' / 'Light mode' never turn into a white box on iPhone (tap highlight, focus, active, pressed) in dark mode */
 #v3tools .v3t,#v3filt>#v3tools .v3t{-webkit-tap-highlight-color:transparent}
 html:not(.light) #v3tools .v3t,html:not(.light) #v3filt>#v3tools .v3t,html:not(.light) #v3tools .v3t:focus,html:not(.light) #v3filt>#v3tools .v3t:focus,html:not(.light) #v3tools .v3t:active,html:not(.light) #v3filt>#v3tools .v3t:active,html:not(.light) #v3tools .v3t:hover,html:not(.light) #v3filt>#v3tools .v3t:hover{background:transparent!important;color:#F2F4F8!important;opacity:1!important}
 html:not(.light) #v3tools .v3t[aria-pressed=true],html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true],html:not(.light) #v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:focus,html:not(.light) #v3tools .v3t[aria-pressed=true]:active,html:not(.light) #v3filt>#v3tools .v3t[aria-pressed=true]:active{background:transparent!important;color:#F5C518!important}
 #v3tools .v3t:focus:not(:focus-visible),#v3filt>#v3tools .v3t:focus:not(:focus-visible){outline:none}#v3tools .v3t:focus-visible,#v3filt>#v3tools .v3t:focus-visible{outline:3px solid #F5C518;outline-offset:2px}
-/* Dean 25 Oct 20:37 (v88b test): shelter 'Sleeping rough / StreetLink' panel and 'Nearest shelters' heading in the dark look.
+/* owner 25 Oct 20:37 (v88b test): shelter 'Sleeping rough / StreetLink' panel and 'Nearest shelters' heading in the dark look.
    Panel = dark card with the shelter sky-blue edge; StreetLink = outlined link button; Call 999 = white on bright red #FF3B30 (design lock). */
 html:not(.light) .v3sos,html:not(.light) #v3sos .v3sos{background:#13223d!important;color:#F2F4F8!important;border:2px solid #3A5378!important;border-left:6px solid #56B4E9!important}
 html:not(.light) .v3sos a:not(.sosl){color:#F2F4F8!important}
 html:not(.light) .v3sos a.sosl:not(.s999){background:transparent!important;color:#F2F4F8!important;border:2px solid #F2F4F8!important}
 html .v3sos a.sosl.s999,html body #v3sos .v3sos a.sosl.s999,html.light .v3sos a.sosl.s999,html.light #v3sos .v3sos a.sosl.s999{background:#FF3B30!important;color:#FFFFFF!important;border:2px solid #FF3B30!important;font-weight:800!important}
 html .v3sos a.sosl.s999 .ico,html .v3sos a.sosl.s999 svg{color:#FFFFFF!important;fill:currentColor}
-/* Dean 26 Oct 06:46: dark-mode postcode box matches the header. Colours only: size, font and layout stay the light-mode box.
+/* owner 26 Oct 06:46: dark-mode postcode box matches the header. Colours only: size, font and layout stay the light-mode box.
    Map tiles stay the ordinary light tiles. Do not darken, invert or recolour them. */
 html:not(.light) #q{background:#13223d!important;color:#F2F4F8!important;caret-color:#F2F4F8;box-shadow:inset 0 0 0 2px #3A5378}
 html:not(.light) #q::placeholder{color:#b9c2d3!important;opacity:1}

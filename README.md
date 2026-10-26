@@ -2,7 +2,7 @@
 
 An interactive map of UK food banks and their donation/collection locations. Tap a pin for the address, phone number, a one-tap Google Maps route, and links to the food bank's own site. Times change, so always call ahead.
 
-Built by Postcode Economics (Dean Goff), [@postcode_economics](https://www.instagram.com/postcode_economics/).
+Built by Postcode Economics, [@postcode_economics](https://www.instagram.com/postcode_economics/).
 
 ## Data source
 

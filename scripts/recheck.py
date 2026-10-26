@@ -1,4 +1,4 @@
-"""Per-run source re-scan (Dean, 21 Oct 2026). Every run (3x daily) re-fetches the page each published entry relies on
+"""Per-run source re-scan (owner, 21 Oct 2026). Every run (3x daily) re-fetches the page each published entry relies on
 (evidence_url for verified, sign_url for unverified) and re-extracts what we publish from it. Nothing is carried over:
 if the page is unreachable, or no longer confirms the entry, the entry is not published this run (logged to pending
 with the reason). Results per entry are stored in logs/<layer>_recheck.json: url, fetched_at, http status, extracted values."""
@@ -106,7 +106,7 @@ def check(entry, ov, page, url=None, prev=None):
     if want_t and not (want_t & got_t): return dict(res, ok=False, reason="published times not found on source this run")
     if want_d and not res["days_found"]: return dict(res, ok=False, reason="published days not found on source this run")
     if osm_only(entry):
-        # '100% categorically' (Dean, 21 Oct 2026): an entry that came from OpenStreetMap is never published on OSM alone.
+        # '100% categorically' (owner, 21 Oct 2026): an entry that came from OpenStreetMap is never published on OSM alone.
         # Its evidence page must be a real (non-OSM) page that shows THIS place's postcode or street address this run.
         street = re.sub(r"^\d+[a-z]?\s+", "", ((ov.get("address") or entry.get("address") or "").split(",")[0]).strip().lower())
         res["address_found"] = bool(street) and len(street) > 5 and street in low

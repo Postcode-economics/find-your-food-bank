@@ -36,7 +36,7 @@ class Browser(unittest.TestCase):
 
 
 class County(unittest.TestCase):
-    """Dean 25 Oct 09:18: county names (ONS CTYUA label points) win over small place matches."""
+    """owner 25 Oct 09:18: county names (ONS CTYUA label points) win over small place matches."""
     def test_counties_present(self):
         import os
         d = json.load(open(os.path.join(os.path.dirname(__file__), "..", "counties.json")))

@@ -1,6 +1,6 @@
 # helpmap.uk runbook (one page)
 
-For Dean or a named back-up person. Everything below is done on github.com in the repository, or in the Cloudflare dashboard.
+For owner or a named back-up person. Everything below is done on github.com in the repository, or in the Cloudflare dashboard.
 
 ## Something looks wrong on the site
 1. Check the Issues tab for an open `refresh-alert` issue: it names the run and the failing step.

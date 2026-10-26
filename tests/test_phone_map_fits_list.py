@@ -1,4 +1,4 @@
-"""Dean 25 Oct 20:45: on phones the map must show the pins of the results LISTED for the chosen type (warm spaces/shelters can be
+"""owner 25 Oct 20:45: on phones the map must show the pins of the results LISTED for the chosen type (warm spaces/shelters can be
 miles further than the nearest food banks). Nothing is ever filtered: the list is unchanged, the map just zooms out enough."""
 import functools, http.server, os, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'

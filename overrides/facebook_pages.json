@@ -1,5 +1,5 @@
 {
- "_about": "Verified Facebook page per food bank with no phone (Dean 23 Oct 22:31). Page title read from the page's og:title on 2026-10-23 and matched to the food bank. Shown as a 'Message on Facebook' button only when the card has no phone. If a food bank's own Facebook page shows a phone, put it in overrides/phones.json (+ phone_sources.json); build.py then shows the phone and hides the button (fbbtn check, Dean 24 Oct).",
+ "_about": "Verified Facebook page per food bank with no phone (owner 23 Oct 22:31). Page title read from the page's og:title on 2026-10-23 and matched to the food bank. Shown as a 'Message on Facebook' button only when the card has no phone. If a food bank's own Facebook page shows a phone, put it in overrides/phones.json (+ phone_sources.json); build.py then shows the phone and hides the button (fbbtn check, owner 24 Oct).",
  "whitland-town-hall-community": {
   "url": "https://www.facebook.com/whitlandtownhallcommunityfoodbank/",
   "page_title": "Whitland Town Hall Community Food Bank",
@@ -313,7 +313,7 @@
    "checked": "2026-10-23",
    "second_source": "linked from own site https://www.laurenceslarder.org.uk",
    "removed": "2026-10-25",
-   "why": "Dean 25 Oct 08:10: page inactive (last post 2023/2022); check still open"
+   "why": "owner 25 Oct 08:10: page inactive (last post 2023/2022); check still open"
   },
   "ifan-9fef48d4f0fd3a3f6896d2-0": {
    "url": "https://www.facebook.com/The-Gospel-Church-of-Jesus-Christ-103189552325576",
@@ -321,7 +321,7 @@
    "checked": "2026-10-23",
    "second_source": "linked from own site https://www.gcjc.co.uk",
    "removed": "2026-10-25",
-   "why": "Dean 25 Oct 08:10: page inactive (last post 2023/2022); check still open"
+   "why": "owner 25 Oct 08:10: page inactive (last post 2023/2022); check still open"
   }
  }
 }

@@ -1,4 +1,4 @@
-"""Dean 25 Oct 20:37 (v88b test): in dark mode the shelter 'Sleeping rough / StreetLink' panel was a near-white box and the
+"""owner 25 Oct 20:37 (v88b test): in dark mode the shelter 'Sleeping rough / StreetLink' panel was a near-white box and the
 Call 999 was navy. Dark panel with readable text in dark mode; Call 999 bold white text + icon on #FF3B30 in BOTH modes."""
 import functools, http.server, os, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'

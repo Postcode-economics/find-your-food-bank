@@ -1,7 +1,7 @@
-"""Publish gate (Dean, 23 Oct 2026). Runs in every shelters / warm spaces / food bank refresh, before the refresh guard.
+"""Publish gate (owner, 23 Oct 2026). Runs in every shelters / warm spaces / food bank refresh, before the refresh guard.
 gate <layer>: a NEW place (not in the live file, git HEAD) is not published unless it has a verified phone
   (own number 'tel'; for shelters / warm spaces a labelled council homeless/out-of-hours line also counts) and,
-  for shelters, a sourced 'who it's for' (groups). Held places go to logs/pending_dean.json + reports/pending_dean.md.
+  for shelters, a sourced 'who it's for' (groups). Held places go to logs/pending_owner.json + reports/pending_owner.md.
   Existing places are never removed here (the refresh guard keeps their fields).
 check: CI. Fails if a published shelter lacks a phone or groups, or a warm space lacks a phone, unless the id is
   listed in overrides/known_gaps.json (existing gaps being worked on, each with a note). Food banks without a
@@ -22,10 +22,10 @@ def load(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))
     except Exception: return d
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026
 def approved_new():
-    """Dean 25 Oct 08:20: no new food bank is auto-added. Only ids Dean OK'd (overrides/foodbank_approved_new.json) or
-    hand-added (overrides/foodbank_added.json) may go on the map; everything else waits in reports/pending_dean.md."""
+    """owner 25 Oct 08:20: no new food bank is auto-added. Only ids owner OK'd (overrides/foodbank_approved_new.json) or
+    hand-added (overrides/foodbank_added.json) may go on the map; everything else waits in reports/pending_owner.md."""
     ok = set()
     for f in ('overrides/foodbank_approved_new.json', 'overrides/foodbank_added.json'):
         ok |= {k for k in load(f, {}) if not k.startswith('_')}
@@ -43,19 +43,19 @@ def gate(layer, ref='HEAD'):
     if held:
         d['items'] = [i for i, _ in keep]
         open(f, 'w').write(pre + (json.dumps(d) if layer == 'foodbanks' else json.dumps(d, ensure_ascii=False, separators=(',', ':'))) + post)
-    lg = load('logs/pending_dean.json', {}); now = datetime.date.today().isoformat()
+    lg = load('logs/pending_owner.json', {}); now = datetime.date.today().isoformat()
     lg[layer] = [dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now) for i, pr in held]
-    json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_dean.json'), 'w'), indent=1, ensure_ascii=False)
-    md = ['# New places held back for Dean (not published)', '', 'No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
+    json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_owner.json'), 'w'), indent=1, ensure_ascii=False)
+    md = ['# New places held back for owner (not published)', '', 'No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
         md += [f'## {L} ({len(xs)})', ''] + [f"- {x['name']} ({x.get('postcode') or ''}) - {', '.join(x['why'])} - {x.get('source') or ''}" for x in xs] + ['']
-    pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
-    if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
+    pd = os.path.join(ROOT, 'reports', 'pending_owner.md'); keep = ''
+    if os.path.exists(pd):  # keep the times review list section written by times_finder.py (owner, 23 Oct)
         t = open(pd).read()
         for tag in ('times review', 'sweep shelters', 'closures'):  # keep the times review (times_finder) and sweep shelter review sections
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
-    print(f'publish gate {layer}: {len(held)} new places held for Dean')
+    print(f'publish gate {layer}: {len(held)} new places held for owner')
     return held
 def check():
     gaps = load('overrides/known_gaps.json', {}); bad = []

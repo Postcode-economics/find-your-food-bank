@@ -1,4 +1,4 @@
-"""Instagram in-app browser on iPhone = WebKit (Dean 25 Oct 19:13/19:15). In real WebKit with the Instagram UA, dark mode:
+"""Instagram in-app browser on iPhone = WebKit (owner 25 Oct 19:13/19:15). In real WebKit with the Instagram UA, dark mode:
 (1) 'List only' ON is readable and styled like the 'Light mode' link (no white box: text and background must contrast, background transparent);
 (2) with List only OFF the map really paints (tiles loaded, pins shown) and sits on the phone page below the header;
 (3) with List only ON the list still shows; (4) with storage blocked the page still works."""
@@ -70,7 +70,7 @@ class T(unittest.TestCase):
                             if m['top'] < m['htop'] - 1: bad.append((tag, 'map overlaps header', m))
                             print(tag, 'map', m, pg.evaluate('document.documentElement.className'))
                         c.close()
-                # Dean's standing rule: DARK by default even with the phone set to light; storage blocked = dark
+                # owner's standing rule: DARK by default even with the phone set to light; storage blocked = dark
                 for block in (False, True):
                     c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, is_mobile=True, color_scheme='light')
                     if block: c.add_init_script("for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});")

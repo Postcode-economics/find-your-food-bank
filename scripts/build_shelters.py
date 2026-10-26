@@ -2,7 +2,7 @@
 Writes shelters.js and logs/shelters_log.json. Never invents data: every entry comes from a source record."""
 import json, sys, os, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
 RUN = today()
@@ -65,7 +65,7 @@ prev = load_js(OUT, "SHELTERS")
 VER = load_verified("overrides/shelters_verified.json")
 HE_HINT = "https://homeless.org.uk/homeless-england/"
 def shelter_autocheck(x):
-    # Bar (Dean, 21 Oct 2026): a credible council/operator/charity/official page must show it is a homeless
+    # Bar (owner, 21 Oct 2026): a credible council/operator/charity/official page must show it is a homeless
     # shelter, night shelter or emergency accommodation, open in a stated period, with opening or access
     # times/route. Day centres without beds do not count. This pre-check only flags; it never publishes.
     flags = []

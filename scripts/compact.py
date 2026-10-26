@@ -1,4 +1,4 @@
-"""Write the compact, browser-facing data.js from the canonical data.full.js (Dean, 22 Oct: halve bandwidth per visitor).
+"""Write the compact, browser-facing data.js from the canonical data.full.js (owner, 22 Oct: halve bandwidth per visitor).
 Scripts read/write data.full.js (full format, window.FB_DATA={...}); only the app loads data.js.
 data.js decodes itself back to window.FB_DATA={fetched,source,items:[...]} with exactly the fields the app reads,
 so index.html / layers.js / v3.js are unchanged. Stdlib only."""

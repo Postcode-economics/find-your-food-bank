@@ -1,4 +1,4 @@
-"""Dean 25 Oct 17:05: first-time visitors get DARK whatever the phone setting; a saved light choice is kept; set before first paint."""
+"""owner 25 Oct 17:05: first-time visitors get DARK whatever the phone setting; a saved light choice is kept; set before first paint."""
 import functools, http.server, importlib.util, os, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); CH = '/usr/bin/google-chrome'
 HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None

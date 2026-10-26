@@ -1,15 +1,15 @@
-"""Self-learning, part 2 (Dean, 25 Oct 2026; agreed order: corrections, change signals, source trust, seasonal timing,
+"""Self-learning, part 2 (owner, 25 Oct 2026; agreed order: corrections, change signals, source trust, seasonal timing,
 demand, weekly self-review, discovery last). Runs after full_check.py in every food bank refresh; writes
 reports/learning_signals.json (+ reports/learning_review.md) which the NEXT run uses to order checks.
 
 Hard limits (unchanged from learning.py): this only changes the ORDER and FREQUENCY of checks. It never edits map data,
-never adds or removes a place (new places always go to reports/pending_dean.md for Dean's OK), and never invents data:
+never adds or removes a place (new places always go to reports/pending_owner.md for owner's OK), and never invents data:
 every number comes from files already in the repo, and an input that does not exist yet (visitor demand, visitor
 reports, email bounces) is reported as 'no data yet' and has no effect.
 
 Inputs (all real, all optional):
   corrections   overrides/phones.json, overrides/foodbank_notices.json, manual entries in
-                overrides/foodbank_closed.json  (hand fixes by Dean = the feed was wrong for that place)
+                overrides/foodbank_closed.json  (hand fixes by owner = the feed was wrong for that place)
   agreement     reports/full_check_state.json: stored phone vs the phones on the food bank's own site
   change        reports/full_check_state.json (dead link: fail_runs>=2; 'closed' wording), logs/fb_page_check.json
   signals       (status != ok), overrides/email_bounces.json (ids whose contact email bounced; added by hand)
@@ -163,7 +163,7 @@ def build(today=None):
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
-               trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
+               trend=trend[-60:], discovery='all new places held for owner (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
 def write(out):
@@ -192,7 +192,7 @@ def digest_lines(out, full=False):
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
     wk = weekly(out.get('trend', []))
     L.append('- Weekly accuracy trend: ' + ('; '.join('%s reachable %.0f%%, phones agree %s, corrections %d' % (w, r * 100, ('%.0f%%' % (p * 100)) if p else 'n/a', c) for w, r, p, c in wk[-4:]) or 'first week'))
-    L.append('- New places found are never added automatically: they wait in reports/pending_dean.md for your OK.')
+    L.append('- New places found are never added automatically: they wait in reports/pending_owner.md for your OK.')
     if full:
         L += ['', '### Weights now (bounded %.0f%%-%.0f%% of default, max %.0f%% change a week)' % (LO * 100, HI * 100, STEP * 100), ''] + ['- %s: %.3f' % kv for kv in sorted(out['weights'].items())]
         L += ['', '### Top 20 boosted sites', ''] + ['- %s: %s' % (u, out['why'].get(u)) for u, _ in sorted(out['boost'].items(), key=lambda x: -x[1])[:20]]

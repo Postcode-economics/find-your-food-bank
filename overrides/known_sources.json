@@ -1,5 +1,5 @@
 {
- "_note": "Seeded 23 Oct 2026 from Dean's hand checks. pages: multi-centre pages, postcode -> centre id + the hand-checked client times. The finder reads these pages by postcode only and never copies one centre's times onto another. skip: never take times from these.",
+ "_note": "Seeded 23 Oct 2026 from owner's hand checks. pages: multi-centre pages, postcode -> centre id + the hand-checked client times. The finder reads these pages by postcode only and never copies one centre's times onto another. skip: never take times from these.",
  "pages": {
   "https://chelwoodfoodbankplus.org/": {
    "centres": [
@@ -325,7 +325,7 @@
   },
   "horsham-district/*": {
    "url": "https://horshamdistrict.foodbank.org.uk/locations/",
-   "reason": "centres on the live page do not match our centre list (postcodes differ); needs Dean's review"
+   "reason": "centres on the live page do not match our centre list (postcodes differ); needs owner's review"
   },
   "readifood": {
    "url": "https://fcg.org.uk/reading-pantries/locations/",

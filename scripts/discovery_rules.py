@@ -1,4 +1,4 @@
-"""Auto-add rules for discovery (Dean, 23 Oct 2026 06:23). A new place found by any source is ADDED automatically
+"""Auto-add rules for discovery (owner, 23 Oct 2026 06:23). A new place found by any source is ADDED automatically
 (as tier 2 'Unverified - call before you go' for shelters/warm spaces; as a normal pin for food banks) only when ALL hold:
   1. valid postcode that geocodes (postcodes.io) - and, where the source gives a pin, the pin is within AREA_KM of it
      and any postcode written in the address is the same one ("inside its stated area");
@@ -7,7 +7,7 @@
   4. current or future dates (anything whose stated dates are all in the past is rejected; not-yet-open = 'Opens <date>').
 Anything failing a check is QUEUED for a person in reports/manual_review.md (auto section) - never guessed onto the map.
 Hard rejects (past dates, own site says closed, not the right kind of service) are logged with the reason.
-Places Dean is deciding on by hand (overrides/discovery_hold.json) are never auto-added.
+Places owner is deciding on by hand (overrides/discovery_hold.json) are never auto-added.
 Every add is logged in logs/discovery_today_<layer>.json and reports/new_today.md.
 Fail-safe: every function here swallows its own errors; a failure means 'queue', never 'add'."""
 import json, os, re, datetime, glob

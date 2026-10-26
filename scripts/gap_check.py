@@ -1,7 +1,7 @@
 """Point 7 (24 Oct 2026): Yell / Charity Commission gap check - offline core.
 Reads a LOCAL CSV export (e.g. a Charity Commission register extract or a Yell list saved by hand) and lists
 food-bank-like organisations whose postcode is not on the map, into reports/gap_check.md. It does not download anything:
-fetching the register / Yell is a new external source and waits for Dean's approval.
+fetching the register / Yell is a new external source and waits for owner's approval.
 Usage: gap_check.py export.csv [name_column] [postcode_column]"""
 import csv, json, os, re, sys
 ROOT = os.path.join(os.path.dirname(__file__), "..")

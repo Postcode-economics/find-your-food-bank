@@ -3,7 +3,7 @@
 only replaced if the fetch succeeds and the entry count is >= 80% of the current one."""
 import json, math, os, sys, urllib.request, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'foodbank-map-refresh (github actions)'}
@@ -87,7 +87,7 @@ def main():
         i['opening_times'] = normalise(times.get(i['id']))
         if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
     fbp = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'facebook_pages.json'), {}).items() if not k.startswith('_')}
-    for i in items:  # verified Facebook page, used only when there is no phone (Dean 23 Oct)
+    for i in items:  # verified Facebook page, used only when there is no phone (owner 23 Oct)
         if i['id'] in fbp: i['fb_page'] = fbp[i['id']]['url']
     names = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_names.json'), {}).items() if not k.startswith('_')}
     for i in items:  # names a food bank asked us to use (overrides/foodbank_names.json)
@@ -127,7 +127,7 @@ def main():
     disc['sources']['IFAN (foodaidnetwork.org.uk)'] = st
     disc['sources']['Trussell find-a-foodbank'] = directories.trussell()[1]
     new_c, dup = discover.dedupe(cands, items); st['already_on_map'] = dup; st['new_candidates'] = len(new_c)
-    import discovery_rules as DR  # Dean's auto-add rule (23 Oct 2026): valid in-area postcode, not a duplicate, working source, current
+    import discovery_rules as DR  # owner's auto-add rule (23 Oct 2026): valid in-area postcode, not a duplicate, working source, current
     live = st.get('status') == 'ok'
     for c in new_c:
         c['source_live'] = live
@@ -180,7 +180,7 @@ def main():
     # recheck gate: same over-check as shelters / warm spaces (hash + fetched_at, HTTP, ETag/Last-Modified, schema, source URL)
     extra = load_json(os.path.join(ROOT, 'overrides', 'foodbank_extra_locations.json'), {})
     extra.update(load_json(os.path.join(ROOT, 'overrides', 'foodbank_own_pages.json'), {}))
-    extra.update({k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_added.json'), {}).items() if not k.startswith('_')})  # hand-added food banks (Dean 24 Oct): the checked record is their source
+    extra.update({k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_added.json'), {}).items() if not k.startswith('_')})  # hand-added food banks (owner 24 Oct): the checked record is their source
     for i in items:
         if i.get('manual') and i['id'] in extra: records[i['id']] = extra[i['id']]  # source = the human-checked own-site record
     allc = {i['id']: i.pop('_own_all_closed') for i in items if '_own_all_closed' in i}  # kept out of the recheck gate
@@ -208,11 +208,11 @@ def main():
     for i in items:  # checked phones again AFTER IFAN discovery too (24 Oct: FB-page phones for IFAN pins were missed)
         if i['id'] in phones and not i.get('phone'): i['phone'] = phones[i['id']]; i['phone_checked'] = True; apply_phone(i)
     notices = load_json(os.path.join(ROOT, 'overrides', 'foodbank_notices.json'), {})
-    for i in items:  # hand-set card notices (e.g. temporary closure), pin kept (Dean 24 Oct)
+    for i in items:  # hand-set card notices (e.g. temporary closure), pin kept (owner 24 Oct)
         n = notices.get(i['id'])
         if isinstance(n, dict) and n.get('notice'): i['notice'] = n['notice']
     plabels = load_json(os.path.join(ROOT, 'overrides', 'phone_labels.json'), {})
-    for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct)
+    for i in items:  # whose number it is, when not the food bank's own (owner 24 Oct)
         if i.get('phone') and isinstance(plabels.get(i['id']), str): i['phone_label'] = plabels[i['id']]
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'

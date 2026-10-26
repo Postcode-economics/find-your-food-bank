@@ -1,4 +1,4 @@
-"""Point 6 (24 Oct 2026): duplicates already on the map. Groups entries by postcode and proposes merges for Dean in
+"""Point 6 (24 Oct 2026): duplicates already on the map. Groups entries by postcode and proposes merges for owner in
 reports/duplicates.md (+ logs/duplicates.json). Nothing is merged or removed automatically.
   'likely duplicate': same postcode and the names share a main word (or pins within 30 m)
   'same postcode, different service': everything else in a shared postcode (listed for information)."""
@@ -27,7 +27,7 @@ def find(items):
 def main():
     s = open(DATA, encoding="utf-8").read(); items = json.loads(s[s.index("{"): s.rindex("}") + 1])["items"]
     pairs = find(items); json.dump(pairs, open(JS, "w"), indent=1)
-    L = ["# Possible duplicates on the map", "", "Proposed merges for Dean. Nothing is merged automatically.", ""]
+    L = ["# Possible duplicates on the map", "", "Proposed merges for owner. Nothing is merged automatically.", ""]
     for k in ("likely duplicate", "same postcode, different service"):
         ps = [p for p in pairs if p["kind"] == k]; L += ["## %s (%d)" % (k, len(ps)), ""]
         L += ["- %s: %s (`%s`) / %s (`%s`), %s m apart" % (p["postcode"], p["a_name"], p["a"], p["b_name"], p["b"], p["metres"]) for p in ps] + [""]

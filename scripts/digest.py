@@ -42,7 +42,7 @@ def main(now=None):
          "- Source errors this run: %d (reports/source_errors.json)" % len(errs),
          "- SWEP councils still to check: %s (reports/swep_tracker.md)" % ("n/a" if swl is None else swl),
          "- Daily review list: reports/daily_review.md", ""]
-    try: L += learning.digest_lines(learning.load(), now.date().isoformat())  # Dean 25 Oct 08:01
+    try: L += learning.digest_lines(learning.load(), now.date().isoformat())  # owner 25 Oct 08:01
     except Exception as e: L += ['## What the system learned', '', '- unavailable: %r' % e, '']
     try:
         import learning_signals; L += learning_signals.digest_lines(rj(P('reports', 'learning_signals.json'), {})) if os.path.exists(P('reports', 'learning_signals.json')) else []

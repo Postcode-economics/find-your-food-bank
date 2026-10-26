@@ -1,4 +1,4 @@
-"""Public page claims match the code and data (Dean, 25 Oct 2026): FAQ times come from the workflow crons (UTC -> UK time,
+"""Public page claims match the code and data (owner, 25 Oct 2026): FAQ times come from the workflow crons (UTC -> UK time,
 GMT and BST), SWEP figures are baked from data, no season-only wording, the 44x44 touch claim holds, label texts match."""
 import os, re, sys, json, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))

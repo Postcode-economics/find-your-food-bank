@@ -1,4 +1,4 @@
-"""Self-heal for stale HTML / old service workers (Instagram in-app browser, Dean 25 Oct 2026)."""
+"""Self-heal for stale HTML / old service workers (Instagram in-app browser, owner 25 Oct 2026)."""
 import os, re, json, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); rd = lambda f: open(os.path.join(R, f), encoding='utf-8').read()
 class T(unittest.TestCase):
@@ -44,5 +44,5 @@ class SingleSource(unittest.TestCase):
 
 class BeaconToken(unittest.TestCase):
     def test_helpmap_token(self):
-        """helpmap.uk Cloudflare Web Analytics token (supplied by Dean 25 Oct 2026)."""
+        """helpmap.uk Cloudflare Web Analytics token (supplied by owner 25 Oct 2026)."""
         self.assertIn('{"token": "6a7058ad322d49b481a8849a493add24"}', rd('index.html'))

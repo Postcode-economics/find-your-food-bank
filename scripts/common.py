@@ -59,14 +59,14 @@ def append_log(path, entry):
     log = json.load(open(path)) if os.path.exists(path) else []
     log.insert(0, entry); json.dump(log[:120], open(path, "w"), indent=1)
 
-# ---- Verification gate (added 2026-10-21, Dean: "100% categorically" verified only) ----
+# ---- Verification gate (added 2026-10-21, owner: "100% categorically" verified only) ----
 # Only entries on the layer's allowlist (overrides/<layer>_verified.json) are published.
 # Everything else the daily scrape finds goes into logs/<layer>_pending.json (not shown on the map)
 # with the result of an automatic pre-check. The pre-check never publishes anything by itself:
 # a human adds the evidence (URL + quote) to the allowlist file.
 def load_verified(path):
     return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
-GRACE_HOURS = 48  # Dean, 23 Oct 2026: keep a place through a brief outage if confirmed in the last 48h
+GRACE_HOURS = 48  # owner, 23 Oct 2026: keep a place through a brief outage if confirmed in the last 48h
 
 def is_transient(rc):
     """Source briefly unreachable (bot check, 429, timeout, 5xx, empty/JS-only page) - not a content failure."""
@@ -119,7 +119,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             x["tier"] = "verified"
             if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]
-            elif rc and rc.get("ok"):  # Dean: every successful re-check moves the shown checked date forward
+            elif rc and rc.get("ok"):  # owner: every successful re-check moves the shown checked date forward
                 x["first_verified_on"] = v.get("verified_on", ""); x["verified_on"] = x["last_verified"] = run_day
             if not grace and rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
             if v.get("access_type"): x["access_type"] = v["access_type"]

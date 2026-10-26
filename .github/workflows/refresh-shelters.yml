@@ -26,7 +26,7 @@ jobs:
         run: python scripts/shelter_contacts.py check
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py shelters
-      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
+      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_owner.md
         run: python scripts/publish_gate.py shelters
       - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
         run: python scripts/publish_gate.py check
@@ -41,7 +41,7 @@ jobs:
         continue-on-error: true
         timeout-minutes: 10
         run: python scripts/swep.py
-      - name: Review list for Dean (adds, removals, tier flips, opens-later, SWEP changes)
+      - name: Review list for owner (adds, removals, tier flips, opens-later, SWEP changes)
         id: review
         continue-on-error: true
         run: python scripts/layer_review.py
@@ -57,7 +57,7 @@ jobs:
         run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md
+          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_owner.json reports/pending_owner.md
           # district_cache.json is rewritten by build_seo.py; left unstaged it made 'git pull --rebase' refuse (07:41 + 19:44 23 Oct)
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"

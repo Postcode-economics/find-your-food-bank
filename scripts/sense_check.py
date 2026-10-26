@@ -1,4 +1,4 @@
-"""'Does the result make sense?' check (Dean, 25 Oct 2026). Runs in CI (tests/test_sense_check.py) and in every refresh
+"""'Does the result make sense?' check (owner, 25 Oct 2026). Runs in CI (tests/test_sense_check.py) and in every refresh
 workflow after the publish gate / refresh guard; a failure stops the run, so nothing is published.
 For a fixed set of real searches on all three types it drives the real page (local copy of the built site) and checks:
   1. the search centres in the right area (within TOL_KM of the ONS county/unitary label point in counties.json);

@@ -6,7 +6,7 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 FULL = os.path.join(ROOT, "logs", "swep_full.json"); HIST = os.path.join(ROOT, "logs", "swep_tracker.json")
 MD = os.path.join(ROOT, "reports", "swep_tracker.md")
 TODO = ("unknown", "unreachable")
-HAND = os.path.join(ROOT, "overrides", "swep_handcheck.json"); HAND_DAYS = 30  # hand checks (Dean 24 Oct) settle a council for 30 days
+HAND = os.path.join(ROOT, "overrides", "swep_handcheck.json"); HAND_DAYS = 30  # hand checks (owner 24 Oct) settle a council for 30 days
 def hand(path, run):
     import datetime
     try: h = json.load(open(path))
@@ -30,7 +30,7 @@ def update(full=FULL, hist=HIST, md=MD, handp=HAND):
          "| day | still to check |", "|---|---|"] + ["| %s | %d |" % (k, h["days"][k]["still_to_check"]) for k in days] + ["", "## Still to check", ""]
     L += ["- %s (%s) - %s" % (c["council"], c.get("nation", ""), c["status"]) for c in left]
     fl = [c for c in done if hc[c["code"]]["result"] in ("flag", "none")]
-    L += ["", "## Hand-checked - needs Dean or a better page (%d)" % len(fl), ""] + ["- %s - %s: %s (%s)" % (c["council"], hc[c["code"]]["result"], hc[c["code"]]["note"], hc[c["code"]]["url"]) for c in fl]
+    L += ["", "## Hand-checked - needs owner or a better page (%d)" % len(fl), ""] + ["- %s - %s: %s (%s)" % (c["council"], hc[c["code"]]["result"], hc[c["code"]]["note"], hc[c["code"]]["url"]) for c in fl]
     L += ["", "## Hand-checked, settled for %d days (%d)" % (HAND_DAYS, len(done) - len(fl)), ""] + ["- %s - %s, checked %s" % (c["council"], hc[c["code"]]["note"], hc[c["code"]]["checked"]) for c in done if c not in fl]
     open(md, "w", encoding="utf-8").write("\n".join(L) + "\n"); return len(left)
 if __name__ == "__main__": print("swep tracker: still to check", update())

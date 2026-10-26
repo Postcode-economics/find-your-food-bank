@@ -41,7 +41,7 @@ def apply_address_fixes(items, root):
         if f and not i["id"].startswith("_"):
             for k in ("address", "postcode", "lat", "lng"): i[k] = f[k]
 def add_added_foodbanks(items, root):
-    """Independent food banks hand-checked from public sources (overrides/foodbank_added.json, Dean 24 Oct 2026): standalone
+    """Independent food banks hand-checked from public sources (overrides/foodbank_added.json, owner 24 Oct 2026): standalone
     food bank pins (own venue, own phone, own times). Idempotent; never overrides a Give Food/IFAN pin with the same id."""
     p = os.path.join(root, "overrides", "foodbank_added.json")
     if not os.path.exists(p): return 0
@@ -93,7 +93,7 @@ def classify(items, root):
             if s: ev.append(f"address/name contains '{s.group(0)}'")
             elif w: ev.append(f"address/name contains '{w.group(0)}'")
             ev.append(times)
-            if n: kind, conf = "warehouse", "high"   # rule (Dean, 21 Oct 2026): parent pin with separate client locations = office/warehouse
+            if n: kind, conf = "warehouse", "high"   # rule (owner, 21 Oct 2026): parent pin with separate client locations = office/warehouse
             elif s or re.search(r"\boffice\b", txt, re.I): kind, conf = "unclear", "low"; ev.append("single address with office/industrial wording: not yet confirmed by the food bank's own site")
             else: kind, conf = "client", "medium"; ev.append("only address listed for this food bank")
         else:
@@ -109,7 +109,7 @@ def classify(items, root):
         en = cy = ""
         if kind in ("warehouse", "dropoff"):
             en, cy = (EN, CY) if kind == "warehouse" else (DROP_EN, DROP_CY)
-            if i["id"] in man and man[i["id"]].get("locked"): en, cy = man[i["id"]]["label_en"], man[i["id"]]["label_cy"]  # only the locked B30 wording is kept; all others use the single label (Dean, 21 Oct 2026)
+            if i["id"] in man and man[i["id"]].get("locked"): en, cy = man[i["id"]]["label_en"], man[i["id"]]["label_cy"]  # only the locked B30 wording is kept; all others use the single label (owner, 21 Oct 2026)
         for k in ("kind", "label_en", "label_cy", "centres", "locked"): i.pop(k, None)
         if apply:
             i["kind"] = kind; i["label_en"] = en; i["label_cy"] = cy

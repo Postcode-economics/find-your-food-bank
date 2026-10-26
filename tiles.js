@@ -1,4 +1,4 @@
-/* Map tile providers, in order of preference (Dean, 22 Oct 2026: hardening against traffic spikes).
+/* Map tile providers, in order of preference (owner, 22 Oct 2026: hardening against traffic spikes).
    The first provider with a key (or no key needed) is used; if its tiles keep failing the map switches to the next one.
    26 Oct 2026: the MapTiler free key is invalidated until 22 Nov, so it is blank and OpenStreetMap is used.
    To switch provider, paste a key into `key` below. The OpenStreetMap URL is the standard tile.openstreetmap.org path.

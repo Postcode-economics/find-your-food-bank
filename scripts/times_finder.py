@@ -8,10 +8,10 @@
    (TIMES_TEXT_ONLY). Facebook / Instagram need a login, so they are not read.
 3. Retries with backoff for unreachable sites; 1 s between requests to the same host.
 Output: logs/times_finder.json (proposals + reasons). With --apply, proposals are added to
-overrides/opening_times.json ONLY when strict (see decide()); all else -> reports/pending_dean.md; the normal refresh then re-confirms them on the own site every run (cross_check_times)."""
+overrides/opening_times.json ONLY when strict (see decide()); all else -> reports/pending_owner.md; the normal refresh then re-confirms them on the own site every run (cross_check_times)."""
 import json, os, re, sys, time, threading, subprocess, tempfile, urllib.parse, datetime, collections, concurrent.futures as cf
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 import trussell_times as TT
 import discover as D
@@ -98,10 +98,10 @@ def one_block(ot):
     return ot.get("status") == "TIMES_FOUND" and bool(ot.get("structured")) and not D.office_like(ot["structured"])
 DONATION_URL = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)   # Hope Central /get-involved/giving-food/ (24 Oct)
 def decide(log, items, apply):
-    """Dean, 23 Oct 23:36: nothing uncertain goes on the map. Auto-apply ONLY when (1) the entry's postcode was matched
+    """owner, 23 Oct 23:36: nothing uncertain goes on the map. Auto-apply ONLY when (1) the entry's postcode was matched
     exactly on the page, (2) one clear client-hours block, (3) the page is on the food bank's own site, (4) the same
     times were not also read onto another centre of the same site, (5) the entry is not hand-checked/protected or on the
-    known skip list. Everything else -> reports/pending_dean.md (times review list)."""
+    known skip list. Everything else -> reports/pending_owner.md (times review list)."""
     ix = {i["id"]: i for i in items}; ks = known()
     p = "overrides/opening_times.json"; cur = json.load(open(p)) if os.path.exists(p) else {}
     same = collections.defaultdict(set)
@@ -119,19 +119,19 @@ def decide(log, items, apply):
         if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
         if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
         if len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]) > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
-        why.append("auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map")
+        why.append("auto-apply is off (owner, 24 Oct): every finder result is hand-checked before it reaches the map")
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
             pass   # unreachable: auto-apply removed
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
-    # overrides/opening_times.json is never written by the finder (Dean, 24 Oct 00:16)
+    # overrides/opening_times.json is never written by the finder (owner, 24 Oct 00:16)
     os.makedirs("reports", exist_ok=True)
     L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
     for r in log["review"]:
         L.append(f"- **{r['name']}** (`{r['id']}`, {r['postcode']}): {r['proposed']}  \n  source: {r['source_url']}  \n  why: {'; '.join(r['why'])}")
     if not log["review"]: L.append("Nothing pending.")
     L.append("<!-- /times review -->")
-    pd = "reports/pending_dean.md"; prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
+    pd = "reports/pending_owner.md"; prev = open(pd).read() if os.path.exists(pd) else "# Pending for owner\n"
     prev = re.sub(r"(?s)\n*<!-- times review -->.*?<!-- /times review -->\n*", "\n", prev).rstrip("\n")
     open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
 def norm_pc(pc): return re.sub(r"\s", "", (pc or "").upper())
@@ -177,5 +177,5 @@ if __name__ == "__main__":
     if "--render" in sys.argv:
         import render_fetch; rf = render_fetch.fetch
     l = run(items, apply="--apply" in sys.argv, render=rf)
-    print(len(l.get("applied", [])), "auto-applied (strict);", len(l.get("review", [])), "sent to reports/pending_dean.md")
+    print(len(l.get("applied", [])), "auto-applied (strict);", len(l.get("review", [])), "sent to reports/pending_owner.md")
     print(l["checked"], "checked;", len(l["found"]), "times found")

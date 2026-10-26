@@ -1,4 +1,4 @@
-"""Search/Enter follows the selected type (Dean, 25 Oct 2026): with Warm spaces or Shelters selected,
+"""Search/Enter follows the selected type (owner, 25 Oct 2026): with Warm spaces or Shelters selected,
 an explicit search lands on that list, not the food bank cards. Food banks / no type: unchanged."""
 import os, json, sys, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))

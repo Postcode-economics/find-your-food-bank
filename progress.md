@@ -21,7 +21,7 @@ Other sources still to do: Homeless Link 'Find help' hostel search (JS app), Pow
 
 **Resume from:** the remaining charities above, then the other sources. Councils without a sitemap or with no relevant URLs could be retried with the WebSearch tool, one council per query.
 
-## Checkpoint 21 Oct 2026 16:27 (paused by Dean)
+## Checkpoint 21 Oct 2026 16:27 (paused by owner)
 Commits on copy branch: 2bef41d (batch 2: Open Innovations directories), a392284 (batch 3: Homeless Link + 2026 corroboration).
 - Batch 2: +21 verified warm spaces from Voluntary Action Islington (page maintained for winter 2026-27), +25 unverified from Southwark Council page (updated 2 Oct 2026; entries with past end dates dropped). 17 Southwark and 5 VAI listings were already on the map and were not added again.
 - Batch 3: +1 verified shelter (Harrogate Homeless Project) and +6 unverified shelters (Signposts SOS Luton, King's Lynn Night Shelter, New Hope Sanctuary Watford [referral_only], DENS The Elms [referral_only], YMCA Nomad Centre Lincoln, St Anne's Birmingham). All pass the live re-check.
@@ -35,7 +35,7 @@ RESUME HERE:
 4. Emmanuel House Nottingham (referral_only): needs a source the re-check can fetch.
 5. CofE and Methodist lists not started.
 
-## Checkpoint 21 Oct 2026 16:45 BST (paused by Dean)
+## Checkpoint 21 Oct 2026 16:45 BST (paused by owner)
 - Batch 4 (Homeless Link remainder, batch_hl/entries_sh2.py): +2 verified shelters: Nightsafe Blackburn (BB1 1EZ, 365 days 5pm-10am, self-referral, 16-24) and St George's Crypt Leeds (LS1 3BR, 24/7, referral_only via Leeds Housing Options).
 - Not added: The Crossings Hull (riverside.org.uk returns 403, no fetchable corroboration); New Start Leyland Road Southport (no 2026 corroboration found).
 - probe.py was restarted, then stopped again for the pause (no output). It still needs a full run.
@@ -57,4 +57,4 @@ RESUME HERE: review logs/sweep_pending.json (550 candidates) and mark more list 
 
 ## Refresh notes 24 Oct 2026: Facebook-page phones
 - If a food bank's own Facebook page shows a phone, it goes in overrides/phones.json, with its source in phone_sources.json. build.py applies it before and after IFAN discovery, and the card then shows the phone instead of the Message on Facebook button.
-- To do for the next map update (Dean's decision): keep these 6 cards on the map, and label their phone with whose number it is. They are ifan-53c68645aa831ab649ac43-0 (St Paul's Wimbledon Parkside, church office), ifan-5b3e01fe979d373d9ba679-0 (parent charity Caritas Salford), ifan-5b9fd1318a04132921a389-0 (Holy Trinity Wester Hailes, church office), ifan-762040c38571b1178c1e2d-0 (The Gospel Centre, church office), ifan-9cf9dd4ce1df051c2c0a59-0 (Healthy Living Platform, parent charity) and ifan-ca574aed6b4ff8c310060c-0 (Chapeltown Youth DC / CFYDC). The label needs a new phone-label field. That isn't built yet, so for now these cards keep the button.
+- To do for the next map update (owner's decision): keep these 6 cards on the map, and label their phone with whose number it is. They are ifan-53c68645aa831ab649ac43-0 (St Paul's Wimbledon Parkside, church office), ifan-5b3e01fe979d373d9ba679-0 (parent charity Caritas Salford), ifan-5b9fd1318a04132921a389-0 (Holy Trinity Wester Hailes, church office), ifan-762040c38571b1178c1e2d-0 (The Gospel Centre, church office), ifan-9cf9dd4ce1df051c2c0a59-0 (Healthy Living Platform, parent charity) and ifan-ca574aed6b4ff8c310060c-0 (Chapeltown Youth DC / CFYDC). The label needs a new phone-label field. That isn't built yet, so for now these cards keep the button.

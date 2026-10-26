@@ -1,4 +1,4 @@
-"""Point 8 (24 Oct 2026, approved by Dean): source-quality score.
+"""Point 8 (24 Oct 2026, approved by owner): source-quality score.
 Score per source (0-100) = average of its opening-times and phone fill rates in the latest run of reports/fill_rates.json
 (Facebook-page fill is not counted: most good places have no Facebook page). Scores come only from data already recorded.
 A source is flagged when its score falls more than DROP points below the median of its previous (up to 7) runs.

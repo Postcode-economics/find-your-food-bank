@@ -1,11 +1,11 @@
-"""Daily re-check of every verified Facebook page used for the 'Message on Facebook' button (Dean, 23 Oct 23:36).
+"""Daily re-check of every verified Facebook page used for the 'Message on Facebook' button (owner, 23 Oct 23:36).
 Baseline: overrides/facebook_pages.json (53 pages hand-verified 23 Oct: page name + town + a second source).
 For each page: fetch with Facebook's link-preview agent, read og:title, compare with the baseline page_title.
   ok        - title still matches
   changed   - page loads but the title no longer matches (renamed / taken over / different page)
   dead      - 404/410, or Facebook's 'content isn't available' page
   unreachable - network error or rate-limited (429/5xx); not a finding, re-tried next run
-Nothing is ever removed: findings go to logs/fb_page_check.json and reports/fb_pages_flagged.md for Dean."""
+Nothing is ever removed: findings go to logs/fb_page_check.json and reports/fb_pages_flagged.md for owner."""
 import json, os, re, sys, html, time, datetime, urllib.request
 UA = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
 def norm(s): return re.sub(r"[^a-z0-9]", "", html.unescape(s or "").lower())
@@ -35,7 +35,7 @@ def run(pages, fetcher=fetch, delay=1.5):
     return out
 def report(res, run_day):
     bad = {k: r for k, r in res.items() if r["status"] in ("changed", "dead")}
-    L = ["# Facebook pages flagged for Dean", "", f"Run {run_day}. {len(res)} pages checked; {len(bad)} flagged. Nothing was removed from the map.", ""]
+    L = ["# Facebook pages flagged for owner", "", f"Run {run_day}. {len(res)} pages checked; {len(bad)} flagged. Nothing was removed from the map.", ""]
     L += [f"- `{k}` **{r['status']}**: {r['url']} (baseline '{r['baseline_title']}', now '{r['title_now']}', HTTP {r['http']})" for k, r in sorted(bad.items())] or ["Nothing flagged."]
     return "\n".join(L) + "\n"
 if __name__ == "__main__":

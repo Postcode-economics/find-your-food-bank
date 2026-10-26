@@ -1,4 +1,4 @@
-"""Dean's standing rule (25 Oct 2026): DARK by default in Chromium AND WebKit, with the OS set to light, no preference or dark,
+"""owner's standing rule (25 Oct 2026): DARK by default in Chromium AND WebKit, with the OS set to light, no preference or dark,
 fresh visitor or storage blocked; only a saved light choice gives light. Runs scripts/dark_default.py against this checkout."""
 import functools, http.server, os, sys, threading, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); sys.path.insert(0, os.path.join(R, 'scripts'))

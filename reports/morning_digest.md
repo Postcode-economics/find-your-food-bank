@@ -31,4 +31,4 @@
 - Demand: no visitor data yet (reports/demand.json not present) - no effect; visitor reports: no visitor reports recorded yet - no effect
 - Hardest hosts to reach: alhudauk.com (100% of 1 sites failing), assyntdevelopmenttrust.org (100% of 1 sites failing), betheltrustpt.co.uk (100% of 1 sites failing)
 - Weekly accuracy trend: 2026-W43 reachable 96%, phones agree 93%, corrections 93; 2026-W44 reachable 96%, phones agree 93%, corrections 93
-- New places found are never added automatically: they wait in reports/pending_dean.md for your OK.
+- New places found are never added automatically: they wait in reports/pending_owner.md for your OK.

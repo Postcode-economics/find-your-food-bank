@@ -1,5 +1,5 @@
 """Headless Chromium fetch for pages that draw their content with JavaScript (new Trussell food bank sites list the
-centre cards only after scripts run; Dean, 23 Oct 23:36). Same return shape as trussell_times.fetch: (http, final_url, html).
+centre cards only after scripts run; owner, 23 Oct 23:36). Same return shape as trussell_times.fetch: (http, final_url, html).
 Used by times_finder --render (GitHub Actions installs Playwright + Chromium for that step)."""
 import atexit
 _pw = _br = None

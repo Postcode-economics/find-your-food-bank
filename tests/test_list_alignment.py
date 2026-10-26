@@ -1,4 +1,4 @@
-"""List panel alignment (Dean 25 Oct 14:06): the Open today note, other notes, headings and cards all start at the same
+"""List panel alignment (owner 25 Oct 14:06): the Open today note, other notes, headings and cards all start at the same
 left x, on all three types, at 390 and 1366 px, light and dark."""
 import functools, http.server, importlib.util, os, sys, threading, unittest
 sys.path.insert(0, os.path.dirname(__file__))

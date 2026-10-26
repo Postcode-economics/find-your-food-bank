@@ -1,4 +1,4 @@
-"""Food bank recheck gate (Dean, 21 Oct 2026): food banks get the same per-run over-check as shelters and warm spaces.
+"""Food bank recheck gate (owner, 21 Oct 2026): food banks get the same per-run over-check as shelters and warm spaces.
 Every 3x-daily run, inside scripts/build.py:
  1. Source fetch: each Give Food API endpoint is fetched fresh. HTTP status, final URL (must still be givefood.org.uk),
     ETag, Last-Modified and the sha256 of the response are stored and compared with the last run. Any failure stops the

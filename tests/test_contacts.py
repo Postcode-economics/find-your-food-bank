@@ -18,7 +18,7 @@ class T(unittest.TestCase):
             sc.apply(d["items"], sc.load(path)); self.assertEqual(sc.check(d["items"]), [], lay)
 
 class Fenland(unittest.TestCase):
-    def test_fenland_switchboard_only_as_named_ooh_line(self):  # Dean 24 Oct: switchboard only when council page names it the OOH homeless line
+    def test_fenland_switchboard_only_as_named_ooh_line(self):  # owner 24 Oct: switchboard only when council page names it the OOH homeless line
         import json
         t = open(os.path.join(os.path.dirname(__file__), "..", "warmspaces.js")).read(); d = json.loads(t[t.index("{"):t.rindex("}") + 1])
         sc.apply(d["items"], sc.load(sc.WS))

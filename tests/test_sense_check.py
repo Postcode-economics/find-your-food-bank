@@ -1,4 +1,4 @@
-"""'Does the result make sense?' suite (Dean, 25 Oct 2026). Runs scripts/sense_check.py in CI when a browser is available;
+"""'Does the result make sense?' suite (owner, 25 Oct 2026). Runs scripts/sense_check.py in CI when a browser is available;
 the refresh workflows also run it after the publish gate, and a failure stops publishing."""
 import os, sys, unittest
 R = os.path.join(os.path.dirname(__file__), '..'); sys.path.insert(0, os.path.join(R, 'scripts'))

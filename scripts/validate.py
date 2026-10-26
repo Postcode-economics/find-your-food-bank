@@ -3,7 +3,7 @@ Checks every food bank, shelter and warm space for: (a) phone looks like a UK nu
 HH:MM ranges, (c) postcode matches the UK format, (d) name not empty. The single-word name rule is NOT applied
 (1,000+ real places such as Trussell centres named after the town are one word).
 Writes reports/validation.md + reports/validation.json. It never removes or blocks anything: new places are already
-held by publish_gate.py; only SEVERE failures block publishing (Dean 24 Oct, 'validate.py gate'): a data file that will not parse, or a count more than 10% below the last published run; everything else is a warning in the digest. postcodes.io lookups stay in build_outcodes.py."""
+held by publish_gate.py; only SEVERE failures block publishing (owner 24 Oct, 'validate.py gate'): a data file that will not parse, or a count more than 10% below the last published run; everything else is a warning in the digest. postcodes.io lookups stay in build_outcodes.py."""
 import json, os, re, sys
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 FILES = {"foodbanks": "data.full.js", "shelters": "shelters.js", "warmspaces": "warmspaces.js"}
@@ -46,7 +46,7 @@ def main():
 MAX_DROP = 0.10
 def count(text): return len(json.loads(text[text.index("{"): text.rindex("}") + 1]).get("items", []))
 def gate(now_text, last_text):
-    """Severe failures only (Dean 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}."""
+    """Severe failures only (owner 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}."""
     bad = {}
     for k, f in FILES.items():
         t = now_text.get(k)

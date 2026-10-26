@@ -1,4 +1,4 @@
-"""Dean 26 Oct 06:46: in dark mode the postcode box is a dark field with light text, a readable placeholder
+"""owner 26 Oct 06:46: in dark mode the postcode box is a dark field with light text, a readable placeholder
 and a gold focus outline. Its size, font and layout match light mode. Map tiles stay the light tiles
 (no darken, invert or recolour). Call 999 is covered by tests/test_dark_shelter_panel.py."""
 import functools, http.server, os, sys, threading, unittest

@@ -1,4 +1,4 @@
-"""Offline cache after a first visit (Dean): block tiles, data.js and leaflet, and sw.js must still
+"""Offline cache after a first visit (owner): block tiles, data.js and leaflet, and sw.js must still
 serve the copies it precached. The check's one retry must not call that a failure. With the cache
 gone, the same block must not be called a pass.
 

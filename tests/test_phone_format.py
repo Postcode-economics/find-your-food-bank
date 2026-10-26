@@ -1,4 +1,4 @@
-"""UK number display grouping (Dean 24 Oct 21:31): ukfmt in index.html, used by the call-button rewriter in layers.js. Display only."""
+"""UK number display grouping (owner 24 Oct 21:31): ukfmt in index.html, used by the call-button rewriter in layers.js. Display only."""
 import os, sys, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 rd = lambda f: open(os.path.join(ROOT, f), encoding="utf-8").read()

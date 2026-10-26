@@ -12,7 +12,7 @@ SITE = 'https://helpmap.uk'
 TOP = ['index.html', 'faq.html', 'terms.html', 'privacy.html', 'accessibility.html']
 
 def lab(t):
-    """Dean 25 Oct: the one date format on the site, '25 Oct 2026, 05:12' (UK time)."""
+    """owner 25 Oct: the one date format on the site, '25 Oct 2026, 05:12' (UK time)."""
     return '%d %s, %s' % (t.day, t.strftime('%b %Y'), t.strftime('%H:%M'))
 
 def stamp_layers(root=ROOT):
@@ -131,7 +131,7 @@ def put_chk(s, t, rel):
     return s.replace('</body>', js + '</body>', 1)
 
 def swep_counts(root=ROOT):
-    """Dean 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited)."""
+    """owner 25 Oct: SWEP figures on faq.html come from the data each run (never hand-edited)."""
     try:
         src = json.load(open(os.path.join(root, 'overrides', 'swep_sources.json')))
         st = json.load(open(os.path.join(root, 'logs', 'swep_status.json')))

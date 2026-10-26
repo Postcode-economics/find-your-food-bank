@@ -1,4 +1,4 @@
-"""Two-finger map note (Dean 25 Oct 11:31): shown at most 2 times per visitor (localStorage hmTwoFinger), then never again."""
+"""Two-finger map note (owner 25 Oct 11:31): shown at most 2 times per visitor (localStorage hmTwoFinger), then never again."""
 import functools, http.server, os, sys, threading, unittest
 sys.path.insert(0, os.path.dirname(__file__))
 from site_ready import open_map, reload_map

@@ -48,7 +48,7 @@ const ft=document.querySelector('footer');const fu=document.createElement('div')
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
 const nb=document.createElement('button');nb.type='button';nb.id='xnear';nb.className='btn';hdr.insertBefore(nb,document.getElementById('f').nextSibling);
-// Find nearest (Dean, 23 Oct): follows the selected type; no type selected = food bank behaviour as before
+// Find nearest (owner, 23 Oct): follows the selected type; no type selected = food bank behaviour as before
 const NL={en:{fb:'Find nearest food bank',sh:'Find nearest shelter',ws:'Find nearest warm space'},cy:{fb:'Dod o hyd i’r banc bwyd agosaf',sh:'Dod o hyd i’r lloches agosaf',ws:'Dod o hyd i’r man cynnes agosaf'}};
 const nearK=()=>{const k=window.v3focus;return k==='sh'||k==='ws'||k==='fb'?k:null};
 function nearLabel(){const k=nearK();nb.innerHTML=IC('pin')+'<span>'+esc(k?NL[lang][k]:t('near'))+'</span>'}
@@ -66,7 +66,7 @@ function paint(){document.documentElement.lang=lang;document.querySelectorAll('[
  document.getElementById('q').placeholder=t('ph');if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
  paint.done=true;trAll();stamp('fb');banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
 function $x(i){return document.getElementById(i)}
-function stamp(k){if(k==='fb'){const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers.fb;$x('u_fb').textContent=`${t('upd')} ${S?slab(S):fmt(String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers[k];const d=L_.data&&L_.data.updated;$x('u_'+k).textContent=S?`${t('upd')} ${slab(S)}`:d?`${t('upd')} ${fmt(d)}`:t('notLoaded')}  // Dean 25 Oct: shelters/warm spaces show their own refresh date even before the layer is opened
+function stamp(k){if(k==='fb'){const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers.fb;$x('u_fb').textContent=`${t('upd')} ${S?slab(S):fmt(String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers[k];const d=L_.data&&L_.data.updated;$x('u_'+k).textContent=S?`${t('upd')} ${slab(S)}`:d?`${t('upd')} ${fmt(d)}`:t('notLoaded')}  // owner 25 Oct: shelters/warm spaces show their own refresh date even before the layer is opened
 window.keyStamps=()=>['fb','sh','ws'].forEach(stamp);
 $x('xlang').onclick=()=>{lang=lang==='en'?'cy':'en';try{localStorage.setItem('lang',lang)}catch(e){}paint()};
 // Re-check expiry/staleness against today's date in the browser too, so a warm space greys out the day its scheme ends
@@ -77,10 +77,10 @@ function relife(D){if(!D)return;(D.items||[]).forEach(i=>{if(i.scheme_end)i.ende
  D.recently_closed=(D.recently_closed||[]).filter(i=>!i.closed_on||dd(TODAY,i.closed_on)<=30)}
 function load(k){const L_=LAYERS[k];if(L_.data)return Promise.resolve(L_.data);if(L_.p)return L_.p;$x('u_'+k).textContent=t('loading');
  return L_.p=new Promise((ok,no)=>{const s=document.createElement('script');s.src=L_.file+'?t='+Math.floor(Date.now()/9e5);s.onload=()=>{L_.data=window[L_.var];relife(L_.data);stamp(k);ok(L_.data)};s.onerror=()=>{L_.p=null;stamp(k);no()};document.body.appendChild(s)})}
-// shelter hours that only say 'By referral…': the status line says 'By referral – call before you go' instead (Dean 25 Oct)
+// shelter hours that only say 'By referral…': the status line says 'By referral – call before you go' instead (owner 25 Oct)
 const REFONLY=window.REFONLY=i=>typeof i.hours==='string'&&/^by referral\b/i.test(i.hours.trim());
 const WDAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-// days a place didn't list: shown as 'Not listed' (Dean 25 Oct; days listed as closed say 'Closed') (never invented hours); only when every key is a day name
+// days a place didn't list: shown as 'Not listed' (owner 25 Oct; days listed as closed say 'Closed') (never invented hours); only when every key is a day name
 const fillDays=h=>{const ks=Object.keys(h);if(!ks.length||!ks.every(k=>WDAYS.includes(k)))return h;const o={};WDAYS.forEach(d=>o[d]=d in h?h[d]:'\u0000');return o};
 function hoursHtml(h){if(!h)return'';if(typeof h==='string')return esc(h);h=fillDays(h);return '<table>'+Object.entries(h).map(([d,h])=>`<tr><td>${esc(v(d))}</td><td>${h==='\u0000'?`<span class="xnl">${lang==='cy'?'Heb ei restru':'Not listed'}</span>`:esc(hDisp(String(h).replace(/(\d\d:\d\d) - (\d\d:\d\d)/g,'$1-$2').replace(/^24 hours$/,lang==='cy'?'24 awr':'24 hours').replace(/Closed/i,lang==='cy'?'Ar gau':'Closed')))}</td></tr>`).join('')+'</table>'}
 // address: no repeated town or postcode, postcode once at the end
@@ -93,7 +93,7 @@ function addr(i){const pc=(i.postcode||'').trim(),re=pc?new RegExp('\\s*'+pc.rep
 const known=x=>x&&!/^not stated/i.test(String(x).trim());
 const CHIP=[['Food Available','Food','Bwyd'],['Charging Facilities','Charging','Gwefru'],['Free Wifi','Wifi','Wifi'],['Accessible Toilets','Toilets','Toiledau']];
 const chips=i=>{const p=i.provided||[];const c=CHIP.filter(([k])=>p.includes(k));return c.length?`<div class="chips">${c.map(([,en,cy])=>`<span class="chip">${lang==='cy'?cy:en}</span>`).join('')}</div>`:''};
-// Dean 25 Oct: 'Unverified' only when the hours are not confirmed. Times confirmed on the place's own page (times_status confirmed/updated/by hand)
+// owner 25 Oct: 'Unverified' only when the hours are not confirmed. Times confirmed on the place's own page (times_status confirmed/updated/by hand)
 // or hours taken from a named page (hours_checked) within the last 7 days show 'Times checked {date}'. Computed from the data each load, window rolls.
 const HAS_T=/\d{1,2}:\d{2}|\d{1,2}(\.\d{2})?\s*(am|pm)|24 hours|midday|noon/i;  // hours_checked counts only when the hours hold real times
 const timesChecked=(i,now=Date.now())=>{const d=['confirmed','updated','confirmed_by_hand'].includes(i.times_status)&&i.times_checked?i.times_checked:(HAS_T.test(typeof i.hours==='string'?i.hours:JSON.stringify(i.hours||''))?i.hours_checked:null);if(!d||!/^\d{4}-\d{2}-\d{2}$/.test(d))return null;const age=(now-new Date(d+'T12:00:00').getTime())/864e5;return age<=7.5&&age>=-1?d:null};
@@ -136,7 +136,7 @@ function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data)continue;
   const ot=typeof F!=='undefined'&&F.open&&window.V3&&V3.shutToday;const all=L_.data.items.filter(i=>(!verOnly[k]||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d);const oo=false;const sc=x=>oo?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:0;
   const st=x=>window.V3?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:1;const r=ot?all.slice(0,3):(oo?all.slice(0,60).filter(x=>sc(x)<2&&!x.i.ended).sort((a,b)=>sc(a)-sc(b)||a.d-b.d):all.slice(0,3)).slice(0,3);
-  (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins */
+  (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* owner 25 Oct 20:45: phone map shows the listed results pins */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);

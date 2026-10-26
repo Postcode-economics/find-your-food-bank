@@ -1,4 +1,4 @@
-"""Search lands exactly where the 'see list' pill does (Dean, 25 Oct 2026, 07:04): one shared scroll for
+"""Search lands exactly where the 'see list' pill does (owner, 25 Oct 2026, 07:04): one shared scroll for
 food banks, warm spaces and shelters; the list heading sits at the top with no map visible above it."""
 import os, json, sys, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))

@@ -1,4 +1,4 @@
-"""Dean 25 Oct 2026 auto-apply rules (overrides/auto_apply_rules.json). Missing/invalid file = hard failure, never a silent default."""
+"""owner 25 Oct 2026 auto-apply rules (overrides/auto_apply_rules.json). Missing/invalid file = hard failure, never a silent default."""
 import json, os
 P = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'overrides', 'auto_apply_rules.json')
 def load():
@@ -8,7 +8,7 @@ def load():
 
 APPROVED = os.path.join(os.path.dirname(P), 'approved_new_places.json')
 def approved(layer, root=None):
-    """Ids Dean OK'd as new places for this layer."""
+    """Ids owner OK'd as new places for this layer."""
     base = os.path.join(root, 'overrides') if root else os.path.dirname(P); ok = set()
     try: ok |= {k for k in json.load(open(os.path.join(base, 'approved_new_places.json'), encoding='utf-8')).get(layer, {})}
     except Exception: pass

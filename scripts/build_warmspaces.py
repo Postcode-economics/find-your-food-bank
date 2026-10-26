@@ -3,7 +3,7 @@ Writes warmspaces.js and logs/warmspaces_log.json. Seasonal: entries whose schem
 marked 'ended' (shown greyed); they become active again automatically when a new listing/date appears."""
 import json, seasonal, sys, os, re, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 from common import *
 from hours_fix import fix_hours, phone_ok, apply_phone
@@ -80,7 +80,7 @@ def season_end(v):  # a verification is valid only for the winter season it was 
     d = datetime.date.fromisoformat(v.get("verified_on", "2000-01-01"))
     return f"{d.year + (1 if d.month >= 9 else 0)}-04-30"
 def ws_autocheck(x):
-    # Bar (Dean, 21 Oct 2026): publish only when a credible source (council, venue's own site, library,
+    # Bar (owner, 21 Oct 2026): publish only when a credible source (council, venue's own site, library,
     # church or charity page) states the warm space runs on a given weekday at a given time, and nothing
     # says it has ended/closed/was last winter only. A Warm Welcome listing alone does not count.
     # This pre-check only flags; it never publishes. A human adds evidence_url + day_time_quote.
@@ -108,7 +108,7 @@ known = set(VER) | set(UNV)
 pool = [x for x in fresh if x["id"].startswith("ww-") and x["id"] not in known
         and wwc["checked"].get(x["id"], "") < (datetime.date.fromisoformat(RUN) - datetime.timedelta(days=7)).isoformat() and not x.get("ended")]
 pool.sort(key=lambda x: (not (x.get("scheme_start") or x.get("scheme_end")), wwc["checked"].get(x["id"], ""), x["id"]))
-# Full Warm Welcome feed (Dean, 23 Oct): every not-yet-known listing is checked, in chunks, until a time box runs out
+# Full Warm Welcome feed (owner, 23 Oct): every not-yet-known listing is checked, in chunks, until a time box runs out
 # (WW_DISCOVERY_SECONDS, default 20 min); whatever is left is first in line next run. WW_DISCOVERY_BUDGET caps the count (0 = all).
 import time as _t
 budget = int(os.environ.get("WW_DISCOVERY_BUDGET", "0")) or len(pool)

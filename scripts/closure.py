@@ -1,4 +1,4 @@
-"""Own-site closure check for food bank pins (Dean, 21 Oct 2026). The food bank's OWN site beats Give Food.
+"""Own-site closure check for food bank pins (owner, 21 Oct 2026). The food bank's OWN site beats Give Food.
 Each refresh fetches every pin's own website (home page plus a few same-site location/contact pages). A pin is omitted only
 when the text block that holds THAT pin's postcode clearly says it has closed (e.g. "CLOSED 27TH AUGUST 2026",
 "permanently closed", "no longer operating"), with any stated date already passed. Routine wording ("Wed Closed",
@@ -7,7 +7,7 @@ Manual confirmations live in overrides/foodbank_closed.json. Omitted pins are lo
 kept there for 30 days as the 'recently closed' list."""
 import re, os, sys, json, html, ssl, datetime, urllib.request, urllib.parse, concurrent.futures as cf
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026
 CTX = ssl._create_unverified_context()
 PC_ANY = re.compile(r"\b[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}\b")
 MONTHS = {m: i + 1 for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"])}
@@ -87,7 +87,7 @@ def apply(items, root, today=None, fetcher=fetch, auto=True):
     mp = os.path.join(root, "overrides", "foodbank_closed.json")
     raw = json.load(open(mp)) if os.path.exists(mp) else {}
     man = {k: v for k, v in raw.items() if not k.startswith("_")}
-    hold = set(raw.get("_hold_for_review", []))   # detected closed but awaiting Dean: logged, not removed
+    hold = set(raw.get("_hold_for_review", []))   # detected closed but awaiting owner: logged, not removed
     found = check_all(items, fetcher, today) if auto else {}
     lp = os.path.join(root, "logs", "foodbank_closed.json")
     log = json.load(open(lp)) if os.path.exists(lp) else {"recently_closed": []}
@@ -96,9 +96,9 @@ def apply(items, root, today=None, fetcher=fetch, auto=True):
     for i in items:
         hit = man.get(i["id"]) or found.get(i["id"])
         if not hit: continue
-        if i["id"] not in man and not RULES["remove_confirmed_closures"]:  # Dean 25 Oct 2026: never auto-removed; pin kept with note, listed for Dean
+        if i["id"] not in man and not RULES["remove_confirmed_closures"]:  # owner 25 Oct 2026: never auto-removed; pin kept with note, listed for owner
             i["notice"] = RULES["closure_card_note"]
-            held.append({"id": i["id"], "name": i["name"], "url": hit.get("url"), "evidence": hit.get("evidence"), "why": "auto-detected closure - kept with note, awaiting Dean"}); continue
+            held.append({"id": i["id"], "name": i["name"], "url": hit.get("url"), "evidence": hit.get("evidence"), "why": "auto-detected closure - kept with note, awaiting owner"}); continue
         if i["id"] not in man and i["id"] in hold:
             held.append({"id": i["id"], "name": i["name"], "url": hit.get("url"), "evidence": hit.get("evidence")}); continue
         gone.append(i["id"])

@@ -52,7 +52,7 @@ class Parsers(unittest.TestCase):
         c = S.extract(t.replace("2026 – 2027", "winter 2026-27"), "u", "src", "warmspaces", trusted=True, parser="location_fields")
         self.assertEqual([e["postcode"] for e in c], ["GL54 5EE"])
 class Run(unittest.TestCase):
-    # These tests cover the add logic itself, as if Dean had approved every id (Dean 25 Oct 2026 rules hold all new
+    # These tests cover the add logic itself, as if owner had approved every id (owner 25 Oct 2026 rules hold all new
     # places by default; see test_default_holds_new_places).
     def setUp(self):
         os.environ["SWEEP_TODAY"] = "2026-10-21"
@@ -66,7 +66,7 @@ class Run(unittest.TestCase):
     def test_default_holds_new_places(self):
         S.auto_rules.may_add = self._may
         r = S.run(self.src(), fetcher=lambda u: page(LIST), geocoder=fake_geo)
-        self.assertEqual(r["added"], []); self.assertTrue(any("waiting for Dean" in x.get("reason", "") for x in r["pending"]))
+        self.assertEqual(r["added"], []); self.assertTrue(any("waiting for owner" in x.get("reason", "") for x in r["pending"]))
     def src(self, n=1): return {"councils": [], "lists": [{"url": f"https://example.gov.uk/warm-spaces/{i}", "name": "Test list", "layer": "warmspaces", "auto_add": True} for i in range(n)]}
     def load(self, f): return json.load(open(os.path.join(S.OV, f)))
     def test_adds_new_with_source_and_skips_dup(self):
@@ -90,7 +90,7 @@ class Run(unittest.TestCase):
         self.assertEqual(r["added"], []); self.assertEqual(len(self.load("warmspaces_manual.json")), 1)
     def test_untrusted_source_goes_to_review(self):
         src = {"councils": [], "lists": [{"url": "https://example.gov.uk/x", "name": "Council", "layer": "warmspaces"}]}
-        # Dean's auto-add rule (23 Oct 2026): an unproven council layout is no longer only queued - an entry with a
+        # owner's auto-add rule (23 Oct 2026): an unproven council layout is no longer only queued - an entry with a
         # valid postcode, a dated page and nothing within 150 m is added, but only as tier 2 (call before you go)
         r = S.run(src, fetcher=lambda u: page(LIST), geocoder=fake_geo)
         self.assertTrue(r["added"]); self.assertTrue(all(a["tier"] == "unverified" for a in r["added"]))
@@ -107,7 +107,7 @@ class Run(unittest.TestCase):
 if __name__ == "__main__": unittest.main()
 
 class NoShelterAdds(unittest.TestCase):
-    """Dean, 24 Oct: the sweep never adds shelters to the map (not even 'Unverified'); they go to pending_dean.md only."""
+    """owner, 24 Oct: the sweep never adds shelters to the map (not even 'Unverified'); they go to pending_owner.md only."""
     def test_shelter_candidate_never_added(self):
         import tempfile, os as _os
         cand = {"name": "Test Night Shelter", "postcode": "SW1A 1AA", "layer": "shelters", "tier": "verified", "source_url": "https://example.gov.uk/swep", "address": "x"}
@@ -122,7 +122,7 @@ class NoShelterAdds(unittest.TestCase):
         self.assertGreaterEqual(r["shelter_review"], 1)
     def test_review_section_written(self):
         import tempfile, os as _os
-        pd = _os.path.join(tempfile.mkdtemp(), "pending_dean.md"); open(pd, "w").write("# x\n\n<!-- times review -->\nT\n<!-- /times review -->\n")
+        pd = _os.path.join(tempfile.mkdtemp(), "pending_owner.md"); open(pd, "w").write("# x\n\n<!-- times review -->\nT\n<!-- /times review -->\n")
         S.write_shelter_review([{"name": "A", "postcode": "SW1A 1AA", "source_url": "https://e.gov.uk"}], "2026-10-24", pd=pd)
         S.write_shelter_review([{"name": "B", "postcode": "SW1A 1AA", "source_url": "https://e.gov.uk"}], "2026-10-24", pd=pd)
         t = open(pd).read(); self.assertIn("<!-- times review -->", t); self.assertIn("- B (", t); self.assertNotIn("- A (", t)

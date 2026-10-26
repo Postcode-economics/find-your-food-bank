@@ -1,4 +1,4 @@
-"""Stored opening-times normaliser for ALL layers (Dean, 21 Oct 2026). Runs inside every 3x-daily build, after the
+"""Stored opening-times normaliser for ALL layers (owner, 21 Oct 2026). Runs inside every 3x-daily build, after the
 own-site times check, so the data written to data.js / shelters.js / warmspaces.js is always:
   * a day table in Mon..Sun order (food banks: structured {mon..sun: [[HH:MM, HH:MM]]}; shelters / warm spaces:
     {"Mon": "HH:MM - HH:MM[ / ...][ Monthly|Fortnightly]"} or "24 hours");

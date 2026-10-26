@@ -1,4 +1,4 @@
-"""Card notices (overrides/foodbank_notices.json) reach the browser (Dean, 25 Oct 2026): compact data.js kept 'notice'
+"""Card notices (overrides/foodbank_notices.json) reach the browser (owner, 25 Oct 2026): compact data.js kept 'notice'
 out, so no notice ever showed. Every notice in data.full.js must decode from data.js."""
 import os, sys, json, unittest
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

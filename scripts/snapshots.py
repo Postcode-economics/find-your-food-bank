@@ -3,7 +3,7 @@ take(dir): write a gzipped copy of data.full.js / shelters.js / warmspaces.js as
 plan(dates, today): which snapshots are kept live vs moved to the archive:
   daily kept 30 days; after that a weekly one (Monday) is kept for 1 year; the first of each month is kept forever.
   Anything else older than 30 days goes to <dir>/archive/ - it is MOVED, never deleted.
-Where snapshots live is Dean's decision (the repo is published by GitHub Pages; see point 17 off-GitHub backup)."""
+Where snapshots live is owner's decision (the repo is published by GitHub Pages; see point 17 off-GitHub backup)."""
 import datetime, gzip, json, os, shutil, sys
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 FILES = ("data.full.js", "shelters.js", "warmspaces.js")

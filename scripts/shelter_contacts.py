@@ -22,7 +22,7 @@ def apply(items, data=None):
             x["phone_was"] = x.get("phone", ""); x["phone"] = ""; x["tel"] = ""
         elif o.get("phone") and not x.get("tel"):
             x["phone"] = o["phone"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
-        if o.get("hours") and not x.get("hours"):  # hand-checked hours / access line (Dean: no blank hours)
+        if o.get("hours") and not x.get("hours"):  # hand-checked hours / access line (owner: no blank hours)
             x["hours"] = o["hours"]; x["hours_source"] = o.get("hours_source", ""); x["hours_checked"] = o.get("hours_checked", "")
         if o.get("email") and not x.get("email"): x["email"] = o["email"]
         if o.get("groups"): x["groups"] = o["groups"]; x["groups_source"] = o.get("groups_source", "")  # who it is for, hand-checked from own/operator page

@@ -1,4 +1,4 @@
-"""'Find nearest' button follows the selected type (Dean, 23 Oct 2026)."""
+"""'Find nearest' button follows the selected type (owner, 23 Oct 2026)."""
 import os, re, sys, unittest, threading, functools, http.server
 sys.path.insert(0, os.path.dirname(__file__))
 from site_ready import open_map

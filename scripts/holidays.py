@@ -1,4 +1,4 @@
-"""Point 4 (24 Oct 2026, approved by Dean 08:59): holiday hours calendar - data and logic only, no layout change.
+"""Point 4 (24 Oct 2026, approved by owner 08:59): holiday hours calendar - data and logic only, no layout change.
 - Bank holidays per nation from https://www.gov.uk/bank-holidays.json (official, Open Government Licence). If the fetch
   fails the previous file is kept.
 - Places whose own opening-times text mentions Christmas / bank holidays / school holidays are listed with that text.

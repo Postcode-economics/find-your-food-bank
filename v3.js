@@ -1,4 +1,4 @@
-/* v3 layout (Motion Designer review, approved by Dean 21 Oct 2026). Display only: never changes food bank, shelter or warm space data. */
+/* v3 layout (Motion Designer review, approved by owner 21 Oct 2026). Display only: never changes food bank, shelter or warm space data. */
 (function(){
 try{history.scrollRestoration='manual'}catch(e){}  // round 4: a reload starts at the top, never at an old scroll position
 const LG=()=>document.documentElement.lang==='cy'?'cy':'en';
@@ -47,14 +47,14 @@ const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*
 const share=i=>`<button type="button" class="btn v3share" data-n="${e_(i.name)}" data-a="${e_(i.address)}${i.postcode&&!(i.address||'').includes(i.postcode)?', '+e_(i.postcode):''}" data-ll="${i.lat},${i.lng}">${B('Share / text this address','Rhannu / tecstio’r cyfeiriad hwn')}</button>`;
 const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink. <b>In danger? Call 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Call 999</a></span><details class="hlp"><summary>More free helplines</summary><ul><li><b>Shelter</b> housing advice (England): <a href="tel:08088004444">0808 800 4444</a>, Mon–Fri 8am–5pm</li><li><b>National Domestic Abuse Helpline</b> (England): <a href="tel:08082000247">0808 2000 247</a>, 24 hours</li><li><b>Live Fear Free</b> (Wales): <a href="tel:08088010100">0808 80 10 100</a>, 24 hours</li><li><b>Samaritans</b>: <a href="tel:116123">116 123</a>, 24 hours</li></ul></details>',
  '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink. <b>Mewn perygl? Ffoniwch 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Ffonio 999</a></span><details class="hlp"><summary>Rhagor o linellau cymorth am ddim</summary><ul><li><b>Shelter</b> cyngor tai (Lloegr): <a href="tel:08088004444">0808 800 4444</a>, Llun–Gwener 8am–5pm</li><li><b>Llinell Gymorth Genedlaethol Cam-drin Domestig</b> (Lloegr): <a href="tel:08082000247">0808 2000 247</a>, 24 awr</li><li><b>Byw Heb Ofn</b> (Cymru): <a href="tel:08088010100">0808 80 10 100</a>, 24 awr</li><li><b>Samaritans</b>: <a href="tel:116123">116 123</a>, 24 awr</li></ul></details>')}</div>`;
-const shutToday=(layer,i,now=new Date())=>{if(i.upcoming)return true;if(i.call_check)return false;const s=sched(layer,i);return !!(s&&!(s[now.getDay()]||[]).length)};  // Open today (Dean 25 Oct): same rule as food banks, places with no times stay listed
+const shutToday=(layer,i,now=new Date())=>{if(i.upcoming)return true;if(i.call_check)return false;const s=sched(layer,i);return !!(s&&!(s[now.getDay()]||[]).length)};  // Open today (owner 25 Oct): same rule as food banks, places with no times stay listed
 const openTodayL=(layer,i,now=new Date())=>{if(i.upcoming||i.call_check)return false;const s=sched(layer,i);return !!(s&&(s[now.getDay()]||[]).length)};
 window.V3={sched,status,badge,walk,share,strip,shutToday,openTodayL};
 // ---- food bank card + pop-up: status first, walking time, share. Donation-only sites get no open/closed badge (no client hours).
 const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div class="d">[^<]*<\/div>)/,'$1'+add):h.replace(/(<\/h3>)/,'$1'+add);
 const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return insAfterD(h,walk(d));
  h=badge('fb',i)+insAfterD(h,walk(d));return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};
-const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i)).replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};  // Dean 25 Oct design lock: pop-up has Share too
+const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i)).replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};  // owner 25 Oct design lock: pop-up has Share too
 const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
  const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
  cs.map((c,n)=>({c,n,s:sc(c)})).sort((a,b)=>a.n-b.n).forEach(x=>{x.c.classList.toggle('v3closed',x.s===2);l.append(x.c)})}catch(e){}return r};
@@ -75,7 +75,7 @@ function mark(k){document.querySelectorAll('.v3b').forEach(b=>{const on=b.datase
 function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed')==='true';
  ['fb','sh','ws'].forEach(x=>{const b=document.querySelector(`.xt[data-l=${x}]`);if(b&&on(b)!==(x===k))b.click()});
  mark(k);if(noGo)return;window.__go=false;
- // UX 22 Oct (Dean): a type tap never moves the page or asks for location; it re-runs the current search in place at once (no 900ms delay)
+ // UX 22 Oct (owner): a type tap never moves the page or asks for location; it re-runs the current search in place at once (no 900ms delay)
  // and the 'results updated' pill below the buttons says what changed, with a link down to the list
  let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
  const p=LN()||(s&&typeof s.lat==='number'?[s.lat,s.lng,s.label]:null);
@@ -92,13 +92,13 @@ function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0
  const n=t.querySelectorAll('.card').length;if(k!=='fb'&&!n&&!t.textContent.trim())return;  // layer data still loading: stay busy, the observer calls again
  big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});clearTimeout(busyT);
  const W={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];
- {/* Dean 25 Oct 13:32: short status line, never clipped: 'Food banks near you' / 'Food banks near Suffolk' (place ellipsised only if needed) */
+ {/* owner 25 Oct 13:32: short status line, never clipped: 'Food banks near you' / 'Food banks near Suffolk' (place ellipsised only if needed) */
  const T={fb:['Food banks','Banciau bwyd'],ws:['Warm spaces','Mannau cynnes'],sh:['Shelters','Llochesi']}[k];let lb='';try{lb=(typeof lastNear!=='undefined'&&lastNear&&lastNear[2])||''}catch(_){}
  lb=v3short(lb);const me=!lb||/^your location$/i.test(lb),P=x=>`<span class="v3plc">${esc3(x)}</span>`;
  pl.innerHTML=`<a href="#${t.id}" class="v3pl">${me?B(`${T[0]} near you`,`${T[1]} yn agos atoch`):B(`${T[0]} near ${P(lb)}`,`${T[1]} ger ${P(lb)}`)}</a>`;pl.dataset.place=me?'':lb;v3fitPill()}flash()}
-/* Dean 25 Oct 13:35: fixed font, ONE line, fixed header height, never an ellipsis. If 'Food banks near Place' does not fit,
+/* owner 25 Oct 13:35: fixed font, ONE line, fixed header height, never an ellipsis. If 'Food banks near Place' does not fit,
    show just the place name (the selected type tile already shows the type). The font size is never changed. */
-/* Dean 25 Oct 14:09: status line place name. Drop ', County'. Over-long council names use a short form (confirmed by Dean 14:11; edit here). Never cut off. */
+/* owner 25 Oct 14:09: status line place name. Drop ', County'. Over-long council names use a short form (confirmed by owner 14:11; edit here). Never cut off. */
 const V3SHORT={'Armagh City, Banbridge and Craigavon':'Craigavon','Bournemouth, Christchurch and Poole':'Bournemouth'};
 window.v3short=v3short;function v3short(lb){lb=String(lb||'').trim();if(V3SHORT[lb])return V3SHORT[lb];const i=lb.indexOf(',');return i>0?lb.slice(0,i).trim():lb}
 function v3fitPill(){const a=pl.querySelector('.v3pl');if(!a||!pl.dataset.place)return;if(a.scrollWidth>a.clientWidth+1)
@@ -107,7 +107,7 @@ addEventListener('resize',()=>{if(window.v3fitPill&&pl.querySelector('.v3pl'))v3
 function esc3(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c])}
 function flash(){pl.classList.remove('v3flash');void pl.offsetWidth;pl.classList.add('v3flash');
  ['#list>.lh','#xlist>.lh'].forEach(q=>{const h=document.querySelector(q);if(h){h.classList.remove('v3flash');void h.offsetWidth;h.classList.add('v3flash')}})}  // brief pulse: every update (incl. the same search again or re-tapping the chosen type) is visible
-// one shared scroll (Dean 25 Oct): the 'see list' pill, Search/Enter, place picks and Find nearest all land the chosen type's list at the top, no map above it
+// one shared scroll (owner 25 Oct): the 'see list' pill, Search/Enter, place picks and Find nearest all land the chosen type's list at the top, no map above it
 function scrollList(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t)return false;const sosE=document.getElementById('v3sos'),h=(k==='sh'&&sosE&&!sosE.hidden)?sosE:(t.querySelector('.lh')||t);h.style.scrollMarginTop='12px';h.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return true}
 window.v3scrollList=scrollList;
 pl.addEventListener('click',e=>{const a=e.target.closest('a.v3pl');if(!a)return;e.preventDefault();if(!tgt(window.v3focus))return;scrollList(window.v3focus);
@@ -130,7 +130,7 @@ list.before(res);res.before(sos);res.append(tog,document.querySelector('.tnote')
 const tools=document.createElement('div');tools.id='v3tools';
 tools.innerHTML=`<button type="button" class="v3t" id="v3list" aria-pressed="false">${B('List only','Rhestr yn unig')}</button><button type="button" class="v3t" id="v3light" aria-pressed="false">${B('Light mode','Modd golau')}</button>`;
 document.getElementById('xbar').after(tools);document.getElementById('xbar').hidden=true;// layer row removed: the 3 need buttons set the layer
-/* Dean 25 Oct 19:17: if storage is blocked (Instagram in-app browser), a read must be FALSE, never undefined - classList.toggle(c, undefined)
+/* owner 25 Oct 19:17: if storage is blocked (Instagram in-app browser), a read must be FALSE, never undefined - classList.toggle(c, undefined)
    ADDS the class, which switched 'List only' on and hid the map. */
 const pref=(k,v)=>{if(v===undefined){try{return localStorage.getItem(k)==='1'}catch(e){return false}}try{localStorage.setItem(k,v?'1':'0')}catch(e){}};
 function setP(id,cls,on){on=on===true;document.documentElement.classList.toggle(cls,on);document.getElementById(id).setAttribute('aria-pressed',String(on));pref(cls,on);if(cls==='nomap'&&!on)setTimeout(()=>window.mapFix?mapFix():map.invalidateSize(),50)}
@@ -139,7 +139,7 @@ document.getElementById('v3light').onclick=()=>setP('v3light','light',!document.
 setP('v3list','nomap',pref('nomap'));
 {let m=null;try{m=localStorage.getItem('light')}catch(e){}
  if(m==='1'||m==='0')setP('v3light','light',m==='1');
- else{/* Dean 25 Oct 17:05: first visit (no saved choice) is always DARK, whatever the phone setting */document.documentElement.classList.remove('light');document.getElementById('v3light').setAttribute('aria-pressed','false')}}
+ else{/* owner 25 Oct 17:05: first visit (no saved choice) is always DARK, whatever the phone setting */document.documentElement.classList.remove('light');document.getElementById('v3light').setAttribute('aria-pressed','false')}}
 // ---- share / text this address
 document.addEventListener('click',async e=>{const b=e.target.closest('.v3share');if(!b)return;const txt=`${b.dataset.n}, ${b.dataset.a}. https://www.google.com/maps/dir/?api=1&destination=${b.dataset.ll}&travelmode=walking`;
  if(navigator.share){try{await navigator.share({title:b.dataset.n,text:txt});return}catch(err){if(err&&err.name==='AbortError')return}}
@@ -157,10 +157,10 @@ try{map.options.wheelPxPerZoomLevel=180;map.options.wheelDebounceTime=80;map.scr
 {const m=document.getElementById('map'),sp=document.createElement('div'),col=document.createElement('div');sp.id='v3split';col.id='v3col';m.before(sp);sp.append(m,col);
  let n=sp.nextElementSibling;while(n&&!(n.classList&&n.classList.contains('share'))&&n.tagName!=='FOOTER'){const nx=n.nextElementSibling;col.append(n);n=nx}
  const xb=document.getElementById('xbefore'),fw=document.getElementById('fwrap'),ft=document.getElementById('ftab'),chg=document.getElementById('v3chg');
- col.prepend(chg);  // round 3 (Dean): filters, 'Always call' and List only/Light mode back above the map, right under the type buttons
- {const fl=document.createElement('div');fl.id='v3filt';const r2=document.createElement('div');r2.id='v3row2';const tl=document.getElementById('v3tools');r2.append(...[xb].filter(Boolean));const ot=document.querySelector('label.tog');if(ot)ot.id='v3open';fl.append(...[fw,ot,tl,ft,r2].filter(Boolean));fl.classList.toggle('fclosed',!!window.fbFiltersClosed);{const al=()=>{const o=document.getElementById('v3open'),t=document.getElementById('v3tools');if(o)o.style.removeProperty('margin-left');if(t){t.style.removeProperty('order');t.classList.remove('v3tight')}};setTimeout(al,0);window.v3align=al}  /* header option A (Dean 25 Oct): layout is pure CSS (header.css) */big.after(fl);
+ col.prepend(chg);  // round 3 (owner): filters, 'Always call' and List only/Light mode back above the map, right under the type buttons
+ {const fl=document.createElement('div');fl.id='v3filt';const r2=document.createElement('div');r2.id='v3row2';const tl=document.getElementById('v3tools');r2.append(...[xb].filter(Boolean));const ot=document.querySelector('label.tog');if(ot)ot.id='v3open';fl.append(...[fw,ot,tl,ft,r2].filter(Boolean));fl.classList.toggle('fclosed',!!window.fbFiltersClosed);{const al=()=>{const o=document.getElementById('v3open'),t=document.getElementById('v3tools');if(o)o.style.removeProperty('margin-left');if(t){t.style.removeProperty('order');t.classList.remove('v3tight')}};setTimeout(al,0);window.v3align=al}  /* header option A (owner 25 Oct): layout is pure CSS (header.css) */big.after(fl);
     if(ot){const vr=document.getElementById('v3res'),mq=matchMedia('not all'),place=()=>{if(mq.matches){if(ot.parentElement!==vr)vr.prepend(ot)}else if(ot.parentElement!==fl)fl.insertBefore(ot,tl)};place();mq.addEventListener('change',place)}  // MD4: Open today sits with the chips where it fits (>=340px); below 340px it stays above the list so the map isn't pushed down
-    const pr=document.createElement('div');pr.id='v3prow';fl.after(pr);pr.append(pl)}  // filters + 'Always call' + tools stay directly under the type buttons (Dean); pill row follows
+    const pr=document.createElement('div');pr.id='v3prow';fl.after(pr);pr.append(pl)}  // filters + 'Always call' + tools stay directly under the type buttons (owner); pill row follows
  const xl=document.getElementById('xlist'),so=document.getElementById('v3sos');if(xl&&so)xl.before(so);
  setTimeout(()=>map.invalidateSize(),0);matchMedia('(min-width:1024px)').addEventListener('change',()=>setTimeout(()=>map.invalidateSize(),50))}
 
@@ -183,7 +183,7 @@ addEventListener('load',()=>setTimeout(()=>{const q=document.getElementById('q')
  map.eachLayer(on);map.on('layeradd',e=>on(e.layer));addEventListener('online',()=>{n.hidden=true;bad=0});map.on('movestart',()=>{if(navigator.onLine)n.hidden=true})})();
 })();
 
-/* Header option A (Dean, 25 Oct 2026): type tiles, then filters, then 'Find nearest', then one info strip
+/* Header option A (owner, 25 Oct 2026): type tiles, then filters, then 'Find nearest', then one info strip
    (see-list line + Always call before you go + Updated). Built once the pieces exist; behaviour unchanged. */
 (function(){function h2(){const big=document.getElementById('v3big'),filt=document.getElementById('v3filt'),pill=document.getElementById('v3pill'),xb=document.getElementById('xbefore'),fr=document.querySelector('header .fresh'),near=document.getElementById('xnear');
  if(!big||!filt||!pill||!xb||!fr||!near)return false;if(document.getElementById('h2info'))return true;

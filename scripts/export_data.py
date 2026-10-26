@@ -1,10 +1,10 @@
-"""Point 20 (24 Oct 2026, approved by Dean 08:59): CSV/JSON download files of the map data - files only, NO button (layout held).
+"""Point 20 (24 Oct 2026, approved by owner 08:59): CSV/JSON download files of the map data - files only, NO button (layout held).
 Licence check (24 Oct 2026):
 - Food banks: listings come via Give Food (givefood.org.uk/api rules: 'do good with the data, and credit us with a link';
   don't modify needed-item lists - none exported; don't bulk email/call). Exported with Give Food credit + link.
 - Shelters: OpenStreetMap-sourced and Homeless Link-directory ones EXCLUDED (Homeless Link: no reuse licence found) (ODbL share-alike would bind the whole file); the rest are facts from
   operators' own public pages, exported with their source URL.
-- Warm spaces: INCLUDED from 24 Oct 09:24 (Dean: "if it's public data it's ok") - basic public facts only, each row credits its source + source_url.
+- Warm spaces: INCLUDED from 24 Oct 09:24 (owner: "if it's public data it's ok") - basic public facts only, each row credits its source + source_url.
 Only basic public facts are exported (no notes, internal flags or copied opening-times text).
 Writes export/foodbanks.csv|json and export/shelters.csv|json + export/README.txt."""
 import csv, datetime, json, os

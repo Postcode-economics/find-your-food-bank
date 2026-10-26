@@ -1,5 +1,5 @@
 name: Daily Facebook page check
-# Dean, 23 Oct 23:36: re-check every verified Facebook page behind the 'Message on Facebook' button.
+# owner, 23 Oct 23:36: re-check every verified Facebook page behind the 'Message on Facebook' button.
 # Title must still match the 23 Oct baseline (overrides/facebook_pages.json). Dead or changed pages are FLAGGED
 # (reports/fb_pages_flagged.md + a GitHub issue), never removed from the map.
 on:

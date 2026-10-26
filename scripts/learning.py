@@ -1,4 +1,4 @@
-"""Self-learning sweeps (Dean, 25 Oct 2026, 08:01). Builds on source_score.py (fill rates per source).
+"""Self-learning sweeps (owner, 25 Oct 2026, 08:01). Builds on source_score.py (fill rates per source).
 
 What it learns (reports/learning_state.json, kept in the repo so it persists across runs):
   per source/place key: checks, finds (useful: new phone / times / confirmed change / new candidate),

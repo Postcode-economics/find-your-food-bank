@@ -1,5 +1,5 @@
 name: SWEP daily full check (all UK councils)
-# Dean, 23 Oct 2026: once a day re-check every UK council's SWEP page (scripts/sweep_sources.json, ~382),
+# owner, 23 Oct 2026: once a day re-check every UK council's SWEP page (scripts/sweep_sources.json, ~382),
 # flag new / dead pages and status changes, and write logs/swep_full.json + reports/swep_daily.md for the daily review.
 # 05:00 UTC = 06:00 UK in summer time (05:00 UK in winter). Read-only on council sites; never contacts anyone; never changes the map.
 on:

@@ -1,4 +1,4 @@
-"""'Unverified – call before you go' only when hours are not confirmed (Dean, 25 Oct 2026).
+"""'Unverified – call before you go' only when hours are not confirmed (owner, 25 Oct 2026).
 Confirmed/updated times (or real hours from a named page) checked in the last 7 days show
 'Times checked {date} – call before you go'. Computed from data fields at load; the window rolls."""
 import os, sys, unittest, threading, functools, http.server

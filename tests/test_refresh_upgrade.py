@@ -1,4 +1,4 @@
-"""Refresh upgrade (Dean, 23 Oct 23:36-23:42). Regression tests built from tonight's real mistakes + the new rules.
+"""Refresh upgrade (owner, 23 Oct 23:36-23:42). Regression tests built from tonight's real mistakes + the new rules.
 Standing rule: whenever a mistake or a missed source is found, add a test here AND fix the refresh logic in the same change."""
 import json, os, sys, tempfile, unittest
 from unittest import mock
@@ -50,12 +50,12 @@ class Decide(unittest.TestCase):
             json.dump(cur or {}, open("overrides/opening_times.json", "w"))
             with mock.patch.object(TF, "known", return_value=ks or {"pages": {}, "skip": {}}):
                 log = {"found": found}; TF.decide(log, items, apply=True)
-            return log, json.load(open("overrides/opening_times.json")), open("reports/pending_dean.md").read()
+            return log, json.load(open("overrides/opening_times.json")), open("reports/pending_owner.md").read()
         finally: os.chdir(old)
     def ot(self, raw="Wednesday 10am - 12pm", url="https://ex.org/where", pc="AB12CD"):
         return dict(normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None}), source_url=url, reader="times_finder", pc_seen=[pc])
     def it(self, i="ex", pc="AB1 2CD", w="https://ex.org"): return {"id": i, "name": i, "postcode": pc, "website": w}
-    def test_auto_apply_off_even_for_perfect_match(self):   # Dean, 24 Oct: strict mode got 3 of 12 wrong
+    def test_auto_apply_off_even_for_perfect_match(self):   # owner, 24 Oct: strict mode got 3 of 12 wrong
         log, cur, md = self.run_decide({"ex": self.ot()}, [self.it()])
         self.assertEqual(log["applied"], []); self.assertNotIn("ex", cur); self.assertIn("auto-apply is off", md)
     def test_sweep_workflow_has_no_apply(self):

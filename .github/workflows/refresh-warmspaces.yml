@@ -27,7 +27,7 @@ jobs:
           WW_DISCOVERY_SECONDS: "1200"
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py warmspaces
-      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
+      - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_owner.md
         run: python scripts/publish_gate.py warmspaces
       - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
         run: python scripts/publish_gate.py check
@@ -37,7 +37,7 @@ jobs:
         run: python scripts/refresh_guard.py warmspaces
       - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/sense_check.py
-      - name: Review list for Dean (adds, removals, tier flips, opens-later)
+      - name: Review list for owner (adds, removals, tier flips, opens-later)
         continue-on-error: true
         run: python scripts/layer_review.py
       - name: Rebuild area pages, sitemap.xml and robots.txt for Google (scripts/build_seo.py)
@@ -55,7 +55,7 @@ jobs:
         run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/pending_dean.json reports/pending_dean.md
+          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/pending_owner.json reports/pending_owner.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

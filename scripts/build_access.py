@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regenerate access.js (id -> voucher|walkin|unconfirmed) for the filter chips.
 Source: overrides/access/voucher_split_*.csv, later files override earlier, *pass2*/*final* win (IFAN).
-Rule (Dean): unclear after checks counts as walk-ins welcome, kept as 'unconfirmed'
+Rule (owner): unclear after checks counts as walk-ins welcome, kept as 'unconfirmed'
 (card shows 'Walk-in not confirmed - call ahead'). Ids not in any file = unconfirmed.
 Runs at the end of every refresh (scripts/build.py); re-run by hand after updating the CSVs."""
 import csv, glob, json, os, sys

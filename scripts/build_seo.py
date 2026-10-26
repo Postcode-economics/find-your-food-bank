@@ -1,4 +1,4 @@
-"""Static, crawlable landing pages for Google (Dean 22 Oct 2026, free search boost).
+"""Static, crawlable landing pages for Google (owner 22 Oct 2026, free search boost).
 Reads the published data (data.full.js, access.js, warmspaces.js) and writes:
   food-banks/index.html, food-banks/<area>/index.html, warm-spaces/..., sitemap.xml, robots.txt, 404.html.
 Areas = local authority (postcodes.io admin_district for each service's own postcode), cached in
@@ -145,7 +145,7 @@ SH_CREDIT = ''
 SH_SRC = [('homeless.org.uk', 'Homeless Link', 'https://homeless.org.uk/homeless-england/'), ('openstreetmap.org', 'OpenStreetMap contributors', 'https://www.openstreetmap.org/copyright'),
           ('salvationarmy.org.uk', 'The Salvation Army', 'https://www.salvationarmy.org.uk/'), ('simoncommunity.org', 'Simon Community', 'https://simoncommunity.org/')]
 def shelter_credit(items):
-    """Dean 25 Oct: footers credit the shelter sources actually used in shelters.js (data-driven)."""
+    """owner 25 Oct: footers credit the shelter sources actually used in shelters.js (data-driven)."""
     urls = ' '.join(str(i.get('source_url') or '') + ' ' + str(i.get('hours_source') or '') for i in items)
     used = ['<a href="%s" rel="noopener">%s</a>' % (u, n) for d, n, u in SH_SRC if d in urls]
     return (' and, for shelters, ' + ', '.join(used) + ' and providers’ own websites') if used else ''

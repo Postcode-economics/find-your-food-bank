@@ -1,4 +1,4 @@
-"""First Base (Dumfriesshire) emergency parcel pick-up points (Dean, 25 Oct 2026): hours from First Base's
+"""First Base (Dumfriesshire) emergency parcel pick-up points (owner, 25 Oct 2026): hours from First Base's
 'Get Help Now' page (hand-reviewed, protected from robots), card label, First Base number tag, Dalbeattie added,
 Castle Douglas Citizens Advice moved. All via overrides, so every refresh keeps them."""
 import os, sys, json, unittest
@@ -10,7 +10,7 @@ SUBS = ["citizens-advice-castle-douglas", "kelloholm-library-sanquhar", "sanquha
         "dalbeattie-customer-services", "citizens-advice-annan", "kates-kitchen", "social-work-department-annan", "gretna-library",
         "lockerbie-library", "moffat-library", "langholm-library"]
 SRC = "https://www.firstbasedumfries.co.uk/contact-us/"
-CA = "https://www.dagcas.org/dagcas-location/castle-douglas-cab/"  # Dean 07:48: Castle Douglas hours from Citizens Advice's own page
+CA = "https://www.dagcas.org/dagcas-location/castle-douglas-cab/"  # owner 07:48: Castle Douglas hours from Citizens Advice's own page
 
 class Overrides(unittest.TestCase):
     def test_thirteen_points_labelled(self):

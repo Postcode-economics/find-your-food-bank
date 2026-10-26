@@ -1,4 +1,4 @@
-"""Silent-breakage detection (Dean, 23 Oct 23:42). Each run, BEFORE the refresh guard restores dropped values, record the
+"""Silent-breakage detection (owner, 23 Oct 23:42). Each run, BEFORE the refresh guard restores dropped values, record the
 fill rate per source for opening times, phones and Facebook pages, compare with a rolling baseline of the last 7 runs
 (reports/fill_rates.json), and flag a sharp drop as a likely site/API change:
   drop of more than 30 points, or 0% now when the baseline was above 20%.

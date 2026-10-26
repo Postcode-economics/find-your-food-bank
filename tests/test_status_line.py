@@ -1,5 +1,5 @@
-"""Header status line (Dean 25 Oct 13:32): 'Food banks near you' / 'Food banks near <place>', never overflowing or clipped
-at 320, 360, 390 and 1366 px, light and dark, on all three types; Dean 13:35: fixed font, ONE line, header height identical to the short-text case, no overflow, no ellipsis; if it does not fit, just the place name."""
+"""Header status line (owner 25 Oct 13:32): 'Food banks near you' / 'Food banks near <place>', never overflowing or clipped
+at 320, 360, 390 and 1366 px, light and dark, on all three types; owner 13:35: fixed font, ONE line, header height identical to the short-text case, no overflow, no ellipsis; if it does not fit, just the place name."""
 import functools, http.server, importlib.util, os, sys, threading, unittest
 sys.path.insert(0, os.path.dirname(__file__))
 from site_ready import open_map
@@ -69,7 +69,7 @@ def real_names():
 class LongestNames(unittest.TestCase):
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
     def test_every_real_name_fits_alone_at_320(self):
-        """Dean 13:35: each real place name must fit on one line ALONE at 320px at the fixed font; report any that do not."""
+        """owner 13:35: each real place name must fit on one line ALONE at 320px at the fixed font; report any that do not."""
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start()
@@ -86,10 +86,10 @@ class LongestNames(unittest.TestCase):
                 b.close()
         finally: s.shutdown()
         print('status line font', too_long['fs'], '- names that do not fit alone at 320px:', too_long['out'])
-        # Reported to Dean 25 Oct 13:40 (his call, no rule invented): these two ONS names do not fit alone at 320px at the fixed 15px.
+        # Reported to owner 25 Oct 13:40 (his call, no rule invented): these two ONS names do not fit alone at 320px at the fixed 15px.
         # Any OTHER name that does not fit fails this test.
-        PENDING_DEAN = set()   # FINAL: Dean confirmed 25 Oct 14:11 - ', County' dropped; short forms in V3SHORT (v3.js)
-        self.assertEqual(set(too_long['out']) - PENDING_DEAN, set(), 'real names too long for one line at 320px: %s' % too_long['out'])
+        PENDING_OWNER = set()   # FINAL: owner confirmed 25 Oct 14:11 - ', County' dropped; short forms in V3SHORT (v3.js)
+        self.assertEqual(set(too_long['out']) - PENDING_OWNER, set(), 'real names too long for one line at 320px: %s' % too_long['out'])
 
 
 class ShortNames(unittest.TestCase):

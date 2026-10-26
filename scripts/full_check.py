@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Full check of every food bank's OWN website, every refresh run (Dean, 22 Oct 2026).
+"""Full check of every food bank's OWN website, every refresh run (owner, 22 Oct 2026).
 
 Runs after build.py. For each distinct food bank website it fetches the homepage plus up to
 2 linked help/contact/donate pages (polite: 1 request at a time per host, max 2 at a time on the
@@ -7,7 +7,7 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  1. access: voucher / walk-in, against access.js (scripts/build_access.py). CLEAR flips (same wording on 2 runs)
     are applied to access.js automatically, kept in reports/access_tags.json and logged (reports/access_changes.json).
     Mixed / uncertain -> daily list. Unclear never gets a tag (= walk-ins welcome on the map).
- (Dean 25 Oct 2026: confirmed closures and new food banks are NOT auto-applied; they go to reports/pending_dean.md)
+ (owner 25 Oct 2026: confirmed closures and new food banks are NOT auto-applied; they go to reports/pending_owner.md)
  2. opening-hours changes (seasonal / holiday notices, changed hours text) -> daily list
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
@@ -17,7 +17,7 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
 import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (Dean 25 Oct 08:01)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (owner 25 Oct 08:01)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
@@ -88,7 +88,7 @@ V_STRONG = re.compile(r"(you('ll| will)? need|require[sd]?|need) (a |an )?(food 
     r"(must|need to|will need to) be referred|cannot (accept|serve|help).{0,30}without a (voucher|referral)|no walk[- ]?ins?", re.I)
 W_STRONG = re.compile(r"no (voucher|referral)s? (is |are )?(needed|required|necessary)|without (a |the need for a )?(voucher|referral)|"
     r"walk[- ]?ins? (are |is )?(welcome|accepted)|just (turn|come|drop) (up|in|along)|self[- ]?referr?(al|ing|ed)?|"
-    r"(don'?t|do not|won'?t) need (a |to have a |an? )?(food ?bank )?(voucher|referral)", re.I)  # self-referral counts as walk-in (Dean; same as build_access.py)
+    r"(don'?t|do not|won'?t) need (a |to have a |an? )?(food ?bank )?(voucher|referral)", re.I)  # self-referral counts as walk-in (owner; same as build_access.py)
 def access(t):
     v = [m.group(0) for m in V_STRONG.finditer(t) if not re.match(r'no (voucher|referral)', m.group(0), re.I)
          and not re.search(r"(\bno|without|don'?t|do not|not)\s+(a |an |any )?(food ?bank )?$", t[max(0, m.start() - 25):m.start()], re.I)]
@@ -170,11 +170,11 @@ def retry_first(sites, queue):
     q = set(queue); return [u for u in sites if u in q] + [u for u in sites if u not in q]
 
 def phone_locked(i):
-    """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
+    """Point 1 (owner, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
 
 def apply_phone_fixes(by_site, fixes, flag):
-    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list."""
+    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to owner's review list."""
     n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
@@ -187,15 +187,15 @@ def apply_phone_fixes(by_site, fixes, flag):
             i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
     return n
 
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules; RULES = auto_rules.load()  # owner 25 Oct 2026
 MAY_CLOSED = RULES['closure_card_note']
 def apply_closure_notes(items, pending):
-    """Dean 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
+    """owner 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
     for i in items:
         if i['id'] in pending: i['notice'] = MAY_CLOSED
 def write_pending_closures(pending):
-    """Closure section of reports/pending_dean.md (kept between markers; publish_gate.py preserves it)."""
-    pd = os.path.join(REP, 'pending_dean.md'); t = open(pd, encoding='utf-8').read() if os.path.exists(pd) else ''
+    """Closure section of reports/pending_owner.md (kept between markers; publish_gate.py preserves it)."""
+    pd = os.path.join(REP, 'pending_owner.md'); t = open(pd, encoding='utf-8').read() if os.path.exists(pd) else ''
     t = re.sub(r'(?s)\n*<!-- closures -->.*?<!-- /closures -->\n?', '', t)
     L = ['<!-- closures -->', '## Possible closures - still on the map with "May have closed" note (%d)' % len(pending), '',
          'To remove one, add its id to overrides/foodbank_closed.json; to clear the note, delete it from reports/closures_pending.json.', '']
@@ -212,7 +212,7 @@ def main():
     try: closed_raw = json.load(open(CLP, encoding='utf-8'))
     except Exception: closed_raw = {}
     closed_ov, closed_hold, remove = {}, set(closed_raw.get('_hold_for_review', [])), set()
-    # Removals Dean approved / confirmed by hand (overrides/foodbank_closed.json, e.g. Welshpool 25 Oct 08:57) always stay off,
+    # Removals owner approved / confirmed by hand (overrides/foodbank_closed.json, e.g. Welshpool 25 Oct 08:57) always stay off,
     # whichever build step let them back in, and never sit on the 'may have closed' list.
     approved_off = {k for k in closed_raw if not k.startswith('_')}
     remove |= {i['id'] for i in items if i['id'] in approved_off}
@@ -227,14 +227,14 @@ def main():
     for i in items:
         w = (i.get('website') or '').strip()
         if w.startswith('http'): by_site.setdefault(w, []).append(i)
-    # Dean 25 Oct 08:01: self-learning order (scripts/learning.py) - weekly floor first, then high-yield / gap-heavy sites;
+    # owner 25 Oct 08:01: self-learning order (scripts/learning.py) - weekly floor first, then high-yield / gap-heavy sites;
     # sites failing repeatedly rest (back-off, never past the weekly floor). Only the ORDER/selection changes, never the rules below.
     LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
     import learning_signals  # corrections, change signals, source trust, season, demand, visitor reports (last run's file)
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
-    closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
+    closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; owner decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
@@ -270,7 +270,7 @@ def main():
         if r['access'] in ('voucher', 'walkin'):
             todo = [x for x, c in curs.items() if c != r['access']]
             trus = [x for x in todo if r['access'] == 'walkin' and by_id[x].get('network') == 'Trussell']
-            if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
+            if trus:  # Trussell = voucher (owner); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
             if todo and prev.get('access') == r['access']:
@@ -289,8 +289,8 @@ def main():
         if r['seasonal'] and r['seasonal'] != prev.get('seasonal'): flag(u, 'seasonal/holiday hours notice', name=name, website=u, text=r['seasonal'])
         if prev.get('hours_hash') and r['hours_hash'] and r['hours_hash'] != prev['hours_hash']:
             flag(u, 'opening hours changed on own site', name=name, website=u, before=prev.get('hours_sample'), now=r['hours_sample'])
-        # (3) closure: clear permanent wording on 2 runs in a row. Dean 25 Oct 08:20: NEVER removed automatically -
-        # the pin stays with the card note MAY_CLOSED and goes to Dean's pending list (reports/closures_pending.json -> pending_dean.md).
+        # (3) closure: clear permanent wording on 2 runs in a row. owner 25 Oct 08:20: NEVER removed automatically -
+        # the pin stays with the card note MAY_CLOSED and goes to owner's pending list (reports/closures_pending.json -> pending_owner.md).
         if r['perm_closed'] and prev.get('perm_closed'):
             ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
             for x in ids_:
@@ -348,14 +348,14 @@ def main():
 
 def write_md(today, log, stats):
     L = ['# Daily review - food banks - %s' % today['date'], '',
-         'Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 Oct 2026 rules, overrides/auto_apply_rules.json): clear access flips and clear phone fixes (same result on 2 runs), logged below and in reports/access_changes.json. Confirmed closures stay on the map with a \'May have closed\' note and new food banks are held - both wait for Dean in reports/pending_dean.md. Uncertain or mixed cases are listed for Dean.', '',
+         'Generated by scripts/full_check.py on every refresh run. Auto-applied (owner, 25 Oct 2026 rules, overrides/auto_apply_rules.json): clear access flips and clear phone fixes (same result on 2 runs), logged below and in reports/access_changes.json. Confirmed closures stay on the map with a \'May have closed\' note and new food banks are held - both wait for owner in reports/pending_owner.md. Uncertain or mixed cases are listed for owner.', '',
          '## Runs today', '', '| run (UTC) | sites | checked | failed | not reached | voucher | walk-in | mixed | unclear | access flips | phone fixes | closures |', '|---|---|---|---|---|---|---|---|---|---|---|---|']
     for r in today['runs']: L.append('| %s | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d |' % (r['at'][11:16], r['sites'], r['ok'], r['failed'], r['skipped'], r['voucher'], r['walkin'], r['mixed'], r['unclear'], r['flips'], r['phone_fixes'], r.get('closures', 0)))
     L += ['', '## Auto-applied this run', '']
     L += ['- %s**%s** (%s): %s → %s — %s' % ((e.get('kind') + ': ') if e.get('kind') else 'access: ', e['name'], e['website'], e['old'], e['new'], e['source']) for e in log] or ['- none']
     cats = {}
     for v in today['items'].values(): cats.setdefault(v['category'], []).append(v)
-    L += ['', '## For Dean to review (%d)' % len(today['items'])]
+    L += ['', '## For owner to review (%d)' % len(today['items'])]
     for c in sorted(cats):
         L += ['', '### %s (%d)' % (c, len(cats[c])), '']
         for v in sorted(cats[c], key=lambda v: v.get('name') or ''):

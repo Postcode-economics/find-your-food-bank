@@ -1,6 +1,6 @@
 # Manual review queue (not on the map)
 
-Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own sites or reliable listings; add only on Dean's OK.
+Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own sites or reliable listings; add only on owner's OK.
 
 ## Verified, ready to add
 - **One Roof Leicester Winter Night Shelter** (shelter): Every night 5 Oct 2026 – 31 Mar 2027. Referral: Referral only via Leicester City/County Outreach (alert StreetLink). Address: Leicester (venue not published). Phone: none confirmed. Source: https://www.oneroof.org.uk/our-work/winter-night-shelter. Venue undisclosed, so no exact pin: show as a city-level referral listing
@@ -38,7 +38,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - **The Neighbourhood Table** (past season): Latest date 23 Sep 2026
 
 ## Done 23 Oct 2026
-- ADDED (Dean approved): One Roof Leicester WNS, Robes (Southwark & Lambeth), Glass Door (3 circuits), Barnet WNS (HAB, 020 8446 8400 confirmed on habcentre.org/night-shelter), OWNS Oxford, Elderberries Tea Rooms Welling, Signpost Tendring – The Kettle's On (own-site hours Mon–Fri 09:30–15:30), The Hub South Brent (Opens 1 Nov 2026).
+- ADDED (owner approved): One Roof Leicester WNS, Robes (Southwark & Lambeth), Glass Door (3 circuits), Barnet WNS (HAB, 020 8446 8400 confirmed on habcentre.org/night-shelter), OWNS Oxford, Elderberries Tea Rooms Welling, Signpost Tendring – The Kettle's On (own-site hours Mon–Fri 09:30–15:30), The Hub South Brent (Opens 1 Nov 2026).
 - Fixed: Christine Court, Men's Hostel Belfast, Talbot Association and DENS The Elms phones (operator numbers); St Johns Community Hub removed as duplicate; Crossways, Jubilee Centre, Soham, Kings Baptist, Neighbourhood Table dates confirmed current; Chittlehampton set to "Call to check".
 
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->

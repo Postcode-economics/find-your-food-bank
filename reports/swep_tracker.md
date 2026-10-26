@@ -34,7 +34,7 @@ Councils still to check (status unknown or unreachable): **23 of 382**.
 - Wrexham County Borough Council (Wales) - unknown
 - Tamworth Borough Council (England) - unreachable
 
-## Hand-checked - needs Dean or a better page (10)
+## Hand-checked - needs owner or a better page (10)
 
 - Burnley Borough Council - flag: Page headline "SWEP activated in Burnley due to heat-health alerts" - undated, a summer heat notice still on the page in October. Treated as not active now. (https://burnley.gov.uk/housing/housing-advice-and-homelessness/)
 - Herefordshire Council - flag: Winter Night Shelter described as "now open" (8pm-8am, 18+), page undated - is it open this winter yet? Not added to map. (https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/)
@@ -42,7 +42,7 @@ Councils still to check (status unknown or unreachable): **23 of 382**.
 - Nottingham City Council - flag: Only source is Street Support Network page ("SWEP Not Active"), not the council's own site - council page still needed. (https://streetsupport.net/nottingham/severe-weather-accommodation/)
 - St Albans City and District Council - none: Only an undated news item ("Extra help for rough sleepers during winter", timed out) and a PDF leaflet; no standing SWEP page. (https://www.stalbans.gov.uk/rough-sleeping)
 - Thurrock Council - none: Rough sleepers page; search summary mentions SWEP but our fetch found no SWEP wording - needs a browser look. (https://www.thurrock.gov.uk/homelessness/rough-sleepers)
-- Wakefield Metropolitan District Council - flag: Cold weather shelter at Wakefield Baptist Church, Belle Isle Avenue WF1 5JY, 8pm-8am, venue phone 07477 897929 / 01924 923197 "when open". Not open now; candidate SWEP venue for the shelters layer (Dean to OK). (https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers)
+- Wakefield Metropolitan District Council - flag: Cold weather shelter at Wakefield Baptist Church, Belle Isle Avenue WF1 5JY, 8pm-8am, venue phone 07477 897929 / 01924 923197 "when open". Not open now; candidate SWEP venue for the shelters layer (owner to OK). (https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers)
 - London Borough of Barking and Dagenham - none: No SWEP page on lbbd.gov.uk (rough sleeper page has StreetLink only). (https://www.lbbd.gov.uk/civil-protection-service/severe-weather)
 - North Tyneside Council - flag: Page says "SWEP is active between 1 November and 31 March" - becomes active 1 Nov 2026 by the council's own wording. (https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough)
 - Preston City Council - flag: Preston runs a SWEP offer "throughout the entirety of Winter"; page does not say the start date for 2026-27. (https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP)
