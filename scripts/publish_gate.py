@@ -30,15 +30,22 @@ def approved_new():
     for f in ('overrides/foodbank_approved_new.json', 'overrides/foodbank_added.json'):
         ok |= {k for k in load(f, {}) if not k.startswith('_')}
     return ok
+def hold_reasons(layer, i, in_live, ok, may_add):
+    """Why a place is held. Existing ids are kept. An approved food bank may publish with no phone
+    (Dean 26 Oct 2026, 08:12: Shipshape has no verified number). Shelters and warm spaces still need one."""
+    pr = [] if in_live else problems(layer, i)
+    if layer == 'foodbanks' and i.get('id') in ok: pr = [x for x in pr if x != 'no verified phone']
+    if not may_add and not in_live and i.get('id') not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
+    return pr
 def gate(layer, ref='HEAD'):
     f = os.path.join(ROOT, FILES[layer])
     try: live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
     except Exception: print('gate: no live baseline, skipped'); return []
     pre, d, post = split(open(f).read()); keep, held = [], []
     ok = auto_rules.approved(layer, ROOT)
+    may = auto_rules.may_add(layer, RULES)
     for i in d['items']:
-        pr = [] if i['id'] in live else problems(layer, i)
-        if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
+        pr = hold_reasons(layer, i, i['id'] in live, ok, may)
         (held if pr else keep).append((i, pr))
     if held:
         d['items'] = [i for i, _ in keep]

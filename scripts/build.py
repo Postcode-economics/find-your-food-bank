@@ -209,12 +209,22 @@ def main():
     for i in items:  # checked phones again AFTER IFAN discovery too (24 Oct: FB-page phones for IFAN pins were missed)
         if i['id'] in phones and not i.get('phone'): i['phone'] = phones[i['id']]; i['phone_checked'] = True; apply_phone(i)
     sites = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_websites.json'), {}).items() if not str(k).startswith('_')}
-    for i in items:  # own site when the directory URL no longer holds the page (Dean 26 Oct: Shipshape)
+    for i in items:  # card website Dean named, so a refresh cannot swap in a different host
         if isinstance(sites.get(i['id']), str) and sites[i['id']]: i['website'] = sites[i['id']]
+    nophone = {k for k in load_json(os.path.join(ROOT, 'overrides', 'foodbank_no_phone.json'), {}) if not str(k).startswith('_')}
+    for i in items:  # no phone until one is verified on the named source (Dean 26 Oct 08:12)
+        if i['id'] in nophone: i.pop('phone', None); i.pop('tel', None); i.pop('phone_checked', None); i.pop('phone_label', None)
+    unknown_hours = {k for k in load_json(os.path.join(ROOT, 'overrides', 'foodbank_hours_unknown.json'), {}) if not str(k).startswith('_')}
+    for i in items:  # hours unknown: no Mon-Sun table (missing days would show as Closed)
+        if i['id'] in unknown_hours: i['opening_times'] = None
+    emails = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_emails.json'), {}).items() if not str(k).startswith('_') and isinstance(v, str) and v}
+    for i in items:
+        if i['id'] in emails: i['email'] = emails[i['id']]
     notices = load_json(os.path.join(ROOT, 'overrides', 'foodbank_notices.json'), {})
     for i in items:  # hand-set card notices (e.g. temporary closure), pin kept (Dean 24 Oct)
         n = notices.get(i['id'])
         if isinstance(n, dict) and n.get('notice'): i['notice'] = n['notice']
+        elif i['id'] in unknown_hours: i.pop('notice', None)  # do not keep a venue note from a different host
     plabels = load_json(os.path.join(ROOT, 'overrides', 'phone_labels.json'), {})
     for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct)
         if i.get('phone') and isinstance(plabels.get(i['id']), str): i['phone_label'] = plabels[i['id']]

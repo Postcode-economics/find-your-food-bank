@@ -1,4 +1,4 @@
 {
- "_comment": "Website shown on the card when the directory still points at a page that no longer has the organisation's details. Applied by scripts/build.py after IFAN discovery, so a refresh cannot put the old URL back.",
- "ifan-b595a2208802ba38bef45d-0": "https://www.shipshape.website/"
+ "_comment": "Website shown on the card. Applied by scripts/build.py after IFAN discovery, so a refresh cannot replace it. Shipshape stays on https://www.shipshape.org.uk, the URL Dean named.",
+ "ifan-b595a2208802ba38bef45d-0": "https://www.shipshape.org.uk"
 }

@@ -34,14 +34,22 @@ def refresh(items):
     classify.classify(items, ROOT)
     notes, labels = J("foodbank_notices.json"), J("phone_labels.json")
     phones = {k: v for k, v in J("phones.json").items() if not str(k).startswith("_")}
-    sites = {k: v for k, v in J("foodbank_websites.json").items() if not str(k).startswith("_") and isinstance(v, str)}
+    sites = {k: v for k, v in J("foodbank_websites.json").items() if not str(k).startswith("_") and isinstance(v, str) and v}
+    emails = {k: v for k, v in J("foodbank_emails.json").items() if not str(k).startswith("_") and isinstance(v, str) and v}
+    nophone = {k for k in J("foodbank_no_phone.json") if not str(k).startswith("_")}
+    unknown = {k for k in J("foodbank_hours_unknown.json") if not str(k).startswith("_")}
     for i in items:
         n = notes.get(i["id"])
         if isinstance(n, dict) and n.get("notice"): i["notice"] = n["notice"]
+        elif i["id"] in unknown: i.pop("notice", None)
         if i.get("phone") and isinstance(labels.get(i["id"]), str): i["phone_label"] = labels[i["id"]]
         # build.py overwrites a Give Food phone from phones.json, and fills an IFAN phone only when the directory has none
         if i["id"] in phones and (not i["id"].startswith("ifan-") or not i.get("phone")): i["phone"] = phones[i["id"]]
         if i["id"] in sites: i["website"] = sites[i["id"]]
+        if i["id"] in nophone:
+            i.pop("phone", None); i.pop("tel", None); i.pop("phone_checked", None); i.pop("phone_label", None)
+        if i["id"] in unknown: i["opening_times"] = None
+        if i["id"] in emails: i["email"] = emails[i["id"]]
     return items
 
 KY_HTML = """
@@ -261,50 +269,70 @@ class Published(unittest.TestCase):
             self.assertEqual(live.get(i), out[i], i)
 
 class SidleyShipshape(unittest.TestCase):
-    """Dean 26 Oct 2026: publish the two food banks the refresh was holding.
-    Sidley hours and address are from Bexhill Foodbank's voucher page.
-    Shipshape's phone and the venue note are from shipshape.website. The pin stays on the IFAN postcode.
-    No food-session hours are stored: the current site does not list them."""
+    """Dean 26 Oct 2026, 08:12 GMT.
+    Sidley hours, address and phone are printed on Bexhill Foodbank's voucher page.
+    Shipshape keeps the named website and the email printed on its contact page, and no phone.
+    Unknown hours stay unknown: the card shows the approved line, not a Mon-Sun table."""
     SID = "bexhill/sidley"
     SHP = "ifan-b595a2208802ba38bef45d-0"
     PAGE = "https://bexhill.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
-    SITE = "https://www.shipshape.website/contact-us"
+    WEB = "https://www.shipshape.org.uk"
+    EMAIL = "info@shipshape.org.uk"
     def published(self):
         t = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read()
         return json.loads(t[t.index("=") + 1:].strip().rstrip(";"))["items"]
     def test_approved_so_the_gate_keeps_them(self):
-        import auto_rules
+        import auto_rules, publish_gate
         ok = auto_rules.approved("foodbanks", ROOT)
         self.assertIn(self.SID, ok); self.assertIn(self.SHP, ok)
         self.assertEqual(J("phones.json")[self.SID], "01424 322541")
-        self.assertEqual(J("phones.json")[self.SHP], "0114 250 0222")
-        self.assertEqual(J("foodbank_websites.json")[self.SHP], "https://www.shipshape.website/")
-        self.assertIn("foodbank_websites.json", open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8").read())
+        self.assertNotIn(self.SHP, J("phones.json"))
+        self.assertEqual(J("foodbank_websites.json")[self.SHP], self.WEB)
+        self.assertEqual(J("foodbank_emails.json")[self.SHP], self.EMAIL)
+        self.assertIn(self.SHP, J("foodbank_no_phone.json"))
+        self.assertIn(self.SHP, J("foodbank_hours_unknown.json"))
+        build = open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8").read()
+        for name in ("foodbank_websites.json", "foodbank_emails.json", "foodbank_no_phone.json", "foodbank_hours_unknown.json"):
+            self.assertIn(name, build)
+        self.assertEqual(publish_gate.hold_reasons("foodbanks", {"id": self.SHP}, False, ok, False), [])
+        held = publish_gate.hold_reasons("foodbanks", {"id": "not-approved"}, False, ok, False)
+        self.assertTrue(any(x.startswith("new place") for x in held))
+        self.assertIn("no verified phone", held)
     def test_published_and_a_refresh_keeps_them(self):
         items = self.published()
         self.check(items)
-        # a later refresh sees Give Food's shorter address and empty hours, then the overrides put the page back
+        # a later refresh sees Give Food's shorter Sidley address and mobile, and a Shipshape phone and day table
         by = {i["id"]: i for i in items}
         by[self.SID]["address"] = "Canada Way, Bexhill, Bexhill-on-Sea, TN39 4FL"
         by[self.SID]["phone"] = "07866046106"
         by[self.SID]["opening_times"] = None
-        by[self.SHP]["website"] = "https://www.shipshape.org.uk"
-        by[self.SHP]["phone"] = ""
-        by[self.SHP].pop("notice", None)
+        by[self.SHP]["website"] = "https://www.shipshape.website/"
+        by[self.SHP]["phone"] = "0114 250 0222"
+        by[self.SHP]["tel"] = "01142500222"
+        by[self.SHP]["email"] = ""
+        by[self.SHP]["notice"] = "Highfield Trinity Church, S2 4UR"
+        by[self.SHP]["opening_times"] = {"status": "TIMES_FOUND", "structured": {"mon": [["09:30", "15:30"]], "tue": [["09:30", "15:30"]]}}
         refresh(items)
         self.check(items)
         by = {i["id"]: i for i in items}
         self.assertEqual(by[self.SID]["phone"], "01424 322541")
-        self.assertEqual(by[self.SHP]["phone"], "0114 250 0222")
-        self.assertEqual(by[self.SHP]["website"], "https://www.shipshape.website/")
+        self.assertNotIn("07866", by[self.SID]["phone"])
+        self.assertFalse(by[self.SHP].get("phone"))
+        self.assertFalse(by[self.SHP].get("tel"))
+        self.assertEqual(by[self.SHP]["website"], self.WEB)
+        self.assertEqual(by[self.SHP]["email"], self.EMAIL)
     def check(self, items):
         by = {i["id"]: i for i in items}
+        self.assertEqual([i["id"] for i in items].count(self.SID), 1)
+        self.assertEqual([i["id"] for i in items].count(self.SHP), 1)
         s = by[self.SID]
         self.assertEqual(s["postcode"], "TN39 4FL")
         self.assertIn("Canada Way (Off Buxton Drive)", s["address"])
+        self.assertEqual(s["phone"], "01424 322541")
         self.assertEqual(s["opening_times"]["structured"], {"fri": [["10:00", "11:30"]]})
         self.assertEqual(s["opening_times"]["source_url"], self.PAGE)
         self.assertTrue(s["opening_times"].get("protected") or str(s["opening_times"].get("reader", "")).startswith("hand-reviewed"))
+        self.assertNotIn("mon", s["opening_times"]["structured"])
         parent = by["bexhill"]
         self.assertIn(self.SID, {c["id"] for c in parent["centres"]})
         centre = next(c for c in parent["centres"] if c["id"] == self.SID)
@@ -313,11 +341,38 @@ class SidleyShipshape(unittest.TestCase):
         self.assertEqual(h["postcode"], "S11 8AE")
         self.assertEqual(h["name"], "Shipshape Health and Wellbeing")
         self.assertEqual((h["lat"], h["lng"]), (53.367068, -1.477234))
+        self.assertEqual(h["website"], self.WEB)
+        self.assertEqual(h["email"], self.EMAIL)
+        self.assertFalse(h.get("phone"))
+        self.assertFalse(h.get("tel"))
         self.assertIsNone(h.get("opening_times"))
-        self.assertIn("Highfield Trinity Church", h["notice"])
-        self.assertIn("S2 4UR", h["notice"])
-        self.assertIn("S1 4SR", h["notice"])
-        self.assertEqual(J("foodbank_notices.json")[self.SHP]["source"], self.SITE)
+        self.assertFalse(h.get("notice"))
+        self.assertNotIn(self.SHP, J("foodbank_notices.json"))
+        # TIMES_FOUND with a structured week is what draws Mon-Sun, missing days as Closed
+        self.assertFalse(h.get("opening_times") and h["opening_times"].get("status") == "TIMES_FOUND")
+    def test_a_second_pin_at_the_same_place_is_a_duplicate(self):
+        import discover
+        items = self.published()
+        sidley = {"name": "Sidley food bank", "postcode": "TN39 4FL", "lat": 50.85445, "lng": 0.46894, "website": "https://bexhill.foodbank.org.uk"}
+        ship = {"name": "Shipshape Health and Wellbeing", "postcode": "S11 8AE", "lat": 53.367068, "lng": -1.477234, "website": "https://www.shipshape.org.uk"}
+        self.assertTrue(discover.is_dup(sidley, items))
+        self.assertTrue(discover.is_dup(ship, items))
+        new, dup = discover.dedupe([sidley, ship, dict(ship)], items)
+        self.assertEqual(new, [])
+        self.assertEqual(dup, 3)
+    def test_unknown_hours_use_the_approved_line(self):
+        page = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+        badge = open(os.path.join(ROOT, "v3.js"), encoding="utf-8").read()
+        self.assertIn("Times unknown – call before you go", badge)
+        self.assertIn("Call for opening times", page)
+        self.assertIn('href="mailto:${esc(i.email)}"', page)
+        links = page.split('<div class="links">')[1].split("</div>")[0]
+        self.assertNotIn("mailto:", links)
+        self.assertIn("'email'", open(os.path.join(ROOT, "scripts", "compact.py"), encoding="utf-8").read())
+        js = open(os.path.join(ROOT, "data.js"), encoding="utf-8").read()
+        self.assertIn(self.EMAIL, js)
+        self.assertNotIn("0114 250 0222", js)
+        self.assertNotIn("shipshape.website", js)
     def test_access_chips(self):
         import csv, glob, build_access
         d = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read()
