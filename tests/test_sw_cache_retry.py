@@ -5,7 +5,7 @@ gone, the same block must not be called a pass.
 The page is this checkout on 127.0.0.1. Tile hosts are answered here with a blank PNG, then aborted.
 Nothing is requested from helpmap.uk or from a map server.
 """
-import http.server, os, re, socket, threading, unittest
+import base64, http.server, os, re, socket, threading, unittest
 from urllib.parse import urlparse
 R = os.path.join(os.path.dirname(__file__), '..')
 import sys
@@ -26,9 +26,17 @@ def _tile(host):
     return host in TILE_HOSTS or host.endswith('.tile.openstreetmap.org')
 
 
-def _cache_name():
+def _cache_names():
     sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
-    return re.search(r"const C='([^']+)'", sw).group(1)
+    return re.search(r"const C='([^']+)'", sw).group(1), re.search(r"\bT='([^']+)'", sw).group(1)
+
+
+# A service-worker fetch() does not go through Playwright's route. These hosts must not resolve,
+# or a tile miss would leave the machine. The route still answers a tile the page asks for directly.
+_DNS = ('--host-resolver-rules=' + ', '.join(
+    'MAP %s ~NOTFOUND' % host for host in (
+        'tile.openstreetmap.org', '*.tile.openstreetmap.org', 'api.maptiler.com',
+        'tiles.stadiamaps.com', 'helpmap.uk', '*.helpmap.uk')))
 
 
 class T(unittest.TestCase):
@@ -37,7 +45,7 @@ class T(unittest.TestCase):
             self.skipTest('needs playwright')
         import check_browser as B
         import dark_default
-        cache = _cache_name()
+        cache, tiles = _cache_names()
         class Handler(http.server.SimpleHTTPRequestHandler):
             def __init__(self, *a, **k):
                 super().__init__(*a, directory=R, **k)
@@ -92,7 +100,7 @@ class T(unittest.TestCase):
 
         try:
             with sync_playwright() as p:
-                browser = p.chromium.launch()
+                browser = p.chromium.launch(args=[_DNS])
                 context = B.new_context(
                     browser, color_scheme='dark', viewport={'width': 390, 'height': 844},
                     instagram=True, service_workers='allow')
@@ -112,6 +120,17 @@ class T(unittest.TestCase):
                             && urls.some(u => /\\/vendor\\/leaflet\\.js(?:\\?|$)/.test(u));
                     }""",
                     arg=cache, timeout=20000)
+                # The first paint asks for tiles before the worker claims the page, so the tile
+                # cache stays empty unless a copy is stored here. A later blocked load must
+                # serve that copy, not the tile host.
+                page.evaluate(
+                    """async ([name, b64]) => {
+                      const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+                      const c = await caches.open(name);
+                      await c.put('https://tile.openstreetmap.org/5/15/9.png',
+                        new Response(bytes, {status: 200, headers: {'content-type': 'image/png'}}));
+                    }""",
+                    [tiles, base64.b64encode(PNG).decode()])
                 blocked['on'] = True
                 served = []
 
@@ -139,9 +158,14 @@ class T(unittest.TestCase):
                 self.assertEqual(logs, [], logs)
                 self.assertGreater(blocked['data'], 0, blocked)
                 self.assertGreater(blocked['leaflet'], 0, blocked)
-                # Tiles are cache-first: a cached tile never hits the network, an uncached one is aborted.
-                tile_hits = [row for row in served if _tile(row[0])]
-                self.assertTrue(blocked['tiles'] or any(sw for _, _, _, sw in tile_hits), (blocked, tile_hits))
+                # The worker's tile fetch is invisible to the page route. Read the stored tile back:
+                # a cache hit while the host does not resolve.
+                tile_bytes = page2.evaluate(
+                    """async () => {
+                      const r = await fetch('https://tile.openstreetmap.org/5/15/9.png');
+                      return (await r.arrayBuffer()).byteLength;
+                    }""")
+                self.assertEqual(tile_bytes, len(PNG))
                 self.assertTrue(any(p == '/data.js' and st == 200 and sw for _, p, st, sw in served), served)
                 self.assertTrue(any(p.endswith('/vendor/leaflet.js') and st == 200 and sw for _, p, st, sw in served), served)
                 self.assertGreater(n, 100, n)

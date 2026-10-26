@@ -87,13 +87,19 @@ jobs:
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # 100 links at about 18s is half an hour. Installing Playwright's Chromium as well (apt, up to
+    # about 11 minutes) is what cancelled a run that had already passed every finished link.
+    # old_links.py uses /usr/bin/google-chrome when that binary is on the runner.
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
+      - run: |
+          pip install -q playwright==1.47.0
+          if [ ! -x /usr/bin/google-chrome ]; then python -m playwright install --with-deps chromium >/dev/null; fi
+          python scripts/old_links.py
   journeys:
     needs: changes
     if: needs.changes.outputs.journeys == '1'
