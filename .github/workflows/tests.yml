@@ -91,7 +91,7 @@ jobs:
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60  # real offline tiles are rendered on the runner; ~33 min on blank tiles
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
