@@ -7,8 +7,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_FILES = {'privacy.html', 'terms.html'}
 PLACES = re.compile(r'Forest of Dean|East Dean|Dean St\b|Dean Street|Dean Castle|Goffs Oak|Canolfan Goffa', re.I)
 FIRST, LAST = 'De' + 'an', 'Go' + 'ff'  # split so this file passes its own check
-DEAN = re.compile(r'\b%s\b' % FIRST)
-GOFF = re.compile(r'\b%s\b' % LAST, re.I)
+FIRST_RE = re.compile(r'\b%s\b' % FIRST)
+LAST_RE = re.compile(r'\b%s\b' % LAST, re.I)
 
 
 class NoOwnerName(unittest.TestCase):
@@ -26,7 +26,7 @@ class NoOwnerName(unittest.TestCase):
                 continue
             for n, line in enumerate(text.splitlines(), 1):
                 rest = PLACES.sub('', line)
-                if DEAN.search(rest) or GOFF.search(rest):
+                if FIRST_RE.search(rest) or LAST_RE.search(rest):
                     bad.append('%s:%d' % (f, n))
         self.assertEqual(bad, [], "owner's name found (use 'owner'): %s" % bad[:30])
 
