@@ -92,7 +92,12 @@ jobs:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      # Caches ONLY the Playwright Chromium binary (rule 27/8/23: never pages, map data, tiles or site files).
+      # Key changes with the Playwright version or runner OS. install --with-deps still runs: apt deps
+      # stay uncached and the browser download is skipped when the cached build is present.
+      - uses: actions/cache@v4
+        with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
   journeys:
     needs: changes
@@ -110,7 +115,10 @@ jobs:
           if git diff --name-only "$base" HEAD 2>/dev/null | grep -Eq '\.(html|css|js)$|^scripts/journeys\.py$|^scripts/check_browser\.py$'; then echo run=1 >> "$GITHUB_OUTPUT"; else echo run=0 >> "$GITHUB_OUTPUT"; fi
       - uses: actions/setup-python@v5
         if: steps.site.outputs.run == '1'
-        with: {python-version: "3.12"}
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      - uses: actions/cache@v4
+        if: steps.site.outputs.run == '1'
+        with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - if: steps.site.outputs.run == '1'
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/journeys.py
   browser-tests:
@@ -123,7 +131,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      # Caches ONLY the Playwright Chromium binary (rule 27/8/23: never pages, map data, tiles or site files).
+      # Key changes with the Playwright version or runner OS. install --with-deps still runs: apt deps
+      # stay uncached and the browser download is skipped when the cached build is present.
+      - uses: actions/cache@v4
+        with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
   design-lock:
@@ -136,5 +149,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      # Caches ONLY the Playwright Chromium binary (rule 27/8/23: never pages, map data, tiles or site files).
+      # Key changes with the Playwright version or runner OS. install --with-deps still runs: apt deps
+      # stay uncached and the browser download is skipped when the cached build is present.
+      - uses: actions/cache@v4
+        with: {path: ~/.cache/ms-playwright, key: "${{ runner.os }}-ms-playwright-1.47.0-chromium"}
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/design_lock.py
