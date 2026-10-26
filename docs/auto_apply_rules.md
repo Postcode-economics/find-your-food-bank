@@ -76,3 +76,15 @@ never grows, never an ellipsis. If it doesn't fit, show just the place name. ', 
 
 ## Screenshots to Dean
 Screenshots sent to Dean must never show error tiles from a local or demo copy: use the live site, or a working tile source.
+
+## Theme default (Dean 25 Oct 2026)
+STANDING RULE (Dean, 25 Oct 2026, asked 3 times): helpmap.uk opens in DARK mode by default, ignoring the OS/phone light preference. Only the visitor's own saved Light mode choice overrides it; if storage fails (Instagram in-app browser) the site is dark. Guarded by tests/test_default_dark.py, tests/test_dark_default_engines.py, tests/test_webkit_instagram.py (WebKit, OS light) and scripts/dark_default.py in the live Deploy check. First-time visitors with no saved theme get DARK, whatever their phone setting. A saved choice (localStorage 'light') is always
+kept, and is applied by an inline script in <head> before first paint (no flash). Test: tests/test_default_dark.py.
+
+## Latest main only (Dean 26 Oct 2026, permanent rule)
+Every change is applied to the latest `main` only. Bring the branch up to date by merging `main` in (never force-push), then open a pull request. Do not merge it until the checks have passed.
+
+## Dark mode details (Dean 26 Oct 2026, 06:46)
+- Map tiles stay the normal light tiles in dark mode. Do not darken, invert or recolour the map.
+- Call 999 stays bold white text and a white icon on emergency red `#FF3B30` in light and in dark.
+- In dark mode the postcode box is a dark field: card background, light text, a readable placeholder, and the gold focus outline. Its size, font and layout stay the same as light mode. Test: `tests/test_dark_search.py`.
