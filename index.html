@@ -107,15 +107,19 @@ const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.
 const narrow=()=>window.innerWidth<600;
 const DK=['sun','mon','tue','wed','thu','fri','sat'],DN={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'},ORD=['mon','tue','wed','thu','fri','sat','sun'];
 const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'?(i.opening_times.structured||(i.opening_times.all_closed?{}:null)):null;
+const dayClosed=(i,d)=>{const t=i.opening_times;return !!(t&&(t.all_closed||(t.closed||[]).includes(d)))};  // Closed only when the source says so
 const openToday=i=>{const s=parsed(i);return !!(s&&(s[DK[new Date().getDay()]]||[]).length)};
-const closedToday=i=>{const s=parsed(i);return !!(s&&!(s[DK[new Date().getDay()]]||[]).length)};
+const closedToday=i=>{const s=parsed(i),td=DK[new Date().getDay()];return !!(s&&!(s[td]||[]).length&&dayClosed(i,td))};
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()];
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
- if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
+ if(s){const notes=t.notes||{},rows=ORD.filter(d=>(s[d]||[]).length||dayClosed(i,d));
+  const body=rows.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', ')+(notes[d]?' '+esc(notes[d]):''):'Closed'}</td></tr>`).join('');
+  const rest=rows.length<7?'<div class="src">Other days not listed, call before you go</div>':'';
+  return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${body}</table>${rest}<div class="src">From their website${ck}.${src}</div></div>`}
  if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
- return `<div class="ot">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`}
+ return ''}  // unknown: the status line is the only 'Times unknown – call before you go'
 {const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
 function showStamp(){if(!window.FB_STAMP)return;const FS=(FB_STAMP.layers&&FB_STAMP.layers.fb)||FB_STAMP;$('upd').textContent=FS.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FS.label}  // Dean 25 Oct: footer food bank lines read the food bank refresh, the header the latest refresh of any layer
 window.showStamp=showStamp;
@@ -137,8 +141,8 @@ function ukfmt(v){const s=String(v==null?'':v).trim(),m=s.match(/^(?:\+44\s?\(0\
  if(d.length===10){if(/^0[58]00/.test(d))return d.slice(0,4)+' '+d.slice(4);if(/^01/.test(d))return d.slice(0,5)+' '+d.slice(5)}
  return s}
 const ph1=i=>esc(String(i.phone||'').split(' or ')[0]),phAlt=i=>String(i.phone||'').includes(' or ')?`<small class="psrc palt">Or: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</small>`:'';
-const todayLine=i=>{const s=parsed(i),td=DK[new Date().getDay()],t=i.opening_times;if(s){const r=s[td]||[];return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.length?r.map(x=>x.join('–')).join(', '):'Closed'}</div>`}
- return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?`<div class="ptd">${IC('clock')}Check times on their website</div>`:`<div class="ptd">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`};
+const todayLine=i=>{const s=parsed(i),td=DK[new Date().getDay()],t=i.opening_times;if(s){const r=s[td]||[];if(r.length)return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.map(x=>x.join('–')).join(', ')}${t&&t.notes&&t.notes[td]?' '+esc(t.notes[td]):''}</div>`;if(dayClosed(i,td))return `<div class="ptd">${IC('clock')}<b>Today:</b> Closed</div>`;return ''}
+ return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?`<div class="ptd">${IC('clock')}Check times on their website</div>`:''};
 function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
@@ -150,7 +154,7 @@ function card(i,dist){const tel=telOf(i);
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}<small class="psrc">${i.phone_label?(/(number|line)$/i.test(i.phone_label)?'':'Number for ')+esc(i.phone_label):i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}${!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><img class="fboff" src="fb_secondary.png" alt="" width="20" height="20"><span>Send a message</span></a>`:''}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
- ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
+ ${F.open&&i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?'<div class="tnl">Check times</div>':''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
 function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 /* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or

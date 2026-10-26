@@ -8,7 +8,7 @@ FULL = os.path.join(ROOT, 'data.full.js'); OUT = os.path.join(ROOT, 'data.js')
 # fields the app reads (index.html, layers.js, v3.js); everything else is pipeline bookkeeping
 KEYS = ['id', 'type', 'name', 'foodbank', 'postcode', 'address', 'lat', 'lng', 'phone', 'tel', 'website', 'givefood', 'opening_times',
         'kind', 'label_en', 'label_cy', 'centres', 'moved_to_postcode', 'phone_checked', 'locked', 'manual', 'evidence_url', 'fb_page', 'phone_label', 'notice']
-OT = ['status', 'structured', 'all_closed', 'checked_date', 'source_url', 'raw', 'lines']
+OT = ['status', 'structured', 'all_closed', 'closed', 'notes', 'checked_date', 'source_url', 'raw', 'lines']
 GF = 'https://www.givefood.org.uk/needs/at/%s/'
 M = '~'  # "field absent" marker (never a real value: checked below)
 # columns (one array per key) compress far better than rows; refs: tel/givefood/foodbank 1 = same as phone/standard URL/name,
@@ -47,7 +47,7 @@ def enc(i, k):
     if k == 'opening_times' and isinstance(v, dict):
         v = {x: v[x] for x in OT if x in v}
         st = v.get('status')  # the app only reads raw/lines for TIMES_TEXT_ONLY and structured/all_closed for TIMES_FOUND
-        if st != 'TIMES_FOUND': v.pop('structured', None); v.pop('all_closed', None)
+        if st != 'TIMES_FOUND': v.pop('structured', None); v.pop('all_closed', None); v.pop('closed', None); v.pop('notes', None)
         if st != 'TIMES_TEXT_ONLY': v.pop('raw', None); v.pop('lines', None)
         elif v.get('lines') and v.get('raw'): v['raw'] = 1  # only its truthiness is read when lines exist
         if st not in ('TIMES_FOUND', 'TIMES_TEXT_ONLY'): v.pop('source_url', None)
