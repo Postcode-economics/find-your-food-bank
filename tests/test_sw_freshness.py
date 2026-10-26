@@ -24,6 +24,25 @@ TILE_HOSTS = ('tile.openstreetmap.org', 'api.maptiler.com', 'tiles.stadiamaps.co
 PROBE = "() => ({html: (document.querySelector('meta[name=deploy-probe]')||{}).content||'', data: window.__deployData||'', rep: window.__deployRep||'', n: (window.FB_DATA&&FB_DATA.items&&FB_DATA.items.length)||0, pane: !!document.querySelector('#map .leaflet-pane'), cards: document.querySelectorAll('#list .card').length})"
 
 
+def until(page, js, arg=None, timeout=20000):
+    """Poll an async predicate with evaluate, which awaits its promise. wait_for_function does not:
+    an async function returns a Promise, which is truthy, so it would return at once (the race that
+    made this test flaky: the network was blocked before the worker had saved data.js and leaflet.js)."""
+    import time
+    end = time.time() + timeout / 1000.0
+    last = None
+    while time.time() < end:
+        try:
+            last = page.evaluate(js, arg)
+        except Exception as e:  # a navigation mid-poll
+            last = '%s: %s' % (type(e).__name__, e)
+        else:
+            if last is True:
+                return
+        time.sleep(0.25)
+    raise AssertionError('timed out waiting for %s (last=%r)' % (js.strip()[:80], last))
+
+
 class Static(unittest.TestCase):
     def test_only_version_stamped_files_are_cache_first(self):
         sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
@@ -88,7 +107,7 @@ class Browser(unittest.TestCase):
                 ctx.route('**/*', handle)
                 pg = ctx.new_page()
                 B.goto(pg, base, log=lambda *a: None)
-                pg.wait_for_function("async () => { const r = await navigator.serviceWorker.getRegistration(); if (!r || !navigator.serviceWorker.controller) return false;"
+                until(pg, "async () => { const r = await navigator.serviceWorker.getRegistration(); if (!r || !navigator.serviceWorker.controller) return false;"
                                      " const ks = await caches.keys(); for (const k of ks) { const c = await caches.open(k); if ((await c.keys()).some(x => /\\/data\\.js/.test(x.url))) return true } return false }", timeout=30000)
                 pg.reload(); B.goto(pg, base, log=lambda *a: None)
                 before = pg.evaluate(PROBE)
