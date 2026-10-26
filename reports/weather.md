@@ -24,12 +24,6 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **Environment Agency** [flood warning] Flood warning: Maldon Town waterfront and the Hythe - shelters/warm spaces in area: Leigh on Sea Elim Church, Rose and Crown, South Library, The One Love Project, Vicar Mark Adams, Wesley Warm Welcome; SWEP active: none
 - **Environment Agency** [flood warning] Flood warning: The Essex coast at West Mersea, including The Strood and surrounding marshland - shelters/warm spaces in area: Leigh on Sea Elim Church, Rose and Crown, South Library, The One Love Project, Vicar Mark Adams, Wesley Warm Welcome; SWEP active: none
 - **SEPA** [flood warning] The FLOOD WARNING for Innerpeffray to Bridge of Earn is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Carse of Lennoch to Lochlane is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Glen Lyon is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Crieff to Innerpeffray is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Bridge of Ruthven to Leitfie is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Aberbothrie is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for The River Isla at Coupar Angus is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Strath Oykel - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Strath Carron - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Spey Dam to Newtonmore - shelters/warm spaces in area: none matched; SWEP active: none
@@ -37,33 +31,10 @@ Contains Natural Resources Wales information © Natural Resources Wales and data
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Spey Viaduct to Spey Bay - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Moy Bridge - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Strathglass - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Upper Solway Firth is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Nith Tidal is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Southerness Point is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Rough Firth is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Kirkcudbright Bay is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Fleet Bay is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Inner Wigtown Bay is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Outer Wigtown Bay is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for East Luce Bay is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for West Luce Bay North is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for South West Rhins is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Loch Ryan is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Whitesands is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for West Luce Bay South is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Ayr to Troon is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Largs is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Skelmorlie A78 is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Millport is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Saltcoats and Ardrossan is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Dumbarton is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Stonehaven - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Peterhead to Boddam - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Burray and Ayre of Cara is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for Churchill Barriers - shelters/warm spaces in area: none matched; SWEP active: none
 - **SEPA** [flood warning] A FLOOD WARNING has been issued for St Margaret's Hope - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Longhope and Hoy is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
-- **SEPA** [flood warning] The FLOOD WARNING for Sanday is No longer in force - shelters/warm spaces in area: none matched; SWEP active: none
 
 ## Alert-triggered council shelter page re-check
 

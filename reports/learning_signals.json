@@ -956,10 +956,10 @@
 "https://www.sadakagives.org.uk": 0.0386,
 "https://www.saintalbanschurch.co.uk/": 0.0386,
 "https://www.salcare.org.uk/food-bank-community-pantry/": 0.0386,
-"https://www.salma-foodbank.org": 0.0386,
+"https://www.salma-foodbank.org": 1.0066,
 "https://www.salvationarmy.org.uk": 0.0386,
 "https://www.scbc.org.uk/community/food-bank": 0.0386,
-"https://www.sdcvs.org.uk/food-hub": 1.0066,
+"https://www.sdcvs.org.uk/food-hub": 0.0386,
 "https://www.se9foodbank.org/": 0.0386,
 "https://www.seahavenstorehouse.org": 0.0386,
 "https://www.selbytrust.co.uk/selby-foodhub": 0.0386,
@@ -1018,7 +1018,7 @@
 "https://www.thebusshelteripswich.co.uk/": 0.0386,
 "https://www.thecommunitychurch.co.uk/foodbank/": 0.0386,
 "https://www.thecrossroadsproject.co.uk/our-food-bank/": 0.0386,
-"https://www.thefoodbank.org.uk/": 1.0066,
+"https://www.thefoodbank.org.uk/": 0.0386,
 "https://www.thekcfoundation.co.uk": 0.0386,
 "https://www.thelifehouse.net": 0.655,
 "https://www.thepeninsulatrust.org.uk/projects-rame-community-kitchen": 0.0386,
@@ -1307,14 +1307,13 @@
 "https://www.nnetwork.org.uk/news/st-philips-food-bank-service/",
 "https://www.northlochs.co.uk",
 "https://www.redhillfoodbank.org.uk",
-"https://www.sdcvs.org.uk/food-hub",
+"https://www.salma-foodbank.org",
 "https://www.southnorwoodcommunitykitchen.co.uk",
 "https://www.stillgoodfood.org",
 "https://www.stivesparishchurch.org.uk/foodbank/",
 "https://www.stthomasstluke.org.uk/ourtown/foodpantry",
 "https://www.taybridgeheadfoodbank.org.uk",
 "https://www.thearchesrhayader.co.uk/foodbank",
-"https://www.thefoodbank.org.uk/",
 "https://www.thewelcomecentre.org",
 "https://www.thewellwolverhampton.co.uk",
 "https://www.thorne-moorends.gov.uk/community/community-groups/",
@@ -1335,6 +1334,11 @@
 "discovery": "all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)",
 "hosts": {
 "alhudauk.com": {
+"avg_s": null,
+"fail_rate": 1.0,
+"sites": 1
+},
+"angeltrust.co.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1439,7 +1443,17 @@
 "fail_rate": 0.0,
 "sites": 2
 },
+"foodshare.charity": {
+"avg_s": null,
+"fail_rate": 1.0,
+"sites": 1
+},
 "gatehousecommunitychurch.co.uk": {
+"avg_s": null,
+"fail_rate": 1.0,
+"sites": 1
+},
+"gcjc.co.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1459,7 +1473,7 @@
 "fail_rate": 1.0,
 "sites": 1
 },
-"lchaimfoodbank.co.uk": {
+"leightonlinsladehelpers.org.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1470,11 +1484,6 @@
 "sites": 1
 },
 "lesliecommunitypantry.co.uk": {
-"avg_s": null,
-"fail_rate": 1.0,
-"sites": 1
-},
-"lochaberfoodbank.org": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1490,11 +1499,6 @@
 "sites": 1
 },
 "northlochs.co.uk": {
-"avg_s": null,
-"fail_rate": 1.0,
-"sites": 1
-},
-"northoxfordshirecommunityfoodbank.org.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1519,11 +1523,6 @@
 "fail_rate": 1.0,
 "sites": 1
 },
-"raftfoundation.org": {
-"avg_s": null,
-"fail_rate": 1.0,
-"sites": 1
-},
 "riveroflife.org.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
@@ -1544,7 +1543,7 @@
 "fail_rate": 1.0,
 "sites": 1
 },
-"sdcvs.org.uk": {
+"shipshape.org.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1559,17 +1558,22 @@
 "fail_rate": 1.0,
 "sites": 1
 },
+"swanseamosque.org": {
+"avg_s": null,
+"fail_rate": 1.0,
+"sites": 1
+},
 "taybridgeheadfoodbank.org.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
 },
-"thearchesrhayader.co.uk": {
+"teamisaac.co.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
 },
-"thefoodbank.org.uk": {
+"thearchesrhayader.co.uk": {
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
@@ -1598,23 +1602,16 @@
 "avg_s": null,
 "fail_rate": 1.0,
 "sites": 1
-},
-"zink.org.uk": {
-"avg_s": null,
-"fail_rate": 1.0,
-"sites": 1
 }
 },
-"review": {
-"correction": -1,
-"signal": 1
-},
-"run": "2026-10-25",
+"review": {},
+"run": "2026-10-26",
 "season": {
 "boost": 0.0,
-"note": "1 weeks of history (2026)",
+"note": "2 weeks of history (2026)",
 "weeks": {
-"43": 70
+"43": 70,
+"44": 2
 }
 },
 "signals": {
@@ -1622,65 +1619,65 @@
 "dead link (3 runs)"
 ],
 "http://www.caistorfoodbank.org": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "http://www.churchesfoodbank.org.uk": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "http://www.onevisionproject.org": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://assyntdevelopmenttrust.org/assynt-food-bank/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://cartertonfoodbank.co.uk": [
 "Facebook page: changed"
 ],
 "https://ccg.scot/projects/1073/": [
-"dead link (4 runs)",
+"dead link (5 runs)",
 "Facebook page: changed"
 ],
 "https://cetma.org.uk/projects/pbp-food-bank/": [
-"dead link (2 runs)"
+"dead link (3 runs)"
 ],
 "https://communitykitchenhub.org.uk": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://durhamfoodbank.org.uk": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://dwellingplaceglasgow.org/storehouse/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://gleadlessvalleyfoodbank.co.uk/": [
-"dead link (3 runs)"
+"dead link (4 runs)"
 ],
 "https://kentonfoodbank.org.uk/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://kingschurchleicester.org/foodbank": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://lesliecommunitypantry.co.uk": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://newmarketopendoor.org.uk/foodbank": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://okehamptonfoodbank.co.uk": [
-"dead link (2 runs)"
-],
-"https://okfp.org.uk": [
 "dead link (3 runs)"
 ],
-"https://orchardprimary.org/orchard-primary-school-food-bank": [
+"https://okfp.org.uk": [
 "dead link (4 runs)"
+],
+"https://orchardprimary.org/orchard-primary-school-food-bank": [
+"dead link (5 runs)"
 ],
 "https://pembrokeshire.foodbank.org.uk": [
 "closure wording on own site"
@@ -1689,34 +1686,34 @@
 "closure wording on own site"
 ],
 "https://riveroflife.org.uk/food-project/": [
-"dead link (3 runs)"
+"dead link (4 runs)"
 ],
 "https://sanctuarytrust.org.uk/projects/conwyfoodbank/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://southamptoncitymission.co.uk/basics-banks": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://southend.foodbank.org.uk": [
 "Facebook page: changed"
 ],
 "https://stmary-sutton.org.uk/page/marys-food-bank": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://stpaulsparkside.org.uk/": [
 "Facebook page: changed"
 ],
 "https://wecockchurch.org.uk/waterlooville-foodbank/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://welshpooldistrict.foodbank.org.uk": [
 "closure wording on own site"
 ],
 "https://www.betheltrustpt.co.uk/food-share": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.bjoamaraassociation.org.uk/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.boundsgreenfoodbank.org": [
 "Facebook page: changed"
@@ -1732,7 +1729,7 @@
 "Facebook page: changed"
 ],
 "https://www.dorchesterbc.org.uk/foodbank": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.facebook.com/Amblefoodbank/": [
 "Facebook page: changed"
@@ -1765,7 +1762,7 @@
 "Facebook page: changed"
 ],
 "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.gcjc.co.uk": [
 "Facebook page: changed"
@@ -1801,7 +1798,7 @@
 "Facebook page: changed"
 ],
 "https://www.leominsterfoodbank.org": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.lifeafterhummus.com/": [
 "Facebook page: changed"
@@ -1816,12 +1813,12 @@
 "Facebook page: changed"
 ],
 "https://www.newcastlefoodbank.org": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.northlochs.co.uk": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
-"https://www.sdcvs.org.uk/food-hub": [
+"https://www.salma-foodbank.org": [
 "dead link (2 runs)"
 ],
 "https://www.southnorwoodcommunitykitchen.co.uk": [
@@ -1831,34 +1828,31 @@
 "Facebook page: changed"
 ],
 "https://www.taybridgeheadfoodbank.org.uk": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.thearchesrhayader.co.uk/foodbank": [
-"dead link (4 runs)"
-],
-"https://www.thefoodbank.org.uk/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.thewelcomecentre.org": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.thewellwolverhampton.co.uk": [
 "closure wording on own site"
 ],
 "https://www.thorne-moorends.gov.uk/community/community-groups/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.unitymethodistchurchsandbach.org/foodbank": [
 "Facebook page: changed"
 ],
 "https://www.vulcancentre.co.uk/food-distribution/": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ],
 "https://www.waiyin.org.uk": [
 "Facebook page: changed"
 ],
 "https://www.widdstobpc.org/foodbank": [
-"dead link (4 runs)"
+"dead link (5 runs)"
 ]
 },
 "trend": [
@@ -1867,6 +1861,12 @@
 "day": "2026-10-25",
 "phone_agreement": 0.9323,
 "reachable": 0.957
+},
+{
+"corrections": 93,
+"day": "2026-10-26",
+"phone_agreement": 0.9323,
+"reachable": 0.9571
 }
 ],
 "trust": {
@@ -4974,6 +4974,7 @@
 "trust": 0.039
 },
 "https://www.salma-foodbank.org": {
+"signal": 0.968,
 "trust": 0.039
 },
 "https://www.salvationarmy.org.uk": {
@@ -4983,7 +4984,6 @@
 "trust": 0.039
 },
 "https://www.sdcvs.org.uk/food-hub": {
-"signal": 0.968,
 "trust": 0.039
 },
 "https://www.se9foodbank.org/": {
@@ -5170,7 +5170,6 @@
 "trust": 0.039
 },
 "https://www.thefoodbank.org.uk/": {
-"signal": 0.968,
 "trust": 0.039
 },
 "https://www.thekcfoundation.co.uk": {
