@@ -2,7 +2,7 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
-## Food banks: 73 added
+## Food banks: 74 added
 - Lincoln Foodbank · LN1 1UL · https://www.givefood.org.uk/needs/at/lincoln/
 - Caterham Foodbank · CR3 6NA · https://www.givefood.org.uk/needs/at/caterham/
 - Padiham Parish Foodbank · BB12 8HG · https://www.givefood.org.uk/needs/at/padiham-parish/
@@ -76,6 +76,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Christ Apostolic Church Mount of Rehoboth · WV13 1QU
 - Bridge Church Food Bank · DN22 6AA
 - The Life House · B29 6PB
+- Holy Trinity Church, Wester Hailes · EH14 2SL
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS
@@ -86,7 +87,9 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 2 added
+## Warm spaces: 4 added
 - Saifee Mosque · B18 6PU
 - The Midlands Greek & Cypriot Association · B23 7SJ
+- Marlborough Primary School · B10 9NY
+- Bishops Offley Open House (BOOH!) · ST21 6HE (Opens 2026-11-17)
 

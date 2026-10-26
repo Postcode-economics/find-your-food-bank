@@ -12257,6 +12257,17 @@
 "website": "https://bexhill.foodbank.org.uk"
 },
 {
+"id": "bexhill/sidley",
+"name": "Sidley",
+"network": "Trussell",
+"address": "Sidley Hub, Canada Way (Off Buxton Drive), Sidley, Bexhill-on-Sea, East Sussex, TN39 4FL",
+"postcode": "TN39 4FL",
+"lat": 50.8544514,
+"lng": 0.4689439,
+"phone": "01424 322541",
+"website": "https://bexhill.foodbank.org.uk"
+},
+{
 "id": "horsham-district/hub-on-the-move-storrington",
 "name": "Hub On The Move Storrington",
 "network": "Trussell",
@@ -17108,17 +17119,6 @@
 "website": "https://www.salvationarmy.org.uk"
 },
 {
-"id": "southend/leigh-road-baptist-church",
-"name": "Leigh Road Baptist Church",
-"network": "Trussell",
-"address": "Marguerite Drive, Southend-on-Sea, Leigh-on-Sea, SS9 1NN",
-"postcode": "SS9 1NN",
-"lat": 51.54338019999999,
-"lng": 0.6633709999999999,
-"phone": "01702478698",
-"website": "https://southend.foodbank.org.uk"
-},
-{
 "id": "salvation-army/chalk-farm",
 "name": "Chalk Farm",
 "network": "Independent",
@@ -17218,17 +17218,6 @@
 "website": "https://www.swindonfoodcollective.org"
 },
 {
-"id": "southend/leigh",
-"name": "Leigh",
-"network": "Trussell",
-"address": "West Leigh Baptist Church, 1150 London Road, Leigh-on-Sea, SS9 2AJ",
-"postcode": "SS9 2AJ",
-"lat": 51.5482251,
-"lng": 0.6527405,
-"phone": "",
-"website": "https://southend.foodbank.org.uk"
-},
-{
 "id": "hackney/pembury",
 "name": "Pembury",
 "network": "Trussell",
@@ -17293,17 +17282,6 @@
 "lng": -0.0386839,
 "phone": "02072542464",
 "website": "https://www.hackney.foodbank.org.uk"
-},
-{
-"id": "southend/earls-hall",
-"name": "Earls Hall",
-"network": "Trussell",
-"address": "Earls Hall Baptist Church, 120 Hobleythick Lane, Westcliff-on-Sea, SS0 0RJ",
-"postcode": "SS0 0RJ",
-"lat": 51.5573332,
-"lng": 0.695631,
-"phone": "",
-"website": "https://southend.foodbank.org.uk"
 },
 {
 "id": "salvation-army/ilford",
@@ -17414,17 +17392,6 @@
 "lng": -0.345465,
 "phone": "02088645142",
 "website": "https://www.salvationarmy.org.uk"
-},
-{
-"id": "southend/eastwood",
-"name": "Eastwood",
-"network": "Trussell",
-"address": "Eastwood Baptist Church, Rayleigh Road, Eastwood, Southend-on-Sea, SS9 5PY",
-"postcode": "SS9 5PY",
-"lat": 51.5698987,
-"lng": 0.6546776999999999,
-"phone": "",
-"website": "https://southend.foodbank.org.uk"
 },
 {
 "id": "hackney/upper-clapton",
@@ -31749,6 +31716,17 @@
 "website": "https://www.kirkcaldyfoodbankcharity.org.uk"
 },
 {
+"id": "kirkcaldy/park-road-centre",
+"name": "Park Road Centre",
+"network": "IFAN",
+"address": "2 Park Road, Kirkcaldy, KY1 3EL",
+"postcode": "KY1 3EL",
+"lat": 56.130913,
+"lng": -3.137885,
+"phone": "",
+"website": "https://www.kirkcaldyfoodbankcharity.org.uk/get-food"
+},
+{
 "id": "dunfermline/cowdenbeath",
 "name": "Cowdenbeath",
 "network": "Trussell",
@@ -32541,6 +32519,17 @@
 "website": "https://www.caritassalford.org.uk/service/cornerstone-centre/"
 },
 {
+"id": "ifan-5b9fd1318a04132921a389-0",
+"name": "Holy Trinity Church, Wester Hailes",
+"network": "IFAN",
+"address": "EH14 2SL",
+"postcode": "EH14 2SL",
+"lat": 55.916573,
+"lng": -3.280333,
+"phone": "0131 442 3304",
+"website": "https://www.holytrinitywesterhailes.org.uk"
+},
+{
 "id": "ifan-604a74f1cb3c7d624b7f35-0",
 "name": "Teign Valley Larder CIC (Christow)",
 "network": "IFAN",
@@ -32937,17 +32926,6 @@
 "website": "https://coventry.foodbank.org.uk/locations/"
 },
 {
-"id": "ifan-5b9fd1318a04132921a389-0",
-"name": "Holy Trinity Church, Wester Hailes",
-"network": "IFAN",
-"address": "EH14 2SL",
-"postcode": "EH14 2SL",
-"lat": 55.916573,
-"lng": -3.280333,
-"phone": "0131 442 3304",
-"website": "https://www.holytrinitywesterhailes.org.uk"
-},
-{
 "id": "ifan-d59b2e089746f7a97c1e15-0",
 "name": "Chance Changing Lives",
 "network": "IFAN",
@@ -33001,6 +32979,17 @@
 "lng": -1.781119,
 "phone": "07951 893546",
 "website": "https://www.buildingbridgesfoodhub.co.uk/"
+},
+{
+"id": "ifan-b595a2208802ba38bef45d-0",
+"name": "Shipshape Health and Wellbeing",
+"network": "IFAN",
+"address": "S11 8AE",
+"postcode": "S11 8AE",
+"lat": 53.367068,
+"lng": -1.477234,
+"phone": "",
+"website": "https://www.shipshape.org.uk"
 }
 ]
 }
