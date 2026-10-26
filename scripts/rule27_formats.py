@@ -186,6 +186,9 @@ def day_headings(t, pc):
     list in a second format; every entry with this postcode must give the same day and time."""
     hs = list(HEAD.finditer(t))
     if len(hs) < 3: return None
+    for h in hs:   # 'MONDAY - THURSDAY 9:30AM' is a range, not a heading over one centre (Riverside Vineyard)
+        if re.match(r"\s*(?:-|–|—|to|&|and|,)\s*" + DAYW, t[h.end():], re.I) or re.search(DAYW + r"\s*(?:-|–|—|to|&|and|,)\s*$", t[max(0, h.start() - 15):h.start()], re.I):
+            return None
     ents = []
     for i, h in enumerate(hs):
         body = t[h.end(): hs[i + 1].start() if i + 1 < len(hs) else h.end() + 400]
