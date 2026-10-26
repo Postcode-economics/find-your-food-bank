@@ -20,6 +20,18 @@ def test_normalise_keeps_hand_fixes():
     from times import normalise
     for k in FIXED: assert normalise(OT[k]) == OT[k]
 
-def test_unconfirmed_left_as_is():
+def test_soar_valley_left_as_is():
     assert OT['soar-valley-community-food-project']['raw'] == 'Monday morning from 9 -12'
-    assert not OT['ty-hapus'].get('protected')
+
+def test_ty_hapus_shows_no_times_and_is_unclear():
+    # Page times belong to a boxing club and a toddler group (Dean approved removal 26 Oct).
+    e = OT['ty-hapus']
+    assert e['protected'] is True and e['reader'].startswith('hand-reviewed') and e['unclear'] is True
+    assert e['raw'] == '' and e['structured'] is None and e['quote'] and e['previous']
+    from times import normalise
+    import hours_norm
+    n = hours_norm.normalise_fb(normalise(e))
+    # The card falls back to the standard no-times line only when there is no raw text and no structured times.
+    assert not (n or {}).get('raw') and not (n or {}).get('structured') and not (n or {}).get('lines')
+    g = json.load(open(os.path.join(ROOT, 'overrides', 'guard_wrong_times.json')))
+    assert 'ty-hapus' in g['foodbanks']

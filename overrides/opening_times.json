@@ -21848,11 +21848,19 @@
   }
  },
  "ty-hapus": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday and Thursday evenings from 7pm until 9pm | Tuesday & Wednesday from 12.30pm till 2.30pm",
+  "checked_date": "2026-10-26",
+  "previous": "Tuesday and Thursday evenings from 7pm until 9pm | Tuesday & Wednesday from 12.30pm till 2.30pm",
+  "protected": true,
+  "quote": [
+   "Llandudno Amateur Boxing Club | Llandudno has been based in Ty Hapus for approximately 2 years ... It is open Tuesday and Thursday evenings from 7pm until 9pm.",
+   "The Ty Hapus Parent & Toddler group ... They meet every Tuesday & Wednesday from 12.30pm till 2.30pm"
+  ],
+  "raw": "",
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT; both sets of times belong to other groups (boxing club, parent & toddler); no food bank times on the page, so none shown; on the unclear list; Dean approved removal 26 Oct)",
   "source_url": "https://tyhapus.com/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "unclear": true
  },
  "uckfield": {
   "card_name": "Uckfield Foodbank",
