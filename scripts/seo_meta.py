@@ -91,7 +91,7 @@ def dataset(iso):
         'license': SITE + '/terms.html', 'keywords': ['food banks', 'homeless shelters', 'warm spaces', 'United Kingdom'],
         'distribution': [{'@type': 'DataDownload', 'encodingFormat': f, 'contentUrl': SITE + '/export/%s.%s' % (n, e)}
                          for n in ('foodbanks', 'shelters', 'warmspaces') for e, f in (('csv', 'text/csv'), ('json', 'application/json'))],
-        'creditText': 'Data: Give Food, Independent Food Aid Network, Warm Welcome, Open Innovations, Homeless Link, council pages, OpenStreetMap contributors, postcodes.io (OGL v3.0). Map © MapTiler © OpenStreetMap contributors.'}
+        'creditText': 'Data: Give Food, Independent Food Aid Network, Warm Welcome, Open Innovations, Homeless Link, council pages, OpenStreetMap contributors, postcodes.io (OGL v3.0). Map © OpenStreetMap contributors.'}
 
 def faq_ld(text):
     sec = text.split('<section id="cy"')[0]
