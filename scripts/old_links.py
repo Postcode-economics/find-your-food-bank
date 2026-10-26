@@ -12,7 +12,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # old (working) page and the next open is the latest; v85+ pages carry the self-heal check and must show the latest at once.
 OLD_COMMITS = {'3dc505a65': True, '384b862f1': False}   # fyfb-v85 (just before self-heal), fyfb-v80 (week-old Instagram links)
 # Dean 25 Oct 18:55: the broken old link was opened from Instagram's in-app browser. iOS uses B.IG_UA
-# (the shared agent, so a HeadlessChrome identity cannot draw Cloudflare's bot page). Android is the same check.
+# (the shared agent, so the check is not answered with a bot page). Android is the same check.
 IGA = ('Mozilla/5.0 (Linux; Android 14; SM-S911B Build/UP1A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0.6668.100 '
        'Mobile Safari/537.36 Instagram 352.0.0.38.100 Android (34/14; 450dpi; 1080x2340; samsung; SM-S911B; dm1q; qcom; en_GB; 600000000) helpmap-check')
 UAS = (('ios', B.IG_UA), ('android', IGA))

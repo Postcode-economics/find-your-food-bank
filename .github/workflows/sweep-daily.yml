@@ -52,7 +52,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Daily deep sweep $(date -u +%F)"
           for n in 1 2 3; do
-            if git pull --rebase -X theirs; then
+            if git pull --rebase; then
               python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
               git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
@@ -61,9 +61,7 @@ jobs:
               if git push; then exit 0; fi
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
-              for f in $(git diff --name-only --diff-filter=U); do
-                if git cat-file -e ":3:$f" 2>/dev/null; then git checkout --theirs -- "$f" && git add -- "$f"; else git rm -q -- "$f"; fi
-              done
+              bash scripts/refresh_rebase_conflicts.sh
               if GIT_EDITOR=true git rebase --continue; then
                 python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
