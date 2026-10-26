@@ -108,7 +108,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 2}
+        with: {fetch-depth: 0}  # the PR base must be present, or the site-change diff fails and journeys silently skip
       - id: site
         run: |
           base=${{ github.event.pull_request.base.sha || github.event.before }}
