@@ -8,8 +8,11 @@ shows real streets and no request ever reaches a public tile host.
 
 The local server must serve 256px raster tiles at  <base>/styles/<style>/256/{z}/{x}/{y}.png
 (tileserver-gl's layout). HELPMAP_OFFLINE_TILES_STYLE picks the style (default: bright).
+HELPMAP_OFFLINE_TILES=blank answers every tile with a blank image (CI fallback): still no external requests.
 """
 import os
+import struct
+import zlib
 import re
 import urllib.request
 
@@ -38,6 +41,13 @@ def local_tile_url(url, base, style=None):
     return '%s/styles/%s/256/%s/%s/%s.png' % (base, style, m.group(1), m.group(2), m.group(3))
 
 
+def blank_png():
+    raw = b''.join(b'\x00' + b'\xf2\xef\xe9' * 256 for _ in range(256))
+    c = lambda t, d: struct.pack('>I', len(d)) + t + d + struct.pack('>I', zlib.crc32(t + d) & 0xffffffff)
+    return (b'\x89PNG\r\n\x1a\n' + c(b'IHDR', struct.pack('>IIBBBBB', 256, 256, 8, 2, 0, 0, 0))
+            + c(b'IDAT', zlib.compress(raw)) + c(b'IEND', b''))
+
+
 class Stats:
     def __init__(self):
         self.served = 0
@@ -52,6 +62,9 @@ def attach(context, base=None, fetch=None):
     stats = Stats()
     if not base:
         return stats
+    if base == 'blank':
+        png = blank_png()
+        fetch = lambda u: png
     fetch = fetch or (lambda u: urllib.request.urlopen(u, timeout=20).read())
 
     def handle(route):
