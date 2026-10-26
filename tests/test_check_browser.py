@@ -528,6 +528,59 @@ class Wired(unittest.TestCase):
             self.assertIn('from site_ready import', text, rel)
             self.assertIn('open_map(', text, rel)
 
+    def test_no_check_requests_a_real_tile_host(self):
+        """Rule 23. Fails if a check would open a tile host, or if new_context stops stubbing tiles."""
+        import inspect
+        self.assertNotIn('continue_', inspect.getsource(B.fulfill_tile))
+        self.assertNotIn('fallback', inspect.getsource(B.fulfill_tile))
+        self.assertIn('install_tile_stub(c)', inspect.getsource(B.new_context))
+        class Route:
+            def __init__(self):
+                self.kw = None
+            def fulfill(self, **kw):
+                self.kw = kw
+            def continue_(self, **kw):
+                raise AssertionError('tile request continued to the network')
+            def fallback(self, **kw):
+                raise AssertionError('tile request fell through to the network')
+        for url in (
+            'https://tile.openstreetmap.org/0/0/0.png',
+            'https://a.tile.openstreetmap.org/1/1/1.png',
+            'https://api.maptiler.com/maps/streets-v2/256/0/0/0.png?key=abc',
+            'https://tiles.stadiamaps.com/tiles/osm_bright/0/0/0.png',
+        ):
+            self.assertTrue(B.is_tile_host(url), url)
+            route = Route()
+            B.fulfill_tile(route)
+            self.assertEqual(route.kw['status'], 200)
+            self.assertEqual(route.kw['body'], B.PLACEHOLDER_PNG)
+            self.assertIn('image/png', route.kw['content_type'])
+        # The browser tests use a same-origin path that only looks like a tile. That is not a tile host.
+        self.assertFalse(B.is_tile_host('http://127.0.0.1/tile.openstreetmap.org/5/15/9.png'))
+        self.assertFalse(B.is_tile_host('https://helpmap.uk/icon-192.png'))
+        self.assertTrue(B.PLACEHOLDER_PNG.startswith(b'\x89PNG\r\n\x1a\n'))
+        scripts = os.path.join(R, 'scripts')
+        for name in sorted(os.listdir(scripts)):
+            if not name.endswith('.py'):
+                continue
+            text = open(os.path.join(scripts, name), encoding='utf-8').read()
+            if 'sync_playwright' not in text and 'from playwright' not in text:
+                continue
+            if name == 'render_fetch.py':
+                # Source-page render for opening times, not the map. It must not name a tile host.
+                for host in B.TILE_HOSTS:
+                    self.assertNotIn(host, text, name)
+                continue
+            if name == 'check_browser.py':
+                continue
+            self.assertIn('new_context', text, name)
+            if '.launch(' in text:
+                self.assertIn('B.launch(', text, name)
+            # Sending the request on from a later route skips the placeholder tiles. fallback() does not.
+            self.assertNotRegex(text, r'\.continue_\(', name)
+            for host in B.TILE_HOSTS:
+                self.assertNotRegex(text, r'''goto\(\s*['\"]https?://(?:[^/'\"]+\.)?%s''' % re.escape(host), name)
+
 
 def _have_playwright():
     try:
@@ -622,6 +675,80 @@ class BlockRetry(unittest.TestCase):
             httpd.shutdown()
         self.assertEqual(offbox, [])
         return docs, logs, err, scripts
+
+    def test_tile_hosts_do_not_resolve_and_a_worker_cannot_fetch_one(self):
+        """Rule 23. The route serves a placeholder. A service worker, which the route cannot see, still cannot open a tile host."""
+        import threading
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        from playwright.sync_api import sync_playwright
+        html = b'<!doctype html><script>navigator.serviceWorker.register("/sw.js")</script>'
+        sw = b'''self.addEventListener("install",e=>self.skipWaiting());
+self.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));
+self.addEventListener("fetch",e=>{if(/openstreetmap|maptiler|stadiamaps/.test(e.request.url))e.respondWith(fetch(e.request));});
+'''
+        class H(BaseHTTPRequestHandler):
+            def do_GET(self):
+                body = sw if self.path.startswith('/sw.js') else html
+                self.send_response(200)
+                self.send_header('content-type', 'application/javascript' if body is sw else 'text/html')
+                self.end_headers()
+                self.wfile.write(body)
+            def log_message(self, *a):
+                pass
+        httpd = ThreadingHTTPServer(('127.0.0.1', 0), H)
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        base = 'http://127.0.0.1:%d/' % httpd.server_address[1]
+        try:
+            with sync_playwright() as p:
+                browser = B.launch(p.chromium)
+                bare = browser.new_context()
+                page = bare.new_page()
+                for url in (
+                    'https://tile.openstreetmap.org/0/0/0.png',
+                    'https://a.tile.openstreetmap.org/1/0/0.png',
+                    'https://api.maptiler.com/maps/streets-v2/256/0/0/0.png?key=abc',
+                    'https://tiles.stadiamaps.com/tiles/osm_bright/0/0/0.png',
+                ):
+                    with self.assertRaises(Exception) as cm:
+                        page.goto(url, wait_until='commit', timeout=5000)
+                    self.assertIn('ERR_NAME_NOT_RESOLVED', str(cm.exception), url)
+                bare.close()
+                context = B.new_context(browser, service_workers='allow')
+                pg = context.new_page()
+                pg.goto(base)
+                pg.wait_for_function('navigator.serviceWorker.controller', timeout=8000)
+                got = pg.evaluate('''async()=>{try{const r=await fetch("https://tile.openstreetmap.org/3/1/1.png");
+                  return "body "+(await r.arrayBuffer()).byteLength}catch(e){return "err "+String(e)}}''')
+                self.assertFalse(str(got).startswith('body '), got)
+                context.close()
+                browser.close()
+        finally:
+            httpd.shutdown()
+
+    def test_offline_context_serves_a_placeholder_for_every_tile_host(self):
+        """The browser is offline. A real tile host is unreachable; the placeholder is the only answer."""
+        from playwright.sync_api import sync_playwright
+        urls = (
+            'https://tile.openstreetmap.org/0/0/0.png',
+            'https://a.tile.openstreetmap.org/1/0/0.png',
+            'https://api.maptiler.com/maps/streets-v2/256/0/0/0.png?key=abc',
+            'https://tiles.stadiamaps.com/tiles/osm_bright/0/0/0.png',
+        )
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            context = B.new_context(browser, offline=True)
+            page = context.new_page()
+            try:
+                for url in urls:
+                    resp = page.goto(url, wait_until='commit', timeout=5000)
+                    self.assertIsNotNone(resp, url)
+                    self.assertEqual(resp.status, 200, url)
+                    self.assertEqual(resp.body(), B.PLACEHOLDER_PNG, url)
+                with self.assertRaises(Exception):
+                    page.goto('https://example.com/', wait_until='commit', timeout=3000)
+            finally:
+                context.close()
+                browser.close()
 
     def test_tile_403_and_a_ready_page_is_one_load(self):
         docs, logs, err, _ = self._run('ok')

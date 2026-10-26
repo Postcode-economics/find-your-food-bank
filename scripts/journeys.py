@@ -117,7 +117,7 @@ def run(base=None, chrome=None, quick=False):
     r = R(); LAST = r; combos = [(390, 'light'), (390, 'dark'), (1366, 'light'), (1366, 'dark')]
     scenario.deadline = time.time() + SUITE_LIMIT
     with sync_playwright() as p:
-        b = p.chromium.launch(**({'executable_path': chrome} if chrome else {}))
+        b = B.launch(p.chromium, **({'executable_path': chrome} if chrome else {}))
         for w, sc in combos:
             V = '%dpx %s' % (w, sc)
             print('journeys %s' % V, flush=True)

@@ -95,11 +95,21 @@ def clean_phone(p):
     if not out: return "", ""
     return " or ".join(_fmt_uk(d) for d in out), out[0]
 
-def apply_phone(x, key="phone"):
-    """In place: x[key] -> cleaned display text, x['tel'] -> the one number the Call button dials."""
+def apply_phone(x, key="phone", page_text=None):
+    """In place: x[key] -> cleaned display text, x['tel'] -> the one number the Call button dials.
+
+    A council switchboard is cleared unless the council page names it as the out-of-hours line
+    and the record is labelled (rule 5). page_text is the source page when the caller has it.
+    """
     if not x.get(key): x["tel"] = ""; return x
-    disp, tel = clean_phone(x[key])
-    raw = re.sub(r"[^\d+]", "", str(x[key])).replace("+44", "0", 1)
-    if tel and " or " not in disp and raw == tel and not re.search(r"[A-Za-z%<>\"&;/]", str(x[key])): disp = x[key].strip()  # already one clean number: keep its own wording
+    raw_text = str(x.get(key) or "")
+    disp, tel = clean_phone(raw_text)
+    raw = re.sub(r"[^\d+]", "", raw_text).replace("+44", "0", 1)
+    if tel and " or " not in disp and raw == tel and not re.search(r"[A-Za-z%<>\"&;/]", raw_text): disp = raw_text.strip()  # already one clean number: keep its own wording
     x[key], x["tel"] = disp, tel
+    import phone_rules
+    blob = " ".join(p for p in (raw_text, page_text or "") if p)
+    if tel and phone_rules.switchboard_blocked(tel, blob, x):
+        x[key], x["tel"] = "", ""
+        x["phone_held_reason"] = "council switchboard"
     return x

@@ -77,7 +77,7 @@ def run(base=None, measure=False):
         base = 'http://127.0.0.1:%d' % srv.server_address[1]
     base = base.rstrip('/'); bad, seen, counts, meas = [], 0, None, {}
     with sync_playwright() as p:
-        b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
+        b = B.launch(p.chromium, executable_path=CHROME) if CHROME else B.launch(p.chromium)
         for w in (390, 1366):
             for mode in ('light', 'dark'):
                 kw = dict(viewport={'width': w, 'height': 900}, color_scheme=mode)

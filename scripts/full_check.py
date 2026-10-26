@@ -138,7 +138,7 @@ def check_site(url):
     tel = sorted({p for p in (norm_phone(urllib.parse.unquote(x)) for _, h in pages for x in re.findall(r'href=["\']tel:([^"\']+)', h, re.I)) if p})
     res.update(tel=tel[:4], ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
                hours_hash=hashlib.sha1('\n'.join(hours).encode()).hexdigest()[:12] if hours else '', hours_sample=hours[:4],
-               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t))
+               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t), text=t)
     return res
 
 # ---------- main ----------
@@ -236,15 +236,18 @@ def main():
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
-    # (3) new / removed food banks vs last run
+    # (3) new food banks, and feed drops (pending for Dean, not a removal)
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
+    feed_drops = []
     if prev_ids:
         for x in sorted(set(ids) - prev_ids):
             i = next(j for j in items if j['id'] == x)
             e = dict(when=NOW.isoformat(), id=x, website=i.get('website') or '', name=i['name'], kind='new food bank', old='not on map', new='added (%s)' % (i.get('postcode') or ''), source=(i.get('own_site_check') or {}).get('final_url') or i.get('website') or i.get('givefood') or '')
             changes.insert(0, e); log.append(e)
         for x in sorted(prev_ids - set(ids)):
-            e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='removed', old='on map', new='gone (no longer in the feed / closed on own site / excluded)', source='logs/foodbank_closed.json'); changes.insert(0, e); log.append(e)
+            # Left the feed. Not a removal: Dean's pending list, and not logged as removed (rule 7).
+            e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='feed drop', old='on map', new='dropped out of the feed — on your pending list, not removed', source='feed')
+            changes.insert(0, e); feed_drops.append(x); flag(x, 'dropped out of the feed', name=x, note='waiting for your OK — not treated as removed')
     # fetch everything (time-boxed; whatever is left is reported, not guessed)
     t0 = time.time(); results = {}
     def job(u):
@@ -326,6 +329,24 @@ def main():
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)
+    import phone_rules, pending_hold
+    phone_holds = []
+    for u in sites:
+        r = results.get(u) or {}
+        if r.get('ok') is not True: continue
+        page = r.pop('text', '') or ''
+        for i in by_site.get(u, []):
+            num = i.get('tel') or i.get('phone') or ''
+            if num and phone_rules.switchboard_blocked(num, page, i):
+                i['phone'] = i['tel'] = ''
+                i.pop('phone_label', None)
+                i['phone_held_reason'] = 'council switchboard'
+                phone_holds.append(dict(id=i.get('id'), name=i.get('name') or i.get('foodbank') or i.get('id'), website=u, why='council switchboard — not published'))
+                continue
+            if phone_rules.apply_contact_label(i, None, page) == 'held':
+                phone_holds.append(dict(id=i.get('id'), name=i.get('name') or i.get('foodbank') or i.get('id'), website=u, why='page says no phone calls — number held'))
+    pending_hold.write_marked(os.path.join(REP, 'pending_dean.md'), 'feed drops', pending_hold.feed_drop_body(feed_drops))
+    pending_hold.write_marked(os.path.join(REP, 'pending_dean.md'), 'phone holds', pending_hold.phone_hold_body(phone_holds))
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)

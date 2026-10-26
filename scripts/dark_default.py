@@ -31,7 +31,7 @@ def run(base, engines):
             try:
                 launch = {}
                 if eng == 'chromium' and os.path.exists('/usr/bin/google-chrome'): launch['executable_path'] = '/usr/bin/google-chrome'
-                b = getattr(p, eng).launch(**launch)
+                b = B.launch(getattr(p, eng), **launch) if eng == 'chromium' else getattr(p, eng).launch(**launch)
             except Exception as e: bad.append((eng, 'cannot launch: %s' % str(e)[:80])); continue
             for scheme in ('light', 'no-preference', 'dark'):
                 for case in ('fresh', 'blocked', 'saved-light', 'saved-dark'):

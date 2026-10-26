@@ -91,14 +91,15 @@ raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", unverified=UNV, autocheck=shelter_autocheck)
 from hours_fix import apply_phone
 for x in fresh: apply_phone(x)  # one valid UK number for tel:, others shown as text; invalid hidden
-# times cross-check on every published shelter's OWN site this run (closed -> removed; unconfirmed -> times withheld)
+# times cross-check on every published shelter's OWN site this run (closed -> Dean's pending list, not removed; unconfirmed -> times withheld)
 tlog = discover.cross_check_times(fresh, "sh", "hours")
-gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
-fresh = [x for x in fresh if not x.pop("_own_site_closed", None)]
+import pending_hold
+closed_pending = pending_hold.hold_closed_shelters(fresh)  # stays on the map; Dean decides
+pending_hold.write_marked("reports/pending_dean.md", "shelter closures", pending_hold.shelter_closure_body(closed_pending))
 json.dump(tlog, open("logs/shelters_times_check.json", "w"), indent=0, ensure_ascii=False)
 import hours_norm  # stored hours: Mon-Sun day table (OSM text converted) or the place's own wording once
 sources["Hours normalised"] = {"status": "ok", "changed": hours_norm.apply(fresh, "hours")}
-sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
+sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": [], "pending_closed": [h["id"] for h in closed_pending]}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending, "kept_on_48h_grace": [g["id"] for g in getattr(verification_gate, "graced", [])]}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)

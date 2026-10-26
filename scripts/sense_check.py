@@ -41,7 +41,7 @@ def run(base=None, chrome=None):
     fails, rows = [], []
     with sync_playwright() as p:
         kw = {'executable_path': chrome} if chrome else {}
-        b = p.chromium.launch(**kw)
+        b = B.launch(p.chromium, **kw)
         for w in (390, 1366):
             c = B.new_context(b, viewport={'width': w, 'height': 844}); pg = c.new_page()
             B.goto(pg, base); pg.wait_for_timeout(1500)

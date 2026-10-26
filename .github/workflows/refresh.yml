@@ -29,8 +29,13 @@ jobs:
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
         run: python scripts/full_check.py
       - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
+        env:
+          # Rule 9. Repository secret, one address or phone per line. See scripts/private_block.py.
+          PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/publish_gate.py foodbanks
       - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
+        env:
+          PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/publish_gate.py check
       - name: Fill-rate check - flag a source whose times/phones/Facebook fill rate drops sharply (alert + daily_review; fail-safe)
         continue-on-error: true
@@ -88,6 +93,8 @@ jobs:
         continue-on-error: true
         run: python scripts/seo_meta.py
       - name: Severe-failure gate (point 33) - stop publishing if a data file won't parse or a count fell >10% vs last published
+        env:
+          PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/validate.py gate
       - name: Commit if changed
         run: |

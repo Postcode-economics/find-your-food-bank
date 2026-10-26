@@ -1,5 +1,9 @@
 """Shared browser setup for the check scripts (journeys, old links, design lock, sense check, browser tests).
 
+Every context answers map-tile hosts itself (a one-pixel placeholder). No check, including the
+sense check, opens a connection to a tile server. launch() also stops those hosts resolving,
+because a service worker fetch is not seen by the route.
+
 Headless Chromium's default user agent contains the word HeadlessChrome. On https://helpmap.uk that
 agent is answered with a "Just a moment..." page, and that page keeps a connection open, so a wait
 for the network to go idle never finishes. These checks identify as a normal phone or desktop browser.
@@ -19,7 +23,7 @@ Not tried again: a script error after that file loaded, a 404 or a 500, a timeou
 and a page whose scripts did load but which is still not the app. A bot page on the retry is a failure.
 A copy sw.js serves from its cache is the real app, not a failure; a cache miss is not a pass.
 """
-import time
+import re, time
 
 PHONE_UA = ('Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) '
             'Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check')
@@ -101,11 +105,60 @@ def is_network_blip(exc):
     return any(m in s for m in _BLIPS)
 
 
+TILE_HOSTS = ('api.maptiler.com', 'tile.openstreetmap.org', 'tiles.stadiamaps.com')
+# Hostname only. A same-origin path that merely contains the name (the browser tests use one)
+# is not a tile server and is left alone.
+TILE_URL = re.compile(
+    r'^https?://(?:[a-z0-9-]+\.)*(?:api\.maptiler\.com|tile\.openstreetmap\.org|tiles\.stadiamaps\.com)(?::\d+)?(?:/|$)',
+    re.I)
+# 1x1 PNG. Served for every tile-host request so the map can paint without leaving the machine.
+PLACEHOLDER_PNG = (
+    b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90wS\xde'
+    b'\x00\x00\x00\x0cIDATx\x9cc\xf8\xcf\xc0\x00\x00\x03\x01\x01\x00\xc9\xfe\x92\xef'
+    b'\x00\x00\x00\x00IEND\xaeB`\x82'
+)
+
+
 def is_map_tile(url):
     """A map image. MapTiler tile URLs end in .png?key=..., so the query is stripped first."""
     u = (url or '').split('?', 1)[0].split('#', 1)[0]
-    hosts = ('api.maptiler.com', 'tile.openstreetmap.org', 'tiles.stadiamaps.com')
-    return any(h in u for h in hosts) and u.endswith(('.png', '.jpg', '.webp'))
+    return any(h in u for h in TILE_HOSTS) and u.endswith(('.png', '.jpg', '.webp'))
+
+
+def is_tile_host(url):
+    """True for a real tile-server URL. Local pages that only mention the name are not."""
+    return bool(TILE_URL.match(url or ''))
+
+
+def fulfill_tile(route):
+    """Answer a tile-host request on this machine. Never continues it to the network."""
+    route.fulfill(status=200, content_type='image/png', body=PLACEHOLDER_PNG,
+                  headers={'access-control-allow-origin': '*', 'cache-control': 'no-store'})
+
+
+def install_tile_stub(context):
+    """Every check that opens a page through new_context gets the placeholder tiles."""
+    route = getattr(context, 'route', None)
+    if route:
+        route(TILE_URL, fulfill_tile)
+    return context
+
+
+# A service worker fetch is not seen by context.route, so the hosts themselves must not resolve.
+# The placeholder route still answers any tile request the route does see.
+_TILE_DNS = '--host-resolver-rules=' + ','.join(
+    'MAP %s ~NOTFOUND' % h for h in (
+        'tile.openstreetmap.org', '*.tile.openstreetmap.org',
+        'api.maptiler.com', 'tiles.stadiamaps.com'))
+
+
+def launch(browser_type, **kw):
+    """Launch the check browser. Tile hosts do not resolve, so nothing can open them."""
+    args = list(kw.get('args') or [])
+    if not any(str(a).startswith('--host-resolver-rules=') for a in args):
+        args.append(_TILE_DNS)
+    kw['args'] = args
+    return browser_type.launch(**kw)
 
 
 # An edge or a bot fight. 404 and 500 are this site (a missing file, a broken response) and are not retried.
@@ -357,6 +410,7 @@ def new_context(browser, **kw):
     kw.setdefault('user_agent', user_agent(width, instagram))
     kw.setdefault('service_workers', 'block')
     c = browser.new_context(**kw)
+    install_tile_stub(c)
     c.set_default_timeout(STEP_TIMEOUT)
     c.set_default_navigation_timeout(NAV_TIMEOUT)
     return c

@@ -5,6 +5,8 @@ HH:MM ranges, (c) postcode matches the UK format, (d) name not empty. The single
 Writes reports/validation.md + reports/validation.json. It never removes or blocks anything: new places are already
 held by publish_gate.py; only SEVERE failures block publishing (Dean 24 Oct, 'validate.py gate'): a data file that will not parse, or a count more than 10% below the last published run; everything else is a warning in the digest. postcodes.io lookups stay in build_outcodes.py."""
 import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import private_block
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 FILES = {"foodbanks": "data.full.js", "shelters": "shelters.js", "warmspaces": "warmspaces.js"}
 PC = re.compile(r"^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$")
@@ -46,8 +48,13 @@ def main():
 MAX_DROP = 0.10
 def count(text): return len(json.loads(text[text.index("{"): text.rindex("}") + 1]).get("items", []))
 def gate(now_text, last_text):
-    """Severe failures only (Dean 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}."""
+    """Severe failures only (Dean 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}.
+
+    Also fail closed when PRIVATE_BLOCKLIST is set and a listing matches (rule 9). The message
+    does not include the secret. See scripts/private_block.py for how the secret is set.
+    """
     bad = {}
+    secrets = private_block.entries()
     for k, f in FILES.items():
         t = now_text.get(k)
         if t is None: continue
@@ -56,6 +63,14 @@ def gate(now_text, last_text):
         try: last = count(last_text[k]) if last_text.get(k) else None
         except Exception: last = None
         if last and n < last * (1 - MAX_DROP): bad[k] = "%s count %d is more than 10%% below last published %d" % (f, n, last)
+        if secrets:
+            try:
+                items = json.loads(t[t.index("{"): t.rindex("}") + 1]).get("items", [])
+            except Exception:
+                items = []
+            hits = [i for i in items if private_block.matches(i, secrets)]
+            if hits:
+                bad[k] = "%s matches PRIVATE_BLOCKLIST (%d listing(s) not published)" % (f, len(hits))
     return bad
 def gate_main():
     import subprocess

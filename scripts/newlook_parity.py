@@ -15,7 +15,7 @@ for(const [k,src] of [['ws','WARMSPACES'],['sh','SHELTERS']])await run(k,(window
 return out}"""
 def grab(port):
     with sync_playwright() as p:
-        b=p.chromium.launch(executable_path="/usr/bin/google-chrome");c=B.new_context(b,viewport={"width":390,"height":844});pg=c.new_page()
+        b=B.launch(p.chromium, executable_path="/usr/bin/google-chrome");c=B.new_context(b,viewport={"width":390,"height":844});pg=c.new_page()
         def rt(route):
             r=route.fetch();t=r.text();i=t.index('\n})();')+1;route.fulfill(response=r,body=t[:i]+'window.__detail=detail;'+t[i:])
         pg.route('**/layers.js*',rt)

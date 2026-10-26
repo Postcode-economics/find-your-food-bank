@@ -92,7 +92,7 @@ class T(unittest.TestCase):
 
         try:
             with sync_playwright() as p:
-                browser = p.chromium.launch()
+                browser = B.launch(p.chromium)
                 context = B.new_context(
                     browser, color_scheme='dark', viewport={'width': 390, 'height': 844},
                     instagram=True, service_workers='allow')
