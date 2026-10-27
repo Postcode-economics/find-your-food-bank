@@ -78,7 +78,7 @@ window.addTiles = function (map) {
     if (layer) { map.removeLayer(layer); layer = null; }
     if (!p) return;
     if (p.type === 'vector') { useVector(p, my, i); return; }
-    var n = i, switched = false, used = 0, ok = 0, bad = 0, recent = [];
+    var n = i, switched = false, used = 0, ok = 0, bad = 0, recent = [], codes = [];
     window.TILE_STATS = window.TILE_STATS || {load: 0, error: 0, probe: 0};
     function note(success) {
       if (success) ok++; else bad++;
@@ -94,7 +94,7 @@ window.addTiles = function (map) {
       switched = true;
       var windowBad = 0, k;
       for (k = 0; k < recent.length; k++) if (!recent[k]) windowBad++;
-      window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, reason: String(reason) };
+      window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, reason: String(reason), codes: codes.slice(-10) };
       use(n + 1);
     }
     var Layer = L.TileLayer.extend({
@@ -105,8 +105,18 @@ window.addTiles = function (map) {
         if (p.cap) used++;
         var url = this.getTileUrl(coords), tileGen = my;
         window.TILE_STATS.probe++;
-        fetch(url).then(function (r) {
+        /* A fetch that fails outright (no HTTP status, e.g. iOS 'Load failed' on a network change) is tried
+           once more before it counts as a failure. HTTP statuses are never retried. */
+        function get(retried) {
+          return fetch(url).catch(function (e) {
+            if (retried || tileGen !== gen) throw e;
+            window.TILE_STATS.retry = (window.TILE_STATS.retry || 0) + 1;
+            return new Promise(function (r) { setTimeout(r, 400); }).then(function () { return get(true); });
+          });
+        }
+        get(false).then(function (r) {
           if (tileGen !== gen) return;
+          if (!r.ok) codes.push(r.status);
           if (r.status === 401 || r.status === 403 || r.status === 429) {
             window.TILE_STATS.error++;
             note(false);
@@ -131,6 +141,7 @@ window.addTiles = function (map) {
             if (tileGen !== gen) return;
             window.TILE_STATS.error++;
             var failed = note(false);
+            codes.push('decode');
             done(new Error('decode'), img);
             if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
           };
@@ -139,6 +150,7 @@ window.addTiles = function (map) {
           if (tileGen !== gen) return;
           window.TILE_STATS.error++;
           var failed = note(false);
+          codes.push('network');
           done(new Error('network'), img);
           if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
         });
@@ -174,5 +186,26 @@ window.addTiles = function (map) {
     if (logoCtl) { map.removeControl(logoCtl); logoCtl = null; }
   };
   use(0);
+  if (/[?&]tiles=debug(&|$)/.test(location.search)) debugReadout(map);
   return layer;
 };
+
+/* ?tiles=debug only: plain text under the map credit naming the active map, and why it switched if it did.
+   Without the flag nothing is added. */
+function debugReadout(map) {
+  var ctl = L.control({ position: 'bottomright' }), box;
+  ctl.onAdd = function () {
+    box = L.DomUtil.create('div', 'tiles-debug');
+    box.id = 'tiles-debug';
+    box.style.cssText = 'background:#fff;color:#000;font:12px/1.3 monospace;padding:2px 4px;margin:0;max-width:60vw;white-space:pre-wrap';
+    return box;
+  };
+  ctl.addTo(map);
+  function draw() {
+    var fo = window.TILE_FAILOVER, st = window.TILE_STATS || {};
+    var t = 'map: ' + window.TILE_ACTIVE + ' | loaded ' + (st.load || 0) + ', errors ' + (st.error || 0) + ', retries ' + (st.retry || 0);
+    t += fo ? '\nswitched ' + fo.from + '->' + fo.to + ': reason ' + fo.reason + ', failures ' + fo.bad + ' (' + fo.windowBad + ' of last 20), ok ' + fo.ok + ', codes ' + (fo.codes || []).join(',') : '\nno switch';
+    if (box.textContent !== t) box.textContent = t;
+  }
+  draw(); setInterval(draw, 1000);
+}
