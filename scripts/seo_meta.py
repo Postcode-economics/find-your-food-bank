@@ -117,6 +117,10 @@ def chk_line(t, cy=False):
     else: txt = 'Map data last checked %s' % lab(t)
     return '<p class="mapchk"%s data-run="%s">%s</p>' % (' lang="cy"' if cy else '', t.isoformat(timespec='seconds'), txt)
 
+def content_stamp(root, name):
+    import hashlib
+    return 'h' + hashlib.sha256(open(os.path.join(root, name), 'rb').read()).hexdigest()[:12]
+
 def put_chk(s, t, rel):
     """Baked 'Map data last checked' line(s) + a live updater from stamp.js (FAQ and town pages only)."""
     s = re.sub(r'<!--mapchk(?:-cy)?-->.*?<!--/mapchk-->', '', s, flags=re.S)
@@ -181,7 +185,9 @@ def run(root=ROOT):
                                         'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
-            s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
+            # Batch 4 (27 Oct 2026): content-hash stamp (h + 12 hex of sha256), so the stamp only changes when the file does and
+            # sw.js can serve these cache-first: new content -> new stamp in the (network-first) HTML -> new URL -> fresh copy.
+            s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=%s"></script>' % (m.group(1), content_stamp(root, m.group(1) + '.js')), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
