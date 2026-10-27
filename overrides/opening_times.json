@@ -3266,11 +3266,12 @@
   }
  },
  "broxbourne": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday to Thursday 10am – 2pm",
-  "source_url": "https://broxbourne.foodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Warehouse: food donations Tuesday to Thursday 10am - 2pm, not a collection point. Collect parcels from the distribution centres",
+  "source_url": "https://broxbourne.foodbank.org.uk/contact-us/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "broxbourne/st-catherins-and-st-pauls-church": {
   "checked_date": "2026-10-20",
@@ -5379,11 +5380,25 @@
   "structured": null
  },
  "crossroads-community-hub": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 1pm - 3pm | Thursday 1pm - 3pm | Friday 10am - 12",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "raw": "Monday 1pm - 3pm (plus foodbank) Thursday 1pm - 3pm (plus foodbank) [Friday 10am - 12noon is cafe only]",
   "source_url": "https://cchub.org.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "crossroads-meltham": {
   "checked_date": "2026-10-20",
@@ -7106,11 +7121,19 @@
   "structured": null
  },
  "edinburgh-food-project/clermiston": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon 17:30-19:00",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "17:00",
+     "18:45"
+    ]
+   ]
+  },
+  "raw": "Clermiston Drumbrae Library Hub ... Opening times Mon 17:00-18:45",
   "source_url": "https://edinburghfoodproject.org/locations/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "edinburgh-ne": {
   "checked_date": "2026-10-20",
@@ -13633,11 +13656,12 @@
   }
  },
  "newark/tuxford": {
-  "checked_date": "2026-10-20",
-  "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "source_url": "https://newark.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Delivery only: this centre is managed from Newark - obtain a voucher and we will deliver",
+  "source_url": "https://newark.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "newcastle": {
   "checked_date": "2026-10-20",
@@ -15973,18 +15997,58 @@
   "structured": null
  },
  "poole/st-clements-church-hall": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon – Fri, 10.30am – 3pm | Sat, 10.30am – 2pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ]
+  },
+  "raw": "St Clement's Church Hall, 55 Kinson Avenue, BH15 3PH (Mon - Fri, 11am - 12.30pm)",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "poole/st-gabriels-church-hall": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon – Fri, 11am – 12.30pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:30",
+     "15:00"
+    ]
+   ]
+  },
+  "raw": "St Gabriel's Church Hall, Keysworth Road, Turlin Moor, Poole, BH16 5BH (Tues, 1.30pm - 3pm)",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "port-talbot": {
   "checked_date": "2026-10-20",
@@ -17940,11 +18004,12 @@
   "structured": null
  },
  "salvation-army/bourne": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 10:00 - 16:00 | Saturday 10:30-13:30",
-  "source_url": "https://www.salvationarmy.org.uk/eastbourne-citadel",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
+  "source_url": null,
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "salvation-army/branksome": {
   "checked_date": "2026-10-20",
@@ -17962,18 +18027,20 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "salvation-army/chester": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 9am to 4pm",
-  "source_url": "https://www.salvationarmy.org.uk/dorchester",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
+  "source_url": null,
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "salvation-army/dorchester": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 9am to 4pm",
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
   "source_url": "https://www.salvationarmy.org.uk/dorchester",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "salvation-army/guernsey": {
   "status": "NO_TIMES",
@@ -18015,11 +18082,12 @@
   "structured": null
  },
  "salvation-army/ivybridge": {
-  "checked_date": "2026-10-20",
-  "raw": "Wednesday to Friday 10-3",
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
   "source_url": "https://www.salvationarmy.org.uk/ivybridge",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "salvation-army/newquay": {
   "checked_date": "2026-10-20",
@@ -22716,48 +22784,12 @@
   }
  },
  "walk-inn": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday–Friday 10 a.m. to 5 p.m. | Saturday 1 p.m. to 5 p.m. | Tuesday 10 a.m–5 p.m. Thursday 10 a.m.–5 p.m.",
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
   "source_url": "https://balcproject.org.uk/contact/",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "fri": [
-    [
-     "10:00",
-     "17:00"
-    ]
-   ],
-   "mon": [
-    [
-     "10:00",
-     "17:00"
-    ]
-   ],
-   "sat": [
-    [
-     "13:00",
-     "17:00"
-    ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "17:00"
-    ]
-   ],
-   "tue": [
-    [
-     "10:00",
-     "17:00"
-    ]
-   ],
-   "wed": [
-    [
-     "10:00",
-     "17:00"
-    ]
-   ]
-  }
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "walsall-north": {
   "checked_date": "2026-10-20",
@@ -24477,11 +24509,43 @@
   }
  },
  "woodhouse-close-church": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Thursday 9am till 4 | Fridays 9.00 am till 12",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ]
+  },
+  "raw": "Our Foodbank and Crisis intervention team is open Monday to Thursday 9am till 4-30pm Fridays 9.00 am till 12-30pm",
   "source_url": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "woodley": {
   "status": "TIMES_FOUND",
@@ -25150,7 +25214,7 @@
  "salvation-army/sheringham": {
   "status": "TIMES_TEXT_ONLY",
   "structured": null,
-  "raw": "Food Bank by appointment Monday to Friday (their page gives both 9am-4pm and 10:00am-12:00pm): call 01263 826059",
+  "raw": "Food Bank (by appointment 9am-4pm / Monday - Friday / 01263 826059)",
   "source_url": "https://www.salvationarmy.org.uk/sheringham",
   "checked_date": "2026-10-27",
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
@@ -26257,5 +26321,294 @@
    ]
   },
   "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "liphook": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ]
+  },
+  "raw": "We are open on Tuesdays and Fridays between 9.30 and 11.30 for collection of food parcels for clients.",
+  "source_url": "https://liphookfoodbank.com",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "machars-churches": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Food Bank Opening Hours at 5 Albert Street, Newton Stewart 9am-12noon on Tuesday, Wednesday and Thursday.",
+  "source_url": "https://www.penninghamechurch.co.uk/basics-bank",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "hope-for-belper": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  },
+  "raw": "The Food & Community Hub is open 12pm - 2pm every Tuesday and Friday except Bank Holidays",
+  "source_url": "https://hopeforbelper.com/the-basic-idea/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "living-hope": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "12:00",
+     "13:30"
+    ]
+   ]
+  },
+  "raw": "The Living Hope Food Bank is open every Wednesday ... Open 12:00PM - 1:30PM",
+  "source_url": "https://alccholmewood.com/living-hope",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "lyme-regis": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Lyme Regis Foodbank is open for food parcel collections on Wednesdays between 10am and noon.",
+  "source_url": "https://lymeregisfoodbank.co.uk",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-25c84c4582b7e7c60aeeac-0": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:30",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:30",
+     "16:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:30",
+     "16:30"
+    ]
+   ]
+  },
+  "raw": "OPEN THREE DAYS A WEEK Mon 9.30am-2 pm Wed 12.30pm - 4.30 pm Fri 9.30am - 4.30pm",
+  "source_url": "https://www.nbil-community.org",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-5b3e01fe979d373d9ba679-0": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:30",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:30",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:30",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:30",
+     "13:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:30",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Opening hours: Monday to Friday from 9.30am to 1pm",
+  "source_url": "https://www.caritassalford.org.uk/service/cornerstone-centre/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-84cd0bf40986bfc9a427c6-0": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  },
+  "raw": "Food Bags Wednesday 10.00am - 2.00pm Open to all to receive a bag of essential food items (no referral required)",
+  "source_url": "https://www.laurenceslarder.org.uk",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-9fef48d4f0fd3a3f6896d2-0": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "17:00",
+     "18:00"
+    ]
+   ]
+  },
+  "raw": "Food Bank: Fridays 5pm - 6pm",
+  "source_url": "https://www.gcjc.co.uk",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-3c7cb974c7ac6c1966b83c-0": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Food and Supplies Market: Monday: 12pm - 2pm Tuesday: 12pm - 2pm Wednesday: 12pm - 2pm Thursday: Closed Friday: 12pm - 2pm Saturday: 11am - 1pm",
+  "source_url": "https://www.neocommunity.org.uk/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "sunderland/downhill-centre-community-hub": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:30"
+    ]
+   ]
+  },
+  "raw": "Downhill Opening Times Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 11:00-13:30 Friday: Closed",
+  "source_url": "https://sunderlandfoodbank.org.uk/locations/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "hucknall": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Engage Food Bank, referral necessary: available on Mondays and Tuesdays between 9:30am and 1.30pm",
+  "source_url": "https://uorhucknall.org.uk/hosted%20organisations",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "lalley-centre": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Lalley Centre: food pantry session from 10.30am to 12.30pm (last entry at 12.15pm) on Wednesdays and Fridays",
+  "source_url": "https://www.caritassalford.org.uk/service/lalley-centre-community-pantry-allotment/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-d59b2e089746f7a97c1e15-0": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Community Pantry (members only): Monday, Wednesday and Friday, 9am to 2pm",
+  "source_url": "https://www.chancechanginglives.org",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "ifan-9cf9dd4ce1df051c2c0a59-0": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Pantries: Myatts Field Pantry Tuesdays 10am-1pm; the Village Pantry (Oasis at St Martins) Tuesdays 12-2pm; Moorlands Pantry Thursdays 11am-3pm",
+  "source_url": "https://www.healthylivingplatform.org",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "the-community-cupboard": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "West Kingsdown: Mon, Wed & Fri: 10am - 12 noon; Tues & Thur 12 - 2pm",
+  "source_url": "https://thecommunitycupboard.co.uk/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  }
 }

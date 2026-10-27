@@ -1,4 +1,4 @@
-"""Lock (fix/office-depot-labels, 27 Oct 2026): 113 food bank listings whose shown times were office, phone-line,
+"""Lock (fix/office-depot-labels, 27 Oct 2026): 141 food bank listings whose shown times were office, phone-line,
 helpline, referral, donation, depot or church-activity hours, or another place's times. Every fix quotes the organisation's
 own page (overrides/opening_times.json raw). Exact food times only where the page gives them; otherwise the times are
 labelled (text) or removed with a 'call ahead' notice. Nothing is ever switched to Closed. Protected from the refresh by
@@ -102,6 +102,20 @@ FOOD = {
    ]
   ]
  },
+ "crossroads-community-hub": {
+  "mon": [
+   [
+    "13:00",
+    "15:00"
+   ]
+  ],
+  "thu": [
+   [
+    "13:00",
+    "15:00"
+   ]
+  ]
+ },
  "dens": {
   "mon": [
    [
@@ -158,6 +172,14 @@ FOOD = {
    ]
   ]
  },
+ "edinburgh-food-project/clermiston": {
+  "mon": [
+   [
+    "17:00",
+    "18:45"
+   ]
+  ]
+ },
  "hayle": {
   "sat": [
    [
@@ -180,11 +202,147 @@ FOOD = {
    ]
   ]
  },
+ "hope-for-belper": {
+  "tue": [
+   [
+    "12:00",
+    "14:00"
+   ]
+  ],
+  "fri": [
+   [
+    "12:00",
+    "14:00"
+   ]
+  ]
+ },
  "hornsey": {
   "thu": [
    [
     "10:15",
     "13:00"
+   ]
+  ]
+ },
+ "ifan-25c84c4582b7e7c60aeeac-0": {
+  "mon": [
+   [
+    "09:30",
+    "14:00"
+   ]
+  ],
+  "wed": [
+   [
+    "12:30",
+    "16:30"
+   ]
+  ],
+  "fri": [
+   [
+    "09:30",
+    "16:30"
+   ]
+  ]
+ },
+ "ifan-3c7cb974c7ac6c1966b83c-0": {
+  "mon": [
+   [
+    "12:00",
+    "14:00"
+   ]
+  ],
+  "tue": [
+   [
+    "12:00",
+    "14:00"
+   ]
+  ],
+  "wed": [
+   [
+    "12:00",
+    "14:00"
+   ]
+  ],
+  "fri": [
+   [
+    "12:00",
+    "14:00"
+   ]
+  ],
+  "sat": [
+   [
+    "11:00",
+    "13:00"
+   ]
+  ]
+ },
+ "ifan-5b3e01fe979d373d9ba679-0": {
+  "mon": [
+   [
+    "09:30",
+    "13:00"
+   ]
+  ],
+  "tue": [
+   [
+    "09:30",
+    "13:00"
+   ]
+  ],
+  "wed": [
+   [
+    "09:30",
+    "13:00"
+   ]
+  ],
+  "thu": [
+   [
+    "09:30",
+    "13:00"
+   ]
+  ],
+  "fri": [
+   [
+    "09:30",
+    "13:00"
+   ]
+  ]
+ },
+ "ifan-84cd0bf40986bfc9a427c6-0": {
+  "wed": [
+   [
+    "10:00",
+    "14:00"
+   ]
+  ]
+ },
+ "ifan-9fef48d4f0fd3a3f6896d2-0": {
+  "fri": [
+   [
+    "17:00",
+    "18:00"
+   ]
+  ]
+ },
+ "liphook": {
+  "tue": [
+   [
+    "09:30",
+    "11:30"
+   ]
+  ],
+  "fri": [
+   [
+    "09:30",
+    "11:30"
+   ]
+  ]
+ },
+ "living-hope": {
+  "wed": [
+   [
+    "12:00",
+    "13:30"
    ]
   ]
  },
@@ -198,6 +356,34 @@ FOOD = {
   "fri": [
    [
     "10:00",
+    "12:00"
+   ]
+  ]
+ },
+ "lyme-regis": {
+  "wed": [
+   [
+    "10:00",
+    "12:00"
+   ]
+  ]
+ },
+ "machars-churches": {
+  "tue": [
+   [
+    "09:00",
+    "12:00"
+   ]
+  ],
+  "wed": [
+   [
+    "09:00",
+    "12:00"
+   ]
+  ],
+  "thu": [
+   [
+    "09:00",
     "12:00"
    ]
   ]
@@ -289,6 +475,46 @@ FOOD = {
    [
     "09:30",
     "12:00"
+   ]
+  ]
+ },
+ "poole/st-clements-church-hall": {
+  "mon": [
+   [
+    "11:00",
+    "12:30"
+   ]
+  ],
+  "tue": [
+   [
+    "11:00",
+    "12:30"
+   ]
+  ],
+  "wed": [
+   [
+    "11:00",
+    "12:30"
+   ]
+  ],
+  "thu": [
+   [
+    "11:00",
+    "12:30"
+   ]
+  ],
+  "fri": [
+   [
+    "11:00",
+    "12:30"
+   ]
+  ]
+ },
+ "poole/st-gabriels-church-hall": {
+  "tue": [
+   [
+    "13:30",
+    "15:00"
    ]
   ]
  },
@@ -490,6 +716,14 @@ FOOD = {
    ]
   ]
  },
+ "sunderland/downhill-centre-community-hub": {
+  "thu": [
+   [
+    "11:00",
+    "13:30"
+   ]
+  ]
+ },
  "transformation/centenary-methodist-centre-camborne": {
   "tue": [
    [
@@ -618,6 +852,38 @@ FOOD = {
    ]
   ]
  },
+ "woodhouse-close-church": {
+  "mon": [
+   [
+    "09:00",
+    "16:30"
+   ]
+  ],
+  "tue": [
+   [
+    "09:00",
+    "16:30"
+   ]
+  ],
+  "wed": [
+   [
+    "09:00",
+    "16:30"
+   ]
+  ],
+  "thu": [
+   [
+    "09:00",
+    "16:30"
+   ]
+  ],
+  "fri": [
+   [
+    "09:00",
+    "12:30"
+   ]
+  ]
+ },
  "woodley": {
   "mon": [
    [
@@ -722,6 +988,7 @@ FOOD = {
 TEXT = {
  "aylesbury": "Postal/warehouse address (deliveries and donations only). Office hours: Mon - Thurs 10.30am - 3:00pm",
  "bradford-north": "Phone line hours, not collection: Our phone line is open Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
+ "broxbourne": "Warehouse: food donations Tuesday to Thursday 10am - 2pm, not a collection point. Collect parcels from the distribution centres",
  "chiltern/wendover": "Delivery only (no collection here). Phoneline open Tuesday to Friday, 10am to 12:30pm, not collection times",
  "ek-community": "Church office hours, not food bank times: Office Opening Hours: Monday-Friday: 9am-5pm",
  "fusion": "Office hours, not food collection: Pearl House office Mon-Fri 9am - 4pm (Wednesdays emergency appointments only)",
@@ -731,7 +998,12 @@ TEXT = {
  "godmanchester-huntingdon": "Helpline hours, not food bank sessions: Rural Citizens Advice Huntingdonshire 0808 2787 807 (lines open Monday to Friday 9.30am to 3.30pm); Help through Hardship 0808 2082138 (open Monday to Friday, 9am-5pm)",
  "hangleton-west-blatchington": "The food bank is open every Wednesday from 12:00-14:00 for clients by appointment only",
  "haverhill": "Contact hours (phone and office), not food collection: Monday to Friday, 9am - 4.30pm",
+ "hucknall": "Engage Food Bank, referral necessary: available on Mondays and Tuesdays between 9:30am and 1.30pm",
+ "ifan-9cf9dd4ce1df051c2c0a59-0": "Pantries: Myatts Field Pantry Tuesdays 10am-1pm; the Village Pantry (Oasis at St Martins) Tuesdays 12-2pm; Moorlands Pantry Thursdays 11am-3pm",
+ "ifan-d59b2e089746f7a97c1e15-0": "Community Pantry (members only): Monday, Wednesday and Friday, 9am to 2pm",
+ "lalley-centre": "Lalley Centre: food pantry session from 10.30am to 12.30pm (last entry at 12.15pm) on Wednesdays and Fridays",
  "luton": "Phone line hours, not food collection: 01582 725838 Mon-Fri, 8.30am - 4pm",
+ "newark/tuxford": "Delivery only: this centre is managed from Newark - obtain a voucher and we will deliver",
  "north-bristol-south-gloucestershire": "Phone line hours, not collection times: 0117 472 5172 Mon-Fri 9.30am-4.30pm. Emergency parcels can only be collected at specific times: see their website for centre times",
  "open-hands-reigate": "Phone line hours, not collection times: Tuesday & Thursday 9 am to 12 pm - 07849-634309; Tuesday & Thursday 1 pm to 4 pm - 07849-633736. Closed every Wednesday",
  "pbp": "CETMA office opening hours, not food collection: Kidwelly Office Monday-Friday 10AM - 4PM",
@@ -742,13 +1014,14 @@ TEXT = {
  "salvation-army/bradford-holmewood": "Requests for a crisis food parcel (Monday to Thursday 10am to 12noon), via their Facebook page: request hours, not a collection session",
  "salvation-army/hastings-temple": "Tuesday: Food Bank - appointment required 10:30am - 11:30am",
  "salvation-army/scunthorpe": "Food Bank 09.30-12.00 every other Wednesday",
- "salvation-army/sheringham": "Food Bank by appointment Monday to Friday (their page gives both 9am-4pm and 10:00am-12:00pm): call 01263 826059",
+ "salvation-army/sheringham": "Food Bank (by appointment 9am-4pm / Monday - Friday / 01263 826059)",
  "salvation-army/sundays": "Tuesday: Food Bank - appointment required 10:30am - 11:30am",
  "somebody-cares": "Foodbank order line (not a walk-in time): Monday - Friday 10:00am - 3:30pm, order by 11.30 am for same day collection",
  "southend": "Warehouse, DONATIONS ONLY, Monday, Tuesday and Thursday between 9am - 2pm. You are unable get a voucher or collect food from this location",
  "stowmarket-area": "The centre is open during the following hours: Mondays to Fridays: 9 am - 1 pm",
  "tameside-south-longdendale": "Hollingworth Hub (PERMANENTLY CLOSED AFTER MONDAY 29 JULY 2024): its times removed. See the centres for their own times",
  "thame": "Food bank phone line answered between 9.00am and 1.00pm each weekday (not collection times)",
+ "the-community-cupboard": "West Kingsdown: Mon, Wed & Fri: 10am - 12 noon; Tues & Thur 12 - 2pm",
  "the-forest": "Warehouse, not a distribution centre. Distribution Centres: LYDNEY Tuesday 1 pm - 3 pm; COLEFORD Wednesday 10 am - 12 noon; CINDERFORD Thursday 1 pm - 3 pm",
  "the-storehouse-congleton": "Not food bank hours: EVERY TUESDAY (Term-time) 10am to 12.30 is the Jubilee Club (social group). See their website for Storehouse food bank times",
  "wokingham": "Warehouse donation hours, not a collection point: Monday 9:30-14:30, Wednesday 9:30-14:30 (Book a Food Donation Drop)",
@@ -764,10 +1037,14 @@ CALL_AHEAD = [
  "queens-park-govanhill-parish-church",
  "rickmansworth/maple-cross",
  "salvation-army",
+ "salvation-army/bourne",
  "salvation-army/bury",
+ "salvation-army/chester",
+ "salvation-army/dorchester",
  "salvation-army/guernsey",
  "salvation-army/hayle",
  "salvation-army/hedge-end",
+ "salvation-army/ivybridge",
  "salvation-army/newton-abbot-church-community-centre",
  "salvation-army/paignton",
  "salvation-army/penzance",
@@ -789,12 +1066,14 @@ CALL_AHEAD = [
  "stretton",
  "stroud-district",
  "the-bus-shelter-shop",
- "ty-hapus"
+ "ty-hapus",
+ "walk-inn"
 ]
-WRONG_CORPS_PAGE = ["salvation-army/bury", "salvation-army/pill", "salvation-army/sale", "salvation-army/salisbury", "salvation-army/street", "salvation-army/sundays", "salvation-army/ware", "salvation-army/wimborne"]  # times came from another Salvation Army corps' page: link removed too
+WRONG_CORPS_PAGE = ["salvation-army", "salvation-army/bourne", "salvation-army/bury", "salvation-army/chester", "salvation-army/pill", "salvation-army/sale", "salvation-army/salisbury", "salvation-army/street", "salvation-army/ware", "salvation-army/wimborne"]  # times came from another Salvation Army corps' page: link removed too
 NOTICE = {
  "aylesbury": "Warehouse: deliveries and donations only. Times shown are office hours. See where to get food below.",
  "bradford-north": "Times shown are phone line hours, not food collection. See where to get food below.",
+ "broxbourne": "Warehouse for donations: not a place to collect food. See where to get food below.",
  "chiltern/prestwood": "Delivery only: food is delivered, not collected here. Times shown are delivery times.",
  "chiltern/wendover": "Delivery only: food is delivered, not collected here. See their website for delivery times.",
  "ek-community": "Times shown are church office hours, not food bank times. Call or see their website for food bank times.",
@@ -807,10 +1086,15 @@ NOTICE = {
  "hangleton-west-blatchington": "Food bank by appointment only. Call ahead to book.",
  "haverhill": "Times shown are contact hours, not food collection. See where to get food below.",
  "hays-community-pantry": "Call ahead: no food bank session times are confirmed on their own page.",
+ "hucknall": "Referral needed. Call ahead.",
+ "ifan-9cf9dd4ce1df051c2c0a59-0": "Three pantries at different addresses. See their website for each one.",
+ "ifan-d59b2e089746f7a97c1e15-0": "Community pantry for members only. Call ahead to join.",
+ "lalley-centre": "Pantry sessions are at the Lalley Centre. Call ahead.",
  "liberty-church-mid-ulster": "Call ahead: no food bank session times are confirmed on their own page.",
  "luton": "Times shown are phone line hours, not food collection. See where to get food below.",
  "maidstone-homeless-care": "Call ahead: no food bank session times are confirmed on their own page.",
  "manna": "Call ahead: no food bank session times are confirmed on their own page.",
+ "newark/tuxford": "Delivery only: food is delivered, not collected here.",
  "north-bristol-south-gloucestershire": "Times shown are phone line hours, not collection times. Parcels are collected at set times at each centre: see their website for centre times.",
  "north-lakes": "Call ahead: no food bank session times are confirmed on their own page.",
  "open-hands-reigate": "Times on their page are phone line hours, not collection times. Closed every Wednesday.",
@@ -822,12 +1106,16 @@ NOTICE = {
  "ripon-community-house": "Times on their page are referral hours (Mon to Fri 12.30 to 3.30pm), not collection times. Parcels can be collected Monday to Friday.",
  "salford": "No parcels at this site. See where to get food below.",
  "salvation-army": "Call ahead: no food bank session times are confirmed on their own page.",
+ "salvation-army/bourne": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/bradford-holmewood": "Times shown are when to request a crisis food parcel, not a collection session. Call ahead.",
  "salvation-army/bury": "Call ahead: no food bank session times are confirmed on their own page.",
+ "salvation-army/chester": "Call ahead: no food bank session times are confirmed on their own page.",
+ "salvation-army/dorchester": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/guernsey": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/hastings-temple": "Food bank by appointment only. Call ahead to book.",
  "salvation-army/hayle": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/hedge-end": "Call ahead: no food bank session times are confirmed on their own page.",
+ "salvation-army/ivybridge": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/newton-abbot-church-community-centre": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/paignton": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/penzance": "Call ahead: no food bank session times are confirmed on their own page.",
@@ -857,15 +1145,17 @@ NOTICE = {
  "tameside-south-longdendale": "The Hollingworth Hub has been permanently closed since July 2024. See where to get food below.",
  "thame": "Their phone line is answered 9am to 1pm on weekdays. These are not collection times.",
  "the-bus-shelter-shop": "Call ahead: no food bank session times are confirmed on their own page.",
+ "the-community-cupboard": "Times shown are West Kingsdown's.",
  "the-forest": "Warehouse: not a place to collect food. See where to get food below.",
  "the-storehouse-congleton": "Tuesday 10am to 12.30 is a social club, not the food bank. See their website for food bank times.",
  "ty-hapus": "Call ahead: no food bank session times are confirmed on their own page.",
+ "walk-inn": "Call ahead: no food bank session times are confirmed on their own page.",
  "welwyn-garden-city": "Food bank open Wednesday mornings 9am to 11am only. Other hours on their page are helpline hours.",
  "wokingham": "Warehouse for donations: not a place to collect food. See where to get food below.",
  "york": "Donation drop-off depot only: not a place to collect food. See where to get food below."
 }
 WAREHOUSE = [  # never Closed; point to centres
-"york", "glasgow-sw", "haverhill", "luton", "fusion", "aylesbury", "stroud-district", "wokingham", "the-forest", "pbp", "southend", "bradford-north", "manna", "ringwood", "salford", "redcar-area"]
+"york", "glasgow-sw", "haverhill", "luton", "fusion", "aylesbury", "stroud-district", "wokingham", "the-forest", "pbp", "southend", "bradford-north", "manna", "ringwood", "salford", "redcar-area", "broxbourne"]
 class T(unittest.TestCase):
     @classmethod
     def setUpClass(c): c.t, c.n, c.d = J("opening_times.json"), J("foodbank_notices.json"), items()
@@ -899,6 +1189,9 @@ class T(unittest.TestCase):
         self.assertEqual(FOOD["salvation-army/inverness"], {"wed": [["09:00", "13:00"]]})  # day from the same line, not the next one
         self.assertEqual(FOOD["whitefoot-and-downham"], {"thu": [["19:00", "20:30"]]})
         self.assertEqual(FOOD["wansbeck-valley/ymca"], {"tue": [["12:00", "13:00"]], "thu": [["12:00", "13:00"]]})
+        self.assertEqual(FOOD["poole/st-gabriels-church-hall"], {"tue": [["13:30", "15:00"]]})  # swapped with St Clement's
+        self.assertEqual(FOOD["poole/st-clements-church-hall"], {d: [["11:00", "12:30"]] for d in ("mon", "tue", "wed", "thu", "fri")})
+        self.assertEqual(FOOD["woodhouse-close-church"]["fri"], [["09:00", "12:30"]])
         self.assertEqual(FOOD["muswell-hill"], {d: [["11:30", "13:30"]] for d in ("mon", "wed", "fri")})
         self.assertFalse(str((self.t.get("cardiff") or {}).get("reader", "")).startswith("hand-reviewed 2026-10-27 (own page re-fetched live"))
 if __name__ == "__main__": unittest.main()
