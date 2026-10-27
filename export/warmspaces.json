@@ -1,5 +1,5 @@
 {
-"generated": "2026-10-26",
+"generated": "2026-10-27",
 "attribution": "Warm space listings: helpmap.uk (https://helpmap.uk), credited per row to the original source (Warm Welcome https://www.warmwelcome.uk, councils, local VCS lists - see source / source_url)",
 "items": [
 {
@@ -855,18 +855,6 @@
 "source_url": "https://www.warmwelcome.uk/space?l=26527"
 },
 {
-"id": "ww-57952336",
-"name": "Community Hub",
-"address": "Rowsley Village Hall, Matlock, Derbyshire DE4 2EE",
-"postcode": "DE4 2EE",
-"lat": 53.189195,
-"lng": -1.613046,
-"phone": "07545 704384",
-"website": "https://www.rowsleyvillagehall.org",
-"source": "Warm Welcome",
-"source_url": "https://www.warmwelcome.uk/space?l=25124"
-},
-{
 "id": "ww-57951602",
 "name": "Community hub",
 "address": "The Brassey Centre, Aylesford, Kent ME20 7QR",
@@ -877,6 +865,18 @@
 "website": "https://www.aylesford-church.org.uk",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=24774"
+},
+{
+"id": "ww-57952336",
+"name": "Community Hub",
+"address": "Rowsley Village Hall, Matlock, Derbyshire DE4 2EE",
+"postcode": "DE4 2EE",
+"lat": 53.189195,
+"lng": -1.613046,
+"phone": "07545 704384",
+"website": "https://www.rowsleyvillagehall.org",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=25124"
 },
 {
 "id": "ww-69177710",
@@ -2317,6 +2317,18 @@
 "website": "https://vai.org.uk/warm-spaces-in-islington/",
 "source": "Voluntary Action Islington warm spaces list",
 "source_url": "https://vai.org.uk/warm-spaces-in-islington/"
+},
+{
+"id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
+"name": "Marlborough Primary School",
+"address": "Green Lane Small Heath Birmingham B10 9NY",
+"postcode": "B10 9NY",
+"lat": 52.47485,
+"lng": -1.84811,
+"phone": "01214 647933",
+"website": "https://www.mps.bham.sch.uk/",
+"source": "Open Innovations: Birmingham Council",
+"source_url": "https://www.birmingham.gov.uk/directory_record/670130/marlborough_primary_school"
 },
 {
 "id": "ww-55592264",
@@ -4023,18 +4035,6 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27459"
 },
 {
-"id": "ww-65441920",
-"name": "The King's Church Halifax",
-"address": "The King's Centre, Halifax, Halifax HX1  2TS",
-"postcode": "HX1 2TS",
-"lat": 53.720529,
-"lng": -1.870715,
-"phone": "01422 250872",
-"website": "https://kingschurchhx.org.uk/",
-"source": "Warm Welcome",
-"source_url": "https://www.warmwelcome.uk/space?l=15309"
-},
-{
 "id": "ww-55474363",
 "name": "The Life Rooms Walton",
 "address": "The Life Rooms Walton, Merseyside L9 2AF",
@@ -4923,16 +4923,16 @@
 "source_url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/"
 },
 {
-"id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
-"name": "Marlborough Primary School",
-"address": "Green Lane Small Heath Birmingham B10 9NY",
-"postcode": "B10 9NY",
-"lat": 52.47485,
-"lng": -1.84811,
-"phone": "01214 647933",
-"website": "https://www.mps.bham.sch.uk/",
-"source": "Open Innovations: Birmingham Council",
-"source_url": "https://www.birmingham.gov.uk/directory_record/670130/marlborough_primary_school"
+"id": "ww-65441920",
+"name": "The King's Church Halifax",
+"address": "The King's Centre, Halifax, Halifax HX1  2TS",
+"postcode": "HX1 2TS",
+"lat": 53.720529,
+"lng": -1.870715,
+"phone": "01422 250872",
+"website": "https://kingschurchhx.org.uk/",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=15309"
 }
 ]
 }
