@@ -1,12 +1,12 @@
 """Cardiff Foodbank (27 Oct 2026): every centre showed Mon-Fri 09:30-13:30, the phone-line hours printed on every centre
-card. Hand-checked times per centre card (saved page tests/fixtures/cardiff_voucher_2026-10-27.html) must hold, and the
+card. Hand-checked times per centre card (saved page tests/fixtures/cardiff_voucher_2026-10-27.html.txt) must hold, and the
 3x-daily refresh cross-check must never put the wrong times back."""
 import os, sys, json, copy, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discover as D, classify as C
 from times import normalise
-HTML = open(os.path.join(ROOT, "tests", "fixtures", "cardiff_voucher_2026-10-27.html")).read()
+HTML = open(os.path.join(ROOT, "tests", "fixtures", "cardiff_voucher_2026-10-27.html.txt")).read()
 URL = "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
 OT = json.load(open(os.path.join(ROOT, "overrides", "opening_times.json")))
 WANT = {"cathays": {"tue": [["13:00", "15:00"]], "sat": [["11:00", "13:00"]]}, "central": {"thu": [["10:00", "12:00"]]},
