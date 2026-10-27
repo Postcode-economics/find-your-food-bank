@@ -81,13 +81,21 @@ HIDDEN_OLD = set()
 UNRESOLVED = {}
 
 OOH_LABEL = re.compile(r"out-of-hours", re.I)
+# Exact labels Dean approved in PR 211 (live 27 Oct 17:52 GMT). Only these exact id+label pairs are accepted.
+APPROVED_211_LABELS = {
+    "ww-55473691": "Council homelessness emergency line",
+    "ww-68895885": "Housing Executive (NIHE) out of hours",
+    "scni-armagh": "Housing Executive (NIHE) out of hours",
+    "scni-portadown": "Housing Executive (NIHE) out of hours",
+}
 
-# PR 211 (ooh-number-lock) lands these, with or before the combined batch. This branch must not
-# replace them: Portsmouth warm space stays off 023 9282 4244, and Armagh and Sefton stay as on main.
-DEFERRED_211 = {
-    "ww-55473335": "0345 140 0845",  # Sefton
-    "ww-55473691": "023 9282 2251",  # Portsmouth warm space (211 sets 023 9282 4244)
-    "ww-68895885": "0300 030 0900",  # Armagh, Banbridge and Craigavon
+# PR 211 (ooh-number-lock) is live (27 Oct 17:52 GMT). Its out-of-hours numbers must survive this branch.
+# Kept as a name so the checks below still run on every other entry; these three are now checked too.
+DEFERRED_211 = {}
+LANDED_211 = {
+    "ww-55473335": "07779 960994",  # Sefton, out-of-hours line for people sleeping rough
+    "ww-55473691": "023 9282 4244",  # Portsmouth warm space
+    "ww-68895885": "03448 920 908",  # Armagh, Banbridge and Craigavon: Housing Executive (NIHE)
 }
 
 
@@ -128,16 +136,22 @@ class Rule37(unittest.TestCase):
         for where, e in override_entries():
             if where.split(":")[-1] in DEFERRED_211 or D(e["council_phone"]) in UNRESOLVED:
                 continue
+            if APPROVED_211_LABELS.get(where.split(":")[-1]) == e.get("council_label"):
+                self.assertTrue(e.get("council_label_cy"), where)
+                continue
             self.assertRegex(e.get("council_label", ""), OOH_LABEL, where)
             self.assertTrue(e.get("council_label_cy"), where)
 
-    def test_armagh_sefton_and_portsmouth_warm_space_stay_for_211(self):
+    def test_armagh_sefton_and_portsmouth_warm_space_keep_211(self):
         d = json.load(open(os.path.join(ROOT, "overrides", "warmspaces_contacts.json")))
-        for i, n in DEFERRED_211.items():
+        cards = {x["id"]: x for x in built("warmspaces")}
+        for i, n in LANDED_211.items():
             self.assertEqual(d[i]["council_phone"], n, i)
-            self.assertNotIn("023 9282 4244", d[i].get("council_phone", "") + (d[i].get("council_ooh") or ""))
-        self.assertNotEqual(d["ww-68895885"].get("council"), "Housing Executive (NIHE)")
-        self.assertNotEqual(d["ww-55473335"]["council_phone"], "07779 960994")
+            self.assertEqual(d[i]["council_ooh"], n, i)
+            self.assertEqual(cards[i]["council_phone"], n, i)
+        self.assertEqual(d["ww-68895885"].get("council"), "Housing Executive (NIHE)")
+        self.assertNotEqual(d["ww-55473335"]["council_phone"], "0345 140 0845")
+        self.assertNotEqual(d["ww-55473691"]["council_phone"], "023 9282 2251")
 
     def test_hidden_cards_show_no_council_line(self):
         items = built("warmspaces")
