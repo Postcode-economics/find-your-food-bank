@@ -155,7 +155,11 @@ window.addTiles = function (map) {
     window.TILE_ACTIVE = p.name; logo(false);
     window.loadVectorLib().then(function () {
       if (my !== gen) return;
-      layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, attributionControl: { customAttribution: p.attribution } });
+      /* Light on phones: at most 2x pixels, no fades, a small tile cache, flat (no pitch or rotate). */
+      layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, attributionControl: { customAttribution: p.attribution },
+        pixelRatio: Math.min(window.devicePixelRatio || 1, 2), fadeDuration: 0, maxTileCacheSize: 32,
+        antialias: false, maxPitch: 0, pitchWithRotate: false, dragRotate: false, touchPitch: false,
+        refreshExpiredTiles: false, crossSourceCollisions: false });
       layer.addTo(map);
       window.TILE_VECTOR = 'ready';
     }).catch(function (e) {
