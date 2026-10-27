@@ -124,7 +124,11 @@ class T(unittest.TestCase):
                 until(page,
                     """async (name) => {
                         const reg = await navigator.serviceWorker.getRegistration();
-                        if (!reg || !navigator.serviceWorker.controller) return false;
+                        // The worker must have finished installing (its precache is complete) and control
+                        // this page. Blocking the network earlier is the old race: install fails or the next
+                        // page is not controlled, and data.js goes to the network (net::ERR_EMPTY_RESPONSE).
+                        if (!reg || !reg.active || reg.active.state !== 'activated'
+                            || !navigator.serviceWorker.controller) return false;
                         const c = await caches.open(name);
                         const urls = (await c.keys()).map(k => k.url);
                         return urls.some(u => /\\/data\\.js(?:\\?|$)/.test(u))
