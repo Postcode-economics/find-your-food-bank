@@ -92,24 +92,13 @@ class StaleWorker(unittest.TestCase):
                         pg.evaluate("() => navigator.serviceWorker.controller && navigator.serviceWorker.controller.scriptURL"))
         return b, c, pg, net, navs
 
-    def test_heal_once_then_offline_still_works(self):
-        """(1) + (2): self-heal and the offline cache together."""
+    def test_heal_once_webkit(self):
+        """(1) on WebKit iPhone 13. Offline after the heal is checked in Chromium below: Playwright's request routing
+        in WebKit keeps tile responses out of the worker's cache (the cache stays empty even with the live code), so
+        an offline check here would test the harness, not the site."""
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            b, c, pg, net, navs = self._healed(p)
-            pg.reload(wait_until='load')  # a second online visit fills the new caches under the new worker
-            self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
-            pg.wait_for_timeout(1500)
-            net['off'] = True
-            c.unroute_all(behavior='ignoreErrors')  # no test server any more: only the worker's caches can answer
-            c.set_offline(True); n = len(navs)
-            pg.reload(wait_until='load')
-            self.assertTrue(until(pg, "() => !!document.querySelector('#map .leaflet-pane')", 30), 'page did not load offline')
-            self.assertTrue(until(pg, "() => document.querySelectorAll('#map img.leaflet-tile-loaded').length >= 4", 30), pg.evaluate(STATE))
-            pg.wait_for_timeout(2000)
-            self.assertEqual(len(navs) - n, 1, 'offline visit reloaded again')
-            os.makedirs(SHOTS, exist_ok=True); pg.screenshot(path=os.path.join(SHOTS, 'healed_offline.png'))
-            b.close()
+            b, *_ = self._healed(p); b.close()
 
     def test_heal_then_osm_blocked_in_worker_switches_to_openfreemap(self):
         """(3): worker ON, OSM refused for page and worker fetches; the backup draws and the page keeps responding."""
@@ -151,3 +140,70 @@ class StaleWorker(unittest.TestCase):
 
 del IPhone  # run its tests once, in test_iphone_map_fix
 if __name__ == '__main__': unittest.main()
+
+
+class OfflineAfterHeal(unittest.TestCase):
+    """(2) Old v90 worker + caches, then the new build heals once; then offline the page and cached OSM tiles still
+    load. Chromium with real local servers (host-rules), the same harness as test_osm_default's offline check."""
+    @unittest.skipUnless(__import__('test_osm_default').HAVE, 'needs playwright chromium')
+    def test_heal_then_offline(self):
+        import http.server, ssl, subprocess, tempfile, threading
+        from urllib.parse import urlparse
+        from playwright.sync_api import sync_playwright
+        import test_osm_default as O
+        body = {'sw': subprocess.check_output(['git', 'show', 'e3982436c:sw.js'], cwd=R)}
+        off = {'on': False}; offline_hits = []
+
+        class Site(http.server.SimpleHTTPRequestHandler):
+            def __init__(self, *a, **k): super().__init__(*a, directory=R, **k)
+            def log_message(self, *a): pass
+            def do_GET(self):
+                if urlparse(self.path).path == '/sw.js':
+                    d = body['sw'] if body['sw'] is not None else open(os.path.join(R, 'sw.js'), 'rb').read()
+                    self.send_response(200); self.send_header('Content-Type', 'application/javascript')
+                    self.send_header('Cache-Control', 'no-store'); self.send_header('Content-Length', str(len(d))); self.end_headers()
+                    self.wfile.write(d); return
+                super().do_GET()
+
+        class Tiles(http.server.BaseHTTPRequestHandler):
+            def log_message(self, *a): pass
+            def do_GET(self):
+                if off['on']: offline_hits.append(self.path)
+                self.send_response(200); self.send_header('Content-Type', 'image/png'); self.send_header('Content-Length', str(len(O.BLANK)))
+                self.send_header('Access-Control-Allow-Origin', '*'); self.end_headers(); self.wfile.write(O.BLANK)
+
+        certs = tempfile.mkdtemp()
+        subprocess.check_call(['openssl', 'req', '-x509', '-newkey', 'rsa:2048', '-keyout', certs + '/k.pem', '-out', certs + '/c.pem',
+                               '-days', '1', '-nodes', '-subj', '/CN=tile.openstreetmap.org'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        sc = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER); sc.load_cert_chain(certs + '/c.pem', certs + '/k.pem')
+        tiles = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Tiles); tiles.socket = sc.wrap_socket(tiles.socket, server_side=True)
+        site = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Site)
+        for srv in (tiles, site): threading.Thread(target=srv.serve_forever, daemon=True).start()
+        rules = ', '.join('MAP %s 127.0.0.1:%d' % (h, tiles.server_address[1]) for h in O.STUB_HOSTS)
+        url = 'http://127.0.0.1:%d/?nocount' % site.server_address[1]
+        PAINT = """() => [...document.querySelectorAll('#map .leaflet-tile-loaded')].filter(i => i.src.includes('tile.openstreetmap.org') && i.naturalWidth > 0).length >= 4"""
+        try:
+            with sync_playwright() as p:
+                br = p.chromium.launch(args=['--host-rules=' + rules, '--ignore-certificate-errors'])
+                ctx = br.new_context(viewport={'width': 390, 'height': 844}, service_workers='allow', user_agent='Mozilla/5.0 helpmap-check')
+                pg = ctx.new_page(); navs = []
+                pg.on('framenavigated', lambda f: f == pg.main_frame and navs.append(f.url))
+                pg.goto(url, wait_until='domcontentloaded')
+                self.assertTrue(O.until(pg, "async () => (await caches.keys()).includes('fyfb-v90')", 30), 'old worker not installed')
+                body['sw'] = None; n = len(navs)
+                pg.goto(url, wait_until='domcontentloaded')
+                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v92') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
+                self.assertTrue(O.until(pg, PAINT, 30), 'no map after heal')
+                pg.wait_for_timeout(2500)
+                self.assertEqual(len(navs) - n, 2, navs[n:])  # the visit + exactly one heal reload
+                pg.reload(wait_until='domcontentloaded'); self.assertTrue(O.until(pg, PAINT, 30))
+                self.assertTrue(O.until(pg, "async () => (await (await caches.open('fyfb-tiles2')).keys()).some(r => r.url.includes('tile.openstreetmap.org'))", 10))
+                off['on'] = True; ctx.set_offline(True); n = len(navs)
+                pg.reload(wait_until='domcontentloaded')
+                self.assertTrue(O.until(pg, PAINT, 30), 'offline after heal: cached OSM tiles not shown')
+                pg.wait_for_timeout(1500)
+                self.assertEqual(len(navs) - n, 1, 'offline visit reloaded again')
+                self.assertEqual(offline_hits, [])
+                br.close()
+        finally:
+            site.shutdown(); tiles.shutdown()
