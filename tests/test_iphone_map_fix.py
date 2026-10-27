@@ -77,8 +77,19 @@ class Source(unittest.TestCase):
         self.assertNotIn("r.type==='opaque'){c.put", sw)
         self.assertIn('#map .leaflet-gl-layer,#map .leaflet-gl-layer *{pointer-events:none!important}', home)
         self.assertIn('pointer-events:none!important', css)
-        self.assertIn('tiles.js?v=h9d4d60e584e4', home)
-        self.assertIn('tiles.js?v=h9d4d60e584e4', sw)
+        import hashlib
+        digest = 'h' + hashlib.sha256(tiles.encode()).hexdigest()[:12]
+        self.assertIn('tiles.js?v=' + digest, home)
+        self.assertIn('tiles.js?v=' + digest, sw)
+        self.assertIn('window.TILE_VECTOR_WATCH_MS = 8000', tiles)
+        self.assertIn("gl.on('error'", tiles)
+        self.assertIn("gl.on('load'", tiles)
+        self.assertIn("gl.on('idle'", tiles)
+        self.assertIn("new Error('no tiles')", tiles)
+        self.assertIn("window.TILE_VECTOR = 'loading'", tiles)
+        self.assertIn("window.TILE_VECTOR = 'ready'", tiles)
+        self.assertNotRegex(tiles, r"addTo\(map\);\s*window\.TILE_VECTOR = 'ready'")
+        self.assertIn('vectorFailed = true', tiles)
 
 
 @unittest.skipUnless(HAVE, 'needs playwright webkit')

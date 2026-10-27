@@ -26,6 +26,12 @@ window.TILE_WINDOW_FAILS = 4;
 /* A 401, 403 or 429 (a refusal) switches only at TILE_WINDOW_REFUSALS in the window (Dean, 27 Oct 2026, from PR 169):
    phone networks and iCloud Private Relay share addresses, so one stray 429 must not drop the map. */
 window.TILE_WINDOW_REFUSALS = 3;
+/* OpenFreeMap is not 'ready' until MapLibre has loaded and tiles have actually painted.
+   A layer that only starts (canvas exists, no load/idle, no pixels) used to stay grey forever:
+   useVector set 'ready' before load and only saw promise rejections, so a MapLibre 'error'
+   (WebKit SyntaxError) or a style that never draws never came back. After this many milliseconds
+   with neither a load nor an idle that painted tiles, the map returns to OpenStreetMap once. */
+window.TILE_VECTOR_WATCH_MS = 8000;
 window.tileCandidates = function () {
   var list = window.TILE_PROVIDERS.filter(function (p) {
     if (p.disabled) return false;
@@ -205,14 +211,22 @@ window.addTiles = function (map) {
     logo(p.name === 'maptiler');
   }
   /* OpenFreeMap: a MapLibre GL layer inside Leaflet. Markers, clusters and controls are unchanged. */
+  function stopVectorWatch() {
+    if (map._hmVectorWatch) { clearTimeout(map._hmVectorWatch); map._hmVectorWatch = 0; }
+  }
   function useVector(p, my, i) {
     window.TILE_ACTIVE = p.name; logo(false);
-    /* Any OpenFreeMap failure (script load, no WebGL e.g. iOS Lockdown Mode, MapLibre setup throwing) goes back
-       to OpenStreetMap, never a blank map. vectorFailed allows that once per page: giveUp then never returns to
-       OpenFreeMap, so there is no flip-flop. */
+    /* Any OpenFreeMap failure goes back to OpenStreetMap, never a blank map. vectorFailed allows that once
+       per page: giveUp then never returns to OpenFreeMap, so there is no flip-flop and no freeze from two
+       maps fighting. Script load, no WebGL (iOS Lockdown Mode), a MapLibre 'error', or the watchdog below
+       all use this same fail(). */
+    var settled = false, sawLoad = false, sawIdle = false, sawPaint = false;
     function fail(e) {
-      if (my !== gen) return;
+      if (my !== gen || settled) return;
+      settled = true;
+      stopVectorWatch();
       if (layer) { try { map.removeLayer(layer); } catch (x) {} layer = null; }
+      if (my !== gen) return;
       window.TILE_VECTOR = 'failed: ' + (e && e.message);
       if (i < list.length - 1) { use(i + 1); return; }
       if (!vectorFailed && list[0] && list[0].type !== 'vector') {
@@ -220,6 +234,45 @@ window.addTiles = function (map) {
         if (window.TILE_FAILOVER) window.TILE_FAILOVER.back = list[0].name;
         use(0);
       }
+    }
+    /* Opaque pixels, or features MapLibre can already query. A canvas with no style stays clear. */
+    function painted(gl) {
+      var cv, ctx, buf, lit, x, y, feats;
+      try {
+        if (gl.queryRenderedFeatures) {
+          feats = gl.queryRenderedFeatures();
+          if (feats && feats.length) return true;
+        }
+      } catch (e1) {}
+      try {
+        cv = gl.getCanvas();
+        if (!cv || cv.width < 2 || cv.height < 2) return false;
+        ctx = cv.getContext('webgl2') || cv.getContext('webgl');
+        if (!ctx) return false;
+        buf = new Uint8Array(4); lit = 0;
+        for (y = 1; y <= 3; y++) for (x = 1; x <= 3; x++) {
+          ctx.readPixels((cv.width * x / 4) | 0, (cv.height * y / 4) | 0, 1, 1, ctx.RGBA, ctx.UNSIGNED_BYTE, buf);
+          if (buf[3] > 0) lit++;
+        }
+        return lit >= 3;
+      } catch (e2) { return false; }
+    }
+    function succeed() {
+      if (my !== gen || settled) return;
+      settled = true;
+      stopVectorWatch();
+      window.TILE_VECTOR = 'ready';
+    }
+    /* 'ready' only after MapLibre's own load, and only once something has painted.
+       Idle with paint is a drawn map: do not fall back, and do not call it ready until load. */
+    function consider(gl, kind) {
+      if (my !== gen || settled) return;
+      if (kind === 'load') sawLoad = true;
+      if (kind === 'idle') sawIdle = true;
+      try { if (painted(gl)) sawPaint = true; } catch (e3) { return fail(e3); }
+      if (!sawPaint) return;
+      if (sawLoad) { succeed(); return; }
+      if (sawIdle) stopVectorWatch();
     }
     window.loadVectorLib().then(function () {
       if (my !== gen) return;
@@ -232,11 +285,27 @@ window.addTiles = function (map) {
       layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         attributionControl: { customAttribution: p.attribution } });
       layer.addTo(map);
-      window.TILE_VECTOR = 'ready';
+      if (my !== gen) return;
+      gl = layer.getMaplibreMap();
+      if (!gl) throw new Error('no map');
+      window.TILE_VECTOR = 'loading';
+      gl.on('error', function (ev) { fail(ev && ev.error || new Error('maplibre')); });
+      gl.on('load', function () { consider(gl, 'load'); });
+      gl.on('idle', function () { consider(gl, 'idle'); });
+      stopVectorWatch();
+      map._hmVectorWatch = setTimeout(function () {
+        map._hmVectorWatch = 0;
+        if (my !== gen || settled) return;
+        try { if (painted(gl)) sawPaint = true; } catch (e4) {}
+        if (sawPaint && sawLoad) { succeed(); return; }
+        if (sawPaint && sawIdle) return;
+        fail(new Error('no tiles'));
+      }, window.TILE_VECTOR_WATCH_MS || 8000);
     }).catch(fail);
   }
   map._hmTileStop = function () {
     gen++;
+    stopVectorWatch();
     if (layer) { map.removeLayer(layer); layer = null; }
     if (logoCtl) { map.removeControl(logoCtl); logoCtl = null; }
   };
