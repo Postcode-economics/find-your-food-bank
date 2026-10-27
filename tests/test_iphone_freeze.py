@@ -49,7 +49,7 @@ PROBE = """(() => {
     if (g > window.__hb.max) window.__hb.max = g;
   }, 50);
   window.__tap = {t0: 0, ms: 0, max: 0, n: 0};
-  addEventListener('pointerdown', () => { window.__tap.t0 = performance.now(); }, true);
+  addEventListener('pointerdown', () => { window.__tap.t0 = performance.now(); window.__tap.down = 1; }, true);
   addEventListener('click', () => {
     if (!window.__tap.t0) return;
     const d = performance.now() - window.__tap.t0;
@@ -191,13 +191,29 @@ def tap(pg, bad, sel, name):
     if not box or box['w'] < 2 or box['h'] < 2:
         bad.append('%s not on screen %s' % (name, box))
         return
+    # The page may still be scrolling (Locate smooth-scrolls to the results). iOS treats a touch on a
+    # moving page as a scroll stop, not a click, so tap only once the target has held still for 2 frames.
+    box = pg.evaluate("""sel => new Promise(ok => { let last = null, same = 0, n = 0;
+      const step = () => { const r = document.querySelector(sel).getBoundingClientRect();
+        const k = [r.x, r.y, r.width, r.height].map(Math.round).join(',');
+        same = (k === last) ? same + 1 : 0; last = k; n++;
+        if (same >= 2 || n > 300) ok({x: r.x + r.width / 2, y: r.y + r.height / 2, w: r.width, h: r.height, stable: same >= 2});
+        else requestAnimationFrame(step); };
+      requestAnimationFrame(step); })""", sel)
+    if not box.get('stable'):
+        bad.append('%s never held still for 2 frames %s' % (name, box))
+        return
+    pg.evaluate('window.__tap.down = 0')
     try:
         pg.touchscreen.tap(box['x'], box['y'])
     except Exception as e:
         bad.append('%s tap failed: %s' % (name, str(e)[:140]))
         return
     if not until(pg, 'window.__tap.n > %d' % before, TAP_MS / 1000.0 + 1):
-        bad.append('%s tap not handled within %d ms' % (name, TAP_MS))
+        if pg.evaluate('window.__tap.down'):
+            bad.append('%s pressed, no click within %d ms' % (name, TAP_MS))
+        else:
+            bad.append('%s tap not handled within %d ms (no pointerdown)' % (name, TAP_MS))
         return
     ms = pg.evaluate('window.__tap.ms')
     print(name, 'tap', round(ms), flush=True)

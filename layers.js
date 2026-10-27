@@ -195,7 +195,7 @@ if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=
 function offlineCheck(){if(!navigator.onLine)goOffline()}
 remember();
 addEventListener('load',()=>{if(navigator.onLine&&!isOff)fetch('index.html',{cache:'no-store'}).then(r=>{if(r.ok&&!isOff)remember()}).catch(goOffline)});
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=h4564b68aadaf',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
+if('serviceWorker' in navigator)Promise.resolve(window.__hmHeal).catch(()=>{}).then(()=>navigator.serviceWorker.register('sw.js?v=h4564b68aadaf',{updateViaCache:'none'})).then(r=>r.update()).catch(()=>{});  // waits for the head's old-cache heal: register() during a pending unregister revives the old worker (27 Oct)  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
 // 27 Oct 2026: the new header/legend DOM above is laid out in its own frame; paint() and saved layers run in the next turn so one iPhone frame does not do both.
 requestAnimationFrame(()=>setTimeout(()=>{paint();for(const k in LAYERS){try{if(localStorage.getItem('lay_'+k)==='1')toggle(k,true)}catch(e){}}
 const q=new URLSearchParams(location.search);['sh','ws'].forEach(k=>{if(q.get(k)==='1')toggle(k,true)});
