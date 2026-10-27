@@ -41,7 +41,8 @@ class DryRun(unittest.TestCase):
             json.dump([{"when": "2026-10-27T05:17:39+00:00", "kind": "new food bank"} for _ in range(40)],
                       open(os.path.join(d, "reports", "access_changes.json"), "w"))
             info = D.assess(d)
-            self.assertEqual(info["proposed"], 40)
+            self.assertEqual(info["proposed"], 0)  # 40 new places are held for Dean; none were applied
+            self.assertEqual(info["latest"]["held_new"], 40)
             self.assertEqual(len(info["history"]), 0)
             self.assertFalse(info["recorded"]["stop"])
             self.assertIn("not enough history", info["recorded"]["reason"])
@@ -73,6 +74,38 @@ class DryRun(unittest.TestCase):
             self.assertFalse(os.path.exists(os.path.join(d, "reports", "anomaly_brake.md")))
             quiet = learning.anomaly_brake(info["history"], 9)
             self.assertFalse(quiet["stop"])
+        finally:
+            shutil.rmtree(d)
+    def test_eleven_held_new_places_do_not_stop_twelve_applied_does(self):
+        d = tempfile.mkdtemp()
+        try:
+            os.makedirs(os.path.join(d, "reports"))
+            runs, changes = [], []
+            for i in range(4):
+                at = "2026-10-2%dT05:00:00+00:00" % (3 + i)
+                runs.append({"at": at, "flips": 2, "phone_fixes": 0, "closures": 0})
+                changes += [{"when": at, "kind": "phone", "old": "1", "new": "2"} for _ in range(2)]
+            at = "2026-10-27T05:17:39+00:00"
+            runs.append({"at": at, "flips": 0, "phone_fixes": 2, "closures": 0})
+            changes += [{"when": at, "kind": "new food bank", "id": "n%d" % i} for i in range(11)]
+            changes += [{"when": at, "kind": "phone", "old": "1", "new": "2"}, {"when": at, "kind": "removed", "id": "gone"}]
+            json.dump({"2026-10-27": {"runs": runs}}, open(os.path.join(d, "reports", "daily_review.json"), "w"))
+            json.dump(changes, open(os.path.join(d, "reports", "access_changes.json"), "w"))
+            info = D.assess(d)
+            self.assertEqual(info["proposed"], 2)
+            self.assertEqual(info["latest"]["held_new"], 11)
+            self.assertEqual(info["recorded"]["median"], 2)
+            self.assertFalse(info["recorded"]["stop"])
+            self.assertFalse(os.path.exists(os.path.join(d, "reports", "anomaly_brake.md")))
+            at12 = "2026-10-28T05:00:00+00:00"
+            runs.append({"at": at12, "flips": 12, "phone_fixes": 0, "closures": 0})
+            changes += [{"when": at12, "old": "voucher", "new": "walkin"} for _ in range(12)]
+            json.dump({"2026-10-28": {"runs": runs}}, open(os.path.join(d, "reports", "daily_review.json"), "w"))
+            json.dump(changes, open(os.path.join(d, "reports", "access_changes.json"), "w"))
+            again = D.assess(d)
+            self.assertEqual(again["proposed"], 12)
+            self.assertEqual(again["recorded"]["median"], 2)
+            self.assertTrue(again["recorded"]["stop"])
         finally:
             shutil.rmtree(d)
 
