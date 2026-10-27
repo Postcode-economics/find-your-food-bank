@@ -15569,11 +15569,43 @@
   }
  },
  "pontypridd": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday Closed Tuesday-Friday 9:00 am to 1:45 pm | Saturday 10:00 am to 11:45 am | Monday-Wednesday Closed Thursday 12:00 pm to 1:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "09:00",
+     "13:45"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "13:45"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "13:45"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "13:45"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "11:45"
+    ]
+   ]
+  },
+  "raw": "Tue-Fri 09:00 - 13:45; Sat 10:00 - 11:45",
   "source_url": "https://pontypridd.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Pontypridd Foodbank centre card Riverside Day Centre, CF37 1BW, 'Collection times'; Thu 12:00-13:00 belongs to the Ynysybwl Community Centre card)"
  },
  "poole": {
   "checked_date": "2026-10-20",
@@ -16509,11 +16541,25 @@
   "structured": null
  },
  "rickmansworth/mill-end": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 12:15 pm to 1:15 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:45",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Tue 13:45 - 16:00; Fri 10:00 - 12:00",
   "source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Rickmansworth Foodbank centre card 'Mill Cafe Methodist Church', Berry Lane WD3 7HJ, 'Collection times'; old Wed slot not on the card)"
  },
  "ringwood": {
   "checked_date": "2026-10-20",
@@ -18172,36 +18218,25 @@
   "structured": null
  },
  "silklife": {
-  "checked_date": "2026-10-20",
-  "raw": "Sunday Service 10:30 - 12:30",
-  "source_url": "https://www.silklife.co.uk/foodbank",
   "status": "TIMES_FOUND",
   "structured": {
-   "fri": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
-   "sat": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
-   "sun": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
    "tue": [
     [
-     "10:30",
-     "12:30"
+     "09:30",
+     "11:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:30",
+     "11:30"
     ]
    ]
-  }
+  },
+  "raw": "Tue 09:30 - 11:30; Fri 09:30 - 11:30",
+  "source_url": "https://www.silklife.co.uk/foodbank",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page: 'visit the Silklife Foodbank on a Tuesday or a Friday morning between 9:30am and 11:30am'; Sun 10:30-12:30 is the church Sunday Service, not the foodbank)"
  },
  "skegness": {
   "checked_date": "2026-10-20",
@@ -21524,11 +21559,19 @@
   "structured": null
  },
  "thurrock/all-saints-church-south-ockendon": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Thursday Closed Friday 10:00 am to 12:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Thu 11:00 - 13:00",
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Thurrock Foodbank centre card 'All Saints Church', RM15 5HF, 'Collection times')"
  },
  "thurrock/emmanuel-church-chadwell-st-mary": {
   "card_name": "Chadwell Distribution Centre",
@@ -21548,18 +21591,34 @@
   }
  },
  "thurrock/gates-of-praise-international-christian-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Friday Closed Saturday 9:30 am to 11:30 am",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Sat 10:00 - 12:00",
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Thurrock Foodbank centre card 'Gates of Praise Christian Centre', RM17 5YF, 'Collection times')"
  },
  "thurrock/gateway-peoples-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Wed 11:00 - 13:00",
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Thurrock Foodbank centre card 'Gateway Peoples Centre', SS17 0EY, 'Collection times')"
  },
  "thurrock/grays-methodist-church": {
   "card_name": "Grays Methodist Church",
@@ -21579,18 +21638,34 @@
   }
  },
  "thurrock/st-francis-centre-linford": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 1:00 pm to 3:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Thu 11:00 - 13:00",
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Thurrock Foodbank centre card 'St Francis Centre', SS17 0QA, 'Collection times')"
  },
  "thurrock/st-john-the-baptist-church-tilbury": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 11:00 am to 1:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Tue 11:00 - 13:00",
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Thurrock Foodbank centre card 'St John's Church', Dock Road RM18 7PP, 'Collection times')"
  },
  "thurrock/st-marys-church-hall-little-thurrock": {
   "card_name": "Little Thurrock Distribution Centre",
@@ -21610,11 +21685,19 @@
   }
  },
  "thurrock/st-stephens-church-hall-purfleet": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday Closed Tuesday 2:00 pm to 4:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Fri 10:00 - 12:00",
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Thurrock Foodbank centre card 'St Stephen's Church Hall', RM19 1QD, 'Collection times')"
  },
  "todmorden": {
   "checked_date": "2026-10-20",
@@ -21780,11 +21863,19 @@
   "structured": null
  },
  "trinity": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon-Thurs 10am - 2pm | Friday 9 - 12",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Fri 09:00 - 12:00",
   "source_url": "https://trinityfoodbank.co.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own site 'Open Times': 'open for collection of food parcels ... Friday 9 - 12'; Mon-Thu 10-2 is phone calls from statutory agencies only, not a session)"
  },
  "truro": {
   "checked_date": "2026-10-20",
@@ -23501,18 +23592,34 @@
   }
  },
  "wirral/st-james-church-new-brighton": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 1:00 pm to 2:30 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  },
+  "raw": "Thu 10:30 - 12:30",
   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Wirral Foodbank centre card 'St James', Albion Street CH45 9LF, 'Collection times')"
  },
  "wirral/st-joseph-and-st-albans": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 12:30 pm to 2:30 pm | Tuesday Closed Wednesday 12:30 pm to 2:30 pm | Thursday Closed Friday 10:00 am to 12:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "17:30",
+     "19:00"
+    ]
+   ]
+  },
+  "raw": "Tue 17:30 - 19:00",
   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Wirral Foodbank centre card 'St Alban's Parish Centre, Wallasey', CH44 5UD, 'Collection times')"
  },
  "wirral/st-marks-new-ferry": {
   "checked_date": "2026-10-20",
@@ -23630,11 +23737,35 @@
   }
  },
  "woking": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 10:30 am to 12:30 pm | Tuesday Closed Wednesday 10:30 am to 12:30 pm | Thursday 10:30 am to 12:30 pm | Monday-Tuesday Closed Wednesday 12:00 pm to 2:30 pm | Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:00 am to 12:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ],
+    [
+     "17:30",
+     "18:30"
+    ]
+   ]
+  },
+  "raw": "Mon 10:30 - 12:30; Wed 10:30 - 12:30; Thu 10:30 - 12:30, 17:30 - 18:30",
   "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Woking Foodbank main centre card, GU21 6EL, 'Collection times'; old listing merged the Byfleet/Sheerwater/Sythwood cards, which are listed separately)"
  },
  "woking/byfleet": {
   "card_name": "Woking Foodbank Byfleet",
