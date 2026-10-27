@@ -360,17 +360,45 @@ window.addTiles = function (map) {
         trackResize: false, fadeDuration: 0, maxTileCacheSize: 32,
         antialias: false, maxPitch: 0, pitchWithRotate: false, dragRotate: false, touchPitch: false,
         refreshExpiredTiles: false, crossSourceCollisions: false,
-        attributionControl: { customAttribution: p.attribution } });
+        attributionControl: { customAttribution: p.attribution },
+        /* Root-relative vector tiles never leave WebKit (0 requests, grey canvas, ready already set).
+           Make them absolute before the worker fetches. */
+        transformRequest: function (url) {
+          /* WebKit asks for a root-relative vector tile on the page host and then drops it, so the
+             canvas stays the grey background with ready already set and no tile counted. Send it to
+             the tile host. */
+          if (!url) return { url: url };
+          if (url.charAt(0) === '/') url = 'https://tiles.openfreemap.org' + url;
+          else if (url.indexOf('/planet/') >= 0 && url.indexOf('tiles.openfreemap.org') < 0)
+            url = url.replace(/^https?:\/\/[^/]+/, 'https://tiles.openfreemap.org');
+          return { url: url };
+        } });
       layer.addTo(map);
       var glMap = layer.getMaplibreMap();
       var canvas = layer.getCanvas(), lost = 0, restored = true;
       if (!glMap) throw new Error('no map');
       window.TILE_VECTOR = 'loading';
+      /* 'ready' only after MapLibre's load (PR 198). Setting it before load is the 27 Oct grey map:
+         the canvas exists, WebKit has thrown, no vector tile is requested, and nothing falls back.
+         kick() is what Locate / Find nearest need: those add this layer during fitBounds, and a zoom
+         listener attached mid-animation misses the resize, so the canvas stays grey. */
+      var kicked = false;
+      function kick() {
+        if (my !== gen || !glMap) return;
+        try { glMap.resize(); } catch (eK) {}
+        try { if (layer && layer._update) layer._update(); } catch (eU) {}
+      }
       glMap.on('error', function (ev) {
-        if (my !== gen || settled || !fatalVectorError(ev)) return;
+        if (my !== gen) return;
+        if (!kicked) { kicked = true; kick(); }
+        if (settled || !fatalVectorError(ev)) return;
         fail(ev && ev.error || new Error('maplibre'));
       });
-      glMap.on('load', function () { consider(glMap, 'load'); });
+      glMap.on('load', function () {
+        if (my !== gen) return;
+        kick();
+        consider(glMap, 'load');
+      });
       glMap.on('idle', function () { consider(glMap, 'idle'); });
       /* Ready does not set settled. #201 still falls back if the WebGL context stays lost after paint.
          settled stays the gate on fail(), so that return happens once. */
@@ -385,7 +413,8 @@ window.addTiles = function (map) {
         if (kind === 'load') sawLoad = true;
         if (kind === 'idle') sawIdle = true;
         try { if (painted(gl)) sawPaint = true; } catch (e3) {}
-        if (sawPaint && (sawLoad || sawIdle)) succeed();
+        /* Load is required. Idle alone must not mark the canvas ready before the style has loaded. */
+        if (sawPaint && sawLoad) succeed();
       }
       if (canvas) {
         canvas.addEventListener('webglcontextlost', function (ev) {
@@ -404,9 +433,15 @@ window.addTiles = function (map) {
         map._hmVectorWatch = 0;
         if (my !== gen || settled) return;
         try { if (painted(glMap)) sawPaint = true; } catch (e4) {}
-        if (sawPaint && (sawLoad || sawIdle)) succeed();
+        if (sawPaint && sawLoad) succeed();
         else fail(new Error('no tiles'));
       }, window.TILE_VECTOR_WATCH_MS || 8000);
+      map.on('moveend', kick);
+      map.on('zoomend', kick);
+      map.on('resize', kick);
+      kick();
+      setTimeout(kick, 400);
+      setTimeout(kick, 1200);
     }).catch(fail);
   }
   map._hmTileStop = function () {

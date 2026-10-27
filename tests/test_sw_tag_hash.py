@@ -94,23 +94,25 @@ class StaleWorker(unittest.TestCase):
                 return route.abort('internetdisconnected')
             net['osm'] += 1; png(route)
         c.route('**://tile.openstreetmap.org/**', osm)
-        pg = c.new_page(); navs = []
-        pg.on('framenavigated', lambda f: f == pg.main_frame and navs.append(f.url))
+        pg = c.new_page(); loads = []
+        # Document requests only. history.replaceState (the hmheal flag) is a same-document
+        # navigation and is not a request; a reload that cuts the first document short still is.
+        pg.on('request', lambda r: r.is_navigation_request() and r.frame == pg.main_frame and loads.append(r.url))
         pg.goto(BASE + '/?nocount', wait_until='load')
         self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v90') && k.includes('fyfb-tiles') }", 30),
                         pg.evaluate('async () => await caches.keys()'))
         holder['sw'] = None
-        before = len(navs)
+        before = len(loads)
         pg.goto(BASE + '/?nocount', wait_until='load')
         self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v92') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
                         pg.evaluate('async () => await caches.keys()'))
         self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
         pg.wait_for_timeout(3000)
-        self.assertEqual(len(navs) - before, 2, ('expected the visit plus exactly one heal reload', navs[before:]))
+        self.assertEqual(len(loads) - before, 2, ('expected the visit plus exactly one heal reload', loads[before:]))
         self.assertEqual(pg.evaluate("() => sessionStorage.getItem('hmHealOld')"), '1')
         self.assertTrue(pg.evaluate("() => !!navigator.serviceWorker.controller && /sw\\.js\\?v=h[0-9a-f]{12}$/.test(navigator.serviceWorker.controller.scriptURL)"),
                         pg.evaluate("() => navigator.serviceWorker.controller && navigator.serviceWorker.controller.scriptURL"))
-        return b, c, pg, net, navs
+        return b, c, pg, net, loads
 
     def test_heal_once_webkit(self):
         """(1) on WebKit iPhone 13. Offline after the heal is checked in Chromium below: Playwright's request routing
@@ -250,28 +252,29 @@ class OfflineAfterHeal(unittest.TestCase):
         for srv in (tiles, site): threading.Thread(target=srv.serve_forever, daemon=True).start()
         rules = ', '.join('MAP %s 127.0.0.1:%d' % (h, tiles.server_address[1]) for h in O.STUB_HOSTS)
         url = 'http://127.0.0.1:%d/?nocount' % site.server_address[1]
-        PAINT = """() => [...document.querySelectorAll('#map .leaflet-tile-loaded')].filter(i => i.src.includes('tile.openstreetmap.org') && i.naturalWidth > 0).length >= 4"""
+        PAINT = """() => [...document.querySelectorAll('#map .leaflet-tile-loaded')].filter(i => (i.getAttribute('data-tile') || i.src).includes('tile.openstreetmap.org') && i.naturalWidth > 0).length >= 4"""
         try:
             with sync_playwright() as p:
                 br = p.chromium.launch(args=['--host-rules=' + rules, '--ignore-certificate-errors'])
                 ctx = br.new_context(viewport={'width': 390, 'height': 844}, service_workers='allow', user_agent='Mozilla/5.0 helpmap-check')
-                pg = ctx.new_page(); navs = []
-                pg.on('framenavigated', lambda f: f == pg.main_frame and navs.append(f.url))
+                pg = ctx.new_page(); loads = []
+                # Document requests only. replaceState of the heal flag is not a request.
+                pg.on('request', lambda r: r.is_navigation_request() and r.frame == pg.main_frame and loads.append(r.url))
                 pg.goto(url, wait_until='domcontentloaded')
                 self.assertTrue(O.until(pg, "async () => (await caches.keys()).includes('fyfb-v90')", 30), 'old worker not installed')
-                body['sw'] = None; n = len(navs)
+                body['sw'] = None; n = len(loads)
                 pg.goto(url, wait_until='domcontentloaded')
                 self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v92') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
                 self.assertTrue(O.until(pg, PAINT, 30), 'no map after heal')
                 pg.wait_for_timeout(2500)
-                self.assertEqual(len(navs) - n, 2, navs[n:])  # the visit + exactly one heal reload
+                self.assertEqual(len(loads) - n, 2, loads[n:])  # the visit + exactly one heal reload
                 pg.reload(wait_until='domcontentloaded'); self.assertTrue(O.until(pg, PAINT, 30))
                 self.assertTrue(O.until(pg, "async () => (await (await caches.open('fyfb-tiles2')).keys()).some(r => r.url.includes('tile.openstreetmap.org'))", 10))
-                off['on'] = True; ctx.set_offline(True); n = len(navs)
+                off['on'] = True; ctx.set_offline(True); n = len(loads)
                 pg.reload(wait_until='domcontentloaded')
                 self.assertTrue(O.until(pg, PAINT, 30), 'offline after heal: cached OSM tiles not shown')
                 pg.wait_for_timeout(1500)
-                self.assertEqual(len(navs) - n, 1, 'offline visit reloaded again')
+                self.assertEqual(len(loads) - n, 1, 'offline visit reloaded again')
                 self.assertEqual(offline_hits, [])
                 br.close()
         finally:
