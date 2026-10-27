@@ -1,0 +1,41 @@
+name: offline-tiles
+description: >
+  Real offline UK map tiles for browser checks (rules 23, 26). Downloads the UK mbtiles release asset once
+  (actions/cache keeps it), starts tileserver-gl on 127.0.0.1:8091 and sets HELPMAP_OFFLINE_TILES. If anything
+  fails, HELPMAP_OFFLINE_TILES=blank: tiles are answered with a blank image, so CI never depends on outside tile servers.
+inputs:
+  tag: {description: release tag holding the map, default: offline-map-2026-10-26}
+runs:
+  using: composite
+  steps:
+    - id: cache
+      uses: actions/cache@v4
+      with:
+        path: ~/offline_map
+        key: offline-map-${{ inputs.tag }}-tsgl-5
+    - if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      env: {GH_TOKEN: "${{ github.token }}", TAG: "${{ inputs.tag }}"}
+      run: |
+        t0=$(date +%s); mkdir -p ~/offline_map && cd ~/offline_map
+        if gh release download "$TAG" -R "$GITHUB_REPOSITORY" -p 'uk.mbtiles.part*' -p 'style-fonts.tgz' -p 'SHA256SUMS' 2>&1; then
+          cat uk.mbtiles.part* > uk.mbtiles && rm -f uk.mbtiles.part* && sha256sum -c SHA256SUMS && tar xzf style-fonts.tgz \
+            && npm i -s --no-audit --no-fund tileserver-gl@5 >/dev/null 2>&1 || { echo "offline map setup failed"; rm -rf ~/offline_map/*; }
+        else echo "offline map release $TAG not available"; rm -rf ~/offline_map/*; fi
+        echo "offline map download+install: $(( $(date +%s) - t0 ))s"
+    - shell: bash
+      run: |
+        t0=$(date +%s); cd ~/offline_map 2>/dev/null || true
+        if [ -f uk.mbtiles ] && [ -f config.json ]; then
+          sed -i "s#\"root\": *\"[^\"]*\"#\"root\": \"$HOME/offline_map\"#" config.json
+          sudo apt-get install -y -qq --no-install-recommends libopengl0 libegl1 libgles2 xvfb >/dev/null 2>&1 || true
+          LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libpng16.so.16 nohup xvfb-run -a node node_modules/tileserver-gl/src/main.js --config config.json --bind 127.0.0.1 --port 8091 > tileserver.log 2>&1 &
+          for i in $(seq 60); do curl -sf -o /dev/null http://127.0.0.1:8091/styles/bright/256/6/31/20.png && break; sleep 1; done
+        fi
+        if curl -sf -o /dev/null http://127.0.0.1:8091/styles/bright/256/6/31/20.png; then
+          echo "HELPMAP_OFFLINE_TILES=http://127.0.0.1:8091" >> "$GITHUB_ENV"; echo "offline tiles: real UK map"
+        else
+          echo "HELPMAP_OFFLINE_TILES=blank" >> "$GITHUB_ENV"; echo "offline tiles: blank fallback"; tail -20 tileserver.log 2>/dev/null || true
+        fi
+        echo "HELPMAP_OFFLINE_TILES_STRICT=1" >> "$GITHUB_ENV"   # any tile to another host fails the job
+        echo "offline map start: $(( $(date +%s) - t0 ))s"

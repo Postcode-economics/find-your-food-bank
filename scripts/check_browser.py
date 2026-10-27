@@ -21,6 +21,11 @@ A copy sw.js serves from its cache is the real app, not a failure; a cache miss 
 """
 import time
 
+try:
+    import offline_tiles as _offline_tiles
+except ImportError:  # imported as scripts.check_browser
+    from scripts import offline_tiles as _offline_tiles
+
 PHONE_UA = ('Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) '
             'Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check')
 DESK_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -359,6 +364,8 @@ def new_context(browser, **kw):
     c = browser.new_context(**kw)
     c.set_default_timeout(STEP_TIMEOUT)
     c.set_default_navigation_timeout(NAV_TIMEOUT)
+    if _offline_tiles.base_url():  # opt-in only (HELPMAP_OFFLINE_TILES); default unchanged
+        _offline_tiles.attach(c)
     return c
 
 

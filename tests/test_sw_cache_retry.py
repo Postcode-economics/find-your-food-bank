@@ -31,6 +31,25 @@ def _cache_name():
     return re.search(r"const C='([^']+)'", sw).group(1)
 
 
+def until(page, js, arg=None, timeout=20000):
+    """Poll an async predicate with evaluate, which awaits its promise. wait_for_function does not:
+    an async function returns a Promise, which is truthy, so it would return at once (the race that
+    made this test flaky: the network was blocked before the worker had saved data.js and leaflet.js)."""
+    import time
+    end = time.time() + timeout / 1000.0
+    last = None
+    while time.time() < end:
+        try:
+            last = page.evaluate(js, arg)
+        except Exception as e:  # a navigation mid-poll
+            last = '%s: %s' % (type(e).__name__, e)
+        else:
+            if last is True:
+                return
+        time.sleep(0.25)
+    raise AssertionError('timed out waiting for %s (last=%r)' % (js.strip()[:80], last))
+
+
 class T(unittest.TestCase):
     def test_cached_shell_survives_a_blocked_map_and_a_miss_does_not_pass(self):
         if not HAVE:
@@ -102,7 +121,7 @@ class T(unittest.TestCase):
                 prime_logs = []
                 B.goto(page, base, log=prime_logs.append)
                 self.assertEqual(prime_logs, [], prime_logs)
-                page.wait_for_function(
+                until(page,
                     """async (name) => {
                         const reg = await navigator.serviceWorker.getRegistration();
                         if (!reg || !navigator.serviceWorker.controller) return false;
@@ -140,6 +159,11 @@ class T(unittest.TestCase):
                 self.assertGreater(blocked['data'], 0, blocked)
                 self.assertGreater(blocked['leaflet'], 0, blocked)
                 # Tiles are cache-first: a cached tile never hits the network, an uncached one is aborted.
+                # Leaflet may ask for its tiles a moment after the app is ready, so give them up to 10s to arrive.
+                for _ in range(40):
+                    if blocked['tiles'] or any(_tile(row[0]) and row[3] for row in served):
+                        break
+                    page2.wait_for_timeout(250)
                 tile_hits = [row for row in served if _tile(row[0])]
                 self.assertTrue(blocked['tiles'] or any(sw for _, _, _, sw in tile_hits), (blocked, tile_hits))
                 self.assertTrue(any(p == '/data.js' and st == 200 and sw for _, p, st, sw in served), served)
