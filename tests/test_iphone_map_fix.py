@@ -8,7 +8,7 @@ by service worker is opaque", that counted as a tile failure and the map switche
 These checks run Playwright WebKit with the iPhone 13 profile, the checkout served as https://helpmap.uk.
 Tile hosts are stubbed; nothing here contacts a public tile server.
 """
-import mimetypes, os, subprocess, sys, unittest
+import hashlib, mimetypes, os, subprocess, sys, unittest
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, os.path.join(R, 'scripts'))
 BASE = 'https://helpmap.uk'
@@ -77,8 +77,10 @@ class Source(unittest.TestCase):
         self.assertNotIn("r.type==='opaque'){c.put", sw)
         self.assertIn('#map .leaflet-gl-layer,#map .leaflet-gl-layer *{pointer-events:none!important}', home)
         self.assertIn('pointer-events:none!important', css)
-        self.assertIn('tiles.js?v=h9d4d60e584e4', home)
-        self.assertIn('tiles.js?v=h9d4d60e584e4', sw)
+        tag = 'tiles.js?v=h' + hashlib.sha256(tiles.encode()).hexdigest()[:12]
+        self.assertIn(tag, home)
+        self.assertIn(tag, sw)
+        self.assertIn("const C='fyfb-v92'", sw)
 
 
 @unittest.skipUnless(HAVE, 'needs playwright webkit')

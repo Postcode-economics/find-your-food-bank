@@ -1,5 +1,25 @@
 [
  {
+  "when": "2026-10-27T13:38:29+00:00",
+  "id": "ifan-b595a2208802ba38bef45d-0",
+  "website": "",
+  "name": "ifan-b595a2208802ba38bef45d-0",
+  "kind": "removed",
+  "old": "on map",
+  "new": "gone (no longer in the feed / closed on own site / excluded)",
+  "source": "logs/foodbank_closed.json"
+ },
+ {
+  "when": "2026-10-27T13:38:29+00:00",
+  "id": "ifan-d59b2e089746f7a97c1e15-0",
+  "website": "https://www.chancechanginglives.org",
+  "name": "Chance Changing Lives",
+  "kind": "new food bank",
+  "old": "not on map",
+  "new": "added (CW1 4EJ)",
+  "source": "https://www.chancechanginglives.org"
+ },
+ {
   "when": "2026-10-26T23:36:31+00:00",
   "id": "ifan-b595a2208802ba38bef45d-0",
   "website": "https://www.shipshape.org.uk",

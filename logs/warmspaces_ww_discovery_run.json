@@ -1,23 +1,40 @@
 {
- "run": "2026-10-26",
- "candidates": 1,
+ "run": "2026-10-27",
+ "candidates": 2,
  "already_on_map": 0,
- "new": 1,
+ "new": 2,
  "added": [],
  "flagged": [
   {
-   "id": "ww-69405086",
-   "name": "St Nicholas Hall (Tuesday Coffee Morning)",
-   "postcode": "HU4 6SA",
-   "website": "http://www.stnicholashull.org",
+   "id": "ww-69424188",
+   "name": "Time for Tea",
+   "postcode": "SW17 8DQ",
+   "website": "allsaintstooting.org.uk",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=23053",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28655",
    "reasons": [
-    "own site unreachable (HTTP error)"
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
-   "url": "http://www.stnicholashull.org",
-   "final_url": "http://www.stnicholashull.org",
-   "http": "error",
+   "url": "allsaintstooting.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-69424242",
+   "name": "Community Warm Space",
+   "postcode": "PE29 1UL",
+   "website": "www.huntsneuro.org",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28656",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.huntsneuro.org",
+   "final_url": null,
+   "http": null,
    "sha256": null,
    "etag": null,
    "last_modified": null
