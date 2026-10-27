@@ -13,6 +13,24 @@ import shelter_contacts as sc
 def rd(name):
     return open(os.path.join(ROOT, name), encoding="utf-8").read()
 
+
+def _until(page, js, arg=None, timeout=20000):
+    """Poll a predicate with page.evaluate. The site's CSP has no 'unsafe-eval', which blocks
+    Playwright's string-based function polling; evaluate runs through DevTools and is not blocked."""
+    import time
+    end = time.time() + timeout / 1000.0
+    last = None
+    while time.time() < end:
+        try:
+            last = page.evaluate(js, arg)
+        except Exception as e:  # a navigation mid-poll
+            last = '%s: %s' % (type(e).__name__, e)
+        else:
+            if last is True:
+                return
+        time.sleep(0.25)
+    raise AssertionError('timed out waiting for %s (last=%r)' % (js.strip()[:80], last))
+
 class Apply(unittest.TestCase):
     def test_label_with_existing_phone_does_not_change_the_number(self):
         it = [{"id": "a", "phone": "0161 236 7537", "tel": "01612367537"}]
@@ -137,7 +155,7 @@ class Render(unittest.TestCase):
         for layer, lab in (("sh", "Central service line"), ("ws", "Shared venue line")):
             p.click("#v3big [data-l=%s]" % layer)
             var = "SHELTERS" if layer == "sh" else "WARMSPACES"
-            p.wait_for_function("v => window[v] && window[v].items && window[v].items.length > 10", arg=var, timeout=20000)
+            _until(p, "v => !!(window[v] && window[v].items && window[v].items.length > 10)", var, 20000)
             p.wait_for_timeout(400)
             sel = "#xlist .card.x%s .plab" % layer
             p.evaluate("""([v, lab]) => {
@@ -182,7 +200,7 @@ class Render(unittest.TestCase):
     def _fb_popup(self, p, fid, width):
         p.evaluate("""id => { const k = items.findIndex(x => x.id === id); select(k, false); }""", fid)
         sel = "#sheet.open .plab" if width < 600 else "#map .leaflet-popup-content .plab"
-        p.wait_for_function("""sel => document.querySelectorAll(sel).length === 1""", arg=sel, timeout=5000)
+        _until(p, """sel => document.querySelectorAll(sel).length === 1""", sel, 5000)
         el = p.query_selector(sel)
         self.assertIsNotNone(el, fid)
         return el
