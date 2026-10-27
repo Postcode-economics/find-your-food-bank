@@ -2,7 +2,8 @@
 
 The page contract is window.SHOW_LIMITS = {first: 5, more: 10} and
 window.showMoreResults(), with the results in #list as .card elements.
-scripts/showmore_journey.py drives a local server and stubs every tile host.
+scripts/showmore_journey.py drives a local server; tiles come from main's
+scripts/offline_tiles.py (PR 157), so no tile host is ever contacted.
 The plain pytest job has no browser, so the journey is skipped there; the
 host list and the reveal rules still run.
 """

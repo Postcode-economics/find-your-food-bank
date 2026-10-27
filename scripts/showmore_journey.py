@@ -17,14 +17,18 @@ What a search must do:
     (the button reads "Dangos mwy")
 
 Rule 25: this process serves the repo itself (python http.server) and never
-opens https://helpmap.uk. Rule 23: every tile host is answered with a blank
-PNG. A tile response that was not served by that stub fails the run.
+opens https://helpmap.uk. Rule 23: tiles come from main's offline tiles
+(scripts/offline_tiles.py, PR 157): the local UK map when HELPMAP_OFFLINE_TILES
+is set, otherwise its blank fallback. Any other tile host left over is answered
+with a blank PNG. A tile response not served by either fails the run.
 
 Usage: python scripts/showmore_journey.py
 Exit 1 when any check fails.
 """
 import functools, http.server, os, sys, threading, time
 from urllib.parse import urlparse
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import offline_tiles as T  # main's offline map tiles (PR 157)
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 CHROME_CANDIDATES = ('/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/opt/google/chrome/google-chrome')
@@ -123,6 +127,8 @@ def available():
 
 def is_tile_url(url):
     """True when the request host is a map-tile host that must never be contacted."""
+    if T.is_external_tile_host(url or ''):
+        return True
     host = (urlparse(url or '').hostname or '').lower().rstrip('.')
     if host.startswith('www.'):
         host = host[4:]
@@ -222,6 +228,8 @@ def _route(context, net):
         net['external'].append(url)
         route.abort()
     context.route('**/*', handle)
+    # Registered last, so Playwright tries it first: main's offline tiles answer every known tile host.
+    net.setdefault('offline', []).append(T.attach(context, base=T.base_url() or 'blank'))
 
 
 def _watch(page, net):
@@ -229,7 +237,8 @@ def _watch(page, net):
         if is_tile_url(req.url):
             net['attempted'].append(req.url)
     def on_response(resp):
-        if is_tile_url(resp.url) and resp.headers.get('x-showmore-stub') != '1':
+        if is_tile_url(resp.url) and resp.headers.get('x-showmore-stub') != '1' \
+                and resp.headers.get('x-helpmap-offline-tile') != '1':
             net['real'].append(resp.url)
     page.on('request', on_request)
     page.on('response', on_response)
@@ -484,8 +493,11 @@ def check_narrow(run, page):
 
 def check_tiles(run):
     net = run.net
-    missed = [u for u in net['attempted'] if u not in set(net['stubbed'])]
-    real = list(net['real']) + missed
+    offline = net.get('offline') or []
+    answered = len(net['stubbed']) + sum(s.served + s.failed for s in offline)
+    leaked = [u for s in offline for u in s.external]
+    missed = net['attempted'][answered:] if len(net['attempted']) > answered else []
+    real = list(net['real']) + leaked + missed
     run.add('no real tile request', not real and not net['live'],
             'unstubbed=%s live=%s stubbed=%d' % (real[:3], net['live'][:2], len(net['stubbed'])))
     run.add('stayed off the live site', not net['live'], ', '.join(net['live'][:3]))
