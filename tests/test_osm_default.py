@@ -77,7 +77,7 @@ class KeysAndDefault(unittest.TestCase):
         sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
         self.assertIn("(^|\\.)tile\\.openstreetmap\\.org$", sw)
         self.assertIn('MAPTILER', sw)
-        self.assertIn("const C='fyfb-v90'", sw)
+        self.assertIn("const C='fyfb-v91'", sw)
         # The tile cache is kept across a version bump; MapTiler entries in it are deleted on activate.
         self.assertIn('x!==C&&x!==T', sw)
         self.assertIn('c.delete(r)', sw)
@@ -217,19 +217,19 @@ class OfflineOsmTiles(unittest.TestCase):
                             .filter(img => img.src.includes('tile.openstreetmap.org') && img.naturalWidth > 0).length >= 4"""),
                                 'online visit did not paint OpenStreetMap tiles')
                 cached = page.evaluate("""async () => {
-                    const c = await caches.open('fyfb-tiles');
+                    const c = await caches.open('fyfb-tiles2');
                     return (await c.keys()).map(r => r.url);
                 }""")
                 self.assertTrue(any('tile.openstreetmap.org' in u for u in cached), cached[:8])
                 self.assertFalse(any('maptiler.com' in u for u in cached), cached)
                 seeded = page.evaluate("""async () => {
-                    const c = await caches.open('fyfb-tiles');
+                    const c = await caches.open('fyfb-tiles2');
                     await c.put('https://api.maptiler.com/maps/streets-v2/256/1/0/0.png',
                                 new Response(new Uint8Array([137, 80, 78, 71]), {headers: {'content-type': 'image/png'}}));
                     return (await c.keys()).some(r => r.url.includes('maptiler.com'));
                 }""")
                 self.assertTrue(seeded)
-                override['body'] = sw_text.replace("const C='fyfb-v90'", "const C='fyfb-v91'", 1)
+                override['body'] = sw_text.replace("const C='fyfb-v91'", "const C='fyfb-v92'", 1)
                 bumped = page.evaluate("""async () => {
                     const reg = await navigator.serviceWorker.getRegistration();
                     const done = new Promise(resolve => {
@@ -241,7 +241,7 @@ class OfflineOsmTiles(unittest.TestCase):
                 }""")
                 self.assertTrue(bumped, 'service worker did not take the version bump')
                 self.assertTrue(until(page, """async () => {
-                    const c = await caches.open('fyfb-tiles');
+                    const c = await caches.open('fyfb-tiles2');
                     const urls = (await c.keys()).map(r => r.url);
                     return urls.some(u => u.includes('tile.openstreetmap.org')) && !urls.some(u => u.includes('maptiler.com'));
                 }""", secs=8), 'version bump left a MapTiler tile in the cache')
