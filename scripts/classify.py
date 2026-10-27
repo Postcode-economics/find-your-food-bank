@@ -20,11 +20,13 @@ def add_extra_locations(items, root):
         if os.path.exists(f): ex.update({k: v for k, v in json.load(open(f)).items() if not k.startswith("_")})
     if not ex: return 0
     par = {i["id"]: i for i in items if i["type"] == "foodbank"}
-    items[:] = [i for i in items if i["id"] not in ex]
+    # a published pin whose parent is not in this list (e.g. an excluded parent pin, rerun on published data) is kept as-is
+    items[:] = [i for i in items if not (i["id"] in ex and ex[i["id"]].get("parent") in par)]
     n = 0
     for k, x in ex.items():
         pa = par.get(x["parent"])
         if not pa: print("warning: extra location parent missing:", k); continue
+        items[:] = [i for i in items if i["id"] != k]
         items.append({"id": k, "type": "location", "name": x["name"], "foodbank": pa["name"], "network": pa.get("network"), "address": x["address"],
             "postcode": x["postcode"], "lat": x["lat"], "lng": x["lng"], "phone": x.get("phone") or pa.get("phone") or "", "website": x.get("evidence_url") or pa.get("website") or "",
             "givefood": pa.get("givefood") or "", "opening_times": x.get("opening_times"), "pc_checked": True, "phone_checked": True, "manual": True, "evidence_url": x.get("evidence_url")})
