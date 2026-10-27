@@ -195,3 +195,9 @@ def digest_lines(s, today, n=5):
     L += ["- Sources/places with useful finds today: " + (", ".join(found) or "none")]
     L += ["- Backing off (repeated failures, retried within %d days): " % FLOOR_DAYS + (", ".join("%s (%d fails)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
     return L
+
+def try_auto_phone(item, proposed, source, root=None, via="learning"):
+    """Learning / auto-apply writer for one listing phone.
+    A frozen number is not changed. The attempt is held for Dean. Returns True only when proposed was written."""
+    import phone_lock
+    return phone_lock.consider(item, "phone", proposed, root=root, via=via, source=source, persist_new=True)

@@ -20,6 +20,7 @@ Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the i
 Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
 import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (Dean 25 Oct 08:01)
+import phone_lock  # frozen listing numbers are never auto-changed (Dean, 27 Oct 2026)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
@@ -256,7 +257,7 @@ def record_clear_phones(items, new, source, root=None, name=''):
 
 def apply_phone_fixes(by_site, fixes, flag, root=None):
     """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
-    A listing in the phone baseline is never changed here: the proposal is held for Dean with its source."""
+    A listing in the phone baseline is never changed here: the proposal is held for Dean."""
     root = root or ROOT
     n = 0
     for u, lst in by_site.items():
@@ -264,8 +265,8 @@ def apply_phone_fixes(by_site, fixes, flag, root=None):
         if not f: continue
         for i in lst:
             if norm_phone(i.get('phone')) != f['old']: continue
-            if in_phone_baseline(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
-                hold_phone_for_dean(i, f['new'], f.get('source') or '', root, i.get('name') or '')
+            if phone_lock.is_listed(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
+                phone_lock.hold(root, i.get('id'), 'phone', i.get('phone'), f['new'], f.get('source') or '', 'phone fix', i.get('name') or '')
                 continue  # phone and tel stay byte-identical
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
@@ -404,8 +405,10 @@ def main():
             elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 targets = [i for i in by_site[u] if norm_phone(i.get('phone')) == old]
-                apply_to = record_clear_phones(targets, new, r.get('final_url') or '', ROOT, name)
-                if apply_to:
+                listed = [i for i in targets if phone_lock.is_listed(i.get('id'))]
+                for i in listed:  # baselined listings are held, not auto-applied
+                    phone_lock.hold(ROOT, i.get('id'), 'phone', i.get('phone'), new, r.get('final_url') or '', 'phone fix', i.get('name') or name)
+                if len(listed) < len(targets):
                     fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
                     today['items'].pop('phone number not on own site|' + u, None)
                     e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
@@ -460,6 +463,11 @@ def write_md(today, log, stats):
         for v in sorted(cats[c], key=lambda v: v.get('name') or ''):
             extra = '; '.join('%s: %s' % (k, v[k] if not isinstance(v[k], list) else ' / '.join(map(str, v[k]))) for k in ('text', 'list', 'evidence', 'stored', 'on_site', 'error', 'before', 'now', 'current_tag', 'note') if v.get(k))
             L.append('- **%s** %s — %s' % (v.get('name') or v.get('id'), v.get('website') or '', extra[:400]))
-    open(os.path.join(REP, 'daily_review.md'), 'w', encoding='utf-8').write('\n'.join(L) + '\n')
+    path = os.path.join(REP, 'daily_review.md'); extra = ''
+    if os.path.exists(path):
+        prev = open(path, encoding='utf-8').read()
+        m = re.search(r'(?s)<!-- phone lock new -->.*?<!-- /phone lock new -->', prev)
+        if m: extra = '\n' + m.group(0) + '\n'
+    open(path, 'w', encoding='utf-8').write('\n'.join(L) + '\n' + extra)
 
 if __name__ == '__main__': main()
