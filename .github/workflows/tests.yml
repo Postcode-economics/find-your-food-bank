@@ -153,6 +153,8 @@ jobs:
     # Dean 27 Oct 2026: the page froze on his iPhone once the map switched to the OpenFreeMap backup.
     # Real WebKit, iPhone 13 profile, normal map and forced backup: no stall over 500 ms after the map loads,
     # M1 1AE search, filters, Open today and scrolling all respond. Stand-in tiles only, no real network.
+    # test_iphone_freeze.py: iPhone 13 and SE, service worker on and off, through load, Locate, Find nearest,
+    # the switch to the backup and the fall back. A long task over 1s or a tap that is not handled in time fails.
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -161,4 +163,4 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
-      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py
+      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_freeze.py

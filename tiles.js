@@ -49,7 +49,9 @@ window.loadVectorLib = function () {
   window._hmVectorLib = add('link', { rel: 'stylesheet', href: 'vendor/maplibre-gl.css' }).catch(function () {})
     .then(function () { return window.maplibregl ? null : add('script', { src: 'vendor/maplibre-gl-csp.js' }); })
     .then(function () {
-      window.maplibregl.setWorkerUrl('vendor/maplibre-gl-csp-worker.js');
+      /* Absolute worker URL. WebKit throws "The string did not match the expected pattern" for
+         new Worker('') or a relative worker URL that does not resolve (older iOS / WKWebView). */
+      window.maplibregl.setWorkerUrl(new URL('vendor/maplibre-gl-csp-worker.js', location.href).href);
       return L.maplibreGL ? null : add('script', { src: 'vendor/leaflet-maplibre-gl.js' });
     });
   window._hmVectorLib.catch(function () { window._hmVectorLib = null; });
@@ -204,14 +206,44 @@ window.addTiles = function (map) {
     window.TILE_ACTIVE = p.name;
     logo(p.name === 'maptiler');
   }
+  /* Phones get pixel ratio 1. iPhone 13 is devicePixelRatio 3; a ratio of 2 still builds a canvas
+     about 2.4× the map (Leaflet padding included) and iOS drops the only WebGL context while it is created. */
+  function vectorPixelRatio() {
+    var dpr = window.devicePixelRatio || 1, phone = false;
+    try {
+      var coarse = window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+      phone = !!(coarse || (navigator.maxTouchPoints >= 1) || /iPhone|iPad|iPod/i.test(navigator.userAgent || ''));
+    } catch (e) {}
+    return Math.min(dpr, phone ? 1 : 2);
+  }
+  /* This MapLibre build does not export maplibregl.supported. The probe context is released at once:
+     iOS allows only a handful of WebGL contexts, and a leaked probe makes the real map lose its context
+     on the first frame (canvas exists, no tiles, and the page never falls back). */
+  function webglOk() {
+    var gl = window.maplibregl;
+    if (gl && typeof gl.supported === 'function') return !!gl.supported();
+    var cv = document.createElement('canvas'), ctx = null;
+    try { ctx = cv.getContext('webgl2') || cv.getContext('webgl'); } catch (e) { ctx = null; }
+    if (!ctx) return false;
+    try {
+      var lose = ctx.getExtension && ctx.getExtension('WEBGL_lose_context');
+      if (lose) lose.loseContext();
+    } catch (e) {}
+    cv.width = 0; cv.height = 0;
+    return true;
+  }
   /* OpenFreeMap: a MapLibre GL layer inside Leaflet. Markers, clusters and controls are unchanged. */
   function useVector(p, my, i) {
     window.TILE_ACTIVE = p.name; logo(false);
-    /* Any OpenFreeMap failure (script load, no WebGL e.g. iOS Lockdown Mode, MapLibre setup throwing) goes back
-       to OpenStreetMap, never a blank map. vectorFailed allows that once per page: giveUp then never returns to
-       OpenFreeMap, so there is no flip-flop. */
+    /* Any OpenFreeMap failure (script load, no WebGL e.g. iOS Lockdown Mode, MapLibre setup throwing,
+       a style that never loads, or a WebGL context that stays lost) goes back to OpenStreetMap, never a
+       blank map. vectorFailed allows that once per page: giveUp then never returns to OpenFreeMap, so
+       there is no flip-flop. The 3-in-20 refusal rule is unchanged; this only covers the vector layer. */
+    var settled = false, watch = null;
     function fail(e) {
-      if (my !== gen) return;
+      if (settled || my !== gen) return;
+      settled = true;
+      if (watch) { clearTimeout(watch); watch = null; }
       if (layer) { try { map.removeLayer(layer); } catch (x) {} layer = null; }
       window.TILE_VECTOR = 'failed: ' + (e && e.message);
       if (i < list.length - 1) { use(i + 1); return; }
@@ -223,16 +255,44 @@ window.addTiles = function (map) {
     }
     window.loadVectorLib().then(function () {
       if (my !== gen) return;
-      var gl = window.maplibregl;
-      if (gl && typeof gl.supported === 'function' && !gl.supported()) throw new Error('webgl unsupported');
-      if (!gl || typeof gl.supported !== 'function') {
-        var cv = document.createElement('canvas');
-        if (!(cv.getContext('webgl2') || cv.getContext('webgl'))) throw new Error('webgl unsupported');
-      }
-      layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
-        attributionControl: { customAttribution: p.attribution } });
+      /* Let a tap that arrived while the script was parsing run before WebGL setup. */
+      return new Promise(function (ok) { setTimeout(ok, 0); });
+    }).then(function () {
+      if (my !== gen) return;
+      if (!webglOk()) throw new Error('webgl unsupported');
+      layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: vectorPixelRatio(),
+        trackResize: false, attributionControl: { customAttribution: p.attribution } });
       layer.addTo(map);
-      window.TILE_VECTOR = 'ready';
+      var glMap = layer.getMaplibreMap();
+      var canvas = layer.getCanvas(), lost = 0, restored = true;
+      watch = setTimeout(function () {
+        if (my !== gen || settled) return;
+        if (!glMap.isStyleLoaded || !glMap.isStyleLoaded()) fail(new Error('vector style timeout'));
+      }, 6000);
+      glMap.on('load', function () {
+        if (my !== gen || settled) return;
+        if (watch) { clearTimeout(watch); watch = null; }
+        window.TILE_VECTOR = 'ready';
+      });
+      /* A style or worker error before the style loads used to leave TILE_VECTOR 'ready' on an empty canvas.
+         Tile errors after the style has loaded stay on this provider (the 3-in-20 rule is for OSM). */
+      glMap.on('error', function (ev) {
+        if (my !== gen || settled) return;
+        if (glMap.isStyleLoaded && glMap.isStyleLoaded()) return;
+        var err = ev && ev.error;
+        fail(err || new Error('vector error'));
+      });
+      if (canvas) {
+        canvas.addEventListener('webglcontextlost', function (ev) {
+          if (ev && ev.preventDefault) ev.preventDefault();
+          lost++; restored = false;
+          if (lost > 1) { fail(new Error('webgl context lost')); return; }
+          setTimeout(function () {
+            if (!restored && my === gen && !settled) fail(new Error('webgl context lost'));
+          }, 800);
+        });
+        canvas.addEventListener('webglcontextrestored', function () { restored = true; });
+      }
     }).catch(fail);
   }
   map._hmTileStop = function () {
