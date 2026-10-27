@@ -56,4 +56,26 @@ class OtherTrussellPages(unittest.TestCase):
                         ("thurrock", {"id": "thurrock", "name": "Thurrock Foodbank", "postcode": "SS17 7QH"})]:
             st, new, _ = D.card_check({"status": "TIMES_FOUND", "structured": {"mon": [["09:00", "17:00"]]}}, [_page(n)], item, "2026-10-27", URL)
             self.assertEqual((st, new), ("unconfirmed", None), n)
+class BoilerplateHold(unittest.TestCase):
+    """Identical times on every session of one food bank, or phone/office text in the times, are held, never applied."""
+    def run_hold(self, items, statuses):
+        log = {i["id"]: {"site": "https://x.foodbank.org.uk", "status": st} for i, st in zip(items, statuses)}
+        orig = {i["id"]: {"raw": "orig " + i["id"]} for i in items}
+        D.hold_boilerplate(items, log, orig); return log
+    def test_identical_on_every_session_is_held(self):
+        items = [{"id": "x/" + n, "opening_times": {"structured": PHONE}} for n in "abc"]
+        log = self.run_hold(items, ["confirmed", "changed", "confirmed"])
+        for i in items:
+            self.assertEqual(log[i["id"]]["status"], "held_for_review"); self.assertEqual(i["times_status"], "held_for_review")
+            self.assertEqual(i["opening_times"], {"raw": "orig " + i["id"]})   # new times not applied
+    def test_different_sessions_not_held(self):
+        items = [{"id": "x/a", "opening_times": {"structured": WANT["ely"]}}, {"id": "x/b", "opening_times": {"structured": WANT["splott"]}}]
+        log = self.run_hold(items, ["changed", "confirmed"])
+        self.assertEqual([log[i["id"]]["status"] for i in items], ["changed", "confirmed"])
+    def test_single_location_food_bank_not_held(self):
+        items = [{"id": "x", "opening_times": {"structured": PHONE}}]
+        self.assertEqual(self.run_hold(items, ["confirmed"])["x"]["status"], "confirmed")
+    def test_phone_line_text_is_held(self):
+        items = [{"id": "y", "opening_times": {"raw": "Our phone lines are monitored Monday - Friday 09:30-13:30"}}]
+        self.assertEqual(self.run_hold(items, ["confirmed"])["y"]["status"], "held_for_review")
 if __name__ == "__main__": unittest.main()
