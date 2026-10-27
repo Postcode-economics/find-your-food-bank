@@ -118,10 +118,24 @@ def scan_local(root, needles):
     return listings, pages, files, matches
 
 
-def _get(url):
-    req = urllib.request.Request(url, headers={'User-Agent': 'helpmap-privacy-check'})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read().decode('utf-8', 'ignore')
+# 'helpmap-check' is the user agent the Cloudflare skip rule allows for our own
+# checks; the old 'helpmap-privacy-check' did not contain it, so GitHub's runners
+# were rate-limited/challenged part-way through the ~600 live URLs (27 Oct).
+UA = 'helpmap-check privacy-check'
+
+
+def _get(url, tries=3):
+    import time
+    last = None
+    for i in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': UA})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read().decode('utf-8', 'ignore')
+        except Exception as e:  # retried; still counted as a failure if all tries fail
+            last = e
+            time.sleep(2 * (i + 1))
+    raise last
 
 
 def scan_live(needles, base=LIVE):
@@ -136,8 +150,10 @@ def scan_live(needles, base=LIVE):
     for u in sorted(urls):
         try:
             t = _get(u)
-        except Exception:
+        except Exception as e:
             failed += 1
+            # public helpmap.uk URL + error only; never page content or blocklist values
+            print(f'live fetch failed: {u} ({type(e).__name__}: {getattr(e, "code", "")})')
             continue
         fetched += 1
         if text_matches(t, needles):
