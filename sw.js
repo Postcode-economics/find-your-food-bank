@@ -1,6 +1,7 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
+// batch 4 (27 Oct 2026, cache name deliberately NOT bumped: the browser picks up the new sw.js by its bytes, and the cache layout is compatible): stamped data files cache-first; <img> tiles fetched in cors mode so they are cached.
 // fyfb-v92: a loaded tile whose decode() rejects is not a tile failure. The build id bumps so phones self-heal.
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
@@ -27,13 +28,22 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    // which this cache still answers. The tile cache is renamed fyfb-tiles2 so activate drops the old opaque store.
    const hit=await c.match(e.request);if(hit&&hit.type!=='opaque')return hit;
    if(hit)c.delete(e.request);  // opaque copy (old builds): dropped and refetched; only kept as the offline answer below
-   return fetch(e.request).then(r=>{if(r.ok){c.put(e.request,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
+   // Batch 4 (27 Oct 2026): an <img> tile request is no-cors, so its answer is opaque and was never stored: repeat visits
+   // always went to the network. OpenStreetMap sends Access-Control-Allow-Origin: *, so the worker fetches the same URL
+   // in cors mode instead; the readable copy is stored and answers both the <img> and the tiles.js probe next time.
+   return fetch(e.request.mode==='no-cors'&&e.request.destination==='image'?new Request(e.request.url,{mode:'cors',credentials:'omit'}):e.request).catch(()=>fetch(e.request)).then(r=>{if(r.ok){c.put(e.request.url,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
  if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
+   // Batch 4 (27 Oct 2026): data/stamp/access with a ?v=h<content hash> stamp are cache-first. The stamp is the file's own
+   // hash (seo_meta.content_stamp) and the HTML that names it is network-first, so a cached copy can never be an old one.
+   // Older stamped copies of the same file are dropped when a new one is saved. Unstamped requests stay network-first.
+   if(/(^|&)v=h[0-9a-f]{12}(&|$)/.test(u.search.slice(1))){e.respondWith(caches.open(C).then(async c=>{const hit=await c.match(e.request.url);if(hit)return hit;
+     return fetch(e.request).then(async r=>{if(r.ok){const a=r.clone(),b=r.clone();const ks=await c.keys();await Promise.all(ks.filter(q=>{const x=new URL(q.url);return x.pathname===u.pathname&&x.search&&q.url!==e.request.url}).map(q=>c.delete(q)));await c.put(e.request.url,a);await c.put(k,b)}return r})
+       .catch(async()=>{tell();return (await c.match(k))||Response.error()})}));return}
    e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
  if(e.request.mode==='navigate'){e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
  e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
