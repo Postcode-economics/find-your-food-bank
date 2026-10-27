@@ -3110,30 +3110,31 @@
   "structured": null
  },
  "bridgwater": {
-  "checked_date": "2026-10-20",
-  "raw": "Opening times Mon 13:00 - 15:30 Tue Closed Wed 13:00 - 15:30 Thu Closed Fri 13:00 - 15:30 Sat Closed Sun Closed ",
-  "source_url": "https://bridgwater.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
   "structured": {
-   "fri": [
-    [
-     "13:00",
-     "15:30"
-    ]
-   ],
    "mon": [
     [
-     "13:00",
-     "15:30"
+     "10:30",
+     "13:30"
     ]
    ],
    "wed": [
     [
-     "13:00",
-     "15:30"
+     "10:30",
+     "13:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:30",
+     "13:30"
     ]
    ]
-  }
+  },
+  "raw": "Mon 10:30 - 13:30; Wed 10:30 - 13:30; Fri 10:30 - 13:30",
+  "source_url": "https://bridgwater.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Bridgwater Foodbank locations page, single centre Mount Street Day Centre TA6 3ER, 'opening times ... for our foodbank centres'; earlier afternoon times no longer on the page)"
  },
  "bridport": {
   "checked_date": "2026-10-20",
