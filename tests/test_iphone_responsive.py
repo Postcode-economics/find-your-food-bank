@@ -187,12 +187,10 @@ class IPhoneResponsive(unittest.TestCase):
     def test_normal_map(self):
         self.guarded('normal')
 
-    # Expected to fail until the light-backup fix lands; remove this decorator in that PR.
-    @unittest.expectedFailure
     @unittest.skipUnless(HAVE, 'needs playwright webkit')
     def test_openfreemap_backup(self):
-        """XFAIL: iPhone freeze on the OpenFreeMap (MapLibre) backup, Dean 27 Oct 2026. The page stops
-        answering taps once the backup map is drawn. Remove expectedFailure when the light backup ships."""
+        """Dean 27 Oct 2026: the page froze on the OpenFreeMap (MapLibre) backup at the first filter tap
+        (map max zoom was Infinity, so the marker cluster rebuild never ended). Fixed in tiles.js."""
         self.guarded('backup')
 
 

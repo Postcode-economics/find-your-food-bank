@@ -54,6 +54,11 @@ window.loadVectorLib = function () {
 window.addTiles = function (map) {
   if (map._hmTileStop) map._hmTileStop();
   var list = window.tileCandidates(), gen = 0, layer = null, logoCtl = null;
+  /* Freeze fix (Dean's iPhone, 27 Oct 2026): Leaflet takes the map's max zoom from its layers. The OpenFreeMap
+     (MapLibre) layer does not register one, and while it loads there is no tile layer at all, so getMaxZoom() was
+     Infinity. The marker cluster's clearLayers() then rebuilds clusters for every zoom from Infinity down, a loop
+     that never ends: the first filter tap froze the page. Pin the map's own max zoom so it is always finite. */
+  if (map.options.maxZoom === undefined) map.setMaxZoom(Math.max.apply(null, list.map(function (p) { return p.maxZoom || 19; })));
   window.TILE_ORDER = list.map(function (p) { return p.name; });
   function providerUrl(p) {
     var url = p.url;
