@@ -7,7 +7,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FULL = os.path.join(ROOT, 'data.full.js'); OUT = os.path.join(ROOT, 'data.js')
 # fields the app reads (index.html, layers.js, v3.js); everything else is pipeline bookkeeping
 KEYS = ['id', 'type', 'name', 'foodbank', 'postcode', 'address', 'lat', 'lng', 'phone', 'tel', 'website', 'givefood', 'opening_times',
-        'kind', 'label_en', 'label_cy', 'centres', 'moved_to_postcode', 'phone_checked', 'locked', 'manual', 'evidence_url', 'fb_page', 'phone_label', 'notice']
+        'kind', 'label_en', 'label_cy', 'centres', 'moved_to_postcode', 'phone_checked', 'locked', 'manual', 'evidence_url', 'fb_page', 'phone_label', 'notice',
+        'source_label', 'venues_vary', 'service_lat', 'service_lng', 'service_km']
 OT = ['status', 'structured', 'all_closed', 'checked_date', 'source_url', 'raw', 'lines']
 GF = 'https://www.givefood.org.uk/needs/at/%s/'
 M = '~'  # "field absent" marker (never a real value: checked below)
@@ -28,7 +29,7 @@ def enc(i, k):
     if k not in i: return M
     v = i[k]
     if v == M or v == 1 and k in ('tel', 'givefood', 'foodbank', 'address'): raise ValueError('marker clash %s %s' % (i.get('id'), k))
-    if k in ('lat', 'lng'): return R5(v)
+    if k in ('lat', 'lng', 'service_lat', 'service_lng'): return R5(v)
     if k == 'tel' and v == i.get('phone'): return 1
     if k == 'givefood' and v == GF % i['id']: return 1
     if k == 'foodbank' and v == i.get('name'): return 1
