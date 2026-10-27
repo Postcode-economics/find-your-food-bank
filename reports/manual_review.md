@@ -175,7 +175,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Over 50's Foodbank · BL6 7TD — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Waste Not Want Not Battersea · SW11 2NT — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The People's Army (warm space + collection) · N5 1SA · https://www.thepeoplesarmyfoodbank.wordpress.com — own site unreachable (HTTP 403)
-- QUEUED Eudaimonia/ Super Kitch · DN21 1SN · https://www.eudaimonia-hmk.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED Eudaimonia/ Super Kitch · DN21 1SN · https://www.eudaimonia-hmk.com — own site unreachable (HTTP 502)
 - QUEUED STAR Project · PA3 2BU · https://www.star-project.org.uk — own site does not show food aid
 - QUEUED The Moses Poject · TS18 2AP · https://www.themosesproject.co.uk — own site does not show food aid
 - QUEUED People without labels · G40 1PE · https://www.thespacescotland.org — own site unreachable (HTTP 403)

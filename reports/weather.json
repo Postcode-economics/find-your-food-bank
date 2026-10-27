@@ -303,65 +303,119 @@
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham",
+   "title": "Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg",
    "level": "flood warning",
    "areas": [
-    "Norfolk"
+    "Cumberland"
    ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/054FWTBT2A",
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN3A",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
+   "title": "Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
+   "level": "flood warning",
+   "areas": [
+    "Cumberland"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN1A",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
+   "title": "Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven",
+   "level": "flood warning",
+   "areas": [
+    "Cumberland"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN2B",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
+   "title": "Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven",
+   "level": "flood warning",
+   "areas": [
+    "Cumberland"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN2A",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "Environment Agency",
+   "title": "Flood warning: Mersey Estuary at Arpley Bridge, Warrington",
+   "level": "flood warning",
+   "areas": [
+    "Warrington"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWTTCH3",
    "places": [
-    "Cozy Cafe Holt Community Centre",
-    "Revive Community Cafe",
-    "St Mary's Church Hall",
-    "Unity Cafe",
-    "Wymondham Abbey"
+    "Holy Trinity Coffee Bar",
+    "The Little Shop at Latchford",
+    "The Salvation Army James Lee House"
    ],
    "swep": []
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Isolated low lying properties along the tidal River Waveney",
+   "title": "Flood warning: Cumbrian coastline at Barrow in Furness, between North and South Walney, Cavendish and Ramsden Docks",
    "level": "flood warning",
    "areas": [
-    "Norfolk, Suffolk"
+    "Westmorland and Furness"
    ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/054FWTBT3B",
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN5B",
    "places": [],
    "swep": []
   },
   {
-   "source": "SEPA",
-   "title": "The FLOOD WARNING for Strath Oykel is No longer in force",
+   "source": "Environment Agency",
+   "title": "Flood warning: Cumbrian coastline at Barrow in Furness, around Biggar, Rampside and Vickerstown",
    "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26845/",
+   "areas": [
+    "Westmorland and Furness"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN5A",
    "places": [],
    "swep": []
   },
   {
-   "source": "SEPA",
-   "title": "The FLOOD WARNING for Strath Carron is No longer in force",
+   "source": "Environment Agency",
+   "title": "Flood warning: Lancashire coastline at Sunderland, around Sunderland Point, Bazil Point and Potts Corner",
    "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26847/",
-   "places": [],
+   "areas": [
+    "Lancashire"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/012FWCTL05A",
+   "places": [
+    "Bamford Chapel & Norden URC",
+    "Cafe Oasis",
+    "Christ Church Coffee Lounge",
+    "Cornerstone United Reformed Church @ Parrs Wood Road",
+    "Fairhaven Methodist Church",
+    "Gateway",
+    "Greenmount Old School",
+    "Hope URC Denton",
+    "Leyland United Reformed Church",
+    "North Blackburn URC",
+    "Over Wyre URC",
+    "Parish of St John Henry Newman, Morecambe - Warm Welcome",
+    "Warm welcome",
+    "Wellness Hub At St Laurence's Church"
+   ],
    "swep": []
   },
   {
-   "source": "SEPA",
-   "title": "The FLOOD WARNING for Spey Dam to Newtonmore is No longer in force",
+   "source": "Environment Agency",
+   "title": "Flood warning: Cumbrian coastline from Gretna to Silloth, between Longtown and Skinburness",
    "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26875/",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "SEPA",
-   "title": "The FLOOD WARNING for Spey Viaduct to Spey Bay is No longer in force",
-   "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26895/",
+   "areas": [
+    "Cumberland"
+   ],
+   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN1B",
    "places": [],
    "swep": []
   },
@@ -389,12 +443,100 @@
   },
   {
    "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Eriskay Causeway",
+   "level": "flood warning",
+   "areas": [
+    "Eriskay Causeway"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27339/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for South Ford Causeway",
+   "level": "flood warning",
+   "areas": [
+    "South Ford Causeway"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27341/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for North Ford Causeway",
+   "level": "flood warning",
+   "areas": [
+    "North Ford Causeway"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27343/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for The Braighe",
+   "level": "flood warning",
+   "areas": [
+    "The Braighe"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27347/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Castlebay",
+   "level": "flood warning",
+   "areas": [
+    "Castlebay"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27349/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for East Barra",
+   "level": "flood warning",
+   "areas": [
+    "East Barra"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27351/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Barra Airport",
+   "level": "flood warning",
+   "areas": [
+    "Barra Airport"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27355/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
    "title": "A FLOOD WARNING has been issued for Ardmore to Loch Carnan",
    "level": "flood warning",
    "areas": [
     "Ardmore to Loch Carnan"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27359/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Eochar",
+   "level": "flood warning",
+   "areas": [
+    "Eochar"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27361/",
    "places": [],
    "swep": []
   },
@@ -444,12 +586,45 @@
   },
   {
    "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Bayhead",
+   "level": "flood warning",
+   "areas": [
+    "Bayhead"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27371/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
    "title": "A FLOOD WARNING has been issued for Lochmaddy",
    "level": "flood warning",
    "areas": [
     "Lochmaddy"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27373/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Leverburgh",
+   "level": "flood warning",
+   "areas": [
+    "Leverburgh"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27375/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Seilebost and Luskentyre",
+   "level": "flood warning",
+   "areas": [
+    "Seilebost and Luskentyre"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27377/",
    "places": [],
    "swep": []
   },
@@ -483,24 +658,6 @@
     "Fort William"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27187/",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "SEPA",
-   "title": "The FLOOD WARNING for Moy Bridge is No longer in force",
-   "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26853/",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "SEPA",
-   "title": "The FLOOD WARNING for Strathglass is No longer in force",
-   "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26859/",
    "places": [],
    "swep": []
   },
@@ -726,10 +883,23 @@
   },
   {
    "source": "SEPA",
-   "title": "The FLOOD WARNING for Peterhead to Boddam is No longer in force",
+   "title": "A FLOOD WARNING has been issued for Stromness",
    "level": "flood warning",
-   "areas": [],
-   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27309/",
+   "areas": [
+    "Stromness"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27281/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Burray and Ayre of Cara",
+   "level": "flood warning",
+   "areas": [
+    "Burray and Ayre of Cara"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27289/",
    "places": [],
    "swep": []
   },
@@ -756,6 +926,39 @@
    "swep": []
   },
   {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Longhope and Hoy",
+   "level": "flood warning",
+   "areas": [
+    "Longhope and Hoy"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27295/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Sanday",
+   "level": "flood warning",
+   "areas": [
+    "Sanday"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27299/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Westray",
+   "level": "flood warning",
+   "areas": [
+    "Westray"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27301/",
+   "places": [],
+   "swep": []
+  },
+  {
    "source": "Natural Resources Wales",
    "title": "Flood Warning: Tidal area at Pendine",
    "level": "flood warning",
@@ -767,21 +970,6 @@
    "places": [
     "Llanelli Queer Collective LGBT+ Coffee morning",
     "Welcoming Warm Wednesdays, Trallwm Community Hall"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Natural Resources Wales",
-   "title": "Flood Warning: Tidal area at Cardigan",
-   "level": "flood warning",
-   "areas": [
-    "Ceredigion"
-   ],
-   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
-   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
-   "places": [
-    "Mwldan",
-    "St Paul's Methodist Centre"
    ],
    "swep": []
   },
