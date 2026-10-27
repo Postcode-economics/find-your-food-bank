@@ -222,6 +222,8 @@ def main():
         print('times check late pass: %d entries' % len(late))
     discover.write_review(discover.times_review(tlog, items), os.path.join(ROOT, 'logs', 'foodbank_times_review.csv'),
                           os.path.join(ROOT, 'logs', 'foodbank_times_review.json'))
+    import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
+    phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
