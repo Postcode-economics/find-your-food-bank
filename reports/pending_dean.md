@@ -2,10 +2,9 @@
 
 No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
-## foodbanks (2)
+## foodbanks (1)
 
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
-- Shipshape Health and Wellbeing (S11 8AE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.shipshape.org.uk
 
 ## warmspaces (2)
 
@@ -72,18 +71,6 @@ Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is
 - **Wickham and Knowle** (`meon-valley/wickham-and-knowle`, ): Mon 10AM–noon  
   source: https://meonvalleyfoodbank.co.uk/  
   why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR0 4** (`purley/cr0-4`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR2** (`purley/cr2`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR5** (`purley/cr5`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR8** (`purley/cr8`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
 - **St Paul's Erith Foodbank** (`st-pauls-erith`, DA8 1HN): Monday to Friday 9.00am - 12.00pm | Monday to Friday 12.00pm - 3.00pm | Monday to Friday 9.00am - 2.00pm | Monday to Friday 9.00am - 3.00pm  
   source: https://www.spnh.org.uk/preschool/session-information/  
   why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
@@ -93,9 +80,6 @@ Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is
 - **The Gate Foodbank** (`the-gate`, FK10 2DR): Monday to Friday 10am - 3pm (by arrangement)  
   source: https://the-gate-charity.org/contact-us-2/  
   why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Upper Eden Foodbank** (`upper-eden`, CA16 6XR): Mon-Fri 9am-5pm | Mon & Wed 10am-12pm  
-  source: https://upperedenfoodbank.org.uk/get-help-2/  
-  why: known skip: Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
 <!-- /times review -->
 
 
