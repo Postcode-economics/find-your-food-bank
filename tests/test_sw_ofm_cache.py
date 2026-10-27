@@ -11,6 +11,7 @@ const store=new Map();let net=0,offline=false;const H={};
 const cache={match:async r=>store.get(r.url||r),put:async(r,v)=>{store.set(r.url||r,v)},keys:async()=>[...store.keys()].map(url=>({url})),delete:async r=>store.delete(r.url||r),addAll:async()=>{}};
 global.caches={open:async()=>cache,keys:async()=>[],match:async()=>undefined,delete:async()=>true};
 global.self={addEventListener:(t,f)=>{H[t]=f},clients:{matchAll:async()=>[],claim:async()=>{}},skipWaiting:()=>{}};
+global.location={origin:'https://helpmap.uk',href:'https://helpmap.uk/'};global.self.location=global.location;
 global.Response={error:()=>({error:true})};
 global.fetch=async r=>{net++;if(offline)throw new Error('off');return {ok:true,body:'net:'+(r.url||r),clone(){return this}}};
 new Function(src)();
