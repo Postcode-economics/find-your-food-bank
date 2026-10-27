@@ -248,10 +248,10 @@
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.salvationarmy.org.uk/st-monicas-house",
   "hours_checked": "2026-10-23",
-  "phone": "023 9282 5673 or 023 9229 7877",
-  "phone_source": "https://homeless.org.uk/homeless-england/service/portsmouth-churches-ha-st-pauls-house-portsmouth/ (023 9282 5673, PCHA St Paul's House, staffed 24h); https://www.pc-ha.co.uk/ (02392 297877, PCHA office); owner/runner of St Monica's: https://www.pc-ha.co.uk/about-us",
-  "confidence": "medium: PCHA lines (owner/operator charity), not a St Monica's-only line; Homeless Link + misterwhat agree on 023 9282 5673; office number on PCHA own site",
-  "referral_note": "Referral by Portsmouth City Council. Phone: Portsmouth Churches Housing Association, the charity that owns and runs St Monica's and St Paul's House",
+  "phone": "023 9282 5673",
+  "phone_source": "https://homeless.org.uk/homeless-england/service/portsmouth-churches-ha-st-pauls-house-portsmouth/",
+  "confidence": "Homeless Link lists 023 9282 5673 for Portsmouth Churches Housing Association and says St Paul's House and St Monica's House referrals both come from Portsmouth City Council. The Salvation Army St Monica's page prints no phone. pc-ha.co.uk does not print 023 9282 5673; it shows 02392 297877 for property tenants. Checked 26 Oct 2026.",
+  "referral_note": "Referral by Portsmouth City Council. The number is Portsmouth Churches Housing Association, which owns St Monica's and St Paul's House.",
   "groups": [
    "Families with children under 5",
    "Single parents",
@@ -259,7 +259,9 @@
    "Couples with children under 5"
   ],
   "groups_source": "https://www.salvationarmy.org.uk/st-monicas-house",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "phone_fix": "023 9282 5673",
+  "phone_label": "Portsmouth Churches Housing Association number"
  },
  "sa-st-paul-s-house-lifehouse": {
   "phone": "023 9282 5673",

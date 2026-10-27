@@ -9495,18 +9495,42 @@
   "structured": null
  },
  "helensburgh-lomond": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 10-12 | Thursday 3-7pm | Wednesday; 1-3pm | Monday 10-12am | Wednesday 1-3pm",
+  "checked_date": "2026-10-26",
+  "raw": "Monday 10-12 & Thursday 3-7pm",
   "source_url": "https://helensburghlomondfoodbank.org/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "15:00",
+     "19:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (Hub sessions as written: Monday 10-12 and Thursday 3-7pm. Monday has no am/pm on the page; read as 10:00-12:00 because Thursday in the same sentence is 3-7pm)",
+  "protected": true
  },
  "helensburgh-lomond/st-modans-church-community-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Wednesday; 1-3pm",
+  "checked_date": "2026-10-26",
+  "raw": "Wednesday 1-3pm",
   "source_url": "https://helensburghlomondfoodbank.org/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (St Modan's, Rosneath: every Wednesday 1-3pm. The page prints postcode G84 ORD, which is not a valid postcode, so the pin postcode is left as given)",
+  "protected": true
  },
  "helston-the-lizard": {
   "checked_date": "2026-10-20",
@@ -10837,13 +10861,6 @@
     ]
    ]
   }
- },
- "kirkcaldy": {
-  "checked_date": "2026-10-20",
-  "raw": "Mondays: 10am-3pm | Tuesdays: 10am-1pm | Wednesdays: 10am-1pm | Thursdays: 10am-3pm | Monday: 10am-12.30pm | Tuesday: 10am-12.30pm | Wednesday: Closed Thursday: 10am-12.30pm | Friday: 10am-12.30pm | Tuesday: Closed Wednesday: 10am-12.30pm | Thursday: Closed Friday: 10am-12.30pm | Monday:10am-4pm | Tuesday:10am-4pm | Wednesday:10am-4pm | Thursday: 10am-4pm | Friday: 10am-4pm",
-  "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
  },
  "lambeth-croydon": {
   "checked_date": "2026-10-20",
@@ -19196,19 +19213,37 @@
   }
  },
  "southend": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday and Thursday between 9am - 2pm | Monday 5pm - 6.30pm | Tuesday 1pm - 3pm | Wednesday 1pm - 3pm | Thursday 12.30pm - 2.30pm",
+  "checked_date": "2026-10-26",
+  "raw": "Donations only: Monday, Tuesday and Thursday 9am - 2pm",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "14:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (Friendship House warehouse donations-only hours; not a place to collect food)",
+  "protected": true
  },
  "southend/belle-vue-baptist-church": {
-  "card_name": "Southchurch (Belle Vue) DISTRIBUTION CENTRE",
-  "checked_date": "2026-10-23",
-  "matched_by": "postcode",
-  "raw": "Tuesday 1:00 pm to 3:00 pm",
-  "reader": "trussell_cards",
-  "source_url": "https://southend.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-26",
+  "raw": "Tuesday 1pm - 3pm",
+  "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -19217,22 +19252,30 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Belle Vue Tuesday 1.00-3.00pm)",
+  "protected": true
  },
  "southend/hawkwell-hockley": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday and Thursday between 9am - 2pm | Monday 5pm - 6.30pm",
+  "checked_date": "2026-10-26",
+  "raw": "Monday 5pm - 6.30pm",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "17:00",
+     "18:30"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Hawkwell Monday 5.00-6.30pm)",
+  "protected": true
  },
  "southend/shoeburyness": {
-  "card_name": "Shoeburyness DISTRIBUTION CENTRE",
-  "checked_date": "2026-10-23",
-  "matched_by": "postcode",
-  "raw": "Thursday 12:30 pm to 2:30 pm",
-  "reader": "trussell_cards",
-  "source_url": "https://southend.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-26",
+  "raw": "Thursday 12.30pm - 2.30pm",
+  "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -19241,14 +19284,25 @@
      "14:30"
     ]
    ]
-  }
+  },
+  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Shoeburyness Thursday 12.30-2.30pm)",
+  "protected": true
  },
  "southend/westcliff": {
-  "checked_date": "2026-10-20",
+  "checked_date": "2026-10-26",
   "raw": "Wednesday 1pm - 3pm",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: St Saviour's Wednesday 1.00-3.00pm)",
+  "protected": true
  },
  "southgate-mosque": {
   "checked_date": "2026-10-20",
@@ -25419,5 +25473,65 @@
    ]
   },
   "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
+ },
+ "galashiels-and-area": {
+  "checked_date": "2026-10-26",
+  "raw": "Wednesday 1.00pm - 2.45pm | Thursday 5.00pm - 6.00pm",
+  "source_url": "https://galashielsfoodbank.wordpress.com/get-food/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "14:45"
+    ]
+   ],
+   "thu": [
+    [
+     "17:00",
+     "18:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (St Peter's: Wednesday emergency walk-in 1.00-2.45pm and Thursday 5.00-6.00pm)",
+  "protected": true
+ },
+ "kings-langley": {
+  "checked_date": "2026-10-26",
+  "raw": "Tuesday 10am to 11.30am",
+  "source_url": "https://beneficeoflangelei.org.uk/allsaints/community/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (All Saints open-table foodbank, Tuesday 10am-11.30am)",
+  "protected": true
+ },
+ "kings-langley/apsley": {
+  "checked_date": "2026-10-26",
+  "raw": "Monday 3.30-5.30pm | Thursday 10-12",
+  "source_url": "https://beneficeoflangelei.org.uk/stmarys/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "15:30",
+     "17:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-26 (Apsley Community Centre: Monday 3.30-5.30pm and Thursday 10-12. Thursday has no am/pm; read as 10:00-12:00 alongside the afternoon Monday session)",
+  "protected": true
  }
 }
