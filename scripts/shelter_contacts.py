@@ -33,6 +33,8 @@ def apply(items, data=None):
             if own.get("council_phone"):  # hand-checked per-place council line: clears stale label/ooh it doesn't set
                 for k in ("council_ooh", "council_label", "council_label_cy"): x.pop(k, None) if k not in c else None
             for k, v in c.items(): x[k] = v
+        if o.get("hide_council"):  # Dean 27 Oct 2026 (rule 37): no council out-of-hours number found yet, so show no council line
+            for k in [k for k in x if k.startswith("council")]: x.pop(k)
     return n
 
 WS = os.path.join(os.path.dirname(__file__), "..", "overrides", "warmspaces_contacts.json")

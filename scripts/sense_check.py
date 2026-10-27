@@ -23,6 +23,14 @@ def hav(a, b, c, d):
 def reachable():
     try: return urllib.request.urlopen('https://api.postcodes.io/postcodes/BN175LF', timeout=10).status == 200
     except Exception: return False
+def await_result(pg):
+    """A postcode lookup may take the full 4s allowed in index.html before it falls back, and the
+    page does not scroll until it returns. The BN17 5LF check at 390px once stopped at 2.5s, while
+    the scroll was still at the top, and recorded a search that had not finished as 'no result'."""
+    for _ in range(40):
+        if pg.evaluate("()=>!!(typeof lastNear!=='undefined'&&lastNear&&lastNear.length)||!!document.querySelector('.v3err')"):
+            return
+        pg.wait_for_timeout(200)
 def settle(pg, first):
     """Wait, then until the scroll position has stopped moving (smooth scroll + late layout), max ~3 s."""
     pg.wait_for_timeout(first); last = None
@@ -50,7 +58,7 @@ def run(base=None, chrome=None):
                     for on in (False, True):
                         if pg.evaluate("document.getElementById('openToday').checked") != on: pg.click('#v3open'); pg.wait_for_timeout(200)
                         pg.click('.v3b[data-l=%s]' % k); pg.wait_for_timeout(500)
-                        pg.evaluate('()=>{scrollTo(0,0);lastNear=null}'); pg.fill('#q', q); pg.press('#q', 'Enter'); settle(pg, 2500)
+                        pg.evaluate('()=>{scrollTo(0,0);lastNear=null}'); pg.fill('#q', q); pg.press('#q', 'Enter'); await_result(pg); settle(pg, 400)
                         r = pg.evaluate("""([k,on])=>{const D=k==='ws'?window.WARMSPACES:k==='sh'?window.SHELTERS:null;
                           const lat=lastNear?lastNear[0]:null,lng=lastNear?lastNear[1]:null;
                           const fbShown=[...document.querySelectorAll('#list .card')].map(c=>dists[+c.dataset.k]);

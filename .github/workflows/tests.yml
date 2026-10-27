@@ -85,6 +85,10 @@ jobs:
           python-version: "3.12"
       - run: pip install pytest==9.1.1
       - run: python -m pytest -q tests
+      # Alert-only for one week (Dean 27 Oct 2026): reports date mismatches as warnings, never fails.
+      - name: Date check (alert-only)
+        continue-on-error: true
+        run: python scripts/date_check.py
   old-links:
     needs: changes
     if: needs.changes.outputs.oldlinks == '1'

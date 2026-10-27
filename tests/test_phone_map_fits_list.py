@@ -24,6 +24,10 @@ class T(unittest.TestCase):
                         c = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True, service_workers='block')
                         c.add_init_script("try{localStorage.setItem('v3layer','%s')}catch(e){}" % k); pg = c.new_page()
                         pg.goto('http://127.0.0.1:%d/?nocount&q=%s' % (s.server_address[1], q)); pg.wait_for_timeout(9000)
+                        # CI runners can be slower than 9 s to draw the list: wait (max 20 s more) for cards, then run the SAME check
+                        try: pg.wait_for_function("document.querySelectorAll('#xlist .card').length>0", timeout=20000)
+                        except Exception: pass
+                        pg.wait_for_timeout(500)
                         r = pg.evaluate(CHECK, k)
                         if r.get('err') or r['out'] or r['cards'] < 1: bad.append((k, q, r))
                         c.close()
