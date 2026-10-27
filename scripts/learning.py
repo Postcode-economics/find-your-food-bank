@@ -147,38 +147,27 @@ def method_order(s, key, methods):
     rest = sorted([m for m in methods if m != e.get("last_method")], key=lambda m: -rate(m))
     return ([e["last_method"]] if e.get("last_method") in methods else []) + rest
 
-CONFIDENCE_MIN = 0.8  # sits under auto_apply_rules.json: a lower score holds the change for Dean. It never grants a change the rules forbid.
+def snapshot(s, today, top=200):
+    """Keep a small per-run history of priorities so the digest can show movers."""
+    pr = {k: round(reward(e, today), 3) for k, e in s["keys"].items()}
+    s["history"] = (s["history"] + [{"day": today, "reward": dict(sorted(pr.items(), key=lambda x: -x[1])[:top])}])[-14:]
 
-def allow_under_rules(kind, rules, confidence=None, layer=None):
-    """Rules first. Confidence can only refuse a change the rules would have allowed.
-    A new place or a removal the rules forbid stays forbidden even at confidence 1.
-    confidence None means no extra doubt: the rules alone decide (today's behaviour)."""
-    rules = rules or {}
-    if kind == "new_place":
-        adds = rules.get("add_new_places") or {}
-        allowed = bool(adds.get(layer)) if layer else any(bool(v) for v in adds.values())
-    elif kind == "remove_place":
-        allowed = bool(rules.get("remove_confirmed_closures"))
-    else:
-        allowed = kind in (rules.get("automatic") or [])
-    if not allowed: return False
-    if confidence is None: return True
-    try: return float(confidence) >= CONFIDENCE_MIN
-    except (TypeError, ValueError): return False
-
-def confidence_for(website, conflicted):
-    """0 when sources already disagree for this site. Otherwise None, so the rules stand."""
-    if website and website in (conflicted or ()): return 0.0
-    return None
-
-def provenance(kind, confidence, source, rules):
-    """A log line for an automatic edit the rules already allowed. decides is always False:
-    the rules file still decides, and this note cannot grant a change. A kind the rules
-    would refuse, including a new place or a removal, returns None. Confidence can only refuse."""
-    rules = rules or {}
-    if kind not in (rules.get("automatic") or []): return None
-    if not allow_under_rules(kind, rules, confidence): return None
-    return {"rule": kind, "confidence": confidence, "source": source, "decides": False}
+def digest_lines(s, today, n=5):
+    """'What the system learned' section for reports/morning_digest.md."""
+    K = s["keys"]; L = ["## What the system learned", ""]
+    if not K: return L + ["- nothing yet (first runs build the history)", ""]
+    h = s.get("history", []); prev = h[-2]["reward"] if len(h) >= 2 else {}
+    now = {k: reward(e, today) for k, e in K.items()}
+    mv = sorted(((now[k] - prev.get(k, 0.5), k) for k in now if k in prev), reverse=True)
+    up = [x for x in mv if x[0] > 0.001][:n]; down = [x for x in mv[::-1] if x[0] < -0.001][:n]
+    found = sorted((k for k, e in K.items() if e.get("last_find") == today), key=lambda k: -now[k])[:n]
+    back = sorted((k for k, e in K.items() if resting(e, today)), key=lambda k: -K[k]["consec_fail"])[:n]
+    L += ["- Checks recorded so far: %d across %d sources/places" % (s.get("total_checks", 0), len(K))]
+    L += ["- Top movers up: " + (", ".join("%s (+%.2f)" % (k, d) for d, k in up) or "none")]
+    L += ["- Top movers down: " + (", ".join("%s (%.2f)" % (k, d) for d, k in down) or "none")]
+    L += ["- Sources/places with useful finds today: " + (", ".join(found) or "none")]
+    L += ["- Backing off (repeated failures, retried within %d days): " % FLOOR_DAYS + (", ".join("%s (%d fails)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
+    return L
 
 def empty_parse(http, extracted, previous, minimum=1):
     """True when a page answered HTTP 200 and the parser found fewer than `minimum` records,
@@ -222,24 +211,19 @@ def record_sources(path, marks, keep=12):
     tmp = path + ".tmp"; json.dump(nxt, open(tmp, "w"), indent=0, sort_keys=True); os.replace(tmp, path)
     return nxt
 
-def snapshot(s, today, top=200):
-    """Keep a small per-run history of priorities so the digest can show movers."""
-    pr = {k: round(reward(e, today), 3) for k, e in s["keys"].items()}
-    s["history"] = (s["history"] + [{"day": today, "reward": dict(sorted(pr.items(), key=lambda x: -x[1])[:top])}])[-14:]
-
-def digest_lines(s, today, n=5):
-    """'What the system learned' section for reports/morning_digest.md."""
-    K = s["keys"]; L = ["## What the system learned", ""]
-    if not K: return L + ["- nothing yet (first runs build the history)", ""]
-    h = s.get("history", []); prev = h[-2]["reward"] if len(h) >= 2 else {}
-    now = {k: reward(e, today) for k, e in K.items()}
-    mv = sorted(((now[k] - prev.get(k, 0.5), k) for k in now if k in prev), reverse=True)
-    up = [x for x in mv if x[0] > 0.001][:n]; down = [x for x in mv[::-1] if x[0] < -0.001][:n]
-    found = sorted((k for k, e in K.items() if e.get("last_find") == today), key=lambda k: -now[k])[:n]
-    back = sorted((k for k, e in K.items() if resting(e, today)), key=lambda k: -K[k]["consec_fail"])[:n]
-    L += ["- Checks recorded so far: %d across %d sources/places" % (s.get("total_checks", 0), len(K))]
-    L += ["- Top movers up: " + (", ".join("%s (+%.2f)" % (k, d) for d, k in up) or "none")]
-    L += ["- Top movers down: " + (", ".join("%s (%.2f)" % (k, d) for d, k in down) or "none")]
-    L += ["- Sources/places with useful finds today: " + (", ".join(found) or "none")]
-    L += ["- Backing off (repeated failures, retried within %d days): " % FLOOR_DAYS + (", ".join("%s (%d fails)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
-    return L
+def provenance(kind, confidence, source, rules):
+    """A log line for an automatic edit the rules already allowed. decides is always False:
+    the rules file still decides, and this note cannot grant a change. A kind the rules
+    would refuse, including a new place or a removal, returns None. Confidence can only refuse.
+    allow_under_rules belongs to the refresh batch when that branch is present; otherwise a
+    score under 0.8 is refused here and the rules list still decides."""
+    rules = rules or {}
+    if kind not in (rules.get("automatic") or []): return None
+    allow = globals().get("allow_under_rules")
+    if allow is not None:
+        if not allow(kind, rules, confidence): return None
+    elif confidence is not None:
+        try:
+            if float(confidence) < 0.8: return None
+        except (TypeError, ValueError): return None
+    return {"rule": kind, "confidence": confidence, "source": source, "decides": False}
