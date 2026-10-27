@@ -137,7 +137,7 @@ BLANK = solid_png(64, 64, (186, 218, 245, 255))
 # Every host the page might call. Chromium is pointed at a local TLS stub, so a service-worker
 # fetch cannot leave the machine (Playwright's route does not see those fetches).
 STUB_HOSTS = (
-    'tile.openstreetmap.org', 'api.maptiler.com', 'tiles.stadiamaps.com', 'helpmap.uk', 'www.helpmap.uk',
+    'tile.openstreetmap.org', 'api.maptiler.com', 'tiles.stadiamaps.com', 'tiles.openfreemap.org', 'helpmap.uk', 'www.helpmap.uk',
     'api.postcodes.io', 'static.cloudflareinsights.com', 'cloudflareinsights.com', 'formsubmit.co')
 
 

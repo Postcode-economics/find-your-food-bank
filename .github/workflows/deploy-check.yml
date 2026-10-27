@@ -5,7 +5,7 @@ name: Deploy check (live old links + user journeys + card design lock)
 on:
   push:
     branches: [main]
-    paths: ['**.html', '**.css', '**.js', 'scripts/old_links.py', 'scripts/old_links.json', 'scripts/journeys.py', 'scripts/design_lock.py', 'scripts/design_lock.json', 'scripts/check_browser.py', 'scripts/dark_default.py']
+    paths: ['**.html', '**.css', '**.js', 'scripts/old_links.py', 'scripts/old_links.json', 'scripts/journeys.py', 'scripts/design_lock.py', 'scripts/design_lock.json', 'scripts/check_browser.py', 'scripts/dark_default.py', 'tests/test_tile_fallback.py']
   schedule: [{cron: "15 6 * * *"}]
   workflow_dispatch:
 permissions: {contents: write, issues: write}
@@ -92,3 +92,28 @@ jobs:
       - if: success() && env.SUPERSEDED != '1'
         env: {GH_TOKEN: "${{ github.token }}"}
         run: python scripts/alert.py resolve old-links
+  # Dean 26 Oct 17:12: live proof that the map falls back to OpenFreeMap. OSM tiles are aborted and OpenFreeMap gets a stub
+  # style (rule 23: no real tiles). Its own job, alert only: a WebGL hiccup on the runner must never auto-revert the site.
+  tile-fallback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Wait for the deploy
+        run: |
+          want=$(python -c "import json;print(json.load(open('version.json')).get('build',''))" 2>/dev/null || true)
+          for i in $(seq 1 40); do got=$(curl -fsS "https://helpmap.uk/version.json?t=$(date +%s)" | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null || true); [ -z "$want" ] || [ "$got" = "$want" ] && break; sleep 15; done
+      - id: fallback
+        name: OSM blocked -> OpenFreeMap renders (live site)
+        env: {HELPMAP_FALLBACK_BASE: "https://helpmap.uk", HELPMAP_SHOTS: "shots"}
+        run: |
+          pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
+          python -m pytest -q tests/test_tile_fallback.py -k test_osm_blocked_switches_to_openfreemap_and_renders -rs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: tile-fallback-live, path: shots, if-no-files-found: ignore}
+      - if: failure() && steps.fallback.outcome == 'failure'
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: python scripts/alert.py open tile-fallback "Live map fallback check failed (OSM -> OpenFreeMap)" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

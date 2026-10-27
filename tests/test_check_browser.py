@@ -85,8 +85,16 @@ class Helper(unittest.TestCase):
         self.assertFalse(broken_tile_count(TILE))  # the counter that printed tiles [] 
         self.assertTrue(B.is_map_tile(TILE))
         self.assertTrue(B.is_map_tile('https://tile.openstreetmap.org/6/31/20.png'))
+        self.assertTrue(B.is_map_tile('https://a.tile.openstreetmap.org/6/31/20.png'))
+        self.assertTrue(B.is_map_tile('https://tiles.stadiamaps.com/tiles/osm_bright/6/31/20.png'))
+        self.assertTrue(B.is_map_tile('https://tiles.openfreemap.org/planet/6/31/20.pbf'))
+        self.assertTrue(B.is_map_tile('https://a.basemaps.cartocdn.com/rastertiles/voyager/6/31/20.png'))
+        self.assertTrue(B.is_map_tile('https://tile.jawg.io/jawg-streets/6/31/20.png'))
+        self.assertTrue(B.is_map_tile('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/6/20/31'))
+        self.assertTrue(B.is_map_tile('https://tile.thunderforest.com/atlas/6/31/20.png?apikey=abc'))
         self.assertFalse(B.is_map_tile('https://helpmap.uk/icon-192.png'))
         self.assertFalse(B.is_map_tile('https://api.maptiler.com/maps/streets-v2/style.json?key=abc'))
+        self.assertFalse(B.is_map_tile('https://www.openstreetmap.org/copyright'))
 
     def test_timeouts(self):
         self.assertEqual(B.NAV_TIMEOUT, 20000)
