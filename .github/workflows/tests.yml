@@ -160,18 +160,18 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 1}
+        with: {fetch-depth: 0}  # the old-worker tests read sw.js from earlier commits
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
-      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py
+      # 27 Oct 2026: the iPhone map-fix and stale-worker WebKit tests were skipped everywhere (browser-tests has no WebKit).
+      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py
   iphone-journeys:
     needs: changes
     if: needs.changes.outputs.browser == '1'
     # WebKit iPhone 13 and iPhone SE journeys (first paint, Locate, Find nearest,
     # 429-then-Locate, forced backup with the service worker on and off, offline
-    # cache, v90 upgrade, no main-thread task over 1s). Its own job so it does not
-    # rewrite the iphone-webkit file list. Stand-in tiles are a local proxy:
+    # cache, v90 upgrade, no main-thread task over 1s). Stand-in tiles are a local proxy:
     # Playwright route() on WebKit never reaches the service-worker cache.
     runs-on: ubuntu-latest
     timeout-minutes: 30

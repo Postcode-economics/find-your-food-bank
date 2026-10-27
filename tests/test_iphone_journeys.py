@@ -33,22 +33,41 @@ HOSTS = (
     'helpmap.uk', 'www.helpmap.uk', 'tile.openstreetmap.org', 'a.tile.openstreetmap.org',
     'b.tile.openstreetmap.org', 'c.tile.openstreetmap.org', 'tiles.openfreemap.org',
     'api.postcodes.io', 'static.cloudflareinsights.com', 'cloudflareinsights.com', 'formsubmit.co')
-# Stand-in OpenFreeMap style. The land fill is drawn only from a vector tile, so a canvas
-# with no tile request stays the grey background and fails the pixel check.
+# Stand-in OpenFreeMap style. The land fill is a root-relative vector tile. WebKit does not
+# request that tile (MapLibre leaves it unresolved), so a canvas with no rewrite stays the grey
+# background: TILE_VECTOR 'ready', 0 vector tiles. tiles.js rewrites a leading '/' onto this origin.
 OFM_STYLE = (
     '{"version":8,"sources":{"uk":{"type":"vector","tiles":'
-    '["https://tiles.openfreemap.org/planet/{z}/{x}/{y}.pbf"],"minzoom":0,"maxzoom":14}},'
+    '["/planet/{z}/{x}/{y}.pbf"],"minzoom":0,"maxzoom":14}},'
     '"layers":[{"id":"background","type":"background","paint":{"background-color":"#bdbdbd"}},'
     '{"id":"land","type":"fill","source":"uk","source-layer":"land","paint":{"fill-color":"#2e7d32"}}]}')
 LONG_TASK = (
-    "(() => { if (window.__lt) return; var lt = window.__lt = {max: 0, over: [], ticks: 0};"
+    "(() => { if (window.__lt) return; var lt = window.__lt = {max: 0, over: [], ticks: 0, beats: 0};"
     "lt.last = performance.now(); try { var o = new PerformanceObserver(function (list) {"
     "var es = list.getEntries(), i; for (i = 0; i < es.length; i++) { var e = es[i];"
     "if (e.duration > lt.max) lt.max = e.duration; if (e.duration > %d) lt.over.push(Math.round(e.duration)); } });"
     "o.observe({type: 'longtask', buffered: true}); lt.observer = true; } catch (err) { lt.observer = false; }"
+    # A same-origin worker keeps ticking while the main thread is busy. A gap counts only when that
+    # worker has just checked in, so a stalled runner (both threads frozen) is not a page long task.
+    "try { var w = new Worker('/hm-clock.js'); w.onmessage = function () { lt.worker = performance.now(); lt.beats++; }; }"
+    "catch (err) { lt.clock = false; }"
     "setInterval(function () { var t = performance.now(), g = t - lt.last; lt.last = t; lt.ticks++;"
+    "if (!(lt.beats > 2) || !lt.worker || (t - lt.worker) >= 400) return;"
     "if (g > lt.max) lt.max = g; if (g > %d) lt.over.push(Math.round(g)); }, 50); })()"
 ) % (MAX_LONG_TASK_MS, MAX_LONG_TASK_MS)
+# Records TILE_VECTOR='ready' if the page publishes it before MapLibre's load event. That is main's
+# useVector: the canvas exists, no vector tile has been requested yet, and a WebKit URL error never
+# reaches fail(), so the map stays grey.
+READY_PROBE = (
+    "(() => { var ml; function wrap(obj) { if (!obj || !obj.Map || obj.Map.__hm) return; var M = obj.Map, orig = M.prototype.on;"
+    "if (orig && !orig.__hm) { M.prototype.on = function (type, fn) { if (type === 'load' && typeof fn === 'function') {"
+    "var inner = fn; fn = function () { window.__hmMapLoaded = true; return inner.apply(this, arguments); }; }"
+    "return orig.apply(this, arguments); }; M.prototype.on.__hm = 1; } obj.Map.__hm = 1; }"
+    "Object.defineProperty(window, 'maplibregl', { configurable: true, get: function () { wrap(ml); return ml; },"
+    "set: function (v) { ml = v; wrap(v); } });"
+    "var v = null; Object.defineProperty(window, 'TILE_VECTOR', { configurable: true, get: function () { return v; },"
+    "set: function (n) { v = n; if (n === 'ready' && !window.__hmMapLoaded) window.__hmReadyBeforeLoad = true; } }); })()"
+)
 
 
 def _webkit_installed():
@@ -202,6 +221,35 @@ def _request_path(raw):
     return (parts[1] if len(parts) > 1 else '/').split('?', 1)[0]
 
 
+def _read_http(sock, pending):
+    """One HTTP message, plus bytes that already belong to the next one."""
+    data = pending
+    while b'\r\n\r\n' not in data:
+        part = sock.recv(16384)
+        if not part:
+            return None, b''
+        data += part
+        if len(data) > 1048576:
+            break
+    if b'\r\n\r\n' not in data:
+        return None, b''
+    head, rest = data.split(b'\r\n\r\n', 1)
+    need = 0
+    for line in head.split(b'\r\n'):
+        if line.lower().startswith(b'content-length:'):
+            try:
+                need = int(line.split(b':', 1)[1].strip())
+            except ValueError:
+                need = 0
+            break
+    while len(rest) < need:
+        part = sock.recv(16384)
+        if not part:
+            break
+        rest += part
+    return head, rest[need:]
+
+
 class Proxy:
     """HTTP proxy that answers CONNECT itself. No socket is opened to the requested host."""
 
@@ -258,18 +306,26 @@ class Proxy:
             if not first.upper().startswith('CONNECT '):
                 self.other.append(first[:80])
                 return
-            host = first.split(' ')[1]
+            host = first.split(' ')[1].split(':')[0].lower()
             conn.sendall(b'HTTP/1.1 200 Connection Established\r\n\r\n')
             tls = self._tls.wrap_socket(conn, server_side=True)
-            req = _read_head(tls)
-            if not req:
-                return
-            body = self._answer(host.split(':')[0].lower(), _request_path(req))
-            if body:
-                tls.sendall(body)
+            # WebKit reuses the tunnel. Reading one request and closing drops the rest
+            # (style, worker, vector tiles): ready stays set and the map stays grey.
+            pending = b''
+            first_req = True
+            while True:
+                tls.settimeout(20 if first_req else 0.4)
+                head, pending = _read_http(tls, pending)
+                if head is None:
+                    break
+                first_req = False
+                body = self._answer(host, _request_path(head + b'\r\n\r\n'))
+                if not body:
+                    break
+                tls.sendall(body.replace(b'Connection: close', b'Connection: keep-alive', 1))
         except Exception as e:
             name = type(e).__name__
-            if name not in ('SSLEOFError', 'ConnectionResetError', 'BrokenPipeError', 'timeout'):
+            if name not in ('SSLEOFError', 'ConnectionResetError', 'BrokenPipeError', 'timeout', 'TimeoutError', 'SSLError'):
                 self.errors.append('%s %s' % (name, str(e)[:80]))
         finally:
             try:
@@ -278,6 +334,8 @@ class Proxy:
                 pass
 
     def _answer(self, host, path):
+        if path == '/hm-clock.js':
+            return _http(200, 'OK', b'setInterval(function(){postMessage(1)},50)\n', 'application/javascript', 'no-store')
         if self.offline:
             self.offline_hits.append(host + ' ' + path)
             return None
@@ -364,6 +422,7 @@ def _context(p, browser, device, sw, proxy):
         **dev, proxy={'server': proxy.url}, ignore_https_errors=True,
         service_workers='allow' if sw else 'block',
         geolocation=HERE, permissions=['geolocation'])
+    ctx.add_init_script(READY_PROBE)
     ctx.add_init_script(LONG_TASK)
     return ctx
 
@@ -424,7 +483,11 @@ def case_journey(device, sw):
 
 
 def case_rate_limit(device, sw):
-    """OSM answers, then 429. Locate must leave a painted map (backup or OSM) within the timeout."""
+    """OSM answers, then 429. Locate and Find nearest must leave a painted map within the timeout.
+
+    On main's useVector the service-worker-off case ends at TILE_VECTOR 'ready' before MapLibre
+    loads, with no vector tile requested and a grey canvas. That is a failure, not a pass.
+    """
     from playwright.sync_api import sync_playwright
     proxy = Proxy()
     try:
@@ -432,14 +495,30 @@ def case_rate_limit(device, sw):
             browser, ctx, pg, errors = _open(p, device, sw, proxy)
             wait_paint(pg, proxy, 'blue')
             proxy.osm = 'refuse'
+            proxy.hits['ofm_pbf'] = 0
             pg.locator('#me').tap()
+            _located(pg)
+            pg.locator('#xnear').tap()
             _located(pg)
             try:
                 painted = wait_paint(pg, proxy, 'any')
             except AssertionError as e:
-                raise AssertionError('429 then Locate left a grey map. %s pageerrors=%s' % (e, errors[:3]))
+                st = _state(pg)
+                raise AssertionError(
+                    "429 then Locate/Find nearest left TILE_VECTOR %r, %d vector tiles and a grey map. "
+                    "pageerrors=%s %s" % (st.get('vector'), proxy.hits['ofm_pbf'], errors[:3], e))
+            st = _state(pg)
+            early = pg.evaluate('() => !!window.__hmReadyBeforeLoad')
+            if early or (st.get('vector') == 'ready' and proxy.hits['ofm_pbf'] == 0 and painted['kind'] == 'grey'):
+                raise AssertionError(
+                    "429 then Locate/Find nearest (service worker %s) gave TILE_VECTOR 'ready', "
+                    "%d vector tiles and a %s map. Main publishes ready before load, so a WebKit URL "
+                    "error never requests tiles and the canvas stays grey."
+                    % ('on' if sw else 'off', proxy.hits['ofm_pbf'], painted['kind']))
+            if st.get('vector') == 'ready' and proxy.hits['ofm_pbf'] == 0:
+                raise AssertionError('backup reported ready with 0 vector tiles: %s %s' % (st, painted))
             _check_quiet(proxy, errors)
-            print('OK 429', device, 'sw', int(sw), painted['kind'], 'pbf', proxy.hits['ofm_pbf'], 'vector', _state(pg).get('vector'))
+            print('OK 429', device, 'sw', int(sw), painted['kind'], 'pbf', proxy.hits['ofm_pbf'], 'vector', st.get('vector'))
             browser.close()
     finally:
         proxy.stop()

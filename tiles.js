@@ -49,7 +49,12 @@ window.loadVectorLib = function () {
   window._hmVectorLib = add('link', { rel: 'stylesheet', href: 'vendor/maplibre-gl.css' }).catch(function () {})
     .then(function () { return window.maplibregl ? null : add('script', { src: 'vendor/maplibre-gl-csp.js' }); })
     .then(function () {
-      window.maplibregl.setWorkerUrl('vendor/maplibre-gl-csp-worker.js');
+      /* Absolute worker URL. A relative one is handed to WebKit's URL parser with no base and throws
+         "The string did not match the expected pattern": the worker never starts, no vector tile is
+         requested, and the canvas stays grey. */
+      var worker = 'vendor/maplibre-gl-csp-worker.js';
+      try { worker = new URL(worker, window.location.href).href; } catch (e) {}
+      window.maplibregl.setWorkerUrl(worker);
       return L.maplibreGL ? null : add('script', { src: 'vendor/leaflet-maplibre-gl.js' });
     });
   window._hmVectorLib.catch(function () { window._hmVectorLib = null; });
@@ -230,9 +235,50 @@ window.addTiles = function (map) {
         if (!(cv.getContext('webgl2') || cv.getContext('webgl'))) throw new Error('webgl unsupported');
       }
       layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
-        attributionControl: { customAttribution: p.attribution } });
+        attributionControl: { customAttribution: p.attribution },
+        /* Root-relative vector tiles never leave WebKit (0 requests, grey canvas, ready already set).
+           Make them absolute before the worker fetches. */
+        transformRequest: function (url) {
+          /* WebKit asks for a root-relative vector tile on the page host and then drops it, so the
+             canvas stays the grey background with ready already set and no tile counted. Send it to
+             the tile host. */
+          if (!url) return { url: url };
+          if (url.charAt(0) === '/') url = 'https://tiles.openfreemap.org' + url;
+          else if (url.indexOf('/planet/') >= 0 && url.indexOf('tiles.openfreemap.org') < 0)
+            url = url.replace(/^https?:\/\/[^/]+/, 'https://tiles.openfreemap.org');
+          return { url: url };
+        } });
       layer.addTo(map);
-      window.TILE_VECTOR = 'ready';
+      var glMap = layer.getMaplibreMap ? layer.getMaplibreMap() : null;
+      if (!glMap) { window.TILE_VECTOR = 'ready'; return; }
+      /* 'ready' only after the style has loaded. Setting it here, before load, is the 27 Oct grey map:
+         the canvas exists, WebKit has thrown, no vector tile is requested, and nothing falls back. */
+      var kicked = false;
+      function kick() {
+        if (my !== gen || !glMap) return;
+        try { glMap.resize(); } catch (e) {}
+        try { if (layer && layer._update) layer._update(); } catch (e) {}
+      }
+      glMap.on('error', function (ev) {
+        if (my !== gen) return;
+        var err = ev && ev.error, msg = String(err && (err.message || err) || '');
+        window.TILE_VECTOR_ERROR = msg.slice(0, 200);
+        if (!kicked) { kicked = true; kick(); }
+        if (/did not match the expected pattern|cannot be parsed as a URL|Invalid sprite/i.test(msg)) fail(err || new Error(msg));
+      });
+      glMap.on('load', function () {
+        if (my !== gen) return;
+        kick();
+        window.TILE_VECTOR = 'ready';
+      });
+      /* Locate / Find nearest adds this layer during fitBounds. Zoom listeners attached mid-animation
+         miss the resize, so the canvas stays the grey background and never asks for tiles. */
+      map.on('moveend', kick);
+      map.on('zoomend', kick);
+      map.on('resize', kick);
+      kick();
+      setTimeout(kick, 400);
+      setTimeout(kick, 1200);
     }).catch(fail);
   }
   map._hmTileStop = function () {

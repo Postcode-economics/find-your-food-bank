@@ -6,7 +6,7 @@ must still leave OpenStreetMap as that default. A first visit caches OpenStreetM
 service-worker version changes, a MapTiler entry is gone and a later offline visit still shows the cached
 OpenStreetMap tiles. Tile hosts are answered with a blank PNG. Nothing here contacts a map server or the live site.
 """
-import http.server, os, re, shutil, ssl, struct, subprocess, tempfile, threading, unittest, zlib
+import base64, hashlib, http.server, os, re, shutil, ssl, struct, subprocess, tempfile, threading, unittest, zlib
 from urllib.parse import urlparse
 R = os.path.join(os.path.dirname(__file__), '..')
 DEAD = 'xl3BtUpx' + 'Qak69583G9Q6'
@@ -191,11 +191,27 @@ class OfflineOsmTiles(unittest.TestCase):
                 self.end_headers()
 
         certs = tempfile.mkdtemp()
-        subprocess.check_call(['openssl', 'req', '-x509', '-newkey', 'rsa:2048', '-keyout', os.path.join(certs, 'key.pem'),
-                               '-out', os.path.join(certs, 'cert.pem'), '-days', '1', '-nodes', '-subj', '/CN=tile.openstreetmap.org'],
+        key_path, cert_path = os.path.join(certs, 'key.pem'), os.path.join(certs, 'cert.pem')
+        # A CN-only cert fails hostname checks. Chrome then counts the tile fetch as a failure
+        # (the service worker does not always honour a blanket ignore-certificate flag), the map
+        # leaves OpenStreetMap, and the offline assertions fail. SAN every stub host and pin the
+        # key so this certificate is accepted on its own.
+        san = ','.join('DNS:%s' % host for host in STUB_HOSTS)
+        subprocess.check_call(['openssl', 'req', '-x509', '-newkey', 'rsa:2048', '-keyout', key_path,
+                               '-out', cert_path, '-days', '1', '-nodes', '-subj', '/CN=tile.openstreetmap.org',
+                               '-addext', 'subjectAltName=' + san],
                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        pub = subprocess.check_output(['openssl', 'x509', '-in', cert_path, '-pubkey', '-noout'])
+        pub_path = os.path.join(certs, 'pub.pem')
+        open(pub_path, 'wb').write(pub)
+        spki = base64.b64encode(hashlib.sha256(subprocess.check_output(
+            ['openssl', 'pkey', '-pubin', '-in', pub_path, '-outform', 'DER'])).digest()).decode()
         ctx_ssl = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-        ctx_ssl.load_cert_chain(os.path.join(certs, 'cert.pem'), os.path.join(certs, 'key.pem'))
+        ctx_ssl.load_cert_chain(cert_path, key_path)
+        try:
+            ctx_ssl.set_alpn_protocols(['http/1.1'])
+        except Exception:
+            pass
         tiles = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Tiles)
         tiles.socket = ctx_ssl.wrap_socket(tiles.socket, server_side=True)
         site = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Site)
@@ -204,9 +220,13 @@ class OfflineOsmTiles(unittest.TestCase):
         rules = ', '.join('MAP %s 127.0.0.1:%d' % (host, tiles.server_address[1]) for host in STUB_HOSTS)
         try:
             with sync_playwright() as p:
-                browser = p.chromium.launch(args=['--host-rules=' + rules, '--ignore-certificate-errors'])
+                browser = p.chromium.launch(args=[
+                    '--host-rules=' + rules,
+                    '--ignore-certificate-errors',
+                    '--ignore-certificate-errors-spki-list=' + spki,
+                    '--disable-http2'])
                 ctx = browser.new_context(viewport={'width': 1280, 'height': 800}, service_workers='allow',
-                                           user_agent='Mozilla/5.0 helpmap-check')
+                                           ignore_https_errors=True, user_agent='Mozilla/5.0 helpmap-check')
                 page = ctx.new_page()
                 page.goto('http://127.0.0.1:%d/?nocount' % site.server_address[1], wait_until='domcontentloaded')
                 self.assertTrue(until(page, "() => !!(navigator.serviceWorker && navigator.serviceWorker.controller)"),
