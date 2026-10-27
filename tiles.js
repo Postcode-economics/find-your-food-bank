@@ -19,9 +19,13 @@ window.TILE_PROVIDERS = [
    A 401, 403 or 429 switches on its own. Chrome still fires the image load event when that
    response body is a valid PNG, so a tileerror counter never sees it: cached 200s and uncached
    403s both look like successes. The status is read from the tile fetch, not from the image event.
-   The check keeps running after the first load. */
+   A probe that throws with no status (iOS: "Response served by service worker is opaque") is not a
+   failure; the plain <img> is shown and only its own error counts. The check keeps running after the first load. */
 window.TILE_WINDOW = 20;
 window.TILE_WINDOW_FAILS = 4;
+/* A 401, 403 or 429 (a refusal) switches only at TILE_WINDOW_REFUSALS in the window (Dean, 27 Oct 2026, from PR 169):
+   phone networks and iCloud Private Relay share addresses, so one stray 429 must not drop the map. */
+window.TILE_WINDOW_REFUSALS = 3;
 window.tileCandidates = function () {
   var list = window.TILE_PROVIDERS.filter(function (p) {
     if (p.disabled) return false;
@@ -53,7 +57,12 @@ window.loadVectorLib = function () {
 };
 window.addTiles = function (map) {
   if (map._hmTileStop) map._hmTileStop();
-  var list = window.tileCandidates(), gen = 0, layer = null, logoCtl = null;
+  var list = window.tileCandidates(), gen = 0, layer = null, logoCtl = null, vectorFailed = false;
+  /* Freeze fix (Dean's iPhone, 27 Oct 2026, from PR 186): Leaflet takes the map's max zoom from its layers. The OpenFreeMap
+     (MapLibre) layer does not register one, and while it loads there is no tile layer at all, so getMaxZoom() was
+     Infinity. The marker cluster's clearLayers() then rebuilds clusters for every zoom from Infinity down, a loop
+     that never ends: the first filter tap froze the page. Pin the map's own max zoom so it is always finite. */
+  if (map.options.maxZoom === undefined) map.setMaxZoom(Math.max.apply(null, list.map(function (p) { return p.maxZoom || 19; })));
   window.TILE_ORDER = list.map(function (p) { return p.name; });
   function providerUrl(p) {
     var url = p.url;
@@ -78,23 +87,33 @@ window.addTiles = function (map) {
     if (layer) { map.removeLayer(layer); layer = null; }
     if (!p) return;
     if (p.type === 'vector') { useVector(p, my, i); return; }
-    var n = i, switched = false, used = 0, ok = 0, bad = 0, recent = [];
+    var n = i, switched = false, used = 0, ok = 0, bad = 0, recent = [], codes = [];
     window.TILE_STATS = window.TILE_STATS || {load: 0, error: 0, probe: 0};
-    function note(success) {
+    /* recent holds 1 for a success, 0 for an error, 2 for a refusal (401, 403, 429). */
+    function note(success, refused) {
       if (success) ok++; else bad++;
-      recent.push(success ? 1 : 0);
+      recent.push(success ? 1 : (refused ? 2 : 0));
       var limit = window.TILE_WINDOW || 20;
       if (recent.length > limit) recent.shift();
       var windowBad = 0, k;
-      for (k = 0; k < recent.length; k++) if (!recent[k]) windowBad++;
+      for (k = 0; k < recent.length; k++) if (recent[k] !== 1) windowBad++;
       return windowBad;
     }
+    function refusals() {
+      var c = 0, k;
+      for (k = 0; k < recent.length; k++) if (recent[k] === 2) c++;
+      return c;
+    }
+    /* The phone is offline: a failed tile says nothing about the provider, so it is not counted. */
+    function offline() { return navigator.onLine === false; }
     function giveUp(reason) {
       if (switched || my !== gen || n >= list.length - 1) return;
+      /* OpenFreeMap already failed to load this visit: stay on OpenStreetMap, never loop back to a blank map. */
+      if (vectorFailed && list[n + 1].type === 'vector') return;
       switched = true;
       var windowBad = 0, k;
-      for (k = 0; k < recent.length; k++) if (!recent[k]) windowBad++;
-      window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, reason: String(reason) };
+      for (k = 0; k < recent.length; k++) if (recent[k] !== 1) windowBad++;
+      window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, refused: refusals(), reason: String(reason), codes: codes.slice(-10) };
       use(n + 1);
     }
     var Layer = L.TileLayer.extend({
@@ -103,49 +122,84 @@ window.addTiles = function (map) {
         img.alt = ''; img.width = size.x; img.height = size.y;
         if (p.cap && used >= p.cap) { done(null, img); return img; }
         if (p.cap) used++;
-        var url = this.getTileUrl(coords), tileGen = my;
+        /* No crossOrigin (27 Oct 2026, iPhone outage). crossorigin="anonymous" makes the <img> a CORS
+           request, and WebKit then refuses the opaque tile the service worker stored for a normal image. */
+        img.referrerPolicy = 'strict-origin-when-cross-origin';
+        var url = this.getTileUrl(coords), tileGen = my, shown = false, counted = false;
+        function reveal() {
+          if (shown || tileGen !== gen) return;
+          shown = true;
+          img.onload = function () {
+            if (tileGen !== gen) return;
+            if (!counted) {
+              counted = true;
+              window.TILE_STATS.load++;
+              note(true);  /* a success never switches the map */
+            }
+            done(null, img);
+          };
+          img.onerror = function () {
+            if (tileGen !== gen) return;
+            window.TILE_STATS.error++;
+            codes.push('decode');
+            done(new Error('decode'), img);
+            if (offline()) return;
+            var failed = note(false);
+            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+          };
+          img.src = url;
+        }
         window.TILE_STATS.probe++;
-        fetch(url).then(function (r) {
+        /* A fetch that fails outright (no HTTP status, e.g. iOS 'Load failed' on a network change) is tried
+           once more. HTTP statuses are never retried. credentials omit and no extra headers: a simple GET,
+           no preflight. */
+        function get(retried) {
+          return fetch(url, {credentials: 'omit'}).catch(function (e) {
+            if (retried || tileGen !== gen) throw e;
+            window.TILE_STATS.retry = (window.TILE_STATS.retry || 0) + 1;
+            return new Promise(function (r) { setTimeout(r, 400); }).then(function () { return get(true); });
+          });
+        }
+        get(false).then(function (r) {
           if (tileGen !== gen) return;
+          if (!r.ok) codes.push(r.status);
           if (r.status === 401 || r.status === 403 || r.status === 429) {
             window.TILE_STATS.error++;
-            note(false);
             done(new Error(String(r.status)), img);
-            giveUp(r.status);
+            if (offline()) return;
+            var errs = note(false, true);
+            if (refusals() >= (window.TILE_WINDOW_REFUSALS || 3)) giveUp(r.status);
+            else if (errs >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
             return;
           }
           if (!r.ok) {
             window.TILE_STATS.error++;
-            var missed = note(false);
             done(new Error(String(r.status || 'tile')), img);
+            if (offline()) return;
+            var missed = note(false);
             if (missed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
             return;
           }
-          window.TILE_STATS.load++;
-          if (note(true) >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-          /* The status is known now. The image uses the real tile URL, answered from the service worker
-             or HTTP cache the fetch just filled, so img.src still names the provider (offline checks rely on it). */
-          img.crossOrigin = 'anonymous';
-          img.onload = function () { done(null, img); };
-          img.onerror = function () {
-            if (tileGen !== gen) return;
-            window.TILE_STATS.error++;
-            var failed = note(false);
-            done(new Error('decode'), img);
-            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-          };
-          img.src = url;
+          if (!counted) {
+            counted = true;
+            window.TILE_STATS.load++;
+            note(true);  /* a success never switches the map */
+          }
+          /* The status is known. The image uses the real tile URL (offline checks read img.src). */
+          reveal();
         }, function () {
+          /* The probe threw with no HTTP status, even after the retry: WebKit "Response served by service
+             worker is opaque", or the network. That is not a tile failure. The <img> is the map: if it
+             really cannot load, its onerror counts the failure. */
           if (tileGen !== gen) return;
-          window.TILE_STATS.error++;
-          var failed = note(false);
-          done(new Error('network'), img);
-          if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+          window.TILE_STATS.probeOpaque = (window.TILE_STATS.probeOpaque || 0) + 1;
+          codes.push('probe-opaque');
+          reveal();
         });
         return img;
       }
     });
-    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution, crossOrigin: true });
+    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution });
     layer.addTo(map);
     window.TILE_ACTIVE = p.name;
     logo(p.name === 'maptiler');
@@ -153,16 +207,33 @@ window.addTiles = function (map) {
   /* OpenFreeMap: a MapLibre GL layer inside Leaflet. Markers, clusters and controls are unchanged. */
   function useVector(p, my, i) {
     window.TILE_ACTIVE = p.name; logo(false);
+    /* Any OpenFreeMap failure (script load, no WebGL e.g. iOS Lockdown Mode, MapLibre setup throwing) goes back
+       to OpenStreetMap, never a blank map. vectorFailed allows that once per page: giveUp then never returns to
+       OpenFreeMap, so there is no flip-flop. */
+    function fail(e) {
+      if (my !== gen) return;
+      if (layer) { try { map.removeLayer(layer); } catch (x) {} layer = null; }
+      window.TILE_VECTOR = 'failed: ' + (e && e.message);
+      if (i < list.length - 1) { use(i + 1); return; }
+      if (!vectorFailed && list[0] && list[0].type !== 'vector') {
+        vectorFailed = true;
+        if (window.TILE_FAILOVER) window.TILE_FAILOVER.back = list[0].name;
+        use(0);
+      }
+    }
     window.loadVectorLib().then(function () {
       if (my !== gen) return;
-      layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, attributionControl: { customAttribution: p.attribution } });
+      var gl = window.maplibregl;
+      if (gl && typeof gl.supported === 'function' && !gl.supported()) throw new Error('webgl unsupported');
+      if (!gl || typeof gl.supported !== 'function') {
+        var cv = document.createElement('canvas');
+        if (!(cv.getContext('webgl2') || cv.getContext('webgl'))) throw new Error('webgl unsupported');
+      }
+      layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        attributionControl: { customAttribution: p.attribution } });
       layer.addTo(map);
       window.TILE_VECTOR = 'ready';
-    }).catch(function (e) {
-      if (my !== gen) return;
-      window.TILE_VECTOR = 'failed: ' + (e && e.message);
-      if (i < list.length - 1) use(i + 1);
-    });
+    }).catch(fail);
   }
   map._hmTileStop = function () {
     gen++;
@@ -170,5 +241,31 @@ window.addTiles = function (map) {
     if (logoCtl) { map.removeControl(logoCtl); logoCtl = null; }
   };
   use(0);
+  if (/[?&]tiles=debug(&|$)/.test(location.search)) debugReadout(map);
   return layer;
 };
+
+/* ?tiles=debug only: plain text under the map credit naming the active map, and why it switched if it did.
+   Without the flag nothing is added. */
+function debugReadout(map) {
+  if (map._hmDebugCtl) map.removeControl(map._hmDebugCtl);
+  var ctl = L.control({ position: 'bottomright' }), box;
+  map._hmDebugCtl = ctl;
+  ctl.onAdd = function () {
+    box = L.DomUtil.create('div', 'tiles-debug');
+    box.id = 'tiles-debug';
+    box.style.cssText = 'background:#fff;color:#000;font:12px/1.3 monospace;padding:2px 4px;margin:0;max-width:60vw;white-space:pre-wrap';
+    return box;
+  };
+  ctl.addTo(map);
+  function draw() {
+    var fo = window.TILE_FAILOVER, st = window.TILE_STATS || {};
+    var t = 'map: ' + window.TILE_ACTIVE + ' | loaded ' + (st.load || 0) + ', errors ' + (st.error || 0) + ', retries ' + (st.retry || 0);
+    t += fo ? '\nswitched ' + fo.from + '->' + fo.to + ': reason ' + fo.reason + ', failures ' + fo.bad + ' (' + fo.windowBad + ' of last 20), ok ' + fo.ok + ', codes ' + (fo.codes || []).join(',') + (fo.back ? ', back to ' + fo.back : '') : '\nno switch';
+    if (box.textContent !== t) box.textContent = t;
+  }
+  draw();
+  /* One timer per page: a re-run of addTiles replaces the old readout instead of stacking timers. */
+  if (window._hmTilesDebugTimer) clearInterval(window._hmTilesDebugTimer);
+  window._hmTilesDebugTimer = setInterval(draw, 1000);
+}
