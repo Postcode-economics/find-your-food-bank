@@ -30,7 +30,10 @@ window.TILE_WINDOW_REFUSALS = 3;
    A layer that only starts (canvas exists, no load/idle, no pixels) used to stay grey forever:
    useVector set 'ready' before load and only saw promise rejections, so a MapLibre 'error'
    (WebKit SyntaxError) or a style that never draws never came back. After this many milliseconds
-   with neither a load nor an idle that painted tiles, the map returns to OpenStreetMap once. */
+   with neither a load nor an idle that painted tiles, the map returns to OpenStreetMap once.
+   fail() runs only for a fatal error: the style document failed, a source failed to load, or
+   there is no WebGL. One missing glyph, sprite or tile must not. fail() and the watchdog share
+   one settled flag, so the two cannot both send the map back. */
 window.TILE_VECTOR_WATCH_MS = 8000;
 window.tileCandidates = function () {
   var list = window.TILE_PROVIDERS.filter(function (p) {
@@ -216,15 +219,37 @@ window.addTiles = function (map) {
   }
   function useVector(p, my, i) {
     window.TILE_ACTIVE = p.name; logo(false);
-    /* Any OpenFreeMap failure goes back to OpenStreetMap, never a blank map. vectorFailed allows that once
-       per page: giveUp then never returns to OpenFreeMap, so there is no flip-flop and no freeze from two
-       maps fighting. Script load, no WebGL (iOS Lockdown Mode), a MapLibre 'error', or the watchdog below
-       all use this same fail(). */
+    /* Any fatal OpenFreeMap failure goes back to OpenStreetMap, never a blank map. vectorFailed allows that
+       once per page: giveUp then never returns to OpenFreeMap, so there is no flip-flop and no freeze from two
+       maps fighting. Script load, no WebGL, a fatal MapLibre error, and the watchdog all use this same fail().
+       settled is the only gate: claim() is the one place it is set, and both paths return if it is already set. */
     var settled = false, sawLoad = false, sawIdle = false, sawPaint = false;
-    function fail(e) {
-      if (my !== gen || settled) return;
+    function claim() {
+      if (my !== gen || settled) return false;
       settled = true;
       stopVectorWatch();
+      return true;
+    }
+    /* Style-document and source-load failures are fatal. A tile event, or a glyph, sprite or font miss, is not.
+       No WebGL is thrown before the map exists and reaches fail() through the promise below. */
+    function fatalVectorError(ev) {
+      var err = ev && ev.error;
+      var msg, url, blob;
+      if (!err) return false;
+      msg = String(err.message || '');
+      url = String(err.url || '');
+      blob = (msg + ' ' + url).toLowerCase();
+      if (/webgl/.test(blob)) return true;
+      if (ev.tile) return false;
+      if (/glyph|sprite|fontstack|\/fonts\//.test(blob)) return false;
+      if (/\.pbf(?:\?|$)/.test(blob)) return false;
+      if (ev.sourceId) return true;
+      if (ev.layer) return false;
+      if (ev.style) return true;
+      return false;
+    }
+    function fail(e) {
+      if (!claim()) return;
       if (layer) { try { map.removeLayer(layer); } catch (x) {} layer = null; }
       if (my !== gen) return;
       window.TILE_VECTOR = 'failed: ' + (e && e.message);
@@ -258,21 +283,17 @@ window.addTiles = function (map) {
       } catch (e2) { return false; }
     }
     function succeed() {
-      if (my !== gen || settled) return;
-      settled = true;
-      stopVectorWatch();
+      if (!claim()) return;
       window.TILE_VECTOR = 'ready';
     }
-    /* 'ready' only after MapLibre's own load, and only once something has painted.
-       Idle with paint is a drawn map: do not fall back, and do not call it ready until load. */
+    /* 'ready' only once something has painted and MapLibre has loaded or gone idle.
+       Either one settles the layer, so a later error cannot also fall back. */
     function consider(gl, kind) {
       if (my !== gen || settled) return;
       if (kind === 'load') sawLoad = true;
       if (kind === 'idle') sawIdle = true;
-      try { if (painted(gl)) sawPaint = true; } catch (e3) { return fail(e3); }
-      if (!sawPaint) return;
-      if (sawLoad) { succeed(); return; }
-      if (sawIdle) stopVectorWatch();
+      try { if (painted(gl)) sawPaint = true; } catch (e3) {}
+      if (sawPaint && (sawLoad || sawIdle)) succeed();
     }
     window.loadVectorLib().then(function () {
       if (my !== gen) return;
@@ -289,7 +310,10 @@ window.addTiles = function (map) {
       gl = layer.getMaplibreMap();
       if (!gl) throw new Error('no map');
       window.TILE_VECTOR = 'loading';
-      gl.on('error', function (ev) { fail(ev && ev.error || new Error('maplibre')); });
+      gl.on('error', function (ev) {
+        if (my !== gen || settled || !fatalVectorError(ev)) return;
+        fail(ev && ev.error || new Error('maplibre'));
+      });
       gl.on('load', function () { consider(gl, 'load'); });
       gl.on('idle', function () { consider(gl, 'idle'); });
       stopVectorWatch();
@@ -297,9 +321,8 @@ window.addTiles = function (map) {
         map._hmVectorWatch = 0;
         if (my !== gen || settled) return;
         try { if (painted(gl)) sawPaint = true; } catch (e4) {}
-        if (sawPaint && sawLoad) { succeed(); return; }
-        if (sawPaint && sawIdle) return;
-        fail(new Error('no tiles'));
+        if (sawPaint && (sawLoad || sawIdle)) succeed();
+        else fail(new Error('no tiles'));
       }, window.TILE_VECTOR_WATCH_MS || 8000);
     }).catch(fail);
   }
