@@ -22,6 +22,9 @@ window.TILE_PROVIDERS = [
    for the same tile is what tipped OpenStreetMap into 429s. A fetch that throws with no status
    (iOS: "Response served by service worker is opaque") is not a failure; the plain <img> is the one
    request and only its own error counts.
+   img.decode() rejecting is not a failure when the bitmap loaded (complete and naturalWidth > 0).
+   iOS Safari and Instagram's WKWebView do this for a good tile. Code 'decode' is only a broken image.
+   The 4-in-20 and 3-refusal rules are unchanged.
    The check keeps running after the first load. */
 window.TILE_WINDOW = 20;
 window.TILE_WINDOW_FAILS = 4;
@@ -155,7 +158,8 @@ window.addTiles = function (map) {
         function countBad(refused, why) {
           if (dead()) return;
           window.TILE_STATS.error++;
-          codes.push(why);
+          if (why === 'decode') codes.push('decode');
+          else codes.push(why);
           done(new Error(String(why)), img);
           plainIfEmpty();
           if (offline()) return;
@@ -163,20 +167,54 @@ window.addTiles = function (map) {
           if (refused && refusals() >= (window.TILE_WINDOW_REFUSALS || 3)) giveUp(why);
           else if (errs >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
         }
+        var tileSettled = false;
+        /* A loaded bitmap is a success even when decode() rejects. Only naturalWidth 0 is 'decode'. */
+        function bitmapOk() { return img.complete && img.naturalWidth > 0; }
+        function blanked() {
+          var src = img.getAttribute('src') || '';
+          return src.indexOf('data:image/gif;base64,R0lGODlhAQABAAD') === 0;
+        }
+        function showOk() {
+          if (tileSettled || dead()) return;
+          tileSettled = true;
+          countOk();
+          paintPlain(false);
+          done(null, img);
+        }
+        function showBadDecode() {
+          if (tileSettled || dead()) return;
+          if (bitmapOk()) { showOk(); return; }
+          tileSettled = true;
+          countBad(false, 'decode');
+        }
+        function settleImage() {
+          if (tileSettled || dead() || blanked()) return;
+          function finish() {
+            if (tileSettled || dead()) return;
+            if (bitmapOk()) showOk(); else showBadDecode();
+          }
+          /* Missing decode() (some WKWebViews): the load event is enough. A rejection is the same check. */
+          if (typeof img.decode !== 'function') { finish(); return; }
+          try {
+            var pending = img.decode();
+            if (pending && typeof pending.then === 'function') pending.then(finish, finish);
+            else finish();
+          } catch (e) { finish(); }
+        }
         function reveal() {
           /* Fetch threw with no HTTP status, even after the retry. Not a tile failure. The <img> is
              the one request: if it really cannot load, its onerror counts the failure. */
           if (shown || dead()) return;
           shown = true;
           img.onload = function () {
-            if (dead()) return;
-            countOk();
-            paintPlain(false);
-            done(null, img);
+            if (dead() || blanked()) return;
+            settleImage();
           };
           img.onerror = function () {
-            if (tileGen !== gen || (ac && ac.signal.aborted)) return;
-            countBad(false, 'decode');
+            if (tileGen !== gen || (ac && ac.signal.aborted) || blanked() || img.isConnected === false) return;
+            /* Spurious error on a tile that did load. A broken file has naturalWidth 0. */
+            if (bitmapOk()) showOk();
+            else showBadDecode();
           };
           img.src = url;
         }
@@ -187,13 +225,13 @@ window.addTiles = function (map) {
           var bytes = new Uint8Array(buf), parts = [], i, step = 8192;
           for (i = 0; i < bytes.length; i += step) parts.push(String.fromCharCode.apply(null, bytes.subarray(i, i + step)));
           img.onload = function () {
-            if (dead()) return;
-            paintPlain(false);
-            done(null, img);
+            if (dead() || blanked()) return;
+            settleImage();
           };
           img.onerror = function () {
-            if (tileGen !== gen || (ac && ac.signal.aborted)) return;
-            countBad(false, 'decode');
+            if (tileGen !== gen || (ac && ac.signal.aborted) || blanked() || img.isConnected === false) return;
+            if (bitmapOk()) showOk();
+            else showBadDecode();
           };
           img.src = 'data:' + String(mime || 'image/png').split(';')[0] + ';base64,' + btoa(parts.join(''));
         }
@@ -230,7 +268,12 @@ window.addTiles = function (map) {
             }
             countOk();
             var mime = (r.headers && r.headers.get && r.headers.get('content-type')) || 'image/png';
-            return r.arrayBuffer().then(function (buf) { paint(buf, mime); }, function () { if (!dead()) countBad(false, 'decode'); });
+            return r.arrayBuffer().then(function (buf) { paint(buf, mime); }, function () {
+              if (dead()) return;
+              /* The body never arrived. Show the tile URL. Count 'decode' only when that image
+                 is not then shown with naturalWidth > 0 (reveal's load and error do that check). */
+              reveal();
+            });
           }, function (e) {
             /* No HTTP status, even after the retry: WebKit "Response served by service worker is opaque",
                or the network. Not a tile failure. The <img> loads the tile once. */
