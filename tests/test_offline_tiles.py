@@ -144,7 +144,19 @@ class Browser(unittest.TestCase):
                 c.on('request', lambda r: T.is_external_tile_host(r.url) and seen.append(r.url))
                 pg = c.new_page()
                 pg.goto(site + '/index.html?fresh=1', wait_until='domcontentloaded')
-                pg.wait_for_function("()=>document.querySelectorAll('#map .leaflet-tile-loaded').length>=4", timeout=30000)
+                # wait_for_function uses eval, which this page's script-src rejects while scripts are still loading.
+                last = None
+                for _ in range(120):
+                    try:
+                        last = pg.evaluate("()=>document.querySelectorAll('#map .leaflet-tile-loaded').length")
+                    except Exception as e:
+                        last = '%s: %s' % (type(e).__name__, e)
+                    else:
+                        if last >= 4:
+                            break
+                    pg.wait_for_timeout(250)
+                else:
+                    raise AssertionError('tiles not loaded: %r' % (last,))
                 loaded = pg.evaluate("()=>document.querySelectorAll('#map .leaflet-tile-loaded').length")
                 pg.wait_for_timeout(500)
                 b.close()
