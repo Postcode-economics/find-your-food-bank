@@ -50,8 +50,9 @@ class Tag(unittest.TestCase):
     def test_old_cache_self_heal_is_in_the_head(self):
         h = rd('index.html'); i = h.index("k='hmHealOld'")
         self.assertLess(i, h.index('</head>'))
-        for s in ("'fyfb-v90'", "'fyfb-tiles'", 'caches.delete', 'unregister()', 'location.reload()', 'sessionStorage.setItem(k'):
-            self.assertIn(s, h[i:i + 900])
+        for s in ("'fyfb-v90'", "'fyfb-tiles'", 'caches.delete', 'unregister()', 'sessionStorage.setItem(k',
+                  "/[?&]hmheal=1(&|$)/.test(location.search)", "u.searchParams.set('hmheal','1')", 'location.replace(u.href)'):
+            self.assertIn(s, h[i:i + 1200])
 
 
 from test_iphone_map_fix import HAVE, IPhone, BASE, png, old_sw, until, PAINTED, STATE, OFM
@@ -152,6 +153,25 @@ class StaleWorker(unittest.TestCase):
                 if share >= 0.2: break
             self.assertGreaterEqual(share, 0.2, ('backup map canvas not drawn (grey/blank): green share %.3f' % share, pg.evaluate(STATE)))
             os.makedirs(SHOTS, exist_ok=True); pg.screenshot(path=os.path.join(SHOTS, 'sw_on_osm_blocked_backup.png'))
+            b.close()
+
+    def test_broken_session_storage_heals_at_most_once(self):
+        """PR 201's case: sessionStorage getItem always null and setItem silently not saved, and the old caches keep
+        coming back (worst case). The ?hmheal=1 URL flag must stop the heal: at most 2 document loads."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b, c, _ = self._ctx(p)
+            c.add_init_script("""(() => { try { Storage.prototype.getItem = function () { return null };
+                Storage.prototype.setItem = function () {} } catch (e) {}
+                try { const k = CacheStorage.prototype.keys; CacheStorage.prototype.keys = function () {
+                  return k.call(this).then(ks => ks.includes('fyfb-v90') ? ks : ks.concat('fyfb-v90')) } } catch (e) {} })()""")
+            c.route('**://tile.openstreetmap.org/**', png)
+            loads = []
+            pg = c.new_page(); pg.on('framenavigated', lambda f: f == pg.main_frame and loads.append(f.url))  # every document load, even ones cut short
+            pg.goto(BASE + '/?nocount', wait_until='commit')
+            pg.wait_for_timeout(12000)
+            self.assertLessEqual(len(loads), 2, ('self-heal loop with broken sessionStorage', loads))
+            self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
             b.close()
 
     def test_clean_phone_never_reloads(self):
