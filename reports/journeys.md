@@ -1,4 +1,4 @@
-# User-journey suite (local checkout)
+# User-journey suite (https://helpmap.uk)
 
 | journey | pass | fail |
 |---|---|---|
