@@ -161,49 +161,7 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "ww-65441941",
-    "name": "St. Mary's, Broughty Ferry",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Wed": "11:15 - 16:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "09:00 - 17:00",
-      "Tue": "09:00 - 17:00",
-      "Wed": "09:00 - 17:00",
-      "Thu": "09:00 - 17:00",
-      "Fri": "09:00 - 17:00"
-     }
-    }
-   },
-   {
-    "id": "ww-59951280",
-    "name": "Wellness Hub At St Laurence's Church",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "17:00 - 17:30"
-     }
-    },
-    "after": {
-     "hours": {
-      "Tue": "11:00 - 13:30",
-      "Wed": "11:00 - 13:30",
-      "Thu": "11:00 - 13:30",
-      "Fri": "11:00 - 13:30"
-     }
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -221,16 +179,16 @@
     "reason": "source no longer names this place"
    },
    {
+    "id": "ww-57979418",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-57952197",
     "reason": "schema: hours value invalid: Sat=Closed Monthly"
    },
    {
     "id": "ww-69189484",
     "reason": "source URL now redirects to a different site (soulsurvivor.church)"
-   },
-   {
-    "id": "ww-65238466",
-    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-68775963",
@@ -249,16 +207,16 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-59130027",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-68642792",
     "reason": "published days not found on source this run"
    },
    {
     "id": "ww-68642793",
     "reason": "published days not found on source this run"
-   },
-   {
-    "id": "ww-59806670",
-    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "ww-67460238",
@@ -269,8 +227,20 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-69333095",
-    "reason": "source unreachable this run (HTTP error)"
+    "id": "ww-67979812",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-65437506",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-58358850",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-57952705",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-68762729",
@@ -293,6 +263,10 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
+    "id": "ww-65437496",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
     "id": "ww-65441920",
     "reason": "source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)"
    },
@@ -301,8 +275,12 @@
     "reason": "published times not found on source this run"
    },
    {
-    "id": "ww-57952988",
-    "reason": "source unreachable this run (HTTP 500)"
+    "id": "ww-69080400",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-68672320",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-67608542",
@@ -311,10 +289,6 @@
    {
     "id": "ww-69189234",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "ww-64432641",
-    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "ww-68789946",
