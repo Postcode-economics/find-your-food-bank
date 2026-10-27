@@ -8,7 +8,9 @@ Two freezes this file locks out:
 1. Self-heal and the boot watchdog reloaded with location.reload() after writing sessionStorage.
    In a webview where getItem always returns null and setItem does not throw (storage that does
    not survive a reload), and version.json names a different build, that reload never stops.
-   The guard is a hmheal=1 / hmboot=1 flag written with history.replaceState before the reload.
+   The guard is a hmheal=1 / hmboot=1 flag appended to the current query before the reload.
+   Other parameters stay byte-identical (?nocount is not rewritten to ?nocount=). After a clean
+   boot the flags are removed, so a bookmark or shared link does not leave the heal switched off.
    If the flag cannot be written, the page does not reload. A throwing sessionStorage still
    skips the reload, because setItem stays outside try.
 
@@ -36,6 +38,7 @@ OFM_STYLE = ('{"version":8,"sources":{"uk":{"type":"geojson","data":{"type":"Fea
              '{"id":"land","type":"fill","source":"uk","paint":{"fill-color":"#a8d08d"}}]}')
 FLOW = ('13-off', '13-on', 'se-off', 'se-on')
 HEAL = ('heal-13', 'heal-se')
+STRIP = ('strip-13',)
 DEVICES = {'13': 'iPhone 13', 'se': 'iPhone SE'}
 PROBE = """(() => {
   if (window.__hb) return;
@@ -142,15 +145,19 @@ class Source(unittest.TestCase):
         home = open(os.path.join(R, 'index.html'), encoding='utf-8').read()
         tiles = open(os.path.join(R, 'tiles.js'), encoding='utf-8').read()
         sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
-        for s in ("searchParams.set('hmheal','1')", "searchParams.set('hmboot','1')",
+        for s in ("n='hmheal=1'", "n='hmboot=1'",
+                  "s?s+'&'+n:'?'+n",
+                  "p[i]!=='hmheal=1'&&p[i]!=='hmboot=1'",
                   "if(!/[?&]hmheal=1(?:&|$)/.test(location.search))return",
                   "if(!/[?&]hmboot=1(?:&|$)/.test(location.search))return",
                   "sessionStorage.setItem(k,v.build)", "location.reload()", "var k='hmBoot'", "k='hmHeal'"):
             self.assertIn(s, home)
+        self.assertNotIn("searchParams.set('hmheal'", home)
+        self.assertNotIn("searchParams.set('hmboot'", home)
         uv = tiles.split('function useVector', 1)[1]
         self.assertLess(uv.index('setTimeout(ok, 0)'), uv.index('L.maplibreGL'))
         self.assertLess(uv.index("glMap.on('load'"), uv.index("window.TILE_VECTOR = 'ready'"))
-        for s in ("new URL('vendor/maplibre-gl-csp-worker.js', location.href)", 'WEBGL_lose_context',
+        for s in ("setWorkerUrl('vendor/maplibre-gl-csp-worker.js')", 'WEBGL_lose_context',
                   'trackResize: false', 'webglcontextlost', 'vector style timeout',
                   'return Math.min(dpr, phone ? 1 : 2);', 'window.TILE_WINDOW_REFUSALS = 3'):
             self.assertIn(s, tiles)
@@ -367,9 +374,11 @@ def run_heal(case):
         if not settled:
             bad.append('page never settled after self-heal (%d loads)' % len(docs))
         else:
-            href = pg.evaluate('location.href')
-            if 'hmheal=1' not in href:
-                bad.append('reload did not keep hmheal=1 (%s)' % href)
+            second = docs[1] if len(docs) > 1 else ''
+            if not second.endswith('?nocount&fresh=1&hmheal=1'):
+                bad.append('reload rewrote the query (wanted ?nocount&fresh=1&hmheal=1): %s' % second)
+            if not until(pg, "location.search==='?nocount&fresh=1' && !/[?&]hmheal=1(?:&|$)/.test(location.search)", 8):
+                bad.append('clean boot left the heal flag in the URL: %s' % pg.evaluate('location.href'))
             phase(pg, bad, 'heal-load')
             tap(pg, bad, '#me', 'heal-locate')
             if not until(pg, "document.querySelectorAll('#list .card').length > 0", 8):
@@ -380,6 +389,49 @@ def run_heal(case):
         pg.wait_for_timeout(1000)
         if len(docs) != n:
             bad.append('kept reloading after settle (%d -> %d)' % (n, len(docs)))
+        c.close(); b.close()
+    if bad:
+        raise SystemExit(case + ' FAILED\n' + '\n'.join(bad))
+    print(case, 'passed', flush=True)
+
+
+def run_strip(case):
+    """A bookmarked or shared URL that still carries hmheal/hmboot must drop those flags
+    once the map has booted, and must not rewrite the other parameters."""
+    from playwright.sync_api import sync_playwright
+    device = DEVICES['13']
+    bad, docs = [], []
+    start = '/?nocount&fresh=1&hmheal=1&hmboot=1#map'
+    want = '/?nocount&fresh=1#map'
+
+    def local(route):
+        if route.request.resource_type == 'document':
+            docs.append(route.request.url[:180])
+        return local_file(route)
+
+    with sync_playwright() as p:
+        b = p.webkit.launch()
+        iphone = dict(p.devices[device])
+        iphone.pop('default_browser_type', None)
+        c = b.new_context(**iphone, service_workers='block')
+        c.route(BASE + '/**', local)
+        c.route(BASE + '/', local)
+        c.route(B.TILE_RE, lambda r: r.fulfill(
+            status=200, content_type='image/png', body=B.TILE_PNG,
+            headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'}))
+        pg = c.new_page()
+        pg.set_default_timeout(15000)
+        pg.goto(BASE + start, wait_until='load')
+        if not until(pg, "!!(window.FB_DATA && document.querySelector('#map .leaflet-pane'))", 20):
+            bad.append('map never built from a bookmarked heal URL')
+        here = pg.evaluate('location.pathname+location.search+location.hash')
+        print('bookmarked', here, 'navs', len(docs), flush=True)
+        if here != want:
+            bad.append('clean boot left %s (wanted %s)' % (here, want))
+        if any('nocount=' in u.split('#')[0] for u in docs) or 'nocount=' in here.split('#')[0]:
+            bad.append('bare nocount was rewritten: %s' % here)
+        if len(docs) != 1:
+            bad.append('stripping the flag navigated again: %s' % docs)
         c.close(); b.close()
     if bad:
         raise SystemExit(case + ' FAILED\n' + '\n'.join(bad))
@@ -423,11 +475,15 @@ class IPhoneFreeze(unittest.TestCase):
     def test_self_heal_does_not_reload_loop_iphone_se(self):
         self.guarded('heal-se')
 
+    @unittest.skipUnless(HAVE, 'needs playwright webkit')
+    def test_clean_boot_strips_heal_flags_from_the_url(self):
+        self.guarded('strip-13')
+
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2 and sys.argv[1] in FLOW + HEAL:
+    if len(sys.argv) == 2 and sys.argv[1] in FLOW + HEAL + STRIP:
         import warnings
         warnings.simplefilter('ignore', ResourceWarning)
-        (run_heal if sys.argv[1] in HEAL else run_flow)(sys.argv[1])
+        (run_strip if sys.argv[1] in STRIP else run_heal if sys.argv[1] in HEAL else run_flow)(sys.argv[1])
     else:
         unittest.main()

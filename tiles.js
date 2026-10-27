@@ -49,9 +49,7 @@ window.loadVectorLib = function () {
   window._hmVectorLib = add('link', { rel: 'stylesheet', href: 'vendor/maplibre-gl.css' }).catch(function () {})
     .then(function () { return window.maplibregl ? null : add('script', { src: 'vendor/maplibre-gl-csp.js' }); })
     .then(function () {
-      /* Absolute worker URL. WebKit throws "The string did not match the expected pattern" for
-         new Worker('') or a relative worker URL that does not resolve (older iOS / WKWebView). */
-      window.maplibregl.setWorkerUrl(new URL('vendor/maplibre-gl-csp-worker.js', location.href).href);
+      window.maplibregl.setWorkerUrl('vendor/maplibre-gl-csp-worker.js');
       return L.maplibreGL ? null : add('script', { src: 'vendor/leaflet-maplibre-gl.js' });
     });
   window._hmVectorLib.catch(function () { window._hmVectorLib = null; });
