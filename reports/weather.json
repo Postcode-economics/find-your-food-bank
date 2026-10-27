@@ -2,41 +2,6 @@
  "warnings": [
   {
    "source": "Met Office",
-   "title": "Yellow warning of wind affecting South West England",
-   "level": "yellow",
-   "areas": [
-    "Cornwall",
-    "Devon",
-    "Dorset",
-    "Isles of Scilly",
-    "Plymouth",
-    "Torbay"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-26&id=61bc9a69-3fe9-4807-ab6d-abdc08cf4a2b&referrer=rss",
-   "places": [
-    "Bodmin Library",
-    "Buckland Coffee Morning",
-    "Chittlehampton Village Hall",
-    "Dockyard Food Larder",
-    "Falmouth Drop In",
-    "Mint Methodist Church",
-    "Poole Pantry",
-    "Salvation Army in Whitleigh",
-    "St Jude's Community Hub",
-    "Strand Community Centre",
-    "The Hub @ Christ Church Creekmoor",
-    "The Meeting Place",
-    "The Neighbourhood Table",
-    "The Oasis",
-    "The Vale Family Hub",
-    "Warmwell at Westbank",
-    "Wayfarers Caravan Park with St Hilary Church",
-    "Winton Park Cafe"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Dumfries, Galloway, Lothian & Borders",
    "level": "yellow",
    "areas": [
@@ -55,17 +20,6 @@
     "Pencaitland Lunch Club",
     "The Heart"
    ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
-   "title": "Yellow warning of wind affecting Dumfries, Galloway, Lothian & Borders",
-   "level": "yellow",
-   "areas": [
-    "Dumfries and Galloway"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-26&id=61bc9a69-3fe9-4807-ab6d-abdc08cf4a2b&referrer=rss",
-   "places": [],
    "swep": []
   },
   {
@@ -113,36 +67,6 @@
   },
   {
    "source": "Met Office",
-   "title": "Yellow warning of wind affecting Northern Ireland",
-   "level": "yellow",
-   "areas": [
-    "County Antrim",
-    "County Down"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-26&id=61bc9a69-3fe9-4807-ab6d-abdc08cf4a2b&referrer=rss",
-   "places": [
-    "Simon Community – 242 Antrim Road"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
-   "title": "Yellow warning of wind affecting North West England",
-   "level": "yellow",
-   "areas": [
-    "Cumbria"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-26&id=61bc9a69-3fe9-4807-ab6d-abdc08cf4a2b&referrer=rss",
-   "places": [
-    "Currock House Community Centre",
-    "Ramsden Street United Reformed Church",
-    "Saturday Coffee Morning",
-    "Warm Welcome Wednesdays at Burton Memorial Hall"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Orkney & Shetland",
    "level": "yellow",
    "areas": [
@@ -177,32 +101,6 @@
   },
   {
    "source": "Met Office",
-   "title": "Yellow warning of wind affecting Wales",
-   "level": "yellow",
-   "areas": [
-    "Bridgend",
-    "Carmarthenshire",
-    "Ceredigion",
-    "Conwy",
-    "Gwynedd",
-    "Isle of Anglesey",
-    "Neath Port Talbot",
-    "Pembrokeshire",
-    "Swansea"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-26&id=61bc9a69-3fe9-4807-ab6d-abdc08cf4a2b&referrer=rss",
-   "places": [
-    "Caffi Cynefin",
-    "Llanelli Queer Collective LGBT+ Coffee morning",
-    "Mwldan",
-    "Renew 57",
-    "St Paul's Methodist Centre",
-    "Welcoming Warm Wednesdays, Trallwm Community Hall"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Strathclyde",
    "level": "yellow",
    "areas": [
@@ -224,22 +122,6 @@
     "Glasgow City Mission Overnight Welcome Centre",
     "Talbot Association"
    ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
-   "title": "Yellow warning of wind affecting Strathclyde",
-   "level": "yellow",
-   "areas": [
-    "Argyll and Bute",
-    "East Ayrshire",
-    "Inverclyde",
-    "North Ayrshire",
-    "Renfrewshire",
-    "South Ayrshire"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-26&id=61bc9a69-3fe9-4807-ab6d-abdc08cf4a2b&referrer=rss",
-   "places": [],
    "swep": []
   },
   {
@@ -416,6 +298,83 @@
     "Cumberland"
    ],
    "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN1B",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Innerpeffray to Bridge of Earn",
+   "level": "flood warning",
+   "areas": [
+    "Innerpeffray to Bridge of Earn"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26783/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Carse of Lennoch to Lochlane",
+   "level": "flood warning",
+   "areas": [
+    "Carse of Lennoch to Lochlane"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26777/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Upper Tay",
+   "level": "flood warning",
+   "areas": [
+    "Upper Tay"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26817/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Ballinluig to Logierait",
+   "level": "flood warning",
+   "areas": [
+    "Ballinluig to Logierait"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26831/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Logierait to Jubilee Bridge",
+   "level": "flood warning",
+   "areas": [
+    "Logierait to Jubilee Bridge"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26835/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Glen Lyon",
+   "level": "flood warning",
+   "areas": [
+    "Glen Lyon"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26803/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Crieff to Innerpeffray",
+   "level": "flood warning",
+   "areas": [
+    "Crieff to Innerpeffray"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26809/",
    "places": [],
    "swep": []
   },
@@ -663,6 +622,17 @@
   },
   {
    "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for Strathglass",
+   "level": "flood warning",
+   "areas": [
+    "Strathglass"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26859/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
    "title": "A FLOOD WARNING has been issued for Upper Solway Firth",
    "level": "flood warning",
    "areas": [
@@ -889,6 +859,17 @@
     "Stromness"
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27281/",
+   "places": [],
+   "swep": []
+  },
+  {
+   "source": "SEPA",
+   "title": "A FLOOD WARNING has been issued for St Mary's and Graemeshall",
+   "level": "flood warning",
+   "areas": [
+    "St Mary's and Graemeshall"
+   ],
+   "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27283/",
    "places": [],
    "swep": []
   },

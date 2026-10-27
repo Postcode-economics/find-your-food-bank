@@ -1,4 +1,4 @@
-# Refresh guard: foodbanks (2026-10-27T00:04:03+00:00)
+# Refresh guard: foodbanks (2026-10-27T05:43:41+00:00)
 
 foodbanks: kept 5 places, 0 phones, 23 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 

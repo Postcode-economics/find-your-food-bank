@@ -1,6 +1,6 @@
 ## What the system learned (signals)
 
-- Source trust (phone agrees with own site, minus hand corrections): IFAN 0.38 (22 checked), other 0.82 (9 checked), Give Food 0.90 (697 checked)
+- Source trust (phone agrees with own site, minus hand corrections): IFAN 0.38 (22 checked), other 0.82 (9 checked), Give Food 0.90 (695 checked)
 - Places with change signals (dead link, closure wording, Facebook, bounce): 78
 - Checks moved up for next run: 1054 sites (corrections 134, signals 123, season 0, demand 0, visitor reports 0)
 - Seasonal timing: boost 0.00 this week (2 weeks of history (2026))
@@ -29,15 +29,15 @@
 - https://www.gospelcentre.co.uk/get-involved.html: {'correction': 0.405, 'signal': 0.968, 'trust': 0.25}
 - https://www.ibijokefoundation.co.uk/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.25}
 - https://www.cfydc.org.uk/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.25}
-- https://cartertonfoodbank.co.uk: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://ccg.scot/projects/1073/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/BancBwydLlandysul/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/kirriefoodhub/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/WAMCCommunity: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/Drighlingtonfoodbank: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/birchgrovecommunityfoodbank/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://dwellingplaceglasgow.org/storehouse/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.minerslamp.org: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/profile.php?id=100086170811325: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
-- https://www.facebook.com/DN7FoodBank: {'correction': 0.405, 'signal': 0.968, 'trust': 0.038}
+- https://cartertonfoodbank.co.uk: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://ccg.scot/projects/1073/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/BancBwydLlandysul/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/kirriefoodhub/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/WAMCCommunity: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/Drighlingtonfoodbank: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/birchgrovecommunityfoodbank/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://dwellingplaceglasgow.org/storehouse/: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.minerslamp.org: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/profile.php?id=100086170811325: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
+- https://www.facebook.com/DN7FoodBank: {'correction': 0.405, 'signal': 0.968, 'trust': 0.039}
 
