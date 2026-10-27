@@ -139,5 +139,49 @@
    },
    "reader": "hand-reviewed 2026-10-25 (First Base 'Get Help Now' page: emergency parcel pick-up hours per point; Dean approved)"
   }
+ },
+ "kirkcaldy/park-road-centre": {
+  "parent": "kirkcaldy",
+  "name": "Park Road Centre",
+  "address": "2 Park Road, Kirkcaldy, KY1 3EL",
+  "postcode": "KY1 3EL",
+  "lat": 56.130913,
+  "lng": -3.137885,
+  "evidence": "Kirkcaldy Foodbank contact page lists Park Road Centre, 2 Park Road, KY1 3EL, as a distribution point: Mondays 10am-3pm, Tuesdays 10am-1pm, Wednesdays 10am-1pm, Thursdays 10am-3pm, Friday closed. You do not need to get in touch before you come. Replaces the Viewforth Church Hall KY1 3BW pin, which is not on this page. Checked 26 Oct 2026.",
+  "evidence_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
+  "opening_times": {
+   "checked_date": "2026-10-26",
+   "raw": "Mondays: 10am-3pm | Tuesdays: 10am-1pm | Wednesdays: 10am-1pm | Thursdays: 10am-3pm | Friday: Closed",
+   "source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "15:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "15:00"
+     ]
+    ]
+   },
+   "reader": "hand-reviewed 2026-10-26 (Kirkcaldy Foodbank contact page: Park Road Centre client hours)",
+   "protected": true
+  }
  }
 }
