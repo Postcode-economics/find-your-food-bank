@@ -32,6 +32,14 @@ def tile_host(host):
     host = (host or '').lower()
     return host in TILE_HOSTS or host.endswith('.tile.openstreetmap.org')
 
+# The search moves the map (fitBounds/flyTo), which drops the tiles of the previous view and loads the new ones from the
+# worker's cache. Waiting only for "some tile loaded" could match the old view's tiles a moment before the move replaced
+# them (CI run 40593928638: loaded 0). Wait until the move is over: no zoom animation, no tile still loading, and at
+# least one painted tile, held for 300 ms.
+TILES_SETTLED = r"""() => new Promise(ok => { const ready = () => { const m = document.getElementById('map');
+  if (!m || m.querySelector('.leaflet-zoom-anim, .leaflet-tile-loading')) return false;
+  return [...m.querySelectorAll('.leaflet-tile-loaded')].some(img => img.naturalWidth > 0) };
+  if (!ready()) return ok(false); setTimeout(() => ok(ready()), 300) })"""
 LIST = r"""() => {
   const cards = [...document.querySelectorAll('#list .card')];
   const hours = cards.map(c => (c.querySelector('.ot') || {}).innerText || '');
@@ -240,7 +248,7 @@ class Offline(unittest.TestCase):
                 self.assertEqual(line['text'], line['expect'], line)
                 self.assertRegex(line['text'], LINE)
                 self.assertFalse(line['onLine'])
-                until(pg, "() => [...document.querySelectorAll('#map .leaflet-tile-loaded')].some(img => img.naturalWidth > 0)", 15)
+                until(pg, TILES_SETTLED, 15)
                 cached = pg.evaluate(LIST)
                 self.assertFalse(cached['notiles'], cached)
                 self.assertGreater(cached['loaded'], 0, cached)
@@ -251,7 +259,7 @@ class Offline(unittest.TestCase):
                 pg.fill('#q', 'York')
                 pg.press('#q', 'Enter')
                 until(pg, "() => /YO\\d/.test(document.getElementById('list').innerText) && document.querySelector('#list .ot')", 20)
-                until(pg, "() => [...document.querySelectorAll('#map .leaflet-tile-loaded')].some(img => img.naturalWidth > 0)", 15)
+                until(pg, TILES_SETTLED, 15)
                 york = pg.evaluate(LIST)
                 self._works(york, 'York')
                 self.assertFalse(york['notiles'], york)
