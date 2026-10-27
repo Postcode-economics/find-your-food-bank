@@ -92,7 +92,7 @@ def card_sh(i):
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
-            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone')), web, sh_contact(i), ref, hrs))
+            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone'), i.get('phone_label')), web, sh_contact(i), ref, hrs))
 
 def ws_fallback(i):
     if i.get('tel') or not i.get('council_phone'): return ''
@@ -112,9 +112,13 @@ def sh_contact(i):
               'or your local council&#39;s homeless team. Someone sleeping rough: <a href="https://thestreetlink.org.uk/" rel="noopener">StreetLink</a></div>')
     return o
 
-def phone_html(p):
+def phone_html(p, label=''):
     if not p: return ''
-    return '<div>Phone: <a href="tel:%s">%s</a></div>' % (E(re.sub(r'[^0-9+]', '', p)), E(p))
+    extra = ''
+    if label:
+        shown = label if re.search(r'(number|line)$', label, re.I) else 'Number for ' + label
+        extra = ' <span class="sub">%s</span>' % E(shown)
+    return '<div>Phone: <a href="tel:%s">%s</a>%s</div>' % (E(re.sub(r'[^0-9+]', '', p)), E(p), extra)
 
 def card_fb(i, acc):
     a = acc.get(i['id'], 'unconfirmed')

@@ -40,6 +40,29 @@ def apply_address_fixes(items, root):
         f = fx.get(i["id"])
         if f and not i["id"].startswith("_"):
             for k in ("address", "postcode", "lat", "lng"): i[k] = f[k]
+def add_approved_foodbanks(items, root):
+    """Places Dean has OK'd that are not complete enough for foodbank_added.json (no invented phone, clock times or single venue).
+    overrides/foodbank_approved_new.json values that are objects with a name are inserted. Idempotent.
+    A Give Food pin that already uses the same id is left as-is."""
+    p = os.path.join(root, "overrides", "foodbank_approved_new.json")
+    if not os.path.exists(p): return 0
+    ex = {k: v for k, v in json.load(open(p, encoding="utf-8")).items() if not str(k).startswith("_") and isinstance(v, dict) and v.get("name")}
+    have = {i["id"] for i in items if not i.get("approved_new")}
+    items[:] = [i for i in items if not (i.get("approved_new") and i["id"] in ex)]
+    n = 0
+    for k, x in ex.items():
+        if k in have: print("warning: approved new food bank id already listed:", k); continue
+        rec = {"id": k, "type": "foodbank", "name": x["name"], "foodbank": x["name"], "network": x.get("network") or "Independent",
+            "address": x.get("address") or "", "postcode": x.get("postcode") or "", "givefood": "", "manual": True, "approved_new": True}
+        for fld in ("lat", "lng", "phone", "tel", "website", "opening_times", "phone_label", "source_label", "venues_vary",
+                    "service_lat", "service_lng", "service_km", "notice", "evidence_url"):
+            if fld in x and x[fld] not in (None, ""): rec[fld] = x[fld]
+        if rec.get("phone") and "tel" not in rec:
+            digits = re.sub(r"\D", "", rec["phone"])
+            if digits.startswith("44"): digits = "0" + digits[2:]
+            rec["tel"] = digits
+        items.append(rec); n += 1
+    return n
 def add_added_foodbanks(items, root):
     """Independent food banks hand-checked from public sources (overrides/foodbank_added.json, Dean 24 Oct 2026): standalone
     food bank pins (own venue, own phone, own times). Idempotent; never overrides a Give Food/IFAN pin with the same id."""
@@ -57,6 +80,7 @@ def add_added_foodbanks(items, root):
         n += 1
     return n
 def classify(items, root):
+    add_approved_foodbanks(items, root)
     add_added_foodbanks(items, root)
     add_extra_locations(items, root)
     apply_address_fixes(items, root)
