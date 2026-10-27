@@ -5,7 +5,7 @@ gone, the same block must not be called a pass.
 The page is this checkout on 127.0.0.1. Tile hosts are answered here with a blank PNG, then aborted.
 Nothing is requested from helpmap.uk or from a map server.
 """
-import http.server, os, re, socket, threading, unittest
+import http.server, os, re, socket, threading, time, unittest
 from urllib.parse import urlparse
 R = os.path.join(os.path.dirname(__file__), '..')
 import sys
@@ -102,16 +102,26 @@ class T(unittest.TestCase):
                 prime_logs = []
                 B.goto(page, base, log=prime_logs.append)
                 self.assertEqual(prime_logs, [], prime_logs)
-                page.wait_for_function(
-                    """async (name) => {
-                        const reg = await navigator.serviceWorker.getRegistration();
-                        if (!reg || !navigator.serviceWorker.controller) return false;
-                        const c = await caches.open(name);
-                        const urls = (await c.keys()).map(k => k.url);
-                        return urls.some(u => /\\/data\\.js(?:\\?|$)/.test(u))
-                            && urls.some(u => /\\/vendor\\/leaflet\\.js(?:\\?|$)/.test(u));
-                    }""",
-                    arg=cache, timeout=20000)
+                # page.evaluate awaits this. wait_for_function does not: an async function's
+                # return value is a Promise, and a Promise is truthy straight away, so the
+                # block used to start before the worker had stored anything.
+                deadline = time.time() + 20
+                warm = False
+                while time.time() < deadline:
+                    warm = page.evaluate(
+                        """async (name) => {
+                            const reg = await navigator.serviceWorker.getRegistration();
+                            if (!reg || !navigator.serviceWorker.controller) return false;
+                            const c = await caches.open(name);
+                            const urls = (await c.keys()).map(k => k.url);
+                            return urls.some(u => /\\/data\\.js(?:\\?|$)/.test(u))
+                                && urls.some(u => /\\/vendor\\/leaflet\\.js(?:\\?|$)/.test(u));
+                        }""",
+                        cache)
+                    if warm:
+                        break
+                    page.wait_for_timeout(200)
+                self.assertTrue(warm, 'service worker did not precache data.js and leaflet.js')
                 blocked['on'] = True
                 served = []
 
