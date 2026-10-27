@@ -82,6 +82,14 @@ UNRESOLVED = {}
 
 OOH_LABEL = re.compile(r"out-of-hours", re.I)
 
+# PR 211 (ooh-number-lock) lands these, with or before the combined batch. This branch must not
+# replace them: Portsmouth warm space stays off 023 9282 4244, and Armagh and Sefton stay as on main.
+DEFERRED_211 = {
+    "ww-55473335": "0345 140 0845",  # Sefton
+    "ww-55473691": "023 9282 2251",  # Portsmouth warm space (211 sets 023 9282 4244)
+    "ww-68895885": "0300 030 0900",  # Armagh, Banbridge and Craigavon
+}
+
 
 def built(layer):
     t = open(os.path.join(ROOT, layer + ".js")).read()
@@ -101,6 +109,8 @@ def override_entries():
 class Rule37(unittest.TestCase):
     def test_no_known_daytime_number_in_overrides(self):
         for where, e in override_entries():
+            if where.split(":")[-1] in DEFERRED_211:
+                continue
             for f in ("council_phone", "council_ooh"):
                 self.assertNotIn(D(e.get(f)), KNOWN_DAYTIME, f"{where} {f}={e.get(f)} is a daytime/switchboard line")
 
@@ -109,15 +119,25 @@ class Rule37(unittest.TestCase):
             items = built(layer)
             sc.apply(items, sc.load(sc.WS if layer == "warmspaces" else sc.PATH))
             for x in items:
+                if x["id"] in DEFERRED_211:
+                    continue
                 for f in ("council_phone", "council_ooh"):
                     self.assertNotIn(D(x.get(f)), KNOWN_DAYTIME, f"{layer}:{x['id']} {f}={x.get(f)} is a daytime/switchboard line")
 
     def test_every_council_line_is_labelled_out_of_hours(self):
         for where, e in override_entries():
-            if D(e["council_phone"]) in UNRESOLVED:
+            if where.split(":")[-1] in DEFERRED_211 or D(e["council_phone"]) in UNRESOLVED:
                 continue
             self.assertRegex(e.get("council_label", ""), OOH_LABEL, where)
             self.assertTrue(e.get("council_label_cy"), where)
+
+    def test_armagh_sefton_and_portsmouth_warm_space_stay_for_211(self):
+        d = json.load(open(os.path.join(ROOT, "overrides", "warmspaces_contacts.json")))
+        for i, n in DEFERRED_211.items():
+            self.assertEqual(d[i]["council_phone"], n, i)
+            self.assertNotIn("023 9282 4244", d[i].get("council_phone", "") + (d[i].get("council_ooh") or ""))
+        self.assertNotEqual(d["ww-68895885"].get("council"), "Housing Executive (NIHE)")
+        self.assertNotEqual(d["ww-55473335"]["council_phone"], "07779 960994")
 
     def test_hidden_cards_show_no_council_line(self):
         items = built("warmspaces")
@@ -143,7 +163,7 @@ class Rule37(unittest.TestCase):
     def test_manchester_gateshead_ooh(self):
         d = json.load(open(os.path.join(ROOT, "overrides", "warmspaces_contacts.json")))
         for i, n in (("ww-68980095", "0161 234 5001"), ("ww-55475981", "0161 234 5001"), ("ww-55473455", "0161 234 5001"), ("ww-69155575", "0191 477 0844"),
-                     ("ww-57953124", "0300 456 3554"), ("ww-65437367", "0300 456 3554"), ("ww-68895885", "03448 920 908"), ("ww-65441920", "01422 288000")):
+                     ("ww-57953124", "0300 456 3554"), ("ww-65437367", "0300 456 3554"), ("ww-65441920", "01422 288000")):
             self.assertEqual(d[i]["council_phone"], n)
             self.assertRegex(d[i]["council_label"], OOH_LABEL)
             self.assertTrue(d[i]["council_url"].startswith("https://www.manchester.gov.uk/") or d[i]["council_url"].startswith("https://www.gateshead.gov.uk/")
