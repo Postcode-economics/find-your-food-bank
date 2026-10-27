@@ -327,8 +327,33 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 if why:
                     i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
                     _unconfirm(i, kind, field, why)
+        hold_boilerplate(items, log, orig, field)
         for i in items: i.pop("_orig_times", None)
     return log
+BOILER = re.compile(r"phone lines?|telephone|lines (?:are )?monitored|office hours|office (?:is )?open", re.I)
+def _key(ot):
+    if not isinstance(ot, dict): return None
+    return json.dumps(ot.get("structured"), sort_keys=True) if ot.get("structured") else (ot.get("raw") or None)
+def hold_boilerplate(items, log, orig, field="opening_times"):
+    """Shared boilerplate is a red flag (Cardiff, 27 Oct 2026: phone-line hours on every centre). Hold for review, never
+    auto-apply or auto-confirm: (a) every session/location of one food bank (2+, same site) ends with identical times;
+    (b) the times' own text mentions phone lines / office hours."""
+    live = [i for i in items if log.get(i["id"], {}).get("status") in ("confirmed", "changed")]
+    bysite = {}
+    for i in live:
+        if "/" in i["id"]: bysite.setdefault(log[i["id"]]["site"], []).append(i)
+    for site, grp in bysite.items():
+        allsess = [i for i in items if "/" in i["id"] and log.get(i["id"], {}).get("site") == site]
+        keys = {_key(i.get(field)) for i in grp}
+        if len(grp) >= 2 and len(grp) == len(allsess) and len(keys) == 1 and None not in keys:
+            for i in grp: _hold(i, log, orig, field, "every session of this food bank shows the same times (shared boilerplate?); held for review")
+    for i in live:
+        ot = i.get(field)
+        if log[i["id"]].get("status") in ("confirmed", "changed") and isinstance(ot, dict) and BOILER.search(ot.get("raw") or ""):
+            _hold(i, log, orig, field, "times text mentions phone lines / office hours; held for review")
+def _hold(i, log, orig, field, why):
+    i[field] = orig.get(i["id"]); log[i["id"]].update(status="held_for_review", reason=why, reverted=True)
+    _unconfirm(i, "fb", field, why); i["times_status"] = "held_for_review"
 
 def summary(log):
     from collections import Counter
