@@ -42,5 +42,29 @@
     "centres": [],
     "phone": "07360162919",
     "evidence": "Aberdeen South Foodbank site: 'TLC 18 Palmerston Road (Office Only)'; 'provide a home delivery service on Mondays and Fridays, but do not offer a drop in or collection service'. https://aberdeensouth.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
+  },
+  "york": {
+    "kind": "dropoff",
+    "label_en": "Donations only",
+    "label_cy": "Rhoddion yn unig",
+    "evidence": "York Foodbank own page: 'Unit 5 Sterling Park ... YO30 4WU (Depot address for donation drop off only. Open every Tuesday/Thursday 9-1pm or by arrangement)'. https://york.foodbank.org.uk/contact-us/ checked 27 Oct 2026."
+  },
+  "glasgow-sw": {
+    "kind": "warehouse",
+    "label_en": "Donations only",
+    "label_cy": "Rhoddion yn unig",
+    "evidence": "Glasgow SW Foodbank own page: 'Please note, this is an office and warehouse premises only. No food parcels can be collected from this location.' https://glasgowsw.foodbank.org.uk/locations/ checked 27 Oct 2026."
+  },
+  "stroud-district": {
+    "kind": "warehouse",
+    "label_en": "Donations only",
+    "label_cy": "Rhoddion yn unig",
+    "evidence": "Stroud District Foodbank own page: 'Please note this is an office and warehouse not a foodbank centre.' https://strouddistrict.foodbank.org.uk/locations/ checked 27 Oct 2026."
+  },
+  "poole": {
+    "kind": "client",
+    "label_en": "",
+    "label_cy": "",
+    "evidence": "Faithworks own page: 'Poole Lifecentre & Foodbank Open: Tuesdays - Thursdays, 9.30am - 12.30pm Fridays, 9.30am - 12pm Where: St James' Church Centre, Church Street, Poole' (same place as this pin). https://faith-works.org.uk/locations-across-dorset/ checked 27 Oct 2026."
   }
 }
