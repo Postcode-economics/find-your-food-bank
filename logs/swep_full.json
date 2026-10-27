@@ -1,5 +1,5 @@
 {
- "run": "2026-10-26",
+ "run": "2026-10-27",
  "coverage": {
   "councils": 382,
   "with_swep_page": 223,
@@ -7,7 +7,7 @@
   "active": [
    "Swindon Borough Council"
   ],
-  "flagged": 48
+  "flagged": 51
  },
  "councils": [
   {
@@ -771,13 +771,16 @@
    "pages": [
     {
      "url": "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
-     "http": 200,
-     "status": "unknown",
+     "http": 202,
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://burnley.gov.uk/housing/housing-advice-and-homelessness/ (HTTP 202)"
+   ]
   },
   {
    "code": "BUR",
@@ -1770,10 +1773,18 @@
      "http": 200,
      "status": "no SWEP wording",
      "quote": ""
+    },
+    {
+     "url": "https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
     }
    ],
    "status": "no SWEP wording",
-   "flags": []
+   "flags": [
+    "new page https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian"
+   ]
   },
   {
    "code": "ELS",
@@ -1869,13 +1880,16 @@
    "pages": [
     {
      "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
-     "http": 200,
-     "status": "unknown",
+     "http": 202,
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (HTTP 202)"
+   ]
   },
   {
    "code": "ESK",
@@ -3541,9 +3555,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "NLK",
@@ -3763,14 +3775,14 @@
    "pages": [
     {
      "url": "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
-     "http": 429,
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "dead page https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping (HTTP 429)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -4275,13 +4287,16 @@
    "pages": [
     {
      "url": "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
-     "http": 200,
-     "status": "unknown",
+     "http": "error",
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.rugby.gov.uk/w/severe-weather-emergency-protocol (HTTP error)"
+   ]
   },
   {
    "code": "RUH",
@@ -4346,9 +4361,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unreachable -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "SAL",
@@ -4425,13 +4438,16 @@
    "pages": [
     {
      "url": "https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 404,
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (HTTP 404)"
+   ]
   },
   {
    "code": "SDE",
@@ -5160,14 +5176,14 @@
    "pages": [
     {
      "url": "https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping",
-     "http": 500,
-     "status": "unreachable",
+     "http": 200,
+     "status": "no SWEP wording",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "no SWEP wording",
    "flags": [
-    "dead page https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping (HTTP 500)"
+    "status unreachable -> no SWEP wording"
    ]
   },
   {
@@ -5532,10 +5548,18 @@
      "http": 200,
      "status": "unknown",
      "quote": ""
+    },
+    {
+     "url": "https://www.watford.gov.uk/news/article/1065/eight-years-of-hope-watford-s-winter-night-shelter-helps-hundreds-of-people",
+     "http": 200,
+     "status": "unknown",
+     "quote": ""
     }
    ],
    "status": "unknown",
-   "flags": []
+   "flags": [
+    "new page https://www.watford.gov.uk/news/article/1065/eight-years-of-hope-watford-s-winter-night-shelter-helps-hundreds-of-people"
+   ]
   },
   {
    "code": "WAW",
@@ -5738,9 +5762,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unreachable -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "WLL",
