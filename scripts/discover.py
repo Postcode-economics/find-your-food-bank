@@ -266,15 +266,20 @@ def office_like(st):
     return all(mins(b) - mins(a) >= 240 for blk in wk for a, b in blk)
 # ---- Strict gate for times changes found by the regular refresh (Dean 27 Oct 2026, vault rule 33) ----
 # Applied ONLY when: postcode matched on the own-site page; identical times on 2 separate runs; source is the org's own
-# site; no conflict (pages/branches disagree, office-like); not known times -> closed/empty; times_auto_apply on; not undone.
-# Same log + undo as times_finder (reports/times_auto_applied.json, scripts/times_revert.py). Anything else: old times kept,
-# held in reports/pending_dean.md. state_root=None (no saved state) can never meet the 2-run rule, so it holds everything.
+# site; no hours conflict; not known times -> closed/empty; times_auto_apply on; not undone.
+# An hours conflict is a second, different hours table on the org's own site. A stored phone that differs from the
+# phone on the site is not one (the phone fix stays held on the phone path). Nothing read is not a change: the stored
+# listing stays as it is, and it is not a pending row.
+# Same log + undo as times_finder (reports/times_auto_applied.json, scripts/times_revert.py). Anything else that was
+# actually read: old times kept, held in reports/pending_dean.md. state_root=None (no saved state) can never meet the
+# 2-run rule, so it holds everything.
 XC_SEEN = os.path.join("logs", "times_crosscheck_seen.json")
 XC_BLOCK = os.path.join("overrides", "times_auto_undone.json")
 AUTO_LOG = os.path.join("reports", "times_auto_applied.json")
 def _tsig(st): return json.dumps(st, sort_keys=True) if st else None
 def _ot_empty(ot):
     if not ot: return True
+    if isinstance(ot, dict) and ot.get("all_closed"): return True
     if isinstance(ot, str): return not ot.strip() or bool(re.fullmatch(r"(?i)\s*closed\s*", ot))
     if isinstance(ot, dict) and "status" not in ot and "structured" not in ot and "raw" not in ot:   # shelter/warm-space hours {'Mon': '..'}
         return not any(str(v).strip() and str(v).strip().lower() != "closed" for v in ot.values())
@@ -295,6 +300,7 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     for t in texts:
         e = extract_times(t, i.get("postcode"))
         if e and e.get("status") == "TIMES_FOUND" and e.get("structured"): vals.add(_tsig(e["structured"]))
+    # Phone numbers are ignored here. Only a second, different hours table is a source conflict.
     if len(vals) > 1: why.append("conflict: own-site pages give different times")
     if not _ot_empty(i.get(field)) and (_ot_empty(new) or not sig): why.append("would change known times to closed/empty")
     prev = (seen or {}).get(key) or {}
@@ -303,10 +309,52 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if sig and (blocked or {}).get(key) == sig: why.append("this change was undone by Dean; not re-applied")
     if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply)")
     return why
+def _hours_read(new):
+    """A times table was actually read (including an empty table or an explicit closed reading).
+    None, or a result with no table, no text and no closed status, was not read."""
+    if not isinstance(new, dict): return False
+    if new.get("structured") is not None: return True
+    if str(new.get("status") or "").upper() == "CLOSED": return True
+    return bool((new.get("raw") or "").strip())
 def _jload(p, d):
     try: return json.load(open(p))
     except Exception: return d
-def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=None):
+def _pending_bullets(text, tag):
+    """One block per row. A row's follow-on lines ('  source:', '  why held:') stay with it."""
+    m = re.search(r"(?s)<!-- %s -->\n(.*?)<!-- /%s -->" % (tag, tag), text or "")
+    if not m: return []
+    blocks, cur = [], None
+    for ln in m.group(1).splitlines():
+        if ln.startswith("- "):
+            if cur: blocks.append(cur)
+            cur = ln
+        elif cur is not None and ln.strip():
+            cur += "\n" + ln
+    if cur: blocks.append(cur)
+    return blocks
+def _write_times_pending(R, kind, bullets, own_ids, mode):
+    """Write the refresh pending section. No rows and no 'Nothing pending.' when nothing was read.
+    mode 'replace' is a full pass (the section becomes these rows, or is removed).
+    mode 'merge' is a later pass over some ids: those ids are updated and every other row is kept,
+    so a late pass that found nothing cannot wipe an earlier hold or add a placeholder row."""
+    tag = "times crosscheck " + kind
+    pd = os.path.join(R, "reports", "pending_dean.md")
+    prev = open(pd).read() if os.path.exists(pd) else ""
+    kept = _pending_bullets(prev, tag) if mode == "merge" else []
+    own = {"`%s`" % i for i in own_ids}
+    kept = [ln for ln in kept if not any(mark in ln for mark in own)]
+    body = kept + list(bullets)
+    prev = re.sub(r"(?s)\n*<!-- %s -->.*?<!-- /%s -->\n*" % (tag, tag), "\n", prev).rstrip("\n")
+    if not body:
+        if prev.strip(): open(pd, "w").write(prev + "\n")
+        elif os.path.exists(pd): os.remove(pd)
+        return
+    n_auto = sum(1 for ln in body if ln.startswith("- AUTO-APPLIED"))
+    L = ["<!-- %s -->" % tag, "## Opening-times changes from the refresh (%s): %d auto-applied, %d held" % (kind, n_auto, len(body) - n_auto), ""]
+    L.extend(body); L.append("<!-- /%s -->" % tag)
+    if not prev.strip(): prev = "# Pending for Dean"
+    open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=None, pending_mode="replace"):
     if rules is None:
         import auto_rules; rules = auto_rules.load()
     on = bool(rules.get("times_auto_apply", False))
@@ -323,6 +371,8 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
         new_seen = {k: v for k, v in seen.items() if k not in drop}
     held, applied = [], []
     for i, rec, new, texts, home in cands:
+        # Dean 27 Oct 2026 12:12 GMT: nothing read. Do not blank the listing, do not mark it closed, do not queue it.
+        if not _hours_read(new): continue
         key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured"))
         why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()))
         if sig: new_seen[key] = {"sig": sig, "source_url": home.get("final_url"), "run_at": run_at}
@@ -345,21 +395,18 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     os.makedirs(os.path.join(R, "logs"), exist_ok=True); os.makedirs(os.path.join(R, "reports"), exist_ok=True)
     json.dump(new_seen, open(os.path.join(R, XC_SEEN), "w"), indent=0, sort_keys=True, ensure_ascii=False)
     if applied: json.dump(auto, open(os.path.join(R, AUTO_LOG), "w"), indent=1, ensure_ascii=False)
-    tag = "times crosscheck " + kind
-    L = ["<!-- %s -->" % tag, "## Opening-times changes from the refresh (%s): %d auto-applied, %d held" % (kind, len(applied), len(held)), ""]
-    for i in applied: L.append("- AUTO-APPLIED `%s` %s (strict, 2 identical runs). Undo: `python scripts/times_revert.py %s:%s`" % (i["id"], i.get("name") or "", kind, i["id"]))
+    bullets = ["- AUTO-APPLIED `%s` %s (strict, 2 identical runs). Undo: `python scripts/times_revert.py %s:%s`" % (i["id"], i.get("name") or "", kind, i["id"]) for i in applied]
     for i, rec, new in held:
-        L.append("- **%s** (`%s`, %s): own site now %s  \n  source: %s  \n  why held: %s" % (i.get("name"), i["id"], i.get("postcode") or "",
-                 (new or {}).get("raw") or rec.get("new"), rec.get("site"), "; ".join(rec["held"])))
-    if not applied and not held: L.append("Nothing pending.")
-    L.append("<!-- /%s -->" % tag)
-    pd = os.path.join(R, "reports", "pending_dean.md"); prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
-    prev = re.sub(r"(?s)\n*<!-- %s -->.*?<!-- /%s -->\n*" % (tag, tag), "\n", prev).rstrip("\n")
-    open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+        bullets.append("- **%s** (`%s`, %s): own site now %s  \n  source: %s  \n  why held: %s" % (i.get("name"), i["id"], i.get("postcode") or "",
+                        (new or {}).get("raw") or rec.get("new"), rec.get("site"), "; ".join(rec["held"])))
+    own_ids = keep_ids if keep_ids is not None else [i["id"] for i, _, _, _, _ in cands]
+    _write_times_pending(R, kind, bullets, own_ids, pending_mode)
 
-def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24, state_root=None, rules=None, run_at=None):
+def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24, state_root=None, rules=None, run_at=None, pending_mode="replace"):
     """Re-confirm every entry's times on its OWN website this run; mutates items. Returns {id: result} log.
-    kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text)."""
+    kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text).
+    The only hours write is times_gate_apply (strict rules, log, undo). A changed reading is a candidate here.
+    It is not written on this pass, and there is no second writer keyed off the previous times-check log."""
     import closure
     today = (today or datetime.date.today()).isoformat()
     sites = {}
@@ -421,7 +468,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 if office_like(log[k].get("new")): why.append("new own-site times look like office/centre hours")
                 if len(grp) > 1: why.append("own site gives one table for several branches; cannot tell which branch")
                 if why: extra[k] = why
-    times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=[i["id"] for i in items])
+    times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=[i["id"] for i in items], pending_mode=pending_mode)
     for i in items: i.pop("_orig_times", None)
     return log
 
@@ -429,10 +476,11 @@ def check_missing(items, log, kind, field, fetcher=fetch_raw, today=None, thread
     """Entries added AFTER the main times check (own-site extra centres, hand-added food banks, late IFAN pins) were
     never checked, so their card date froze. Check them on their own site now; merge into `log` (marked late_pass).
     Hand-checked (manual) centres are never overwritten: differences are only flagged.
-    state_root is forwarded so a clear change can meet the 2-run rule without wiping the main check's seen rows."""
+    state_root is forwarded so a clear change can meet the 2-run rule without wiping the main check's seen rows.
+    Pending rows are merged: a late pass that found no times does not add a row and does not clear the main pass's holds."""
     miss = [i for i in items if i.get("type") in ("foodbank", "location") and i["id"] not in log]
     if not miss: return []
-    got = cross_check_times(miss, kind, field, fetcher=fetcher, today=today, threads=threads, state_root=state_root, rules=rules, run_at=run_at)
+    got = cross_check_times(miss, kind, field, fetcher=fetcher, today=today, threads=threads, state_root=state_root, rules=rules, run_at=run_at, pending_mode="merge")
     for k, v in got.items(): v["late_pass"] = True; log[k] = v
     return [i["id"] for i in miss]
 

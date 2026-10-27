@@ -103,8 +103,9 @@ AUTO_LOG = "reports/times_auto_applied.json"    # every automatic change, revert
 def times_auto_on(rules=None): return bool((rules if rules is not None else RULES).get(TIMES_KEY, False))
 def _sig(ot): return json.dumps(ot.get("structured"), sort_keys=True) if ot and ot.get("structured") else None
 def _empty(ot):
-    """No usable times: missing, closed, or a weekly table with no sessions."""
+    """No usable times: missing, closed, all-closed, or a weekly table with no sessions."""
     if not ot: return True
+    if isinstance(ot, dict) and ot.get("all_closed"): return True
     if str(ot.get("status", "")).upper() in ("CLOSED", "NO_TIMES", "") : return True
     st = ot.get("structured")
     if st is not None and not any(v for v in st.values()): return True
@@ -127,9 +128,16 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks):
         why.append("times not read identically on 2 separate runs yet")
     old = cur.get(k) or it.get("opening_times")
     if old and not _empty(old) and _empty(ot): why.append("would change known times to closed/empty")
+    # Hours only. A different phone on the stored listing is not a source conflict (that fix stays held on the phone path).
     if old and not _empty(old) and _sig(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
         why.append("conflicts with times from another source (%s)" % (old.get("source_url") or "unknown"))
     return why
+def _read(ot):
+    """A times result was actually read. No table, no text and no explicit closed status means nothing was found."""
+    if not isinstance(ot, dict): return False
+    if ot.get("structured") is not None: return True
+    if str(ot.get("status") or "").upper() == "CLOSED": return True
+    return bool((ot.get("raw") or "").strip())
 def decide(log, items, apply, rules=None, now=None):
     """Dean, 23 Oct 23:36: nothing uncertain goes on the map. Dean, 27 Oct: times auto-apply ONLY when every strict_checks()
     safeguard passes AND overrides/auto_apply_rules.json has times_auto_apply true. Everything else -> reports/pending_dean.md."""
@@ -144,6 +152,8 @@ def decide(log, items, apply, rules=None, now=None):
     auto = json.load(open(AUTO_LOG)) if os.path.exists(AUTO_LOG) else []
     new_seen = {}
     for k, ot in sorted(log["found"].items()):
+        # Dean 27 Oct 2026 12:12 GMT: nothing read. Leave the stored listing untouched and do not queue a pending row.
+        if not _read(ot): continue
         it = ix.get(k, {}); ot = dict(ot, _run_at=now)
         why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks)
         if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
@@ -160,16 +170,21 @@ def decide(log, items, apply, rules=None, now=None):
         json.dump(cur, open(p, "w"), indent=1, sort_keys=True, ensure_ascii=False)
         os.makedirs("reports", exist_ok=True); json.dump(auto, open(AUTO_LOG, "w"), indent=1, ensure_ascii=False)
     os.makedirs("reports", exist_ok=True)
-    L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
-    for k in log["applied"]:
-        L.append(f"- AUTO-APPLIED `{k}` (strict, 2 identical runs). Undo: `python scripts/times_revert.py {k}`")
-    for r in log["review"]:
-        L.append(f"- **{r['name']}** (`{r['id']}`, {r['postcode']}): {r['proposed']}  \n  source: {r['source_url']}  \n  why: {'; '.join(r['why'])}")
-    if not log["review"] and not log["applied"]: L.append("Nothing pending.")
-    L.append("<!-- /times review -->")
-    pd = "reports/pending_dean.md"; prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
+    pd = "reports/pending_dean.md"; prev = open(pd).read() if os.path.exists(pd) else ""
     prev = re.sub(r"(?s)\n*<!-- times review -->.*?<!-- /times review -->\n*", "\n", prev).rstrip("\n")
-    open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+    if log["review"] or log["applied"]:
+        L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
+        for k in log["applied"]:
+            L.append(f"- AUTO-APPLIED `{k}` (strict, 2 identical runs). Undo: `python scripts/times_revert.py {k}`")
+        for r in log["review"]:
+            L.append(f"- **{r['name']}** (`{r['id']}`, {r['postcode']}): {r['proposed']}  \n  source: {r['source_url']}  \n  why: {'; '.join(r['why'])}")
+        L.append("<!-- /times review -->")
+        if not prev.strip(): prev = "# Pending for Dean"
+        open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+    elif prev.strip():
+        open(pd, "w").write(prev + "\n")
+    elif os.path.exists(pd):
+        os.remove(pd)
 def norm_pc(pc): return re.sub(r"\s", "", (pc or "").upper())
 def run(items, apply=False, threads=12, render=None):
     todo = [i for i in items if not (i.get("opening_times") or {}).get("status") and i.get("kind") != "warehouse"]
