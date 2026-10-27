@@ -10,9 +10,27 @@ Every 3x-daily run:
     website THIS run. Confirmed -> kept; different times found -> replaced (via times.normalise); site says closed
     -> closure removal; unreachable / not confirmable -> times dropped and flagged (never carried over).
 Never invents data: everything published comes from a fetched page or a directory record."""
-import re, os, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
+import re, os, json, html, ssl, math, time, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
 UA = {"User-Agent": "Mozilla/5.0 (FindYourFoodBank refresh; own-site check)"}
+# Polite retry (27 Oct 2026): a site that answers 403/429 is asked again more slowly, identifying who we are and why.
+POLITE_UA = {"User-Agent": "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank opening times, a few pages a day)",
+             "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-GB,en;q=0.8"}
+RETRY_CODES = (403, 429)
+RETRY_TRIES = int(os.environ.get("TIMES_RETRY_TRIES", "3"))       # extra attempts after the first refusal
+RETRY_BASE = float(os.environ.get("TIMES_RETRY_BASE", "5"))       # seconds: 5, 15, 45 (x3 backoff)
+RETRY_AFTER_CAP = 60.0                                            # never wait longer than this for one Retry-After
+_sleep = time.sleep
+def _open(url, headers):
+    return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=20, context=CTX)
+def retry_delay(attempt, retry_after=None):
+    """Backoff before retry number `attempt` (1-based): honour a numeric Retry-After (capped), else base*3^(attempt-1)."""
+    try:
+        ra = float(retry_after) if retry_after not in (None, "") else None
+    except (TypeError, ValueError):
+        ra = None
+    d = RETRY_BASE * (3 ** (attempt - 1))
+    return min(max(d, ra or 0), RETRY_AFTER_CAP) if ra is not None else d
 PC_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b")
 STOP = {"food", "bank", "foodbank", "the", "and", "of", "community", "church", "centre", "center", "trust", "project", "st", "uk",
         "network", "hub", "pantry", "larder", "cic", "ltd", "charity", "group", "warm", "space", "spaces", "welcome", "hall", "house",
@@ -56,13 +74,24 @@ _cache, _lock = {}, threading.Lock()
 def fetch_raw(url):
     with _lock:
         if url in _cache: return _cache[url]
-    try:
-        r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20, context=CTX)
-        raw = r.read(8_000_000).decode("utf8", "ignore")
-        res = {"http": r.status, "final_url": r.geturl(), "html": raw, "etag": r.headers.get("ETag", ""),
-               "last_modified": r.headers.get("Last-Modified", ""), "sha256": hashlib.sha256(raw.encode()).hexdigest()}
-    except Exception as e:
-        res = {"http": getattr(e, "code", None) or "error", "final_url": url, "html": "", "error": str(e)[:120]}
+    res, retries, headers = None, 0, UA
+    while True:
+        try:
+            r = _open(url, headers)
+            raw = r.read(8_000_000).decode("utf8", "ignore")
+            res = {"http": r.status, "final_url": r.geturl(), "html": raw, "etag": r.headers.get("ETag", ""),
+                   "last_modified": r.headers.get("Last-Modified", ""), "sha256": hashlib.sha256(raw.encode()).hexdigest()}
+        except Exception as e:
+            code = getattr(e, "code", None)
+            res = {"http": code or "error", "final_url": url, "html": "", "error": str(e)[:120]}
+            if code in RETRY_CODES and retries < RETRY_TRIES:
+                retries += 1
+                hdrs = getattr(e, "headers", None)
+                _sleep(retry_delay(retries, hdrs.get("Retry-After") if hdrs is not None else None))
+                headers = POLITE_UA
+                continue
+        break
+    if retries: res["retries"] = retries
     with _lock: _cache[url] = res
     return res
 def closure_fetcher(u):  # signature closure.py expects: (final_url, html)
@@ -259,11 +288,12 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 if r["http"] == 200: texts.append(text_of(r["html"]))
             rec = {"site": s, "http": home and home.get("http"), "sha256": home and home.get("sha256"),
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
+            if home and home.get("retries"): rec["retries"] = home["retries"]
             if not s or not home or home.get("http") != 200 or not texts:
                 rec.update(status="unreachable" if s else "no_website", reason="own site unreachable this run" if s else "no own website to check against")
                 _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             if host(home["final_url"]) != host(s) and not host(home["final_url"]).endswith("." + host(s)) and not host(s).endswith("." + host(home["final_url"])):
-                rec.update(status="unconfirmed", reason="own site redirects to a different site")
+                rec.update(status="unconfirmed", reason="own site redirects to a different site", final_url=home["final_url"])
                 _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             ev = None
             for t in texts:
@@ -276,7 +306,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             if st == "confirmed":
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
-            elif st == "changed" and str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed"):
+            elif st == "changed" and (i.get("manual") or str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed")):
                 # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
                 rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
                            new=new.get("structured") if new else None)
@@ -303,6 +333,51 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                     _unconfirm(i, kind, field, why)
         for i in items: i.pop("_orig_times", None)
     return log
+
+def check_missing(items, log, kind, field, fetcher=fetch_raw, today=None, threads=24):
+    """Entries added AFTER the main times check (own-site extra centres, hand-added food banks, late IFAN pins) were
+    never checked, so their card date froze. Check them on their own site now; merge into `log` (marked late_pass).
+    Hand-checked (manual) centres are never overwritten: differences are only flagged."""
+    miss = [i for i in items if i.get("type") in ("foodbank", "location") and i["id"] not in log]
+    if not miss: return []
+    got = cross_check_times(miss, kind, field, fetcher=fetcher, today=today, threads=threads)
+    for k, v in got.items(): v["late_pass"] = True; log[k] = v
+    return [i["id"] for i in miss]
+
+REVIEW_FIELDS = ["category", "id", "name", "foodbank", "site", "final_url", "http", "retries", "reason", "card_shows", "checked"]
+def review_category(rec):
+    st, why, h = rec.get("status"), rec.get("reason") or "", rec.get("http")
+    if st == "no_website": return "no_source"
+    if "redirects" in why: return "redirected"
+    if st == "unreachable": return "blocked_after_retries" if h in RETRY_CODES else "unreachable"
+    if st in ("none_published",) or "not found" in why or "no times" in why: return "times_not_found"
+    if st == "differs_from_hand_checked": return "differs_from_hand_checked"
+    if st == "unconfirmed": return "ambiguous"
+    return None
+def times_review(log, items, field="opening_times"):
+    """Manual-review list for people (never used to set times): one row per entry whose times could not be confirmed
+    on its own site. `card_shows` says what the card displays meanwhile; nothing here is invented."""
+    by = {i["id"]: i for i in items}; rows = []
+    for k, rec in log.items():
+        cat = review_category(rec)
+        if not cat or k not in by: continue
+        i = by[k]; ot = i.get(field)
+        shows = ("times kept from the main listing" if isinstance(ot, dict) and (ot.get("structured") or ot.get("raw")) else "Opening times not known, call before you go")
+        rows.append({"category": cat, "id": k, "name": i.get("name", ""), "foodbank": i.get("foodbank", ""), "site": rec.get("site") or "",
+                     "final_url": rec.get("final_url") or "", "http": rec.get("http"), "retries": rec.get("retries", 0),
+                     "reason": rec.get("reason") or "", "card_shows": shows, "checked": rec.get("checked") or ""})
+    order = ["times_not_found", "redirected", "no_source", "blocked_after_retries", "unreachable", "ambiguous", "differs_from_hand_checked"]
+    rows.sort(key=lambda r: (order.index(r["category"]), r["id"]))
+    return rows
+def write_review(rows, path_csv, path_json):
+    import csv
+    from collections import Counter
+    with open(path_csv, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=REVIEW_FIELDS); w.writeheader(); w.writerows(rows)
+    with open(path_json, "w") as f:
+        json.dump({"_about": "Food bank cards whose times could not be confirmed on their own site this run. For manual review only; "
+                   "no times are invented. card_shows = what the card displays meanwhile.",
+                   "counts": dict(Counter(r["category"] for r in rows)), "rows": rows}, f, indent=1, ensure_ascii=False)
 
 def summary(log):
     from collections import Counter

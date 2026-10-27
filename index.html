@@ -106,7 +106,10 @@ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const gmaps=i=>`https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking`;
 const narrow=()=>window.innerWidth<600;
 const DK=['sun','mon','tue','wed','thu','fri','sat'],DN={mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'},ORD=['mon','tue','wed','thu','fri','sat','sun'];
-const parsed=i=>i.opening_times&&i.opening_times.status==='TIMES_FOUND'?(i.opening_times.structured||(i.opening_times.all_closed?{}:null)):null;
+const NOTIMES='Opening times not known, call before you go';
+const hasRows=o=>!!o&&Object.values(o).some(r=>Array.isArray(r)&&r.length);
+const parsed=i=>{const t=i.opening_times;if(!t||t.status!=='TIMES_FOUND')return null;if(t.all_closed)return {};return hasRows(t.structured)?t.structured:null};
+const textLines=t=>t&&t.status==='TIMES_TEXT_ONLY'&&t.raw&&String(t.raw).trim()?(t.lines&&t.lines.length?t.lines:[String(t.raw).trim()]).filter(x=>String(x).trim()):[];
 const openToday=i=>{const s=parsed(i);return !!(s&&(s[DK[new Date().getDay()]]||[]).length)};
 const closedToday=i=>{const s=parsed(i);return !!(s&&!(s[DK[new Date().getDay()]]||[]).length)};
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
@@ -114,8 +117,8 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[new Date().getDay()]
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
  if(s)return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${ORD.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', '):'Closed'}</td></tr>`).join('')}</table><div class="src">From their website${ck}.${src}</div></div>`;
- if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
- return `<div class="ot">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`}
+ if(textLines(t).length)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${textLines(t).map(esc).join('<br>')}</div><div class="src">As written on their website${ck}.${src}</div></div>`;
+ return `<div class="ot notimes">${IC('clock')}<a href="faq.html#times">${NOTIMES}</a></div>`}
 {const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
 function showStamp(){if(!window.FB_STAMP)return;const FS=(FB_STAMP.layers&&FB_STAMP.layers.fb)||FB_STAMP;$('upd').textContent=FS.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FS.label}  // Dean 25 Oct: footer food bank lines read the food bank refresh, the header the latest refresh of any layer
 window.showStamp=showStamp;
