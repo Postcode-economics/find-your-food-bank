@@ -77,8 +77,8 @@ class Source(unittest.TestCase):
         self.assertNotIn("r.type==='opaque'){c.put", sw)
         self.assertIn('#map .leaflet-gl-layer,#map .leaflet-gl-layer *{pointer-events:none!important}', home)
         self.assertIn('pointer-events:none!important', css)
-        self.assertIn('tiles.js?v=ios20261027b', home)
-        self.assertIn('tiles.js?v=ios20261027b', sw)
+        self.assertIn('tiles.js?v=h9d4d60e584e4', home)
+        self.assertIn('tiles.js?v=h9d4d60e584e4', sw)
 
 
 @unittest.skipUnless(HAVE, 'needs playwright webkit')
