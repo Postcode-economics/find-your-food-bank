@@ -1,13 +1,9 @@
-# warmspaces: kept on 48-hour grace (2026-10-27T05:28:15+00:00)
+# warmspaces: kept on 48-hour grace (2026-10-27T13:42:39+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
-- Art4Space (ww-57979418): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- Fairhaven Methodist Church (ww-59130027): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- Hive Cafe & Launderette (ww-67979812): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- Jubilee Church, Wirral (ww-65437506): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- Kidlington Methodist Church (ww-58358850): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- No.1 St Osyths Lane (ww-57952705): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- Sway Community Hub (ww-65437496): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- The Meeting Place (ww-69080400): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
-- The Pump Room (ww-68672320): source did not return the page this run (HTTP 202; usually a bot check); last confirmed 2026-10-26T21:20:39+00:00 (8.1h ago)
+- Caffi Cynefin (ww-65238466): source unreachable this run (HTTP error); last confirmed 2026-10-27T05:27:19+00:00 (8.3h ago)
+- Friendly Faces (ww-59806670): source unreachable this run (HTTP 503); last confirmed 2026-10-27T05:27:19+00:00 (8.3h ago)
+- Otley Action for Older People (ww-69333095): source unreachable this run (HTTP error); last confirmed 2026-10-27T05:27:19+00:00 (8.3h ago)
+- The Shaw Lane Community Cafe (ww-57952988): source unreachable this run (HTTP 500); last confirmed 2026-10-27T05:27:19+00:00 (8.3h ago)
+- Vicar Mark Adams (ww-64432641): source unreachable this run (HTTP 503); last confirmed 2026-10-27T05:27:19+00:00 (8.3h ago)
