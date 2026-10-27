@@ -20,24 +20,48 @@ class Units(unittest.TestCase):
         self.assertIsNone(T.base_url({T.ENV: '  '}))
         self.assertEqual(T.base_url({T.ENV: 'http://127.0.0.1:8091/'}), 'http://127.0.0.1:8091')
 
-    def test_default_context_is_not_routed(self):
+    def test_default_context_routes_only_to_the_stand_in_tiles(self):
+        # Rule 23 (PR 165) + PR 157: a default context has exactly one route, the stand-in tiles, covering every
+        # public tile host, and a tile request there never reaches the network. With HELPMAP_OFFLINE_TILES set,
+        # the offline map replaces the stand-in (still exactly one route, and not the stub).
         class Ctx:
-            routes = []
-            def route(self, *a): self.routes.append(a)
-            def set_default_timeout(self, t): pass
-            def set_default_navigation_timeout(self, t): pass
+            def __init__(s): s.routes = []
+            def route(s, *a): s.routes.append(a)
+            def on(s, *a): pass
+            def set_default_timeout(s, t): pass
+            def set_default_navigation_timeout(s, t): pass
         class Br:
-            def new_context(self, **kw): return Ctx()
-        old = os.environ.pop(T.ENV, None)
+            def new_context(s, **kw): return Ctx()
+        class R:
+            def __init__(s, u): s.request = type('Q', (), {'url': u})(); s.out = None
+            def fulfill(s, **kw): s.out = kw
+            def abort(s, *a): s.out = 'abort'
+            def continue_(s, *a, **kw): raise AssertionError('tile request reached the network: ' + s.request.url)
+            def fallback(s, *a, **kw): raise AssertionError('tile request fell through to the network: ' + s.request.url)
+            def fetch(s, *a, **kw): raise AssertionError('tile request fetched from the network: ' + s.request.url)
+        saved = {k: os.environ.pop(k, None) for k in (T.ENV, 'HELPMAP_REAL_TILES')}
         try:
             c = B.new_context(Br())
-            self.assertEqual(c.routes, [])  # default blocking/behaviour unchanged
+            self.assertEqual(len(c.routes), 1, c.routes)
+            pat, handler = c.routes[0][0], c.routes[0][1]
+            self.assertIs(pat, B.TILE_RE)
+            for h in T.EXTERNAL_TILE_HOSTS:
+                u = 'https://%s/6/31/20.png' % h
+                self.assertTrue(pat.match(u), 'stand-in route does not cover ' + h)
+                r = R(u); handler(r)
+                self.assertIsInstance(r.out, dict, u)
+                self.assertEqual(r.out['status'], 200, u)
+                self.assertEqual(r.out['headers'].get('x-helpmap-tile'), 'stub', u)
+                self.assertTrue(r.out['body'].startswith(b'\x89PNG'), u)
             os.environ[T.ENV] = 'http://127.0.0.1:9'
             c = B.new_context(Br())
-            self.assertEqual(len(c.routes), 1)
+            self.assertEqual(len(c.routes), 1, c.routes)
+            self.assertIsNot(c.routes[0][0], B.TILE_RE)  # the offline map, not the stand-in
+            self.assertIsNot(c.routes[0][1], handler)
         finally:
-            os.environ.pop(T.ENV, None)
-            if old is not None: os.environ[T.ENV] = old
+            for k, v in saved.items():
+                os.environ.pop(k, None)
+                if v is not None: os.environ[k] = v
 
     def test_blank_fallback_answers_without_a_server(self):
         class R:
