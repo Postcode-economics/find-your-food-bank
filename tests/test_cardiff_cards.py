@@ -1,11 +1,11 @@
 """Cardiff Foodbank (27 Oct 2026): every centre showed Mon-Fri 09:30-13:30, the 'Our phone lines are monitored' line printed
 on every Trussell centre card. Times must come from each centre's own card, matched by postcode or name. Parser only (data fix is a separate PR). Saved page:
-tests/fixtures/cardiff_voucher_2026-10-27.html (scripts/styles stripped)."""
+tests/fixtures/cardiff_voucher_2026-10-27.saved (scripts/styles stripped)."""
 import os, sys, json, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discover as D, trussell_times as T
-PAGE = D.text_of(open(os.path.join(ROOT, "tests", "fixtures", "cardiff_voucher_2026-10-27.html")).read())
+PAGE = D.text_of(open(os.path.join(ROOT, "tests", "fixtures", "cardiff_voucher_2026-10-27.saved")).read())
 URL = "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
 WANT = {"cathays": {"tue": [["13:00", "15:00"]], "sat": [["11:00", "13:00"]]}, "central": {"thu": [["10:00", "12:00"]]},
         "ely": {"mon": [["13:00", "15:00"]], "thu": [["13:00", "15:00"]]}, "grangetown": {"fri": [["12:00", "14:00"]]},
@@ -38,7 +38,7 @@ class CardiffCards(unittest.TestCase):
     def test_warehouse_is_not_a_collection_point(self):
         st, new, _ = D.card_check(None, [PAGE], {"id": "cardiff", "name": "Cardiff Foodbank", "postcode": "CF24 5BS"}, "2026-10-27", URL)
         self.assertIsNone(new)
-def _page(n): return D.text_of(open(os.path.join(ROOT, "tests", "fixtures", n + "_voucher_2026-10-27.html")).read())
+def _page(n): return D.text_of(open(os.path.join(ROOT, "tests", "fixtures", n + "_voucher_2026-10-27.saved")).read())
 class OtherTrussellPages(unittest.TestCase):
     """Same Trussell template elsewhere (saved 27 Oct 2026): each centre gets only its own card."""
     def test_medway_centres_get_own_card_not_office_hours(self):
