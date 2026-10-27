@@ -40,7 +40,12 @@ class Source(unittest.TestCase):
         self.assertIn("window.TILE_VECTOR = 'ready'", tiles)
         self.assertNotRegex(tiles, r"addTo\(map\);\s*window\.TILE_VECTOR = 'ready'")
         self.assertIn('vectorFailed = true', tiles)
-        self.assertNotIn('transformRequest', tiles)
+        # PR 198: root-relative /planet/ tiles are rewritten onto the tile host. The dropped glyph
+        # encoder (a transformRequest that returns unless the URL has a space or brace) stays out.
+        self.assertIn("url.indexOf('/planet/')", tiles)
+        self.assertIn("url.charAt(0) === '/'", tiles)
+        self.assertIn("url.replace(/^https?:\\/\\/[^/]+/, 'https://tiles.openfreemap.org')", tiles)
+        self.assertNotIn('if (!/[ {}]/.test(url))', tiles)
         # A blocked worker plus Playwright interception is not how this fallback is proved.
         src = open(os.path.abspath(__file__), encoding='utf-8').read()
         self.assertNotIn('service_workers=' + "'block'", src)
