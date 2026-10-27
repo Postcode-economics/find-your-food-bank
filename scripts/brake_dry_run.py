@@ -1,9 +1,10 @@
 """Read-only dry-run of the anomaly brake on the refresh files already in the repo.
 
-A run's change count is the number of rows in reports/access_changes.json with that
-run's timestamp. That is the log full_check.py passes to learning.anomaly_brake
-(new places, removals, access flips, phone fixes and closure notes). Review-only
-flags are not in that log and are not counted.
+A run's change count is the applied rows in reports/access_changes.json with that
+run's timestamp: access flips, phone fixes, hour changes and removals.
+A new place held for Dean, and a closure note that waits for Dean, does not count.
+That is the number full_check.py passes to learning.anomaly_brake. Review-only
+flags are not in that file and are not counted. The bars are unchanged.
 
 Two decisions are printed. Both call learning.anomaly_brake. Neither writes a file
 and neither publishes.
@@ -37,7 +38,7 @@ def refresh_runs(root):
     by_when = {}
     for c in changes:
         if isinstance(c, dict) and c.get("when"):
-            by_when[c["when"]] = by_when.get(c["when"], 0) + 1
+            by_when.setdefault(c["when"], []).append(c)
     rows = []
     for day in sorted(review):
         block = review[day]
@@ -45,8 +46,11 @@ def refresh_runs(root):
         for run in block.get("runs") or []:
             if not isinstance(run, dict) or not run.get("at"): continue
             at = run["at"]
+            got = by_when.get(at, [])
+            held_new = sum(1 for e in got if str(e.get("kind") or "").strip().lower().startswith("new"))
             rows.append({
-                "day": str(day), "at": at, "changes": by_when.get(at, 0),
+                "day": str(day), "at": at, "changes": learning.applied_count(got),
+                "held_new": held_new, "logged": len(got),
                 "flips": run.get("flips"), "phone_fixes": run.get("phone_fixes"),
                 "closures": run.get("closures", 0),
             })
@@ -97,8 +101,8 @@ def report(info):
         L.append("  no runs in reports/daily_review.json")
     for r in info["runs"]:
         mark = "STOP" if r["stop"] else "ok"
-        L.append("  %s  %s  changes %d  flips %s  phones %s  closures %s  [%s] %s" % (
-            mark, r["at"], r["changes"], r["flips"], r["phone_fixes"], r["closures"],
+        L.append("  %s  %s  applied %d  held new places %d  flips %s  phones %s  closures %s  [%s] %s" % (
+            mark, r["at"], r["changes"], r.get("held_new", 0), r["flips"], r["phone_fixes"], r["closures"],
             "median %s" % r["median"] if r["median"] is not None else "no median", r["reason"]))
     latest = info["latest"]
     if latest:

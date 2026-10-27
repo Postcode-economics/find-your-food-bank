@@ -25,5 +25,31 @@ class Anomaly(unittest.TestCase):
         rules = auto_rules.load()
         self.assertFalse(learning.allow_under_rules("new_place", rules, 1, "foodbanks"))
         self.assertFalse(learning.allow_under_rules("remove_place", rules, 1))
+    def test_held_new_places_do_not_stop_and_twelve_applied_does(self):
+        """11 new places held for Dean plus 2 applied changes stay under the bars.
+        12 applied changes against a median of 2 stop. The bars themselves are unchanged."""
+        fc = open(os.path.join(R, "scripts", "full_check.py"), encoding="utf-8").read()
+        self.assertIn("learning.applied_count(this_run)", fc)
+        self.assertIn("{'day': DAY, 'changes': n_applied}", fc)
+        usual = [{"day": "2026-10-0%d" % i, "changes": 2} for i in (1, 2, 3, 4)]
+        self.assertEqual(learning.anomaly_brake(usual, 2)["median"], 2)
+        held = [{"kind": "new food bank", "id": "n%d" % i, "old": "not on map", "new": "added"} for i in range(11)]
+        two = [{"kind": "phone", "old": "01000000000", "new": "02000000000"}, {"kind": "removed", "id": "gone"}]
+        self.assertEqual(learning.applied_count(held + two), 2)
+        quiet = learning.anomaly_brake(usual, learning.applied_count(held + two))
+        self.assertFalse(quiet["stop"])
+        self.assertEqual(quiet["median"], 2)
+        self.assertIn("within the usual range (2 vs about 2)", quiet["reason"])
+        dozen = ([{"old": "voucher", "new": "walkin"} for _ in range(6)]
+                 + [{"kind": "phone", "old": "1", "new": "2"} for _ in range(3)]
+                 + [{"kind": "hours", "old": "10:00", "new": "11:00"} for _ in range(2)]
+                 + [{"kind": "removed", "id": "r"}])
+        self.assertEqual(learning.applied_count(dozen), 12)
+        stopped = learning.anomaly_brake(usual, learning.applied_count(dozen))
+        self.assertTrue(stopped["stop"])
+        self.assertEqual(stopped["median"], 2)
+        self.assertEqual(stopped["proposed"], 12)
+        self.assertFalse(learning.anomaly_brake(usual, 9)["stop"])
+        self.assertTrue(learning.anomaly_brake(usual, 10)["stop"])
 
 if __name__ == "__main__": unittest.main()

@@ -151,8 +151,27 @@ def allow_under_rules(kind, rules, confidence=None, layer=None):
     try: return float(confidence) >= CONFIDENCE_MIN
     except (TypeError, ValueError): return False
 
+# Rows full_check would write onto the map. A new place, and a closure note that waits
+# for Dean, are logged but not applied, so they do not count. The bars in anomaly_brake
+# are unchanged; only the number passed in as `proposed` is the applied count.
+APPLIED_KINDS = {"phone", "removed", "hours", "opening hours", "hour change", "access"}
+HELD_KINDS = {"new food bank", "new_place", "closure"}
+
+def is_applied_change(entry):
+    """True for a change this run would write: access flip, phone fix, hour change, removal.
+    A new place held for Dean is false. A closure note that keeps the pin and waits for Dean is false."""
+    if not isinstance(entry, dict): return False
+    kind = str(entry.get("kind") or "").strip().lower()
+    if kind in HELD_KINDS or kind.startswith("new "): return False
+    if kind in APPLIED_KINDS: return True
+    return not kind and "old" in entry and "new" in entry
+
+def applied_count(entries):
+    return sum(1 for e in entries or [] if is_applied_change(e))
+
 def anomaly_brake(history, proposed):
-    """Stop when this run would change many more places than recent runs.
+    """Stop when this run would apply many more changes than recent runs.
+    `proposed` is the applied count (access flips, phone fixes, hour changes, removals).
     Fewer than four recorded runs: do not stop (there is no baseline to compare with, and none is invented).
     Unusual means at least 10, at least three times the median, and at least 8 above that median.
     Those bars are multiples of the recorded counts, not a guessed expected number."""
