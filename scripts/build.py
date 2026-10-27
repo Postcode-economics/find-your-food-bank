@@ -165,8 +165,12 @@ def main():
     # own-site closure check (own site beats Give Food) - shares this run's page cache
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))
-    # times cross-check on every pin's OWN site this run: confirmed / updated / unconfirmed (withheld, never carried over)
-    tlog = discover.cross_check_times(items, 'fb', 'opening_times')
+    # times cross-check on every pin's OWN site this run. A clear new table is written only when the same
+    # postcode-matched table was already pending last run (logs/foodbank_times_check.json). Otherwise the stored week stays.
+    try: prev_times = json.load(open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), encoding='utf-8'))
+    except Exception: prev_times = {}
+    seen = {k: v.get('pending') for k, v in prev_times.items() if isinstance(v, dict) and isinstance(v.get('pending'), dict)}
+    tlog = discover.cross_check_times(items, 'fb', 'opening_times', seen=seen)
     held = [i['id'] for i in items if i.pop('_own_site_closed', None)]
     disc['times'] = discover.summary(tlog); disc['own_site_says_closed_held'] = held
     json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)

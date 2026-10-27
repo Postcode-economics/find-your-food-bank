@@ -235,9 +235,21 @@ def office_like(st):
     if len(wk) < 4 or len(set(wk)) > 2: return False
     def mins(t): h, m = t.split(":"); return int(h) * 60 + int(m)
     return all(mins(b) - mins(a) >= 240 for blk in wk for a, b in blk)
-def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24):
+def client_week(ot):
+    """A real open/close table. Empty, missing, or all-closed is not one: the stored week stays."""
+    if not isinstance(ot, dict) or ot.get("all_closed"): return False
+    st = ot.get("structured") or {}
+    for rows in st.values():
+        for span in rows or []:
+            if isinstance(span, (list, tuple)) and len(span) >= 2 and span[0] and span[1] and span[0] != span[1]: return True
+    return False
+def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24, seen=None):
     """Re-confirm every entry's times on its OWN website this run; mutates items. Returns {id: result} log.
-    kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text)."""
+    kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text).
+    Food banks: pass `seen` (id -> last run's pending table, from logs/foodbank_times_check.json). A clear own-site
+    table is written only when the postcode matched and the same table was already pending. The first sight is
+    stored and the listing is not touched. A missing, unreadable, empty or all-closed reading never replaces the
+    stored week and is not queued for Dean. A phone conflict is not consulted here."""
     import closure
     today = (today or datetime.date.today()).isoformat()
     sites = {}
@@ -282,9 +294,29 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                            new=new.get("structured") if new else None)
                 i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
             elif st == "changed":
-                if kind == "fb": new = dict(new, checked_date=today, source_url=home["final_url"]); i[field] = new
-                else: i[field] = hours_from_ot(new) or i.get(field)
-                i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if new else None
+                if kind == "fb":
+                    new = dict(new or {}, checked_date=today, source_url=home["final_url"])
+                    if not client_week(new) or office_like(new.get("structured")):
+                        rec.update(status="unconfirmed", reason="empty, closed or unreadable reading; stored week kept")
+                        _unconfirm(i, kind, field, rec["reason"])
+                    elif seen is None:
+                        # Callers that do not pass last run's pending table keep the previous one-run write.
+                        rec["undo"] = json.loads(json.dumps(i.get(field)))
+                        i[field] = new
+                        i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured")
+                    else:
+                        pc = norm_pc(i.get("postcode")); fp = new.get("structured")
+                        prev = seen.get(i["id"]) or {}
+                        if pc and prev.get("postcode") == pc and prev.get("structured") == fp:
+                            rec["undo"] = json.loads(json.dumps(i.get(field)))
+                            i[field] = new
+                            i["times_status"] = "updated"; i["times_checked"] = today
+                            rec["new"] = fp; rec["status"] = "changed"
+                        else:
+                            rec.update(status="seen_once", new=fp, pending={"structured": fp, "raw": new.get("raw"), "postcode": pc, "source_url": new.get("source_url")})
+                else:
+                    i[field] = hours_from_ot(new) or i.get(field)
+                    i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if new else None
             elif st == "unconfirmed":
                 _unconfirm(i, kind, field, why)
             log[i["id"]] = rec
@@ -292,14 +324,15 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
         orig = {i["id"]: i.get("_orig_times") for i in items}
         bysite = {}
         for i in items:
-            if log.get(i["id"], {}).get("status") == "changed": bysite.setdefault((log[i["id"]]["site"], json.dumps(log[i["id"]].get("new"), sort_keys=True)), []).append(i)
+            if log.get(i["id"], {}).get("status") in ("changed", "seen_once"): bysite.setdefault((log[i["id"]]["site"], json.dumps(log[i["id"]].get("new"), sort_keys=True)), []).append(i)
         for (site, _), grp in bysite.items():
             for i in grp:
                 why = None
                 if office_like(log[i["id"]].get("new")): why = "new own-site times look like office/centre hours"
                 elif len(grp) > 1: why = "own site gives one table for several branches; cannot tell which branch"
                 if why:
-                    i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
+                    if log[i["id"]].get("status") == "changed": i["opening_times"] = orig.get(i["id"])
+                    log[i["id"]].update(status="unconfirmed", reason=why, reverted=True); log[i["id"]].pop("pending", None); log[i["id"]].pop("undo", None)
                     _unconfirm(i, kind, field, why)
         for i in items: i.pop("_orig_times", None)
     return log
