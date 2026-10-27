@@ -55,15 +55,32 @@ def lookup(pcs, cache, fetch=True):
 
 def hours_fb(i):
     ot = i.get('opening_times') or {}
-    st = ot.get('structured') if ot.get('status') == 'TIMES_FOUND' else None
-    if not st: return '<div class="sub">Call for opening times</div>'
-    rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (DN[d], ', '.join('%s–%s' % (a, b) for a, b in st[d])) for d in ORD if st.get(d))
-    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
+    if ot.get('status') != 'TIMES_FOUND': return '<div class="sub">Call for opening times</div>'
+    if ot.get('all_closed'):
+        return '<table class="t">%s</table>' % ''.join('<tr><td>%s</td><td>Closed</td></tr>' % DN[d] for d in ORD)
+    st, closed, notes = ot.get('structured') or {}, set(ot.get('closed') or []), ot.get('notes') or {}
+    rows = []
+    for d in ORD:
+        if st.get(d):
+            cell = ', '.join('%s–%s' % (a, b) for a, b in st[d])
+            if notes.get(d): cell += ' ' + str(notes[d])
+            rows.append('<tr><td>%s</td><td>%s</td></tr>' % (DN[d], E(cell)))
+        elif d in closed:
+            rows.append('<tr><td>%s</td><td>Closed</td></tr>' % DN[d])
+    if not rows: return '<div class="sub">Call for opening times</div>'
+    extra = '<div class="sub">Other days not listed, call before you go</div>' if len(rows) < 7 else ''
+    return '<table class="t">%s</table>%s' % (''.join(rows), extra)
 
 def hours_ws(i):
     h = i.get('hours') or {}
-    rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(d), E(v)) for d, v in h.items() if v)
-    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
+    if isinstance(h, str):
+        return '<div class="t">%s</div><div class="sub">As written on their website</div>' % E(h) if h.strip() else '<div class="sub">Call for opening times</div>'
+    if not isinstance(h, dict): return '<div class="sub">Call for opening times</div>'
+    order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(d), E(h[d])) for d in order if h.get(d))
+    if not rows: return '<div class="sub">Call for opening times</div>'
+    extra = '<div class="sub">Other days not listed, call before you go</div>' if sum(d in h for d in order) < 7 else ''
+    return '<table class="t">%s</table>%s' % (rows, extra)
 
 def shelter_public(i):
     """Same rule as the map: no stale/ended/closed entries, and no OpenStreetMap-only entry (must have own-site evidence)."""
