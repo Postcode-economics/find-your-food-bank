@@ -399,7 +399,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2257 queued, 2 rejected
+### Warm spaces: 2258 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
