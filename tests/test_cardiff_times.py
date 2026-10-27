@@ -42,4 +42,10 @@ class CardiffTimes(unittest.TestCase):
         self.assertIn("3 Lower Cathedral Road", items[0]["address"]); self.assertEqual(items[0]["postcode"], "CF11 6LU")
         self.assertEqual(items[1]["postcode"], "CF15 7NS")
         for i in items: self.assertIn(i["postcode"], D.text_of(HTML))
+class CardiffAreaPage(unittest.TestCase):
+    def test_area_page_regenerated(self):
+        h = open(os.path.join(ROOT, "food-banks", "cardiff", "index.html")).read()
+        self.assertNotIn("09:30", h)
+        for pc in ("CF11 6LU", "CF15 7NS"): self.assertIn(pc, h)
+        for pc in ("CF11 9AD", "CF15 7LG"): self.assertNotIn(pc, h)
 if __name__ == "__main__": unittest.main()
