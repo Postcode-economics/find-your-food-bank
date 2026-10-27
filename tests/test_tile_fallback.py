@@ -148,6 +148,23 @@ class Config(unittest.TestCase):
         self.assertEqual(len(called), 1)
         self.assertTrue(B.TILE_PNG.startswith(b'\x89PNG'))
 
+    def test_one_fetch_paints_the_tile_and_locate_does_not_fly_the_zoom_ladder(self):
+        """The 3-in-20 refusal rule stays. A tile is one fetch (status + body). Locate does not animate
+        through the zooms in between, and a zoom animation does not request a grid at each level."""
+        self.assertIn('window.TILE_WINDOW = 20', TILES)
+        self.assertIn('window.TILE_WINDOW_REFUSALS = 3', TILES)
+        self.assertIn('btoa(parts.join', TILES)
+        self.assertNotIn('readAsDataURL', TILES)
+        self.assertNotIn('createObjectURL', TILES)
+        self.assertIn("referrerPolicy: 'strict-origin-when-cross-origin'", TILES)
+        self.assertIn('updateWhenZooming: false', TILES)
+        self.assertIn('keepBuffer: 2', TILES)
+        self.assertIn('data-tile', TILES)
+        self.assertNotIn('updateWhenZooming: true', TILES)
+        with open(os.path.join(R, 'index.html'), encoding='utf-8') as fh:
+            home = fh.read()
+        self.assertIn('fitBounds(window._fitB,{animate:false})', home)
+
 
 def _server():
     h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R)
@@ -556,6 +573,101 @@ class Browser(unittest.TestCase):
             b, pg = self._open(p, '', handle)
             self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'", secs=20))
             self.assertEqual(pg.evaluate("() => window.TILE_FAILOVER.reason"), 'errors')
+            b.close()
+
+    def test_one_or_two_refusals_still_do_not_switch(self):
+        """A single 429, or two 403s, must not leave OpenStreetMap. Each refused URL is one request:
+        the status fetch is not followed by an image request for the same tile."""
+        from collections import Counter
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b = self._chrome(p)
+            for limit, code in ((1, 429), (2, 403)):
+                c = b.new_context(viewport={'width': 390, 'height': 844}, service_workers='block', is_mobile=True, has_touch=True)
+                pg = c.new_page()
+                urls = []
+                def on_req(r, box=urls):
+                    if 'tile.openstreetmap.org' in r.url:
+                        box.append(r.url.split('?')[0])
+                pg.on('request', on_req)
+                # A phone overview is only a handful of tiles. The first few are 200s, then `limit` refusals.
+                mix = self._mix(pg, fail_after=2, bad_limit=limit, switch_on={'on': False}, code=code)
+                from site_ready import open_map
+                open_map(pg, self.base, stub_tiles=False)
+                self.assertTrue(_until(pg, "() => window.TILE_STATS && window.TILE_STATS.error >= %d" % limit, secs=8),
+                                pg.evaluate("() => ({active: window.TILE_ACTIVE, stats: window.TILE_STATS})"))
+                pg.wait_for_timeout(1200)
+                self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm', (limit, code))
+                self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"), (limit, code))
+                self.assertEqual(len(mix['bad']), limit)
+                counts = Counter(u for u in urls if 'tile.openstreetmap.org' in u)
+                self.assertTrue(counts, urls[:8])
+                self.assertEqual(max(counts.values()), 1, (limit, counts.most_common(3)))
+                self.assertEqual(sum(counts[u] for u in mix['bad']), limit, (limit, counts))
+                loaded = pg.evaluate("() => document.querySelectorAll('#map .leaflet-tile-loaded').length")
+                self.assertGreater(loaded, 3, limit)
+                c.close()
+            b.close()
+
+    def test_load_and_locate_stay_within_one_request_per_tile(self):
+        """Overview plus Locate (Find nearest / the location button). Each OpenStreetMap tile URL is
+        requested once. The zoom set is the overview and the results, not every level between them.
+        The cap is below a double-fetch of that same view and below a flyTo through the ladder."""
+        from collections import Counter
+        from playwright.sync_api import sync_playwright
+        # Phone screens. iPhone 13 is 390x844, iPhone SE is 375x667. Measured at 10 requests
+        # (zoom 5 overview + zoom 13 results, one each). 16 is enough for a slightly taller map
+        # and still under a double fetch of that view, and under a grid at every zoom in between.
+        cap = 16
+        with sync_playwright() as p:
+            b = self._chrome(p)
+            for width, height in ((390, 844), (375, 667)):
+                seen = {'urls': [], 'refs': [], 'methods': []}
+
+                def handle(route):
+                    # One parameter: Playwright treats a second parameter as the Request and would
+                    # overwrite a default-arg bucket.
+                    req = route.request
+                    if 'tile.openstreetmap.org' in req.url:
+                        seen['urls'].append(req.url.split('?')[0])
+                        seen['refs'].append(req.headers.get('referer', ''))
+                        if req.method != 'GET':
+                            seen['methods'].append(req.method)
+                    self._osm_ok(route)
+
+                c = b.new_context(viewport={'width': width, 'height': height}, service_workers='block',
+                                  is_mobile=True, has_touch=True,
+                                  geolocation={'latitude': 51.539, 'longitude': -0.1426}, permissions=['geolocation'])
+                pg = c.new_page()
+                pg.route(B.TILE_RE, handle)
+                from site_ready import open_map
+                open_map(pg, self.base, stub_tiles=False)
+                self.assertTrue(_until(pg, "() => document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
+                pg.wait_for_timeout(500)
+                z0 = pg.evaluate("() => map.getZoom()")
+                pg.click('#me')
+                self.assertTrue(_until(pg, "() => map.getZoom() > %d && document.querySelectorAll('#list .card').length >= 1" % z0),
+                                pg.evaluate("() => ({z: map.getZoom(), cards: document.querySelectorAll('#list .card').length})"))
+                pg.wait_for_timeout(900)  # the 250ms refit, then the tiles for the settled view
+                urls, refs, methods = seen['urls'], seen['refs'], seen['methods']
+                counts = Counter(urls)
+                zooms = sorted({int(u.split('/')[-3]) for u in urls})
+                detail = {'size': (width, height), 'requests': len(urls), 'unique': len(counts), 'zooms': zooms,
+                          'zoom': pg.evaluate("() => map.getZoom()"), 'most': counts.most_common(3)}
+                self.assertTrue(urls, detail)
+                self.assertEqual(methods, [], detail)
+                self.assertEqual(max(counts.values()), 1, detail)
+                self.assertLessEqual(len(zooms), 3, detail)
+                self.assertLessEqual(len(urls), cap, detail)
+                self.assertGreaterEqual(len(urls), 8, detail)
+                origin = 'http://127.0.0.1:%d' % self.srv.server_address[1]
+                self.assertTrue(all(r.startswith(origin) for r in refs), refs[:4])
+                self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm', detail)
+                self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"), detail)
+                painted = pg.evaluate("""() => [...document.querySelectorAll('#map .leaflet-tile-loaded')]
+                  .filter(img => (img.getAttribute('data-tile')||'').includes('tile.openstreetmap.org') && img.naturalWidth > 0).length""")
+                self.assertGreater(painted, 3, detail)
+                c.close()
             b.close()
 
 

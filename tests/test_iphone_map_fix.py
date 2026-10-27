@@ -53,9 +53,10 @@ def old_sw(rev='e3982436c'):
     return subprocess.check_output(['git', 'show', rev + ':sw.js'], cwd=R)
 
 
+# img.src is a data URL of the one tile fetch. data-tile is the OpenStreetMap URL that fetch loaded.
 PAINTED = """() => window.TILE_ACTIVE==='osm'
   && document.querySelectorAll('#map img.leaflet-tile-loaded').length >= 4
-  && [...document.querySelectorAll('#map img.leaflet-tile-loaded')].every(i => i.src.includes('tile.openstreetmap.org') && i.naturalWidth > 0)
+  && [...document.querySelectorAll('#map img.leaflet-tile-loaded')].every(i => (i.getAttribute('data-tile')||i.src).includes('tile.openstreetmap.org') && i.naturalWidth > 0)
   && !window.maplibregl && !window.TILE_FAILOVER"""
 STATE = "() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER||null, v: window.TILE_VECTOR||null, stats: window.TILE_STATS||null, lib: !!window.maplibregl, imgs: document.querySelectorAll('#map img.leaflet-tile-loaded').length})"
 
@@ -77,8 +78,8 @@ class Source(unittest.TestCase):
         self.assertNotIn("r.type==='opaque'){c.put", sw)
         self.assertIn('#map .leaflet-gl-layer,#map .leaflet-gl-layer *{pointer-events:none!important}', home)
         self.assertIn('pointer-events:none!important', css)
-        self.assertIn('tiles.js?v=h9d4d60e584e4', home)
-        self.assertIn('tiles.js?v=h9d4d60e584e4', sw)
+        self.assertIn('tiles.js?v=h8cf7ea3cff1b', home)
+        self.assertIn('tiles.js?v=h8cf7ea3cff1b', sw)
 
 
 @unittest.skipUnless(HAVE, 'needs playwright webkit')

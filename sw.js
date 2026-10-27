@@ -4,7 +4,7 @@
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v91',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=h379b5b59cfae','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h9d4d60e584e4','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h7a3d7fe731ec'];
+const C='fyfb-v91',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=h379b5b59cfae','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h8cf7ea3cff1b','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h7a3d7fe731ec'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
 const MAPTILER=/(^|\.)maptiler\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
@@ -21,9 +21,9 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
  if(TILE.test(u.host)){e.respondWith(caches.open(T).then(async c=>{
    if(MAPTILER.test(u.host)){const stale=await c.match(e.request);if(stale)c.delete(e.request);return fetch(e.request).then(r=>r).catch(()=>{tell();return Response.error()})}
    // fyfb-v91 (27 Oct 2026, iPhone outage): an opaque cached tile (stored for an <img>) is never served while online and only
-   // readable (r.ok) responses are stored; it is never given to a CORS request. WebKit rejects it ("Response served by service worker is opaque"), so the tiles.js status probe goes
-   // to the network instead and stores a readable copy. Offline, the probe fails and tiles.js shows the <img>,
-   // which this cache still answers. The tile cache is renamed fyfb-tiles2 so activate drops the old opaque store.
+   // readable (r.ok) responses are stored; it is never given to a CORS request. WebKit rejects it ("Response served by service worker is opaque"), so the tiles.js status fetch goes
+   // to the network instead and stores a readable copy. That one response is the picture (a data URL built in script, no blob: and no second tile request).
+   // If the fetch throws, tiles.js shows the <img>, which this cache still answers offline. The tile cache is renamed fyfb-tiles2 so activate drops the old opaque store.
    const hit=await c.match(e.request);if(hit&&hit.type!=='opaque')return hit;
    if(hit)c.delete(e.request);  // opaque copy (old builds): dropped and refetched; only kept as the offline answer below
    return fetch(e.request).then(r=>{if(r.ok){c.put(e.request,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}

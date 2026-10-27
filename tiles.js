@@ -16,11 +16,13 @@ window.TILE_PROVIDERS = [
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a>' }
 ];
 /* How many of the last TILE_WINDOW tile attempts have to fail before leaving the current provider.
-   A 401, 403 or 429 switches on its own. Chrome still fires the image load event when that
-   response body is a valid PNG, so a tileerror counter never sees it: cached 200s and uncached
-   403s both look like successes. The status is read from the tile fetch, not from the image event.
-   A probe that throws with no status (iOS: "Response served by service worker is opaque") is not a
-   failure; the plain <img> is shown and only its own error counts. The check keeps running after the first load. */
+   Chrome still fires the image load event when a 401, 403 or 429 body is a valid PNG, so a tileerror
+   counter never sees it: cached 200s and uncached 403s both look like successes. One fetch reads the
+   status and its body is the picture (a data URL built in script, not a blob: URL). A second request
+   for the same tile is what tipped OpenStreetMap into 429s. A fetch that throws with no status
+   (iOS: "Response served by service worker is opaque") is not a failure; the plain <img> is the one
+   request and only its own error counts.
+   The check keeps running after the first load. */
 window.TILE_WINDOW = 20;
 window.TILE_WINDOW_FAILS = 4;
 /* A 401, 403 or 429 (a refusal) switches only at TILE_WINDOW_REFUSALS in the window (Dean, 27 Oct 2026, from PR 169):
@@ -126,80 +128,116 @@ window.addTiles = function (map) {
            request, and WebKit then refuses the opaque tile the service worker stored for a normal image. */
         img.referrerPolicy = 'strict-origin-when-cross-origin';
         var url = this.getTileUrl(coords), tileGen = my, shown = false, counted = false;
+        /* data-tile is the real tile URL. img.src is a data URL of the one fetch, or the tile URL
+           itself when that fetch threw and the <img> is the request. Offline checks read either.
+           A blob: URL is a second request. WebKit's FileReader reads a blob that way, and a check
+           that aborts unknown URLs then counts a good tile as a failure. */
+        img.setAttribute('data-tile', url);
+        var ac = typeof AbortController === 'function' ? new AbortController() : null;
+        function dead() { return tileGen !== gen || (ac && ac.signal.aborted); }
+        function drop() { if (ac) { try { ac.abort(); } catch (e) {} } }
+        img._hmAbort = drop;
+        function countOk() {
+          if (counted || dead()) return;
+          counted = true;
+          window.TILE_STATS.load++;
+          note(true);  /* a success never switches the map */
+        }
+        function countBad(refused, why) {
+          if (dead()) return;
+          window.TILE_STATS.error++;
+          codes.push(why);
+          done(new Error(String(why)), img);
+          if (offline()) return;
+          var errs = note(false, !!refused);
+          if (refused && refusals() >= (window.TILE_WINDOW_REFUSALS || 3)) giveUp(why);
+          else if (errs >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+        }
         function reveal() {
-          if (shown || tileGen !== gen) return;
+          /* Fetch threw with no HTTP status, even after the retry. Not a tile failure. The <img> is
+             the one request: if it really cannot load, its onerror counts the failure. */
+          if (shown || dead()) return;
           shown = true;
           img.onload = function () {
-            if (tileGen !== gen) return;
-            if (!counted) {
-              counted = true;
-              window.TILE_STATS.load++;
-              note(true);  /* a success never switches the map */
-            }
+            if (dead()) return;
+            countOk();
             done(null, img);
           };
           img.onerror = function () {
-            if (tileGen !== gen) return;
-            window.TILE_STATS.error++;
-            codes.push('decode');
-            done(new Error('decode'), img);
-            if (offline()) return;
-            var failed = note(false);
-            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+            if (tileGen !== gen || (ac && ac.signal.aborted)) return;
+            countBad(false, 'decode');
           };
           img.src = url;
         }
-        window.TILE_STATS.probe++;
+        function paint(buf, mime) {
+          if (dead()) return;
+          /* Build the data URL here. A blob URL, and FileReader which reads one, is a second
+             request, and a check that aborts unknown URLs then counts a good tile as a failure. */
+          var bytes = new Uint8Array(buf), parts = [], i, step = 8192;
+          for (i = 0; i < bytes.length; i += step) parts.push(String.fromCharCode.apply(null, bytes.subarray(i, i + step)));
+          img.onload = function () {
+            if (dead()) return;
+            done(null, img);
+          };
+          img.onerror = function () {
+            if (tileGen !== gen || (ac && ac.signal.aborted)) return;
+            countBad(false, 'decode');
+          };
+          img.src = 'data:' + String(mime || 'image/png').split(';')[0] + ';base64,' + btoa(parts.join(''));
+        }
         /* A fetch that fails outright (no HTTP status, e.g. iOS 'Load failed' on a network change) is tried
-           once more. HTTP statuses are never retried. credentials omit and no extra headers: a simple GET,
-           no preflight. */
+           once more. HTTP statuses are never retried. credentials omit, referrer is the origin (OSM tile
+           policy) and no extra headers: a simple GET, no preflight, no second download of a tile that loaded. */
         function get(retried) {
-          return fetch(url, {credentials: 'omit'}).catch(function (e) {
-            if (retried || tileGen !== gen) throw e;
+          var opts = {credentials: 'omit', referrerPolicy: 'strict-origin-when-cross-origin'};
+          if (ac) opts.signal = ac.signal;
+          return fetch(url, opts).catch(function (e) {
+            if ((ac && ac.signal.aborted) || (e && e.name === 'AbortError') || retried || tileGen !== gen) throw e;
             window.TILE_STATS.retry = (window.TILE_STATS.retry || 0) + 1;
-            return new Promise(function (r) { setTimeout(r, 400); }).then(function () { return get(true); });
+            return new Promise(function (r) { setTimeout(r, 400); }).then(function () {
+              if ((ac && ac.signal.aborted) || tileGen !== gen) throw e;
+              return get(true);
+            });
           });
         }
-        get(false).then(function (r) {
-          if (tileGen !== gen) return;
-          if (!r.ok) codes.push(r.status);
-          if (r.status === 401 || r.status === 403 || r.status === 429) {
-            window.TILE_STATS.error++;
-            done(new Error(String(r.status)), img);
-            if (offline()) return;
-            var errs = note(false, true);
-            if (refusals() >= (window.TILE_WINDOW_REFUSALS || 3)) giveUp(r.status);
-            else if (errs >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-            return;
-          }
-          if (!r.ok) {
-            window.TILE_STATS.error++;
-            done(new Error(String(r.status || 'tile')), img);
-            if (offline()) return;
-            var missed = note(false);
-            if (missed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-            return;
-          }
-          if (!counted) {
-            counted = true;
-            window.TILE_STATS.load++;
-            note(true);  /* a success never switches the map */
-          }
-          /* The status is known. The image uses the real tile URL (offline checks read img.src). */
-          reveal();
-        }, function () {
-          /* The probe threw with no HTTP status, even after the retry: WebKit "Response served by service
-             worker is opaque", or the network. That is not a tile failure. The <img> is the map: if it
-             really cannot load, its onerror counts the failure. */
-          if (tileGen !== gen) return;
-          window.TILE_STATS.probeOpaque = (window.TILE_STATS.probeOpaque || 0) + 1;
-          codes.push('probe-opaque');
-          reveal();
+        /* Wait until this turn's view changes have aborted tiles that will never be shown (Locate fits
+           twice back to back). Otherwise the first grid is already on the wire. */
+        var start = window.queueMicrotask || function (fn) { setTimeout(fn, 0); };
+        start(function () {
+          if (dead()) return;
+          window.TILE_STATS.probe++;
+          get(false).then(function (r) {
+            if (dead()) return;
+            /* Read the body before counting. Switching aborts every in-flight tile fetch, and
+               aborting this response before the body arrives hides a PNG 403 from the page. */
+            if (r.status === 401 || r.status === 403 || r.status === 429 || !r.ok) {
+              var refused = r.status === 401 || r.status === 403 || r.status === 429;
+              var why = refused ? r.status : (r.status || 'tile');
+              var read = r.arrayBuffer ? r.arrayBuffer().catch(function () {}) : Promise.resolve();
+              return read.then(function () { if (!dead()) countBad(refused, why); });
+            }
+            countOk();
+            var mime = (r.headers && r.headers.get && r.headers.get('content-type')) || 'image/png';
+            return r.arrayBuffer().then(function (buf) { paint(buf, mime); }, function () { if (!dead()) countBad(false, 'decode'); });
+          }, function (e) {
+            /* No HTTP status, even after the retry: WebKit "Response served by service worker is opaque",
+               or the network. Not a tile failure. The <img> loads the tile once. */
+            if ((ac && ac.signal.aborted) || (e && e.name === 'AbortError') || tileGen !== gen) return;
+            window.TILE_STATS.probeOpaque = (window.TILE_STATS.probeOpaque || 0) + 1;
+            codes.push('probe-opaque');
+            reveal();
+          });
         });
         return img;
       }
     });
-    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution });
+    /* updateWhenZooming stays false: Leaflet flyTo, and a zoom animation with the default, requests a
+       full grid at every integer zoom on the way. Locate crosses several levels; those grids are the
+       429s. Tiles already on screen scale, and one grid loads when the view settles. keepBuffer stays
+       2 because it only keeps tiles already fetched across a small pan. It does not prefetch, and
+       lowering it would refetch the same edge on the way back. */
+    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution, updateWhenZooming: false, keepBuffer: 2 });
+    layer.on('tileabort tileunload', function (e) { if (e.tile && e.tile._hmAbort) e.tile._hmAbort(); });
     layer.addTo(map);
     window.TILE_ACTIVE = p.name;
     logo(p.name === 'maptiler');
