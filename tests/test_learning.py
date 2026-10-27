@@ -78,7 +78,8 @@ class Persistence(unittest.TestCase):
             LR.snapshot(s2, "2026-10-25"); LR.save(s2, p)
             s3 = LR.load(p); self.assertEqual(s3["keys"]["a"]["checks"], 2); self.assertEqual(s3["total_checks"], 4); self.assertEqual(len(s3["history"]), 2)
             txt = "\n".join(LR.digest_lines(s3, "2026-10-25"))
-            self.assertIn("## What the system learned", txt); self.assertIn("a (+", txt); self.assertIn("b (2 fails)", txt)
+            self.assertIn("## What the system learned", txt)
+            self.assertIn("a (score up by", txt); self.assertIn("b (failed 2 times in a row)", txt)
 
 class Wiring(unittest.TestCase):
     def test_sweeps_use_learning_only_for_order(self):

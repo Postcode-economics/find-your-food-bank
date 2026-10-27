@@ -92,7 +92,7 @@ fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters
 from hours_fix import apply_phone
 for x in fresh: apply_phone(x)  # one valid UK number for tel:, others shown as text; invalid hidden
 # times cross-check on every published shelter's OWN site this run (closed -> removed; unconfirmed -> times withheld)
-tlog = discover.cross_check_times(fresh, "sh", "hours")
+tlog = discover.cross_check_times(fresh, "sh", "hours", state_root=".")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
 fresh = [x for x in fresh if not x.pop("_own_site_closed", None)]
 json.dump(tlog, open("logs/shelters_times_check.json", "w"), indent=0, ensure_ascii=False)
