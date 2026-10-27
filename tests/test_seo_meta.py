@@ -19,7 +19,9 @@ class T(unittest.TestCase):
             self.assertEqual(len(pg), 1, rel); self.assertEqual(pg[0]['dateModified'], '2026-10-23T13:29:05+01:00')
         home = open(os.path.join(self.d, 'index.html')).read()
         self.assertIn('>Updated 23 Oct 2026, 13:29</a>', home)
-        self.assertIn('<script src="data.js?v=r20261023T1329"></script>', home); self.assertIn('stamp.js?v=r20261023T1329', home)
+        self.assertIn('<script data-hm src="data.js?v=r20261023T1329" type="text/plain"></script>', home)
+        self.assertIn('<script data-hm src="stamp.js?v=r20261023T1329" type="text/plain"></script>', home)
+        self.assertNotIn('<script src="data.js', home)
         ds = [x for x in blocks(home) if x.get('@type') == 'Dataset'][0]
         self.assertEqual(ds['creator']['name'], 'Postcode Economics'); self.assertNotRegex(json.dumps(ds), r'\b0\d{9,10}\b')
         emails = set(re.findall(r'[\w.+-]+@[\w.-]+', json.dumps(ds))); self.assertEqual(emails, {'hello@helpmap.uk'})

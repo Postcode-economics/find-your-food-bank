@@ -181,7 +181,9 @@ def run(root=ROOT):
                                         'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
-            s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
+            # index loads these as text/plain (the boot loader executes them). Keep every other attribute; only the cache-bust changes.
+            s = re.sub(r'(<script\b[^>]*\bsrc=")((?:data|stamp|access)\.js)(?:\?v=[^"]*)?(")',
+                       lambda m: '%s%s?v=r%s%s' % (m.group(1), m.group(2), t.strftime('%Y%m%dT%H%M'), m.group(3)), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))

@@ -97,8 +97,8 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <footer>Data: <a href="https://www.givefood.org.uk/" target="_blank" rel="noopener">Give Food</a> and the <a href="https://www.foodaidnetwork.org.uk/" target="_blank" rel="noopener">Independent Food Aid Network</a>, last updated <span id="upd"></span>. Times change, call before you go. Phone numbers and opening times <span id="chk"></span>. Postcodes: <a href="https://postcodes.io/" target="_blank" rel="noopener">postcodes.io</a>, which contains OS data © Crown copyright and database right 2026, Royal Mail data © Royal Mail copyright and database right 2026, National Statistics data © Crown copyright and database right 2026, and NRS data © Crown copyright and database right 2026 (<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>). Map © OpenStreetMap contributors. Backup map: OpenFreeMap © OpenMapTiles. © MapTiler. Built by <a href="https://www.instagram.com/postcode_economics/" target="_blank" rel="noopener">Postcode Economics</a>.</footer>
 <div class="legal" id="legal"><p>helpmap.uk is a free guide compiled from publicly available information. While we aim to keep it accurate, details can change, so please confirm with the service before visiting. We are not affiliated with the services listed and cannot accept liability for any loss arising from use of this information. In an emergency, please call <a href="tel:999">999</a>.</p><p class="lgl"><a href="faq.html">How we keep it up to date</a> · <a href="shelters/">Shelters by area</a> · <a href="terms.html">Terms of use</a> · <a href="privacy.html">Privacy &amp; data protection</a> · <a href="accessibility.html">Accessibility</a> · <a href="mailto:hello@helpmap.uk?subject=Report%20a%20mistake%20on%20helpmap.uk">Report a mistake</a></p></div>
 <div id="sheet" aria-hidden="true"><div class="handle" aria-hidden="true" title="Swipe down to close"></div><button class="x" type="button" aria-label="Close">✕</button><div id="sheetBody"></div></div>
-<script src="data.js?v=r20261027T0553"></script><script src="stamp.js?v=r20261027T0553"></script><script src="access.js?v=r20261027T0553"></script><script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="tiles.js?v=ofm20261026"></script>
-<script>
+<script data-hm src="data.js?v=r20261027T0553" type="text/plain"></script><script data-hm src="stamp.js?v=r20261027T0553" type="text/plain"></script><script data-hm src="access.js?v=r20261027T0553" type="text/plain"></script><script data-hm src="vendor/leaflet.js" type="text/plain"></script><script data-hm src="vendor/leaflet.markercluster.js" type="text/plain"></script><script data-hm src="tiles.js?v=ofm20261026" type="text/plain"></script>
+<script data-hm="boot" type="text/plain" id="hm-boot">
 const D=window.FB_DATA,items=D.items,$=id=>document.getElementById(id);
 const nc=i=>i.kind==='warehouse'||i.kind==='dropoff';  // donation-only sites (warehouse/office): never shown as a place to get food
 $('upd').textContent=new Date(D.fetched).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
@@ -175,16 +175,17 @@ addTiles(map);  // tiles.js: ordered provider list with automatic fallback
 const pinSvg='<svg width="22" height="28" viewBox="0 0 22 28"><path d="M11 1C5.5 1 1 5.4 1 10.9 1 18 11 27 11 27s10-9 10-16.1C21 5.4 16.5 1 11 1z" fill="#E63946" stroke="#F2F4F8" stroke-width="2"/><circle cx="11" cy="11" r="3.5" fill="#F2F4F8"/></svg>';
 const icon=L.divIcon({className:'pin',html:pinSvg,iconSize:[22,28],iconAnchor:[11,27],popupAnchor:[0,-24]});
 const selIcon=L.divIcon({className:'pin sel',html:pinSvg,iconSize:[22,28],iconAnchor:[11,27],popupAnchor:[0,-24]});
-const cl=L.markerClusterGroup({chunkedLoading:true,maxClusterRadius:40});const markers=[],dists={};let selected=null;
+const cl=L.markerClusterGroup({chunkedLoading:true,chunkInterval:1e9,maxClusterRadius:40});const markers=[],dists={};let selected=null;
 const whIcon=L.divIcon({className:'pin wh',html:'<svg width="30" height="30" viewBox="0 0 30 30"><rect x="2" y="6" width="26" height="22" rx="3" fill="#F2F4F8" stroke="#0A1628" stroke-width="2.5"/><path d="M15 2v14m-6-5 6 6 6-6" stroke="#0A1628" stroke-width="3" fill="none"/><path d="M7 22h16" stroke="#0A1628" stroke-width="3"/></svg>',iconSize:[30,30],iconAnchor:[15,15],popupAnchor:[0,-14]});
 const icFor=k=>nc(items[k])?whIcon:icon;
-items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon:icFor(k),title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m;cl.addLayer(m)});
+items.forEach((i,k)=>{i._k=k;const m=L.marker([i.lat,i.lng],{icon:icFor(k),title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m});
 map.addLayer(cl);
 const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};
 const accOk=i=>{if(!F.walk&&!F.vouch)return true;if(nc(i))return false;const a=acc(i);return (F.walk&&a!=='voucher')||(F.vouch&&a==='voucher')};
 const vis=k=>accOk(items[k])&&(!F.open||(!closedToday(items[k])&&!nc(items[k])));  // Dean 25 Oct 09:37: Open today hides places closed today; no-times places stay; always nearest first
 let lastNear=null;
-const applyF=()=>{const on=F.open;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)));
+let clusterGen=0;function refreshClusters(){const gen=++clusterGen;requestAnimationFrame(()=>{setTimeout(()=>{if(gen!==clusterGen)return;cl.clearLayers();cl.addLayers(markers.filter((m,k)=>vis(k)))},0)})}
+const applyF=()=>{const on=F.open;refreshClusters();
  const op=items.filter(openToday).length,shut=items.filter(closedToday).length,unk=items.length-op-shut;
  $('hid').textContent='';  // Dean 25 Oct 09:37: one short line (.tnote) on all lists, no counts
  closeSheet();if(lastNear)nearest(...lastNear)};
@@ -294,7 +295,7 @@ $('me').onclick=()=>{if(!navigator.geolocation)return msg('Location isn’t avai
 $('share').onclick=async()=>{const u=new URL(location.href.split('?')[0]);if(lastQ)u.searchParams.set('q',lastQ);const url=u.toString(),data={title:'Find a food bank near you',text:'Free UK food bank map. No sign-up.',url};
  if(navigator.share){try{await navigator.share(data);return}catch(e){if(e.name==='AbortError')return}}
  try{await navigator.clipboard.writeText(url);$('share').textContent='Link copied ✓'}catch(e){prompt('Copy this link:',url)}setTimeout(()=>$('share').textContent='Share this map',2500)};
-const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');(window.__go=true,search(qs.get('q'))).then(()=>{if(qs.get('popup')){const c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)}})}
+const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.get('q');window.__hmPendingSearch=qs.get('q');if(qs.get('popup'))window.__hmPendingPopup=1}
 /* filter chips + swipe-up-to-dismiss  */
 (function(){const ch=$('chips'),wr=$('fwrap'),tab=$('ftab'),cnt=$('fcount');let st={};try{st=JSON.parse(localStorage.getItem('fbFilters')||'{}')}catch(e){}
  const save=()=>{try{localStorage.setItem('fbFilters',JSON.stringify({f:F}))}catch(e){}};
@@ -305,7 +306,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
   tab.hidden=open;tab.setAttribute('aria-expanded','false');$('fhide').setAttribute('aria-expanded','true');ch.style.transform='';ch.style.opacity='';
   ch.querySelectorAll('button').forEach(b=>b.tabIndex=closed?-1:0);try{sessionStorage.setItem('fbFclosed',closed?'1':'0')}catch(e){}if(focus)(closed?tab:$('fhide')).focus();save()};
  const setHidden=(h,focus)=>setFilters(!h,focus);window.fbSetFilters=setFilters;
- if(st.f)Object.keys(F).forEach(k=>F[k]=!!st.f[k]);sync();if(Object.values(F).some(Boolean))applyF();{let c=false;try{c=sessionStorage.getItem('fbFclosed')==='1'}catch(e){}setFilters(!c)}
+ if(st.f)Object.keys(F).forEach(k=>F[k]=!!st.f[k]);sync();if(Object.values(F).some(Boolean))applyF();else refreshClusters();{let c=false;try{c=sessionStorage.getItem('fbFclosed')==='1'}catch(e){}setFilters(!c)}
  ch.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;F[b.dataset.f]=!F[b.dataset.f];sync();applyF();save()});
  window.fbBadge=badge;$('openToday').onchange=()=>{F.open=$('openToday').checked;badge();applyF();save()};$('fhide').onclick=()=>setHidden(true,true);tab.onclick=()=>setHidden(false,true);
  ch.addEventListener('keydown',e=>{if(e.key==='Escape')setHidden(true,true);const bs=[...ch.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(i<0)return;if(e.key==='ArrowRight'){e.preventDefault();bs[Math.min(i+1,bs.length-1)].focus()}if(e.key==='ArrowLeft'){e.preventDefault();bs[Math.max(i-1,0)].focus()}});
@@ -318,5 +319,20 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  // pull down on the tab also restores
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
-</script><script src="layers.js?v=v1792959725"></script><script src="report.js"></script><script src="register.js"></script><script src="v3.js?v=v1792959725"></script><!-- Cloudflare Web Analytics --><script>/* Analytics beacon, skipped for our own automated checks (webdriver/headless, ?nocount, or localStorage nocount=1) - 25 Oct 2026 */(function(){try{var q=location.search,ua=navigator.userAgent||'';if(navigator.webdriver||/HeadlessChrome|helpmap-check/i.test(ua)||/[?&]nocount\b/.test(q)||localStorage.getItem('nocount')==='1'){if(/[?&]nocount\b/.test(q))localStorage.setItem('nocount','1');return}var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "6a7058ad322d49b481a8849a493add24"}');document.head.appendChild(s)}catch(_){}})();</script><!-- End Cloudflare Web Analytics -->
+</script><script data-hm src="layers.js?v=v1792959725" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=v1792959725" type="text/plain"></script><script>
+/* 27 Oct 2026: data.js, Leaflet and the map script used to run as one parser-blocking turn and froze taps and scrolling on an iPhone. text/plain keeps each versioned src in the document; this runs one file per frame. A search (URL or a tap before the map script) waits until the last file, so the form does not reload and the list is built after v3 wraps it. */
+(function(){
+  var f=document.getElementById('f');
+  if(f)f.addEventListener('submit',function(e){e.preventDefault();if(typeof window.search!='function'){var q=document.getElementById('q');window.__hmPendingSearch=q?q.value:''}},true);
+  var nodes=[].slice.call(document.querySelectorAll('script[data-hm]')),i=0;
+  function later(fn){requestAnimationFrame(function(){setTimeout(fn,0)})}
+  function run(){
+    if(i>=nodes.length){var q=window.__hmPendingSearch;if(q&&typeof search==='function'){window.__hmPendingSearch='';window.__go=true;var pop=window.__hmPendingPopup;search(q).then(function(){if(!pop)return;var c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)})}return}
+    var n=nodes[i++],s=document.createElement('script'),src=n.getAttribute('src');
+    if(src){s.async=false;s.src=src;s.onload=s.onerror=function(){later(run)};document.body.appendChild(s)}
+    else{s.text=n.textContent;document.body.appendChild(s);later(run)}
+  }
+  later(run);
+})();
+</script><!-- Cloudflare Web Analytics --><script>/* Analytics beacon, skipped for our own automated checks (webdriver/headless, ?nocount, or localStorage nocount=1) - 25 Oct 2026 */(function(){try{var q=location.search,ua=navigator.userAgent||'';if(navigator.webdriver||/HeadlessChrome|helpmap-check/i.test(ua)||/[?&]nocount\b/.test(q)||localStorage.getItem('nocount')==='1'){if(/[?&]nocount\b/.test(q))localStorage.setItem('nocount','1');return}var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token": "6a7058ad322d49b481a8849a493add24"}');document.head.appendChild(s)}catch(_){}})();</script><!-- End Cloudflare Web Analytics -->
 </body></html>
