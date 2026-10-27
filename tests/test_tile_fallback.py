@@ -314,11 +314,12 @@ class Browser(unittest.TestCase):
             pg.locator('#map').screenshot(path=os.path.join(SHOTS, 'map-openfreemap-fallback-osm-blocked.png'))
             b.close()
 
-    def _mix(self, page, fail_after, bad_limit, switch_on):
+    def _mix(self, page, fail_after, bad_limit, switch_on, code=403):
         """OSM: the first fail_after requests are 200, then up to bad_limit distinct URLs are 403
         with a real PNG body (and every repeat of those URLs, including the status probe). The rest
         stay 200. OpenFreeMap gets a stub light style (no real vector tiles); other hosts are 404.
-        switch_on() forces every new OSM tile to 403."""
+        switch_on['on'] forces every new OSM tile to 403, at most switch_on['max'] distinct URLs if set.
+        code is the refusal status (403 by default, 429 to model rate limiting)."""
         state = {'ok': 0, 'bad': set(), 'n403': 0, 'n200': 0}
 
         def handle(route):
@@ -336,16 +337,22 @@ class Browser(unittest.TestCase):
                 return
             status = 200
             if 'tile.openstreetmap.org' in url:
-                if switch_on['on'] or url in state['bad']:
+                if url in state['bad']:
+                    status = 403
+                elif switch_on['on'] and len(state['bad']) < switch_on.get('max', 10**9):
                     status = 403
                     state['bad'].add(url)
+                elif url in state.setdefault('seen', set()):
+                    pass  # repeat of a 200 (the image after the status fetch) stays 200
                 else:
+                    state['seen'].add(url)
                     state['ok'] += 1
                     if state['ok'] > fail_after and len(state['bad']) < bad_limit:
                         status = 403
                         state['bad'].add(url)
                         state['ok'] -= 1
             if status == 403:
+                status = code
                 state['n403'] += 1
             else:
                 state['n200'] += 1
@@ -362,12 +369,27 @@ class Browser(unittest.TestCase):
         os.makedirs(SHOTS, exist_ok=True)
         with sync_playwright() as p:
             b = self._chrome(p)
+            # One or two refusals amongst 200s must not switch.
+            for limit in (1, 2):
+                c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+                pg = c.new_page()
+                mix = self._mix(pg, fail_after=8, bad_limit=limit, switch_on={'on': False})
+                from site_ready import open_map
+                open_map(pg, self.base, stub_tiles=False)
+                self.assertTrue(_until(pg, "() => window.TILE_STATS && window.TILE_STATS.error >= %d" % limit, secs=8),
+                                pg.evaluate("() => ({active: window.TILE_ACTIVE, stats: window.TILE_STATS})"))
+                pg.wait_for_timeout(1500)
+                self.assertEqual(len(mix['bad']), limit)
+                self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm', limit)
+                self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"), limit)
+                c.close()
+            # Three switch.
             c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
             pg = c.new_page()
             seen = {'200': 0, '403': 0, 'png403': 0, 'maptiler': 0}
             pg.on('response', lambda r: _note(seen, r))
             pg.on('request', lambda r: seen.__setitem__('maptiler', seen['maptiler'] + (1 if 'maptiler.com' in r.url else 0)))
-            mix = self._mix(pg, fail_after=8, bad_limit=2, switch_on={'on': False})
+            mix = self._mix(pg, fail_after=8, bad_limit=3, switch_on={'on': False})
             from site_ready import open_map
             open_map(pg, self.base, stub_tiles=False)
             self.assertTrue(_until(pg, "() => !!(window.TILE_FAILOVER && window.TILE_ACTIVE==='openfreemap')", secs=8),
@@ -379,14 +401,34 @@ class Browser(unittest.TestCase):
             self.assertEqual(fo['from'], 'osm')
             self.assertEqual(fo['to'], 'openfreemap')
             self.assertGreaterEqual(fo['ok'], 1)
-            self.assertLess(fo['bad'], 6)
+            self.assertEqual(fo['bad'], 3, fo)
+            self.assertEqual(fo['refused'], 3, fo)
             self.assertFalse(old_rule(fo['ok'], fo['bad']), fo)
             self.assertEqual(str(fo['reason']), '403')
             self.assertGreaterEqual(seen['200'], 1)
-            self.assertGreaterEqual(seen['403'], 1)
-            self.assertGreaterEqual(seen['png403'], 1)
+            self.assertGreaterEqual(seen['403'], 3)
+            self.assertGreaterEqual(seen['png403'], 3)
             self.assertEqual(seen['maptiler'], 0)
             pg.screenshot(path=os.path.join(SHOTS, 'map-openfreemap-fallback.png'))
+            b.close()
+
+    def test_a_single_429_does_not_switch(self):
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b = self._chrome(p)
+            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+            pg = c.new_page()
+            seen = {'429': 0}
+            pg.on('response', lambda r: seen.__setitem__('429', seen['429'] + (1 if 'tile.openstreetmap.org' in r.url and r.status == 429 else 0)))
+            mix = self._mix(pg, fail_after=8, bad_limit=1, switch_on={'on': False}, code=429)
+            from site_ready import open_map
+            open_map(pg, self.base, stub_tiles=False)
+            self.assertTrue(_until(pg, "() => window.TILE_STATS && window.TILE_STATS.error >= 1", secs=8))
+            pg.wait_for_timeout(1500)
+            self.assertEqual(seen['429'], 1)
+            self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm')
+            self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
+            self.assertTrue(_until(pg, "() => document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
             b.close()
 
     def test_switch_still_happens_after_the_first_load(self):
@@ -402,12 +444,25 @@ class Browser(unittest.TestCase):
             open_map(pg, self.base, stub_tiles=False)
             self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='osm' && document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
             self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
+            # Two refusals after the first load: still OSM.
             flag['on'] = True
+            flag['max'] = 2
             pg.evaluate("() => map.setView([51.5,-0.12], 13)")
-            self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'"), pg.evaluate("() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER})"))
+            self.assertTrue(_until(pg, "() => window.TILE_STATS.error >= 2"), pg.evaluate("() => window.TILE_STATS"))
+            pg.wait_for_timeout(1500)
+            self.assertEqual(len(state['bad']), 2)
+            self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm')
+            self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
+            # Three refusals inside one 20-tile window switch. (The first two have aged out of the window by now:
+            # many successes since, so the rule counts three fresh ones.)
+            flag['max'] = 5
+            pg.evaluate("() => map.setView([53.48,-2.24], 13)")
+            self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'"), pg.evaluate("() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER, st: window.TILE_STATS})"))
             fo = pg.evaluate("() => window.TILE_FAILOVER")
             self.assertEqual(fo['from'], 'osm')
             self.assertEqual(fo['to'], 'openfreemap')
+            self.assertEqual(fo['refused'], 3, fo)
+            self.assertEqual(str(fo['reason']), '403')
             self.assertGreater(state['ok'], 0)
             self._ofm_ready(pg, state)
             b.close()
