@@ -11,7 +11,7 @@ Rule 23: every tile, style and vector request is stubbed. No real tile is loaded
 Checks also stub tile hosts. A page opened with check_browser.new_context must not receive a real
 tile-host response.
 """
-import functools, http.server, importlib.util, os, re, sys, threading, unittest, urllib.error
+import functools, http.server, importlib.util, json, os, re, sys, threading, unittest, urllib.error
 from io import BytesIO
 
 R = os.path.join(os.path.dirname(__file__), '..')
@@ -446,6 +446,91 @@ class Browser(unittest.TestCase):
             self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm')
             self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
             self.assertTrue(_until(pg, "() => document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
+            b.close()
+
+    def test_one_404_does_not_switch(self):
+        """A missing tile is one error, not a refusal. One 404 must not leave OpenStreetMap."""
+        from collections import Counter
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b = self._chrome(p)
+            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+            pg = c.new_page()
+            urls = []
+            pg.on('request', lambda r: urls.append(r.url.split('?')[0]) if 'tile.openstreetmap.org' in r.url else None)
+            seen = {'404': 0}
+            pg.on('response', lambda r: seen.__setitem__('404', seen['404'] + (1 if 'tile.openstreetmap.org' in r.url and r.status == 404 else 0)))
+            mix = self._mix(pg, fail_after=8, bad_limit=1, switch_on={'on': False}, code=404)
+            from site_ready import open_map
+            open_map(pg, self.base, stub_tiles=False)
+            self.assertTrue(_until(pg, "() => window.TILE_STATS && window.TILE_STATS.error >= 1", secs=8),
+                            pg.evaluate("() => ({active: window.TILE_ACTIVE, stats: window.TILE_STATS})"))
+            pg.wait_for_timeout(1500)
+            self.assertEqual(seen['404'], 1)
+            self.assertEqual(len(mix['bad']), 1)
+            self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm')
+            self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
+            stats = pg.evaluate("() => window.TILE_STATS")
+            self.assertGreaterEqual(stats.get('error', 0), 1, stats)
+            self.assertGreater(stats.get('load', 0), 3, stats)
+            counts = Counter(urls)
+            self.assertEqual(max(counts.values()), 1, counts.most_common(3))
+            self.assertEqual(counts[next(iter(mix['bad']))], 1)
+            self.assertGreater(pg.evaluate("() => document.querySelectorAll('#map .leaflet-tile-loaded').length"), 3)
+            b.close()
+
+    def test_one_slow_tile_does_not_switch(self):
+        """A tile that answers late is not a failure. The map stays on OpenStreetMap while that
+        request is in flight and after the 200 arrives."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b = self._chrome(p)
+            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+            pg = c.new_page()
+            held = {}
+
+            def handle(route):
+                url = route.request.url.split('?')[0]
+                if 'tile.openstreetmap.org' not in url:
+                    return self._osm_ok(route)
+                if held.get('arm') and held.get('route') is None and url not in held['fast']:
+                    held['route'] = route
+                    held['url'] = url
+                    return
+                held.setdefault('fast', set()).add(url)
+                route.fulfill(status=200, content_type='image/png', body=B.TILE_PNG,
+                              headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
+
+            pg.route(B.TILE_RE, handle)
+            from site_ready import open_map
+            open_map(pg, self.base, stub_tiles=False)
+            self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='osm' && document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
+            self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
+            settled = pg.evaluate("() => window.TILE_STATS.error || 0")
+            self.assertEqual(settled, 0)
+            held['arm'] = True
+            held['fast'] = set()
+            pg.evaluate("() => map.panBy([700, 280], {animate: false})")
+            for _ in range(40):
+                if held.get('route') is not None:
+                    break
+                pg.wait_for_timeout(100)
+            self.assertIsNotNone(held.get('route'), 'pan did not request a new tile')
+            pg.wait_for_timeout(2000)
+            mid = pg.evaluate("() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER || null, stats: window.TILE_STATS})")
+            self.assertEqual(mid['active'], 'osm', mid)
+            self.assertIsNone(mid['fo'], mid)
+            self.assertEqual(mid['stats'].get('error', 0), 0, mid)
+            held['route'].fulfill(status=200, content_type='image/png', body=B.TILE_PNG,
+                                  headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
+            tile = held['url']
+            self.assertTrue(_until(pg, """() => [...document.querySelectorAll('#map .leaflet-tile-loaded')]
+                .some(img => (img.getAttribute('data-tile')||'') === %s && img.naturalWidth > 0)""" % json.dumps(tile), secs=8),
+                            pg.evaluate("() => window.TILE_STATS"))
+            done = pg.evaluate("() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER || null, stats: window.TILE_STATS})")
+            self.assertEqual(done['active'], 'osm', done)
+            self.assertIsNone(done['fo'], done)
+            self.assertEqual(done['stats'].get('error', 0), 0, done)
             b.close()
 
     def test_switch_still_happens_after_the_first_load(self):
