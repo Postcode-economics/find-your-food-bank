@@ -20,5 +20,10 @@ class Anomaly(unittest.TestCase):
         stopped = learning.anomaly_brake(usual, 20)
         self.assertTrue(stopped["stop"]); self.assertIn("Stopped and flagged", stopped["reason"])
         self.assertEqual(stopped["median"], 2)
+    def test_a_stop_does_not_grant_an_add_or_a_removal(self):
+        import auto_rules
+        rules = auto_rules.load()
+        self.assertFalse(learning.allow_under_rules("new_place", rules, 1, "foodbanks"))
+        self.assertFalse(learning.allow_under_rules("remove_place", rules, 1))
 
 if __name__ == "__main__": unittest.main()
