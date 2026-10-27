@@ -108,6 +108,104 @@ class Gate(unittest.TestCase):
         for f in ("build.py", "build_shelters.py", "build_warmspaces.py"):
             src = open(os.path.join(here, f)).read(); i = src.index("discover.cross_check_times(")
             self.assertIn("state_root=", src[i:src.index("\n", i)], f)
+    def test_nothing_found_keeps_listing_and_writes_no_pending_row(self):
+        """Dean 27 Oct 2026 12:12 GMT: nothing read means no change, no blank, no closed, and no pending row."""
+        os.makedirs(os.path.join(self.root, "reports"))
+        pd = os.path.join(self.root, "reports", "pending_dean.md")
+        open(pd, "w").write("# Pending for Dean\n\n<!-- times crosscheck fb -->\nNothing pending.\n<!-- /times crosscheck fb -->\n\n<!-- closures -->\nkeep me\n<!-- /closures -->\n")
+        it = [item(phone="01111 111111", tel="01111 111111")]
+        stored = json.loads(json.dumps(it[0]["opening_times"]))
+        page = "<html><body><p>Riverside Food Bank, AB1 2CD. Please call before you come. Telephone 09999 999999.</p>%s</body></html>" % FILL
+        log = self.run1(it, fetch({"https://x.org/": pg(page)}), R1)
+        self.assertEqual(log["a"]["status"], "unconfirmed")
+        self.assertEqual(it[0]["opening_times"], stored)
+        self.assertEqual((it[0]["phone"], it[0]["tel"]), ("01111 111111", "01111 111111"))
+        self.assertNotIn("closed", json.dumps(it[0]["opening_times"]).lower())
+        md = open(pd).read()
+        self.assertNotIn("Nothing pending", md); self.assertNotIn("`a`", md); self.assertNotIn("times crosscheck", md)
+        self.assertIn("keep me", md)
+        gone = [item()]
+        self.run1(gone, fetch({}), R2)
+        self.assertEqual(gone[0]["opening_times"], OLD)
+        self.assertNotIn("Nothing pending", open(pd).read())
+    def test_unread_candidate_does_not_change_the_listing(self):
+        it = item(phone="01111 111111", tel="01111 111111")
+        before = json.loads(json.dumps(it))
+        rec = {"site": "https://x.org/", "status": "changed"}
+        D.times_gate_apply([(it, rec, None, ["AB1 2CD no times here"], {"final_url": "https://x.org/"})],
+                           "fb", "opening_times", "2026-10-27", {}, self.root, ON, R2, keep_ids=["a"])
+        self.assertEqual(it, before)
+        self.assertFalse(os.path.exists(os.path.join(self.root, "reports", "pending_dean.md")))
+    def test_explicit_closed_reading_is_still_held(self):
+        """A real closed table is still held. Only a failed read is silent."""
+        it = item()
+        rec = {"site": "https://x.org/"}
+        new = {"status": "CLOSED", "structured": None, "raw": "Closed"}
+        D.times_gate_apply([(it, rec, new, [html()], {"final_url": "https://x.org/"})],
+                           "fb", "opening_times", "2026-10-27", {}, self.root, ON, R2, keep_ids=["a"])
+        self.assertEqual(it["opening_times"], OLD)
+        md = open(os.path.join(self.root, "reports", "pending_dean.md")).read()
+        self.assertIn("`a`", md); self.assertIn("closed/empty", md)
+    def test_phone_mismatch_is_not_an_hours_conflict_and_phone_stays_held(self):
+        """Dean 27 Oct 2026 12:13 GMT: only a second, different hours table is a source conflict. The phone fix stays held."""
+        it = [item(phone="01111 111111", tel="01111 111111")]
+        it, log = self.twice(fetch({"https://x.org/": pg(html(times="Thursday 2pm - 4pm. Telephone 09999 999999"))}), it=it)
+        self.assertTrue(log["a"].get("auto_applied")); self.assertEqual(it[0]["opening_times"]["structured"], NEW_ST)
+        self.assertEqual((it[0]["phone"], it[0]["tel"]), ("01111 111111", "01111 111111"))
+        self.assertNotIn("phone", (log["a"].get("reason") or "").lower())
+        rec = json.load(open(os.path.join(self.root, "reports", "times_auto_applied.json")))[0]
+        self.assertEqual(rec["old"], OLD); self.assertNotIn("09999", json.dumps(rec["new"]))
+        phones = " Telephone 09999 999999."
+        g = D.times_gate_reasons(item(phone="01111 111111", tel="01111 111111"), "fb", "opening_times",
+                                 {"structured": NEW_ST, "status": "TIMES_FOUND", "raw": "Thursday 2pm - 4pm"},
+                                 [html() + phones, html("Monday 9am - 10am") + phones],
+                                 {"final_url": "https://x.org/"},
+                                 {"fb:a": {"sig": json.dumps(NEW_ST, sort_keys=True), "source_url": "https://x.org/", "run_at": R1}},
+                                 {}, True, R2)
+        self.assertEqual(g, ["conflict: own-site pages give different times"])
+        here = os.path.join(os.path.dirname(__file__), "..", "scripts")
+        gate = open(os.path.join(here, "discover.py")).read()
+        gate = gate[gate.index("def times_gate_reasons"):gate.index("def cross_check_times")]
+        finder = open(os.path.join(here, "times_finder.py")).read()
+        finder = finder[finder.index("def strict_checks"):finder.index("def decide")]
+        for src in (gate, finder):
+            self.assertNotIn("confidence_for", src)
+            self.assertNotIn("allow_under_rules", src)
+            self.assertNotIn("conflicts(", src)
+    def test_late_pass_that_finds_nothing_keeps_the_earlier_hold(self):
+        f = fetch({"https://x.org/": pg(html())})
+        it = [item()]; log = self.run1(it, f, R1)
+        pd = os.path.join(self.root, "reports", "pending_dean.md")
+        self.assertIn("`a`", open(pd).read())
+        b = item(id="b", type="foodbank", website="https://y.org/", phone="01111 111111")
+        stored = json.loads(json.dumps(b["opening_times"]))
+        late = D.check_missing([it[0], b], log, "fb", "opening_times", fetcher=fetch({}), state_root=self.root, rules=ON, run_at=R2)
+        self.assertEqual(late, ["b"])
+        self.assertEqual(b["opening_times"], stored); self.assertEqual(b["phone"], "01111 111111")
+        md = open(pd).read()
+        self.assertIn("`a`", md); self.assertNotIn("`b`", md); self.assertNotIn("Nothing pending", md)
+    def test_all_closed_reading_is_held_and_known_times_stay(self):
+        it = item(); new = {"status": "TIMES_FOUND", "structured": {"mon": [["09:00", "17:00"]]}, "all_closed": True, "raw": "Closed"}
+        D.times_gate_apply([(it, {"site": "https://x.org/"}, new, [html()], {"final_url": "https://x.org/"})],
+                           "fb", "opening_times", "2026-10-27", {}, self.root, ON, R2, keep_ids=["a"])
+        g = D.times_gate_reasons(item(), "fb", "opening_times", new, [html()], {"final_url": "https://x.org/"},
+                                 {"fb:a": {"sig": json.dumps(new["structured"], sort_keys=True), "source_url": "https://x.org/", "run_at": R1}}, {}, True, R2)
+        self.assertEqual(g, ["would change known times to closed/empty"])
+        self.assertEqual(it["opening_times"], OLD)
+        self.assertNotIn("all_closed", it["opening_times"])
+    def test_one_hours_apply_path(self):
+        """The refresh writes hours only through the strict gate. No second writer, and no one-run fallback."""
+        here = os.path.join(os.path.dirname(__file__), "..", "scripts")
+        src = open(os.path.join(here, "discover.py")).read()
+        self.assertNotIn("def client_week", src)
+        self.assertNotIn("seen_once", src)
+        window = src[src.index('elif st == "changed":'):src.index('elif st == "unconfirmed"')]
+        self.assertNotIn("i[field] =", window)
+        self.assertIn("cands.append", window)
+        build = open(os.path.join(here, "build.py")).read()
+        call = build[build.index("discover.cross_check_times("):build.index("\n", build.index("discover.cross_check_times("))]
+        self.assertIn("state_root=ROOT", call)
+        self.assertNotIn("seen=", call)
     def test_pending_section_kept_by_publish_gate(self):
         s = open(os.path.join(os.path.dirname(__file__), "..", "scripts", "publish_gate.py")).read()
         for k in ("fb", "sh", "ws"): self.assertIn("'times crosscheck %s'" % k, s)

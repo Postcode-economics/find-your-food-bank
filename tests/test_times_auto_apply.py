@@ -77,4 +77,45 @@ class Auto(unittest.TestCase):
         self.run_(seen={}); self.assertEqual(json.load(open(F.SEEN))["fb1"]["run_at"], "2026-10-27T03:05:00+00:00")
     def test_repo_rule_present(self):
         import auto_rules; self.assertIs(auto_rules.load().get("times_auto_apply"), True)
+    def test_nothing_read_keeps_stored_listing_and_adds_no_pending_row(self):
+        """Dean 27 Oct 2026 12:12 GMT: if times cannot be found or read, the stored listing stays exactly as it is."""
+        stored = {"fb1": dict(GOOD)}
+        json.dump(stored, open("overrides/opening_times.json", "w"))
+        open("reports/pending_dean.md", "w").write(
+            "# Pending for Dean\n\n<!-- times review -->\nNothing pending.\n<!-- /times review -->\n\n<!-- closures -->\nkeep me\n<!-- /closures -->\n")
+        items = [dict(ITEM, phone="01111 111111", tel="01111 111111", opening_times=dict(GOOD))]
+        before = json.loads(json.dumps(items[0]))
+        log = {"found": {"fb1": {"status": "NO_TIMES"}}}
+        F.decide(log, items, False, rules=ON, now="2026-10-27T03:05:00+00:00")
+        self.assertEqual(log["applied"], []); self.assertEqual(log["review"], [])
+        self.assertEqual(json.load(open("overrides/opening_times.json"))["fb1"]["structured"], GOOD["structured"])
+        self.assertEqual(items[0]["opening_times"], before["opening_times"])
+        self.assertEqual((items[0]["phone"], items[0]["tel"]), ("01111 111111", "01111 111111"))
+        md = open("reports/pending_dean.md").read()
+        self.assertNotIn("Nothing pending", md); self.assertNotIn("fb1", md); self.assertNotIn("times review", md)
+        self.assertIn("keep me", md)
+        self.assertFalse(os.path.exists(F.AUTO_LOG))
+        F.decide({"found": {}}, [dict(ITEM, opening_times=dict(GOOD))], False, rules=ON, now="2026-10-27T04:05:00+00:00")
+        md = open("reports/pending_dean.md").read()
+        self.assertNotIn("Nothing pending", md); self.assertNotIn("fb1", md)
+    def test_phone_mismatch_is_not_an_hours_conflict(self):
+        """Dean 27 Oct 2026 12:13 GMT: a stored phone that differs from the site phone is not an hours conflict. The phone stays held."""
+        item = dict(ITEM, phone="01111 111111", tel="01111 111111")
+        ot = dict(GOOD, raw="Wednesday 10am-12pm. Phone 09999 999999")
+        log = self.run_(ot=ot, item=item)
+        self.assertEqual(log["applied"], ["fb1"]); self.assertEqual(log["review"], [])
+        cur = json.load(open("overrides/opening_times.json"))["fb1"]
+        self.assertEqual(cur["structured"], GOOD["structured"])
+        self.assertNotIn("phone", cur); self.assertNotIn("tel", cur)
+        self.assertEqual((item["phone"], item["tel"]), ("01111 111111", "01111 111111"))
+        cur_old = {"fb1": dict(GOOD, structured={"fri": [["09:00", "11:00"]]}, source_url="https://www.givefood.org.uk/x")}
+        held = self.held(self.run_(cur=cur_old, item=dict(item, phone="09999 999999")), "conflicts with")
+        self.assertNotIn("phone", " ".join(held["why"]).lower())
+    def test_all_closed_does_not_replace_known_times(self):
+        cur = {"fb1": dict(GOOD)}
+        ot = dict(GOOD, all_closed=True, structured={"mon": [["09:00", "17:00"]]}, raw="Closed")
+        seen = {"fb1": {"sig": json.dumps(ot["structured"], sort_keys=True), "source_url": GOOD["source_url"], "run_at": "2026-10-26T19:05:00+00:00"}}
+        self.held(self.run_(ot=ot, cur=cur, seen=seen), "closed/empty")
+        self.assertEqual(json.load(open("overrides/opening_times.json"))["fb1"]["structured"], GOOD["structured"])
+        self.assertNotIn("all_closed", json.load(open("overrides/opening_times.json"))["fb1"])
 if __name__ == "__main__": unittest.main()
