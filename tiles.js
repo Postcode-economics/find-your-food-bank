@@ -185,8 +185,33 @@ window.addTiles = function (map) {
             window.TILE_STATS.load++;
             note(true);  /* a success never switches the map */
           }
-          /* The status is known. The image uses the real tile URL (offline checks read img.src). */
-          reveal();
+          /* One request per tile (27 Oct 2026, Dean's iPhone went grey after Find nearest): the image is painted from the
+             bytes this status check already downloaded, never fetched a second time. Before, every new tile was asked for
+             twice (this fetch, then the <img>), which doubled the OSM traffic a jump to a new area makes, and 429/403
+             refusals there switched the map to the grey OpenFreeMap backup. data-src keeps the real tile URL. */
+          img.setAttribute('data-src', url);
+          r.blob().then(function (b) {
+            if (tileGen !== gen) return;
+            var obj = URL.createObjectURL(b);
+            img.onload = function () {
+              URL.revokeObjectURL(obj);
+              if (tileGen !== gen) return;
+              shown = true;
+              done(null, img);
+            };
+            img.onerror = function () {
+              URL.revokeObjectURL(obj);
+              if (tileGen !== gen) return;
+              window.TILE_STATS.error++;
+              codes.push('decode');
+              done(new Error('decode'), img);
+              if (offline()) return;
+              var failed = note(false);
+              if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+            };
+            shown = true;
+            img.src = obj;
+          }, function () { if (tileGen === gen) reveal(); });
         }, function () {
           /* The probe threw with no HTTP status, even after the retry: WebKit "Response served by service
              worker is opaque", or the network. That is not a tile failure. The <img> is the map: if it
@@ -232,7 +257,15 @@ window.addTiles = function (map) {
       layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         attributionControl: { customAttribution: p.attribution } });
       layer.addTo(map);
-      window.TILE_VECTOR = 'ready';
+      /* 27 Oct 2026: 'ready' only once MapLibre has really drawn (load). A style or source that fails before that,
+         or nothing drawn within VECTOR_WATCHDOG_MS, goes back to OpenStreetMap once, never a grey map with no fallback. */
+      window.TILE_VECTOR = 'loading';
+      var gm = layer.getMaplibreMap && layer.getMaplibreMap(), loaded = false;
+      var dog = setTimeout(function () { if (!loaded) fail(new Error('watchdog: nothing drawn in ' + (window.VECTOR_WATCHDOG_MS || 8000) + 'ms')); }, window.VECTOR_WATCHDOG_MS || 8000);
+      if (gm) {
+        gm.once('load', function () { if (my !== gen) return; loaded = true; clearTimeout(dog); window.TILE_VECTOR = 'ready'; });
+        gm.on('error', function (ev) { if (loaded || my !== gen) return; clearTimeout(dog); fail(ev && ev.error || new Error('maplibre error')); });
+      }
     }).catch(fail);
   }
   map._hmTileStop = function () {
