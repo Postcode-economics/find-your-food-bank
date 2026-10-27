@@ -52,4 +52,7 @@ elif __name__ == "__main__":  # apply to the published file in place: shelter_co
     f = os.path.join(os.path.dirname(__file__), "..", lay + ".js"); s = open(f).read()
     pre, body = s[:s.index("{")], s[s.index("{"):s.rindex("}") + 1]; d = json.loads(body)
     print("filled", apply(d["items"], load(WS if lay == "warmspaces" else PATH)), "missing", check(d["items"]))
+    import phone_lock  # refresh apply: frozen numbers stay; unverified council lines stay hidden
+    for x in d["items"]: phone_lock.settle_council(x)
+    phone_lock.guard(d["items"], phone_lock.ROOT, via="refresh", source="shelter_contacts", layer=lay, persist_new=True)
     open(f, "w").write(pre + json.dumps(d, ensure_ascii=False, separators=(",", ":")) + s[s.rindex("}") + 1:])
