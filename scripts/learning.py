@@ -131,6 +131,47 @@ def method_order(s, key, methods):
     rest = sorted([m for m in methods if m != e.get("last_method")], key=lambda m: -rate(m))
     return ([e["last_method"]] if e.get("last_method") in methods else []) + rest
 
+CONFIDENCE_MIN = 0.8  # sits under auto_apply_rules.json: a lower score holds the change for Dean. It never grants a change the rules forbid.
+
+def allow_under_rules(kind, rules, confidence=None, layer=None):
+    """Rules first. Confidence can only refuse a change the rules would have allowed.
+    A new place or a removal the rules forbid stays forbidden even at confidence 1.
+    A stopped run does not grant an add or a removal. confidence None means no extra
+    doubt: the rules alone decide."""
+    rules = rules or {}
+    if kind == "new_place":
+        adds = rules.get("add_new_places") or {}
+        allowed = bool(adds.get(layer)) if layer else any(bool(v) for v in adds.values())
+    elif kind == "remove_place":
+        allowed = bool(rules.get("remove_confirmed_closures"))
+    else:
+        allowed = kind in (rules.get("automatic") or [])
+    if not allowed: return False
+    if confidence is None: return True
+    try: return float(confidence) >= CONFIDENCE_MIN
+    except (TypeError, ValueError): return False
+
+def anomaly_brake(history, proposed):
+    """Stop when this run would change many more places than recent runs.
+    Fewer than four recorded runs: do not stop (there is no baseline to compare with, and none is invented).
+    Unusual means at least 10, at least three times the median, and at least 8 above that median.
+    Those bars are multiples of the recorded counts, not a guessed expected number."""
+    counts = []
+    for h in history or []:
+        if isinstance(h, dict) and isinstance(h.get("changes"), int): counts.append(h["changes"])
+        elif isinstance(h, int): counts.append(h)
+    flag = {"stop": False, "proposed": int(proposed), "median": None, "reason": ""}
+    if len(counts) < 4:
+        flag["reason"] = "not enough history to judge this run (%d past runs)" % len(counts)
+        return flag
+    med = sorted(counts)[len(counts) // 2]; flag["median"] = med
+    if proposed >= max(10, med * 3) and proposed >= med + 8:
+        flag["stop"] = True
+        flag["reason"] = "this run would change %d places; recent runs usually change about %d. Stopped and flagged for Dean." % (proposed, med)
+    else:
+        flag["reason"] = "within the usual range (%d vs about %d)" % (proposed, med)
+    return flag
+
 def snapshot(s, today, top=200):
     """Keep a small per-run history of priorities so the digest can show movers."""
     pr = {k: round(reward(e, today), 3) for k, e in s["keys"].items()}

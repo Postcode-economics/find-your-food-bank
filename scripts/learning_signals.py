@@ -132,9 +132,12 @@ def self_review(LS, prev_signals, today):
 
 def build(today=None):
     today = today or datetime.date.today(); items = [i for i in items_of('data.full.js') if i.get('type') == 'foodbank']
-    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(); prev = rj('reports/learning_signals.json', {})
+    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
     cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
     season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
+    import brake_drill
+    drill_info = brake_drill.maybe(today, LS.get('change_counts') or [], os.path.join(ROOT, 'reports', 'anomaly_brake_drill.md'))
+    drill_note = drill_info['line']
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
     stored = prev.get('weights') or {}
@@ -165,6 +168,7 @@ def build(today=None):
     trend = [t for t in prev.get('trend', []) if t.get('day') != pt['day']] + [pt]
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
+               drill_note=drill_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
@@ -191,6 +195,7 @@ def digest_lines(out, full=False):
         len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor'))))
     L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
     L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
+    L.append('- Anomaly brake drill: ' + (out.get('drill_note') or 'the live brake is unchanged'))
     slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
     L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
     if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
