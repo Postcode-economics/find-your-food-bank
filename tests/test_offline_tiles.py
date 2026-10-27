@@ -53,6 +53,15 @@ class Units(unittest.TestCase):
                 self.assertEqual(r.out['status'], 200, u)
                 self.assertEqual(r.out['headers'].get('x-helpmap-tile'), 'stub', u)
                 self.assertTrue(r.out['body'].startswith(b'\x89PNG'), u)
+            # A style or tilejson on that host is not the PNG placeholder (the WebKit grey-map artefact).
+            for doc in ('https://tiles.openfreemap.org/styles/positron',
+                        'https://tiles.openfreemap.org/planet/tilejson.json'):
+                style = R(doc)
+                handler(style)
+                body = (style.out or {}).get('body') or b''
+                self.assertFalse(body.startswith(b'\x89PNG'), doc)
+                self.assertNotEqual((style.out or {}).get('content_type'), 'image/png', doc)
+                self.assertEqual((style.out or {}).get('status'), 404, doc)
             os.environ[T.ENV] = 'http://127.0.0.1:9'
             c = B.new_context(Br())
             self.assertEqual(len(c.routes), 1, c.routes)

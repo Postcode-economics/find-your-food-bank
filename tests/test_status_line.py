@@ -18,7 +18,7 @@ class T(unittest.TestCase):
         s = open(os.path.join(R, 'v3.js'), encoding='utf-8').read()
         self.assertIn('near you', s); self.assertNotIn('see list ↓', s)
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_never_clipped(self):
+    def test_never_clipped_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start()
@@ -28,7 +28,7 @@ class T(unittest.TestCase):
                 b = p.chromium.launch(executable_path=CH)
                 for w in (320, 360, 390, 1366):
                     for mode in ('light', 'dark'):
-                        c = b.new_context(viewport={'width': w, 'height': 800}, color_scheme=mode, service_workers='block'); pg = c.new_page()
+                        c = b.new_context(viewport={'width': w, 'height': 800}, color_scheme=mode, service_workers='block'); pg = c.new_page()  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                         open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                         pg.evaluate("m=>document.documentElement.classList.toggle('light',m==='light')", mode)
                         for k in ('fb', 'ws', 'sh'):
@@ -68,7 +68,7 @@ def real_names():
 
 class LongestNames(unittest.TestCase):
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_every_real_name_fits_alone_at_320(self):
+    def test_every_real_name_fits_alone_at_320_sw_off(self):
         """Dean 13:35: each real place name must fit on one line ALONE at 320px at the fixed font; report any that do not."""
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
@@ -76,7 +76,7 @@ class LongestNames(unittest.TestCase):
         names = real_names()
         try:
             with sync_playwright() as p:
-                b = p.chromium.launch(executable_path=CH); pg = b.new_page(viewport={'width': 320, 'height': 800}, service_workers='block')
+                b = p.chromium.launch(executable_path=CH); pg = b.new_page(viewport={'width': 320, 'height': 800}, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                 open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                 pg.fill('#q', 'Croydon'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
                 names = pg.evaluate("ns=>ns.map(v3short)", names)   # what the status line actually shows

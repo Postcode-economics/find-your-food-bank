@@ -9,7 +9,7 @@ try:
 except Exception: HAVE = False
 class T(unittest.TestCase):
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_saved_type_wins_on_q_link(self):
+    def test_saved_type_wins_on_q_link_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start()
@@ -19,7 +19,7 @@ class T(unittest.TestCase):
                 b = p.chromium.launch(executable_path=CH)
                 for k, want in (('ws', 'Warm spaces near'), ('sh', 'Shelters near'), ('fb', 'Food banks near')):
                     for w, slow in ((390, False), (1366, False), (390, True), (1366, True)):
-                        c = b.new_context(viewport={'width': w, 'height': 800}, service_workers='block')
+                        c = b.new_context(viewport={'width': w, 'height': 800}, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                         B.stub_map_tiles(c)  # rule 23: a desktop map must not fetch real tiles (that stalls this restore)
                         c.add_init_script("try{if(!sessionStorage.getItem('t4')){sessionStorage.setItem('t4','1');localStorage.setItem('v3layer','%s');localStorage.setItem('lastSearch',JSON.stringify({lat:51.5,lng:-0.12,label:'London'}))}}catch(e){}" % k); pg = c.new_page()
                         if slow: c.route('**/v3.js*', lambda r: (__import__('time').sleep(2.5), r.continue_()))   # v3.js restores the type AFTER the ?q search lands (fast cached lookup)

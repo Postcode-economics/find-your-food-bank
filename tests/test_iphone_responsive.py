@@ -1,20 +1,25 @@
-"""iPhone 13 (Playwright WebKit) stays responsive, on the normal map and on the OpenFreeMap backup.
+"""iPhone 13 and iPhone SE (Playwright WebKit) stay responsive, on the normal map and on the OpenFreeMap backup.
 
 Dean, 27 Oct 2026: on his iPhone the page froze once the map switched to the OpenFreeMap backup
-(MapLibre). This check opens this checkout as https://helpmap.uk (served from disk, so the real CSP
-applies) in WebKit with the iPhone 13 profile, in two cases:
-  normal - OpenStreetMap tiles answered by the CI stand-in tile (check_browser.stub_map_tiles);
-  backup - every OpenStreetMap tile refused (403), so tiles.js switches to OpenFreeMap; the
-           OpenFreeMap style is the same stand-in style test_tile_fallback.py uses.
+(MapLibre). The same day: the test browser must match a real iPhone, so the service worker is
+allowed. Blocking it made the OpenFreeMap style fetch come back as image/png and the map stay grey.
+That was a test artefact, not the phone.
+
+This check opens this checkout as https://helpmap.uk (served from disk, so the real CSP applies)
+in WebKit with the iPhone 13 profile and the iPhone SE profile, in two cases:
+  normal - OpenStreetMap tiles answered by the local stand-in (HTTP 200 PNG);
+  backup - every OpenStreetMap tile is HTTP 403 from that server, so tiles.js switches to
+           OpenFreeMap. The style document is JSON from the same server, not a Playwright route().
 After the map has loaded it asserts: no main-thread stall over 500 ms (measured with a timer
 heartbeat, because WebKit has no 'longtask' entries), a postcode search for M1 1AE shows results,
 the filter buttons and 'Open today only' respond to taps, and the page scrolls.
-No real network: postcodes.io is a stand-in answer, and any request to another host fails the test.
+No real network: the proxy answers postcodes.io itself and records any other host, which fails the test.
 """
-import json, mimetypes, os, subprocess, sys, unittest
+import json, os, subprocess, sys, unittest
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-sys.path.insert(0, os.path.join(R, 'scripts'))
-import check_browser as B
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from iphone_webkit import DEVICES, iphone_context
+from standin_net import Proxy, StandIn
 
 BASE = 'https://helpmap.uk'
 MAX_STALL_MS = 500
@@ -31,11 +36,6 @@ CARDS = "document.querySelectorAll('#list .card').length"
 HEARTBEAT = """(() => { if (window.__hb) return; window.__hb = {last: performance.now(), max: 0, n: 0};
   setInterval(() => { const t = performance.now(), g = t - window.__hb.last; window.__hb.last = t; window.__hb.n++;
     if (g > window.__hb.max) window.__hb.max = g; }, 50); })()"""
-
-
-def _read(f):
-    with open(f, 'rb') as fh:
-        return fh.read()
 
 
 def have_webkit():
@@ -64,49 +64,50 @@ def until(pg, js, secs=25):
 
 
 class IPhoneResponsive(unittest.TestCase):
-    def run_case(self, backup):
+    def run_case(self, backup, device='iPhone 13'):
         from playwright.sync_api import sync_playwright
-        bad, outside, errs = [], [], []
+        bad, errs = [], []
+        stand = StandIn(R, style=OFM_STYLE)
+        pc = json.dumps(PC).encode()
 
-        def local(route):
-            path = route.request.url.split(BASE, 1)[1].split('?')[0].split('#')[0] or '/'
-            f = os.path.join(R, path.lstrip('/'))
-            f = os.path.join(f, 'index.html') if os.path.isdir(f) else f
-            if not os.path.isfile(f):
-                return route.fulfill(status=404, body='')
-            route.fulfill(status=200, body=_read(f), headers={
-                'content-type': mimetypes.guess_type(f)[0] or 'text/html', 'cache-control': 'no-store'})
+        def decide(host, path):
+            # Real responses from the stand-in. No route() on the style or on the tiles.
+            if host == 'tile.openstreetmap.org' or host.endswith('.tile.openstreetmap.org'):
+                if backup:
+                    return stand.png(403)
+                return stand.png(200, stub=True)
+            if 'openfreemap.org' in host:
+                low = path.lower()
+                if '/styles/' in low or low.endswith('.json') or 'tilejson' in low:
+                    return stand.json_style()
+                return stand.empty(404)
+            if host == 'api.postcodes.io':
+                return stand.json_body(pc)
+            if host in ('helpmap.uk', 'www.helpmap.uk'):
+                return stand.site_file(path)
+            stand.other.append(host + path[:80])
+            return stand.empty(403)
 
-        def tiles(route):
-            url = route.request.url
-            if 'tiles.openfreemap.org' in url:
-                if '/styles/' in url:
-                    return route.fulfill(status=200, content_type='application/json', body=OFM_STYLE,
-                                         headers={'access-control-allow-origin': '*'})
-                return route.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'})
-            if backup:
-                return route.fulfill(status=403, content_type='image/png', body=B.TILE_PNG,
-                                     headers={'access-control-allow-origin': '*'})
-            return route.fulfill(status=200, content_type='image/png', body=B.TILE_PNG,
-                                 headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
+        stand.decide = decide
+        proxy = Proxy(stand)
+        try:
+            self._run_page(sync_playwright, proxy, stand, backup, device, bad, errs)
+        finally:
+            proxy.stop()
+            stand.stop()
+        if stand.other:
+            bad.append('requests to the real network: %s' % sorted(set(stand.other))[:5])
+        if stand.errors:
+            bad.append('stand-in errors: %s' % stand.errors[:3])
+        if errs:
+            bad.append('page errors: %s' % errs[:3])
+        self.assertEqual(bad, [])
 
-        def block(route):
-            outside.append(route.request.url[:120])
-            route.abort()
-
+    def _run_page(self, sync_playwright, proxy, stand, backup, device, bad, errs):
         with sync_playwright() as p:
             b = p.webkit.launch()
-            c = b.new_context(**p.devices['iPhone 13'], service_workers='block')
-            c.route('**/*', block)  # first registered = lowest priority: anything not matched below
-            c.route('https://api.postcodes.io/**', lambda r: r.fulfill(
-                status=200, content_type='application/json', body=json.dumps(PC),
-                headers={'access-control-allow-origin': '*'}))
-            c.route(BASE + '/**', local)
-            c.route(BASE + '/', local)
-            if backup:
-                c.route(B.TILE_RE, tiles)
-            elif not B.stub_map_tiles(c):
-                c.route(B.TILE_RE, tiles)
+            # Default iPhone WebKit context: service worker allowed, same as the phone.
+            c = iphone_context(p, b, device, proxy=proxy)
             pg = c.new_page()
             pg.set_default_timeout(20000)
             pg.on('pageerror', lambda e: errs.append(str(e)[:160]))
@@ -159,46 +160,51 @@ class IPhoneResponsive(unittest.TestCase):
             hb = pg.evaluate('window.__hb')
             if hb['max'] > MAX_STALL_MS:
                 bad.append('main thread stalled %d ms (> %d) after the map loaded' % (hb['max'], MAX_STALL_MS))
-            print('backup' if backup else 'normal', 'max stall %d ms' % hb['max'], 'active', pg.evaluate('window.TILE_ACTIVE || "osm"'))
+            print(device, 'backup' if backup else 'normal', 'max stall %d ms' % hb['max'], 'active', pg.evaluate('window.TILE_ACTIVE || "osm"'), 'sw', pg.evaluate("() => !!(navigator.serviceWorker && navigator.serviceWorker.controller)"))
             c.close()
             b.close()
-        if outside:
-            bad.append('requests to the real network: %s' % sorted(set(outside))[:5])
-        if errs:
-            bad.append('page errors: %s' % errs[:3])
-        self.assertEqual(bad, [])
 
-    def guarded(self, case):
+    def guarded(self, case, device):
         """Run one case in a child process. A frozen WebKit page also blocks Playwright's own calls
         (their timeouts never fire), so a hard wall-clock limit turns a freeze into a failure."""
-        pr = subprocess.Popen([sys.executable, '-u', os.path.abspath(__file__), case], cwd=R, text=True,
+        pr = subprocess.Popen([sys.executable, '-u', os.path.abspath(__file__), case, device], cwd=R, text=True,
                               stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
         try:
             out, err = pr.communicate(timeout=CASE_LIMIT_S)
         except subprocess.TimeoutExpired:
             os.killpg(pr.pid, 9)  # the child and its WebKit
             out, err = pr.communicate()
-            self.fail('%s case: page froze, no answer within %d s (main thread blocked)\n%s' % (case, CASE_LIMIT_S, out[-800:]))
+            self.fail('%s %s case: page froze, no answer within %d s (main thread blocked)\n%s' % (device, case, CASE_LIMIT_S, out[-800:]))
         r = subprocess.CompletedProcess(pr.args, pr.returncode, out, err)
         print(r.stdout[-400:])
-        self.assertEqual(r.returncode, 0, '%s case failed:\n%s%s' % (case, r.stdout[-1500:], r.stderr[-1500:]))
+        self.assertEqual(r.returncode, 0, '%s %s case failed:\n%s%s' % (device, case, r.stdout[-1500:], r.stderr[-1500:]))
 
     @unittest.skipUnless(HAVE, 'needs playwright webkit')
-    def test_normal_map(self):
-        self.guarded('normal')
+    def test_normal_map_iphone_13(self):
+        self.guarded('normal', 'iPhone 13')
 
     @unittest.skipUnless(HAVE, 'needs playwright webkit')
-    def test_openfreemap_backup(self):
+    def test_normal_map_iphone_se(self):
+        self.guarded('normal', 'iPhone SE')
+
+    @unittest.skipUnless(HAVE, 'needs playwright webkit')
+    def test_openfreemap_backup_iphone_13(self):
         """Dean 27 Oct 2026: the page froze on the OpenFreeMap (MapLibre) backup at the first filter tap
-        (map max zoom was Infinity, so the marker cluster rebuild never ended). Fixed in tiles.js."""
-        self.guarded('backup')
+        (map max zoom was Infinity, so the marker cluster rebuild never ended). Fixed in tiles.js.
+        Service worker on, failure injected by the local server (HTTP 403), not route()."""
+        self.guarded('backup', 'iPhone 13')
+
+    @unittest.skipUnless(HAVE, 'needs playwright webkit')
+    def test_openfreemap_backup_iphone_se(self):
+        """Same backup check on iPhone SE. Service worker on."""
+        self.guarded('backup', 'iPhone SE')
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2 and sys.argv[1] in ('normal', 'backup'):
+    if len(sys.argv) >= 3 and sys.argv[1] in ('normal', 'backup') and sys.argv[2] in DEVICES:
         import warnings
         warnings.simplefilter('ignore', ResourceWarning)
-        IPhoneResponsive('run_case').run_case(backup=sys.argv[1] == 'backup')
-        print(sys.argv[1], 'case passed')
+        IPhoneResponsive('run_case').run_case(backup=sys.argv[1] == 'backup', device=sys.argv[2])
+        print(sys.argv[2], sys.argv[1], 'case passed')
     else:
         unittest.main()

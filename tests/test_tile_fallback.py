@@ -18,6 +18,7 @@ R = os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.join(R, 'scripts'))
 sys.path.insert(0, os.path.dirname(__file__))
 import check_browser as B
+import standin_net
 
 CH = '/usr/bin/google-chrome'
 HAVE = os.path.exists(CH) and importlib.util.find_spec('playwright') is not None
@@ -164,18 +165,35 @@ class Browser(unittest.TestCase):
             return
         cls.srv = _server()
         cls.base = BASE.rstrip('/') + '/?nocount' if BASE else 'http://127.0.0.1:%d/?nocount' % cls.srv.server_address[1]
+        cls.stand = standin_net.StandIn(R, style=OFM_STYLE)
+        cls.stand.serve_tls()
 
     @classmethod
     def tearDownClass(cls):
         if HAVE:
             cls.srv.shutdown()
+            cls.stand.stop()
 
     def setUp(self):
         if not HAVE:
             self.skipTest('needs chrome + playwright')
+        self.stand.decide = None
+        self.stand.other = []
+        self.stand.errors = []
 
-    def _chrome(self, p):
-        return p.chromium.launch(executable_path=CH, args=['--enable-unsafe-swiftshader', '--use-angle=swiftshader'])
+    def _chrome(self, p, standin=False):
+        args = ['--enable-unsafe-swiftshader', '--use-angle=swiftshader']
+        if standin:
+            # Tile hosts resolve to the local TLS server. Failures are real HTTP responses.
+            args += ['--ignore-certificate-errors', '--host-rules=' + self.stand.host_rules()]
+        return p.chromium.launch(executable_path=CH, args=args)
+
+    def _open_ctx(self, b, **kw):
+        """Fallback context: service worker on, so a refusal still has to come from the server."""
+        kw.setdefault('viewport', {'width': 1100, 'height': 800})
+        kw['service_workers'] = 'allow'
+        kw['ignore_https_errors'] = True
+        return b.new_context(**kw)
 
     def _ofm_ready(self, pg, mix):
         self.assertTrue(_until(pg, "() => window.TILE_VECTOR==='ready' && !!document.querySelector('#map .leaflet-gl-layer canvas')", secs=20),
@@ -186,12 +204,15 @@ class Browser(unittest.TestCase):
         filt = pg.evaluate("() => getComputedStyle(document.querySelector('#map .leaflet-gl-layer')).filter")
         self.assertEqual(filt, 'none')
 
-    def test_new_context_makes_no_real_tile_requests(self):
+    def test_new_context_makes_no_real_tile_requests_sw_off(self):
+        """sw_off: first visit, service worker off, so this proves the Playwright tile stub itself.
+        A controlling worker would answer from cache. The stub does not answer a style or tilejson with a PNG."""
         from playwright.sync_api import sync_playwright
         os.makedirs(SHOTS, exist_ok=True)
         with sync_playwright() as p:
             b = self._chrome(p)
-            c = B.new_context(b, viewport={'width': 1100, 'height': 800}, color_scheme='dark', service_workers='block')
+            # sw_off: Chromium first visit. Not an iPhone WebKit context.
+            c = B.new_context(b, viewport={'width': 1100, 'height': 800}, color_scheme='dark', service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
             pg = c.new_page()
             failed, tiles = [], []
 
@@ -263,28 +284,26 @@ class Browser(unittest.TestCase):
         from playwright.sync_api import sync_playwright
         os.makedirs(SHOTS, exist_ok=True)
         with sync_playwright() as p:
-            b = self._chrome(p)
-            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block', color_scheme='dark')
+            b = self._chrome(p, standin=True)
+            # Service worker on. OSM is HTTP 500 from the local server, not a Playwright route().
+            c = self._open_ctx(b, color_scheme='dark')
             pg = c.new_page()
             seen = {'osm_aborted': 0, 'ofm': [], 'other_tile': []}
 
-            def handle(route):
-                url = route.request.url
-                if 'tile.openstreetmap.org' in url:
+            def decide(host, path):
+                url = 'https://%s%s' % (host, path)
+                if 'tile.openstreetmap.org' in host:
                     seen['osm_aborted'] += 1
-                    route.abort('connectionrefused')
-                elif 'tiles.openfreemap.org' in url:
+                    return self.stand.png(500)
+                if 'openfreemap.org' in host:
                     seen['ofm'].append(url)
-                    if '/styles/positron' in url:
-                        route.fulfill(status=200, content_type='application/json', body=OFM_STYLE,
-                                      headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
-                    else:
-                        route.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'})
-                else:
-                    seen['other_tile'].append(url)
-                    route.abort()
+                    if '/styles/' in path:
+                        return self.stand.json_style()
+                    return self.stand.empty(404)
+                seen['other_tile'].append(url)
+                return self.stand.empty(404)
 
-            pg.route(B.TILE_RE, handle)
+            self.stand.decide = decide
             from site_ready import open_map
             open_map(pg, self.base, stub_tiles=False)
             self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'", secs=20),
@@ -322,56 +341,48 @@ class Browser(unittest.TestCase):
         code is the refusal status (403 by default, 429 to model rate limiting)."""
         state = {'ok': 0, 'bad': set(), 'n403': 0, 'n200': 0}
 
-        def handle(route):
-            url = route.request.url.split('?')[0]
-            if 'tiles.openfreemap.org' in url:
+        def handle(host, path):
+            url = 'https://%s%s' % (host, path.split('?')[0])
+            if 'openfreemap.org' in host:
                 state.setdefault('ofm', []).append(url)
-                if '/styles/positron' in url:
-                    route.fulfill(status=200, content_type='application/json', body=OFM_STYLE,
-                                  headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
-                else:
-                    route.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'})
-                return
-            if 'tile.openstreetmap.org' not in url:
-                route.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'})
-                return
+                if '/styles/' in path:
+                    return self.stand.json_style()
+                return self.stand.empty(404)
+            if 'tile.openstreetmap.org' not in host:
+                return self.stand.empty(404)
             status = 200
-            if 'tile.openstreetmap.org' in url:
-                if url in state['bad']:
-                    status = 403
-                elif switch_on['on'] and len(state['bad']) < switch_on.get('max', 10**9):
+            if url in state['bad']:
+                status = 403
+            elif switch_on['on'] and len(state['bad']) < switch_on.get('max', 10**9):
+                status = 403
+                state['bad'].add(url)
+            elif url in state.setdefault('seen', set()):
+                pass  # repeat of a 200 (the image after the status fetch) stays 200
+            else:
+                state['seen'].add(url)
+                state['ok'] += 1
+                if state['ok'] > fail_after and len(state['bad']) < bad_limit:
                     status = 403
                     state['bad'].add(url)
-                elif url in state.setdefault('seen', set()):
-                    pass  # repeat of a 200 (the image after the status fetch) stays 200
-                else:
-                    state['seen'].add(url)
-                    state['ok'] += 1
-                    if state['ok'] > fail_after and len(state['bad']) < bad_limit:
-                        status = 403
-                        state['bad'].add(url)
-                        state['ok'] -= 1
+                    state['ok'] -= 1
             if status == 403:
                 status = code
                 state['n403'] += 1
             else:
                 state['n200'] += 1
-            route.fulfill(status=status, content_type='image/png', body=B.TILE_PNG, headers={
-                'access-control-allow-origin': '*',
-                'cache-control': 'public, max-age=86400',
-            })
+            return self.stand.png(status, cache='public, max-age=86400')
 
-        page.route(B.TILE_RE, handle)
+        self.stand.decide = handle
         return state
 
     def test_partial_403_amongst_200s_switches_before_the_old_rule(self):
         from playwright.sync_api import sync_playwright
         os.makedirs(SHOTS, exist_ok=True)
         with sync_playwright() as p:
-            b = self._chrome(p)
-            # One or two refusals amongst 200s must not switch.
+            b = self._chrome(p, standin=True)
+            # One or two refusals amongst 200s must not switch. Service worker on.
             for limit in (1, 2):
-                c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+                c = self._open_ctx(b)
                 pg = c.new_page()
                 mix = self._mix(pg, fail_after=8, bad_limit=limit, switch_on={'on': False})
                 from site_ready import open_map
@@ -384,7 +395,7 @@ class Browser(unittest.TestCase):
                 self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"), limit)
                 c.close()
             # Three switch.
-            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+            c = self._open_ctx(b)
             pg = c.new_page()
             seen = {'200': 0, '403': 0, 'png403': 0, 'maptiler': 0}
             pg.on('response', lambda r: _note(seen, r))
@@ -415,8 +426,8 @@ class Browser(unittest.TestCase):
     def test_a_single_429_does_not_switch(self):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            b = self._chrome(p)
-            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+            b = self._chrome(p, standin=True)
+            c = self._open_ctx(b)
             pg = c.new_page()
             seen = {'429': 0}
             pg.on('response', lambda r: seen.__setitem__('429', seen['429'] + (1 if 'tile.openstreetmap.org' in r.url and r.status == 429 else 0)))
@@ -434,8 +445,8 @@ class Browser(unittest.TestCase):
     def test_switch_still_happens_after_the_first_load(self):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            b = self._chrome(p)
-            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+            b = self._chrome(p, standin=True)
+            c = self._open_ctx(b)
             pg = c.new_page()
             flag = {'on': False}
             # No 403s until flag['on']. bad_limit 0 and fail_after huge means every OSM tile is 200 first.
@@ -468,24 +479,21 @@ class Browser(unittest.TestCase):
             b.close()
 
     def _open(self, p, query, handle):
-        b = self._chrome(p)
-        c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+        self.stand.decide = handle
+        b = self._chrome(p, standin=True)
+        c = self._open_ctx(b)
         pg = c.new_page()
-        pg.route(B.TILE_RE, handle)
         from site_ready import open_map
         sep = '&' if '?' in self.base else '?'
         open_map(pg, self.base + (sep + query if query else ''), stub_tiles=False)
         return b, pg
 
-    @staticmethod
-    def _osm_ok(route):
-        if 'tile.openstreetmap.org' in route.request.url:
-            route.fulfill(status=200, content_type='image/png', body=B.TILE_PNG,
-                          headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
-        elif '/styles/positron' in route.request.url:
-            route.fulfill(status=200, content_type='application/json', body=OFM_STYLE, headers={'access-control-allow-origin': '*'})
-        else:
-            route.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'})
+    def _osm_ok(self, host, path):
+        if 'tile.openstreetmap.org' in host:
+            return self.stand.png(200, stub=True)
+        if '/styles/' in path or path.lower().endswith('.json') or 'tilejson' in path.lower():
+            return self.stand.json_style()
+        return self.stand.empty(404)
 
     def test_no_debug_readout_without_the_flag(self):
         """Without ?tiles=debug the page is unchanged: no readout element, credit text as before."""
@@ -502,11 +510,10 @@ class Browser(unittest.TestCase):
         """Dean 27 Oct 05:44: iPhone shows the backup map. ?tiles=debug prints why, in plain text."""
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            def handle(route):
-                if 'tile.openstreetmap.org' in route.request.url:
-                    route.fulfill(status=403, content_type='image/png', body=B.TILE_PNG, headers={'access-control-allow-origin': '*'})
-                else:
-                    self._osm_ok(route)
+            def handle(host, path):
+                if 'tile.openstreetmap.org' in host:
+                    return self.stand.png(403)
+                return self._osm_ok(host, path)
             b, pg = self._open(p, 'tiles=debug', handle)
             self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'"))
             self.assertTrue(_until(pg, "() => /switched osm->openfreemap/.test((document.getElementById('tiles-debug')||{}).textContent||'')"))
@@ -528,13 +535,14 @@ class Browser(unittest.TestCase):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
             seen = set()
-            def handle(route):
-                u = route.request.url
-                if 'tile.openstreetmap.org' in u and u not in seen:
-                    seen.add(u)
-                    route.abort('connectionreset')
-                else:
-                    self._osm_ok(route)
+            def handle(host, path):
+                # First hit of each tile drops the connection: no HTTP status, same as iOS 'Load failed'.
+                # The retry is a 200 from this server. Not a Playwright route().
+                key = host + path
+                if 'tile.openstreetmap.org' in host and key not in seen:
+                    seen.add(key)
+                    return None
+                return self._osm_ok(host, path)
             b, pg = self._open(p, '', handle)
             self.assertTrue(_until(pg, "() => document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
             pg.wait_for_timeout(1500)
@@ -548,11 +556,10 @@ class Browser(unittest.TestCase):
         """The retry is once only: OSM down for good still switches to the backup."""
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            def handle(route):
-                if 'tile.openstreetmap.org' in route.request.url:
-                    route.abort('connectionreset')
-                else:
-                    self._osm_ok(route)
+            def handle(host, path):
+                if 'tile.openstreetmap.org' in host:
+                    return None  # every attempt dropped: the tile never arrives, so the backup is used
+                return self._osm_ok(host, path)
             b, pg = self._open(p, '', handle)
             self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'", secs=20))
             self.assertEqual(pg.evaluate("() => window.TILE_FAILOVER.reason"), 'errors')

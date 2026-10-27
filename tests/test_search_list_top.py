@@ -27,14 +27,14 @@ class Browser(unittest.TestCase):
         cls.srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), h); threading.Thread(target=cls.srv.serve_forever, daemon=True).start()
     @classmethod
     def tearDownClass(cls): cls.srv.shutdown()
-    def test_search_matches_pill(self):
+    def test_search_matches_pill_sw_off(self):
         from playwright.sync_api import sync_playwright
         base = f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
             for w in (390, 1366):
                 for k in ("fb", "ws", "sh"):
-                    c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block", reduced_motion="reduce")
+                    c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block", reduced_motion="reduce")  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                     c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(PC)))
                     pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
                     pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)

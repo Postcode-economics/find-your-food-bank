@@ -44,7 +44,7 @@ class T(unittest.TestCase):
             self.assertNotRegex(text, r'leaflet-tile[^}{]*filter\s*:\s*(?!none)', rel)
 
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_dark_field_same_box(self):
+    def test_dark_field_same_box_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R)
         h.log_message = lambda *a: None
@@ -57,7 +57,7 @@ class T(unittest.TestCase):
                 for w in (390, 1366):
                     got = {}
                     for mode in ('dark', 'light'):
-                        c = b.new_context(viewport={'width': w, 'height': 844}, color_scheme=mode, service_workers='block')
+                        c = b.new_context(viewport={'width': w, 'height': 844}, color_scheme=mode, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                         c.add_init_script("try{localStorage.setItem('light','%s')}catch(e){}" % ('1' if mode == 'light' else '0'))
                         pg = c.new_page()
                         open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1])

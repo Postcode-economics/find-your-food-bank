@@ -25,12 +25,12 @@ class Browser(unittest.TestCase):
     def tearDownClass(cls): cls.srv.shutdown()
     def base(self): return f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"
 
-    def test_touch(self):
+    def test_touch_sw_off(self):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
             for scheme in ("light", "dark"):
-                c = b.new_context(viewport={"width": 390, "height": 844}, has_touch=True, is_mobile=True, color_scheme=scheme, service_workers="block")
+                c = b.new_context(viewport={"width": 390, "height": 844}, has_touch=True, is_mobile=True, color_scheme=scheme, service_workers="block")  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                 pg = c.new_page(); open_map(pg, self.base()); pg.wait_for_timeout(1500)
                 pg.evaluate("()=>{map.setView([50.81,-0.54],13,{animate:false})}"); pg.wait_for_timeout(800)
                 self.assertFalse(pg.evaluate("map.dragging.enabled()"))
@@ -62,7 +62,7 @@ class Browser(unittest.TestCase):
                 self.assertIsNotNone(pg.evaluate("selected"), scheme)
                 c.close()
             # desktop unchanged
-            c = b.new_context(viewport={"width": 1366, "height": 900}, service_workers="block"); pg = c.new_page()
+            c = b.new_context(viewport={"width": 1366, "height": 900}, service_workers="block"); pg = c.new_page()  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
             open_map(pg, self.base()); pg.wait_for_timeout(1000)
             self.assertTrue(pg.evaluate("map.dragging.enabled()")); self.assertEqual(pg.locator(".mgest").count(), 0)
             self.assertFalse(pg.evaluate("map.scrollWheelZoom.enabled()")); pg.click("#map", position={"x": 300, "y": 150}); self.assertTrue(pg.evaluate("map.scrollWheelZoom.enabled()")); c.close()  # existing v3 desktop rule: wheel zoom after a click; b.close()

@@ -16,14 +16,14 @@ class T(unittest.TestCase):
         cls.base = 'http://127.0.0.1:%d/?nocount' % cls.s.server_address[1]
     @classmethod
     def tearDownClass(cls): cls.s.shutdown()
-    def test_toggle_save_reload_and_x(self):
+    def test_toggle_save_reload_and_x_sw_off(self):
         from playwright.sync_api import sync_playwright
         S = "[document.getElementById('openToday').checked, JSON.parse(localStorage.getItem('fbFilters')||'{\"f\":{}}').f.open||false]"
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path=CH)
             for w in (390, 1366):
                 for k in ('fb', 'ws', 'sh'):
-                    kw = dict(viewport={'width': w, 'height': 844}, service_workers='block')
+                    kw = dict(viewport={'width': w, 'height': 844}, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                     if w < 800: kw.update(has_touch=True, is_mobile=True)
                     c = b.new_context(**kw); pg = c.new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
                     open_map(pg, self.base); pg.wait_for_timeout(1000)

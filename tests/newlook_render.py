@@ -17,7 +17,7 @@ def _serve(route):
 
 def open_page(pw, scheme='dark', width=390, base=None):
     b = pw.chromium.launch(**({'executable_path': CHROME} if CHROME else {}))
-    ctx = b.new_context(viewport={'width': width, 'height': 844}, device_scale_factor=2, color_scheme=scheme, service_workers='block')
+    ctx = b.new_context(viewport={'width': width, 'height': 844}, device_scale_factor=2, color_scheme=scheme, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
     p = ctx.new_page()
     if base is None: p.route('**/*', _serve); base = HOST + 'index.html'
     B.stub_map_tiles(p)  # after the catch-all, which aborts anything that is not this checkout

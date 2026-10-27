@@ -17,11 +17,11 @@ class Browser(unittest.TestCase):
         cls.srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), h); threading.Thread(target=cls.srv.serve_forever, daemon=True).start()
     @classmethod
     def tearDownClass(cls): cls.srv.shutdown()
-    def test_partial_offered(self):
+    def test_partial_offered_sw_off(self):
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
-            c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block")
+            c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block")  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
             c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(LH if "Littlehampton" in r.request.url else SH if "places" in r.request.url else {"status": 404})))
             pg = c.new_page(); open_map(pg, f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"); pg.wait_for_timeout(1200)
             pg.fill("#q", "Suffolkh"); pg.press("#q", "Enter"); pg.wait_for_timeout(1500)  # 'Suffolk' itself is now a county (counties.json)

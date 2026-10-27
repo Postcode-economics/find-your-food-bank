@@ -40,7 +40,8 @@ class T(unittest.TestCase):
                 for nomap in ('1', '0'):
                     for block in (False, True):
                         if block and nomap == '1': continue
-                        c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, is_mobile=True, has_touch=True, color_scheme='dark')
+                        # Real iPhone WebKit: service worker allowed. Blocking it paints a grey OpenFreeMap.
+                        c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, is_mobile=True, has_touch=True, color_scheme='dark', service_workers='allow')
                         c.add_init_script("try{localStorage.setItem('nomap','%s')}catch(e){}" % nomap)
                         if block: c.add_init_script("for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});")
                         c.route(base + '/**', local); c.route(base + '/', local)
@@ -75,7 +76,8 @@ class T(unittest.TestCase):
                         c.close()
                 # Dean's standing rule: DARK by default even with the phone set to light; storage blocked = dark
                 for block in (False, True):
-                    c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, is_mobile=True, color_scheme='light')
+                    # Real iPhone WebKit, OS set to light: service worker allowed.
+                    c = b.new_context(viewport={'width': 390, 'height': 844}, user_agent=IG, is_mobile=True, color_scheme='light', service_workers='allow')
                     if block: c.add_init_script("for(const k of ['localStorage','sessionStorage'])Object.defineProperty(window,k,{get(){throw new DOMException('denied','SecurityError')}});")
                     c.route(base + '/**', local); c.route(base + '/', local); pg = c.new_page()
                     pg.goto(base + '/?nocount', wait_until='load'); pg.wait_for_timeout(1500)

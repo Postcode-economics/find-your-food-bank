@@ -61,7 +61,8 @@ def fresh(b, w, scheme, geo=False):
     kw = dict(viewport={'width': w, 'height': 844 if w < 800 else 900}, color_scheme=scheme)
     if w < 800: kw.update(has_touch=True, is_mobile=True)
     if geo: kw.update(geolocation={'latitude': LH[0], 'longitude': LH[1]}, permissions=['geolocation'])
-    c = B.new_context(b, **kw)  # normal phone or desktop agent, shared time limits, service worker blocked
+    # Service worker on, as on a real phone. A blocked worker is a test artefact, not the visit.
+    c = B.new_context(b, service_workers='allow', **kw)
     c.add_init_script(INIT); return c
 
 def load(c, base):

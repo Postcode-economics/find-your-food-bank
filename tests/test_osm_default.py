@@ -205,6 +205,8 @@ class OfflineOsmTiles(unittest.TestCase):
         try:
             with sync_playwright() as p:
                 browser = p.chromium.launch(args=['--host-rules=' + rules, '--ignore-certificate-errors'])
+                # Service worker on, as on a real browser. The offline half reads tiles this visit cached.
+                # Failures are the local server and context.set_offline, not route().
                 ctx = browser.new_context(viewport={'width': 1280, 'height': 800}, service_workers='allow',
                                            user_agent='Mozilla/5.0 helpmap-check')
                 page = ctx.new_page()

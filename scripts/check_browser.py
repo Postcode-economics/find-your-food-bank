@@ -139,17 +139,35 @@ def is_map_tile(url):
     return True
 
 
+def _vector_style_or_tilejson(url):
+    """OpenFreeMap style document or tilejson. Not a raster tile.
+
+    Answering one of these with the PNG placeholder is the WebKit grey-map artefact:
+    MapLibre then throws 'The string did not match the expected pattern'.
+    """
+    path = (url or '').split('?', 1)[0].split('#', 1)[0].lower()
+    return '/styles/' in path or path.endswith('.json') or 'tilejson' in path
+
+
 def stub_map_tiles(target):
-    """Fulfill tile-host requests with the bundled placeholder, status 200. No network.
+    """Fulfill tile-file requests with the bundled placeholder, status 200. No network.
 
     HELPMAP_REAL_TILES=1 does not register the route. Call this again after unroute(), and
     after any catch-all route(): the later route is the one Playwright uses, and unroute of
     a catch-all can drop this one too.
+
+    Style and tilejson URLs on those hosts are not answered with the PNG. A 404 JSON is a
+    failed style load. Tests that need a vector map use a local server, not this route.
     """
     if os.environ.get('HELPMAP_REAL_TILES') == '1':
         return False
 
     def _stub(route):
+        if _vector_style_or_tilejson(route.request.url):
+            route.fulfill(status=404, content_type='application/json', body=b'', headers={
+                'access-control-allow-origin': '*',
+            })
+            return
         route.fulfill(status=200, content_type='image/png', body=TILE_PNG, headers={
             'access-control-allow-origin': '*',
             'cache-control': 'public, max-age=604800',
@@ -402,13 +420,21 @@ def _should_retry_shell(page, exc, net):
 
 
 def new_context(browser, **kw):
-    """A browser context with a normal user agent and the shared time limits. Service workers are
-    blocked unless the caller asks for them (the old-links check is the one that needs them).
+    """A browser context with a normal user agent and the shared time limits.
+
+    WebKit allows the service worker, as a real iPhone does. Blocking it is what made
+    Playwright answer an OpenFreeMap style fetch with image/png. Chromium checks still
+    block the worker unless the caller passes service_workers='allow' (old links, journeys,
+    and any check that must see a controlling worker): those are first-visit checks.
     Tile hosts are stubbed unless HELPMAP_REAL_TILES=1."""
     instagram = kw.pop('instagram', False)
     width = (kw.get('viewport') or {}).get('width', 1366)
     kw.setdefault('user_agent', user_agent(width, instagram))
-    kw.setdefault('service_workers', 'block')
+    try:
+        engine = browser.browser_type.name
+    except Exception:
+        engine = ''
+    kw.setdefault('service_workers', 'allow' if engine == 'webkit' else 'block')
     c = browser.new_context(**kw)
     c.set_default_timeout(STEP_TIMEOUT)
     c.set_default_navigation_timeout(NAV_TIMEOUT)

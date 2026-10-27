@@ -151,10 +151,11 @@ jobs:
     needs: changes
     if: needs.changes.outputs.browser == '1'
     # Dean 27 Oct 2026: the page froze on his iPhone once the map switched to the OpenFreeMap backup.
-    # Real WebKit, iPhone 13 profile, normal map and forced backup: no stall over 500 ms after the map loads,
-    # M1 1AE search, filters, Open today and scrolling all respond. Stand-in tiles only, no real network.
+    # Real WebKit, iPhone 13 and iPhone SE, service worker allowed (as on the phone). Normal map and
+    # forced backup: no stall over 500 ms after the map loads, M1 1AE search, filters, Open today and
+    # scrolling all respond. Tiles come from the test's local stand-in, no real network.
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 1}

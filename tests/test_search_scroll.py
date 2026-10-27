@@ -25,7 +25,7 @@ class Browser(unittest.TestCase):
         threading.Thread(target=cls.srv.serve_forever, daemon=True).start()
     @classmethod
     def tearDownClass(cls): cls.srv.shutdown()
-    def test_search_lands_on_selected_list(self):
+    def test_search_lands_on_selected_list_sw_off(self):
         from playwright.sync_api import sync_playwright
         base = f"http://127.0.0.1:{self.srv.server_address[1]}/?fresh=1"
         with sync_playwright() as p:
@@ -33,7 +33,7 @@ class Browser(unittest.TestCase):
             for w in (390, 1366):
                 for k, head in (("ws", "Nearest warm spaces"), ("sh", "Nearest shelters"), ("fb", None)):
                     for how in ("enter", "button"):
-                        c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block")
+                        c = b.new_context(viewport={"width": w, "height": 844}, service_workers="block")  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                         c.route("https://api.postcodes.io/**", lambda r: r.fulfill(status=200, content_type="application/json", body=json.dumps(PC)))
                         pg = c.new_page(); open_map(pg, base); pg.wait_for_timeout(1500)
                         pg.click(f".v3b[data-l={k}]"); pg.wait_for_timeout(1000)

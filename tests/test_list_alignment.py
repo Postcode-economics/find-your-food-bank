@@ -13,7 +13,7 @@ class T(unittest.TestCase):
     def test_static(self):
         self.assertIn('.tnote{margin-left:0!important', open(os.path.join(R, 'header.css')).read())
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_same_left_edge(self):
+    def test_same_left_edge_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start()
@@ -23,7 +23,7 @@ class T(unittest.TestCase):
                 b = p.chromium.launch(executable_path=CH)
                 for w in (390, 1366):
                     for mode in ('light', 'dark'):
-                        c = b.new_context(viewport={'width': w, 'height': 900}, color_scheme=mode, service_workers='block'); pg = c.new_page()
+                        c = b.new_context(viewport={'width': w, 'height': 900}, color_scheme=mode, service_workers='block'); pg = c.new_page()  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                         open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                         pg.evaluate("m=>document.documentElement.classList.toggle('light',m==='light')", mode)
                         for k in ('fb', 'ws', 'sh'):

@@ -12,7 +12,7 @@ CHECK = """k=>{const ln=lastNear,D=window[k==='sh'?'SHELTERS':'WARMSPACES'];if(!
  return {cards,z:map.getZoom(),out:near.filter(x=>!B.contains([x.i.lat,x.i.lng])).map(x=>x.i.name+' '+x.d.toFixed(1)+'km')}}"""
 class T(unittest.TestCase):
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_phone_map_shows_listed_pins(self):
+    def test_phone_map_shows_listed_pins_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start(); bad = []
@@ -21,7 +21,7 @@ class T(unittest.TestCase):
                 b = p.chromium.launch(executable_path=CH)
                 for k in ('sh', 'ws'):
                     for q in ('SM1%201AA', 'IP1%202DA'):
-                        c = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True, service_workers='block')
+                        c = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                         c.add_init_script("try{localStorage.setItem('v3layer','%s')}catch(e){}" % k); pg = c.new_page()
                         pg.goto('http://127.0.0.1:%d/?nocount&q=%s' % (s.server_address[1], q)); pg.wait_for_timeout(9000)
                         r = pg.evaluate(CHECK, k)

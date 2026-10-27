@@ -12,7 +12,7 @@ def ratio(a, b):
     la, lb = sorted((lum(a), lum(b)), reverse=True); return (la + 0.05) / (lb + 0.05)
 class T(unittest.TestCase):
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_dark_panel(self):
+    def test_dark_panel_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start(); bad = []
@@ -20,7 +20,7 @@ class T(unittest.TestCase):
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path=CH)
                 for w, mode in ((390, 'dark'), (1366, 'dark'), (390, 'light'), (1366, 'light')):
-                    c = b.new_context(viewport={'width': w, 'height': 844}, color_scheme=mode, service_workers='block')
+                    c = b.new_context(viewport={'width': w, 'height': 844}, color_scheme=mode, service_workers='block')  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                     c.add_init_script("try{localStorage.setItem('v3layer','sh');localStorage.setItem('light','%s')}" % ('1' if mode == 'light' else '0') + "catch(e){}"); pg = c.new_page()
                     pg.goto('http://127.0.0.1:%d/?nocount&q=SM1%%201AA' % s.server_address[1]); pg.wait_for_timeout(8000)
                     r = pg.evaluate("""(()=>{const vis=[...document.querySelectorAll('.v3sos')].filter(e=>e.offsetParent);const lh=[...document.querySelectorAll('#xlist>.lh')].find(e=>e.offsetParent);

@@ -15,14 +15,14 @@ class T(unittest.TestCase):
         h = open(os.path.join(R, 'index.html'), encoding='utf-8').read()
         self.assertIn("localStorage.getItem('hmTwoFinger')", h); self.assertIn('if(n>=2)return', h)
     @unittest.skipUnless(HAVE, 'needs chrome + playwright')
-    def test_max_two(self):
+    def test_max_two_sw_off(self):
         from playwright.sync_api import sync_playwright
         h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R); h.log_message = lambda *a: None
         s = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=s.serve_forever, daemon=True).start()
         try:
             with sync_playwright() as p:
                 b = p.chromium.launch(executable_path=CH)
-                c = b.new_context(viewport={'width': 390, 'height': 844}, has_touch=True, is_mobile=True, service_workers='block'); pg = c.new_page()
+                c = b.new_context(viewport={'width': 390, 'height': 844}, has_touch=True, is_mobile=True, service_workers='block'); pg = c.new_page()  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
                 open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1]); pg.wait_for_timeout(800)
                 pg.evaluate("document.querySelector('#map').scrollIntoView()")
                 shown = []

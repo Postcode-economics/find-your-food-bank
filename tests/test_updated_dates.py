@@ -72,7 +72,7 @@ class Watchdog(unittest.TestCase):
 
 FAKE = 'window.FB_STAMP={"run":"2031-03-07T09:41:00+00:00","kind":"shelters","label":"7 March 2031, 09:41","layers":{"fb":{"run":"2031-03-06T08:15:00+00:00","label":"6 March 2031, 08:15"},"ws":{"run":"2031-03-07T09:40:00+00:00","label":"7 March 2031, 09:40"},"sh":{"run":"2031-03-07T09:41:00+00:00","label":"7 March 2031, 09:41"}}};'
 class Browser(unittest.TestCase):
-    def test_lines_follow_stamp(self):
+    def test_lines_follow_stamp_sw_off(self):
         try:
             from playwright.sync_api import sync_playwright
         except Exception:
@@ -89,7 +89,7 @@ class Browser(unittest.TestCase):
             r.fulfill(status=200, body=open(p, "rb").read(), content_type=mimetypes.guess_type(p)[0] or "application/octet-stream")
         with sync_playwright() as p:
             b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
-            c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block"); pg = c.new_page(); pg.route("**/*", serve)
+            c = b.new_context(viewport={"width": 390, "height": 844}, service_workers="block"); pg = c.new_page(); pg.route("**/*", serve)  # sw_off: first visit, empty cache; Chromium, not iPhone WebKit
             B.stub_map_tiles(pg)  # after the catch-all, so a tile URL is the placeholder and not an aborted network request
             pg.goto(H + "index.html?fresh=1", wait_until="load"); pg.wait_for_timeout(2500)
             g = lambda s: pg.evaluate("s=>{const e=document.querySelector(s);return e?e.textContent:''}", s)
