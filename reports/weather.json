@@ -2,32 +2,9 @@
  "warnings": [
   {
    "source": "Met Office",
-   "title": "Yellow warning of wind affecting Dumfries, Galloway, Lothian & Borders",
-   "level": "yellow",
-   "areas": [
-    "East Lothian",
-    "Edinburgh",
-    "Midlothian Council",
-    "Scottish Borders",
-    "West Lothian"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-27&id=011bc9b4-d86c-431e-87cd-d1becac7eaad&referrer=rss",
-   "places": [
-    "Edinburgh City Salvation Army",
-    "Fa’side Community Kitchen",
-    "Granton Skills & Wellbeing Centre",
-    "Kirkliston Parish Church",
-    "Pencaitland Lunch Club",
-    "The Heart"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Grampian",
    "level": "yellow",
    "areas": [
-    "Aberdeen",
     "Aberdeenshire",
     "Moray"
    ],
@@ -52,21 +29,6 @@
   },
   {
    "source": "Met Office",
-   "title": "Yellow warning of wind affecting Northern Ireland",
-   "level": "yellow",
-   "areas": [
-    "County Antrim",
-    "County Londonderry"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-27&id=011bc9b4-d86c-431e-87cd-d1becac7eaad&referrer=rss",
-   "places": [
-    "Simon Community – 242 Antrim Road",
-    "Simon Community – Bonds Hill"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Orkney & Shetland",
    "level": "yellow",
    "areas": [
@@ -79,59 +41,12 @@
   },
   {
    "source": "Met Office",
-   "title": "Yellow warning of wind affecting Central, Tayside & Fife",
-   "level": "yellow",
-   "areas": [
-    "Angus",
-    "Clackmannanshire",
-    "Dundee",
-    "Falkirk",
-    "Fife",
-    "Perth and Kinross",
-    "Stirling"
-   ],
-   "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-27&id=011bc9b4-d86c-431e-87cd-d1becac7eaad&referrer=rss",
-   "places": [
-    "Community Warm Space",
-    "St. Mary's, Broughty Ferry",
-    "Wardlaw Museum",
-    "wee blether with soup and sandwich at Seescape"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Met Office",
    "title": "Yellow warning of wind affecting Strathclyde",
    "level": "yellow",
    "areas": [
-    "Argyll and Bute",
-    "East Ayrshire",
-    "East Dunbartonshire",
-    "East Renfrewshire",
-    "Glasgow",
-    "Inverclyde",
-    "North Ayrshire",
-    "North Lanarkshire",
-    "Renfrewshire",
-    "South Ayrshire",
-    "South Lanarkshire",
-    "West Dunbartonshire"
+    "Argyll and Bute"
    ],
    "link": "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#?date=2026-10-27&id=011bc9b4-d86c-431e-87cd-d1becac7eaad&referrer=rss",
-   "places": [
-    "Glasgow City Mission Overnight Welcome Centre",
-    "Talbot Association"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Poole Harbour at West Quay and Lower Hamworthy Quay",
-   "level": "flood warning",
-   "areas": [
-    "Bournemouth, Christchurch and Poole"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/111FWTPOOH012",
    "places": [],
    "swep": []
   },
@@ -185,119 +100,12 @@
   },
   {
    "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN3A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
    "title": "Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
    "level": "flood warning",
    "areas": [
     "Cumberland"
    ],
    "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN1A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN2B",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN2A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Mersey Estuary at Arpley Bridge, Warrington",
-   "level": "flood warning",
-   "areas": [
-    "Warrington"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/013FWTTCH3",
-   "places": [
-    "Holy Trinity Coffee Bar",
-    "The Little Shop at Latchford",
-    "The Salvation Army James Lee House"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline at Barrow in Furness, between North and South Walney, Cavendish and Ramsden Docks",
-   "level": "flood warning",
-   "areas": [
-    "Westmorland and Furness"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN5B",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline at Barrow in Furness, around Biggar, Rampside and Vickerstown",
-   "level": "flood warning",
-   "areas": [
-    "Westmorland and Furness"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN5A",
-   "places": [],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Lancashire coastline at Sunderland, around Sunderland Point, Bazil Point and Potts Corner",
-   "level": "flood warning",
-   "areas": [
-    "Lancashire"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/012FWCTL05A",
-   "places": [
-    "Bamford Chapel & Norden URC",
-    "Cafe Oasis",
-    "Christ Church Coffee Lounge",
-    "Cornerstone United Reformed Church @ Parrs Wood Road",
-    "Fairhaven Methodist Church",
-    "Gateway",
-    "Greenmount Old School",
-    "Hope URC Denton",
-    "Leyland United Reformed Church",
-    "North Blackburn URC",
-    "Over Wyre URC",
-    "Parish of St John Henry Newman, Morecambe - Warm Welcome",
-    "Warm welcome",
-    "Wellness Hub At St Laurence's Church"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Environment Agency",
-   "title": "Flood warning: Cumbrian coastline from Gretna to Silloth, between Longtown and Skinburness",
-   "level": "flood warning",
-   "areas": [
-    "Cumberland"
-   ],
-   "link": "http://environment.data.gov.uk/flood-monitoring/id/floods/011FWCN1B",
    "places": [],
    "swep": []
   },
@@ -314,11 +122,9 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Carse of Lennoch to Lochlane",
+   "title": "The FLOOD WARNING for Carse of Lennoch to Lochlane is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Carse of Lennoch to Lochlane"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26777/",
    "places": [],
    "swep": []
@@ -369,22 +175,18 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Crieff to Innerpeffray",
+   "title": "The FLOOD WARNING for Crieff to Innerpeffray is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Crieff to Innerpeffray"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26809/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Helensburgh",
+   "title": "The FLOOD WARNING for Helensburgh is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Helensburgh"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26839/",
    "places": [],
    "swep": []
@@ -600,22 +402,18 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Corpach and Caol",
+   "title": "The FLOOD WARNING for Corpach and Caol is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Corpach and Caol"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27185/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Fort William",
+   "title": "The FLOOD WARNING for Fort William is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Fort William"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27187/",
    "places": [],
    "swep": []
@@ -633,143 +431,117 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Upper Solway Firth",
+   "title": "The FLOOD WARNING for Upper Solway Firth is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Upper Solway Firth"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27227/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Nith Tidal",
+   "title": "The FLOOD WARNING for Nith Tidal is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Nith Tidal"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27229/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Southerness Point",
+   "title": "The FLOOD WARNING for Southerness Point is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Southerness Point"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27231/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Rough Firth",
+   "title": "The FLOOD WARNING for Rough Firth is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Rough Firth"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27233/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Kirkcudbright Bay",
+   "title": "The FLOOD WARNING for Kirkcudbright Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Kirkcudbright Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27235/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Fleet Bay",
+   "title": "The FLOOD WARNING for Fleet Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Fleet Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27237/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Inner Wigtown Bay",
+   "title": "The FLOOD WARNING for Inner Wigtown Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Inner Wigtown Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27239/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Outer Wigtown Bay",
+   "title": "The FLOOD WARNING for Outer Wigtown Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Outer Wigtown Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27241/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for East Luce Bay",
+   "title": "The FLOOD WARNING for East Luce Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "East Luce Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27243/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for West Luce Bay North",
+   "title": "The FLOOD WARNING for West Luce Bay North is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "West Luce Bay North"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27245/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for South West Rhins",
+   "title": "The FLOOD WARNING for South West Rhins is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "South West Rhins"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27247/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Loch Ryan",
+   "title": "The FLOOD WARNING for Loch Ryan is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Loch Ryan"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27249/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for West Luce Bay South",
+   "title": "The FLOOD WARNING for West Luce Bay South is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "West Luce Bay South"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27397/",
    "places": [],
    "swep": []
@@ -787,44 +559,36 @@
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Largs",
+   "title": "The FLOOD WARNING for Largs is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Largs"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26915/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Skelmorlie A78",
+   "title": "The FLOOD WARNING for Skelmorlie A78 is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Skelmorlie A78"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26917/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Millport",
+   "title": "The FLOOD WARNING for Millport is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Millport"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26919/",
    "places": [],
    "swep": []
   },
   {
    "source": "SEPA",
-   "title": "A FLOOD WARNING has been issued for Lamlash to Whiting Bay",
+   "title": "The FLOOD WARNING for Lamlash to Whiting Bay is No longer in force",
    "level": "flood warning",
-   "areas": [
-    "Lamlash to Whiting Bay"
-   ],
+   "areas": [],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/26921/",
    "places": [],
    "swep": []
@@ -937,36 +701,6 @@
    ],
    "link": "https://floodline.sepa.org.uk/live-flood-information/info/group-id/27301/",
    "places": [],
-   "swep": []
-  },
-  {
-   "source": "Natural Resources Wales",
-   "title": "Flood Warning: Tidal area at Pendine",
-   "level": "flood warning",
-   "areas": [
-    "Carmarthenshire"
-   ],
-   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
-   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
-   "places": [
-    "Llanelli Queer Collective LGBT+ Coffee morning",
-    "Welcoming Warm Wednesdays, Trallwm Community Hall"
-   ],
-   "swep": []
-  },
-  {
-   "source": "Natural Resources Wales",
-   "title": "Flood Warning: Tidal area at Carmarthen Bay Holiday Park, Kidwelly",
-   "level": "flood warning",
-   "areas": [
-    "Carmarthenshire"
-   ],
-   "link": "https://naturalresources.wales/flooding/check-flood-warnings/",
-   "credit": "Contains Natural Resources Wales information © Natural Resources Wales and database right",
-   "places": [
-    "Llanelli Queer Collective LGBT+ Coffee morning",
-    "Welcoming Warm Wednesdays, Trallwm Community Hall"
-   ],
    "swep": []
   }
  ],

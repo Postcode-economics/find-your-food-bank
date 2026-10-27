@@ -1,8 +1,8 @@
 {
  "run": "2026-10-27",
- "candidates": 61,
- "already_on_map": 5,
- "new": 56,
+ "candidates": 58,
+ "already_on_map": 4,
+ "new": 54,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -12,8 +12,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "1e016d88bef576b97a9ee52490fac1da870197ebd05bedfd8792a97d7bb69d2c",
-   "etag": "\"5809-1793074175;;;\"",
+   "sha256": "cefb0aa9e2c86f0f308cd67fed65e66d798d846b0e744ef9cca7b6548bec307a",
+   "etag": "\"6022-1793108486;;;\"",
    "last_modified": ""
   },
   {
@@ -36,7 +36,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "6bf6c3e868a966b1c835b06676af872025b92586804cc86a24cdbdc6f26f4060",
+   "sha256": "309692e95c442e7740afde0d1eb4d9c66079e27f3d2291882cd3b6e24839cb27",
    "etag": "",
    "last_modified": ""
   },
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "7e92ebf09dd00627b1d6441599ff52bdb6bd56e4ff3c0c0b4d017dcb47113661",
+   "sha256": "2c9513b097aed43064ab17d84ecadca399f37d0991f90f8fc255889be35b467a",
    "etag": "",
    "last_modified": ""
   }
@@ -139,7 +139,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "30b9f99594ebe01d8ad26b60c9f12340e6ce9cccd23261fb04b41628f3752b03",
+   "sha256": "e1fa420919f780ac0daa30c75defc32abd399fd4c9515f66eef5e814ac4563ae",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "975308834aa68b03132f0d805967d5993d860fdfcea6c7362737b54d0420f49a",
+   "sha256": "edd6cc12ab2930336974736226ddf0229f6f05d3f845913bf0cff36ee3b1aeef",
    "etag": "",
    "last_modified": ""
   },
@@ -227,9 +227,9 @@
    "url": "https://999club.org/",
    "final_url": "https://999club.org/",
    "http": 200,
-   "sha256": "6c516eb730b889fdcbbba0c0d5afd018965e2215078f3c38cffc88cf236c21f8",
+   "sha256": "30a96e98e29ff01061c72fa382aaf4d0a5feaab0d3dad32759b96c4e749df724",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 10:42:16 GMT"
+   "last_modified": "Tue, 27 Oct 2026 12:19:15 GMT"
   },
   {
    "id": "osm-node-13661455428",
@@ -355,8 +355,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "5489dc54585e66185e8e6434b951e585e4d4e02944aef45478046f04784cd8f8",
-   "etag": "\"1793031902\"",
-   "last_modified": "Mon, 26 Oct 2026 16:25:02 GMT"
+   "etag": "\"1793099406\"",
+   "last_modified": "Tue, 27 Oct 2026 11:10:06 GMT"
   },
   {
    "id": "osm-way-172932545",
@@ -498,7 +498,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "fef4c366189ff0a357711aab6f40cfeee1716fbfbd2e84e83d5a1eb4ba6ebc2f",
+   "sha256": "4f7b66740b1bffad7d2592dffd31b0c910456885b3cd8b24b3c7f9b1b1c82732",
    "etag": "",
    "last_modified": ""
   },
@@ -676,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "4192210ee1e68022056a36649d06499083698d23df97e8f661338d41a6de2930",
+   "sha256": "d9a20e8b0f825e5dd6fdb6748f86a0f7848c242313cb3c6a5131569baa2e200b",
    "etag": "",
    "last_modified": ""
   },
@@ -831,7 +831,7 @@
    "http": 200,
    "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Tue, 27 Oct 2026 01:36:55 GMT"
+   "last_modified": "Tue, 27 Oct 2026 13:12:21 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -881,8 +881,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "e0f28ea671cf738142acf53f5dc2b73a3ceac83beecdc693cd3935c4b0929d95",
-   "etag": "W/\"21f59-72UcGmjOr2rapxpDoZZMHcpqqeE\"",
+   "sha256": "b5fb2fd3581982b4bae9198ef9a8ce1f4547bd04c861ab34ce2228ee1c8ccb7e",
+   "etag": "W/\"21bbc-KSn5LUICgMSB5Nasc1m5j1FziUY\"",
    "last_modified": ""
   },
   {
@@ -918,40 +918,6 @@
    "sha256": "74efa9563195f1fc99273a150359aed2f46015d4df38b225c41c9dcc27033e05",
    "etag": "\"167-65e8055870200\"",
    "last_modified": "Fri, 23 Oct 2026 11:32:24 GMT"
-  },
-  {
-   "id": "hl-bromford-charles-england-house",
-   "name": "1625 Independent People - Charles England House",
-   "postcode": "BS15 9TR",
-   "website": "https://www.1625ip.co.uk/",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-charles-england-house/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-bromford-hayward-road-hostel",
-   "name": "Bromford - Hayward Road Hostel",
-   "postcode": "BS15 9TR",
-   "website": "http://www.bromford.co.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
   },
   {
    "id": "hl-cardinal-hume-centre-hostel",
