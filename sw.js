@@ -4,7 +4,9 @@
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
 const C='fyfb-v90',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=v1792959725','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=ofm20261026','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=v1792997200'];
-const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
+const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$/;
+// OpenFreeMap backup (27 Oct 2026): versioned tiles, fonts and sprites are cache-first; style and TileJSON are network-first with the cached copy offline.
+const OFM=/^tiles\.openfreemap\.org$/,OFM_FIXED=/^\/(planet\/\d{8}_[^/]+\/|fonts\/|sprites\/ofm_f384\/|natural_earth\/)/;
 const MAPTILER=/(^|\.)maptiler\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 // Self-heal (25 Oct 2026, Instagram in-app browser kept the old layout): on activate, drop old caches, take control and reload open map
@@ -17,6 +19,9 @@ self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.a
 const tell=()=>self.clients.matchAll().then(cs=>cs.forEach(c=>c.postMessage('offline')));
 let trimming=false;const trim=c=>{if(trimming)return;trimming=true;c.keys().then(k=>Promise.all(k.slice(0,Math.max(0,k.length-TMAX)).map(r=>c.delete(r)))).finally(()=>{trimming=false})};
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
+ if(OFM.test(u.host)){e.respondWith(caches.open(T).then(async c=>{const keep=r=>{if(r.ok){c.put(e.request,r.clone()).then(()=>trim(c))}return r};
+   if(OFM_FIXED.test(u.pathname)){const got=await c.match(e.request);if(got)return got;return fetch(e.request).then(keep).catch(()=>{tell();return Response.error()})}
+   return fetch(e.request).then(keep).catch(async()=>{tell();return (await c.match(e.request))||Response.error()})}));return}
  if(TILE.test(u.host)){e.respondWith(caches.open(T).then(async c=>{
    if(MAPTILER.test(u.host)){const stale=await c.match(e.request);if(stale)c.delete(e.request);return fetch(e.request).then(r=>r).catch(()=>{tell();return Response.error()})}
    const hit=await c.match(e.request);if(hit)return hit;
