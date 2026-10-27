@@ -49,11 +49,7 @@ window.loadVectorLib = function () {
   window._hmVectorLib = add('link', { rel: 'stylesheet', href: 'vendor/maplibre-gl.css' }).catch(function () {})
     .then(function () { return window.maplibregl ? null : add('script', { src: 'vendor/maplibre-gl-csp.js' }); })
     .then(function () {
-      /* iOS Safari (WebKit) throws SyntaxError "The string did not match the expected pattern" from
-         new Worker(relativeUrl). MapLibre reports the map ready, then never requests a vector tile, so the
-         OpenFreeMap backup stays a grey canvas. An absolute same-origin URL is accepted, and worker-src 'self'
-         allows it. Root-absolute, so a page that is not at / still finds vendor/. */
-      window.maplibregl.setWorkerUrl(new URL('/vendor/maplibre-gl-csp-worker.js', document.baseURI).href);
+      window.maplibregl.setWorkerUrl('vendor/maplibre-gl-csp-worker.js');
       return L.maplibreGL ? null : add('script', { src: 'vendor/leaflet-maplibre-gl.js' });
     });
   window._hmVectorLib.catch(function () { window._hmVectorLib = null; });
@@ -235,38 +231,21 @@ window.addTiles = function (map) {
       }
       layer = L.maplibreGL({ style: p.url, maxZoom: p.maxZoom || 19, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         attributionControl: { customAttribution: p.attribution },
-        /* WebKit's Request constructor throws the same SyntaxError on a glyph path that still has spaces
-           ("Noto Sans Regular") or a leftover {token}. Encode only those segments; tile URLs are unchanged. */
+        /* OpenFreeMap glyph paths still contain a space ("Noto Sans Regular") or a {token} when MapLibre
+           builds the Request. iOS Safari throws SyntaxError "The string did not match the expected pattern"
+           on that string. Encode only those path segments. Tile paths are already substituted, so they stay. */
         transformRequest: function (url) {
+          if (!/[ {}]/.test(url)) return;
           try {
-            var u = new URL(url, document.baseURI), parts = u.pathname.split('/'), dirty = false, i, seg;
-            for (i = 0; i < parts.length; i++) {
-              seg = parts[i];
-              if (/[ {}]/.test(seg)) { parts[i] = encodeURIComponent(seg); dirty = true; }
-            }
-            if (!dirty) return;
-            u.pathname = parts.join('/');
-            return {url: u.href};
+            /* new URL percent-encodes the space and the braces. Hand that href to Request,
+               not the original string: returning nothing would keep the raw glyph path. */
+            return {url: new URL(url, document.baseURI).href};
           } catch (e) {
-            return {url: String(url).replace(/ /g, '%20')};
+            return {url: String(url).replace(/[ {}]/g, function (ch) { return encodeURIComponent(ch); })};
           }
         } });
       layer.addTo(map);
-      /* 'ready' only once the style has loaded. Setting it before load hid a WebKit failure that never
-         requested tiles: the canvas exists, but the map 'error' is not a promise rejection. */
-      window.TILE_VECTOR = 'loading';
-      var ml = layer.getMaplibreMap && layer.getMaplibreMap();
-      if (ml && ml.on) {
-        ml.on('error', function (ev) {
-          if (my !== gen) return;
-          var err = ev && ev.error, msg = (err && (err.message || String(err))) || '';
-          window.TILE_VECTOR_ERROR = msg;
-          /* The worker/URL failure. A missing glyph or one tile must not drop the backup. */
-          if (msg.indexOf('did not match the expected pattern') >= 0) fail(err || new Error(msg));
-        });
-        var mark = function () { if (my === gen && String(window.TILE_VECTOR).indexOf('failed') !== 0) window.TILE_VECTOR = 'ready'; };
-        if (ml.loaded && ml.loaded()) mark(); else ml.on('load', mark);
-      } else window.TILE_VECTOR = 'ready';
+      window.TILE_VECTOR = 'ready';
     }).catch(fail);
   }
   map._hmTileStop = function () {
