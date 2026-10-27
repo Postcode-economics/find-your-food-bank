@@ -492,9 +492,11 @@ def case_offline(device, sw):
             if cached is not True:
                 keys = pg.evaluate('async () => await caches.keys()')
                 raise AssertionError('first visit did not cache an OpenStreetMap tile: %s' % keys)
+            # The proxy stops answering. That is the network cut: Playwright's
+            # context.set_offline makes WebKit throw "internal error" on reload
+            # before the service worker can serve the cached page.
             proxy.offline = True
             before = len(proxy.offline_hits)
-            ctx.set_offline(True)
             pg.reload(wait_until='domcontentloaded')
             try:
                 painted = wait_paint(pg, proxy, 'blue')
