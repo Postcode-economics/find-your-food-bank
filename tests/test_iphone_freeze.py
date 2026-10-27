@@ -197,7 +197,9 @@ def tap(pg, bad, sel, name):
         bad.append('%s tap failed: %s' % (name, str(e)[:140]))
         return
     if not until(pg, 'window.__tap.n > %d' % before, TAP_MS / 1000.0 + 1):
-        bad.append('%s tap not handled within %d ms' % (name, TAP_MS))
+        diag = pg.evaluate('''b => { const e = document.elementFromPoint(b.x, b.y); const t = document.querySelector(%r); const r = t && t.getBoundingClientRect();
+          return {hit: e && (e.tagName + '#' + e.id + '.' + e.className).slice(0, 120), hitInTarget: !!(e && t && t.contains(e)), now: r && {x: r.x, y: r.y, w: r.width, h: r.height}, was: b, hidden: t && t.hidden, sy: scrollY}; }''' % sel, box)
+        bad.append('%s tap not handled within %d ms DIAG %s' % (name, TAP_MS, diag))
         return
     ms = pg.evaluate('window.__tap.ms')
     print(name, 'tap', round(ms), flush=True)
