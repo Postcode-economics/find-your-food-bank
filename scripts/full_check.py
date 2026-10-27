@@ -12,7 +12,8 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
     stored one is nowhere on it, seen on 2 runs in a row) is auto-applied (reports/phone_fixes.json)
-    and logged; anything else -> daily list
+    and logged, including when that number is a named person's, with the role the page gives
+    (rule 21, Dean 26 Oct 2026). Anything else -> daily list, with the reason recorded
  5. published stock / items-needed lists (new or changed) -> daily list
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
@@ -112,6 +113,11 @@ def norm_phone(p):
     if d.startswith('44'): d = '0' + d[2:]
     if d.startswith('00'): d = d[1:]
     return d if len(d) == 11 and d[0] == '0' else ''
+
+def own_site_misses_stored(stored, site_phones):
+    """True when the own page lists numbers and none of them is the stored one.
+    A page that still shows the stored number, even among others, does not replace it."""
+    return bool(stored and site_phones and not (set(stored) & set(site_phones)))
 def snippet(t, rx, n=220):
     m = rx.search(t)
     if not m: return ''
@@ -136,7 +142,8 @@ def check_site(url):
     hours = sorted({re.sub(r'\s+', ' ', m.group(0)).lower() for m in DAYS.finditer(t)})[:30]
     phones = sorted({p for p in (norm_phone(x) for x in PHONE.findall(t)) if p and not p.startswith(('0800', '0808', '0300', '0345', '0844', '0845', '0870', '0330')) or p.startswith(('01', '02', '07'))} - {''})
     tel = sorted({p for p in (norm_phone(urllib.parse.unquote(x)) for _, h in pages for x in re.findall(r'href=["\']tel:([^"\']+)', h, re.I)) if p})
-    res.update(tel=tel[:4], ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
+    import phone_rule
+    res.update(tel=tel[:4], contact_labels=phone_rule.labels_in_text(t, norm_phone), ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
                hours_hash=hashlib.sha1('\n'.join(hours).encode()).hexdigest()[:12] if hours else '', hours_sample=hours[:4],
                seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t))
     return res
@@ -184,10 +191,15 @@ def apply_phone_fixes(by_site, fixes, flag):
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
                 continue
-            i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
+            if phone_rule.is_dean(f.get('new')):  # rule 21: Dean's own details are never published
+                flag(u + '|' + i.get('id', ''), 'phone held', name=i.get('name', ''), id=i.get('id', ''), website=u, proposed=f.get('new'), source=f.get('source', ''), note=phone_rule.DEAN_REASON)
+                continue
+            i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']
+            if f.get('label'): i['phone_label'] = f['label']
+            n += 1
     return n
 
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules, phone_rule; RULES = auto_rules.load()  # Dean 25 Oct 2026; phone_rule is rule 21
 MAY_CLOSED = RULES['closure_card_note']
 def apply_closure_notes(items, pending):
     """Dean 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
@@ -305,12 +317,17 @@ def main():
         elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
-        if stored and r['phones'] and not (stored & set(r['phones'])):
+        if own_site_misses_stored(stored, r['phones']):
             if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
-                fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
-                today['items'].pop('phone number not on own site|' + u, None)
-                e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
+                lab = (r.get('contact_labels') or {}).get(new, '')
+                d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=False))
+                if d['action'] == 'show':
+                    fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label']); stats['phone_fixes'] += 1
+                    today['items'].pop('phone number not on own site|' + u, None)
+                    e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
+                else:
+                    flag(u, 'phone held', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note=d['reason'])
             elif u not in fixes:
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed

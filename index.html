@@ -147,21 +147,27 @@ function ukfmt(v){const s=String(v==null?'':v).trim(),m=s.match(/^(?:\+44\s?\(0\
  if(d.length===10){if(/^0[58]00/.test(d))return d.slice(0,4)+' '+d.slice(4);if(/^01/.test(d))return d.slice(0,5)+' '+d.slice(5)}
  return s}
 const ph1=i=>esc(String(i.phone||'').split(' or ')[0]),phAlt=i=>String(i.phone||'').includes(' or ')?`<small class="psrc palt">Or: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</small>`:'';
+/* Optional phone label (overrides/phone_labels.json, or phone_label on a shelter/warm-space contact).
+   Shown in full under the number on the list card and the pin pop-up. As written when it ends in number/line
+   ('Library service line', 'Central service line'); otherwise 'Number for …'. Welsh via the text walker. */
+function phLabText(lab){lab=String(lab==null?'':lab).trim();if(!lab)return'';if(/(number|line)$/i.test(lab))return lab;return 'Number for '+lab}
+const phLab=i=>{const t=phLabText(i&&i.phone_label);return t?`<p class="plab">${esc(t)}</p>`:''};
+window.phLab=phLab;window.phLabText=phLabText;
 const todayLine=i=>{const s=parsed(i),td=DK[pageNow().getDay()],t=i.opening_times;if(s){const r=s[td]||[];return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.length?r.map(x=>x.join('–')).join(', '):'Closed'}</div>`}
  return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?(i.source_label?`<div class="ptd">${IC('clock')}${esc(t.raw)}</div>`:`<div class="ptd">${IC('clock')}Check times on their website</div>`):`<div class="ptd">${IC('clock')}<a href="faq.html#times">Call for opening times</a></div>`};
 function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  <div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}<small>Phone (to donate or ask)</small></a>${phAlt(i)}`:''}${window.repB?repB('fb',i):''}`;
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}<small>Phone (to donate or ask)</small></a>${phAlt(i)}${phLab(i)}`:''}${window.repB?repB('fb',i):''}`;
  return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}<small class="psrc">${i.phone_label?(/(number|line)$/i.test(i.phone_label)?'':'Number for ')+esc(i.phone_label):i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}${!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><img class="fboff" src="fb_secondary.png" alt="" width="20" height="20"><span>Send a message</span></a>`:''}
+ ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}${i.phone_label?phLab(i):`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`}`:''}${!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><img class="fboff" src="fb_secondary.png" alt="" width="20" height="20"><span>Send a message</span></a>`:''}
  ${site(i)?`<div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">${i.source_label?'Source':'Their website'}</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>`:''}
  ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${esc(i.opening_times.raw)}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
+function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>${phLab(i)}`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 /* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
    0 px high (in-app browser toolbars/header still laying out) zooms Leaflet out to the world. So: never zoom out past the UK, never fit
@@ -202,7 +208,7 @@ function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)mark
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
  const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;$('sheetBody').scrollTop=0;
    const h=$('sheet').offsetHeight,y=map.latLngToContainerPoint(m.getLatLng()).y;map.panTo(m.getLatLng(),{animate:!fromList});
-  }else{m.unbindPopup();m.bindPopup(pop(i),{maxWidth:280,autoPanPaddingTopLeft:[20,20],autoPanPaddingBottomRight:[20,20]}).openPopup()}};
+  }else{map.closePopup();m.unbindPopup();m.bindPopup(pop(i),{maxWidth:280,autoPanPaddingTopLeft:[20,20],autoPanPaddingBottomRight:[20,20]}).openPopup()}};
  if(fromList)cl.zoomToShowLayer(m,show);else show()}
 function closeSheet(){$('sheet').classList.remove('open');$('sheet').setAttribute('aria-hidden','true')}
 document.querySelector('#sheet .x').onclick=closeSheet;

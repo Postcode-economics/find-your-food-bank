@@ -1,5 +1,5 @@
 {
- "_about": "Whose number a card's phone is, when it is not the food bank's own (church, parent charity). build.py -> 'phone_label'; index.html shows it under the number, as written if it ends in 'number' or 'line' (e.g. 'St X church number', 'Referral line'), otherwise as 'Number for <label>'. Dean 24 Oct.",
+ "_about": "Whose number a card's phone is, when it is not the food bank's own (church, parent charity). build.py copies a non-empty string onto 'phone_label' (blank ignored). The list card and the pin pop-up show it under the number, as written if it ends in 'number' or 'line' (e.g. 'St X church number', 'Referral line', 'Library service line', 'Central service line', 'Shared venue line'), otherwise as 'Number for <label>'. Shelters and warm spaces use the same wording from an optional phone_label on their contact override. Dean 24 Oct.",
  "littlehampton-community-fridge": "Fare Divide number",
  "west-ardsley": "West Ardsley Friday pantry",
  "amble": "Referral line",
@@ -18,5 +18,13 @@
  "first-base-dumfriesshire/gretna-library": "First Base number",
  "first-base-dumfriesshire/lockerbie-library": "First Base number",
  "first-base-dumfriesshire/moffat-library": "First Base number",
- "first-base-dumfriesshire/langholm-library": "First Base number"
+ "first-base-dumfriesshire/langholm-library": "First Base number",
+ "whitland-town-hall-community": "Shared venue line",
+ "storehouse-melton": "Shared venue line",
+ "sacred-heart": "Shared venue line",
+ "allenby-primary-school": "Shared venue line",
+ "life-line": "Birmingham council directory",
+ "granville-community-kitchen": "Brent council directory",
+ "kings-langley": "Team Rector",
+ "leytonstone-seventh-day-adventist-church": "Pastor"
 }
