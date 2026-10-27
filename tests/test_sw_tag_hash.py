@@ -77,7 +77,7 @@ class StaleWorker(unittest.TestCase):
             pg.reload(wait_until='load')
             self.assertTrue(until(pg, "() => sessionStorage.getItem('hmHealOld')==='1'", 20), 'self-heal did not run')
             self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30),
-                            pg.evaluate('async () => await caches.keys()'))
+                            str(pg.evaluate('(async () => { const k = await caches.keys(); const c = navigator.serviceWorker && navigator.serviceWorker.controller; const rs = navigator.serviceWorker ? await navigator.serviceWorker.getRegistrations() : []; return {keys: k, ctrl: c && c.scriptURL, regs: rs.map(r => ({a: r.active && r.active.scriptURL, w: r.waiting && r.waiting.scriptURL, i: r.installing && r.installing.scriptURL})), heal: sessionStorage.getItem("hmHealOld"), q: location.search}; })()')) + ' loads=' + str(len(loads) - n))
             self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
             pg.wait_for_timeout(2000)
             self.assertLessEqual(len(loads) - n, 3, 'reload loop')
