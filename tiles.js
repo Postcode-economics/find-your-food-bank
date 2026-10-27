@@ -20,7 +20,11 @@ window.TILE_PROVIDERS = [
    response body is a valid PNG, so a tileerror counter never sees it: cached 200s and uncached
    403s both look like successes. The status is read from the tile fetch, not from the image event.
    A probe that throws with no status (iOS: "Response served by service worker is opaque") is not a
-   failure; the plain <img> is shown and only its own error counts. The check keeps running after the first load. */
+   failure; the plain <img> is shown and only its own error counts. The check keeps running after the first load.
+   img.decode() rejecting is not a failure when the bitmap loaded (complete and naturalWidth > 0).
+   iOS Safari and Instagram's WKWebView (no decode(), or EncodingError when the tile is offscreen,
+   not yet attached, under memory pressure, or when src changes) do this for a good tile.
+   Code 'decode' is only a broken image. The 4-in-20 and 3-refusal rules are unchanged. */
 window.TILE_WINDOW = 20;
 window.TILE_WINDOW_FAILS = 4;
 /* A 401, 403 or 429 (a refusal) switches only at TILE_WINDOW_REFUSALS in the window (Dean, 27 Oct 2026, from PR 169):
@@ -125,27 +129,60 @@ window.addTiles = function (map) {
         /* No crossOrigin (27 Oct 2026, iPhone outage). crossorigin="anonymous" makes the <img> a CORS
            request, and WebKit then refuses the opaque tile the service worker stored for a normal image. */
         img.referrerPolicy = 'strict-origin-when-cross-origin';
-        var url = this.getTileUrl(coords), tileGen = my, shown = false, counted = false;
+        var url = this.getTileUrl(coords), tileGen = my, shown = false, counted = false, tileSettled = false;
+        /* A loaded bitmap is a success even when decode() rejects. Only naturalWidth 0 counts as 'decode'. */
+        function bitmapOk() { return img.complete && img.naturalWidth > 0; }
+        function blanked() {
+          var src = img.getAttribute('src') || '';
+          return src.indexOf('data:image/gif;base64,R0lGODlhAQABAAD') === 0;
+        }
+        function countImageOk() {
+          if (tileSettled || tileGen !== gen) return;
+          tileSettled = true;
+          if (!counted) {
+            counted = true;
+            window.TILE_STATS.load++;
+            note(true);  /* a success never switches the map */
+          }
+          done(null, img);
+        }
+        function countImageBad() {
+          if (tileSettled || tileGen !== gen) return;
+          if (bitmapOk()) { countImageOk(); return; }
+          tileSettled = true;
+          window.TILE_STATS.error++;
+          codes.push('decode');
+          done(new Error('decode'), img);
+          if (offline()) return;
+          var failed = note(false);
+          if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+        }
+        function settleImage() {
+          if (tileSettled || tileGen !== gen || blanked()) return;
+          function finish() {
+            if (tileSettled || tileGen !== gen) return;
+            if (bitmapOk()) countImageOk(); else countImageBad();
+          }
+          /* Missing decode() (some WKWebViews): the load event is enough. A rejection is the same check. */
+          if (typeof img.decode !== 'function') { finish(); return; }
+          try {
+            var pending = img.decode();
+            if (pending && typeof pending.then === 'function') pending.then(finish, finish);
+            else finish();
+          } catch (e) { finish(); }
+        }
         function reveal() {
           if (shown || tileGen !== gen) return;
           shown = true;
           img.onload = function () {
-            if (tileGen !== gen) return;
-            if (!counted) {
-              counted = true;
-              window.TILE_STATS.load++;
-              note(true);  /* a success never switches the map */
-            }
-            done(null, img);
+            if (tileGen !== gen || blanked()) return;
+            settleImage();
           };
           img.onerror = function () {
-            if (tileGen !== gen) return;
-            window.TILE_STATS.error++;
-            codes.push('decode');
-            done(new Error('decode'), img);
-            if (offline()) return;
-            var failed = note(false);
-            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+            if (tileGen !== gen || blanked() || img.isConnected === false) return;
+            /* Spurious error / decode rejection on a tile that did load. A broken file has naturalWidth 0. */
+            if (bitmapOk()) countImageOk();
+            else countImageBad();
           };
           img.src = url;
         }
