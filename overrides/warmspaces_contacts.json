@@ -43,7 +43,14 @@
   "phone": "01422 251613",
   "phone_fix": "01422 251613",
   "phone_source": "https://www.archwayproject.org.uk/contact.html",
-  "confidence": "high: own site + charity register + Calderdale agree (web search 2026-10-23)"
+  "confidence": "high: own site + charity register + Calderdale agree (web search 2026-10-23)",
+  "council": "Calderdale Metropolitan Borough Council",
+  "council_phone": "01422 288000",
+  "council_ooh": "01422 288000",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://new.calderdale.gov.uk/housing/homelessness",
+  "council_note": "Emergency Duty Team (out-of-hours social care), first point of contact for emergency accommodation outside office hours. Confirmed by Dean Goff, 27 Oct 2026. Rule 37."
  },
  "vai-archway-library": {
   "phone": "02075277820",
@@ -872,8 +879,12 @@
   "phone": "01239 621200",
   "phone_source": "https://mwldan.co.uk/",
   "council": "Ceredigion County Council",
-  "council_phone": "01545 570881",
-  "council_url": "https://www.ceredigion.gov.uk/contact"
+  "council_phone": "0300 456 3554",
+  "council_url": "https://www.ceredigion.gov.uk/resident/housing/homelessness/",
+  "council_ooh": "0300 456 3554",
+  "council_label": "Social services out-of-hours team (emergency housing)",
+  "council_label_cy": "Tîm gwasanaethau cymdeithasol y tu allan i oriau (tai brys)",
+  "council_note": "Social services out-of-hours team that covers emergency housing. Number confirmed by Dean Goff, 27 Oct 2026. Rule 37."
  },
  "vai-n4-library": {
   "phone": "02075277800",
@@ -1116,8 +1127,12 @@
   "phone": "01704 547805",
   "phone_source": "https://www.salvationarmy.org.uk/southport",
   "council": "Sefton Metropolitan Borough Council",
-  "council_phone": "0345 140 0845",
-  "council_url": "https://www.sefton.gov.uk/miscellaneous-pages/contact-the-council"
+  "council_phone": "07779 960994",
+  "council_url": "https://www.sefton.gov.uk/housing/homelessness/rough-sleeper-seen",
+  "council_ooh": "07779 960994",
+  "council_label": "Out-of-hours line for people sleeping rough",
+  "council_label_cy": "Llinell y tu allan i oriau i bobl sy'n cysgu ar y stryd",
+  "council_note": "Out-of-hours line for people sleeping rough. Replaces the daytime council number 0345 140 0845."
  },
  "ww-57952842": {
   "phone": "01946 822380",
@@ -1287,8 +1302,12 @@
   "phone": "01970 626703",
   "phone_source": "https://www.ceredigionmethodists.org.uk/st-paul",
   "council": "Ceredigion County Council",
-  "council_phone": "01545 570881",
-  "council_url": "https://www.ceredigion.gov.uk/contact"
+  "council_phone": "0300 456 3554",
+  "council_url": "https://www.ceredigion.gov.uk/resident/housing/homelessness/",
+  "council_ooh": "0300 456 3554",
+  "council_label": "Social services out-of-hours team (emergency housing)",
+  "council_label_cy": "Tîm gwasanaethau cymdeithasol y tu allan i oriau (tai brys)",
+  "council_note": "Social services out-of-hours team that covers emergency housing. Number confirmed by Dean Goff, 27 Oct 2026. Rule 37."
  },
  "ww-58107219": {
   "phone": "01823 336102",
@@ -1425,8 +1444,12 @@
   "phone": "01422 250872",
   "phone_source": "https://kingschurchhx.org.uk/",
   "council": "Calderdale Metropolitan Borough Council",
-  "council_phone": "01422 288002",
-  "council_url": "https://www.calderdale.gov.uk/contact-us"
+  "council_phone": "01422 288000",
+  "council_url": "https://new.calderdale.gov.uk/housing/homelessness",
+  "council_ooh": "01422 288000",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_note": "Emergency Duty Team (out-of-hours social care), first point of contact for emergency accommodation outside office hours. Confirmed by Dean Goff, 27 Oct 2026. Rule 37."
  },
  "ww-65441818": {
   "phone": "07516187212",
@@ -1437,8 +1460,12 @@
   "phone": "023 9229 3793",
   "phone_source": "https://www.salvationarmy.org.uk/portsmouth-citadel",
   "council": "Portsmouth City Council",
-  "council_phone": "023 9282 2251",
-  "council_url": "https://www.portsmouth.gov.uk/contact"
+  "council_phone": "023 9282 4244",
+  "council_url": "https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/contact-the-team",
+  "council_ooh": "023 9282 4244",
+  "council_label": "Council homelessness emergency line",
+  "council_label_cy": "Llinell argyfwng digartrefedd y cyngor",
+  "council_note": "023 9282 2251 is the general switchboard. portsmouth.gov.uk contact-the-team: If you need urgent help outside these hours, call our emergency line on 023 9282 4244."
  },
  "ww-68620249": {
   "phone": "01988 610311",
@@ -1459,9 +1486,13 @@
  "ww-68895885": {
   "phone": "028 3833 7684",
   "phone_source": "https://www.salvationarmy.org.uk/portadown",
-  "council": "Armagh City, Banbridge and Craigavon Borough Council",
-  "council_phone": "0300 030 0900",
-  "council_url": "https://www.armaghbanbridgecraigavon.gov.uk"
+  "council": "Housing Executive (NIHE)",
+  "council_phone": "03448 920 908",
+  "council_url": "https://www.armaghbanbridgecraigavon.gov.uk/contact-us/",
+  "council_ooh": "03448 920 908",
+  "council_label": "Housing Executive (NIHE) out of hours",
+  "council_label_cy": "Llinell y tu allan i oriau Tai Gweithredol (NIHE)",
+  "council_note": "Out-of-hours line is the Housing Executive (NIHE), not the council. Number confirmed by Dean Goff, 27 Oct 2026."
  },
  "ww-57951953": {
   "phone": "020 8521 3211",
@@ -1522,7 +1553,14 @@
   "phone": "01484 556924",
   "phone_fix": "01484 556924",
   "phone_source": "https://www.thespaceatfieldlane.org.uk/contact",
-  "confidence": "high: own site + Calderdale directory (web search 2026-10-23)"
+  "confidence": "high: own site + Calderdale directory (web search 2026-10-23)",
+  "council": "Calderdale Metropolitan Borough Council",
+  "council_phone": "01422 288000",
+  "council_ooh": "01422 288000",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://new.calderdale.gov.uk/housing/homelessness",
+  "council_note": "Emergency Duty Team (out-of-hours social care), first point of contact for emergency accommodation outside office hours. Confirmed by Dean Goff, 27 Oct 2026. Rule 37."
  },
  "ww-67526400": {
   "phone": "01258 920040",
