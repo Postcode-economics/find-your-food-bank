@@ -134,7 +134,10 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - uses: ./.github/actions/offline-tiles
-      - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
+      # Do not gate this step on whether /usr/bin/google-chrome exists. The offline
+      # cached-tile check (tests/test_osm_default.py) uses Playwright's Chromium.
+      # Starting pytest only when that binary was present hid a real failure.
+      - run: python -m pytest -q tests -rs
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
@@ -162,3 +165,20 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
       - run: python -m pytest -q -rsx tests/test_iphone_responsive.py
+  iphone-journeys:
+    needs: changes
+    if: needs.changes.outputs.browser == '1'
+    # WebKit iPhone 13 and iPhone SE journeys (first paint, Locate, Find nearest,
+    # 429-then-Locate, forced backup with the service worker on and off, offline
+    # cache, v90 upgrade, no main-thread task over 1s). Its own job so it does not
+    # rewrite the iphone-webkit file list. Stand-in tiles are a local proxy:
+    # Playwright route() on WebKit never reaches the service-worker cache.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}  # the v90 journey reads sw.js from that commit
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
+      - run: python -m pytest -q -rs tests/test_iphone_journeys.py
