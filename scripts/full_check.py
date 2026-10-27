@@ -45,6 +45,9 @@ def _note(h, ok):
     if _errs[h] >= ERR_LIMIT: _paused[h] = time.time() + PAUSE; _errs[h] = 0
 
 def fetch(url):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        return {'ok': None, 'http': 429, 'error': 'paused this run after HTTP 429 - still due on a later scheduled run'}
     h = urllib.parse.urlparse(url).netloc.lower()
     sem = TRUSSELL if h.endswith('foodbank.org.uk') else None
     if sem: sem.acquire()
@@ -57,9 +60,9 @@ def fetch(url):
                 req = urllib.request.Request(url, headers=UA)
                 with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
                     body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
-                    _note(h, True); return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
-            except urllib.error.HTTPError as e: _note(h, False); return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
-            except Exception as e: _note(h, False); return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
+                    _note(h, True); rate_ledger.LEDGER.record(url, r.status); return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
+            except urllib.error.HTTPError as e: _note(h, False); rate_ledger.LEDGER.record(url, e.code); return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
+            except Exception as e: _note(h, False); rate_ledger.LEDGER.record(url, None); return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
             finally: _last[h] = time.time()
     finally:
         if sem: sem.release()
@@ -122,7 +125,27 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
+_robots_cache = {}
+def _robots_text(url):
+    parts = urllib.parse.urlsplit(url)
+    if not parts.scheme or not parts.netloc: return "", "/"
+    base = "%s://%s" % (parts.scheme, parts.netloc)
+    if base not in _robots_cache:
+        try:
+            rb = fetch(base + "/robots.txt")
+            _robots_cache[base] = (rb.get("html") or "") if rb.get("http") == 200 else ""
+        except Exception:
+            _robots_cache[base] = ""
+    return _robots_cache[base], parts.path or "/"
+
 def check_site(url):
+    """Fetch the place's own pages. A robots.txt Disallow skips the fetch.
+    Hours are not guessed, and the place is not removed."""
+    text, path = _robots_text(url)
+    import robots_check
+    if robots_check.blocked(text, path):
+        return {'url': url, 'checked_at': NOW.isoformat(), 'ok': False, 'robots': True, 'http': None,
+                'error': 'not fetched, robots', 'hours_hash': '', 'phones': [], 'hours_sample': [], 'method': None, 'methods_tried': []}
     home = fetch(url)
     if not home['ok'] and url.startswith('http://'): home = fetch('https://' + url[7:])  # many sites redirect anyway
     res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http')}
@@ -173,8 +196,9 @@ def phone_locked(i):
     """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
 
-def apply_phone_fixes(by_site, fixes, flag):
-    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list."""
+def apply_phone_fixes(by_site, fixes, flag, applied=None):
+    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
+    `applied` collects (website, fix) only for numbers that were actually written."""
     n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
@@ -185,6 +209,7 @@ def apply_phone_fixes(by_site, fixes, flag):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
                 continue
             i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
+            if applied is not None: applied.append((u, f))
     return n
 
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
@@ -232,10 +257,12 @@ def main():
     LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
     import learning_signals  # corrections, change signals, source trust, season, demand, visitor reports (last run's file)
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
+    conflicted = {c.get('website') for c in (learning_signals.rj('reports/learning_signals.json', {}).get('conflicts') or []) if isinstance(c, dict) and c.get('website')}
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
+    prov = []  # why an automatic edit was allowed; written only when one is actually applied
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
@@ -257,6 +284,10 @@ def main():
     for u in sites:
         r, prev = results[u], state['sites'].get(u, {}); names = sorted({i['foodbank'] for i in by_site[u]}); name = names[0]
         if r.get('ok') is None: stats['skipped'] += 1; continue
+        if r.get('robots'):
+            stats['robots'] = stats.get('robots', 0) + 1; r['fail_runs'] = prev.get('fail_runs', 0)
+            flag(u, 'not fetched, robots', name=name, website=u, note='the site asks us not to read this page. Opening hours were not guessed. The place stays on the map.')
+            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'robots', 'fail_runs')}; continue
         if not r['ok']:
             stats['failed'] += 1; r['fail_runs'] = prev.get('fail_runs', 0) + 1
             for k in ('access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed'): r[k] = prev.get(k)
@@ -264,6 +295,9 @@ def main():
             if r['fail_runs'] >= 2: flag(u, 'dead or unreachable website', name=name, website=u, error=r['error'], failed_runs=r['fail_runs'], phone=by_site[u][0].get('phone'), note='site failed %d runs in a row - check contact details' % r['fail_runs'])
             state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
         stats['ok'] += 1; r['fail_runs'] = 0; stats[r['access']] += 1
+        got = (1 if r.get('hours_hash') else 0) + len(r.get('phones') or [])
+        had = ((1 if prev.get('hours_hash') else 0) + len(prev.get('phones') or [])) if prev.get('checked_at') else None
+        r['empty_parse'] = bool(learning.empty_parse(r.get('http'), got, had))
         # (1) access - per pin, against access.js (hand-read CSVs + earlier auto flips). A flip needs the
         # same clear own-site result on 2 runs in a row; unclear never changes anything (= walk-ins welcome).
         curs = {i['id']: acc.get(i['id'], 'unconfirmed') for i in by_site[u] if i['id'] in acc}
@@ -273,12 +307,16 @@ def main():
             if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
-            if todo and prev.get('access') == r['access']:
+            if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
+            elif todo and prev.get('access') == r['access']:
                 for x in todo:
                     entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
                     changes.insert(0, entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
                 today['items'].pop('access flip pending (confirms next run)|' + u, None)
                 log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
+                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted), r.get('final_url'), RULES)
+                if note: prov.append(dict(note, when=NOW.isoformat()))
             elif todo:
                 flag(u, 'access flip pending (confirms next run)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='clear %s wording found; applied automatically if seen again next run' % r['access'])
         elif r['access'] == 'mixed':
@@ -306,7 +344,9 @@ def main():
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if stored and r['phones'] and not (stored & set(r['phones'])):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
+            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
+            elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
                 today['items'].pop('phone number not on own site|' + u, None)
@@ -315,20 +355,40 @@ def main():
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse')}
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
-        r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
-    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
+        r = results[u]
+        # a robots block is a completed permission check, not a failed fetch and not a dead link
+        checked = True if r.get('robots') else r.get('ok')
+        learning.record(LS, u, DAY, checked, finds=int(u in found), method=('robots' if r.get('robots') else 'own_site'), changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
+        learning.snapshot(LS, DAY); learning.save(LS)
+        try:
+            import replay
+            replay.write(replay.cases_from_state(state), os.path.join(REP, 'replay_cases.json'))
+        except Exception: pass
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    apply_phone_fixes(by_site, fixes, flag)
+    applied_phones = []
+    apply_phone_fixes(by_site, fixes, flag, applied_phones)
+    for u, f in applied_phones:
+        note = learning.provenance('clear single new phone on own site', learning.confidence_for(u, conflicted), f.get('source'), RULES)
+        if note: prov.append(dict(note, when=NOW.isoformat()))
+    if prov:
+        prev_p = rj('provenance.json', [])
+        if not isinstance(prev_p, list): prev_p = []
+        wj('provenance.json', (prev_p + prov)[-200:])
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts and not os.environ.get('SAMPLE'): rate_ledger.save(day=DAY)
+    except Exception: pass
     print('full check:', json.dumps(stats))
     apply_closure_notes(items, closure_pending); wj('closures_pending.json', closure_pending); write_pending_closures(closure_pending)
     if remove:
