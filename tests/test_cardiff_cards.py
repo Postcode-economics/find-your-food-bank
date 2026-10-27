@@ -1,11 +1,11 @@
 """Cardiff Foodbank (27 Oct 2026): every centre showed Mon-Fri 09:30-13:30, the 'Our phone lines are monitored' line printed
 on every Trussell centre card. Times must come from each centre's own card, matched by postcode or name. Saved page:
-tests/fixtures/cardiff_voucher_2026-10-27.html (scripts/styles stripped)."""
+tests/fixtures/cardiff_voucher_2026-10-27.html.txt (scripts/styles stripped)."""
 import os, sys, json, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discover as D, trussell_times as T
-PAGE = D.text_of(open(os.path.join(ROOT, "tests", "fixtures", "cardiff_voucher_2026-10-27.html")).read())
+PAGE = D.text_of(open(os.path.join(ROOT, "tests", "fixtures", "cardiff_voucher_2026-10-27.html.txt")).read())
 URL = "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
 WANT = {"cathays": {"tue": [["13:00", "15:00"]], "sat": [["11:00", "13:00"]]}, "central": {"thu": [["10:00", "12:00"]]},
         "ely": {"mon": [["13:00", "15:00"]], "thu": [["13:00", "15:00"]]}, "grangetown": {"fri": [["12:00", "14:00"]]},
