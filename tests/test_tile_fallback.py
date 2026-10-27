@@ -121,7 +121,7 @@ class Config(unittest.TestCase):
         self.assertIn('stub_map_tiles(c)', live)
         ready = open(os.path.join(R, 'tests', 'site_ready.py'), encoding='utf-8').read()
         self.assertIn('stub_map_tiles(page)', ready)
-        for rel in ('scripts/old_links.py', 'scripts/newlook_parity.py', 'tests/test_updated_dates.py', 'tests/test_webkit_instagram.py', 'tests/newlook_render.py'):
+        for rel in ('scripts/old_links.py', 'scripts/newlook_parity.py', 'tests/test_updated_dates.py', 'tests/test_webkit_instagram.py', 'tests/newlook_render.py', 'tests/test_saved_type_q.py'):
             self.assertIn('stub_map_tiles', open(os.path.join(R, rel), encoding='utf-8').read(), rel)
         old = open(os.path.join(R, 'scripts', 'old_links.py'), encoding='utf-8').read()
         route_at = old.find("c.route('**/*', serve_old)")
