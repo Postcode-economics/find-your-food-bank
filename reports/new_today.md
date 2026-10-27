@@ -5,3 +5,6 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
+## Warm spaces: 1 added
+- The Midlands Greek & Cypriot Association · B23 7SJ
+
