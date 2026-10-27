@@ -8587,11 +8587,12 @@
   }
  },
  "glastonbury-street": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 10am to 4pm | Thursdays 10am to 1pm | Wednesdays 10am to 1pm",
-  "source_url": "https://glastonburyandstreetfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Citizens Advice Somerset hours, not food bank sessions: by phone Monday to Friday 10am to 4pm; in person Glastonbury Library Thursdays 10am to 1pm, Crispin Community Centre Wednesdays 10am to 1pm",
+  "source_url": "https://glastonburyandstreetfoodbank.org.uk/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "glenfield": {
   "checked_date": "2026-10-20",
@@ -8692,11 +8693,12 @@
   }
  },
  "godmanchester-huntingdon": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 9.30am to 3.30pm | Monday to Friday, 9am-5pm",
-  "source_url": "https://godmanchesterhuntingdon.foodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Helpline hours, not food bank sessions: Rural Citizens Advice Huntingdonshire 0808 2787 807 (lines open Monday to Friday 9.30am to 3.30pm); Help through Hardship 0808 2082138 (open Monday to Friday, 9am-5pm)",
+  "source_url": "https://godmanchesterhuntingdon.foodbank.org.uk/contact-us/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "godmanchester-huntingdon/godmanchester-baptist-church": {
   "checked_date": "2026-10-20",
@@ -12338,11 +12340,25 @@
   "structured": null
  },
  "long-eaton-sawley": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 09:00 - 11:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon Closed Tue 10:00 - 12:00 | Wed Closed Thu Closed Fri 10:00 - 12:00",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Long Eaton Baptist Church food bank: Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed",
   "source_url": "https://longeatonsawley.foodbank.org.uk/locations/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "long-eaton-sawley/castle-donington": {
   "checked_date": "2026-10-20",
@@ -13459,11 +13475,31 @@
   "structured": null
  },
  "muswell-hill": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday from 9am to 5pm | Monday 11.30-1.30pm | Wednesday 11.30-1.30pm | Friday 11.30-1.30pm | Mondays 11:30-1:30 | Wednesdays 11:30-1:30pm | Fridays 11:30-1:30pm | Wednesdays 10 -11am",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "11:30",
+     "13:30"
+    ]
+   ],
+   "wed": [
+    [
+     "11:30",
+     "13:30"
+    ]
+   ],
+   "fri": [
+    [
+     "11:30",
+     "13:30"
+    ]
+   ]
+  },
+  "raw": "The Food Bank is open for collections on: Mondays 11:30-1:30 Wednesdays 11:30-1:30pm Fridays 11:30-1:30pm",
   "source_url": "https://muswellhill.foodbank.org.uk/get-help/how-to-get-help/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "nantwich": {
   "checked_date": "2026-10-20",
@@ -15050,12 +15086,11 @@
   "structured": null
  },
  "norwich": {
+  "checked_date": "2026-10-20",
+  "raw": "Mon, Thurs and Fri 9-1pm | Mon 14:00 - 15:30 | Mon Closed Tue 18:00 - 19:30 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Thu Closed Fri Closed Sat 10:00 - 11:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu 13:30 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:00",
+  "source_url": "https://norwich.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Warehouse for food donations only (open Mon, Thurs and Fri 9-1pm), not a collection point. See centres for their times",
-  "source_url": "https://norwich.foodbank.org.uk/contact-us/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+  "structured": null
  },
  "norwich/alive-church": {
   "checked_date": "2026-10-20",
@@ -15225,12 +15260,11 @@
   "structured": null
  },
  "nuneaton": {
+  "checked_date": "2026-10-20",
+  "raw": "Mon 10:30 - 12:00 | Tue Closed Wed Closed Thu 10:30 - 12:00 | Mon 13:30 - 15:00 | Tue Closed Wed Closed Thu 13:30 - 15:00 | Mon Closed Tue 10:30 - 12:00 | Wed Closed Thu Closed Fri 10:30 - 12:00 | Mon Closed Tue Closed Wed 13:30 - 15:00 | Thu Closed Fri 13:30 - 15:00",
+  "source_url": "https://nuneaton.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Postal address only (c/o 4 Chelsea Close), not a collection point. See centres for their times",
-  "source_url": "https://nuneaton.foodbank.org.uk/contact-us/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+  "structured": null
  },
  "nuneaton/holy-trinity-church-attleborough": {
   "checked_date": "2026-10-20",
@@ -15320,11 +15354,12 @@
   "structured": null
  },
  "open-hands-reigate": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday & Thursday 9 am to 12 pm | Tuesday & Thursday 1 pm to 4 pm",
-  "source_url": "https://www.openhandsreigate.com/contact-us/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Phone line hours, not collection times: Tuesday & Thursday 9 am to 12 pm - 07849-634309; Tuesday & Thursday 1 pm to 4 pm - 07849-633736. Closed every Wednesday",
+  "source_url": "https://www.openhandsreigate.com/contact-us/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "orkney": {
   "checked_date": "2026-10-20",
@@ -15408,11 +15443,12 @@
   "structured": null
  },
  "pbp": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday* 10AM - 4PM | Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 10AM - 4PM | Friday 12PM - 4PM | Monday 10AM - 4PM",
-  "source_url": "https://cetma.org.uk/contact-page/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "CETMA office opening hours, not food collection: Kidwelly Office Monday-Friday 10AM - 4PM",
+  "source_url": "https://cetma.org.uk/contact-page/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "pbp/cetma-llanelli": {
   "checked_date": "2026-10-20",
@@ -15649,12 +15685,11 @@
   }
  },
  "peterborough": {
+  "checked_date": "2026-10-20",
+  "raw": "Mon -Friday 10am-1pm | Mon 11:00 - 13:00 | Tue 11:00 - 13:00 | Mon Closed Tue Closed Wed 11:00 - 13:00 | Thu 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu 19:00 - 21:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 11:00 - 12:30",
+  "source_url": "https://peterborough.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Warehouse for donations and postal address only (open Mon-Friday 10am-1pm), not a collection point. See centres for their times",
-  "source_url": "https://peterborough.foodbank.org.uk/contact-us/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+  "structured": null
  },
  "peterborough/bretton": {
   "checked_date": "2026-10-20",
@@ -16814,11 +16849,12 @@
   }
  },
  "ripon-community-house": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday between 12.30 - 3.30pm",
-  "source_url": "https://www.riponcommunityhouse.co.uk/food-support-ripon-surrounding-areas/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Referral hours, not collection times: Referrals are accepted Monday to Friday between 12.30 - 3.30pm. Parcels can be collected Monday to Friday",
+  "source_url": "https://www.riponcommunityhouse.co.uk/food-support-ripon-surrounding-areas/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "risca": {
   "checked_date": "2026-10-20",
@@ -18525,12 +18561,11 @@
   "structured": null
  },
  "slough": {
+  "checked_date": "2026-10-20",
+  "raw": "Mon 12:00 - 14:00 | Tue Closed Wed Closed Thu 11:00 - 14:00 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue Closed Wed 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:00",
+  "source_url": "https://slough.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Office only - food cannot be collected from this address. See centres for their times",
-  "source_url": "https://slough.foodbank.org.uk/contact-us/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+  "structured": null
  },
  "slough/britwell": {
   "checked_date": "2026-10-20",
@@ -19547,12 +19582,11 @@
   }
  },
  "southwark": {
+  "checked_date": "2026-10-20",
+  "raw": "Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon 13:00 - 15:00 | Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00",
+  "source_url": "https://southwark.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Foodbank office: we do NOT give out food from here. See centres for their times",
-  "source_url": "https://southwark.foodbank.org.uk/contact-us/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+  "structured": null
  },
  "southwark/bermondsey-methodist-church": {
   "checked_date": "2026-10-20",
@@ -20918,12 +20952,11 @@
   "structured": null
  },
  "sutton": {
+  "checked_date": "2026-10-20",
+  "raw": "Mon 12:00 - 14:00 | Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 | Mon 18:00 - 19:30 | Mon Closed Tue Closed Wed 18:30 - 20:00 | Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00",
+  "source_url": "https://sutton.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Registered office, no food collected or distributed here. See centres for their times",
-  "source_url": "https://sutton.foodbank.org.uk/contact-us/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+  "structured": null
  },
  "sutton-bridge-community-larder": {
   "checked_date": "2026-10-20",
@@ -21606,11 +21639,12 @@
   "structured": null
  },
  "the-forest": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday 1 pm - 3 pm | Wednesday 10 am - 12 | Thursday 1 pm - 3 pm | Monday, Tuesday, Wednesday and Thursday 9am to 1pm | Friday 9am to 3pm | Monday to Friday, 9am – 5pm | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue 13:00 - 15:00",
-  "source_url": "https://theforest.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Warehouse, not a distribution centre. Distribution Centres: LYDNEY Tuesday 1 pm - 3 pm; COLEFORD Wednesday 10 am - 12 noon; CINDERFORD Thursday 1 pm - 3 pm",
+  "source_url": "https://theforest.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "the-forest/cinderford": {
   "checked_date": "2026-10-20",
@@ -21669,11 +21703,12 @@
   "structured": null
  },
  "the-storehouse-congleton": {
-  "checked_date": "2026-10-20",
-  "raw": "TUESDAY (Term-time) 10am to 12.30",
-  "source_url": "https://nlchurch.org.uk/about-us-2",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Not food bank hours: EVERY TUESDAY (Term-time) 10am to 12.30 is the Jubilee Club (social group). See their website for Storehouse food bank times",
+  "source_url": "https://nlchurch.org.uk/about-us-2",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "the-vale-pantry": {
   "checked_date": "2026-10-20",
@@ -22827,11 +22862,19 @@
   "structured": null
  },
  "welwyn-garden-city": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday, Thursday and Friday, 9am – 5pm | Wednesday, 9am – 7pm | Saturday – Sunday, 10am – 4pm | Monday to Friday, 9am-5pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "09:00",
+     "11:00"
+    ]
+   ]
+  },
+  "raw": "The Foodbank ... is open every Wednesday morning between 9am and 11am (other hours on the page are HertsHelp / Help through Hardship helplines)",
   "source_url": "https://www.newzioncf.net/food-bank",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "west-berks": {
   "checked_date": "2026-10-20",
@@ -23591,11 +23634,25 @@
   }
  },
  "wimborne": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  },
+  "raw": "Wimborne Foodbank+ Open: Wednesday, 10am - 12pm Friday, 2pm - 4pm (12pm - 2pm for donations only). Leigh Park Community Centre",
   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "winchester-basics-bank": {
   "checked_date": "2026-10-20",
@@ -23628,11 +23685,25 @@
   }
  },
  "windsor-food-share": {
-  "checked_date": "2026-10-20",
-  "raw": "Wednesday’s and 9 am to 3 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "14:30"
+    ]
+   ]
+  },
+  "raw": "Dedworth Green Baptist Church, Smiths Lane, Windsor, SL4 5PE: Wednesdays between 9:00 am and 12:30 pm, Thursdays between 9:00 am and 2:30 pm",
   "source_url": "https://www.windsorfoodshare.org.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "wirral": {
   "checked_date": "2026-10-20",
@@ -24024,11 +24095,19 @@
   }
  },
  "worth-valley": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesdays 1pm - 2.45pm | Monday, Tuesday or Friday 9am – Noon",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "14:45"
+    ]
+   ]
+  },
+  "raw": "Collect from us on Tuesday afternoons between 1pm and 2.45pm (call Monday, Tuesday or Friday 9am - 12 midday)",
   "source_url": "https://worthvalleyfoodbank.com/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "worthing": {
   "checked_date": "2026-10-20",
