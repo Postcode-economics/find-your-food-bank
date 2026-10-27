@@ -52,7 +52,7 @@ function reveal(card){if(!card)return;root.querySelectorAll('.em-card.em-go').fo
  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;try{card.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'})}catch(e){card.scrollIntoView()}
  try{card.focus({preventScroll:true})}catch(e){try{card.focus()}catch(e2){}}
  var m=emMarkers[card.getAttribute('data-em')];if(!m||typeof map==='undefined')return;try{map.closePopup()}catch(e){}
- var z=Math.max(map.getZoom?map.getZoom():12,12);try{map.setView(m.getLatLng(),z,{animate:!reduce})}catch(e){try{map.panTo(m.getLatLng(),{animate:!reduce})}catch(e2){}}m.openPopup()}
+ try{clearTimeout(window._refitT)}catch(e){}var z=Math.max(map.getZoom?map.getZoom():12,12);try{map.setView(m.getLatLng(),z,{animate:!reduce})}catch(e){try{map.panTo(m.getLatLng(),{animate:!reduce})}catch(e2){}}m.openPopup()}
 function readSearched(){try{if(typeof lastNear!=='undefined'&&lastNear&&isFinite(+lastNear[0])&&isFinite(+lastNear[1]))return {lat:+lastNear[0],lng:+lastNear[1]}}catch(e){}return null}
 function locationReady(){var known=readSearched();if(known)return Promise.resolve(known);
  try{if(!navigator.geolocation||!navigator.permissions||!navigator.permissions.query)return Promise.resolve(null);

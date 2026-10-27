@@ -600,6 +600,8 @@ class BannerClick(unittest.TestCase):
         pg.evaluate("()=>nearest(51.5074,-0.1278,'London')")
         self._go(pg, "Birmingham Rest Centre")
         self._map(pg, "Birmingham Rest Centre", 52.4793, -1.9029)
+        pg.wait_for_timeout(600)  # the search's delayed re-fit (layers.js, 250 ms) must not pull the map back to London
+        self._map(pg, "Birmingham Rest Centre", 52.4793, -1.9029)
         self.assertNotEqual(pg.locator(".em-card.em-go").get_attribute("data-em"), "london-rest-centre")
 
     def test_text_only_link_still_opens_emergency_txt(self):
