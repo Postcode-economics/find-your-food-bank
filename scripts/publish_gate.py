@@ -55,6 +55,10 @@ def gate(layer, ref='HEAD'):
         live = None  # no baseline: still hold a private-blocklist match (rule 9)
     pre, d, post = split(open(f).read()); keep, held = [], []
     ok = auto_rules.approved(layer, ROOT)
+    import phone_lock
+    dirty = False
+    for i in d['items']:
+        if phone_lock.settle_council(i): dirty = True  # no verified out-of-hours line: council line stays hidden
     for i in d['items']:
         if live is None:
             pr = []
@@ -67,7 +71,9 @@ def gate(layer, ref='HEAD'):
             pr = ['private details — not published']
             gate.last_privacy = True
         (held if pr else keep).append((i, pr))
-    if held:
+    if phone_lock.guard([i for i, _ in keep], ROOT, via='publish', source='publish gate', layer=layer, persist_new=True):
+        dirty = True
+    if held or dirty:
         d['items'] = [i for i, _ in keep]
         open(f, 'w').write(pre + (json.dumps(d) if layer == 'foodbanks' else json.dumps(d, ensure_ascii=False, separators=(',', ':'))) + post)
     lg = load('logs/pending_dean.json', {}); now = datetime.date.today().isoformat()
@@ -79,7 +85,7 @@ def gate(layer, ref='HEAD'):
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'sweep shelters', 'closures'):  # keep the times review (times_finder) and sweep shelter review sections
+        for tag in ('times review', 'sweep shelters', 'closures', 'phone lock'):  # keep the times review (times_finder), sweep shelter review, and held phone numbers
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     if gate.last_privacy:
