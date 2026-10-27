@@ -16,30 +16,38 @@ function normH(h){let t=String(h).trim().replace(/[–—]/g,'-').replace(/\s*-\
  t=t.replace(/^(?:open\s+)?(?:every\s*day|daily|365\s*days(?:\s+a\s+year)?|7\s*days(?:\s+a\s+week)?)\s*[,:]?\s*(?:from\s+)?/i,'Mo-Su ');
  t=t.replace(/(\d{2}:\d{2})-(\d{1,2}:\d{2})(?:\s*\(?next day\)?)?/gi,'$1-$2');return t.trim()}
 function sched(layer,i){
- if(layer==='fb'){const t=i.opening_times;if(!t||t.status!=='TIMES_FOUND'||(!t.structured&&!t.all_closed))return null;const s={};for(let d=0;d<7;d++)s[d]=[];
-  for(const[k,v]of Object.entries(t.structured||{})){const d=DI[k];if(d==null)continue;(v||[]).forEach(([a,b])=>{a=hm(a);b=hm(b);if(a!=null&&b!=null)s[d].push([a,b<=a?b+1440:b])})}return s}
- const h=i.hours;if(!h)return null;const s={};for(let d=0;d<7;d++)s[d]=[];
- if(typeof h==='object'){let any=false;for(const[k,v]of Object.entries(h)){const d=DI[k.toLowerCase().slice(0,3)];if(d==null)continue;if(/monthly|fortnight|alternate|1st|2nd|3rd|last/i.test(v))return null;const r=rng(v);if(r.length){s[d].push(...r);any=true}}return any?s:null}
+ // null = that day is not listed (unknown). [] = the source says closed. Ranges = open. Never treat a missing day as closed.
+ if(layer==='fb'){const t=i.opening_times;if(!t||t.status!=='TIMES_FOUND'||(!t.structured&&!t.all_closed))return null;
+  if(t.notes&&Object.values(t.notes).some(n=>/monthly|fortnight/i.test(n)))return null;
+  const s={};for(let d=0;d<7;d++)s[d]=null;let known=false;
+  const closed=t.all_closed?['mon','tue','wed','thu','fri','sat','sun']:(t.closed||[]);
+  for(const k of closed){const d=DI[k];if(d==null)continue;s[d]=[];known=true}
+  for(const[k,v]of Object.entries(t.structured||{})){const d=DI[k];if(d==null)continue;s[d]=[];(v||[]).forEach(([a,b])=>{a=hm(a);b=hm(b);if(a!=null&&b!=null)s[d].push([a,b<=a?b+1440:b])});if(s[d].length)known=true}
+  return known?s:null}
+ const h=i.hours;if(!h)return null;const s={};for(let d=0;d<7;d++)s[d]=null;
+ if(typeof h==='object'){let any=false;for(const[k,v]of Object.entries(h)){const d=DI[String(k).toLowerCase().slice(0,3)];if(d==null)continue;if(/monthly|fortnight|alternate|1st|2nd|3rd|last/i.test(v))return null;
+  if(/^closed$/i.test(String(v).trim())){s[d]=[];any=true;continue}const r=rng(v);if(!r.length)return null;s[d]=r;any=true}return any?s:null}
  const str=normH(h);if(/^24\/7$/.test(str)){for(let d=0;d<7;d++)s[d]=[[0,1440]];return s}
  if(/PH|SH|week|easter|dawn|dusk|sunrise|sunset|"/i.test(str))return null;let any=false;
  for(const part of str.split(/\s*;\s*/)){const m=/^((?:(?:Mo|Tu|We|Th|Fr|Sa|Su)(?:-(?:Mo|Tu|We|Th|Fr|Sa|Su))?,?)+)\s+(.+)$/.exec(part.trim());if(!m)return null;
   const days=[];m[1].split(',').filter(Boolean).forEach(x=>{const[a,b]=x.split('-').map(y=>DI[y.toLowerCase()]);if(b==null)days.push(a);else for(let d=a;;d=(d+1)%7){days.push(d);if(d===b)break}});
-  if(/^off|closed$/i.test(m[2].trim())){days.forEach(d=>s[d]=[]);continue}
+  if(/^off|closed$/i.test(m[2].trim())){days.forEach(d=>{s[d]=[]});any=true;continue}
   const r=[];for(const x of m[2].split(',')){const q=/^(\d{1,2}:\d{2})-(\d{1,2}:\d{2})$/.exec(x.trim());if(!q)return null;const a=hm(q[1]),b=hm(q[2]);r.push([a,b<=a?b+1440:b])}
-  days.forEach(d=>s[d]=r);any=true}
+  days.forEach(d=>{s[d]=r});any=true}
  return any?s:null}
-const p2=n=>String(n).padStart(2,'0'),clk=m=>{m%=1440;const h=Math.floor(m/60),mm=m%60,h12=h%12||12;return h12+(mm?':'+p2(mm):'')+(h<12?'am':'pm')};
+const p2=n=>String(n).padStart(2,'0'),clk=m=>{m=((m%1440)+1440)%1440;return p2(Math.floor(m/60))+':'+p2(m%60)};
 function clockNow(now){return now||(typeof window.pageNow==='function'?window.pageNow():new Date())}
 function status(layer,i,now){now=clockNow(now);if(i.upcoming)return{st:'closed',day:null};if(i.call_check)return{st:'unknown'};const s=sched(layer,i);if(!s)return{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
- for(const[a,b]of s[(d+6)%7])if(b>1440&&m<b-1440)return{st:'open',until:b-1440};
+ const prev=s[(d+6)%7];if(prev)for(const[a,b]of prev)if(b>1440&&m<b-1440)return{st:'open',until:b-1440};
+ if(s[d]==null)return{st:'unknown'};
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
- for(let k=0;k<8;k++){const dd=(d+k)%7;const c=(s[dd]||[]).filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
+ for(let k=0;k<8;k++){const dd=(d+k)%7;if(s[dd]==null)return{st:'closed',day:null};const c=s[dd].filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
  return{st:'closed',day:null}}
 function badge(layer,i){const r=status(layer,i);
  if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('OPEN NOW','AR AGOR NAWR'):B('OPEN NOW until '+clk(r.until),'AR AGOR NAWR tan '+clk(r.until))}</div>`;
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
-  return `<div class="v3st shut" role="note">${B(`Closed · Next open <b>${DEN[r.dd]} ${clk(r.at)}⁠–⁠${clk(r.to)}</b>`,`Ar gau · Ar agor nesaf <b>${DCY[r.dd]} ${clk(r.at)}⁠–⁠${clk(r.to)}</b>`)}</div>`}
+  return `<div class="v3st shut" role="note">${B(`Closed · Next open <b>${DEN[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`,`Ar gau · Ar agor nesaf <b>${DCY[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`)}</div>`}
  if(layer==='sh'&&window.REFONLY&&REFONLY(i))return `<div class="v3st unk" role="note">${B('By referral – call before you go','Drwy atgyfeiriad – ffoniwch cyn mynd')}</div>`;
  return `<div class="v3st unk" role="note">${B('Times unknown – call before you go','Amseroedd heb eu rhestru – ffoniwch cyn mynd')}</div>`}
 const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*60));// est.: straight line x1.3 at 4.8 km/h
@@ -48,7 +56,7 @@ const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*
 const share=i=>`<button type="button" class="btn v3share" data-n="${e_(i.name)}" data-a="${e_(i.address)}${i.postcode&&!(i.address||'').includes(i.postcode)?', '+e_(i.postcode):''}" data-ll="${i.lat},${i.lng}">${B('Share / text this address','Rhannu / tecstio’r cyfeiriad hwn')}</button>`;
 const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink. <b>In danger? Call 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Call 999</a></span><details class="hlp"><summary>More free helplines</summary><ul><li><b>Shelter</b> housing advice (England): <a href="tel:08088004444">0808 800 4444</a>, Mon–Fri 8am–5pm</li><li><b>National Domestic Abuse Helpline</b> (England): <a href="tel:08082000247">0808 2000 247</a>, 24 hours</li><li><b>Live Fear Free</b> (Wales): <a href="tel:08088010100">0808 80 10 100</a>, 24 hours</li><li><b>Samaritans</b>: <a href="tel:116123">116 123</a>, 24 hours</li></ul></details>',
  '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink. <b>Mewn perygl? Ffoniwch 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Ffonio 999</a></span><details class="hlp"><summary>Rhagor o linellau cymorth am ddim</summary><ul><li><b>Shelter</b> cyngor tai (Lloegr): <a href="tel:08088004444">0808 800 4444</a>, Llun–Gwener 8am–5pm</li><li><b>Llinell Gymorth Genedlaethol Cam-drin Domestig</b> (Lloegr): <a href="tel:08082000247">0808 2000 247</a>, 24 awr</li><li><b>Byw Heb Ofn</b> (Cymru): <a href="tel:08088010100">0808 80 10 100</a>, 24 awr</li><li><b>Samaritans</b>: <a href="tel:116123">116 123</a>, 24 awr</li></ul></details>')}</div>`;
-const shutToday=(layer,i,now)=>{now=clockNow(now);if(i.upcoming)return true;if(i.call_check)return false;const s=sched(layer,i);return !!(s&&!(s[now.getDay()]||[]).length)};  // Open today (Dean 25 Oct): same rule as food banks, places with no times stay listed. ?testdate= uses pageNow.
+const shutToday=(layer,i,now)=>{now=clockNow(now);if(i.upcoming)return true;if(i.call_check)return false;const s=sched(layer,i);const day=s&&s[now.getDay()];return !!(day&&!day.length)};  // explicit closed only; a day that is not listed stays on the list. ?testdate= uses pageNow.
 const openTodayL=(layer,i,now)=>{now=clockNow(now);if(i.upcoming||i.call_check)return false;const s=sched(layer,i);return !!(s&&(s[now.getDay()]||[]).length)};
 window.V3={sched,status,badge,walk,share,strip,shutToday,openTodayL};
 // ---- food bank card + pop-up: status first, walking time, share. Donation-only sites get no open/closed badge (no client hours).

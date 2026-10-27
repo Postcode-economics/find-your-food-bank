@@ -30,6 +30,11 @@ def settle(pg, first):
         y = pg.evaluate('scrollY')
         if y == last: return
         last = y; pg.wait_for_timeout(200)
+def landed(pg):
+    """The page gives postcodes.io 4s, then a fallback. A search still in flight is not 'no result'."""
+    for _ in range(28):
+        if pg.evaluate("!!(lastNear||document.querySelector('.v3err'))"): return
+        pg.wait_for_timeout(250)
 def run(base=None, chrome=None):
     from playwright.sync_api import sync_playwright
     cty = {a['name']: a for a in json.load(open(os.path.join(ROOT, 'counties.json')))['areas']}
@@ -50,7 +55,7 @@ def run(base=None, chrome=None):
                     for on in (False, True):
                         if pg.evaluate("document.getElementById('openToday').checked") != on: pg.click('#v3open'); pg.wait_for_timeout(200)
                         pg.click('.v3b[data-l=%s]' % k); pg.wait_for_timeout(500)
-                        pg.evaluate('()=>{scrollTo(0,0);lastNear=null}'); pg.fill('#q', q); pg.press('#q', 'Enter'); settle(pg, 2500)
+                        pg.evaluate('()=>{scrollTo(0,0);lastNear=null}'); pg.fill('#q', q); pg.press('#q', 'Enter'); landed(pg); settle(pg, 300)
                         r = pg.evaluate("""([k,on])=>{const D=k==='ws'?window.WARMSPACES:k==='sh'?window.SHELTERS:null;
                           const lat=lastNear?lastNear[0]:null,lng=lastNear?lastNear[1]:null;
                           const fbShown=[...document.querySelectorAll('#list .card')].map(c=>dists[+c.dataset.k]);
