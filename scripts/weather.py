@@ -6,7 +6,7 @@
 Matches warning areas (council / county names) against shelter and warm space addresses and active SWEP councils, and
 writes reports/weather.json + reports/weather.md. Immediate alerts (via digest.py) only for Met Office AMBER/RED and
 severe flood warnings (EA severity 1, SEPA 'severe'). No map change. Never fails the job."""
-import json, os, re, sys, urllib.request, xml.etree.ElementTree as ET
+import json, os, re, sys, urllib.request, urllib.error, xml.etree.ElementTree as ET
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 P = lambda *a: os.path.join(ROOT, *a)
 MET = "https://www.metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/UK"
@@ -21,7 +21,21 @@ def nrw_key():
         try: k = open("/workspace/secrets/nrw_flood_key.txt").read().strip()
         except Exception: k = ""
     return k
-def get(u, headers=None): return urllib.request.urlopen(urllib.request.Request(u, headers=dict({"User-Agent": "helpmap.uk"}, **(headers or {}))), timeout=30).read()
+def error_line(name, exc):
+    """Name the feed and, for an HTTP error, the status code. Never the body, and never a key."""
+    if isinstance(exc, urllib.error.HTTPError): return "%s: HTTP %s" % (name, exc.code)
+    return "%s: %s" % (name, exc.__class__.__name__)
+def get(u, headers=None):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(u):
+        rate_ledger.LEDGER.record(u, 429)
+        raise urllib.error.HTTPError(u, 429, "paused this run", None, None)
+    try:
+        body = urllib.request.urlopen(urllib.request.Request(u, headers=dict({"User-Agent": "helpmap.uk"}, **(headers or {}))), timeout=30).read()
+    except urllib.error.HTTPError as e:
+        rate_ledger.LEDGER.record(u, e.code); raise
+    rate_ledger.LEDGER.record(u, 200)
+    return body
 def council_at(lat, lon):
     """Council (admin_district) for a point via postcodes.io reverse lookup; None if no postcode within 2 km."""
     try:
@@ -132,12 +146,12 @@ def main():
     ws, errs = [], []
     for name, url, fn in (("Met Office", MET, met), ("Environment Agency", EA, ea), ("SEPA", SEPA, sepa), ("UK Emergency Alerts", GOVUK, govuk)):
         try: ws += fn(get(url))
-        except Exception as e: errs.append("%s: %s" % (name, e.__class__.__name__))
+        except Exception as e: errs.append(error_line(name, e))
     k = nrw_key()
     if not k: errs.append("Natural Resources Wales: no API key")
     else:
         try: ws += nrw(get(NRW, {"Ocp-Apim-Subscription-Key": k}))
-        except Exception as e: errs.append("Natural Resources Wales: %s" % e.__class__.__name__)   # class name only: never echo the key
+        except Exception as e: errs.append(error_line("Natural Resources Wales", e))   # status code only: never echo the key
     places = items("shelters.js") + items("warmspaces.js")
     try: swep = json.load(open(P("logs", "swep_status.json"))).get("active", [])
     except Exception: swep = []
@@ -157,7 +171,12 @@ def main():
     L += ["- **%s**: open tonight per council page %s" % (r["council"], r["source_url"]) for r in rc if r["open_tonight"]] or ["- no council page says open"]
     L += ["", "### Review list (unclear - not on the map)", ""] + (["- %s: %s (alerts: %s)" % (r["council"], r["review"], "; ".join(r["alerts"][:3])) for r in rc if r["review"]] or ["- none"])
     L += ["", "Source errors: " + (", ".join(errs) or "none")]
-    open(P("reports", "weather.md"), "w", encoding="utf-8").write("\n".join(L) + "\n"); return ws
+    open(P("reports", "weather.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts: rate_ledger.save(day=datetime.date.today().isoformat())
+    except Exception: pass
+    return ws
 if __name__ == "__main__":
     try: w = main(); print("weather warnings:", len(w), "urgent:", len(urgent(w)))
     except Exception as e: print("weather failed (not fatal):", e)

@@ -34,7 +34,15 @@ def gate(layer, ref='HEAD'):
     f = os.path.join(ROOT, FILES[layer])
     try: live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
     except Exception: print('gate: no live baseline, skipped'); return []
+    import override_check
+    ok_files, why = override_check.assess(ROOT)
+    if not ok_files:
+        print('publish gate: ' + why); return []
     pre, d, post = split(open(f).read()); keep, held = [], []
+    import schema_version
+    if layer == 'foodbanks' and not schema_version.accepts(d.get('schema_version')):
+        print('publish gate: schema_version %r is not accepted' % d.get('schema_version'))
+        return []
     ok = auto_rules.approved(layer, ROOT)
     for i in d['items']:
         pr = [] if i['id'] in live else problems(layer, i)
