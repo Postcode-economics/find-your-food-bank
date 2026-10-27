@@ -192,7 +192,7 @@ addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false
 if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='offline')goOffline()});
 function offlineCheck(){if(!navigator.onLine)goOffline()}
 addEventListener('load',()=>{if(navigator.onLine&&!isOff)fetch('index.html',{cache:'no-store'}).then(r=>{if(r.ok&&!isOff)try{localStorage.setItem('savedAt',new Date().toISOString())}catch(e){}}).catch(goOffline)});
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=57',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=ha700111ea89f',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
 paint();for(const k in LAYERS){try{if(localStorage.getItem('lay_'+k)==='1')toggle(k,true)}catch(e){}}
 const q=new URLSearchParams(location.search);['sh','ws'].forEach(k=>{if(q.get(k)==='1')toggle(k,true)});
 setTimeout(offlineCheck,500);
