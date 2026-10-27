@@ -131,6 +131,49 @@ def method_order(s, key, methods):
     rest = sorted([m for m in methods if m != e.get("last_method")], key=lambda m: -rate(m))
     return ([e["last_method"]] if e.get("last_method") in methods else []) + rest
 
+def note_heal(s, key, tried, method, today=None):
+    """Remember a switch from a failed method to one that worked. No result is stored here."""
+    if method and tried and method != tried[0]:
+        e = entry(s, key); e["healed_from"], e["healed_to"] = tried[0], method
+        if today: e["healed_on"] = today
+
+def heal(s, key, today, methods, attempt):
+    """Try each method in method_order until one works, then remember that method.
+    attempt(name) -> (ok, result). If every method fails, the result is None. Nothing is invented."""
+    order = method_order(s, key, methods); tried = []
+    for m in order:
+        tried.append(m)
+        try: ok, result = attempt(m)
+        except Exception: ok, result = False, None
+        if ok:
+            note_heal(s, key, tried, m, today)
+            return {"ok": True, "method": m, "result": result, "tried": tried, "healed": m != tried[0]}
+    return {"ok": False, "method": None, "result": None, "tried": tried, "healed": False}
+
+CONFIDENCE_MIN = 0.8  # sits under auto_apply_rules.json: a lower score holds the change for Dean. It never grants a change the rules forbid.
+
+def allow_under_rules(kind, rules, confidence=None, layer=None):
+    """Rules first. Confidence can only refuse a change the rules would have allowed.
+    A new place or a removal the rules forbid stays forbidden even at confidence 1.
+    confidence None means no extra doubt: the rules alone decide (today's behaviour)."""
+    rules = rules or {}
+    if kind == "new_place":
+        adds = rules.get("add_new_places") or {}
+        allowed = bool(adds.get(layer)) if layer else any(bool(v) for v in adds.values())
+    elif kind == "remove_place":
+        allowed = bool(rules.get("remove_confirmed_closures"))
+    else:
+        allowed = kind in (rules.get("automatic") or [])
+    if not allowed: return False
+    if confidence is None: return True
+    try: return float(confidence) >= CONFIDENCE_MIN
+    except (TypeError, ValueError): return False
+
+def confidence_for(website, conflicted):
+    """0 when sources already disagree for this site. Otherwise None, so the rules stand."""
+    if website and website in (conflicted or ()): return 0.0
+    return None
+
 def snapshot(s, today, top=200):
     """Keep a small per-run history of priorities so the digest can show movers."""
     pr = {k: round(reward(e, today), 3) for k, e in s["keys"].items()}

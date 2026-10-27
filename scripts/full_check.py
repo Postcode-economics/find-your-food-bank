@@ -122,11 +122,19 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
-def check_site(url):
-    home = fetch(url)
-    if not home['ok'] and url.startswith('http://'): home = fetch('https://' + url[7:])  # many sites redirect anyway
-    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http')}
-    if not home['ok']: res.update(ok=False, error=home['error']); return res
+def check_site(url, order=None):
+    """Fetch with the methods in `order` (plain, then https for an http URL). Stops at the first that works.
+    The order comes from per-site method memory so a method that healed this site last time is tried first."""
+    order = list(order or (['plain', 'https'] if str(url).startswith('http://') else ['plain']))
+    home = {'ok': False, 'http': None, 'error': 'not tried'}; used, tried = None, []
+    for m in order:
+        if m == 'plain': home = fetch(url)
+        elif m == 'https' and str(url).startswith('http://'): home = fetch('https://' + str(url)[7:])
+        else: continue
+        tried.append(m); used = m
+        if home.get('ok'): break
+    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http'), 'method': used if home.get('ok') else None, 'methods_tried': tried}
+    if not home['ok']: res.update(ok=False, error=home.get('error') or 'not tried'); return res
     pages = [(home['final_url'], home['html'])]
     for u in links(home['html'], home['final_url']):
         r = fetch(u)
@@ -232,6 +240,7 @@ def main():
     LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
     import learning_signals  # corrections, change signals, source trust, season, demand, visitor reports (last run's file)
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
+    conflicted = {c.get('website') for c in (learning_signals.rj('reports/learning_signals.json', {}).get('conflicts') or []) if isinstance(c, dict) and c.get('website')}
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
@@ -249,7 +258,11 @@ def main():
     t0 = time.time(); results = {}
     def job(u):
         if time.time() - t0 > BUDGET: return u, {'url': u, 'ok': None, 'error': 'time budget reached - not checked this run'}
-        try: return u, check_site(u)
+        try:
+            avail = ['plain', 'https'] if u.startswith('http://') else ['plain']
+            order = learning.method_order(LS, u, avail)
+            try: return u, check_site(u, order)
+            except TypeError: return u, check_site(u)  # a one-argument stand-in (tests) still works
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
@@ -273,7 +286,9 @@ def main():
             if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
-            if todo and prev.get('access') == r['access']:
+            if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
+            elif todo and prev.get('access') == r['access']:
                 for x in todo:
                     entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
                     changes.insert(0, entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
@@ -294,7 +309,7 @@ def main():
         if r['perm_closed'] and prev.get('perm_closed'):
             ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
             for x in ids_:
-                if RULES['remove_confirmed_closures']: closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
+                if learning.allow_under_rules('remove_place', RULES, learning.confidence_for(u, conflicted)): closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
                 if x not in closure_pending:
                     closure_pending[x] = dict(name=name, website=u, url=r['final_url'], evidence=r['perm_closed'], since=DAY)
                     e = dict(when=NOW.isoformat(), id=x, website=u, name=name, kind='closure', old='on map', new='kept on map with "May have closed" note - waiting for your OK', source=r['final_url'], evidence=r['perm_closed'])
@@ -306,7 +321,9 @@ def main():
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if stored and r['phones'] and not (stored & set(r['phones'])):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
+            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
+            elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
                 today['items'].pop('phone number not on own site|' + u, None)
@@ -322,7 +339,8 @@ def main():
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
-        r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+        r = results[u]; learning.note_heal(LS, u, r.get('methods_tried') or [], r.get('method'), DAY)
+        learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method=r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     apply_phone_fixes(by_site, fixes, flag)

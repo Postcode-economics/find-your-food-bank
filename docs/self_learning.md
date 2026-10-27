@@ -21,6 +21,11 @@ It **never decides what is published**.
 |---|------|-------|--------|
 | core | Reward per useful find, gaps first, back-off for stable or failing sites, weekly minimum check, per-site memory of which method worked | `scripts/learning.py` (used by `full_check.py` and `sweep_daily.py`) | **Live** (25 Oct) |
 | 8 | Time-decay: finds and checks fade with a 30-day half-life so a recent result outweighs an old one. Weekly floor unchanged | `learning.reward` / `record` | **Live** (25 Oct) |
+| 10 | Learn from Dean's decisions: same-host places move up the queue, and his phone/notice wording is remembered. He is still asked every time. A past yes is not reused | `dean_learning`, signal `dean` | Built 27 Oct (batch 3B) |
+| 14 | Cross-source conflicts: when the stored phone is not on the place's own site, flag it for Dean. `chosen` is always null. Nothing is picked | `conflicts`, signal `conflict` | Built 27 Oct (batch 3B) |
+| 15 | Weekly accuracy grade (Sundays): a signal whose boosted places found less than the others is turned down one step (at most 10%, and never outside 50–150% of its default). Not enough data: no change. It does not turn a signal up | `accuracy_grades` | Built 27 Oct (batch 3B) |
+| 16 | Self-healing fetches: try the method that worked for this site last time, and if it fails try the next. The switch is remembered. A total failure stays a failure | `learning.heal`, `full_check.check_site` | Built 27 Oct (batch 3B) |
+| 17 | Change confidence sits under `auto_apply_rules.json`. It can hold back an automatic edit when sources disagree. It cannot allow an add or a removal the rules forbid, and it does not edit the rules file | `learning.allow_under_rules` | Built 27 Oct (batch 3B) |
 | 3 | Learn from corrections: hand fixes (`overrides/phones.json`, `foodbank_notices.json`, manual `foodbank_closed.json`) lower trust in the source that was wrong and move similar places (same source/host) up | `scripts/learning_signals.py` `corrections()` | Built 25 Oct, merging in this batch |
 | 2 | Change signals: dead link (2+ failed runs), closure wording, Facebook page not OK, email bounce (`overrides/email_bounces.json`), stored phone not on the place's own site | `change_signals()` | Built 25 Oct |
 | 5 | Source trust with cross-source agreement: the stored phone vs the phones on the place's own site, Beta(1,1) per source, minus the correction rate; less-trusted sources get checked more | `agreement()`, `trust` | Built 25 Oct |
@@ -36,4 +41,4 @@ It **never decides what is published**.
 ## How it runs
 - `full_check.py` orders sites with `learning.plan(..., boosts=learning_signals.boosts())`.
 - After the full check, `refresh.yml` runs `scripts/learning_signals.py`. That writes `reports/learning_signals.json`, `reports/learning_review.md` and `reports/learning_state.json`, which the next run uses. The check and refresh clock times are not part of this.
-- Tests: `tests/test_learning.py` and `tests/test_learning_signals.py`.
+- Tests: `tests/test_learning.py`, `tests/test_learning_signals.py`, `tests/test_learning_dean.py`, `tests/test_learning_conflicts.py`, `tests/test_learning_accuracy.py`, `tests/test_learning_heal.py`, `tests/test_learning_confidence.py`.
