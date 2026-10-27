@@ -281,7 +281,7 @@ class Browser(unittest.TestCase):
         os.makedirs(SHOTS, exist_ok=True)
         with sync_playwright() as p:
             b = self._chrome(p)
-            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block', color_scheme='dark')
+            c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block', color_scheme='dark', user_agent=B.user_agent(1100))  # helpmap-check: Cloudflare skip rule
             pg = c.new_page()
             seen = {'osm_aborted': 0, 'ofm': [], 'other_tile': []}
 
