@@ -1,6 +1,6 @@
-# SWEP daily full check (2026-10-26)
+# SWEP daily full check (2026-10-27)
 
-382 councils: 223 with a SWEP page, 134 with a homeless line, 1 active, 48 flagged.
+382 councils: 223 with a SWEP page, 134 with a homeless line, 1 active, 51 flagged.
 
 ## Active now
 
@@ -13,6 +13,7 @@
 - Brighton and Hove City Council: dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 403)
 - Bolsover District Council: dead page https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness (HTTP 403)
 - Breckland District Council: dead page https://www.breckland.gov.uk/article/12299/Rough-sleeping-in-extreme-weather-conditions (HTTP 403)
+- Burnley Borough Council: status unknown -> unreachable; dead page https://burnley.gov.uk/housing/housing-advice-and-homelessness/ (HTTP 202)
 - Chichester District Council: dead page https://www.chichester.gov.uk/homelessapplications (HTTP 403)
 - London Borough of Camden: dead page https://www.camden.gov.uk/cold-weather-advice (HTTP 403); dead page https://www.camden.gov.uk/rough-sleeping (HTTP 403)
 - Dacorum Borough Council: dead page https://www.dacorum.gov.uk/home/housing/housing-advice-and-options/homeless-or-at-risk/rough-sleepers (HTTP error)
@@ -21,8 +22,10 @@
 - Eastleigh Borough Council: dead page https://www.eastleigh.gov.uk/latest-news/cold-weather-support-for-people-sleeping-rough (HTTP 403)
 - East Devon District Council: dead page https://eastdevon.gov.uk/housing-and-homelessness/homelessness/rough-sleepers/severe-weather-provision/ (HTTP 403)
 - East Lindsey District Council: dead page https://www.e-lindsey.gov.uk/article/7964/Rough-Sleepers (HTTP 403)
+- East Lothian Council: new page https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian
 - London Borough of Enfield: dead page https://www.enfield.gov.uk/services/housing/homelessness/sleeping-rough-or-on-the-streets (HTTP 403)
 - Epping Forest District Council: dead page https://www.eppingforestdc.gov.uk/housing/homelessness/rough-sleeping-and-homeless-emergencies/ (HTTP 403)
+- East Riding of Yorkshire Council: status unknown -> unreachable; dead page https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (HTTP 202)
 - East Suffolk Council: dead page https://www.eastsuffolk.gov.uk/housing/housing/homelessness-advice-and-prevention/rough-sleeping (HTTP 405)
 - Exeter City Council: dead page https://news.exeter.gov.uk/extra-measures-to-bring-rough-sleepers-inside-as-temperatures-dip/ (HTTP error)
 - Fenland District Council: dead page https://fenland.gov.uk/roughsleeping (HTTP 403)
@@ -32,26 +35,26 @@
 - Manchester City Council: dead page https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter (HTTP 403)
 - North East Derbyshire District Council: dead page https://www.ne-derbyshire.gov.uk/housing-and-health/homelessness (HTTP 403)
 - New Forest District Council: dead page https://www.newforest.gov.uk/article/4133/Support-to-rough-sleepers-during-colder-weather (HTTP 403); dead page https://newforest.gov.uk/article/3846/Continuing-to-offer-support-to-rough-sleepers-this-winter (HTTP 403)
-- North Kesteven District Council: status unreachable -> unknown
 - North Tyneside Council: dead page https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough (HTTP 403)
-- North West Leicestershire District Council: dead page https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping (HTTP 429)
+- North West Leicestershire District Council: status unreachable -> unknown
 - Plymouth City Council: dead page https://www.plymouth.gov.uk/rough-sleeping (HTTP 403); dead page https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep (HTTP 403)
 - Preston City Council: dead page https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP (HTTP 403)
 - Redcar and Cleveland Borough Council: dead page https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping (HTTP 403)
-- Rutland County Council: status unreachable -> no SWEP wording
+- Rugby Borough Council: status unknown -> unreachable; dead page https://www.rugby.gov.uk/w/severe-weather-emergency-protocol (HTTP error)
+- Scottish Borders Council: status no SWEP wording -> unreachable; dead page https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (HTTP 404)
 - South Gloucestershire Council: dead page https://life.southglos.gov.uk/kb5/southglos/directory/advice.page?id=2sQ79T30fdg (HTTP 403)
 - South Hams District Council: dead page https://www.southhams.gov.uk/news/2025/stay-safe-cold-weather (HTTP 405)
 - South Holland District Council: dead page https://www.sholland.gov.uk/article/22764/Severe-Weather (HTTP 403)
 - South Tyneside Council: dead page https://www.southtyneside.gov.uk/article/20226/Severe-Weather-Emergency-Protocol-SWEP (HTTP 403)
 - Swale Borough Council: dead page https://swale.gov.uk/your-council/strategies-and-policies/severe-weather-emergency-protocol-guidance (HTTP 403)
-- Tamworth Borough Council: dead page https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping (HTTP 500)
+- Tamworth Borough Council: status unreachable -> no SWEP wording
 - Teignbridge District Council: dead page https://www.teignbridge.gov.uk/housing/rough-sleeping/severe-weather-provisions-for-rough-sleepers/ (HTTP 403)
 - Tewkesbury Borough Council: dead page https://tewkesbury.gov.uk/services/housing/homelessness-and-housing-options/homeless-advice-and-prevention/ (HTTP 403)
 - Torridge District Council: dead page https://www.torridge.gov.uk/article/17676/Severe-Weather-Provision-for-Rough-Sleepers (HTTP 403)
 - Uttlesford District Council: dead page https://www.uttlesford.gov.uk/article/6001/Help-with-your-housing-needs (HTTP 403)
+- Watford Borough Council: new page https://www.watford.gov.uk/news/article/1065/eight-years-of-hope-watford-s-winter-night-shelter-helps-hundreds-of-people
 - Wealden District Council: dead page https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/ (HTTP 403)
 - Wiltshire Council: dead page https://www.wiltshire.gov.uk/article/2026/Rough-Sleeping (HTTP 403)
-- West Lindsey District Council: status unreachable -> no SWEP wording
 - Walsall Metropolitan Borough Council: dead page http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error); dead page http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)
 - Royal Borough of Windsor and Maidenhead: dead page https://www.rbwm.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep (HTTP 202)
 - Worcester City Council: dead page https://www.worcester.gov.uk/housing/homeless-or-at-risk-of-homelessness/rough-sleeping (HTTP 307)

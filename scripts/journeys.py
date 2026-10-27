@@ -143,6 +143,10 @@ def run(base=None, chrome=None, quick=False):
                 def body_sug(box, k=k):
                     box['c'] = fresh(b, w, sc); box['pg'] = pg = load(box['c'], base); pick(pg, k); pg.type('#q', 'Littleham', delay=60); pg.wait_for_timeout(1800)
                     opt = pg.locator('#ac [role=option], #ac li, #ac button').first
+                    try:  # a busy runner (map tiles rendering) can take longer than 1.8s; still must appear
+                        opt.wait_for(state='visible', timeout=6000)
+                    except Exception:
+                        pass
                     if r.ok('J1 search lands on list', '%s | %s | suggestion shown' % (V, k), opt.count() > 0 and opt.is_visible()):
                         opt.click(); settle(pg); check_landing(r, pg, 'J1 search lands on list', '%s | %s | suggestion pick' % (V, k), k)
                 scenario(r, 'J1 search lands on list', '%s | %s | suggestion' % (V, k), body_sug)

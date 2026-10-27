@@ -167,7 +167,8 @@ def page(path, title, desc, body, crumbs, updated):
             '<script type="application/ld+json">%s</script></head><body><header><div class="top"><a href="/">helpmap.uk</a></div></header>'
             '<main>%s</main><footer><p>Information last updated %s. Data: <a href="https://www.givefood.org.uk/" rel="noopener">Give Food</a>, '
             'the <a href="https://www.foodaidnetwork.org.uk/" rel="noopener">Independent Food Aid Network</a>, local warm space directories%s. '
-            'Areas from <a href="https://postcodes.io/" rel="noopener">postcodes.io</a> (contains OS data © Crown copyright and database right 2026).</p>%s</footer></body></html>\n'
+            'Areas from <a href="https://postcodes.io/" rel="noopener">postcodes.io</a> (contains OS data © Crown copyright and database right 2026). '
+            'Map © OpenStreetMap contributors. Backup map: OpenFreeMap © OpenMapTiles. © MapTiler.</p>%s</footer></body></html>\n'
             % (E(title), E(desc), url, E(title), E(desc), url, CSS, json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'), body, E(updated), SH_CREDIT, LEGAL))
 
 import beacon  # analytics beacon on every generated page (25 Oct 2026)

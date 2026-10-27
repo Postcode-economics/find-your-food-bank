@@ -5,7 +5,7 @@ gone, the same block must not be called a pass.
 The page is this checkout on 127.0.0.1. Tile hosts are answered here with a blank PNG, then aborted.
 Nothing is requested from helpmap.uk or from a map server.
 """
-import http.server, os, re, socket, threading, time, unittest
+import http.server, os, re, socket, threading, unittest
 from urllib.parse import urlparse
 R = os.path.join(os.path.dirname(__file__), '..')
 import sys
@@ -18,7 +18,7 @@ except Exception:
 
 PNG = (b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89'
        b'\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82')
-TILE_HOSTS = ('tile.openstreetmap.org', 'api.maptiler.com', 'tiles.stadiamaps.com')
+TILE_HOSTS = ('tile.openstreetmap.org', 'api.maptiler.com', 'tiles.stadiamaps.com', 'tiles.openfreemap.org')
 
 
 def _tile(host):
@@ -29,6 +29,25 @@ def _tile(host):
 def _cache_name():
     sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
     return re.search(r"const C='([^']+)'", sw).group(1)
+
+
+def until(page, js, arg=None, timeout=20000):
+    """Poll an async predicate with evaluate, which awaits its promise. wait_for_function does not:
+    an async function returns a Promise, which is truthy, so it would return at once (the race that
+    made this test flaky: the network was blocked before the worker had saved data.js and leaflet.js)."""
+    import time
+    end = time.time() + timeout / 1000.0
+    last = None
+    while time.time() < end:
+        try:
+            last = page.evaluate(js, arg)
+        except Exception as e:  # a navigation mid-poll
+            last = '%s: %s' % (type(e).__name__, e)
+        else:
+            if last is True:
+                return
+        time.sleep(0.25)
+    raise AssertionError('timed out waiting for %s (last=%r)' % (js.strip()[:80], last))
 
 
 class T(unittest.TestCase):
@@ -102,26 +121,16 @@ class T(unittest.TestCase):
                 prime_logs = []
                 B.goto(page, base, log=prime_logs.append)
                 self.assertEqual(prime_logs, [], prime_logs)
-                # page.evaluate awaits this. wait_for_function does not: an async function's
-                # return value is a Promise, and a Promise is truthy straight away, so the
-                # block used to start before the worker had stored anything.
-                deadline = time.time() + 20
-                warm = False
-                while time.time() < deadline:
-                    warm = page.evaluate(
-                        """async (name) => {
-                            const reg = await navigator.serviceWorker.getRegistration();
-                            if (!reg || !navigator.serviceWorker.controller) return false;
-                            const c = await caches.open(name);
-                            const urls = (await c.keys()).map(k => k.url);
-                            return urls.some(u => /\\/data\\.js(?:\\?|$)/.test(u))
-                                && urls.some(u => /\\/vendor\\/leaflet\\.js(?:\\?|$)/.test(u));
-                        }""",
-                        cache)
-                    if warm:
-                        break
-                    page.wait_for_timeout(200)
-                self.assertTrue(warm, 'service worker did not precache data.js and leaflet.js')
+                until(page,
+                    """async (name) => {
+                        const reg = await navigator.serviceWorker.getRegistration();
+                        if (!reg || !navigator.serviceWorker.controller) return false;
+                        const c = await caches.open(name);
+                        const urls = (await c.keys()).map(k => k.url);
+                        return urls.some(u => /\\/data\\.js(?:\\?|$)/.test(u))
+                            && urls.some(u => /\\/vendor\\/leaflet\\.js(?:\\?|$)/.test(u));
+                    }""",
+                    arg=cache, timeout=20000)
                 blocked['on'] = True
                 served = []
 
@@ -149,22 +158,14 @@ class T(unittest.TestCase):
                 self.assertEqual(logs, [], logs)
                 self.assertGreater(blocked['data'], 0, blocked)
                 self.assertGreater(blocked['leaflet'], 0, blocked)
-                # Tiles are cache-first. A cached tile is painted by the worker and may never show
-                # up as a network response; an uncached one is aborted. Either one is the map using tiles.
-                tile_hits, painted = [], 0
-                for _ in range(20):
-                    tile_hits = [row for row in served if _tile(row[0])]
-                    try:
-                        painted = page2.evaluate(
-                            "()=>[...document.querySelectorAll('#map img.leaflet-tile')].filter(img=>img.complete&&img.naturalWidth>0).length")
-                    except Exception:
-                        painted = 0
-                    if blocked['tiles'] or any(sw for _, _, _, sw in tile_hits) or painted:
+                # Tiles are cache-first: a cached tile never hits the network, an uncached one is aborted.
+                # Leaflet may ask for its tiles a moment after the app is ready, so give them up to 10s to arrive.
+                for _ in range(40):
+                    if blocked['tiles'] or any(_tile(row[0]) and row[3] for row in served):
                         break
                     page2.wait_for_timeout(250)
-                self.assertTrue(
-                    blocked['tiles'] or any(sw for _, _, _, sw in tile_hits) or painted,
-                    (blocked, tile_hits, painted))
+                tile_hits = [row for row in served if _tile(row[0])]
+                self.assertTrue(blocked['tiles'] or any(sw for _, _, _, sw in tile_hits), (blocked, tile_hits))
                 self.assertTrue(any(p == '/data.js' and st == 200 and sw for _, p, st, sw in served), served)
                 self.assertTrue(any(p.endswith('/vendor/leaflet.js') and st == 200 and sw for _, p, st, sw in served), served)
                 self.assertGreater(n, 100, n)

@@ -2,6 +2,9 @@
 name: tests
 on:
   push:
+    # Release tags only carry data assets (e.g. the offline map); their commit is already tested on main.
+    tags-ignore: ['offline-map-*']
+    branches: ['**']
   pull_request:
 # One run per branch. A push and the pull request for that branch share it, and a newer
 # push cancels the older run. This account can run 20 jobs at once. Without this, every
@@ -88,12 +91,13 @@ jobs:
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60  # real offline tiles are rendered on the runner; ~33 min on blank tiles
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - uses: ./.github/actions/offline-tiles
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
   journeys:
     needs: changes
@@ -104,7 +108,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 2}
+        with: {fetch-depth: 0}  # the PR base must be present, or the site-change diff fails and journeys silently skip
       - id: site
         run: |
           base=${{ github.event.pull_request.base.sha || github.event.before }}
@@ -112,6 +116,8 @@ jobs:
       - uses: actions/setup-python@v5
         if: steps.site.outputs.run == '1'
         with: {python-version: "3.12"}
+      - if: steps.site.outputs.run == '1'
+        uses: ./.github/actions/offline-tiles
       - if: steps.site.outputs.run == '1'
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/journeys.py
   browser-tests:
@@ -127,6 +133,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
+      - uses: ./.github/actions/offline-tiles
       - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
   design-lock:
     needs: changes

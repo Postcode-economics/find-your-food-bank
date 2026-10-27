@@ -1,24 +1,6 @@
 {
- "run": "2026-10-26T15:49:38+00:00",
+ "run": "2026-10-27T05:53:00+00:00",
  "councils": [
-  {
-   "code": "KIN",
-   "council": "Borough Council of Kings Lynn and West Norfolk",
-   "alerts": [
-    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
-   ],
-   "open_tonight": false,
-   "pages": [
-    {
-     "url": "https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation",
-     "http": 200,
-     "status": "unknown",
-     "quote": "",
-     "own_site": true
-    }
-   ],
-   "review": "council page not clear: https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation (unknown)"
-  },
   {
    "code": "CMN",
    "council": "Carmarthenshire County Council",
@@ -31,20 +13,15 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "CGN",
-   "council": "Ceredigion County Council",
-   "alerts": [
-    "Natural Resources Wales: Flood Warning: Tidal area at Cardigan"
-   ],
-   "open_tonight": false,
-   "pages": [],
-   "review": "no severe weather shelter page on file - check the council's homelessness page"
-  },
-  {
    "code": "CBD",
    "council": "Cumberland Council",
    "alerts": [
-    "Environment Agency: Flood warning: Keswick Campsite"
+    "Environment Agency: Flood warning: Keswick Campsite",
+    "Environment Agency: Flood warning: Cumbrian coastline from St Bees Head to Haverigg, along the coast from North Head to Haverigg",
+    "Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth including Port Carlisle, Skinburness and Rockcliffe",
+    "Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees, between Allonby and Whitehaven",
+    "Environment Agency: Flood warning: Cumbrian coastline from Silloth to St Bees including Maryport, Flimby, Workington and Whitehaven",
+    "Environment Agency: Flood warning: Cumbrian coastline from Gretna to Silloth, between Longtown and Skinburness"
    ],
    "open_tonight": false,
    "pages": [],
@@ -79,75 +56,34 @@
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "NFK",
-   "council": "Norfolk County Council",
+   "code": "LAN",
+   "council": "Lancashire County Council",
    "alerts": [
-    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham",
-    "Environment Agency: Flood warning: Isolated low lying properties along the tidal River Waveney"
+    "Environment Agency: Flood warning: Lancashire coastline at Sunderland, around Sunderland Point, Bazil Point and Potts Corner"
    ],
    "open_tonight": false,
    "pages": [],
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "NNO",
-   "council": "North Norfolk District Council",
+   "code": "WRT",
+   "council": "Warrington Borough Council",
    "alerts": [
-    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
-   ],
-   "open_tonight": false,
-   "pages": [
-    {
-     "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/",
-     "http": 200,
-     "status": "unknown",
-     "quote": "",
-     "own_site": true
-    },
-    {
-     "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homelessness-and-rough-sleeping-strategy/",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": "",
-     "own_site": true
-    },
-    {
-     "url": "https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": "",
-     "own_site": true
-    }
-   ],
-   "review": "council page not clear: https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/ (unknown); https://www.north-norfolk.gov.uk/tasks/housing-services/homelessness-and-rough-sleeping-strategy/ (no SWEP wording); https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/ (no SWEP wording)"
-  },
-  {
-   "code": "SNO",
-   "council": "South Norfolk District Council",
-   "alerts": [
-    "Environment Agency: Flood warning: Riverside properties along the tidal River Yare including Cantley, Brundall and Reedham"
+    "Environment Agency: Flood warning: Mersey Estuary at Arpley Bridge, Warrington"
    ],
    "open_tonight": false,
    "pages": [],
    "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
-   "code": "SFK",
-   "council": "Suffolk County Council",
+   "code": "WLA",
+   "council": "West Lancashire Borough Council",
    "alerts": [
-    "Environment Agency: Flood warning: Isolated low lying properties along the tidal River Waveney"
+    "Environment Agency: Flood warning: Lancashire coastline at Sunderland, around Sunderland Point, Bazil Point and Potts Corner"
    ],
    "open_tonight": false,
-   "pages": [
-    {
-     "url": "https://www.suffolk.gov.uk/about/severe-weather-information-and-services",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": "",
-     "own_site": true
-    }
-   ],
-   "review": "council page not clear: https://www.suffolk.gov.uk/about/severe-weather-information-and-services (no SWEP wording)"
+   "pages": [],
+   "review": "no severe weather shelter page on file - check the council's homelessness page"
   },
   {
    "code": "WRL",

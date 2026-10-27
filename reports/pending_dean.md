@@ -2,9 +2,10 @@
 
 No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
-## foodbanks (1)
+## foodbanks (2)
 
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
+- Shipshape Health and Wellbeing (S11 8AE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.shipshape.org.uk
 
 ## warmspaces (2)
 
@@ -18,7 +19,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
-Run 2026-10-26. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is added.
 
 - **Waltham Abbey Baptist Church** (`3food4u/waltham-abbey-baptist-church`, EN9 1RL): 1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm  
   source: https://3food4u.org  
@@ -101,7 +102,7 @@ Run 2026-10-26. Nothing here is on the map. Each needs a hand check before it is
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
-Run 2026-10-26. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is added.
 
 - Victory House (CT17 9BZ) - https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers
 - who a) have been verified rough sleeping (TN34 1EA) - https://www.hastings.gov.uk/housing/SWEP/

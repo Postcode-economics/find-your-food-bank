@@ -1,8 +1,8 @@
 ## What the system learned (signals)
 
-- Source trust (phone agrees with own site, minus hand corrections): IFAN 0.38 (22 checked), other 0.82 (9 checked), Give Food 0.90 (694 checked)
-- Places with change signals (dead link, closure wording, Facebook, bounce): 81
-- Checks moved up for next run: 1054 sites (corrections 134, signals 128, season 0, demand 0, visitor reports 0)
+- Source trust (phone agrees with own site, minus hand corrections): IFAN 0.38 (22 checked), other 0.82 (9 checked), Give Food 0.90 (695 checked)
+- Places with change signals (dead link, closure wording, Facebook, bounce): 78
+- Checks moved up for next run: 1054 sites (corrections 134, signals 123, season 0, demand 0, visitor reports 0)
 - Seasonal timing: boost 0.00 this week (2 weeks of history (2026))
 - Demand: no visitor data yet (reports/demand.json not present) - no effect; visitor reports: no visitor reports recorded yet - no effect
 - Hardest hosts to reach: bsfoodhub.org.uk (100% of 1 sites failing), caistorfoodbank.org (100% of 1 sites failing), churchesfoodbank.org.uk (100% of 1 sites failing)

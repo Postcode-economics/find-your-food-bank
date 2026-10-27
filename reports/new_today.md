@@ -1,4 +1,4 @@
-# New today (2026-10-26)
+# New today (2026-10-27)
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
@@ -56,6 +56,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Hopeworx · SS6 7XJ
 - St Paul's Pantry (St Paul's Wimbledon Parkside) · SW19 6EW
 - Cornerstone Day Centre - Caritas Diocese of Salford · M15 6JS
+- Holy Trinity Church, Wester Hailes · EH14 2SL
 - Teign Valley Larder CIC (Christow) · EX6 7LZ
 - Carpenters Cafe · E15 2JL
 - AROUND AGAIN CHARITY · B37 6DX
@@ -76,7 +77,6 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Christ Apostolic Church Mount of Rehoboth · WV13 1QU
 - Bridge Church Food Bank · DN22 6AA
 - The Life House · B29 6PB
-- Holy Trinity Church, Wester Hailes · EH14 2SL
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS
@@ -87,9 +87,6 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 4 added
-- Saifee Mosque · B18 6PU
+## Warm spaces: 1 added
 - The Midlands Greek & Cypriot Association · B23 7SJ
-- Marlborough Primary School · B10 9NY
-- Bishops Offley Open House (BOOH!) · ST21 6HE (Opens 2026-11-17)
 

@@ -1,58 +1,15 @@
 {
- "day": "2026-10-26",
+ "day": "2026-10-27",
  "runs": [
   {
-   "at": "05:22Z",
+   "at": "05:27Z",
    "source": "warmspaces_discovery.json",
-   "added": 2,
-   "queued": 2251,
-   "rejected": 2
-  },
-  {
-   "at": "15:08Z",
-   "source": "warmspaces_discovery.json",
-   "added": 3,
-   "queued": 2250,
-   "rejected": 2
-  },
-  {
-   "at": "15:08Z",
-   "source": "warmspaces_ww_discovery_run.json",
    "added": 1,
-   "queued": 2,
-   "rejected": 0
-  },
-  {
-   "at": "21:20Z",
-   "source": "warmspaces_discovery.json",
-   "added": 3,
-   "queued": 2250,
+   "queued": 2255,
    "rejected": 2
-  },
-  {
-   "at": "21:20Z",
-   "source": "warmspaces_ww_discovery_run.json",
-   "added": 0,
-   "queued": 1,
-   "rejected": 0
   }
  ],
  "added": [
-  {
-   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
-   "name": "Saifee Mosque",
-   "postcode": "B18 6PU",
-   "directory": "Open Innovations: Birmingham Council",
-   "url": "https://uk.thedawoodibohras.com/birmingham/",
-   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
-   "http": 200,
-   "sha256": "7ee5ed4be4fe2e30aa15b9c8ea4187e97bf65e3c8950f666ca2bea4b9e2f6541",
-   "etag": "",
-   "last_modified": "",
-   "upcoming": null,
-   "scheme_start": null,
-   "referral_only": false
-  },
   {
    "id": "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj",
    "name": "The Midlands Greek & Cypriot Association",
@@ -61,41 +18,11 @@
    "url": "https://www.midlandsgreek.org/",
    "final_url": "https://www.midlandsgreek.org/",
    "http": 200,
-   "sha256": "a60021884c7de88b25d670f65c832f1cfd6906e94b71cbc8b3e8ea1f23e8b106",
+   "sha256": "d8f1d4fe4195dd2749de0f0efb76ea2d7483fc04c255fdcf56bafab013524d29",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
    "scheme_start": null,
-   "referral_only": false
-  },
-  {
-   "id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
-   "name": "Marlborough Primary School",
-   "postcode": "B10 9NY",
-   "directory": "Open Innovations: Birmingham Council",
-   "url": "https://www.mps.bham.sch.uk/",
-   "final_url": "https://www.mps.bham.sch.uk/",
-   "http": 200,
-   "sha256": "dc07a770964855fb5beaaec524821b9dfe299db064b4165524bdf049c350aba6",
-   "etag": "",
-   "last_modified": "",
-   "upcoming": null,
-   "scheme_start": null,
-   "referral_only": false
-  },
-  {
-   "id": "ww-69389599",
-   "name": "Bishops Offley Open House (BOOH!)",
-   "postcode": "ST21 6HE",
-   "directory": "Warm Welcome",
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null,
-   "upcoming": true,
-   "scheme_start": "2026-11-17",
    "referral_only": false
   }
  ],
@@ -1160,6 +1087,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-bath-and-north-east-somerset-council-rose-cottage-ba2-1db": {
+   "id": "oi-bath-and-north-east-somerset-council-rose-cottage-ba2-1db",
+   "name": "Rose Cottage",
+   "postcode": "BA2 1DB",
+   "website": "",
+   "directory": "Open Innovations: Bath and North East Somerset Council",
+   "directory_url": "https://livewell.bathnes.gov.uk/cost-living-crisis/warm-places-list/rose-cottage",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-bath-and-north-east-somerset-council-timsbury-community-library-ba2-0jj": {
    "id": "oi-bath-and-north-east-somerset-council-timsbury-community-library-ba2-0jj",
    "name": "Timsbury Community Library",
@@ -1740,7 +1684,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "19fe523ee9df7331136be04793e8d17c52aca562adc7c1a67c86c0107ea102b8",
+   "sha256": "c70e788957b03ba156bb5bffb5917efc2235a12427b39fbfbb85a80e6780389d",
    "etag": "",
    "last_modified": ""
   },
@@ -1839,14 +1783,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/876246/al_mahdi_institute",
    "reasons": [
-    "own site does not mention a warm space"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
-   "http": 200,
-   "sha256": "fd75158b025914cbb4057ce535e09b1ed4c0ed7d8d5f9ee16334ea52dc52f465",
+   "http": 202,
+   "sha256": "8d6187544e54edcadd3247fb008ea93190b956d93345fea9291d025c896da802",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 10:52:26 GMT"
+   "last_modified": ""
   },
   "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr": {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -2150,7 +2094,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "c29450d13ed10073b144221d49789976e2afdbdd6504d2ee51283be425df1645",
+   "sha256": "b0377c1df5374e8c5815d45353f9964e0721445ac0be4f32ba6f391991fa303f",
    "etag": "",
    "last_modified": ""
   },
@@ -2269,7 +2213,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "2c1225ace59de368e0ce8e6629c5bbb2cc6f5a5c60c25c97c634ba43c39ca3b5",
+   "sha256": "f1c42e5a67dff3ee7e9b210523a92ffacb894438e8365d8d2b92041335c2bb3f",
    "etag": "",
    "last_modified": ""
   },
@@ -2441,8 +2385,8 @@
    "url": "https://www.blesstcic.com/",
    "final_url": "https://www.blesstcic.com/",
    "http": 200,
-   "sha256": "16cf9c35f841798916f80d2970ce65728cc05fd3003a29fcf80ded7ffdc5a6cf",
-   "etag": "W/\"c059e15be8080ff1e0fe89a48436d79c\"",
+   "sha256": "cf9b0dd285ac3c4ff8bd4307e698bc1d9591113c70c4c0cf280d9792bebbaa84",
+   "etag": "W/\"22da2a0c713d834614afab2498bd88fd\"",
    "last_modified": ""
   },
   "oi-birmingham-council-bosnia-and-herzegovina-uk-network-b11-4dy": {
@@ -2657,12 +2601,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site does not mention a warm space"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
-   "http": 200,
-   "sha256": "1d3de9d4d4beda89a4d9055cb1ac9529db32a67ad2d0e26c2f7ea65786f839c5",
+   "http": 202,
+   "sha256": "fffa106aae0713439ce04583735e85ade460681e8b19a29ca7ef8473901d9942",
    "etag": "",
    "last_modified": ""
   },
@@ -3072,7 +3016,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "3d7840c204323936395767378d4bd44a2e05f7a726629b46dcfa4ae9b4072dcf",
+   "sha256": "60cf7ab3449dba18605a4b8bc49306b24d44e9d586138e69a3a0c8fde80f2241",
    "etag": "",
    "last_modified": ""
   },
@@ -3396,7 +3340,7 @@
    "url": "https://saheli.co.uk",
    "final_url": "https://saheli.co.uk",
    "http": 200,
-   "sha256": "fb7feead1db3923eb062d189c304732a0440de2504fdd87d4b987dc96801e669",
+   "sha256": "6ff432a2635932e602b059ab80634d2430792b6ba2bd32112d26ab380a22b7d4",
    "etag": "",
    "last_modified": ""
   },
@@ -3862,8 +3806,8 @@
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "http": 200,
    "sha256": "34f5bbabaaf90a986a73b66b34b515eab7ab67c7650575aa471c7f3f9f26ee77",
-   "etag": "\"1793044035\"",
-   "last_modified": "Mon, 26 Oct 2026 19:47:15 GMT"
+   "etag": "\"1793066497\"",
+   "last_modified": "Tue, 27 Oct 2026 02:01:37 GMT"
   },
   "oi-birmingham-council-moseley-community-development-trust-b13-8dd": {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -4048,7 +3992,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "145377d4ce3c45840e79a99430281612067f0ec229b965014c77950d2362dc7e",
+   "sha256": "cfb436dc3466e56d2ad1f7a2728db1e2876dc75b7f05d090ff39313515cb70f1",
    "etag": "",
    "last_modified": ""
   },
@@ -4307,6 +4251,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-birmingham-council-quinton-foodbank-b32-2qd": {
+   "id": "oi-birmingham-council-quinton-foodbank-b32-2qd",
+   "name": "Quinton Foodbank",
+   "postcode": "B32 2QD",
+   "website": "",
+   "directory": "Open Innovations: Birmingham Council",
+   "directory_url": "https://www.birmingham.gov.uk/directory_record/906197/quinton_foodbank",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-birmingham-council-racket-diversity-cic-b10-9rx": {
    "id": "oi-birmingham-council-racket-diversity-cic-b10-9rx",
    "name": "Racket Diversity CIC",
@@ -4478,6 +4439,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-birmingham-council-saifee-mosque-b18-6pu": {
+   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+   "name": "Saifee Mosque",
+   "postcode": "B18 6PU",
+   "website": "https://uk.thedawoodibohras.com/birmingham/",
+   "directory": "Open Innovations: Birmingham Council",
+   "directory_url": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
+   "reasons": [
+    "own site did not return the page (HTTP 202; usually a bot check)"
+   ],
+   "url": "https://uk.thedawoodibohras.com/birmingham/",
+   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
+   "http": 202,
+   "sha256": "9b1263c0b85735bf2d81dc321b38ed8158b823a09fd32640f8ba0ab600362430",
+   "etag": "",
+   "last_modified": ""
+  },
   "oi-birmingham-council-selly-oak-neighbourhood-network-scheme-at-stirchley-baths-b30-2jt": {
    "id": "oi-birmingham-council-selly-oak-neighbourhood-network-scheme-at-stirchley-baths-b30-2jt",
    "name": "Selly Oak Neighbourhood Network Scheme at Stirchley Baths",
@@ -4627,7 +4605,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "202d57d73a8b68c7fc2e516dc685afdad6c0fd1c048e49e518b2760b7413f04d",
+   "sha256": "573b51db8462d960674b3193917c09239d47a6728ab79524b3f3e7824fddb22c",
    "etag": "",
    "last_modified": ""
   },
@@ -5087,7 +5065,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "a72a5b702caf6ac52a238167e816b0c1ba2a3aa2a06b9da84c9b90586e1875ff",
+   "sha256": "c2fa5a64aa7f1c110ac300b4189747513bab42403fc864a6d192801c2c741474",
    "etag": "",
    "last_modified": ""
   },
@@ -5138,7 +5116,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "e2645f1d7f1696deef558da8d85ff9dcb430e7285f8feff12638c77051932990",
+   "sha256": "e007f2d699d190ce12d24ae8a7fd4ae1f2170aef1f4deb49e556a9b176bdaed1",
    "etag": "",
    "last_modified": ""
   },
@@ -5515,7 +5493,7 @@
    "http": 200,
    "sha256": "152ba97339572e2d5a6b4fe67d207801262625a46a733fa1d30e195058b4538b",
    "etag": "\"b856ffddc1a60dbbbe208afa5921157e\"",
-   "last_modified": "Mon, 26 Oct 2026 16:30:00 GMT"
+   "last_modified": "Mon, 26 Oct 2026 16:35:58 GMT"
   },
   "oi-birmingham-council-walmley-library-b76-1np": {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -5666,7 +5644,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "af72c8892fca60b2974ce42dcda7e401e7a88b84e1d70e4253c7c028f03f30f6",
+   "sha256": "3d4235c0d7e0164e8fe413386b0e9e82d772991fc2d3869c6d8b4dc775d6c966",
    "etag": "",
    "last_modified": ""
   },
@@ -5684,7 +5662,7 @@
    "url": "https://yourmoneyyourwaycic.co.uk/",
    "final_url": "https://yourmoneyyourwaycic.co.uk/",
    "http": 200,
-   "sha256": "93ed75d9ccf309b58c5042367255d7f5db4b63495675f3847c39de8e65e8a2df",
+   "sha256": "95cf6030b9edf05e640189fc767852875c846bac289bab90f725542e59345c2a",
    "etag": "",
    "last_modified": ""
   },
@@ -5854,7 +5832,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "7d58d6fca0060fceeb5bc27d03c7b258d80a06ae3b87ef9e6715d83b22406173",
+   "sha256": "a6d4c9011004d0c378d63ae61ef498668979d539ff776e33c4421a632cca1cdf",
    "etag": "",
    "last_modified": ""
   },
@@ -6692,47 +6670,13 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-bradford-council-bradford-children-trust-reevy-hill-family-hub-bd6-3st": {
-   "id": "oi-bradford-council-bradford-children-trust-reevy-hill-family-hub-bd6-3st",
-   "name": "Bradford Children Trust, Reevy Hill Family Hub",
+  "oi-bradford-council-bradford-south-family-hub-bd6-3st": {
+   "id": "oi-bradford-council-bradford-south-family-hub-bd6-3st",
+   "name": "Bradford South Family Hub",
    "postcode": "BD6 3ST",
    "website": "",
    "directory": "Open Innovations: Bradford Council",
-   "directory_url": "https://costoflivingbradford.co.uk/warm-spaces-directory-old/bradford-children-rust-reevy-hill-family-hub/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-bradford-council-chapel-of-grace-bd7-3bz": {
-   "id": "oi-bradford-council-chapel-of-grace-bd7-3bz",
-   "name": "Chapel of Grace",
-   "postcode": "BD7 3BZ",
-   "website": "",
-   "directory": "Open Innovations: Bradford Council",
-   "directory_url": "https://costoflivingbradford.co.uk/warm-spaces-directory-old/chapel-of-grace/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-bradford-council-east-bierley-community-sports-association-bd11-2ah": {
-   "id": "oi-bradford-council-east-bierley-community-sports-association-bd11-2ah",
-   "name": "East Bierley community sports association",
-   "postcode": "BD11 2AH",
-   "website": "",
-   "directory": "Open Innovations: Bradford Council",
-   "directory_url": "https://costoflivingbradford.co.uk/warm-spaces-directory-old/east-bierley-community-sports-association/",
+   "directory_url": "https://costoflivingbradford.co.uk/warm-spaces-directory-old/bradford-south-family-hub-2/",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -6750,23 +6694,6 @@
    "website": "",
    "directory": "Open Innovations: Bradford Council",
    "directory_url": "https://costoflivingbradford.co.uk/warm-spaces-directory-old/buttershaw-christian-family-centre-footprints-family-centre/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-bradford-council-horton-bank-top-community-foodbank-bd7-4ae": {
-   "id": "oi-bradford-council-horton-bank-top-community-foodbank-bd7-4ae",
-   "name": "Horton Bank Top Community Foodbank",
-   "postcode": "BD7 4AE",
-   "website": "",
-   "directory": "Open Innovations: Bradford Council",
-   "directory_url": "https://costoflivingbradford.co.uk/warm-spaces-directory-old/horton-bank-top-community-foodbank/",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -7392,47 +7319,13 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-braintree-council-st-pauls-church-braintree-cm7-3dy": {
-   "id": "oi-braintree-council-st-pauls-church-braintree-cm7-3dy",
-   "name": "St Pauls Church - Braintree",
-   "postcode": "CM7 3DY",
+  "oi-braintree-council-birdbrook-community-house-co9-4bn": {
+   "id": "oi-braintree-council-birdbrook-community-house-co9-4bn",
+   "name": "Birdbrook Community House",
+   "postcode": "CO9 4BN",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/653baca8854909afd077ed69",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-braintree-council-the-lounge-wellbeing-warm-space-co8-5jg": {
-   "id": "oi-braintree-council-the-lounge-wellbeing-warm-space-co8-5jg",
-   "name": "The Lounge - Wellbeing & Warm space",
-   "postcode": "CO8 5JG",
-   "website": "",
-   "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b78e441313df589d965f90",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-braintree-council-hatfield-peverel-village-hall-cm3-2hp": {
-   "id": "oi-braintree-council-hatfield-peverel-village-hall-cm3-2hp",
-   "name": "Hatfield Peverel Village Hall",
-   "postcode": "CM3 2HP",
-   "website": "",
-   "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65450b7d854909afd096bc8c",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/6543bfa9854909afd0593dd8",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -7477,13 +7370,47 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-braintree-council-birdbrook-community-house-co9-4bn": {
-   "id": "oi-braintree-council-birdbrook-community-house-co9-4bn",
-   "name": "Birdbrook Community House",
-   "postcode": "CO9 4BN",
+  "oi-braintree-council-st-pauls-church-braintree-cm7-3dy": {
+   "id": "oi-braintree-council-st-pauls-church-braintree-cm7-3dy",
+   "name": "St Pauls Church - Braintree",
+   "postcode": "CM7 3DY",
    "website": "",
    "directory": "Open Innovations: Braintree Council",
-   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/6543bfa9854909afd0593dd8",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/653baca8854909afd077ed69",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-braintree-council-the-lounge-wellbeing-warm-space-co8-5jg": {
+   "id": "oi-braintree-council-the-lounge-wellbeing-warm-space-co8-5jg",
+   "name": "The Lounge - Wellbeing & Warm space",
+   "postcode": "CO8 5JG",
+   "website": "",
+   "directory": "Open Innovations: Braintree Council",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65b78e441313df589d965f90",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-braintree-council-hatfield-peverel-village-hall-cm3-2hp": {
+   "id": "oi-braintree-council-hatfield-peverel-village-hall-cm3-2hp",
+   "name": "Hatfield Peverel Village Hall",
+   "postcode": "CM3 2HP",
+   "website": "",
+   "directory": "Open Innovations: Braintree Council",
+   "directory_url": "https://braintree.essexfrontline.org.uk/Library/ServiceDetail/65450b7d854909afd096bc8c",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -11672,6 +11599,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-cherwell-council-the-beacon-ox16-0aa": {
+   "id": "oi-cherwell-council-the-beacon-ox16-0aa",
+   "name": "The Beacon",
+   "postcode": "OX16 0AA",
+   "website": "",
+   "directory": "Open Innovations: Cherwell Council",
+   "directory_url": "https://www.cherwell.gov.uk/info/118/communities/977/help-with-the-cost-of-living",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-cherwell-council-green-pastures-christian-nursing-home-ox16-0tt": {
    "id": "oi-cherwell-council-green-pastures-christian-nursing-home-ox16-0tt",
    "name": "Green Pastures Christian Nursing Home",
@@ -12707,7 +12651,7 @@
    "url": "https://park-play.com/register",
    "final_url": "https://park-play.com/register/",
    "http": 200,
-   "sha256": "71f07deef21c3b98a15aa4ece68b3d036a0ba5b99c2d9baffc3a01801702899b",
+   "sha256": "3fb2a8b2ae4e05d80aaf3b476297b565f165b489e224a608ffc1fc7d2c0b77ed",
    "etag": "",
    "last_modified": ""
   },
@@ -12814,47 +12758,13 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-communities-1st-st-luke-s-church-st-albans-al1-5qj": {
-   "id": "oi-communities-1st-st-luke-s-church-st-albans-al1-5qj",
-   "name": "St Luke's Church, St Albans",
-   "postcode": "AL1 5QJ",
+  "oi-communities-1st-st-michael-s-woolmer-green-warm-welcome-sg3-6xa": {
+   "id": "oi-communities-1st-st-michael-s-woolmer-green-warm-welcome-sg3-6xa",
+   "name": "St Michael's Woolmer Green Warm Welcome",
+   "postcode": "SG3 6XA",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-luke039s-church-st-albans/619359",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8ds": {
-   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8ds",
-   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
-   "postcode": "EN11 8DS",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618501",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-st-john-s-church-al51dj": {
-   "id": "oi-communities-1st-st-john-s-church-al51dj",
-   "name": "St John's Church",
-   "postcode": "AL51DJ",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-john039s-church/632810",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-michael039s-woolmer-green-warm-welcome/626941",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -12882,132 +12792,13 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-communities-1st-shrimad-rajchandra-mission-dharampur-srmd-uk-wd23-3ad": {
-   "id": "oi-communities-1st-shrimad-rajchandra-mission-dharampur-srmd-uk-wd23-3ad",
-   "name": "Shrimad Rajchandra Mission Dharampur (SRMD) UK",
-   "postcode": "WD23 3AD",
+  "oi-communities-1st-radlett-reform-synagogue-wd7-7aa": {
+   "id": "oi-communities-1st-radlett-reform-synagogue-wd7-7aa",
+   "name": "Radlett Reform Synagogue",
+   "postcode": "WD7 7AA",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/shrimad-rajchandra-mission-dharampur-srmd-uk/702496",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-hertfordshire-libraries-al4-9tu": {
-   "id": "oi-communities-1st-hertfordshire-libraries-al4-9tu",
-   "name": "Hertfordshire Libraries",
-   "postcode": "AL4 9TU",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628727",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8hx": {
-   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8hx",
-   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
-   "postcode": "EN11 8HX",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618499",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-the-youth-booth-hp2-4ew": {
-   "id": "oi-communities-1st-the-youth-booth-hp2-4ew",
-   "name": "The Youth Booth",
-   "postcode": "HP2 4EW",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/the-youth-booth/632041",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-st-peter-s-church-st-albans-al1-3hg": {
-   "id": "oi-communities-1st-st-peter-s-church-st-albans-al1-3hg",
-   "name": "St Peter's Church, St Albans",
-   "postcode": "AL1 3HG",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-peter039s-church-st-albans/629651",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-offley-warm-hub-sg5-3dx": {
-   "id": "oi-communities-1st-offley-warm-hub-sg5-3dx",
-   "name": "Offley Warm Hub",
-   "postcode": "SG5 3DX",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/offley-warm-hub/637311",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en8-7dp": {
-   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en8-7dp",
-   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
-   "postcode": "EN8 7DP",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618632",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-red-trust-bushey-wd23-1bd": {
-   "id": "oi-communities-1st-red-trust-bushey-wd23-1bd",
-   "name": "Red Trust Bushey",
-   "postcode": "WD23 1BD",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/red-trust-bushey/614743",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/radlett-reform-synagogue/628822",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -13035,23 +12826,6 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-communities-1st-st-luke-s-church-bricket-wood-al2-3qp": {
-   "id": "oi-communities-1st-st-luke-s-church-bricket-wood-al2-3qp",
-   "name": "St Luke's Church, Bricket Wood",
-   "postcode": "AL2 3QP",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-luke039s-church-bricket-wood/755251",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
   "oi-communities-1st-ymca-chiltern-group-wd25-7qu": {
    "id": "oi-communities-1st-ymca-chiltern-group-wd25-7qu",
    "name": "YMCA Chiltern Group",
@@ -13059,23 +12833,6 @@
    "website": "",
    "directory": "Open Innovations: Communities 1st",
    "directory_url": "https://www.communities1st.org.uk/warm-hubs/ymca-chiltern-group/637118",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-hertfordshire-libraries-al5-2ru": {
-   "id": "oi-communities-1st-hertfordshire-libraries-al5-2ru",
-   "name": "Hertfordshire Libraries",
-   "postcode": "AL5 2RU",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628728",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -13103,13 +12860,217 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-communities-1st-hertfordshire-libraries-wd7-8hl": {
-   "id": "oi-communities-1st-hertfordshire-libraries-wd7-8hl",
-   "name": "Hertfordshire Libraries",
-   "postcode": "WD7 8HL",
+  "oi-communities-1st-sopwell-residents-association-al1-2ef": {
+   "id": "oi-communities-1st-sopwell-residents-association-al1-2ef",
+   "name": "Sopwell Residents Association",
+   "postcode": "AL1 2EF",
    "website": "",
    "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628732",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/sopwell-residents-association/627023",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en76lb": {
+   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en76lb",
+   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
+   "postcode": "EN76LB",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618634",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-offley-warm-hub-sg5-3dx": {
+   "id": "oi-communities-1st-offley-warm-hub-sg5-3dx",
+   "name": "Offley Warm Hub",
+   "postcode": "SG5 3DX",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/offley-warm-hub/637311",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-hertfordshire-libraries-al4-9tu": {
+   "id": "oi-communities-1st-hertfordshire-libraries-al4-9tu",
+   "name": "Hertfordshire Libraries",
+   "postcode": "AL4 9TU",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628727",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-the-youth-booth-hp2-4ew": {
+   "id": "oi-communities-1st-the-youth-booth-hp2-4ew",
+   "name": "The Youth Booth",
+   "postcode": "HP2 4EW",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/the-youth-booth/632041",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-st-john-s-church-al51dj": {
+   "id": "oi-communities-1st-st-john-s-church-al51dj",
+   "name": "St John's Church",
+   "postcode": "AL51DJ",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-john039s-church/632810",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-hertfordshire-libraries-al5-2ru": {
+   "id": "oi-communities-1st-hertfordshire-libraries-al5-2ru",
+   "name": "Hertfordshire Libraries",
+   "postcode": "AL5 2RU",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/hertfordshire-libraries/628728",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-shrimad-rajchandra-mission-dharampur-srmd-uk-wd23-3ad": {
+   "id": "oi-communities-1st-shrimad-rajchandra-mission-dharampur-srmd-uk-wd23-3ad",
+   "name": "Shrimad Rajchandra Mission Dharampur (SRMD) UK",
+   "postcode": "WD23 3AD",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/shrimad-rajchandra-mission-dharampur-srmd-uk/702496",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en8-7ga": {
+   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en8-7ga",
+   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
+   "postcode": "EN8 7GA",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618633",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-st-luke-s-church-st-albans-al1-5qj": {
+   "id": "oi-communities-1st-st-luke-s-church-st-albans-al1-5qj",
+   "name": "St Luke's Church, St Albans",
+   "postcode": "AL1 5QJ",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-luke039s-church-st-albans/619359",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-st-mary-s-welwyn-church-al6-9lx": {
+   "id": "oi-communities-1st-st-mary-s-welwyn-church-al6-9lx",
+   "name": "St Mary's Welwyn Church",
+   "postcode": "AL6 9LX",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/st-mary039s-welwyn-church/628756",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-london-colney-parish-council-al2-1pu": {
+   "id": "oi-communities-1st-london-colney-parish-council-al2-1pu",
+   "name": "London Colney Parish Council",
+   "postcode": "AL2 1PU",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/london-colney-parish-council/637131",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8ds": {
+   "id": "oi-communities-1st-churches-together-in-hoddesdon-broxbourne-and-wormley-en11-8ds",
+   "name": "Churches Together in Hoddesdon, Broxbourne and Wormley",
+   "postcode": "EN11 8DS",
+   "website": "",
+   "directory": "Open Innovations: Communities 1st",
+   "directory_url": "https://www.communities1st.org.uk/warm-hubs/churches-together-in-hoddesdon-broxbourne-and-wormley/618501",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -13127,40 +13088,6 @@
    "website": "",
    "directory": "Open Innovations: Communities 1st",
    "directory_url": "https://www.communities1st.org.uk/warm-hubs/marshalswick-baptist-free-church/637124",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-green-connections-cic-wd6-1pn": {
-   "id": "oi-communities-1st-green-connections-cic-wd6-1pn",
-   "name": "Green Connections CIC",
-   "postcode": "WD6 1PN",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/green-connections-cic/717861",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-communities-1st-leeanna-s-wish-al1-2ef": {
-   "id": "oi-communities-1st-leeanna-s-wish-al1-2ef",
-   "name": "LeeAnna's Wish",
-   "postcode": "AL1 2EF",
-   "website": "",
-   "directory": "Open Innovations: Communities 1st",
-   "directory_url": "https://www.communities1st.org.uk/warm-hubs/leeanna039s-wish/630917",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -13919,6 +13846,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-coventry-council-coundon-library-cv6-1ab": {
+   "id": "oi-coventry-council-coundon-library-cv6-1ab",
+   "name": "Coundon Library",
+   "postcode": "CV6 1AB",
+   "website": "",
+   "directory": "Open Innovations: Coventry Council",
+   "directory_url": "https://www.coventry.gov.uk/directory-record/58815/coundon-library",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-coventry-council-cheylesmore-library-cv3-5jx": {
    "id": "oi-coventry-council-cheylesmore-library-cv3-5jx",
    "name": "Cheylesmore Library",
@@ -13943,6 +13887,23 @@
    "website": "",
    "directory": "Open Innovations: Coventry Council",
    "directory_url": "https://www.coventry.gov.uk/directory-record/59020/coventry-city-mission",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-coventry-council-bell-green-library-cv2-1ne": {
+   "id": "oi-coventry-council-bell-green-library-cv2-1ne",
+   "name": "Bell Green Library",
+   "postcode": "CV2 1NE",
+   "website": "",
+   "directory": "Open Innovations: Coventry Council",
+   "directory_url": "https://www.coventry.gov.uk/directory-record/58810/bell-green-library",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -21637,6 +21598,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-hinckley-and-bosworth-council-kingscroft-bowls-club-le9-7nl": {
+   "id": "oi-hinckley-and-bosworth-council-kingscroft-bowls-club-le9-7nl",
+   "name": "Kingscroft Bowls Club",
+   "postcode": "LE9 7NL",
+   "website": "",
+   "directory": "Open Innovations: Hinckley and Bosworth Council",
+   "directory_url": "https://www.facebook.com/esbaptistchurch/?locale=en_GB",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-hinckley-and-bosworth-council-groby-community-library-le6-0dq": {
    "id": "oi-hinckley-and-bosworth-council-groby-community-library-le6-0dq",
    "name": "Groby Community Library",
@@ -27446,44 +27424,27 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-richmond-upon-thames-council-crosslight-advice-mortlake-sw14-8ez": {
+   "id": "oi-richmond-upon-thames-council-crosslight-advice-mortlake-sw14-8ez",
+   "name": "Crosslight Advice - Mortlake",
+   "postcode": "SW14 8EZ",
+   "website": "",
+   "directory": "Open Innovations: Richmond upon Thames Council",
+   "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-richmond-upon-thames-council-food-bank-at-the-powerstation-sw14-8sn": {
    "id": "oi-richmond-upon-thames-council-food-bank-at-the-powerstation-sw14-8sn",
    "name": "Food bank at the Powerstation",
    "postcode": "SW14 8SN",
-   "website": "",
-   "directory": "Open Innovations: Richmond upon Thames Council",
-   "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-richmond-upon-thames-council-holy-trinity-barnes-sw13-9et": {
-   "id": "oi-richmond-upon-thames-council-holy-trinity-barnes-sw13-9et",
-   "name": "Holy Trinity Barnes",
-   "postcode": "SW13 9ET",
-   "website": "",
-   "directory": "Open Innovations: Richmond upon Thames Council",
-   "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "oi-richmond-upon-thames-council-mortlake-community-association-sw14-8ez": {
-   "id": "oi-richmond-upon-thames-council-mortlake-community-association-sw14-8ez",
-   "name": "Mortlake Community Association",
-   "postcode": "SW14 8EZ",
    "website": "",
    "directory": "Open Innovations: Richmond upon Thames Council",
    "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
@@ -27548,9 +27509,9 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-richmond-upon-thames-council-hampton-and-hampton-hill-community-care-tw12-1ql": {
-   "id": "oi-richmond-upon-thames-council-hampton-and-hampton-hill-community-care-tw12-1ql",
-   "name": "Hampton and Hampton Hill Community Care",
+  "oi-richmond-upon-thames-council-hampton-and-hampton-hill-voluntary-care-tw12-1ql": {
+   "id": "oi-richmond-upon-thames-council-hampton-and-hampton-hill-voluntary-care-tw12-1ql",
+   "name": "Hampton and Hampton Hill Voluntary Care",
    "postcode": "TW12 1QL",
    "website": "",
    "directory": "Open Innovations: Richmond upon Thames Council",
@@ -27633,6 +27594,23 @@
    "etag": null,
    "last_modified": null
   },
+  "oi-richmond-upon-thames-council-crosslight-advice-sheen-tw9-1up": {
+   "id": "oi-richmond-upon-thames-council-crosslight-advice-sheen-tw9-1up",
+   "name": "Crosslight Advice - Sheen",
+   "postcode": "TW9 1UP",
+   "website": "",
+   "directory": "Open Innovations: Richmond upon Thames Council",
+   "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
   "oi-richmond-upon-thames-council-richmond-soup-kitchen-tw9-2na": {
    "id": "oi-richmond-upon-thames-council-richmond-soup-kitchen-tw9-2na",
    "name": "Richmond Soup Kitchen",
@@ -27650,9 +27628,9 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-richmond-upon-thames-council-food-bank-at-st-michael-apos-s-fulwell-tw11-0sp": {
-   "id": "oi-richmond-upon-thames-council-food-bank-at-st-michael-apos-s-fulwell-tw11-0sp",
-   "name": "Food bank at St Michael's Fulwell",
+  "oi-richmond-upon-thames-council-crosslight-advice-fulwell-tw11-0sp": {
+   "id": "oi-richmond-upon-thames-council-crosslight-advice-fulwell-tw11-0sp",
+   "name": "Crosslight Advice - Fulwell",
    "postcode": "TW11 0SP",
    "website": "",
    "directory": "Open Innovations: Richmond upon Thames Council",
@@ -27757,6 +27735,23 @@
    "id": "oi-richmond-upon-thames-council-crosslight-advice-east-twickenham-tw1-2pd",
    "name": "Crosslight Advice - East Twickenham",
    "postcode": "TW1 2PD",
+   "website": "",
+   "directory": "Open Innovations: Richmond upon Thames Council",
+   "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  "oi-richmond-upon-thames-council-crosslight-advice-twickenham-tw1-1rl": {
+   "id": "oi-richmond-upon-thames-council-crosslight-advice-twickenham-tw1-1rl",
+   "name": "Crosslight Advice - Twickenham",
+   "postcode": "TW1 1RL",
    "website": "",
    "directory": "Open Innovations: Richmond upon Thames Council",
    "directory_url": "https://richmond.gov.uk/services/cost_of_living_hub/warm_spaces",
@@ -37916,9 +37911,9 @@
    "etag": null,
    "last_modified": null
   },
-  "oi-west-northamptonshire-hartwell-parish-council-s-warm-room-nn7-2he": {
-   "id": "oi-west-northamptonshire-hartwell-parish-council-s-warm-room-nn7-2he",
-   "name": "Hartwell Parish Council's Warm Room",
+  "oi-west-northamptonshire-hartwell-youth-club-nn7-2he": {
+   "id": "oi-west-northamptonshire-hartwell-youth-club-nn7-2he",
+   "name": "Hartwell Youth Club",
    "postcode": "NN7 2HE",
    "website": "",
    "directory": "Open Innovations: West Northamptonshire",
@@ -38729,57 +38724,6 @@
    "url": "",
    "final_url": null,
    "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "ww-69388174": {
-   "id": "ww-69388174",
-   "name": "St David's Community Food Larder and Cafe",
-   "postcode": "NN2 7QB",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28652",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "ww-69396060": {
-   "id": "ww-69396060",
-   "name": "Rugby Methodist Church Centre",
-   "postcode": "CV22 7TB",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=27440",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "ww-69405086": {
-   "id": "ww-69405086",
-   "name": "St Nicholas Hall (Tuesday Coffee Morning)",
-   "postcode": "HU4 6SA",
-   "website": "http://www.stnicholashull.org",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=23053",
-   "reasons": [
-    "own site unreachable (HTTP error)"
-   ],
-   "url": "http://www.stnicholashull.org",
-   "final_url": "http://www.stnicholashull.org",
-   "http": "error",
    "sha256": null,
    "etag": null,
    "last_modified": null

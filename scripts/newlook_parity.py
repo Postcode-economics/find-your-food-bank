@@ -19,6 +19,7 @@ def grab(port):
         def rt(route):
             r=route.fetch();t=r.text();i=t.index('\n})();')+1;route.fulfill(response=r,body=t[:i]+'window.__detail=detail;'+t[i:])
         pg.route('**/layers.js*',rt)
+        B.stub_map_tiles(pg)  # page route is checked first; keep tiles on the placeholder
         B.goto(pg,f"http://127.0.0.1:{port}/?fresh=1");pg.wait_for_timeout(1500)
         for f in ("shelters.js","warmspaces.js"): pg.add_script_tag(url=f"http://127.0.0.1:{port}/{f}")
         pg.wait_for_timeout(800);r=pg.evaluate(JS);b.close();return r
