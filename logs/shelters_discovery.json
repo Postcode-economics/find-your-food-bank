@@ -1,8 +1,8 @@
 {
- "run": "2026-10-26",
+ "run": "2026-10-27",
  "candidates": 61,
- "already_on_map": 4,
- "new": 57,
+ "already_on_map": 5,
+ "new": 56,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -12,8 +12,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "b4a404850333399fc44eae74bc4b9acf20490456f24643b3a0dd4187bd0f13ae",
-   "etag": "\"5734-1793008738;;;\"",
+   "sha256": "1e016d88bef576b97a9ee52490fac1da870197ebd05bedfd8792a97d7bb69d2c",
+   "etag": "\"5809-1793074175;;;\"",
    "last_modified": ""
   },
   {
@@ -36,7 +36,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "628f0b398bf5ac940f353123dedede9a7bd74b2b02912d790507ad7b5723ff3d",
+   "sha256": "6bf6c3e868a966b1c835b06676af872025b92586804cc86a24cdbdc6f26f4060",
    "etag": "",
    "last_modified": ""
   },
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "6685b4ca6469cd57eb0f76196522f9b5570956dbf92aa03e54d744558963288e",
+   "sha256": "7e92ebf09dd00627b1d6441599ff52bdb6bd56e4ff3c0c0b4d017dcb47113661",
    "etag": "",
    "last_modified": ""
   }
@@ -68,7 +68,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "f0ba0c19a64d5ae91737a44804e071ec1625a34d6382bf0846c49fcf0b1cdd62",
+   "sha256": "bbf6e8f2b0a1cbc062b44274c8e151c906e0cccb69ffecbe2f72c54978818c22",
    "etag": "",
    "last_modified": ""
   },
@@ -139,7 +139,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "f3c67e85ec932a17f47be187112c8519d43a61b49f5f00178e563f867871b440",
+   "sha256": "30b9f99594ebe01d8ad26b60c9f12340e6ce9cccd23261fb04b41628f3752b03",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "3284deb58b9032fb3df121152ceaf527da94fd0027d9493ca326762f1b3b8861",
+   "sha256": "975308834aa68b03132f0d805967d5993d860fdfcea6c7362737b54d0420f49a",
    "etag": "",
    "last_modified": ""
   },
@@ -493,15 +493,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "fef4c366189ff0a357711aab6f40cfeee1716fbfbd2e84e83d5a1eb4ba6ebc2f",
+   "etag": "",
+   "last_modified": ""
   },
   {
    "id": "osm-way-699201604",
@@ -552,8 +551,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
-   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
+   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
+   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
    "last_modified": ""
   },
   {
@@ -677,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "3eebcc889be13d197be617720574edaf88b3f06943b858ebb6416c5c5289d7a0",
+   "sha256": "4192210ee1e68022056a36649d06499083698d23df97e8f661338d41a6de2930",
    "etag": "",
    "last_modified": ""
   },
@@ -762,9 +761,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "9ccd92af85cf1ecc0006f95260fab2ce53d526659dca56498692dc8ea3d1008b",
+   "sha256": "e887d9a2f3afa0a7fad4092d87a3a9b81126596ff0d7eab733f57f10cdf18ce4",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 09:31:51 GMT"
+   "last_modified": "Tue, 27 Oct 2026 00:03:29 GMT"
   },
   {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -832,7 +831,7 @@
    "http": 200,
    "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 19:36:30 GMT"
+   "last_modified": "Tue, 27 Oct 2026 01:36:55 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -882,8 +881,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "86927de8d9a8cc9c2a32a5a6a8d21d70894ea447d66d4c41fcd3c4a745fa4306",
-   "etag": "W/\"21f5b-lV1BdIFaaMH6qMiWozNIpjxEpAA\"",
+   "sha256": "e0f28ea671cf738142acf53f5dc2b73a3ceac83beecdc693cd3935c4b0929d95",
+   "etag": "W/\"21f59-72UcGmjOr2rapxpDoZZMHcpqqeE\"",
    "last_modified": ""
   },
   {
@@ -970,27 +969,6 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
-  },
-  {
-   "id": "hl-catalyst-britannia-foyer",
-   "name": "Catalyst - Britannia Foyer",
-   "postcode": "EN8 9XD",
-   "website": "http://www.broxbourne.gov.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
-   "reasons": [
-    "directory link is a council page, not the place's own site",
-    "name says foyer / supported housing / day centre, not an emergency shelter",
-    "own site does not name it",
-    "own site does not show it is a shelter/emergency accommodation",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "6d59a12be4d31cd81b36c918da7abdaa65ad36cff0a297a08f24168ce2831ae5",
-   "etag": "",
-   "last_modified": ""
   }
  ],
  "rejected": []

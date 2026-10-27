@@ -1,25 +1,11 @@
 {
- "day": "2026-10-26",
+ "day": "2026-10-27",
  "runs": [
   {
    "at": "05:22Z",
    "source": "shelters_discovery.json",
    "added": 4,
-   "queued": 51,
-   "rejected": 0
-  },
-  {
-   "at": "15:28Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 17,
-   "rejected": 0
-  },
-  {
-   "at": "21:17Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 53,
+   "queued": 52,
    "rejected": 0
   }
  ],
@@ -32,8 +18,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "7a8154274e4e2872b514bce023cd13446b4ff8642cd7faf0382b9622b2848f44",
-   "etag": "\"5630-1792988897;;;\"",
+   "sha256": "1e016d88bef576b97a9ee52490fac1da870197ebd05bedfd8792a97d7bb69d2c",
+   "etag": "\"5809-1793074175;;;\"",
    "last_modified": "",
    "upcoming": null,
    "scheme_start": null,
@@ -62,7 +48,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "04dec236c975bf0afa72f9d158e709181a49527956a72fae469e43aceb2d77e0",
+   "sha256": "6bf6c3e868a966b1c835b06676af872025b92586804cc86a24cdbdc6f26f4060",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -77,7 +63,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "12c3c0fc4fa1fcb0c7bd7c81a9b16993fdf476100bc3f4b7f129d415647e1bda",
+   "sha256": "7e92ebf09dd00627b1d6441599ff52bdb6bd56e4ff3c0c0b4d017dcb47113661",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -100,7 +86,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "f0ba0c19a64d5ae91737a44804e071ec1625a34d6382bf0846c49fcf0b1cdd62",
+   "sha256": "bbf6e8f2b0a1cbc062b44274c8e151c906e0cccb69ffecbe2f72c54978818c22",
    "etag": "",
    "last_modified": ""
   },
@@ -171,7 +157,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "f3c67e85ec932a17f47be187112c8519d43a61b49f5f00178e563f867871b440",
+   "sha256": "30b9f99594ebe01d8ad26b60c9f12340e6ce9cccd23261fb04b41628f3752b03",
    "etag": "",
    "last_modified": ""
   },
@@ -242,7 +228,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "3284deb58b9032fb3df121152ceaf527da94fd0027d9493ca326762f1b3b8861",
+   "sha256": "975308834aa68b03132f0d805967d5993d860fdfcea6c7362737b54d0420f49a",
    "etag": "",
    "last_modified": ""
   },
@@ -525,15 +511,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "fef4c366189ff0a357711aab6f40cfeee1716fbfbd2e84e83d5a1eb4ba6ebc2f",
+   "etag": "",
+   "last_modified": ""
   },
   "osm-way-699201604": {
    "id": "osm-way-699201604",
@@ -584,8 +569,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "bb869858751d33222f2f27eaeb3b01538896485b0130c7aaa62e8077446388da",
-   "etag": "W/\"51f34344fc286950253679cfe2044c41\"",
+   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
+   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {
@@ -709,7 +694,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "3eebcc889be13d197be617720574edaf88b3f06943b858ebb6416c5c5289d7a0",
+   "sha256": "4192210ee1e68022056a36649d06499083698d23df97e8f661338d41a6de2930",
    "etag": "",
    "last_modified": ""
   },
@@ -794,9 +779,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "9ccd92af85cf1ecc0006f95260fab2ce53d526659dca56498692dc8ea3d1008b",
+   "sha256": "e887d9a2f3afa0a7fad4092d87a3a9b81126596ff0d7eab733f57f10cdf18ce4",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 09:31:51 GMT"
+   "last_modified": "Tue, 27 Oct 2026 00:03:29 GMT"
   },
   "hl-alabare-the-andover-foyer-sarum-house": {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -864,7 +849,7 @@
    "http": 200,
    "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 19:36:30 GMT"
+   "last_modified": "Tue, 27 Oct 2026 01:36:55 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -914,8 +899,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "86927de8d9a8cc9c2a32a5a6a8d21d70894ea447d66d4c41fcd3c4a745fa4306",
-   "etag": "W/\"21f5b-lV1BdIFaaMH6qMiWozNIpjxEpAA\"",
+   "sha256": "e0f28ea671cf738142acf53f5dc2b73a3ceac83beecdc693cd3935c4b0929d95",
+   "etag": "W/\"21f59-72UcGmjOr2rapxpDoZZMHcpqqeE\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
@@ -986,23 +971,6 @@
    "etag": null,
    "last_modified": null
   },
-  "hl-brighter-futures-90-hope-street": {
-   "id": "hl-brighter-futures-90-hope-street",
-   "name": "Brighter Futures - 90 Hope Street",
-   "postcode": "ST1 5BY",
-   "website": "http://www.brighter-futures.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/brighter-futures-90-hope-street/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "http://www.brighter-futures.org.uk",
-   "final_url": "https://brighter-futures.org.uk/",
-   "http": 200,
-   "sha256": "4f18afbd3fec2afaf220967f27674910b7423e157dfdb19860a701285badca72",
-   "etag": "",
-   "last_modified": "Mon, 26 Oct 2026 12:27:43 GMT"
-  },
   "hl-cardinal-hume-centre-hostel": {
    "id": "hl-cardinal-hume-centre-hostel",
    "name": "Cardinal Hume Centre Hostel",
@@ -1019,27 +987,6 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
-  },
-  "hl-catalyst-britannia-foyer": {
-   "id": "hl-catalyst-britannia-foyer",
-   "name": "Catalyst - Britannia Foyer",
-   "postcode": "EN8 9XD",
-   "website": "http://www.broxbourne.gov.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
-   "reasons": [
-    "directory link is a council page, not the place's own site",
-    "name says foyer / supported housing / day centre, not an emergency shelter",
-    "own site does not name it",
-    "own site does not show it is a shelter/emergency accommodation",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "6d59a12be4d31cd81b36c918da7abdaa65ad36cff0a297a08f24168ce2831ae5",
-   "etag": "",
-   "last_modified": ""
   }
  },
  "rejected": {}
