@@ -1,5 +1,5 @@
 {
- "_about": "Manually checked contact numbers for shelters whose source gave none. Read by scripts/shelter_contacts.py on every shelters build, so the 3x-daily refresh keeps them. 'phone' fills only when the source phone is empty. 'council_*' = the local council's homeless/housing options line (how to get a referral). Every number was copied from the operator's or council's own page (phone_source / council_url). Checked 2026-10-23.",
+ "_about": "Manually checked contact numbers for shelters whose source gave none. Read by scripts/shelter_contacts.py on every shelters build, so the 3x-daily refresh keeps them. 'phone' fills only when the source phone is empty. 'council_*' = the local council's homeless/housing options line (how to get a referral). Optional 'phone_label' (e.g. 'Central service line', 'Shared venue line') is copied when the place has a phone and shown under the number on the list card and the pin pop-up; it does not add a number. Every number was copied from the operator's or council's own page (phone_source / council_url). Checked 2026-10-23.",
  "_councils": {
   "portsmouth": {
    "council": "Portsmouth City Council Housing Needs",
