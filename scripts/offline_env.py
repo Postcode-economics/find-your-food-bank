@@ -47,7 +47,7 @@ def install():
     """Kept so older callers do not crash. DNS blocking is not installed.
 
     HELPMAP_OFFLINE_TILES routes tile hosts to a local tileserver. A
-    host-resolver rule that maps those hosts to ~NOTFOUND stops the
+    host-resolver rule that makes those names unresolvable stops the
     request before that route can answer it.
     """
     return False
