@@ -342,7 +342,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
 - QUEUED Shipshape Health and Wellbeing · S11 8AE · https://www.shipshape.org.uk — own site has no readable text
 
-### Shelters: 52 queued, 0 rejected
+### Shelters: 53 queued, 0 rejected
 - QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
@@ -395,10 +395,11 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
 - QUEUED Cardinal Hume Centre Hostel · http://https://www.cardinalhumecentre.org.uk — no valid postcode
+- QUEUED Catalyst - Britannia Foyer · EN8 9XD · http://www.broxbourne.gov.uk — directory link is a council page, not the place's own site; name says foyer / supported housing / day centre, not an emergency shelter; own site does not name it; own site does not show it is a shelte
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 2257 queued, 2 rejected
+### Warm spaces: 2258 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
