@@ -220,6 +220,8 @@ def main():
         lab = plabels.get(i['id'])
         if i.get('phone') and isinstance(lab, str) and lab.strip(): i['phone_label'] = lab.strip()
     phone_rule.suppress(items, holds)  # doubtful holds and Dean's own details stay off the card
+    import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
+    phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
