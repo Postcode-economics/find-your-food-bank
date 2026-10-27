@@ -193,9 +193,10 @@ if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=
 function offlineCheck(){if(!navigator.onLine)goOffline()}
 addEventListener('load',()=>{if(navigator.onLine&&!isOff)fetch('index.html',{cache:'no-store'}).then(r=>{if(r.ok&&!isOff)try{localStorage.setItem('savedAt',new Date().toISOString())}catch(e){}}).catch(goOffline)});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=55',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});  // versioned URL + no HTTP cache: Cloudflare's cached /sw.js can't hold clients on an old worker
-paint();for(const k in LAYERS){try{if(localStorage.getItem('lay_'+k)==='1')toggle(k,true)}catch(e){}}
+// 27 Oct 2026: the new header/legend DOM above is laid out in its own frame; paint() and saved layers run in the next turn so one iPhone frame does not do both.
+requestAnimationFrame(()=>setTimeout(()=>{paint();for(const k in LAYERS){try{if(localStorage.getItem('lay_'+k)==='1')toggle(k,true)}catch(e){}}
 const q=new URLSearchParams(location.search);['sh','ws'].forEach(k=>{if(q.get(k)==='1')toggle(k,true)});
-setTimeout(offlineCheck,500);
+setTimeout(offlineCheck,500)},0));
 })();
 
 // final4 (24 Oct): bold the trailing postcode on food bank card addresses, same <b> as shelter / warm-space cards
