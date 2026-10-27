@@ -546,16 +546,16 @@
  },
  "andover/unity": {
   "checked_date": "2026-10-26",
-  "previous": "Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "protected": true,
-  "quote": [
-   "Unity\n\n0330 400 4116\n\nOpening times\n\nMon\t10:00 - 16:00\nTue\t10:00 - 16:00\nWed\t10:00 - 16:00\nThu\t10:00 - 16:00\nFri\t10:00 - 16:00\nSat\tClosed\nSun\tClosed\n\nAddress\n\nEmergency Food Parcel only\nBus Station\nWest Street\nAndover\nSP10 1QP"
-  ],
   "raw": "Unity  0330 400 4116  Opening times  Mon 10:00 - 16:00 Tue 10:00 - 16:00 Wed 10:00 - 16:00 Thu 10:00 - 16:00 Fri 10:00 - 16:00 Sat Closed Sun Closed  Address  Emergency Food Parcel only Bus Station West Street Andover SP10 1QP",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://andover.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
   "structured": {
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
    "fri": [
     [
      "10:00",
@@ -574,19 +574,19 @@
      "16:00"
     ]
    ],
-   "tue": [
-    [
-     "10:00",
-     "16:00"
-    ]
-   ],
    "wed": [
     [
      "10:00",
      "16:00"
     ]
    ]
-  }
+  },
+  "previous": "Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "protected": true,
+  "quote": [
+   "Unity\n\n0330 400 4116\n\nOpening times\n\nMon\t10:00 - 16:00\nTue\t10:00 - 16:00\nWed\t10:00 - 16:00\nThu\t10:00 - 16:00\nFri\t10:00 - 16:00\nSat\tClosed\nSun\tClosed\n\nAddress\n\nEmergency Food Parcel only\nBus Station\nWest Street\nAndover\nSP10 1QP"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "anglesey": {
   "checked_date": "2026-10-20",
@@ -1311,14 +1311,7 @@
  },
  "bangor-ni": {
   "checked_date": "2026-10-26",
-  "previous": "Monday to Friday 10:00am to 5:00pm",
-  "protected": true,
-  "quote": [
-   "BT19 7QT\nGet directions\nCollection and delivery in exceptional circumstances\nCollection times",
-   "Monday\n11:00 am to 12:30 pm\nTuesday\nClosed\nWednesday\n6:30 pm to 8:00 pm\nThursday\nClosed\nFriday\n1:00 pm to 2:30 pm\nSaturday-Sunday\nClosed"
-  ],
   "raw": "BT19 7QT Get directions Collection and delivery in exceptional circumstances Collection times | Monday 11:00 am to 12:30 pm Tuesday Closed Wednesday 6:30 pm to 8:00 pm Thursday Closed Friday 1:00 pm to 2:30 pm Saturday-Sunday Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bangorni.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -1340,18 +1333,18 @@
      "20:00"
     ]
    ]
-  }
- },
- "bangor-ni/hom-portaferry": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Monday to Friday 10:00am to 5:00pm",
   "protected": true,
   "quote": [
-   "BT22 1NZ\nGet directions\nCollection only\nCollection times",
-   "Monday-Wednesday\nClosed\nThursday\n10:00 am to 12:00 pm\nFriday-Sunday\nClosed"
+   "BT19 7QT\nGet directions\nCollection and delivery in exceptional circumstances\nCollection times",
+   "Monday\n11:00 am to 12:30 pm\nTuesday\nClosed\nWednesday\n6:30 pm to 8:00 pm\nThursday\nClosed\nFriday\n1:00 pm to 2:30 pm\nSaturday-Sunday\nClosed"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "bangor-ni/hom-portaferry": {
+  "checked_date": "2026-10-26",
   "raw": "BT22 1NZ Get directions Collection only Collection times | Monday-Wednesday Closed Thursday 10:00 am to 12:00 pm Friday-Sunday Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bangorni.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -1361,7 +1354,14 @@
      "12:00"
     ]
    ]
-  }
+  },
+  "previous": "Monday to Friday 10:00am to 5:00pm",
+  "protected": true,
+  "quote": [
+   "BT22 1NZ\nGet directions\nCollection only\nCollection times",
+   "Monday-Wednesday\nClosed\nThursday\n10:00 am to 12:00 pm\nFriday-Sunday\nClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "barking": {
   "checked_date": "2026-10-20",
@@ -2771,14 +2771,7 @@
  },
  "bradford-north/church-on-the-way": {
   "checked_date": "2026-10-26",
-  "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
-  "protected": true,
-  "quote": [
-   "BD10 8SA\nGet directions\nCollection only\nCollection times",
-   "Monday\n12:30 pm to 3:00 pm\nTuesday-Sunday\nClosed\nChurch on the Way"
-  ],
   "raw": "BD10 8SA Get directions Collection only Collection times | Monday 12:30 pm to 3:00 pm Tuesday-Sunday Closed Church on the Way",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -2788,18 +2781,18 @@
      "15:00"
     ]
    ]
-  }
- },
- "bradford-north/guiseley": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
   "protected": true,
   "quote": [
-   "LS20 9AS\nGet directions\nCollection only\nCollection times",
-   "Monday-Thursday\nClosed\nFriday\n10:30 am to 12:30 pm\nSaturday-Sunday\nClosed\nGuiseley"
+   "BD10 8SA\nGet directions\nCollection only\nCollection times",
+   "Monday\n12:30 pm to 3:00 pm\nTuesday-Sunday\nClosed\nChurch on the Way"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "bradford-north/guiseley": {
+  "checked_date": "2026-10-26",
   "raw": "LS20 9AS Get directions Collection only Collection times | Monday-Thursday Closed Friday 10:30 am to 12:30 pm Saturday-Sunday Closed Guiseley",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -2809,18 +2802,18 @@
      "12:30"
     ]
    ]
-  }
- },
- "bradford-north/shipley": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
   "protected": true,
   "quote": [
-   "BD18 3QY\nGet directions\nCollection only\nCollection times",
-   "Monday\n4:00 pm to 6:00 pm\nTuesday-Wednesday\nClosed\nThursday\n4:00 pm to 6:00 pm\nFriday-Sunday\nClosed"
+   "LS20 9AS\nGet directions\nCollection only\nCollection times",
+   "Monday-Thursday\nClosed\nFriday\n10:30 am to 12:30 pm\nSaturday-Sunday\nClosed\nGuiseley"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "bradford-north/shipley": {
+  "checked_date": "2026-10-26",
   "raw": "BD18 3QY Get directions Collection only Collection times | Monday 4:00 pm to 6:00 pm Tuesday-Wednesday Closed Thursday 4:00 pm to 6:00 pm Friday-Sunday Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -2836,7 +2829,14 @@
      "18:00"
     ]
    ]
-  }
+  },
+  "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
+  "protected": true,
+  "quote": [
+   "BD18 3QY\nGet directions\nCollection only\nCollection times",
+   "Monday\n4:00 pm to 6:00 pm\nTuesday-Wednesday\nClosed\nThursday\n4:00 pm to 6:00 pm\nFriday-Sunday\nClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "bradford-north/st-lukes": {
   "checked_date": "2026-10-20",
@@ -2847,14 +2847,7 @@
  },
  "bradford-north/trinity-rawdon": {
   "checked_date": "2026-10-26",
-  "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
-  "protected": true,
-  "quote": [
-   "LS19 6AS\nGet directions\nCollection only\nCollection times",
-   "Monday\n11:00 am to 1:30 pm\nTuesday-Sunday\nClosed\nTrinity Church Rawdon"
-  ],
   "raw": "LS19 6AS Get directions Collection only Collection times | Monday 11:00 am to 1:30 pm Tuesday-Sunday Closed Trinity Church Rawdon",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -2864,18 +2857,18 @@
      "13:30"
     ]
    ]
-  }
- },
- "bradford-north/windhill": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
   "protected": true,
   "quote": [
-   "BD18 2NR\nGet directions\nCollection only\nCollection times",
-   "Monday\nClosed\nTuesday\n2:00 pm to 4:30 pm\nWednesday-Sunday\nClosed\nChristchurch Windhill"
+   "LS19 6AS\nGet directions\nCollection only\nCollection times",
+   "Monday\n11:00 am to 1:30 pm\nTuesday-Sunday\nClosed\nTrinity Church Rawdon"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "bradford-north/windhill": {
+  "checked_date": "2026-10-26",
   "raw": "BD18 2NR Get directions Collection only Collection times | Monday Closed Tuesday 2:00 pm to 4:30 pm Wednesday-Sunday Closed Christchurch Windhill",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -2885,7 +2878,14 @@
      "16:30"
     ]
    ]
-  }
+  },
+  "previous": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
+  "protected": true,
+  "quote": [
+   "BD18 2NR\nGet directions\nCollection only\nCollection times",
+   "Monday\nClosed\nTuesday\n2:00 pm to 4:30 pm\nWednesday-Sunday\nClosed\nChristchurch Windhill"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "bradford-on-avon": {
   "checked_date": "2026-10-20",
@@ -3897,65 +3897,64 @@
    ]
   }
  },
- "cardiff": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30 | Monday Closed Tuesday 1:00 pm to 3:00 pm | Wednesday-Friday Closed Saturday 11:00 am to 1:00 pm | Monday-Wednesday Closed Thursday 10:00 am to 12:00 pm | Monday 1:00 pm to 3:00 pm | Tuesday-Wednesday Closed Thursday 1:00 pm to 3:00 pm | Monday-Thursday Closed Friday 12:00 pm to 2:00 pm | Monday-Tuesday Closed Wednesday 1:00 pm to 3:00 pm | Thursday Closed Friday 11:30 am to 1:30 pm | Thursday 6:30 pm to 8:00 pm | Monday 12:30 pm to 2:30 pm | Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
- },
  "cardiff/cathays": {
-  "checked_date": "2026-10-26",
-  "previous": "Monday - Friday 09:30-13:30",
-  "protected": true,
-  "quote": [
-   "CF24 4ND\nGet directions\nCollection only\nCollection times",
-   "Monday\nClosed\nTuesday\n1:00 pm to 3:00 pm\nWednesday-Friday\nClosed\nSaturday\n11:00 am to 1:00 pm\nSunday\nClosed\nFBC Central"
-  ],
-  "raw": "CF24 4ND Get directions Collection only Collection times | Monday Closed Tuesday 1:00 pm to 3:00 pm Wednesday-Friday Closed Saturday 11:00 am to 1:00 pm Sunday Closed FBC Central",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
-   "sat": [
-    [
-     "11:00",
-     "13:00"
-    ]
-   ],
    "tue": [
     [
      "13:00",
      "15:00"
     ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
    ]
-  }
+  },
+  "raw": "Tuesday 1:00 pm to 3:00 pm; Saturday 11:00 am to 1:00 pm",
+  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardiff/central": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30 | Monday-Wednesday Closed Thursday 10:00 am to 12",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Thursday 10:00 am to 12:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardiff/ely": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Wednesday Closed Thursday 10:00 am to 12:00 pm | Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "raw": "Monday 1:00 pm to 3:00 pm; Thursday 1:00 pm to 3:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardiff/grangetown": {
-  "checked_date": "2026-10-26",
-  "previous": "Monday - Friday 09:30-13:30",
-  "protected": true,
-  "quote": [
-   "CF11 7HP\nGet directions\nCollection only\nCollection times",
-   "Monday-Thursday\nClosed\nFriday\n12:00 pm to 2:00 pm\nSaturday-Sunday\nClosed\nFBC Llanedeyrn"
-  ],
-  "raw": "CF11 7HP Get directions Collection only Collection times | Monday-Thursday Closed Friday 12:00 pm to 2:00 pm Saturday-Sunday Closed FBC Llanedeyrn",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "fri": [
@@ -3964,73 +3963,55 @@
      "14:00"
     ]
    ]
-  }
+  },
+  "raw": "Friday 12:00 pm to 2:00 pm",
+  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardiff/llanedeyrn": {
-  "checked_date": "2026-10-26",
-  "previous": "Monday - Friday 09:30-13:30",
-  "protected": true,
-  "quote": [
-   "CF23 9UL\nGet directions\nCollection only\nCollection times",
-   "Monday-Tuesday\nClosed\nWednesday\n1:00 pm to 3:00 pm\nThursday\nClosed\nFriday\n11:30 am to 1:30 pm\nSaturday-Sunday\nClosed\nFBC Splott"
-  ],
-  "raw": "CF23 9UL Get directions Collection only Collection times | Monday-Tuesday Closed Wednesday 1:00 pm to 3:00 pm Thursday Closed Friday 11:30 am to 1:30 pm Saturday-Sunday Closed FBC Splott",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
    "fri": [
     [
      "11:30",
      "13:30"
     ]
-   ],
+   ]
+  },
+  "raw": "Wednesday 1:00 pm to 3:00 pm; Friday 11:30 am to 1:30 pm",
+  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
+ },
+ "cardiff/splott": {
+  "status": "TIMES_FOUND",
+  "structured": {
    "wed": [
     [
      "13:00",
      "15:00"
     ]
-   ]
-  }
- },
- "cardiff/splott": {
-  "checked_date": "2026-10-26",
-  "previous": "Monday - Friday 09:30-13:30",
-  "protected": true,
-  "quote": [
-   "CF24 2BW\nGet directions\nCollection only\nCollection times",
-   "Monday-Tuesday\nClosed\nWednesday\n1:00 pm to 3:00 pm\nThursday\n6:30 pm to 8:00 pm\nFriday-Sunday\nClosed\nFBC St Mellons"
-  ],
-  "raw": "CF24 2BW Get directions Collection only Collection times | Monday-Tuesday Closed Wednesday 1:00 pm to 3:00 pm Thursday 6:30 pm to 8:00 pm Friday-Sunday Closed FBC St Mellons",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_FOUND",
-  "structured": {
+   ],
    "thu": [
     [
      "18:30",
      "20:00"
     ]
-   ],
-   "wed": [
-    [
-     "13:00",
-     "15:00"
-    ]
    ]
-  }
+  },
+  "raw": "Wednesday 1:00 pm to 3:00 pm; Thursday 6:30 pm to 8:00 pm",
+  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardiff/st-mellons": {
-  "checked_date": "2026-10-26",
-  "previous": "Monday - Friday 09:30-13:30",
-  "protected": true,
-  "quote": [
-   "CF3 0EH\nGet directions\nCollection only\nCollection times",
-   "Monday\n12:30 pm to 2:30 pm\nTuesday-Sunday\nClosed\nFBC Tongwynlais"
-  ],
-  "raw": "CF3 0EH Get directions Collection only Collection times | Monday 12:30 pm to 2:30 pm Tuesday-Sunday Closed FBC Tongwynlais",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -4039,14 +4020,26 @@
      "14:30"
     ]
    ]
-  }
+  },
+  "raw": "Monday 12:30 pm to 2:30 pm",
+  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardiff/tongwynlais": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  },
+  "raw": "Wednesday 2:00 pm to 4:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (Cardiff Foodbank centre cards on the own site, matched by centre name; 'phone lines are monitored' office hours ignored; Dean approved 20:30)"
  },
  "cardigan": {
   "checked_date": "2026-10-20",
@@ -5917,14 +5910,7 @@
  },
  "dunbar-foodshare": {
   "checked_date": "2026-10-26",
-  "note": "Wednesday only. Café hours (10.30am-1.45pm) are not client hours.",
-  "previous": "Wednesdays between 12pm and 2.00pm. Our Social Café is open from 10.30am until 1.45pm",
-  "protected": true,
-  "quote": [
-   "We are open to clients on Wednesdays between 12pm and 2.00pm."
-  ],
   "raw": "We are open to clients on Wednesdays between 12pm and 2.00pm.",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://www.dunbarfoodshare.org/visit",
   "status": "TIMES_FOUND",
   "structured": {
@@ -5934,7 +5920,14 @@
      "14:00"
     ]
    ]
-  }
+  },
+  "note": "Wednesday only. Café hours (10.30am-1.45pm) are not client hours.",
+  "previous": "Wednesdays between 12pm and 2.00pm. Our Social Café is open from 10.30am until 1.45pm",
+  "protected": true,
+  "quote": [
+   "We are open to clients on Wednesdays between 12pm and 2.00pm."
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "dundee-angus": {
   "checked_date": "2026-10-20",
@@ -7082,13 +7075,7 @@
  },
  "eastern-valley/victory-church": {
   "checked_date": "2026-10-26",
-  "previous": "Opening times Mon Closed Tue Closed Wed 13:30 - 16:00 Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "protected": true,
-  "quote": [
-   "Victory Church Blaenavon - Broad Street NP4 9NE.- site closed on bank holidays\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\tClosed\nThu\t13:00 - 15:00\nFri\tClosed\nSat\tClosed\nSun\tClosed"
-  ],
   "raw": "Victory Church Blaenavon - Broad Street NP4 9NE.- site closed on bank holidays  Opening times  Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 Fri Closed Sat Closed Sun Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://easternvalley.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -7098,7 +7085,13 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "previous": "Opening times Mon Closed Tue Closed Wed 13:30 - 16:00 Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "protected": true,
+  "quote": [
+   "Victory Church Blaenavon - Broad Street NP4 9NE.- site closed on bank holidays\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\tClosed\nThu\t13:00 - 15:00\nFri\tClosed\nSat\tClosed\nSun\tClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "eastleigh-basics-bank": {
   "checked_date": "2026-10-20",
@@ -7646,13 +7639,7 @@
  },
  "farnborough/christ-church-cove": {
   "checked_date": "2026-10-26",
-  "previous": "Opening times Mon Closed Tue 14:00 - 16:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "protected": true,
-  "quote": [
-   "Christ Church, Cove, GU14 0EX\n\n01252 331668 and WHATSAPP Number\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\t12:00 - 14:30\nThu\tClosed\nFri\tClosed\nSat\tClosed\nSun\tClosed"
-  ],
   "raw": "Christ Church, Cove, GU14 0EX  01252 331668 and WHATSAPP Number  Opening times  Mon Closed Tue Closed Wed 12:00 - 14:30 Thu Closed Fri Closed Sat Closed Sun Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://farnborough.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -7662,7 +7649,13 @@
      "14:30"
     ]
    ]
-  }
+  },
+  "previous": "Opening times Mon Closed Tue 14:00 - 16:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "protected": true,
+  "quote": [
+   "Christ Church, Cove, GU14 0EX\n\n01252 331668 and WHATSAPP Number\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\t12:00 - 14:30\nThu\tClosed\nFri\tClosed\nSat\tClosed\nSun\tClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "farnham": {
   "checked_date": "2026-10-20",
@@ -9742,15 +9735,7 @@
  },
  "hedge-end": {
   "checked_date": "2026-10-26",
-  "previous": "Thursdays 10:00-12:30",
-  "protected": true,
-  "quote": [
-   "We run the Food Centre in two different formats: a Food Bank on Mondays and a Food Pantry on Thursdays.",
-   "Time: Mondays 10:00-13:00",
-   "Time: Thursdays 10:00-12:30"
-  ],
   "raw": "We run the Food Centre in two different formats: a Food Bank on Mondays and a Food Pantry on Thursdays. | Time: Mondays 10:00-13:00 | Time: Thursdays 10:00-12:30",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)",
   "source_url": "https://www.kingscommunitychurch.co.uk/foodcentre",
   "status": "TIMES_FOUND",
   "structured": {
@@ -9766,7 +9751,15 @@
      "12:30"
     ]
    ]
-  }
+  },
+  "previous": "Thursdays 10:00-12:30",
+  "protected": true,
+  "quote": [
+   "We run the Food Centre in two different formats: a Food Bank on Mondays and a Food Pantry on Thursdays.",
+   "Time: Mondays 10:00-13:00",
+   "Time: Thursdays 10:00-12:30"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)"
  },
  "helensburgh-lomond": {
   "checked_date": "2026-10-26",
@@ -10928,14 +10921,7 @@
  },
  "kings-darlington": {
   "checked_date": "2026-10-26",
-  "note": "Wednesday '12:00pm (Taste & See)' has no end time and is left out (unclear under rule 27); Tue, Fri-Sun Closed.",
-  "previous": "Monday: Tuesday: Wednesday: Thursday: Friday: Saturday: Sunday: 10:00am - 4:00pm",
-  "protected": true,
-  "quote": [
-   "Opening Times\nMonday:\nTuesday:\nWednesday:\nThursday:\nFriday:\nSaturday:\nSunday:\n10:00am - 4:00pm\nClosed\n12:00pm (Taste & See)\n10:00am - 4:00pm\nClosed\nClosed\nClosed"
-  ],
   "raw": "Opening Times Monday: Tuesday: Wednesday: Thursday: Friday: Saturday: Sunday: 10:00am - 4:00pm Closed 12:00pm (Taste & See) 10:00am - 4:00pm Closed Closed Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://www.kingsdarlington.org/foodbank",
   "status": "TIMES_FOUND",
   "structured": {
@@ -10951,7 +10937,14 @@
      "16:00"
     ]
    ]
-  }
+  },
+  "note": "Wednesday '12:00pm (Taste & See)' has no end time and is left out (unclear under rule 27); Tue, Fri-Sun Closed.",
+  "previous": "Monday: Tuesday: Wednesday: Thursday: Friday: Saturday: Sunday: 10:00am - 4:00pm",
+  "protected": true,
+  "quote": [
+   "Opening Times\nMonday:\nTuesday:\nWednesday:\nThursday:\nFriday:\nSaturday:\nSunday:\n10:00am - 4:00pm\nClosed\n12:00pm (Taste & See)\n10:00am - 4:00pm\nClosed\nClosed\nClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "kings-lynn/st-faiths-community-hub": {
   "card_name": "Gaywood (St Faith's Community Hub)",
@@ -11048,13 +11041,7 @@
  },
  "kington": {
   "checked_date": "2026-10-26",
-  "previous": "Monday 12:15 - 13:00 | Fridays 10:00 - 11:00",
-  "protected": true,
-  "quote": [
-   "OPEN EVERY WEEK\nFridays\n11:30 – 13:30\nParish Hall, Church Road, Kington, Herefordshire HR5 3AG"
-  ],
   "raw": "OPEN EVERY WEEK Fridays 11:30 – 13:30 Parish Hall, Church Road, Kington, Herefordshire HR5 3AG",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://kingtonfoodbank.org.uk/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -11064,7 +11051,13 @@
      "13:30"
     ]
    ]
-  }
+  },
+  "previous": "Monday 12:15 - 13:00 | Fridays 10:00 - 11:00",
+  "protected": true,
+  "quote": [
+   "OPEN EVERY WEEK\nFridays\n11:30 – 13:30\nParish Hall, Church Road, Kington, Herefordshire HR5 3AG"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "kinmel-bay-church": {
   "checked_date": "2026-10-20",
@@ -11128,14 +11121,7 @@
  },
  "lambeth-croydon": {
   "checked_date": "2026-10-26",
-  "previous": "Monday-Friday, 12-2pm",
-  "protected": true,
-  "quote": [
-   "SW2 3UP\nGet directions\nCollection only\nCollection times",
-   "Monday\n12:00 pm to 3:00 pm\nTuesday-Sunday\nClosed\nWe will contact you to arrange collection, please do not turn up until we have been in touch.\nWaterloo"
-  ],
   "raw": "SW2 3UP Get directions Collection only Collection times | Monday 12:00 pm to 3:00 pm Tuesday-Sunday Closed We will contact you to arrange collection, please do not turn up until we have been in touch. Waterloo",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://lambethcroydon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -11145,7 +11131,14 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "previous": "Monday-Friday, 12-2pm",
+  "protected": true,
+  "quote": [
+   "SW2 3UP\nGet directions\nCollection only\nCollection times",
+   "Monday\n12:00 pm to 3:00 pm\nTuesday-Sunday\nClosed\nWe will contact you to arrange collection, please do not turn up until we have been in touch.\nWaterloo"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "lambeth-croydon/brixton": {
   "card_name": "Brixton Hub - appointment only",
@@ -11173,14 +11166,7 @@
  },
  "lambeth-croydon/dulwich": {
   "checked_date": "2026-10-26",
-  "previous": "Monday-Friday, 12-2pm",
-  "protected": true,
-  "quote": [
-   "SE21 8BU\nGet directions\nCollection only\nCollection times",
-   "Monday-Wednesday\nClosed\nThursday\n11:30 am to 1:30 pm\nFriday-Sunday\nClosed\nWe will contact you to arrange collection, please do not turn up until we have been in touch."
-  ],
   "raw": "SE21 8BU Get directions Collection only Collection times | Monday-Wednesday Closed Thursday 11:30 am to 1:30 pm Friday-Sunday Closed We will contact you to arrange collection, please do not turn up until we have been in touch.",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://lambethcroydon.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -11190,7 +11176,14 @@
      "13:30"
     ]
    ]
-  }
+  },
+  "previous": "Monday-Friday, 12-2pm",
+  "protected": true,
+  "quote": [
+   "SE21 8BU\nGet directions\nCollection only\nCollection times",
+   "Monday-Wednesday\nClosed\nThursday\n11:30 am to 1:30 pm\nFriday-Sunday\nClosed\nWe will contact you to arrange collection, please do not turn up until we have been in touch."
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "lambeth-croydon/oasis-centre": {
   "card_name": "Waterloo - appointment only",
@@ -12752,13 +12745,7 @@
  },
  "manchester-south-central/ascension-church-hulme": {
   "checked_date": "2026-10-26",
-  "previous": "Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "protected": true,
-  "quote": [
-   "Ascension Church Hulme, 282 Stretford Road, Hulme, M15 5TQ (Closed Boxing Day)\n\n0161 226 3413 / 07561 680009\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\tClosed\nThu\tClosed\nFri\t13:00 - 15:00\nSat\tClosed\nSun\tClosed"
-  ],
   "raw": "Ascension Church Hulme, 282 Stretford Road, Hulme, M15 5TQ (Closed Boxing Day)  0161 226 3413 / 07561 680009  Opening times  Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://manchestersouthcentral.foodbank.org.uk/get-help/locations/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12768,17 +12755,17 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "previous": "Opening times Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "protected": true,
+  "quote": [
+   "Ascension Church Hulme, 282 Stretford Road, Hulme, M15 5TQ (Closed Boxing Day)\n\n0161 226 3413 / 07561 680009\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\tClosed\nThu\tClosed\nFri\t13:00 - 15:00\nSat\tClosed\nSun\tClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "manchester-south-central/st-brides-church": {
   "checked_date": "2026-10-26",
-  "previous": "Opening times Mon 13:00 - 15:00 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "protected": true,
-  "quote": [
-   "St Bride's Church, St Brides Way, Old Trafford, M16 9NW (Closed Christmas Eve and New Year's Eve)\n\n0161 226 3413 / 07561 680009\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\t13:00 - 15:00\nThu\tClosed\nFri\tClosed\nSat\tClosed\nSun\tClosed"
-  ],
   "raw": "St Bride's Church, St Brides Way, Old Trafford, M16 9NW (Closed Christmas Eve and New Year's Eve)  0161 226 3413 / 07561 680009  Opening times  Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://manchestersouthcentral.foodbank.org.uk/get-help/locations/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12788,7 +12775,13 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "previous": "Opening times Mon 13:00 - 15:00 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "protected": true,
+  "quote": [
+   "St Bride's Church, St Brides Way, Old Trafford, M16 9NW (Closed Christmas Eve and New Year's Eve)\n\n0161 226 3413 / 07561 680009\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\t13:00 - 15:00\nThu\tClosed\nFri\tClosed\nSat\tClosed\nSun\tClosed"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "manchester-south-central/whalley-range-methodist-church": {
   "checked_date": "2026-10-20",
@@ -12840,14 +12833,7 @@
  },
  "medway/all-saints-foodbank-centre": {
   "checked_date": "2026-10-26",
-  "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
-  "protected": true,
-  "quote": [
-   "ME4 5NE\nGet directions\nCollection only\nCollection times",
-   "Monday\n10:00 am to 12:30 pm\nTuesday-Thursday\nClosed\nFriday\n10:00 am to 12:30 pm\nSaturday-Sunday\nClosed\nMidKent College"
-  ],
   "raw": "ME4 5NE Get directions Collection only Collection times | Monday 10:00 am to 12:30 pm Tuesday-Thursday Closed Friday 10:00 am to 12:30 pm Saturday-Sunday Closed MidKent College",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12863,18 +12849,18 @@
      "12:30"
     ]
    ]
-  }
- },
- "medway/harvest-foodbank-centre": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "protected": true,
   "quote": [
-   "ME2 4DG\nGet directions\nCollection only\nCollection times",
-   "Monday-Wednesday\nClosed\nThursday\n11:00 am to 1:00 pm\nFriday-Sunday\nClosed\nThe Net, Walderslade"
+   "ME4 5NE\nGet directions\nCollection only\nCollection times",
+   "Monday\n10:00 am to 12:30 pm\nTuesday-Thursday\nClosed\nFriday\n10:00 am to 12:30 pm\nSaturday-Sunday\nClosed\nMidKent College"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "medway/harvest-foodbank-centre": {
+  "checked_date": "2026-10-26",
   "raw": "ME2 4DG Get directions Collection only Collection times | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm Friday-Sunday Closed The Net, Walderslade",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12884,18 +12870,18 @@
      "13:00"
     ]
    ]
-  }
- },
- "medway/midkent-college": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "protected": true,
   "quote": [
-   "ME7 1FN\nGet directions\nCollection times",
-   "Monday-Tuesday\nClosed\nWednesday\n9:30 am to 11:30 am\nThursday-Sunday\nClosed\nDelivery times"
+   "ME2 4DG\nGet directions\nCollection only\nCollection times",
+   "Monday-Wednesday\nClosed\nThursday\n11:00 am to 1:00 pm\nFriday-Sunday\nClosed\nThe Net, Walderslade"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "medway/midkent-college": {
+  "checked_date": "2026-10-26",
   "raw": "ME7 1FN Get directions Collection times | Monday-Tuesday Closed Wednesday 9:30 am to 11:30 am Thursday-Sunday Closed Delivery times",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12905,18 +12891,18 @@
      "11:30"
     ]
    ]
-  }
- },
- "medway/open-doors-cafe": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "protected": true,
   "quote": [
-   "ME4 6SE\nGet directions\nCollection only\nCollection times",
-   "Monday-Tuesday\nClosed\nWednesday\n10:30 am to 3:30 pm\nThursday-Sunday\nClosed\nSt Justus, Rochester"
+   "ME7 1FN\nGet directions\nCollection times",
+   "Monday-Tuesday\nClosed\nWednesday\n9:30 am to 11:30 am\nThursday-Sunday\nClosed\nDelivery times"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "medway/open-doors-cafe": {
+  "checked_date": "2026-10-26",
   "raw": "ME4 6SE Get directions Collection only Collection times | Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm Thursday-Sunday Closed St Justus, Rochester",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12926,7 +12912,14 @@
      "15:30"
     ]
    ]
-  }
+  },
+  "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
+  "protected": true,
+  "quote": [
+   "ME4 6SE\nGet directions\nCollection only\nCollection times",
+   "Monday-Tuesday\nClosed\nWednesday\n10:30 am to 3:30 pm\nThursday-Sunday\nClosed\nSt Justus, Rochester"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "medway/st-justus-church": {
   "checked_date": "2026-10-20",
@@ -12937,14 +12930,7 @@
  },
  "medway/st-marks-foodbank": {
   "checked_date": "2026-10-26",
-  "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
-  "protected": true,
-  "quote": [
-   "ME7 5TP\nGet directions\nCollection only\nCollection times",
-   "Monday-Wednesday\nClosed\nThursday\n1:00 pm to 3:00 pm\nFriday\nClosed\nSaturday\n10:00 am to 12:00 pm\nSunday\nClosed\nSt Nicholas, Strood"
-  ],
   "raw": "ME7 5TP Get directions Collection only Collection times | Monday-Wednesday Closed Thursday 1:00 pm to 3:00 pm Friday Closed Saturday 10:00 am to 12:00 pm Sunday Closed St Nicholas, Strood",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12960,18 +12946,18 @@
      "15:00"
     ]
    ]
-  }
- },
- "medway/strood-foodbank": {
-  "checked_date": "2026-10-26",
+  },
   "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
   "protected": true,
   "quote": [
-   "ME2 4TR\nGet directions\nCollection only\nCollection times",
-   "Monday\nClosed\nTuesday\n11:30 am to 1:30 pm\nWednesday-Thursday\nClosed\nFriday\n11:30 am to 1:30 pm\nSaturday-Sunday\nClosed\nThe Harvest Centre, Strood"
+   "ME7 5TP\nGet directions\nCollection only\nCollection times",
+   "Monday-Wednesday\nClosed\nThursday\n1:00 pm to 3:00 pm\nFriday\nClosed\nSaturday\n10:00 am to 12:00 pm\nSunday\nClosed\nSt Nicholas, Strood"
   ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
+ },
+ "medway/strood-foodbank": {
+  "checked_date": "2026-10-26",
   "raw": "ME2 4TR Get directions Collection only Collection times | Monday Closed Tuesday 11:30 am to 1:30 pm Wednesday-Thursday Closed Friday 11:30 am to 1:30 pm Saturday-Sunday Closed The Harvest Centre, Strood",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
@@ -12987,7 +12973,14 @@
      "13:30"
     ]
    ]
-  }
+  },
+  "previous": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
+  "protected": true,
+  "quote": [
+   "ME2 4TR\nGet directions\nCollection only\nCollection times",
+   "Monday\nClosed\nTuesday\n11:30 am to 1:30 pm\nWednesday-Thursday\nClosed\nFriday\n11:30 am to 1:30 pm\nSaturday-Sunday\nClosed\nThe Harvest Centre, Strood"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "medway/the-net-community-cafe": {
   "checked_date": "2026-10-20",
@@ -13005,14 +12998,7 @@
  },
  "meon-valley": {
   "checked_date": "2026-10-26",
-  "previous": "Mon 10AM–noon | Tues 10AM–2PM",
-  "protected": true,
-  "quote": [
-   "Mon 10AM–noon (Donations)",
-   "Tues 10AM–2PM (Collections)"
-  ],
   "raw": "Mon 10AM–noon (Donations) | Tues 10AM–2PM (Collections)",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)",
   "source_url": "https://meonvalleyfoodbank.co.uk/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -13022,7 +13008,14 @@
      "14:00"
     ]
    ]
-  }
+  },
+  "previous": "Mon 10AM–noon | Tues 10AM–2PM",
+  "protected": true,
+  "quote": [
+   "Mon 10AM–noon (Donations)",
+   "Tues 10AM–2PM (Collections)"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)"
  },
  "merthyr-cynon": {
   "checked_date": "2026-10-20",
@@ -19663,6 +19656,7 @@
  "southend/belle-vue-baptist-church": {
   "checked_date": "2026-10-26",
   "raw": "Tuesday 1pm - 3pm",
+  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Belle Vue Tuesday 1.00-3.00pm)",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_FOUND",
   "structured": {
@@ -19673,7 +19667,6 @@
     ]
    ]
   },
-  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Belle Vue Tuesday 1.00-3.00pm)",
   "protected": true
  },
  "southend/hawkwell-hockley": {
@@ -19695,6 +19688,7 @@
  "southend/shoeburyness": {
   "checked_date": "2026-10-26",
   "raw": "Thursday 12.30pm - 2.30pm",
+  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Shoeburyness Thursday 12.30-2.30pm)",
   "source_url": "https://southend.foodbank.org.uk/about-us/locations",
   "status": "TIMES_FOUND",
   "structured": {
@@ -19705,7 +19699,6 @@
     ]
    ]
   },
-  "reader": "hand-reviewed 2026-10-26 (Southend locations page and voucher card: Shoeburyness Thursday 12.30-2.30pm)",
   "protected": true
  },
  "southend/westcliff": {
@@ -22288,17 +22281,17 @@
  },
  "ty-hapus": {
   "checked_date": "2026-10-26",
+  "raw": "",
+  "source_url": "https://tyhapus.com/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
   "previous": "Tuesday and Thursday evenings from 7pm until 9pm | Tuesday & Wednesday from 12.30pm till 2.30pm",
   "protected": true,
   "quote": [
    "Llandudno Amateur Boxing Club | Llandudno has been based in Ty Hapus for approximately 2 years ... It is open Tuesday and Thursday evenings from 7pm until 9pm.",
    "The Ty Hapus Parent & Toddler group ... They meet every Tuesday & Wednesday from 12.30pm till 2.30pm"
   ],
-  "raw": "",
   "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT; both sets of times belong to other groups (boxing club, parent & toddler); no food bank times on the page, so none shown; on the unclear list; Dean approved removal 26 Oct)",
-  "source_url": "https://tyhapus.com/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
   "unclear": true
  },
  "uckfield": {
@@ -23211,13 +23204,7 @@
  },
  "west-berks/thatcham": {
   "checked_date": "2026-10-26",
-  "previous": "Opening times Mon Closed Tue 13:00 - 15:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
-  "protected": true,
-  "quote": [
-   "Thatcham Foodbank Centre\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\tClosed\nThu\t13:00 - 15:00\nFri\tClosed\nSat\tClosed\nSun\tClosed\n\nAddress\n\nThatcham Baptist Church\nWheelers Green Way\nThatcham\nRG19 4YF"
-  ],
   "raw": "Thatcham Foodbank Centre  Opening times  Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 Fri Closed Sat Closed Sun Closed  Address  Thatcham Baptist Church Wheelers Green Way Thatcham RG19 4YF",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)",
   "source_url": "https://westberks.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -23227,7 +23214,13 @@
      "15:00"
     ]
    ]
-  }
+  },
+  "previous": "Opening times Mon Closed Tue 13:00 - 15:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "protected": true,
+  "quote": [
+   "Thatcham Foodbank Centre\n\nOpening times\n\nMon\tClosed\nTue\tClosed\nWed\tClosed\nThu\t13:00 - 15:00\nFri\tClosed\nSat\tClosed\nSun\tClosed\n\nAddress\n\nThatcham Baptist Church\nWheelers Green Way\nThatcham\nRG19 4YF"
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "west-bromwich": {
   "checked_date": "2026-10-20",
@@ -24324,13 +24317,7 @@
  },
  "worthing-food-foundation": {
   "checked_date": "2026-10-26",
-  "previous": "Tuesday-Friday 9-11am | Wednesdays and Fridays from 10-11.30am",
-  "protected": true,
-  "quote": [
-   "Food collections and deliveries take place on Wednesdays and Fridays from 10-11.30am."
-  ],
   "raw": "Food collections and deliveries take place on Wednesdays and Fridays from 10-11.30am.",
-  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)",
   "source_url": "https://www.worthingfoodfoundation.org.uk/",
   "status": "TIMES_FOUND",
   "structured": {
@@ -24346,7 +24333,13 @@
      "11:30"
     ]
    ]
-  }
+  },
+  "previous": "Tuesday-Friday 9-11am | Wednesdays and Fridays from 10-11.30am",
+  "protected": true,
+  "quote": [
+   "Food collections and deliveries take place on Wednesdays and Fridays from 10-11.30am."
+  ],
+  "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 15:58 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved second pass)"
  },
  "wrexham": {
   "checked_date": "2026-10-20",

@@ -27,14 +27,6 @@
   "evidence": "Food bank's own Facebook page (About section, checked 24 Oct 2026): 9 Joss Street, IV18 0AP, phone 07803 259452; replaces 138-140 High Street, IV18 0AE; pin = postcodes.io centroid for IV18 0AP (Dean 24 Oct)",
   "evidence_url": "https://www.facebook.com/p/Invergordon-Foodbank-61572212057828/"
  },
- "bognor-regis": {
-  "address": "The Hope Centre, Saint Wilfrid Church, Ellasdale Road, Bognor Regis, PO21 2SG",
-  "postcode": "PO21 2SG",
-  "lat": 50.782837,
-  "lng": -0.686064,
-  "evidence": "Food bank's own locations page (checked 26 Oct 2026): The Hope Centre, Saint Wilfrid Church, Ellasdale Road, Bognor Regis, PO21 2SG. Replaces Argyle Hall, Argyle Road, PO21 1DY.",
-  "evidence_url": "https://bognorregis.foodbank.org.uk/locations/"
- },
  "first-base-dumfriesshire/citizens-advice-castle-douglas": {
   "address": "Parish Church Hall, Queen Street, Castle Douglas, DG7 1EG",
   "postcode": "DG7 1EG",
@@ -42,6 +34,30 @@
   "lng": -3.928762,
   "evidence": "Dumfries and Galloway Citizens Advice: Castle Douglas bureau at 3 St Andrew Street has closed; Castle Douglas service now runs from Parish Church Hall, Queen Street, DG7 1EG. Checked 25 Oct 2026.",
   "evidence_url": "https://www.dagcas.org/dagcas-location/castle-douglas-cab/"
+ },
+ "cardiff/central": {
+  "address": "City Church, 3 Lower Cathedral Road, Cardiff, CF11 6LU",
+  "postcode": "CF11 6LU",
+  "lat": 51.480677,
+  "lng": -3.188705,
+  "evidence": "Cardiff Foodbank's own centre card (checked 27 Oct 2026): 'FBC Central ... City Church 3 Lower Cathedral Road Cardiff CF11 6LU'; replaces Give Food's Cowbridge Road East, CF11 9AD; pin = postcodes.io centroid for CF11 6LU (Dean approved 27 Oct 20:30)",
+  "evidence_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+ },
+ "cardiff/tongwynlais": {
+  "address": "Ainon Baptist Church, Market Street, Tongwynlais, CF15 7NS",
+  "postcode": "CF15 7NS",
+  "lat": 51.531799,
+  "lng": -3.252405,
+  "evidence": "Cardiff Foodbank's own centre card (checked 27 Oct 2026): 'FBC Tongwynlais ... Ainon Baptist Church Market Street Tongwynlais CF15 7NS'; replaces Give Food's CF15 7LG; pin = postcodes.io centroid for CF15 7NS (Dean approved 27 Oct 20:30)",
+  "evidence_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+ },
+ "bognor-regis": {
+  "address": "The Hope Centre, Saint Wilfrid Church, Ellasdale Road, Bognor Regis, PO21 2SG",
+  "postcode": "PO21 2SG",
+  "lat": 50.782837,
+  "lng": -0.686064,
+  "evidence": "Food bank's own locations page (checked 26 Oct 2026): The Hope Centre, Saint Wilfrid Church, Ellasdale Road, Bognor Regis, PO21 2SG. Replaces Argyle Hall, Argyle Road, PO21 1DY.",
+  "evidence_url": "https://bognorregis.foodbank.org.uk/locations/"
  },
  "kirkcaldy/linton-lane-centre": {
   "address": "Linton Lane, Kirkcaldy, KY2 6LF (Portacabin)",
