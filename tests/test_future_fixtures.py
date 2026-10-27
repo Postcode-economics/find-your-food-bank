@@ -9,7 +9,7 @@ class Fixtures(unittest.TestCase):
     def test_schedule_and_guards_unchanged(self):
         assert_schedule_and_guards()
     def test_examples_stay_small(self):
-        for name in ("ifan.txt", "homeless.html", "open_innovations.json"):
+        for name in ("ifan.txt", "homeless.html.txt", "open_innovations.json"):
             raw = open(os.path.join(FIX, name), encoding="utf-8").read()
             self.assertLess(len(raw), 800, name)
             self.assertNotIn("<!DOCTYPE", raw)
@@ -21,7 +21,7 @@ class Fixtures(unittest.TestCase):
         self.assertEqual(c[0]["website"], "https://example.test/")
         self.assertEqual(c[0]["name"], "Example Pantry")
     def test_homeless_example(self):
-        c = directories.parse_hl_service("example-hostel", open(os.path.join(FIX, "homeless.html"), encoding="utf-8").read())
+        c = directories.parse_hl_service("example-hostel", open(os.path.join(FIX, "homeless.html.txt"), encoding="utf-8").read())
         self.assertEqual(c["postcode"], "AB1 2CD")
         self.assertEqual(c["website"], "https://example.test/")
         self.assertEqual(c["phone"], "01000000000")
