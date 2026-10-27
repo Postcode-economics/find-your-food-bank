@@ -12,12 +12,19 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
     stored one is nowhere on it, seen on 2 runs in a row) is auto-applied (reports/phone_fixes.json)
-    and logged; anything else -> daily list
+    and logged, including when that number is a named person's, with the role the page gives
+    (rule 21, Dean 26 Oct 2026). Anything else -> daily list, with the reason recorded
  5. published stock / items-needed lists (new or changed) -> daily list
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
-Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
+Opening times (Rule 27): each listing is checked against the exact source URL on the card, live.
+A redirect to another page is unclear. Plain HTML with no complete day/time set is rendered in a
+headless browser. A listing is verified only when every recorded day and time is on that page, with
+the evidence quote stored. A failed, skipped, or unconfirmable read is not left as the previous
+verified hours. Access flips and phone fixes still need the same result on 2 runs. Per-host gap stays
+2 seconds, one request at a time per host. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
 import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (Dean 25 Oct 08:01)
+import discover
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
@@ -44,7 +51,8 @@ def _note(h, ok):
     _errs[h] = _errs.get(h, 0) + 1
     if _errs[h] >= ERR_LIMIT: _paused[h] = time.time() + PAUSE; _errs[h] = 0
 
-def fetch(url):
+def _polite(url, loader):
+    """One request at a time per host, then MIN_GAP. Shared by the plain fetch and the headless render."""
     h = urllib.parse.urlparse(url).netloc.lower()
     sem = TRUSSELL if h.endswith('foodbank.org.uk') else None
     if sem: sem.acquire()
@@ -54,15 +62,26 @@ def fetch(url):
             wait = MIN_GAP - (time.time() - _last.get(h, 0))
             if wait > 0: time.sleep(wait)
             try:
-                req = urllib.request.Request(url, headers=UA)
-                with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                    body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
-                    _note(h, True); return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
-            except urllib.error.HTTPError as e: _note(h, False); return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
-            except Exception as e: _note(h, False); return {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
-            finally: _last[h] = time.time()
+                out = loader(url)
+            except Exception as e:
+                _note(h, False); out = {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
+            finally:
+                _last[h] = time.time()
+            return out
     finally:
         if sem: sem.release()
+def _urllib_load(url):
+    req = urllib.request.Request(url, headers=UA)
+    try:
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+            body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
+            _note(urllib.parse.urlparse(url).netloc.lower(), True)
+            return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
+    except urllib.error.HTTPError as e:
+        _note(urllib.parse.urlparse(url).netloc.lower(), False)
+        return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
+def fetch(url):
+    return _polite(url, _urllib_load)
 
 def text_of(h):
     h = re.sub(r'(?is)<(script|style|noscript|svg)[^>]*>.*?</\1>', ' ', h)
@@ -112,6 +131,11 @@ def norm_phone(p):
     if d.startswith('44'): d = '0' + d[2:]
     if d.startswith('00'): d = d[1:]
     return d if len(d) == 11 and d[0] == '0' else ''
+
+def own_site_misses_stored(stored, site_phones):
+    """True when the own page lists numbers and none of them is the stored one.
+    A page that still shows the stored number, even among others, does not replace it."""
+    return bool(stored and site_phones and not (set(stored) & set(site_phones)))
 def snippet(t, rx, n=220):
     m = rx.search(t)
     if not m: return ''
@@ -122,6 +146,107 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
+UNCLEAR_LINE = 'Opening times not listed. Call before you go.'
+def drop_saved_hours(r):
+    """No live page, so no hours reading. The previous run's hash is not a source and is not kept."""
+    r['hours_hash'] = ''; r['hours_sample'] = []; r['seasonal'] = None
+    r['hours_status'] = 'unclear'; r['hours_evidence'] = ''
+    return r
+def listing_source_url(item):
+    """The source URL the card shows, or '' when the card does not show one."""
+    ot = item.get('opening_times') if isinstance(item.get('opening_times'), dict) else {}
+    u = ot.get('source_url') if isinstance(ot, dict) else ''
+    if isinstance(u, str) and u.startswith('http') and 'helpmap.uk' not in u: return u
+    return ''
+def hours_verdict(item, page):
+    """Verified only when the page we read is the listing's source URL and every recorded day and time
+    is on it. The evidence quote is copied from that page. Anything else is unclear, with no hours filled in."""
+    src = listing_source_url(item)
+    out = {'status': 'unclear', 'evidence': '', 'source_url': src, 'final_url': (page or {}).get('final_url') or '',
+           'rendered': bool((page or {}).get('rendered')), 'note': ''}
+    if not src:
+        out['note'] = 'unclear: no source url on the listing. ' + UNCLEAR_LINE
+        return out
+    if not page or not page.get('ok'):
+        out['note'] = 'unclear: live source page could not be opened (%s). %s' % ((page or {}).get('error') or 'no response', UNCLEAR_LINE)
+        return out
+    landed = page.get('final_url') or ''
+    if not discover.source_page_ok(src, landed):
+        out['note'] = 'unclear: source url redirected to a different page (%s). %s' % (landed, UNCLEAR_LINE)
+        return out
+    text = page.get('text') or ''
+    table = discover.shown_table(item.get('opening_times'))
+    if not table:
+        out['note'] = 'unclear: the listing has no day table that can be checked against the page. ' + UNCLEAR_LINE
+        return out
+    ok, quote = discover.live_hours_ok(table, text, item.get('postcode'))
+    if not ok or not quote or quote not in text:
+        out['note'] = 'unclear: recorded days or times could not be confirmed on the page. ' + UNCLEAR_LINE
+        return out
+    out.update(status='verified', evidence=quote, note='every recorded day and time is on the source page')
+    return out
+def read_source(item, fetch=None, render=None):
+    """Live read of the listing's own source URL. The website homepage is not a substitute.
+    Plain HTML is enough when it already contains a complete day/time set. Otherwise render once.
+    A redirect is returned with an empty body so the other page cannot verify the listing."""
+    src = listing_source_url(item)
+    fetch = fetch or globals()['fetch']
+    if not src:
+        return {'ok': False, 'error': 'no source url', 'text': '', 'final_url': '', 'html': ''}
+    got = fetch(src) or {}
+    if not got.get('ok'):
+        return {'ok': False, 'http': got.get('http'), 'error': got.get('error') or 'no response', 'text': '', 'final_url': got.get('final_url') or '', 'html': ''}
+    landed = got.get('final_url') or src
+    if not discover.source_page_ok(src, landed):
+        return {'ok': True, 'http': got.get('http'), 'final_url': landed, 'text': '', 'html': '', 'error': 'redirect'}
+    text = text_of(got.get('html') or '')
+    if discover.page_has_complete_times(text, item.get('postcode')):
+        return {'ok': True, 'http': got.get('http'), 'final_url': landed, 'text': text, 'rendered': False}
+    if render:
+        rendered = render(src) or {}
+        rland = rendered.get('final_url') or ''
+        rhtml = rendered.get('html') or ''
+        rtext = rendered.get('text') or (text_of(rhtml) if rhtml else '')
+        if rtext and discover.source_page_ok(src, rland):
+            return {'ok': True, 'http': rendered.get('http') or 200, 'final_url': rland, 'text': rtext, 'rendered': True}
+        if rland and not discover.source_page_ok(src, rland):
+            return {'ok': True, 'http': rendered.get('http'), 'final_url': rland, 'text': '', 'rendered': True, 'error': 'redirect'}
+    return {'ok': True, 'http': got.get('http'), 'final_url': landed, 'text': text, 'rendered': False, 'incomplete': True}
+def render_polite(url):
+    """Headless render through the same per-host gap as fetch. No saved page."""
+    def load(u):
+        got = discover.render_live(u) or {}
+        if not got.get('ok'):
+            return {'ok': False, 'http': got.get('http'), 'error': got.get('error') or 'render failed', 'final_url': got.get('final_url') or u, 'html': ''}
+        return {'ok': True, 'http': got.get('http') or 200, 'final_url': got.get('final_url') or u, 'html': got.get('html') or ''}
+    return _polite(url, load)
+def review_hours(items, state, flag, deadline, fetch=None, render=None):
+    """One verdict per listing that shows a source URL. Previous evidence is never copied forward.
+    A listing not reached this run is unclear, not still verified."""
+    fetch = fetch or globals()['fetch']
+    render = render if render is not None else render_polite
+    state.setdefault('hours', {})
+    n = 0
+    for i in items:
+        if i.get('type') not in ('foodbank', 'location'): continue
+        src = listing_source_url(i)
+        if not src: continue
+        n += 1
+        if time.time() > deadline:
+            # Not opened this run. Drop any previous verified quote. The website skip already reports it once;
+            # one row per listing would bury the review list.
+            state['hours'][i['id']] = {'status': 'unclear', 'evidence': '', 'source_url': src, 'final_url': '',
+                                       'note': 'unclear: not checked this run; previous hours are not verified. ' + UNCLEAR_LINE,
+                                       'rendered': False, 'checked_at': NOW.isoformat()}
+            continue
+        verdict = hours_verdict(i, read_source(i, fetch=fetch, render=render))
+        state['hours'][i['id']] = {'status': verdict['status'], 'evidence': verdict.get('evidence') or '', 'source_url': src,
+                                   'final_url': verdict.get('final_url') or '', 'note': verdict.get('note') or '',
+                                   'rendered': bool(verdict.get('rendered')), 'checked_at': NOW.isoformat()}
+        if verdict['status'] != 'verified':
+            flag(i['id'], 'opening times unclear', name=i.get('name') or '', website=src, id=i['id'],
+                 note=verdict.get('note') or '', evidence=verdict.get('evidence') or '')
+    return n
 def check_site(url):
     home = fetch(url)
     if not home['ok'] and url.startswith('http://'): home = fetch('https://' + url[7:])  # many sites redirect anyway
@@ -136,7 +261,8 @@ def check_site(url):
     hours = sorted({re.sub(r'\s+', ' ', m.group(0)).lower() for m in DAYS.finditer(t)})[:30]
     phones = sorted({p for p in (norm_phone(x) for x in PHONE.findall(t)) if p and not p.startswith(('0800', '0808', '0300', '0345', '0844', '0845', '0870', '0330')) or p.startswith(('01', '02', '07'))} - {''})
     tel = sorted({p for p in (norm_phone(urllib.parse.unquote(x)) for _, h in pages for x in re.findall(r'href=["\']tel:([^"\']+)', h, re.I)) if p})
-    res.update(tel=tel[:4], ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
+    import phone_rule
+    res.update(tel=tel[:4], contact_labels=phone_rule.labels_in_text(t, norm_phone), ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
                hours_hash=hashlib.sha1('\n'.join(hours).encode()).hexdigest()[:12] if hours else '', hours_sample=hours[:4],
                seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t))
     return res
@@ -184,10 +310,15 @@ def apply_phone_fixes(by_site, fixes, flag):
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
                 continue
-            i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']; n += 1
+            if phone_rule.is_dean(f.get('new')):  # rule 21: Dean's own details are never published
+                flag(u + '|' + i.get('id', ''), 'phone held', name=i.get('name', ''), id=i.get('id', ''), website=u, proposed=f.get('new'), source=f.get('source', ''), note=phone_rule.DEAN_REASON)
+                continue
+            i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']
+            if f.get('label'): i['phone_label'] = f['label']
+            n += 1
     return n
 
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules, phone_rule; RULES = auto_rules.load()  # Dean 25 Oct 2026; phone_rule is rule 21
 MAY_CLOSED = RULES['closure_card_note']
 def apply_closure_notes(items, pending):
     """Dean 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
@@ -256,13 +387,24 @@ def main():
     stats = dict(sites=len(sites), ok=0, failed=0, skipped=0, voucher=0, walkin=0, mixed=0, unclear=0, flips=0, phone_fixes=0, closures=0)
     for u in sites:
         r, prev = results[u], state['sites'].get(u, {}); names = sorted({i['foodbank'] for i in by_site[u]}); name = names[0]
-        if r.get('ok') is None: stats['skipped'] += 1; continue
+        if r.get('ok') is None:
+            stats['skipped'] += 1
+            # Not reached this run. Access and phones stay so a 2-run confirmation can still complete next time.
+            # Opening times do not: the previous hash is not a live reading and is not left verified.
+            kept = {k: prev.get(k) for k in ('access', 'needs', 'phones', 'closed', 'fail_runs')}
+            drop_saved_hours(kept)
+            kept.update(checked_at=NOW.isoformat(), error=r.get('error'), http=None)
+            state['sites'][u] = kept
+            flag(u, 'opening times not read', name=name, website=u, error=r.get('error'), note='not checked this run; previous hours are not verified. ' + UNCLEAR_LINE)
+            continue
         if not r['ok']:
             stats['failed'] += 1; r['fail_runs'] = prev.get('fail_runs', 0) + 1
-            for k in ('access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed'): r[k] = prev.get(k)
+            for k in ('access', 'needs', 'phones', 'closed'): r[k] = prev.get(k)
+            drop_saved_hours(r)  # Rule 27: a failed live open is not a times check
             r['perm_closed'] = None  # a failed fetch never confirms a closure
+            flag(u, 'opening times not read', name=name, website=u, error=r.get('error'), note='live page did not open; no saved copy used. ' + UNCLEAR_LINE)
             if r['fail_runs'] >= 2: flag(u, 'dead or unreachable website', name=name, website=u, error=r['error'], failed_runs=r['fail_runs'], phone=by_site[u][0].get('phone'), note='site failed %d runs in a row - check contact details' % r['fail_runs'])
-            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
+            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
         stats['ok'] += 1; r['fail_runs'] = 0; stats[r['access']] += 1
         # (1) access - per pin, against access.js (hand-read CSVs + earlier auto flips). A flip needs the
         # same clear own-site result on 2 runs in a row; unclear never changes anything (= walk-ins welcome).
@@ -285,10 +427,9 @@ def main():
             flag(u, 'access mixed', name=name, website=u, current_tag=', '.join(sorted(set(curs.values()))) or 'unconfirmed', evidence=r['access_evidence'], note='site mentions both voucher and walk-in - left as is, please decide')
         elif 'voucher' in curs.values() and prev.get('access') == 'voucher':
             flag(u, 'access now uncertain', name=name, website=u, current_tag='voucher', note='voucher wording no longer found - tag kept until you decide')
-        # (2) hours
+        # (2) hours. A hash of day-shaped text is not a check of the listing. The listing check is review_hours,
+        # against the source URL on the card. A seasonal notice on the site is still reported.
         if r['seasonal'] and r['seasonal'] != prev.get('seasonal'): flag(u, 'seasonal/holiday hours notice', name=name, website=u, text=r['seasonal'])
-        if prev.get('hours_hash') and r['hours_hash'] and r['hours_hash'] != prev['hours_hash']:
-            flag(u, 'opening hours changed on own site', name=name, website=u, before=prev.get('hours_sample'), now=r['hours_sample'])
         # (3) closure: clear permanent wording on 2 runs in a row. Dean 25 Oct 08:20: NEVER removed automatically -
         # the pin stays with the card note MAY_CLOSED and goes to Dean's pending list (reports/closures_pending.json -> pending_dean.md).
         if r['perm_closed'] and prev.get('perm_closed'):
@@ -305,17 +446,23 @@ def main():
         elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
-        if stored and r['phones'] and not (stored & set(r['phones'])):
+        if own_site_misses_stored(stored, r['phones']):
             if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
-                fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
-                today['items'].pop('phone number not on own site|' + u, None)
-                e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
+                lab = (r.get('contact_labels') or {}).get(new, '')
+                d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=False))
+                if d['action'] == 'show':
+                    fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label']); stats['phone_fixes'] += 1
+                    today['items'].pop('phone number not on own site|' + u, None)
+                    e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
+                else:
+                    flag(u, 'phone held', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note=d['reason'])
             elif u not in fixes:
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
+    review_hours(items, state, flag, t0 + BUDGET)
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest

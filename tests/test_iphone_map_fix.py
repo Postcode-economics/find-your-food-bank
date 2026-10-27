@@ -140,7 +140,7 @@ class IPhone(unittest.TestCase):
             self.assertTrue(threw, 'old worker did not reproduce the opaque failure')
             holder['sw'] = None  # the new sw.js from this checkout
             pg.goto(BASE + '/?nocount', wait_until='load')  # layers.js registers sw.js?v=57, a new worker
-            self.assertTrue(until(pg, "async () => !(await caches.keys()).includes('fyfb-tiles') && (await caches.keys()).includes('fyfb-v91')", 30),
+            self.assertTrue(until(pg, "async () => !(await caches.keys()).includes('fyfb-tiles') && (await caches.keys()).includes('fyfb-v92')", 30),
                             pg.evaluate('async () => await caches.keys()'))
             pg.reload(wait_until='load')
             self.assertTrue(until(pg, PAINTED), pg.evaluate(STATE))

@@ -60,6 +60,8 @@ def gate(layer, ref='HEAD'):
             pr = []
         else:
             pr = [] if i['id'] in live else problems(layer, i)
+            if layer == 'foodbanks' and i['id'] in ok:
+                pr = [p for p in pr if p != 'no verified phone']  # Dean-approved food banks may have no published phone (verified details only, 26 Oct)
             if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
         if secrets and private_block.matches(i, secrets):
             pr = ['private details — not published']

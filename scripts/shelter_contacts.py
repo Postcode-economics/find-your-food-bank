@@ -1,8 +1,11 @@
 """Merge overrides/shelters_contacts.json into shelter items (run on every build so refreshes keep the numbers).
-Fills phone/email only when the source has none; adds council referral line (council, council_phone, council_ooh, council_url)."""
+Fills phone/email only when the source has none; adds council referral line (council, council_phone, council_ooh, council_url).
+Optional phone_label (a non-empty string, e.g. 'Library service line') is copied when that place has a phone.
+The list card and the pin pop-up show it under the number. Warm spaces use the same field via warmspaces_contacts.json."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from hours_fix import apply_phone
+import phone_rule  # rule 21: do not withhold a verified own-page contact for being personal; never publish Dean's own details
 PATH = os.path.join(os.path.dirname(__file__), "..", "overrides", "shelters_contacts.json")
 
 def load(path=PATH):
@@ -15,13 +18,22 @@ def apply(items, data=None):
     for x in items:
         o = data.get(x.get("id"))
         if not o: continue
-        if o.get("phone_fix"):  # checked correction: always wins over the source number
-            if x.get("phone") != o["phone_fix"]: x["phone_was"] = x.get("phone", "")
-            x["phone"] = o["phone_fix"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
+        fix = o.get("phone_fix") or ""
+        if fix and not phone_rule.is_dean(fix):  # checked correction: always wins over the source number
+            if x.get("phone") != fix: x["phone_was"] = x.get("phone", "")
+            x["phone"] = fix; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
         elif o.get("drop_phone"):  # source number not on any official page: hide it, council/national fallback shows instead
-            x["phone_was"] = x.get("phone", ""); x["phone"] = ""; x["tel"] = ""
-        elif o.get("phone") and not x.get("tel"):
+            reason = (o.get("drop_reason") or "").strip()
+            keep = o.get("phone") and o.get("phone_source") and (o.get("own_page") or phone_rule.own_page_source(o)) and (not reason or phone_rule.personal_only(reason)) and not phone_rule.is_dean(o.get("phone"))
+            if keep:  # rule 21: the venue's own page gave this number as its contact
+                x["phone"] = o["phone"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
+            else:
+                x["phone_was"] = x.get("phone", ""); x["phone"] = ""; x["tel"] = ""; x.pop("phone_label", None)
+        elif o.get("phone") and not x.get("tel") and not phone_rule.is_dean(o.get("phone")):
             x["phone"] = o["phone"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
+        lab = o.get("phone_label")  # optional caption for the number (shown only when a phone remains)
+        if isinstance(lab, str) and lab.strip() and (x.get("tel") or str(x.get("phone") or "").strip()):
+            x["phone_label"] = lab.strip()
         if o.get("hours") and not x.get("hours"):  # hand-checked hours / access line (Dean: no blank hours)
             x["hours"] = o["hours"]; x["hours_source"] = o.get("hours_source", ""); x["hours_checked"] = o.get("hours_checked", "")
         if o.get("email") and not x.get("email"): x["email"] = o["email"]

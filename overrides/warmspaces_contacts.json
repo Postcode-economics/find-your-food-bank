@@ -1,5 +1,5 @@
 {
- "_about": "Warm space phone numbers. 'phone' = number on the venue's own website (phone_source). 'council_*' = the host council's own out-of-hours/emergency number from the council's own website (rule 37, 27 Oct 2026), shown labelled as the council's line, never as the venue's. Read by scripts/shelter_contacts.py on every warm spaces build. Checked 2026-10-23.",
+ "_about": "Warm space phone numbers. 'phone' = number on the venue's own website (phone_source). 'council_*' = the host council's own out-of-hours/emergency number from the council's own website (rule 37, 27 Oct 2026), shown labelled as the council's line, never as the venue's. Optional 'phone_label' (e.g. 'Library service line', 'Shared venue line') is copied when the place has a phone and shown under the number on the list card and the pin pop-up; it does not add a number. Read by scripts/shelter_contacts.py on every warm spaces build. Checked 2026-10-23.",
  "cacre-march-st-john-s-community-hub": {
   "phone": "01353 860850",
   "phone_source": "https://www.cambsacre.org.uk/projects/cambridgeshire-community-hubs-network/",
@@ -546,6 +546,10 @@
   "confidence": "medium: listed against this venue on the host listing page"
  },
  "ww-69062943": {
+  "phone": "0300 041 3131",
+  "phone_source": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=YRWoQMs70mE",
+  "confidence": "Dean approved 26 Oct 2026. Library service line. central service line; Kent County Council libraries line (council-run service), listed for this library",
+  "phone_label": "Library service line",
   "council": "Folkestone & Hythe District Council",
   "council_phone": "0300 003 0247",
   "council_url": "https://www.folkestone-hythe.gov.uk/us/ways-to-contact",
@@ -684,6 +688,10 @@
   "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.bristol.gov.uk/contact). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01179 222050 (daytime/switchboard)."
  },
  "ww-69100298": {
+  "phone": "01484 414868",
+  "phone_source": "https://www.kirklees.gov.uk/beta/libraries/contact-us.aspx",
+  "confidence": "Dean approved 26 Oct 2026. Library service line. central service line (Kirklees Libraries)",
+  "phone_label": "Library service line",
   "council": "Kirklees Council",
   "council_phone": "01484 414933",
   "council_url": "https://www.kirklees.gov.uk/beta/housing/sleeping-rough.aspx",
@@ -783,6 +791,10 @@
   "confidence": "medium-low: first number after the venue's name on the host listing page (page lists several)"
  },
  "ww-69100241": {
+  "phone": "01484 414868",
+  "phone_source": "https://www.kirklees.gov.uk/beta/libraries/contact-us.aspx",
+  "confidence": "Dean approved 26 Oct 2026. Library service line. central service line (Kirklees Libraries)",
+  "phone_label": "Library service line",
   "council": "Kirklees Council",
   "council_phone": "01484 414933",
   "council_url": "https://www.kirklees.gov.uk/beta/housing/sleeping-rough.aspx",
@@ -898,6 +910,10 @@
   "council_note": "No own number found for the venue; council's out-of-hours homeless emergency line as labelled on the council's own page (Dean, 23 Oct)"
  },
  "ww-55475504": {
+  "phone": "01484 414868",
+  "phone_source": "https://www.kirklees.gov.uk/beta/libraries/contact-us.aspx",
+  "confidence": "Dean approved 26 Oct 2026. Library service line. central service line (Kirklees Libraries)",
+  "phone_label": "Library service line",
   "council": "Kirklees Council",
   "council_phone": "01484 414933",
   "council_url": "https://www.kirklees.gov.uk/beta/housing/sleeping-rough.aspx",
@@ -1214,6 +1230,10 @@
   "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.bristol.gov.uk/contact). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01179 222050 (daytime/switchboard)."
  },
  "ww-65438881": {
+  "phone": "01623 677200",
+  "phone_source": "https://www.nottshelpyourself.org.uk/kb5/nottinghamshire/directory/service.page?id=c9-ql22cYZM",
+  "confidence": "Dean approved 26 Oct 2026. Library service line. central service line (Inspire contact centre); 01777 708724 seen in search only, unverified",
+  "phone_label": "Library service line",
   "council": "Bassetlaw District Council",
   "council_phone": "0800 590542",
   "council_url": "https://www.bassetlaw.gov.uk/housing-services/homelessness",
@@ -1276,12 +1296,8 @@
   "phone": "01704 547805",
   "phone_source": "https://www.salvationarmy.org.uk/southport",
   "council": "Sefton Metropolitan Borough Council",
-  "council_phone": "07779 960994",
-  "council_ooh": "07779 960994",
-  "council_label": "Council out-of-hours homeless line",
-  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
-  "council_url": "https://www.sefton.gov.uk/housing/homelessness/rough-sleeper-seen",
-  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.sefton.gov.uk/housing/homelessness/rough-sleeper-seen). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0345 140 0845 (daytime/switchboard)."
+  "council_phone": "0345 140 0845",
+  "council_url": "https://www.sefton.gov.uk/miscellaneous-pages/contact-the-council"
  },
  "ww-57952842": {
   "phone": "01946 822380",
@@ -1646,11 +1662,7 @@
   "phone_source": "https://www.salvationarmy.org.uk/portsmouth-citadel",
   "council": "Portsmouth City Council",
   "council_phone": "023 9282 2251",
-  "council_ooh": "023 9282 2251",
-  "council_label": "Council out-of-hours homeless line",
-  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
-  "council_url": "https://www.portsmouth.gov.uk/contact",
-  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.portsmouth.gov.uk/contact). Rule 37: council lines are always the council's own out-of-hours/emergency number."
+  "council_url": "https://www.portsmouth.gov.uk/contact"
  },
  "ww-68620249": {
   "phone": "01988 610311",
@@ -1672,12 +1684,8 @@
   "phone": "028 3833 7684",
   "phone_source": "https://www.salvationarmy.org.uk/portadown",
   "council": "Armagh City, Banbridge and Craigavon Borough Council",
-  "council_phone": "03448 920 908",
-  "council_ooh": "03448 920 908",
-  "council_label": "Council out-of-hours emergency line",
-  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
-  "council_url": "https://www.armaghbanbridgecraigavon.gov.uk/contact-us/",
-  "council_note": "Out-of-hours number confirmed by Dean Goff, 27 Oct 2026. Rule 37: council lines are always the council's own out-of-hours/emergency number."
+  "council_phone": "0300 030 0900",
+  "council_url": "https://www.armaghbanbridgecraigavon.gov.uk"
  },
  "ww-57951953": {
   "phone": "020 8521 3211",
@@ -1882,6 +1890,9 @@
   "phone_source": "https://www.stlaurencechorley.co.uk/Articles/698575/Wellness_Hub.aspx"
  },
  "ww-65070433": {
+  "phone": "07523 424686",
+  "phone_source": "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5197459/contact-information",
+  "confidence": "Dean approved 26 Oct 2026. mobile = charity registered contact for hub operator",
   "council": "Brent Council",
   "council_phone": "020 8937 1234",
   "council_url": "https://www.brent.gov.uk/housing/housing-assistance/at-risk-of-homelessness-or-need-housing",
@@ -2054,6 +2065,10 @@
   "confidence": "low: directory listing for Rachel Leigh Hall (same address) (web search 2026-10-23)"
  },
  "ww-68618605": {
+  "phone": "0300 123 2224",
+  "phone_source": "https://www.librarieswest.org.uk/-/bruton-community-library",
+  "confidence": "Dean approved 26 Oct 2026. Library service line. central service line; Somerset Libraries shared line (council-run service), listed for this library",
+  "phone_label": "Library service line",
   "council": "Somerset Council",
   "council_phone": "0300 123 2327",
   "council_url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/",
