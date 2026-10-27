@@ -50,6 +50,7 @@ PROBE = """(() => {
   }, 50);
   window.__tap = {t0: 0, ms: 0, max: 0, n: 0};
   addEventListener('pointerdown', () => { window.__tap.t0 = performance.now(); window.__tap.down = 1; }, true);
+  window.__lastScroll = 0; addEventListener('scroll', () => { window.__lastScroll = performance.now(); }, {capture: true, passive: true});
   addEventListener('click', () => {
     if (!window.__tap.t0) return;
     const d = performance.now() - window.__tap.t0;
@@ -192,11 +193,12 @@ def tap(pg, bad, sel, name):
         bad.append('%s not on screen %s' % (name, box))
         return
     # The page may still be scrolling (Locate smooth-scrolls to the results). iOS treats a touch on a
-    # moving page as a scroll stop, not a click, so tap only once the target has held still for 2 frames.
+    # moving page as a scroll stop, not a click, so tap only once the target has held still for 2 frames
+    # and no scroll event fired in the last 100 ms (a smooth scroll can start one task after the cards render).
     box = pg.evaluate("""sel => new Promise(ok => { let last = null, same = 0, n = 0;
       const step = () => { const r = document.querySelector(sel).getBoundingClientRect();
         const k = [r.x, r.y, r.width, r.height].map(Math.round).join(',');
-        same = (k === last) ? same + 1 : 0; last = k; n++;
+        same = (k === last && performance.now() - window.__lastScroll > 100) ? same + 1 : 0; last = k; n++;
         if (same >= 2 || n > 300) ok({x: r.x + r.width / 2, y: r.y + r.height / 2, w: r.width, h: r.height, stable: same >= 2});
         else requestAnimationFrame(step); };
       requestAnimationFrame(step); })""", sel)
