@@ -1015,7 +1015,6 @@ TEXT = {
  "salvation-army/hastings-temple": "Tuesday: Food Bank - appointment required 10:30am - 11:30am",
  "salvation-army/scunthorpe": "Food Bank 09.30-12.00 every other Wednesday",
  "salvation-army/sheringham": "Food Bank (by appointment 9am-4pm / Monday - Friday / 01263 826059)",
- "salvation-army/sundays": "Tuesday: Food Bank - appointment required 10:30am - 11:30am",
  "somebody-cares": "Foodbank order line (not a walk-in time): Monday - Friday 10:00am - 3:30pm, order by 11.30 am for same day collection",
  "southend": "Warehouse, DONATIONS ONLY, Monday, Tuesday and Thursday between 9am - 2pm. You are unable get a voucher or collect food from this location",
  "stowmarket-area": "The centre is open during the following hours: Mondays to Fridays: 9 am - 1 pm",
@@ -1054,6 +1053,7 @@ CALL_AHEAD = [
  "salvation-army/salisbury",
  "salvation-army/southsea",
  "salvation-army/street",
+ "salvation-army/sundays",
  "salvation-army/tiverton",
  "salvation-army/ware",
  "salvation-army/weymouth",
@@ -1069,13 +1069,13 @@ CALL_AHEAD = [
  "ty-hapus",
  "walk-inn"
 ]
-WRONG_CORPS_PAGE = ["salvation-army", "salvation-army/bourne", "salvation-army/bury", "salvation-army/chester", "salvation-army/pill", "salvation-army/sale", "salvation-army/salisbury", "salvation-army/street", "salvation-army/ware", "salvation-army/wimborne"]  # times came from another Salvation Army corps' page: link removed too
+WRONG_CORPS_PAGE = ["salvation-army", "salvation-army/bourne", "salvation-army/bury", "salvation-army/chester", "salvation-army/pill", "salvation-army/sale", "salvation-army/salisbury", "salvation-army/street", "salvation-army/sundays", "salvation-army/ware", "salvation-army/wimborne"]  # times came from another Salvation Army corps' page: link removed too
 NOTICE = {
  "aylesbury": "Warehouse: deliveries and donations only. Times shown are office hours. See where to get food below.",
  "bradford-north": "Times shown are phone line hours, not food collection. See where to get food below.",
  "broxbourne": "Warehouse for donations: not a place to collect food. See where to get food below.",
  "chiltern/prestwood": "Delivery only: food is delivered, not collected here. Times shown are delivery times.",
- "chiltern/wendover": "Delivery only: food is delivered, not collected here. See their website for delivery times.",
+ "chiltern/wendover": "Delivery only: food is delivered, not collected here. Call ahead to arrange a delivery.",
  "ek-community": "Times shown are church office hours, not food bank times. Call or see their website for food bank times.",
  "fusion": "Times shown are office hours, not food collection.",
  "fusion/calderdale": "Times shown are office hours, not food collection.",
@@ -1127,7 +1127,7 @@ NOTICE = {
  "salvation-army/sheringham": "Food bank by appointment only. Call ahead to book.",
  "salvation-army/southsea": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/street": "Call ahead: no food bank session times are confirmed on their own page.",
- "salvation-army/sundays": "Food bank by appointment only. Call ahead to book.",
+ "salvation-army/sundays": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/tiverton": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/ware": "Call ahead: no food bank session times are confirmed on their own page.",
  "salvation-army/weymouth": "Call ahead: no food bank session times are confirmed on their own page.",
@@ -1189,6 +1189,7 @@ class T(unittest.TestCase):
         self.assertEqual(FOOD["salvation-army/inverness"], {"wed": [["09:00", "13:00"]]})  # day from the same line, not the next one
         self.assertEqual(FOOD["whitefoot-and-downham"], {"thu": [["19:00", "20:30"]]})
         self.assertEqual(FOOD["wansbeck-valley/ymca"], {"tue": [["12:00", "13:00"]], "thu": [["12:00", "13:00"]]})
+        self.assertNotIn("website for delivery", self.n["chiltern/wendover"]["notice"].lower())  # their site lists no delivery times
         self.assertEqual(FOOD["poole/st-gabriels-church-hall"], {"tue": [["13:30", "15:00"]]})  # swapped with St Clement's
         self.assertEqual(FOOD["poole/st-clements-church-hall"], {d: [["11:00", "12:30"]] for d in ("mon", "tue", "wed", "thu", "fri")})
         self.assertEqual(FOOD["woodhouse-close-church"]["fri"], [["09:00", "12:30"]])
