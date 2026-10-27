@@ -39,6 +39,8 @@ class T(unittest.TestCase):
         LS.write(LS.build(datetime.date(2026, 10, 26)))
         self.assertEqual(open(os.path.join(self.d, 'data.full.js')).read(), before)
         self.assertTrue(os.path.exists(LS.MD)); self.assertIn('What the system learned', open(LS.MD).read())
+        self.assertTrue(os.path.exists(learning.STATE))
+        self.assertEqual(json.load(open(learning.STATE))['signals_run'], '2026-10-26')
     def test_weights_bounded(self):
         w = dict(LS.DEFAULT_W)
         for _ in range(50): w = LS.weights(w, {k: 1 for k in LS.DEFAULT_W})

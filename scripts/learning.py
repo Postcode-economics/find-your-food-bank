@@ -5,11 +5,13 @@ What it learns (reports/learning_state.json, kept in the repo so it persists acr
   fails, consecutive fails, last check, last find, last change, and which extraction method worked
   (own_site, facebook, ifan, givefood, council_page, list_page ...).
 How it is used - ONLY to decide ORDER, FREQUENCY and METHOD ORDER of checks, never what is published:
-  reward   = (finds + 1) / (checks + 2)                      (Beta(1,1) prior: new keys start at 0.5)
+  reward   = (faded finds + 1) / (faded checks + 2)       (Beta(1,1) prior: new keys start at 0.5)
+             finds and checks fade with a 30-day half-life, so an old result counts for less than a recent one
   explore  = C * sqrt(ln(total_checks + 1) / (checks + 1))   (UCB1: stable keys still get checked)
   gap      = 0..1 share of missing fields (phone / times) for that key (low fill rate = dig more)
   stale    = min(days since last check / FLOOR_DAYS, 1)
-  priority = reward + explore + GAP_W * gap + STALE_W * stale
+  priority = reward + explore + GAP_W * gap + STALE_W * stale + boost
+  boost    : from learning_signals.py, never above BOOST_CAP (signals only reorder; they do not add a run)
   floor    : anything not checked for FLOOR_DAYS (7) days is checked this run, whatever its score.
   back-off : after k consecutive failures a key rests for min(2**(k-1), FLOOR_DAYS) days, then is retried
              (never longer than the weekly floor).
@@ -19,6 +21,8 @@ import datetime, json, math, os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 STATE = os.path.join(ROOT, "reports", "learning_state.json")
 C, GAP_W, STALE_W, FLOOR_DAYS = 0.5, 0.6, 0.4, 7
+BOOST_CAP = 3.0        # one cap for every signal combined (learning_signals.py). Do not raise this per signal.
+HALF_LIFE_DAYS = 30    # a find or check from 30 days ago counts half as much; 60 days ago, a quarter
 
 def load(path=STATE):
     try: s = json.load(open(path))
@@ -40,10 +44,13 @@ def entry(s, key, kind="source"):
 def record(s, key, today, ok, finds=0, method=None, changed=False, kind="source"):
     """One check of `key` on `today` (ISO date). ok=None means 'not reached' (time budget) and records nothing."""
     if ok is None: return
-    e = entry(s, key, kind); e["checks"] += 1; s["total_checks"] += 1; e["last_check"] = today
+    e = entry(s, key, kind)
+    faded_finds, faded_checks = _fade_counts(e, today)
+    e["decayed_finds"], e["decayed_checks"], e["decay_asof"] = faded_finds, faded_checks, today
+    e["checks"] += 1; e["decayed_checks"] = faded_checks + 1; s["total_checks"] += 1; e["last_check"] = today
     if ok:
         e["consec_fail"] = 0
-        if finds: e["finds"] += 1; e["last_find"] = today
+        if finds: e["finds"] += 1; e["decayed_finds"] = faded_finds + 1; e["last_find"] = today
         if changed: e["last_change"] = today
         if method:
             m = e["methods"].setdefault(method, {"ok": 0, "fail": 0}); m["ok"] += 1; e["last_method"] = method
@@ -51,7 +58,43 @@ def record(s, key, today, ok, finds=0, method=None, changed=False, kind="source"
         e["fails"] += 1; e["consec_fail"] += 1
         if method: e["methods"].setdefault(method, {"ok": 0, "fail": 0})["fail"] += 1
 
-def reward(e): return (e["finds"] + 1) / (e["checks"] + 2)
+def _decay_factor(days):
+    if not days or days <= 0: return 1.0
+    return 0.5 ** (days / float(HALF_LIFE_DAYS))
+
+def _fade_counts(e, today):
+    """Finds and checks as of `today`. Keys saved before decay existed fade from their raw totals since last_check.
+    Nothing is filled in when there is no check date."""
+    if "decayed_checks" in e:
+        finds, checks = float(e.get("decayed_finds") or 0), float(e["decayed_checks"])
+        asof = e.get("decay_asof") or e.get("last_check")
+    else:
+        finds, checks = float(e.get("finds") or 0), float(e.get("checks") or 0)
+        asof = e.get("last_check")
+    if today and asof:
+        days = _days(asof, today)
+        if 0 < days < 10 ** 5:
+            f = _decay_factor(days); finds *= f; checks *= f
+    return finds, checks
+
+def reward(e, today=None):
+    finds, checks = _fade_counts(e, today)
+    return (finds + 1) / (checks + 2)
+
+def cap_parts(parts, cap=None):
+    """Scale a site's signal parts so they sum to at most BOOST_CAP. One cap, shared by every signal."""
+    cap = BOOST_CAP if cap is None else cap
+    kept = {k: float(v) for k, v in (parts or {}).items() if v}
+    raw = sum(kept.values())
+    if raw <= cap or raw <= 0: return kept
+    scale = cap / raw
+    return {k: v * scale for k, v in kept.items()}
+
+def note_signals(s, today, extra=None):
+    """Bookkeeping the signals sweep writes into learning_state.json. Order data only."""
+    s["signals_run"] = today
+    for k, v in (extra or {}).items(): s[k] = v
+    return s
 
 def resting(e, today):
     """Back-off: k consecutive failures -> rest min(2**(k-1), FLOOR_DAYS) days since the last check."""
@@ -65,7 +108,7 @@ def priority(s, key, today, gap=0.0, boost=0.0):
     e = s["keys"].get(key) or {"checks": 0, "finds": 0, "last_check": None}
     explore = C * math.sqrt(math.log(s.get("total_checks", 0) + 1) / (e["checks"] + 1))
     stale = 1.0 if not e.get("last_check") else min(_days(e["last_check"], today) / FLOOR_DAYS, 1.0)
-    return round(reward(e) + explore + GAP_W * max(0.0, min(gap, 1.0)) + STALE_W * stale + max(0.0, min(boost, 3.0)), 4)  # boost: learning_signals.py (bounded)
+    return round(reward(e, today) + explore + GAP_W * max(0.0, min(gap, 1.0)) + STALE_W * stale + max(0.0, min(float(boost or 0), BOOST_CAP)), 4)
 
 def plan(s, keys, today, gaps=None, budget=None, boosts=None):
     """Order keys for this run. Floor-due keys first (always kept), then by priority; resting keys (back-off) are
@@ -90,7 +133,7 @@ def method_order(s, key, methods):
 
 def snapshot(s, today, top=200):
     """Keep a small per-run history of priorities so the digest can show movers."""
-    pr = {k: round(reward(e), 3) for k, e in s["keys"].items()}
+    pr = {k: round(reward(e, today), 3) for k, e in s["keys"].items()}
     s["history"] = (s["history"] + [{"day": today, "reward": dict(sorted(pr.items(), key=lambda x: -x[1])[:top])}])[-14:]
 
 def digest_lines(s, today, n=5):
@@ -98,7 +141,7 @@ def digest_lines(s, today, n=5):
     K = s["keys"]; L = ["## What the system learned", ""]
     if not K: return L + ["- nothing yet (first runs build the history)", ""]
     h = s.get("history", []); prev = h[-2]["reward"] if len(h) >= 2 else {}
-    now = {k: reward(e) for k, e in K.items()}
+    now = {k: reward(e, today) for k, e in K.items()}
     mv = sorted(((now[k] - prev.get(k, 0.5), k) for k in now if k in prev), reverse=True)
     up = [x for x in mv if x[0] > 0.001][:n]; down = [x for x in mv[::-1] if x[0] < -0.001][:n]
     found = sorted((k for k, e in K.items() if e.get("last_find") == today), key=lambda k: -now[k])[:n]

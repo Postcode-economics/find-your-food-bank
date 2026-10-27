@@ -14,6 +14,16 @@ class Scoring(unittest.TestCase):
         self.assertGreater(LR.priority(s, "good", t), LR.priority(s, "dull", t))
         self.assertGreater(LR.priority(s, "dull", t, gap=1.0), LR.priority(s, "dull", t, gap=0.0))  # missing phone/times = dig more
         self.assertGreater(LR.priority(s, "new", t), 0)  # unseen keys get an exploration bonus
+        self.assertEqual(LR.priority(s, "dull", t, boost=10), LR.priority(s, "dull", t, boost=LR.BOOST_CAP))  # one shared cap
+    def test_old_results_fade(self):
+        s = LR.load(os.devnull)
+        LR.record(s, "old", "2026-01-01", True, finds=1)
+        at_the_time = LR.reward(s["keys"]["old"], "2026-01-01")
+        later = LR.reward(s["keys"]["old"], "2026-07-01")  # same result, read half a year on
+        self.assertGreater(at_the_time, later)
+        LR.record(s, "old", "2026-07-01", True, finds=0)
+        LR.record(s, "fresh", "2026-07-01", True, finds=1)
+        self.assertGreater(LR.reward(s["keys"]["fresh"], "2026-07-01"), LR.reward(s["keys"]["old"], "2026-07-01"))
     def test_not_reached_records_nothing(self):
         s = LR.load(os.devnull); LR.record(s, "x", "2026-10-25", None); self.assertNotIn("x", s["keys"])
 
