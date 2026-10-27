@@ -15,6 +15,25 @@ def sw_tag():
     return 'h' + hashlib.sha256(re.sub(r"\?v=[\w.-]+", '', rd('sw.js')).encode()).hexdigest()[:12]
 
 
+
+# Backup style with a drawn feature: grey background plus a green UK fill. A grey-only canvas fails the pixel check.
+OFM_DRAWN = ('{"version":8,"sources":{"uk":{"type":"geojson","data":{"type":"Feature","properties":{},"geometry":'
+             '{"type":"Polygon","coordinates":[[[-11,49],[3,49],[3,61],[-11,61],[-11,49]]]}}}},"layers":['
+             '{"id":"background","type":"background","paint":{"background-color":"#f2f3f0"}},'
+             '{"id":"uk","type":"fill","source":"uk","paint":{"fill-color":"#1e9e3c"}}]}')
+
+
+def canvas_fill_share(pg):
+    """Share of the MapLibre canvas's on-screen pixels showing the green fill (screenshot, so WebGL buffers don't matter)."""
+    import base64
+    el = pg.locator('#map canvas.maplibregl-canvas, #map .maplibregl-canvas').first
+    b64 = base64.b64encode(el.screenshot()).decode()
+    return pg.evaluate("""b64 => new Promise((ok, bad) => { const im = new Image(); im.onload = () => {
+        const cv = document.createElement('canvas'); cv.width = im.width; cv.height = im.height;
+        const x = cv.getContext('2d'); x.drawImage(im, 0, 0); const d = x.getImageData(0, 0, cv.width, cv.height).data;
+        let g = 0, n = 0; for (let i = 0; i < d.length; i += 16) { n++; if (d[i+1] > d[i] + 60 && d[i+1] > d[i+2] + 60) g++; }
+        ok(n ? g / n : 0) }; im.onerror = bad; im.src = 'data:image/png;base64,' + b64; })""", b64)
+
 class Tag(unittest.TestCase):
     def test_registration_uses_the_content_hash(self):
         m = re.search(r"register\('sw\.js\?v=([\w.-]+)'", rd('layers.js'))
@@ -107,7 +126,7 @@ class StaleWorker(unittest.TestCase):
             blocker = "const __f=self.fetch;self.fetch=function(r,o){var u=typeof r==='string'?r:r.url;return /tile\\.openstreetmap\\.org/.test(u)?Promise.reject(new TypeError('blocked by test')):__f.call(self,r,o)};\n"
             b, c, holder = self._ctx(p, sw_body=(blocker + open(os.path.join(R, 'sw.js'), encoding='utf-8').read()).encode())
             c.route('**://tile.openstreetmap.org/**', lambda r: r.abort('connectionrefused'))
-            c.route('**://*.openfreemap.org/**', lambda r: r.fulfill(status=200, content_type='application/json', body=OFM,
+            c.route('**://*.openfreemap.org/**', lambda r: r.fulfill(status=200, content_type='application/json', body=OFM_DRAWN,
                                                                          headers={'access-control-allow-origin': '*'}) if '/styles/' in r.request.url
                     else r.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'}))
             pg = c.new_page()
@@ -124,6 +143,14 @@ class StaleWorker(unittest.TestCase):
             self.assertLess(gaps, 1000, 'main thread froze %dms' % gaps)
             pg.evaluate("() => map.setView([53.48, -2.24], 7)"); pg.wait_for_timeout(800)
             self.assertEqual(pg.evaluate('() => window.TILE_ACTIVE'), 'openfreemap')
+            # A canvas existing is not enough: a grey map would pass. The style fills the UK green, so the backup
+            # canvas must actually show that colour (not blank, not the grey background).
+            share = 0
+            for _ in range(20):
+                pg.wait_for_timeout(500)
+                share = canvas_fill_share(pg)
+                if share >= 0.2: break
+            self.assertGreaterEqual(share, 0.2, ('backup map canvas not drawn (grey/blank): green share %.3f' % share, pg.evaluate(STATE)))
             os.makedirs(SHOTS, exist_ok=True); pg.screenshot(path=os.path.join(SHOTS, 'sw_on_osm_blocked_backup.png'))
             b.close()
 
@@ -132,8 +159,12 @@ class StaleWorker(unittest.TestCase):
         with sync_playwright() as p:
             b, c, _ = self._ctx(p)
             c.route('**://tile.openstreetmap.org/**', png)
-            pg = c.new_page(); pg.goto(BASE + '/?nocount', wait_until='load')
+            loads = []
+            pg = c.new_page(); pg.on('load', lambda *_: loads.append(1))
+            pg.goto(BASE + '/?nocount', wait_until='load')
             self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
+            pg.wait_for_timeout(12000)  # a clean phone must never reload: exactly one page load over ~12 s
+            self.assertEqual(len(loads), 1, 'clean phone reloaded: %d page loads in ~12s' % len(loads))
             self.assertIsNone(pg.evaluate("() => sessionStorage.getItem('hmHealOld')"))
             b.close()
 
