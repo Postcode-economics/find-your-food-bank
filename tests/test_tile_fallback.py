@@ -412,6 +412,97 @@ class Browser(unittest.TestCase):
             self._ofm_ready(pg, state)
             b.close()
 
+    def _open(self, p, query, handle):
+        b = self._chrome(p)
+        c = b.new_context(viewport={'width': 1100, 'height': 800}, service_workers='block')
+        pg = c.new_page()
+        pg.route(B.TILE_RE, handle)
+        from site_ready import open_map
+        sep = '&' if '?' in self.base else '?'
+        open_map(pg, self.base + (sep + query if query else ''), stub_tiles=False)
+        return b, pg
+
+    @staticmethod
+    def _osm_ok(route):
+        if 'tile.openstreetmap.org' in route.request.url:
+            route.fulfill(status=200, content_type='image/png', body=B.TILE_PNG,
+                          headers={'access-control-allow-origin': '*', 'x-helpmap-tile': 'stub'})
+        elif '/styles/positron' in route.request.url:
+            route.fulfill(status=200, content_type='application/json', body=OFM_STYLE, headers={'access-control-allow-origin': '*'})
+        else:
+            route.fulfill(status=404, body='', headers={'access-control-allow-origin': '*'})
+
+    def test_no_debug_readout_without_the_flag(self):
+        """Without ?tiles=debug the page is unchanged: no readout element, credit text as before."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b, pg = self._open(p, '', self._osm_ok)
+            self.assertTrue(_until(pg, "() => document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
+            pg.wait_for_timeout(1200)
+            self.assertEqual(pg.evaluate("() => document.querySelectorAll('#tiles-debug, .tiles-debug').length"), 0)
+            self.assertNotIn('map: ', pg.evaluate("() => document.querySelector('#map').innerText"))
+            b.close()
+
+    def test_debug_readout_shows_active_map_and_switch_reason(self):
+        """Dean 27 Oct 05:44: iPhone shows the backup map. ?tiles=debug prints why, in plain text."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            def handle(route):
+                if 'tile.openstreetmap.org' in route.request.url:
+                    route.fulfill(status=403, content_type='image/png', body=B.TILE_PNG, headers={'access-control-allow-origin': '*'})
+                else:
+                    self._osm_ok(route)
+            b, pg = self._open(p, 'tiles=debug', handle)
+            self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'"))
+            self.assertTrue(_until(pg, "() => /switched osm->openfreemap/.test((document.getElementById('tiles-debug')||{}).textContent||'')"))
+            t = pg.evaluate("() => document.getElementById('tiles-debug').innerText")
+            self.assertIn('map: openfreemap', t)
+            self.assertIn('reason 403', t)
+            self.assertIn('codes 403', t)
+            self.assertRegex(t, r'failures \d+')
+            b.close()
+        with sync_playwright() as p:
+            b, pg = self._open(p, 'tiles=debug', self._osm_ok)
+            self.assertTrue(_until(pg, "() => /map: osm/.test((document.getElementById('tiles-debug')||{}).textContent||'')"))
+            self.assertIn('no switch', pg.evaluate("() => document.getElementById('tiles-debug').innerText"))
+            b.close()
+
+    def test_one_failed_fetch_per_tile_is_retried_not_counted(self):
+        """Each OSM tile's first request fails at the network level (iOS 'Load failed'), the retry is 200.
+        Before the retry this switched to the backup; now OSM stays and nothing counts as a failure."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            seen = set()
+            def handle(route):
+                u = route.request.url
+                if 'tile.openstreetmap.org' in u and u not in seen:
+                    seen.add(u)
+                    route.abort('connectionreset')
+                else:
+                    self._osm_ok(route)
+            b, pg = self._open(p, '', handle)
+            self.assertTrue(_until(pg, "() => document.querySelectorAll('#map .leaflet-tile-loaded').length>3"))
+            pg.wait_for_timeout(1500)
+            st = pg.evaluate("() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER || null, stats: window.TILE_STATS})")
+            self.assertEqual(st['active'], 'osm', st)
+            self.assertIsNone(st['fo'], st)
+            self.assertGreaterEqual(st['stats'].get('retry', 0), 4, st)
+            b.close()
+
+    def test_a_tile_that_fails_twice_still_counts(self):
+        """The retry is once only: OSM down for good still switches to the backup."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            def handle(route):
+                if 'tile.openstreetmap.org' in route.request.url:
+                    route.abort('connectionreset')
+                else:
+                    self._osm_ok(route)
+            b, pg = self._open(p, '', handle)
+            self.assertTrue(_until(pg, "() => window.TILE_ACTIVE==='openfreemap'", secs=20))
+            self.assertEqual(pg.evaluate("() => window.TILE_FAILOVER.reason"), 'errors')
+            b.close()
+
 
 def _until(pg, js, secs=15):
     """page.evaluate, not wait_for_function: the page CSP blocks the eval that wait_for_function uses."""
