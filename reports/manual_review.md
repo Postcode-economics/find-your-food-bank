@@ -44,4 +44,6 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
 ## Auto-discovery queue (2026-10-27) — failed one auto-add check, not on the map
 
+### Deep sweep (council pages): 0 queued, 0 rejected
+
 <!-- END AUTO-DISCOVERY QUEUE -->
