@@ -16,12 +16,14 @@ window.TILE_PROVIDERS = [
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a>' }
 ];
 /* How many of the last TILE_WINDOW tile attempts have to fail before leaving the current provider.
-   A 401, 403 or 429 switches on its own. Chrome still fires the image load event when that
+   Other errors switch at TILE_WINDOW_FAILS. A 401, 403 or 429 (a refusal) switches at TILE_WINDOW_REFUSALS:
+   phone networks and iCloud Private Relay share addresses, so one stray 429 must not drop the map. Chrome still fires the image load event when that
    response body is a valid PNG, so a tileerror counter never sees it: cached 200s and uncached
    403s both look like successes. The status is read from the tile fetch, not from the image event.
    The check keeps running after the first load. */
 window.TILE_WINDOW = 20;
 window.TILE_WINDOW_FAILS = 4;
+window.TILE_WINDOW_REFUSALS = 3;
 window.tileCandidates = function () {
   var list = window.TILE_PROVIDERS.filter(function (p) {
     if (p.disabled) return false;
@@ -80,21 +82,27 @@ window.addTiles = function (map) {
     if (p.type === 'vector') { useVector(p, my, i); return; }
     var n = i, switched = false, used = 0, ok = 0, bad = 0, recent = [];
     window.TILE_STATS = window.TILE_STATS || {load: 0, error: 0, probe: 0};
-    function note(success) {
+    /* recent holds 1 for a success, 0 for an error, 2 for a refusal (401, 403, 429). */
+    function note(success, refused) {
       if (success) ok++; else bad++;
-      recent.push(success ? 1 : 0);
+      recent.push(success ? 1 : (refused ? 2 : 0));
       var limit = window.TILE_WINDOW || 20;
       if (recent.length > limit) recent.shift();
       var windowBad = 0, k;
-      for (k = 0; k < recent.length; k++) if (!recent[k]) windowBad++;
+      for (k = 0; k < recent.length; k++) if (recent[k] !== 1) windowBad++;
       return windowBad;
+    }
+    function refusals() {
+      var r = 0, k;
+      for (k = 0; k < recent.length; k++) if (recent[k] === 2) r++;
+      return r;
     }
     function giveUp(reason) {
       if (switched || my !== gen || n >= list.length - 1) return;
       switched = true;
       var windowBad = 0, k;
-      for (k = 0; k < recent.length; k++) if (!recent[k]) windowBad++;
-      window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, reason: String(reason) };
+      for (k = 0; k < recent.length; k++) if (recent[k] !== 1) windowBad++;
+      window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, refused: refusals(), reason: String(reason) };
       use(n + 1);
     }
     var Layer = L.TileLayer.extend({
@@ -109,9 +117,10 @@ window.addTiles = function (map) {
           if (tileGen !== gen) return;
           if (r.status === 401 || r.status === 403 || r.status === 429) {
             window.TILE_STATS.error++;
-            note(false);
+            var errs = note(false, true);
             done(new Error(String(r.status)), img);
-            giveUp(r.status);
+            if (refusals() >= (window.TILE_WINDOW_REFUSALS || 3)) giveUp(r.status);
+            else if (errs >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
             return;
           }
           if (!r.ok) {
