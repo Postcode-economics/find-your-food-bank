@@ -1097,11 +1097,12 @@
   }
  },
  "aylesbury/tabitha-foodbank": {
-  "checked_date": "2026-10-20",
-  "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
   "source_url": "https://aylesbury.foodbank.org.uk/locations/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "aylesbury/the-oaks-community-coffee-shop": {
   "checked_date": "2026-10-20",
@@ -5054,11 +5055,12 @@
   }
  },
  "corfe-mullen": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon & Thur 9-2:30 | Tues & Fri 9-12 | Wed 11-2:30",
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
   "source_url": "https://parishofcorfemullen.church/contact",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "cornerstone": {
   "checked_date": "2026-10-20",
@@ -15543,11 +15545,12 @@
   "structured": null
  },
  "patch": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday – Friday 10am-2pm | Tuesday – Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday – Friday 10am – 2pm",
-  "source_url": "https://patchcharity.org.uk/get-help/",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Milford Haven, Robert Street, SA73 2HA: Monday – Friday 10am-2pm",
+  "source_url": "https://patchcharity.org.uk/get-help/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "pbp": {
   "status": "TIMES_TEXT_ONLY",
@@ -26448,45 +26451,6 @@
   "checked_date": "2026-10-27",
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
- "ifan-5b3e01fe979d373d9ba679-0": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "09:30",
-     "13:00"
-    ]
-   ],
-   "tue": [
-    [
-     "09:30",
-     "13:00"
-    ]
-   ],
-   "wed": [
-    [
-     "09:30",
-     "13:00"
-    ]
-   ],
-   "thu": [
-    [
-     "09:30",
-     "13:00"
-    ]
-   ],
-   "fri": [
-    [
-     "09:30",
-     "13:00"
-    ]
-   ]
-  },
-  "raw": "Opening hours: Monday to Friday from 9.30am to 1pm",
-  "source_url": "https://www.caritassalford.org.uk/service/cornerstone-centre/",
-  "checked_date": "2026-10-27",
-  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
- },
  "ifan-84cd0bf40986bfc9a427c6-0": {
   "status": "TIMES_FOUND",
   "structured": {
@@ -26608,6 +26572,88 @@
   "structured": null,
   "raw": "West Kingsdown: Mon, Wed & Fri: 10am - 12 noon; Tues & Thur 12 - 2pm",
   "source_url": "https://thecommunitycupboard.co.uk/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "hereford": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "raw": "We are open Monday to Friday 10:00 am - 12 noon and 1:00 pm - 3:00 pm Except for Bank Holidays",
+  "source_url": "https://herefordfoodbank.co.uk/contact-us",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "purley/old-lodge-lane-baptist-church": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "PURLEY FOOD STOP is open on Fridays 9am-12noon at Old Lodge Lane Baptist Church",
+  "source_url": "https://www.purleyfoodhub.net/get-help/",
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "north-ayrshire/st-johns-church": {
+  "status": "NO_TIMES",
+  "structured": null,
+  "raw": "",
+  "source_url": "https://northayrshire.foodbank.org.uk/locations/",
   "checked_date": "2026-10-27",
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  }

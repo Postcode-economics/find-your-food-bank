@@ -1,4 +1,4 @@
-"""Lock (fix/office-depot-labels, 27 Oct 2026): 141 food bank listings whose shown times were office, phone-line,
+"""Lock (fix/office-depot-labels, 27 Oct 2026): 146 food bank listings whose shown times were office, phone-line,
 helpline, referral, donation, depot or church-activity hours, or another place's times. Every fix quotes the organisation's
 own page (overrides/opening_times.json raw). Exact food times only where the page gives them; otherwise the times are
 labelled (text) or removed with a 'call ahead' notice. Nothing is ever switched to Closed. Protected from the refresh by
@@ -188,6 +188,58 @@ FOOD = {
    ]
   ]
  },
+ "hereford": {
+  "mon": [
+   [
+    "10:00",
+    "12:00"
+   ],
+   [
+    "13:00",
+    "15:00"
+   ]
+  ],
+  "tue": [
+   [
+    "10:00",
+    "12:00"
+   ],
+   [
+    "13:00",
+    "15:00"
+   ]
+  ],
+  "wed": [
+   [
+    "10:00",
+    "12:00"
+   ],
+   [
+    "13:00",
+    "15:00"
+   ]
+  ],
+  "thu": [
+   [
+    "10:00",
+    "12:00"
+   ],
+   [
+    "13:00",
+    "15:00"
+   ]
+  ],
+  "fri": [
+   [
+    "10:00",
+    "12:00"
+   ],
+   [
+    "13:00",
+    "15:00"
+   ]
+  ]
+ },
  "highams-park-hub": {
   "tue": [
    [
@@ -272,38 +324,6 @@ FOOD = {
   "sat": [
    [
     "11:00",
-    "13:00"
-   ]
-  ]
- },
- "ifan-5b3e01fe979d373d9ba679-0": {
-  "mon": [
-   [
-    "09:30",
-    "13:00"
-   ]
-  ],
-  "tue": [
-   [
-    "09:30",
-    "13:00"
-   ]
-  ],
-  "wed": [
-   [
-    "09:30",
-    "13:00"
-   ]
-  ],
-  "thu": [
-   [
-    "09:30",
-    "13:00"
-   ]
-  ],
-  "fri": [
-   [
-    "09:30",
     "13:00"
    ]
   ]
@@ -515,6 +535,14 @@ FOOD = {
    [
     "13:30",
     "15:00"
+   ]
+  ]
+ },
+ "purley/old-lodge-lane-baptist-church": {
+  "fri": [
+   [
+    "09:00",
+    "12:00"
    ]
   ]
  },
@@ -1006,6 +1034,7 @@ TEXT = {
  "newark/tuxford": "Delivery only: this centre is managed from Newark - obtain a voucher and we will deliver",
  "north-bristol-south-gloucestershire": "Phone line hours, not collection times: 0117 472 5172 Mon-Fri 9.30am-4.30pm. Emergency parcels can only be collected at specific times: see their website for centre times",
  "open-hands-reigate": "Phone line hours, not collection times: Tuesday & Thursday 9 am to 12 pm - 07849-634309; Tuesday & Thursday 1 pm to 4 pm - 07849-633736. Closed every Wednesday",
+ "patch": "Milford Haven, Robert Street, SA73 2HA: Monday – Friday 10am-2pm",
  "pbp": "CETMA office opening hours, not food collection: Kidwelly Office Monday-Friday 10AM - 4PM",
  "redcar-area": "Please note this is not a foodbank. We can now accept donations at our office again Monday to Friday 9am to 12noon",
  "ringwood": "Warehouse (postal address), open Monday, Wednesday and Friday 9:30 to 12:30: we do not distribute food from here, please go to your nearest Distribution Centre",
@@ -1027,11 +1056,14 @@ TEXT = {
  "york": "Donation drop-off depot only, not a food collection point: Tuesday/Thursday 9am-1pm or by arrangement"
 }
 CALL_AHEAD = [
+ "aylesbury/tabitha-foodbank",
+ "corfe-mullen",
  "green-lane-masjid-and-community-centre",
  "hays-community-pantry",
  "liberty-church-mid-ulster",
  "maidstone-homeless-care",
  "manna",
+ "north-ayrshire/st-johns-church",
  "north-lakes",
  "queens-park-govanhill-parish-church",
  "rickmansworth/maple-cross",
@@ -1072,10 +1104,12 @@ CALL_AHEAD = [
 WRONG_CORPS_PAGE = ["salvation-army", "salvation-army/bourne", "salvation-army/bury", "salvation-army/chester", "salvation-army/pill", "salvation-army/sale", "salvation-army/salisbury", "salvation-army/street", "salvation-army/sundays", "salvation-army/ware", "salvation-army/wimborne"]  # times came from another Salvation Army corps' page: link removed too
 NOTICE = {
  "aylesbury": "Warehouse: deliveries and donations only. Times shown are office hours. See where to get food below.",
+ "aylesbury/tabitha-foodbank": "Call ahead: no food bank session times are confirmed on their own page.",
  "bradford-north": "Times shown are phone line hours, not food collection. See where to get food below.",
  "broxbourne": "Warehouse for donations: not a place to collect food. See where to get food below.",
  "chiltern/prestwood": "Delivery only: food is delivered, not collected here. Times shown are delivery times.",
  "chiltern/wendover": "Delivery only: food is delivered, not collected here. Call ahead to arrange a delivery.",
+ "corfe-mullen": "Call ahead: no food bank session times are confirmed on their own page.",
  "ek-community": "Times shown are church office hours, not food bank times. Call or see their website for food bank times.",
  "fusion": "Times shown are office hours, not food collection.",
  "fusion/calderdale": "Times shown are office hours, not food collection.",
@@ -1087,6 +1121,7 @@ NOTICE = {
  "haverhill": "Times shown are contact hours, not food collection. See where to get food below.",
  "hays-community-pantry": "Call ahead: no food bank session times are confirmed on their own page.",
  "hucknall": "Referral needed. Call ahead.",
+ "ifan-25c84c4582b7e7c60aeeac-0": "Low-cost food shop: you pay a small amount. Not a free food bank.",
  "ifan-9cf9dd4ce1df051c2c0a59-0": "Three pantries at different addresses. See their website for each one.",
  "ifan-d59b2e089746f7a97c1e15-0": "Community pantry for members only. Call ahead to join.",
  "lalley-centre": "Pantry sessions are at the Lalley Centre. Call ahead.",
@@ -1095,10 +1130,12 @@ NOTICE = {
  "maidstone-homeless-care": "Call ahead: no food bank session times are confirmed on their own page.",
  "manna": "Call ahead: no food bank session times are confirmed on their own page.",
  "newark/tuxford": "Delivery only: food is delivered, not collected here.",
+ "north-ayrshire/st-johns-church": "Opens on phone request: \"This centre is only open upon a telephone request.\" Call ahead on 07437 521930 to arrange a collection.",
  "north-bristol-south-gloucestershire": "Times shown are phone line hours, not collection times. Parcels are collected at set times at each centre: see their website for centre times.",
  "north-lakes": "Call ahead: no food bank session times are confirmed on their own page.",
  "open-hands-reigate": "Times on their page are phone line hours, not collection times. Closed every Wednesday.",
  "pbp": "Times shown are CETMA office hours, not food collection. See where to get food below.",
+ "purley/old-lodge-lane-baptist-church": "Food stop: £3.50 payment, no referral needed.",
  "queens-park-govanhill-parish-church": "Call ahead: no food bank session times are confirmed on their own page.",
  "redcar-area": "Not a food bank, donations only.",
  "rickmansworth/maple-cross": "Call ahead, no current sessions listed.",
@@ -1196,3 +1233,16 @@ class T(unittest.TestCase):
         self.assertEqual(FOOD["muswell-hill"], {d: [["11:30", "13:30"]] for d in ("mon", "wed", "fri")})
         self.assertFalse(str((self.t.get("cardiff") or {}).get("reader", "")).startswith("hand-reviewed 2026-10-27 (own page re-fetched live"))
 if __name__ == "__main__": unittest.main()
+class Round16(unittest.TestCase):
+    """27 Oct 23:31 review: Cornerstone reverted to main; nbil labelled low-cost shop; Bot 4 browser findings (each quoted on 2 fetches)."""
+    def test_round16(self):
+        t, n = J("opening_times.json"), J("foodbank_notices.json")
+        self.assertNotIn("ifan-5b3e01fe979d373d9ba679-0", t)
+        self.assertIn("Low-cost food shop", n["ifan-25c84c4582b7e7c60aeeac-0"]["notice"])
+        self.assertEqual(t["hereford"]["structured"]["wed"], [["10:00", "12:00"], ["13:00", "15:00"]])
+        self.assertEqual(t["purley/old-lodge-lane-baptist-church"]["structured"], {"fri": [["09:00", "12:00"]]})
+        self.assertNotIn("Parish Office", t["corfe-mullen"]["raw"])
+        self.assertIn("telephone request", n["north-ayrshire/st-johns-church"]["notice"])
+        self.assertEqual(t["aylesbury/tabitha-foodbank"]["status"], "NO_TIMES")
+        self.assertNotIn(" | ", t["patch"]["raw"])
+        self.assertIn("pantry session from 10.30am to 12.30pm", t["lalley-centre"]["raw"])
