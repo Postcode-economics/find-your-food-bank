@@ -3,7 +3,7 @@
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v90',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=v1792959725','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=ofm20261026','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=v1792997200'];
+const C='fyfb-v90',T='fyfb-tiles',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=v1792959725','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=ios20261027','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=v1792997200'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
 const MAPTILER=/(^|\.)maptiler\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
@@ -19,7 +19,11 @@ let trimming=false;const trim=c=>{if(trimming)return;trimming=true;c.keys().then
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
  if(TILE.test(u.host)){e.respondWith(caches.open(T).then(async c=>{
    if(MAPTILER.test(u.host)){const stale=await c.match(e.request);if(stale)c.delete(e.request);return fetch(e.request).then(r=>r).catch(()=>{tell();return Response.error()})}
-   const hit=await c.match(e.request);if(hit)return hit;
+   const hit=await c.match(e.request);
+   // Return the cached tile even when it is opaque. A CORS status probe cannot read that body (WebKit:
+   // "Response served by service worker is opaque") and tiles.js then paints the <img> instead. Refetching
+   // here would still contact the tile host while offline, which the cached copy is there to avoid.
+   if(hit)return hit;
    return fetch(e.request).then(r=>{if(r.ok||r.type==='opaque'){c.put(e.request,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return Response.error()})}));return}
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}

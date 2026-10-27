@@ -18,8 +18,11 @@ window.TILE_PROVIDERS = [
 /* How many of the last TILE_WINDOW tile attempts have to fail before leaving the current provider.
    A 401, 403 or 429 switches on its own. Chrome still fires the image load event when that
    response body is a valid PNG, so a tileerror counter never sees it: cached 200s and uncached
-   403s both look like successes. The status is read from the tile fetch, not from the image event.
-   The check keeps running after the first load. */
+   403s both look like successes. The status is read from a simple CORS fetch (no custom headers,
+   so no preflight). The tile itself is a normal Leaflet image: no crossOrigin, so iOS can paint
+   the opaque copy sw.js cached for <img>. WebKit rejects that opaque body for a CORS fetch
+   ("Response served by service worker is opaque"). A probe that throws is not a tile failure and
+   must not load MapLibre. The check keeps running after the first load. */
 window.TILE_WINDOW = 20;
 window.TILE_WINDOW_FAILS = 4;
 window.tileCandidates = function () {
@@ -101,11 +104,35 @@ window.addTiles = function (map) {
       createTile: function (coords, done) {
         var img = document.createElement('img'), size = this.getTileSize();
         img.alt = ''; img.width = size.x; img.height = size.y;
+        /* No crossOrigin. crossorigin="anonymous" makes the <img> a CORS request, and WebKit then
+           refuses the opaque tile the service worker stored for a normal image. */
+        img.referrerPolicy = 'strict-origin-when-cross-origin';
         if (p.cap && used >= p.cap) { done(null, img); return img; }
         if (p.cap) used++;
-        var url = this.getTileUrl(coords), tileGen = my;
+        var url = this.getTileUrl(coords), tileGen = my, shown = false, counted = false;
+        function reveal() {
+          if (shown || tileGen !== gen) return;
+          shown = true;
+          img.onload = function () {
+            if (tileGen !== gen || counted) { if (tileGen === gen) done(null, img); return; }
+            counted = true;
+            window.TILE_STATS.load++;
+            if (note(true) >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+            done(null, img);
+          };
+          img.onerror = function () {
+            if (tileGen !== gen) return;
+            window.TILE_STATS.error++;
+            var failed = note(false);
+            done(new Error('decode'), img);
+            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+          };
+          img.src = url;
+        }
         window.TILE_STATS.probe++;
-        fetch(url).then(function (r) {
+        /* credentials omit, no extra headers: a simple GET. A custom header would preflight, and
+           tile.openstreetmap.org only allows X-Requested-With on that preflight. */
+        fetch(url, {credentials: 'omit'}).then(function (r) {
           if (tileGen !== gen) return;
           if (r.status === 401 || r.status === 403 || r.status === 429) {
             window.TILE_STATS.error++;
@@ -121,31 +148,24 @@ window.addTiles = function (map) {
             if (missed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
             return;
           }
-          window.TILE_STATS.load++;
-          if (note(true) >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-          /* The status is known now. The image uses the real tile URL, answered from the service worker
-             or HTTP cache the fetch just filled, so img.src still names the provider (offline checks rely on it). */
-          img.crossOrigin = 'anonymous';
-          img.onload = function () { done(null, img); };
-          img.onerror = function () {
-            if (tileGen !== gen) return;
-            window.TILE_STATS.error++;
-            var failed = note(false);
-            done(new Error('decode'), img);
-            if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
-          };
-          img.src = url;
+          if (!counted) {
+            counted = true;
+            window.TILE_STATS.load++;
+            if (note(true) >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+          }
+          /* Status is known. The image still uses the real tile URL (offline checks read img.src).
+             It is answered from the service worker or the HTTP cache this fetch just filled. */
+          reveal();
         }, function () {
+          /* Probe failed closed: iOS "Response served by service worker is opaque", or the network.
+             Not a tile failure. The <img> is the map. */
           if (tileGen !== gen) return;
-          window.TILE_STATS.error++;
-          var failed = note(false);
-          done(new Error('network'), img);
-          if (failed >= (window.TILE_WINDOW_FAILS || 4)) giveUp('errors');
+          reveal();
         });
         return img;
       }
     });
-    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution, crossOrigin: true });
+    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution });
     layer.addTo(map);
     window.TILE_ACTIVE = p.name;
     logo(p.name === 'maptiler');
