@@ -8,7 +8,7 @@ writes reports/weather.json + reports/weather.md. Immediate alerts (via digest.p
 severe flood warnings (EA severity 1, SEPA 'severe'). No map change. Never fails the job.
 Emergency shelter preview (25 Oct 2026): same feeds, extended with a red area banner, open-until expiry,
 999 and Floodline on cards, and a text-only list. Nothing is shown on the live site unless the page is
-opened with ?preview=emergency. Going live still needs Dean's OK."""
+opened with ?preview=emergency."""
 import datetime, json, os, re, sys, urllib.request, xml.etree.ElementTree as ET
 from zoneinfo import ZoneInfo
 ROOT = os.path.join(os.path.dirname(__file__), "..")

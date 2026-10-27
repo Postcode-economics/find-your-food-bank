@@ -35,7 +35,7 @@ var col=document.getElementById('v3col')||document.getElementById('list');
 if(col)col.insertAdjacentElement('afterbegin',root);else document.body.appendChild(root);
 function setKey(on){var leg=document.getElementById('em-keyleg');if(!on){if(leg)leg.remove();return}
  if(leg)return;var host=document.getElementById('xupd');if(!host)return;leg=document.createElement('span');leg.id='em-keyleg';
- leg.innerHTML='<b>Emergency shelter</b> <small>rest centre, wording needs Dean’s OK</small>';host.appendChild(leg)}
+ leg.innerHTML='<b>Emergency shelter</b> <small>rest centre</small>';host.appendChild(leg)}
 function iconHtml(){return '<span class="em-ico" aria-hidden="true">'+pin()+'</span>'}
 function fillBanner(html){banner.hidden=!html;if(!html){hit.innerHTML='';var old=banner.querySelector('a.em-text');if(old)old.remove();return}
  hit.innerHTML='<span class="em-top">'+iconHtml()+'<span class="em-cta">CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER</span></span><span class="em-body">'+html+'</span>';
@@ -69,7 +69,7 @@ if(sample){var fl=flood();
  root.innerHTML='<p class="em-kicker">EXAMPLE MAP PIN</p><div class="em-pinrow">'+pin()+'Emergency shelter</div>'
   +'<p class="em-kicker">EXAMPLE LIST CARD</p>'+listCard(leisure,true)
   +'<p class="em-kicker">EXAMPLE MAP POP-UP CARD</p>'+popCard(hall,true)
-  +'<div class="em-key"><b>Map key, 4th entry.</b> Emergency shelter: a rest centre opened by the council in an emergency, such as a flood, fire, evacuation or power loss. Wording needs Dean’s OK before this goes live. Floodline '+esc(fl[1])+'.</div>';
+  +'<div class="em-key"><b>Map key, 4th entry.</b> Emergency shelter: a rest centre opened by the council in an emergency, such as a flood, fire, evacuation or power loss. Floodline '+esc(fl[1])+'.</div>';
  setKey(true);plot([leisure,hall],true)}
 else root.innerHTML='<p class="em-quiet">Emergency shelter preview. No council rest centre is listed. The live map is unchanged for everyone else. <a href="emergency.txt">Text-only list</a></p>';
 function applySearch(){var q=document.getElementById('q');document.documentElement.classList.toggle('em-only',emergencySearch(q&&q.value))}

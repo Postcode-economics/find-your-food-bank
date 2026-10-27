@@ -2,7 +2,7 @@
 
 Updated: 2026-10-25 (Europe/London), the same day the preview rules and tests were added.
 
-Status: preview only. The live site does not show it unless the address has `?preview=emergency`. Going live still needs Dean's OK. Nothing here was merged to the default, signed up for, or sent.
+Status: preview only. The live site does not show it unless the address has `?preview=emergency`. Approved by Dean 27 Oct 2026 as a hidden preview.
 
 ## What the preview does
 
@@ -17,7 +17,7 @@ Status: preview only. The live site does not show it unless the address has `?pr
 - A council rest centre can be listed at once in a fast-moving disaster, and Dean is told afterwards. Anything that is not from a council or other official announcement is held until Dean says yes.
 - Utility, police and fire pages, and the BGS earthquake feed, are triggers only. They re-check the council. They do not create a shelter card on their own, and an earthquake does not raise the banner unless there is an official alert.
 - There is a text-only list at `emergency.txt` (999 and Floodline on top, no JavaScript).
-- The map key's fourth entry is shown only when a shelter marker is live. The wording still needs Dean's OK before it goes live.
+- The map key's fourth entry is shown only when a shelter marker is live.
 - Colour, signed off 25 Oct 2026: every red is `#FF3B30` (2px outline, 6px left edge, badge fill, 999 button, map pin). Text on red is `#FFFFFF`, weight 900. The badge is 16px. The font stack is system-ui, -apple-system, "Segoe UI", Roboto, sans-serif. The pin is the UN OCHA House icon (CC0) in white on the red pin, with a white edge.
 - The repeating 10-minute check, the email sign-ups, and sending the watchdog message are not switched on. The rules are in `scripts/weather.py` and covered by tests. A manual workflow (`.github/workflows/emergency-preview.yml`) can write the preview report. It has no schedule.
 

@@ -1,5 +1,5 @@
 # Emergency shelter preview. Manual only.
-# The repeating check is not enabled. Going live needs Dean's OK, so this file has no schedule.
+# The repeating check is not enabled, so this file has no schedule. It never commits, pushes or deploys.
 name: emergency-preview
 on:
   workflow_dispatch:
