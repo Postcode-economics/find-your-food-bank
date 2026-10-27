@@ -110,8 +110,9 @@ class Pipeline(unittest.TestCase):
         rules = load("auto_apply_rules.json")
         self.assertTrue(rules["phone_rule"]["show_verified_own_page"])
         self.assertTrue(rules["phone_rule"]["named_or_personal_is_not_a_reason_to_hold"])
-        self.assertIn("verified own-page contact, including a named or personal number, with the page's label", rules["automatic"])
-        self.assertIn("host church contact page counts as the venue's own page", rules["automatic"])
+        # Dean 27 Oct 2026 07:18: these stay out of the auto-apply list (test_learning_guards).
+        self.assertNotIn("verified own-page contact, including a named or personal number, with the page's label", rules["automatic"])
+        self.assertNotIn("host church contact page counts as the venue's own page", rules["automatic"])
         self.assertTrue(rules["phone_rule"]["host_church_contact_counts_as_own_page"])
 
 if __name__ == "__main__":
