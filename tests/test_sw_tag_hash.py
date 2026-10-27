@@ -51,7 +51,7 @@ class Tag(unittest.TestCase):
         h = rd('index.html'); i = h.index("k='hmHealOld'")
         self.assertLess(i, h.index('</head>'))
         for s in ("'fyfb-v90'", "'fyfb-tiles'", 'caches.delete', 'unregister()', 'sessionStorage.setItem(k',
-                  "/[?&]hmheal=1(&|$)/.test(location.search)", "u.searchParams.set('hmheal','1')", 'location.replace(u.href)'):
+                  "/[?&]hmheal=1(&|$)/.test(location.search)", "'hmheal=1'+location.hash", 'location.replace(u)'):
             self.assertIn(s, h[i:i + 1200])
 
 
@@ -155,23 +155,41 @@ class StaleWorker(unittest.TestCase):
             os.makedirs(SHOTS, exist_ok=True); pg.screenshot(path=os.path.join(SHOTS, 'sw_on_osm_blocked_backup.png'))
             b.close()
 
-    def test_broken_session_storage_heals_at_most_once(self):
-        """PR 201's case: sessionStorage getItem always null and setItem silently not saved, and the old caches keep
-        coming back (worst case). The ?hmheal=1 URL flag must stop the heal: at most 2 document loads."""
+    BROKEN_STORAGE = """(() => { try { Storage.prototype.getItem = function () { return null };
+        Storage.prototype.setItem = function () {} } catch (e) {} })()"""
+
+    def _broken_storage_run(self, c):
+        """Stubbed sessionStorage (getItem null, setItem does nothing): no more than 2 document loads in 14 s, and the
+        one-shot ?hmheal=1 flag is stripped after the clean boot with ?nocount kept exactly."""
+        c.add_init_script(self.BROKEN_STORAGE)
+        c.route('**://tile.openstreetmap.org/**', png)
+        loads = []
+        pg = c.new_page(); pg.on('request', lambda r: r.is_navigation_request() and r.frame == pg.main_frame and loads.append(r.url))  # one per document load, even cut-short ones; replaceState is not a load
+        pg.goto(BASE + '/?nocount', wait_until='commit')
+        pg.wait_for_timeout(14000)
+        self.assertLessEqual(len(loads), 2, ('self-heal loop with broken sessionStorage', len(loads), loads[:5]))
+        self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
+        self.assertTrue(until(pg, "() => location.href === %r" % (BASE + '/?nocount'), 10), ('URL not clean after boot', pg.url))
+        return loads
+
+    def test_broken_session_storage_old_cache_heal_is_one_shot(self):
+        """PR 201's case on hmHealOld; worst case: the old fyfb-v90 cache keeps coming back."""
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
             b, c, _ = self._ctx(p)
-            c.add_init_script("""(() => { try { Storage.prototype.getItem = function () { return null };
-                Storage.prototype.setItem = function () {} } catch (e) {}
-                try { const k = CacheStorage.prototype.keys; CacheStorage.prototype.keys = function () {
-                  return k.call(this).then(ks => ks.includes('fyfb-v90') ? ks : ks.concat('fyfb-v90')) } } catch (e) {} })()""")
-            c.route('**://tile.openstreetmap.org/**', png)
-            loads = []
-            pg = c.new_page(); pg.on('framenavigated', lambda f: f == pg.main_frame and loads.append(f.url))  # every document load, even ones cut short
-            pg.goto(BASE + '/?nocount', wait_until='commit')
-            pg.wait_for_timeout(12000)
-            self.assertLessEqual(len(loads), 2, ('self-heal loop with broken sessionStorage', loads))
-            self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
+            c.add_init_script("""(() => { try { const k = CacheStorage.prototype.keys; CacheStorage.prototype.keys = function () {
+                return k.call(this).then(ks => ks.includes('fyfb-v90') ? ks : ks.concat('fyfb-v90')) } } catch (e) {} })()""")
+            self._broken_storage_run(c)
+            b.close()
+
+    def test_broken_session_storage_version_heal_is_one_shot(self):
+        """Grok Bot 2's case: version.json says a newer build than this HTML, storage stubbed (was 9 loads in 14 s)."""
+        from playwright.sync_api import sync_playwright
+        with sync_playwright() as p:
+            b, c, _ = self._ctx(p)
+            c.route(BASE + '/version.json*', lambda r: r.fulfill(status=200, content_type='application/json',
+                                                                 body='{"build":"fyfb-v999"}'))
+            self._broken_storage_run(c)
             b.close()
 
     def test_clean_phone_never_reloads(self):
