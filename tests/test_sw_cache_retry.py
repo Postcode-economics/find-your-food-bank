@@ -139,9 +139,22 @@ class T(unittest.TestCase):
                 self.assertEqual(logs, [], logs)
                 self.assertGreater(blocked['data'], 0, blocked)
                 self.assertGreater(blocked['leaflet'], 0, blocked)
-                # Tiles are cache-first: a cached tile never hits the network, an uncached one is aborted.
-                tile_hits = [row for row in served if _tile(row[0])]
-                self.assertTrue(blocked['tiles'] or any(sw for _, _, _, sw in tile_hits), (blocked, tile_hits))
+                # Tiles are cache-first. A cached tile is painted by the worker and may never show
+                # up as a network response; an uncached one is aborted. Either one is the map using tiles.
+                tile_hits, painted = [], 0
+                for _ in range(20):
+                    tile_hits = [row for row in served if _tile(row[0])]
+                    try:
+                        painted = page2.evaluate(
+                            "()=>[...document.querySelectorAll('#map img.leaflet-tile')].filter(img=>img.complete&&img.naturalWidth>0).length")
+                    except Exception:
+                        painted = 0
+                    if blocked['tiles'] or any(sw for _, _, _, sw in tile_hits) or painted:
+                        break
+                    page2.wait_for_timeout(250)
+                self.assertTrue(
+                    blocked['tiles'] or any(sw for _, _, _, sw in tile_hits) or painted,
+                    (blocked, tile_hits, painted))
                 self.assertTrue(any(p == '/data.js' and st == 200 and sw for _, p, st, sw in served), served)
                 self.assertTrue(any(p.endswith('/vendor/leaflet.js') and st == 200 and sw for _, p, st, sw in served), served)
                 self.assertGreater(n, 100, n)

@@ -365,6 +365,10 @@ def new_context(browser, **kw):
 def _ready(page, timeout_ms, hits=None, net=None):
     deadline = time.time() + timeout_ms / 1000.0
     state = {'ok': False, 'wall': False, 'title': ''}
+    # sw.js is network-first for data.js: the failed fetch is recorded, then the cache answers.
+    # Leaving on the first poll retries a page that was about to come up. A hard miss (404/500)
+    # still leaves at once. Eight polls is about two seconds in a real browser.
+    grace = 0
     while time.time() < deadline:
         try:
             state = page.evaluate(APP_READY_JS) or state
@@ -381,7 +385,11 @@ def _ready(page, timeout_ms, hits=None, net=None):
         if hits and not sw:
             return state
         if (not state.get('n') and not state.get('pane') and net is not None and net.definitive(sw)):
-            return state
+            grace += 1
+            if (net.hard_open() and not sw) or grace >= 8:
+                return state
+        else:
+            grace = 0
         page.wait_for_timeout(250)
     return state
 
