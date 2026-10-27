@@ -307,7 +307,7 @@ def main():
             if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
-            if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
+            if todo and prev.get('access') == r['access'] and hasattr(learning, "allow_under_rules") and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
                 flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
             elif todo and prev.get('access') == r['access']:
                 for x in todo:
@@ -315,7 +315,7 @@ def main():
                     changes.insert(0, entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
                 today['items'].pop('access flip pending (confirms next run)|' + u, None)
                 log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
-                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted), r.get('final_url'), RULES)
+                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted) if hasattr(learning, "confidence_for") else None, r.get('final_url'), RULES)
                 if note: prov.append(dict(note, when=NOW.isoformat()))
             elif todo:
                 flag(u, 'access flip pending (confirms next run)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='clear %s wording found; applied automatically if seen again next run' % r['access'])
@@ -344,9 +344,7 @@ def main():
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if stored and r['phones'] and not (stored & set(r['phones'])):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
-                flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
-            elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
+            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
                 today['items'].pop('phone number not on own site|' + u, None)
@@ -376,7 +374,10 @@ def main():
     applied_phones = []
     apply_phone_fixes(by_site, fixes, flag, applied_phones)
     for u, f in applied_phones:
-        note = learning.provenance('clear single new phone on own site', learning.confidence_for(u, conflicted), f.get('source'), RULES)
+        # PR 204 owns confidence_for and the decision to hold a phone. This log only records a number that was written.
+        if hasattr(learning, "confidence_for"): confidence = learning.confidence_for(u, conflicted)
+        else: confidence = 0.0 if u in conflicted else None
+        note = learning.provenance('clear single new phone on own site', confidence, f.get('source'), RULES)
         if note: prov.append(dict(note, when=NOW.isoformat()))
     if prov:
         prev_p = rj('provenance.json', [])
