@@ -227,3 +227,9 @@ def provenance(kind, confidence, source, rules):
             if float(confidence) < 0.8: return None
         except (TypeError, ValueError): return None
     return {"rule": kind, "confidence": confidence, "source": source, "decides": False}
+
+def try_auto_phone(item, proposed, source, root=None, via="learning"):
+    """Learning / auto-apply writer for one listing phone.
+    A frozen number is not changed. The attempt is held for Dean. Returns True only when proposed was written."""
+    import phone_lock
+    return phone_lock.consider(item, "phone", proposed, root=root, via=via, source=source, persist_new=True)
