@@ -312,6 +312,7 @@ def apply_phone_fixes(by_site, fixes, flag, root=None):
             if norm_phone(i.get('phone')) != f['old']: continue
             if phone_lock.is_listed(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
                 phone_lock.hold(root, i.get('id'), 'phone', i.get('phone'), f['new'], f.get('source') or '', 'phone fix', i.get('name') or '')
+                flag(u + '|' + i.get('id', ''), 'phone change skipped (frozen in phone baseline)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied: this number is frozen in overrides/phone_baseline.json and held for Dean')
                 continue  # phone and tel stay byte-identical
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
