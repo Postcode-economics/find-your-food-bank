@@ -17,7 +17,7 @@ global.Request=function(u,o){this.url=u;Object.assign(this,o||{})};
 global.Response={error:()=>({error:true})};
 global.fetch=async r=>{net.push([r.url||r,r.mode]);if(offline)throw new Error('off');const mode=r.mode||'cors',op=mode==='no-cors'&&!String(r.url||r).startsWith(location.origin);return {ok:!op,type:op?'opaque':'cors',body:'net:'+(r.url||r)+'#'+net.length,clone(){return this}}};
 new Function(src)();
-const go=async(url,mode)=>{let p;H.fetch({request:{url,method:'GET',mode:mode||'no-cors'},respondWith:x=>{p=x},waitUntil:()=>{}});return p?await p:'passthrough'};
+const go=async(url,mode)=>{let p;H.fetch({request:{url,method:'GET',mode:mode||'no-cors',destination:String(url).includes('tile.')?'image':'script'},respondWith:x=>{p=x},waitUntil:()=>{}});return p?await p:'passthrough'};
 const tick=()=>new Promise(r=>setTimeout(r,20));
 (async()=>{const o={};
  const t='https://tile.openstreetmap.org/6/31/20.png';

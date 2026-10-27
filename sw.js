@@ -1,12 +1,12 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
-// fyfb-v93 (batch 4): stamped data files cache-first; <img> tiles fetched in cors mode so they are cached.
+// batch 4 (27 Oct 2026, cache name deliberately NOT bumped: the browser picks up the new sw.js by its bytes, and the cache layout is compatible): stamped data files cache-first; <img> tiles fetched in cors mode so they are cached.
 // fyfb-v92: a loaded tile whose decode() rejects is not a tile failure. The build id bumps so phones self-heal.
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v93',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=h379b5b59cfae','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h5a2aeaaa2870','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h7a3d7fe731ec'];
+const C='fyfb-v92',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=h379b5b59cfae','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=v1792959725','v3.css','v3.css?v=v1792959725','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h5a2aeaaa2870','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h7a3d7fe731ec'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
 const MAPTILER=/(^|\.)maptiler\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
@@ -31,7 +31,7 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    // Batch 4 (27 Oct 2026): an <img> tile request is no-cors, so its answer is opaque and was never stored: repeat visits
    // always went to the network. OpenStreetMap sends Access-Control-Allow-Origin: *, so the worker fetches the same URL
    // in cors mode instead; the readable copy is stored and answers both the <img> and the tiles.js probe next time.
-   return fetch(e.request.mode==='no-cors'?new Request(e.request.url,{mode:'cors',credentials:'omit'}):e.request).catch(()=>fetch(e.request)).then(r=>{if(r.ok){c.put(e.request.url,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
+   return fetch(e.request.mode==='no-cors'&&e.request.destination==='image'?new Request(e.request.url,{mode:'cors',credentials:'omit'}):e.request).catch(()=>fetch(e.request)).then(r=>{if(r.ok){c.put(e.request.url,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
