@@ -161,7 +161,49 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-65441941",
+    "name": "St. Mary's, Broughty Ferry",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Wed": "11:15 - 16:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:00 - 17:00",
+      "Tue": "09:00 - 17:00",
+      "Wed": "09:00 - 17:00",
+      "Thu": "09:00 - 17:00",
+      "Fri": "09:00 - 17:00"
+     }
+    }
+   },
+   {
+    "id": "ww-59951280",
+    "name": "Wellness Hub At St Laurence's Church",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "17:00 - 17:30"
+     }
+    },
+    "after": {
+     "hours": {
+      "Tue": "11:00 - 13:30",
+      "Wed": "11:00 - 13:30",
+      "Thu": "11:00 - 13:30",
+      "Fri": "11:00 - 13:30"
+     }
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -185,6 +227,10 @@
    {
     "id": "ww-69189484",
     "reason": "source URL now redirects to a different site (soulsurvivor.church)"
+   },
+   {
+    "id": "ww-65238466",
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-68775963",
@@ -211,12 +257,20 @@
     "reason": "published days not found on source this run"
    },
    {
+    "id": "ww-59806670",
+    "reason": "source unreachable this run (HTTP 503)"
+   },
+   {
     "id": "ww-67460238",
     "reason": "source unreachable this run (HTTP 410)"
    },
    {
     "id": "ww-69070265",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "ww-69333095",
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-68762729",
@@ -247,12 +301,20 @@
     "reason": "published times not found on source this run"
    },
    {
+    "id": "ww-57952988",
+    "reason": "source unreachable this run (HTTP 500)"
+   },
+   {
     "id": "ww-67608542",
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
     "id": "ww-69189234",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "ww-64432641",
+    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "ww-68789946",
