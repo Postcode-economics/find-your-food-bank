@@ -18,14 +18,14 @@ Trafford Metropolitan Borough Council,01619 122000,0161 912 2000,https://www.tra
 Somerset Council,0300 123 2224,0300 123 2327,https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/,fix,,warmspaces:ww-65441855 warmspaces:ww-58107219 warmspaces:ww-62827950
 London Borough of Harrow,0808 250 5705,020 8424 1093,https://www.harrow.gov.uk/housing-property/when-you-are-homeless,fix,,warmspaces:ww-69177710
 Clackmannanshire Council,01259 450000,01259 450000,https://www.clacks.gov.uk/housing/homelessness/,ok,,warmspaces:ww-65437525
-Manchester City Council,0161 234 5000,,https://www.manchester.gov.uk/info/200117/homeless_people/8881/homelessness_help_outside_of_office_hours,unresolved,manchester.gov.uk blocks automated reads (403/timeout); OOH number not confirmed on own site today,warmspaces:ww-68980095 warmspaces:ww-55475981 warmspaces:ww-55473455
+Manchester City Council,0161 234 5000,0161 234 5001,https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight,fix,own page: 'Phone our out of hours service on 0161 234 5001'; 'Please do not call this number before 4.30pm',warmspaces:ww-68980095 warmspaces:ww-55475981 warmspaces:ww-55473455
 Hastings Borough Council,01424 451077,01424 451999,https://www.hastings.gov.uk/housing/SWEP/,fix,,warmspaces:ww-68972336
 North Norfolk District Council,01263 513811,01223 849782,https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/,fix,,warmspaces:ww-57951671
 Barnsley Metropolitan Borough Council,01226 773555,01226 773870,https://www.barnsley.gov.uk/services/housing/homeless-and-housing-advice/,fix,,warmspaces:ww-62730894
 North Northamptonshire Council,01536 859859,0300 126 3000,https://www.northnorthants.gov.uk/housing-advice-and-options/homelessness-and-rough-sleeping,fix,,warmspaces:ww-69206790
 Derby City,01332 640000,01332 888777,https://www.derby.gov.uk/housing/homelessness/nowhere-to-stay-tonight/,fix,,warmspaces:ww-65913527
 City of Edinburgh Council,01312 002000,0800 032 5968,https://www.edinburgh.gov.uk/emergencies-safety-crime/emergency-contact-telephone-numbers,fix,,warmspaces:ww-65437310 warmspaces:ww-55472844 warmspaces:ww-55473134 warmspaces:ww-64623495
-Gateshead Metropolitan Borough Council,0191 433 3000,,https://www.gateshead.gov.uk/article/11776/Homelessness,unresolved,gateshead.gov.uk behind bot check (403); OOH number not confirmed on own site today,warmspaces:ww-69155575
+Gateshead Metropolitan Borough Council,0191 433 3000,0191 477 0844,https://www.gateshead.gov.uk/article/11776/Homelessness,fix,"own page: 'An emergency phone service number 0191 477 0844 is also available out of office hours, 6pm to 8am weekdays and 24 hours on weekends'",warmspaces:ww-69155575
 London Borough of Bexley,020 8303 7171,020 8303 7171,https://www.bexley.gov.uk/contact-us,ok,,warmspaces:evergreen-elderberries-welling
 City of Bradford Metropolitan District Council,01274 432111,01274 381999,https://www.bradford.gov.uk/housing/homelessness/i-have-nowhere-to-sleep-tonight/,fix,,warmspaces:ww-57952231
 Folkestone & Hythe District Council,0300 003 0247,0300 003 0247,https://www.folkestone-hythe.gov.uk/us/ways-to-contact,ok,,warmspaces:ww-69062943
@@ -47,7 +47,7 @@ Carmarthenshire County Council (Delta Wellbeing),0300 333 2222,0300 333 2222,htt
 London Borough of Southwark,020 7525 5000,020 7525 5000,https://www.southwark.gov.uk/housing/contact-our-housing-teams,ok,,warmspaces:swk-london-lgbtq-community-centre
 Guildford Borough Council,01483 505050,01344 949371,https://www.guildford.gov.uk/Emergencies,fix,,warmspaces:ww-65344928 warmspaces:ww-65442002
 Exeter City Council,01392 277888,01392 265147,https://exeter.gov.uk/housing/housing-advice-and-homelessness-prevention/contacting-us-for-housing-advice/,fix,,warmspaces:ww-63382937
-Ceredigion County Council,01545 570881,,https://www.ceredigion.gov.uk/resident/housing/homelessness/,unresolved,ceredigion.gov.uk only lists 0300 4563554 for social services emergencies; homelessness page names no OOH number,warmspaces:ww-57953124 warmspaces:ww-65437367
+Ceredigion County Council,01545 570881,0300 456 3554,https://www.ceredigion.gov.uk/resident/housing/homelessness/,fix,source: Dean Goff 27 Oct 2026 (council out-of-hours number); council's own homelessness page lists 0300 4563554 for out-of-hours emergencies (social services),warmspaces:ww-57953124 warmspaces:ww-65437367
 Leeds City Council,01132 224444,0113 378 8366,https://www.leeds.gov.uk/housing/homeless-or-at-risk/contact-leeds-housing-options,fix,,warmspaces:ww-69038953 warmspaces:ww-69082337
 North Warwickshire Borough Council,01827 715341,01827 715341,https://www.northwarks.gov.uk/housing-options/homelessness-2/3,ok,,warmspaces:ww-68472828
 East Lothian Council,01620 827827,0800 169 1611,https://www.eastlothian.gov.uk/housing/about-homelessness,fix,,warmspaces:eln-pencaitland-lunch-club
@@ -66,7 +66,7 @@ New Forest District Council,023 8028 5000,023 8028 5250,https://www.newforest.go
 Nuneaton and Bedworth Borough Council,024 7637 6376,024 7637 6999,https://www.nuneatonandbedworth.gov.uk/swep,fix,,warmspaces:ww-68557006
 Liverpool City Council,0151 233 3000,0300 123 2041,https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/,fix,,warmspaces:ww-68672262
 Portsmouth City Council,023 9282 2251,023 9282 2251,https://www.portsmouth.gov.uk/contact,ok,,warmspaces:ww-55473691
-"Armagh City, Banbridge and Craigavon Borough Council",0300 030 0900,,https://www.armaghbanbridgecraigavon.gov.uk/contact-us/,unresolved,Northern Ireland: council's own site gives no out-of-hours homeless number (homelessness is NIHE's duty),warmspaces:ww-68895885
+"Armagh City, Banbridge and Craigavon Borough Council",0300 030 0900,03448 920 908,https://www.armaghbanbridgecraigavon.gov.uk/contact-us/,fix,source: Dean Goff 27 Oct 2026 (council out-of-hours number); no confirming official page found today,warmspaces:ww-68895885
 London Borough of Waltham Forest,020 8496 3000,020 8496 3000,https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/help-if-you-are-homeless-or-about-become-homeless,ok,,warmspaces:ww-57951953
 City of Westminster,020 7641 6000,020 7286 7412,https://www.westminster.gov.uk/housing/homelessness/help-and-assistance-families,fix,,warmspaces:ww-57953168
 Dorset Council,01305 221000,01305 221000,https://www.dorsetcouncil.gov.uk/w/emergency-and-out-of-hours-help-if-you-have-nowhere-to-stay,ok,,warmspaces:ww-67526400
@@ -75,7 +75,7 @@ Eastleigh Borough Council,023 8068 8000,023 8068 8000,https://www.eastleigh.gov.
 Brent Council,020 8937 1234,020 8937 1234,https://www.brent.gov.uk/housing/housing-assistance/at-risk-of-homelessness-or-need-housing,ok,,warmspaces:ww-65070433
 London Borough of Enfield,020 8379 1000,020 8379 1000,https://www.enfield.gov.uk/services/housing/homelessness/help-if-youre-homeless-or-at-risk-of-homelessness,ok,,warmspaces:ww-59974983
 South Norfolk District Council,0800 389 6109,01603 412180,https://www.southnorfolkandbroadland.gov.uk/housing/homelessness/assistance-rough-sleepers,fix,,warmspaces:ww-57952293
-Calderdale Metropolitan Borough Council,01422 288002,,https://new.calderdale.gov.uk/housing/homelessness,unresolved,calderdale.gov.uk homelessness pages give no OOH number in readable text (new site timed out); not confirmed,warmspaces:ww-65441920
+Calderdale Metropolitan Borough Council,01422 288002,01422 288000,https://new.calderdale.gov.uk/housing/homelessness,fix,"source: Dean Goff 27 Oct 2026: Emergency Duty Team (out-of-hours social care), first point of contact for emergency accommodation outside office hours",warmspaces:ww-65441920
 Perth & Kinross Council Housing Options,01738 476000,0800 917 0708,https://www.pkc.gov.uk/article/18670/Advice-for-people-who-are-or-become-homeless,fix,not on a card today (shelters _councils.perth),shelters:_councils.perth
 Fife Council homeless line,03451 550033,0800 028 6231,https://www.fife.gov.uk/contact-us/contact-us-3/phone-numbers,fix,not on a card today (shelters _councils.fife),shelters:_councils.fife
 Spelthorne Council Housing Options,01784 446380,0300 123 7718,https://www.spelthorne.gov.uk/page/1376/homelessness,fix,not on a card today (shelters _councils.spelthorne),shelters:_councils.spelthorne

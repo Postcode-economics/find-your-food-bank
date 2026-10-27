@@ -66,18 +66,19 @@ KNOWN_DAYTIME = {
     "01617933993": "Salford City Council (0161 793 3993)",
     "01954713000": "South Cambridgeshire District Council (01954 713000)",
     "02380688165": "Eastleigh Borough Council (023 8068 8165)",
-    "01642528389": "Stockton-on-Tees Borough Council (01642 528389)"
+    "01642528389": "Stockton-on-Tees Borough Council (01642 528389)",
+    "01612345000": "Manchester City Council (0161 234 5000)",
+    "01914333000": "Gateshead Metropolitan Borough Council (0191 433 3000)",
+    "01545570881": "Ceredigion County Council (01545 570881)",
+    "03000300900": "Armagh City, Banbridge and Craigavon Borough Council (0300 030 0900)",
+    "01422288002": "Calderdale Metropolitan Borough Council (01422 288002)"
 }
 
-# Council's own site gave no out-of-hours number on 27 Oct: still showing the old line until Dean
-# decides. Listed here so they are visible; anything NOT listed must carry an out-of-hours label.
-UNRESOLVED = {
-    "01612345000": "Manchester City Council",
-    "01914333000": "Gateshead Metropolitan Borough Council",
-    "01545570881": "Ceredigion County Council",
-    "03000300900": "Armagh City, Banbridge and Craigavon Borough Council",
-    "01422288002": "Calderdale Metropolitan Borough Council"
-}
+# Cards whose council line is hidden (hide_council) until an out-of-hours number is found. Empty since Dean
+# supplied Ceredigion, Armagh Banbridge & Craigavon and Calderdale on 27 Oct 2026; the mechanism stays tested.
+HIDDEN = {}
+HIDDEN_OLD = set()
+UNRESOLVED = {}
 
 OOH_LABEL = re.compile(r"out-of-hours", re.I)
 
@@ -118,8 +119,42 @@ class Rule37(unittest.TestCase):
             self.assertRegex(e.get("council_label", ""), OOH_LABEL, where)
             self.assertTrue(e.get("council_label_cy"), where)
 
+    def test_hidden_cards_show_no_council_line(self):
+        items = built("warmspaces")
+        sc.apply(items, sc.load(sc.WS))
+        seen = set()
+        for x in items:
+            if x["id"] in HIDDEN:
+                seen.add(x["id"])
+                self.assertFalse([k for k in x if k.startswith("council")], f"{x['id']} ({HIDDEN[x['id']]}) still has a council line")
+            for f in ("council_phone", "council_ooh"):
+                self.assertNotIn(D(x.get(f)), HIDDEN_OLD, f"warmspaces:{x['id']} {f}={x.get(f)}")
+        self.assertEqual(seen, set(HIDDEN))
+        d = json.load(open(os.path.join(ROOT, "overrides", "warmspaces_contacts.json")))
+        for i in HIDDEN:
+            self.assertTrue(d[i].get("hide_council"), i)
+            self.assertFalse([k for k in d[i] if k.startswith("council_") or k == "council"], i)
+
+    def test_hide_council_survives_a_refresh_with_stale_fields(self):
+        x = {"id": "t", "tel": "1", "council": "X", "council_phone": "01422 288002", "council_label": "y"}
+        sc.apply([x], {"t": {"hide_council": True}})
+        self.assertFalse([k for k in x if k.startswith("council")])
+
+    def test_manchester_gateshead_ooh(self):
+        d = json.load(open(os.path.join(ROOT, "overrides", "warmspaces_contacts.json")))
+        for i, n in (("ww-68980095", "0161 234 5001"), ("ww-55475981", "0161 234 5001"), ("ww-55473455", "0161 234 5001"), ("ww-69155575", "0191 477 0844"),
+                     ("ww-57953124", "0300 456 3554"), ("ww-65437367", "0300 456 3554"), ("ww-68895885", "03448 920 908"), ("ww-65441920", "01422 288000")):
+            self.assertEqual(d[i]["council_phone"], n)
+            self.assertRegex(d[i]["council_label"], OOH_LABEL)
+            self.assertTrue(d[i]["council_url"].startswith("https://www.manchester.gov.uk/") or d[i]["council_url"].startswith("https://www.gateshead.gov.uk/")
+                            or d[i]["council_url"].startswith("https://www.ceredigion.gov.uk/") or d[i]["council_url"].startswith("https://www.armaghbanbridgecraigavon.gov.uk/")
+                            or d[i]["council_url"].startswith("https://new.calderdale.gov.uk/"))
+            self.assertNotIn("Housing Executive", d[i]["council_label"])
+        self.assertIn("after 4.30pm weekdays, and weekends", d["ww-68980095"]["council_label"])
+
     def test_lists_are_consistent(self):
         self.assertFalse(set(KNOWN_DAYTIME) & set(UNRESOLVED))
+        self.assertEqual(UNRESOLVED, {})  # every council line has a checked out-of-hours number (27 Oct 2026)
         self.assertGreaterEqual(len(KNOWN_DAYTIME), 40)
 
 
