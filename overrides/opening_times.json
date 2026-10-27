@@ -3751,68 +3751,149 @@
    ]
   }
  },
- "cardiff": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30 | Monday Closed Tuesday 1:00 pm to 3:00 pm | Wednesday-Friday Closed Saturday 11:00 am to 1:00 pm | Monday-Wednesday Closed Thursday 10:00 am to 12:00 pm | Monday 1:00 pm to 3:00 pm | Tuesday-Wednesday Closed Thursday 1:00 pm to 3:00 pm | Monday-Thursday Closed Friday 12:00 pm to 2:00 pm | Monday-Tuesday Closed Wednesday 1:00 pm to 3:00 pm | Thursday Closed Friday 11:30 am to 1:30 pm | Thursday 6:30 pm to 8:00 pm | Monday 12:30 pm to 2:30 pm | Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm",
-  "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
- },
  "cardiff/cathays": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "raw": "Tuesday 1:00 pm to 3:00 pm; Saturday 11:00 am to 1:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/central": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30 | Monday-Wednesday Closed Thursday 10:00 am to 12",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Thursday 10:00 am to 12:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/ely": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Wednesday Closed Thursday 10:00 am to 12:00 pm | Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "raw": "Monday 1:00 pm to 3:00 pm; Thursday 1:00 pm to 3:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/grangetown": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  },
+  "raw": "Friday 12:00 pm to 2:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/llanedeyrn": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "fri": [
+    [
+     "11:30",
+     "13:30"
+    ]
+   ]
+  },
+  "raw": "Wednesday 1:00 pm to 3:00 pm; Friday 11:30 am to 1:30 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/splott": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "18:30",
+     "20:00"
+    ]
+   ]
+  },
+  "raw": "Wednesday 1:00 pm to 3:00 pm; Thursday 6:30 pm to 8:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/st-mellons": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday - Friday 09:30-13:30",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ]
+  },
+  "raw": "Monday 12:30 pm to 2:30 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardiff/tongwynlais": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  },
+  "raw": "Wednesday 2:00 pm to 4:00 pm",
   "source_url": "https://cardiff.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "trussell_cards"
  },
  "cardigan": {
   "checked_date": "2026-10-20",
