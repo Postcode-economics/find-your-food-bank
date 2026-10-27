@@ -24,8 +24,12 @@
   "phone": "020 8546 5964",
   "phone_source": "https://www.allsaintskingston.co.uk/",
   "council": "Royal Borough of Kingston upon Thames",
-  "council_phone": "020 8547 5000",
-  "council_url": "https://www.kingston.gov.uk/contact-us"
+  "council_phone": "020 8547 5800",
+  "council_ooh": "020 8547 5800",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.kingston.gov.uk/contact-us",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.kingston.gov.uk/contact-us). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 020 8547 5000 (daytime/switchboard)."
  },
  "vai-andover-community-centre": {
   "phone": "02072723493",
@@ -67,8 +71,12 @@
   "phone": "01215 239690",
   "phone_source": "https://www.birminghamcaregroup.org",
   "council": "Birmingham City Council",
-  "council_phone": "0121 303 1111",
-  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers"
+  "council_phone": "0121 303 2296",
+  "council_ooh": "0121 303 2296",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0121 303 1111 (daytime/switchboard)."
  },
  "ww-64432711": {
   "phone": "0333 600 2500",
@@ -86,7 +94,11 @@
   "phone_source": "https://www.bsm-church.org.uk",
   "council": "East Hertfordshire District Council",
   "council_phone": "01279 655261",
-  "council_url": "https://www.eastherts.gov.uk/contact-us"
+  "council_ooh": "01279 655261",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.eastherts.gov.uk/severe-weather-and-emergencies/useful-information-emergency",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.eastherts.gov.uk/severe-weather-and-emergencies/useful-information-emergency). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "cmn-black-mountain-centre": {
   "phone": "01269 823400",
@@ -98,8 +110,12 @@
   "phone": "0300 123 4111",
   "phone_source": "https://www.cornwall.gov.uk/libraries-museums-and-archives/libraries/your-local-library/bodmin-library-and-information-service/",
   "council": "Cornwall Council",
-  "council_phone": "0300 123 4212",
-  "council_url": "https://www.cornwall.gov.uk/contact-us"
+  "council_phone": "0300 1234 161",
+  "council_ooh": "0300 1234 161",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.cornwall.gov.uk/the-council-and-democracy/contacting-the-council/contact-us-online/contact-the-housing-service/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.cornwall.gov.uk/the-council-and-democracy/contacting-the-council/contact-us-online/contact-the-housing-service/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 123 4212 (daytime/switchboard)."
  },
  "vai-brickworks-community-centre": {
   "phone": "02072631067",
@@ -173,9 +189,6 @@
  "ww-58212607": {
   "phone": "020 7700 6974",
   "phone_source": "https://www.jewishislington.co.uk",
-  "council": "London Borough of Islington",
-  "council_phone": "020 7527 2000",
-  "council_url": "https://www.islington.gov.uk/contact-us",
   "hours": {
    "Mon": "11:00 - 15:00 (call ahead)",
    "Tue": "11:00 - 15:00 (call ahead)",
@@ -183,21 +196,36 @@
    "Thu": "11:00 - 15:00 (call ahead)"
   },
   "hours_source": "https://www.islington.gov.uk/social-care-and-health/cool-spaces",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "council": "London Borough of Islington",
+  "council_phone": "020 7527 2000",
+  "council_ooh": "020 7527 2000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.islington.gov.uk/housing/finding-a-home/homelessness/worried-about-becoming-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.islington.gov.uk/housing/finding-a-home/homelessness/worried-about-becoming-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-69150223": {
   "phone": "01204 451225",
   "phone_source": "https://www.christchurchlittlelever.co.uk/",
   "council": "Bolton Metropolitan Borough Council",
-  "council_phone": "01204 333333",
-  "council_url": "https://www.bolton.gov.uk/contact-us-0"
+  "council_phone": "01204 337777",
+  "council_ooh": "01204 337777",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.bolton.gov.uk/adult-social-care/emergency-social-worker",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.bolton.gov.uk/adult-social-care/emergency-social-worker). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01204 333333 (daytime/switchboard)."
  },
  "ww-55475500": {
   "phone": "01214 712379",
   "phone_source": "https://christchurchb29.org/warm",
   "council": "Birmingham City Council",
-  "council_phone": "0121 303 1111",
-  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers"
+  "council_phone": "0121 303 2296",
+  "council_ooh": "0121 303 2296",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0121 303 1111 (daytime/switchboard)."
  },
  "ww-62359159": {
   "phone": "01332 812708",
@@ -235,8 +263,12 @@
   "phone": "01458 442671",
   "phone_source": "https://swcd-churches.org.uk/Groups/382368/Coffee_chat_and.aspx",
   "council": "Somerset Council",
-  "council_phone": "0300 123 2224",
-  "council_url": "https://www.somerset.gov.uk/contact-us/"
+  "council_phone": "0300 123 2327",
+  "council_ooh": "0300 123 2327",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 123 2224 (daytime/switchboard)."
  },
  "ww-69223235": {
   "phone": "07845 025392",
@@ -258,15 +290,23 @@
   "phone": "0300 365 0307",
   "phone_source": "https://www.transitionhomelessproject.org.uk",
   "council": "London Borough of Harrow",
-  "council_phone": "0808 250 5705",
-  "council_url": "https://www.harrow.gov.uk/contact"
+  "council_phone": "020 8424 1093",
+  "council_ooh": "020 8424 1093",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.harrow.gov.uk/housing-property/when-you-are-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.harrow.gov.uk/housing-property/when-you-are-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0808 250 5705 (daytime/switchboard)."
  },
  "ww-65437525": {
   "phone": "01259 210765",
   "phone_source": "https://clackmannandevelopmenttrust.org/community/community-space-and-one-stop-shop/",
   "council": "Clackmannanshire Council",
   "council_phone": "01259 450000",
-  "council_url": "https://www.clacks.gov.uk/"
+  "council_ooh": "01259 450000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.clacks.gov.uk/housing/homelessness/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.clacks.gov.uk/housing/homelessness/). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-67203567": {
   "phone": "01142 727579",
@@ -282,8 +322,12 @@
   "phone": "01615 242374",
   "phone_source": "https://cornerstoneurc.org.uk",
   "council": "Manchester City Council",
-  "council_phone": "0161 234 5000",
-  "council_url": "https://www.manchester.gov.uk/people-and-communities/other-ways-to-contact-us"
+  "council_phone": "0161 234 5001",
+  "council_ooh": "0161 234 5001",
+  "council_label": "Council out-of-hours line (after 4.30pm weekdays, and weekends)",
+  "council_label_cy": "Llinell y cyngor y tu allan i oriau (ar ôl 4.30pm ar ddyddiau'r wythnos, a phenwythnosau)",
+  "council_url": "https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight",
+  "council_note": "after 4.30pm weekdays, and weekends. Checked 27 Oct 2026 on the council's own page (https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight): 'Phone our out of hours service on 0161 234 5001', 'Please do not call this number before 4.30pm'. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55592291": {
   "phone": "01889 579341",
@@ -293,8 +337,12 @@
   "phone": "01424 447784",
   "phone_source": "https://www.christchurchstleonards.co.uk/cosy-crypt",
   "council": "Hastings Borough Council",
-  "council_phone": "01424 451077",
-  "council_url": "https://my.hastings.gov.uk/service/Contact_us?noLoginPrompt=1"
+  "council_phone": "01424 451999",
+  "council_ooh": "01424 451999",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.hastings.gov.uk/housing/SWEP/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.hastings.gov.uk/housing/SWEP/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01424 451077 (daytime/switchboard)."
  },
  "ww-55474971": {
   "phone": "01913 770344",
@@ -304,8 +352,12 @@
   "phone": "01603 621128",
   "phone_source": "https://thevenueholt.com/groups/",
   "council": "North Norfolk District Council",
-  "council_phone": "01263 513811",
-  "council_url": "https://www.north-norfolk.gov.uk/"
+  "council_phone": "01223 849782",
+  "council_ooh": "01223 849782",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01263 513811 (daytime/switchboard)."
  },
  "ww-69025981": {
   "phone": "01179 030444",
@@ -334,8 +386,12 @@
   "phone": "01226 753572",
   "phone_source": "https://darfieldallsaintschurch.org.uk",
   "council": "Barnsley Metropolitan Borough Council",
-  "council_phone": "01226 773555",
-  "council_url": "https://www.barnsley.gov.uk/contact-us"
+  "council_phone": "01226 773870",
+  "council_ooh": "01226 773870",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.barnsley.gov.uk/services/housing/homeless-and-housing-advice/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.barnsley.gov.uk/services/housing/homeless-and-housing-advice/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01226 773555 (daytime/switchboard)."
  },
  "ww-57951784": {
   "phone": "01922 642765",
@@ -353,8 +409,12 @@
   "phone": "01536 760149",
   "phone_source": "https://desboroughbaptist.org.uk",
   "council": "North Northamptonshire Council",
-  "council_phone": "01536 859859",
-  "council_url": "https://www.northnorthants.gov.uk/contact-us"
+  "council_phone": "0300 126 3000",
+  "council_ooh": "0300 126 3000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.northnorthants.gov.uk/housing-advice-and-options/homelessness-and-rough-sleeping",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.northnorthants.gov.uk/housing-advice-and-options/homelessness-and-rough-sleeping). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01536 859859 (daytime/switchboard)."
  },
  "ww-64432722": {
   "phone": "07872166212",
@@ -369,8 +429,12 @@
   "phone": "01332 371529",
   "phone_source": "https://dwica.co.uk",
   "council": "Derby City",
-  "council_phone": "01332 640000",
-  "council_url": "https://www.derby.gov.uk/contact-the-council/"
+  "council_phone": "01332 888777",
+  "council_ooh": "01332 888777",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.derby.gov.uk/housing/homelessness/nowhere-to-stay-tonight/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.derby.gov.uk/housing/homelessness/nowhere-to-stay-tonight/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01332 640000 (daytime/switchboard)."
  },
  "ww-67830599": {
   "phone": "01179 791933",
@@ -398,15 +462,23 @@
   "phone": "01914 910183",
   "phone_source": "https://eightonbanksvillagehall.org",
   "council": "Gateshead Metropolitan Borough Council",
-  "council_phone": "0191 433 3000",
-  "council_url": "https://www.gateshead.gov.uk/article/18954/Contact-us"
+  "council_phone": "0191 477 0844",
+  "council_ooh": "0191 477 0844",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.gateshead.gov.uk/article/11776/Homelessness",
+  "council_note": "6pm to 8am weekdays and 24 hours at weekends. Checked 27 Oct 2026 on the council's own page (https://www.gateshead.gov.uk/article/11776/Homelessness). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "evergreen-elderberries-welling": {
   "phone": "01322 431765",
   "phone_source": "https://www.evergreencareuk.org/",
   "council": "London Borough of Bexley",
   "council_phone": "020 8303 7171",
-  "council_url": "https://www.bexley.gov.uk/contact-us"
+  "council_ooh": "020 8303 7171",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.bexley.gov.uk/contact-us",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.bexley.gov.uk/contact-us). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "vai-elizabeth-house": {
   "phone": "02076901300",
@@ -499,8 +571,12 @@
   "phone": "01516 456478",
   "phone_source": "https://standrewsbebington.org.uk",
   "council": "Wirral Council",
-  "council_phone": "0151 606 2000",
-  "council_url": "https://www.wirral.gov.uk/about-council/contact-us/how-contact-council"
+  "council_phone": "0151 677 6557",
+  "council_ooh": "0151 677 6557",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.wirral.gov.uk/housing/housing-information-and-advice/housing-advice/preventing-and-dealing-homelessness",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.wirral.gov.uk/housing/housing-information-and-advice/housing-advice/preventing-and-dealing-homelessness). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0151 606 2000 (daytime/switchboard)."
  },
  "ww-65441937": {
   "phone": "07842 306033",
@@ -518,8 +594,12 @@
   "phone": "01706 515800",
   "phone_source": "https://gatewayleisure.co.uk/",
   "council": "Rochdale Metropolitan Borough Council",
-  "council_phone": "01706 647474",
-  "council_url": "https://www.rochdale.gov.uk/contact-us/contact-council"
+  "council_phone": "0300 303 8875",
+  "council_ooh": "0300 303 8875",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.rochdale.gov.uk/emergencies/emergencies-out-of-hours",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.rochdale.gov.uk/emergencies/emergencies-out-of-hours). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01706 647474 (daytime/switchboard)."
  },
  "ww-64711952": {
   "phone": "07487838870",
@@ -530,22 +610,34 @@
   "phone": "01634 851224",
   "phone_source": "https://www.salvationarmy.org.uk/gillingham",
   "council": "Medway Council",
-  "council_phone": "01634 333333",
-  "council_url": "https://www.medway.gov.uk/contact"
+  "council_phone": "01634 304400",
+  "council_ooh": "01634 304400",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.medway.gov.uk/info/200138/your_council/521/visiting_us_and_contacting_us_in_an_emergency/2",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.medway.gov.uk/info/200138/your_council/521/visiting_us_and_contacting_us_in_an_emergency/2). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01634 333333 (daytime/switchboard)."
  },
  "ww-55473505": {
   "phone": "01535 630223",
   "phone_source": "https://www.gicac.org.uk/",
   "council": "North Yorkshire Council",
   "council_phone": "0300 131 2131",
-  "council_url": "https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless"
+  "council_ooh": "0300 131 2131",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-64378989": {
   "phone": "01663 750435",
   "phone_source": "https://www.goodnewschurch.co.uk",
   "council": "High Peak Borough Council",
-  "council_phone": "0345 129 7777",
-  "council_url": "https://www.highpeak.gov.uk/contact-us"
+  "council_phone": "0808 169 2333",
+  "council_ooh": "0808 169 2333",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.highpeak.gov.uk/Homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.highpeak.gov.uk/Homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0345 129 7777 (daytime/switchboard)."
  },
  "ww-55472844": {
   "phone": "01315 516820",
@@ -666,15 +758,23 @@
   "phone": "01962 840800",
   "phone_source": "https://www.hopewinchester.org/",
   "council": "Winchester City Council",
-  "council_phone": "01962 840222",
-  "council_url": "https://www.winchester.gov.uk/"
+  "council_phone": "01962 865407",
+  "council_ooh": "01962 865407",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.winchester.gov.uk/housing/homelessness",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.winchester.gov.uk/housing/homelessness). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01962 840222 (daytime/switchboard)."
  },
  "ww-58326832": {
   "phone": "020 8699 1872",
   "phone_source": "https://www.horniman.ac.uk/",
   "council": "London Borough of Lewisham",
-  "council_phone": "020 8314 6000",
-  "council_url": "https://lewisham.gov.uk/contact-us"
+  "council_phone": "0808 178 0939",
+  "council_ooh": "0808 178 0939",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://lewisham.gov.uk/contact-us",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://lewisham.gov.uk/contact-us). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 020 8314 6000 (daytime/switchboard)."
  },
  "vai-hornsey-lane-estate-community-centre": {
   "phone": "02072725938",
@@ -695,22 +795,34 @@
   "phone": "01482 323897",
   "phone_source": "https://www.salvationarmy.org.uk/hull-citadel",
   "council": "Hull City Council",
-  "council_phone": "01482 300300",
-  "council_url": "https://www.hull.gov.uk/contact-us"
+  "council_phone": "01482 300304",
+  "council_ooh": "01482 300304",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.hull.gov.uk/homelessness/help-homelessness/7",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.hull.gov.uk/homelessness/help-homelessness/7). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01482 300300 (daytime/switchboard)."
  },
  "ww-55475981": {
   "phone": "0800 023 2692",
   "phone_source": "https://www.whalleyrange.org",
   "council": "Manchester City Council",
-  "council_phone": "0161 234 5000",
-  "council_url": "https://www.manchester.gov.uk/people-and-communities/other-ways-to-contact-us"
+  "council_phone": "0161 234 5001",
+  "council_ooh": "0161 234 5001",
+  "council_label": "Council out-of-hours line (after 4.30pm weekdays, and weekends)",
+  "council_label_cy": "Llinell y cyngor y tu allan i oriau (ar ôl 4.30pm ar ddyddiau'r wythnos, a phenwythnosau)",
+  "council_url": "https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight",
+  "council_note": "after 4.30pm weekdays, and weekends. Checked 27 Oct 2026 on the council's own page (https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight): 'Phone our out of hours service on 0161 234 5001', 'Please do not call this number before 4.30pm'. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-65420029": {
   "phone": "01482 328196",
   "phone_source": "https://notdull.org/",
   "council": "Hull City Council",
-  "council_phone": "01482 300300",
-  "council_url": "https://www.hull.gov.uk/contact-us"
+  "council_phone": "01482 300304",
+  "council_ooh": "01482 300304",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.hull.gov.uk/homelessness/help-homelessness/7",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.hull.gov.uk/homelessness/help-homelessness/7). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01482 300300 (daytime/switchboard)."
  },
  "ww-58358850": {
   "phone": "01865 373958",
@@ -752,7 +864,11 @@
   "phone_source": "https://www.elimleigh.co.uk",
   "council": "Southend-on-Sea City Council",
   "council_phone": "01702 215000",
-  "council_url": "https://www.southend.gov.uk/homepage/389/contact-us"
+  "council_ooh": "01702 215000",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.southend.gov.uk/homepage/389/contact-us",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.southend.gov.uk/homepage/389/contact-us). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "cmn-living-well-centre": {
   "phone": "07789 793228",
@@ -817,14 +933,18 @@
  "oi-birmingham-council-marlborough-primary-school-b10-9ny": {
   "phone": "01214 647933",
   "phone_source": "https://www.mps.bham.sch.uk/",
-  "council": "Birmingham City Council",
-  "council_phone": "0121 303 1111",
-  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers",
   "hours": {
    "Monday": "8:45am to 9:30am (Parents Group)"
   },
   "hours_source": "https://www.birmingham.gov.uk/directory_record/670130/marlborough_primary_school",
-  "hours_checked": "2026-10-23"
+  "hours_checked": "2026-10-23",
+  "council": "Birmingham City Council",
+  "council_phone": "0121 303 2296",
+  "council_ooh": "0121 303 2296",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0121 303 1111 (daytime/switchboard)."
  },
  "ww-55592264": {
   "phone": "01295 257193",
@@ -847,8 +967,12 @@
   "phone": "01483 537655",
   "phone_source": "https://www.merrowmethodistchurch.org.uk/",
   "council": "Guildford Borough Council",
-  "council_phone": "01483 505050",
-  "council_url": "https://www.guildford.gov.uk/contact"
+  "council_phone": "01344 949371",
+  "council_ooh": "01344 949371",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.guildford.gov.uk/Emergencies",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.guildford.gov.uk/Emergencies). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01483 505050 (daytime/switchboard)."
  },
  "vai-mildmay-library": {
   "phone": "02075277880",
@@ -860,8 +984,12 @@
   "phone": "01392 279786",
   "phone_source": "https://themint.org.uk",
   "council": "Exeter City Council",
-  "council_phone": "01392 277888",
-  "council_url": "https://exeter.gov.uk/council-and-democracy/contact-us/contact-us/"
+  "council_phone": "01392 265147",
+  "council_ooh": "01392 265147",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://exeter.gov.uk/housing/housing-advice-and-homelessness-prevention/contacting-us-for-housing-advice/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://exeter.gov.uk/housing/housing-advice-and-homelessness-prevention/contacting-us-for-housing-advice/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01392 277888 (daytime/switchboard)."
  },
  "ww-55473898": {
   "phone": "02077399893",
@@ -872,8 +1000,12 @@
   "phone": "01239 621200",
   "phone_source": "https://mwldan.co.uk/",
   "council": "Ceredigion County Council",
-  "council_phone": "01545 570881",
-  "council_url": "https://www.ceredigion.gov.uk/contact"
+  "council_phone": "0300 456 3554",
+  "council_ooh": "0300 456 3554",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.ceredigion.gov.uk/resident/housing/homelessness/",
+  "council_note": "Out-of-hours number confirmed by Dean Goff, 27 Oct 2026. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "vai-n4-library": {
   "phone": "02075277800",
@@ -948,14 +1080,22 @@
   "phone_source": "https://nwcab.org.uk/",
   "council": "North Warwickshire Borough Council",
   "council_phone": "01827 715341",
-  "council_url": "https://northwarks.gov.uk/"
+  "council_ooh": "01827 715341",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.northwarks.gov.uk/housing-options/homelessness-2/3",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.northwarks.gov.uk/housing-options/homelessness-2/3). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55475831": {
   "phone": "01609 534552",
   "phone_source": "https://nortonhivelibrary.org/",
   "council": "North Yorkshire Council",
   "council_phone": "0300 131 2131",
-  "council_url": "https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless"
+  "council_ooh": "0300 131 2131",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55472824": {
   "phone": "01482 470125",
@@ -980,12 +1120,16 @@
   "confidence": "high: own site + NHS listing (postcode LS21 3AA on their site) (web search 2026-10-23)"
  },
  "eln-pencaitland-lunch-club": {
-  "council": "East Lothian Council",
-  "council_phone": "01620 827827",
-  "council_url": "https://www.eastlothian.gov.uk/contact-us",
   "phone": "07703 735664",
   "phone_source": "https://www.pencaitlandparishchurch.org.uk/sites/default/files/Welcome%20Pack%202025.pdf",
-  "confidence": "medium: organiser line (Anne Robertson) in Pencaitland parish welcome pack + East Lothian lunch club directory (checked 2026-10-23)"
+  "confidence": "medium: organiser line (Anne Robertson) in Pencaitland parish welcome pack + East Lothian lunch club directory (checked 2026-10-23)",
+  "council": "East Lothian Council",
+  "council_phone": "0800 169 1611",
+  "council_ooh": "0800 169 1611",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.eastlothian.gov.uk/housing/about-homelessness",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.eastlothian.gov.uk/housing/about-homelessness). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01620 827827 (daytime/switchboard)."
  },
  "cmn-people-speak-up": {
   "phone": "01554 292393",
@@ -1001,8 +1145,12 @@
   "phone": "01691 652861",
   "phone_source": "https://www.stoswaldsoswestry.org.uk/",
   "council": "Shropshire Council",
-  "council_phone": "0345 678 9044",
-  "council_url": "https://next.shropshire.gov.uk/adult-social-care/first-point-of-contact/"
+  "council_phone": "0345 678 9005",
+  "council_ooh": "0345 678 9005",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://next.shropshire.gov.uk/housing/housing-options-and-homelessness/homelessness-and-homeless-prevention/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://next.shropshire.gov.uk/housing/housing-options-and-homelessness/homelessness-and-homeless-prevention/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0345 678 9044 (daytime/switchboard)."
  },
  "cmn-pontyberem-hall": {
   "phone": "01269 871075",
@@ -1024,8 +1172,12 @@
   "phone": "01708 397484",
   "phone_source": "https://rainham.foodbank.org.uk/",
   "council": "London Borough of Havering",
-  "council_phone": "01708 434343",
-  "council_url": "https://www.havering.gov.uk/contact-us"
+  "council_phone": "01708 433999",
+  "council_ooh": "01708 433999",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.havering.gov.uk/contact-us",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.havering.gov.uk/contact-us). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01708 434343 (daytime/switchboard)."
  },
  "ww-68901813": {
   "phone": "01229 830844",
@@ -1037,8 +1189,12 @@
   "phone": "01483 235185",
   "phone_source": "https://www.qeparkbaptist.org.uk/Groups/372127/Renew_QE_Park.aspx",
   "council": "Guildford Borough Council",
-  "council_phone": "01483 505050",
-  "council_url": "https://www.guildford.gov.uk/contact"
+  "council_phone": "01344 949371",
+  "council_ooh": "01344 949371",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.guildford.gov.uk/Emergencies",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.guildford.gov.uk/Emergencies). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 01483 505050 (daytime/switchboard)."
  },
  "ww-69336193": {
   "phone": "01580 752913",
@@ -1110,14 +1266,22 @@
   "phone_source": "https://www.salvationarmy.org.uk/salvation-army-whitleigh",
   "council": "Plymouth City Council",
   "council_phone": "01752 668000",
-  "council_url": "https://www.plymouth.gov.uk/contact-us"
+  "council_ooh": "01752 668000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55473335": {
   "phone": "01704 547805",
   "phone_source": "https://www.salvationarmy.org.uk/southport",
   "council": "Sefton Metropolitan Borough Council",
-  "council_phone": "0345 140 0845",
-  "council_url": "https://www.sefton.gov.uk/miscellaneous-pages/contact-the-council"
+  "council_phone": "07779 960994",
+  "council_ooh": "07779 960994",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.sefton.gov.uk/housing/homelessness/rough-sleeper-seen",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.sefton.gov.uk/housing/homelessness/rough-sleeper-seen). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0345 140 0845 (daytime/switchboard)."
  },
  "ww-57952842": {
   "phone": "01946 822380",
@@ -1141,7 +1305,11 @@
   "phone_source": "https://www.shwp.org.uk/",
   "council": "Stratford-on-Avon District Council",
   "council_phone": "01789 267575",
-  "council_url": "https://www.stratford.gov.uk/council-democracy/contact-the-council.cfm"
+  "council_ooh": "01789 267575",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.stratford.gov.uk/homes-properties/homelessness-threatened-with-homelessness.cfm",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.stratford.gov.uk/homes-properties/homelessness-threatened-with-homelessness.cfm). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-57952739": {
   "phone": "020 8854 3895",
@@ -1261,8 +1429,12 @@
   "phone": "01215 222647",
   "phone_source": "https://www.achurchnearyou.com/church/4605/",
   "council": "Sandwell Metropolitan Borough Council",
-  "council_phone": "0121 569 7474",
-  "council_url": "https://www.sandwell.gov.uk/contact/contact-us-phone"
+  "council_phone": "01323 690856",
+  "council_ooh": "01323 690856",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.sandwell.gov.uk/find-home/homeless-risk-losing-home",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.sandwell.gov.uk/find-home/homeless-risk-losing-home). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0121 569 7474 (daytime/switchboard)."
  },
  "ww-65420022": {
   "phone": "01603501713",
@@ -1287,15 +1459,23 @@
   "phone": "01970 626703",
   "phone_source": "https://www.ceredigionmethodists.org.uk/st-paul",
   "council": "Ceredigion County Council",
-  "council_phone": "01545 570881",
-  "council_url": "https://www.ceredigion.gov.uk/contact"
+  "council_phone": "0300 456 3554",
+  "council_ooh": "0300 456 3554",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.ceredigion.gov.uk/resident/housing/homelessness/",
+  "council_note": "Out-of-hours number confirmed by Dean Goff, 27 Oct 2026. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-58107219": {
   "phone": "01823 336102",
   "phone_source": "https://www.stpeterandstpaul.org.uk/",
   "council": "Somerset Council",
-  "council_phone": "0300 123 2224",
-  "council_url": "https://www.somerset.gov.uk/contact-us/"
+  "council_phone": "0300 123 2327",
+  "council_ooh": "0300 123 2327",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 123 2224 (daytime/switchboard)."
  },
  "ww-55474027": {
   "phone": "01594 822286",
@@ -1313,15 +1493,23 @@
   "phone": "01382 781659",
   "phone_source": "https://www.smbfsec.com/",
   "council": "Dundee City Council",
-  "council_phone": "0300 102 4000",
-  "council_url": "https://www.dundeecity.gov.uk/contact-us"
+  "council_phone": "0800 633 5843",
+  "council_ooh": "0800 633 5843",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.dundeecity.gov.uk/housing-options-in-dundee/homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.dundeecity.gov.uk/housing-options-in-dundee/homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 102 4000 (daytime/switchboard)."
  },
  "ww-60625347": {
   "phone": "01535 322863",
   "phone_source": "https://www.ubscl.org.uk/",
   "council": "North Yorkshire Council",
   "council_phone": "0300 131 2131",
-  "council_url": "https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless"
+  "council_ooh": "0300 131 2131",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.northyorks.gov.uk/housing-and-homelessness/homeless-or-risk-becoming-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55592226": {
   "phone": "01580 893008",
@@ -1348,8 +1536,12 @@
   "phone": "01590 718116",
   "phone_source": "https://www.sway-pc.gov.uk",
   "council": "New Forest District Council",
-  "council_phone": "023 8028 5000",
-  "council_url": "https://www.newforest.gov.uk/contact/"
+  "council_phone": "023 8028 5250",
+  "council_ooh": "023 8028 5250",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.newforest.gov.uk/article/993/Help-for-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.newforest.gov.uk/article/993/Help-for-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 023 8028 5000 (daytime/switchboard)."
  },
  "ww-55473170": {
   "phone": "01737 361933",
@@ -1361,15 +1553,23 @@
   "phone": "024 7638 8508",
   "phone_source": "https://www.stockingfordcc.org/",
   "council": "Nuneaton and Bedworth Borough Council",
-  "council_phone": "024 7637 6376",
-  "council_url": "https://www.nuneatonandbedworth.gov.uk/contact"
+  "council_phone": "024 7637 6999",
+  "council_ooh": "024 7637 6999",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.nuneatonandbedworth.gov.uk/swep",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.nuneatonandbedworth.gov.uk/swep). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 024 7637 6376 (daytime/switchboard)."
  },
  "ww-62827950": {
   "phone": "01458 251881",
   "phone_source": "https://theangelcafelangport.co.uk/",
   "council": "Somerset Council",
-  "council_phone": "0300 123 2224",
-  "council_url": "https://www.somerset.gov.uk/contact-us/"
+  "council_phone": "0300 123 2327",
+  "council_ooh": "0300 123 2327",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/homelessness-advice-and-assistance/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 123 2224 (daytime/switchboard)."
  },
  "hav-friendship-cafe-myplace": {
   "phone": "01708376004",
@@ -1407,8 +1607,12 @@
   "phone": "01514 286810",
   "phone_source": "https://www.stpeters-woolton.org.uk",
   "council": "Liverpool City Council",
-  "council_phone": "0151 233 3000",
-  "council_url": "https://www.liverpool.gov.uk/contact-us/general-enquiries/"
+  "council_phone": "0300 123 2041",
+  "council_ooh": "0300 123 2041",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0151 233 3000 (daytime/switchboard)."
  },
  "ww-65438865": {
   "phone": "01179 141129",
@@ -1425,8 +1629,12 @@
   "phone": "01422 250872",
   "phone_source": "https://kingschurchhx.org.uk/",
   "council": "Calderdale Metropolitan Borough Council",
-  "council_phone": "01422 288002",
-  "council_url": "https://www.calderdale.gov.uk/contact-us"
+  "council_phone": "01422 288000",
+  "council_ooh": "01422 288000",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://new.calderdale.gov.uk/housing/homelessness",
+  "council_note": "Emergency Duty Team (out-of-hours social care), first point of contact for emergency accommodation outside office hours. Confirmed by Dean Goff, 27 Oct 2026. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-65441818": {
   "phone": "07516187212",
@@ -1438,7 +1646,11 @@
   "phone_source": "https://www.salvationarmy.org.uk/portsmouth-citadel",
   "council": "Portsmouth City Council",
   "council_phone": "023 9282 2251",
-  "council_url": "https://www.portsmouth.gov.uk/contact"
+  "council_ooh": "023 9282 2251",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.portsmouth.gov.uk/contact",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.portsmouth.gov.uk/contact). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-68620249": {
   "phone": "01988 610311",
@@ -1460,15 +1672,23 @@
   "phone": "028 3833 7684",
   "phone_source": "https://www.salvationarmy.org.uk/portadown",
   "council": "Armagh City, Banbridge and Craigavon Borough Council",
-  "council_phone": "0300 030 0900",
-  "council_url": "https://www.armaghbanbridgecraigavon.gov.uk"
+  "council_phone": "03448 920 908",
+  "council_ooh": "03448 920 908",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.armaghbanbridgecraigavon.gov.uk/contact-us/",
+  "council_note": "Out-of-hours number confirmed by Dean Goff, 27 Oct 2026. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-57951953": {
   "phone": "020 8521 3211",
   "phone_source": "https://themille17.org/",
   "council": "London Borough of Waltham Forest",
   "council_phone": "020 8496 3000",
-  "council_url": "https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/help-if-you-are-homeless-or-about-become-homeless"
+  "council_ooh": "020 8496 3000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/help-if-you-are-homeless-or-about-become-homeless",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/help-if-you-are-homeless-or-about-become-homeless). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "hav-monday-meet-up": {
   "phone": "07712822431",
@@ -1480,8 +1700,12 @@
   "phone": "01637 520319",
   "phone_source": "https://www.newquaymethodist.org",
   "council": "Cornwall Council",
-  "council_phone": "0300 123 4212",
-  "council_url": "https://www.cornwall.gov.uk/contact-us"
+  "council_phone": "0300 1234 161",
+  "council_ooh": "0300 1234 161",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.cornwall.gov.uk/the-council-and-democracy/contacting-the-council/contact-us-online/contact-the-housing-service/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.cornwall.gov.uk/the-council-and-democracy/contacting-the-council/contact-us-online/contact-the-housing-service/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 123 4212 (daytime/switchboard)."
  },
  "ww-64379104": {
   "phone": "01454 313023",
@@ -1491,8 +1715,12 @@
   "phone": "01612 273744",
   "phone_source": "https://theplacefallowfield.co.uk/",
   "council": "Manchester City Council",
-  "council_phone": "0161 234 5000",
-  "council_url": "https://www.manchester.gov.uk/people-and-communities/other-ways-to-contact-us"
+  "council_phone": "0161 234 5001",
+  "council_ooh": "0161 234 5001",
+  "council_label": "Council out-of-hours line (after 4.30pm weekdays, and weekends)",
+  "council_label_cy": "Llinell y cyngor y tu allan i oriau (ar ôl 4.30pm ar ddyddiau'r wythnos, a phenwythnosau)",
+  "council_url": "https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight",
+  "council_note": "after 4.30pm weekdays, and weekends. Checked 27 Oct 2026 on the council's own page (https://www.manchester.gov.uk/homes-and-property/homeless-people/help-if-you-are-homeless-and-dont-have-somewhere-to-stay-tonight): 'Phone our out of hours service on 0161 234 5001', 'Please do not call this number before 4.30pm'. Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-68672320": {
   "phone": "01298 214577",
@@ -1510,8 +1738,12 @@
   "phone": "020 7629 5424",
   "phone_source": "https://www.regenthall.net/",
   "council": "City of Westminster",
-  "council_phone": "020 7641 6000",
-  "council_url": "https://www.westminster.gov.uk/contact-us"
+  "council_phone": "020 7286 7412",
+  "council_ooh": "020 7286 7412",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.westminster.gov.uk/housing/homelessness/help-and-assistance-families",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.westminster.gov.uk/housing/homelessness/help-and-assistance-families). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 020 7641 6000 (daytime/switchboard)."
  },
  "ww-57952988": {
   "phone": "07341265319",
@@ -1529,7 +1761,11 @@
   "phone_source": "https://valepantry.co.uk/",
   "council": "Dorset Council",
   "council_phone": "01305 221000",
-  "council_url": "https://www.dorsetcouncil.gov.uk/call-us"
+  "council_ooh": "01305 221000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.dorsetcouncil.gov.uk/w/emergency-and-out-of-hours-help-if-you-have-nowhere-to-stay",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.dorsetcouncil.gov.uk/w/emergency-and-out-of-hours-help-if-you-have-nowhere-to-stay). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-68255736": {
   "phone": "01179 827445",
@@ -1614,8 +1850,12 @@
   "phone": "01736 763326",
   "phone_source": "https://wayfarerspark.co.uk/flying-duck-bistro/",
   "council": "Cornwall Council",
-  "council_phone": "0300 123 4212",
-  "council_url": "https://www.cornwall.gov.uk/contact-us"
+  "council_phone": "0300 1234 161",
+  "council_ooh": "0300 1234 161",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.cornwall.gov.uk/the-council-and-democracy/contacting-the-council/contact-us-online/contact-the-housing-service/",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.cornwall.gov.uk/the-council-and-democracy/contacting-the-council/contact-us-online/contact-the-housing-service/). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0300 123 4212 (daytime/switchboard)."
  },
  "cmn-trallwm-hall": {
   "council": "Carmarthenshire County Council (Delta Wellbeing)",
@@ -1630,8 +1870,12 @@
   "phone": "01213 560622",
   "phone_source": "https://holfordsportshub.co.uk/",
   "council": "Birmingham City Council",
-  "council_phone": "0121 303 1111",
-  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers"
+  "council_phone": "0121 303 2296",
+  "council_ooh": "0121 303 2296",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0121 303 1111 (daytime/switchboard)."
  },
  "ww-59951280": {
   "phone": "01257 231360",
@@ -1651,14 +1895,22 @@
   "phone_source": "https://wesleymethodist.org.uk/",
   "council": "Southend-on-Sea City Council",
   "council_phone": "01702 215000",
-  "council_url": "https://www.southend.gov.uk/homepage/389/contact-us"
+  "council_ooh": "01702 215000",
+  "council_label": "Council out-of-hours emergency line",
+  "council_label_cy": "Llinell argyfwng y cyngor y tu allan i oriau",
+  "council_url": "https://www.southend.gov.uk/homepage/389/contact-us",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.southend.gov.uk/homepage/389/contact-us). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55474493": {
   "phone": "01214 752833",
   "phone_source": "https://www.westheathcommunity.co.uk/",
   "council": "Birmingham City Council",
-  "council_phone": "0121 303 1111",
-  "council_url": "https://www.birmingham.gov.uk/info/20208/contact_us/229/useful_telephone_numbers"
+  "council_phone": "0121 303 2296",
+  "council_ooh": "0121 303 2296",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0121 303 1111 (daytime/switchboard)."
  },
  "vai-west-library": {
   "phone": "02075277920",
@@ -1681,7 +1933,11 @@
   "phone_source": "https://www.aldhelms.org.uk/",
   "council": "London Borough of Enfield",
   "council_phone": "020 8379 1000",
-  "council_url": "https://www.enfield.gov.uk/contact-us"
+  "council_ooh": "020 8379 1000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.enfield.gov.uk/services/housing/homelessness/help-if-youre-homeless-or-at-risk-of-homelessness",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.enfield.gov.uk/services/housing/homelessness/help-if-youre-homeless-or-at-risk-of-homelessness). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-55474118": {
   "phone": "01202 143724",
@@ -1695,8 +1951,12 @@
   "phone": "01953 605671",
   "phone_source": "https://www.wymondhamabbey.org.uk/about-us/",
   "council": "South Norfolk District Council",
-  "council_phone": "0800 389 6109",
-  "council_url": "https://www.southnorfolkandbroadland.gov.uk/contact-us"
+  "council_phone": "01603 412180",
+  "council_ooh": "01603 412180",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.southnorfolkandbroadland.gov.uk/housing/homelessness/assistance-rough-sleepers",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.southnorfolkandbroadland.gov.uk/housing/homelessness/assistance-rough-sleepers). Rule 37: council lines are always the council's own out-of-hours/emergency number. Replaces 0800 389 6109 (daytime/switchboard)."
  },
  "cmn-ystradowen-cc": {
   "phone": "01639 830406",
@@ -2129,12 +2389,16 @@
   "confidence": "high: parish own site + diocese (web search 2026-10-23)"
  },
  "swk-london-lgbtq-community-centre": {
-  "council": "London Borough of Southwark",
-  "council_phone": "020 7525 5000",
-  "council_url": "https://www.southwark.gov.uk/about-council/contact-us",
   "phone": "07921 103201",
   "phone_source": "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5210100/contact-information",
-  "confidence": "high: Charity Commission register + Apple Maps listing agree (checked 2026-10-23)"
+  "confidence": "high: Charity Commission register + Apple Maps listing agree (checked 2026-10-23)",
+  "council": "London Borough of Southwark",
+  "council_phone": "020 7525 5000",
+  "council_ooh": "020 7525 5000",
+  "council_label": "Council out-of-hours homeless line",
+  "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
+  "council_url": "https://www.southwark.gov.uk/housing/contact-our-housing-teams",
+  "council_note": "Out-of-hours number checked 27 Oct 2026 on the council's own page (https://www.southwark.gov.uk/housing/contact-our-housing-teams). Rule 37: council lines are always the council's own out-of-hours/emergency number."
  },
  "ww-64379342": {
   "phone": "07483 176929",
