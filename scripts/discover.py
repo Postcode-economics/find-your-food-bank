@@ -10,9 +10,27 @@ Every 3x-daily run:
     website THIS run. Confirmed -> kept; different times found -> replaced (via times.normalise); site says closed
     -> closure removal; unreachable / not confirmable -> times dropped and flagged (never carried over).
 Never invents data: everything published comes from a fetched page or a directory record."""
-import re, os, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
+import re, os, json, html, ssl, math, time, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
 UA = {"User-Agent": "Mozilla/5.0 (FindYourFoodBank refresh; own-site check)"}
+# Polite retry (27 Oct 2026): a site that answers 403/429 is asked again more slowly, identifying who we are and why.
+POLITE_UA = {"User-Agent": "Mozilla/5.0 (compatible; HelpMapBot/1.0; +https://helpmap.uk/; checks published food bank opening times, a few pages a day)",
+             "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-GB,en;q=0.8"}
+RETRY_CODES = (403, 429)
+RETRY_TRIES = int(os.environ.get("TIMES_RETRY_TRIES", "3"))       # extra attempts after the first refusal
+RETRY_BASE = float(os.environ.get("TIMES_RETRY_BASE", "5"))       # seconds: 5, 15, 45 (x3 backoff)
+RETRY_AFTER_CAP = 60.0                                            # never wait longer than this for one Retry-After
+_sleep = time.sleep
+def _open(url, headers):
+    return urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=20, context=CTX)
+def retry_delay(attempt, retry_after=None):
+    """Backoff before retry number `attempt` (1-based): honour a numeric Retry-After (capped), else base*3^(attempt-1)."""
+    try:
+        ra = float(retry_after) if retry_after not in (None, "") else None
+    except (TypeError, ValueError):
+        ra = None
+    d = RETRY_BASE * (3 ** (attempt - 1))
+    return min(max(d, ra or 0), RETRY_AFTER_CAP) if ra is not None else d
 PC_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b")
 STOP = {"food", "bank", "foodbank", "the", "and", "of", "community", "church", "centre", "center", "trust", "project", "st", "uk",
         "network", "hub", "pantry", "larder", "cic", "ltd", "charity", "group", "warm", "space", "spaces", "welcome", "hall", "house",
@@ -56,13 +74,24 @@ _cache, _lock = {}, threading.Lock()
 def fetch_raw(url):
     with _lock:
         if url in _cache: return _cache[url]
-    try:
-        r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20, context=CTX)
-        raw = r.read(8_000_000).decode("utf8", "ignore")
-        res = {"http": r.status, "final_url": r.geturl(), "html": raw, "etag": r.headers.get("ETag", ""),
-               "last_modified": r.headers.get("Last-Modified", ""), "sha256": hashlib.sha256(raw.encode()).hexdigest()}
-    except Exception as e:
-        res = {"http": getattr(e, "code", None) or "error", "final_url": url, "html": "", "error": str(e)[:120]}
+    res, retries, headers = None, 0, UA
+    while True:
+        try:
+            r = _open(url, headers)
+            raw = r.read(8_000_000).decode("utf8", "ignore")
+            res = {"http": r.status, "final_url": r.geturl(), "html": raw, "etag": r.headers.get("ETag", ""),
+                   "last_modified": r.headers.get("Last-Modified", ""), "sha256": hashlib.sha256(raw.encode()).hexdigest()}
+        except Exception as e:
+            code = getattr(e, "code", None)
+            res = {"http": code or "error", "final_url": url, "html": "", "error": str(e)[:120]}
+            if code in RETRY_CODES and retries < RETRY_TRIES:
+                retries += 1
+                hdrs = getattr(e, "headers", None)
+                _sleep(retry_delay(retries, hdrs.get("Retry-After") if hdrs is not None else None))
+                headers = POLITE_UA
+                continue
+        break
+    if retries: res["retries"] = retries
     with _lock: _cache[url] = res
     return res
 def closure_fetcher(u):  # signature closure.py expects: (final_url, html)
@@ -235,7 +264,100 @@ def office_like(st):
     if len(wk) < 4 or len(set(wk)) > 2: return False
     def mins(t): h, m = t.split(":"); return int(h) * 60 + int(m)
     return all(mins(b) - mins(a) >= 240 for blk in wk for a, b in blk)
-def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24):
+# ---- Strict gate for times changes found by the regular refresh (Dean 27 Oct 2026, vault rule 33) ----
+# Applied ONLY when: postcode matched on the own-site page; identical times on 2 separate runs; source is the org's own
+# site; no conflict (pages/branches disagree, office-like); not known times -> closed/empty; times_auto_apply on; not undone.
+# Same log + undo as times_finder (reports/times_auto_applied.json, scripts/times_revert.py). Anything else: old times kept,
+# held in reports/pending_dean.md. state_root=None (no saved state) can never meet the 2-run rule, so it holds everything.
+XC_SEEN = os.path.join("logs", "times_crosscheck_seen.json")
+XC_BLOCK = os.path.join("overrides", "times_auto_undone.json")
+AUTO_LOG = os.path.join("reports", "times_auto_applied.json")
+def _tsig(st): return json.dumps(st, sort_keys=True) if st else None
+def _ot_empty(ot):
+    if not ot: return True
+    if isinstance(ot, str): return not ot.strip() or bool(re.fullmatch(r"(?i)\s*closed\s*", ot))
+    if isinstance(ot, dict) and "status" not in ot and "structured" not in ot and "raw" not in ot:   # shelter/warm-space hours {'Mon': '..'}
+        return not any(str(v).strip() and str(v).strip().lower() != "closed" for v in ot.values())
+    if str(ot.get("status", "")).upper() in ("CLOSED", "NO_TIMES", ""): return True
+    st = ot.get("structured")
+    if st is not None and not any(v for v in st.values()): return True
+    return not (st or (ot.get("raw") or "").strip())
+def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra=()):
+    """Reasons a refresh times change must be held for Dean. Empty = may apply. Each blocks on its own (tests/test_times_crosscheck_gate.py)."""
+    why = list(extra); key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured")); src = home.get("final_url") if home else None
+    pc = norm_pc(i.get("postcode"))
+    if not pc or not any(pc in norm_pc(t) for t in texts): why.append("postcode not matched exactly on the own-site page")
+    site = i.get("website") or ""
+    if not src or not usable_site(site) or not (host(src) == host(site) or host(src).endswith("." + host(site)) or host(site).endswith("." + host(src))):
+        why.append("not on the organisation's own site")
+    if src and DONATION_PAGE.search(urllib.parse.urlparse(src).path): why.append("source page is about giving/donating, not getting food")
+    vals = set()
+    for t in texts:
+        e = extract_times(t, i.get("postcode"))
+        if e and e.get("status") == "TIMES_FOUND" and e.get("structured"): vals.add(_tsig(e["structured"]))
+    if len(vals) > 1: why.append("conflict: own-site pages give different times")
+    if not _ot_empty(i.get(field)) and (_ot_empty(new) or not sig): why.append("would change known times to closed/empty")
+    prev = (seen or {}).get(key) or {}
+    if not sig or prev.get("sig") != sig or prev.get("source_url") != src or prev.get("run_at") == run_at:
+        why.append("times not read identically on 2 separate runs yet")
+    if sig and (blocked or {}).get(key) == sig: why.append("this change was undone by Dean; not re-applied")
+    if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply)")
+    return why
+def _jload(p, d):
+    try: return json.load(open(p))
+    except Exception: return d
+def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=None):
+    if rules is None:
+        import auto_rules; rules = auto_rules.load()
+    on = bool(rules.get("times_auto_apply", False))
+    run_at = run_at or datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    R = state_root
+    seen = _jload(os.path.join(R, XC_SEEN), {}) if R else {}
+    blocked = _jload(os.path.join(R, XC_BLOCK), {}) if R else {}
+    auto = _jload(os.path.join(R, AUTO_LOG), []) if R else []
+    # Drop this call's ids only. A later pass over centres added after the main check must not forget the main rows.
+    if keep_ids is None:
+        new_seen = {k: v for k, v in seen.items() if not k.startswith(kind + ":")}
+    else:
+        drop = {kind + ":" + i for i in keep_ids}
+        new_seen = {k: v for k, v in seen.items() if k not in drop}
+    held, applied = [], []
+    for i, rec, new, texts, home in cands:
+        key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured"))
+        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()))
+        if sig: new_seen[key] = {"sig": sig, "source_url": home.get("final_url"), "run_at": run_at}
+        if why:
+            rec.update(status="held_for_dean", reason="; ".join(why), held=why)
+            _unconfirm(i, kind, field, "own site shows different times; held for Dean")
+            held.append((i, rec, new))
+            continue
+        old = i.get(field)
+        if kind == "fb": val = dict(new, checked_date=today, source_url=home["final_url"])
+        else: val = hours_from_ot(new) or old
+        i[field] = val; i["times_status"] = "updated"; i["times_checked"] = today
+        rec.update(status="changed", auto_applied=True)
+        prev = seen.get(key, {})
+        auto.append({"id": i["id"], "kind": kind, "path": "cross_check", "name": i.get("name"), "old": old, "new": val,
+                     "new_structured": (new or {}).get("structured"), "source_url": home["final_url"], "first_run_at": prev.get("run_at"), "second_run_at": run_at,
+                     "revert": "python scripts/times_revert.py " + key})
+        applied.append(i)
+    if not R: return
+    os.makedirs(os.path.join(R, "logs"), exist_ok=True); os.makedirs(os.path.join(R, "reports"), exist_ok=True)
+    json.dump(new_seen, open(os.path.join(R, XC_SEEN), "w"), indent=0, sort_keys=True, ensure_ascii=False)
+    if applied: json.dump(auto, open(os.path.join(R, AUTO_LOG), "w"), indent=1, ensure_ascii=False)
+    tag = "times crosscheck " + kind
+    L = ["<!-- %s -->" % tag, "## Opening-times changes from the refresh (%s): %d auto-applied, %d held" % (kind, len(applied), len(held)), ""]
+    for i in applied: L.append("- AUTO-APPLIED `%s` %s (strict, 2 identical runs). Undo: `python scripts/times_revert.py %s:%s`" % (i["id"], i.get("name") or "", kind, i["id"]))
+    for i, rec, new in held:
+        L.append("- **%s** (`%s`, %s): own site now %s  \n  source: %s  \n  why held: %s" % (i.get("name"), i["id"], i.get("postcode") or "",
+                 (new or {}).get("raw") or rec.get("new"), rec.get("site"), "; ".join(rec["held"])))
+    if not applied and not held: L.append("Nothing pending.")
+    L.append("<!-- /%s -->" % tag)
+    pd = os.path.join(R, "reports", "pending_dean.md"); prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
+    prev = re.sub(r"(?s)\n*<!-- %s -->.*?<!-- /%s -->\n*" % (tag, tag), "\n", prev).rstrip("\n")
+    open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+
+def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24, state_root=None, rules=None, run_at=None):
     """Re-confirm every entry's times on its OWN website this run; mutates items. Returns {id: result} log.
     kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text)."""
     import closure
@@ -249,7 +371,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
         home, pages = site_pages(s, fetcher)
         return s, home, pages
     with cf.ThreadPoolExecutor(threads) as ex: got = list(ex.map(one, list(sites)))
-    log = {}
+    log = {}; cands = []
     for s, home, pages in got:
         for i in sites[s]:
             texts = [t for u, t in pages if not DONATION_PAGE.search(urllib.parse.urlparse(u).path)]   # never read client times from a giving/donation page
@@ -259,11 +381,12 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 if r["http"] == 200: texts.append(text_of(r["html"]))
             rec = {"site": s, "http": home and home.get("http"), "sha256": home and home.get("sha256"),
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
+            if home and home.get("retries"): rec["retries"] = home["retries"]
             if not s or not home or home.get("http") != 200 or not texts:
                 rec.update(status="unreachable" if s else "no_website", reason="own site unreachable this run" if s else "no own website to check against")
                 _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             if host(home["final_url"]) != host(s) and not host(home["final_url"]).endswith("." + host(s)) and not host(s).endswith("." + host(home["final_url"])):
-                rec.update(status="unconfirmed", reason="own site redirects to a different site")
+                rec.update(status="unconfirmed", reason="own site redirects to a different site", final_url=home["final_url"])
                 _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             ev = None
             for t in texts:
@@ -276,33 +399,78 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             if st == "confirmed":
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
-            elif st == "changed" and str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed"):
+            elif st == "changed" and (i.get("manual") or str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed")):
                 # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
                 rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
                            new=new.get("structured") if new else None)
                 i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
             elif st == "changed":
-                if kind == "fb": new = dict(new, checked_date=today, source_url=home["final_url"]); i[field] = new
-                else: i[field] = hours_from_ot(new) or i.get(field)
-                i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if new else None
+                # Dean 27 Oct (vault rule 33): never applied here directly; every candidate goes through the strict gate below
+                rec["new"] = new.get("structured") if new else None
+                cands.append((i, rec, new, texts, home))
             elif st == "unconfirmed":
                 _unconfirm(i, kind, field, why)
             log[i["id"]] = rec
+    extra = {}
     if kind == "fb":
-        orig = {i["id"]: i.get("_orig_times") for i in items}
         bysite = {}
-        for i in items:
-            if log.get(i["id"], {}).get("status") == "changed": bysite.setdefault((log[i["id"]]["site"], json.dumps(log[i["id"]].get("new"), sort_keys=True)), []).append(i)
-        for (site, _), grp in bysite.items():
-            for i in grp:
-                why = None
-                if office_like(log[i["id"]].get("new")): why = "new own-site times look like office/centre hours"
-                elif len(grp) > 1: why = "own site gives one table for several branches; cannot tell which branch"
-                if why:
-                    i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
-                    _unconfirm(i, kind, field, why)
-        for i in items: i.pop("_orig_times", None)
+        for i, rec, new, _, _ in cands: bysite.setdefault((rec["site"], json.dumps(rec.get("new"), sort_keys=True)), []).append(i["id"])
+        for (_, _), grp in bysite.items():
+            for k in grp:
+                why = []
+                if office_like(log[k].get("new")): why.append("new own-site times look like office/centre hours")
+                if len(grp) > 1: why.append("own site gives one table for several branches; cannot tell which branch")
+                if why: extra[k] = why
+    times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=[i["id"] for i in items])
+    for i in items: i.pop("_orig_times", None)
     return log
+
+def check_missing(items, log, kind, field, fetcher=fetch_raw, today=None, threads=24, state_root=None, rules=None, run_at=None):
+    """Entries added AFTER the main times check (own-site extra centres, hand-added food banks, late IFAN pins) were
+    never checked, so their card date froze. Check them on their own site now; merge into `log` (marked late_pass).
+    Hand-checked (manual) centres are never overwritten: differences are only flagged.
+    state_root is forwarded so a clear change can meet the 2-run rule without wiping the main check's seen rows."""
+    miss = [i for i in items if i.get("type") in ("foodbank", "location") and i["id"] not in log]
+    if not miss: return []
+    got = cross_check_times(miss, kind, field, fetcher=fetcher, today=today, threads=threads, state_root=state_root, rules=rules, run_at=run_at)
+    for k, v in got.items(): v["late_pass"] = True; log[k] = v
+    return [i["id"] for i in miss]
+
+REVIEW_FIELDS = ["category", "id", "name", "foodbank", "site", "final_url", "http", "retries", "reason", "card_shows", "checked"]
+def review_category(rec):
+    st, why, h = rec.get("status"), rec.get("reason") or "", rec.get("http")
+    if st == "no_website": return "no_source"
+    if "redirects" in why: return "redirected"
+    if st == "unreachable": return "blocked_after_retries" if h in RETRY_CODES else "unreachable"
+    if st in ("none_published",) or "not found" in why or "no times" in why: return "times_not_found"
+    if st == "differs_from_hand_checked": return "differs_from_hand_checked"
+    if st == "unconfirmed": return "ambiguous"
+    return None
+def times_review(log, items, field="opening_times"):
+    """Manual-review list for people (never used to set times): one row per entry whose times could not be confirmed
+    on its own site. `card_shows` says what to tell the reader meanwhile; nothing here is invented.
+    The card HTML itself is unchanged in this piece (front-end files are left alone)."""
+    by = {i["id"]: i for i in items}; rows = []
+    for k, rec in log.items():
+        cat = review_category(rec)
+        if not cat or k not in by: continue
+        i = by[k]; ot = i.get(field)
+        shows = ("times kept from the main listing" if isinstance(ot, dict) and (ot.get("structured") or ot.get("raw")) else "Opening times not known, call before you go")
+        rows.append({"category": cat, "id": k, "name": i.get("name", ""), "foodbank": i.get("foodbank", ""), "site": rec.get("site") or "",
+                     "final_url": rec.get("final_url") or "", "http": rec.get("http"), "retries": rec.get("retries", 0),
+                     "reason": rec.get("reason") or "", "card_shows": shows, "checked": rec.get("checked") or ""})
+    order = ["times_not_found", "redirected", "no_source", "blocked_after_retries", "unreachable", "ambiguous", "differs_from_hand_checked"]
+    rows.sort(key=lambda r: (order.index(r["category"]), r["id"]))
+    return rows
+def write_review(rows, path_csv, path_json):
+    import csv
+    from collections import Counter
+    with open(path_csv, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=REVIEW_FIELDS); w.writeheader(); w.writerows(rows)
+    with open(path_json, "w") as f:
+        json.dump({"_about": "Food bank cards whose times could not be confirmed on their own site this run. For manual review only; "
+                   "no times are invented. card_shows = what to tell the reader meanwhile.",
+                   "counts": dict(Counter(r["category"] for r in rows)), "rows": rows}, f, indent=1, ensure_ascii=False)
 
 def summary(log):
     from collections import Counter

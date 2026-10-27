@@ -183,23 +183,38 @@ def weekly(trend):
     return [(w, f(xs, 'reachable'), f(xs, 'phone_agreement'), xs[-1]['corrections']) for w, xs in sorted(g.items())]
 
 def digest_lines(out, full=False):
+    """Plain-English signals section for the morning note. The same numbers, in sentences."""
     L = ['## What the system learned (signals)', '']
+    season = out.get('season') or {}
     T = sorted(out.get('trust', {}).items(), key=lambda x: x[1])
-    L.append('- Source trust (phone agrees with own site, minus hand corrections): ' + (', '.join('%s %.2f (%s checked)' % (s, v, out['agreement_n'].get(s, 0)) for s, v in T) or 'none yet'))
-    L.append('- Places with change signals (dead link, closure wording, Facebook, bounce): %d' % len(out.get('signals', {})))
-    L.append('- Checks moved up for next run: %d sites (corrections %d, signals %d, season %d, demand %d, visitor reports %d)' % (
-        len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor'))))
-    L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
-    L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
-    slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
-    L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
-    if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
-    wk = weekly(out.get('trend', []))
-    L.append('- Weekly accuracy trend: ' + ('; '.join('%s reachable %.0f%%, phones agree %s, corrections %d' % (w, r * 100, ('%.0f%%' % (p * 100)) if p else 'n/a', c) for w, r, p, c in wk[-4:]) or 'first week'))
-    L.append('- New places found are never added automatically: they wait in reports/pending_dean.md for your OK.')
+    agreed = out.get('agreement_n') or {}
+    trust_bits = ', '.join('%s scores %.2f from %s places checked' % (s, v, agreed.get(s, 0)) for s, v in T)
+    L.append('- How far each source can be trusted (its phone matches the place\'s own website, after your hand corrections): ' + (trust_bits or 'none yet'))
+    L.append('- Places that look like they may have changed (a dead link, closure wording, a Facebook problem, or a bounced email): %d' % len(out.get('signals', {})))
+    bb = out.get('boosted_by') or {}
+    L.append('- Places moved earlier in the next check: %d in total. Of those, %d follow a hand correction, %d a change signal, %d the time of year, %d visitor demand, and %d a visitor report.' % (
+        len(out.get('boost') or {}), len(bb.get('correction') or []), len(bb.get('signal') or []), len(bb.get('season') or []),
+        len(bb.get('demand') or []), len(bb.get('visitor') or [])))
+    L.append('- Time of year: the extra priority this week is %.2f. %s' % (season.get('boost', 0), season.get('note', '')))
+    L.append('- Visitor demand: ' + (out.get('demand_note') or '') + '. Visitor reports: ' + (out.get('visitor_note') or ''))
+    slow = sorted((out.get('hosts') or {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
+    hard = ', '.join('%s (%d of every 100 checks fail, across %d sites)' % (h, round(v['fail_rate'] * 100), v['sites']) for h, v in slow if v['fail_rate'])
+    L.append('- Websites that are hardest to reach: ' + (hard or 'none'))
+    words = {1: 'found more than the rest, so its weight rose by one step', -1: 'found less than the rest, so its weight fell by one step', 0: 'no change this week', None: 'not enough data yet'}
+    if out.get('review'): L.append('- Sunday check of whether each signal earned its place: ' + ', '.join('%s %s' % (k, words[v]) for k, v in out['review'].items()))
+    wk = weekly(out.get('trend') or [])
+    if wk:
+        bits = '; '.join('%s: %d of every 100 sites answered, phones agreed %s, and there were %d hand corrections' % (
+            w, round(r * 100), ('%d of every 100' % round(p * 100)) if p else 'on too few places to say', c) for w, r, p, c in wk[-4:])
+        L.append('- How the last few weeks went: ' + bits)
+    else:
+        L.append('- How the last few weeks went: this is the first week, so there is no trend yet.')
+    L.append('- A new place is never added on its own. It waits in reports/pending_dean.md until you say yes.')
     if full:
-        L += ['', '### Weights now (bounded %.0f%%-%.0f%% of default, max %.0f%% change a week)' % (LO * 100, HI * 100, STEP * 100), ''] + ['- %s: %.3f' % kv for kv in sorted(out['weights'].items())]
-        L += ['', '### Top 20 boosted sites', ''] + ['- %s: %s' % (u, out['why'].get(u)) for u, _ in sorted(out['boost'].items(), key=lambda x: -x[1])[:20]]
+        L += ['', '### How strongly each signal counts (kept between %.0f%% and %.0f%% of its starting weight, and moved by at most %.0f%% a week)' % (LO * 100, HI * 100, STEP * 100), '']
+        L += ['- %s: %.3f' % kv for kv in sorted((out.get('weights') or {}).items())]
+        L += ['', '### The 20 places moved up the most', '']
+        L += ['- %s: %s' % (u, (out.get('why') or {}).get(u)) for u, _ in sorted((out.get('boost') or {}).items(), key=lambda x: -x[1])[:20]]
     return L + ['']
 
 def boosts():

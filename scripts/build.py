@@ -166,7 +166,7 @@ def main():
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))
     # times cross-check on every pin's OWN site this run: confirmed / updated / unconfirmed (withheld, never carried over)
-    tlog = discover.cross_check_times(items, 'fb', 'opening_times')
+    tlog = discover.cross_check_times(items, 'fb', 'opening_times', state_root=ROOT)
     held = [i['id'] for i in items if i.pop('_own_site_closed', None)]
     disc['times'] = discover.summary(tlog); disc['own_site_says_closed_held'] = held
     json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)
@@ -214,6 +214,14 @@ def main():
     plabels = load_json(os.path.join(ROOT, 'overrides', 'phone_labels.json'), {})
     for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct)
         if i.get('phone') and isinstance(plabels.get(i['id']), str): i['phone_label'] = plabels[i['id']]
+    late = discover.check_missing(items, tlog, 'fb', 'opening_times', state_root=ROOT)  # centres/pins added after the main check (27 Oct)
+    if late:
+        for i in items: i.pop('_own_site_closed', None)  # a late 'closed' is only logged for review, never auto-removed here
+        hours_norm.apply([i for i in items if i['id'] in late], 'opening_times')
+        json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)
+        print('times check late pass: %d entries' % len(late))
+    discover.write_review(discover.times_review(tlog, items), os.path.join(ROOT, 'logs', 'foodbank_times_review.csv'),
+                          os.path.join(ROOT, 'logs', 'foodbank_times_review.json'))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
