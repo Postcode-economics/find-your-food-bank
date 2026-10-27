@@ -12,7 +12,9 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
     stored one is nowhere on it, seen on 2 runs in a row) is auto-applied (reports/phone_fixes.json)
-    and logged; anything else -> daily list
+    and logged, unless that listing is in overrides/phone_baseline.json: then it is held for Dean
+    with its source and not applied. Until that file exists, every existing listing is held the same way.
+    Anything else -> daily list
  5. published stock / items-needed lists (new or changed) -> daily list
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Stdlib only. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
@@ -181,14 +183,90 @@ def phone_locked(i):
     """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
 
-def apply_phone_fixes(by_site, fixes, flag):
-    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list."""
+def phone_baseline_path(root=None):
+    return os.path.join(root or ROOT, 'overrides', 'phone_baseline.json')
+
+def in_phone_baseline(iid, root=None):
+    """True when overrides/phone_baseline.json exists and this id is in it.
+    A missing file is not a listing (the auto-apply path treats that separately). An unreadable file locks."""
+    root = root or ROOT
+    path = phone_baseline_path(root)
+    if not os.path.isfile(path): return False
+    try:
+        import phone_lock
+        return bool(phone_lock.is_listed(iid, root))
+    except ImportError:
+        pass
+    try: data = json.load(open(path, encoding='utf-8'))
+    except Exception: return True
+    return bool(iid) and iid in (data.get('listings') or {})
+
+def listing_phone_frozen(iid, root=None):
+    """The clear-phone auto-apply must hold this listing.
+    No baseline file yet (PR 211 not merged): every existing listing is locked.
+    Once the file exists, only an id recorded in it is locked. A new id may still be applied."""
+    if not os.path.isfile(phone_baseline_path(root)): return True
+    return in_phone_baseline(iid, root)
+
+def _mark_section(root, filename, tag, line):
+    path = os.path.join(root, 'reports', filename)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    start, end = '<!-- %s -->' % tag, '<!-- /%s -->' % tag
+    prev = open(path, encoding='utf-8').read() if os.path.exists(path) else ''
+    if start in prev and end in prev:
+        pre, rest = prev.split(start, 1)
+        mid, post = rest.split(end, 1)
+        if line not in mid: mid = mid.rstrip() + '\n' + line + '\n'
+        elif not mid.endswith('\n'): mid += '\n'
+        text = pre + start + '\n' + mid.lstrip('\n') + end + post
+    else:
+        text = prev.rstrip() + '\n\n' + start + '\n' + line + '\n' + end + '\n'
+    if not text.endswith('\n'): text += '\n'
+    open(path, 'w', encoding='utf-8').write(text)
+
+def hold_phone_for_dean(item, proposed, source, root=None, name=''):
+    """Hold one new number for Dean and log its source. The stored phone and tel are not written."""
+    root = root or ROOT
+    try:
+        import phone_lock
+    except ImportError:
+        phone_lock = None
+    if phone_lock is not None:
+        phone_lock.hold(root, item.get('id'), 'phone', item.get('phone'), proposed, source or '', 'phone fix', item.get('name') or name or '')
+        return
+    kept = item.get('phone') if str(item.get('phone') or '').strip() else '(none)'
+    shown = proposed if str(proposed or '').strip() else '(blank)'
+    line = '- blocked, held for Dean | %s | phone | via phone fix | source %s | stored %s | proposed %s | unchanged (byte-identical)' % (
+        item.get('id'), source or '(none)', kept, shown)
+    who = item.get('name') or name
+    if who: line += ' | ' + who
+    for fn in ('pending_dean.md', 'anomaly_brake.md'):
+        _mark_section(root, fn, 'phone lock', line)
+
+def record_clear_phones(items, new, source, root=None, name=''):
+    """Listings a confirmed single new number may be written onto. Frozen listings are held and left byte-identical."""
+    root = root or ROOT
+    apply_to = []
+    for i in items:
+        if listing_phone_frozen(i.get('id'), root):
+            hold_phone_for_dean(i, new, source, root, i.get('name') or name)
+        else:
+            apply_to.append(i)
+    return apply_to
+
+def apply_phone_fixes(by_site, fixes, flag, root=None):
+    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
+    A listing in the phone baseline is never changed here: the proposal is held for Dean with its source."""
+    root = root or ROOT
     n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
         if not f: continue
         for i in lst:
             if norm_phone(i.get('phone')) != f['old']: continue
+            if in_phone_baseline(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
+                hold_phone_for_dean(i, f['new'], f.get('source') or '', root, i.get('name') or '')
+                continue  # phone and tel stay byte-identical
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
                 continue
@@ -325,9 +403,12 @@ def main():
                 flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
             elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
-                fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
-                today['items'].pop('phone number not on own site|' + u, None)
-                e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
+                targets = [i for i in by_site[u] if norm_phone(i.get('phone')) == old]
+                apply_to = record_clear_phones(targets, new, r.get('final_url') or '', ROOT, name)
+                if apply_to:
+                    fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url']); stats['phone_fixes'] += 1
+                    today['items'].pop('phone number not on own site|' + u, None)
+                    e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
             elif u not in fixes:
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
@@ -343,7 +424,7 @@ def main():
         learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method=r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    apply_phone_fixes(by_site, fixes, flag)
+    apply_phone_fixes(by_site, fixes, flag, ROOT)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)

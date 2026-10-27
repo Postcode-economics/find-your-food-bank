@@ -15,7 +15,7 @@ It **never decides what is published**.
 - All existing guards stay: the publish gate, the refresh guard, the 2-run confirmation, the 10% drop stop, schema checks and the "does the result make sense" check.
 - The weekly self-review can change a weight by at most 10% a week, and never outside 50–150% of its default.
 - Back-off for failing sites never goes past the weekly minimum check (7 days). A strong change signal ends a rest early.
-- Opening times on a food bank's own site are written only when the postcode is on that page and the same open/close table was already pending from the last run. The previous table is kept on the times-check log as undo. A missing or unreadable reading, including an empty or all-closed table, leaves the stored week as it is and adds no `pending_dean` row. A phone conflict holds the phone fix only; it does not block this hours update.
+- Opening times on a food bank's own site are written only when the postcode is on that page and the same open/close table was already pending from the last run. The previous table is kept on the times-check log as undo. A missing or unreadable reading, including an empty or all-closed table, leaves the stored week as it is and adds no `pending_dean` row. A phone conflict holds the phone fix only; it does not block this hours update. A food-bank number in `overrides/phone_baseline.json` is held for Dean with its source and is not auto-applied. Until that file exists, every existing listing is held the same way.
 
 ## Plan in the agreed order, and status
 | # | Part | Where | Status |
