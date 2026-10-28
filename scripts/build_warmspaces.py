@@ -161,7 +161,8 @@ sources["Excluded by review"] = {"status": "ok", "ids": sorted(EXCL)}
 import carry_forward  # Dean 28 Oct: a venue missing this run is carried forward with 'call before you go', never deleted
 PENDING = json.load(open("logs/warmspaces_pending.json")) if os.path.exists("logs/warmspaces_pending.json") else []
 items, CARRIED, NOT_CARRIED = carry_forward.carry_items(PREV_ITEMS, items, closed, RUN, excluded=EXCL, skip=set(gone) | {x["id"] for x in expired},
-                                                        pending=PENDING, valid_until=season_end)  # season rule + moved-venue check + redirect link drop
+                                                        pending=PENDING, valid_until=season_end,
+                                                        confirmed=json.load(open("logs/warmspaces_last_confirmed.json")) if os.path.exists("logs/warmspaces_last_confirmed.json") else {})  # season rule + moved-venue check + redirect link drop
 sources["Carried forward (call before you go)"] = {"status": "ok", "count": len(CARRIED), "ids": [x["id"] for x in CARRIED][:200],
                                                    "for_review": [x["id"] for x in CARRIED if x.get("review")], "not_carried": NOT_CARRIED[:200]}
 if not os.environ.get("DRY_RUN"): carry_forward.write_log(CARRIED, RUN, not_carried=NOT_CARRIED)
