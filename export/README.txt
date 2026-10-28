@@ -1,4 +1,4 @@
-helpmap.uk data download - 2026-10-27
+helpmap.uk data download - 2026-10-28
 
 Food bank listings: Give Food (https://www.givefood.org.uk) and helpmap.uk (https://helpmap.uk)
 If you reuse this data, credit Give Food and helpmap.uk with a link. Do not bulk email, call or message the contacts.

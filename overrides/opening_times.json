@@ -4091,11 +4091,17 @@
   "structured": null
  },
  "care-project": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon-Fri, 9am-12pm",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://theparishtrust.org.uk/care/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Mon-Fri, 9am-12pm",
+  "quote": [
+   "someone will be in touch with you within as soon as possible (Mon-Fri, 9am-12pm)"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are callback window, not food bank opening times; phone kept"
  },
  "carmarthen": {
   "checked_date": "2026-10-20",
@@ -5552,11 +5558,32 @@
   "structured": null
  },
  "crossroads-community-hub": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday 1pm - 3pm | Thursday 1pm - 3pm | Friday 10am - 12",
+  "checked_date": "2026-10-28",
+  "raw": "Mon 13:00-15:00 | Thu 13:00-15:00",
   "source_url": "https://cchub.org.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "thu": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Monday 1pm - 3pm | Thursday 1pm - 3pm | Friday 10am - 12",
+  "quote": [
+   "Monday 1pm - 3pm \\(plus foodbank\\)",
+   "Thursday 1pm - 3pm \\(plus foodbank\\)"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "Friday is cafe only"
  },
  "crossroads-meltham": {
   "checked_date": "2026-10-20",
@@ -6515,11 +6542,17 @@
   }
  },
  "easingwold": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday, Tuesday, Thursday and Friday 9.30am to 12.30pm | Monday, Tuesday, Thursday and Friday 9.30am – 12.30pm",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://edcca.org.uk/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Monday, Tuesday, Thursday and Friday 9.30am to 12.30pm | Monday, Tuesday, Thursday and Friday 9.30am – 12.30pm",
+  "quote": [
+   "Office Hours: Monday, Tuesday, Thursday"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are office hours, not food bank opening times; phone kept"
  },
  "east-dunbartonshire": {
   "checked_date": "2026-10-20",
@@ -9478,42 +9511,17 @@
   "structured": null
  },
  "harlow": {
-  "checked_date": "2026-10-20",
-  "raw": "Opening times Mon 09:30 - 14:00 Tue 09:30 - 14:00 Wed 09:30 - 14:00 Thu 09:30 - 14:00 Fri 00:00 - 14:00 Sat Closed Sun Closed ",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://harlow.foodbank.org.uk/locations/",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "fri": [
-    [
-     "00:00",
-     "14:00"
-    ]
-   ],
-   "mon": [
-    [
-     "09:30",
-     "14:00"
-    ]
-   ],
-   "thu": [
-    [
-     "09:30",
-     "14:00"
-    ]
-   ],
-   "tue": [
-    [
-     "09:30",
-     "14:00"
-    ]
-   ],
-   "wed": [
-    [
-     "09:30",
-     "14:00"
-    ]
-   ]
-  }
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Opening times Mon 09:30 - 14:00 Tue 09:30 - 14:00 Wed 09:30 - 14:00 Thu 09:30 - 14:00 Fri 00:00 - 14:00 Sat Closed Sun Closed ",
+  "quote": [
+   "Warehouse and Offices Address"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are warehouse and office card, not food bank opening times; phone kept"
  },
  "harlow/salvation-army": {
   "checked_date": "2026-10-20",
@@ -10401,11 +10409,25 @@
   }
  },
  "hornsey": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Thursday 8.45am-5pm | Friday 8.45am-4.45pm | Thursday 10:15am – 1pm",
+  "checked_date": "2026-10-28",
+  "raw": "Thu 10:15-13:00",
   "source_url": "https://www.hornseyfoodbank.org.uk/about-us",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:15",
+     "13:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Monday to Thursday 8.45am-5pm | Friday 8.45am-4.45pm | Thursday 10:15am – 1pm",
+  "quote": [
+   "Every Thursday 10:15am – 1pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "Mon-Fri 8.45-5 was the council safeguarding line (MASH), removed"
  },
  "horsham-district": {
   "checked_date": "2026-10-20",
@@ -11327,11 +11349,17 @@
   }
  },
  "lambeth-croydon/croydon": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Thursday 9am-5pm | Friday 9am-12pm",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://lambethcroydon.foodbank.org.uk/contact-us",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Monday-Thursday 9am-5pm | Friday 9am-12pm",
+  "quote": [
+   "The phone line is monitored"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are phone line hours, not food bank opening times; phone kept"
  },
  "lambeth-croydon/dulwich": {
   "checked_date": "2026-10-26",
@@ -12299,11 +12327,17 @@
   }
  },
  "life-line": {
-  "checked_date": "2026-10-20",
-  "raw": "Mon to Thurs 9AM - 3PM",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://www.hollymoorcc.org.uk/charitable-activities/life-line-food-bank",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Mon to Thurs 9AM - 3PM",
+  "quote": [
+   "Office Hours"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are church office hours, not food bank opening times; phone kept"
  },
  "lightwave": {
   "checked_date": "2026-10-20",
@@ -14140,11 +14174,25 @@
   }
  },
  "newlands": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday between 1pm-3pm | Monday Closed Tuesday Closed Wednesday Closed Thursday 9:00 am – 11:00 am",
+  "checked_date": "2026-10-28",
+  "raw": "Thu 09:00-11:00",
   "source_url": "https://newlandsmethodistchurch.wordpress.com/foodbank/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "09:00",
+     "11:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Monday between 1pm-3pm | Monday Closed Tuesday Closed Wednesday Closed Thursday 9:00 am – 11:00 am",
+  "quote": [
+   "on a Thursday morning between 9 and 11"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "Monday 1-3pm is Drighlington Foodbank"
  },
  "newport-district": {
   "card_name": "Newport & District",
@@ -17146,11 +17194,31 @@
   "structured": null
  },
  "rickmansworth/mill-end": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 12:15 pm to 1:15 pm",
+  "checked_date": "2026-10-28",
+  "raw": "Tue 13:45-16:00 | Fri 10:00-12:00",
   "source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:45",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Monday-Tuesday Closed Wednesday 12:15 pm to 1:15 pm",
+  "quote": [
+   "Tuesday 1:45 pm to 4:00 pm",
+   "Friday 10:00 am to 12:00 pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
  },
  "ringwood": {
   "checked_date": "2026-10-20",
@@ -17423,11 +17491,25 @@
   }
  },
  "ross-community-larder": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday morning when the Larder is open, between 9.00 – 11.00 | Wednesdays, Thursdays and Fridays, 9.00am - 2.00pm",
+  "checked_date": "2026-10-28",
+  "raw": "Tue 09:00-11:00",
   "source_url": "https://rossparishes.uk/what-we-do/the-community-larder/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "09:00",
+     "11:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Tuesday morning when the Larder is open, between 9.00 – 11.00 | Wednesdays, Thursdays and Fridays, 9.00am - 2.00pm",
+  "quote": [
+   "open between 9\\.00 and 11\\.00 am each Tuesday"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "run 1 read this as donation hours; run 2 and our fetch agree it is the larder session"
  },
  "rotherham": {
   "checked_date": "2026-10-20",
@@ -18186,11 +18268,17 @@
   "structured": null
  },
  "salvation-army/dorchester": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday 9am to 4pm",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://www.salvationarmy.org.uk/dorchester",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Monday to Friday 9am to 4pm",
+  "quote": [
+   "this mobile phone is only available Monday to Friday 9am to 4pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are mobile phone hours, not food bank opening times; phone kept"
  },
  "salvation-army/guernsey": {
   "checked_date": "2026-10-20",
@@ -18444,11 +18532,25 @@
   "structured": null
  },
  "selby-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
+  "checked_date": "2026-10-28",
+  "raw": "Thu 14:00-16:00",
   "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
+  "quote": [
+   "open weekly on Thursdays between 2pm and 4pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "collect a ticket from reception on the day"
  },
  "selby-district": {
   "checked_date": "2026-10-20",
@@ -18610,11 +18712,25 @@
   }
  },
  "shepshed": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday from 11:00am to 12:30pm | Tuesday 11:00 am — 12:30 pm | Mon-Friday 9:00 am – 4:00 pm",
+  "checked_date": "2026-10-28",
+  "raw": "Tue 11:00-12:30",
   "source_url": "https://shepshedfoodbank.org/about/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Tuesday from 11:00am to 12:30pm | Tuesday 11:00 am — 12:30 pm | Mon-Friday 9:00 am – 4:00 pm",
+  "quote": [
+   "open every Tuesday from 11:00am to 12:30pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "Mon-Fri 9-4 on the page is the contact line"
  },
  "shepway": {
   "checked_date": "2026-10-20",
@@ -21105,11 +21221,17 @@
   }
  },
  "stretton": {
-  "checked_date": "2026-10-20",
-  "raw": "Mondays to Fridays 9am to 12.30pm | Monday to Friday, 9am to 12.30pm",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://strettonparish.org.uk/contact-us/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Mondays to Fridays 9am to 12.30pm | Monday to Friday, 9am to 12.30pm",
+  "quote": [
+   "The Parish Office is in the Parish Centre, opposite \nSt Laurence’s church\n, and is open Mondays to Fridays 9am to 12.30pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are parish office hours, not food bank opening times; phone kept"
  },
  "stroud-district": {
   "checked_date": "2026-10-20",
@@ -24083,11 +24205,17 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "winchester-basics-bank": {
-  "checked_date": "2026-10-20",
-  "raw": "Tue/Fri 9 am – 2 pm",
+  "checked_date": "2026-10-28",
+  "raw": "",
   "source_url": "https://winchesterfoodandbasicsbank.co.uk/contact-us/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "NOT_CLIENT_HOURS",
+  "structured": null,
+  "protected": true,
+  "previous": "Tue/Fri 9 am – 2 pm",
+  "quote": [
+   "01962 864720 (Tue/Fri 9 am – 2 pm or answering machine"
+  ],
+  "reader": "2-run check 28 Oct 2026: the page shows these are phone line hours, not food bank opening times; phone kept"
  },
  "windermere-district": {
   "card_name": "Windermere and District Foodbank",
@@ -24474,11 +24602,49 @@
   }
  },
  "woodhouse-close-church": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Thursday 9am till 4 | Fridays 9.00 am till 12",
+  "checked_date": "2026-10-28",
+  "raw": "Mon 09:00-16:30 | Tue 09:00-16:30 | Wed 09:00-16:30 | Thu 09:00-16:30 | Fri 09:00-12:30",
   "source_url": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "Monday to Thursday 9am till 4 | Fridays 9.00 am till 12",
+  "quote": [
+   "Monday to Thursday 9am till 4-30pm",
+   "Fridays 9\\.00 am till 12-30pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
  },
  "woodley": {
   "checked_date": "2026-10-20",
@@ -26234,5 +26400,477 @@
   },
   "reader": "hand-reviewed 2026-10-26 (Apsley Community Centre: Monday 3.30-5.30pm and Thursday 10-12. Thursday has no am/pm; read as 10:00-12:00 alongside the afternoon Monday session)",
   "protected": true
+ },
+ "ledbury": {
+  "checked_date": "2026-10-28",
+  "raw": "Wed 10:00-12:00 | Thu 18:00-20:00 | Fri 10:00-12:00",
+  "source_url": "https://ledburyfoodbank.org/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "18:00",
+     "20:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "on a Wednesday or Friday between 10am and 12 noon or on a Thursday between 6pm and 8pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "sunderland/downhill-centre-community-hub": {
+  "checked_date": "2026-10-28",
+  "raw": "Thu 11:00-13:30",
+  "source_url": "https://sunderlandfoodbank.org.uk/locations/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Thursday: 11:00-13:30"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "edinburgh-ne/st-margarets-parish-church-halls": {
+  "checked_date": "2026-10-28",
+  "raw": "Wed 11:00-12:30",
+  "source_url": "https://edinburghnefoodbank.com/contact/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Wed 11:00 – 12:30"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "edinburgh-ne/south-leith-parish-church-halls": {
+  "checked_date": "2026-10-28",
+  "raw": "Mon 13:00-14:30 | Fri 15:00-17:00",
+  "source_url": "https://edinburghnefoodbank.com/contact/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "13:00",
+     "14:30"
+    ]
+   ],
+   "fri": [
+    [
+     "15:00",
+     "17:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Mon 13:00 – 14:30",
+   "Fri 15:00 – 17:00"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "st-ives-cornwall/edward-hain-centre": {
+  "checked_date": "2026-10-28",
+  "raw": "Tue 10:00-12:00",
+  "source_url": "https://www.stivesfoodbank.org/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "between 10am and 12 on a Tuesday from the Edward Hain Centre"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "referred clients"
+ },
+ "droitwich-spa/droitwich-spa-baptist-church": {
+  "checked_date": "2026-10-28",
+  "raw": "Tue 13:00-15:00 | Fri 14:00-16:00",
+  "source_url": "https://droitwichspa.foodbank.org.uk/locations/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "fri": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Tue 13:00 - 15:00",
+   "Fri 14:00 - 16:00"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "penarth": {
+  "checked_date": "2026-10-28",
+  "raw": "Mon 10:00-12:00 | Tue 10:00-12:00 | Wed 10:00-12:00 | Thu 10:00-12:00 | Fri 10:00-12:00",
+  "source_url": "https://www.tabs.church/food-bank",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "open every weekday morning, 10am to 12noon"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "food-for-thought-dumbarton/central-alexandria-tenants-residents-association": {
+  "checked_date": "2026-10-28",
+  "raw": "Tue 11:00-12:00",
+  "source_url": "https://www.foodforthoughtwestdun.co.uk/services/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "11:00",
+     "12:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Tuesday - CATRA Centre, Alexandria, 11am to 12pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "sparkhill/st-johns-church": {
+  "checked_date": "2026-10-28",
+  "raw": "Wed 10:30-12:30",
+  "source_url": "https://sparkhill.foodbank.org.uk/locations/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Wed 10:30 - 12:30"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "arden/studley-centre": {
+  "checked_date": "2026-10-28",
+  "raw": "Tue 14:00-15:30",
+  "source_url": "https://arden.foodbank.org.uk/locations/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "14:00",
+     "15:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Tue 14:00 - 15:30"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "salvation-army/parkhead": {
+  "checked_date": "2026-10-28",
+  "raw": "Thu 12:00-13:00",
+  "source_url": "https://www.salvationarmy.org.uk/parkhead",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "12:00",
+     "13:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "12PM-1PM Every Thursday"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "no referral needed"
+ },
+ "covent-garden/7-dials-club": {
+  "checked_date": "2026-10-28",
+  "raw": "Fri 11:30-15:30",
+  "source_url": "https://www.dragonhall.org.uk/food-bank",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "11:30",
+     "15:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Collection only on Fridays between 11\\.30am and 3\\.30pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "by appointment only (referral form)"
+ },
+ "hucknall": {
+  "checked_date": "2026-10-28",
+  "raw": "Mon 09:30-13:30 | Tue 09:30-13:30",
+  "source_url": "https://uorhucknall.org.uk/hosted%20organisations",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "09:30",
+     "13:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:30",
+     "13:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Mondays and Tuesdays between 9:30am and 1\\.30pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "referral needed"
+ },
+ "gloucester": {
+  "checked_date": "2026-10-28",
+  "raw": "Mon 11:30-14:30 | Wed 11:30-14:30 | Thu 11:30-14:30 | Fri 11:30-14:30",
+  "source_url": "https://gloucester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "11:30",
+     "14:30"
+    ]
+   ],
+   "wed": [
+    [
+     "11:30",
+     "14:30"
+    ]
+   ],
+   "thu": [
+    [
+     "11:30",
+     "14:30"
+    ]
+   ],
+   "fri": [
+    [
+     "11:30",
+     "14:30"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Monday 11:30 am to 2:30 pm",
+   "Wednesday-Friday 11:30 am to 2:30 pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "kings-lynn": {
+  "checked_date": "2026-10-28",
+  "raw": "Mon 12:00-14:00 | Tue 12:00-14:00 | Wed 12:00-14:00 | Thu 12:00-14:00 | Fri 12:00-14:00",
+  "source_url": "https://kingslynn.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Monday-Friday 12:00 pm to 2:00 pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
+ },
+ "shipston": {
+  "checked_date": "2026-10-28",
+  "raw": "Sat 10:30-12:00",
+  "source_url": "https://www.shipstonfoodbank.org.uk/locations/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "on a Saturday morning between 10\\.30 and 12"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times",
+  "note": "no referral needed"
+ },
+ "ifan-3c7cb974c7ac6c1966b83c-0": {
+  "checked_date": "2026-10-28",
+  "raw": "Mon 12:00-14:00 | Tue 12:00-14:00 | Wed 12:00-14:00 | Fri 12:00-14:00 | Sat 11:00-13:00",
+  "source_url": "https://www.neocommunity.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "protected": true,
+  "previous": "",
+  "quote": [
+   "Monday: 12pm – 2pm",
+   "Tuesday: 12pm – 2pm",
+   "Wednesday: 12pm – 2pm",
+   "Friday: 12pm – 2pm",
+   "Saturday: 11am – 1pm"
+  ],
+  "reader": "2-run check 28 Oct 2026: Bot 3/Bot 4 run 1 + our own fresh fetch (run 2), own page, day on the same line/row as the times"
  }
 }

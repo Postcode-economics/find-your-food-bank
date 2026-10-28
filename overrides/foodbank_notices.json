@@ -180,5 +180,2399 @@
   "notice": "Times shown are CETMA office hours, not food collection. See where to get food below.",
   "source": "https://cetma.org.uk/contact-page/",
   "set": "2026-10-27"
+ },
+ "east-dunbartonshire/st-josephs-church": {
+  "notice": "Temporarily closed, per their own website (checked 28 Oct 2026). Call before you go.",
+  "source": "https://eastdunbartonshire.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "own page says so"
+ },
+ "salvation-army/redditch": {
+  "notice": "No regular food bank at present, per their own website (checked 28 Oct 2026). Call before you go.",
+  "source": "https://www.salvationarmy.org.uk/redditch",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "own page says so"
+ },
+ "southport/st-peters-birkdale": {
+  "notice": "Call before you go: this centre may be temporarily closed; we could not confirm it on their own website (checked 28 Oct 2026).",
+  "source": "https://southport.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "closed per Bot run 1; not seen on our fetch"
+ },
+ "mustard-tree": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://mustardtree.org.uk/contact/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Community Shops and Coffee Shop … Monday 10 AM – 4 PM …\" (shop hours; Thursday now 10 AM – 2 PM)"
+ },
+ "walk-inn": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://balcproject.org.uk/contact/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Store Hours Monday–Friday 10 a.m. to 5 p.m. … Donation Hours Tuesday …\" (charity store)"
+ },
+ "potters-bar": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://pottersbar.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: page card \"Wayside Jubilee Centre … Mon Closed … Sat Closed Sun Closed\" — stored Sat 12:45–14:45 no longer shown"
+ },
+ "isle-of-wight": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://isleofwight.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: locations page now redirects to a JS-only Trussell page with no times"
+ },
+ "seaton": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://seatonurc.wordpress.com/about/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Every Wednesday we hold a 'Drop-in' from 10am till 12.00 noon and offer free drinks\" — church drop-in; page only says \"We are supporting Fo"
+ },
+ "queens-park-govanhill-parish-church": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://qpgparish.wordpress.com/food-bank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Our Fellowship Group Coffee Morning is on Saturday November 7th from 11am till 1pm. Tickets £5\""
+ },
+ "cornerstone": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://www.cornerstonecarlisle.org/contact/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Opening Times: Cornerstone Coffee Bar Mon-Fri: 9:00am – 4:00pm … Op Shop …\""
+ },
+ "silklife": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://www.silklife.co.uk/foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Sunday Service 10:30 - 12:30\" — church service; no food bank times on page"
+ },
+ "alnwick-district": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.alnwickdistrictfoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"based in the Lindisfarne Centre on Lindisfarne Road\" — no opening times on the site"
+ },
+ "hays-community-pantry": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://www.placesforpeople.co.uk/about-us/community/community-projects/hay-avenue-community-hub/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: Wednesday: \"Hays Community Pantry 11am-2pm Food at affordable prices\"; stored times are the hub's other activities"
+ },
+ "freedom": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://freedom.charity/?sol_portfolio=food-bank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Working hours MON - FRI: 09:00 - 15:00\" (general support enquiries); no food bank session or St Bernadette's address on page"
+ },
+ "manna": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://www.mannafoodbank.co.uk/where_to_donate_",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"we are only taking in donations at Manna by appointment, we do not run regular opening hours\"; stored times are donation drop-off points"
+ },
+ "salvation-army/penzance": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/penzance",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: page activities only (\"Monday 7pm Narcotics Anonymous …\"); stored \"Thursday 2.30pm Bible Study 10am-12\" is garbled"
+ },
+ "isle-of-wight/the-bay": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://isleofwight.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: as above"
+ },
+ "isle-of-wight/freshwater": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://isleofwight.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: as above"
+ },
+ "isle-of-wight/newport": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://isleofwight.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: as above"
+ },
+ "isle-of-wight/ryde": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://isleofwight.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: as above"
+ },
+ "purley/old-lodge-lane-baptist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.purleyfoodhub.net",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: homepage only says \"two local Food Stops – at Old Lodge Lane Baptist Church, Purley\" with no times"
+ },
+ "swindon/st-aldhelms-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.swindonfoodcollective.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: site homepage has no centre list or times"
+ },
+ "rickmansworth/maple-cross": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Maple Cross … The Pavilion 87 Denham Way … WD3 9SL … Collection times … Monday-Sunday Closed\""
+ },
+ "merthyr-cynon/dowlais-elim-family-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://merthyrcynon.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: page card literally says \"Fri 01:00 - 02:30\" (almost certainly 13:00–14:30 but not stated)"
+ },
+ "newark/tuxford": {
+  "notice": "Call before you go: the times shown may not be this food bank's own opening times (checked 28 Oct 2026).",
+  "source": "https://newark.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"Tuxford - this centre is managed from Newark - obtain a voucher and we will deliver … Mon Closed … Sun Closed\""
+ },
+ "fusion/calderdale": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://fusionhousing.org.uk/contact-us/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: page lists office hours for Huddersfield/Dewsbury (\"Mon-Fri: 9am – 4pm … Wednesdays Emergency Appointments Only\"), not the Halifax food bank"
+ },
+ "salvation-army/malton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/malton",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: SA Malton page has no food bank session (it lists \"The Fridge … Friday @ 10am\" free surplus food); stored Howe Road times are Ryedale Commun"
+ },
+ "ifan-762040c38571b1178c1e2d-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.gospelcentre.co.uk/get-involved.html",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: \"The Gospel Centre Food Bank operates from our church building\" — no times"
+ },
+ "ifan-85fc4f26365d8e7c333d57-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://ibijokefoundation.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: homepage \"£5 per week\" food offer; no SAT 2–6:30 stated"
+ },
+ "ifan-e0054aa041ea174c4f6921-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.lifeafterhummus.com/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "stale check: page describes the social supermarket but gives no supermarket hours (only a café \"Tuesday to Saturday, 12pm to 5.30pm\" at 5 Pancras Square)"
+ },
+ "stairfoot": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/stairfootfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only, not readable"
+ },
+ "st-mary-magdalene-church-maltby": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/groups/247599576322053/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook group, not readable"
+ },
+ "barnsley/st-lukes-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://barnsley.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: St Lukes/Grimethorpe not on the Barnsley locations page"
+ },
+ "bassetlaw": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://bassetlawfoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: site returns 202 empty"
+ },
+ "s20": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.sheffieldfoodbank.org.uk/s20/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: sheffieldfoodbank.org.uk/s20 does not resolve"
+ },
+ "stocksbridge": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stocksbridgefoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: domain redirects away (foodmatters), no content"
+ },
+ "tupton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/Tuptonfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "chesterfield/hope-valley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://chesterfield.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: St Helen's Grindleford not on Chesterfield locations page"
+ },
+ "mexborough": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://foodawarecic.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: site returns 202 empty"
+ },
+ "ek-community/church-at-lindsayfield": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.calderwoodbaptist.co.uk/Groups/270462/Food_Bank.aspx",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: EK Community Food Bank page doesn't list this church or times"
+ },
+ "ek-community/south-parish-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.calderwoodbaptist.co.uk/Groups/270462/Food_Bank.aspx",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: as above"
+ },
+ "ek-community/westwood-baptist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.calderwoodbaptist.co.uk/Groups/270462/Food_Bank.aspx",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: as above"
+ },
+ "ek-community/claremont-parish-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.calderwoodbaptist.co.uk/Groups/270462/Food_Bank.aspx",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: EK page doesn't list it"
+ },
+ "ek-community/east-mains-baptist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.calderwoodbaptist.co.uk/Groups/270462/Food_Bank.aspx",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: EK page doesn't list it"
+ },
+ "central-and-west-integration-network": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.cwin.org.uk/services/food-security-programme",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: only news posts mention \"Food Hub\" (e.g. \"Friday, 14th of November: no … Food Hub\"); no regular times or address on page"
+ },
+ "crookston-community-group": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://ccg.scot/projects/1073/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: project page is \"404 - Page Not Found\" (footer confirms \"Beltrees 56 Beltrees Road Glasgow G53 5TF\")"
+ },
+ "glasgow-nw/ruchill-kelvinside-parish-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://glasgownw.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: not on the Glasgow NW locations page"
+ },
+ "glasgow-vineyard-storehouse": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://dwellingplaceglasgow.org/storehouse/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: storehouse page has no times or address (archive listing only)"
+ },
+ "kilsyth-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.kilsythcommunityfoodbank.com",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: site returns no readable content"
+ },
+ "old-kilpatrick-food-parcels": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://okfp.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: \"we will not be open on Tuesdays for food collection commencing 1st November\" — remaining collection days not stated"
+ },
+ "ifan-9d9a5ae13b3923c3fd7d0b-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://hangarhub.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: hangarhub.org returns 202 empty"
+ },
+ "salvation-army/aberdare": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/aberdare",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: SA page 403"
+ },
+ "cornerstone-kilkeel": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/p/Cornerstone-Foodbank-Kilkeel-100068293655694/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "merthyr-cynon/carmel-chapel": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://merthyrcynon.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Carmel Chapel/Troedyrhiw not on Merthyr Cynon locations page"
+ },
+ "salvation-army/larne": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/larne",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: page only says \"Please contact Headquarters … 12 Station Mews Belfast BT4 1TL\"; 71 Main Street not shown"
+ },
+ "the-larder-newry": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/p/The-Larder-Newry-100064771626178/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "salvation-army/bridgend": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/bridgend",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: SA page 403"
+ },
+ "salvation-army/nantymoel": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/nantymoel",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: SA page 403"
+ },
+ "ballynahinch": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/ballynahinchfoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "causeway/portstewart-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://causeway.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Portstewart not on the Causeway locations page"
+ },
+ "the-pantry": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/Pantry14",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "salvation-army/openshaw": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/openshaw",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: \"Food parcels We run a small food bank for local people in need on Thursday afternoon\" — no exact times"
+ },
+ "lchaim": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.lchaimfoodbank.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: address not found on site"
+ },
+ "mustard-tree/eccles": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://mustardtree.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: homepage shows shop hours only"
+ },
+ "mustard-tree/worsley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://mustardtree.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: homepage shows shop hours only"
+ },
+ "ifan-79789d4df6b2024369673c-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.Highwayhope.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: site returns no readable content"
+ },
+ "salvation-army/central-north": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/central-north",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: SA page 403"
+ },
+ "bethany": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/BethanyFoodbankErdington/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "black-country/community-link": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: locations page is JS-only (only HQ \"Albion Street, Brierley Hill … Open Monday to Friday 9am-2pm\" shown)"
+ },
+ "black-country/ewa-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: as above"
+ },
+ "black-country/holy-trinity-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: as above"
+ },
+ "black-country/seventh-day-adventist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: as above"
+ },
+ "friends-of-isaacs": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://teamisaac.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: site has no readable content"
+ },
+ "aspire-supported-living": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.aspireliving.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: address not found on site"
+ },
+ "black-country/holy-cross-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: locations page JS-only"
+ },
+ "black-country/the-fountain-of-life": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: locations page JS-only"
+ },
+ "clifton-road": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=100067159630392",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Facebook only"
+ },
+ "erdington/connected-life-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://erdington.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: Connected Life Church not on Erdington locations page"
+ },
+ "salvation-army/birmingham-erdington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/birmingham-erdington",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: SA page 403"
+ },
+ "black-country/lifecentral": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: locations page JS-only"
+ },
+ "black-country/restore": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: locations page JS-only"
+ },
+ "food4u": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://scurc.org.uk/food4u/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-1.md: site returns 403"
+ },
+ "kings-heath": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=100065267809395&locale=en_GB",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "newstarts/new-frankley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://newstarts.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: New Frankley / 6 Arden Road not on site"
+ },
+ "beechdale-community-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/pages/Beechdale%20Community%20Centre/134488559955432/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "east-west-nottingham/meadows": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://eastwestnottingham.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Meadows/Bridgeway Hall not on East & West Nottingham voucher page"
+ },
+ "himmah/sneinton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.himmah.org/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Sneinton not on himmah.org (only Gamble Street and Gregory Boulevard)"
+ },
+ "canaan-trust": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.canaan-trust.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site returned no readable content"
+ },
+ "brinsley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=100064504881937",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "eastwood": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: council directory page 403"
+ },
+ "marys-sutton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stmary-sutton.org.uk/page/marys-food-bank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "selston": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.tinhat.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "st-johns-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/COMMUNITYFOODBANKATSTJOHNSANNESLEY",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "leicester-south/sewstern-village-hall": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://leicestersouth.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Sewstern not on Leicester South voucher page"
+ },
+ "rushcliffe": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/sewadaynotts/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "pontarddulais-area": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/pontarddulaisfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "swansea/gorseinon-institute": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://swansea.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Gorseinon Institute not on Swansea list; page shows \"St Catherine's Church, Gorseinon … Thu 10:00 - 12:00 … Alexandra Road Gorseinon SA4 4NU"
+ },
+ "tyisha": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/TyishaPositiveActionGroup/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "carmarthen/the-table": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://carmarthen.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: The Table not on Carmarthen page (only Xcel Project \"Mon 11:00 - 14:00 … Wed 11:00 - 14:00 … Fri 11:00 - 14:00\")"
+ },
+ "bethel": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.betheltrustpt.co.uk/food-share",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "dulais-valley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/dulaisvalleyfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "patch/tenby": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://patchcharity.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "aberaeron": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/BancBwydAberaeron/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "birchgrove-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/birchgrovecommunityfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "lampeter": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/lampeterfoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "llandysul": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/BancBwydLlandysul/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "patch/pembroke": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://patchcharity.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "whitland-town-hall-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/whitlandtownhallcommunityfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "ifan-3598d68070dfe141274bc6-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.eyresmonsellcyp.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site returned 202/empty"
+ },
+ "oadby": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://oadbyfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Oadby site returned no locations content"
+ },
+ "christ-the-king-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/christkingfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "hinckley-area/earl-shilton-social-institute": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://hinckleyarea.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Earl Shilton Social Institute not on Hinckley list (only \"LBC Earl Shilton … Thu 18:30 - 20:30 … Mill Lane\")"
+ },
+ "manor-house": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://kingschurchleicester.org/foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: page 404"
+ },
+ "stoney-stanton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/stoneystantonfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "south-cotswolds": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://southcotswolds.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Whiteway Court unit not on South Cotswolds page (shows \"Cirencester Opportunity Group Beeches Road … Thursday 1:15 pm to 3:15 pm\")"
+ },
+ "gloucester/bartongate-childrens-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://gloucester.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bartongate not on Gloucester voucher page"
+ },
+ "gloucester/elim-church-gloucester": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://gloucester.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "own page shows every day closed: \"Elim Church Gloucester … Park End Road … Collection times … Monday-Sunday Closed\""
+ },
+ "springbank-community-group": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.springbankcommunitygroup.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: no address or times on site"
+ },
+ "gloucester/kingsholm": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://gloucester.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Kingsholm/St Catharine's not on Gloucester page"
+ },
+ "peterborough/dogsthorpe": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://peterborough.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Dogsthorpe not on Peterborough voucher page"
+ },
+ "stratford-upon-avon": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stratforduponavon.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Fred Winter Centre not on Stratford voucher page"
+ },
+ "stratford-upon-avon/bishopton-community-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stratforduponavon.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bishopton not on Stratford page"
+ },
+ "stratford-upon-avon/escape-arts-heritage-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stratforduponavon.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Escape Arts not on Stratford page"
+ },
+ "salvation-army/kings-lynn": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/kings-lynn",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: SA page 403"
+ },
+ "warwick-district": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://warwickdistrict.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Trident Park warehouse not on voucher page"
+ },
+ "warwick-district/st-marys-church-community-centre-leamington-sp": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://warwickdistrict.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: St Mary's Leamington not on voucher page"
+ },
+ "warwick-district/westbury-centre-leamington-spa": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://warwickdistrict.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Westbury Centre not on voucher page"
+ },
+ "bourne": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://bournefoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bourne locations page 404"
+ },
+ "bristol-north-west/emmanuel-chapel": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.bristolnorthwestfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bristol NW site 404"
+ },
+ "bristol-north-west/emmaus-church-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.bristolnorthwestfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bristol NW site 404"
+ },
+ "bristol-north-west/lawrence-weston-baptist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.bristolnorthwestfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bristol NW site 404"
+ },
+ "south-east-bristol/st-marks": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://eastbristol.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: St Marks not on East Bristol voucher page"
+ },
+ "warwick-district/southorn-court-lillington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://warwickdistrict.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Southorn Court not on Warwick District page"
+ },
+ "agape-care": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/agapecarefoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "boston/st-marys-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://boston.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "own page shows every day closed: \"St. Mary's Church in Sutterton 01205 820223 Opening times Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat Cl"
+ },
+ "bristol-north-west/hope-chapel": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.bristolnorthwestfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Bristol NW site 404"
+ },
+ "new-life-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/newlifespilsby",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "salvation-army/peterborough-ortons": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/peterborough-ortons",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: SA page 403"
+ },
+ "sawtry": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.caresco.org.uk/?page=foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "flintshire/sealand-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://flintshire.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Sealand centre not on Flintshire page"
+ },
+ "wirral/north-birkenhead-development-trust": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://wirral.foodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: North Birkenhead Development Trust not on Wirral page"
+ },
+ "washington-community/washington-community-furnishings": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://wcfp.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site returned 202/empty"
+ },
+ "salvation-army/ashington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/ashington",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: SA page 403"
+ },
+ "salvation-army/moreton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/moreton",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: SA page 403"
+ },
+ "bedlington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=61577815048282",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: Facebook only"
+ },
+ "cdw": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://cdwfoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: site unreachable"
+ },
+ "salvation-army/alnwick": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/alnwick",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: SA page 403"
+ },
+ "the-bay": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.thebayfoodbank.org.uk/locations/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot3-nodate-2.md: locations page 404"
+ },
+ "salvation-army/alderney": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/alderney",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: 403 Access denied (curl + WebFetch); skipped"
+ },
+ "salvation-army/halifax": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/halifax",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: 403 Access denied (curl + WebFetch); skipped"
+ },
+ "uist-barra": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/groups/Uistandbarrafoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "rhayader": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.thearchesrhayader.co.uk/foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: foodbank URL returns \"Page not found\"; footer only \"The Arches West Street, Rhayader, LD6 5AB\""
+ },
+ "north-lochs": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.northlochs.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: neither address nor postcode on page"
+ },
+ "knighton-presteigne": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.knightonfoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "eilean-siar": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/EileanSiarFoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "leominster": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.leominsterfoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "crieff": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/p/Crieff-Foodbank-100074266275159/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "bromyard": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.bromyardfoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Halo Bromyard Centre / Cruxwell Street / HR7 4EB not on homepage"
+ },
+ "badenoch-strathspey/st-andrews-church-hall": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://bsfoodhub.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "the-gate": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.the-gate-charity.org/what-we-do/foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "tay-bridgehead": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.taybridgeheadfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "roots": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/TeamRootsno1/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "ifan-47a9d1714fe97a62d62178-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.justbeeproductions.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: \"Based at Meadowside St Pauls Church, 118 Nethergate, DD1 4EH\" but no food service mentioned"
+ },
+ "kirriemuir": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/kirriefoodhub/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "dundee-angus/forfar": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://dundeeandangus.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Forfar / 43 Craig O Loch Road not on the Dundee & Angus locations page (other centres listed)"
+ },
+ "caring-hands": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.chands.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/harrow": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/harrow",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: page shows only \"Where we are Harrow United Kingdom\" (no address, no food session)"
+ },
+ "selkirk": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=100086170811325",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/bolton-south": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/bolton-south",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: \"Tuesday 10:30 am to 2:30pm - Community Hub Tea/Coffee, Soup … Charity shop, Fareshare food\" (hub with surplus food, not clearly a food bank"
+ },
+ "ramsbottom-pantry": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://ramsbottompantry.com",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "porch-boxes": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://porchboxes.wordpress.com",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Unit 14 / Bradley Fold / BL2 6RS not on page"
+ },
+ "lauderlarder": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/groups/416782742925520/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "jedburgh": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stjohnsjedburgh.org.uk/jedburgh-churches-food-bank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: page loads (Jedburgh Churches Food Bank) but Pleasance / TD8 6DJ and times not found"
+ },
+ "horwich-foodshare": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/mylocalfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "duns": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.dunsanddistrict.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: \"Church Office Address: 6A Market Square, Duns TD11 3DB\" but no food bank on page"
+ },
+ "brandlesholme": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/Brandlesholme",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "galashiels-and-area/langlee-primary-school-car-park": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://galashielsfoodbank.wordpress.com/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Galashiels Foodbank site has no Langlee Drive / TD1 2EB or times"
+ },
+ "galashiels-and-area/focus-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://galashielsfoodbank.wordpress.com/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: no Livingstone Place / TD1 1DQ or times on site"
+ },
+ "wolverhampton-muslim-forum": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/WolverhamptonMuslimForum/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "west-craven": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://wcravenfoodbank.org/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Baptist Church Centre / Manchester Road / BB18 5NZ not on page"
+ },
+ "the-raft-foundation": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.raftfoundation.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/oldham-fitton-hill": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/oldham-fitton-hill",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: 403 Access denied (curl + WebFetch); skipped"
+ },
+ "north-paddington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.npfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "heywood": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/SupportHeywoodFoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "codsall-bilbrook-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=61580856995882",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/darkhouse": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "albrighton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.albrightonparishchurch.org.uk/albrightonfoodbank.htm",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "the-lighthouse-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/LighthouseWhitworth",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "ifan-4843e1fec06a8fc46989df-1": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.colnevalleyhelp.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: HD3 4SS not on page"
+ },
+ "ifan-00db218cd539582721f6a4-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://Bahja.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "burnley-fc-in-the-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://burnleyfccommunity.org/facilities/bfcitc-foodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "accrington-christians-together": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/groups/680009679371353/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "ifan-eddf2af4d3d092a3382b3c-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.cacmor.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: WV13 1QU not on page; only \"Worship … Every Sunday by 11:00 AM to 1:30 PM\""
+ },
+ "black-country/new-testament-church-of-god": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/bridging-the-gap": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "3food4u/waltham-abbey-baptist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://3food4u.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: \"…Last Fri of the month 2:30pm to 4:30pm Waltham Abbey Baptist Church, Paradise Road, EN9 1RL Free NHS Health Check…\" (unclear which item th"
+ },
+ "carlisle": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.carlislefoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "west-somerset-food-cupboard": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.wsfoodcupboard.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: homepage is news only; St Michael Church / TA24 6BL not found"
+ },
+ "moorland": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.moorlandfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: locations URL \"Oops! That page can't be found\"; footer \"Riverside House, Kemps Way, Dulverton, Somerset, TA22 9HL\""
+ },
+ "illminster": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/IlminsterFoodBank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "coatbridge": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.coatbridgefoodbank.com",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "clydesdale": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://clydesdalefoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "chard": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://lordslarder.chardct.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/millom": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/millom",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: 403 Access denied (curl + WebFetch); skipped"
+ },
+ "salvation-army/barking-riverside": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/barking-riverside",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: 403 Access denied (curl + WebFetch); skipped"
+ },
+ "shrewsbury/north-shrewsbury": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Shrewsbury Food Bank page has no The Lantern / SY1 4NG or times"
+ },
+ "purley/st-francis-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.purleyfoodhub.net",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "codicote": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/codicotefoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "the-need-project": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://theneedproject.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: 36 High Street / SG5 4LL not on page"
+ },
+ "shrewsbury/pontesbury": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-1.md: Shrewsbury Food Bank page has no St George's Pontesbury / SY5 0PS or times"
+ },
+ "shrewsbury/minsterley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Shrewsbury Food Bank page has no Holy Trinity Minsterley / SY5 0AB or times"
+ },
+ "purley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.purleyfoodhub.net",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "jubilee-storehouse": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://jubileestorehouse.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: homepage is a needs list; St Anne's / SY23 1RY not on page"
+ },
+ "foodshed": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.stevenage-vineyard.co.uk/compassion/foodshed",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "whyteleafe-community-hub": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.whyteleafehub.org/food-hub",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Food Hub page loads but 96 Whyteleafe Hill / CR3 0AE and times not found"
+ },
+ "stepping-stones-totnes": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/SteppingStonesTotnes",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "skye-lochalsh/sleat-food-shed": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.skyefoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"South Skye outreach foodbanks can be reached at, The Food Shed in Ardvasar\" (no address/times)"
+ },
+ "skye-lochalsh/lochcarron-medical-partnership": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.skyefoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"…and the Medical centre in Lochcarron\" (no address/times)"
+ },
+ "skye-lochalsh/broadford-community-fridge": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.skyefoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"The Community Fridge in Broadford is open to all\" (no street/times)"
+ },
+ "salvation-army/teignmouth": {
+  "notice": "Call before you go: their own website may show this centre as closed (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/teignmouth",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"17 Brunswick Street - Now Closed Teignmouth Devon\" (enquiries to Newton Abbot)"
+ },
+ "one-vision": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.onevisionproject.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "moray-food-plus": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.morayfoodplus.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "invergordon": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/p/Invergordon-Foodbank-61572212057828/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "dartmoor-community-kitchen-hub": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://communitykitchenhub.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "brixham": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://brixhamchamber.co.uk/brixham-foodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "a-helping-hand-in-the-highlands": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/AHHITH1/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "sherborne": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://sherbornefoodbank.org/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "luton/marsh-farm": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://lutonfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: lutonfoodbank.org.uk/locations/ → \"Page Not Found\""
+ },
+ "hessle-anlaby": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://hessleanlabyfoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "blackpool/street-angels": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no 56A Holmfield Road / FY2 9RT"
+ },
+ "black-country/the-well": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/the-thomas-project": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/the-lamp-project": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/replenish": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/kingswinford": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "slade-green": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=100075914414393",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "christian-care-and-share": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/p/Christian-Care-Share-100076386488539/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/the-rock": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/all-saints": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/ablewell-advice": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/harlesden": {
+  "notice": "Call before you go: their own website may show this centre as closed (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/harlesden",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"OUR BUILDING IS CURRENTLY CLOSED FOR RENOVATION 32 Manor Park Road Harlesden NW10 4JJ\""
+ },
+ "portland/easton-methodist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://portlandfoodbank.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "luton/stopsley-baptist-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://lutonfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: lutonfoodbank.org.uk/locations/ → \"Page Not Found\""
+ },
+ "luton/luton-central-library": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://lutonfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: lutonfoodbank.org.uk/locations/ → \"Page Not Found\""
+ },
+ "luton/high-town": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://lutonfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: lutonfoodbank.org.uk/locations/ → \"Page Not Found\""
+ },
+ "luton/dallow": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://lutonfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: lutonfoodbank.org.uk/locations/ → \"Page Not Found\""
+ },
+ "leighton-linslade-helpers": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.leightonlinsladehelpers.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "leighton-linslade-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.llhsblackhorse.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "dorchester": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.dorchesterbc.org.uk/foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"Dorchester Baptist Church Bridport Road Dorchester Dorset DT1 1RR\" but no Dorford Centre / food bank times"
+ },
+ "blackpool/helping-hearts": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no Office 11 Shorebury Point / FY4 2RF"
+ },
+ "black-country/take-a-break": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/springs": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/south-street": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/grace-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "the-vulcan-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.vulcancentre.co.uk/food-distribution/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "granville-community-kitchen": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://granvillecommunitykitchen.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: \"Do you need Emergency Food Aid?\" but 140 Carlton Vale / NW6 5HE and times not on page"
+ },
+ "black-country/woodside-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/refresh": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "black-country/netherton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://blackcountryfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "maiden-lane": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.maidenlanecommunitycentre.org/foodbank.html",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: 156 St Paul's Crescent / NW1 9XZ not on page"
+ },
+ "blackpools-voice": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/blackpoolsvoice/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "blackpool/the-bridge-project": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no centre address"
+ },
+ "blackpool/street-life": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no 48 Buchanan Street"
+ },
+ "blackpool/st-peters-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no 190 Lytham Road"
+ },
+ "blackpool/sacred-heart-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no 17 Talbot Road"
+ },
+ "blackpool/holy-cross-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no Central Drive"
+ },
+ "blackpool/comfort-cafe": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no 24 Birley Street"
+ },
+ "blackpool/claremont-first-steps": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thebigfoodproject.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Big Food Project site has no Dickson Road"
+ },
+ "islay": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.islayfoodbank.com",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Baptist Manse / Jamieson Street / PA43 7HL not on page"
+ },
+ "dunoon": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/profile.php?id=100072026179699",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/oban": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/oban",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: 403 Access denied; skipped"
+ },
+ "salvation-army/campbeltown": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/campbeltown",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: 403 Access denied; skipped"
+ },
+ "manna-hatfield": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://openheavenshatfield.com/food-bank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: 36A Woods Avenue / AL10 8NA not on page"
+ },
+ "county-durham/stanley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/durham-waddington-street": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/durham-gilesgate": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/bowburn": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/annfield-plain": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/consett": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/chester-le-street": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/brandon-community-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "caistor": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.caistorfoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "louths-community-larder": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/Louthfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "lincoln-community-larder/all-saints-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.lincolnlarder.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: lincolnlarder.co.uk homepage lists donation points; Wragby / LN8 5RF not on page"
+ },
+ "allenby-primary-school": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://allenbyprimaryschool.com/ealing/primary/allenby/site/pages/parentsandcarers/servicesinealing",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: school \"services in Ealing\" page, no food bank or address"
+ },
+ "lincoln-community-larder/st-john-the-baptist-church-hall": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.lincolnlarder.co.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Laughton Way / LN2 2ES not on page"
+ },
+ "st-georges": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://stgeorgeslupset.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "hemsworth": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://hemsworthfoodpantry.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: Christian Fellowship Church / South Street / WF9 4AT not on page"
+ },
+ "cgcc": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/cgccfoodbank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-2.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/pontefract": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/pontefract",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: 403 Access denied; skipped"
+ },
+ "pontefract-knottingley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://pontefractandknottingley.foodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: /locations/ 404; voucher page lists Knottingley & St Giles centres but not Central Methodist Newgate"
+ },
+ "batley": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://batleyfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/murton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/dawdon": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "westbury-area-network": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://westburyareanetwork.org/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: homepage: \"operates both the Food Bank and Community Fridge\"; Eden Vale Road not on page"
+ },
+ "thorne-and-moorends-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.thorne-moorends.gov.uk/community/community-groups/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "stanwell": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "http://www.stanwellfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "st-pauls-hounslow/good-shepherd": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.hopehounslow.org.uk/foodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Hope Hounslow page has no Good Shepherd / Cranford"
+ },
+ "heston-farm": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/groups/940970613570584",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "doncaster/rossington-holmescarr-community-centre": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://doncaster.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Doncaster locations list St Luke's New Rossington (Thu 10–12) but no Holmescarr"
+ },
+ "dn7": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/DN7FoodBank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "cary-cares": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.carycares.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "thurrock/st-michaels-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://thurrock.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Thurrock locations (9 results) have no St Michael’s / Aveley"
+ },
+ "gatehouse-community-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "braintree-area/hedingham-baptist": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://braintreearea.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Braintree Area locations page has no Hedingham Baptist / Swan Street"
+ },
+ "bassetlaw/retford": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://bassetlawfoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "alhuda-welfare-foundation": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: page nearly empty; 14 Wangey Road not on page"
+ },
+ "salvation-army/dumfries": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/dumfries",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: 403 Access denied; skipped"
+ },
+ "river-of-life-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://riveroflife.org.uk/food-project/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "andover/the-castle-practice": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://andover.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Andover locations page has no Castle Practice (Ludgershall Memorial Hall SP11 9LZ listed, Mon 10–12)"
+ },
+ "salvation-army/aberdeen-torry": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/aberdeen-torry",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: 403 Access denied; skipped"
+ },
+ "salisbury/fovant-wilton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://salisbury.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Salisbury locations page has no Wilton Community Centre / SP2 0DG"
+ },
+ "andover/test-valley-borough-council-office": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://andover.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Andover locations page has no Beech Hurst / TVBC office"
+ },
+ "mid-cheshire/bethel-church": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://midcheshire.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Mid Cheshire locations page has no Bethel Church / Hargreaves Road"
+ },
+ "mid-cheshire/ggo-bungalow": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://midcheshire.foodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Mid Cheshire locations page has no GGO Bungalow / Finsbury Walk"
+ },
+ "weardale": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/Weardalefoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "ifan-4a6217d6ae69c4977d7d70-0": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.hopeworx.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "drighlington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/Drighlingtonfoodbank",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/newton-aycliffe": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "smt": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.smtrust.org.uk/food-bank-uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/catterick": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/catterick",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: page loads but shows only phone numbers, no address or food times"
+ },
+ "horton-bank-top-community": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://hortonbanktopcommunityfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: locations page returned no content / voucher page timed out"
+ },
+ "county-durham/spennymoor-trinity": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/spennymoor": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/shildon": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/willington": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/ferryhill": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/crook": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/chilton": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "salvation-army/stanford-le-hope": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/stanford-le-hope",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: 403 Access denied; skipped"
+ },
+ "penzance": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://churchestogetherinpenzance.co.uk/project/food-bank/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Treneere / The Store not on page; volunteers on 07950 159841 Mon–Fri 9–5 (phone line)"
+ },
+ "food-for-families-penzance": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.facebook.com/foodforfamiliescic/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "county-durham/west-auckland": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://durhamfoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "angel-trust": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.angeltrust.co.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Belvedere House not on page; pantry \"on Kingsway\" with no times"
+ },
+ "high-peak": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://zink.org.uk/food-and-supplies/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: Zink food page: referral by phone 07977 618232; Clough Street / SK17 6LJ not in text (pc only in footer?)"
+ },
+ "margate/victoria-lights": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.mifoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "margate": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.mifoodbank.org",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site blocked/empty (Facebook, captcha/202, 403/404 or no response); skipped"
+ },
+ "wantage-and-grove": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.wantageandgrovefoodbank.org.uk",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: \"Page not found … The website has been rebuilt\"; address not on page"
+ },
+ "wallingford": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://wallingfordfoodbank.org.uk/",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: site returns \"Page not found · GitHub Pages 404\""
+ },
+ "salvation-army/whitby": {
+  "notice": "Call before you go: we could not confirm this food bank's details on its own website (checked 28 Oct 2026).",
+  "source": "https://www.salvationarmy.org.uk/whitby",
+  "set": "2026-10-28",
+  "flag": "call_first",
+  "why": "bot4-nodate-3.md: 403 Access denied; skipped"
  }
 }

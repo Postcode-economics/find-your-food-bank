@@ -88,7 +88,9 @@ def main():
     phones = phone_rule.phones_to_apply(phones, sources, holds)
     from times import normalise  # scraped text -> clean Mon-Sun table, or deduped text 'as written'
     for i in items:
-        i['opening_times'] = normalise(times.get(i['id']))
+        ot = times.get(i['id'])
+        if (ot or {}).get('status') == 'NOT_CLIENT_HOURS': ot = None  # proven office/phone hours, not opening times (28 Oct; phone kept)
+        i['opening_times'] = normalise(ot)
         if i['id'] in phones: i['phone'] = phones[i['id']]; i['phone_checked'] = True
     fbp = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'facebook_pages.json'), {}).items() if not k.startswith('_')}
     for i in items:  # verified Facebook page, used only when there is no phone (Dean 23 Oct)
@@ -215,6 +217,7 @@ def main():
     for i in items:  # hand-set card notices (e.g. temporary closure), pin kept (Dean 24 Oct)
         n = notices.get(i['id'])
         if isinstance(n, dict) and n.get('notice'): i['notice'] = n['notice']
+        if isinstance(n, dict) and n.get('notice') and n.get('flag'): i['call_first'] = True  # 'call before you go' flag (Dean 27 Oct)
     plabels = load_json(os.path.join(ROOT, 'overrides', 'phone_labels.json'), {})
     for i in items:  # whose number it is, when not the food bank's own (Dean 24 Oct). Optional; blank is ignored.
         lab = plabels.get(i['id'])
