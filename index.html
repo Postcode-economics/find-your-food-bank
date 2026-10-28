@@ -5,6 +5,8 @@
 <script>/* Service worker (28 Oct 2026): register from the head, before layers.js and the map, so tile fetches are intercepted. Waits for the old-cache heal only when it is actually healing (caches.keys() can stay pending in WebKit; capped 800 ms): register() during a pending unregister revives the old worker, and after a heal the script URL is sw.js?v=<hash>&heal=1 so WebKit cannot revive the poisoned one. skipWaiting and clients.claim run in sw.js. If this page still has no controller once the worker is activated, reload once. hmctrl=1 on the query is the loop guard (sessionStorage does not survive some webview reloads): no reload if the flag cannot be written, and no reload while hmheal or hmboot is already reloading the page. A page the worker already controls does not reload. */(function () {
   if (!('serviceWorker' in navigator)) return;
   var claimed = !!navigator.serviceWorker.controller;
+  // Read before strip() drops hmctrl from the query: this load is already the one reload.
+  var ctlReload = /[?&]hmctrl=1(?:&|$)/.test(location.search);
   var used = false;
   function note() { used = true; }
   addEventListener('pointerdown', note, true);
@@ -28,7 +30,10 @@
   }
   if (claimed) dropCtrl();
   var heal = /[?&]hmheal=1(?:&|$)/.test(location.search);
-  Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })])
+  // Register only after the deferred scripts have run (__hmBooted): a first install activates and claims at once, and a
+  // worker that took the page mid-boot answered the first tile grid and the deferred scripts itself.
+  new Promise(function (r) { if (window.__hmBooted) r(); else window.__hmOnBoot = r; })
+    .then(function () { return Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })]); })
     .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
     .then(function () { return navigator.serviceWorker.register('sw.js?v=h24cc1848c09c' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
     .then(function (reg) {
@@ -51,7 +56,7 @@
         if (!sw) return;
         var once = function () {
           setTimeout(function () {
-            if (used) return;
+            if (used || ctlReload) return;
             if (claimed || navigator.serviceWorker.controller) { dropCtrl(); return; }
             if (/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;
             if (/[?&]hm(?:heal|boot)=1(?:&|$)/.test(location.search) || window.__hmHealBusy) return;
@@ -432,7 +437,7 @@ try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
   var nodes=[].slice.call(document.querySelectorAll('script[data-hm]')),i=0;
   function later(fn){requestAnimationFrame(function(){setTimeout(fn,0)})}
   function run(){
-    if(i>=nodes.length){window.__hmBooted=true;var q=window.__hmPendingSearch;if(q&&typeof search==='function'){window.__hmPendingSearch='';window.__go=true;var pop=window.__hmPendingPopup;search(q).then(function(){if(!pop)return;var c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)})}return}
+    if(i>=nodes.length){window.__hmBooted=true;if(window.__hmOnBoot)window.__hmOnBoot();var q=window.__hmPendingSearch;if(q&&typeof search==='function'){window.__hmPendingSearch='';window.__go=true;var pop=window.__hmPendingPopup;search(q).then(function(){if(!pop)return;var c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)})}return}
     var n=nodes[i++],s=document.createElement('script'),src=n.getAttribute('src');
     if(src){s.async=false;s.src=src;s.onload=s.onerror=function(){later(run)};document.body.appendChild(s)}
     else{s.text=n.textContent;document.body.appendChild(s);later(run)}
