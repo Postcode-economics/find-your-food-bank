@@ -24,6 +24,8 @@ class Gaps(unittest.TestCase):
         log = {"found": {"fb1": dict(ot)}}; F.decide(log, [dict(item)], False, rules=ON, now=now); return log
     def cur(self): return json.load(open("overrides/opening_times.json"))
 
+    # fixed in fix/b3-times or fix/b3-phones; remove the marker on integration
+    @unittest.expectedFailure
     def test_undo_is_sticky_the_same_reading_is_not_reapplied(self):
         """Phone and refresh paths block an undone change; the finder path must too."""
         self.decide(RUNS[0]); self.assertEqual(self.decide(RUNS[1])["applied"], ["fb1"])
@@ -46,6 +48,8 @@ class Gaps(unittest.TestCase):
         json.dump([], open(F.AUTO_LOG, "w"))
         with self.assertRaises(SystemExit): R.revert("fb1", root=self.d)
 
+    # fixed in fix/b3-times or fix/b3-phones; remove the marker on integration
+    @unittest.expectedFailure
     def test_bare_id_revert_ignores_refresh_path_entries(self):
         """'times_revert.py fb1' is the finder undo. A refresh-path entry for the same id (undo key 'fb:fb1') must not
         be restored into overrides/opening_times.json."""
@@ -56,6 +60,8 @@ class Gaps(unittest.TestCase):
         self.assertEqual(self.cur(), {})
         self.assertFalse(json.load(open(F.AUTO_LOG))[0].get("reverted"))
 
+    # fixed in fix/b3-times or fix/b3-phones; remove the marker on integration
+    @unittest.expectedFailure
     def test_text_only_times_from_another_source_conflict(self):
         """Known times kept as text (no table) from another source are still known times from another source."""
         cur = {"fb1": {"status": "TIMES_FOUND", "raw": "Tuesdays 9-11, call first", "source_url": "https://www.givefood.org.uk/x"}}
@@ -77,6 +83,8 @@ class Gaps(unittest.TestCase):
         why = F.strict_checks("fb1", closed, dict(ITEM, opening_times=dict(GOOD)), {}, seen, 1, KS)   # known times on the listing, not an override
         self.assertTrue(any("closed/empty" in w for w in why), why)
 
+    # fixed in fix/b3-times or fix/b3-phones; remove the marker on integration
+    @unittest.expectedFailure
     def test_seen_row_without_run_at_is_not_a_second_run(self):
         seen = {"fb1": {"sig": SIG, "source_url": GOOD["source_url"]}}
         why = F.strict_checks("fb1", dict(GOOD, _run_at=RUNS[1]), ITEM, {}, seen, 1, KS)

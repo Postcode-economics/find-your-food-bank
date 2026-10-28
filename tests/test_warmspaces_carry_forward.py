@@ -58,27 +58,82 @@ class CarryForward(unittest.TestCase):
         self.assertIn('valid_until=season_end', s); self.assertIn('pending=PENDING', s)
         self.assertLess(s.index('carry_forward.carry_items'), s.index('write_js(OUT'))
 
+OLD_HUB = {'id': 'ww-old-hub', 'name': 'Old Hub', 'postcode': 'ZZ9 9ZZ', 'lat': 51.0, 'lng': 0.5, 'address': '1 Old Road',
+           'hours': {'Wed': '10:00 - 12:00'}, 'verified_on': '2026-10-20', 'last_verified': '2026-10-20', 'stale': False}
+OLD_PAGE = '<html><h1>Warm spaces in Gone Area</h1>%s<div class="call">Always call before you go</div><ul class="s"><li><div class="n">Old Hub</div></li></ul></html>'
+
+def build_with(page, extra_ws, env=None):
+    """build_seo into a temp dir with a previous warm-spaces/zz-gone-area page and `extra_ws` added to warmspaces.js.
+    ZZ9 9ZZ has no area in the district cache, so only the previous page ties Old Hub to zz-gone-area."""
+    import build_seo as B
+    from unittest import mock
+    real = B.load_js
+    def load_js(name, var):
+        o = real(name, var)
+        if name == 'warmspaces.js': o['items'] = o['items'] + [dict(x) for x in extra_ws]
+        return o
+    d = tempfile.mkdtemp()
+    os.makedirs(os.path.join(d, 'warm-spaces', 'zz-gone-area'))
+    open(os.path.join(d, 'warm-spaces', 'zz-gone-area', 'index.html'), 'w').write(page)
+    for x in ('food-banks', 'shelters'): os.makedirs(os.path.join(d, x), exist_ok=True)
+    with mock.patch.object(B, 'load_js', load_js), mock.patch.dict(os.environ, env or {}):
+        if not env: os.environ.pop('PRIVATE_BLOCKLIST', None)
+        B.build(out=d, fetch=False)
+    return d, B.build.ws_area_kept
+
+def carried(o, run='2026-10-28', **kw):
+    return C.carry_items([o], [], [], run, allowed=set(), **kw)[0]
+
 class AreaPages(unittest.TestCase):
     def test_carried_venue_counts_for_area_pages(self):
         import build_seo as B
         self.assertIn('call before you go', B.card_ws(dict(SAIFEE, call_check=True, stale=True, address='a')))
 
     def test_warm_space_area_page_never_deleted(self):
-        import build_seo as B
-        d = tempfile.mkdtemp()
+        d, _ = build_with(OLD_PAGE % '', carried(OLD_HUB))
         try:
-            for f in ('data.full.js', 'access.js', 'warmspaces.js', 'shelters.js'):
-                shutil.copy(os.path.join(ROOT, f), d)
-            os.makedirs(os.path.join(d, 'warm-spaces', 'zz-gone-area'))
-            open(os.path.join(d, 'warm-spaces', 'zz-gone-area', 'index.html'), 'w').write('<html><div class="call">Always call before you go</div>Old Hub</html>')
-            for x in ('food-banks', 'shelters'): os.makedirs(os.path.join(d, x), exist_ok=True)
-            cwd = os.getcwd(); os.chdir(d)
-            try: B.build(out=d, fetch=False)
-            finally: os.chdir(cwd)
             p = os.path.join(d, 'warm-spaces', 'zz-gone-area', 'index.html')
             self.assertTrue(os.path.exists(p)); t = open(p).read()
             self.assertIn('Old Hub', t); self.assertIn('class="call carried"', t)
+            self.assertIn('Not re-confirmed since 2026-10-20 – call before you go', t)   # rebuilt from the carried item's card
+            self.assertIn('<h1>Warm spaces in Gone Area</h1>', t)
             self.assertIn('/warm-spaces/zz-gone-area/', open(os.path.join(d, 'sitemap.xml')).read())
+        finally: shutil.rmtree(d)
+
+    def _gone(self, d, kept, secret=None):
+        self.assertFalse(os.path.exists(os.path.join(d, 'warm-spaces', 'zz-gone-area')))
+        self.assertNotIn('/warm-spaces/zz-gone-area/', open(os.path.join(d, 'sitemap.xml')).read())
+        self.assertNotIn('zz-gone-area', [k['area'] for k in kept])
+        for top, _, files in os.walk(os.path.join(d, 'warm-spaces')):
+            for f in files:
+                t = open(os.path.join(top, f), encoding='utf-8').read()
+                self.assertNotIn('Old Hub', t, f)
+                if secret: self.assertNotIn(secret, t, f)
+
+    def test_excluded_sole_venue_takes_its_area_page_with_it(self):
+        """Review 28 Oct: a kept area page was copied forward as HTML, so a venue Dean excluded that was the only one in
+        its area stayed published. carry_forward does not carry it; with no carried venue left the page goes."""
+        items = carried(OLD_HUB, excluded={OLD_HUB['id']})
+        self.assertEqual(items, [])
+        d, kept = build_with(OLD_PAGE % '', items)
+        try: self._gone(d, kept)
+        finally: shutil.rmtree(d)
+
+    def test_blocklisted_sole_venue_takes_its_area_page_with_it(self):
+        addr = '99 Dummy Lane, Exampletown EX1 1EX'
+        d, kept = build_with(OLD_PAGE % '', carried(dict(OLD_HUB, address=addr)), env={'PRIVATE_BLOCKLIST': addr})
+        try: self._gone(d, kept, secret='99 Dummy Lane')
+        finally: shutil.rmtree(d)
+
+    def test_closed_or_ended_sole_venue_takes_its_area_page_with_it(self):
+        for items in (carried(dict(OLD_HUB, flag_closed=True)), [dict(x, ended=True) for x in carried(OLD_HUB)]):
+            d, kept = build_with(OLD_PAGE % '', items)
+            try: self._gone(d, kept)
+            finally: shutil.rmtree(d)
+
+    def test_page_with_no_carried_venue_is_not_copied_forward(self):
+        d, kept = build_with(OLD_PAGE % '', [dict(OLD_HUB)])   # in the file but not carried (no call_check)
+        try: self._gone(d, kept)
         finally: shutil.rmtree(d)
 
 def season_end(v):  # same rule as build_warmspaces.season_end
@@ -167,21 +222,11 @@ class Rework(unittest.TestCase):
 
 class AreaPagesRework(unittest.TestCase):
     def _build(self, page):
-        import build_seo as B
-        d = tempfile.mkdtemp()
-        for f in ('data.full.js', 'access.js', 'warmspaces.js', 'shelters.js'):
-            shutil.copy(os.path.join(ROOT, f), d)
-        os.makedirs(os.path.join(d, 'warm-spaces', 'zz-gone-area'))
-        open(os.path.join(d, 'warm-spaces', 'zz-gone-area', 'index.html'), 'w').write(page)
-        for x in ('food-banks', 'shelters'): os.makedirs(os.path.join(d, x), exist_ok=True)
-        cwd = os.getcwd(); os.chdir(d)
-        try: B.build(out=d, fetch=False)
-        finally: os.chdir(cwd)
-        return d, B.build.ws_area_kept
+        return build_with(page, carried(OLD_HUB))
 
     def test_kept_page_note_and_since_preserved(self):
         import datetime
-        d, kept = self._build('<html><div class="call">Always call before you go</div>Old Hub</html>')
+        d, kept = self._build(OLD_PAGE % '')
         try:
             t = open(os.path.join(d, 'warm-spaces', 'zz-gone-area', 'index.html')).read()
             today = datetime.date.today().isoformat()
@@ -190,7 +235,7 @@ class AreaPagesRework(unittest.TestCase):
         finally: shutil.rmtree(d)
 
     def test_kept_page_flagged_after_14_days_not_deleted(self):
-        d, kept = self._build('<html><div class="call carried" data-since="2026-01-01">Not re-confirmed since 2026-01-01 – call before you go.</div><div class="call">x</div>Old Hub</html>')
+        d, kept = self._build(OLD_PAGE % '<div class="call carried" data-since="2026-01-01">Not re-confirmed since 2026-01-01 – call before you go.</div>')
         try:
             t = open(os.path.join(d, 'warm-spaces', 'zz-gone-area', 'index.html')).read()
             self.assertIn('Old Hub', t); self.assertEqual(t.count('class="call carried"'), 1)

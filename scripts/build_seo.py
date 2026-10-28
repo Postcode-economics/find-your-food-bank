@@ -189,12 +189,27 @@ def page(path, title, desc, body, crumbs, updated):
             % (E(title), E(desc), url, E(title), E(desc), url, CSS, json.dumps(ld, ensure_ascii=False).replace('</', '<\\/'), body, E(updated), SH_CREDIT, LEGAL))
 
 import beacon  # analytics beacon on every generated page (25 Oct 2026)
+import private_block
 def write(rel, text, out):
     text = beacon.inject(text)
     p = os.path.join(out, rel.lstrip('/'))
     if p.endswith('/'): p += 'index.html'
     os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, 'w', encoding='utf-8').write(text)
+
+def area_html(kind, d, lst, updated, card, sub=None, note=''):
+    label, base, noun = kind
+    sub = sub or slug(d)
+    lst.sort(key=lambda x: x['name'].lower())
+    path = '/%s/%s/' % (base, sub)
+    n = len(lst)
+    title = '%s in %s – free help near you' % (label, d)
+    desc = '%d %s in %s with addresses, phone numbers and opening times. Checked three times a day. Free, no sign-up. Always call before you go.' % (n, noun if n != 1 else noun.rstrip('s'), d)
+    body = ('<h1>%s in %s</h1><p>%d %s listed in the %s area, taken from the same checked data as the helpmap.uk map. '
+            'Details can change, so please call before you go.</p><a class="cta" href="/?q=%s">Open on the map</a>'
+            '<p class="chk3"><a href="/faq.html">Checked three times daily</a></p>%s<div class="call">Always call before you go</div><ul class="s">%s</ul><!--xlinks:%s--><p><a href="/%s/">All areas</a></p>'
+            % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(lst[0]['postcode'])), note, ''.join(card(i) for i in lst), sub, base))
+    return path, page(path, title, desc, body, [('helpmap.uk', '/'), (label, '/%s/' % base), (d, path)], updated)
 
 def section(kind, items, cache, updated, out, card):
     label, base, noun = kind
@@ -204,16 +219,8 @@ def section(kind, items, cache, updated, out, card):
         if d: groups.setdefault(d, []).append(i)
     urls = []
     for d, lst in sorted(groups.items()):
-        lst.sort(key=lambda x: x['name'].lower())
-        path = '/%s/%s/' % (base, slug(d))
-        n = len(lst)
-        title = '%s in %s – free help near you' % (label, d)
-        desc = '%d %s in %s with addresses, phone numbers and opening times. Checked three times a day. Free, no sign-up. Always call before you go.' % (n, noun if n != 1 else noun.rstrip('s'), d)
-        body = ('<h1>%s in %s</h1><p>%d %s listed in the %s area, taken from the same checked data as the helpmap.uk map. '
-                'Details can change, so please call before you go.</p><a class="cta" href="/?q=%s">Open on the map</a>'
-                '<p class="chk3"><a href="/faq.html">Checked three times daily</a></p><div class="call">Always call before you go</div><ul class="s">%s</ul><!--xlinks:%s--><p><a href="/%s/">All areas</a></p>'
-                % (E(label), E(d), n, noun if n != 1 else noun.rstrip('s'), E(d), E(urllib.request.quote(lst[0]['postcode'])), ''.join(card(i) for i in lst), slug(d), base))
-        write(path, page(path, title, desc, body, [('helpmap.uk', '/'), (label, '/%s/' % base), (d, path)], updated), out)
+        path, text = area_html(kind, d, lst, updated, card)
+        write(path, text, out)
         urls.append(path)
     links = ''.join('<li><a href="/%s/%s/">%s</a> (%d)</li>' % (base, slug(d), E(d), len(l)) for d, l in sorted(groups.items()))
     path = '/%s/' % base
@@ -228,12 +235,17 @@ def build(out=ROOT, fetch=True):
     fbi = [i for i in fb['items'] if i.get('kind') not in ('warehouse', 'dropoff') and i.get('postcode')]
     global SH_CREDIT
     sh = load_js('shelters.js', 'SHELTERS'); shi = [i for i in sh['items'] if shelter_public(i)]; SH_CREDIT = shelter_credit(sh['items'])
-    wsi = [i for i in ws['items'] if not i.get('ended') and (not i.get('stale') or i.get('call_check')) and i.get('postcode')]  # carried-forward venues stay on area pages, labelled
+    secrets = private_block.entries()
+    wsi = [i for i in ws['items'] if not i.get('ended') and (not i.get('stale') or i.get('call_check')) and i.get('postcode')
+           and not private_block.matches(i, secrets)]  # carried-forward venues stay on area pages, labelled
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     lookup(sorted({norm_pc(i['postcode']) for i in fbi + wsi + shi}), cache, fetch)
     if out == ROOT:
         json.dump(dict(sorted(cache.items())), open(CACHE, 'w'), indent=0)
-    ws_prev = {}  # warm-space area pages are never deleted (Dean 28 Oct): an area this run would lose is carried forward
+    # Warm-space area pages are not deleted while they still have a carried-forward venue (Dean 28 Oct). A page is never
+    # copied forward as HTML: it is rebuilt from this run's carried (call_check) items, which already passed carry_forward's
+    # exclusion / closure / season / moved rules and the private blocklist. An area with none of them is dropped.
+    ws_prev = {}
     wd = os.path.join(out, 'warm-spaces')
     if os.path.isdir(wd):
         for sub in os.listdir(wd):
@@ -248,15 +260,20 @@ def build(out=ROOT, fetch=True):
     urls = section(('Food banks', 'food-banks', 'food banks'), fbi, cache, fb['fetched'], out, lambda i: card_fb(i, acc))
     urls += section(('Warm spaces', 'warm-spaces', 'warm spaces'), wsi, cache, ws['updated'], out, card_ws)
     ws_kept = []; run_day = datetime.date.today().isoformat()
+    needles = private_block.compile_needles(secrets)
+    unplaced = [i for i in wsi if i.get('call_check') and not cache.get(norm_pc(i['postcode']))]  # no area this run
     for sub, txt in sorted(ws_prev.items()):
         if '/warm-spaces/%s/' % sub in urls: continue
+        lst = [i for i in unplaced if '<div class="n">%s</div>' % E(i['name']) in txt]
+        if not lst: continue
         m = re.search(r'class="call carried" data-since="(\d{4}-\d{2}-\d{2})"', txt)
         since = m.group(1) if m else run_day
-        if 'class="call carried"' not in txt:
-            txt = txt.replace('<div class="call">', '<div class="call carried" data-since="%s">Not re-confirmed since %s – call before you go.</div><div class="call">' % (since, since), 1)
-        os.makedirs(os.path.join(out, 'warm-spaces', sub), exist_ok=True)
-        open(os.path.join(out, 'warm-spaces', sub, 'index.html'), 'w', encoding='utf-8').write(txt)
-        urls.append('/warm-spaces/%s/' % sub)
+        h = re.search(r'<h1>Warm spaces in (.*?)</h1>', txt)
+        note = '<div class="call carried" data-since="%s">Not re-confirmed since %s – call before you go.</div>' % (since, since)
+        path, page_ = area_html(('Warm spaces', 'warm-spaces', 'warm spaces'), html.unescape(h.group(1)) if h else sub, lst, ws['updated'], card_ws, sub=sub, note=note)
+        if private_block.text_matches(page_, needles): continue
+        write(path, page_, out)
+        urls.append(path)
         try: days = (datetime.date.fromisoformat(run_day) - datetime.date.fromisoformat(since)).days
         except Exception: days = 0
         ws_kept.append({'area': sub, 'carried_since': since, 'carried_days': days, 'review': days >= 14})
