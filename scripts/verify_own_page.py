@@ -84,11 +84,35 @@ def norm_ws(s):
     return re.sub(r"\s+", " ", (s or "").strip())
 
 
+RENDER_WAIT_MS = 4000
+READY_SELECTOR = (
+    "text=/Collection times|Opening times|Get directions|Call us|telephone|Contact|"
+    "food bank|foodbank|We are open|Opening Hours/i"
+)
+
+
 def html_to_text(html):
     t = re.sub(r"(?is)<(script|style|svg).*?</\1>", " ", html or "")
     t = re.sub(r"<[^>]+>", " ", t)
     t = re.sub(r"\s+", " ", t)
     return t.strip()
+
+
+def page_text_after_render(page, url):
+    """Read visible text after scripts run (same approach as render_fetch)."""
+    resp = page.goto(url, wait_until="domcontentloaded", timeout=45000)
+    try:
+        page.wait_for_selector(READY_SELECTOR, timeout=12000)
+    except Exception:
+        page.wait_for_timeout(RENDER_WAIT_MS)
+    try:
+        text = page.inner_text("body")
+    except Exception:
+        text = html_to_text(page.content())
+    text = norm_ws(text)
+    status = resp.status if resp else 0
+    ok = bool(text) and status < 400
+    return text, ok
 
 
 def phone_quote(text, claimed):
@@ -151,20 +175,56 @@ def normalize_times_blob(s):
     return s.strip()
 
 
-def times_on_page_match(claim, fp):
+def times_bearing_extract(text):
+    bits = []
+    for m in re.finditer(
+        r"[^.\n|]{8,220}(?:\d{1,2}(?::|\.)?\d{0,2}\s*(?:am|pm)|"
+        r"Collection times|Opening times|open every|Monday|Tuesday|Wednesday|Thursday|Friday|"
+        r"Saturday|Sunday)[^.\n|]{0,140}",
+        text or "",
+        re.I,
+    ):
+        bits.append(m.group())
+    return norm_ws(" ".join(bits)) if bits else norm_ws(text or "")[:8000]
+
+
+def times_stable_key(text):
+    fp = times_fingerprint(text)
+    if re.search(r"collection times|opening times", text or "", re.I):
+        return normalize_times_blob(fp)
+    return normalize_times_blob(times_bearing_extract(text))
+
+
+def times_on_page_match(claim, page_text):
     if not (claim or "").strip():
         return True
+    full = normalize_times_blob(page_text or "")
     c = normalize_times_blob(claim)
-    f = normalize_times_blob(fp)
     if not c:
         return True
-    if c in f:
+    if c in full:
         return True
-    # allow claim built from short day lines: every "tue 10:00" fragment must appear
     chunks = [x.strip() for x in re.split(r"[;|]", claim) if x.strip()]
-    if chunks and all(normalize_times_blob(ch) in f for ch in chunks):
+    if chunks and all(normalize_times_blob(ch) in full for ch in chunks):
         return True
-    return normalize_times_blob(claim) == f
+    for m in re.finditer(
+        r"[^.;|]{12,180}\d[^.;|]{0,90}(?:am|pm)[^.;|]{0,60}",
+        claim,
+        re.I,
+    ):
+        if normalize_times_blob(m.group()) in full:
+            return True
+    dm = re.search(
+        r"(mon|tue|wed|thu|fri|sat|sun)\w*\s*(\d{1,2}:\d{2})\s*[-–]\s*(\d{1,2}:\d{2})",
+        claim,
+        re.I,
+    )
+    if dm:
+        day = dm.group(1)[:3].lower()
+        a, b = dm.group(2), dm.group(3)
+        if day in full and a in full and b in full:
+            return True
+    return False
 
 
 def times_quote(text, fp):
@@ -202,14 +262,14 @@ def assess_times(claim, text1, text2, fetch_ok):
         return "UNSURE", "", ""
     if not fetch_ok:
         return "UNSURE", "", "page could not be read"
-    fp1, fp2 = times_fingerprint(text1), times_fingerprint(text2)
+    fp1, fp2 = times_stable_key(text1), times_stable_key(text2)
     if not fp1 and not fp2:
         return "REJECTED", "", "no times on page"
     if fp1 != fp2:
-        return "UNSURE", times_quote(text1, fp1), "reads disagree"
-    if not times_on_page_match(claim, fp1):
-        return "REJECTED", times_quote(text1, fp1), "timetable on page differs from claim"
-    return "CONFIRMED", times_quote(text1, fp1), ""
+        return "UNSURE", times_quote(text1, times_fingerprint(text1)), "reads disagree"
+    if not times_on_page_match(claim, text1):
+        return "REJECTED", times_quote(text1, times_fingerprint(text1)), "timetable on page differs from claim"
+    return "CONFIRMED", times_quote(text1, times_fingerprint(text1)), ""
 
 
 def overall_verdict(phone_v, times_v, need_phone, need_times):
@@ -339,9 +399,10 @@ def fetch_twice_live(url, gap_sec=2.0):
             for _ in range(2):
                 page = browser.new_page(user_agent=UA)
                 try:
-                    page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                    page.wait_for_timeout(1500)
-                    texts.append(html_to_text(page.content()))
+                    text, ok = page_text_after_render(page, url)
+                    if not ok:
+                        err = err or "empty or error response"
+                    texts.append(text)
                 except Exception as e:
                     err = str(e)
                     texts.append("")

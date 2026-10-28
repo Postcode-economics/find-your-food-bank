@@ -1,15 +1,22 @@
 import csv
+import importlib.util
 import io
 import os
 import sys
 import tempfile
+import threading
 import unittest
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 R = os.path.join(os.path.dirname(__file__), "..")
 sys.path.insert(0, os.path.join(R, "scripts"))
 import verify_own_page as V
 
 FIX = os.path.join(R, "tests", "fixtures", "verify_own_page")
+
+
+def _have_playwright():
+    return importlib.util.find_spec("playwright") is not None
 
 
 class Unit(unittest.TestCase):
@@ -160,6 +167,44 @@ class Integration(unittest.TestCase):
         self.assertEqual(out[0]["phone_verdict"], "REJECTED")
         self.assertEqual(out[0]["action"], "REVIEW")
         self.assertEqual(out[0]["review_reason"], "no number or times on the page")
+
+
+@unittest.skipUnless(_have_playwright(), "needs playwright")
+class JsRender(unittest.TestCase):
+    def test_phone_only_after_js_runs(self):
+        shell = (
+            "<!DOCTYPE html><html><body><div id='app'></div>"
+            "<script>setTimeout(function(){"
+            "document.getElementById('app').innerHTML="
+            "'Opening times Tuesday 10:00 am to 12:00 pm Call us 01634 757057';"
+            "}, 250);</script></body></html>"
+        )
+        static = V.html_to_text(shell)
+        self.assertNotIn("757057", static)
+
+        class H(BaseHTTPRequestHandler):
+            def do_GET(self):
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(shell.encode())
+
+            def log_message(self, *args):
+                pass
+
+        httpd = ThreadingHTTPServer(("127.0.0.1", 0), H)
+        threading.Thread(target=httpd.serve_forever, daemon=True).start()
+        url = "http://127.0.0.1:%d/" % httpd.server_address[1]
+        try:
+            t1, t2, ok = V.fetch_twice_live(url, gap_sec=0.3)
+            self.assertTrue(ok, msg="fetch failed: %r %r" % (t1[:80], t2[:80]))
+            self.assertIn("757057", t1)
+            self.assertIn("757057", t2)
+            self.assertEqual(V.assess_phone("01634 757057", t1, t2, True)[0], "CONFIRMED")
+            claim = "Tuesday 10:00 am to 12:00 pm"
+            self.assertEqual(V.assess_times(claim, t1, t2, True)[0], "CONFIRMED")
+        finally:
+            httpd.shutdown()
 
 
 if __name__ == "__main__":
