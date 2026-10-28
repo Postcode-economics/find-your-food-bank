@@ -81,11 +81,6 @@ jobs:
         run: python scripts/weather.py
       - name: Self-learning signals for the next run (scripts/learning_signals.py; order of checks only, never map data)
         run: python scripts/learning_signals.py || echo "::warning::learning signals failed (not fatal)"
-      - name: Alerts + morning digest (point 9, scripts/digest.py)
-        # not continue-on-error: a digest or alert that fails must fail the run (the run-failed alert then fires)
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python scripts/digest.py
       - name: Rebuild area pages, sitemap.xml and robots.txt for Google (scripts/build_seo.py)
         id: seo
         continue-on-error: true   # never blocks the data publish; alerted below
@@ -100,6 +95,7 @@ jobs:
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/validate.py gate
       - name: Commit if changed
+        id: commit
         run: |
           python scripts/stamp.py verify
           git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_times_review.csv logs/foodbank_times_review.json logs/times_crosscheck_seen.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/ logs/sense_check.json
@@ -135,8 +131,30 @@ jobs:
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
+      - name: Alerts + morning digest (point 9, scripts/digest.py)
+        # After the publish, so a digest or alert failure never stops the data going out; not continue-on-error, so it turns the run red.
+        id: digest
+        if: always() && steps.commit.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python scripts/digest.py; rc=$?
+          git add reports/morning_digest.md logs/digest_state.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -q -m "Morning digest $(date -u +%F)"
+            pushed=0
+            for n in 1 2 3; do
+              if git pull --rebase --autostash && git push; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null; sleep $((n * 10))
+            done
+            [ $pushed = 1 ] || { echo "::error::morning digest commit could not be pushed"; rc=1; }
+          fi
+          exit $rc
       - name: Alert - run failed (nothing new published)
-        if: failure()
+        if: failure() && steps.commit.outcome != 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open foodbanks "Food bank refresh run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
@@ -146,22 +164,32 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open full-check "Food bank full own-site check failed" "full_check.py failed, so this run published without the own-site checks (hours, closures, access flips). reports/daily_review.md was not refreshed."
       - name: Clear the full-check alert after a good check
-        if: success() && steps.full.outcome == 'success'
+        if: always() && steps.commit.outcome == 'success' && steps.full.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve full-check
       - name: Clear the run alert after a good run
-        if: success()
+        if: always() && steps.commit.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve foodbanks
+      - name: Alert - morning digest or its alerts failed (data still published)
+        if: always() && steps.digest.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py open digest "Morning digest or its alerts failed (data was published)" "digest.py or alert.py failed after this run published. Alerts it should have raised are raised again next run. Open the run log to see the error."
+      - name: Clear the digest alert after a good digest
+        if: always() && steps.digest.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py resolve digest
       - name: Alert - area pages / sitemap build failed (data still published)
         if: always() && steps.seo.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open seo-foodbanks "Area pages build failed (food bank refresh)" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
       - name: Clear the area pages alert after a good build
-        if: success() && steps.seo.outcome == 'success'
+        if: always() && steps.commit.outcome == 'success' && steps.seo.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve seo-foodbanks
