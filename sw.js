@@ -1,13 +1,13 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
-// batch 4 (27 Oct 2026, cache name deliberately NOT bumped: the browser picks up the new sw.js by its bytes, and the cache layout is compatible): stamped data files cache-first; <img> tiles fetched in cors mode so they are cached; a tile already in flight is not fetched twice.
+// batch 4 (27 Oct 2026, cache name deliberately NOT bumped: the browser picks up the new sw.js by its bytes, and the cache layout is compatible): stamped data files kept and revalidated with a body-less conditional request; <img> tiles fetched in cors mode so they are cached; a tile already in flight is not fetched twice.
 // fyfb-v92 (batch 2): combined shell (layers.js, v3.js, v3.css) listed by ?v= hash, so the precache still changes.
 // fyfb-v92: a loaded tile whose decode() rejects is not a tile failure. The build id bumps so phones self-heal.
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v92',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=h394d07cece86','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8336120c80bf','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h3988f6ca6b4f'];
+const C='fyfb-v92',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=hf386d44d3921','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8336120c80bf','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h3988f6ca6b4f'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$/;
 // OpenFreeMap backup (27 Oct 2026): versioned tiles, fonts and sprites are cache-first; style and TileJSON are network-first with the cached copy offline.
 const OFM=/^tiles\.openfreemap\.org$/,OFM_FIXED=/^\/(planet\/\d{8}_[^/]+\/|fonts\/|sprites\/ofm_f384\/|natural_earth\/)/;
@@ -47,12 +47,17 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
  if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
- // Batch 4 (27 Oct 2026): data/stamp/access with a ?v=h<content hash> stamp are cache-first. The stamp is the file's own
- // hash (seo_meta.content_stamp) and the HTML that names it is network-first, so a cached copy can never be an old one.
- // Older stamped copies of the same file are dropped when a new one is saved. Unstamped requests stay network-first.
- if(/^\/(data|stamp|access)\.js$/.test(u.pathname)&&/(^|&)v=h[0-9a-f]{12}(&|$)/.test(u.search.slice(1))){const k=u.origin+u.pathname;e.respondWith(caches.open(C).then(async c=>{const hit=await c.match(e.request.url);if(hit)return hit;
-     return fetch(e.request).then(async r=>{if(r.ok){const a=r.clone(),b=r.clone();const ks=await c.keys();await Promise.all(ks.filter(q=>{const x=new URL(q.url);return x.pathname===u.pathname&&x.search&&q.url!==e.request.url}).map(q=>c.delete(q)));await c.put(e.request.url,a);await c.put(k,b)}return r})
-       .catch(async()=>{tell();return (await c.match(k))||Response.error()})}));return}
+ // Batch 4 (27 Oct 2026) + freshness rule (26 Oct 2026, Dean): data/stamp/access with a ?v=h<content hash> stamp keep a saved
+ // copy here. Every visit asks the server whether that copy is current (a conditional request with its ETag/Last-Modified):
+ // unchanged, the answer is a body-less 304 and the saved copy is served, so an unchanged data.js is never downloaded again;
+ // changed (even under the same stamp), the new copy is served and saved. Older stamped copies are dropped when a new one is
+ // saved. Offline, or a server error, the saved copy answers. Unstamped requests stay network-first below.
+ if(/^\/(data|stamp|access)\.js$/.test(u.pathname)&&/(^|&)v=h[0-9a-f]{12}(&|$)/.test(u.search.slice(1))){const k=u.origin+u.pathname;e.respondWith(caches.open(C).then(async c=>{const hit=await c.match(e.request.url);
+     const save=async r=>{if(r.ok){const a=r.clone(),b=r.clone();const ks=await c.keys();await Promise.all(ks.filter(q=>{const x=new URL(q.url);return x.pathname===u.pathname&&x.search&&q.url!==e.request.url}).map(q=>c.delete(q)));await c.put(e.request.url,a);await c.put(k,b)}return r};
+     const et=hit&&hit.headers.get('etag'),lm=hit&&hit.headers.get('last-modified');
+     if(!et&&!lm)return fetch(new Request(e.request,{cache:'no-cache'})).then(save).catch(async()=>{tell();return hit||(await c.match(k))||Response.error()});
+     const h={};if(et)h['If-None-Match']=et;if(lm)h['If-Modified-Since']=lm;
+     return fetch(e.request.url,{headers:h,cache:'no-store',credentials:'same-origin'}).then(r=>r.status===304?hit:r.ok?save(r):hit).catch(()=>{tell();return hit})}));return}
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
    e.respondWith(fetch(new Request(e.request,{cache:'no-cache'})).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
