@@ -78,7 +78,8 @@ def generic(items_for_site, base):
             u, ot = best
             if ot.get("structured") and D.office_like(ot["structured"]): out[i["id"]] = (None, "times found look like office hours; skipped"); continue
             pcs = [norm_pc(i.get("postcode"))] if i.get("postcode") and norm_pc(i.get("postcode")) in dict(pages).get(u, "").upper().replace(" ", "") else []
-            ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs); out[i["id"]] = (ot, "found on own site")
+            ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs, day_same_line=D.day_same_line(ot.get("structured"), [dict(pages).get(u, "")]))
+            out[i["id"]] = (ot, "found on own site")
         else: out[i["id"]] = (None, "no client times found on own site (home, sitemap and %d linked pages read)" % (len(pages) - 1))
     return out
 KNOWN = os.path.join(os.path.dirname(__file__), "..", "overrides", "known_sources.json")
@@ -110,28 +111,42 @@ def _empty(ot):
     st = ot.get("structured")
     if st is not None and not any(v for v in st.values()): return True
     return not (st or (ot.get("raw") or "").strip())
-def strict_checks(k, ot, it, cur, seen, same_n, ks):
+UNDONE = "overrides/times_auto_undone.json"   # 'finder:<id>' -> table Dean undid (scripts/times_revert.py <id>)
+def undone_map():
+    try: return json.load(open(UNDONE))
+    except Exception: return {}
+def strict_checks(k, ot, it, cur, seen, same_n, ks, undone=None):
     """Reasons a finder result must stay held for Dean. Empty list = it may auto-apply (only if times_auto_apply is ON).
     Each safeguard blocks on its own (tests/test_times_auto_apply.py)."""
     why = []
+    undone = undone_map() if undone is None else undone
+    if _sig(ot) and (undone or {}).get("finder:" + k) == _sig(ot): why.append("this change was undone by Dean; not re-applied")
     if (cur.get(k) or {}).get("protected"): why.append("hand-checked times are protected; finder only flags differences")
     r = skipped(k, ks)
     if r: why.append("known skip: " + r)
     pc_ok = ot.get("matched_by") == "postcode" or (it.get("postcode") and norm_pc(it["postcode"]) in (ot.get("pc_seen") or []))
     if not pc_ok: why.append("postcode not matched exactly on the page")
     if not one_block(ot): why.append("not one clear weekly client-hours block (kept as text for review)")
+    elif not _empty(ot) and not same_line(ot): why.append("days and times are not written on the same line on the page (discover.day_same_line)")
     if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
     if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
     if same_n > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
     prev = (seen or {}).get(k) or {}
-    if not _sig(ot) or prev.get("sig") != _sig(ot) or prev.get("source_url") != ot.get("source_url") or prev.get("run_at") == ot.get("_run_at"):
+    if not _sig(ot) or prev.get("sig") != _sig(ot) or prev.get("source_url") != ot.get("source_url") or not prev.get("run_at") or prev.get("run_at") == ot.get("_run_at"):
         why.append("times not read identically on 2 separate runs yet")
     old = cur.get(k) or it.get("opening_times")
     if old and not _empty(old) and _empty(ot): why.append("would change known times to closed/empty")
     # Hours only. A different phone on the stored listing is not a source conflict (that fix stays held on the phone path).
-    if old and not _empty(old) and _sig(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
+    other = old and not _empty(old) and (old.get("source_url") or "") != (ot.get("source_url") or "")
+    if other and ((_sig(old) and _sig(old) != _sig(ot)) or (not _sig(old) and (old.get("raw") or "").strip())):   # text-only known times count too
         why.append("conflicts with times from another source (%s)" % (old.get("source_url") or "unknown"))
     return why
+def same_line(ot):
+    """Each open day's times are written on the page right after the day. A result read with its page text records it
+    (day_same_line); otherwise the recorded text block is checked."""
+    v = ot.get("day_same_line")
+    if v is not None: return bool(v)
+    return D.day_same_line(ot.get("structured"), [ot.get("raw") or ""])
 def _read(ot):
     """A times result was actually read. No table, no text and no explicit closed status means nothing was found."""
     if not isinstance(ot, dict): return False
@@ -145,6 +160,7 @@ def decide(log, items, apply, rules=None, now=None):
     ix = {i["id"]: i for i in items}; ks = known()
     p = "overrides/opening_times.json"; cur = json.load(open(p)) if os.path.exists(p) else {}
     seen = json.load(open(SEEN)) if os.path.exists(SEEN) else {}
+    undone = undone_map()
     same = collections.defaultdict(set)
     for k, ot in log["found"].items():
         same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))].add(norm_pc(ix.get(k, {}).get("postcode")))
@@ -155,7 +171,7 @@ def decide(log, items, apply, rules=None, now=None):
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Leave the stored listing untouched and do not queue a pending row.
         if not _read(ot): continue
         it = ix.get(k, {}); ot = dict(ot, _run_at=now)
-        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks)
+        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, undone)
         if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
         if _sig(ot): new_seen[k] = {"sig": _sig(ot), "source_url": ot.get("source_url"), "run_at": now}
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})

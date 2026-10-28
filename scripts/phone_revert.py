@@ -1,7 +1,8 @@
-"""Undo one automatic phone change: python scripts/phone_revert.py <website>.
+"""Undo one automatic phone change: python scripts/phone_revert.py <website or centre pin id>.
 Removes the fix from reports/phone_fixes.json, so the next refresh shows the main database's number again, marks the
 entry reverted in reports/phone_auto_applied.json and blocks that exact number for that website
-(overrides/phone_auto_undone.json), so the strict phone gate never re-applies it."""
+(overrides/phone_auto_undone.json), so the strict phone gate never re-applies it. A later undo on the same website adds
+its number to the block list; it never unblocks an earlier one."""
 import json, os, sys
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 def _load(p, d):
@@ -16,7 +17,10 @@ def revert(website, root=ROOT):
     if not rec: raise SystemExit("no automatic phone change logged for " + website)
     rec["reverted"] = True
     if (fixes.get(website) or {}).get("new") == rec["new"]: fixes.pop(website)
-    blk[website] = rec["new"]
+    had = blk.get(website)
+    had = [] if not had else had if isinstance(had, list) else [had]
+    if rec["new"] not in had: had.append(rec["new"])
+    blk[website] = had[0] if len(had) == 1 else had  # every undone number stays blocked; one number keeps the old shape
     os.makedirs(os.path.dirname(bp), exist_ok=True)
     json.dump(log, open(lp, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     json.dump(fixes, open(fp, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
