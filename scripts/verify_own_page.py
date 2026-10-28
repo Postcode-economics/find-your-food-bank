@@ -12,6 +12,8 @@ not replace known session times with closed or empty. A one-line REVIEW summary 
 Usage:
   python scripts/verify_own_page.py claims.csv > results.csv
   python scripts/verify_own_page.py --fixture-dir tests/fixtures/verify_own_page claims.csv
+
+Fixtures are *.saved (not .html) so map-credit policy tests ignore them.
 """
 import argparse
 import csv
@@ -317,8 +319,8 @@ def process_row(row, text1, text2, fetch_ok=True):
 
 def load_fixture_pair(fixture_dir, listing_id):
     safe = re.sub(r"[^\w\-/]+", "_", listing_id)
-    p1 = os.path.join(fixture_dir, safe + "_read1.html")
-    p2 = os.path.join(fixture_dir, safe + "_read2.html")
+    p1 = os.path.join(fixture_dir, safe + "_read1.saved")
+    p2 = os.path.join(fixture_dir, safe + "_read2.saved")
     with open(p1, encoding="utf-8") as f:
         h1 = f.read()
     with open(p2, encoding="utf-8") as f:
