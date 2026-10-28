@@ -10,18 +10,13 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  (Dean 25 Oct 2026: confirmed closures and new food banks are NOT auto-applied; they go to reports/pending_dean.md)
  2. opening-hours changes (seasonal / holiday notices, changed hours text) -> daily list
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
- 4. dead sites and stale phones. A CLEAR new number is auto-applied (reports/phone_fixes.json) only through the
-    strict gate (Dean, 28 Oct 2026; phone_gate_reasons): read on the organisation's own host, exactly one clickable
-    number there (no conflicting own-site number), identical on 2 separate runs, not undone by Dean, on a page that
-    mentions a food bank, with no shop/office/helpline-style label beside it. Phones are per listing (phone audit,
-    28 Oct 2026): a site-level number only replaces the single food bank pin, never a location pin or a number a
-    location pin shares; a centre's own line on its locations page wins; a host church page does not count when the
-    food bank has its own site. Older fixes are re-checked against each new reading and held when they fail. Each change is
-    logged once in reports/phone_auto_applied.json with its source URL and an undo command (scripts/phone_revert.py),
-     including when that number is a named person's, with the role the page gives
-     (rule 21, Dean 26 Oct 2026), unless that listing is in overrides/phone_baseline.json: then it is held
-     for Dean with its source and not applied. Until that file exists, every existing listing is held the
-     same way. Anything else -> daily list, with the reason recorded
+ 4. dead sites and stale phones. A phone change is never written (never AUTO_APPLY). phone_gate_reasons
+    still records why a number is doubtful: not on the organisation's own host, not exactly one clickable
+    number, not identical on 2 separate runs, undone by Dean, the page does not mention a food bank, or a
+    shop/office/helpline-style label sits beside it. A number that would have passed is held for Dean the same way.
+    Phones are per listing (phone audit, 28 Oct 2026): a site-level number is not written onto a location pin.
+    Older fixes are re-checked against each new reading and held when they fail. A frozen baseline number stays.
+    Anything else -> daily list, with the reason recorded
  5. published stock / items-needed lists (new or changed) -> daily list
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Opening times (Rule 27): each listing is checked against the exact source URL on the card, live.
@@ -30,12 +25,26 @@ headless browser. A listing is verified only when every recorded day and time is
 the evidence quote stored. A failed, skipped, or unconfirmable read is not left as the previous
 verified hours. Access flips and phone fixes still need the same result on 2 runs. Per-host gap stays
 2 seconds, one request at a time per host. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
-import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
+import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, tempfile, threading, time, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (Dean 25 Oct 08:01)
 import discover
 import phone_lock  # frozen listing numbers are never auto-changed (Dean, 27 Oct 2026)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
+def report_root():
+    """A directory where <dir>/reports is this run's REP. Tests sometimes set REP to a temp folder
+    that is not named reports; phone holds must still land in REP and not in the repo."""
+    rep = os.path.abspath(REP)
+    if os.path.basename(rep) == "reports":
+        return os.path.dirname(rep)
+    cached = getattr(report_root, "_staging", None)
+    link = os.path.join(cached, "reports") if cached else ""
+    if cached and os.path.islink(link) and os.path.abspath(os.readlink(link)) == rep:
+        return cached
+    staging = tempfile.mkdtemp(prefix="fyfb-reports-")
+    os.symlink(rep, os.path.join(staging, "reports"))
+    report_root._staging = staging
+    return staging
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
@@ -526,13 +535,11 @@ def record_clear_phones(items, new, source, root=None, name=''):
     return apply_to
 
 def apply_phone_fixes(by_site, fixes, flag, root=None, applied=None):
-    """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
-    A listing in the phone baseline (or any existing listing while that file is missing) is never changed here: the
-    proposal is held for Dean. A fix only reaches the pins it was recorded for (`ids`); an older fix without them only
-    reaches the single food bank pin, never a location pin (phone_targets).
-    `applied` collects (website, fix) only for numbers that were actually written."""
+    """Hold every phone fix for Dean. A phone change is never written.
+    A listing in the phone baseline (or any existing listing while that file is missing) is held with the
+    baseline reason. A locked or hand-checked number, and Dean's own number, are held with their own reasons.
+    Anything else that used to be written is held as 'never auto-applied'. `applied` stays empty."""
     root = root or ROOT
-    n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
         if not f: continue
@@ -552,11 +559,9 @@ def apply_phone_fixes(by_site, fixes, flag, root=None, applied=None):
             if phone_rule.is_dean(f.get('new')):  # rule 21: Dean's own details are never published
                 flag(u + '|' + i.get('id', ''), 'phone held', name=i.get('name', ''), id=i.get('id', ''), website=u, proposed=f.get('new'), source=f.get('source', ''), note=phone_rule.DEAN_REASON)
                 continue
-            i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']
-            if f.get('label'): i['phone_label'] = f['label']
-            n += 1
-            if applied is not None: applied.append((u, f))
-    return n
+            hold_phone_for_dean(i, f['new'], f.get('source') or '', root)
+            flag(u + '|' + i.get('id', ''), 'phone fix held (never auto-applied)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='phone changes are never auto-applied')
+    return 0
 
 import auto_rules, phone_rule; RULES = auto_rules.load()  # Dean 25 Oct 2026; phone_rule is rule 21
 MAY_CLOSED = RULES['closure_card_note']
@@ -746,20 +751,26 @@ def main():
             elif clear and gate:
                 flag(u, 'phone fix held (strict gate)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='; '.join(gate))
             elif clear:
-                new = r['phones'][0]; targets = phone_targets(by_site[u])[0]; old = norm_phone(targets[0].get('phone'))
+                new = r['phones'][0]; targets = phone_targets(by_site[u])[0]
                 lab = (r.get('contact_labels') or {}).get(new, '')
                 d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=bool((r.get('other_labels') or {}).get(new))))
                 if d['action'] == 'show':
-                    apply_to = record_clear_phones(targets, new, r.get('final_url') or '', ROOT, name)  # baselined listings (all, with no baseline file) are held
-                    if apply_to:
-                        fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label'],
-                                        first_run_at=prev.get('checked_at'), second_run_at=r.get('checked_at'), ids=[i['id'] for i in apply_to], gated=True); stats['phone_fixes'] += 1
-                        today['items'].pop('phone number not on own site|' + u, None)
-                        e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e); this_run.append(e)
+                    # Phone changes are never AUTO_APPLY, including a number the strict gate would have allowed.
+                    for i in targets:
+                        # pending_dean only. anomaly_brake.md is the stop report, and a held phone is not a stop.
+                        import phone_lock as _pl
+                        kept = i.get("phone") if str(i.get("phone") or "").strip() else "(none)"
+                        shown = new if str(new or "").strip() else "(blank)"
+                        line = "- blocked, held for Dean | %s | phone | via phone fix | source %s | stored %s | proposed %s | unchanged (byte-identical)" % (
+                            i.get("id"), r.get("final_url") or "(none)", kept, shown)
+                        who = i.get("name") or name
+                        if who: line += " | " + who
+                        _pl._section(report_root(), "pending_dean.md", "phone lock", line)
+                    flag(u, 'phone fix held (never auto-applied)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='phone changes are never auto-applied')
                 else:
                     flag(u, 'phone held', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note=d['reason'])
             elif u not in fixes:
-                flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
+                flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
         state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse', 'fb_mention', 'other_labels')}
@@ -803,7 +814,7 @@ def main():
     signal_brake(False)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     applied_phones = []
-    apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)
+    apply_phone_fixes(by_site, fixes, flag, report_root(), applied=applied_phones)
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): log_phone_changes(applied_phones)
     for u, f in applied_phones:
         # PR 204 owns confidence_for and the decision to hold a phone. This log only records a number that was written.
@@ -841,7 +852,7 @@ def main():
 
 def write_md(today, log, stats):
     L = ['# Daily review - food banks - %s' % today['date'], '',
-         'Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 Oct 2026 rules, overrides/auto_apply_rules.json): clear access flips and clear phone fixes (same result on 2 runs), logged below and in reports/access_changes.json. Confirmed closures stay on the map with a \'May have closed\' note and new food banks are held - both wait for Dean in reports/pending_dean.md. Uncertain or mixed cases are listed for Dean.', '',
+         'Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 Oct 2026 rules, overrides/auto_apply_rules.json): clear access flips (same result on 2 runs), logged below and in reports/access_changes.json. Phone changes are never auto-applied. Confirmed closures stay on the map with a \'May have closed\' note and new food banks are held - both wait for Dean in reports/pending_dean.md. Uncertain or mixed cases are listed for Dean.', '',
          '## Runs today', '', '| run (UTC) | sites | checked | failed | not reached | voucher | walk-in | mixed | unclear | access flips | phone fixes | closures |', '|---|---|---|---|---|---|---|---|---|---|---|---|']
     for r in today['runs']: L.append('| %s | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d | %d |' % (r['at'][11:16], r['sites'], r['ok'], r['failed'], r['skipped'], r['voucher'], r['walkin'], r['mixed'], r['unclear'], r['flips'], r['phone_fixes'], r.get('closures', 0)))
     L += ['', '## Auto-applied this run', '']
