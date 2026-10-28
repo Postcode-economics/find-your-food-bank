@@ -5,6 +5,7 @@ The list card and the pin pop-up show it under the number. Warm spaces use the s
 import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from hours_fix import apply_phone
+import council_switchboard  # Dean: never a council switchboard as a venue or out-of-hours line
 import phone_rule  # rule 21: do not withhold a verified own-page contact for being personal; never publish Dean's own details
 PATH = os.path.join(os.path.dirname(__file__), "..", "overrides", "shelters_contacts.json")
 
@@ -29,7 +30,7 @@ def apply(items, data=None):
                 x["phone"] = o["phone"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
             else:
                 x["phone_was"] = x.get("phone", ""); x["phone"] = ""; x["tel"] = ""; x.pop("phone_label", None)
-        elif o.get("phone") and not x.get("tel") and not phone_rule.is_dean(o.get("phone")):
+        elif o.get("phone") and not x.get("tel") and not phone_rule.is_dean(o.get("phone")) and not council_switchboard.is_general(o.get("phone")):
             x["phone"] = o["phone"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
         lab = o.get("phone_label")  # optional caption for the number (shown only when a phone remains)
         if isinstance(lab, str) and lab.strip() and (x.get("tel") or str(x.get("phone") or "").strip()):
@@ -41,10 +42,13 @@ def apply(items, data=None):
         if o.get("referral_note"): x["referral"] = o["referral_note"]  # hand-checked: says whose phone line it is (no UI change)
         own = {k: o[k] for k in ("council", "council_phone", "council_ooh", "council_url", "council_label", "council_label_cy") if o.get(k)}
         c = own if own.get("council_phone") else (councils.get(o.get("area") or "") or own)
+        if c and any(council_switchboard.is_general(c.get(k)) for k in ("council_phone", "council_ooh")):
+            c = {}  # general council number: never assigned (locked out-of-hours lines are allowed)
         if c:
             if own.get("council_phone"):  # hand-checked per-place council line: clears stale label/ooh it doesn't set
                 for k in ("council_ooh", "council_label", "council_label_cy"): x.pop(k, None) if k not in c else None
             for k, v in c.items(): x[k] = v
+        council_switchboard.strip(x)  # a feed-supplied council switchboard never survives either
         if o.get("hide_council"):  # Dean 27 Oct 2026 (rule 37): no council out-of-hours number found yet, so show no council line
             for k in [k for k in x if k.startswith("council")]: x.pop(k)
     return n

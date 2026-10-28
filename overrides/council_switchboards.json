@@ -1,0 +1,21 @@
+{
+ "_about": "Dean's rule (27-28 Oct 2026): a council's general switchboard / contact-centre number is never a venue's direct line or its out-of-hours line, for shelters or warm spaces. scripts/council_switchboard.py blocks these in the contacts step, settle_council, the phone-lock guard and the publish gate. Approved locked out-of-hours lines (locked_ooh below) always win. Add a number here only with the council's own page showing it as the general/main number. Cardiff (#222) has no council line in shelters or warm spaces; its food bank cards are not touched by this check.",
+ "locked_ooh": {
+  "0300 456 3554": "Ceredigion social services out-of-hours team (emergency housing), Dean-approved, locked"
+ },
+ "switchboards": {
+  "01279 655261": "East Hertfordshire District Council main switchboard",
+  "020 7527 2000": "Islington Council contact centre",
+  "01259 450000": "Clackmannanshire Council main number",
+  "020 8303 7171": "Bexley Council main number",
+  "0300 131 2131": "North Yorkshire Council customer service centre",
+  "01702 215000": "Southend-on-Sea City Council main switchboard",
+  "020 7525 5000": "Southwark Council main switchboard",
+  "01827 715341": "North Warwickshire Borough Council main switchboard",
+  "01752 668000": "Plymouth City Council main number",
+  "01789 267575": "Stratford-on-Avon District Council main switchboard",
+  "020 8496 3000": "Waltham Forest Council main switchboard",
+  "01305 221000": "Dorset Council customer services",
+  "020 8379 1000": "Enfield Council main number"
+ }
+}

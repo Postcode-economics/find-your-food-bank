@@ -9,7 +9,8 @@ that number is then frozen too. Later changes wait for a reviewed edit of the ba
 Council lines follow the same freeze, and a council with no verified out-of-hours
 number has its council line hidden (never a daytime number).
 """
-import json, os
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 BASE_NAME = os.path.join("overrides", "phone_baseline.json")
 FIELDS = ("phone", "tel", "council_phone", "council_ooh", "council_label", "council_label_cy")
@@ -78,6 +79,9 @@ def settle_council(item):
     """Show a verified out-of-hours council line, byte for byte. Hide every other council line.
     Returns True when the item changed."""
     before = {k: item.get(k) for k in COUNCIL_FIELDS}
+    import council_switchboard  # Dean: a council switchboard is never an out-of-hours line
+    if council_switchboard.strip(item):
+        return True
     ooh = (item.get("council_ooh") or "").strip()
     phone = (item.get("council_phone") or "").strip()
     label = item.get("council_label") or ""
@@ -175,9 +179,13 @@ def guard(items, root=None, via="refresh", source="feed refresh", layer="", pers
             continue
         if iid in listings:
             rec = listings[iid]
+            import council_switchboard  # a frozen council switchboard is not restored (Dean's rule)
+            sw = any(council_switchboard.is_general(rec.get(f)) for f in ("council_phone", "council_ooh"))
             for field in FIELDS:
                 cur = rec.get(field)
                 prop = item.get(field)
+                if sw and field in COUNCIL_FIELDS:
+                    cur = None
                 if _blank(cur) and _blank(prop):
                     continue
                 if prop == cur:
