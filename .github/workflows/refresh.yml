@@ -82,7 +82,7 @@ jobs:
       - name: Self-learning signals for the next run (scripts/learning_signals.py; order of checks only, never map data)
         run: python scripts/learning_signals.py || echo "::warning::learning signals failed (not fatal)"
       - name: Alerts + morning digest (point 9, scripts/digest.py)
-        continue-on-error: true
+        # not continue-on-error: a digest or alert that fails must fail the run (the run-failed alert then fires)
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/digest.py
