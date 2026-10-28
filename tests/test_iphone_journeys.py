@@ -535,7 +535,7 @@ def case_v90(device, sw):
             pg.goto(BASE + '/?nocount', wait_until='domcontentloaded')
             upgraded = _until(pg, """async () => {
               const k = await caches.keys();
-              return k.indexOf('fyfb-v93') >= 0 && k.indexOf('fyfb-tiles2') >= 0 && k.indexOf('fyfb-v90') < 0 && k.indexOf('fyfb-tiles') < 0;
+              return k.indexOf('fyfb-v94') >= 0 && k.indexOf('fyfb-tiles2') >= 0 && k.indexOf('fyfb-v90') < 0 && k.indexOf('fyfb-tiles') < 0;
             }""", 25)
             if upgraded is not True:
                 keys = pg.evaluate('async () => await caches.keys()')
