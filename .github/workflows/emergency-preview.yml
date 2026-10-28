@@ -1,0 +1,18 @@
+# Emergency shelter preview. Manual only.
+# The repeating check is not enabled, so this file has no schedule. It never commits, pushes or deploys.
+name: emergency-preview
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Write the preview report (does not deploy, does not change the live map)
+        run: python scripts/weather.py preview

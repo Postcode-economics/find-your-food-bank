@@ -35,6 +35,14 @@ class Faq(unittest.TestCase):
         for k, v in n.items():
             got = re.findall(r'<span data-n="%s">([^<]*)</span>' % k, self.s)
             self.assertEqual(len(got), 2, k); self.assertTrue(all(g == format(v, ",") for g in got), (k, got, v))
+    def test_swep_wording_and_full_check_time(self):
+        # Dean 27 Oct: approved SWEP line; full all-council check time derived from swep-daily.yml cron (GMT and BST)
+        self.assertEqual(self.s.count("homelessness pages are checked every day, on every shelter refresh, three times a day."), 2)
+        self.assertEqual(self.s.count("eu gwirio bob dydd, ar bob adnewyddiad llochesi, dair gwaith y dydd."), 1)
+        mi, hs = cron("swep-daily.yml"); self.assertEqual(len(hs), 1)
+        g, b = fmt(hs[0], mi).replace(":00", ""), fmt(hs[0] + 1, mi).replace(":00", "")
+        self.assertIn(f"re-checked in full once a day, at {g} UK time in winter (GMT) or {b} in summer (BST)", self.s)
+        self.assertIn(f"am {g} amser y DU yn y gaeaf (GMT) neu {b} yn yr haf (BST)", self.s)
     def test_swep_never_changes_map(self):
         self.assertIn("never changes the map", rd(os.path.join(".github", "workflows", "refresh-shelters.yml")))
         self.assertNotIn("swep", (rd("layers.js") + rd("v3.js") + rd("index.html")).lower())
