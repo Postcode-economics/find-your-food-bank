@@ -44,7 +44,7 @@ jobs:
       - name: Commit new entries and the sweep log
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_sweep.json reports/new_today.md reports/manual_review.md stamp.js overrides/swep_sources.json overrides/opening_times.json logs/times_finder.json logs/times_finder_seen.json reports/times_auto_applied.json reports/pending_dean.md overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json reports/learning_state.json \
+          bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_sweep.json reports/new_today.md reports/manual_review.md stamp.js overrides/swep_sources.json overrides/opening_times.json logs/times_finder.json logs/times_finder_seen.json reports/times_auto_applied.json reports/pending_dean.md overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json reports/learning_state.json \
                   overrides/warmspaces_manual.json overrides/warmspaces_verified.json overrides/warmspaces_unverified.json \
                   logs/sweep_log.json logs/sweep_pending.json overrides/foodbank_own_pages.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
@@ -55,10 +55,12 @@ jobs:
           # so 'git pull --rebase' refused 3 times. Print it, then stash it so the pull can run; --autostash covers later rebuilds.
           in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
           git status
-          left=$(git diff --name-only HEAD)
+          # Untracked too: a file this run wrote but did not add, which another run has since committed, makes the pull
+          # refuse with "untracked working tree files would be overwritten" before any rebase starts.
+          left=$( { git diff --name-only HEAD; git ls-files --others --exclude-standard; } )
           if [ -n "$left" ]; then
-            echo "::warning::tracked files modified but not in the add list (stashed, not published): $(echo $left)"
-            git stash push --quiet -m "refresh-leftovers" || true
+            echo "::warning::files modified or new but not in the add list (stashed, not published): $(echo $left)"
+            git stash push --include-untracked --quiet -m "refresh-leftovers" || true
           fi
           for n in 1 2 3; do
             if git pull --rebase --autostash; then
