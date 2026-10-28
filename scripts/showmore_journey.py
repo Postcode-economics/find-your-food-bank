@@ -39,7 +39,7 @@ PHONE_UA = ('Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML,
 DESK_UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
            'Chrome/129.0.6668.29 Safari/537.36 helpmap-check')
 READY = ("() => !!(document.getElementById('q') && window.FB_DATA && FB_DATA.items && "
-         "FB_DATA.items.length > 100 && document.querySelector('#map .leaflet-pane'))")
+         "FB_DATA.items.length > 100 && document.querySelector('#map .leaflet-pane') && window.__hmBooted)")
 # 1x1 transparent PNG. Tile images never leave the browser.
 PNG = (b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01'
        b'\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\nIDATx\x9cc\x00\x01'
