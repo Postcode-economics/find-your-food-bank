@@ -43,12 +43,13 @@ class Extract(unittest.TestCase):
         self.assertEqual(ot["lines"], ["Food parcels: Wednesday 1pm - 2pm", "Community Fridge: Monday and Thursday 9am - 11am"])
         self.assertIsNone(ot["structured"])
 class Decide(unittest.TestCase):
-    def run_decide(self, found, items, cur=None, ks=None):
+    def run_decide(self, found, items, cur=None, ks=None, seen=None, rules=None):
         d = tempfile.mkdtemp(); old = os.getcwd(); os.chdir(d)
         try:
             os.makedirs("overrides"); os.makedirs("logs")
             json.dump(cur or {}, open("overrides/opening_times.json", "w"))
-            with mock.patch.object(TF, "known", return_value=ks or {"pages": {}, "skip": {}}):
+            if seen is not None: json.dump(seen, open(TF.SEEN, "w"))
+            with mock.patch.object(TF, "known", return_value=ks or {"pages": {}, "skip": {}}), mock.patch.object(TF, "RULES", rules if rules is not None else TF.RULES):
                 log = {"found": found}; TF.decide(log, items, apply=True)
             return log, json.load(open("overrides/opening_times.json")), open("reports/pending_dean.md").read()
         finally: os.chdir(old)
@@ -56,7 +57,10 @@ class Decide(unittest.TestCase):
         return dict(normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None}), source_url=url, reader="times_finder", pc_seen=[pc])
     def it(self, i="ex", pc="AB1 2CD", w="https://ex.org"): return {"id": i, "name": i, "postcode": pc, "website": w}
     def test_auto_apply_off_even_for_perfect_match(self):   # Dean, 24 Oct: strict mode got 3 of 12 wrong
-        log, cur, md = self.run_decide({"ex": self.ot()}, [self.it()])
+        # Dean 27 Oct turned times_auto_apply on (strict); with the switch OFF a perfect, 2-run match must still be held.
+        ot = self.ot(raw="Wednesday 10am - 12pm"); ot = dict(ot, structured=ot.get("structured") or {"wed": [["10:00", "12:00"]]}, status="TIMES_FOUND")
+        seen = {"ex": {"sig": json.dumps(ot["structured"], sort_keys=True), "source_url": ot["source_url"], "run_at": "2026-10-26T19:00:00+00:00"}}
+        log, cur, md = self.run_decide({"ex": ot}, [self.it()], seen=seen, rules={"times_auto_apply": False})
         self.assertEqual(log["applied"], []); self.assertNotIn("ex", cur); self.assertIn("auto-apply is off", md)
     def test_sweep_workflow_has_no_apply(self):
         w = open(os.path.join(R, ".github", "workflows", "sweep-daily.yml")).read()

@@ -170,7 +170,7 @@ def main():
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))
     # times cross-check on every pin's OWN site this run: confirmed / updated / unconfirmed (withheld, never carried over)
-    tlog = discover.cross_check_times(items, 'fb', 'opening_times')
+    tlog = discover.cross_check_times(items, 'fb', 'opening_times', state_root=ROOT)
     held = [i['id'] for i in items if i.pop('_own_site_closed', None)]
     disc['times'] = discover.summary(tlog); disc['own_site_says_closed_held'] = held
     json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)
@@ -220,6 +220,14 @@ def main():
         lab = plabels.get(i['id'])
         if i.get('phone') and isinstance(lab, str) and lab.strip(): i['phone_label'] = lab.strip()
     phone_rule.suppress(items, holds)  # doubtful holds and Dean's own details stay off the card
+    late = discover.check_missing(items, tlog, 'fb', 'opening_times', state_root=ROOT)  # centres/pins added after the main check (27 Oct)
+    if late:
+        for i in items: i.pop('_own_site_closed', None)  # a late 'closed' is only logged for review, never auto-removed here
+        hours_norm.apply([i for i in items if i['id'] in late], 'opening_times')
+        json.dump(tlog, open(os.path.join(ROOT, 'logs', 'foodbank_times_check.json'), 'w'), indent=0, ensure_ascii=False)
+        print('times check late pass: %d entries' % len(late))
+    discover.write_review(discover.times_review(tlog, items), os.path.join(ROOT, 'logs', 'foodbank_times_review.csv'),
+                          os.path.join(ROOT, 'logs', 'foodbank_times_review.json'))
     import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
     phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')))
     meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)

@@ -141,7 +141,7 @@ raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", unverified=UNV, autocheck=ws_autocheck, valid_until=season_end)
 fresh = [clean(x) for x in fresh]  # again: verified overrides can set hours/phone
 sources["am/pm hours fix"] = {"status": "ok", "entries_fixed": len({c['id'] for c in HFIX}), "detail": HFIX[:60]}
-tlog = discover.cross_check_times(fresh, "ws", "hours")
+tlog = discover.cross_check_times(fresh, "ws", "hours", state_root=".")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
 fresh = [clean(x) for x in fresh if not x.pop("_own_site_closed", None)]  # and after own-site times updates
 json.dump(tlog, open("logs/warmspaces_times_check.json", "w"), indent=0, ensure_ascii=False)
