@@ -24944,11 +24944,43 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "woodley": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday, 10:00 - noon | Monday 09:30 - 10:30 am | Tuesday 10:00 - 12:00 pm | Wednesday 10:00 - 12:00 pm | Thursday 9:30 -10:30 am | Friday 10:00 - 12:00 pm | Monday to Friday, 10:00 - 12:00 pm | Monday-Friday 9am-5pm",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "raw": "Woodley Baptist Church ... Monday to Friday, 10:00 - noon",
   "source_url": "https://woodleyfoodbank.org/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "checked_date": "2026-10-27",
+  "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "worcester": {
   "card_name": "Worcester Foodbank",

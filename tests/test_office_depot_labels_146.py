@@ -1198,6 +1198,13 @@ WAREHOUSE = [  # never Closed; point to centres
 for _k in ("southend", "ty-hapus", "soar-valley-community-food-project"):
     FOOD.pop(_k, None); TEXT.pop(_k, None); NOTICE.pop(_k, None)
     if _k in CALL_AHEAD: CALL_AHEAD.remove(_k)
+# Dean 28 Oct own-site rules (#239): these went back to main's times (known times are never blanked; own page unreadable).
+# test_listings_batch_28oct.REVERTED_TIMES pins each one to its logged revert, so this branch's earlier expectations are dropped here.
+from test_listings_batch_28oct import REVERTED_TIMES as _REV
+for _k in _REV:
+    FOOD.pop(_k, None); TEXT.pop(_k, None)
+    if _k in CALL_AHEAD: CALL_AHEAD.remove(_k)
+    if _k in WRONG_CORPS_PAGE: WRONG_CORPS_PAGE.remove(_k)
 class T(unittest.TestCase):
     @classmethod
     def setUpClass(c): c.t, c.n, c.d = J("opening_times.json"), J("foodbank_notices.json"), items()
@@ -1248,6 +1255,6 @@ class Round16(unittest.TestCase):
         self.assertEqual(t["purley/old-lodge-lane-baptist-church"]["structured"], {"fri": [["09:00", "12:00"]]})
         self.assertNotIn("Parish Office", t["corfe-mullen"]["raw"])
         self.assertIn("telephone request", n["north-ayrshire/st-johns-church"]["notice"])
-        self.assertEqual(t["aylesbury/tabitha-foodbank"]["status"], "NO_TIMES")
+        self.assertTrue(items()["aylesbury/tabitha-foodbank"]["opening_times"]["structured"])  # Dean 28 Oct: known times never blanked
         self.assertNotIn(" | ", t["patch"]["raw"])
         self.assertIn("pantry session from 10.30am to 12.30pm", t["lalley-centre"]["raw"])

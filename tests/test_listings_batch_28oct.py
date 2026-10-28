@@ -42,25 +42,31 @@ class Labels(unittest.TestCase):
 class Fixes(unittest.TestCase):
     def test_phones(self):
         d = items(); dg = lambda s: re.sub(r"\D", "", s or "")
-        # Dean 28 Oct 06:37: phone changes wait for Dean. Current number stays; the proposal is listed in PHONES-FOR-DEAN.md.
+        # Dean 28 Oct 07:02: own-site confirmed phones are applied (verify_own_page.py AUTO_APPLY), each with its source URL and an undo.
         exp = {"scunthorpe/epworth-baptist-church": ("01427875839", "03001028061"), "aberdeen-south": ("07360162919", "01224569750"),
                "leominster": ("07715410575", "07563000862"), "3food4u": ("01992842642", "07973166940"), "st-monicas": ("02077989025", "02088869568"),
                "salvation-army/alton": ("0142084456", "01420541778"), "salvation-army/st-austell": ("0172661791", "01726890174"),
                "stroud-district/dursley": ("03001023254", "01453367077"), "rickmansworth/abbots-langley": ("03442451296", "07716856892"),
-               "shepway/lydd": ("01797320345", "07913573403")}
-        P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
+               "shepway/lydd": ("01797320345", "07913573403"), "12-apostles": ("07846096432", "01707650147")}
         L = J("logs/listings_batch_28oct.json")["changes"]
-        B = J("overrides/phone_baseline.json")["listings"]; O = J("overrides/phones.json")
-        for i, (cur, prop) in exp.items():
-            self.assertEqual(dg(d[i]["phone"]), cur, i); self.assertEqual(dg(B[i]["phone"]), cur, i)
-            self.assertNotEqual(dg(O.get(i)), prop, i)
-            self.assertFalse(d[i].get("phone_label"), i)
-            self.assertIn("| `%s` " % i, P); self.assertIn("| %s |" % prop, P)
-            self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "phone" and l["note"].startswith("reverted") and dg(l["undo"]["set"]["phone"]) == prop], i)
+        B = J("overrides/phone_baseline.json")["listings"]; O = J("overrides/phones.json"); S = J("overrides/phone_sources.json")
+        for i, (old, new) in exp.items():
+            self.assertEqual(dg(d[i]["phone"]), new, i); self.assertEqual(dg(d[i]["tel"]), new, i); self.assertEqual(dg(B[i]["phone"]), new, i)
+            self.assertEqual(dg(O[i]), new, i); self.assertTrue(S[i]["source"].startswith("http"), i); self.assertIn("AUTO_APPLY", S[i]["note"], i)
+            self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "phone" and l["note"].startswith("applied") and l["source"] == S[i]["source"] and dg(l["undo"]["set"]["phone"]) == old], i)
+        self.assertEqual(d["3food4u"]["phone_label"], "WhatsApp only")
+        P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
+        held = {"micah-liverpool": "01517027206", "kinmel-bay-church": "07841678889", "st-philips": "07396614430", "portsmouth/paulsgrove": "02392385047"}
+        for i, cur in held.items():
+            self.assertEqual(dg(d[i]["phone"]), cur, i); self.assertIn("| `%s` " % i, P)
+            self.assertFalse([l for l in L if l["id"] == i and l["kind"] == "phone" and l["note"].startswith("applied")], i)
         self.assertFalse(d["andover/test-valley-borough-council-office"]["phone"])  # council switchboard removed, listing kept
         self.assertIn("andover/test-valley-borough-council-office", P)
         self.assertNotEqual(dg(d["salvation-army/andover"]["phone"]), "01264335242")  # charity shop line not applied
-    def test_only_dean_approved_phones_changed(self):
+        for i in [k for k in d if k.startswith("milton-keynes/") and k != "milton-keynes"]:
+            if (d[i].get("notice") or "").startswith("Food bank help line"): self.assertIn("0300 303 4933", d[i]["notice"], i)
+        self.assertEqual(sum(1 for k in d if k.startswith("milton-keynes/") and "0300 303 4933" in (d[k].get("notice") or "")), 12)
+    def test_layer_phones(self):
         d = items(); dg = lambda s: re.sub(r"\D", "", s or "")
         self.assertEqual(dg(d["whitby"]["phone"]), "01947469004"); self.assertEqual(dg(d["whitby"]["tel"]), "01947469004")
         self.assertEqual(J("overrides/phone_baseline.json")["listings"]["whitby"]["phone"], "01947469004")
@@ -70,16 +76,17 @@ class Fixes(unittest.TestCase):
         S, W = layer("shelters.js"), layer("warmspaces.js")
         self.assertEqual(dg(S["osm-way-169564851"]["phone"]), "01904553626")  # James House, Dean approved
         self.assertFalse(W["ww-68618605"].get("phone"))  # Bruton council switchboard removal, Dean approved
-        for i, n in (("hl-dens-the-elms", "01442800131"), ("osm-way-556071354", "01414294541")): self.assertEqual(dg(S[i]["phone"]), n, i)
-        self.assertEqual(dg(W["ww-57951889"]["phone"]), "07821153701")
+        self.assertEqual(dg(S["osm-way-556071354"]["phone"]), "01414181955")  # Talbot Association own page
+        self.assertEqual(dg(W["ww-57951889"]["phone"]), "07876372274")  # St Francis, the church's own A Church Near You page
+        self.assertEqual(dg(S["hl-dens-the-elms"]["phone"]), "01442800131")  # DENS's own contact page names this as The Elms' number
         # reverting these would put a general council line back on the venue (rule 5): kept, listed for Dean
         self.assertEqual(dg(S["osm-node-1533578890"]["phone"]), "01904551901"); self.assertEqual(dg(W["ww-55475981"]["phone"]), "01618813744")
         P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
-        for i in ("osm-node-1533578890", "ww-55475981", "hl-dens-the-elms", "osm-way-556071354", "ww-57951889"): self.assertIn("| `%s` " % i, P)
+        for i in ("osm-node-1533578890", "ww-55475981"): self.assertIn("| `%s` " % i, P)
         C = J("overrides/shelters_contacts.json")
-        for i in ("hl-dens-the-elms", "osm-way-556071354"): self.assertNotIn("phone_fix", C[i])
+        self.assertEqual((C["hl-dens-the-elms"]["phone_fix"], C["hl-dens-the-elms"]["phone_source"]), ("01442 800131", "https://www.dens.org.uk/contact/"))
+        self.assertEqual(C["osm-way-556071354"]["phone_fix"], "0141 418 1955")
         self.assertEqual(C["osm-way-169564851"]["phone_fix"], "01904 553626")
-        for i in [k for k in d if k.startswith("milton-keynes/")]: self.assertNotIn("0300 303 4933", d[i].get("notice") or "", i)
     def test_address_name_website(self):
         d = items()
         self.assertIn("RH13 9BT", d["horsham-district/hub-on-the-move-southwater"]["address"])
@@ -113,6 +120,9 @@ class TimesRecheck0620(unittest.TestCase):
     def test_wendover_held(self):
         self.assertFalse(any(l["id"] == "chiltern/wendover" and "06:20" in l.get("note", "") for l in J("logs/listings_batch_28oct.json")["changes"]))
         self.assertIn("HELD `chiltern/wendover`", open(os.path.join(ROOT, "reports", "pending_dean.md")).read())
+REVERTED_TIMES = ["colchester", "corfe-mullen", "walk-inn", "the-community-cupboard", "stretton", "north-lakes", "broxbourne", "redcar-area", "selby-centre", "salvation-army/ivybridge", "salvation-army/dorchester", "salvation-army/hastings-temple", "rickmansworth/maple-cross", "aylesbury/tabitha-foodbank", "salvation-army/bourne", "salvation-army/chester", "newark/tuxford", "fusion/calderdale", "north-ayrshire/st-johns-church", "hope-for-belper", "ross-community-larder", "shepshed", "newlands"]
+def last_hours(L, i):
+    return [l for l in L if l["id"] == i and l["kind"] == "hours"][-1]
 class OwnSiteAudit28Oct(unittest.TestCase):
     """Dean 28 Oct: every postcode, address, phone and time must be on the organisation's own page (2 reads)."""
     POSTCODES = {"horsham-district/united-reform-church": "RH12 1PT", "salisbury/durrington-old-school": "SP4 8HP", "lambeth-croydon/streatham": "SW16 3NN", "wandsworth/roehampton-methodist-church": "SW15 4EB", "clevedon-district/portishead": "BS20 7DB", "rickmansworth/croxley-green-baptist-church": "WD3 3PF", "aylesbury/esquires-coffee-shop": "HP18 1AS", "colchester/highwoods": "CO4 9YN", "st-neots/st-marys-eaton-socon": "PE19 8EQ", "sparkhill/hall-green": "B28 8JQ", "sparkhill/st-johns-church": "B11 4RG", "sparkhill/balsall-heath": "B12 9LA"}
@@ -139,6 +149,13 @@ class OwnSiteAudit28Oct(unittest.TestCase):
         for i in ["colchester", "corfe-mullen", "walk-inn", "the-community-cupboard", "stretton", "north-lakes", "broxbourne", "redcar-area", "selby-centre", "salvation-army/ivybridge", "salvation-army/dorchester", "salvation-army/hastings-temple", "rickmansworth/maple-cross", "aylesbury/tabitha-foodbank", "salvation-army/bourne", "salvation-army/chester", "newark/tuxford", "fusion/calderdale", "north-ayrshire/st-johns-church"]:
             self.assertTrue((d[i].get("opening_times") or {}).get("structured"), i)
             self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "hours" and l["note"].startswith("reverted")], i)
-    def test_unconfirmed_times_reverted(self):
-        L = J("logs/listings_batch_28oct.json")["changes"]
-        for i in ["hope-for-belper", "ross-community-larder", "shepshed", "newlands", "woodley"]: self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "hours" and l["note"].startswith("reverted")], i)
+    def test_unconfirmed_times_held(self):
+        d = items(); L = J("logs/listings_batch_28oct.json")["changes"]
+        for i in ["hope-for-belper", "ross-community-larder", "shepshed", "newlands"]: self.assertTrue(last_hours(L, i)["note"].startswith("reverted"), i)
+        self.assertEqual(d["woodley"]["opening_times"]["structured"], {k: [["10:00", "12:00"]] for k in ("mon", "tue", "wed", "thu", "fri")})
+        self.assertTrue(last_hours(L, "woodley")["note"].startswith("applied"))
+    def test_reverted_times_are_what_is_shown(self):
+        d = items(); L = J("logs/listings_batch_28oct.json")["changes"]
+        for i in REVERTED_TIMES:
+            e = last_hours(L, i); self.assertTrue(e["note"].startswith("reverted"), i)
+            self.assertEqual(d[i].get("opening_times"), e["new"], i); self.assertNotEqual(e["undo"]["set"]["opening_times"], e["new"], i)

@@ -24,7 +24,7 @@ class Audit(unittest.TestCase):
         s = self.s
         self.assertEqual((s["osm-way-1125252517"]["address"], s["osm-way-1125252517"]["postcode"]), ("235 Barmouth Street, Beswick, Manchester", "M11 3TB"))
         self.assertEqual(s["hl-nightsafe-blackburn"]["hours"]["Sat"], "17:00 - 10:00"); self.assertEqual(s["hl-nightsafe-blackburn"]["hours"]["Sun"], "17:00 - 11:00")
-        self.assertEqual(s["hl-dens-the-elms"]["phone"], "01442 262274")
+        self.assertEqual(s["hl-dens-the-elms"]["phone"], "01442 800131")  # DENS own contact page: "calling our hostel The Elms on 01442 800131" (262274 is its registered office)
         self.assertEqual(s["osm-node-1533578890"]["phone"], "01904 551901"); self.assertIn("24/7", s["osm-node-1533578890"]["hours"])
         self.assertEqual(s["osm-way-169564851"]["phone"], "01904 553626"); self.assertEqual(s["osm-way-169564851"]["tel"].replace(" ", ""), "01904553626")  # James House office, York's own page (Dean 28 Oct 05:35 GMT)
         self.assertEqual(s["osm-way-169564851"].get("phone_label"), "James House office")
@@ -44,11 +44,11 @@ class Audit(unittest.TestCase):
     def test_fixes_survive_refresh(self):
         # a refresh brings back the old source values; shelter_contacts.apply (run on every build) restores the checked ones
         stale = {"osm-way-101893157": {"id": "osm-way-101893157", "name": "Winchester Churches Night Shelter", "postcode": "SO23 8RS", "address": "x", "phone": "01962 862050"},
-                 "hl-dens-the-elms": {"id": "hl-dens-the-elms", "name": "DENS", "phone": "01442 800131"}}
+                 "hl-dens-the-elms": {"id": "hl-dens-the-elms", "name": "DENS", "phone": "01442 262274"}}
         its = list(stale.values()); SC.apply(its, self.C)
-        self.assertEqual(its[0]["name"], "The Winchester Beacon"); self.assertEqual(its[0]["postcode"], "SO23 8RZ"); self.assertEqual(its[1]["phone"], "01442 262274")
+        self.assertEqual(its[0]["name"], "The Winchester Beacon"); self.assertEqual(its[0]["postcode"], "SO23 8RZ"); self.assertEqual(its[1]["phone"], "01442 800131")
         B = json.load(open(os.path.join(R, "overrides", "phone_baseline.json")))["listings"]
-        self.assertEqual(B["hl-dens-the-elms"]["phone"], "01442 262274"); self.assertEqual(B["osm-node-1533578890"]["phone"], "01904 551901")
+        self.assertEqual(B["hl-dens-the-elms"]["phone"], "01442 800131"); self.assertEqual(B["osm-node-1533578890"]["phone"], "01904 551901")
     def test_council_number_check_flags_not_removes(self):
         f = CC.check(list(self.s.values()))
         self.assertNotIn("osm-way-169564851", [x["id"] for x in f])  # James House now on its own office line 01904 553626 (Dean 28 Oct), not a general council number
