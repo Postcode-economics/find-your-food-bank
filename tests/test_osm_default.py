@@ -77,11 +77,11 @@ class KeysAndDefault(unittest.TestCase):
         sw = open(os.path.join(R, 'sw.js'), encoding='utf-8').read()
         self.assertIn("(^|\\.)tile\\.openstreetmap\\.org$", sw)
         self.assertIn('MAPTILER', sw)
-        self.assertIn("const C='fyfb-v94'", sw)
+        self.assertIn("const C='fyfb-v95'", sw)
         # The tile cache is kept across a version bump; MapTiler entries in it are deleted on activate.
         self.assertIn('x!==C&&x!==T', sw)
         self.assertIn('c.delete(r)', sw)
-        self.assertLess(sw.index('MAPTILER.test(u.host)'), sw.index('const hit=await c.match(e.request)'))
+        self.assertLess(sw.index('MAPTILER.test(u.host)'), sw.index('const hit=await c.match(url)'))
 
 
 class RevertSinceV88(unittest.TestCase):
@@ -229,7 +229,7 @@ class OfflineOsmTiles(unittest.TestCase):
                     return (await c.keys()).some(r => r.url.includes('maptiler.com'));
                 }""")
                 self.assertTrue(seeded)
-                override['body'] = sw_text.replace("const C='fyfb-v94'", "const C='fyfb-v95'", 1)
+                override['body'] = sw_text.replace("const C='fyfb-v95'", "const C='fyfb-v96'", 1)
                 bumped = page.evaluate("""async () => {
                     const reg = await navigator.serviceWorker.getRegistration();
                     const done = new Promise(resolve => {

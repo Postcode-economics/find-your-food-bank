@@ -1,10 +1,99 @@
 <!doctype html><html lang="en"><head>
 <script>/* Dean 25 Oct: theme before first paint - saved light choice kept, otherwise dark */try{if(localStorage.getItem('light')==='1')document.documentElement.classList.add('light')}catch(e){}</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="helpmap-build" content="fyfb-v94"><meta http-equiv="Cache-Control" content="no-cache"><script>/* Self-heal (25 Oct 2026): if this HTML is older than the live build (stale webview / old service worker), clear the worker + caches and reload once. The hmheal=1 flag is appended to the current query before the reload (other params stay byte-identical): a webview whose sessionStorage does not survive a reload (getItem stays null, setItem does not throw) used to reload forever and the page never took a tap. If the flag cannot be written, do not reload. A clean boot removes hmheal and hmboot so a bookmark or shared link does not keep the heal switched off. */(function(){var b='fyfb-v94',k='hmHeal';try{if(/[?&]hmheal=1(?:&|$)/.test(location.search))return;fetch('/version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(v){if(!v||!v.build||v.build===b){try{sessionStorage.removeItem(k)}catch(_){}return}if(sessionStorage.getItem(k)===v.build)return;sessionStorage.setItem(k,v.build);var p=[];if(navigator.serviceWorker)p.push(navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.unregister()}))}));if(window.caches)p.push(caches.keys().then(function(ks){return Promise.all(ks.map(function(x){return caches.delete(x)}))}));Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='hmheal=1';if(!/[?&]hmheal=1(?:&|$)/.test(s))history.replaceState(null,'',location.pathname+(s?s+'&'+n:'?'+n)+location.hash)}catch(_){}if(!/[?&]hmheal=1(?:&|$)/.test(location.search))return;location.reload()})}).catch(function(){})}catch(_){}})();</script>
+<meta name="helpmap-build" content="fyfb-v95"><meta http-equiv="Cache-Control" content="no-cache"><script>/* Self-heal (25 Oct 2026): if this HTML is older than the live build (stale webview / old service worker), clear the worker + caches and reload once. The hmheal=1 flag is appended to the current query before the reload (other params stay byte-identical): a webview whose sessionStorage does not survive a reload (getItem stays null, setItem does not throw) used to reload forever and the page never took a tap. If the flag cannot be written, do not reload. A clean boot removes hmheal and hmboot so a bookmark or shared link does not keep the heal switched off. */(function(){var b='fyfb-v95',k='hmHeal';try{if(/[?&]hmheal=1(?:&|$)/.test(location.search))return;fetch('/version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(v){if(!v||!v.build||v.build===b){try{sessionStorage.removeItem(k)}catch(_){}return}if(sessionStorage.getItem(k)===v.build)return;sessionStorage.setItem(k,v.build);var p=[];if(navigator.serviceWorker)p.push(navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.unregister()}))}));if(window.caches)p.push(caches.keys().then(function(ks){return Promise.all(ks.map(function(x){return caches.delete(x)}))}));Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='hmheal=1';if(!/[?&]hmheal=1(?:&|$)/.test(s))history.replaceState(null,'',location.pathname+(s?s+'&'+n:'?'+n)+location.hash)}catch(_){}if(!/[?&]hmheal=1(?:&|$)/.test(location.search))return;location.reload()})}).catch(function(){})}catch(_){}})();</script>
 <script>/* Old-cache self-heal (27 Oct 2026): a stale fyfb-v90 worker leaves the fyfb-v90 / fyfb-tiles caches. Same URL-flag guard as the version heal: history.replaceState keeps the query byte-identical, and there is no reload if the flag cannot be written. The reload does not wait on caches.delete, and the flagged load deletes fyfb-v90 and fyfb-tiles again, because a controlling worker can leave that promise pending. */(function(){var k='hmHealOld',k2='hmHealOld2';window.__hmHeal=Promise.resolve();try{if(!window.caches)return;var flagged=/[?&]hmheal=1(?:&|$)/.test(location.search);if(!flagged&&sessionStorage.getItem(k))return;var cap=function(p){return Promise.race([p.catch(function(){}),new Promise(function(r){setTimeout(r,4000)})])};var unreg=function(){return navigator.serviceWorker?navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.unregister()}))}):Promise.resolve()};window.__hmHeal=caches.keys().then(function(ks){if(ks.indexOf('fyfb-v90')<0&&ks.indexOf('fyfb-tiles')<0)return;window.__hmHealBusy=1;var drop=function(){return Promise.all(ks.map(function(x){return caches.delete(x)}))};if(flagged){if(sessionStorage.getItem(k2))return cap(drop());sessionStorage.setItem(k2,'1');return cap(Promise.all([unreg(),drop()]))}sessionStorage.setItem(k,'1');return cap(Promise.all([unreg(),drop()])).then(function(){try{var s=location.search,n='hmheal=1';if(!/[?&]hmheal=1(?:&|$)/.test(s))history.replaceState(null,'',location.pathname+(s?s+'&'+n:'?'+n)+location.hash)}catch(_){}if(!/[?&]hmheal=1(?:&|$)/.test(location.search))return;location.reload();return new Promise(function(){})})}).catch(function(){})}catch(_){}})();</script>
+<script>/* Service worker (28 Oct 2026): register from the head, before layers.js and the map, so tile fetches are intercepted. Waits for the old-cache heal only when it is actually healing (caches.keys() can stay pending in WebKit; capped 800 ms): register() during a pending unregister revives the old worker, and after a heal the script URL is sw.js?v=<hash>&heal=1 so WebKit cannot revive the poisoned one. skipWaiting and clients.claim run in sw.js. If this page still has no controller once the worker is activated, and the map has not yet asked for tiles, reload once. A map that has already requested tiles is left as it is: reloading it would drop a refusal or a backup switch, and the new load would be answered by this worker. hmctrl=1 on the query is the loop guard (sessionStorage does not survive some webview reloads): no reload if the flag cannot be written, and no reload while hmheal or hmboot is already reloading the page. A page the worker already controls does not reload. */(function () {
+  if (!('serviceWorker' in navigator)) return;
+  var claimed = !!navigator.serviceWorker.controller;
+  // Read before strip() drops hmctrl from the query: this load is already the one reload.
+  var ctlReload = /[?&]hmctrl=1(?:&|$)/.test(location.search);
+  var used = false;
+  function note() { used = true; }
+  addEventListener('pointerdown', note, true);
+  addEventListener('touchstart', note, true);
+  addEventListener('keydown', note, true);
+  navigator.serviceWorker.addEventListener('controllerchange', function () { claimed = true; });
+  navigator.serviceWorker.addEventListener('message', function (e) {
+    if (e.data !== 'offline') return;
+    if (typeof window.__hmGoOffline === 'function') window.__hmGoOffline();
+    else window.__hmOfflinePending = 1;
+  });
+  function dropCtrl() {
+    try {
+      if (!navigator.serviceWorker.controller) return;
+      var s = location.search;
+      if (!/[?&]hmctrl=1(?:&|$)/.test(s)) return;
+      var p = s.slice(1).split('&'), o = [], i;
+      for (i = 0; i < p.length; i++) if (p[i] !== 'hmctrl=1') o.push(p[i]);
+      history.replaceState(null, '', location.pathname + (o.length ? '?' + o.join('&') : '') + location.hash);
+    } catch (e) {}
+  }
+  if (claimed) dropCtrl();
+  var heal = /[?&]hmheal=1(?:&|$)/.test(location.search);
+  // Register only after the deferred scripts have run (__hmBooted): a first install activates and claims at once, and a
+  // worker that took the page mid-boot answered the first tile grid and the deferred scripts itself.
+  new Promise(function (r) { if (window.__hmBooted) r(); else window.__hmOnBoot = r; })
+    .then(function () { return Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })]); })
+    .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
+    .then(function () { return navigator.serviceWorker.register('sw.js?v=h24cc1848c09c' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
+    .then(function (reg) {
+      // With service workers blocked, register() resolves to undefined. Do not touch it.
+      if (!reg || !reg.addEventListener) return;
+      // Claim once the document has loaded, so the first tile grid is not intercepted mid-startup and a pan is.
+      var armed = false;
+      function claim() {
+        var w = reg.installing || reg.waiting;
+        if (w) w.postMessage('hm-claim');
+      }
+      // The map's scripts run after window 'load' (they are text/plain until the boot loader).
+      // Claim once they have started, and at latest a few seconds after load, so a visit cannot stay on the previous worker.
+      // armed only stops a second boot wait. Every later updatefound (a version bump found while the page is open)
+      // must still send hm-claim: sw.js waits for it before skipWaiting, so without it the new worker stays waiting.
+      function claimWhenReady() {
+        if (window.__hmBooted) { claim(); return; }
+        if (armed) return;
+        armed = true;
+        var n = 0, t = setInterval(function () {
+          if (window.__hmBooted || ++n > 80) { clearInterval(t); armed = false; claim(); }
+        }, 50);
+      }
+      window.addEventListener('load', claimWhenReady);
+      reg.addEventListener('updatefound', function () { if (document.readyState === 'complete' || window.__hmBooted) claimWhenReady(); });
+      if (document.readyState === 'complete') claimWhenReady();
+      return reg.update().catch(function () {}).then(function () {
+        if (claimed || navigator.serviceWorker.controller) { dropCtrl(); return; }
+        if (/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;
+        if (/[?&]hm(?:heal|boot)=1(?:&|$)/.test(location.search) || window.__hmHealBusy) return;
+        var sw = reg.installing || reg.waiting || reg.active;
+        if (!sw) return;
+        var once = function () {
+          setTimeout(function () {
+            if (used || ctlReload) return;
+            if (claimed || navigator.serviceWorker.controller) { dropCtrl(); return; }
+            if (/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;
+            if (/[?&]hm(?:heal|boot)=1(?:&|$)/.test(location.search) || window.__hmHealBusy) return;
+            // The map has already asked for tiles. Reloading now throws away that result: a 403/429
+            // window, or a switch to the backup, is reset, and the new document is controlled by this
+            // worker so those fetches never reach a stubbed tile host. claim() still takes this document
+            // when the browser applies it. The next navigation is controlled from the first request.
+            if (window.TILE_STATS || document.querySelector('#map .leaflet-tile')) return;
+            try {
+              var s = location.search, n = 'hmctrl=1';
+              if (!/[?&]hmctrl=1(?:&|$)/.test(s)) history.replaceState(null, '', location.pathname + (s ? s + '&' + n : '?' + n) + location.hash);
+            } catch (e) {}
+            if (!/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;
+            location.reload();
+          }, 1500);
+        };
+        if (sw.state === 'activated') once();
+        else sw.addEventListener('statechange', function () { if (sw.state === 'activated') once(); });
+      });
+    })
+    .catch(function () {});
+})();</script>
 <script>/* Boot watchdog (25 Oct 11:29): if the map or data has not come up 10 s after load (e.g. an old service worker served
 mismatched files to an old link), clear the worker + caches and reload once per tab session. */
-(function(){var k='hmBoot';function strip(){try{var s=location.search;if(!/[?&]hmheal=1(?:&|$)/.test(s)&&!/[?&]hmboot=1(?:&|$)/.test(s))return;var p=s.slice(1).split('&'),o=[],i;for(i=0;i<p.length;i++)if(p[i]!=='hmheal=1'&&p[i]!=='hmboot=1')o.push(p[i]);history.replaceState(null,'',location.pathname+(o.length?'?'+o.join('&'):'')+location.hash)}catch(_){}}
+(function(){var k='hmBoot';function strip(){try{var s=location.search;if(!/[?&]hmheal=1(?:&|$)/.test(s)&&!/[?&]hmboot=1(?:&|$)/.test(s)&&!/[?&]hmctrl=1(?:&|$)/.test(s))return;var p=s.slice(1).split('&'),o=[],i;for(i=0;i<p.length;i++)if(p[i]!=='hmheal=1'&&p[i]!=='hmboot=1'&&p[i]!=='hmctrl=1')o.push(p[i]);history.replaceState(null,'',location.pathname+(o.length?'?'+o.join('&'):'')+location.hash)}catch(_){}}
 window.__hmStripHeal=strip;
 addEventListener('load',function(){try{if(typeof items!=='undefined'&&items.length>0&&document.querySelector('#map .leaflet-pane'))strip()}catch(_){}
 setTimeout(function(){try{var ok=typeof items!=='undefined'&&items.length>0&&document.querySelector('#map .leaflet-pane');
@@ -357,7 +446,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=hb01dc63f9dfc" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h8e5dca8aa113" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Emergency shelter preview: no stylesheet and no script unless ?preview=emergency. */(function(){try{var q=new URLSearchParams(location.search);if(q.get('preview')!=='emergency')return;document.documentElement.classList.add('em-preview');var c=document.createElement('link');c.rel='stylesheet';c.href='emergency.css';document.head.appendChild(c);var s=document.createElement('script');s.setAttribute('data-hm','');s.type='text/plain';s.setAttribute('src','emergency.js');document.body.appendChild(s);}catch(e){}})();</script><script>
+</script><script data-hm src="layers.js?v=h8bdf5ba1b02c" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h8e5dca8aa113" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Emergency shelter preview: no stylesheet and no script unless ?preview=emergency. */(function(){try{var q=new URLSearchParams(location.search);if(q.get('preview')!=='emergency')return;document.documentElement.classList.add('em-preview');var c=document.createElement('link');c.rel='stylesheet';c.href='emergency.css';document.head.appendChild(c);var s=document.createElement('script');s.setAttribute('data-hm','');s.type='text/plain';s.setAttribute('src','emergency.js');document.body.appendChild(s);}catch(e){}})();</script><script>
 /* 27 Oct 2026: data.js, Leaflet and the map script used to run as one parser-blocking turn and froze taps and scrolling on an iPhone. text/plain keeps each versioned src in the document; this runs one file per frame. A search (URL or a tap before the map script) waits until the last file, so the form does not reload and the list is built after v3 wraps it. */
 (function(){
   var f=document.getElementById('f');
@@ -365,7 +454,7 @@ try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
   var nodes=[].slice.call(document.querySelectorAll('script[data-hm]')),i=0;
   function later(fn){requestAnimationFrame(function(){setTimeout(fn,0)})}
   function run(){
-    if(i>=nodes.length){window.__hmBooted=true;var q=window.__hmPendingSearch;if(q&&typeof search==='function'){window.__hmPendingSearch='';window.__go=true;var pop=window.__hmPendingPopup;search(q).then(function(){if(!pop)return;var c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)})}return}
+    if(i>=nodes.length){window.__hmBooted=true;if(window.__hmOnBoot)window.__hmOnBoot();var q=window.__hmPendingSearch;if(q&&typeof search==='function'){window.__hmPendingSearch='';window.__go=true;var pop=window.__hmPendingPopup;search(q).then(function(){if(!pop)return;var c=document.querySelector('#list .card');if(c)select(+c.dataset.k,true)})}return}
     var n=nodes[i++],s=document.createElement('script'),src=n.getAttribute('src');
     if(src){s.async=false;s.src=src;s.onload=s.onerror=function(){later(run)};document.body.appendChild(s)}
     else{s.text=n.textContent;document.body.appendChild(s);later(run)}
