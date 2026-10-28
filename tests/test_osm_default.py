@@ -214,7 +214,7 @@ class OfflineOsmTiles(unittest.TestCase):
                 page.reload(wait_until='domcontentloaded')
                 self.assertTrue(until(page, """() => window.TILE_ACTIVE === 'osm'
                        && [...document.querySelectorAll('#map .leaflet-tile-loaded')]
-                            .filter(img => img.src.includes('tile.openstreetmap.org') && img.naturalWidth > 0).length >= 4"""),
+                            .filter(img => (img.getAttribute('data-tile')||img.src).includes('tile.openstreetmap.org') && img.naturalWidth > 0).length >= 4"""),
                                 'online visit did not paint OpenStreetMap tiles')
                 cached = page.evaluate("""async () => {
                     const c = await caches.open('fyfb-tiles2');
@@ -250,12 +250,12 @@ class OfflineOsmTiles(unittest.TestCase):
                 page.reload(wait_until='domcontentloaded')
                 self.assertTrue(until(page, """() => window.TILE_ACTIVE === 'osm'
                        && [...document.querySelectorAll('#map .leaflet-tile-loaded')]
-                            .filter(img => img.src.includes('tile.openstreetmap.org') && img.naturalWidth > 0).length >= 4"""),
+                            .filter(img => (img.getAttribute('data-tile')||img.src).includes('tile.openstreetmap.org') && img.naturalWidth > 0).length >= 4"""),
                                 'offline visit did not show cached OpenStreetMap tiles')
                 shown = page.evaluate("""() => ({
                     active: window.TILE_ACTIVE,
                     tiles: [...document.querySelectorAll('#map .leaflet-tile-loaded')].filter(img => img.naturalWidth > 0).length,
-                    osm: [...document.querySelectorAll('#map .leaflet-tile')].filter(img => img.src.includes('tile.openstreetmap.org')).length,
+                    osm: [...document.querySelectorAll('#map .leaflet-tile')].filter(img => (img.getAttribute('data-tile')||img.src).includes('tile.openstreetmap.org')).length,
                     credit: (document.querySelector('.leaflet-control-attribution') || {}).innerText || '',
                     logo: !!document.querySelector('.maptiler-logo')
                 })""")

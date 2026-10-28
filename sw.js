@@ -1,14 +1,16 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
-// fyfb-v93 (batch 3): v3.js carry-forward 'Not re-confirmed since' label (#235); v3.js ?v= hash recomputed (h419d69491af0).
+// fyfb-v93 (batch 3 on batch 1): v3.js carry-forward 'Not re-confirmed since' label (#235); v3.js and header.css ?v= hashes recomputed.
 // fyfb-v92 (batch 2): combined shell (layers.js, v3.js, v3.css) listed by ?v= hash, so the precache still changes.
 // fyfb-v92: a loaded tile whose decode() rejects is not a tile failure. The build id bumps so phones self-heal.
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v93',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=hab3a40c10d4c','layers.css','layers.css?v=sh20261023','report.js','register.js','report.css','v3.js','v3.js?v=h419d69491af0','v3.css','v3.css?v=h3f31d4793dd2','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h5a2aeaaa2870','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h7a3d7fe731ec'];
-const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$|^tiles\.stadiamaps\.com$/;
+const C='fyfb-v93',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=heb7df0751f55','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8e5dca8aa113','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h89a8d8eb1a23'];
+const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$/;
+// OpenFreeMap backup (27 Oct 2026): versioned tiles, fonts and sprites are cache-first; style and TileJSON are network-first with the cached copy offline.
+const OFM=/^tiles\.openfreemap\.org$/,OFM_FIXED=/^\/(planet\/\d{8}_[^/]+\/|fonts\/|sprites\/ofm_f384\/|natural_earth\/)/;
 const MAPTILER=/(^|\.)maptiler\.com$/;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 // Self-heal (25 Oct 2026, Instagram in-app browser kept the old layout): on activate, drop old caches, take control and reload open map
@@ -21,6 +23,9 @@ self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.a
 const tell=()=>self.clients.matchAll().then(cs=>cs.forEach(c=>c.postMessage('offline')));
 let trimming=false;const trim=c=>{if(trimming)return;trimming=true;c.keys().then(k=>Promise.all(k.slice(0,Math.max(0,k.length-TMAX)).map(r=>c.delete(r)))).finally(()=>{trimming=false})};
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
+ if(OFM.test(u.host)){e.respondWith(caches.open(T).then(async c=>{const keep=r=>{if(r.ok){c.put(e.request,r.clone()).then(()=>trim(c))}return r};
+   if(OFM_FIXED.test(u.pathname)){const got=await c.match(e.request);if(got)return got;return fetch(e.request).then(keep).catch(()=>{tell();return Response.error()})}
+   return fetch(e.request).then(keep).catch(async()=>{tell();return (await c.match(e.request))||Response.error()})}));return}
  if(TILE.test(u.host)){e.respondWith(caches.open(T).then(async c=>{
    if(MAPTILER.test(u.host)){const stale=await c.match(e.request);if(stale)c.delete(e.request);return fetch(e.request).then(r=>r).catch(()=>{tell();return Response.error()})}
    // fyfb-v91 (27 Oct 2026, iPhone outage): an opaque cached tile (stored for an <img>) is never served while online and only
@@ -36,8 +41,12 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
  if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
-   e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
- if(e.request.mode==='navigate'){e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
- e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
-   if(hit){e.waitUntil(net.catch(()=>{}));return hit}
-   return net.catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||Response.error()})}))});
+   e.respondWith(fetch(new Request(e.request,{cache:'no-cache'})).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
+ if(e.request.mode==='navigate'){const home=/^\/(index\.html)?$/.test(u.pathname);  // the map page is also saved as the shell, so offline always opens the newest copy seen
+   e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(r=>{if(r.ok&&home){const cp=r.clone();caches.open(C).then(c=>Promise.all([c.put(u.origin+'/',cp.clone()),c.put(u.origin+'/index.html',cp)]))}return put(r)}).catch(async()=>{tell();return (await caches.match(e.request))||(home?await caches.match(u.origin+'/'):null)||(await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
+ // Freshness (26 Oct 2026, Dean): a returning visitor must never get an old copy after a deploy. Only files with a ?v= version
+ // stamp are served cache-first (a new deploy changes the stamp, so a cached copy can never be stale). Everything else on this
+ // site (pages, data, JSON, unstamped scripts and styles) is network-first, revalidated past the HTTP cache, with the saved copy
+ // used only when the network fails (offline mode keeps working).
+ if(/(^|&)v=/.test(u.search.slice(1))){e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||Response.error()})));return}
+ e.respondWith(fetch(new Request(e.request,{cache:'no-cache'})).then(put).catch(async()=>{tell();return (await caches.match(e.request))||(await caches.match(e.request,{ignoreSearch:true}))||Response.error()}))});
