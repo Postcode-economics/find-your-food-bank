@@ -53,7 +53,8 @@ INIT = r"""
 """
 
 def _web_pids():
-    out = subprocess.check_output(['ps', '-eo', 'pid,args'], text=True)
+    # -ww: with a terminal attached, ps cuts args at its width and the WPEWebProcess name falls off the long path.
+    out = subprocess.check_output(['ps', '-eww', '-o', 'pid,args'], text=True)
     return [int(l.split(None, 1)[0]) for l in out.splitlines() if 'WPEWebProcess' in l]
 
 def _self_procs():
