@@ -37,6 +37,9 @@ def _groups(segs):
         else: g.append([x])
     return [" | ".join(y) for y in g]
 OFFICE = re.compile(r"\bp\.?\s?o\.?\s?box\b|\bc/o\b|postal|warehouse|head office|\boffice\b", re.I)
+# Bot 3 re-sample 4 (28 Oct): 'c/o St Andrews Church' (aberdeenshire-north, Inverurie) is the centre's own venue. 'c/o' a church,
+# chapel, hall or centre names where sessions run, so it is not proof of an office; it only counts for a non-venue address (c/o 4 Chelsea Close).
+CO_VENUE = re.compile(r"\bc/o\s+[^,]*\b(church|chapel|cathedral|parish|methodist|baptist|kirk|hall|centre|center|mission|salvation army|community)\b", re.I)
 _OWN = None
 def own_lines():
     """overrides/own_centre_lines.json: the listing's own centre hours line, quoted from the organisation's own page."""
@@ -61,7 +64,9 @@ def _office(i):
     """A proven office, warehouse or PO-box/postal listing: its own name/address says so, or it was checked on its own page
     (overrides/office_listings.json). Bot 3 re-sample 3: the 'warehouse' classification alone also covers real centres
     (patch, wokingham, poole, helensburgh-lomond, tameside-south-longdendale), so it is not proof."""
-    return i.get("id") in office_ids() or bool(OFFICE.search(" ".join(str(i.get(k) or "") for k in ("name", "address"))))
+    if i.get("id") in office_ids(): return True
+    t = CO_VENUE.sub(" ", " ".join(str(i.get(k) or "") for k in ("name", "address")))
+    return bool(OFFICE.search(t))
 def joined_centre_times(i, centres):
     """-> new opening_times for parent i, or None when unchanged.
     Bot 3 review of #232 (28 Oct 00:10): a single block is the listing's own (dundonald, wythenshawe, weston, cheltenham, hart, vale,
@@ -124,6 +129,19 @@ def joined_centre_times(i, centres):
     # the joined rule never removes, trims or wipes times on a client-facing listing: the current times stay and the listing is held.
     return {"_held": "joined centre times: current times kept, needs a quoted own-centre line to trim" if keep
             else "joined centre times: current times kept, cannot tell which block is this listing's"}
+_REV = None
+def review_notes():
+    """overrides/times_review_notes.json: suggested fixes quoted from the organisation's own page, NOT applied; shown on Dean's review list."""
+    global _REV
+    if _REV is None:
+        import os, json
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "overrides", "times_review_notes.json")
+        try: _REV = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+        except Exception: _REV = {}
+    return _REV
+def _note(k):
+    n = review_notes().get(k)
+    return "" if not n else " [review: suggested %s; quote \"%s\"; source %s; not applied]" % (n.get("suggested"), n.get("quote"), n.get("source"))
 HOLD_NOTES = {"salvation-army/inverness": "Bot 3 re-sample 3 (28 Oct): own page says \"Wednesday Foodbank 9am - 1pm\", so the correct time is Wed 9-1, not Thu"}
 def salvation_army(i):
     ot = i.get("opening_times")
@@ -156,7 +174,7 @@ def apply(items):
         new = salvation_army(i)
         if new is None and i.get("type") == "foodbank": new = joined_centre_times(i, locs.get(i["id"], []))
         if new is not None and new.get("_held"):
-            log[i["id"]] = "held for review: " + new["_held"]; continue  # times kept as they are
+            log[i["id"]] = "held for review: " + new["_held"] + _note(i["id"]); continue  # times kept as they are
         if new is not None:
-            log[i["id"]] = new.get("guard") or "trimmed"; i["opening_times"] = new
+            log[i["id"]] = (new.get("guard") or "trimmed") + _note(i["id"]); i["opening_times"] = new
     return log

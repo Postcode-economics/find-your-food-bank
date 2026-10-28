@@ -228,3 +228,30 @@ class NormalChangeReview(unittest.TestCase):
         a, h = D.times_changes_review(log, by, d, now="2026-10-27 23:50:00")
         self.assertEqual(a[0]["old"], "Mon 1pm - 3pm"); self.assertEqual(a[0]["new"], "Wed 10am - 12pm")
         self.assertIn("`n`", open(os.path.join(d, "reports", "times_changes_review.md")).read().split("## Held")[0])
+class Resample4(unittest.TestCase):
+    """Bot 3 re-sample 4 of #232 (28 Oct ~03:15 GMT): three listings were real centres wrongly treated as offices."""
+    @classmethod
+    def setUpClass(cls):
+        cls.items = load(); cls.before = {i["id"]: copy.deepcopy(i) for i in cls.items}
+        cls.log = G.apply(cls.items); cls.after = {i["id"]: i for i in cls.items}
+    def test_real_centres_held_times_unchanged(self):
+        for k in ("clevedon-district", "tameside-east", "aberdeenshire-north"):
+            with self.subTest(k):
+                self.assertNotIn(k, G.office_ids())
+                self.assertFalse(G._office(self.after[k]))
+                self.assertTrue(self.log[k].startswith("held for review"), self.log[k])
+                self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
+    def test_suggested_fixes_logged_not_applied(self):
+        for k, src in (("clevedon-district", "clevedondistrict.foodbank.org.uk/locations/"), ("tameside-east", "tamesideeast.foodbank.org.uk/locations/"),
+                       ("aberdeenshire-north", "aberdeenshirenorth.foodbank.org.uk/locations/"), ("salvation-army/hove", "salvationarmy.org.uk/hove"),
+                       ("salvation-army/hastings-temple", "salvationarmy.org.uk/hastings-temple")):
+            with self.subTest(k):
+                self.assertIn(src, self.log[k]); self.assertIn("not applied", self.log[k])
+                self.assertEqual(self.after[k].get("address"), self.before[k].get("address"))
+        self.assertNotIn("Teignmouth", json.dumps(self.after["clevedon-district"]))
+        self.assertNotIn("07551", json.dumps(self.after["salvation-army/hove"].get("opening_times")))
+    def test_co_church_is_not_office_proof(self):
+        for a in ("c/o St Andrews Church, High Street, Inverurie", "C/O Orpington Baptist Church, Station Road", "c/o Community Hall, Main St"):
+            with self.subTest(a): self.assertFalse(G._office({"id": "x", "name": "X Foodbank", "address": a}))
+        for a in ("c/o 4 Chelsea Close, Nuneaton", "PO Box 9174", "Warehouse, Unit 2", "c/o Globe House, The Priory"):
+            with self.subTest(a): self.assertTrue(G._office({"id": "x", "name": "X Foodbank", "address": a}))
