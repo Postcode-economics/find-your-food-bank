@@ -187,7 +187,9 @@ def run(root=ROOT):
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
             # Batch 4 (27 Oct 2026): content-hash stamp (h + 12 hex of sha256), so the stamp only changes when the file does and
             # sw.js can serve these cache-first: new content -> new stamp in the (network-first) HTML -> new URL -> fresh copy.
-            s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=%s"></script>' % (m.group(1), content_stamp(root, m.group(1) + '.js')), s)
+            # Only the src value is rewritten; every other attribute on the tag (e.g. data-hm type="text/plain") is kept.
+            s = re.sub(r'(<script\b[^>]*\bsrc=")(data|stamp|access)\.js(?:\?v=[^"]*)?("[^>]*>\s*</script>)',
+                       lambda m: '%s%s.js?v=%s%s' % (m.group(1), m.group(2), content_stamp(root, m.group(2) + '.js'), m.group(3)), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))

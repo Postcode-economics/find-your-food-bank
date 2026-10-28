@@ -43,5 +43,7 @@ class WarpSW(unittest.TestCase):
         import seo_meta as SM
         h = (ROOT / 'index.html').read_text(encoding='utf-8')
         for f in ('data', 'stamp', 'access'):
-            self.assertIn('<script src="%s.js?v=%s"></script>' % (f, SM.content_stamp(str(ROOT), f + '.js')), h)
+            tags = re.findall(r'<script\b[^>]*\bsrc="%s\.js(?:\?v=[^"]*)?"[^>]*>' % f, h)
+            self.assertEqual(tags, [t for t in tags if 'src="%s.js?v=%s"' % (f, SM.content_stamp(str(ROOT), f + '.js')) in t], f)
+            self.assertEqual(len(tags), 1, (f, tags))
 if __name__ == '__main__': unittest.main()

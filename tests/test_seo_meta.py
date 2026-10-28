@@ -32,6 +32,16 @@ class T(unittest.TestCase):
         sm = open(os.path.join(self.d, 'sitemap.xml')).read()
         self.assertEqual(sm.count('<lastmod>2026-10-23</lastmod>'), len(ps)); self.assertIn('/faq.html', sm)
 
+    def test_stamp_keeps_other_attributes(self):
+        # batch 1 (#209) loads these as <script data-hm ... type="text/plain">; the content stamp must keep that form.
+        p = os.path.join(self.d, 'index.html'); s = open(p).read()
+        s = re.sub(r'<script src="(data|stamp|access)\.js\?v=[^"]*"></script>', r'<script data-hm src="\1.js?v=r20261001T0000" type="text/plain"></script>', s)
+        open(p, 'w').write(s); SM.run(self.d); SM.run(self.d)
+        home = open(p).read()
+        for f in ('data', 'stamp', 'access'):
+            self.assertEqual(home.count('<script data-hm src="%s.js?v=%s" type="text/plain"></script>' % (f, SM.content_stamp(self.d, f + '.js'))), 1, f)
+        self.assertNotIn('?v=r20261001T0000', home)
+
     def test_map_checked_line(self):
         SM.run(self.d); SM.run(self.d)
         fq = open(os.path.join(self.d, 'faq.html')).read(); tw = open(os.path.join(self.d, 'food-banks', 'x', 'index.html')).read()

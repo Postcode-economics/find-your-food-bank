@@ -37,14 +37,14 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
  if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
- const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
- if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
-   // Batch 4 (27 Oct 2026): data/stamp/access with a ?v=h<content hash> stamp are cache-first. The stamp is the file's own
-   // hash (seo_meta.content_stamp) and the HTML that names it is network-first, so a cached copy can never be an old one.
-   // Older stamped copies of the same file are dropped when a new one is saved. Unstamped requests stay network-first.
-   if(/(^|&)v=h[0-9a-f]{12}(&|$)/.test(u.search.slice(1))){e.respondWith(caches.open(C).then(async c=>{const hit=await c.match(e.request.url);if(hit)return hit;
+ // Batch 4 (27 Oct 2026): data/stamp/access with a ?v=h<content hash> stamp are cache-first. The stamp is the file's own
+ // hash (seo_meta.content_stamp) and the HTML that names it is network-first, so a cached copy can never be an old one.
+ // Older stamped copies of the same file are dropped when a new one is saved. Unstamped requests stay network-first.
+ if(/^\/(data|stamp|access)\.js$/.test(u.pathname)&&/(^|&)v=h[0-9a-f]{12}(&|$)/.test(u.search.slice(1))){const k=u.origin+u.pathname;e.respondWith(caches.open(C).then(async c=>{const hit=await c.match(e.request.url);if(hit)return hit;
      return fetch(e.request).then(async r=>{if(r.ok){const a=r.clone(),b=r.clone();const ks=await c.keys();await Promise.all(ks.filter(q=>{const x=new URL(q.url);return x.pathname===u.pathname&&x.search&&q.url!==e.request.url}).map(q=>c.delete(q)));await c.put(e.request.url,a);await c.put(k,b)}return r})
        .catch(async()=>{tell();return (await c.match(k))||Response.error()})}));return}
+ const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
+ if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
    e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}
  if(e.request.mode==='navigate'){e.respondWith(fetch(e.request.url,{cache:'no-cache',credentials:'same-origin'}).then(put).catch(async()=>{tell();return (await caches.match(e.request,{ignoreSearch:true}))||(/^\/(index\.html)?$/.test(u.pathname)?await caches.match('index.html'):null)||Response.error()}));return}  // area pages (/food-banks/...) never get the map shell
  e.respondWith(caches.match(e.request).then(hit=>{const net=fetch(e.request).then(put);
