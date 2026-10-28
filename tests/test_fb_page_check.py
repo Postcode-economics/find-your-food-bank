@@ -6,7 +6,8 @@ class T(unittest.TestCase):
     def test_baseline_is_the_verified_pages_minus_2_removed_25oct(self):
         P = json.load(open(os.path.join(R, "overrides", "facebook_pages.json")))
         pages = {k: v for k, v in P.items() if not k.startswith("_")}
-        self.assertEqual(len(pages), 51); self.assertTrue(all(v.get("page_title") and v.get("url") for v in pages.values()))
+        added = {"heston-farm"}  # Dean 28 Oct 08:15: Facebook group was only in the website field
+        self.assertTrue(added <= set(pages)); self.assertEqual(len(pages), 51 + len(added)); self.assertTrue(all(v.get("page_title") and v.get("url") for v in pages.values()))
     def test_ok_changed_dead_unreachable(self):
         self.assertEqual(F.classify("Whitland Town Hall Community Food Bank", 200, pg("Whitland Town Hall Community Food Bank | Facebook"))[0], "ok")
         self.assertEqual(F.classify("Whitland Town Hall Community Food Bank", 200, pg("Cheap Watches Online"))[0], "changed")

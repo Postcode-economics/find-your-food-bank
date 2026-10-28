@@ -14041,6 +14041,25 @@
      "website": "A Church Near You All Saints Heath and St Albans Holmewood"
     }
    }
+  },
+  {
+   "kind": "fb_page",
+   "id": "heston-farm",
+   "field": "fb_page",
+   "old": null,
+   "new": "https://www.facebook.com/groups/940970613570584",
+   "source": "https://www.facebook.com/groups/940970613570584",
+   "note": "Dean approved 28 Oct 08:15: Facebook group was only in website, so the card's standard Facebook button never showed. Set via overrides/facebook_pages.json so the refresh keeps it. Group title read twice: 'Heston Farm Community Centre, Fenton House'.",
+   "at": "2026-10-28T08:20Z",
+   "undo": {
+    "set": {
+     "fb_page": null
+    },
+    "override": {
+     "file": "overrides/facebook_pages.json",
+     "delete_key": "heston-farm"
+    }
+   }
   }
  ],
  "flags": [
