@@ -5,6 +5,8 @@ HH:MM ranges, (c) postcode matches the UK format, (d) name not empty. The single
 Writes reports/validation.md + reports/validation.json. It never removes or blocks anything: new places are already
 held by publish_gate.py; only SEVERE failures block publishing (Dean 24 Oct, 'validate.py gate'): a data file that will not parse, or a count more than 10% below the last published run; everything else is a warning in the digest. postcodes.io lookups stay in build_outcodes.py."""
 import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import private_block
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 FILES = {"foodbanks": "data.full.js", "shelters": "shelters.js", "warmspaces": "warmspaces.js"}
 PC = re.compile(r"^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$")
@@ -32,22 +34,34 @@ def problems(i):
     return out
 def main():
     rep = {}
+    blocked = {}
     for k, f in FILES.items():
         p = os.path.join(ROOT, f)
         if not os.path.exists(p): continue
         s = open(p, encoding="utf-8").read()
         for i in json.loads(s[s.index("{"): s.rindex("}") + 1]).get("items", []):
+            if private_block.matches(i):
+                blocked[k] = blocked.get(k, 0) + 1
+                continue
             pr = problems(i)
             if pr: rep.setdefault(k, []).append(dict(id=i.get("id"), name=i.get("name"), phone=i.get("phone"), postcode=i.get("postcode"), problems=pr))
     json.dump(rep, open(os.path.join(ROOT, "reports", "validation.json"), "w"), indent=1, ensure_ascii=False)
     L = ["# Validation report (point 33)", "", "Report only - nothing is blocked or removed.", ""]
     for k, v in rep.items(): L += ["## %s (%d)" % (k, len(v)), ""] + ["- %s (`%s`): %s - phone %s, postcode %s" % (x["name"], x["id"], ", ".join(x["problems"]), x["phone"], x["postcode"]) for x in v] + [""]
+    if blocked:
+        L += ["## PRIVATE_BLOCKLIST", ""] + ["- %s: %d listing(s) matched (values not shown)" % (k, n) for k, n in blocked.items()] + [""]
+        for k, n in blocked.items(): print("%s: PRIVATE_BLOCKLIST matched %d listing(s)" % (k, n))
     open(os.path.join(ROOT, "reports", "validation.md"), "w", encoding="utf-8").write("\n".join(L)); return rep
 MAX_DROP = 0.10
 def count(text): return len(json.loads(text[text.index("{"): text.rindex("}") + 1]).get("items", []))
 def gate(now_text, last_text):
-    """Severe failures only (Dean 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}."""
+    """Severe failures only (Dean 24 Oct): {kind: (file, reason)}. now_text/last_text: {kind: text or None}.
+
+    Also fail closed when PRIVATE_BLOCKLIST is set and a listing matches (rule 9). The message
+    is a count and does not include the secret. See scripts/private_block.py for how the secret is set.
+    """
     bad = {}
+    secrets = private_block.entries()
     for k, f in FILES.items():
         t = now_text.get(k)
         if t is None: continue
@@ -56,6 +70,15 @@ def gate(now_text, last_text):
         try: last = count(last_text[k]) if last_text.get(k) else None
         except Exception: last = None
         if last and n < last * (1 - MAX_DROP): bad[k] = "%s count %d is more than 10%% below last published %d" % (f, n, last)
+        if secrets:
+            try:
+                items = json.loads(t[t.index("{"): t.rindex("}") + 1]).get("items", [])
+            except Exception:
+                items = []
+            hits = private_block.match_count(items, secrets)
+            if hits:
+                msg = "%s matches PRIVATE_BLOCKLIST (%d listing(s) not published)" % (f, hits)
+                bad[k] = (bad[k] + "; " + msg) if k in bad else msg
     return bad
 def gate_main():
     import subprocess
