@@ -159,9 +159,9 @@ jobs:
         if: always() && steps.seo.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py open seo "Area pages build failed" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
+        run: python scripts/alert.py open seo-foodbanks "Area pages build failed (food bank refresh)" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
       - name: Clear the area pages alert after a good build
         if: success() && steps.seo.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py resolve seo
+        run: python scripts/alert.py resolve seo-foodbanks
