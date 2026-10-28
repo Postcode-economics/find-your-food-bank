@@ -70,7 +70,7 @@ def test_bot4_browser_batch3():
     fx = {f["id"]: f for f in J("overrides/warmspaces_fixes.json")}
     assert "Hope Street East" in fx["ww-68506647"]["address"] and fx["ww-64432678"]["address"].startswith("Hollybrook")
     u = J("overrides/warmspaces_unverified.json")
-    assert u["ww-57951889"]["phone"] == "07821 153701" and u["ww-64432678"]["flag"]  # 07876 372274 is the vicar's personal mobile: reverted
+    assert u["ww-57951889"]["phone"] == "07821 153701" and u["ww-64432678"]["flag"]  # the vicar's personal mobile, withheld (private): reverted
     for i in ("ww-57951802", "ww-57952849", "ww-69175071", "ww-69068910", "ww-65437525", "ww-57951784", "ww-65441920"):
         assert u[i]["call_check"] is True and u[i]["flag"] and u[i]["sign_url"]
 
@@ -81,11 +81,12 @@ import copy, shutil, sys, tempfile
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 REBUILT = {  # id -> fields the rebuilt warmspaces.js must carry
     "ww-55473520": {"phone": "01606 42943"},          # St Helen's Northwich (feed: 0160 642 943)
-    "ww-57951889": {"phone": "07821 153701"},         # St Francis, Ingleby Barwick: the vicar's mobile 07876 372274 must never come back
+    "ww-57951889": {"phone": "07821 153701"},         # St Francis, Ingleby Barwick: the vicar's mobile, withheld (private), must never come back
     "ww-65438881": {"phone": "01623 677200"},         # Retford Library (Dean-approved 26 Oct library service line, #212; feed: none)
     "sbadc-the-hub-south-brent": {"scheme_dates": "Call before you go \u2013 closed for building works, due to reopen in November", "call_check": True},
 }
-FEED_REVERT = {"ww-55473520": {"phone": "0160 642 943"}, "ww-57951889": {"phone": "07876 372274"},
+# ww-57951889: a stand-in (Ofcom drama range) for the withheld private mobile the feed carries
+FEED_REVERT = {"ww-55473520": {"phone": "0160 642 943"}, "ww-57951889": {"phone": "07700 900461"},
                "ww-65438881": {"phone": ""}, "sbadc-the-hub-south-brent": {"scheme_dates": "Opens 1 Nov 2026"}}
 def _rebuild(ids, run="2026-10-28"):
     import common, seasonal, shelter_contacts, phone_lock

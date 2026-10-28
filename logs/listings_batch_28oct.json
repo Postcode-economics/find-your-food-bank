@@ -11481,15 +11481,15 @@
    "kind": "phone",
    "id": "ww-57951889",
    "field": "phone",
-   "old": "07876 372274",
+   "old": "withheld (private)",
    "new": "07821 153701",
    "source": "https://www.achurchnearyou.com/church/19363/get-in-touch/",
    "note": "reverted (warmspaces): phone changes go to Dean first",
    "at": "2026-10-28T07:00Z",
    "undo": {
     "set": {
-     "phone": "07876 372274",
-     "tel": "07876372274",
+     "phone": "withheld (private)",
+     "tel": "withheld (private)",
      "phone_checked": null,
      "phone_label": null
     }
@@ -13084,9 +13084,9 @@
    "id": "ww-57951889",
    "field": "phone",
    "old": "07821 153701",
-   "new": "07876 372274",
+   "new": "withheld (private)",
    "source": "https://www.achurchnearyou.com/church/19363/get-in-touch/",
-   "note": "applied (Dean 28 Oct 07:02): verify_own_page.py AUTO_APPLY on the church's own A Church Near You page, number on both reads: \"Stockton on Tees Get in touch 07876372274 Facilities More information Edit this ch\". Page labels it Vicar; flagged for Dean",
+   "note": "applied (Dean 28 Oct 07:02): verify_own_page.py AUTO_APPLY on the church's own A Church Near You page, number on both reads: \"Stockton on Tees Get in touch withheld (private) Facilities More information Edit this ch\". Page labels it Vicar; flagged for Dean",
    "at": "2026-10-28T07:30Z",
    "undo": {
     "set": {
@@ -14065,15 +14065,15 @@
    "kind": "phone",
    "id": "ww-57951889",
    "field": "phone",
-   "old": "07876 372274",
+   "old": "withheld (private)",
    "new": "07821 153701",
    "source": "https://www.achurchnearyou.com/church/19363/get-in-touch/",
-   "note": "reverted (review FAILED 28 Oct 2026): 07876 372274 came from achurchnearyou.com, a directory, and is the vicar's personal mobile; restored the previous value from the 07:30Z entry's undo. Never publish the mobile",
+   "note": "reverted (review FAILED 28 Oct 2026): the number (withheld (private)) came from achurchnearyou.com, a directory, and is the vicar's personal mobile; restored the previous value from the 07:30Z entry's undo. Never publish the mobile",
    "at": "2026-10-28T09:10Z",
    "undo": {
     "set": {
-     "phone": "07876 372274",
-     "tel": "07876372274",
+     "phone": "withheld (private)",
+     "tel": "withheld (private)",
      "phone_checked": null,
      "phone_label": null
     }
@@ -14862,6 +14862,75 @@
       "lat": 51.2372486,
       "lng": -1.6605277
      }
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/st-austell",
+   "field": "phone",
+   "old": "01726890174",
+   "new": "07827192126",
+   "source": "https://www.salvationarmy.org.uk/st-austell",
+   "note": "applied (review 28 Oct 10:07): 01726 890174 is the charity-shop manager's line; the corps's own number on its own page (2 reads 28 Oct 2026 10:0x/10:09Z): \"staustell@salvationarmy.org.uk Phone: 07827192126 Dan Searle Territorial Envoy\"",
+   "at": "2026-10-28T10:15Z",
+   "undo": {
+    "set": {
+     "phone": "01726890174",
+     "tel": "01726890174",
+     "phone_checked": true,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "family-food-bank/sunshine-cc",
+   "field": "phone",
+   "old": "01233500477",
+   "new": "03000417770",
+   "source": "https://www.familyfoodbank.org/maidstone-ffb.html",
+   "note": "reverted (review 28 Oct 10:07): back to main's 03000 417770, the hub's own line (2 reads 28 Oct 2026 10:0x/10:09Z): \"Southborough Family Hub, Stagshaw Close, Postley Road, Tovil ME15 6TL. Tel: 03000 417770\"; 01233 500477 is the Ashford head office. Same page as West Borough's 03000 419361; 'Food bank help line' label removed",
+   "at": "2026-10-28T10:15Z",
+   "undo": {
+    "set": {
+     "phone": "01233500477",
+     "tel": "01233500477",
+     "phone_checked": true,
+     "phone_label": "Food bank help line"
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "12-apostles",
+   "field": "phone_source",
+   "old": "https://www.12apostles.co.uk/foodbank",
+   "new": "https://www.12apostles.co.uk/",
+   "source": "https://www.12apostles.co.uk/",
+   "note": "applied (review 28 Oct 10:07): evidence URL is the church's own home page; number unchanged 01707 650147 (2 reads 28 Oct 2026 10:0x/10:09Z): \"please kindly call our church office on 01707 650147\"",
+   "at": "2026-10-28T10:15Z",
+   "undo": {
+    "set": {
+     "phone_source": "https://www.12apostles.co.uk/foodbank"
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "leominster",
+   "field": "phone",
+   "old": "07563000862",
+   "new": "07715410575",
+   "source": "https://www.leominsterfoodbank.org",
+   "note": "reverted (review 28 Oct 10:07): held for Dean (PHONES-FOR-DEAN.md, overrides/phone_holds.json); main's number restored",
+   "at": "2026-10-28T10:15Z",
+   "undo": {
+    "set": {
+     "phone": "07563000862",
+     "tel": "07563000862",
+     "phone_checked": true,
+     "phone_label": null
     }
    }
   }

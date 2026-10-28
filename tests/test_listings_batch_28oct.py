@@ -1,7 +1,19 @@
 """Listings batch #239 (28 Oct 2026): proven own-page fixes, labels, and Dean-approved removals. Undo log: logs/listings_batch_28oct.json."""
-import json, os, re, unittest
+import hashlib, json, os, re, unittest
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 def J(p): return json.load(open(os.path.join(ROOT, p), encoding="utf-8"))
+# Rejected private mobiles, withheld (private): only their SHA-256 is kept, so the digits are never written here.
+PRIVATE = {"63030b5b6e85b1afd14b06b1b94866550b716b59fdbacf3e567844dbe308c997": "St Francis Ingleby Barwick vicar's mobile (ww-57951889)",
+           "53a587188e81b35d3fc8389fe0ac3887ed42e3c0c5f9538f462ff63c5b8c7ab9": "Lambourn Lunch Club volunteer's mobile (ww-65437319)"}
+def private_in(text, private=PRIVATE):
+    """Labels of the private numbers found in text, however the digits are spaced or prefixed."""
+    found = set()
+    for m in re.finditer(r"(?:\+44|0)(?:[\s()-]{0,2}\d){9,11}", text):
+        d = re.sub(r"\D", "", m.group(0)); d = "0" + d[2:].lstrip("0") if d.startswith("44") else d
+        for n in {d, d[:11]}:
+            h = hashlib.sha256(n.encode()).hexdigest()
+            if h in private: found.add(private[h])
+    return found
 def items():
     t = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read()
     return {i["id"]: i for i in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
@@ -44,10 +56,10 @@ class Fixes(unittest.TestCase):
         d = items(); dg = lambda s: re.sub(r"\D", "", s or "")
         # Dean 28 Oct 07:02: own-site confirmed phones are applied (verify_own_page.py AUTO_APPLY), each with its source URL and an undo.
         exp = {"scunthorpe/epworth-baptist-church": ("01427875839", "03001028061"), "aberdeen-south": ("07360162919", "01224569750"),
-               "leominster": ("07715410575", "07563000862"), "3food4u": ("01992842642", "07973166940"), "st-monicas": ("02077989025", "02088869568"),
-               "salvation-army/alton": ("0142084456", "01420541778"), "salvation-army/st-austell": ("0172661791", "01726890174"),
+               "3food4u": ("01992842642", "07973166940"), "st-monicas": ("02077989025", "02088869568"),
+               "salvation-army/alton": ("0142084456", "01420541778"),
                "stroud-district/dursley": ("03001023254", "01453367077"), "rickmansworth/abbots-langley": ("03442451296", "07716856892"),
-               "shepway/lydd": ("01797320345", "07913573403"), "12-apostles": ("07846096432", "01707650147")}
+               "shepway/lydd": ("01797320345", "07913573403")}  # St Austell, 12 Apostles, Leominster: see Review28Oct
         L = J("logs/listings_batch_28oct.json")["changes"]
         B = J("overrides/phone_baseline.json")["listings"]; O = J("overrides/phones.json"); S = J("overrides/phone_sources.json")
         for i, (old, new) in exp.items():
@@ -77,7 +89,7 @@ class Fixes(unittest.TestCase):
         self.assertEqual(dg(S["osm-way-169564851"]["phone"]), "01904553626")  # James House, Dean approved
         self.assertFalse(W["ww-68618605"].get("phone"))  # Bruton council switchboard removal, Dean approved
         self.assertEqual(dg(S["osm-way-556071354"]["phone"]), "01414181955")  # Talbot Association own page
-        self.assertNotIn("07876372274", dg(json.dumps(W["ww-57951889"])))  # St Francis: vicar's personal mobile (directory page) is NOT on the listing
+        self.assertFalse(private_in(json.dumps(W["ww-57951889"])))  # St Francis: vicar's personal mobile (directory page) is NOT on the listing
         self.assertEqual((dg(W["ww-57951889"]["phone"]), dg(W["ww-57951889"]["tel"])), ("07821153701", "07821153701"))  # undo value restored
         self.assertEqual(J("overrides/phone_baseline.json")["listings"]["ww-57951889"]["phone"], "07821 153701")
         self.assertTrue([l for l in J("logs/listings_batch_28oct.json")["changes"] if l["id"] == "ww-57951889" and l["kind"] == "phone" and l["note"].startswith("reverted (review FAILED") and l["new"] == "07821 153701"])
@@ -171,7 +183,7 @@ class FaultScan28Oct(unittest.TestCase):
     """Fault scan 28 Oct: only verify_own_page.py AUTO_APPLY rows applied, each with source URL and undo."""
     def test_phones(self):
         d = items(); L = J("logs/listings_batch_28oct.json")["changes"]; S = J("overrides/phone_sources.json")
-        for i, n, old in (("quex-road", "02076241701", "02077989025"), ("wansbeck-valley/ymca", "01670943014", "01670857167"), ("family-food-bank/sunshine-cc", "01233500477", "03000417770")):
+        for i, n, old in (("quex-road", "02076241701", "02077989025"), ("wansbeck-valley/ymca", "01670943014", "01670857167")):  # Sunshine CC: reverted, see Review28Oct
             self.assertEqual(d[i]["phone"], n, i); self.assertEqual(J("overrides/phone_baseline.json")["listings"][i]["phone"], n, i)
             self.assertTrue(d[i]["phone_label"]); self.assertTrue(S[i]["source"].startswith("http"), i)
             self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "phone" and l["new"] == n and l["undo"]["set"]["phone"] == old], i)
@@ -204,3 +216,51 @@ class FaultScan28Oct(unittest.TestCase):
         x = [{"id": "a", "website": "We do not have a website"}, {"id": "b", "website": "undefined"}, {"id": "c", "website": "www.example.org/x"}, {"id": "d", "website": "https://a.b/c?d=1"}]
         self.assertEqual([i for i, _ in ws_website.clean(x)], ["a", "b"]); self.assertEqual(x[2]["website"], "www.example.org/x")
         self.assertIn("ws_website.clean(items)", open(os.path.join(ROOT, "scripts", "build_warmspaces.py")).read())
+class Review28Oct(unittest.TestCase):
+    """Review of #239 (28 Oct 10:07): St Austell, Southborough, 12 Apostles, Leominster, and no rejected private mobile anywhere."""
+    def setUp(self):
+        self.d = items(); self.L = J("logs/listings_batch_28oct.json")["changes"]; self.B = J("overrides/phone_baseline.json")["listings"]
+        self.O = J("overrides/phones.json"); self.S = J("overrides/phone_sources.json")
+    dg = staticmethod(lambda s: re.sub(r"\D", "", s or ""))
+    def last(self, i, field="phone"):
+        return [l for l in self.L if l["id"] == i and l["kind"] == "phone" and l["field"] == field][-1]
+    def shown(self, i, n):
+        x = self.d[i]
+        self.assertEqual((self.dg(x["phone"]), self.dg(x["tel"]), self.dg(self.B[i]["phone"]), self.dg(self.B[i]["tel"])), (n, n, n, n), i)
+    def test_st_austell_corps_number_not_the_charity_shop(self):
+        i = "salvation-army/st-austell"; self.shown(i, "07827192126")
+        self.assertEqual((self.dg(self.O[i]), self.S[i]["source"]), ("07827192126", "https://www.salvationarmy.org.uk/st-austell"))
+        self.assertIn("Phone: 07827192126", self.S[i]["note"]); self.assertIn("charity-shop manager", self.S[i]["note"])
+        e = self.last(i); self.assertEqual((e["old"], e["new"], e["undo"]["set"]["phone"]), ("01726890174", "07827192126", "01726890174"))
+    def test_southborough_back_to_the_hubs_own_line(self):
+        i, w = "family-food-bank/sunshine-cc", "family-food-bank/west-borough-cc"
+        self.shown(i, "03000417770"); self.shown(w, "03000419361")
+        self.assertFalse(self.d[i].get("phone_label")); self.assertNotIn(i, J("overrides/phone_labels.json"))
+        page = "https://www.familyfoodbank.org/maidstone-ffb.html"
+        self.assertEqual((self.S[i]["source"], self.S[w]["source"]), (page, page))  # both hubs' numbers from the same own page
+        self.assertIn("Tel: 03000 417770", self.S[i]["note"])
+        e = self.last(i); self.assertTrue(e["note"].startswith("reverted")); self.assertEqual((e["new"], e["undo"]["set"]["phone"]), ("03000417770", "01233500477"))
+        self.assertEqual(e["undo"]["set"]["phone_label"], "Food bank help line")
+    def test_12_apostles_evidence_is_the_home_page(self):
+        i = "12-apostles"; self.shown(i, "01707650147"); self.assertEqual(self.dg(self.O[i]), "01707650147")
+        self.assertEqual(self.S[i]["source"], "https://www.12apostles.co.uk/"); self.assertIn("01707 650147", self.S[i]["note"])
+        e = self.last(i, "phone_source"); self.assertEqual((e["new"], e["undo"]["set"]["phone_source"]), ("https://www.12apostles.co.uk/", "https://www.12apostles.co.uk/foodbank"))
+    def test_leominster_held_for_dean(self):
+        i = "leominster"; self.shown(i, "07715410575")  # main's number
+        self.assertNotIn(i, self.O); self.assertNotIn(i, self.S)
+        h = J("overrides/phone_holds.json")[i]; self.assertEqual(self.dg(h["phone"]), "07563000862"); self.assertIn("Dean", h["reason"])
+        e = self.last(i); self.assertTrue(e["note"].startswith("reverted")); self.assertEqual((e["new"], e["undo"]["set"]["phone"]), ("07715410575", "07563000862"))
+        self.assertIn("| `leominster` ", open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read())
+        self.assertIn("HELD `leominster`", open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read())
+    def test_private_mobiles_withheld_everywhere(self):
+        demo = {"658163460ccdae4ea76abe5608181e9a9124542efc32c36cb1314fbe01b59d0e": "stand-in"}  # 07700 900461, Ofcom drama range: the check itself works
+        for t in ("call 07700 900 461", "+44 7700 900461", "+44 (0)7700-900461", "tel:07700900461"): self.assertEqual(private_in(t, demo), {"stand-in"}, t)
+        self.assertFalse(private_in("07700 900462", demo))
+        files = ["data.full.js", "data.js", "warmspaces.js", "shelters.js", "PHONES-FOR-DEAN.md", "HANDOFF-239.md", "reports/pending_dean.md",
+                 "logs/listings_batch_28oct.json", "export/warmspaces.csv", "export/warmspaces.json"]
+        files += ["overrides/" + f for f in os.listdir(os.path.join(ROOT, "overrides")) if f.endswith(".json")]
+        files += ["tests/" + f for f in os.listdir(os.path.join(ROOT, "tests")) if f.endswith(".py")]
+        for f in files:
+            self.assertFalse(private_in(open(os.path.join(ROOT, f), encoding="utf-8").read()), f)
+        self.assertIn("withheld (private)", open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read())
+        self.assertTrue([l for l in self.L if l["id"] == "ww-57951889" and l["old"] == "withheld (private)"])

@@ -620,15 +620,10 @@
  },
  "12-apostles": {
   "phone": "01707650147",
-  "source": "https://www.12apostles.co.uk/foodbank",
+  "source": "https://www.12apostles.co.uk/",
   "checked": "2026-10-28",
-  "note": "own page, identical on 2 reads (verify_own_page.py AUTO_APPLY); quote: dly call our church office on 01707 650147. The team will do everything they can t"
- },
- "leominster": {
-  "phone": "07563000862",
-  "source": "https://www.leominsterfoodbank.org",
-  "checked": "2026-10-28",
-  "note": "own page, identical on 2 reads (verify_own_page.py AUTO_APPLY); quote: fer you, please phone or text 07563 000862 to find out how to get a referral. Don’t"
+  "note": "own site: the church's own home page, identical on 2 reads 28 Oct 2026 10:0x/10:09Z; quote: please kindly call our church office on 01707 650147. The team will do everything they can to help",
+  "own_page": true
  },
  "lords-larder": {
   "phone": "07940525863",
@@ -865,10 +860,11 @@
   "note": "own page, identical on 2 reads (verify_own_page.py AUTO_APPLY); quote: 1 Stonard Road London N13 4DJ 020 8886 9568 palmersgreen@rcdow.org.uk https://parish"
  },
  "salvation-army/st-austell": {
-  "phone": "01726890174",
+  "phone": "07827192126",
   "source": "https://www.salvationarmy.org.uk/st-austell",
   "checked": "2026-10-28",
-  "note": "own page, identical on 2 reads (verify_own_page.py AUTO_APPLY); quote: e Harris Charity Shop Manager 01726 890174 ← Move left → Move right ↑ Move up ↓ Mov"
+  "own_page": true,
+  "note": "own site: the corps's own contact block, identical on 2 reads 28 Oct 2026 10:0x/10:09Z (review 28 Oct: 01726 890174 on the same page is the charity-shop manager's line, not the corps); quote: staustell@salvationarmy.org.uk Phone: 07827192126 Dan Searle Territorial Envoy"
  },
  "bournemouth/citygate-community-hub": {
   "phone": "01202394505",
@@ -1081,10 +1077,11 @@
   "note": "own page, identical on 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)); quote: sbeckvalleyfoodbank.or g Tel: 01670 943014 Registered Charity No. 1177303 Menu Welc"
  },
  "family-food-bank/sunshine-cc": {
-  "phone": "01233 500477",
-  "source": "https://www.familyfoodbank.org",
+  "phone": "03000417770",
+  "source": "https://www.familyfoodbank.org/maidstone-ffb.html",
   "checked": "2026-10-28",
-  "note": "own page, identical on 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)); quote: Ashford, Kent, TN24 0FE Tel: 01233 500477 Email: familyfoodbank@children-families."
+  "own_page": true,
+  "note": "own site: the hub's own line on the Maidstone Family Food Bank page, identical on 2 reads 28 Oct 2026 10:0x/10:09Z (review 28 Oct: 01233 500477 is Family Food Bank's Ashford head office); quote: Southborough Family Hub, Stagshaw Close, Postley Road, Tovil ME15 6TL. Tel: 03000 417770"
  },
  "salvation-army/aberystwyth": {
   "phone": "07774 625842",
