@@ -208,7 +208,7 @@ def pin_phone_reasons(u, pins, new, centre=None, own_sites=None):
     why = []
     targets, scope = phone_targets(pins)
     if scope: why.append(scope)
-    for i in pins:
+    for i in [i for i in pins if i.get('type', 'foodbank') == 'foodbank']:  # the only pins a site-level number may reach
         line = (centre or {}).get(i.get('id'))
         if line and new not in line['phones']:
             why.append("centre's own line on own locations page differs (%s: %s)" % (i.get('id'), ', '.join(line['phones']))); break
