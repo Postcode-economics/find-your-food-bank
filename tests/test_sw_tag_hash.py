@@ -104,7 +104,7 @@ class StaleWorker(unittest.TestCase):
         holder['sw'] = None
         before = len(loads)
         pg.goto(BASE + '/?nocount', wait_until='load')
-        self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v93') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
+        self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v94') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
                         pg.evaluate('async () => await caches.keys()'))
         self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
         pg.wait_for_timeout(3000)
@@ -265,7 +265,7 @@ class OfflineAfterHeal(unittest.TestCase):
                 self.assertTrue(O.until(pg, "async () => (await caches.keys()).includes('fyfb-v90')", 30), 'old worker not installed')
                 body['sw'] = None; n = len(loads)
                 pg.goto(url, wait_until='domcontentloaded')
-                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v93') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
+                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v94') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
                 self.assertTrue(O.until(pg, PAINT, 30), 'no map after heal')
                 pg.wait_for_timeout(2500)
                 self.assertEqual(len(loads) - n, 2, loads[n:])  # the visit + exactly one heal reload
