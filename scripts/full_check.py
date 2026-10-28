@@ -31,6 +31,12 @@ import discover
 import phone_lock  # frozen listing numbers are never auto-changed (Dean, 27 Oct 2026)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
+def report_root():
+    """Directory whose reports/ folder this run writes. Tests point REP at a temp folder."""
+    rep = os.path.normpath(REP)
+    if os.path.basename(rep) == "reports":
+        return os.path.dirname(rep)
+    return ROOT
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
@@ -743,7 +749,7 @@ def main():
                 if d['action'] == 'show':
                     # Phone changes are never AUTO_APPLY, including a number the strict gate would have allowed.
                     for i in targets:
-                        hold_phone_for_dean(i, new, r.get('final_url') or '', ROOT, name)
+                        hold_phone_for_dean(i, new, r.get('final_url') or '', report_root(), name)
                     flag(u, 'phone fix held (never auto-applied)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='phone changes are never auto-applied')
                 else:
                     flag(u, 'phone held', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note=d['reason'])
@@ -792,7 +798,7 @@ def main():
     signal_brake(False)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     applied_phones = []
-    apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)
+    apply_phone_fixes(by_site, fixes, flag, report_root(), applied=applied_phones)
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): log_phone_changes(applied_phones)
     for u, f in applied_phones:
         # PR 204 owns confidence_for and the decision to hold a phone. This log only records a number that was written.

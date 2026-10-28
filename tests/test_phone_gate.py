@@ -110,7 +110,7 @@ class Wiring(unittest.TestCase):
 
     def test_undone_fixes_are_dropped_and_every_write_is_logged(self):
         self.assertIn("fixes = {u: f for u, f in fixes.items() if undone.get(u) != f.get('new')}", self.main)
-        a = self.main.index("apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)")
+        a = self.main.index("apply_phone_fixes(by_site, fixes, flag, report_root(), applied=applied_phones)")
         self.assertIn("log_phone_changes(applied_phones)", self.main[a:a + 300])
 
     def test_undo_log_is_published_and_merge_safe(self):
