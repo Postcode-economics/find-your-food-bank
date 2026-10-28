@@ -197,21 +197,42 @@ def snapshot(s, today, top=200):
     s["history"] = (s["history"] + [{"day": today, "reward": dict(sorted(pr.items(), key=lambda x: -x[1])[:top])}])[-14:]
 
 def digest_lines(s, today, n=5):
-    """'What the system learned' section for reports/morning_digest.md."""
+    """Plain-English 'What the system learned' for the morning note. Same facts as before."""
     K = s["keys"]; L = ["## What the system learned", ""]
-    if not K: return L + ["- nothing yet (first runs build the history)", ""]
+    if not K: return L + ["- Nothing has been learned yet. The first checks will start the record.", ""]
     h = s.get("history", []); prev = h[-2]["reward"] if len(h) >= 2 else {}
     now = {k: reward(e, today) for k, e in K.items()}
     mv = sorted(((now[k] - prev.get(k, 0.5), k) for k in now if k in prev), reverse=True)
     up = [x for x in mv if x[0] > 0.001][:n]; down = [x for x in mv[::-1] if x[0] < -0.001][:n]
     found = sorted((k for k, e in K.items() if e.get("last_find") == today), key=lambda k: -now[k])[:n]
     back = sorted((k for k, e in K.items() if resting(e, today)), key=lambda k: -K[k]["consec_fail"])[:n]
-    L += ["- Checks recorded so far: %d across %d sources/places" % (s.get("total_checks", 0), len(K))]
-    L += ["- Top movers up: " + (", ".join("%s (+%.2f)" % (k, d) for d, k in up) or "none")]
-    L += ["- Top movers down: " + (", ".join("%s (%.2f)" % (k, d) for d, k in down) or "none")]
-    L += ["- Sources/places with useful finds today: " + (", ".join(found) or "none")]
-    L += ["- Backing off (repeated failures, retried within %d days): " % FLOOR_DAYS + (", ".join("%s (%d fails)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
+    L += ["- So far the sweeps have made %d checks across %d sources and places." % (s.get("total_checks", 0), len(K))]
+    L += ["- Moved up the queue, because recent checks found more: " + (", ".join("%s (score up by %.2f)" % (k, d) for d, k in up) or "none")]
+    L += ["- Moved down the queue, because recent checks found less: " + (", ".join("%s (score down by %.2f)" % (k, abs(d)) for d, k in down) or "none")]
+    L += ["- Places that turned up something useful today: " + (", ".join(found) or "none")]
+    L += ["- Waiting a little longer after several failed checks (still looked at at least every %d days): " % FLOOR_DAYS
+          + (", ".join("%s (failed %d times in a row)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
     return L
+
+PRUNE_DAYS = 90
+
+def prune(s, today, seen, days=PRUNE_DAYS):
+    """Forget scores for keys that are not in this run's list and were last checked at least `days` ago.
+    No last_check: kept, because the age would be a guess. An empty seen list prunes nothing.
+    A tombstone records the key, the last day and the word pruned. The map is not touched.
+    A later check of that key starts again as a new key."""
+    if not seen: return s
+    seen = set(seen); tomb = list(s.get("tombstones") or [])
+    for k, e in list((s.get("keys") or {}).items()):
+        if k in seen: continue
+        last = e.get("last_check")
+        if not last: continue
+        age = _days(last, today)
+        if age < days or age >= 10 ** 5: continue
+        tomb.append({"key": k, "last_day": str(last)[:10], "reason": "pruned"})
+        del s["keys"][k]
+    s["tombstones"] = tomb[-200:]
+    return s
 
 def try_auto_phone(item, proposed, source, root=None, via="learning"):
     """Learning / auto-apply writer for one listing phone.

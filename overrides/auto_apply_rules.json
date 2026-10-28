@@ -23,6 +23,8 @@
   "new places",
   "permanent closures (pin kept with card note)"
  ],
+ "times_auto_apply": true,
+ "times_auto_apply_why": "Dean 27 Oct 2026 07:20 GMT: on, strict. Finder times go on the map only when ALL hold: postcode matched on the page; identical times on 2 separate runs; organisation's own site; no hours conflict; not known times -> closed/empty (plus the older one-block/donation/copy/protected/skip checks). Each change logged to reports/times_auto_applied.json; undo with scripts/times_revert.py <id>. Set false to hold everything for Dean. Anything unclear stays in reports/pending_dean.md. Dean 27 Oct 2026 12:12 GMT: if times cannot be found or read, the stored listing stays exactly as it is (no blank, no closed, no pending row). Dean 27 Oct 2026 12:13 GMT: a stored phone that differs from the site phone is not an hours conflict; only a second, different hours table is. The phone fix stays held on the phone path. Strict form also requires the day on the same line as its times on that page (discover.day_same_line), and every auto-applied change is listed in reports/pending_dean.md for review.",
  "phone_rule": {
   "show_verified_own_page": true,
   "named_or_personal_is_not_a_reason_to_hold": true,

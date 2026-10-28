@@ -489,7 +489,9 @@ def main():
         LS.setdefault('change_counts', []); LS['change_counts'] = (LS['change_counts'] + [{'day': DAY, 'changes': n_applied}])[-30:]
     elif brake['stop']:
         LS['anomaly'] = dict(brake, day=DAY)
-    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
+        learning.prune(LS, DAY, sites)
+        learning.snapshot(LS, DAY); learning.save(LS)
     if brake['stop']:
         os.makedirs(REP, exist_ok=True)
         open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write('# Stopped\n\n%s\n\nNothing from this run was published.\n' % brake['reason'])
