@@ -66,7 +66,7 @@ class Decide(unittest.TestCase):
         """Dean 28 Oct 2026: the daily sweep auto-applies food bank times (the intended feature); only address and phone
         changes wait for him. It must say so, publish what it applies with the undo log, and test before it pushes."""
         w = open(os.path.join(R, ".github", "workflows", "sweep-daily.yml")).read()
-        self.assertIn("python scripts/times_finder.py --render", w)
+        self.assertIn("python scripts/times_finder.py --render", w); self.assertNotIn("times_finder.py --apply", w)
         step = w[w.rindex("- name:", 0, w.index("times_finder.py --render")):w.index("times_finder.py --render")]
         self.assertNotRegex(step.lower(), r"review only|never applied")
         self.assertIn("auto-apply", step); self.assertIn("strict times rules", step); self.assertIn("2 runs", step)
