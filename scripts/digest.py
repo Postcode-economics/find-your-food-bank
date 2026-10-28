@@ -5,7 +5,7 @@ Immediate alerts (GitHub issue via alert.py, the existing mechanism):
   (4) weather/flood: Met Office amber/red or severe flood warning (point 27, reports/weather.json)
   (3) a source's quality score dropped (point 8, scripts/source_score.py: more than 15 points below its usual level)
   Sources disappearing are already alerted by fill_rates.py (0% / sharp drop).
-Everything else goes in reports/morning_digest.md. Never fails the job."""
+Everything else goes in reports/morning_digest.md. Fails the step if the digest can't be built or an alert can't be raised."""
 import datetime, json, os, statistics, subprocess, sys
 sys.path.insert(0, os.path.dirname(__file__)); import source_score, learning
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -14,6 +14,12 @@ ST = P("logs", "digest_state.json"); MD = P("reports", "morning_digest.md")
 def rj(p, d):
     try: return json.load(open(p))
     except Exception: return d
+def london_label(now):
+    """Clock time in Europe/London for the morning note. The scheduled cron lines are not moved."""
+    from zoneinfo import ZoneInfo
+    if now.tzinfo is None: now = now.replace(tzinfo=datetime.timezone.utc)
+    loc = now.astimezone(ZoneInfo("Europe/London"))
+    return loc.strftime("%A %d %B %Y, %H:%M %Z")
 def triggers(state, history, dups, since, weather=None):
     al = []
     closed = [c for v in history.values() for c in v if c.get("label", "").startswith("real closure") and c.get("when", "") >= since]
@@ -34,7 +40,7 @@ def main(now=None):
     errs = rj(P("reports", "source_errors.json"), {}).get("errors", [])
     hist = rj(P("logs", "entry_history.json"), {}); recent = [c for v in hist.values() for c in v if c.get("when", "") >= since]
     sw = rj(P("logs", "swep_tracker.json"), {}).get("days", {}); swl = sw[max(sw)]["still_to_check"] if sw else None
-    L = ["# Morning digest - %s" % now.date(), "", "## Alerts this run", ""] + (["- **%s**: %s" % (t, b) for _, t, b in al] or ["- none"]) + ["",
+    L = ["# Morning digest - %s" % now.date(), "", "London time: %s. The check clock is unchanged." % london_label(now), "", "## Alerts this run", ""] + (["- **%s**: %s" % (t, b) for _, t, b in al] or ["- none"]) + ["",
          "## Everything else", "", "- Changes since last run: %d (%d new, %d removed, %d field updates)" % (len(recent), sum(c["change"] == "added" for c in recent), sum(c["change"] == "removed" for c in recent), sum(c["change"] not in ("added", "removed") for c in recent)),
          "- Likely duplicates on the map: %d (reports/duplicates.md)" % likely,
          "- Weather/flood warnings: %d (reports/weather.md)" % len(rj(P("reports", "weather.json"), {}).get("warnings", [])),
@@ -49,9 +55,13 @@ def main(now=None):
     except Exception as e: L += ['- learning signals unavailable: %r' % e, '']
     open(MD, "w", encoding="utf-8").write("\n".join(L))
     if os.environ.get("GITHUB_ACTIONS"):
-        for k, t, b in al: subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b])
+        failed = [k for k, t, b in al if subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b]).returncode != 0]
+        # state is not advanced, so the next run raises the same alerts again
+        if failed: raise RuntimeError("alert.py could not raise: " + ", ".join(failed))
     state["dups"] = (state.get("dups", []) + [likely])[-30:]; state["last_run"] = now.isoformat(timespec="seconds")
     json.dump(state, open(ST, "w"), indent=1); return al
 if __name__ == "__main__":
     try: print("digest alerts:", [a[0] for a in main()])
-    except Exception as e: print("digest failed (not fatal):", e)
+    except Exception as e:
+        print("::error::digest failed: %s: %s" % (type(e).__name__, e), file=sys.stderr)
+        sys.exit(1)

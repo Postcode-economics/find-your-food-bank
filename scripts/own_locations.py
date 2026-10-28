@@ -1,5 +1,8 @@
 """Own-site locations pages (overrides/own_location_pages.json) -> food bank location pins.
-The page is the authority: matched Give Food pins take the page's address/postcode/times, missing centres are added
+Each centre block's own phone line is kept in the snapshot under "_centre_phones" (pin id -> phones, matched by postcode);
+full_check holds any other proposed number for that pin. An entry with "phones_only": true is read only for those lines.
+The page is the authority: matched Give Food pins take the page's address/postcode (their times change only through discover.times_gate_apply,
+which reads this page), missing centres are added
 (snapshot in overrides/foodbank_own_pages.json, read by classify.add_extra_locations), Give Food pins not on the page are dropped.
 opening_times uses the same schema as overrides/opening_times.json: {checked_date, raw, source_url, status, structured{mon..sun:[[HH:MM,HH:MM]]}}."""
 import datetime, html, json, os, re, urllib.request
@@ -20,8 +23,12 @@ def parse(page):
     for k, x in enumerate(L):
         if x != "Opening times": continue
         j = k - 1
-        while j > 0 and (re.match(r"^[\d ]{10,}$", x := L[j]) or "@" in L[j] or "[email" in L[j]): j -= 1
+        while j > 0 and (re.match(r"^[\d ]{10,}[,.;]?$", x := L[j]) or "@" in L[j] or "[email" in L[j]): j -= 1
         name = L[j].strip(); m = k + 1; rows = {}; raw = "Opening times "
+        phones = []  # the centre's own line(s), between its name and "Opening times"
+        for y in L[j + 1:k]:
+            d = re.sub(r"\D", "", y)
+            if re.match(r"^[\d ]{10,}[,.;]?$", y) and len(d) == 11 and d[0] == "0" and d not in phones: phones.append(d)
         for d in DAYS:
             if m + 1 >= len(L) or L[m] != d: break
             v = L[m + 1]; raw += "%s %s " % (d, v); m += 2
@@ -38,8 +45,23 @@ def parse(page):
             for a in addr:
                 a = PC.sub("", a.upper()) and re.sub(PC.pattern, "", a, flags=re.I).strip(" ,")
                 if a and a not in parts: parts.append(a)
-            out.append({"name": name, "address": ", ".join(parts + [pc]), "postcode": pc, "raw": raw, "structured": rows})
+            out.append({"name": name, "address": ", ".join(parts + [pc]), "postcode": pc, "raw": raw, "structured": rows, "phones": phones})
     return out
+
+CENTRE_PHONES = "_centre_phones"  # snapshot key: pin id -> the centre's own line(s) on its organisation's locations page
+
+def record_centre_phones(snap, parent, url, cs, pins, today):
+    """Save each centre block's phone(s) against the pin it matches by postcode (any pin of this food bank,
+    including the food bank pin). The previous record for this parent is replaced. Pins are not changed."""
+    keep = {k: v for k, v in (snap.get(CENTRE_PHONES) or {}).items() if v.get("parent") != parent}
+    norm = lambda pc: (pc or "").replace(" ", "").upper()
+    for x in cs:
+        if not x.get("phones"): continue
+        for i in pins:
+            if norm(i.get("postcode")) == norm(x["postcode"]):
+                keep[i["id"]] = {"parent": parent, "centre": x["name"], "postcode": x["postcode"], "phones": x["phones"],
+                                 "source_url": url, "checked_date": today}
+    snap[CENTRE_PHONES] = keep
 
 def slug(s): return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", s.lower().replace("'", ""))).strip("-")
 
@@ -55,6 +77,8 @@ def all_closed(raw):
     """True when the page lists all seven days, every one 'Closed' (e.g. a paused Coventry centre)."""
     return bool(raw) and bool(ALL_CLOSED_RE.match(raw.strip()))
 
+def _sig(ot): return json.dumps((ot or {}).get("structured") if isinstance(ot, dict) else None, sort_keys=True)
+
 def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
     """Mutates items. Returns a log dict. Never raises."""
     today = (today or datetime.date.today()).isoformat()
@@ -67,6 +91,11 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
         except Exception as e: cs = []; log[parent] = {"status": "fetch failed: %r" % e}
         if len(cs) < c.get("min_centres", 1):
             log.setdefault(parent, {"status": "parsed only %d centres" % len(cs)}); log[parent]["kept_snapshot"] = True; continue
+        record_centre_phones(snap, parent, c["url"], cs, [i for i in items if i["id"].split("/")[0] == parent], today)
+        if c.get("phones_only"):  # read for the centres' own lines only: names, addresses, times and pins stay as they are
+            log[parent] = {"status": "ok (phones only)", "url": c["url"], "centres": len(cs),
+                           "centre_phones": sorted(k for k, v in snap[CENTRE_PHONES].items() if v.get("parent") == parent)}
+            continue
         gf = [i for i in items if i["type"] == "location" and i["id"].split("/")[0] == parent]
         try: ll = geo(sorted({x["postcode"] for x in cs}))
         except Exception: ll = {}
@@ -86,7 +115,12 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
             hit = pairs.get(id(x))
             if hit:
                 matched.append(hit["id"])
-                hit.update(name=x["name"], address=x["address"], postcode=x["postcode"], opening_times=ot)
+                hit.update(name=x["name"], address=x["address"], postcode=x["postcode"])
+                # The stored times stay. Only discover.times_gate_apply may change them (2 identical runs, log, undo);
+                # pointing the stored times at this page makes the gate read exactly this page for the centre.
+                old = hit.get("opening_times")
+                if isinstance(old, dict) and not old.get("source_url"): old["source_url"] = c["url"]
+                if ot and _sig(ot) != _sig(old): log.setdefault(parent, {}).setdefault("times_for_gate", []).append(hit["id"])
                 if ot is None and all_closed(x["raw"]): hit["_own_all_closed"] = {"checked_date": today, "raw": x["raw"], "source_url": c["url"]}
                 if x["postcode"] in ll: hit["lat"], hit["lng"] = ll[x["postcode"]]
                 continue
@@ -97,6 +131,7 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
             added.append(k)
         dropped = [i["id"] for i in gf if i["id"] not in used]
         items[:] = [i for i in items if i["id"] not in set(dropped)]
-        log[parent] = {"status": "ok", "url": c["url"], "centres": len(cs), "matched": matched, "added": added, "dropped_not_on_page": dropped}
+        log[parent] = {"status": "ok", "url": c["url"], "centres": len(cs), "matched": matched, "added": added, "dropped_not_on_page": dropped,
+                       "times_for_gate": (log.get(parent) or {}).get("times_for_gate", [])}
     json.dump(snap, open(sp, "w"), indent=1, ensure_ascii=False)
     return log

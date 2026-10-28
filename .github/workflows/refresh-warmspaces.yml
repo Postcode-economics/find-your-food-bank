@@ -63,15 +63,26 @@ jobs:
         run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/pending_dean.json reports/pending_dean.md
+          bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/warmspaces_carry_forward.json reports/warmspaces_carry_forward.md logs/warmspaces_area_carry_forward.json logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily Warm spaces refresh $(date -u +%F)"
+          # Guard (27 Oct 21:06 run 40583907794): a tracked file a step rewrote but the add list missed left the tree dirty,
+          # so 'git pull --rebase' refused 3 times. Print it, then stash it so the pull can run; --autostash covers later rebuilds.
+          in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
+          git status
+          # Untracked too: a file this run wrote but did not add, which another run has since committed, makes the pull
+          # refuse with "untracked working tree files would be overwritten" before any rebase starts.
+          left=$( { git diff --name-only HEAD; git ls-files --others --exclude-standard; } )
+          if [ -n "$left" ]; then
+            echo "::warning::files modified or new but not in the add list (stashed, not published): $(echo $left)"
+            git stash push --include-untracked --quiet -m "refresh-leftovers" || true
+          fi
           # shared reports (new_today / manual_review / layers_review) may have been changed by another refresh meanwhile:
           # keep this run's files, then rebuild the discovery reports from every layer's log so nobody's entries are lost
           for n in 1 2 3; do
-            if git pull --rebase; then
+            if git pull --rebase --autostash; then
               python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
               git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
@@ -80,15 +91,14 @@ jobs:
               if git push; then exit 0; fi
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
-              bash scripts/refresh_rebase_conflicts.sh
-              if GIT_EDITOR=true git rebase --continue; then
+              if in_rebase && { bash scripts/refresh_rebase_conflicts.sh; GIT_EDITOR=true git rebase --continue; }; then
                 python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
               git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
                 git add reports/new_today.md reports/manual_review.md
                 git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"
                 if git push; then exit 0; fi
-              else git rebase --abort 2>/dev/null || true; fi
+              else echo "::warning::rebase did not complete (conflict or no rebase in progress)"; git status; git rebase --abort 2>/dev/null || true; fi
             fi
             sleep $((n * 10))
           done
@@ -110,9 +120,9 @@ jobs:
         if: always() && steps.seo.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py open seo "Area pages build failed" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
+        run: python scripts/alert.py open seo-warmspaces "Area pages build failed (warm spaces refresh)" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
       - name: Clear the area pages alert after a good build
         if: success() && steps.seo.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py resolve seo
+        run: python scripts/alert.py resolve seo-warmspaces

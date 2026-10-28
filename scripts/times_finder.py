@@ -8,13 +8,14 @@
    (TIMES_TEXT_ONLY). Facebook / Instagram need a login, so they are not read.
 3. Retries with backoff for unreachable sites; 1 s between requests to the same host.
 Output: logs/times_finder.json (proposals + reasons). With --apply, proposals are added to
-overrides/opening_times.json ONLY when strict (see decide()); all else -> reports/pending_dean.md; the normal refresh then re-confirms them on the own site every run (cross_check_times)."""
+overrides/opening_times.json ONLY when strict AND times_auto_apply is on (see decide(), strict_checks()); all else -> reports/pending_dean.md; the normal refresh then re-confirms them on the own site every run (cross_check_times)."""
 import json, os, re, sys, time, threading, subprocess, tempfile, urllib.parse, datetime, collections, concurrent.futures as cf
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
 import trussell_times as TT
 import discover as D
+import phone_rule as PR
 RUN = datetime.date.today().isoformat()
 LINKW = re.compile(r"open|time|hour|when|contact|find|get-?help|need-?help|centre|center|location|visit|where|distribution|session", re.I)
 SOCIAL = re.compile(r"facebook\.com|instagram\.com|twitter\.com|x\.com/|linktr\.ee", re.I)
@@ -78,7 +79,8 @@ def generic(items_for_site, base):
             u, ot = best
             if ot.get("structured") and D.office_like(ot["structured"]): out[i["id"]] = (None, "times found look like office hours; skipped"); continue
             pcs = [norm_pc(i.get("postcode"))] if i.get("postcode") and norm_pc(i.get("postcode")) in dict(pages).get(u, "").upper().replace(" ", "") else []
-            ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs); out[i["id"]] = (ot, "found on own site")
+            fb = PR.mentions_food_bank(dict(pages).get(u, ""), [i.get("name"), i.get("foodbank")])
+            ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs, fb_mention=fb); out[i["id"]] = (ot, "found on own site")
         else: out[i["id"]] = (None, "no client times found on own site (home, sitemap and %d linked pages read)" % (len(pages) - 1))
     return out
 KNOWN = os.path.join(os.path.dirname(__file__), "..", "overrides", "known_sources.json")
@@ -97,45 +99,114 @@ def one_block(ot):
     """One clear client-hours block: parsed into a weekly table, no qualifiers, not office-like."""
     return ot.get("status") == "TIMES_FOUND" and bool(ot.get("structured")) and not D.office_like(ot["structured"])
 DONATION_URL = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fundrais", re.I)   # Hope Central /get-involved/giving-food/ (24 Oct)
-def decide(log, items, apply):
-    """Dean, 23 Oct 23:36: nothing uncertain goes on the map. Auto-apply ONLY when (1) the entry's postcode was matched
-    exactly on the page, (2) one clear client-hours block, (3) the page is on the food bank's own site, (4) the same
-    times were not also read onto another centre of the same site, (5) the entry is not hand-checked/protected or on the
-    known skip list. Everything else -> reports/pending_dean.md (times review list)."""
+TIMES_KEY = "times_auto_apply"   # overrides/auto_apply_rules.json; missing = OFF
+SEEN = "logs/times_finder_seen.json"            # last run's parsed times per id (for the 2-run rule)
+AUTO_LOG = "reports/times_auto_applied.json"    # every automatic change, revert with scripts/times_revert.py <id>
+UNDONE = "overrides/times_auto_undone.json"     # 'finder:<id>' -> parsed table Dean undid (times_revert.py); never re-applied
+def undone_key(k): return "finder:" + k
+def times_auto_on(rules=None): return bool((rules if rules is not None else RULES).get(TIMES_KEY, False))
+def _sig(ot): return json.dumps(ot.get("structured"), sort_keys=True) if ot and ot.get("structured") else None
+def _empty(ot):
+    """No usable times: missing, closed, all-closed, or a weekly table with no sessions."""
+    if not ot: return True
+    if isinstance(ot, dict) and ot.get("all_closed"): return True
+    if str(ot.get("status", "")).upper() in ("CLOSED", "NO_TIMES", "") : return True
+    st = ot.get("structured")
+    if st is not None and not any(v for v in st.values()): return True
+    return not (st or (ot.get("raw") or "").strip())
+def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None, own_sites=None):
+    """Reasons a finder result must stay held for Dean. Empty list = it may auto-apply (only if times_auto_apply is ON).
+    Each safeguard blocks on its own (tests/test_times_auto_apply.py). blocked: overrides/times_auto_undone.json."""
+    why = []
+    if (cur.get(k) or {}).get("protected"): why.append("hand-checked times are protected; finder only flags differences")
+    r = skipped(k, ks)
+    if r: why.append("known skip: " + r)
+    pc_ok = ot.get("matched_by") == "postcode" or (it.get("postcode") and norm_pc(it["postcode"]) in (ot.get("pc_seen") or []))
+    if not pc_ok: why.append("postcode not matched exactly on the page")
+    if not one_block(ot): why.append("not one clear weekly client-hours block (kept as text for review)")
+    if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
+    own = D.not_own_site_reason(k, ot.get("source_url"), D.food_bank_own_sites() if own_sites is None else own_sites)
+    if own: why.append(own)
+    # Rule 21 (Dean 28 Oct): a host church page counts only when the food bank has no own site (above) and the page itself
+    # names the food bank. Trussell centre cards are on *.foodbank.org.uk; any other result without a recorded mention is held.
+    if ot.get("reader") != "trussell_cards" and ot.get("fb_mention") is not True: why.append(D.NO_FB_MENTION)
+    if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
+    if same_n > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
+    prev = (seen or {}).get(k) or {}
+    if (not _sig(ot) or prev.get("sig") != _sig(ot) or prev.get("source_url") != ot.get("source_url")
+            or not prev.get("run_at") or prev.get("run_at") == ot.get("_run_at")):
+        why.append("times not read identically on 2 separate runs yet")
+    if _sig(ot) and not _empty(ot) and not D.day_same_line(ot.get("structured"), [ot.get("raw") or ""]):
+        why.append("day not on the same line as its times on the own-site page")
+    old = cur.get(k) or it.get("opening_times")
+    if old and not _empty(old) and _empty(ot): why.append("would change known times to closed/empty")
+    # Hours only. A different phone on the stored listing is not a source conflict (that fix stays held on the phone path).
+    # Known times kept as text (no table) from another source are known times too, so they conflict with any new table.
+    if old and not _empty(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
+        why.append("conflicts with times from another source (%s)" % (old.get("source_url") or "unknown"))
+    if _sig(ot) and (blocked or {}).get(undone_key(k)) == _sig(ot): why.append("this change was undone by Dean; not re-applied")
+    return why
+def _read(ot):
+    """A times result was actually read. No table, no text and no explicit closed status means nothing was found."""
+    if not isinstance(ot, dict): return False
+    if ot.get("structured") is not None: return True
+    if str(ot.get("status") or "").upper() == "CLOSED": return True
+    return bool((ot.get("raw") or "").strip())
+def decide(log, items, apply, rules=None, now=None):
+    """Dean, 23 Oct 23:36: nothing uncertain goes on the map. Dean, 27 Oct: times auto-apply ONLY when every strict_checks()
+    safeguard passes AND overrides/auto_apply_rules.json has times_auto_apply true. Everything else -> reports/pending_dean.md."""
+    on = times_auto_on(rules); now = now or datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     ix = {i["id"]: i for i in items}; ks = known()
     p = "overrides/opening_times.json"; cur = json.load(open(p)) if os.path.exists(p) else {}
+    seen = json.load(open(SEEN)) if os.path.exists(SEEN) else {}
+    blocked = json.load(open(UNDONE)) if os.path.exists(UNDONE) else {}
+    own_sites = D.food_bank_own_sites()
     same = collections.defaultdict(set)
     for k, ot in log["found"].items():
         same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))].add(norm_pc(ix.get(k, {}).get("postcode")))
     log["applied"], log["review"] = [], []
+    auto = json.load(open(AUTO_LOG)) if os.path.exists(AUTO_LOG) else []
+    new_seen = {}
     for k, ot in sorted(log["found"].items()):
-        it = ix.get(k, {}); why = []
-        if (cur.get(k) or {}).get("protected"): why.append("hand-checked times are protected; finder only flags differences")
-        r = skipped(k, ks)
-        if r: why.append("known skip: " + r)
-        pc_ok = ot.get("matched_by") == "postcode" or (it.get("postcode") and norm_pc(it["postcode"]) in (ot.get("pc_seen") or []))
-        if not pc_ok: why.append("postcode not matched exactly on the page")
-        if not one_block(ot): why.append("not one clear weekly client-hours block (kept as text for review)")
-        if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
-        if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
-        if len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]) > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
-        why.append("auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map")
+        # Dean 27 Oct 2026 12:12 GMT: nothing read. Leave the stored listing untouched and do not queue a pending row.
+        if not _read(ot): continue
+        it = ix.get(k, {}); ot = dict(ot, _run_at=now)
+        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, blocked, own_sites)
+        if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
+        if _sig(ot): new_seen[k] = {"sig": _sig(ot), "source_url": ot.get("source_url"), "run_at": now}
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
-            pass   # unreachable: auto-apply removed
+            clean = {x: v for x, v in ot.items() if not x.startswith("_")}
+            dup = any(e.get("id") == k and not e.get("path") and not e.get("reverted") and (e.get("new") or {}).get("structured") == clean.get("structured")
+                      and e.get("source_url") == clean.get("source_url") for e in auto)
+            if not dup:
+                auto.append({"id": k, "name": it.get("name"), "old": cur.get(k) or it.get("opening_times"), "new": clean, "source_url": ot.get("source_url"),
+                             "first_run_at": seen[k]["run_at"], "second_run_at": now, "revert": "python scripts/times_revert.py " + k})
+            cur[k] = clean; log["applied"].append(k)
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
-    # overrides/opening_times.json is never written by the finder (Dean, 24 Oct 00:16)
+    os.makedirs("logs", exist_ok=True); json.dump(new_seen, open(SEEN, "w"), indent=0, sort_keys=True, ensure_ascii=False)
+    if log["applied"]:
+        json.dump(cur, open(p, "w"), indent=1, sort_keys=True, ensure_ascii=False)
+        os.makedirs("reports", exist_ok=True); json.dump(auto, open(AUTO_LOG, "w"), indent=1, ensure_ascii=False)
     os.makedirs("reports", exist_ok=True)
-    L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
-    for r in log["review"]:
-        L.append(f"- **{r['name']}** (`{r['id']}`, {r['postcode']}): {r['proposed']}  \n  source: {r['source_url']}  \n  why: {'; '.join(r['why'])}")
-    if not log["review"]: L.append("Nothing pending.")
-    L.append("<!-- /times review -->")
-    pd = "reports/pending_dean.md"; prev = open(pd).read() if os.path.exists(pd) else "# Pending for Dean\n"
+    pd = "reports/pending_dean.md"; prev = open(pd).read() if os.path.exists(pd) else ""
     prev = re.sub(r"(?s)\n*<!-- times review -->.*?<!-- /times review -->\n*", "\n", prev).rstrip("\n")
-    open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+    if log["review"] or log["applied"]:
+        L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). "
+             "Every other row is not on the map and needs a hand check before it is added.", ""]
+        for k in log["applied"]:
+            L.append(f"- AUTO-APPLIED `{k}` (strict, 2 identical runs). Undo: `python scripts/times_revert.py {k}`")
+        for r in log["review"]:
+            L.append(f"- **{r['name']}** (`{r['id']}`, {r['postcode']}): {r['proposed']}  \n  source: {r['source_url']}  \n  why: {'; '.join(r['why'])}")
+        L.append("<!-- /times review -->")
+        if not prev.strip(): prev = "# Pending for Dean"
+        open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+    elif prev.strip():
+        open(pd, "w").write(prev + "\n")
+    elif os.path.exists(pd):
+        os.remove(pd)
 def norm_pc(pc): return re.sub(r"\s", "", (pc or "").upper())
-def run(items, apply=False, threads=12, render=None):
+def run(items, apply=False, threads=12, render=None, now=None):
     todo = [i for i in items if not (i.get("opening_times") or {}).get("status") and i.get("kind") != "warehouse"]
     by = collections.defaultdict(list)
     for i in todo:
@@ -167,7 +238,7 @@ def run(items, apply=False, threads=12, render=None):
     log = {"run": RUN, "checked": len(todo), "found": {k: v[0] for k, v in res.items() if v[0]}, "reasons": {k: v[1] for k, v in res.items()}}
     os.makedirs("logs", exist_ok=True)
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
-    decide(log, items, apply)
+    decide(log, items, apply, now=now)
     return log
 if __name__ == "__main__":
     src = sys.argv[sys.argv.index("--data") + 1] if "--data" in sys.argv else "data.full.js"
