@@ -19,11 +19,14 @@ To remove one, add its id to overrides/foodbank_closed.json; to clear the note, 
 
 - none
 <!-- /closures -->
+<!-- phone lock -->
+- blocked, held for Dean | kings-langley | phone | via phone fix | source https://beneficeoflangelei.org.uk/allsaints/contact/ | stored 01923 903531 | proposed 07754997144 | unchanged (byte-identical) | Kings Langley
+<!-- /phone lock -->
 
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
-Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is added.
 
 - Victory House (CT17 9BZ) - https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers
 - who a) have been verified rough sleeping (TN34 1EA) - https://www.hastings.gov.uk/housing/SWEP/
@@ -41,7 +44,7 @@ Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
-Run 2026-10-27. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is added.
 
 - **Waltham Abbey Baptist Church** (`3food4u/waltham-abbey-baptist-church`, EN9 1RL): 1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm  
   source: https://3food4u.org  

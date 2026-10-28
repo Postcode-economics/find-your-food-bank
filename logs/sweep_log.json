@@ -1,7 +1,7 @@
 {
- "run": "2026-10-27",
- "pages": 1586,
- "failed": 4,
+ "run": "2026-10-28",
+ "pages": 1600,
+ "failed": 6,
  "errors": [
   [
    "https://www.cherwell.gov.uk/downloads/download/1602/warm-welcome-venues",
@@ -12,12 +12,20 @@
    404
   ],
   [
+   "https://www.castlepoint.gov.uk/w/housing-swep-alert-wording",
+   "error"
+  ],
+  [
    "https://www.cherwell.gov.uk/Warm-Spaces",
    404
   ],
   [
    "https://www.cherwell.gov.uk/download/downloads/id/12567/warm-welcome-venues-2025-26.pdf",
    404
+  ],
+  [
+   "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
+   429
   ]
  ],
  "added": [],

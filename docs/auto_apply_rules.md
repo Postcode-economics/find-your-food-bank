@@ -77,6 +77,9 @@ never grows, never an ellipsis. If it doesn't fit, show just the place name. ', 
 ## Screenshots to Dean
 Screenshots sent to Dean must never show error tiles from a local or demo copy: use the live site, or a working tile source.
 
+## Phone contacts (Dean 26 Oct 2026, 08:29, rule 21)
+A verified number that the venue's own source page gives as its contact is shown, including a named person's or personal number, with the label that page gives (for example Team Rector, Pastor). A host church's contact page counts as that venue's own page (Dean 26 Oct 2026, 08:37). `scripts/phone_rule.py` runs from `build.py`, `shelter_contacts.py` and `full_check.py`. A reason that only says the number is personal does not hold it back. An unverified or doubtful number stays off, with the reason in `overrides/phone_holds.json`. Dean's own phone numbers and personal emails in `overrides/never_publish.json` are never copied onto a place. The public address hello@helpmap.uk is not in that file.
+
 ## Theme default (Dean 25 Oct 2026)
 STANDING RULE (Dean, 25 Oct 2026, asked 3 times): helpmap.uk opens in DARK mode by default, ignoring the OS/phone light preference. Only the visitor's own saved Light mode choice overrides it; if storage fails (Instagram in-app browser) the site is dark. Guarded by tests/test_default_dark.py, tests/test_dark_default_engines.py, tests/test_webkit_instagram.py (WebKit, OS light) and scripts/dark_default.py in the live Deploy check. First-time visitors with no saved theme get DARK, whatever their phone setting. A saved choice (localStorage 'light') is always
 kept, and is applied by an inline script in <head> before first paint (no flash). Test: tests/test_default_dark.py.
