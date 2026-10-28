@@ -161,8 +161,11 @@ def decide(log, items, apply, rules=None, now=None):
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
             clean = {x: v for x, v in ot.items() if not x.startswith("_")}
-            auto.append({"id": k, "name": it.get("name"), "old": cur.get(k) or it.get("opening_times"), "new": clean, "source_url": ot.get("source_url"),
-                         "first_run_at": seen[k]["run_at"], "second_run_at": now, "revert": "python scripts/times_revert.py " + k})
+            dup = any(e.get("id") == k and not e.get("path") and not e.get("reverted") and (e.get("new") or {}).get("structured") == clean.get("structured")
+                      and e.get("source_url") == clean.get("source_url") for e in auto)
+            if not dup:
+                auto.append({"id": k, "name": it.get("name"), "old": cur.get(k) or it.get("opening_times"), "new": clean, "source_url": ot.get("source_url"),
+                             "first_run_at": seen[k]["run_at"], "second_run_at": now, "revert": "python scripts/times_revert.py " + k})
             cur[k] = clean; log["applied"].append(k)
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
     os.makedirs("logs", exist_ok=True); json.dump(new_seen, open(SEEN, "w"), indent=0, sort_keys=True, ensure_ascii=False)
@@ -173,7 +176,8 @@ def decide(log, items, apply, rules=None, now=None):
     pd = "reports/pending_dean.md"; prev = open(pd).read() if os.path.exists(pd) else ""
     prev = re.sub(r"(?s)\n*<!-- times review -->.*?<!-- /times review -->\n*", "\n", prev).rstrip("\n")
     if log["review"] or log["applied"]:
-        L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. Nothing here is on the map. Each needs a hand check before it is added.", ""]
+        L = ["<!-- times review -->", "## Opening-times review list (times_finder)", "", f"Run {RUN}. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). "
+             "Every other row is not on the map and needs a hand check before it is added.", ""]
         for k in log["applied"]:
             L.append(f"- AUTO-APPLIED `{k}` (strict, 2 identical runs). Undo: `python scripts/times_revert.py {k}`")
         for r in log["review"]:

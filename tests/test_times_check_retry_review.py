@@ -4,7 +4,7 @@ check, and a manual-review list that never invents times.
 The card sentence in index.html is left unchanged: this piece does not edit map or front-end files.
 The review list still records 'Opening times not known, call before you go' for a card with no published times.
 """
-import os, sys, json, re, csv, tempfile, unittest, urllib.error, email.message
+import os, sys, json, re, csv, inspect, tempfile, unittest, urllib.error, email.message
 ROOT = os.path.join(os.path.dirname(__file__), '..'); sys.path.insert(0, os.path.join(ROOT, 'scripts'))
 import discover as D
 
@@ -90,7 +90,8 @@ class LatePassTest(unittest.TestCase):
     def test_build_runs_late_pass_and_writes_review_to_logs(self):
         b = open(os.path.join(ROOT, 'scripts', 'build.py')).read()
         self.assertIn('discover.check_missing(items, tlog', b)
-        self.assertLess(b.index('check_missing'), b.index("meta = dict(fetched"))
+        self.assertLess(b.index('check_missing'), b.index("meta = schema_version.stamp(dict(fetched"))
+        self.assertIs(inspect.signature(D.check_missing).parameters['fetcher'].default, D.fetch_live)
         self.assertIn("'logs', 'foodbank_times_review.csv'", b)
         self.assertIn('state_root=ROOT', b)
         wf = open(os.path.join(ROOT, '.github', 'workflows', 'refresh.yml')).read()
