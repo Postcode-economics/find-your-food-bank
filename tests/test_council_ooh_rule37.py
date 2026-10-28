@@ -198,13 +198,16 @@ class Rule37VenuePhone(unittest.TestCase):
     The banned list is KNOWN_DAYTIME plus the council lines removed from venue phones on 28 Oct.
     The only allowances: a number Dean approved on 26 Oct that is waiting on his review list, and a
     current number whose replacement is waiting for his yes or no in PHONES-FOR-DEAN.md (no phone
-    change without Dean's approval)."""
+    change without Dean's approval), and a current number whose replacement Dean has approved but
+    another PR applies."""
     BANNED_PHONE = dict(KNOWN_DAYTIME, **{
         "01904554500": "City of York Council Housing Options (01904 554500)",
         "08000232692": "Manchester City Council Cost of Living Advice Line (0800 023 2692)",
     })
     AWAITING_DEAN = {"ww-68618605": "03001232224"}  # Bruton library, Dean-approved 26 Oct; on reports/pending_dean.md
-    HELD_FOR_DEAN = {"osm-node-1533578890": "01904554500", "osm-way-169564851": "01904554500", "ww-55475981": "08000232692"}
+    HELD_FOR_DEAN = {"osm-node-1533578890": "01904554500", "ww-55475981": "08000232692"}
+    # James House: Dean approved 01904 553626 (28 Oct 05:35), applied by listings batch #239.
+    APPROVED_ELSEWHERE = {"osm-way-169564851": ("01904554500", "01904553626")}
 
     def test_awaiting_dean_is_on_review_list(self):
         pd = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
@@ -220,8 +223,15 @@ class Rule37VenuePhone(unittest.TestCase):
             self.assertEqual(len(row), 1, iid)
             self.assertIn(num, D(row[0].split("|")[2]), iid)
 
+    def test_approved_elsewhere_shows_old_or_approved_number_only(self):
+        sh = {x["id"]: x for x in built("shelters")}
+        for iid, nums in self.APPROVED_ELSEWHERE.items():
+            for f in ("phone", "tel"):
+                self.assertIn(D(sh[iid].get(f)), nums, f"shelters:{iid} {f}={sh[iid].get(f)}")
+
     def _ok(self, iid, num):
-        return self.AWAITING_DEAN.get(iid) == num or self.HELD_FOR_DEAN.get(iid) == num
+        return (self.AWAITING_DEAN.get(iid) == num or self.HELD_FOR_DEAN.get(iid) == num
+                or self.APPROVED_ELSEWHERE.get(iid, ("",))[0] == num)
 
     def test_no_banned_number_as_venue_phone_in_overrides(self):
         for name in ("shelters_contacts.json", "warmspaces_contacts.json"):

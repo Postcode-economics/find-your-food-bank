@@ -135,5 +135,5 @@ Your rule: no general council numbers as a venue's direct line or out-of-hours l
 
 - West Borough children's centre, Maidstone (food bank family-food-bank/west-borough-cc): 03000 421540, Kent County Council's line for that centre. It may be out of date: the KCC directory may now list West Borough Family Hub as 03000 419361 (not yet confirmed on the page). Not changed.
 
-Also waiting for your yes or no, not changed: Peasholme Homeless Hostel and James House in York show 01904 554500 (York Council Housing Options); JNR8 Youth & Community Centre, Manchester (warm space ww-55475981) shows 0800 023 2692 (Manchester City Council's Cost of Living Advice Line). The proposed own numbers, with the page and exact quote for each, are in PHONES-FOR-DEAN.md.
+Also waiting for your yes or no, not changed: Peasholme Homeless Hostel in York shows 01904 554500 (York Council Housing Options); JNR8 Youth & Community Centre, Manchester (warm space ww-55475981) shows 0800 023 2692 (Manchester City Council's Cost of Living Advice Line). The proposed own numbers, with the page and exact quote for each, are in PHONES-FOR-DEAN.md.
 <!-- /council lines review -->

@@ -1,7 +1,7 @@
 """Dean's rules (28 Oct 2026): no general council number as a venue's direct line or out-of-hours line,
 and no phone change is applied without Dean's approval.
 
-Two York shelters show York's Housing Options line (01904 554500) and JNR8 Manchester shows the
+Peasholme (York) shows York's Housing Options line (01904 554500) and JNR8 Manchester shows the
 council's Cost of Living line (0800 023 2692). Their own numbers are proposed in PHONES-FOR-DEAN.md
 (council | current | proposed | URL | quote) and nothing changes on the map until Dean says yes.
 Council-wide library lines are not changed here; they wait on Dean's review list.
@@ -13,7 +13,6 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 # id -> (layer, current published number, proposed own number, page the proposed number is quoted from)
 HELD = {
     "osm-node-1533578890": ("shelters", "01904 554500", "01904 551901", "https://www.york.gov.uk/homelessness/hostels-supported-housing"),
-    "osm-way-169564851": ("shelters", "01904 554500", "01904 553626", "https://www.york.gov.uk/homelessness/temporary-accommodation-york"),
     "ww-55475981": ("warmspaces", "0800 023 2692", "0161 881 3744", "https://www.whalleyrange.org/contact-us/"),
 }
 def digits(s): return re.sub(r"\D", "", s or "")
