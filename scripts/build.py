@@ -44,8 +44,10 @@ def current_count():
 
 def load_prev_items():
     try:
-        s = open(OUT).read(); s = s[s.index('=') + 1:].rstrip().rstrip(';'); return json.loads(s)['items']
-    except Exception: return []
+        s = open(OUT).read(); s = s[s.index('=') + 1:].rstrip().rstrip(';'); items = json.loads(s)['items']
+    except Exception as e: die('cannot read the published %s (%r), so the place lock has nothing to protect' % (os.path.basename(OUT), e))
+    if not isinstance(items, list): die('the published %s has no items list' % os.path.basename(OUT))
+    return items
 
 def clean(a): return ', '.join(x.strip() for x in (a or '').replace('\r', '').split('\n') if x.strip())
 

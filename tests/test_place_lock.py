@@ -91,5 +91,22 @@ class Protect(unittest.TestCase):
         self.assertTrue(any("hand-checked" in w for w in why), why)
 
 
+class PublishedCopyMustLoad(unittest.TestCase):
+    """build.py stops when data.full.js is missing or unreadable, so the place lock never compares against nothing."""
+    def test_missing_or_corrupt_data_stops_the_build(self):
+        import build
+        d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, d, True)
+        orig = build.OUT; self.addCleanup(setattr, build, "OUT", orig)
+        good = os.path.join(d, "good.js"); open(good, "w").write('window.D = {"items": [{"id": "a"}]};')
+        build.OUT = good
+        self.assertEqual(build.load_prev_items(), [{"id": "a"}])
+        for name, text in (("missing.js", None), ("corrupt.js", "window.D = {not json"), ("no_eq.js", "{}"),
+                           ("no_items.js", 'window.D = {"x": 1};'), ("bad_items.js", 'window.D = {"items": 5};')):
+            p = os.path.join(d, name)
+            if text is not None: open(p, "w").write(text)
+            build.OUT = p
+            with self.assertRaises(SystemExit, msg=name): build.load_prev_items()
+
+
 if __name__ == "__main__":
     unittest.main()
