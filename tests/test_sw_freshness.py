@@ -93,12 +93,18 @@ class Browser(unittest.TestCase):
                 route.continue_()
 
         def deploy():
+            import seo_meta as SM
             p = os.path.join(site, 'index.html')
             s = open(p, encoding='utf-8').read()
             open(p, 'w', encoding='utf-8').write(s.replace('<head>', '<head><meta name="deploy-probe" content="new">', 1))
             for f, v in (('data.js', '__deployData'), ('report.js', '__deployRep')):
                 with open(os.path.join(site, f), 'a', encoding='utf-8') as fh:
                     fh.write('\n;window.%s="new";\n' % v)
+            # A real deploy runs seo_meta: data.js content changed, so index.html gets a new content-hash stamp.
+            s = open(p, encoding='utf-8').read()
+            s = re.sub(r'(<script\b[^>]*\bsrc=")(data)\.js(?:\?v=[^"]*)?("[^>]*>)',
+                       lambda m: '%s%s.js?v=%s%s' % (m.group(1), m.group(2), SM.content_stamp(site, 'data.js'), m.group(3)), s)
+            open(p, 'w', encoding='utf-8').write(s)
 
         try:
             with sync_playwright() as p:

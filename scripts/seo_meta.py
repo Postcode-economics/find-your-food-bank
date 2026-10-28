@@ -3,7 +3,7 @@
 - Dataset JSON-LD on the home page (data-ld="dataset"), FAQPage JSON-LD on faq.html (data-ld="faq")
 - the no-JS text of the home page's 'Updated today at HH:MM' line
 - sitemap.xml lastmod for every page
-- ?v=r<run time> on data.js, stamp.js and access.js in index.html (edge cache-bust).
+- ?v=h<sha256[:12]> content hash on data.js, stamp.js and access.js in index.html (cache-first safe with sw.js).
 Usage: python scripts/seo_meta.py"""
 import datetime, glob, html, json, os, re
 from zoneinfo import ZoneInfo
@@ -117,6 +117,10 @@ def chk_line(t, cy=False):
     else: txt = 'Map data last checked %s' % lab(t)
     return '<p class="mapchk"%s data-run="%s">%s</p>' % (' lang="cy"' if cy else '', t.isoformat(timespec='seconds'), txt)
 
+def content_stamp(root, name):
+    import hashlib
+    return 'h' + hashlib.sha256(open(os.path.join(root, name), 'rb').read()).hexdigest()[:12]
+
 def put_chk(s, t, rel):
     """Baked 'Map data last checked' line(s) + a live updater from stamp.js (FAQ and town pages only)."""
     s = re.sub(r'<!--mapchk(?:-cy)?-->.*?<!--/mapchk-->', '', s, flags=re.S)
@@ -181,15 +185,11 @@ def run(root=ROOT):
                                         'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
             # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy.
-            # The home page defers these (data-hm, type=text/plain). Keep that, or a sweep would
-            # turn them back into scripts that run during parse.
-            def bust(m, _t=t):
-                name, tag = m.group(1), m.group(0)
-                ver = _t.strftime('%Y%m%dT%H%M')
-                if 'data-hm' in tag:
-                    return '<script data-hm src="%s.js?v=r%s" type="text/plain"></script>' % (name, ver)
-                return '<script src="%s.js?v=r%s"></script>' % (name, ver)
-            s = re.sub(r'<script\b[^>]*\bsrc="(data|stamp|access)\.js(?:\?v=[^"]*)?"[^>]*>\s*</script>', bust, s)
+            # Batch 4: content-hash stamp (h + 12 hex of sha256), so the stamp only changes when the file does and
+            # sw.js can serve these cache-first: new content -> new stamp in the (network-first) HTML -> new URL -> fresh copy.
+            # Only the src value is rewritten; every other attribute on the tag (e.g. data-hm type="text/plain") is kept.
+            s = re.sub(r'(<script\b[^>]*\bsrc=")(data|stamp|access)\.js(?:\?v=[^"]*)?("[^>]*>\s*</script>)',
+                       lambda m: '%s%s.js?v=%s%s' % (m.group(1), m.group(2), content_stamp(root, m.group(2) + '.js'), m.group(3)), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
