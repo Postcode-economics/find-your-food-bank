@@ -1,5 +1,5 @@
 """Dean's consistency decisions (25 Oct 2026, 07:48): 'call before you go' everywhere; one date format
-'25 Oct 2026, 05:12' (data-driven); hours tables 'Closed' / 'Not listed'; referral-only shelters say
+'25 Oct 2026, 05:12' (data-driven); hours tables say 'Closed' only when the source does, and one line for other days; referral-only shelters say
 'By referral – call before you go'; footers credit shelter sources; policy 'Last updated' set automatically."""
 import os, re, sys, json, glob, unittest
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -47,7 +47,8 @@ class Dates(unittest.TestCase):
 class Cards(unittest.TestCase):
     def test_hours_and_referral(self):
         l = R("layers.js"); v = R("v3.js")
-        self.assertNotIn("Closed / not listed", l); self.assertIn("'Not listed'", l)
+        self.assertNotIn("Closed / not listed", l); self.assertNotIn("'Not listed'", l)
+        self.assertIn("Other days not listed, call before you go", l)
         self.assertIn("'Closed'", R("index.html"))
         self.assertIn("By referral – call before you go", v); self.assertIn("REFONLY(i)?''", l)
     def test_shelter_credits(self):
