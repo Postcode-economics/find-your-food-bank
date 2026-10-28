@@ -116,7 +116,12 @@
    "Age 16+"
   ],
   "groups_source": "https://fifeonfort.org/gilven-project",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "referral": "Reported closed – call before you go. Referral (Fife Council Housing Options)"
+  },
+  "fix_source": "third party only (a care-register entry seen 27 Oct 2026 marked Cancelled); operator site https://fifeonfort.org/gilven-project returned 403, so closure is not confirmed by the own source and the listing is kept",
+  "fix_checked": "2026-10-27"
  },
  "sa-glen-alva-family-centre-lifehouse": {
   "phone": "028 9035 1185",
@@ -128,7 +133,12 @@
    "Families"
   ],
   "groups_source": "https://www.salvationarmy.org.uk/glen-alva-family-centre",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "postcode": "BT14 6JN"
+  },
+  "fix_source": "https://www.salvationarmy.org.uk/glen-alva-family-centre",
+  "fix_checked": "2026-10-27"
  },
  "sa-grosvenor-family-lifehouse": {
   "phone": "028 9031 0312",
@@ -154,7 +164,13 @@
    "Age 18+"
   ],
   "groups_source": "https://www.salvationarmy.org.uk/independence-house",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "address": "235 Barmouth Street, Beswick, Manchester",
+   "postcode": "M11 3TB"
+  },
+  "fix_source": "https://www.salvationarmy.org.uk/independence-house",
+  "fix_checked": "2026-10-27"
  },
  "osm-node-5901363647": {
   "phone": "020 8518 7725",
@@ -280,6 +296,11 @@
   ],
   "groups_source": "https://www.salvationarmy.org.uk/st-monicas-house",
   "groups_checked": "2026-10-23",
+  "fix": {
+   "postcode": "PO1 1PA"
+  },
+  "fix_source": "https://www.salvationarmy.org.uk/st-monicas-house",
+  "fix_checked": "2026-10-27",
   "phone_fix": "023 9282 5673",
   "phone_label": "Portsmouth Churches Housing Association number"
  },
@@ -404,7 +425,13 @@
    "Couples accepted"
   ],
   "groups_source": "https://homeless.org.uk/homeless-england/service/amat-uk/",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "address": "10 Chelmar Road, Chatham, Kent"
+  },
+  "fix_source": "https://www.amatuk.org/contact-us/",
+  "fix_checked": "2026-10-27",
+  "fix_quote": "\"AMAT UK 10 Chelmar Road Chatham Kent ME4 4PB Telephone 0800 698 1000 - 24 hours\""
  },
  "sa-axholme-lifehouse": {
   "hours": "By referral, call to arrange",
@@ -617,7 +644,15 @@
    "Age 18+"
   ],
   "groups_source": "https://homeless.org.uk/homeless-england/service/kings-lynn-winter-night-shelter/",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "address": "St John's Vicarage, Blackfriars Road, King's Lynn, Norfolk",
+   "postcode": "PE30 1NT",
+   "referral": "By referral from any local organisation working with people who are homeless or at risk of homelessness"
+  },
+  "fix_source": "https://klnightshelter.org.uk/",
+  "fix_checked": "2026-10-27",
+  "fix_quote": "\"we welcome guests (residents) by referral from any local organisation working with people who are homeless or at risk of experiencing homelessness\"; \"St John's Vicarage, Blackfriars Road, King's Lynn, Norfolk, PE30 1NT 01553 776109\""
  },
  "sa-kings-ripton-court-lifehouse": {
   "hours": "By referral, call to arrange",
@@ -695,7 +730,13 @@
    "Age 16+"
   ],
   "groups_source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "hours": "Staffed 24/7 (by referral)"
+  },
+  "fix_source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+  "fix_checked": "2026-10-27",
+  "fix_quote": "\"Peasholme Centre is staffed 24 hours a day, 7 days a week.\""
  },
  "robes-winter-night-shelter": {
   "hours": "By referral, call to arrange",
@@ -912,7 +953,12 @@
    "Young families (parents aged 16-24)"
   ],
   "groups_source": "https://www.salvationarmy.org.uk/springfield-house",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "postcode": "MK6 3HR"
+  },
+  "fix_source": "https://www.salvationarmy.org.uk/springfield-house",
+  "fix_checked": "2026-10-27"
  },
  "osm-way-257610249": {
   "hours": "By referral, call to arrange",
@@ -949,7 +995,13 @@
    "No couples"
   ],
   "groups_source": "https://homeless.org.uk/homeless-england/service/salvation-army-swan-lodge-lifehouse/",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "address": "Swan Lodge, 5-8 High Street, Sunderland",
+   "postcode": "SR1 2AU"
+  },
+  "fix_source": "https://www.salvationarmy.org.uk/swan-lodge",
+  "fix_checked": "2026-10-27"
  },
  "osm-way-556071354": {
   "hours": "By referral, call to arrange",
@@ -966,7 +1018,13 @@
    "Some couples"
   ],
   "groups_source": "https://www.salvationarmy.org.uk/booth-centre-southampton",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "address": "The Booth Centre, 57-58 Oxford Street, Southampton",
+   "postcode": "SO14 3DL"
+  },
+  "fix_source": "https://www.salvationarmy.org.uk/booth-centre-southampton",
+  "fix_checked": "2026-10-27"
  },
  "osm-way-783633228": {
   "hours": "By referral, call to arrange",
@@ -1052,7 +1110,16 @@
    "Age 18+"
   ],
   "groups_source": "https://winchesterbeacon.org.uk/stay-at-the-winchester-beacon/",
-  "groups_checked": "2026-10-23"
+  "groups_checked": "2026-10-23",
+  "fix": {
+   "name": "The Winchester Beacon",
+   "address": "20B Jewry St, Winchester",
+   "postcode": "SO23 8RZ",
+   "season": "Year-round (open 365 days)"
+  },
+  "fix_source": "https://winchesterbeacon.org.uk/",
+  "fix_checked": "2026-10-27",
+  "fix_quote": "\"The Winchester Beacon 20B Jewry St, Winchester SO23 8RZ\"; \"The Winchester Beacon is open 365 days a year\"; footer \"01962 862050\" (\"The Winchester Beacon is the working name of Winchester Churches Nightshelter\")"
  },
  "osm-node-13676934447": {
   "hours": "By referral, call to arrange",
@@ -1093,5 +1160,26 @@
   ],
   "groups_source": "https://www.bristol.gov.uk/residents/housing/homelessness/night-shelters",
   "groups_checked": "2026-10-23"
+ },
+ "hl-nightsafe-blackburn": {
+  "fix": {
+   "hours": {
+    "Mon": "17:00 - 10:00",
+    "Tue": "17:00 - 10:00",
+    "Wed": "17:00 - 10:00",
+    "Thu": "17:00 - 10:00",
+    "Fri": "17:00 - 10:00",
+    "Sat": "17:00 - 10:00",
+    "Sun": "17:00 - 11:00"
+   }
+  },
+  "fix_source": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+  "fix_checked": "2026-10-27",
+  "fix_quote": "\"open 365 days of the year. ... The Shelter opens daily at 5.00 pm\" ... \"until the shelter closes at 10.00 am, or 11.00 am on a Sunday\"",
+  "duplicate_of": "man-nightsafe-blackburn"
+ },
+ "man-nightsafe-blackburn": {
+  "duplicate_of": "hl-nightsafe-blackburn",
+  "note": "Same shelter as hl-nightsafe-blackburn (Nightsafe – The Shelter, 45 Railway Road BB1 1EZ). Both kept; noted only (Dean: never remove a shelter)."
  }
 }

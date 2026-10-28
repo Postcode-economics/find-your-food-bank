@@ -1,0 +1,206 @@
+{
+ "_about": "Every shelter data change in the 27 Oct 2026 shelters audit (PR #233): before, after, own-page source, quote and undo. Phone changes are not applied; see PHONES-FOR-DEAN.md.",
+ "changes": [
+  {
+   "id": "osm-way-260267675",
+   "name": "Gilven House",
+   "field": "referral",
+   "was": "Referral (Fife Council Housing Options)",
+   "now": "Reported closed – call before you go. Referral (Fife Council Housing Options)",
+   "source": "third party only (a care-register entry seen 27 Oct 2026 marked Cancelled); operator site https://fifeonfort.org/gilven-project returned 403, so closure is not confirmed by the own source and the listing is kept",
+   "quote": "",
+   "checked": "2026-10-27",
+   "undo": "delete fix.referral from overrides/shelters_contacts.json[\"osm-way-260267675\"] and set referral back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "sa-glen-alva-family-centre-lifehouse",
+   "name": "Glen Alva Family Centre Lifehouse",
+   "field": "postcode",
+   "was": "BT14 6FG",
+   "now": "BT14 6JN",
+   "source": "https://www.salvationarmy.org.uk/glen-alva-family-centre",
+   "quote": "BT14 6JN",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.postcode from overrides/shelters_contacts.json[\"sa-glen-alva-family-centre-lifehouse\"] and set postcode back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-way-1125252517",
+   "name": "Independence House",
+   "field": "address",
+   "was": "120 Barmouth Street",
+   "now": "235 Barmouth Street, Beswick, Manchester",
+   "source": "https://www.salvationarmy.org.uk/independence-house",
+   "quote": "235 Barmouth Street … M11 3TB",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.address from overrides/shelters_contacts.json[\"osm-way-1125252517\"] and set address back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "sa-st-monica-s-house-lifehouse",
+   "name": "St Monica’s House Lifehouse",
+   "field": "postcode",
+   "was": "PO1 1PT",
+   "now": "PO1 1PA",
+   "source": "https://www.salvationarmy.org.uk/st-monicas-house",
+   "quote": "PO1 1PA",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.postcode from overrides/shelters_contacts.json[\"sa-st-monica-s-house-lifehouse\"] and set postcode back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "hl-amat-uk",
+   "name": "Ashdown Medway Accommodation Trust (AMAT)",
+   "field": "address",
+   "was": "10 Chelmer Road Medway ME4 4PB",
+   "now": "10 Chelmar Road, Chatham, Kent",
+   "source": "https://www.amatuk.org/contact-us/",
+   "quote": "\"AMAT UK 10 Chelmar Road Chatham Kent ME4 4PB Telephone 0800 698 1000 - 24 hours\"",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.address from overrides/shelters_contacts.json[\"hl-amat-uk\"] and set address back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "hl-kings-lynn-night-shelter",
+   "name": "King's Lynn Night Shelter",
+   "field": "address",
+   "was": "St John's House, Blackfriars Road, King's Lynn, PE30 1NT",
+   "now": "St John's Vicarage, Blackfriars Road, King's Lynn, Norfolk",
+   "source": "https://klnightshelter.org.uk/",
+   "quote": "\"we welcome guests (residents) by referral from any local organisation working with people who are homeless or at risk of experiencing homelessness\"; \"St John's Vicarage, Blackfriars Road, King's Lynn, Norfolk, PE30 1NT 01553 776109\"",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.address from overrides/shelters_contacts.json[\"hl-kings-lynn-night-shelter\"] and set address back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "hl-kings-lynn-night-shelter",
+   "name": "King's Lynn Night Shelter",
+   "field": "referral",
+   "was": "Self-referral or referral from any agency; referral form completed with the individual",
+   "now": "By referral from any local organisation working with people who are homeless or at risk of homelessness",
+   "source": "https://klnightshelter.org.uk/",
+   "quote": "\"we welcome guests (residents) by referral from any local organisation working with people who are homeless or at risk of experiencing homelessness\"; \"St John's Vicarage, Blackfriars Road, King's Lynn, Norfolk, PE30 1NT 01553 776109\"",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.referral from overrides/shelters_contacts.json[\"hl-kings-lynn-night-shelter\"] and set referral back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-node-1533578890",
+   "name": "Peasholme Homeless Hostel",
+   "field": "hours",
+   "was": "By referral, call to arrange",
+   "now": "Staffed 24/7 (by referral)",
+   "source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+   "quote": "\"Peasholme Centre is staffed 24 hours a day, 7 days a week.\"",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.hours from overrides/shelters_contacts.json[\"osm-node-1533578890\"] and set hours back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "sa-springfield-house-lifehouse",
+   "name": "Springfield House Lifehouse",
+   "field": "postcode",
+   "was": "MK6 3JT",
+   "now": "MK6 3HR",
+   "source": "https://www.salvationarmy.org.uk/springfield-house",
+   "quote": "MK6 3HR",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.postcode from overrides/shelters_contacts.json[\"sa-springfield-house-lifehouse\"] and set postcode back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-way-1158181491",
+   "name": "Swan Lodge",
+   "field": "address",
+   "was": "5-8 High Street East, Sunderland",
+   "now": "Swan Lodge, 5-8 High Street, Sunderland",
+   "source": "https://www.salvationarmy.org.uk/swan-lodge",
+   "quote": "5-8 High Street … SR1 2AU",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.address from overrides/shelters_contacts.json[\"osm-way-1158181491\"] and set address back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "sa-the-booth-centre-southampton-lifehouse",
+   "name": "The Booth Centre, Southampton Lifehouse",
+   "field": "address",
+   "was": "The Booth Centre",
+   "now": "The Booth Centre, 57-58 Oxford Street, Southampton",
+   "source": "https://www.salvationarmy.org.uk/booth-centre-southampton",
+   "quote": "57-58 Oxford Street … SO14 3DL",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.address from overrides/shelters_contacts.json[\"sa-the-booth-centre-southampton-lifehouse\"] and set address back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "sa-the-booth-centre-southampton-lifehouse",
+   "name": "The Booth Centre, Southampton Lifehouse",
+   "field": "postcode",
+   "was": "SO14 3DJ",
+   "now": "SO14 3DL",
+   "source": "https://www.salvationarmy.org.uk/booth-centre-southampton",
+   "quote": "57-58 Oxford Street … SO14 3DL",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.postcode from overrides/shelters_contacts.json[\"sa-the-booth-centre-southampton-lifehouse\"] and set postcode back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-way-101893157",
+   "name": "The Winchester Beacon",
+   "field": "name",
+   "was": "Winchester Churches Night Shelter",
+   "now": "The Winchester Beacon",
+   "source": "https://winchesterbeacon.org.uk/",
+   "quote": "\"The Winchester Beacon 20B Jewry St, Winchester SO23 8RZ\"; \"The Winchester Beacon is open 365 days a year\"; footer \"01962 862050\" (\"The Winchester Beacon is the working name of Winchester Churches Nightshelter\")",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.name from overrides/shelters_contacts.json[\"osm-way-101893157\"] and set name back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-way-101893157",
+   "name": "The Winchester Beacon",
+   "field": "address",
+   "was": "20B Jewry St, Winchester SO23 8RZ",
+   "now": "20B Jewry St, Winchester",
+   "source": "https://winchesterbeacon.org.uk/",
+   "quote": "\"The Winchester Beacon 20B Jewry St, Winchester SO23 8RZ\"; \"The Winchester Beacon is open 365 days a year\"; footer \"01962 862050\" (\"The Winchester Beacon is the working name of Winchester Churches Nightshelter\")",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.address from overrides/shelters_contacts.json[\"osm-way-101893157\"] and set address back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-way-101893157",
+   "name": "The Winchester Beacon",
+   "field": "postcode",
+   "was": "SO23 8RS",
+   "now": "SO23 8RZ",
+   "source": "https://winchesterbeacon.org.uk/",
+   "quote": "\"The Winchester Beacon 20B Jewry St, Winchester SO23 8RZ\"; \"The Winchester Beacon is open 365 days a year\"; footer \"01962 862050\" (\"The Winchester Beacon is the working name of Winchester Churches Nightshelter\")",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.postcode from overrides/shelters_contacts.json[\"osm-way-101893157\"] and set postcode back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "osm-way-101893157",
+   "name": "The Winchester Beacon",
+   "field": "season",
+   "was": "Not stated",
+   "now": "Year-round (open 365 days)",
+   "source": "https://winchesterbeacon.org.uk/",
+   "quote": "\"The Winchester Beacon 20B Jewry St, Winchester SO23 8RZ\"; \"The Winchester Beacon is open 365 days a year\"; footer \"01962 862050\" (\"The Winchester Beacon is the working name of Winchester Churches Nightshelter\")",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.season from overrides/shelters_contacts.json[\"osm-way-101893157\"] and set season back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  },
+  {
+   "id": "hl-nightsafe-blackburn",
+   "name": "Nightsafe – The Shelter (young people 16-24)",
+   "field": "hours",
+   "was": {
+    "Mon": "10:00 - 16:00",
+    "Tue": "10:00 - 16:00",
+    "Wed": "10:00 - 16:00",
+    "Thu": "10:00 - 16:00",
+    "Fri": "10:00 - 16:00"
+   },
+   "now": {
+    "Mon": "17:00 - 10:00",
+    "Tue": "17:00 - 10:00",
+    "Wed": "17:00 - 10:00",
+    "Thu": "17:00 - 10:00",
+    "Fri": "17:00 - 10:00",
+    "Sat": "17:00 - 10:00",
+    "Sun": "17:00 - 11:00"
+   },
+   "source": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+   "quote": "\"open 365 days of the year. ... The Shelter opens daily at 5.00 pm\" ... \"until the shelter closes at 10.00 am, or 11.00 am on a Sunday\"",
+   "checked": "2026-10-27; re-read twice 60s apart 2026-10-28",
+   "undo": "delete fix.hours from overrides/shelters_contacts.json[\"hl-nightsafe-blackburn\"] and set hours back to the 'was' value in shelters.js, then run scripts/build_seo.py and scripts/seo_meta.py"
+  }
+ ]
+}
