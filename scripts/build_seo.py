@@ -207,11 +207,17 @@ def build(out=ROOT, fetch=True):
     fbi = [i for i in fb['items'] if i.get('kind') not in ('warehouse', 'dropoff') and i.get('postcode')]
     global SH_CREDIT
     sh = load_js('shelters.js', 'SHELTERS'); shi = [i for i in sh['items'] if shelter_public(i)]; SH_CREDIT = shelter_credit(sh['items'])
-    wsi = [i for i in ws['items'] if not i.get('ended') and not i.get('stale') and i.get('postcode')]
+    wsi = [i for i in ws['items'] if not i.get('ended') and (not i.get('stale') or i.get('call_check')) and i.get('postcode')]  # carried-forward venues stay on area pages, labelled
     cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
     lookup(sorted({norm_pc(i['postcode']) for i in fbi + wsi + shi}), cache, fetch)
     if out == ROOT:
         json.dump(dict(sorted(cache.items())), open(CACHE, 'w'), indent=0)
+    ws_prev = {}  # warm-space area pages are never deleted (Dean 28 Oct): an area this run would lose is carried forward
+    wd = os.path.join(out, 'warm-spaces')
+    if os.path.isdir(wd):
+        for sub in os.listdir(wd):
+            f = os.path.join(wd, sub, 'index.html')
+            if os.path.exists(f): ws_prev[sub] = open(f, encoding='utf-8').read()
     for base in ('food-banks', 'warm-spaces', 'shelters'):   # drop pages for areas that no longer have any service
         d = os.path.join(out, base)
         if os.path.isdir(d):
@@ -220,6 +226,17 @@ def build(out=ROOT, fetch=True):
                 if os.path.exists(f): os.remove(f)
     urls = section(('Food banks', 'food-banks', 'food banks'), fbi, cache, fb['fetched'], out, lambda i: card_fb(i, acc))
     urls += section(('Warm spaces', 'warm-spaces', 'warm spaces'), wsi, cache, ws['updated'], out, card_ws)
+    ws_kept = []
+    for sub, txt in sorted(ws_prev.items()):
+        if '/warm-spaces/%s/' % sub in urls: continue
+        if 'class="carried"' not in txt:
+            txt = txt.replace('<div class="call">', '<div class="call carried">No longer in this run\'s listings: call before you go. </div><div class="call">', 1)
+        os.makedirs(os.path.join(out, 'warm-spaces', sub), exist_ok=True)
+        open(os.path.join(out, 'warm-spaces', sub, 'index.html'), 'w', encoding='utf-8').write(txt)
+        urls.append('/warm-spaces/%s/' % sub); ws_kept.append(sub)
+    build.ws_area_kept = ws_kept
+    if out == ROOT and os.path.isdir(os.path.join(ROOT, 'logs')):
+        json.dump({'kept': ws_kept}, open(os.path.join(ROOT, 'logs', 'warmspaces_area_carry_forward.json'), 'w'), indent=1)
     urls += section(('Homeless shelters', 'shelters', 'homeless shelters'), shi, cache, sh['updated'], out, card_sh)
     XL = [('food-banks', 'Food banks'), ('warm-spaces', 'Warm spaces'), ('shelters', 'Homeless shelters')]
     have = set(u for u in urls)
