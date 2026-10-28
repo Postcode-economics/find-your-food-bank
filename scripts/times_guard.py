@@ -47,9 +47,21 @@ def own_lines():
         try: _OWN = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
         except Exception: _OWN = {}
     return _OWN
+_OFF = None
+def office_ids():
+    """overrides/office_listings.json: listings checked on their own page as an office / warehouse / postal address."""
+    global _OFF
+    if _OFF is None:
+        import os, json
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "overrides", "office_listings.json")
+        try: _OFF = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+        except Exception: _OFF = {}
+    return _OFF
 def _office(i):
-    """An office, warehouse or PO-box/postal listing: classified warehouse/drop-off, or its own address says so."""
-    return i.get("kind") in ("warehouse", "dropoff") or bool(OFFICE.search(" ".join(str(i.get(k) or "") for k in ("name", "address"))))
+    """A proven office, warehouse or PO-box/postal listing: its own name/address says so, or it was checked on its own page
+    (overrides/office_listings.json). Bot 3 re-sample 3: the 'warehouse' classification alone also covers real centres
+    (patch, wokingham, poole, helensburgh-lomond, tameside-south-longdendale), so it is not proof."""
+    return i.get("id") in office_ids() or bool(OFFICE.search(" ".join(str(i.get(k) or "") for k in ("name", "address"))))
 def joined_centre_times(i, centres):
     """-> new opening_times for parent i, or None when unchanged.
     Bot 3 review of #232 (28 Oct 00:10): a single block is the listing's own (dundonald, wythenshawe, weston, cheltenham, hart, vale,
@@ -105,26 +117,31 @@ def joined_centre_times(i, centres):
     if clash >= 2 or len(cards) > 1: keep = []  # still several centres' blocks: cannot tell which is this listing's
     if i.get("kind") in ("warehouse", "dropoff") and len(keep) > 1: keep = []
     if " | ".join(keep) == " | ".join(segs): return None
-    if not keep: return _none(ot, "centres' joined times removed")
-    if _office(i):  # Bot 3 re-sample 2: a leftover block on an office / warehouse / PO-box listing is another site's (or the warehouse's own donation hours)
-        return _none(ot, "office/warehouse/postal listing: another site's times not kept")
-    return dict(normalise({"raw": " | ".join(keep), "status": "TIMES_TEXT_ONLY", "structured": None,
-                           "source_url": ot.get("source_url"), "checked_date": ot.get("checked_date")}), guard="trimmed to the listing's own block")
+    if _office(i):  # office / warehouse / PO-box listing: a leftover block is another site's (or the warehouse's own donation hours) -> no times
+        return _none(ot, "office/warehouse/postal listing: another site's times not kept" if keep else "office/warehouse/postal listing: centres' joined times removed")
+    # Bot 3 re-sample 3 (28 Oct, 5/20 wrong joined removals: patch, helensburgh-lomond, wokingham, poole, tameside-south-longdendale).
+    # Dean: unproven changes are held for review, not applied. Without a quoted own-centre line (overrides/own_centre_lines.json)
+    # the joined rule never removes, trims or wipes times on a client-facing listing: the current times stay and the listing is held.
+    return {"_held": "joined centre times: current times kept, needs a quoted own-centre line to trim" if keep
+            else "joined centre times: current times kept, cannot tell which block is this listing's"}
+HOLD_NOTES = {"salvation-army/inverness": "Bot 3 re-sample 3 (28 Oct): own page says \"Wednesday Foodbank 9am - 1pm\", so the correct time is Wed 9-1, not Thu"}
 def salvation_army(i):
     ot = i.get("opening_times")
     if not ot or _hand(ot) or not i["id"].startswith("salvation-army/"): return None
     corps = i["id"].split("/", 1)[1]; src = str(ot.get("source_url") or "")
     if src and "salvationarmy.org.uk" in src and not (corps.startswith(src.rstrip("/").rsplit("/", 1)[-1]) or src.rstrip("/").rsplit("/", 1)[-1].startswith(corps)):
         return _none(dict(ot, source_url=None), "times came from another corps' page")
-    keep = []
+    keep = []; dayafter = False
     for s in _segs(ot) or [str(ot.get("raw") or "")]:
         if not FOOD.search(s): continue
         m = SPAN.search(s); d = DAY.search(s)
         if m and re.match(r"\s*(mon|tue|wed|thu|fri|sat|sun)[a-z]*\s*$", s[m.end():], re.I) and not DAY.search(s[:m.start()]) \
                 and len(s[:m.start()].split()) <= 2:  # bare heading 'Foodbank 9am - 1pm Thursday' (Inverness); 'Foodbank is operating from ... Saturday' (Birkenhead) is one sentence
-            continue  # 'Foodbank 9am - 1pm Thursday': the trailing day starts the next line (Inverness), not this one
+            dayafter = True; continue  # 'Foodbank 9am - 1pm Thursday': the trailing day may start the next line (Inverness)
         keep.append(s)
     if keep == _segs(ot): return None
+    if dayafter:  # Bot 3 re-sample 3: a real food bank session whose day can't be read safely -> held, never removed
+        return {"_held": "food bank time with the day after it: current times kept, check the day" + (": " + HOLD_NOTES[i["id"]] if i["id"] in HOLD_NOTES else "")}
     if not keep: return _none(ot, "no food bank time on its own line next to food bank wording")
     from times import normalise
     return normalise({"raw": " | ".join(keep), "status": "TIMES_TEXT_ONLY", "structured": None,

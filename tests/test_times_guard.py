@@ -20,8 +20,12 @@ class Joined(unittest.TestCase):
             if G._hand(self.before[k].get("opening_times")): continue
             with self.subTest(k):
                 self.assertIn(k, self.log)
-                self.assertNotIn(" | ", ot.get("raw") or "")
                 self.assertNotEqual(ot.get("status"), "CLOSED")
+                if self.log[k].startswith("held"):  # Bot 3 re-sample 3 / Dean: a joined removal on a non-office listing is held, times kept
+                    self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
+                else:  # office / warehouse / postal listings still lose joined times (unchanged behaviour)
+                    self.assertTrue(self.log[k].startswith("office/warehouse/postal") or self.log[k].startswith("kept the listing's own"), self.log[k])
+                    self.assertNotIn(" | ", ot.get("raw") or "")
     def test_never_closed_and_hand_reviewed_untouched(self):
         for k in self.log:
             b = self.before[k].get("opening_times")
@@ -48,16 +52,21 @@ class Bot3Review(unittest.TestCase):
     def test_birkenhead_operating_from(self):
         self.assertNotIn("salvation-army/birkenhead", self.log); self.assertIn("operating from 10.30am", self.raw("salvation-army/birkenhead"))
     def test_trims_drop_phone_volunteer_donation_times(self):
-        self.assertEqual(self.raw("chesterfield"), ""); self.assertNotIn("9am-5pm", self.raw("chesterfield"))
-        self.assertEqual(self.raw("north-lakes"), ""); self.assertEqual(self.raw("north-belfast"), "Mon 14:00 - 15:30")
+        # Changed for re-sample 3: chesterfield and north-belfast were joined-rule trims with no quoted own line -> now held, times kept
+        for k in ("chesterfield", "north-belfast"):
+            self.assertTrue(self.log[k].startswith("held for review"), k); self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
+        self.assertEqual(self.raw("north-lakes"), "")  # vacancies page: still removed
         for k in ("chesterfield", "north-lakes"): self.assertNotEqual((self.after[k]["opening_times"] or {}).get("status"), "CLOSED")
     def test_rugby_middlewich_held(self):
         for k in ("rugby", "middlewich-district"):
             with self.subTest(k):
                 self.assertTrue(self.log[k].startswith("held for review"))
                 self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
-    def test_inverness_still_dropped(self):
-        self.assertEqual((self.after["salvation-army/inverness"]["opening_times"] or {}).get("status"), "NO_TIMES")
+    def test_inverness_held_with_wed_note(self):
+        # Changed for re-sample 3 (was: dropped). A real food bank session with a mis-read day is held, never removed
+        k = "salvation-army/inverness"
+        self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
+        self.assertTrue(self.log[k].startswith("held for review")); self.assertIn("Wed 9-1", self.log[k])
     def test_office_warehouse_postal_never_keeps_another_sites_block(self):
         # Bot 3 re-sample 2 (28 Oct): each kept another site's block, or the warehouse's own donation / office hours
         for k in ("peterborough", "arden", "chelmsford", "pbp", "doncaster", "cannock-district", "south-east-bristol"):
@@ -77,15 +86,35 @@ class Bot3Review(unittest.TestCase):
     def test_split_cards_not_merged_across_week(self):
         self.assertEqual(len(G._groups(["Mon Closed Fri Closed Sat 10:00 - 12:00", "Tue Closed Sun 12:30 - 13:30"])), 2)
         self.assertEqual(len(G._groups(["Mon Closed Tue 13:00 - 15:00", "Wed Closed Thu 13:00 - 15:00"])), 1)
+class Resample3(unittest.TestCase):
+    """Bot 3 re-sample 3 of #232 (28 Oct): wrong joined / no-food removals. Each must be held, times unchanged."""
+    @classmethod
+    def setUpClass(cls):
+        cls.items = load(); cls.before = {i["id"]: copy.deepcopy(i) for i in cls.items}
+        cls.log = G.apply(cls.items); cls.after = {i["id"]: i for i in cls.items}
+    def test_wrong_removals_now_held(self):
+        for k in ("patch", "helensburgh-lomond", "wokingham", "poole", "tameside-south-longdendale", "salvation-army/inverness"):
+            with self.subTest(k):
+                self.assertIn(k, self.after)
+                self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
+                self.assertTrue(self.log[k].startswith("held for review"), self.log.get(k))
+                self.assertNotEqual((self.after[k]["opening_times"] or {}).get("status"), "NO_TIMES")
+    def test_no_joined_removal_on_non_office(self):
+        for k, v in self.log.items():
+            ot = self.after[k].get("opening_times") or {}
+            if ot.get("status") == "NO_TIMES" and not k.startswith("salvation-army/"):
+                with self.subTest(k): self.assertTrue(v.startswith("office/warehouse/postal") or v.startswith("times came from a vacancies"), v)
 class Unit(unittest.TestCase):
     def test_parent_drops_centre_segment(self):
         c = {"id": "x/a", "type": "location", "opening_times": {"raw": "Mon 13:00 - 15:00", "structured": {"mon": [["13:00", "15:00"]]}}}
         p = {"id": "x", "type": "foodbank", "opening_times": {"raw": "Mon 13:00 - 15:00 | Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed", "status": "TIMES_TEXT_ONLY"}}
         log = G.apply([copy.deepcopy(p), c])
-        q = copy.deepcopy(p); G.apply([q, c])  # centre's segment removed; the remaining block is the listing's own (Bot 3: trim, don't wipe)
-        self.assertNotIn("Mon 13:00 - 15:00 |", q["opening_times"]["raw"]); self.assertIn("Tue 10:00 - 12:00", q["opening_times"]["raw"])
+        # Changed for re-sample 3: a non-office listing is no longer trimmed or wiped by the joined rule; it is held with its times kept
+        q = copy.deepcopy(p); log = G.apply([q, c]); self.assertEqual(q["opening_times"], p["opening_times"]); self.assertTrue(log["x"].startswith("held"))
         c2 = {"id": "x/b", "type": "location", "opening_times": {"raw": "Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed", "structured": {"tue": [["10:00", "12:00"]]}}}
-        log = G.apply([p, c, c2]); self.assertEqual(p["opening_times"]["status"], "NO_TIMES"); self.assertIn("x", log)
+        q = copy.deepcopy(p); log = G.apply([q, c, c2]); self.assertEqual(q["opening_times"], p["opening_times"]); self.assertTrue(log["x"].startswith("held"))
+        o = dict(copy.deepcopy(p), address="Warehouse, Unit 2"); log = G.apply([o, c, c2])  # multi-card clash on an office/warehouse: still wiped
+        self.assertEqual(o["opening_times"]["status"], "NO_TIMES"); self.assertTrue(log["x"].startswith("office/warehouse/postal"))
     def test_office_address_trim_gives_no_times(self):
         c = {"id": "o/a", "type": "location", "opening_times": {"raw": "Mon 13:00 - 15:00", "structured": {"mon": [["13:00", "15:00"]]}}}
         p = {"id": "o", "type": "foodbank", "address": "PO Box 1, Town", "opening_times": {"raw": "Mon 13:00 - 15:00 | Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed", "status": "TIMES_TEXT_ONLY"}}
@@ -103,7 +132,13 @@ class Unit(unittest.TestCase):
         self.assertTrue(log["y"].startswith("held")); self.assertEqual(p["opening_times"]["raw"], "Tue 10:00 - 12:00 | Thu 13:00 - 15:00")
     def test_warehouse_two_cards_wiped(self):
         p = {"id": "w", "type": "foodbank", "kind": "warehouse", "opening_times": {"raw": "Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00"}}
-        G.apply([p, {"id": "w/a", "type": "location"}, {"id": "w/b", "type": "location"}]); self.assertEqual(p["opening_times"]["status"], "NO_TIMES")
+        G.office_ids()["w"] = {"evidence": "unit test"}  # re-sample 3: a proven office/warehouse (kind alone is no longer proof); still wiped
+        try: G.apply([p, {"id": "w/a", "type": "location"}, {"id": "w/b", "type": "location"}]); self.assertEqual(p["opening_times"]["status"], "NO_TIMES")
+        finally: G.office_ids().pop("w")
+    def test_warehouse_kind_only_two_cards_held(self):
+        p = {"id": "w2", "type": "foodbank", "kind": "warehouse", "opening_times": {"raw": "Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00"}}
+        b = copy.deepcopy(p["opening_times"]); log = G.apply([p, {"id": "w2/a", "type": "location"}, {"id": "w2/b", "type": "location"}])
+        self.assertEqual(p["opening_times"], b); self.assertTrue(log["w2"].startswith("held"))
     def test_hand_reviewed_kept(self):
         ot = {"raw": "Mon 13:00 - 15:00 | Tue 10:00 - 12:00", "reader": "hand-reviewed 2026-10-27"}
         p = {"id": "z", "type": "foodbank", "kind": "warehouse", "opening_times": dict(ot)}
@@ -115,7 +150,9 @@ class Unit(unittest.TestCase):
         self.assertEqual(self.sa("Tuesday Coffee and Chat from 1pm to 2:30pm")["status"], "NO_TIMES")
         self.assertIn("Food Bank", self.sa("Food Bank Our foodbank runs from 13:00-15:00 on a Tuesday")["raw"])
     def test_sa_day_from_same_line_inverness(self):
-        self.assertEqual(self.sa("Foodbank 9am - 1pm Thursday")["status"], "NO_TIMES")
+        # Changed for re-sample 3 (was: NO_TIMES): held, times kept
+        i = {"id": "salvation-army/x", "type": "foodbank", "opening_times": {"raw": "Foodbank 9am - 1pm Thursday", "source_url": "https://www.salvationarmy.org.uk/x"}}
+        log = G.apply([i]); self.assertEqual(i["opening_times"]["raw"], "Foodbank 9am - 1pm Thursday"); self.assertTrue(log["salvation-army/x"].startswith("held"))
     def test_sa_other_corps_page(self):
         self.assertEqual(self.sa("Food bank Friday 9.30am - 11am", "https://www.salvationarmy.org.uk/fordingbridge")["status"], "NO_TIMES")
 class ProtectedReview(unittest.TestCase):
