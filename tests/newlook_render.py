@@ -21,7 +21,21 @@ def open_page(pw, scheme='dark', width=390, base=None):
     p = ctx.new_page()
     if base is None: p.route('**/*', _serve); base = HOST + 'index.html'
     B.stub_map_tiles(p)  # after the catch-all, which aborts anything that is not this checkout
-    p.goto(base + '?fresh=1', wait_until='load'); p.wait_for_function('()=>{try{return items.length>1000}catch(e){return false}}', timeout=60000)
+    p.goto(base + '?fresh=1', wait_until='load')
+    # wait_for_function builds its predicate with eval. script-src has no unsafe-eval, and the
+    # deferred loader is still inserting scripts, so poll with evaluate (same items.length>1000 check).
+    last = None
+    for _ in range(240):
+        try:
+            last = p.evaluate('()=>{try{return items.length>1000}catch(e){return false}}')
+        except Exception as e:
+            last = '%s: %s' % (type(e).__name__, e)
+        else:
+            if last:
+                break
+        p.wait_for_timeout(250)
+    else:
+        raise AssertionError('items not loaded: %r' % (last,))
     p.wait_for_timeout(800)
     return b, p
 

@@ -180,8 +180,16 @@ def run(root=ROOT):
         s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
                                         'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
-            # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
-            s = re.sub(r'<script src="(data|stamp|access)\.js(\?v=[^"]*)?"></script>', lambda m: '<script src="%s.js?v=r%s"></script>' % (m.group(1), t.strftime('%Y%m%dT%H%M')), s)
+            # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy.
+            # The home page defers these (data-hm, type=text/plain). Keep that, or a sweep would
+            # turn them back into scripts that run during parse.
+            def bust(m, _t=t):
+                name, tag = m.group(1), m.group(0)
+                ver = _t.strftime('%Y%m%dT%H%M')
+                if 'data-hm' in tag:
+                    return '<script data-hm src="%s.js?v=r%s" type="text/plain"></script>' % (name, ver)
+                return '<script src="%s.js?v=r%s"></script>' % (name, ver)
+            s = re.sub(r'<script\b[^>]*\bsrc="(data|stamp|access)\.js(?:\?v=[^"]*)?"[^>]*>\s*</script>', bust, s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))
             s = re.sub(r'(<a id="freshtxt"[^>]*>)[^<]*(</a>)', lambda m: m.group(1) + 'Updated %s' % lab(t) + m.group(2), s)
         if rel == 'faq.html': s = put_counts(s, swep_counts(root))
