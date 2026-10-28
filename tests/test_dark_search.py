@@ -62,6 +62,31 @@ class T(unittest.TestCase):
                         pg = c.new_page()
                         open_map(pg, 'http://127.0.0.1:%d/?nocount' % s.server_address[1])
                         pg.evaluate("m=>document.documentElement.classList.toggle('light', m==='light')", mode)
+                        # Header option A moves the filters into the header a frame after v3.js. Sampling
+                        # before that lands makes dark and light heights differ (430 vs 619 on a slow run).
+                        # Wait until #h2info exists and the height has stopped changing. The 0.5px check stays.
+                        last = None
+                        stable = 0
+                        for _ in range(80):
+                            try:
+                                h = pg.evaluate("""() => {
+                                  const info = document.getElementById('h2info');
+                                  const hdr = document.querySelector('header');
+                                  if (!info || !hdr) return 0;
+                                  return hdr.getBoundingClientRect().height;
+                                }""")
+                            except Exception:
+                                h = 0
+                            if h and h == last:
+                                stable += 1
+                                if stable >= 3:
+                                    break
+                            else:
+                                stable = 0
+                            last = h
+                            pg.wait_for_timeout(50)
+                        else:
+                            raise AssertionError('header not settled: %r' % (last,))
                         got[mode] = pg.evaluate(MEASURE)
                         c.close()
                     d, L = got['dark'], got['light']
