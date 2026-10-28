@@ -1,6 +1,10 @@
 {
- "_comment": "Food banks whose OWN locations page is the authority for their centres. Re-scraped on every 3x-daily refresh (scripts/own_locations.py via build.py) and every daily deep sweep (sweep_daily.py). Each centre on the page becomes a pin with the page's address, postcode and Mon-Sun times; that food bank's Give Food location pins not on the page are dropped. Fail-safe: if the page fails or parses fewer than min_centres, the last good snapshot (overrides/foodbank_own_pages.json) is used and nothing is dropped. Added 22 Oct 2026 from Katy at Coventry Foodbank's email.",
+ "_comment": "Food banks whose OWN locations page is the authority for their centres. Re-scraped on every 3x-daily refresh (scripts/own_locations.py via build.py) and every daily deep sweep (sweep_daily.py). Each centre on the page becomes a pin with the page's address, postcode and Mon-Sun times; that food bank's Give Food location pins not on the page are dropped. Fail-safe: if the page fails or parses fewer than min_centres, the last good snapshot (overrides/foodbank_own_pages.json) is used and nothing is dropped. Added 22 Oct 2026 from Katy at Coventry Foodbank's email. Every centre block's own phone line is saved in the snapshot (\"_centre_phones\", matched to a pin by postcode); full_check holds any other number proposed for that pin. \"phones_only\": true reads the page for those lines only: names, addresses, times and pins are left as they are (phone audit 28 Oct 2026, fix B).",
+ "_food_bank_own_sites": {
+  "_comment": "Listing id -> the food bank's OWN site, when its listing website is a host church or other host page. Rule 21 as narrowed by Dean 28 Oct 2026 (phone audit, rule change E): a host page counts as the food bank's own page only when the food bank has no own site. A phone read on any other host is held (full_check.py) or REVIEW (verify_own_page.py).",
+  "childs-hill": "https://sites.google.com/childshillfoodbank.org/childs-hill-food-bank/about"
+ },
  "coventry": {"url": "https://coventry.foodbank.org.uk/locations/", "min_centres": 10},
- "bournemouth": {"url": "https://bournemouth.foodbank.org.uk/locations/", "min_centres": 6, "_added": "28 Oct 2026 (Dean, PR #243): each hub's own line on its centre block; 6 centres on the page"},
- "northern-devon": {"url": "https://northerndevon.foodbank.org.uk/locations/", "min_centres": 7, "_added": "28 Oct 2026 (Dean, PR #243): South Molton and the other centres' own lines; 7 centres on the page"}
+ "bournemouth": {"url": "https://bournemouth.foodbank.org.uk/locations/", "min_centres": 4, "phones_only": true},
+ "northern-devon": {"url": "https://northerndevon.foodbank.org.uk/locations/", "min_centres": 5, "phones_only": true}
 }
