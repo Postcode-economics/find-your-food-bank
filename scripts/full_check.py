@@ -25,18 +25,26 @@ headless browser. A listing is verified only when every recorded day and time is
 the evidence quote stored. A failed, skipped, or unconfirmable read is not left as the previous
 verified hours. Access flips and phone fixes still need the same result on 2 runs. Per-host gap stays
 2 seconds, one request at a time per host. DRY_RUN=1 -> no data.js write; SAMPLE=N -> only N websites."""
-import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, threading, time, urllib.parse, urllib.request
+import concurrent.futures as cf, datetime, hashlib, html, json, os, re, sys, tempfile, threading, time, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import learning  # self-learning order (Dean 25 Oct 08:01)
 import discover
 import phone_lock  # frozen listing numbers are never auto-changed (Dean, 27 Oct 2026)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REP = os.path.join(ROOT, 'reports'); DATA = os.path.join(ROOT, 'data.full.js')
 def report_root():
-    """Directory whose reports/ folder this run writes. Tests point REP at a temp folder."""
-    rep = os.path.normpath(REP)
+    """A directory where <dir>/reports is this run's REP. Tests sometimes set REP to a temp folder
+    that is not named reports; phone holds must still land in REP and not in the repo."""
+    rep = os.path.abspath(REP)
     if os.path.basename(rep) == "reports":
         return os.path.dirname(rep)
-    return ROOT
+    cached = getattr(report_root, "_staging", None)
+    link = os.path.join(cached, "reports") if cached else ""
+    if cached and os.path.islink(link) and os.path.abspath(os.readlink(link)) == rep:
+        return cached
+    staging = tempfile.mkdtemp(prefix="fyfb-reports-")
+    os.symlink(rep, os.path.join(staging, "reports"))
+    report_root._staging = staging
+    return staging
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
@@ -749,7 +757,15 @@ def main():
                 if d['action'] == 'show':
                     # Phone changes are never AUTO_APPLY, including a number the strict gate would have allowed.
                     for i in targets:
-                        hold_phone_for_dean(i, new, r.get('final_url') or '', report_root(), name)
+                        # pending_dean only. anomaly_brake.md is the stop report, and a held phone is not a stop.
+                        import phone_lock as _pl
+                        kept = i.get("phone") if str(i.get("phone") or "").strip() else "(none)"
+                        shown = new if str(new or "").strip() else "(blank)"
+                        line = "- blocked, held for Dean | %s | phone | via phone fix | source %s | stored %s | proposed %s | unchanged (byte-identical)" % (
+                            i.get("id"), r.get("final_url") or "(none)", kept, shown)
+                        who = i.get("name") or name
+                        if who: line += " | " + who
+                        _pl._section(report_root(), "pending_dean.md", "phone lock", line)
                     flag(u, 'phone fix held (never auto-applied)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='phone changes are never auto-applied')
                 else:
                     flag(u, 'phone held', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note=d['reason'])
