@@ -1,13 +1,23 @@
 """Independent second read of own-page mismatch claims (read-only; never writes data files).
 
-Input CSV columns: listing id, own-page URL, our phone, own-page phone, our times, own-page times.
-Each URL is opened twice in Playwright Chromium. A phone is CONFIRMED only when the claimed number's
-digits appear in both reads. Times are CONFIRMED only when both reads show the same timetable and it
-matches the claimed own-page times.
+Input CSV columns: listing id, own-page URL, our phone, own-page phone, our times, own-page times;
+optional: listing name, postcode.
+Each URL is opened twice in Playwright Chromium. A phone is CONFIRMED only when the claimed number is
+written on both reads (digits run together across two numbers never count). Times are CONFIRMED only
+when both reads show the same timetable and it matches the claimed own-page times.
 
 Output adds verdict columns, a quote, action (AUTO_APPLY or REVIEW), and review_reason. AUTO_APPLY when
 the own site shows the value identically on both reads, listing rows do not conflict, and applying would
 not replace known session times with closed or empty. A one-line REVIEW summary is printed to stderr.
+
+A confirmed phone is still REVIEW (phone audit, Dean 28 Oct 2026) when:
+  - the page is a host page and the food bank has its own site (overrides/own_location_pages.json
+    "_food_bank_own_sites"; rule 21 as narrowed by rule change E);
+  - our current number is still on either read;
+  - the page never mentions a food bank (or the listing name);
+  - a shop, office, helpline or similar label sits beside the number (phone_rule.other_label);
+  - the page has more than one number, or the listing is a centre pin (id with "/"), and the number is
+    not in the same block as the listing name or postcode.
 
 Usage:
   python scripts/verify_own_page.py claims.csv > results.csv
@@ -123,20 +133,108 @@ def phone_quote(text, claimed):
         if digits_only(m.group()) == want:
             a = max(0, m.start() - 30)
             return norm_ws(text[a : m.end() + 40])
-    idx = digits_only(text).find(want)
-    if idx >= 0:
-        return norm_ws((text or "")[max(0, idx - 20) : idx + len(want) + 30])
     return ""
 
 
 def phone_in_read(claimed, text):
+    """Only a whole number written on the page counts. Digits run together across two numbers never match."""
     want = digits_only(claimed)
     if len(want) < 10:
         return False
     for m in PHONE_RX.finditer(text or ""):
         if digits_only(m.group()) == want:
             return True
-    return want in digits_only(text)
+    return False
+
+
+def numbers_on(text):
+    return {digits_only(m.group()) for m in PHONE_RX.finditer(text or "")} - {""}
+
+
+def _squash(s):
+    return re.sub(r"[\s\u2019'.,-]+", "", (s or "").lower())
+
+
+BLOCK = 250
+
+
+def in_listing_block(text, claimed, name="", postcode=""):
+    """True when the listing's name or postcode is written in the same block as the claimed number:
+    within BLOCK characters either side, not past a different number."""
+    want = digits_only(claimed)
+    keys = [k for k in (_squash(name), _squash(postcode)) if len(k) >= 4]
+    if not want or not keys:
+        return False
+    ms = list(PHONE_RX.finditer(text or ""))
+    for k, m in enumerate(ms):
+        if digits_only(m.group()) != want:
+            continue
+        lo = max(m.start() - BLOCK, 0)
+        for p in reversed(ms[:k]):
+            if digits_only(p.group()) != want:
+                lo = max(lo, p.end())
+                break
+        hi = min(m.end() + BLOCK, len(text))
+        for n in ms[k + 1 :]:
+            if digits_only(n.group()) != want:
+                hi = min(hi, n.start())
+                break
+        seg = _squash(text[lo:hi])
+        if any(key in seg for key in keys):
+            return True
+    return False
+
+
+OWN_SITES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overrides", "own_location_pages.json")
+
+
+def load_own_sites(path=None):
+    """Listing id -> the food bank's own site, where its listing website is a host page (rule change E)."""
+    try:
+        import json
+
+        with open(path or OWN_SITES, encoding="utf-8") as f:
+            raw = json.load(f).get("_food_bank_own_sites") or {}
+    except Exception:
+        return {}
+    return {k: v for k, v in raw.items() if not k.startswith("_") and isinstance(v, str) and v.startswith("http")}
+
+
+def _host(u):
+    from urllib.parse import urlparse
+
+    h = urlparse(u or "").netloc.lower().split(":")[0]
+    return h[4:] if h.startswith("www.") else h
+
+
+def phone_review_reason(row, text1, text2, own_sites=None):
+    """Why a number that is on both reads still needs a person (phone audit 28 Oct 2026, fix F). '' = none."""
+    import phone_rule
+
+    lid = pick(row, "listing id")
+    claimed = pick(row, "own-page phone")
+    ours = pick(row, "our phone")
+    name = pick(row, "listing name")
+    postcode = pick(row, "postcode")
+    want = digits_only(claimed)
+    own = (own_sites or {}).get(lid)
+    if own and _host(own) != _host(pick(row, "own-page URL")):
+        return "host page does not count: the food bank has its own site (%s)" % own
+    if digits_only(ours) and digits_only(ours) != want and (phone_in_read(ours, text1) or phone_in_read(ours, text2)):
+        return "our current number is still on the page"
+    if not phone_rule.mentions_food_bank(text1 + "\n" + text2, [name]):
+        return "page does not mention a food bank"
+    for t in (text1, text2):
+        lab = phone_rule.other_label(t, claimed)
+        if lab:
+            return "number sits beside another label (%s)" % lab
+    many = len(numbers_on(text1) | numbers_on(text2)) > 1
+    if "/" in lid or many:
+        if not (in_listing_block(text1, claimed, name, postcode) and in_listing_block(text2, claimed, name, postcode)):
+            if "/" in lid:
+                return "centre pin needs a centre-scoped read (number not in the centre's own block)"
+            return "more than one number on the page and this one is not in the listing's own block"
+    return ""
 
 
 def assess_phone(claimed, text1, text2, fetch_ok):
@@ -330,6 +428,8 @@ def decide_action(r, conflict):
         if pv == "REJECTED" or not phone_in_read(pick(r, "own-page phone"), r.get("_text1", "")):
             return "REVIEW", "no number or times on the page"
         return "REVIEW", "no number or times on the page"
+    if need_phone and r.get("_phone_review"):
+        return "REVIEW", r["_phone_review"]
     if need_times and tv != "CONFIRMED":
         if tv == "REJECTED":
             return "REVIEW", "no number or times on the page"
@@ -358,7 +458,7 @@ def review_summary(rows):
     return "REVIEW: " + "; ".join(parts)
 
 
-def process_row(row, text1, text2, fetch_ok=True):
+def process_row(row, text1, text2, fetch_ok=True, own_sites=None):
     r = dict(row)
     need_phone = bool(pick(r, "own-page phone"))
     need_times = bool(pick(r, "own-page times"))
@@ -374,6 +474,7 @@ def process_row(row, text1, text2, fetch_ok=True):
     r["_text1"] = text1
     r["_times_fp"] = times_fingerprint(text1) if fetch_ok else ""
     r["_times_note"] = tnote
+    r["_phone_review"] = phone_review_reason(r, text1, text2, own_sites) if need_phone and fetch_ok else ""
     return r
 
 
@@ -436,7 +537,8 @@ def write_csv(rows, out):
     w.writerows(clean)
 
 
-def run(rows, loader):
+def run(rows, loader, own_sites=None):
+    own_sites = load_own_sites() if own_sites is None else own_sites
     processed = []
     for row in rows:
         rk = row_key(row)
@@ -446,7 +548,7 @@ def run(rows, loader):
             t1, t2, ok = loader(lid, url)
         except Exception:
             t1, t2, ok = "", "", False
-        processed.append(process_row(rk, t1, t2, ok))
+        processed.append(process_row(rk, t1, t2, ok, own_sites))
     conflicts = listing_conflicts(processed)
     for r in processed:
         act, reason = decide_action(r, pick(r, "listing id") in conflicts)
