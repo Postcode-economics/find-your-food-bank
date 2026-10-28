@@ -114,7 +114,7 @@ def _empty(ot):
     st = ot.get("structured")
     if st is not None and not any(v for v in st.values()): return True
     return not (st or (ot.get("raw") or "").strip())
-def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None):
+def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None, own_sites=None):
     """Reasons a finder result must stay held for Dean. Empty list = it may auto-apply (only if times_auto_apply is ON).
     Each safeguard blocks on its own (tests/test_times_auto_apply.py). blocked: overrides/times_auto_undone.json."""
     why = []
@@ -125,8 +125,10 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None):
     if not pc_ok: why.append("postcode not matched exactly on the page")
     if not one_block(ot): why.append("not one clear weekly client-hours block (kept as text for review)")
     if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
-    # Rule 21 (Dean 28 Oct): a host church page counts only when the page itself names the food bank. Trussell centre
-    # cards are on *.foodbank.org.uk; any other result without a recorded mention is held.
+    own = D.not_own_site_reason(k, ot.get("source_url"), D.food_bank_own_sites() if own_sites is None else own_sites)
+    if own: why.append(own)
+    # Rule 21 (Dean 28 Oct): a host church page counts only when the food bank has no own site (above) and the page itself
+    # names the food bank. Trussell centre cards are on *.foodbank.org.uk; any other result without a recorded mention is held.
     if ot.get("reader") != "trussell_cards" and ot.get("fb_mention") is not True: why.append(D.NO_FB_MENTION)
     if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
     if same_n > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
@@ -158,6 +160,7 @@ def decide(log, items, apply, rules=None, now=None):
     p = "overrides/opening_times.json"; cur = json.load(open(p)) if os.path.exists(p) else {}
     seen = json.load(open(SEEN)) if os.path.exists(SEEN) else {}
     blocked = json.load(open(UNDONE)) if os.path.exists(UNDONE) else {}
+    own_sites = D.food_bank_own_sites()
     same = collections.defaultdict(set)
     for k, ot in log["found"].items():
         same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))].add(norm_pc(ix.get(k, {}).get("postcode")))
@@ -168,7 +171,7 @@ def decide(log, items, apply, rules=None, now=None):
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Leave the stored listing untouched and do not queue a pending row.
         if not _read(ot): continue
         it = ix.get(k, {}); ot = dict(ot, _run_at=now)
-        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, blocked)
+        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, blocked, own_sites)
         if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
         if _sig(ot): new_seen[k] = {"sig": _sig(ot), "source_url": ot.get("source_url"), "run_at": now}
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
