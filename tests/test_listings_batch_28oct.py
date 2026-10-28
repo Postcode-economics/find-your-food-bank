@@ -68,3 +68,20 @@ class Fixes(unittest.TestCase):
     def test_every_change_has_undo(self):
         for l in J("logs/listings_batch_28oct.json")["changes"]: self.assertIn("undo", l); self.assertIn("old", l)
 if __name__ == "__main__": unittest.main()
+class TimesRecheck0620(unittest.TestCase):
+    WANT = {"medway/the-net-community-cafe": {"thu": [["09:30", "12:00"]]},
+            "medway/twydall-foodbank-centre-coffee-shop": {"tue": [["12:30", "14:30"]], "fri": [["10:30", "12:30"]]},
+            "lambeth-croydon/croydon": {"thu": [["11:00", "13:00"]]},
+            "rickmansworth/mill-end": {"tue": [["13:45", "16:00"]], "fri": [["10:00", "12:00"]]},
+            "rickmansworth/st-lawrence-abbots-langley": {"tue": [["10:00", "13:00"]], "thu": [["09:00", "11:00"]], "fri": [["10:00", "13:00"]]}}
+    def test_times_and_undo(self):
+        d = items(); L = J("logs/listings_batch_28oct.json")["changes"]
+        for i, w in self.WANT.items():
+            self.assertEqual(d[i]["opening_times"]["structured"], w, i)
+            self.assertTrue(any(l["id"] == i and l["kind"] == "hours" and "undo" in l for l in L), i)
+        self.assertIn("Appointment only", d["lambeth-croydon/croydon"]["notice"])
+        # A/L Citizens Advice at the same postcode keeps its own hours
+        self.assertEqual(d["rickmansworth/abbots-langley"]["opening_times"]["structured"]["mon"], [["10:00", "14:00"]])
+    def test_wendover_held(self):
+        self.assertFalse(any(l["id"] == "chiltern/wendover" and "06:20" in l.get("note", "") for l in J("logs/listings_batch_28oct.json")["changes"]))
+        self.assertIn("HELD `chiltern/wendover`", open(os.path.join(ROOT, "reports", "pending_dean.md")).read())

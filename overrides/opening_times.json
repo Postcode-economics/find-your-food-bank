@@ -11389,11 +11389,13 @@
   }
  },
  "lambeth-croydon/croydon": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Thursday 9am-5pm | Friday 9am-12pm",
-  "source_url": "https://lambethcroydon.foodbank.org.uk/contact-us",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Thu 11:00 - 13:00",
+  "source_url": "https://lambethcroydon.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (times recheck 06:20: own page, 2 matching fetches, postcode matched)",
+  "previous": "Monday-Thursday 9am-5pm | Friday 9am-12pm"
  },
  "lambeth-croydon/dulwich": {
   "checked_date": "2026-10-26",
@@ -13246,18 +13248,22 @@
   "reader": "hand-reviewed 2026-10-26 (rule 27: live source page re-read in a full browser render at 14:24 GMT, exact URL, no redirect; every listed day confirmed by quote; Dean approved 14:21)"
  },
  "medway/the-net-community-cafe": {
-  "checked_date": "2026-10-20",
-  "raw": "Wednesday Closed Thursday 11:00 am to 1:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
-  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Thu 09:30 - 12:00",
+  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (times recheck 06:20: own page, 2 matching fetches, postcode matched)",
+  "previous": "Wednesday Closed Thursday 11:00 am to 1:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm"
  },
  "medway/twydall-foodbank-centre-coffee-shop": {
-  "checked_date": "2026-10-20",
-  "raw": "Thursday 9:30 am to 12:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
-  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Tue 12:30 - 14:30 | Fri 10:30 - 12:30",
+  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (times recheck 06:20: own page, 2 matching fetches, postcode matched)",
+  "previous": "Thursday 9:30 am to 12:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm"
  },
  "meon-valley": {
   "checked_date": "2026-10-26",
@@ -17327,11 +17333,13 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "rickmansworth/mill-end": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday-Tuesday Closed Wednesday 12:15 pm to 1:15 pm",
-  "source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Tue 13:45 - 16:00 | Fri 10:00 - 12:00",
+  "source_url": "https://rickmansworth.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (times recheck 06:20: own page, 2 matching fetches, postcode matched)",
+  "previous": "Monday-Tuesday Closed Wednesday 12:15 pm to 1:15 pm"
  },
  "ringwood": {
   "status": "TIMES_TEXT_ONLY",
@@ -26128,13 +26136,13 @@
   "protected": true
  },
  "rickmansworth/st-lawrence-abbots-langley": {
-  "checked_date": "2026-10-23",
-  "raw": "Monday 10am - 2pm | Tuesday 10am - 2pm | Wednesday 10am - 12pm | Thursday 10am - 2pm",
-  "source_url": "https://rickmansworth.foodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null,
-  "reader": "hand-reviewed 2026-10-23 (own site read; client hours only, matched by centre postcode)",
-  "protected": true
+  "raw": "Tue 10:00 - 13:00 | Thu 09:00 - 11:00 | Fri 10:00 - 13:00",
+  "source_url": "https://rickmansworth.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (times recheck 06:20: own page, 2 matching fetches, postcode matched)",
+  "previous": "Monday 10am - 2pm | Tuesday 10am - 2pm | Wednesday 10am - 12pm | Thursday 10am - 2pm"
  },
  "rickmansworth/abbots-langley": {
   "checked_date": "2026-10-23",

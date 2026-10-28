@@ -414,4 +414,6 @@ Every change is in logs/listings_batch_28oct.json with the old value (undo). Not
 - Not on their food bank's current list (labelled call before you go, NOT removed): St Albans Wheathampstead, Gloucester Kingsholm, Carmarthen The Table
 - Milton Keynes centres: venue number 01908 322800 kept; the MK Foodbank help line 0300 303 4933 (from mkfoodbank.org.uk) added as a card note, since a listing holds one phone
 - `merthyr-cynon/cornerstone-church-centre`: may have been renamed CVC Cwmbach (same number). Not renamed
+- Times recheck 06:20 (own page, 2 matching reads, postcode matched, undo logged): The Net Walderslade ME5 0QX Thu 09:30-12:00 (office phone hours no longer shown as opening times); Twydall ME8 6LQ Tue 12:30-14:30, Fri 10:30-12:30; Croydon Thornton Heath CR7 8SA Thu 11:00-13:00 + 'appointment only' note; Mill End WD3 7HJ Tue 13:45-16:00, Fri 10:00-12:00; St Lawrence Abbots Langley WD5 0AS Tue 10-13, Thu 9-11, Fri 10-13 (A/L Citizens Advice card at the same postcode keeps its own hours)
+- HELD `chiltern/wendover` HP22 6JG: its delivery block now shows all days closed; we never turn known times into closed automatically. Current delivery-only note kept. Your call
 <!-- /listings batch 28 oct -->
