@@ -247,7 +247,13 @@ class _ScriptTraffic:
                 err = ''
         if isinstance(err, dict):
             err = err.get('errorText') or ''
-        self.bad.append((key, 'failed %s (%s)' % (key[-70:], str(err)[:80])))
+        err = str(err)
+        # A navigation cancels scripts the previous document already started (net::ERR_ABORTED).
+        # Chromium also reports that abort after a 404 or 500; the status is recorded separately.
+        # Counting the abort as a missed script makes the next attempt stop before it boots.
+        if 'ERR_ABORTED' in err:
+            return
+        self.bad.append((key, 'failed %s (%s)' % (key[-70:], err[:80])))
 
     def resp(self, resp):
         req = getattr(resp, 'request', None)

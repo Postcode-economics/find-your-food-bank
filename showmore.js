@@ -172,6 +172,13 @@
     window.nearest = wrapped;
     try { nearest = wrapped; } catch (e) {}
     install.done = true;
+    try {
+      var list = listEl();
+      if (list && cardsOf(list).length) {
+        fitFirst(list);
+        paintButton(list);
+      }
+    } catch (e) {}
   }
 
   var css = document.createElement('style');

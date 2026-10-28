@@ -53,7 +53,9 @@ class NewLook(unittest.TestCase):
         css = rd("v3.css"); html = rd("index.html")
         self.assertIn("html body #list .card a.btn.call.xfbk,html body #xextra .card a.btn.call.xfbk{background:#1877F2!important;border-color:#1877F2!important;color:#fff!important", css)
         self.assertIn("a.btn.call.xfbk img.fboff{width:20px!important;height:20px!important", css)
-        i = html.index('!tel&&i.fb_page?`<a class="btn call xfbk"'); self.assertIn("fboff", html[i:i + 700])
+        # Motion QA 28 Oct F1 (Dean): no Facebook brand logo on "Send a message".
+        i = html.index('!tel&&i.fb_page?`<a class="btn call xfbk"'); j = html.index('</a>', i)
+        self.assertNotIn("<img", html[i:j]); self.assertNotIn("fb_secondary", html[i:j]); self.assertNotIn("<svg", html[i:j])
 
 
 class NewLookRendered(unittest.TestCase):
@@ -83,8 +85,8 @@ class NewLookRendered(unittest.TestCase):
         # Sandbach still has no phone and a verified Facebook page, so this stays the blue Message button.
         c = self.R.show_in_list(self.p, 'sandbach'); self.assertIsNotNone(c)
         s = c.evaluate("""c=>{const a=c.querySelector('a.btn.call.xfbk'),g=getComputedStyle;return {bg:g(a).backgroundColor,jc:g(a).justifyContent,
-          logo:!!a.querySelector('img.fboff'),txt:a.textContent.trim(),fs:g(a.querySelector('span')).fontSize,fw:g(a.querySelector('span')).fontWeight}}""")
-        self.assertEqual(s, {'bg': 'rgb(24, 119, 242)', 'jc': 'center', 'logo': True, 'txt': 'Send a message', 'fs': '16px', 'fw': '800'})
+          logo:!!a.querySelector('img,svg'),txt:a.textContent.trim(),fs:g(a.querySelector('span')).fontSize,fw:g(a.querySelector('span')).fontWeight}}""")
+        self.assertEqual(s, {'bg': 'rgb(24, 119, 242)', 'jc': 'center', 'logo': False, 'txt': 'Send a message', 'fs': '16px', 'fw': '800'})
     def test_rendered_sheet_only_body_scrolls(self):
         s = self.p.evaluate("()=>({sheet:getComputedStyle(document.getElementById('sheet')).overflowY,body:getComputedStyle(document.getElementById('sheetBody')).overflowY})")
         self.assertEqual(s, {'sheet': 'hidden', 'body': 'auto'})
