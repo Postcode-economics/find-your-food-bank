@@ -1,6 +1,7 @@
 import csv
 import importlib.util
 import io
+import itertools
 import os
 import sys
 import tempfile
@@ -45,6 +46,59 @@ class Unit(unittest.TestCase):
         ]
         self.assertIn("a", V.listing_conflicts(rows))
 
+    def test_no_phone_row_is_ever_auto_apply(self):
+        verdicts = ("CONFIRMED", "UNSURE", "REJECTED", "")
+        for pv, tv, times, our_times, fetch_ok, conflict, phone_review, note, fp in itertools.product(
+            verdicts,
+            verdicts,
+            ("", "Tuesday 12:30 pm to 2:30 pm"),
+            ("", "Thu 11:00 am to 1:00 pm"),
+            (True, False),
+            (True, False),
+            ("", "our current number is still on the page"),
+            ("", "reads disagree"),
+            ("", "tuesday 12:30 pm to 2:30 pm"),
+        ):
+            r = {
+                "listing id": "x",
+                "own-page URL": "https://example.invalid/",
+                "our phone": "01634 757056",
+                "own-page phone": "01634 757057",
+                "our times": our_times,
+                "own-page times": times,
+                "phone_verdict": pv,
+                "times_verdict": tv,
+                "_fetch_ok": fetch_ok,
+                "_text1": "Call us 01634 757057",
+                "_phone_review": phone_review,
+                "_times_note": note,
+                "_times_fp": fp,
+            }
+            act, reason = V.decide_action(r, conflict)
+            self.assertEqual(act, "REVIEW", r)
+            self.assertTrue(reason, r)
+
+    def test_phone_row_review_even_when_every_check_passes(self):
+        page = "Our food bank\nCall us 01634 757057\nTuesday 12:30 pm to 2:30 pm"
+        rows = [
+            {"listing id": "p1", "own-page URL": "https://a.example/", "our phone": "01000 000000",
+             "own-page phone": "01634 757057", "our times": "", "own-page times": ""},
+            {"listing id": "p2", "own-page URL": "https://b.example/", "our phone": "",
+             "own-page phone": "01634 757057", "our times": "",
+             "own-page times": "Tuesday 12:30 pm to 2:30 pm"},
+            {"listing id": "p3", "own-page URL": "https://c.example/", "our phone": "01634 757057",
+             "own-page phone": "01634757057", "our times": "", "own-page times": ""},
+        ]
+        out = V.run(rows, lambda lid, url: (page, page, True), own_sites={})
+        self.assertEqual(len(out), 3)
+        for r in out:
+            self.assertEqual(r["phone_verdict"], "CONFIRMED", r["listing id"])
+            self.assertEqual(r["action"], "REVIEW", r["listing id"])
+            self.assertTrue(r["review_reason"], r["listing id"])
+        self.assertEqual(out[0]["review_reason"], V.PHONE_NEEDS_APPROVAL)
+        self.assertEqual(out[1]["review_reason"], V.PHONE_NEEDS_APPROVAL)
+        self.assertNotIn("AUTO_APPLY", {r["action"] for r in out})
+
 
 class Integration(unittest.TestCase):
     def _run(self, rows):
@@ -71,7 +125,7 @@ class Integration(unittest.TestCase):
         finally:
             os.unlink(path)
 
-    def test_auto_apply_phone_and_times(self):
+    def test_phone_and_times_confirmed_is_still_review(self):
         out, summary = self._run(
             [
                 {
@@ -86,6 +140,42 @@ class Integration(unittest.TestCase):
         )
         self.assertEqual(len(out), 1)
         self.assertEqual(out[0]["phone_verdict"], "CONFIRMED")
+        self.assertEqual(out[0]["times_verdict"], "CONFIRMED")
+        self.assertEqual(out[0]["action"], "REVIEW")
+        self.assertEqual(out[0]["review_reason"], V.PHONE_NEEDS_APPROVAL)
+        self.assertIn("medway-net (%s)" % V.PHONE_NEEDS_APPROVAL, summary)
+
+    def test_phone_only_confirmed_is_review(self):
+        out, summary = self._run(
+            [
+                {
+                    "listing id": "medway-net",
+                    "own-page URL": "https://example.invalid/",
+                    "our phone": "01634 757056",
+                    "own-page phone": "01634 757057",
+                    "our times": "",
+                    "own-page times": "",
+                }
+            ]
+        )
+        self.assertEqual(out[0]["phone_verdict"], "CONFIRMED")
+        self.assertEqual(out[0]["action"], "REVIEW")
+        self.assertEqual(out[0]["review_reason"], V.PHONE_NEEDS_APPROVAL)
+        self.assertNotIn("REVIEW: none", summary)
+
+    def test_times_only_confirmed_still_auto_applies(self):
+        out, summary = self._run(
+            [
+                {
+                    "listing id": "twydall-stable",
+                    "own-page URL": "https://example.invalid/",
+                    "our phone": "",
+                    "own-page phone": "",
+                    "our times": "Thu 9:30 am to 12:00 pm",
+                    "own-page times": "Tuesday 12:30 pm to 2:30 pm",
+                }
+            ]
+        )
         self.assertEqual(out[0]["times_verdict"], "CONFIRMED")
         self.assertEqual(out[0]["action"], "AUTO_APPLY")
         self.assertEqual(out[0]["review_reason"], "")
