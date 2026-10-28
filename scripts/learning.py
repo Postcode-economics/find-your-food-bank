@@ -51,7 +51,13 @@ def record(s, key, today, ok, finds=0, method=None, changed=False, kind="source"
     if ok:
         e["consec_fail"] = 0
         if finds: e["finds"] += 1; e["decayed_finds"] = faded_finds + 1; e["last_find"] = today
-        if changed: e["last_change"] = today
+        if changed:
+            prev = e.get("last_change")
+            if prev and prev != today:
+                gap = _days(prev, today)
+                if 0 < gap < 10 ** 5:
+                    e.setdefault("change_gaps", []).append(gap); e["change_gaps"] = e["change_gaps"][-12:]
+            e["last_change"] = today
         if method:
             m = e["methods"].setdefault(method, {"ok": 0, "fail": 0}); m["ok"] += 1; e["last_method"] = method
     else:
@@ -76,6 +82,16 @@ def _fade_counts(e, today):
         if 0 < days < 10 ** 5:
             f = _decay_factor(days); finds *= f; checks *= f
     return finds, checks
+
+def rhythm_factor(e, today):
+    """0..1 once a place is due again by its own observed gap between real changes.
+    Fewer than two observed gaps: 0 (the rhythm is not invented)."""
+    gaps = [g for g in (e.get("change_gaps") or []) if isinstance(g, (int, float)) and g > 0]
+    if len(gaps) < 2 or not e.get("last_change") or not today: return 0.0
+    typical = sorted(gaps)[len(gaps) // 2]
+    elapsed = _days(e["last_change"], today)
+    if typical <= 0 or elapsed >= 10 ** 5 or elapsed < typical * 0.5: return 0.0
+    return round(min(elapsed / typical, 1.0), 3)
 
 def reward(e, today=None):
     finds, checks = _fade_counts(e, today)
@@ -257,6 +273,65 @@ def prune(s, today, seen, days=PRUNE_DAYS):
         del s["keys"][k]
     s["tombstones"] = tomb[-200:]
     return s
+
+def empty_parse(http, extracted, previous, minimum=1):
+    """True when a page answered HTTP 200 and the parser found fewer than `minimum` records,
+    after a previous run that had found at least `minimum`. No previous count: False.
+    Nothing is invented, and this does not remove a place."""
+    try: http, extracted = int(http), int(extracted)
+    except (TypeError, ValueError): return False
+    if http != 200 or extracted >= minimum: return False
+    if previous is None: return False
+    try: previous = int(previous)
+    except (TypeError, ValueError): return False
+    return previous >= minimum
+
+def source_history_update(history, marks, keep=12):
+    """Append one success or failure per source. Older rows are kept, up to `keep`. Places are not touched."""
+    out = {}
+    for name, row in (history or {}).items():
+        if isinstance(row, list): out[name] = [x for x in row if isinstance(x, bool)][-keep:]
+    for name, ok in (marks or {}).items():
+        if not name: continue
+        out[name] = (out.get(name) or []) + [bool(ok)]
+        out[name] = out[name][-keep:]
+    return out
+
+def sources_gone(history, need=3):
+    """Sources whose last `need` recorded runs all failed. Fewer than `need` runs: not flagged.
+    This is a flag only. It does not remove a place."""
+    gone = []
+    for name in sorted(history or {}):
+        row = [x for x in (history.get(name) or []) if isinstance(x, bool)]
+        if len(row) >= need and not any(row[-need:]): gone.append(name)
+    return gone
+
+def record_sources(path, marks, keep=12):
+    """Update the source-health file. A missing file starts empty. Nothing is invented."""
+    try: cur = json.load(open(path))
+    except Exception: cur = {}
+    if not isinstance(cur, dict): cur = {}
+    nxt = source_history_update(cur, marks, keep)
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"; json.dump(nxt, open(tmp, "w"), indent=0, sort_keys=True); os.replace(tmp, path)
+    return nxt
+
+def provenance(kind, confidence, source, rules):
+    """A log line for an automatic edit the rules already allowed. decides is always False:
+    the rules file still decides, and this note cannot grant a change. A kind the rules
+    would refuse, including a new place or a removal, returns None. Confidence can only refuse.
+    allow_under_rules belongs to the refresh batch when that branch is present; otherwise a
+    score under 0.8 is refused here and the rules list still decides."""
+    rules = rules or {}
+    if kind not in (rules.get("automatic") or []): return None
+    allow = globals().get("allow_under_rules")
+    if allow is not None:
+        if not allow(kind, rules, confidence): return None
+    elif confidence is not None:
+        try:
+            if float(confidence) < 0.8: return None
+        except (TypeError, ValueError): return None
+    return {"rule": kind, "confidence": confidence, "source": source, "decides": False}
 
 def try_auto_phone(item, proposed, source, root=None, via="learning"):
     """Learning / auto-apply writer for one listing phone.

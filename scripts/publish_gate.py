@@ -53,7 +53,15 @@ def gate(layer, ref='HEAD'):
         if not secrets:
             print('gate: no live baseline, skipped'); return []
         live = None  # no baseline: still hold a private-blocklist match (rule 9)
+    import override_check
+    ok_files, why = override_check.assess(ROOT)
+    if not ok_files:
+        print('publish gate: ' + why); return []
     pre, d, post = split(open(f).read()); keep, held = [], []
+    import schema_version
+    if layer == 'foodbanks' and not schema_version.accepts(d.get('schema_version')):
+        print('publish gate: schema_version %r is not accepted' % d.get('schema_version'))
+        return []
     ok = auto_rules.approved(layer, ROOT)
     import phone_lock
     dirty = False

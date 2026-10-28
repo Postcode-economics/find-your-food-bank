@@ -74,16 +74,22 @@ def _polite(url, loader):
     finally:
         if sem: sem.release()
 def _urllib_load(url):
+    import rate_ledger
     req = urllib.request.Request(url, headers=UA)
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
             body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
-            _note(urllib.parse.urlparse(url).netloc.lower(), True)
+            _note(urllib.parse.urlparse(url).netloc.lower(), True); rate_ledger.LEDGER.record(url, r.status)
             return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
     except urllib.error.HTTPError as e:
-        _note(urllib.parse.urlparse(url).netloc.lower(), False)
+        _note(urllib.parse.urlparse(url).netloc.lower(), False); rate_ledger.LEDGER.record(url, e.code)
         return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
+    except Exception:
+        rate_ledger.LEDGER.record(url, None); raise
 def fetch(url):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        return {'ok': None, 'http': 429, 'error': 'paused this run after HTTP 429 - still due on a later scheduled run'}
     return _polite(url, _urllib_load)
 
 def text_of(h):
@@ -149,6 +155,19 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
+_robots_cache = {}
+def _robots_text(url):
+    parts = urllib.parse.urlsplit(url)
+    if not parts.scheme or not parts.netloc: return "", "/"
+    base = "%s://%s" % (parts.scheme, parts.netloc)
+    if base not in _robots_cache:
+        try:
+            rb = fetch(base + "/robots.txt")
+            _robots_cache[base] = (rb.get("html") or "") if rb.get("http") == 200 else ""
+        except Exception:
+            _robots_cache[base] = ""
+    return _robots_cache[base], parts.path or "/"
+
 UNCLEAR_LINE = 'Opening times not listed. Call before you go.'
 def drop_saved_hours(r):
     """No live page, so no hours reading. The previous run's hash is not a source and is not kept."""
@@ -196,6 +215,10 @@ def read_source(item, fetch=None, render=None):
     fetch = fetch or globals()['fetch']
     if not src:
         return {'ok': False, 'error': 'no source url', 'text': '', 'final_url': '', 'html': ''}
+    import robots_check
+    rtext, rpath = _robots_text(src)
+    if robots_check.blocked(rtext, rpath):  # the site asks us not to read this page: no fetch, hours not guessed
+        return {'ok': False, 'error': 'not fetched, robots', 'text': '', 'final_url': '', 'html': '', 'robots': True}
     got = fetch(src) or {}
     if not got.get('ok'):
         return {'ok': False, 'http': got.get('http'), 'error': got.get('error') or 'no response', 'text': '', 'final_url': got.get('final_url') or '', 'html': ''}
@@ -252,7 +275,13 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
     return n
 def check_site(url, order=None):
     """Fetch with the methods in `order` (plain, then https for an http URL). Stops at the first that works.
-    The order comes from per-site method memory so a method that healed this site last time is tried first."""
+    The order comes from per-site method memory so a method that healed this site last time is tried first.
+    A robots.txt Disallow skips the fetch. Hours are not guessed, and the place is not removed."""
+    text, path = _robots_text(url)
+    import robots_check
+    if robots_check.blocked(text, path):
+        return {'url': url, 'checked_at': NOW.isoformat(), 'ok': False, 'robots': True, 'http': None,
+                'error': 'not fetched, robots', 'hours_hash': '', 'phones': [], 'hours_sample': [], 'method': None, 'methods_tried': []}
     order = list(order or (['plain', 'https'] if str(url).startswith('http://') else ['plain']))
     home = {'ok': False, 'http': None, 'error': 'not tried'}; used, tried = None, []
     for m in order:
@@ -381,9 +410,10 @@ def record_clear_phones(items, new, source, root=None, name=''):
             apply_to.append(i)
     return apply_to
 
-def apply_phone_fixes(by_site, fixes, flag, root=None):
+def apply_phone_fixes(by_site, fixes, flag, root=None, applied=None):
     """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
-    A listing in the phone baseline is never changed here: the proposal is held for Dean."""
+    A listing in the phone baseline is never changed here: the proposal is held for Dean.
+    `applied` collects (website, fix) only for numbers that were actually written."""
     root = root or ROOT
     n = 0
     for u, lst in by_site.items():
@@ -404,6 +434,7 @@ def apply_phone_fixes(by_site, fixes, flag, root=None):
             i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']
             if f.get('label'): i['phone_label'] = f['label']
             n += 1
+            if applied is not None: applied.append((u, f))
     return n
 
 import auto_rules, phone_rule; RULES = auto_rules.load()  # Dean 25 Oct 2026; phone_rule is rule 21
@@ -457,6 +488,7 @@ def main():
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
     this_run = []  # rows inserted into access_changes this run; the brake counts only the applied ones
+    prov = []  # why an automatic edit was allowed; written only when one is actually applied
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
@@ -491,6 +523,10 @@ def main():
             state['sites'][u] = kept
             flag(u, 'opening times not read', name=name, website=u, error=r.get('error'), note='not checked this run; previous hours are not verified. ' + UNCLEAR_LINE)
             continue
+        if r.get('robots'):
+            stats['robots'] = stats.get('robots', 0) + 1; r['fail_runs'] = prev.get('fail_runs', 0)
+            flag(u, 'not fetched, robots', name=name, website=u, note='the site asks us not to read this page. Opening hours were not guessed. The place stays on the map.')
+            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'robots', 'fail_runs')}; continue
         if not r['ok']:
             stats['failed'] += 1; r['fail_runs'] = prev.get('fail_runs', 0) + 1
             for k in ('access', 'needs', 'phones', 'closed'): r[k] = prev.get(k)
@@ -500,6 +536,9 @@ def main():
             if r['fail_runs'] >= 2: flag(u, 'dead or unreachable website', name=name, website=u, error=r['error'], failed_runs=r['fail_runs'], phone=by_site[u][0].get('phone'), note='site failed %d runs in a row - check contact details' % r['fail_runs'])
             state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
         stats['ok'] += 1; r['fail_runs'] = 0; stats[r['access']] += 1
+        got = (1 if r.get('hours_hash') else 0) + len(r.get('phones') or [])
+        had = ((1 if prev.get('hours_hash') else 0) + len(prev.get('phones') or [])) if prev.get('checked_at') else None
+        r['empty_parse'] = bool(learning.empty_parse(r.get('http'), got, had))
         # (1) access - per pin, against access.js (hand-read CSVs + earlier auto flips). A flip needs the
         # same clear own-site result on 2 runs in a row; unclear never changes anything (= walk-ins welcome).
         curs = {i['id']: acc.get(i['id'], 'unconfirmed') for i in by_site[u] if i['id'] in acc}
@@ -517,6 +556,8 @@ def main():
                     changes.insert(0, entry); this_run.append(entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
                 today['items'].pop('access flip pending (confirms next run)|' + u, None)
                 log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
+                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted) if hasattr(learning, "confidence_for") else None, r.get('final_url'), RULES)
+                if note: prov.append(dict(note, when=NOW.isoformat()))
             elif todo:
                 flag(u, 'access flip pending (confirms next run)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='clear %s wording found; applied automatically if seen again next run' % r['access'])
         elif r['access'] == 'mixed':
@@ -564,7 +605,7 @@ def main():
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse')}
     review_hours(items, state, flag, t0 + BUDGET)
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
@@ -573,7 +614,9 @@ def main():
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
         r = results[u]; learning.note_heal(LS, u, r.get('methods_tried') or [], r.get('method'), DAY)
-        learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method=r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+        # a robots block is a completed permission check, not a failed fetch and not a dead link
+        checked = True if r.get('robots') else r.get('ok')
+        learning.record(LS, u, DAY, checked, finds=int(u in found), method=('robots' if r.get('robots') else (r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site')), changed=u in {e.get('website') for e in log}, kind='foodbank_site')
     n_applied = learning.applied_count(this_run)  # new places held for Dean are in this_run and do not count
     brake = learning.anomaly_brake(LS.get('change_counts') or [], n_applied)
     if not brake['stop'] and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
@@ -583,16 +626,35 @@ def main():
     if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
         learning.prune(LS, DAY, sites)
         learning.snapshot(LS, DAY); learning.save(LS)
+        try:
+            import replay
+            replay.write(replay.cases_from_state(state), os.path.join(REP, 'replay_cases.json'))
+        except Exception: pass
     if brake['stop']:
         os.makedirs(REP, exist_ok=True)
         open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write('# Stopped\n\n%s\n\nNothing from this run was published.\n' % brake['reason'])
         today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
         print('ANOMALY BRAKE:', brake['reason']); return
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    apply_phone_fixes(by_site, fixes, flag, ROOT)
+    applied_phones = []
+    apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)
+    for u, f in applied_phones:
+        # PR 204 owns confidence_for and the decision to hold a phone. This log only records a number that was written.
+        if hasattr(learning, "confidence_for"): confidence = learning.confidence_for(u, conflicted)
+        else: confidence = 0.0 if u in conflicted else None
+        note = learning.provenance('clear single new phone on own site', confidence, f.get('source'), RULES)
+        if note: prov.append(dict(note, when=NOW.isoformat()))
+    if prov:
+        prev_p = rj('provenance.json', [])
+        if not isinstance(prev_p, list): prev_p = []
+        wj('provenance.json', (prev_p + prov)[-200:])
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts and not os.environ.get('SAMPLE'): rate_ledger.save(day=DAY)
+    except Exception: pass
     print('full check:', json.dumps(stats))
     apply_closure_notes(items, closure_pending); wj('closures_pending.json', closure_pending); write_pending_closures(closure_pending)
     if remove:
