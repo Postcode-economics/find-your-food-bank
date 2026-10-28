@@ -70,11 +70,14 @@ class Fixes(unittest.TestCase):
         S, W = layer("shelters.js"), layer("warmspaces.js")
         self.assertEqual(dg(S["osm-way-169564851"]["phone"]), "01904553626")  # James House, Dean approved
         self.assertFalse(W["ww-68618605"].get("phone"))  # Bruton council switchboard removal, Dean approved
-        for i, n in (("hl-dens-the-elms", "01442800131"), ("osm-node-1533578890", "01904554500"), ("osm-way-556071354", "01414294541")):
-            self.assertEqual(dg(S[i]["phone"]), n, i)
-        for i, n in (("ww-55475981", "08000232692"), ("ww-57951889", "07821153701")): self.assertEqual(dg(W[i]["phone"]), n, i)
+        for i, n in (("hl-dens-the-elms", "01442800131"), ("osm-way-556071354", "01414294541")): self.assertEqual(dg(S[i]["phone"]), n, i)
+        self.assertEqual(dg(W["ww-57951889"]["phone"]), "07821153701")
+        # reverting these would put a general council line back on the venue (rule 5): kept, listed for Dean
+        self.assertEqual(dg(S["osm-node-1533578890"]["phone"]), "01904551901"); self.assertEqual(dg(W["ww-55475981"]["phone"]), "01618813744")
+        P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
+        for i in ("osm-node-1533578890", "ww-55475981", "hl-dens-the-elms", "osm-way-556071354", "ww-57951889"): self.assertIn("| `%s` " % i, P)
         C = J("overrides/shelters_contacts.json")
-        for i in ("hl-dens-the-elms", "osm-node-1533578890", "osm-way-556071354"): self.assertNotIn("phone_fix", C[i])
+        for i in ("hl-dens-the-elms", "osm-way-556071354"): self.assertNotIn("phone_fix", C[i])
         self.assertEqual(C["osm-way-169564851"]["phone_fix"], "01904 553626")
         for i in [k for k in d if k.startswith("milton-keynes/")]: self.assertNotIn("0300 303 4933", d[i].get("notice") or "", i)
     def test_address_name_website(self):

@@ -11494,6 +11494,42 @@
      "phone_label": null
     }
    }
+  },
+  {
+   "kind": "phone",
+   "id": "osm-node-1533578890",
+   "field": "phone",
+   "old": "01904 554500",
+   "new": "01904 551901",
+   "source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+   "note": "restored (revert undone): putting back 01904 554500 would publish a general council line, banned by rule 5 and Dean 28 Oct 05:35 decision; Dean to confirm the replacement",
+   "at": "2026-10-28T07:10Z",
+   "undo": {
+    "set": {
+     "phone": "01904 554500",
+     "tel": "01904554500",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "ww-55475981",
+   "field": "phone",
+   "old": "0800 023 2692",
+   "new": "0161 881 3744",
+   "source": "https://www.whalleyrange.org/contact-us/",
+   "note": "restored (revert undone): putting back 0800 023 2692 would publish a general council line, banned by rule 5 and Dean 28 Oct 05:35 decision; Dean to confirm the replacement",
+   "at": "2026-10-28T07:10Z",
+   "undo": {
+    "set": {
+     "phone": "0800 023 2692",
+     "tel": "08000232692",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
   }
  ],
  "flags": [
