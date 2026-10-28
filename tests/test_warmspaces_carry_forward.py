@@ -274,6 +274,18 @@ class GuardHonoursBuild(unittest.TestCase):
         out, _ = G.guard('warmspaces', [k2], [], run_day=run, root=self.d)
         self.assertEqual([x['id'] for x in out], ['ww-keep2']); self.assertEqual(out[0]['carried_note'], 'Not re-confirmed since 2027-02-20 – call before you go')
 
+    def test_guard_reads_same_run_log_across_midnight_utc(self):
+        """Build writes the log at 23:59 UTC on 28 Feb; the guard runs at 00:01 on 1 Mar in the SAME workflow run."""
+        from unittest import mock
+        k2 = dict(self.keep, id='ww-keep3', name='Other Name', postcode='E9 9AB', lat=51.0, lng=0.5)
+        with mock.patch.dict(os.environ, {'GITHUB_RUN_ID': '777', 'GITHUB_RUN_ATTEMPT': '1'}):
+            C.write_log([], '2027-02-28', root=self.d, not_carried=[{'id': 'ww-keep3', 'name': 'Other Name', 'why': 'season_ended'}])
+            out, rep = G.guard('warmspaces', [k2], [], run_day='2027-03-01', root=self.d)
+        self.assertEqual(out, []); self.assertEqual(rep['not_restored'], [{'id': 'ww-keep3', 'why': 'season_ended'}])
+        with mock.patch.dict(os.environ, {'GITHUB_RUN_ID': '778', 'GITHUB_RUN_ATTEMPT': '1'}):  # a different run's log is still not trusted
+            out, _ = G.guard('warmspaces', [k2], [], run_day='2027-03-01', root=self.d)
+        self.assertEqual([x['id'] for x in out], ['ww-keep3'])
+
     def test_real_kings_church_entry_stays_out_on_2027_05_01(self):
         ws = open(os.path.join(ROOT, 'warmspaces.js'), encoding='utf-8').read()
         items = json.loads(ws[ws.index('{'):ws.rindex('}') + 1])['items']
