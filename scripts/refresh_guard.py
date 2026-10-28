@@ -45,24 +45,54 @@ def has_times(layer, i):
         return bool(ot.get('raw') or ot.get('structured') or ot.get('text') or ot.get('sessions'))
     return bool(i.get('hours'))
 
-def guard(layer, old_items, new_items):
-    ok, ex = allowed_removals(layer)
-    new = {i['id']: i for i in new_items}
-    norm = lambda x: ''.join(c for c in (x or '').lower() if c.isalnum())
+_norm = lambda x: ''.join(c for c in (x or '').lower() if c.isalnum())
+
+def moved_index(new_items):
     near = {}
-    for i in new_items: near.setdefault(norm(i.get('name')), []).append(i)
-    def moved(o):  # same place under a new id (sources re-key, e.g. IFAN): same name within ~300 m, or same name + postcode
-        for i in near.get(norm(o.get('name')), []):
-            try:
-                if abs(float(i['lat']) - float(o['lat'])) < 0.003 and abs(float(i['lng']) - float(o['lng'])) < 0.005: return True
-            except Exception: pass
-            if o.get('postcode') and i.get('postcode') == o.get('postcode'): return True
-        return False
+    for i in new_items: near.setdefault(_norm(i.get('name')), []).append(i)
+    return near
+
+def moved_to(o, near):  # same place under a new id (sources re-key, e.g. IFAN): same name within ~300 m, or same name + postcode
+    for i in near.get(_norm(o.get('name')), []):
+        if i.get('id') == o.get('id'): continue
+        try:
+            if abs(float(i['lat']) - float(o['lat'])) < 0.003 and abs(float(i['lng']) - float(o['lng'])) < 0.005: return i
+        except Exception: pass
+        if o.get('postcode') and i.get('postcode') == o.get('postcode'): return i
+    return None
+
+def ws_not_restorable(run_day, root=None, closed_ids=()):
+    """Warm spaces the build deliberately left out this run, which the guard must never put back (GB2 FAIL on #235, 28 Oct):
+    carry_forward's not_carried list for this run (season ended, closed, excluded, allowed removal, moved), every id in
+    overrides/warmspaces_exclude.json, and anything in this run's recently_closed."""
+    import carry_forward as CF
+    root = root or ROOT
+    lg = load_json(os.path.join(root, 'logs', 'warmspaces_carry_forward.json'), {})
+    nc = {r['id']: r.get('why', 'not_carried') for r in lg.get('not_carried', [])} if lg.get('run') == run_day else {}
+    for i in CF.excluded_ids(root): nc.setdefault(i, 'excluded')
+    for i in closed_ids: nc.setdefault(i, 'closed')
+    return nc
+
+def guard(layer, old_items, new_items, run_day=None, closed_ids=(), root=None):
+    ok, ex = allowed_removals(layer)
+    run_day = run_day or datetime.date.today().isoformat()
+    if layer == 'warmspaces':
+        import carry_forward as CF
+        skip_ws = ws_not_restorable(run_day, root, closed_ids)
+        pend = {p['id']: p for p in load_json(os.path.join(root or ROOT, 'logs', 'warmspaces_pending.json'), []) if isinstance(p, dict) and p.get('id')}
+        conf = load_json(os.path.join(root or ROOT, 'logs', 'warmspaces_last_confirmed.json'), {})
+    new = {i['id']: i for i in new_items}
+    mv = moved_index(new_items)
+    moved = lambda o: moved_to(o, mv) is not None
     out = list(new_items); rep = {'places': [], 'phones': [], 'times': []}
     for o in old_items:
         n = new.get(o['id'])
         if n is None:
             if removal_ok(o, ok, ex) or moved(o): continue
+            if layer == 'warmspaces':  # never undo the build's deliberate drops; a restored venue gets carry-forward's label + link check
+                why = skip_ws.get(o['id']) or CF.why_not(o, run_day, valid_until=CF.season_end)
+                if why: rep.setdefault('not_restored', []).append({'id': o['id'], 'why': why}); continue
+                out.append(dict(CF.label(o, run_day, pend, conf), guard_kept=run_day)); rep['places'].append(o['id']); continue
             out.append(dict(o, guard_kept=datetime.date.today().isoformat())); rep['places'].append(o['id']); continue
         had, has = o.get('tel') or o.get('phone'), n.get('tel') or n.get('phone')
         if had and not has and 'phone_was' not in n and o['id'] not in ok:  # phone_was = deliberate drop_phone override
@@ -91,15 +121,16 @@ def main(layer, ref='HEAD'):
     try: old_txt = subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True)
     except Exception: print('guard: no baseline, skipped'); return {}
     _, old, _ = split(old_txt); pre, cur, post = split(open(f).read())
-    items, rep = guard(layer, old['items'], cur['items'])
-    n = sum(len(v) for v in rep.values())
-    summ = f"{layer}: kept {len(rep['places'])} places, {len(rep['phones'])} phones, {len(rep['times'])} opening times that this run would have dropped"
+    items, rep = guard(layer, old['items'], cur['items'], closed_ids=[x['id'] for x in cur.get('recently_closed', []) if isinstance(x, dict) and 'id' in x])
+    n = sum(len(v) for k, v in rep.items() if k != 'not_restored')
+    summ = f"{layer}: kept {len(rep['places'])} places, {len(rep['phones'])} phones, {len(rep['times'])} opening times that this run would have dropped" + (f"; {len(rep['not_restored'])} left out on purpose by the build were not restored" if rep.get('not_restored') else '')
     print('refresh guard:', summ)
     lg = load_json('logs/refresh_guard.json', {}); lg[layer] = dict(when=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'), **rep)
     json.dump(lg, open(os.path.join(ROOT, 'logs', 'refresh_guard.json'), 'w'), indent=1)
     md = [f'# Refresh guard: {layer} ({lg[layer]["when"]})', '', summ + '. Previous values were kept and published; please check why the source lost them.', '']
     for k, v in rep.items():
-        if v: md += [f'## {k} kept ({len(v)})', ''] + [f'- {x}' for x in v] + ['']
+        if v and k == 'not_restored': md += [f'## Not restored: left out on purpose by the build ({len(v)})', ''] + [f"- {x['id']}: {x['why']}" for x in v] + ['']
+        elif v: md += [f'## {k} kept ({len(v)})', ''] + [f'- {x}' for x in v] + ['']
     open(os.path.join(ROOT, 'reports', f'refresh_guard_{layer}.md'), 'w').write('\n'.join(md))
     if n:
         cur['items'] = items
