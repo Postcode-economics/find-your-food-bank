@@ -14078,6 +14078,792 @@
      "phone_label": null
     }
    }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/aberystwyth",
+   "field": "phone",
+   "old": "01970639112",
+   "new": "07774625842",
+   "source": "https://www.salvationarmy.org.uk/aberystwyth",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 2, Ffordd Alexandra Road Aberystwyth SY23 1LE United Kingdom Email address: aberystwyth@salvationarmy.org.uk Phone: 07774 625842\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01970639112",
+     "tel": "01970639112",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/alton",
+   "field": "phone",
+   "old": "0142084456",
+   "new": "01420541778",
+   "source": "https://www.salvationarmy.org.uk/alton",
+   "note": "confirmed, already applied earlier in this batch (07:02 rule pass); no data change (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Amery Street Alton GU34 1HN United Kingdom Email address: alton@salvationarmy.org.uk Phone: 01420 541778\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "0142084456",
+     "tel": "0142084456",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/ballymena",
+   "field": "phone",
+   "old": "02825656818",
+   "new": "07918402788",
+   "source": "https://www.salvationarmy.org.uk/ballymena",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 3 Waring Street Ballymena BT42 4BU United Kingdom Email address: ballymena@salvationarmy.org.uk Phone: 07918 402 788\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "02825656818",
+     "tel": "02825656818",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/barton-upon-humber",
+   "field": "phone",
+   "old": "01652632666",
+   "new": "01652637312",
+   "source": "https://www.salvationarmy.org.uk/barton-upon-humber",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 114 Tofts Road Barton-on-Humber DN18 5NG United Kingdom Email address: barton.upon.humber@salvationarmy.org.uk Phone: 01652 637312\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01652632666",
+     "tel": "01652632666",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/belfast-north",
+   "field": "phone",
+   "old": "02890391988",
+   "new": "02890744043",
+   "source": "https://www.salvationarmy.org.uk/belfast-north",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 258 York Street Belfast BT15 1GZ United Kingdom Email address: Belfast.North@salvationarmy.org.uk Phone: 028 90744043\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "02890391988",
+     "tel": "02890391988",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/bicester",
+   "field": "phone",
+   "old": "01869369160",
+   "new": "01869221924",
+   "source": "https://www.salvationarmy.org.uk/bicester",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Hart Place Bicester OX26 4FR United Kingdom Email address: bicester@salvationarmy.org.uk Phone: 01869 221924\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01869369160",
+     "tel": "01869369160",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/buckingham",
+   "field": "phone",
+   "old": "01280813800",
+   "new": "07786998586",
+   "source": "https://www.salvationarmy.org.uk/buckingham",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are The Salvation Army Moreton Road Buckingham MK18 1JZ United Kingdom Email address: buckingham@salvationarmy.org.uk Phone: 07786 998586\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01280813800",
+     "tel": "01280813800",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/bury-st-edmunds",
+   "field": "phone",
+   "old": "01284705902",
+   "new": "01284768031",
+   "source": "https://www.salvationarmy.org.uk/bury-st-edmunds",
+   "note": "confirmed, already applied earlier in this batch (07:02 rule pass); no data change (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are St John's Street Bury St Edmunds IP33 1SP United Kingdom Email address: burystedmunds@salvationarmy.org.uk Phone: 01284 768031\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01284705902",
+     "tel": "01284705902",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/chester",
+   "field": "phone",
+   "old": "01512526100",
+   "new": "01244316791",
+   "source": "https://www.salvationarmy.org.uk/chester",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are St Anne Street Chester CH1 3HU United Kingdom Email address: Chester@salvationarmy.org.uk Phone: 01244 316 791\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01512526100",
+     "tel": "01512526100",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/colchester-mount-zion",
+   "field": "phone",
+   "old": "01206851363",
+   "new": "07443193101",
+   "source": "https://www.salvationarmy.org.uk/colchester-mount-zion",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 328A Ipswich Road Colchester CO4 0ET United Kingdom Email address: Colchester.mount.zion@salvationarmy.org.uk Phone: 07443193101\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01206851363",
+     "tel": "01206851363",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/connahs-quay",
+   "field": "phone",
+   "old": "01244830496",
+   "new": "01244823984",
+   "source": "https://www.salvationarmy.org.uk/connahs-quay",
+   "note": "number stored (phones.json, phone_sources, baseline) but listing not shown: removed earlier as a same-building duplicate (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Dee Road Connah's Quay CH5 4NX United Kingdom Email address: connahs.quay@salvationarmy.org.uk Phone: 01244 823984\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01244830496",
+     "tel": "01244830496",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/consett",
+   "field": "phone",
+   "old": "01207-504795",
+   "new": "01207501712",
+   "source": "https://www.salvationarmy.org.uk/consett",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Sherburn Terrace Consett DH8 6ND United Kingdom Email address: consett@salvationarmy.org.uk Phone: 01207 501712\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01207-504795",
+     "tel": "01207504795",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/cwm",
+   "field": "phone",
+   "old": "01495371874",
+   "new": "07833017366",
+   "source": "https://www.salvationarmy.org.uk/cwm",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Aubrey Terrace Cwm Ebbw Vale NP23 7SN United Kingdom Email address: cwm@salvationarmy.org.uk Phone: 07833017366\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01495371874",
+     "tel": "01495371874",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/deal",
+   "field": "phone",
+   "old": "07776515962",
+   "new": "07469659218",
+   "source": "https://www.salvationarmy.org.uk/deal",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 56 West Street Deal CT14 6AZ United Kingdom Email address: deal@salvationarmy.org.uk Phone: 07469 659218\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "07776515962",
+     "tel": "07776515962",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/east-kilbride",
+   "field": "phone",
+   "old": "01335234366",
+   "new": "01355234366",
+   "source": "https://www.salvationarmy.org.uk/east-kilbride",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 25 Mid Park East Kilbride Glasgow G75 0BZ United Kingdom Email address: east.kilbride@salvationarmy.org.uk Phone: 01355 234366\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01335234366",
+     "tel": "01335234366",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/eaton-bray",
+   "field": "phone",
+   "old": "07779939794",
+   "new": "01525222087",
+   "source": "https://www.salvationarmy.org.uk/eaton-bray",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Booth Place Eaton Bray Dunstable LU6 2DR United Kingdom Email address: eaton.bray@salvationarmy.org.uk Phone: 01525 222087\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "07779939794",
+     "tel": "07779939794",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/exeter-temple",
+   "field": "phone",
+   "old": "01392216553",
+   "new": "01392346817",
+   "source": "https://www.salvationarmy.org.uk/exeter-temple",
+   "note": "confirmed, already applied earlier in this batch (07:02 rule pass); no data change (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Friars Gate Exeter EX2 4AZ United Kingdom Email address: exeter.temple@salvationarmy.org.uk Phone: 01392 346 817\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01392216553",
+     "tel": "01392216553",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/fort-william",
+   "field": "phone",
+   "old": "01397704973",
+   "new": "07501936833",
+   "source": "https://www.salvationarmy.org.uk/fort-william",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Glen Nevis Place Fort William PH33 6DA United Kingdom Email address: fort.william@salvationarmy.org.uk Phone: 07501 936833\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01397704973",
+     "tel": "01397704973",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/ilfracombe",
+   "field": "phone",
+   "old": "01271321972",
+   "new": "07918564835",
+   "source": "https://www.salvationarmy.org.uk/ilfracombe",
+   "note": "number stored (phones.json, phone_sources, baseline) but listing not shown: removed earlier as a same-building duplicate (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are The Retreat, Torrs Park Ilfracombe EX34 8AY United Kingdom Email address: mark.read@salvationarmy.org.uk Phone: 07918 564835\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01271321972",
+     "tel": "01271321972",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/leadgate",
+   "field": "phone",
+   "old": "01207501790",
+   "new": "01207508805",
+   "source": "https://www.salvationarmy.org.uk/leadgate",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Green Street Consett DH8 7PT United Kingdom Email address: leadgate@salvationarmy.org.uk Phone: 01207 508805\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01207501790",
+     "tel": "01207501790",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/leek",
+   "field": "phone",
+   "old": "01538384211",
+   "new": "01538387245",
+   "source": "https://www.salvationarmy.org.uk/leek",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Salisbury Street Leek ST13 5EE United Kingdom Email address: leek@salvationarmy.org.uk Phone: 01538 387245\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01538384211",
+     "tel": "01538384211",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/loughborough",
+   "field": "phone",
+   "old": "01509214152",
+   "new": "01509262768",
+   "source": "https://www.salvationarmy.org.uk/loughborough",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Burleigh Road Loughborough LE11 3BA United Kingdom Email address: loughborough@salvationarmy.org.uk Phone: 01509 262768\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01509214152",
+     "tel": "01509214152",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/maldon",
+   "field": "phone",
+   "old": "01621840088",
+   "new": "07831129749",
+   "source": "https://www.salvationarmy.org.uk/maldon",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 12 Wantz Road Maldon CM9 5DE United Kingdom Maldon Mail Drop: maldon@salvationarmy.org.uk Lt Anastasia Layton (Church Leader): anastasia.layton@salvationarmy.org.uk Phone: 07831129749\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01621840088",
+     "tel": "01621840088",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/north-walsham",
+   "field": "phone",
+   "old": "01692652263",
+   "new": "07587410690",
+   "source": "https://www.salvationarmy.org.uk/north-walsham",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Hall Lane North Walsham Norfolk NR28 9DT United Kingdom Phone: 07587410690\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01692652263",
+     "tel": "01692652263",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/nottingham-aspley",
+   "field": "phone",
+   "old": "01159290465",
+   "new": "07831142652",
+   "source": "https://www.salvationarmy.org.uk/nottingham-aspley",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 397 Aspley Lane Nottingham NG8 5RR United Kingdom Phone: 07831142652\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01159290465",
+     "tel": "01159290465",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/nottingham-meadows",
+   "field": "phone",
+   "old": "01159864293",
+   "new": "07831148316",
+   "source": "https://www.salvationarmy.org.uk/nottingham-meadows",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Arkwright Walk Meadows Nottingham NG2 2HN United Kingdom Email address: nottingham.meadows@salvationarmy.org.uk Phone: 07831148316\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01159864293",
+     "tel": "01159864293",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/nottingham-william-booth-memorial-complex",
+   "field": "phone",
+   "old": "01159503927",
+   "new": "07587348459",
+   "source": "https://www.salvationarmy.org.uk/nottingham-william-booth-memorial-complex",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Notintone Place Sneinton NG2 4QG United Kingdom Phone: 07587348459\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01159503927",
+     "tel": "01159503927",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/parkhead",
+   "field": "phone",
+   "old": "01415547437",
+   "new": "07810059682",
+   "source": "https://www.salvationarmy.org.uk/parkhead",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 136 Tollcross Road Parkhead Glasgow G31 4XA United Kingdom Email address: Parkhead@salvationarmy.org.uk Phone: 07810 059682\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01415547437",
+     "tel": "01415547437",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/potton",
+   "field": "phone",
+   "old": "01767261123",
+   "new": "01767261138",
+   "source": "https://www.salvationarmy.org.uk/potton",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Chapel Street Potton Sandy SG19 2PT United Kingdom Email address: Christine.McCutcheon@salvationarmy.org.uk Phone: 01767 261 138\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01767261123",
+     "tel": "01767261123",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/shildon",
+   "field": "phone",
+   "old": "01388644277",
+   "new": "01388777358",
+   "source": "https://www.salvationarmy.org.uk/shildon",
+   "note": "number stored (phones.json, phone_sources, baseline) but listing not shown: removed earlier as a same-building duplicate (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Cross Street Shildon DL4 1PF United Kingdom Email address: shildon@salvationarmy.org.uk Phone: 01388 777358\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01388644277",
+     "tel": "01388644277",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/sittingbourne",
+   "field": "phone",
+   "old": "01795477678",
+   "new": "07775906098",
+   "source": "https://www.salvationarmy.org.uk/sittingbourne",
+   "note": "applied (Salvation Army phones report 28 Oct, named officer's number published on the corps' own page (Dean 28 Oct rule: a named person's number is OK if the organisation's own page publishes it)): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are 64 Shortlands Road Sittingbourne ME10 3JT United Kingdom Email address: sittingbourne@salvationarmy.org.uk Phone: 07775906098\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01795477678",
+     "tel": "01795477678",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "salvation-army/south-shields",
+   "field": "phone",
+   "old": "01914967511",
+   "new": "01914553710",
+   "source": "https://www.salvationarmy.org.uk/south-shields",
+   "note": "applied (Salvation Army phones report 28 Oct, landline/corps number): corps' own 'Where we are' block, same number on both reads (2026-10-28T08:57:57Z / 2026-10-28T09:00:05Z): \"Where we are Wawn Street South Shields NE33 4EB United Kingdom Email address: south.shields@salvationarmy.org.uk Phone: 01914553710\"",
+   "at": "2026-10-28T09:20Z",
+   "undo": {
+    "set": {
+     "phone": "01914967511",
+     "tel": "01914967511",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "margate",
+   "field": "phone",
+   "old": "01843793838",
+   "new": "07948439002",
+   "source": "https://mifood.co.uk/",
+   "note": "applied (reports/unknown-phones.csv, branch report/unknown-phones-28oct; own site, same on both reads; re-read 28 Oct 09:25Z): mifoodbank.org now redirects to mifood.co.uk; our 01843 793838 is not on the site: \"Margate Independent Foodbank CIC. Affordable food and emergency support across Thanet. mifoodbank@aol.com 07948 439002\"",
+   "at": "2026-10-28T09:30Z",
+   "undo": {
+    "set": {
+     "phone": "01843793838",
+     "tel": "01843793838",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "margate",
+   "field": "website",
+   "old": "https://www.mifoodbank.org",
+   "new": "https://mifood.co.uk/",
+   "source": "https://mifood.co.uk/",
+   "note": "applied (reports/unknown-phones.csv): the food bank's site has moved; https://www.mifoodbank.org redirects to https://mifood.co.uk/",
+   "at": "2026-10-28T09:30Z",
+   "undo": {
+    "set": {
+     "website": "https://www.mifoodbank.org"
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "selby-centre",
+   "field": "opening_times",
+   "old": {
+    "checked_date": "2026-10-20",
+    "raw": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
+    "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
+    "status": "TIMES_FOUND",
+    "structured": {
+     "mon": [
+      [
+       "08:30",
+       "17:00"
+      ]
+     ],
+     "tue": [
+      [
+       "08:30",
+       "17:00"
+      ]
+     ],
+     "wed": [
+      [
+       "08:30",
+       "17:00"
+      ]
+     ],
+     "thu": [
+      [
+       "08:30",
+       "17:00"
+      ]
+     ],
+     "fri": [
+      [
+       "08:30",
+       "17:00"
+      ]
+     ],
+     "sat": [
+      [
+       "09:00",
+       "15:00"
+      ]
+     ]
+    },
+    "parsed_from_text": true
+   },
+   "new": {
+    "checked_date": "2026-10-28",
+    "raw": "Thursday 2pm - 4pm (ticket from Reception on the day)",
+    "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
+    "status": "TIMES_FOUND",
+    "structured": {
+     "thu": [
+      [
+       "14:00",
+       "16:00"
+      ]
+     ]
+    },
+    "reader": "hand-reviewed 2026-10-28 (listings batch #239: reports/unsure-resolved.csv, own page quote, same on both reads; re-read 09:25Z)",
+    "quote": "The Selby Food Hub is open weekly on Thursdays between 2pm and 4pm. You must collect a ticket in advance on the day from our Reception.",
+    "previous": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm"
+   },
+   "source": "https://www.selbytrust.co.uk/selby-foodhub",
+   "note": "applied (reports/unsure-resolved.csv, branch report/unsure-resolved-28oct; own site, same on both reads): the old times were the Selby Centre reception hours; the food hub is Thursdays 2pm-4pm: \"The Selby Food Hub is open weekly on Thursdays between 2pm and 4pm. You must collect a ticket in advance on the day from our Reception.\"",
+   "at": "2026-10-28T09:30Z",
+   "undo": {
+    "set": {
+     "opening_times": {
+      "checked_date": "2026-10-20",
+      "raw": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
+      "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
+      "status": "TIMES_FOUND",
+      "structured": {
+       "mon": [
+        [
+         "08:30",
+         "17:00"
+        ]
+       ],
+       "tue": [
+        [
+         "08:30",
+         "17:00"
+        ]
+       ],
+       "wed": [
+        [
+         "08:30",
+         "17:00"
+        ]
+       ],
+       "thu": [
+        [
+         "08:30",
+         "17:00"
+        ]
+       ],
+       "fri": [
+        [
+         "08:30",
+         "17:00"
+        ]
+       ],
+       "sat": [
+        [
+         "09:00",
+         "15:00"
+        ]
+       ]
+      },
+      "parsed_from_text": true
+     },
+     "times_status": "unconfirmed",
+     "times_reason": "published times not found on own site this run",
+     "times_source": "main database",
+     "times_checked": null,
+     "notice": null
+    },
+    "overrides/opening_times.json": {
+     "checked_date": "2026-10-20",
+     "raw": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
+     "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null
+    },
+    "overrides/foodbank_notices.json": null
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "selby-centre",
+   "field": "notice",
+   "old": null,
+   "new": "Collect a ticket from Reception on the day (the Food Hub is open Thursdays 2pm to 4pm)",
+   "source": "https://www.selbytrust.co.uk/selby-foodhub",
+   "note": "applied with the Thursday times: \"You must collect a ticket in advance on the day from our Reception.\"",
+   "at": "2026-10-28T09:30Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "address",
+   "id": "salisbury/tidworth",
+   "field": "address",
+   "old": {
+    "address": "Tidworth Leisure centre, Nadder Road, Tidworth, SP9 7QN",
+    "postcode": "SP9 7QN",
+    "lat": 51.2372486,
+    "lng": -1.6605277
+   },
+   "new": {
+    "address": "St Michael's Church Hall, St Michael's Avenue, Tidworth, SP9 7EA",
+    "postcode": "SP9 7EA",
+    "lat": 51.233938,
+    "lng": -1.670096
+   },
+   "source": "https://salisbury.foodbank.org.uk/locations/",
+   "note": "confirmed (reports/unsure-resolved.csv, own site, same on both reads; re-read 09:25Z): 'Tidworth Foodbank Centre (NEW LOCATION) ... Wed 14:30 - 16:30 ... St Michael's Church Hall St Michael's Avenue Tidworth SP9 7EA'; already applied at 05:50Z, pin = SP9 7EA postcode centre (postcodes.io 51.233938, -1.670096); Wed 14:30-16:30 kept",
+   "at": "2026-10-28T09:30Z",
+   "undo": {
+    "set": {
+     "address": {
+      "address": "Tidworth Leisure centre, Nadder Road, Tidworth, SP9 7QN",
+      "postcode": "SP9 7QN",
+      "lat": 51.2372486,
+      "lng": -1.6605277
+     }
+    }
+   }
   }
  ],
  "flags": [

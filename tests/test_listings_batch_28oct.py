@@ -126,7 +126,7 @@ class TimesRecheck0620(unittest.TestCase):
     def test_wendover_held(self):
         self.assertFalse(any(l["id"] == "chiltern/wendover" and "06:20" in l.get("note", "") for l in J("logs/listings_batch_28oct.json")["changes"]))
         self.assertIn("HELD `chiltern/wendover`", open(os.path.join(ROOT, "reports", "pending_dean.md")).read())
-REVERTED_TIMES = ["colchester", "corfe-mullen", "walk-inn", "the-community-cupboard", "stretton", "north-lakes", "broxbourne", "redcar-area", "selby-centre", "salvation-army/ivybridge", "salvation-army/dorchester", "salvation-army/hastings-temple", "rickmansworth/maple-cross", "aylesbury/tabitha-foodbank", "salvation-army/bourne", "salvation-army/chester", "newark/tuxford", "fusion/calderdale", "north-ayrshire/st-johns-church", "hope-for-belper", "ross-community-larder", "shepshed", "newlands"]
+REVERTED_TIMES = ["colchester", "corfe-mullen", "walk-inn", "the-community-cupboard", "stretton", "north-lakes", "broxbourne", "redcar-area", "salvation-army/ivybridge", "salvation-army/dorchester", "salvation-army/hastings-temple", "rickmansworth/maple-cross", "aylesbury/tabitha-foodbank", "salvation-army/bourne", "salvation-army/chester", "newark/tuxford", "fusion/calderdale", "north-ayrshire/st-johns-church", "hope-for-belper", "ross-community-larder", "shepshed", "newlands"]
 def last_hours(L, i):
     return [l for l in L if l["id"] == i and l["kind"] == "hours"][-1]
 class OwnSiteAudit28Oct(unittest.TestCase):

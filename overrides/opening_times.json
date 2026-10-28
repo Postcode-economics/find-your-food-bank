@@ -18674,11 +18674,20 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "selby-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
+  "checked_date": "2026-10-28",
+  "raw": "Thursday 2pm - 4pm (ticket from Reception on the day)",
   "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "14:00",
+     "16:00"
+    ]
+   ]
+  },
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: reports/unsure-resolved.csv, own page quote, same on both reads; re-read 09:25Z)",
+  "quote": "The Selby Food Hub is open weekly on Thursdays between 2pm and 4pm. You must collect a ticket in advance on the day from our Reception."
  },
  "selby-district": {
   "checked_date": "2026-10-20",
