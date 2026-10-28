@@ -102,20 +102,31 @@ jobs:
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/
+          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/ logs/sense_check.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily food bank refresh $(date -u +%F)"
+          # Guard (27 Oct 21:06 run 40583907794): a tracked file a step rewrote but the add list missed left the tree dirty,
+          # so 'git pull --rebase' refused 3 times. Print it, then stash it so the pull can run; --autostash covers later rebuilds.
+          in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
+          git status
+          left=$(git diff --name-only HEAD)
+          if [ -n "$left" ]; then
+            echo "::warning::tracked files modified but not in the add list (stashed, not published): $(echo $left)"
+            git stash push --quiet -m "refresh-leftovers" || true
+          fi
           # data.js / access.js / logs / reports are generated: if another push touched them meanwhile, keep this run's
           # fresh build (overrides are re-applied on every run, so nothing hand-made is lost for more than one run)
           for n in 1 2 3; do
             ok=0
-            if git pull --rebase; then ok=1
+            if git pull --rebase --autostash; then ok=1
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
-              bash scripts/refresh_rebase_conflicts.sh
-              GIT_EDITOR=true git rebase --continue && ok=1
+              if in_rebase; then
+                bash scripts/refresh_rebase_conflicts.sh
+                GIT_EDITOR=true git rebase --continue && ok=1
+              else echo "::warning::pull failed with no rebase in progress (not a conflict)"; git status; fi
             fi
             if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json; git add reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
             git rebase --abort 2>/dev/null || true; sleep $((n * 10))
