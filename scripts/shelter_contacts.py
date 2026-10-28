@@ -18,6 +18,11 @@ def apply(items, data=None):
     for x in items:
         o = data.get(x.get("id"))
         if not o: continue
+        fx = o.get("fix") or {}  # hand-checked corrections (name/address/postcode/operator/hours/referral), quoted in fix_source: always win
+        for k2 in ("name", "address", "postcode", "operator", "hours", "referral", "season"):
+            if k2 in fx and x.get(k2) != fx[k2]:
+                x.setdefault(k2 + "_was", x.get(k2)); x[k2] = fx[k2]
+        if fx: x["fix_source"] = o.get("fix_source", ""); x["fix_checked"] = o.get("fix_checked", "")
         fix = o.get("phone_fix") or ""
         if fix and not phone_rule.is_dean(fix):  # checked correction: always wins over the source number
             if x.get("phone") != fix: x["phone_was"] = x.get("phone", "")
@@ -38,6 +43,9 @@ def apply(items, data=None):
             x["hours"] = o["hours"]; x["hours_source"] = o.get("hours_source", ""); x["hours_checked"] = o.get("hours_checked", "")
         if o.get("email") and not x.get("email"): x["email"] = o["email"]
         if o.get("groups"): x["groups"] = o["groups"]; x["groups_source"] = o.get("groups_source", "")  # who it is for, hand-checked from own/operator page
+        if o.get("duplicate_of"):  # same place listed twice: marked only, both kept (Dean: never remove a shelter)
+            x["duplicate_of"] = o["duplicate_of"]
+            if o.get("note"): x["duplicate_note"] = o["note"]
         if o.get("referral_note"): x["referral"] = o["referral_note"]  # hand-checked: says whose phone line it is (no UI change)
         own = {k: o[k] for k in ("council", "council_phone", "council_ooh", "council_url", "council_label", "council_label_cy") if o.get(k)}
         c = own if own.get("council_phone") else (councils.get(o.get("area") or "") or own)
