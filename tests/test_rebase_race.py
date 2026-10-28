@@ -66,6 +66,60 @@ class RebaseRace(unittest.TestCase):
         self.assertIn("one closure", rep)                                # run's section kept
         self.assertEqual(self._r(self.sweep, "data.json"), '{"n": 2}\n')  # run's data kept
 
+
+    def _race(self, base_extra, pr_text, run_text):
+        r = g(self.sweep, "pull", "-q", "--rebase", check=False)
+        self.assertNotEqual(r.returncode, 0, "race not reproduced: expected a rebase conflict")
+        subprocess.run(["bash", "scripts/refresh_rebase_conflicts.sh"], cwd=self.sweep, check=True, capture_output=True)
+        g(self.sweep, "-c", "core.editor=true", "rebase", "--continue")
+        return self._r(self.sweep, "reports/pending_dean.md")
+
+    def test_run_header_outside_sections_kept(self):
+        # PR adds a section; the run rewrites the unsectioned header (new held places)
+        self._w(self.pr, "reports/pending_dean.md", "# Pending\n<!-- phone lock -->\n- held kings-langley\n<!-- /phone lock -->\n<!-- closures -->\n- none\n<!-- /closures -->\n")
+        self._commit(self.pr, "PR"); g(self.pr, "push", "-q", "origin", "main")
+        self._w(self.sweep, "reports/pending_dean.md", "# Pending\n## warmspaces (1)\n- New Hall (AB1 2CD)\n<!-- closures -->\n- one closure\n<!-- /closures -->\n")
+        self._commit(self.sweep, "sweep")
+        rep = self._race(None, None, None)
+        self.assertIn("- New Hall (AB1 2CD)", rep)          # run's header text kept
+        self.assertIn("held kings-langley", rep)            # main's section kept
+        self.assertIn("one closure", rep)                   # run's section kept
+        self.assertLess(rep.index("New Hall"), rep.index("<!-- closures -->"))  # stays at top
+
+    def test_main_header_change_kept_when_run_did_not_touch_it(self):
+        self._w(self.pr, "reports/pending_dean.md", "# Pending (edited by PR)\n<!-- phone lock -->\n- held kings-langley\n<!-- /phone lock -->\n<!-- closures -->\n- none (checked by PR)\n<!-- /closures -->\n")
+        self._commit(self.pr, "PR"); g(self.pr, "push", "-q", "origin", "main")
+        self._w(self.sweep, "reports/pending_dean.md", "# Pending\n<!-- closures -->\n- one closure\n<!-- /closures -->\n")
+        self._commit(self.sweep, "sweep")
+        rep = self._race(None, None, None)
+        self.assertIn("edited by PR", rep)
+        self.assertIn("held kings-langley", rep)
+        self.assertIn("one closure", rep)
+
+    def test_section_removed_by_run_stays_removed(self):
+        base = "# Pending\n<!-- closures -->\n- none\n<!-- /closures -->\n<!-- old -->\n- stale\n<!-- /old -->\n"
+        self._w(self.pr, "reports/pending_dean.md", base); self._commit(self.pr, "base2"); g(self.pr, "push", "-q", "origin", "main")
+        g(self.sweep, "pull", "-q", "--rebase")
+        self._w(self.pr, "reports/pending_dean.md", base + "<!-- phone lock -->\n- held kings-langley\n<!-- /phone lock -->\n")
+        self._commit(self.pr, "PR"); g(self.pr, "push", "-q", "origin", "main")
+        self._w(self.sweep, "reports/pending_dean.md", "# Pending\n<!-- closures -->\n- one closure\n<!-- /closures -->\n")
+        self._commit(self.sweep, "sweep")
+        rep = self._race(None, None, None)
+        self.assertNotIn("<!-- old -->", rep)
+        self.assertNotIn("stale", rep)
+        self.assertIn("held kings-langley", rep)
+        self.assertIn("one closure", rep)
+
+    def test_merge_sections_unit(self):
+        base = "H\n<!-- a -->\nA\n<!-- /a -->\n<!-- b -->\nB\n<!-- /b -->\n"
+        ours = "H\n<!-- a -->\nA\n<!-- /a -->\n<!-- b -->\nB2\n<!-- /b -->\n"   # main edited b
+        theirs = "H run\n<!-- c -->\nC\n<!-- /c -->\n"                          # run removed a and b
+        out = rr.merge_sections(base, ours, theirs)
+        self.assertTrue(out.startswith("H run\n"))
+        self.assertNotIn("<!-- a -->", out)   # untouched by main: stays removed
+        self.assertIn("B2", out)              # main's edit never lost
+        self.assertIn("<!-- c -->\nC\n<!-- /c -->", out)
+
     def test_classification(self):
         for f in ("faq.html", "food-banks/x/index.html", "warm-spaces/a/index.html", "shelters/b/index.html",
                   "sitemap.xml", "overrides/page_dates.json", "index.html"):

@@ -11,7 +11,9 @@ this run's commit being replayed.
   back its stale copy of a page that PR changed (28 Oct: sweep 97bcb4149 reverted
   #212's faq.html this way).
 - Sectioned reports (<!-- tag --> ... <!-- /tag -->, e.g. reports/pending_dean.md):
-  start from main's copy and apply only the sections this run changed.
+  three-way merge by chunk: each section and the free text around it (such as the
+  header above the first section) keeps this run's version where the run changed it,
+  else main's; a section the run removed stays removed.
 - Anything else: keep this run's file (data the run just fetched), as before.
 """
 import os, re, subprocess, sys
@@ -40,19 +42,50 @@ def sections(text):
     return {m.group(1): m.group(0) for m in SEC.finditer(text or "")}
 
 
-def merge_sections(base, ours, theirs):
-    """main's text (ours) plus every section this run (theirs) changed versus base."""
-    b, t = sections(base), sections(theirs)
-    out = ours
-    for tag, block in t.items():
-        if b.get(tag) == block:
-            continue  # this run didn't touch it: main's version stands
-        cur = sections(out).get(tag)
-        if cur is not None:
-            out = out.replace(cur, block if block.endswith("\n") or not cur.endswith("\n") else block + "\n", 1)
-        else:
-            out = out.rstrip("\n") + "\n\n" + (block if block.endswith("\n") else block + "\n")
+def chunks(text):
+    """Split a sectioned report into ordered chunks: "^" is the free text before the
+    first section (e.g. the "New places held back for Dean" header), each section is
+    keyed by its tag, and ">tag" is the free text after that section."""
+    text = text or ""
+    out, pos, key = [], 0, "^"
+    for m in SEC.finditer(text):
+        out.append((key, text[pos:m.start()]))
+        out.append((m.group(1), m.group(0)))
+        pos, key = m.end(), ">" + m.group(1)
+    out.append((key, text[pos:]))
     return out
+
+
+def merge_sections(base, ours, theirs):
+    """Three-way merge by chunk (sections AND the free text between them).
+
+    For each chunk: if this run (theirs) changed it versus base, the run's version
+    wins (including deleting it); otherwise main's (ours) stands. A chunk the run
+    deleted is dropped unless main also edited it (then main's edit is kept, so
+    nothing main added is lost). Chunks new in the run are added after main's."""
+    b, t = dict(chunks(base)), dict(chunks(theirs))
+    o_list = chunks(ours)
+    o_keys = {k for k, _ in o_list}
+    out = []
+    for k, v in o_list:
+        bv, tv = b.get(k), t.get(k)
+        if k in b and k not in t:          # run removed it
+            if v == bv:
+                continue                   # main didn't touch it: stays removed
+            out.append(v)                  # main edited it: keep main's edit
+        elif k in t and tv != bv:
+            out.append(tv)                 # run changed it
+        else:
+            out.append(v)
+    for k, v in chunks(theirs):
+        if k in o_keys or k in b:
+            continue                       # handled above (or main removed it)
+        if out and not "".join(out).endswith("\n"):
+            out.append("\n")
+        if not k.startswith(">") and "".join(out).strip():
+            out.append("\n")
+        out.append(v)
+    return "".join(out)
 
 
 def resolve(f):
