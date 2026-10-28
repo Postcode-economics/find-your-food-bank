@@ -12,7 +12,7 @@ A venue whose source page now redirects to a different site is carried WITHOUT t
 The label date is the venue's last confirmation (last_confirmed / last_verified / verified_on), not the day carrying began.
 refresh_guard.py uses the same rules (not_restorable + label) for warm spaces, so the guard can never put back a venue
 this module deliberately left out, and anything it does restore is labelled and link-stripped the same way."""
-import datetime, json, os, re
+import datetime, json, os
 import refresh_guard
 
 REVIEW_DAYS = 14
@@ -43,9 +43,8 @@ def excluded_ids(root='.'):
     return {e['id'] for e in load_json(os.path.join(root, 'overrides', 'warmspaces_exclude.json'), []) if isinstance(e, dict) and e.get('id')}
 
 def iso_day(d):
-    """'YYYY-MM-DD' when d starts with a real ISO date, else '' (e.g. '27/10/2026' is never shown on a card)."""
-    d = str(d or '')[:10]
-    try: return datetime.date.fromisoformat(d).isoformat() if re.fullmatch(r'\d{4}-\d{2}-\d{2}', d) else ''
+    """'YYYY-MM-DD' from an ISO date or timestamp, else '' (e.g. '27/10/2026' never reaches the card)."""
+    try: return datetime.date.fromisoformat(str(d or '')[:10]).isoformat()
     except ValueError: return ''
 
 def last_confirmed(o, confirmed=None):

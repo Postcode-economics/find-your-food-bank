@@ -123,7 +123,7 @@ class FinderLogsOnce(unittest.TestCase):
     def test_a_different_table_later_is_a_new_entry(self):
         for now, wed in (("2026-10-26T19:05:00+00:00", "10:00"), ("2026-10-27T03:05:00+00:00", "10:00"),
                          ("2026-10-27T11:05:00+00:00", "11:00"), ("2026-10-27T19:05:00+00:00", "11:00")):
-            ot = dict(self.GOOD, structured={"wed": [[wed, "12:00"]]}, raw="Wednesday %s - 12:00" % wed)   # page text matches its table (day_same_line)
+            ot = dict(self.GOOD, structured={"wed": [[wed, "12:00"]]}, raw="Wednesday %sam-12pm" % int(wed[:2]))
             TF.decide({"found": {"fb1": ot}}, [dict(self.ITEM)], False, rules={"times_auto_apply": True}, now=now)
         self.assertEqual([e["new"]["structured"] for e in json.load(open(TF.AUTO_LOG))],
                          [{"wed": [["10:00", "12:00"]]}, {"wed": [["11:00", "12:00"]]}])
