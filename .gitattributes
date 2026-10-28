@@ -6,3 +6,5 @@ logs/times_crosscheck_seen.json -merge
 logs/times_finder_seen.json -merge
 overrides/times_auto_undone.json -merge
 overrides/phone_auto_undone.json -merge
+overrides/opening_times.json -merge
+reports/phone_fixes.json -merge
