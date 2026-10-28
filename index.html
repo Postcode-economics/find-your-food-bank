@@ -21,7 +21,7 @@ Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=h726ca8c057fc"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h3f31d4793dd2"><link rel="stylesheet" href="header.css?v=h7a3d7fe731ec"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=h726ca8c057fc"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h92cfd5947daa"><link rel="stylesheet" href="header.css?v=h6caa890cc3fc"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -235,6 +235,7 @@ start(e.clientY,e.pointerId,e.target);if(y0!=null&&fromHandle)try{sh.setPointerC
 document.addEventListener('click',e=>{const a=e.target.closest('a[data-cid]');if(!a)return;e.preventDefault();const k=items.findIndex(i=>i.id===a.dataset.cid);if(k<0)return;map.setView([items[k].lat,items[k].lng],15);setTimeout(()=>select(k,false),300)});
 const hav=(a,b,c,d)=>{const r=x=>x*Math.PI/180,R=6371,x=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(x))};
 function msg(t,err){const e=$('msg');e.textContent=t||'';e.className=err?'err':''}
+function noResults(){lastNear=null;lastQ=null;if(here){map.removeLayer(here);here=null}closeSheet();$('list').innerHTML='';const b=document.getElementById('otshut');if(b){b.hidden=true;b.innerHTML=''}if(window.clearNearX)clearNearX();try{localStorage.removeItem('lastSearch')}catch(e){}}  // 28 Oct QA B2: a search that finds nothing clears the earlier place's results, so they never look like the answer
 let here=null;const hereIcon=L.divIcon({className:'',html:'<div class="here"></div>',iconSize:[22,22]});
 function shutBox(){let box=document.getElementById('otshut');if(!box){box=document.createElement('div');box.id='otshut';$('list').after(box)}return box}
 function nearest(lat,lng,label,note){lastNear=[lat,lng,label,note];if(here)map.removeLayer(here);closeSheet();
@@ -270,15 +271,15 @@ async function offline(q){const s=q.toUpperCase().replace(/\s+/g,'');
   if(c)return nearest(T[c][0],T[c][1],c,(navigator.onLine?`Showing the centre of the ${c} area (postcode lookup is busy right now, so distances are approximate).`:`You’re offline, so this shows the centre of the ${c} area (distances are approximate).`))}catch(e){}}
  const t=TOWNS.find(x=>x[0].toLowerCase()===q.toLowerCase());
  if(t)return nearest(t[2],t[3],t[0]+', '+t[1],`Showing the centre of ${t[0]}. Add a postcode for exact distances.`);
- msg('Search failed. Check your connection and try again.',true)}
+ noResults();msg('Search failed. Check your connection and try again.',true)}
 let CTY=null;async function county(q){const n=s=>(s||'').toLowerCase().replace(/[^a-z]/g,'');try{CTY=CTY||(await (await fetch('counties.json')).json()).areas}catch(e){return null}return CTY.find(a=>n(a.name)===n(q)||(a.name_cy&&n(a.name_cy)===n(q)))||null}  // Dean 25 Oct 09:18: UK counties / unitary areas (ONS CTYUA Dec 2024 label points, counties.json) win over small place matches
 async function place(q){msg('Searching…');{const c=await county(q);if(c){lastQ=q;return nearest(c.lat,c.lng,c.name,`Showing the centre of ${c.name}. Add a postcode or town for exact distances.`)}}try{const r=await api('places?q='+encodeURIComponent(q)+'&limit=10');
  const L0=(r.result||[]).filter(x=>x.latitude&&['England','Scotland','Wales','Northern Ireland'].includes(x.country));
  const n=s=>s.toLowerCase().replace(/[^a-z]/g,''),rank=x=>(n(x.name_1)===n(q)?0:10)+(({City:0,Town:1,Village:2,Hamlet:3,'Suburban Area':4})[x.local_type]??5);
  L0.sort((a,b)=>rank(a)-rank(b));const p=L0[0];
- if(!p){lastQ=null;return msg(`We couldn’t find “${q}”. Try a postcode or a town name, e.g. BN17 5LF or Littlehampton.`,true)}
+ if(!p){noResults();return msg(PC.test(q)?`Postcode not found: “${q}”. Check it and try again, or type a town name, e.g. BN17 5LF or Littlehampton.`:`We couldn’t find “${q}”. Try a postcode or a town name, e.g. BN17 5LF or Littlehampton.`,true)}
  lastQ=q;const nm=p.name_1+(p.county_unitary?', '+p.county_unitary:p.region?', '+p.region:'');
- if(n(p.name_1)!==n(q)){lastQ=null;msg(`We couldn’t find a town called “${q}”. Try a town or postcode, or: `,true);const e=document.querySelector('.v3err')||$('msg'),bt=document.createElement('button');bt.type='button';bt.className='didyou';bt.textContent=`Show ${nm}`;
+ if(n(p.name_1)!==n(q)){noResults();msg(`We couldn’t find a town called “${q}”. Try a town or postcode, or: `,true);const e=document.querySelector('.v3err')||$('msg'),bt=document.createElement('button');bt.type='button';bt.className='didyou';bt.textContent=`Show ${nm}`;
   bt.onclick=()=>{lastQ=q;msg('');nearest(p.latitude,p.longitude,nm,`Showing the centre of ${nm}. Add a postcode for exact distances.`)};e.append(bt);return}  // 25 Oct: 'Suffolk' silently jumped to Suffolk Hill (Dumfries); a partial match is offered, never assumed
  return nearest(p.latitude,p.longitude,nm,`Showing the centre of ${nm}. Add a postcode for exact distances.`)}
  catch(err){return offline(q)}}
@@ -353,7 +354,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=h9461ffd84bb2" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h5028ced78fec" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Emergency shelter preview: no stylesheet and no script unless ?preview=emergency. */(function(){try{var q=new URLSearchParams(location.search);if(q.get('preview')!=='emergency')return;document.documentElement.classList.add('em-preview');var c=document.createElement('link');c.rel='stylesheet';c.href='emergency.css';document.head.appendChild(c);var s=document.createElement('script');s.src='emergency.js';document.body.appendChild(s);}catch(e){}})();</script><script>
+</script><script data-hm src="layers.js?v=hfde7f4f1b9df" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=hb30c23226a22" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Emergency shelter preview: no stylesheet and no script unless ?preview=emergency. */(function(){try{var q=new URLSearchParams(location.search);if(q.get('preview')!=='emergency')return;document.documentElement.classList.add('em-preview');var c=document.createElement('link');c.rel='stylesheet';c.href='emergency.css';document.head.appendChild(c);var s=document.createElement('script');s.src='emergency.js';document.body.appendChild(s);}catch(e){}})();</script><script>
 /* 27 Oct 2026: data.js, Leaflet and the map script used to run as one parser-blocking turn and froze taps and scrolling on an iPhone. text/plain keeps each versioned src in the document; this runs one file per frame. A search (URL or a tap before the map script) waits until the last file, so the form does not reload and the list is built after v3 wraps it. */
 (function(){
   var f=document.getElementById('f');

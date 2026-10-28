@@ -603,3 +603,9 @@ html body #xextra .card:is(.xsh,.xws)>p.plab{order:6!important}
 html:not(.light) body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#F2F4F8!important}
 html.light body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#0A1628!important}
 html body .leaflet-popup-content p.plab{color:#0A1628!important;background:transparent!important}
+/* 28 Oct QA B1: the chosen type's 'Nearest' list is the only one shown (food banks hidden while Shelter or Warm space is chosen; the data and map are unchanged) */
+html[data-v3k=sh] #list,html[data-v3k=ws] #list,html[data-v3k=sh] #otshut,html[data-v3k=ws] #otshut{display:none!important}
+/* 28 Oct QA B6: 44px tap areas without changing the look. Invisible hit area around map pins; inline links get vertical padding cancelled by a negative margin, so text and layout stay put */
+.leaflet-marker-icon.pin::after,.leaflet-marker-icon.xpin::after,.leaflet-marker-icon.marker-cluster::after,.leaflet-marker-icon.xcl::after{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);background:transparent}
+:is(footer,.legal,.fresh,#xupd) a,:is(#list,#xextra,#sheet) .card a:not(.btn):not(.sosl):not(.v3share),a.v3pl{padding-top:14px!important;padding-bottom:14px!important;margin-top:-14px!important;margin-bottom:-14px!important;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;padding-right:10px!important;margin-left:-10px!important;margin-right:-10px!important}
