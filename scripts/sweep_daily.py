@@ -238,6 +238,20 @@ def write_shelter_review(items, d, pd=None):
     prev = _re.sub(r"(?s)\n*<!-- sweep shelters -->.*?<!-- /sweep shelters -->\n*", "\n", prev).rstrip("\n")
     os.makedirs(os.path.dirname(pd), exist_ok=True)
     open(pd, "w").write(prev + "\n\n" + "\n".join(L) + "\n")
+def _weather_boosts(jobs):
+    """Councils named by the last weather report move up. Missing file: no change to order. Schedule is untouched."""
+    try:
+        import learning_signals, weather as WX
+        named = learning_signals.council_boosts()
+    except Exception:
+        return {}
+    out = {}
+    for job in jobs:
+        u, name = job[0], job[1]
+        for area, b in (named or {}).items():
+            if name == area or WX.hits(area, name) or WX.hits(name, area):
+                out[u] = max(out.get(u, 0.0), float(b))
+    return out
 def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     d = today().isoformat()
     S = sources or json.load(open(os.path.join(HERE, "sweep_sources.json")))
@@ -256,20 +270,39 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     # weekly floor); productive pages go first. Only order/selection - the discovery rules and guards below are unchanged.
     LS = learning.load() if (write and sources is None) else learning.load(os.devnull)
     order, resting_urls, _ = learning.plan(LS, [j[0] for j in jobs], d)
+    wb = _weather_boosts(jobs)
+    if wb: order, _, _ = learning.plan(LS, order, d, boosts=wb)  # weather only reorders this run
     pos = {u: n for n, u in enumerate(order)}; jobs = sorted((j for j in jobs if j[0] in pos), key=lambda j: pos[j[0]])
     def one(j):
         u, name, hint, auto, parser, sect = j
         try:
             r = fetcher(u)
             if r.get("http") != 200 or not r.get("text"): return ("fail", u, r.get("http"))
+            try:
+                import official_feeds
+                feeds = official_feeds.scan(r.get("text") or "")
+            except Exception: feeds = []
             c = extract(r["text"], r.get("final_url") or u, name, hint, r.get("last_modified", ""), trusted=auto, parser=parser, sect=sect)
             if not auto:  # layout not proven for this source: auto-add only as tier 2 ('Unverified - call before you go') and only
                 # if Dean's auto-add rule passes below (valid postcode, not within 150 m of anything, dated page, not held)
                 c = [dict(e, proposed_tier=e["tier"], tier="unverified", auto_rule=True) if e["tier"] in ("verified", "unverified") else e for e in c]
-            return ("ok", u, c)
+            return ("ok", u, c, feeds)
         except Exception as ex: return ("fail", u, str(ex)[:80])
     with cf.ThreadPoolExecutor(16) as ex: R = list(ex.map(one, jobs))
     fails = [r for r in R if r[0] == "fail"]; cands = [e for r in R if r[0] == "ok" for e in r[2]]
+    if write and sources is None and jobs:
+        marks = {}
+        for (u, name, *_rest), r in zip(jobs, R):
+            marks[name] = marks.get(name, False) or r[0] == "ok"
+        try: learning.record_sources(os.path.join(os.path.dirname(HERE), "reports", "source_health.json"), marks)
+        except Exception: pass
+        found = []
+        for r in R:
+            if len(r) > 3: found.extend(r[3])
+        try:
+            import official_feeds
+            official_feeds.write(found)
+        except Exception: pass
     report = {"run": d, "pages": len(jobs), "failed": len(fails), "errors": errors[:200] + [[f[1], f[2]] for f in fails][:300], "added": [], "pending": [], "status": "ok"}
     if jobs and len(fails) / len(jobs) > MAX_FAIL_RATE:
         report["status"] = f"ABORTED: {len(fails)}/{len(jobs)} pages failed (> {MAX_FAIL_RATE:.0%}); nothing written"

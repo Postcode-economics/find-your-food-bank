@@ -20,12 +20,13 @@ Inputs (all real, all optional):
 """
 import datetime, json, math, os, re, sys, collections, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import learning, auto_rules
+import learning, auto_rules, pins
 RULES = auto_rules.load()
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 OUT = os.path.join(ROOT, 'reports', 'learning_signals.json'); MD = os.path.join(ROOT, 'reports', 'learning_review.md')
 # bounded weights (weekly self-review may move each by at most STEP per week, never outside [LO, HI] x default)
-DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8}
+DEFAULT_W = {'correction': 0.5, 'signal': 0.8, 'trust': 0.4, 'season': 0.3, 'demand': 0.3, 'visitor': 0.8, 'dean': 0.4, 'conflict': 0.5, 'rhythm': 0.4, 'problem': 0.8, 'stale_area': 0.4, 'forecast': 0.4, 'weather': 0.6, 'empty_parse': 0.5}
+COLD_WORDS = ('snow', 'ice', 'cold', 'freezing', 'frost', 'blizzard')
 STEP, LO, HI = 0.10, 0.5, 1.5
 REAL = ('phone', 'tel', 'opening_times', 'hours', 'access', 'closed', 'removed', 'notice')
 
@@ -51,6 +52,19 @@ def corrections(items):
         if x in by: per[source_of(by[x])] += 1
     return ids, {s: round(per[s] / tot[s], 4) for s in tot}
 
+def source_blame(items):
+    """Which source the hand fix had to correct, by field. The same files as corrections().
+    This records the blame. It does not pick a replacement value."""
+    by = {i['id']: i for i in items}; blame = collections.defaultdict(lambda: collections.Counter())
+    def add(ids, field):
+        for x in ids:
+            it = by.get(x)
+            if it: blame[source_of(it)][field] += 1
+    add({k for k in rj('overrides/phones.json', {}) if not str(k).startswith('_')}, 'phone')
+    add({k for k in rj('overrides/foodbank_notices.json', {}) if not str(k).startswith('_')}, 'notice')
+    add({k for k, v in rj('overrides/foodbank_closed.json', {}).items() if not str(k).startswith('_') and isinstance(v, dict) and 'auto' not in str(v.get('confirmed', ''))[:5]}, 'closure')
+    return {s: dict(c) for s, c in blame.items() if c}
+
 def agreement(items, state):
     """Cross-source agreement: is the stored phone one of the phones on the place's own site? Beta(1,1) per source."""
     ok, n = collections.Counter(), collections.Counter(); per_site = {}
@@ -59,6 +73,21 @@ def agreement(items, state):
         if not s or not p or not s.get('phones') or s.get('fail_runs'): continue
         hit = p in {norm(x) for x in s['phones']}; src = source_of(i); n[src] += 1; ok[src] += hit; per_site[i['website'].strip()] = hit
     return {s: round((ok[s] + 1) / (n[s] + 2), 4) for s in n}, {s: n[s] for s in n}, per_site
+
+def conflicts(items, state):
+    """Stored phone vs the phones on the place's own site. Disagreement is flagged for Dean.
+    chosen is always None: this never picks a winner and never writes a phone."""
+    rows = []
+    for i in items:
+        u = (i.get('website') or '').strip()
+        s = (state.get('sites') or {}).get(u)
+        if not u or not s or s.get('fail_runs'): continue
+        stored = norm(i.get('tel') or i.get('phone'))
+        found = sorted({norm(x) for x in (s.get('phones') or []) if norm(x)})
+        if stored and found and stored not in set(found):
+            rows.append({'id': i['id'], 'name': i.get('name'), 'website': u, 'field': 'phone',
+                         'values': {'stored': stored, 'own_site': found}, 'chosen': None, 'action': 'flag_for_dean'})
+    return rows
 
 def change_signals(items, state):
     """Places with a sign that something is changing: dead link, 'closed' wording, FB page gone/renamed, bounced email."""
@@ -72,6 +101,21 @@ def change_signals(items, state):
     for k in rj('overrides/email_bounces.json', {}):
         if not k.startswith('_') and by.get(k): sig[by[k]].append('contact email bounced')
     return dict(sig)
+
+def provenance_note():
+    """How many automatic edits were logged. The log does not decide, and a missing file has no effect."""
+    rows = rj('reports/provenance.json', None)
+    if not isinstance(rows, list) or not rows: return 'no automatic edits logged yet - the rules file still decides'
+    return '%d automatic edits logged. The log does not decide; the rules file does.' % len(rows)
+
+def tally_note():
+    """The weekly count is a record only. The season boost stays on the existing history."""
+    t = rj('logs/week_counts.json', None)
+    counts = t.get('counts') if isinstance(t, dict) else None
+    if not counts: return 'no weekly change tally yet. The season boost is unchanged.'
+    import entry_history
+    years = entry_history.years_of(counts)
+    return '%d weeks stored across %d year(s). The season boost is unchanged.' % (len(counts), len(years))
 
 def seasonal(today):
     """Real changes per ISO week (from entry_history). A week with more than average changes gets a boost, scaled 0..1."""
@@ -98,10 +142,245 @@ def demand(items):
         if v and i.get('website'): out[i['website'].strip()] = round(math.log1p(v) / math.log1p(mx), 3)
     return out, 'from reports/demand.json (%d areas/places)' % len(d)
 
+def dean_effect(kind):
+    """What learning from Dean's past decisions is allowed to do.
+    He is asked every time. The only things kept are queue priority and his wording. Nothing is published."""
+    return {'ask': True, 'learns': 'priority_or_wording', 'publishes': False, 'kind': kind}
+
+def dean_learning(items):
+    """Hand decisions (phones, notices, manual closures, places he has already OK'd).
+    Same-host places move up the queue. His wording is remembered and never copied onto another place.
+    A past yes is not a yes for the next place."""
+    phones = {k: v for k, v in rj('overrides/phones.json', {}).items() if not str(k).startswith('_')}
+    notices = {k: v for k, v in rj('overrides/foodbank_notices.json', {}).items() if not str(k).startswith('_')}
+    closed = {k for k, v in rj('overrides/foodbank_closed.json', {}).items()
+              if not str(k).startswith('_') and isinstance(v, dict) and 'auto' not in str(v.get('confirmed', ''))[:5]}
+    approved = {k for k in rj('overrides/foodbank_approved_new.json', {}) if not str(k).startswith('_')}
+    approved |= {k for k in rj('overrides/foodbank_added.json', {}) if not str(k).startswith('_')}
+    for layer, ids in rj('overrides/approved_new_places.json', {}).items():
+        if str(layer).startswith('_') or not isinstance(ids, dict): continue
+        approved |= set(ids)
+    by = {i['id']: i for i in items}; wording = {}
+    hosts = set()
+    for pid, text in phones.items():
+        if isinstance(text, str) and text.strip():
+            wording[pid] = {'field': 'phone', 'text': text.strip(), 'from': 'overrides/phones.json'}
+    for pid, v in notices.items():
+        if isinstance(v, dict) and (v.get('notice') or '').strip():
+            wording[pid] = {'field': 'notice', 'text': v['notice'].strip(), 'from': 'overrides/foodbank_notices.json'}
+    for pid in set(phones) | set(notices) | closed | approved:
+        it = by.get(pid)
+        if not it: continue
+        h = host(it.get('website'))
+        if h: hosts.add(h)
+    sites = {(i.get('website') or '').strip() for i in items if host(i.get('website')) in hosts}
+    sites.discard('')
+    note = 'remembers priority and wording only; Dean is still asked every time (%d sites)' % len(sites) if sites else 'no hand decisions to learn from yet - no effect'
+    return sites, wording, note
+
 def visitor(items):
     v = {k: x for k, x in rj('overrides/visitor_reports.json', {}).items() if not k.startswith('_')}
     by = {i['id']: (i.get('website') or '').strip() for i in items}
     return {by[k]: len(x) for k, x in v.items() if by.get(k)}, ('%d places reported by visitors' % len(v)) if v else 'no visitor reports recorded yet - no effect'
+
+def problem_reports(items):
+    """Report a problem submissions (overrides/problem_reports.json), added by hand from the form emails.
+    Shape: {listing id: [{when, what}]}. The form itself only sends email, so a missing file has no effect.
+    Submissions raise that place's check priority. They do not change the listing."""
+    raw = rj('overrides/problem_reports.json', None)
+    if not raw: return {}, 'no Report a problem submissions on file (overrides/problem_reports.json) - no effect'
+    rows = {k: v for k, v in raw.items() if not str(k).startswith('_') and v}
+    by = {i['id']: (i.get('website') or '').strip() for i in items}; out = {}
+    for k, v in rows.items():
+        u = by.get(k)
+        if not u: continue
+        out[u] = out.get(u, 0) + (len(v) if isinstance(v, list) else 1)
+    return out, ('%d Report a problem submissions' % sum(out.values())) if out else 'no matching places - no effect'
+
+def cache_gaps(items):
+    """How many food-bank postcodes have no row in overrides/district_cache.json.
+    A missing file has no effect. Nothing is looked up and no council is guessed.
+    A missing row still means no area boost."""
+    path = os.path.join(ROOT, 'overrides', 'district_cache.json')
+    if not os.path.exists(path): return None, 'no district cache on file - no effect'
+    try: cache = json.load(open(path, encoding='utf-8'))
+    except Exception: return None, 'district cache could not be read - no effect'
+    if not isinstance(cache, dict): return None, 'district cache could not be read - no effect'
+    seen, missing = set(), 0
+    for i in items:
+        pc = (i.get('postcode') or '').upper().strip()
+        if not pc or pc in seen: continue
+        seen.add(pc)
+        if not (cache.get(pc) or cache.get(pc.replace(' ', ''))): missing += 1
+    noun = 'postcode has' if missing == 1 else 'postcodes have'
+    return missing, '%d food-bank %s no council row. Nothing was looked up and no council was guessed.' % (missing, noun)
+
+def districts_for(items):
+    """website -> council, from overrides/district_cache.json (postcodes.io admin_district, already fetched).
+    A postcode that is not in the cache is skipped. Nothing is looked up or invented here."""
+    cache = rj('overrides/district_cache.json', {})
+    if not isinstance(cache, dict): return {}
+    out = {}
+    for i in items:
+        u = (i.get('website') or '').strip(); pc = (i.get('postcode') or '').upper().strip()
+        d = cache.get(pc) or cache.get(pc.replace(' ', ''))
+        if u.startswith('http') and d and u not in out: out[u] = d
+    return out
+
+def stale_areas(items, state, today):
+    """Areas whose checked dates are older than the median area move up. Uses checked_at already on file.
+    No cache, or fewer than two areas with a checked date: no effect."""
+    areas = districts_for(items)
+    if not areas: return {}, 'no council cache (overrides/district_cache.json) - no effect'
+    by = collections.defaultdict(list)
+    for u, area in areas.items():
+        checked = ((state.get('sites') or {}).get(u) or {}).get('checked_at')
+        if not checked: continue
+        days = learning._days(str(checked), today.isoformat())
+        if days >= 10 ** 5: continue
+        by[area].append((u, days))
+    if len(by) < 2: return {}, 'not enough areas with checked dates - no effect'
+    age = {a: sorted(d for _, d in rows)[len(rows) // 2] for a, rows in by.items()}
+    med, hi = sorted(age.values())[len(age) // 2], max(age.values())
+    if hi <= med: return {}, 'no area is older than the median checked date - no effect'
+    span = float(hi - med); out = {}
+    for a, rows in by.items():
+        if age[a] <= med: continue
+        factor = (age[a] - med) / span
+        for u, _ in rows: out[u] = round(max(out.get(u, 0), factor), 3)
+    return out, '%d areas; those older than the median checked date move up' % len(age)
+
+def _documented_dates(obj):
+    """A calendar counts only when it names an http(s) source and lists dates. Otherwise it is ignored."""
+    if not isinstance(obj, dict): return False
+    src, dates = obj.get('source'), obj.get('dates')
+    return isinstance(src, str) and src.startswith('http') and isinstance(dates, list)
+
+def demand_forecast(items, today):
+    """Cold snaps, benefit payment dates, school holidays. Real files only.
+    Cold snaps: a Met Office warning in reports/weather.json (written by scripts/weather.py) whose title
+    mentions snow, ice or cold. Benefit dates: reports/benefit_dates.json with a source URL and a dates list.
+    School holidays: reports/holidays.json only when school_holidays is a list AND school_holiday_source is an
+    http(s) URL. scripts/holidays.py leaves school holidays out on purpose (no single official UK list), so
+    that string note has no effect. This function never writes dates."""
+    notes, per = [], {}
+    areas = districts_for(items)
+    wx = rj('reports/weather.json', None)
+    cold_areas = []
+    if not isinstance(wx, dict):
+        notes.append('cold snaps: no reports/weather.json from scripts/weather.py - no effect')
+    else:
+        for w in wx.get('warnings') or []:
+            blob = '%s %s' % (w.get('title') or '', w.get('level') or '')
+            if any(word in blob.lower() for word in COLD_WORDS): cold_areas.extend(w.get('areas') or [])
+        if not cold_areas:
+            notes.append('cold snaps: no snow, ice or cold warning in reports/weather.json - no effect')
+        else:
+            import weather as WX
+            n = 0
+            for u, d in areas.items():
+                if any(WX.hits(a, d) or WX.hits(d, a) for a in cold_areas):
+                    per[u] = 1.0; n += 1
+            notes.append('cold snaps: Met Office warnings via scripts/weather.py (%d places)' % n)
+    ben = rj('reports/benefit_dates.json', None)
+    if not _documented_dates(ben):
+        notes.append('benefit payment dates: no documented calendar (reports/benefit_dates.json needs an http(s) source and a dates list) - no effect')
+    else:
+        window = []
+        for raw in ben['dates']:
+            try: dd = datetime.date.fromisoformat(str(raw)[:10])
+            except Exception: continue
+            if 0 <= (dd - today).days <= 3: window.append(dd.isoformat())
+        if not window:
+            notes.append('benefit payment dates: nothing in the next 3 days (%s) - no effect' % ben['source'])
+        else:
+            for i in items:
+                u = (i.get('website') or '').strip()
+                if u.startswith('http'): per[u] = min(1.0, per.get(u, 0) + 0.5)
+            notes.append('benefit payment dates: %s (%s)' % (', '.join(window), ben['source']))
+    hol = rj('reports/holidays.json', {})
+    sch = hol.get('school_holidays') if isinstance(hol, dict) else None
+    src = hol.get('school_holiday_source') if isinstance(hol, dict) else None
+    if not (isinstance(sch, list) and isinstance(src, str) and src.startswith('http')):
+        notes.append('school holidays: %s - no effect' % (sch if isinstance(sch, str) else 'no documented school-holiday calendar'))
+    else:
+        hit = False
+        for block in sch:
+            if not isinstance(block, dict): continue
+            try:
+                start, end = datetime.date.fromisoformat(block['start'][:10]), datetime.date.fromisoformat(block['end'][:10])
+            except Exception: continue
+            if not (start <= today <= end): continue
+            hit = True; where = (block.get('nation') or block.get('council') or '').lower()
+            for u, d in areas.items():
+                if not where or where in d.lower() or d.lower() in where:
+                    per[u] = min(1.0, per.get(u, 0) + 0.5)
+        notes.append('school holidays: %s (%s)' % ('in force' if hit else 'none today', src))
+    return per, ' '.join(notes)
+
+def rate_note():
+    """Last saved call counts. No file: no effect. A pause does not change the clock or drop a place."""
+    import rate_ledger
+    return rate_ledger.note_from(rj('reports/rate_ledger.json', None))
+
+def official_feed_note():
+    """New links on a hand-maintained official host. Missing files: no effect. Places are not added."""
+    cfg = rj('overrides/official_feeds.json', None)
+    if not isinstance(cfg, dict) or not cfg.get('hosts'): return 'no official-feed list on file - no effect'
+    found = rj('reports/new_official_feeds.json', {})
+    urls = found.get('urls') if isinstance(found, dict) else None
+    if not urls: return 'no new official feed - no effect'
+    return 'flagged for Dean, nothing added: ' + ', '.join(urls[:8])
+
+def source_watch():
+    """A source that failed its last three recorded runs is named for Dean. Places stay on the map.
+    No health file yet: no effect. A short outage (fewer than three failures) is not called gone."""
+    h = rj('reports/source_health.json', None)
+    if not isinstance(h, dict) or not h: return [], 'no source health file yet - no effect'
+    gone = learning.sources_gone(h)
+    if not gone: return [], 'no source has failed three runs in a row - no effect'
+    return gone, 'flagged for Dean, places not removed: ' + ', '.join(gone)
+
+def empty_parses(state):
+    """Sites whose own page answered HTTP 200 but the parser found nothing, after a run that had found records.
+    The flag moves them up the next check. It does not remove them. No such site: no effect."""
+    sites = {u: 1.0 for u, s in (state.get('sites') or {}).items() if s.get('empty_parse')}
+    if not sites: return {}, 'no page answered with an empty parser result - no effect'
+    return sites, '%d sites answered but the parser found nothing, after a run that had found records' % len(sites)
+
+def weather_key_note():
+    """Say when a weather feed recorded HTTP 401 or 403, or the Natural Resources Wales key is missing.
+    The failure does not add areas. Real warning areas already in the file are left for weather_priority."""
+    wx = rj('reports/weather.json', None)
+    if not isinstance(wx, dict): return 'no weather file - no effect'
+    marks = ('401', '403', 'Natural Resources Wales: no API key')
+    bad = [str(e) for e in (wx.get('errors') or []) if any(m in str(e) for m in marks)]
+    if not bad: return 'no weather-key failure recorded. No areas were added from a key error.'
+    return 'A weather feed failed (%s). No areas were added because of that failure.' % '; '.join(bad)
+
+def weather_priority(items):
+    """Councils named in reports/weather.json (written by scripts/weather.py) move up the next run.
+    No weather file, or a warning with no area: no effect. Areas are not guessed."""
+    wx = rj('reports/weather.json', None)
+    if not isinstance(wx, dict) or not wx.get('warnings'):
+        return {}, {}, 'no weather warnings on file (reports/weather.json from scripts/weather.py) - no effect'
+    areas_named = [a for w in wx['warnings'] for a in (w.get('areas') or []) if a]
+    if not areas_named:
+        return {}, {}, 'weather warnings have no areas - no effect'
+    import weather as WX
+    sites = {}
+    for u, d in districts_for(items).items():
+        if any(WX.hits(a, d) or WX.hits(d, a) for a in areas_named): sites[u] = 1.0
+    councils = {}
+    for c in (rj('scripts/sweep_sources.json', {}).get('councils') or []):
+        name = c.get('name') or ''
+        if name and any(WX.hits(a, name) or WX.hits(name, a) for a in areas_named): councils[name] = 1.0
+    note = 'weather warnings cover %d councils and %d food-bank sites' % (len(councils), len(sites))
+    return sites, councils, note
+
+def council_boosts():
+    """For sweep_daily.py: last run's boost per council name."""
+    return rj('reports/learning_signals.json', {}).get('council_boost', {})
 
 def crawl_timing(state, LS):
     """Per-host failure rate (and latency where recorded). Slow / failing hosts are spread out, never dropped."""
@@ -120,6 +399,20 @@ def weights(prev, review):
         w[k] = round(min(base * HI, max(base * LO, w.get(k, base) * (1 + STEP if r > 0 else 1 - STEP if r < 0 else 1))), 4)
     return w
 
+def accuracy_grades(LS, prev, today):
+    """Weekly self-grade: of the places a signal moved up, what share produced a find in the last 7 days,
+    compared with the places it did not move. Weak (below 90% of the others, and at least 5 places each)
+    is turned down one step. Not enough data: no change. This does not turn a signal up."""
+    out = {}; K = LS.get('keys', {}); since = (today - datetime.timedelta(days=7)).isoformat()
+    for comp, keys in (prev.get('boosted_by') or {}).items():
+        keys = [k for k in keys if k in K]; rest = [k for k in K if k not in set(keys)]
+        if len(keys) < 5 or len(rest) < 5:
+            out[comp] = {'grade': None, 'weak': False, 'note': 'not enough data'}; continue
+        rate = lambda ks: sum(1 for k in ks if (K[k].get('last_find') or '') >= since) / float(len(ks))
+        a, b = rate(keys), rate(rest); weak = a < b * 0.9
+        out[comp] = {'grade': round(a, 3), 'others': round(b, 3), 'weak': weak, 'note': 'turned down' if weak else 'kept'}
+    return out
+
 def self_review(LS, prev_signals, today):
     """Did last week's boosted keys produce finds at a higher rate than the rest? +1 / -1 / None (not enough data)."""
     out = {}; K = LS.get('keys', {}); since = (today - datetime.timedelta(days=7)).isoformat()
@@ -132,11 +425,28 @@ def self_review(LS, prev_signals, today):
 
 def build(today=None):
     today = today or datetime.date.today(); items = [i for i in items_of('data.full.js') if i.get('type') == 'foodbank']
-    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(); prev = rj('reports/learning_signals.json', {})
-    cids, corr_rate = corrections(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
-    season, weeks, season_note = seasonal(today); dem, dem_note = demand(items); vis, vis_note = visitor(items)
+    state = rj('reports/full_check_state.json', {'sites': {}}); LS = learning.load(learning.STATE); prev = rj('reports/learning_signals.json', {})
+    cids, corr_rate = corrections(items); blame = source_blame(items); agree, agree_n, per_site = agreement(items, state); sig = change_signals(items, state)
+    rows = conflicts(items, state); conflicted = {r['website'] for r in rows}
+    season, weeks, season_note = seasonal(today); tally_line = tally_note(); dem, dem_note = demand(items); vis, vis_note = visitor(items)
+    import brake_drill
+    drill_info = brake_drill.maybe(today, LS.get('change_counts') or [], os.path.join(ROOT, 'reports', 'anomaly_brake_drill.md'))
+    drill_note = drill_info['line']
+    dean_sites, dean_wording, dean_note = dean_learning(items)
+    problems, problem_note = problem_reports(items)
+    import problem_drafts
+    draft_line = problem_drafts.note(os.path.join(ROOT, 'overrides', 'problem_report_drafts.json'))
+    stale, stale_note = stale_areas(items, state, today); forecast, forecast_note = demand_forecast(items, today)
+    gap_n, gap_note = cache_gaps(items)
+    wx_sites, wx_councils, wx_note = weather_priority(items); key_note = weather_key_note()
+    empty_sites, empty_note = empty_parses(state)
+    gone, gone_note = source_watch(); pin_note = pins.note(); feed_note = official_feed_note(); calls_note = rate_note(); prov_note = provenance_note()
     trust = {s: round(max(0.0, min(1.0, agree.get(s, 0.5) - corr_rate.get(s, 0.0))), 4) for s in set(agree) | set(corr_rate)}
     sunday = today.weekday() == 6; review = self_review(LS, prev, today) if sunday else {}
+    grades = accuracy_grades(LS, prev, today) if sunday else {}
+    if sunday:
+        for k, g in grades.items():
+            if g.get('weak'): review[k] = -1  # one step down; a weak signal is not also turned up
     stored = prev.get('weights') or {}
     W = {k: stored.get(k, base) for k, base in DEFAULT_W.items()}  # a new signal starts at its default
     if sunday: W = weights(W, review)
@@ -154,6 +464,15 @@ def build(today=None):
         if season: parts['season'] = W['season'] * season
         if dem.get(u): parts['demand'] = W['demand'] * dem[u]
         if vis.get(u): parts['visitor'] = W['visitor'] * min(vis[u], 3) / 3
+        if u in dean_sites: parts['dean'] = W['dean']  # priority only; publishing still asks Dean
+        if u in conflicted: parts['conflict'] = W['conflict']
+        rf = learning.rhythm_factor(LS.get('keys', {}).get(u) or {}, today.isoformat())
+        if rf: parts['rhythm'] = W['rhythm'] * rf
+        if problems.get(u): parts['problem'] = W['problem'] * min(problems[u], 3) / 3
+        if stale.get(u): parts['stale_area'] = W['stale_area'] * stale[u]
+        if forecast.get(u): parts['forecast'] = W['forecast'] * forecast[u]
+        if wx_sites.get(u): parts['weather'] = W['weather'] * wx_sites[u]
+        if empty_sites.get(u): parts['empty_parse'] = W['empty_parse'] * empty_sites[u]
         capped = learning.cap_parts(parts)  # every signal shares BOOST_CAP; none of them raises it
         b = round(sum(capped.values()), 4)
         if b > 0: boost[u] = min(b, learning.BOOST_CAP); why[u] = {k: round(v, 3) for k, v in capped.items() if round(v, 3)}
@@ -165,14 +484,23 @@ def build(today=None):
     trend = [t for t in prev.get('trend', []) if t.get('day') != pt['day']] + [pt]
     out = dict(run=today.isoformat(), weights=W, review=review, trust=trust, agreement_n=agree_n, correction_rate=corr_rate,
                signals=sig, season=dict(boost=season, weeks=weeks, note=season_note), demand_note=dem_note, visitor_note=vis_note,
+               drill_note=drill_note,
                hosts=crawl_timing(state, LS), boost=boost, why=why, boosted_by={k: sorted(v) for k, v in boosted_by.items()},
+               dean_wording=dean_wording, dean_note=dean_note, conflicts=rows, accuracy=grades,
+               healed=sorted(k for k, e in (LS.get('keys') or {}).items() if e.get('healed_to'))[:40],
+               source_blame=blame, tally_note=tally_line,
+               problem_note=problem_note, draft_note=draft_line, stale_note=stale_note, cache_gap_note=gap_note,
+               forecast_note=forecast_note, weather_note=wx_note, weather_key_note=key_note, empty_note=empty_note,
+               source_gone=gone, source_gone_note=gone_note, pin_note=pin_note, feed_note=feed_note, calls_note=calls_note, provenance_note=prov_note,
+               council_boost={k: round(W['weather'] * v, 3) for k, v in wx_councils.items()},
                trend=trend[-60:], discovery='all new places held for Dean (overrides/auto_apply_rules.json add_new_places=false)')
     return out
 
 def write(out):
     tmp = OUT + '.tmp'; json.dump(out, open(tmp, 'w', encoding='utf-8'), indent=0, sort_keys=True); os.replace(tmp, OUT)
     open(MD, 'w', encoding='utf-8').write('\n'.join(digest_lines(out, full=True)) + '\n')
-    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), {'signal_weights': out.get('weights')}); learning.save(s, learning.STATE)
+    extra = {'signal_weights': out.get('weights'), 'dean_wording': out.get('dean_wording') or {}, 'accuracy': out.get('accuracy') or {}, 'source_blame': out.get('source_blame') or {}}
+    s = learning.load(learning.STATE); learning.note_signals(s, out.get('run'), extra); learning.save(s, learning.STATE)
 
 def weekly(trend):
     """Average per ISO week of the daily accuracy points."""
@@ -183,23 +511,60 @@ def weekly(trend):
     return [(w, f(xs, 'reachable'), f(xs, 'phone_agreement'), xs[-1]['corrections']) for w, xs in sorted(g.items())]
 
 def digest_lines(out, full=False):
+    """Plain-English signals section for the morning note. The same numbers, in sentences."""
     L = ['## What the system learned (signals)', '']
+    season = out.get('season') or {}
     T = sorted(out.get('trust', {}).items(), key=lambda x: x[1])
-    L.append('- Source trust (phone agrees with own site, minus hand corrections): ' + (', '.join('%s %.2f (%s checked)' % (s, v, out['agreement_n'].get(s, 0)) for s, v in T) or 'none yet'))
-    L.append('- Places with change signals (dead link, closure wording, Facebook, bounce): %d' % len(out.get('signals', {})))
-    L.append('- Checks moved up for next run: %d sites (corrections %d, signals %d, season %d, demand %d, visitor reports %d)' % (
-        len(out.get('boost', {})), *(len(out.get('boosted_by', {}).get(k, [])) for k in ('correction', 'signal', 'season', 'demand', 'visitor'))))
-    L.append('- Seasonal timing: boost %.2f this week (%s)' % (out['season']['boost'], out['season']['note']))
-    L.append('- Demand: ' + out.get('demand_note', '') + '; visitor reports: ' + out.get('visitor_note', ''))
-    slow = sorted(out.get('hosts', {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
-    L.append('- Hardest hosts to reach: ' + (', '.join('%s (%d%% of %d sites failing)' % (h, v['fail_rate'] * 100, v['sites']) for h, v in slow if v['fail_rate']) or 'none'))
-    if out.get('review'): L.append('- Weekly self-review: ' + ', '.join('%s %s' % (k, {1: 'paid off (+10%)', -1: 'did not pay off (-10%)', 0: 'no change', None: 'not enough data'}[v]) for k, v in out['review'].items()))
-    wk = weekly(out.get('trend', []))
-    L.append('- Weekly accuracy trend: ' + ('; '.join('%s reachable %.0f%%, phones agree %s, corrections %d' % (w, r * 100, ('%.0f%%' % (p * 100)) if p else 'n/a', c) for w, r, p, c in wk[-4:]) or 'first week'))
-    L.append('- New places found are never added automatically: they wait in reports/pending_dean.md for your OK.')
+    agreed = out.get('agreement_n') or {}
+    trust_bits = ', '.join('%s scores %.2f from %s places checked' % (s, v, agreed.get(s, 0)) for s, v in T)
+    L.append('- How far each source can be trusted (its phone matches the place\'s own website, after your hand corrections): ' + (trust_bits or 'none yet'))
+    L.append('- Places that look like they may have changed (a dead link, closure wording, a Facebook problem, or a bounced email): %d' % len(out.get('signals', {})))
+    bb = out.get('boosted_by') or {}
+    L.append('- Places moved earlier in the next check: %d in total. Of those, %d follow a hand correction, %d a change signal, %d the time of year, %d visitor demand, and %d a visitor report.' % (
+        len(out.get('boost') or {}), len(bb.get('correction') or []), len(bb.get('signal') or []), len(bb.get('season') or []),
+        len(bb.get('demand') or []), len(bb.get('visitor') or [])))
+    L.append('- Time of year: the extra priority this week is %.2f. %s' % (season.get('boost', 0), season.get('note', '')))
+    L.append('- Visitor demand: ' + (out.get('demand_note') or '') + '. Visitor reports: ' + (out.get('visitor_note') or ''))
+    L.append('- Monthly practice run of the brake that stops unusual runs: ' + (out.get('drill_note') or 'the live brake is unchanged'))
+    L.append("- What your past decisions taught it: " + (out.get('dean_note') or 'no hand decisions to learn from yet, so no effect'))
+    L.append('- Places where sources disagree: %d. Nothing was picked; each one is flagged for you.' % len(out.get('conflicts') or []))
+    L.append('- Website checks that switched to a method that worked before: %d' % len(out.get('healed') or []))
+    if out.get('accuracy'): L.append('- Sunday accuracy grade: ' + ', '.join('%s %s' % (k, v.get('note')) for k, v in sorted(out['accuracy'].items())))
+    blame = out.get('source_blame') or {}
+    L.append('- Hand corrections traced back to the source that supplied the place: ' + (', '.join('%s (%s)' % (s, ', '.join('%s %d' % kv for kv in sorted(v.items()))) for s, v in sorted(blame.items())) or 'none recorded'))
+    L.append('- Places moved up because of their usual update rhythm: %d' % len(bb.get('rhythm') or []))
+    L.append('- Weekly change tally: ' + (out.get('tally_note') or 'The season boost is unchanged.'))
+    L.append('- Report a problem: ' + out.get('problem_note', 'no Report a problem submissions on file - no effect'))
+    L.append('- Problem-report drafts: ' + (out.get('draft_note') or 'no effect'))
+    L.append('- Areas with old checked dates: ' + (out.get('stale_note') or ''))
+    L.append('- Food-bank postcodes with no council row: ' + (out.get('cache_gap_note') or 'no effect'))
+    L.append('- Demand prediction: ' + (out.get('forecast_note') or ''))
+    L.append('- Weather warnings moving councils up: ' + (out.get('weather_note') or ''))
+    L.append('- Weather feed keys: ' + (out.get('weather_key_note') or 'no effect'))
+    L.append('- Pages that answered but the parser found nothing: ' + (out.get('empty_note') or 'no effect'))
+    L.append('- Sources that have stopped answering: ' + (out.get('source_gone_note') or 'no effect'))
+    L.append('- Library pins (nothing is upgraded from this note): ' + (out.get('pin_note') or 'no effect'))
+    L.append('- New official feeds: ' + (out.get('feed_note') or 'no effect'))
+    L.append('- Calls and rate limits: ' + (out.get('calls_note') or 'no effect'))
+    L.append('- Why an automatic edit was allowed: ' + (out.get('provenance_note') or 'the rules file still decides'))
+    slow = sorted((out.get('hosts') or {}).items(), key=lambda x: -x[1]['fail_rate'])[:3]
+    hard = ', '.join('%s (%d of every 100 checks fail, across %d sites)' % (h, round(v['fail_rate'] * 100), v['sites']) for h, v in slow if v['fail_rate'])
+    L.append('- Websites that are hardest to reach: ' + (hard or 'none'))
+    words = {1: 'found more than the rest, so its weight rose by one step', -1: 'found less than the rest, so its weight fell by one step', 0: 'no change this week', None: 'not enough data yet'}
+    if out.get('review'): L.append('- Sunday check of whether each signal earned its place: ' + ', '.join('%s %s' % (k, words[v]) for k, v in out['review'].items()))
+    wk = weekly(out.get('trend') or [])
+    if wk:
+        bits = '; '.join('%s: %d of every 100 sites answered, phones agreed %s, and there were %d hand corrections' % (
+            w, round(r * 100), ('%d of every 100' % round(p * 100)) if p else 'on too few places to say', c) for w, r, p, c in wk[-4:])
+        L.append('- How the last few weeks went: ' + bits)
+    else:
+        L.append('- How the last few weeks went: this is the first week, so there is no trend yet.')
+    L.append('- A new place is never added on its own. It waits in reports/pending_dean.md until you say yes.')
     if full:
-        L += ['', '### Weights now (bounded %.0f%%-%.0f%% of default, max %.0f%% change a week)' % (LO * 100, HI * 100, STEP * 100), ''] + ['- %s: %.3f' % kv for kv in sorted(out['weights'].items())]
-        L += ['', '### Top 20 boosted sites', ''] + ['- %s: %s' % (u, out['why'].get(u)) for u, _ in sorted(out['boost'].items(), key=lambda x: -x[1])[:20]]
+        L += ['', '### How strongly each signal counts (kept between %.0f%% and %.0f%% of its starting weight, and moved by at most %.0f%% a week)' % (LO * 100, HI * 100, STEP * 100), '']
+        L += ['- %s: %.3f' % kv for kv in sorted((out.get('weights') or {}).items())]
+        L += ['', '### The 20 places moved up the most', '']
+        L += ['- %s: %s' % (u, (out.get('why') or {}).get(u)) for u, _ in sorted((out.get('boost') or {}).items(), key=lambda x: -x[1])[:20]]
     return L + ['']
 
 def boosts():

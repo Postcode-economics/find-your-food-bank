@@ -14,14 +14,25 @@ this run's commit being replayed.
   three-way merge by chunk: each section and the free text around it (such as the
   header above the first section) keeps this run's version where the run changed it,
   else main's; a section the run removed stays removed.
+- Automatic-change undo logs and seen/undone maps (UNDO_LOGS, KEYED): merged by JSON content, so one
+  layer's run never drops another layer's undo entries or two-run readings.
 - Anything else: keep this run's file (data the run just fetched), as before.
 """
-import os, re, subprocess, sys
+import json, os, re, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 GENERATED_DIRS = ("food-banks/", "warm-spaces/", "shelters/")
 GENERATED_FILES = {"sitemap.xml", "robots.txt", "version.json", "overrides/page_dates.json"}
 SECTIONED = {"reports/pending_dean.md"}
+# Shared automatic-change state, written by more than one workflow (.gitattributes marks them -merge, so any change on
+# both sides comes here). Undo logs are append-only lists: every entry from both sides is kept once. Seen/undone files are
+# maps: each key the run changed takes the run's value, every other key keeps main's.
+UNDO_LOGS = {"reports/times_auto_applied.json", "reports/phone_auto_applied.json"}
+KEYED = {"logs/times_crosscheck_seen.json", "logs/times_finder_seen.json",
+         "overrides/times_auto_undone.json", "overrides/phone_auto_undone.json",
+         "overrides/opening_times.json", "reports/phone_fixes.json"}
+# (indent, sort_keys) each file's own writer uses, so a merge does not reformat it. Default for KEYED: (0, True).
+JSON_FORMAT = {"overrides/opening_times.json": (1, True), "reports/phone_fixes.json": (1, False)}
 SEC = re.compile(r"<!-- (?!/)([\w .-]+?) -->\n.*?<!-- /\1 -->\n?", re.S)
 
 
@@ -88,7 +99,44 @@ def merge_sections(base, ours, theirs):
     return "".join(out)
 
 
+def _json(text, default):
+    try: return json.loads(text) if text else default
+    except ValueError: return default
+
+
+def merge_undo_log(base, ours, theirs):
+    """Union of both sides' entries, main's order first. An entry reverted on either side stays reverted."""
+    key = lambda e: json.dumps({k: v for k, v in e.items() if k != "reverted"}, sort_keys=True)
+    out, at = [], {}
+    for e in (_json(ours, []) or []) + (_json(theirs, []) or []):
+        if not isinstance(e, dict): continue
+        k = key(e)
+        if k in at:
+            if e.get("reverted"): out[at[k]]["reverted"] = True
+            continue
+        at[k] = len(out); out.append(dict(e))
+    return out
+
+
+def merge_keyed(base, ours, theirs):
+    """Three-way merge by key: the run's change to a key wins, otherwise main's value stands."""
+    b, o, t = (_json(x, {}) or {} for x in (base, ours, theirs))
+    out = dict(o)
+    for k, v in t.items():
+        if b.get(k, object()) != v: out[k] = v
+    for k in b:
+        if k not in t and o.get(k) == b[k]: out.pop(k, None)
+    return out
+
+
 def resolve(f):
+    if f in UNDO_LOGS or f in KEYED:
+        ours, theirs = stage(f, 2), stage(f, 3)
+        merged = (merge_undo_log if f in UNDO_LOGS else merge_keyed)(stage(f, 1), ours, theirs)
+        indent, sort = JSON_FORMAT.get(f, (1, False) if f in UNDO_LOGS else (0, True))
+        with open(os.path.join(ROOT, f), "w", encoding="utf-8") as fh:
+            json.dump(merged, fh, indent=indent, sort_keys=sort, ensure_ascii=False)
+        git("add", "--", f); return "json-merge"
     if f == "stamp.js":
         subprocess.run([sys.executable, "scripts/stamp.py", "combine-index"], cwd=ROOT, check=True)
         git("add", "--", f); return "stamp"

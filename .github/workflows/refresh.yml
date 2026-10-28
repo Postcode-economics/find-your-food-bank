@@ -29,6 +29,14 @@ jobs:
         id: full
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
         run: python scripts/full_check.py
+      # full_check.py is continue-on-error, so its stop is a step output: this step fails, every later step (the commit
+      # included) is skipped and the 'run failed (nothing new published)' alert opens. Counts include refresh-gate times.
+      - name: Anomaly brake - stop before anything is published (reports/anomaly_brake.md)
+        if: steps.full.outputs.brake == 'stop'
+        run: |
+          cat reports/anomaly_brake.md
+          echo "::error::anomaly brake stopped this run; nothing is committed or pushed"
+          exit 1
       - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
         env:
           # Rule 9. Repository secret, one address or phone per line. See scripts/private_block.py.
@@ -81,11 +89,6 @@ jobs:
         run: python scripts/weather.py
       - name: Self-learning signals for the next run (scripts/learning_signals.py; order of checks only, never map data)
         run: python scripts/learning_signals.py || echo "::warning::learning signals failed (not fatal)"
-      - name: Alerts + morning digest (point 9, scripts/digest.py)
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python scripts/digest.py
       - name: Rebuild area pages, sitemap.xml and robots.txt for Google (scripts/build_seo.py)
         id: seo
         continue-on-error: true   # never blocks the data publish; alerted below
@@ -100,22 +103,36 @@ jobs:
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/validate.py gate
       - name: Commit if changed
+        id: commit
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/
+          bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_times_review.csv logs/foodbank_times_review.json logs/times_crosscheck_seen.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/ logs/sense_check.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily food bank refresh $(date -u +%F)"
+          # Guard (27 Oct 21:06 run 40583907794): a tracked file a step rewrote but the add list missed left the tree dirty,
+          # so 'git pull --rebase' refused 3 times. Print it, then stash it so the pull can run; --autostash covers later rebuilds.
+          in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
+          git status
+          # Untracked too: a file this run wrote but did not add, which another run has since committed, makes the pull
+          # refuse with "untracked working tree files would be overwritten" before any rebase starts.
+          left=$( { git diff --name-only HEAD; git ls-files --others --exclude-standard; } )
+          if [ -n "$left" ]; then
+            echo "::warning::files modified or new but not in the add list (stashed, not published): $(echo $left)"
+            git stash push --include-untracked --quiet -m "refresh-leftovers" || true
+          fi
           # data.js / access.js / logs / reports are generated: if another push touched them meanwhile, keep this run's
           # fresh build (overrides are re-applied on every run, so nothing hand-made is lost for more than one run)
           for n in 1 2 3; do
             ok=0
-            if git pull --rebase; then ok=1
+            if git pull --rebase --autostash; then ok=1
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
-              bash scripts/refresh_rebase_conflicts.sh
-              GIT_EDITOR=true git rebase --continue && ok=1
+              if in_rebase; then
+                bash scripts/refresh_rebase_conflicts.sh
+                GIT_EDITOR=true git rebase --continue && ok=1
+              else echo "::warning::pull failed with no rebase in progress (not a conflict)"; git status; fi
             fi
             if [ $ok = 1 ]; then python scripts/discovery_rules.py render || true; { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"; git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json; git add reports/new_today.md reports/manual_review.md; git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"; if git push; then exit 0; fi; fi
             git rebase --abort 2>/dev/null || true; sleep $((n * 10))
@@ -124,8 +141,30 @@ jobs:
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
+      - name: Alerts + morning digest (point 9, scripts/digest.py)
+        # After the publish, so a digest or alert failure never stops the data going out; not continue-on-error, so it turns the run red.
+        id: digest
+        if: always() && steps.commit.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python scripts/digest.py; rc=$?
+          git add reports/morning_digest.md logs/digest_state.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -q -m "Morning digest $(date -u +%F)"
+            pushed=0
+            for n in 1 2 3; do
+              if git pull --rebase --autostash && git push; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null; sleep $((n * 10))
+            done
+            [ $pushed = 1 ] || { echo "::error::morning digest commit could not be pushed"; rc=1; }
+          fi
+          exit $rc
       - name: Alert - run failed (nothing new published)
-        if: failure()
+        if: failure() && steps.commit.outcome != 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open foodbanks "Food bank refresh run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
@@ -135,22 +174,32 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open full-check "Food bank full own-site check failed" "full_check.py failed, so this run published without the own-site checks (hours, closures, access flips). reports/daily_review.md was not refreshed."
       - name: Clear the full-check alert after a good check
-        if: success() && steps.full.outcome == 'success'
+        if: always() && steps.commit.outcome == 'success' && steps.full.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve full-check
       - name: Clear the run alert after a good run
-        if: success()
+        if: always() && steps.commit.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve foodbanks
+      - name: Alert - morning digest or its alerts failed (data still published)
+        if: always() && steps.digest.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py open digest "Morning digest or its alerts failed (data was published)" "digest.py or alert.py failed after this run published. Alerts it should have raised are raised again next run. Open the run log to see the error."
+      - name: Clear the digest alert after a good digest
+        if: always() && steps.digest.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/alert.py resolve digest
       - name: Alert - area pages / sitemap build failed (data still published)
         if: always() && steps.seo.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py open seo "Area pages build failed" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
+        run: python scripts/alert.py open seo-foodbanks "Area pages build failed (food bank refresh)" "build_seo.py failed, so the /food-banks/ and /warm-spaces/ pages and sitemap.xml were not refreshed this run. The map itself is unaffected."
       - name: Clear the area pages alert after a good build
-        if: success() && steps.seo.outcome == 'success'
+        if: always() && steps.commit.outcome == 'success' && steps.seo.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py resolve seo
+        run: python scripts/alert.py resolve seo-foodbanks

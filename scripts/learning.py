@@ -51,7 +51,13 @@ def record(s, key, today, ok, finds=0, method=None, changed=False, kind="source"
     if ok:
         e["consec_fail"] = 0
         if finds: e["finds"] += 1; e["decayed_finds"] = faded_finds + 1; e["last_find"] = today
-        if changed: e["last_change"] = today
+        if changed:
+            prev = e.get("last_change")
+            if prev and prev != today:
+                gap = _days(prev, today)
+                if 0 < gap < 10 ** 5:
+                    e.setdefault("change_gaps", []).append(gap); e["change_gaps"] = e["change_gaps"][-12:]
+            e["last_change"] = today
         if method:
             m = e["methods"].setdefault(method, {"ok": 0, "fail": 0}); m["ok"] += 1; e["last_method"] = method
     else:
@@ -76,6 +82,16 @@ def _fade_counts(e, today):
         if 0 < days < 10 ** 5:
             f = _decay_factor(days); finds *= f; checks *= f
     return finds, checks
+
+def rhythm_factor(e, today):
+    """0..1 once a place is due again by its own observed gap between real changes.
+    Fewer than two observed gaps: 0 (the rhythm is not invented)."""
+    gaps = [g for g in (e.get("change_gaps") or []) if isinstance(g, (int, float)) and g > 0]
+    if len(gaps) < 2 or not e.get("last_change") or not today: return 0.0
+    typical = sorted(gaps)[len(gaps) // 2]
+    elapsed = _days(e["last_change"], today)
+    if typical <= 0 or elapsed >= 10 ** 5 or elapsed < typical * 0.5: return 0.0
+    return round(min(elapsed / typical, 1.0), 3)
 
 def reward(e, today=None):
     finds, checks = _fade_counts(e, today)
@@ -131,27 +147,191 @@ def method_order(s, key, methods):
     rest = sorted([m for m in methods if m != e.get("last_method")], key=lambda m: -rate(m))
     return ([e["last_method"]] if e.get("last_method") in methods else []) + rest
 
+def note_heal(s, key, tried, method, today=None):
+    """Remember a switch from a failed method to one that worked. No result is stored here."""
+    if method and tried and method != tried[0]:
+        e = entry(s, key); e["healed_from"], e["healed_to"] = tried[0], method
+        if today: e["healed_on"] = today
+
+def heal(s, key, today, methods, attempt):
+    """Try each method in method_order until one works, then remember that method.
+    attempt(name) -> (ok, result). If every method fails, the result is None. Nothing is invented."""
+    order = method_order(s, key, methods); tried = []
+    for m in order:
+        tried.append(m)
+        try: ok, result = attempt(m)
+        except Exception: ok, result = False, None
+        if ok:
+            note_heal(s, key, tried, m, today)
+            return {"ok": True, "method": m, "result": result, "tried": tried, "healed": m != tried[0]}
+    return {"ok": False, "method": None, "result": None, "tried": tried, "healed": False}
+
+CONFIDENCE_MIN = 0.8  # sits under auto_apply_rules.json: a lower score holds the change for Dean. It never grants a change the rules forbid.
+
+def allow_under_rules(kind, rules, confidence=None, layer=None):
+    """Rules first. Confidence can only refuse a change the rules would have allowed.
+    A new place or a removal the rules forbid stays forbidden even at confidence 1.
+    A stopped run does not grant an add or a removal. confidence None means no extra
+    doubt: the rules alone decide."""
+    rules = rules or {}
+    if kind == "new_place":
+        adds = rules.get("add_new_places") or {}
+        allowed = bool(adds.get(layer)) if layer else any(bool(v) for v in adds.values())
+    elif kind == "remove_place":
+        allowed = bool(rules.get("remove_confirmed_closures"))
+    else:
+        allowed = kind in (rules.get("automatic") or [])
+    if not allowed: return False
+    if confidence is None: return True
+    try: return float(confidence) >= CONFIDENCE_MIN
+    except (TypeError, ValueError): return False
+
+# Rows full_check would write onto the map. A new place, and a closure note that waits
+# for Dean, are logged but not applied, so they do not count. The bars in anomaly_brake
+# are unchanged; only the number passed in as `proposed` is the applied count.
+APPLIED_KINDS = {"phone", "removed", "hours", "opening hours", "hour change", "access"}
+HELD_KINDS = {"new food bank", "new_place", "closure"}
+
+def is_applied_change(entry):
+    """True for a change this run would write: access flip, phone fix, hour change, removal.
+    A new place held for Dean is false. A closure note that keeps the pin and waits for Dean is false."""
+    if not isinstance(entry, dict): return False
+    kind = str(entry.get("kind") or "").strip().lower()
+    if kind in HELD_KINDS or kind.startswith("new "): return False
+    if kind in APPLIED_KINDS: return True
+    return not kind and "old" in entry and "new" in entry
+
+def applied_count(entries):
+    return sum(1 for e in entries or [] if is_applied_change(e))
+
+def anomaly_brake(history, proposed):
+    """Stop when this run would apply many more changes than recent runs.
+    `proposed` is the applied count (access flips, phone fixes, hour changes, removals).
+    Fewer than four recorded runs: do not stop (there is no baseline to compare with, and none is invented).
+    Unusual means at least 10, at least three times the median, and at least 8 above that median.
+    Those bars are multiples of the recorded counts, not a guessed expected number."""
+    counts = []
+    for h in history or []:
+        if isinstance(h, dict) and isinstance(h.get("changes"), int): counts.append(h["changes"])
+        elif isinstance(h, int): counts.append(h)
+    flag = {"stop": False, "proposed": int(proposed), "median": None, "reason": ""}
+    if len(counts) < 4:
+        flag["reason"] = "not enough history to judge this run (%d past runs)" % len(counts)
+        return flag
+    med = sorted(counts)[len(counts) // 2]; flag["median"] = med
+    if proposed >= max(10, med * 3) and proposed >= med + 8:
+        flag["stop"] = True
+        flag["reason"] = "this run would change %d places; recent runs usually change about %d. Stopped and flagged for Dean." % (proposed, med)
+    else:
+        flag["reason"] = "within the usual range (%d vs about %d)" % (proposed, med)
+    return flag
+
+def confidence_for(website, conflicted):
+    """0 when sources already disagree for this site. Otherwise None, so the rules stand."""
+    if website and website in (conflicted or ()): return 0.0
+    return None
+
 def snapshot(s, today, top=200):
     """Keep a small per-run history of priorities so the digest can show movers."""
     pr = {k: round(reward(e, today), 3) for k, e in s["keys"].items()}
     s["history"] = (s["history"] + [{"day": today, "reward": dict(sorted(pr.items(), key=lambda x: -x[1])[:top])}])[-14:]
 
 def digest_lines(s, today, n=5):
-    """'What the system learned' section for reports/morning_digest.md."""
+    """Plain-English 'What the system learned' for the morning note. Same facts as before."""
     K = s["keys"]; L = ["## What the system learned", ""]
-    if not K: return L + ["- nothing yet (first runs build the history)", ""]
+    if not K: return L + ["- Nothing has been learned yet. The first checks will start the record.", ""]
     h = s.get("history", []); prev = h[-2]["reward"] if len(h) >= 2 else {}
     now = {k: reward(e, today) for k, e in K.items()}
     mv = sorted(((now[k] - prev.get(k, 0.5), k) for k in now if k in prev), reverse=True)
     up = [x for x in mv if x[0] > 0.001][:n]; down = [x for x in mv[::-1] if x[0] < -0.001][:n]
     found = sorted((k for k, e in K.items() if e.get("last_find") == today), key=lambda k: -now[k])[:n]
     back = sorted((k for k, e in K.items() if resting(e, today)), key=lambda k: -K[k]["consec_fail"])[:n]
-    L += ["- Checks recorded so far: %d across %d sources/places" % (s.get("total_checks", 0), len(K))]
-    L += ["- Top movers up: " + (", ".join("%s (+%.2f)" % (k, d) for d, k in up) or "none")]
-    L += ["- Top movers down: " + (", ".join("%s (%.2f)" % (k, d) for d, k in down) or "none")]
-    L += ["- Sources/places with useful finds today: " + (", ".join(found) or "none")]
-    L += ["- Backing off (repeated failures, retried within %d days): " % FLOOR_DAYS + (", ".join("%s (%d fails)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
+    L += ["- So far the sweeps have made %d checks across %d sources and places." % (s.get("total_checks", 0), len(K))]
+    L += ["- Moved up the queue, because recent checks found more: " + (", ".join("%s (score up by %.2f)" % (k, d) for d, k in up) or "none")]
+    L += ["- Moved down the queue, because recent checks found less: " + (", ".join("%s (score down by %.2f)" % (k, abs(d)) for d, k in down) or "none")]
+    L += ["- Places that turned up something useful today: " + (", ".join(found) or "none")]
+    L += ["- Waiting a little longer after several failed checks (still looked at at least every %d days): " % FLOOR_DAYS
+          + (", ".join("%s (failed %d times in a row)" % (k, K[k]["consec_fail"]) for k in back) or "none"), ""]
     return L
+
+PRUNE_DAYS = 90
+
+def prune(s, today, seen, days=PRUNE_DAYS):
+    """Forget scores for keys that are not in this run's list and were last checked at least `days` ago.
+    No last_check: kept, because the age would be a guess. An empty seen list prunes nothing.
+    A tombstone records the key, the last day and the word pruned. The map is not touched.
+    A later check of that key starts again as a new key."""
+    if not seen: return s
+    seen = set(seen); tomb = list(s.get("tombstones") or [])
+    for k, e in list((s.get("keys") or {}).items()):
+        if k in seen: continue
+        last = e.get("last_check")
+        if not last: continue
+        age = _days(last, today)
+        if age < days or age >= 10 ** 5: continue
+        tomb.append({"key": k, "last_day": str(last)[:10], "reason": "pruned"})
+        del s["keys"][k]
+    s["tombstones"] = tomb[-200:]
+    return s
+
+def empty_parse(http, extracted, previous, minimum=1):
+    """True when a page answered HTTP 200 and the parser found fewer than `minimum` records,
+    after a previous run that had found at least `minimum`. No previous count: False.
+    Nothing is invented, and this does not remove a place."""
+    try: http, extracted = int(http), int(extracted)
+    except (TypeError, ValueError): return False
+    if http != 200 or extracted >= minimum: return False
+    if previous is None: return False
+    try: previous = int(previous)
+    except (TypeError, ValueError): return False
+    return previous >= minimum
+
+def source_history_update(history, marks, keep=12):
+    """Append one success or failure per source. Older rows are kept, up to `keep`. Places are not touched."""
+    out = {}
+    for name, row in (history or {}).items():
+        if isinstance(row, list): out[name] = [x for x in row if isinstance(x, bool)][-keep:]
+    for name, ok in (marks or {}).items():
+        if not name: continue
+        out[name] = (out.get(name) or []) + [bool(ok)]
+        out[name] = out[name][-keep:]
+    return out
+
+def sources_gone(history, need=3):
+    """Sources whose last `need` recorded runs all failed. Fewer than `need` runs: not flagged.
+    This is a flag only. It does not remove a place."""
+    gone = []
+    for name in sorted(history or {}):
+        row = [x for x in (history.get(name) or []) if isinstance(x, bool)]
+        if len(row) >= need and not any(row[-need:]): gone.append(name)
+    return gone
+
+def record_sources(path, marks, keep=12):
+    """Update the source-health file. A missing file starts empty. Nothing is invented."""
+    try: cur = json.load(open(path))
+    except Exception: cur = {}
+    if not isinstance(cur, dict): cur = {}
+    nxt = source_history_update(cur, marks, keep)
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"; json.dump(nxt, open(tmp, "w"), indent=0, sort_keys=True); os.replace(tmp, path)
+    return nxt
+
+def provenance(kind, confidence, source, rules):
+    """A log line for an automatic edit the rules already allowed. decides is always False:
+    the rules file still decides, and this note cannot grant a change. A kind the rules
+    would refuse, including a new place or a removal, returns None. Confidence can only refuse.
+    allow_under_rules belongs to the refresh batch when that branch is present; otherwise a
+    score under 0.8 is refused here and the rules list still decides."""
+    rules = rules or {}
+    if kind not in (rules.get("automatic") or []): return None
+    allow = globals().get("allow_under_rules")
+    if allow is not None:
+        if not allow(kind, rules, confidence): return None
+    elif confidence is not None:
+        try:
+            if float(confidence) < 0.8: return None
+        except (TypeError, ValueError): return None
+    return {"rule": kind, "confidence": confidence, "source": source, "decides": False}
 
 def try_auto_phone(item, proposed, source, root=None, via="learning"):
     """Learning / auto-apply writer for one listing phone.

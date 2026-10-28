@@ -53,6 +53,13 @@ class OwnSite(unittest.TestCase):
         r = discover.own_site_check(dict(self.C, name="Riverside Night Shelter"), "sh", fake({"https://x.org/": page(h)}))
         self.assertEqual(r["result"], "add"); self.assertTrue(r.get("referral_only"))
 
+def two_runs(it, kind, field, fetcher, root=None):
+    """Dean 27 Oct (vault rule 33): a refresh times change applies only on the 2nd identical run; the 1st run must hold it."""
+    import tempfile
+    root = root or tempfile.mkdtemp(); ON = {"times_auto_apply": True}
+    l1 = discover.cross_check_times([dict(x) for x in it], kind, field, fetcher, state_root=root, rules=ON, run_at="2026-10-27T03:00:00+00:00")
+    return l1, discover.cross_check_times(it, kind, field, fetcher, state_root=root, rules=ON, run_at="2026-10-27T11:00:00+00:00")
+
 class Times(unittest.TestCase):
     OT = {"status": "TIMES_FOUND", "structured": {"tue": [["10:00", "12:00"]], "fri": [["13:00", "15:00"]]}}
     def items(self, ot=None, site="https://x.org/"):
@@ -62,7 +69,8 @@ class Times(unittest.TestCase):
         self.assertEqual(log["a"]["status"], "confirmed"); self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"])
     def test_changed_updated_via_times_py(self):
         it = self.items(); h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Wednesday 9am - 11am")
-        log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
+        l1, log = two_runs(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
+        self.assertEqual(l1["a"]["status"], "held_for_dean")
         self.assertEqual(log["a"]["status"], "changed"); self.assertEqual(it[0]["opening_times"]["structured"], {"wed": [["09:00", "11:00"]]})
         self.assertEqual(it[0]["opening_times"]["source_url"], "https://x.org/")
     def test_unreachable_never_carries_old_times(self):
@@ -85,7 +93,7 @@ class Times(unittest.TestCase):
     def test_shelter_hours_dict(self):
         it = [{"id": "s", "name": "Riverside Night Shelter", "postcode": "AB1 2CD", "website": "https://x.org/", "hours": {"Tue": "10:00 - 12:00"}}]
         h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Tuesday 18:00 - 20:00")
-        discover.cross_check_times(it, "sh", "hours", fake({"https://x.org/": page(h)}))
+        l1, _ = two_runs(it, "sh", "hours", fake({"https://x.org/": page(h)})); self.assertEqual(l1["s"]["status"], "held_for_dean")
         self.assertEqual(it[0]["hours"], {"Tue": "18:00 - 20:00"})
 
 class Directories(unittest.TestCase):
@@ -143,18 +151,20 @@ class OwnSiteIsMainSource(unittest.TestCase):
     def test_own_site_times_override_directory(self):
         it = [{"id": "a", "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)}]
         h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Thursday 2pm - 4pm")
-        discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
+        two_runs(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
         self.assertEqual(it[0]["opening_times"]["structured"], {"thu": [["14:00", "16:00"]]}); self.assertEqual(it[0]["times_status"], "updated")
     def test_office_like_change_reverted(self):
         it = [{"id": "a", "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)}]
         h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Monday - Friday 9am - 5pm")
-        log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
-        self.assertEqual(log["a"]["status"], "unconfirmed"); self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"])
+        _, log = two_runs(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))   # held even after 2 identical runs
+        self.assertEqual(log["a"]["status"], "held_for_dean"); self.assertIn("office/centre hours", log["a"]["reason"])
+        self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"]); self.assertEqual(it[0]["times_status"], "unconfirmed")
     def test_same_table_for_several_branches_reverted(self):
         it = [{"id": b, "name": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "https://x.org/", "opening_times": dict(self.OT)} for b in ("a", "b")]
         h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Thursday 2pm - 4pm")
-        log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
-        self.assertEqual({log["a"]["status"], log["b"]["status"]}, {"unconfirmed"})
+        _, log = two_runs(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))   # held even after 2 identical runs
+        self.assertEqual({log["a"]["status"], log["b"]["status"]}, {"held_for_dean"}); self.assertIn("several branches", log["a"]["reason"])
+        self.assertEqual([x["opening_times"]["structured"] for x in it], [self.OT["structured"]] * 2)
     def test_office_like_detector(self):
         self.assertTrue(discover.office_like({d: [["09:00", "17:00"]] for d in ("mon", "tue", "wed", "thu", "fri")}))
         self.assertFalse(discover.office_like({"mon": [["10:00", "12:00"]], "thu": [["13:00", "15:00"]]}))

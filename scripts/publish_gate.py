@@ -44,7 +44,9 @@ def _row(i, pr, now, secrets):
         return dict(id=private_block.safe_id(i, secrets), name='', postcode='', source='', why=['private details — not published'], held_on=now)
     return dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now)
 def gate(layer, ref='HEAD'):
-    gate.last_privacy = False
+    """A held hand file or a rejected schema_version blocks the publish (gate.blocked, non-zero exit), but the
+    new-place, phone and private-blocklist checks still run, so nothing they hold can reach the map."""
+    gate.last_privacy = False; gate.blocked = ''
     f = os.path.join(ROOT, FILES[layer])
     secrets = private_block.entries()
     try:
@@ -53,7 +55,15 @@ def gate(layer, ref='HEAD'):
         if not secrets:
             print('gate: no live baseline, skipped'); return []
         live = None  # no baseline: still hold a private-blocklist match (rule 9)
+    import override_check
+    ok_files, why = override_check.assess(ROOT)
+    if not ok_files:
+        gate.blocked = why; print('publish gate: ' + why + ' - publish blocked')
     pre, d, post = split(open(f).read()); keep, held = [], []
+    import schema_version
+    if layer == 'foodbanks' and not schema_version.accepts(d.get('schema_version')):
+        gate.blocked = 'schema_version %r is not accepted' % d.get('schema_version')
+        print('publish gate: ' + gate.blocked + ' - publish blocked')
     ok = auto_rules.approved(layer, ROOT)
     import phone_lock
     dirty = False
@@ -85,7 +95,7 @@ def gate(layer, ref='HEAD'):
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'sweep shelters', 'closures', 'phone lock'):  # keep the times review (times_finder), sweep shelter review, and held phone numbers
+        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock'):  # keep the times review (times_finder) and sweep shelter review sections, held phone numbers
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     if gate.last_privacy:
@@ -112,4 +122,6 @@ def check():
     print('unlisted gaps:', bad or 'none'); return 1 if bad else 0
 if __name__ == '__main__':
     if sys.argv[1] == 'check': sys.exit(check())
-    gate(sys.argv[1]); sys.exit(1 if gate.last_privacy else 0)
+    gate(sys.argv[1])
+    if gate.blocked: sys.exit(1)
+    sys.exit(1 if gate.last_privacy else 0)

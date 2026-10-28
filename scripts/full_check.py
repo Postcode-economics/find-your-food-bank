@@ -10,10 +10,18 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  (Dean 25 Oct 2026: confirmed closures and new food banks are NOT auto-applied; they go to reports/pending_dean.md)
  2. opening-hours changes (seasonal / holiday notices, changed hours text) -> daily list
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
- 4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
-    stored one is nowhere on it, seen on 2 runs in a row) is auto-applied (reports/phone_fixes.json)
-    and logged, including when that number is a named person's, with the role the page gives
-    (rule 21, Dean 26 Oct 2026). Anything else -> daily list, with the reason recorded
+ 4. dead sites and stale phones. A CLEAR new number is auto-applied (reports/phone_fixes.json) only through the
+    strict gate (Dean, 28 Oct 2026; phone_gate_reasons): read on the organisation's own host, exactly one clickable
+    number there (no conflicting own-site number), identical on 2 separate runs, not undone by Dean, on a page that
+    mentions a food bank, with no shop/office/helpline-style label beside it. Phones are per listing (phone audit,
+    28 Oct 2026): a site-level number only replaces the single food bank pin, never a location pin or a number a
+    location pin shares; a centre's own line on its locations page wins; a host church page does not count when the
+    food bank has its own site. Older fixes are re-checked against each new reading and held when they fail. Each change is
+    logged once in reports/phone_auto_applied.json with its source URL and an undo command (scripts/phone_revert.py),
+     including when that number is a named person's, with the role the page gives
+     (rule 21, Dean 26 Oct 2026), unless that listing is in overrides/phone_baseline.json: then it is held
+     for Dean with its source and not applied. Until that file exists, every existing listing is held the
+     same way. Anything else -> daily list, with the reason recorded
  5. published stock / items-needed lists (new or changed) -> daily list
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Opening times (Rule 27): each listing is checked against the exact source URL on the card, live.
@@ -72,16 +80,22 @@ def _polite(url, loader):
     finally:
         if sem: sem.release()
 def _urllib_load(url):
+    import rate_ledger
     req = urllib.request.Request(url, headers=UA)
     try:
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
             body = r.read(1_500_000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
-            _note(urllib.parse.urlparse(url).netloc.lower(), True)
+            _note(urllib.parse.urlparse(url).netloc.lower(), True); rate_ledger.LEDGER.record(url, r.status)
             return {'ok': True, 'http': r.status, 'final_url': r.geturl(), 'html': body}
     except urllib.error.HTTPError as e:
-        _note(urllib.parse.urlparse(url).netloc.lower(), False)
+        _note(urllib.parse.urlparse(url).netloc.lower(), False); rate_ledger.LEDGER.record(url, e.code)
         return {'ok': False, 'http': e.code, 'error': 'HTTP %d' % e.code}
+    except Exception:
+        rate_ledger.LEDGER.record(url, None); raise
 def fetch(url):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        return {'ok': None, 'http': 429, 'error': 'paused this run after HTTP 429 - still due on a later scheduled run'}
     return _polite(url, _urllib_load)
 
 def text_of(h):
@@ -91,7 +105,9 @@ def text_of(h):
     return '\n'.join(re.sub(r'[ \t\xa0]+', ' ', l).strip() for l in t.split('\n') if l.strip())
 
 SUB = re.compile(r'get[- ]?help|need[- ]?help|referr|voucher|how[- ]?(it|we)[- ]?work|contact|donat|items|shopping[- ]?list|opening|find[- ]?us|locations|centres', re.I)
-def links(h, base):
+CENTRES = re.compile(r'locations|centres', re.I)
+def links(h, base, centres_first=False):
+    """Up to 2 same-host links worth reading. centres_first (the phone pass) ranks /locations/ and /centres/ pages first."""
     out = []
     for href, label in re.findall(r'(?is)<a[^>]+href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', h):
         u = urllib.parse.urljoin(base, href.strip())
@@ -100,6 +116,7 @@ def links(h, base):
         if SUB.search(u) or SUB.search(re.sub('<[^>]+>', '', label)):
             if u not in out and u.rstrip('/') != base.rstrip('/'): out.append(u)
     rank = lambda u: 0 if re.search(r'help|referr|voucher', u, re.I) else 1 if re.search(r'donat|items|list', u, re.I) else 2
+    if centres_first: return sorted(out, key=lambda u: (0 if CENTRES.search(u) else 1, rank(u)))[:2]
     return sorted(out, key=rank)[:2]
 
 # ---------- signals ----------
@@ -137,6 +154,104 @@ def own_site_misses_stored(stored, site_phones):
     """True when the own page lists numbers and none of them is the stored one.
     A page that still shows the stored number, even among others, does not replace it."""
     return bool(stored and site_phones and not (set(stored) & set(site_phones)))
+
+# Strict gate for automatic phone changes (Dean, 28 Oct 2026): the same rules as the refresh times gate.
+PHONE_LOG = 'phone_auto_applied.json'                         # reports/: every automatic phone change, once
+PHONE_UNDONE = os.path.join('overrides', 'phone_auto_undone.json')  # website -> number Dean undid; never re-applied
+def _host(u):
+    return urllib.parse.urlparse(u or '').netloc.lower().split(':')[0].removeprefix('www.')
+def own_host(site, u):
+    a, b = _host(site), _host(u)
+    return bool(a and b and (a == b or b.endswith('.' + a) or a.endswith('.' + b)))
+def phone_gate_reasons(u, r, prev, undone=None):
+    """Reasons a proposed own-site phone change must be held for Dean. Empty = it may apply (tests/test_phone_gate.py)."""
+    why = []
+    phones = r.get('phones') or []
+    if len(phones) != 1 or r.get('tel') != phones: why.append('not exactly one clickable number on the own site (another own-site number conflicts, or none is clickable)')
+    if not own_host(u, r.get('final_url')) or not all(own_host(u, p) for p in (r.get('pages') or [])):
+        why.append("not read on the organisation's own host")
+    if prev.get('phones') != phones or not own_host(u, prev.get('final_url')) or not prev.get('checked_at') or prev.get('checked_at') == r.get('checked_at'):
+        why.append('number not read identically on 2 separate runs yet')
+    if phones and phones[0] in undone_numbers(undone, u): why.append('this change was undone by Dean; not re-applied')
+    if r.get('fb_mention') is False: why.append('page does not mention a food bank or the listing name')
+    lab = (r.get('other_labels') or {}).get(phones[0]) if phones else ''
+    if lab: why.append('number sits beside another label (%s)' % lab)
+    return why
+def undone_numbers(undone, u):
+    import phone_revert
+    return phone_revert.undone_numbers(undone, u)
+
+# Phones are per listing, not per website (phone audit 28 Oct 2026, fixes A, B, E).
+SCOPE_HOLD = 'site-level number; centre pins need a centre-scoped read'
+def phone_targets(pins, old=None):
+    """(pins, reason). A site-level number may only replace the phone of the single food bank pin, and only when
+    no location pin has that same number. A location pin is never changed from a site-wide read."""
+    fb = [i for i in pins if i.get('type', 'foodbank') == 'foodbank']
+    if len(fb) != 1: return [], SCOPE_HOLD
+    cur = norm_phone(fb[0].get('phone'))
+    if not cur: return [], 'the food bank pin has no stored number to replace'
+    if old is not None and cur != old: return [], SCOPE_HOLD
+    if any(i.get('type') == 'location' and norm_phone(i.get('phone')) == cur for i in pins): return [], SCOPE_HOLD
+    return fb, ''
+def load_centre_phones(root=None):
+    """pin id -> the centre's own line(s) on its organisation's locations page (scripts/own_locations.py snapshot)."""
+    try: snap = json.load(open(os.path.join(root or ROOT, 'overrides', 'foodbank_own_pages.json'), encoding='utf-8'))
+    except Exception: return {}
+    return {k: v for k, v in (snap.get('_centre_phones') or {}).items() if isinstance(v, dict) and v.get('phones')}
+def load_own_sites(root=None):
+    """listing id -> the food bank's own site, where its listing website is a host page (rule change E)."""
+    try: cfg = json.load(open(os.path.join(root or ROOT, 'overrides', 'own_location_pages.json'), encoding='utf-8'))
+    except Exception: return {}
+    return {k: v for k, v in (cfg.get('_food_bank_own_sites') or {}).items() if not k.startswith('_') and isinstance(v, str) and v.startswith('http')}
+def pin_phone_reasons(u, pins, new, centre=None, own_sites=None):
+    """Reasons a site-level number must not go on these pins. Empty = the single food bank pin may take it."""
+    why = []
+    targets, scope = phone_targets(pins)
+    if scope: why.append(scope)
+    for i in [i for i in pins if i.get('type', 'foodbank') == 'foodbank']:  # the only pins a site-level number may reach
+        line = (centre or {}).get(i.get('id'))
+        if line and new not in line['phones']:
+            why.append("centre's own line on own locations page differs (%s: %s)" % (i.get('id'), ', '.join(line['phones']))); break
+    for i in pins:
+        own = (own_sites or {}).get(i.get('id'))
+        if own and not own_host(own, u):
+            why.append("host page does not count: the food bank has its own site (%s)" % own); break
+    return why
+SHARED_NEW = 'the same new number was given for another organisation (likely a diocesan or general line)'
+def legacy_fix_reasons(u, f, fixes, site, pins, centre=None, own_sites=None, undone=None):
+    """An older phone_fixes.json entry (written before the strict gate) run through the current gate against
+    the latest reading of the site. Empty = it may still be applied (phone audit 28 Oct 2026, fix G)."""
+    new = f.get('new')
+    why = []
+    if any(v.get('new') == new for w, v in fixes.items() if w != u): why.append(SHARED_NEW)
+    if new in undone_numbers(undone, u): why.append('this change was undone by Dean; not re-applied')
+    if not own_host(u, f.get('source')): why.append("source not on the organisation's own host")
+    site = site or {}
+    if site.get('phones') != [new] or site.get('tel') != [new]: why.append('own site does not show exactly this one clickable number on the latest read')
+    if site.get('fb_mention') is not True: why.append('page does not mention a food bank or the listing name')
+    lab = (site.get('other_labels') or {}).get(new)
+    if lab: why.append('number sits beside another label (%s)' % lab)
+    targets, scope = phone_targets(pins, f.get('old'))
+    if scope: why.append(scope)
+    why += [w for w in pin_phone_reasons(u, pins, new, centre, own_sites) if w != SCOPE_HOLD and w not in why]
+    return why
+def log_phone_changes(applied, path=None):
+    """One undo-log entry per (website, new number). A fix re-applied on a later run (build.py rebuilds from the feed)
+    is not logged again. Revert with scripts/phone_revert.py <website>."""
+    path = path or os.path.join(REP, PHONE_LOG)
+    try: log = json.load(open(path, encoding='utf-8'))
+    except Exception: log = []
+    have = {(e.get('website'), e.get('new')) for e in log if not e.get('reverted')}
+    added = []
+    for u, f in applied:
+        if (u, f['new']) in have: continue
+        have.add((u, f['new']))
+        e = dict(website=u, old=f.get('old'), new=f['new'], source_url=f.get('source') or '', since=f.get('since'),
+                 first_run_at=f.get('first_run_at'), second_run_at=f.get('second_run_at'), revert='python scripts/phone_revert.py ' + u)
+        log.append(e); added.append(e)
+    if added:
+        t = path + '.tmp'; json.dump(log, open(t, 'w', encoding='utf-8'), indent=1, ensure_ascii=False); os.replace(t, path)
+    return added
 def snippet(t, rx, n=220):
     m = rx.search(t)
     if not m: return ''
@@ -146,6 +261,19 @@ def needs_list(t):
     if not m: return ''
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
+
+_robots_cache = {}
+def _robots_text(url):
+    parts = urllib.parse.urlsplit(url)
+    if not parts.scheme or not parts.netloc: return "", "/"
+    base = "%s://%s" % (parts.scheme, parts.netloc)
+    if base not in _robots_cache:
+        try:
+            rb = fetch(base + "/robots.txt")
+            _robots_cache[base] = (rb.get("html") or "") if rb.get("http") == 200 else ""
+        except Exception:
+            _robots_cache[base] = ""
+    return _robots_cache[base], parts.path or "/"
 
 UNCLEAR_LINE = 'Opening times not listed. Call before you go.'
 def drop_saved_hours(r):
@@ -194,6 +322,10 @@ def read_source(item, fetch=None, render=None):
     fetch = fetch or globals()['fetch']
     if not src:
         return {'ok': False, 'error': 'no source url', 'text': '', 'final_url': '', 'html': ''}
+    import robots_check
+    rtext, rpath = _robots_text(src)
+    if robots_check.blocked(rtext, rpath):  # the site asks us not to read this page: no fetch, hours not guessed
+        return {'ok': False, 'error': 'not fetched, robots', 'text': '', 'final_url': '', 'html': '', 'robots': True}
     got = fetch(src) or {}
     if not got.get('ok'):
         return {'ok': False, 'http': got.get('http'), 'error': got.get('error') or 'no response', 'text': '', 'final_url': got.get('final_url') or '', 'html': ''}
@@ -248,24 +380,46 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
             flag(i['id'], 'opening times unclear', name=i.get('name') or '', website=src, id=i['id'],
                  note=verdict.get('note') or '', evidence=verdict.get('evidence') or '')
     return n
-def check_site(url):
-    home = fetch(url)
-    if not home['ok'] and url.startswith('http://'): home = fetch('https://' + url[7:])  # many sites redirect anyway
-    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http')}
-    if not home['ok']: res.update(ok=False, error=home['error']); return res
+def check_site(url, order=None):
+    """Fetch with the methods in `order` (plain, then https for an http URL). Stops at the first that works.
+    The order comes from per-site method memory so a method that healed this site last time is tried first.
+    A robots.txt Disallow skips the fetch. Hours are not guessed, and the place is not removed."""
+    text, path = _robots_text(url)
+    import robots_check
+    if robots_check.blocked(text, path):
+        return {'url': url, 'checked_at': NOW.isoformat(), 'ok': False, 'robots': True, 'http': None,
+                'error': 'not fetched, robots', 'hours_hash': '', 'phones': [], 'hours_sample': [], 'method': None, 'methods_tried': []}
+    order = list(order or (['plain', 'https'] if str(url).startswith('http://') else ['plain']))
+    home = {'ok': False, 'http': None, 'error': 'not tried'}; used, tried = None, []
+    for m in order:
+        if m == 'plain': home = fetch(url)
+        elif m == 'https' and str(url).startswith('http://'): home = fetch('https://' + str(url)[7:])
+        else: continue
+        tried.append(m); used = m
+        if home.get('ok'): break
+    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http'), 'method': used if home.get('ok') else None, 'methods_tried': tried}
+    if not home['ok']: res.update(ok=False, error=home.get('error') or 'not tried'); return res
     pages = [(home['final_url'], home['html'])]
-    for u in links(home['html'], home['final_url']):
+    sub_page = bool(urllib.parse.urlparse(url).path.strip('/'))  # a sub-page website (e.g. a host church's food bank page): no links followed
+    for u in ([] if sub_page else links(home['html'], home['final_url'])):
         r = fetch(u)
         if r['ok']: pages.append((r['final_url'], r['html']))
     t = '\n'.join(text_of(h) for _, h in pages)
+    # Phone pass: the organisation's /locations/ or /centres/ page too, so centre lines are seen and a site-wide number is not the only one.
+    for u in ([] if sub_page else [x for x in links(home['html'], home['final_url'], centres_first=True) if CENTRES.search(x)][:1]):
+        if u in [p for p, _ in pages]: continue
+        r = fetch(u)
+        if r['ok']: pages.append((r['final_url'], r['html']))
+    pt = '\n'.join(text_of(h) for _, h in pages)
     a, ev = access(t)
     hours = sorted({re.sub(r'\s+', ' ', m.group(0)).lower() for m in DAYS.finditer(t)})[:30]
-    phones = sorted({p for p in (norm_phone(x) for x in PHONE.findall(t)) if p and not p.startswith(('0800', '0808', '0300', '0345', '0844', '0845', '0870', '0330')) or p.startswith(('01', '02', '07'))} - {''})
+    phones = sorted({p for p in (norm_phone(x) for x in PHONE.findall(pt)) if p and not p.startswith(('0800', '0808', '0300', '0345', '0844', '0845', '0870', '0330')) or p.startswith(('01', '02', '07'))} - {''})
     tel = sorted({p for p in (norm_phone(urllib.parse.unquote(x)) for _, h in pages for x in re.findall(r'href=["\']tel:([^"\']+)', h, re.I)) if p})
     import phone_rule
-    res.update(tel=tel[:4], contact_labels=phone_rule.labels_in_text(t, norm_phone), ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
+    res.update(tel=tel[:4], contact_labels=phone_rule.labels_in_text(pt, norm_phone), ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
                hours_hash=hashlib.sha1('\n'.join(hours).encode()).hexdigest()[:12] if hours else '', hours_sample=hours[:4],
-               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t))
+               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t),
+               fb_mention=phone_rule.mentions_food_bank(pt), other_labels=phone_rule.other_labels(pt, norm_phone), sub_page=sub_page, _text=pt)
     return res
 
 # ---------- main ----------
@@ -300,19 +454,97 @@ def phone_locked(i):
     """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
 
-def apply_phone_fixes(by_site, fixes, flag, root=None):
+def phone_baseline_path(root=None):
+    return os.path.join(root or ROOT, 'overrides', 'phone_baseline.json')
+
+def in_phone_baseline(iid, root=None):
+    """True when overrides/phone_baseline.json exists and this id is in it.
+    A missing file is not a listing (the auto-apply path treats that separately). An unreadable file locks."""
+    root = root or ROOT
+    path = phone_baseline_path(root)
+    if not os.path.isfile(path): return False
+    try:
+        import phone_lock
+        return bool(phone_lock.is_listed(iid, root))
+    except ImportError:
+        pass
+    try: data = json.load(open(path, encoding='utf-8'))
+    except Exception: return True
+    return bool(iid) and iid in (data.get('listings') or {})
+
+def listing_phone_frozen(iid, root=None):
+    """The clear-phone auto-apply must hold this listing.
+    No baseline file yet (PR 211 not merged): every existing listing is locked.
+    Once the file exists, only an id recorded in it is locked. A new id may still be applied."""
+    if not os.path.isfile(phone_baseline_path(root)): return True
+    return in_phone_baseline(iid, root)
+
+def _mark_section(root, filename, tag, line):
+    path = os.path.join(root, 'reports', filename)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    start, end = '<!-- %s -->' % tag, '<!-- /%s -->' % tag
+    prev = open(path, encoding='utf-8').read() if os.path.exists(path) else ''
+    if start in prev and end in prev:
+        pre, rest = prev.split(start, 1)
+        mid, post = rest.split(end, 1)
+        if line not in mid: mid = mid.rstrip() + '\n' + line + '\n'
+        elif not mid.endswith('\n'): mid += '\n'
+        text = pre + start + '\n' + mid.lstrip('\n') + end + post
+    else:
+        text = prev.rstrip() + '\n\n' + start + '\n' + line + '\n' + end + '\n'
+    if not text.endswith('\n'): text += '\n'
+    open(path, 'w', encoding='utf-8').write(text)
+
+def hold_phone_for_dean(item, proposed, source, root=None, name=''):
+    """Hold one new number for Dean and log its source. The stored phone and tel are not written."""
+    root = root or ROOT
+    try:
+        import phone_lock
+    except ImportError:
+        phone_lock = None
+    if phone_lock is not None:
+        phone_lock.hold(root, item.get('id'), 'phone', item.get('phone'), proposed, source or '', 'phone fix', item.get('name') or name or '')
+        return
+    kept = item.get('phone') if str(item.get('phone') or '').strip() else '(none)'
+    shown = proposed if str(proposed or '').strip() else '(blank)'
+    line = '- blocked, held for Dean | %s | phone | via phone fix | source %s | stored %s | proposed %s | unchanged (byte-identical)' % (
+        item.get('id'), source or '(none)', kept, shown)
+    who = item.get('name') or name
+    if who: line += ' | ' + who
+    for fn in ('pending_dean.md', 'anomaly_brake.md'):
+        _mark_section(root, fn, 'phone lock', line)
+
+def record_clear_phones(items, new, source, root=None, name=''):
+    """Listings a confirmed single new number may be written onto. Frozen listings are held and left byte-identical."""
+    root = root or ROOT
+    apply_to = []
+    for i in items:
+        if listing_phone_frozen(i.get('id'), root):
+            hold_phone_for_dean(i, new, source, root, i.get('name') or name)
+        else:
+            apply_to.append(i)
+    return apply_to
+
+def apply_phone_fixes(by_site, fixes, flag, root=None, applied=None):
     """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
-    A listing in the phone baseline is never changed here: the proposal is held for Dean."""
+    A listing in the phone baseline (or any existing listing while that file is missing) is never changed here: the
+    proposal is held for Dean. A fix only reaches the pins it was recorded for (`ids`); an older fix without them only
+    reaches the single food bank pin, never a location pin (phone_targets).
+    `applied` collects (website, fix) only for numbers that were actually written."""
     root = root or ROOT
     n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
         if not f: continue
+        scope = {i.get('id') for i in lst if i.get('id') in f['ids']} if f.get('ids') else {i.get('id') for i in phone_targets(lst, f['old'])[0]}
         for i in lst:
             if norm_phone(i.get('phone')) != f['old']: continue
-            if phone_lock.is_listed(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
-                phone_lock.hold(root, i.get('id'), 'phone', i.get('phone'), f['new'], f.get('source') or '', 'phone fix', i.get('name') or '')
-                flag(u + '|' + i.get('id', ''), 'phone change skipped (frozen in phone baseline)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied: this number is frozen in overrides/phone_baseline.json and held for Dean')
+            if i.get('id') not in scope:
+                flag(u + '|' + i.get('id', ''), 'phone fix held (strict gate)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note=SCOPE_HOLD)
+                continue
+            if listing_phone_frozen(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
+                hold_phone_for_dean(i, f['new'], f.get('source') or '', root)
+                flag(u + '|' + i.get('id', ''), 'phone change skipped (frozen in phone baseline)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied: this number is frozen in overrides/phone_baseline.json (or that file is missing, which locks every listing) and held for Dean')
                 continue  # phone and tel stay byte-identical
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
@@ -323,6 +555,7 @@ def apply_phone_fixes(by_site, fixes, flag, root=None):
             i['phone'] = i['tel'] = f['new']; i['phone_source'] = f['source']
             if f.get('label'): i['phone_label'] = f['label']
             n += 1
+            if applied is not None: applied.append((u, f))
     return n
 
 import auto_rules, phone_rule; RULES = auto_rules.load()  # Dean 25 Oct 2026; phone_rule is rule 21
@@ -331,6 +564,26 @@ def apply_closure_notes(items, pending):
     """Dean 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
     for i in items:
         if i['id'] in pending: i['notice'] = MAY_CLOSED
+TIMES_LOG = 'reports/times_auto_applied.json'
+def gate_applied_times(root=None):
+    """Times the refresh gate (discover.times_gate_apply, run by build.py before this script) newly applied this run:
+    entries in reports/times_auto_applied.json that the last published commit does not have. They count towards the brake."""
+    import subprocess
+    root = root or ROOT
+    try: now = json.load(open(os.path.join(root, TIMES_LOG), encoding='utf-8'))
+    except Exception: return []
+    try:
+        head = json.loads(subprocess.run(['git', 'show', 'HEAD:' + TIMES_LOG], cwd=root, capture_output=True, text=True, check=True).stdout)
+    except Exception:
+        print('anomaly brake: no published copy of %s to compare with; refresh-gate times not counted' % TIMES_LOG); return []
+    published = {json.dumps(e, sort_keys=True) for e in head if isinstance(e, dict)}
+    return [e for e in now if isinstance(e, dict) and e.get('path') == 'cross_check' and not e.get('reverted')
+            and json.dumps(e, sort_keys=True) not in published]
+def signal_brake(stop):
+    """Step output read by refresh.yml: brake=stop fails the 'Anomaly brake' step, so the commit step never runs."""
+    out = os.environ.get('GITHUB_OUTPUT')
+    if out:
+        with open(out, 'a', encoding='utf-8') as fh: fh.write('brake=%s\n' % ('stop' if stop else 'ok'))
 def write_pending_closures(pending):
     """Closure section of reports/pending_dean.md (kept between markers; publish_gate.py preserves it)."""
     pd = os.path.join(REP, 'pending_dean.md'); t = open(pd, encoding='utf-8').read() if os.path.exists(pd) else ''
@@ -357,6 +610,12 @@ def main():
     for x, t in tags.items():
         if x in acc: acc[x] = t['tag']   # build_access.py regenerated access.js from the CSVs; re-apply our flips
     fixes = rj('phone_fixes.json', {})      # website -> {"old", "new", "since", "source"}
+    try: undone = json.load(open(os.path.join(ROOT, PHONE_UNDONE), encoding='utf-8'))
+    except Exception: undone = {}
+    fixes = {u: f for u, f in fixes.items() if undone.get(u) != f.get('new')}  # an undone fix is never re-applied
+    fixes = {u: f for u, f in fixes.items() if f.get('new') not in undone_numbers(undone, u)}  # every number Dean undid for that site
+    centre_phones, own_sites = load_centre_phones(), load_own_sites()
+    fixes_at_start, held_old = dict(fixes), {}
     changes = rj('access_changes.json', [])
     review = rj('daily_review.json', {})
     today = review.get(DAY, {'date': DAY, 'runs': [], 'items': {}}); review = {k: v for k, v in review.items() if k >= (NOW.date() - datetime.timedelta(days=14)).isoformat()}
@@ -370,24 +629,31 @@ def main():
     LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
     import learning_signals  # corrections, change signals, source trust, season, demand, visitor reports (last run's file)
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
+    conflicted = {c.get('website') for c in (learning_signals.rj('reports/learning_signals.json', {}).get('conflicts') or []) if isinstance(c, dict) and c.get('website')}
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
+    this_run = []  # rows inserted into access_changes this run; the brake counts only the applied ones
+    prov = []  # why an automatic edit was allowed; written only when one is actually applied
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
         for x in sorted(set(ids) - prev_ids):
             i = next(j for j in items if j['id'] == x)
             e = dict(when=NOW.isoformat(), id=x, website=i.get('website') or '', name=i['name'], kind='new food bank', old='not on map', new='added (%s)' % (i.get('postcode') or ''), source=(i.get('own_site_check') or {}).get('final_url') or i.get('website') or i.get('givefood') or '')
-            changes.insert(0, e); log.append(e)
+            changes.insert(0, e); log.append(e); this_run.append(e)  # held for Dean: logged, not an applied change
         for x in sorted(prev_ids - set(ids)):
-            e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='removed', old='on map', new='gone (no longer in the feed / closed on own site / excluded)', source='logs/foodbank_closed.json'); changes.insert(0, e); log.append(e)
+            e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='removed', old='on map', new='gone (no longer in the feed / closed on own site / excluded)', source='logs/foodbank_closed.json'); changes.insert(0, e); log.append(e); this_run.append(e)
     # fetch everything (time-boxed; whatever is left is reported, not guessed)
     t0 = time.time(); results = {}
     def job(u):
         if time.time() - t0 > BUDGET: return u, {'url': u, 'ok': None, 'error': 'time budget reached - not checked this run'}
-        try: return u, check_site(u)
+        try:
+            avail = ['plain', 'https'] if u.startswith('http://') else ['plain']
+            order = learning.method_order(LS, u, avail)
+            try: return u, check_site(u, order)
+            except TypeError: return u, check_site(u)  # a one-argument stand-in (tests) still works
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
@@ -404,6 +670,10 @@ def main():
             state['sites'][u] = kept
             flag(u, 'opening times not read', name=name, website=u, error=r.get('error'), note='not checked this run; previous hours are not verified. ' + UNCLEAR_LINE)
             continue
+        if r.get('robots'):
+            stats['robots'] = stats.get('robots', 0) + 1; r['fail_runs'] = prev.get('fail_runs', 0)
+            flag(u, 'not fetched, robots', name=name, website=u, note='the site asks us not to read this page. Opening hours were not guessed. The place stays on the map.')
+            state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'robots', 'fail_runs')}; continue
         if not r['ok']:
             stats['failed'] += 1; r['fail_runs'] = prev.get('fail_runs', 0) + 1
             for k in ('access', 'needs', 'phones', 'closed'): r[k] = prev.get(k)
@@ -413,6 +683,9 @@ def main():
             if r['fail_runs'] >= 2: flag(u, 'dead or unreachable website', name=name, website=u, error=r['error'], failed_runs=r['fail_runs'], phone=by_site[u][0].get('phone'), note='site failed %d runs in a row - check contact details' % r['fail_runs'])
             state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'error', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'needs', 'phones', 'seasonal', 'closed', 'perm_closed', 'fail_runs')}; continue
         stats['ok'] += 1; r['fail_runs'] = 0; stats[r['access']] += 1
+        got = (1 if r.get('hours_hash') else 0) + len(r.get('phones') or [])
+        had = ((1 if prev.get('hours_hash') else 0) + len(prev.get('phones') or [])) if prev.get('checked_at') else None
+        r['empty_parse'] = bool(learning.empty_parse(r.get('http'), got, had))
         # (1) access - per pin, against access.js (hand-read CSVs + earlier auto flips). A flip needs the
         # same clear own-site result on 2 runs in a row; unclear never changes anything (= walk-ins welcome).
         curs = {i['id']: acc.get(i['id'], 'unconfirmed') for i in by_site[u] if i['id'] in acc}
@@ -422,12 +695,16 @@ def main():
             if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
-            if todo and prev.get('access') == r['access']:
+            if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
+            elif todo and prev.get('access') == r['access']:
                 for x in todo:
                     entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
-                    changes.insert(0, entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
+                    changes.insert(0, entry); this_run.append(entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
                 today['items'].pop('access flip pending (confirms next run)|' + u, None)
                 log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
+                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted) if hasattr(learning, "confidence_for") else None, r.get('final_url'), RULES)
+                if note: prov.append(dict(note, when=NOW.isoformat()))
             elif todo:
                 flag(u, 'access flip pending (confirms next run)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='clear %s wording found; applied automatically if seen again next run' % r['access'])
         elif r['access'] == 'mixed':
@@ -442,38 +719,52 @@ def main():
         if r['perm_closed'] and prev.get('perm_closed'):
             ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
             for x in ids_:
-                if RULES['remove_confirmed_closures']: closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
+                if learning.allow_under_rules('remove_place', RULES, learning.confidence_for(u, conflicted)): closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
                 if x not in closure_pending:
                     closure_pending[x] = dict(name=name, website=u, url=r['final_url'], evidence=r['perm_closed'], since=DAY)
                     e = dict(when=NOW.isoformat(), id=x, website=u, name=name, kind='closure', old='on map', new='kept on map with "May have closed" note - waiting for your OK', source=r['final_url'], evidence=r['perm_closed'])
-                    changes.insert(0, e); log.append(e); stats['closures'] += 1
+                    changes.insert(0, e); log.append(e); this_run.append(e); stats['closures'] += 1  # note waits for Dean; the pin is not removed
             today['items'].pop('closure pending (confirms next run)|' + u, None)
             if len(ids_) < len(by_site[u]): flag(u, 'closure on hold (your hold list)', name=name, website=u, text=r['perm_closed'])
         elif r['perm_closed']: flag(u, 'closure pending (confirms next run)', name=name, website=u, text=r['perm_closed'], note='if the wording is still there next run the card gets a "May have closed" note and it goes to your pending list (never removed automatically)')
         elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
-        # (4) phones
+        # (4) phones - per listing, never per website (phone audit 28 Oct 2026)
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
+        if r.get('fb_mention') is False and phone_rule.mentions_food_bank(r.get('_text') or '', names + [i.get('name') or '' for i in by_site[u]]): r['fb_mention'] = True
+        f0 = fixes.get(u)
+        if f0 and not f0.get('gated'):  # an older fix, recorded before the strict gate: re-checked against this run's reading
+            why = legacy_fix_reasons(u, f0, fixes_at_start, r, by_site[u], centre_phones, own_sites, undone)
+            if why:
+                fixes.pop(u); held_old[u] = dict(f0, held_on=DAY, why=why)
+                flag(u, 'phone fix held (older fix failed the strict gate)', name=name, website=u, stored=f0.get('old'), proposed=f0.get('new'), source=f0.get('source') or '', note='; '.join(why))
         if own_site_misses_stored(stored, r['phones']):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
-                new = r['phones'][0]; old = sorted(stored)[0]
+            clear = len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes
+            gate = phone_gate_reasons(u, r, prev, undone) if clear else []
+            if clear: gate += [w for w in pin_phone_reasons(u, by_site[u], r['phones'][0], centre_phones, own_sites) if w not in gate]
+            if clear and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
+            elif clear and gate:
+                flag(u, 'phone fix held (strict gate)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='; '.join(gate))
+            elif clear:
+                new = r['phones'][0]; targets = phone_targets(by_site[u])[0]; old = norm_phone(targets[0].get('phone'))
                 lab = (r.get('contact_labels') or {}).get(new, '')
-                d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=False))
+                d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=bool((r.get('other_labels') or {}).get(new))))
                 if d['action'] == 'show':
-                    targets = [i for i in by_site[u] if norm_phone(i.get('phone')) == old]
-                    listed = [i for i in targets if phone_lock.is_listed(i.get('id'))]
-                    for i in listed:  # baselined listings are held, not auto-applied
-                        phone_lock.hold(ROOT, i.get('id'), 'phone', i.get('phone'), new, r.get('final_url') or '', 'phone fix', i.get('name') or name)
-                    if len(listed) < len(targets):
-                        fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label']); stats['phone_fixes'] += 1
+                    apply_to = record_clear_phones(targets, new, r.get('final_url') or '', ROOT, name)  # baselined listings (all, with no baseline file) are held
+                    if apply_to:
+                        fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label'],
+                                        first_run_at=prev.get('checked_at'), second_run_at=r.get('checked_at'), ids=[i['id'] for i in apply_to], gated=True); stats['phone_fixes'] += 1
                         today['items'].pop('phone number not on own site|' + u, None)
-                        e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e)
+                        e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e); this_run.append(e)
                 else:
                     flag(u, 'phone held', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note=d['reason'])
             elif u not in fixes:
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse', 'fb_mention', 'other_labels')}
+    if held_old:  # older fixes the strict gate now holds: kept for Dean with their reasons, not re-applied
+        wj('phone_fixes_held.json', dict(rj('phone_fixes_held.json', {}), **held_old))
     review_hours(items, state, flag, t0 + BUDGET)
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
@@ -481,13 +772,56 @@ def main():
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
-        r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
-    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): learning.snapshot(LS, DAY); learning.save(LS)
+        r = results[u]; learning.note_heal(LS, u, r.get('methods_tried') or [], r.get('method'), DAY)
+        # a robots block is a completed permission check, not a failed fetch and not a dead link
+        checked = True if r.get('robots') else r.get('ok')
+        learning.record(LS, u, DAY, checked, finds=int(u in found), method=('robots' if r.get('robots') else (r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site')), changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+    n_own = learning.applied_count(this_run)  # new places held for Dean are in this_run and do not count
+    n_times = len(gate_applied_times(ROOT))
+    n_applied = n_own + n_times
+    brake = learning.anomaly_brake(LS.get('change_counts') or [], n_applied)
+    if not brake['stop'] and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
+        LS.setdefault('change_counts', []); LS['change_counts'] = (LS['change_counts'] + [{'day': DAY, 'changes': n_applied}])[-30:]
+    elif brake['stop']:
+        LS['anomaly'] = dict(brake, day=DAY)
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
+        learning.prune(LS, DAY, sites)
+        learning.snapshot(LS, DAY); learning.save(LS)
+        try:
+            import replay
+            replay.write(replay.cases_from_state(state), os.path.join(REP, 'replay_cases.json'))
+        except Exception: pass
+    if brake['stop']:
+        os.makedirs(REP, exist_ok=True)
+        open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write(
+            '# Stopped\n\n%s\n\nCounted: %d own-site changes (access flips, phone fixes, removals) and %d opening-times changes the refresh gate applied.\n\n'
+            'Nothing from this run was published: the refresh workflow fails at its anomaly brake step, before the commit step, '
+            'so this run\'s data.js, access tags, phone fixes and times stay off the live site.\n' % (brake['reason'], n_own, n_times))
+        signal_brake(True)
+        today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
+        print('ANOMALY BRAKE:', brake['reason']); return
+    signal_brake(False)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    apply_phone_fixes(by_site, fixes, flag)
+    applied_phones = []
+    apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): log_phone_changes(applied_phones)
+    for u, f in applied_phones:
+        # PR 204 owns confidence_for and the decision to hold a phone. This log only records a number that was written.
+        if hasattr(learning, "confidence_for"): confidence = learning.confidence_for(u, conflicted)
+        else: confidence = 0.0 if u in conflicted else None
+        note = learning.provenance('clear single new phone on own site', confidence, f.get('source'), RULES)
+        if note: prov.append(dict(note, when=NOW.isoformat()))
+    if prov:
+        prev_p = rj('provenance.json', [])
+        if not isinstance(prev_p, list): prev_p = []
+        wj('provenance.json', (prev_p + prov)[-200:])
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): rate_ledger.save(day=DAY)
+    except Exception: pass
     print('full check:', json.dumps(stats))
     apply_closure_notes(items, closure_pending); wj('closures_pending.json', closure_pending); write_pending_closures(closure_pending)
     if remove:

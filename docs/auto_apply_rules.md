@@ -7,7 +7,7 @@ Config: `overrides/auto_apply_rules.json` (loaded by `scripts/auto_rules.py`; re
 - Permanent closures: the pin stays on the map with the card note "May have closed – call before you go" and goes to the pending list (`reports/closures_pending.json`). Removal only by adding the id to `overrides/foodbank_closed.json`.
 
 **Automatic (same result on 2 runs in a row)**
-- Opening times and temporary closures; voucher/walk-in flips; a clear single new phone on the food bank's own site; warm space end dates; SWEP open/close; a moved link to the same organisation.
+- Opening times and temporary closures; voucher/walk-in flips; a clear single new phone on the food bank's own site (strict gate: own host, identical on 2 separate runs, no conflicting own-site number, logged with source URL and undo in reports/phone_auto_applied.json); warm space end dates; SWEP open/close; a moved link to the same organisation.
 - Dead links are hidden and listed for Dean.
 
 ## Old links always work (Dean, 25 Oct 2026, permanent rule)

@@ -1,0 +1,10 @@
+# Automatic-change undo logs and two-run state are written by several refresh workflows. A change on both sides is
+# always a conflict, so scripts/rebase_resolve.py merges them by JSON content instead of a line merge.
+reports/times_auto_applied.json -merge
+reports/phone_auto_applied.json -merge
+logs/times_crosscheck_seen.json -merge
+logs/times_finder_seen.json -merge
+overrides/times_auto_undone.json -merge
+overrides/phone_auto_undone.json -merge
+overrides/opening_times.json -merge
+reports/phone_fixes.json -merge
