@@ -14,7 +14,7 @@ Every 3x-daily run:
     somewhere on the site is not enough, because a Friday-only card stays "confirmed" while Monday and Wednesday
     are also listed (Chichester, 26 Oct).
 Never invents data: everything published comes from a fetched page or a directory record."""
-import re, os, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
+import re, os, sys, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
 UA = {"User-Agent": "Mozilla/5.0 (FindYourFoodBank refresh; own-site check)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b")
@@ -200,7 +200,7 @@ def extract_times(text, postcode=None):
         if not lay.get("structured"): return None   # recognised layout, but this centre is unclear: never guess
         return {"raw": lay["raw"], "status": "TIMES_FOUND", "structured": lay["structured"], "layout": lay["layout"],
                 "quote": lay["quote"], "unclear_days": lay.get("unclear_days") or {}}
-    text = R27.clean(text)
+    text = strip_phone_hours(R27.clean(text))
     t = postcode_block(text, postcode)
     if t is None: return None   # postcode not on the page, or the layout is unclear: never guess
     segs, seen, prev_end, prev_skipped = [], set(), None, False
@@ -228,6 +228,30 @@ def extract_times(text, postcode=None):
     if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
         return {"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None, "lines": segs}
     return normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None})
+# 'Our phone lines are monitored Monday - Friday 09:30-13:30' is printed on every Trussell centre card: office/phone
+# hours, never client session times (Cardiff Foodbank, 27 Oct 2026: every centre showed Mon-Fri 09:30-13:30).
+PHONE_HOURS = re.compile(r"(?:phone lines?|telephone lines?|lines are|office)\s+(?:are\s+)?(?:monitored|open|staffed|manned)\s*(?:on\s*)?[^|.]{0,80}?\d{1,2}[:.]\d{2}\s*(?:am|pm)?\s*(?:-|–|—|to|until)\s*\d{1,2}[:.]\d{2}\s*(?:am|pm)?", re.I)
+def strip_phone_hours(t): return PHONE_HOURS.sub(" ", t or "")
+def card_check(ot, texts, item, today=None, source_url=None):
+    """Trussell centre-card pages (/emergency-food/i-have-a-food-voucher): read THIS centre's own card, matched by postcode
+    or centre name (scripts/trussell_times.match), never a bag of times from the whole page. None = not a card page."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import trussell_times as TT
+    cards = []
+    for t in texts: cards += TT.parse_cards(t)
+    if not cards: return None
+    card, how = TT.match(item, cards)
+    if card and how == "name" and "/" not in str(item.get("id", "/")):
+        # a whole-food-bank entry may only borrow a card by name when it is that food bank's own card
+        # ('Harrow Foodbank' must not take 'South Harrow Baptist Church', nor 'Thurrock' take 'Little Thurrock')
+        strip = lambda s: TT.norm(re.sub(r"(?i)\(.*?\)|\bthe\b|foodbank|food bank|distribution centre|centre", "", s or ""))
+        if strip(card["name"]) != strip(item.get("name")): card, how = None, "no card with this food bank's own name or postcode"
+    if not card: return "unconfirmed", None, "centre card not found on own site (" + how + ")"
+    new = TT.to_ot(card, source_url or (ot or {}).get("source_url"), today or datetime.date.today().isoformat())
+    if not new: return "unconfirmed", None, "own centre card shows no sessions"
+    old = ot if isinstance(ot, dict) else {}
+    if old.get("structured") == new.get("structured") and (new.get("structured") or old.get("raw") == new.get("raw")):
+        return "confirmed", ot, "matches this centre's own card (" + how + ")"
+    return "changed", new, "this centre's own card now shows different times (" + how + ")"
 COLLECT_ROLE = re.compile(r"collect your (?:food )?parcel|collection only|collect a parcel", re.I)
 DELIVERY_ROLE = re.compile(r"delivery only|not open to the public", re.I)
 DONATION_ROLE = re.compile(r"\b(?:donat(?:e|ion|ions)|warehouse|drop[- ]?off)\b", re.I)
@@ -384,7 +408,7 @@ def confirm_times(ot, texts, postcode=None, pages=None, source_url=None):
     Compares the open days on the card with a per-postcode re-read of the source page. Finding the published
     clock times somewhere on the page is not confirmation: a Friday-only card used to stay confirmed while the
     same page also listed Monday and Wednesday."""
-    pairs = list(pages) if pages is not None else [(None, t) for t in (texts or [])]
+    pairs = [(u, strip_phone_hours(t)) for u, t in (list(pages) if pages is not None else [(None, t) for t in (texts or [])])]
     def decide(found, messy, from_source):
         sigs = {}
         for e in found: sigs.setdefault(json.dumps(e["structured"], sort_keys=True), e)
@@ -422,7 +446,7 @@ def confirm_times(ot, texts, postcode=None, pages=None, source_url=None):
     found, messy = _timed_readings(pairs, postcode)
     decided = decide(found, messy, False)
     if decided: return decided
-    alltext = " ".join(t for _, t in pairs) if pages is not None else " ".join(texts or [])
+    alltext = " ".join(t for _, t in pairs)
     low = alltext.lower()
     want, days = want_times(ot)
     if not want:
@@ -548,7 +572,8 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                 if ev: break
             if ev: rec.update(status="closed", reason="own site says closed", evidence=ev); i["_own_site_closed"] = ev; log[i["id"]] = rec; continue
             i["_orig_times"] = i.get(field)
-            st, new, why = confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"), pages=page_pairs, source_url=src if kind == "fb" else None)
+            cc = card_check(i.get(field), texts, i, today, src) if kind == "fb" else None
+            st, new, why = cc or confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"), pages=page_pairs, source_url=src if kind == "fb" else None)
             rec.update(status=st, reason=why)
             if st == "confirmed":
                 if isinstance(new, dict): rec["evidence"] = new.get("_evidence") or ""
@@ -591,8 +616,33 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                 if why:
                     i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
                     _unconfirm(i, kind, field, why)
+        hold_boilerplate(items, log, orig, field)
         for i in items: i.pop("_orig_times", None)
     return log
+BOILER = re.compile(r"phone lines?|telephone|lines (?:are )?monitored|office hours|office (?:is )?open", re.I)
+def _key(ot):
+    if not isinstance(ot, dict): return None
+    return json.dumps(ot.get("structured"), sort_keys=True) if ot.get("structured") else (ot.get("raw") or None)
+def hold_boilerplate(items, log, orig, field="opening_times"):
+    """Shared boilerplate is a red flag (Cardiff, 27 Oct 2026: phone-line hours on every centre). Hold for review, never
+    auto-apply or auto-confirm: (a) every session/location of one food bank (2+, same site) ends with identical times;
+    (b) the times' own text mentions phone lines / office hours."""
+    live = [i for i in items if log.get(i["id"], {}).get("status") in ("confirmed", "changed")]
+    bysite = {}
+    for i in live:
+        if "/" in i["id"]: bysite.setdefault(log[i["id"]]["site"], []).append(i)
+    for site, grp in bysite.items():
+        allsess = [i for i in items if "/" in i["id"] and log.get(i["id"], {}).get("site") == site]
+        keys = {_key(i.get(field)) for i in grp}
+        if len(grp) >= 2 and len(grp) == len(allsess) and len(keys) == 1 and None not in keys:
+            for i in grp: _hold(i, log, orig, field, "every session of this food bank shows the same times (shared boilerplate?); held for review")
+    for i in live:
+        ot = i.get(field)
+        if log[i["id"]].get("status") in ("confirmed", "changed") and isinstance(ot, dict) and BOILER.search(ot.get("raw") or ""):
+            _hold(i, log, orig, field, "times text mentions phone lines / office hours; held for review")
+def _hold(i, log, orig, field, why):
+    i[field] = orig.get(i["id"]); log[i["id"]].update(status="held_for_review", reason=why, reverted=True)
+    _unconfirm(i, "fb", field, why); i["times_status"] = "held_for_review"
 
 def summary(log):
     from collections import Counter

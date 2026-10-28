@@ -146,7 +146,16 @@ class Published(unittest.TestCase):
         self.assertEqual(lib["opening_times"]["structured"], {"wed": [["10:00", "12:00"]]})
         self.assertNotIn("closed", lib["opening_times"])
         wind = next(i for i in self.fb if i.get("postcode") == "SL4 5PE")
-        self.assertEqual(wind["opening_times"]["status"], "TIMES_TEXT_ONLY")
+        # Windsor's old garbled own-site line must never be laid out as a table by the text converter...
+        self.assertIsNone(H.try_convert("Wednesday\u2019s and 9 am to 3 pm")[0])
+        self.assertIsNone(H.normalise_fb({"status": "TIMES_TEXT_ONLY", "structured": None,
+                                          "raw": "Wednesday\u2019s and 9 am to 3 pm"}).get("structured"))
+        # ...so the only table it may show is the hand-reviewed one from its own page (#229, re-fetched 27 Oct).
+        wot = wind["opening_times"]
+        self.assertEqual(wot["status"], "TIMES_FOUND")
+        self.assertEqual(wot["structured"], {"wed": [["09:00", "12:30"]], "thu": [["09:00", "14:30"]]})
+        self.assertNotIn("parsed_from_text", wot)
+        self.assertIn("hand-reviewed", wot.get("reader", ""))
         marl = next(i for i in self.ws if i.get("postcode") == "B10 9NY" and "Marlborough" in i["name"])
         self.assertEqual(marl["hours"], {"Mon": "08:45 - 09:30 (Parents Group)"})
         greek = next(i for i in self.ws if "Greek" in i["name"])
