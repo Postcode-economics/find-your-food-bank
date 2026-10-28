@@ -130,6 +130,7 @@ class Browser(unittest.TestCase):
 
     def test_zero_external_tile_requests(self):
         from playwright.sync_api import sync_playwright
+        saved = os.environ.get(T.ENV)
         os.environ[T.ENV] = 'http://127.0.0.1:%d' % self.tiles.server_address[1]
         site = 'http://127.0.0.1:%d' % self.site.server_address[1]
         try:
@@ -161,7 +162,10 @@ class Browser(unittest.TestCase):
                 pg.wait_for_timeout(500)
                 b.close()
         finally:
-            os.environ.pop(T.ENV, None)
+            if saved is None:
+                os.environ.pop(T.ENV, None)
+            else:
+                os.environ[T.ENV] = saved
         self.assertGreaterEqual(loaded, 4)
         self.assertGreaterEqual(stats.served, 4)
         self.assertGreaterEqual(len(self.hits), stats.served)
