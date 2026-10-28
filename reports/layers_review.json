@@ -126,7 +126,7 @@
    },
    {
     "id": "osm-way-1104948217",
-    "reason": "source no longer names this place"
+    "reason": "source unreachable this run (HTTP 404)"
    },
    {
     "id": "osm-way-1262733230",
@@ -163,44 +163,57 @@
   "removed": [],
   "changed": [
    {
-    "id": "ww-65441941",
-    "name": "St. Mary's, Broughty Ferry",
+    "id": "ww-55473766",
+    "name": "Home Space - Trinity Church Nottingham",
+    "fields": [
+     "hours",
+     "scheme_dates",
+     "ended"
+    ],
+    "before": {
+     "hours": {
+      "Wed": "13:15 - 15:00"
+     },
+     "scheme_dates": "Not stated by source",
+     "ended": false
+    },
+    "after": {
+     "hours": {},
+     "scheme_dates": "Ended: Trinity Church says its Home Space drop-in 'has come to an end' (own page, checked 28 Oct 2026)",
+     "ended": true
+    }
+   },
+   {
+    "id": "ww-63065216",
+    "name": "Stretham Community Hub",
     "fields": [
      "hours"
     ],
     "before": {
      "hours": {
-      "Mon": "09:00 - 17:00",
-      "Tue": "09:00 - 17:00",
-      "Wed": "09:00 - 17:00",
-      "Thu": "09:00 - 17:00",
-      "Fri": "09:00 - 17:00"
+      "Thu": "14:00 - 16:00 Monthly"
      }
     },
     "after": {
      "hours": {
-      "Wed": "11:15 - 16:00"
+      "Thu": "14:00 - 16:00 (1st & 3rd Thursday)"
      }
     }
    },
    {
-    "id": "ww-59951280",
-    "name": "Wellness Hub At St Laurence's Church",
+    "id": "ww-65070433",
+    "name": "Wembley Creative Community Hub",
     "fields": [
-     "hours"
+     "address",
+     "scheme_dates"
     ],
     "before": {
-     "hours": {
-      "Tue": "11:00 - 13:30",
-      "Wed": "11:00 - 13:30",
-      "Thu": "11:00 - 13:30",
-      "Fri": "11:00 - 13:30"
-     }
+     "address": "Unit 17, Wembley, Middlesex HA0 4AH",
+     "scheme_dates": "Not stated by source"
     },
     "after": {
-     "hours": {
-      "Mon": "17:00 - 17:30"
-     }
+     "address": "Unit 17, 2 Station Grove, Wembley HA0 4AH",
+     "scheme_dates": "Meanwhile space, open until Summer 2026 (hub's own site) - call before you go: 07523 424686"
     }
    }
   ],
@@ -214,7 +227,9 @@
    "The Hub, South Brent (SBADC) – Opens 1 Nov 2026",
    "wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026"
   ],
-  "ended": [],
+  "ended": [
+   "Home Space - Trinity Church Nottingham"
+  ],
   "recheck_failed": [
    {
     "id": "ww-57952860",
