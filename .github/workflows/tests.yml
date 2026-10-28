@@ -158,9 +158,8 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: ms-playwright-${{ runner.os }}-1.47.0-chromium
-      - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
+      - run: pip install -q pytest==9.1.1 pytest-split==0.11.0 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - uses: ./.github/actions/offline-tiles
-      - run: pip install -q pytest-split==0.11.0
       - run: python -m pytest -q tests -rs --splits 6 --group ${{ matrix.group }} --durations-path tests/.test_durations --junitxml=shard.xml
       # Chrome binary guard: the Chrome checks skip themselves without /usr/bin/google-chrome, so the job must not go green
       # without it. A separate step so pytest is still started on its own (test_iphone_journeys Wiring).
@@ -184,7 +183,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0
       - uses: actions/download-artifact@v4
         with: {pattern: browser-tests-shard-*, path: shards}
