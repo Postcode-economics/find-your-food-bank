@@ -52,6 +52,35 @@ class OwnLocations(unittest.TestCase):
         snap = json.load(open(os.path.join(self.root, "overrides", "foodbank_own_pages.json")))
         self.assertEqual(snap["coventry/new-hall"]["opening_times"]["structured"], {"wed": [["09:00", "11:00"]]})
 
+    def test_matched_centre_keeps_its_address_and_pin(self):
+        items = [{"id": "coventry/riverside", "type": "location", "name": "Riverside Hall", "address": "1 High St, CV1 2AB",
+                  "postcode": "CV1 2AB", "lat": 52.41, "lng": -1.51, "opening_times": json.loads(json.dumps(OLD))}]
+        page_moved = page({"Wed": "09:00 - 11:00"}).replace("1 High St", "99 Other Road").replace("CV1 2AB", "CV9 9ZZ")
+        # page() builds both centres with the same day rows; postcode in the address line is what we compare
+        log = OL.refresh(items, self.root, fetcher=lambda u: page_moved, geo=lambda pcs: {p: (52.0, -1.0) for p in pcs})
+        self.assertEqual(items[0]["address"], "1 High St, CV1 2AB")
+        self.assertEqual(items[0]["postcode"], "CV1 2AB")
+        self.assertEqual((items[0]["lat"], items[0]["lng"]), (52.41, -1.51))
+        self.assertEqual(items[0]["opening_times"]["structured"], OLD["structured"])
+        text = open(os.path.join(self.root, "reports", "pending_dean.md"), encoding="utf-8").read()
+        self.assertIn("address mismatch, held for Dean", text)
+        self.assertIn("coventry/riverside", text)
+        self.assertIn("unchanged", text)
+        self.assertEqual(log["coventry"]["dropped_not_on_page"], [])
+
+    def test_an_existing_snapshot_centre_keeps_its_place_and_times(self):
+        os.makedirs(os.path.join(self.root, "overrides"), exist_ok=True)
+        snap = {"coventry/new-hall": {"parent": "coventry", "name": "New Hall", "address": "9 Low St, CV9 9ZZ",
+                                      "postcode": "CV9 9ZZ", "lat": 52.5, "lng": -1.4,
+                                      "opening_times": {"structured": {"tue": [["10:00", "12:00"]]}, "raw": "Tue 10:00 - 12:00", "status": "TIMES_FOUND"}}}
+        json.dump(snap, open(os.path.join(self.root, "overrides", "foodbank_own_pages.json"), "w"))
+        items = [{"id": "coventry/riverside", "type": "location", "name": "Riverside Hall", "postcode": "CV1 2AB", "opening_times": json.loads(json.dumps(OLD))}]
+        OL.refresh(items, self.root, fetcher=lambda u: page({"Wed": "09:00 - 11:00"}), geo=lambda pcs: {p: (52.4, -1.5) for p in pcs})
+        got = json.load(open(os.path.join(self.root, "overrides", "foodbank_own_pages.json")))
+        self.assertEqual(got["coventry/new-hall"]["address"], "9 Low St, CV9 9ZZ")
+        self.assertEqual(got["coventry/new-hall"]["lat"], 52.5)
+        self.assertEqual(got["coventry/new-hall"]["opening_times"]["structured"], {"tue": [["10:00", "12:00"]]})
+
     def test_source_has_no_times_write_on_a_matched_hit(self):
         src = open(os.path.join(ROOT, "scripts", "own_locations.py"), encoding="utf-8").read()
         self.assertNotIn("opening_times=ot", src)

@@ -57,20 +57,9 @@ class Provenance(unittest.TestCase):
         finally:
             F.rj, F.wj, F.load_data, F.load_access, F.write_md, F.REP, F.check_site, learning_signals.ROOT = orig
             os.environ.pop("DRY_RUN", None)
-        self.assertEqual(items[0]["phone"], "02000000000")
-        fc = open(os.path.join(R, "scripts", "full_check.py"), encoding="utf-8").read()
-        # The hold that leaves a conflicted number unchanged is PR 204's. This branch only refuses to log it.
-        if "allow_under_rules('clear single new phone on own site'" in fc:
-            self.assertEqual(items[1]["phone"], "01000000000")
-        else:
-            self.assertEqual(items[1]["phone"], "02000000000")
-        rows = written["provenance.json"]
-        self.assertEqual(len(rows), 1)
-        self.assertEqual(rows[0]["rule"], "clear single new phone on own site")
-        self.assertFalse(rows[0]["decides"])
-        self.assertEqual(rows[0]["source"], clear + "/contact")
-        self.assertNotIn("html", rows[0])
-        self.assertNotIn("remove_place", json.dumps(rows))
+        self.assertEqual(items[0]["phone"], "01000000000")
+        self.assertEqual(items[1]["phone"], "01000000000")
+        self.assertNotIn("provenance.json", written)
 
 if __name__ == "__main__":
     unittest.main()

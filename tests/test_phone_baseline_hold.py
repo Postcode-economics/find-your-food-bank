@@ -57,18 +57,24 @@ class PhoneBaselineHold(unittest.TestCase):
         # A fix recorded before this rule still must not be invented here: the clear-phone path returned nothing to write.
         self.assertEqual(F.record_clear_phones(items, NEW, SOURCE, root), [])
 
-    def test_id_absent_from_an_existing_baseline_can_still_be_applied(self):
+    def test_id_absent_from_an_existing_baseline_is_still_not_applied(self):
         root = tempfile.mkdtemp(); item = listing("brand-new")
         baseline(root, ["riverside"])
         self.assertFalse(F.listing_phone_frozen("brand-new", root))
         apply_to = F.record_clear_phones([item], NEW, SOURCE, root)
         self.assertEqual(apply_to, [item])
         self.assertEqual(item["phone"], "01234 567890")
-        self.assertFalse(os.path.exists(os.path.join(root, "reports", "pending_dean.md")))
+        self.assertEqual(item["tel"], "01234567890")
         fixes = {"https://x.org": dict(old=F.norm_phone(item["phone"]), new=NEW, since="2026-10-27", source=SOURCE)}
         n = F.apply_phone_fixes({"https://x.org": [item]}, fixes, lambda *a, **k: None, root)
-        self.assertEqual(n, 1)
-        self.assertEqual(item["phone"], NEW)
-        self.assertEqual(item["phone_source"], SOURCE)
+        self.assertEqual(n, 0)
+        self.assertEqual(item["phone"], "01234 567890")
+        self.assertEqual(item["tel"], "01234567890")
+        self.assertNotIn("phone_source", item)
+        text = open(os.path.join(root, "reports", "pending_dean.md"), encoding="utf-8").read()
+        self.assertIn("held for Dean", text)
+        self.assertIn("brand-new", text)
+        self.assertIn(NEW, text)
+        self.assertIn("unchanged (byte-identical)", text)
 
 if __name__ == "__main__": unittest.main()

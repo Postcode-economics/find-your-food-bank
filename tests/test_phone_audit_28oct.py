@@ -110,16 +110,15 @@ class T1Bournemouth(Harness):
         held = self.flagged("phone fix held (strict gate)")
         self.assertTrue(held and "centre's own line on own locations page differs" in held[0]["note"], held)
 
-    def test_when_allowed_only_the_food_bank_pin_changes(self):
+    def test_when_the_gate_is_clear_no_pin_changes(self):
         items = pins(B_PINS, BOURNEMOUTH, "Bournemouth Foodbank"); before = {i["id"]: i["phone"] for i in items}
         self.baseline(["someone-else"])   # the file exists and these ids are not frozen
         self.pages[BOURNEMOUTH] = self.home()
         store = self.run_twice(items)
-        fix = store["phone_fixes.json"][BOURNEMOUTH]
-        self.assertEqual((fix["old"], fix["new"], fix["ids"]), ("01202394505", self.NEW, ["bournemouth"]))
-        after = {i["id"]: i["phone"] for i in items}
-        self.assertEqual(after.pop("bournemouth"), self.NEW); before.pop("bournemouth")
-        self.assertEqual(after, before)   # Citygate, Lifehouse, Southbourne and the rest untouched
+        self.assertNotIn(BOURNEMOUTH, store.get("phone_fixes.json") or {})
+        self.assertEqual({i["id"]: i["phone"] for i in items}, before)
+        held = self.flagged("phone fix held (never auto-applied)")
+        self.assertTrue(held and "never auto-applied" in held[0]["note"], held)
 
     def test_no_baseline_file_locks_every_listing_in_main(self):
         items = pins(B_PINS, BOURNEMOUTH, "Bournemouth Foodbank"); before = copy.deepcopy(items)

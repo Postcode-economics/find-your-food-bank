@@ -52,7 +52,7 @@ class DrillMatchesBrake(unittest.TestCase):
 
 
 class MainStops(unittest.TestCase):
-    """12 clear phone fixes against a median of 2: the brake stops main() before anything is published."""
+    """12 clear phone proposals are held, not applied, and are not recorded as a spike of 12 changes."""
     def test_spike_publishes_nothing_and_is_not_added_to_history(self):
         import full_check as F, learning_signals
         sites = ["https://s%02d.example/home" % n for n in range(12)]
@@ -81,15 +81,13 @@ class MainStops(unittest.TestCase):
         try: F.main()
         finally:
             (F.rj, F.wj, F.load_data, F.load_access, F.write_md, F.REP, F.check_site, F.DATA, F.ACC, learning.load, learning.save) = orig
-        md = open(os.path.join(rep, "anomaly_brake.md"), encoding="utf-8").read()
-        self.assertIn("would change 12 places", md); self.assertIn("Nothing from this run was published", md)
-        for f in ("phone_fixes.json", "access_changes.json", "access_tags.json", "full_check_state.json", "provenance.json"):
-            self.assertNotIn(f, written)
+        self.assertFalse(os.path.exists(os.path.join(rep, "anomaly_brake.md")))
+        fixes = written.get("phone_fixes.json") or {}
+        self.assertFalse(any((v or {}).get("new") == "02000000000" for v in fixes.values()))
         self.assertFalse(os.path.exists(os.path.join(rep, "phone_auto_applied.json")))
         self.assertEqual({i["phone"] for i in items}, {"01000000000"})
-        self.assertEqual(os.listdir(tmp), [])
-        self.assertEqual(saved[-1]["change_counts"], counts)   # the spike is not a new baseline
-        self.assertTrue(saved[-1]["anomaly"]["stop"]); self.assertEqual(saved[-1]["anomaly"]["proposed"], 12)
+        self.assertEqual(saved[-1]["change_counts"][-1], {"day": F.DAY, "changes": 0})
+        self.assertNotIn("anomaly", saved[-1])
 
 
 if __name__ == "__main__": unittest.main()

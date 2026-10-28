@@ -118,7 +118,10 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None, own_sites=None
     """Reasons a finder result must stay held for Dean. Empty list = it may auto-apply (only if times_auto_apply is ON).
     Each safeguard blocks on its own (tests/test_times_auto_apply.py). blocked: overrides/times_auto_undone.json."""
     why = []
-    if (cur.get(k) or {}).get("protected"): why.append("hand-checked times are protected; finder only flags differences")
+    stored = cur.get(k) or {}
+    reader = str(stored.get("reader") or "")
+    if stored.get("protected") or reader.startswith("hand-set") or "hand-reviewed" in reader:
+        why.append("hand-checked times are protected; finder only flags differences")
     r = skipped(k, ks)
     if r: why.append("known skip: " + r)
     pc_ok = ot.get("matched_by") == "postcode" or (it.get("postcode") and norm_pc(it["postcode"]) in (ot.get("pc_seen") or []))

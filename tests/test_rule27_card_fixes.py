@@ -32,4 +32,7 @@ def test_normalise_keeps_hand_fixes():
 
 def test_discover_keeps_hand_reviewed_times():
     import discover, inspect
-    assert 'startswith("hand-reviewed")' in inspect.getsource(discover)
+    src = inspect.getsource(discover.hand_checked)
+    assert "hand-reviewed" in src
+    assert "hand-set" in src
+    assert "protected" in src
