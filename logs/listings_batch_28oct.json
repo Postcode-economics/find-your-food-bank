@@ -14060,6 +14060,24 @@
      "delete_key": "heston-farm"
     }
    }
+  },
+  {
+   "kind": "phone",
+   "id": "ww-57951889",
+   "field": "phone",
+   "old": "07876 372274",
+   "new": "07821 153701",
+   "source": "https://www.achurchnearyou.com/church/19363/get-in-touch/",
+   "note": "reverted (review FAILED 28 Oct 2026): 07876 372274 came from achurchnearyou.com, a directory, and is the vicar's personal mobile; restored the previous value from the 07:30Z entry's undo. Never publish the mobile",
+   "at": "2026-10-28T09:10Z",
+   "undo": {
+    "set": {
+     "phone": "07876 372274",
+     "tel": "07876372274",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
   }
  ],
  "flags": [

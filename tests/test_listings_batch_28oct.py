@@ -77,7 +77,10 @@ class Fixes(unittest.TestCase):
         self.assertEqual(dg(S["osm-way-169564851"]["phone"]), "01904553626")  # James House, Dean approved
         self.assertFalse(W["ww-68618605"].get("phone"))  # Bruton council switchboard removal, Dean approved
         self.assertEqual(dg(S["osm-way-556071354"]["phone"]), "01414181955")  # Talbot Association own page
-        self.assertEqual(dg(W["ww-57951889"]["phone"]), "07876372274")  # St Francis, the church's own A Church Near You page
+        self.assertNotIn("07876372274", dg(json.dumps(W["ww-57951889"])))  # St Francis: vicar's personal mobile (directory page) is NOT on the listing
+        self.assertEqual((dg(W["ww-57951889"]["phone"]), dg(W["ww-57951889"]["tel"])), ("07821153701", "07821153701"))  # undo value restored
+        self.assertEqual(J("overrides/phone_baseline.json")["listings"]["ww-57951889"]["phone"], "07821 153701")
+        self.assertTrue([l for l in J("logs/listings_batch_28oct.json")["changes"] if l["id"] == "ww-57951889" and l["kind"] == "phone" and l["note"].startswith("reverted (review FAILED") and l["new"] == "07821 153701"])
         self.assertEqual(dg(S["hl-dens-the-elms"]["phone"]), "01442800131")  # DENS's own contact page names this as The Elms' number
         # Peasholme 01904 551901 approved by Dean (#238); JNR8 0161 881 3744 approved by Dean (#238)
         self.assertEqual(dg(S["osm-node-1533578890"]["phone"]), "01904551901"); self.assertEqual(dg(S["osm-node-1533578890"]["tel"]), "01904551901")
