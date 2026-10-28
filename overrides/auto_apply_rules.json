@@ -29,6 +29,7 @@
   "show_verified_own_page": true,
   "named_or_personal_is_not_a_reason_to_hold": true,
   "host_church_contact_counts_as_own_page": true,
-  "why": "Dean 26 Oct 2026 08:29, rule 21, and 08:37: a verified number the venue's own page gives as its contact is shown, including a named person's or personal number, with the label that page gives. A host church contact page counts as that venue's own page. Unverified or doubtful numbers are held with the reason recorded. Dean's own details are never published."
+  "host_church_only_when_no_own_site": true,
+  "why": "Dean 26 Oct 2026 08:29, rule 21, and 08:37: a verified number the venue's own page gives as its contact is shown, including a named person's or personal number, with the label that page gives. A host church contact page counts as that venue's own page. Unverified or doubtful numbers are held with the reason recorded. Dean's own details are never published. Dean 28 Oct 2026 (phone audit, rule change E): a host church page counts as the food bank's own page only when the food bank has no own site (known own sites: overrides/own_location_pages.json _food_bank_own_sites). A number read on a host church page while the food bank has its own site is held."
  }
 }
