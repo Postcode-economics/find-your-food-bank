@@ -118,9 +118,9 @@
   "groups_source": "https://fifeonfort.org/gilven-project",
   "groups_checked": "2026-10-23",
   "fix": {
-   "referral": "Call before you go: we could not confirm this service is still running. Referral (Fife Council Housing Options)"
+   "referral": "Reported closed – call before you go. Referral (Fife Council Housing Options)"
   },
-  "fix_source": "review 27 Oct 2026 (operator site unreachable; Bot 4 saw a care-register entry marked Cancelled, not re-checked twice)",
+  "fix_source": "third party only (a care-register entry seen 27 Oct 2026 marked Cancelled); operator site https://fifeonfort.org/gilven-project returned 403, so closure is not confirmed by the own source and the listing is kept",
   "fix_checked": "2026-10-27"
  },
  "sa-glen-alva-family-centre-lifehouse": {
@@ -222,19 +222,11 @@
  },
  "osm-way-1119807447": {
   "phone": "0300 111 1212",
-  "email": "gatewaylancaster@calico.org.uk",
+  "email": "info@jigsawhomes.org.uk",
   "phone_source": "https://support.jigsawhomes.org.uk/information-article/oak-tree-house/",
   "hours": "By referral, call to arrange",
   "hours_source": "https://servicefinder.lancashire.gov.uk/lancashire-service-finder-directory/directory-details-page/?id=b1a59e7d-69d2-439b-a6b8-b48601759b96",
-  "hours_checked": "2026-10-23",
-  "fix": {
-   "operator": "Acorn Recovery Projects (a Calico Group service)",
-   "referral": "Referral from Lancaster City Council (after a homelessness assessment). Provider email: gatewaylancaster@calico.org.uk"
-  },
-  "fix_source": "https://servicefinder.lancashire.gov.uk/lancashire-service-finder-directory/directory-details-page/?id=b1a59e7d-69d2-439b-a6b8-b48601759b96",
-  "fix_checked": "2026-10-27",
-  "fix_quote": "\"Referral Details Yes: we require a referral from the district, Lancaster City Council, following an assessment that deems homeless duty is owed.\" \"Provider: Acorn Recovery Projects (a Calico Group service) Phone: NA Email: gatewaylancaster@calico.org.uk\"",
-  "phone_review": "0300 111 1212 is the old Jigsaw Homes number; the source gives no phone (Phone: NA). Kept until a proven replacement exists (Dean: no number removed without one). Flagged."
+  "hours_checked": "2026-10-23"
  },
  "osm-way-96032322": {
   "phone": "0118 207 3017",
@@ -304,7 +296,7 @@
   ],
   "groups_source": "https://www.salvationarmy.org.uk/st-monicas-house",
   "groups_checked": "2026-10-23",
- "fix": {
+  "fix": {
    "postcode": "PO1 1PA"
   },
   "fix_source": "https://www.salvationarmy.org.uk/st-monicas-house",
@@ -531,11 +523,7 @@
    "Single adults"
   ],
   "groups_source": "https://www.dens.org.uk/our-services/outreach-accommodation/",
-  "groups_checked": "2026-10-23",
-  "phone_fix": "01442 262274",
-  "phone_source": "https://www.newhope.org.uk/mta-ea-page-1",
-  "phone_quote": "\"The Elms Redbourn Road Hemel Hempstead HP2 7AZ 01442 262 274 receptiontheelms@dens.org.uk\" (old 01442 800131 is DENS street outreach)",
-  "phone_checked": "2026-10-27"
+  "groups_checked": "2026-10-23"
  },
  "osm-node-13194548111": {
   "hours": "By referral, call to arrange",
@@ -743,10 +731,6 @@
   ],
   "groups_source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
   "groups_checked": "2026-10-23",
-  "phone_fix": "01904 551901",
-  "phone_source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
-  "phone_quote": "\"Peasholme Centre: 4 Fishergate, York YO10 4FH. Telephone: 01904 551901.\" (old 01904 554500 is the Housing Options main line)",
-  "phone_checked": "2026-10-27",
   "fix": {
    "hours": "Staffed 24/7 (by referral)"
   },
@@ -1022,11 +1006,7 @@
  "osm-way-556071354": {
   "hours": "By referral, call to arrange",
   "hours_source": "https://talbotassociation.org/our-services-1",
-  "hours_checked": "2026-10-23",
-  "phone_fix": "0141 418 1955",
-  "phone_source": "https://talbotassociation.org/our-services-1",
-  "phone_quote": "\"Kingston Halls Direct Access Hostel Tel: 0141-418-1955\"",
-  "phone_checked": "2026-10-27"
+  "hours_checked": "2026-10-23"
  },
  "sa-the-booth-centre-southampton-lifehouse": {
   "hours": "By referral, call to arrange",
@@ -1200,6 +1180,6 @@
  },
  "man-nightsafe-blackburn": {
   "duplicate_of": "hl-nightsafe-blackburn",
-  "note": "Same shelter as hl-nightsafe-blackburn (Nightsafe \u2013 The Shelter, 45 Railway Road BB1 1EZ). Both kept; noted only (Dean: never remove a shelter)."
+  "note": "Same shelter as hl-nightsafe-blackburn (Nightsafe – The Shelter, 45 Railway Road BB1 1EZ). Both kept; noted only (Dean: never remove a shelter)."
  }
 }

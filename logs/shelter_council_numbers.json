@@ -1,6 +1,6 @@
 {
  "day": "2026-10-28",
- "count": 5,
+ "count": 2,
  "flags": [
   {
    "id": "osm-way-169564851",
@@ -13,40 +13,14 @@
    "why": "known council general number"
   },
   {
-   "id": "osm-node-5901363647",
-   "name": "Leytonstone United Free Church Night Shelter",
-   "field": "council_ooh",
-   "number": "020 8496 3000",
-   "council": "Waltham Forest Council housing",
-   "source": "https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/help-if-you-are-homeless-or-about-become-homeless",
-   "why": "shown as the out-of-hours line but is council daytime/main line (walthamforest)"
-  },
-  {
-   "id": "scni-armagh",
-   "name": "Simon Community – Armagh",
-   "field": "council_ooh",
-   "number": "03448 920 908",
-   "council": "Housing Executive (NIHE)",
-   "source": "https://www.armaghbanbridgecraigavon.gov.uk/contact-us/",
-   "why": "shown as the out-of-hours line but is council daytime/main line"
-  },
-  {
-   "id": "scni-portadown",
-   "name": "Simon Community – Portadown",
-   "field": "council_ooh",
-   "number": "03448 920 908",
-   "council": "Housing Executive (NIHE)",
-   "source": "https://www.armaghbanbridgecraigavon.gov.uk/contact-us/",
-   "why": "shown as the out-of-hours line but is council daytime/main line"
-  },
-  {
-   "id": "osm-way-1352311712",
-   "name": "The White House",
-   "field": "council_ooh",
-   "number": "0300 123 7718",
-   "council": "Spelthorne Council",
-   "source": "https://www.spelthorne.gov.uk/page/1376/homelessness",
-   "why": "shown as the out-of-hours line but is council daytime/main line"
+   "id": "osm-node-1533578890",
+   "name": "Peasholme Homeless Hostel",
+   "field": "phone",
+   "number": "01904 554500",
+   "council": "City of York Council Housing Options",
+   "source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+   "quote": "Housing Options West Offices, Station Rise, York, YO1 6GA Telephone: 01904 554500",
+   "why": "known council general number"
   }
  ]
 }
