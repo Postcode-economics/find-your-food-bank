@@ -102,7 +102,7 @@ jobs:
       - name: Commit if changed
         run: |
           python scripts/stamp.py verify
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_times_review.csv logs/foodbank_times_review.json logs/times_crosscheck_seen.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/ logs/sense_check.json
+          bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_foodbanks.json reports/new_today.md reports/manual_review.md stamp.js data.js data.full.js access.js logs/foodbank_audit.csv logs/foodbank_closed.json logs/foodbank_discovery.json logs/foodbank_times_check.json logs/foodbank_times_review.csv logs/foodbank_times_review.json logs/times_crosscheck_seen.json logs/foodbank_recheck.json logs/foodbank_pending.json overrides/foodbank_own_pages.json reports/ overrides/foodbank_closed.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_foodbanks.md logs/pending_dean.json reports/pending_dean.md logs/entry_history.json logs/entry_snapshot.json logs/duplicates.json logs/digest_state.json logs/swep_triggered.json export/ logs/sense_check.json
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -111,10 +111,12 @@ jobs:
           # so 'git pull --rebase' refused 3 times. Print it, then stash it so the pull can run; --autostash covers later rebuilds.
           in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
           git status
-          left=$(git diff --name-only HEAD)
+          # Untracked too: a file this run wrote but did not add, which another run has since committed, makes the pull
+          # refuse with "untracked working tree files would be overwritten" before any rebase starts.
+          left=$( { git diff --name-only HEAD; git ls-files --others --exclude-standard; } )
           if [ -n "$left" ]; then
-            echo "::warning::tracked files modified but not in the add list (stashed, not published): $(echo $left)"
-            git stash push --quiet -m "refresh-leftovers" || true
+            echo "::warning::files modified or new but not in the add list (stashed, not published): $(echo $left)"
+            git stash push --include-untracked --quiet -m "refresh-leftovers" || true
           fi
           # data.js / access.js / logs / reports are generated: if another push touched them meanwhile, keep this run's
           # fresh build (overrides are re-applied on every run, so nothing hand-made is lost for more than one run)
