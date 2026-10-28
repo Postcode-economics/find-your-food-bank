@@ -9,6 +9,7 @@ class T(unittest.TestCase):
         for f in SM.TOP: shutil.copy(os.path.join(ROOT, f), self.d)
         os.makedirs(os.path.join(self.d, 'food-banks', 'x'))
         shutil.copy(os.path.join(ROOT, 'food-banks', 'sutton', 'index.html'), os.path.join(self.d, 'food-banks', 'x'))
+        for f in ('data.js', 'access.js'): shutil.copy(os.path.join(ROOT, f), self.d)
         open(os.path.join(self.d, 'stamp.js'), 'w').write('window.FB_STAMP={"run": "2026-10-23T13:29:05+01:00", "kind": "refresh", "label": "x"};\n')
     def tearDown(self): shutil.rmtree(self.d)
     def test_run(self):
@@ -19,7 +20,9 @@ class T(unittest.TestCase):
             self.assertEqual(len(pg), 1, rel); self.assertEqual(pg[0]['dateModified'], '2026-10-23T13:29:05+01:00')
         home = open(os.path.join(self.d, 'index.html')).read()
         self.assertIn('>Updated 23 Oct 2026, 13:29</a>', home)
-        self.assertIn('<script data-hm src="data.js?v=r20261023T1329" type="text/plain"></script>', home); self.assertIn('stamp.js?v=r20261023T1329', home)
+        for f in ('data', 'stamp', 'access'):
+            self.assertIn('<script data-hm src="%s.js?v=%s" type="text/plain"></script>' % (f, SM.content_stamp(self.d, f + '.js')), home)
+        self.assertNotIn('data.js?v=r', home)
         ds = [x for x in blocks(home) if x.get('@type') == 'Dataset'][0]
         self.assertEqual(ds['creator']['name'], 'Postcode Economics'); self.assertNotRegex(json.dumps(ds), r'\b0\d{9,10}\b')
         emails = set(re.findall(r'[\w.+-]+@[\w.-]+', json.dumps(ds))); self.assertEqual(emails, {'hello@helpmap.uk'})
@@ -27,6 +30,16 @@ class T(unittest.TestCase):
         self.assertGreaterEqual(len(fq['mainEntity']), 7)
         sm = open(os.path.join(self.d, 'sitemap.xml')).read()
         self.assertEqual(sm.count('<lastmod>2026-10-23</lastmod>'), len(ps)); self.assertIn('/faq.html', sm)
+
+    def test_stamp_keeps_other_attributes(self):
+        p = os.path.join(self.d, 'index.html'); s = open(p).read()
+        s = re.sub(r'(<script\b[^>]*\bsrc=")(data|stamp|access)\.js(?:\?v=[^"]*)?("[^>]*>\s*</script>)',
+                   r'<script data-hm src="\2.js?v=r20261001T0000" type="text/plain"></script>', s)
+        open(p, 'w').write(s); SM.run(self.d); SM.run(self.d)
+        home = open(p).read()
+        for f in ('data', 'stamp', 'access'):
+            self.assertEqual(home.count('<script data-hm src="%s.js?v=%s" type="text/plain"></script>' % (f, SM.content_stamp(self.d, f + '.js'))), 1, f)
+        self.assertNotIn('?v=r20261001T0000', home)
 
     def test_map_checked_line(self):
         SM.run(self.d); SM.run(self.d)
