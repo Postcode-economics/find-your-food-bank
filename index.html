@@ -27,6 +27,8 @@
     .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
     .then(function () { return navigator.serviceWorker.register('sw.js?v=h02fb1b21a14a' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
     .then(function (reg) {
+      // With service workers blocked, register() resolves to undefined. Do not touch it.
+      if (!reg || !reg.addEventListener) return;
       // Claim once the document has loaded, so the first tile grid is not intercepted mid-startup and a pan is.
       function claim() {
         if (document.readyState !== 'complete') return;
