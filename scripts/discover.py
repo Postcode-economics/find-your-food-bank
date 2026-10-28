@@ -10,7 +10,7 @@ Every 3x-daily run:
     website THIS run. Confirmed -> kept; different times found -> replaced (via times.normalise); site says closed
     -> closure removal; unreachable / not confirmable -> times dropped and flagged (never carried over).
 Never invents data: everything published comes from a fetched page or a directory record."""
-import re, os, sys, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
+import re, os, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
 UA = {"User-Agent": "Mozilla/5.0 (FindYourFoodBank refresh; own-site check)"}
 PC_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s?(\d[A-Z]{2})\b")
@@ -154,7 +154,7 @@ def not_client_context(t, at, prev_span_end=None):
     return bool(NOT_CLIENT.search(t[lo:at]))
 def extract_times(text, postcode=None):
     """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block."""
-    t = strip_phone_hours(text); pc = norm_pc(postcode)
+    t = text or ""; pc = norm_pc(postcode)
     if pc and pc not in t.upper().replace(" ", ""): return None   # never take times from a page that doesn't show this place
     pcs = list(PC_RE.finditer(t.upper()))
     if pc and len({a + b for a, b in (m.groups() for m in pcs)}) > 1:
@@ -197,33 +197,8 @@ def extract_times(text, postcode=None):
     if APPT.search(raw) or ORDINAL.search(raw):   # monthly / appointment-only: keep as written, never as a weekly table
         return {"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None, "lines": segs}
     return normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None})
-# 'Our phone lines are monitored Monday - Friday 09:30-13:30' is printed on every Trussell centre card: office/phone
-# hours, never client session times (Cardiff Foodbank, 27 Oct 2026: every centre showed Mon-Fri 09:30-13:30).
-PHONE_HOURS = re.compile(r"(?:phone lines?|telephone lines?|lines are|office)\s+(?:are\s+)?(?:monitored|open|staffed|manned)\s*(?:on\s*)?[^|.]{0,80}?\d{1,2}[:.]\d{2}\s*(?:am|pm)?\s*(?:-|–|—|to|until)\s*\d{1,2}[:.]\d{2}\s*(?:am|pm)?", re.I)
-def strip_phone_hours(t): return PHONE_HOURS.sub(" ", t or "")
-def card_check(ot, texts, item, today=None, source_url=None):
-    """Trussell centre-card pages (/emergency-food/i-have-a-food-voucher): read THIS centre's own card, matched by postcode
-    or centre name (scripts/trussell_times.match), never a bag of times from the whole page. None = not a card page."""
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import trussell_times as TT
-    cards = []
-    for t in texts: cards += TT.parse_cards(t)
-    if not cards: return None
-    card, how = TT.match(item, cards)
-    if card and how == "name" and "/" not in str(item.get("id", "/")):
-        # a whole-food-bank entry may only borrow a card by name when it is that food bank's own card
-        # ('Harrow Foodbank' must not take 'South Harrow Baptist Church', nor 'Thurrock' take 'Little Thurrock')
-        strip = lambda s: TT.norm(re.sub(r"(?i)\(.*?\)|\bthe\b|foodbank|food bank|distribution centre|centre", "", s or ""))
-        if strip(card["name"]) != strip(item.get("name")): card, how = None, "no card with this food bank's own name or postcode"
-    if not card: return "unconfirmed", None, "centre card not found on own site (" + how + ")"
-    new = TT.to_ot(card, source_url or (ot or {}).get("source_url"), today or datetime.date.today().isoformat())
-    if not new: return "unconfirmed", None, "own centre card shows no sessions"
-    old = ot if isinstance(ot, dict) else {}
-    if old.get("structured") == new.get("structured") and (new.get("structured") or old.get("raw") == new.get("raw")):
-        return "confirmed", ot, "matches this centre's own card (" + how + ")"
-    return "changed", new, "this centre's own card now shows different times (" + how + ")"
 def confirm_times(ot, texts, postcode=None):
     """-> (status, new_ot, reason). status: confirmed | changed | unconfirmed | none_published."""
-    texts = [strip_phone_hours(t) for t in texts]
     alltext = " ".join(texts); low = alltext.lower()
     want, days = want_times(ot)
     if not want:
@@ -260,7 +235,103 @@ def office_like(st):
     if len(wk) < 4 or len(set(wk)) > 2: return False
     def mins(t): h, m = t.split(":"); return int(h) * 60 + int(m)
     return all(mins(b) - mins(a) >= 240 for blk in wk for a, b in blk)
-def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24):
+def is_protected(ot):
+    """Protected opening times: hand-reviewed reader, or "protected": true in overrides/opening_times.json."""
+    return isinstance(ot, dict) and (str(ot.get("reader", "")).startswith("hand-reviewed") or ot.get("protected") is True)
+LINE_DAY = re.compile(r"\b(mon|tue|wed|thu|fri|sat|sun)[a-z]*\b", re.I)
+LINE_SPAN = re.compile(r"\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?\s*[-\u2013]\s*\d{1,2}(?:[:.]\d{2})?", re.I)
+def protected_proof(i, new, upages, prev, today):
+    """Can a protected entry's new times be applied automatically? All must hold (Dean, 27 Oct 23:43):
+    (1) from the own page for this exact centre: not the homepage, page shows this listing's postcode, listing not a warehouse/parent;
+    (2) every time on that page's segment has its day on the same line, before it; (3) identical on 2 separate runs (prev = last run's
+    candidate, different day, same page + times); (4) no conflict (checked across listings in protected_finalise); (5) never known -> closed/empty."""
+    why = []; url = None
+    st = (new or {}).get("structured")
+    if not st or (new or {}).get("status") != "TIMES_FOUND": why.append("new times empty or closed")
+    pc = re.sub(r"\s", "", (i.get("postcode") or "")).lower()
+    for u, t in upages:
+        path = urllib.parse.urlparse(u).path.strip("/")
+        if not path or not pc or pc not in re.sub(r"\s", "", t).lower(): continue
+        got = extract_times(t, i.get("postcode"))
+        if got and got.get("structured") == st: url = u; break
+    if not url: why.append("not read from this centre's own page (homepage, other location or parent)")
+    if i.get("kind") in ("warehouse", "dropoff"): why.append("listing is a warehouse/office")
+    for seg in str((new or {}).get("raw") or "").split(" | "):
+        m = LINE_SPAN.search(seg)
+        if m and not LINE_DAY.search(seg[:m.start()]): why.append("day not on the same line before the times"); break
+    cand = {"url": url, "structured": st, "day": today}
+    if not (prev and prev.get("url") == url and prev.get("structured") == st and prev.get("day") != today): why.append("not yet seen identical on 2 separate runs")
+    return {"ok": not why, "why": why, "candidate": cand}
+def protected_finalise(log, items, root=".", day=None):
+    """After cross_check_times: (4) a proven change that conflicts (same page times read onto another listing, or office-like)
+    is rolled back to the protected times; applied changes are written back to overrides/opening_times.json (kept protected,
+    with undo in logs/protected_times_applied.json); candidates are saved for the next run; the rest go on the review list."""
+    day = day or datetime.date.today().isoformat(); by = {i["id"]: i for i in items}
+    seen = {}
+    for k, v in log.items():
+        if v.get("status") in ("protected_applied", "differs_from_hand_checked") and v.get("new"):
+            seen.setdefault(json.dumps(v["new"], sort_keys=True), []).append(k)
+    for k, v in log.items():
+        if v.get("status") != "protected_applied": continue
+        if len(seen.get(json.dumps(v["new"], sort_keys=True), [])) > 1 or office_like(v["new"]):
+            by[k]["opening_times"] = v["undo"]; v.update(status="differs_from_hand_checked", reason="conflict: same times read onto another listing or office-like; kept, flagged")
+            v["proof"]["ok"] = False; v["proof"]["why"].append("conflict with another listing/source")
+    pend = {k: v["proof"]["candidate"] for k, v in log.items() if v.get("status") == "differs_from_hand_checked" and v.get("proof")}
+    os.makedirs(os.path.join(root, "logs"), exist_ok=True)
+    json.dump(pend, open(os.path.join(root, "logs", "protected_times_pending.json"), "w"), indent=1, ensure_ascii=False)
+    applied = {k: v for k, v in log.items() if v.get("status") == "protected_applied"}
+    if applied:
+        op = os.path.join(root, "overrides", "opening_times.json"); O = json.load(open(op)) if os.path.exists(op) else {}
+        ap = os.path.join(root, "logs", "protected_times_applied.json"); A = json.load(open(ap)) if os.path.exists(ap) else []
+        for k, v in applied.items():
+            O[k] = dict(by[k]["opening_times"]); A.append({"id": k, "day": day, "source_url": v["source_url"], "new": O[k], "undo": v["undo"],
+                                                         "how_to_undo": "put 'undo' back as overrides/opening_times.json[id]"})
+        open(op, "w").write(json.dumps(O, indent=1, ensure_ascii=False) + "\n"); json.dump(A, open(ap, "w"), indent=1, ensure_ascii=False)
+    protected_review(log, root, day)
+    times_changes_review(log, by, root)
+    return applied
+def times_changes_review(log, by, root=".", now=None):
+    """Every times change the refresh applied (protected and normal) -> reports/times_changes_review.md + logs/times_changes_review.json,
+    with old/new times, exact quote, source URL, date-time and undo command. Held/unproven changes in a separate 'Held' section."""
+    now = now or datetime.datetime.now().replace(microsecond=0).isoformat(sep=" ")
+    def undo_cmd(k, old):
+        return ("python3 -c \"import json;p='overrides/opening_times.json';o=json.load(open(p));o[%r]=json.loads(%r);"
+                "open(p,'w').write(json.dumps(o,indent=1,ensure_ascii=False)+'\\n')\"" % (k, json.dumps(old, ensure_ascii=False)))
+    applied, held = [], []
+    for k, v in sorted(log.items()):
+        nm = v.get("name") or (by.get(k) or {}).get("name")
+        if v.get("status") in ("protected_applied", "changed"):
+            old = v.get("undo"); new = (by.get(k) or {}).get("opening_times") or {}
+            applied.append(dict(id=k, name=nm, protected=v["status"] == "protected_applied", old=(old or {}).get("raw") if isinstance(old, dict) else old,
+                                new=new.get("raw"), quote=new.get("raw"), source_url=new.get("source_url") or v.get("source_url"), at=now, undo=undo_cmd(k, old)))
+        elif v.get("status") == "differs_from_hand_checked" or v.get("reverted"):
+            held.append(dict(id=k, name=nm, kept=v.get("kept_raw") or ((by.get(k) or {}).get("opening_times") or {}).get("raw"), page_now=v.get("new_raw"),
+                             source_url=v.get("site"), at=now, why=(v.get("proof") or {}).get("why") or [v.get("reason")]))
+    os.makedirs(os.path.join(root, "logs"), exist_ok=True); os.makedirs(os.path.join(root, "reports"), exist_ok=True)
+    json.dump({"run": now, "applied": applied, "held": held}, open(os.path.join(root, "logs", "times_changes_review.json"), "w"), indent=1, ensure_ascii=False)
+    md = ["# Opening-times changes applied by the refresh (%s, UK time)" % now, ""]
+    md += ["- **%s** (`%s`)%s\n  - old: %s\n  - new: %s\n  - quote: \"%s\"\n  - source: %s\n  - at: %s\n  - undo: `%s`" % (
+        r["name"], r["id"], " [protected]" if r["protected"] else "", r["old"], r["new"], r["quote"], r["source_url"], r["at"], r["undo"]) for r in applied] or ["None this run."]
+    md += ["", "## Held", ""]
+    md += ["- **%s** (`%s`)\n  - kept: %s\n  - page now: %s\n  - source: %s\n  - at: %s\n  - held because: %s" % (
+        r["name"], r["id"], r["kept"], r["page_now"], r["source_url"], r["at"], "; ".join(w for w in r["why"] if w)) for r in held] or ["None this run."]
+    open(os.path.join(root, "reports", "times_changes_review.md"), "w").write("\n".join(md) + "\n")
+    return applied, held
+def protected_review(log, root=".", day=None):
+    """Review list for Dean: protected entries whose own page now reads differently. Times are never overwritten.
+    Writes logs/protected_times_review.json and reports/protected_times_review.md; returns the rows."""
+    day = day or datetime.date.today().isoformat()
+    rows = [dict(id=k, name=v.get("name"), site=v.get("site"), kept=v.get("kept_raw"), page_now=v.get("new_raw"),
+                 kept_structured=v.get("kept"), page_structured=v.get("new"), held_because=(v.get("proof") or {}).get("why"))
+            for k, v in sorted(log.items()) if v.get("status") == "differs_from_hand_checked"]
+    os.makedirs(os.path.join(root, "logs"), exist_ok=True); os.makedirs(os.path.join(root, "reports"), exist_ok=True)
+    json.dump({"run": day, "count": len(rows), "rows": rows}, open(os.path.join(root, "logs", "protected_times_review.json"), "w"), indent=1, ensure_ascii=False)
+    md = ["# Protected times that differ from the own page (%s)" % day, "",
+          "Held: the refresh only applies a protected change when it is proven (own centre page, same line, 2 runs, no conflict, not to closed). Check each and update overrides/opening_times.json by hand if needed.", ""]
+    md += ["- **%s** (`%s`) %s\n  - kept: %s\n  - page now: %s\n  - held because: %s" % (r["name"], r["id"], r["site"] or "", r["kept"], r["page_now"], "; ".join(r["held_because"] or [])) for r in rows] or ["Nothing differs this run."]
+    open(os.path.join(root, "reports", "protected_times_review.md"), "w").write("\n".join(md) + "\n")
+    return rows
+def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24, pending=None):
     """Re-confirm every entry's times on its OWN website this run; mutates items. Returns {id: result} log.
     kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text)."""
     import closure
@@ -278,10 +349,11 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
     for s, home, pages in got:
         for i in sites[s]:
             texts = [t for u, t in pages if not DONATION_PAGE.search(urllib.parse.urlparse(u).path)]   # never read client times from a giving/donation page
+            upages = [(u, t) for u, t in pages if not DONATION_PAGE.search(urllib.parse.urlparse(u).path)]
             src = (i.get(field) or {}).get("source_url") if isinstance(i.get(field), dict) else None
             if src and usable_site(src) and src not in [u for u, _ in pages]:
                 r = fetcher(src)
-                if r["http"] == 200: texts.append(text_of(r["html"]))
+                if r["http"] == 200: texts.append(text_of(r["html"])); upages.append((r.get("final_url") or src, texts[-1]))
             rec = {"site": s, "http": home and home.get("http"), "sha256": home and home.get("sha256"),
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
             if not s or not home or home.get("http") != 200 or not texts:
@@ -296,21 +368,29 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 if ev: break
             if ev: rec.update(status="closed", reason="own site says closed", evidence=ev); i["_own_site_closed"] = ev; log[i["id"]] = rec; continue
             i["_orig_times"] = i.get(field)
-            cc = card_check(i.get(field), texts, i, today, src) if kind == "fb" else None
-            st, new, why = cc or confirm_times(i.get(field), texts, i.get("postcode"))
+            st, new, why = confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"))
             rec.update(status=st, reason=why)
             if st == "confirmed":
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
-            elif st == "changed" and str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed"):
+            elif st == "changed" and is_protected(i.get(field)):
                 # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
                 rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
-                           new=new.get("structured") if new else None)
+                           new=new.get("structured") if new else None, new_raw=new.get("raw") if new else None,
+                           kept=(i.get(field) or {}).get("structured"), kept_raw=(i.get(field) or {}).get("raw"), name=i.get("name"))
                 i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
+                proof = protected_proof(i, new, upages, (pending or {}).get(i["id"]), today)
+                rec["proof"] = proof
+                if proof["ok"]:
+                    rec.update(status="protected_applied", reason="proven change on the centre's own page (2 runs, same line, no conflict); applied, kept protected",
+                               undo=i.get(field), source_url=proof["candidate"]["url"])
+                    i[field] = dict(new, reader=(i.get(field) or {}).get("reader"), protected=True, source_url=proof["candidate"]["url"], checked_date=today)
+                    i["times_status"] = "updated"
             elif st == "changed":
                 if kind == "fb": new = dict(new, checked_date=today, source_url=home["final_url"]); i[field] = new
                 else: i[field] = hours_from_ot(new) or i.get(field)
                 i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if new else None
+                if kind == "fb": rec.update(undo=i.get("_orig_times"), new_raw=new.get("raw"), source_url=new.get("source_url"), name=i.get("name"))
             elif st == "unconfirmed":
                 _unconfirm(i, kind, field, why)
             log[i["id"]] = rec
@@ -327,33 +407,8 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
                 if why:
                     i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
                     _unconfirm(i, kind, field, why)
-        hold_boilerplate(items, log, orig, field)
         for i in items: i.pop("_orig_times", None)
     return log
-BOILER = re.compile(r"phone lines?|telephone|lines (?:are )?monitored|office hours|office (?:is )?open", re.I)
-def _key(ot):
-    if not isinstance(ot, dict): return None
-    return json.dumps(ot.get("structured"), sort_keys=True) if ot.get("structured") else (ot.get("raw") or None)
-def hold_boilerplate(items, log, orig, field="opening_times"):
-    """Shared boilerplate is a red flag (Cardiff, 27 Oct 2026: phone-line hours on every centre). Hold for review, never
-    auto-apply or auto-confirm: (a) every session/location of one food bank (2+, same site) ends with identical times;
-    (b) the times' own text mentions phone lines / office hours."""
-    live = [i for i in items if log.get(i["id"], {}).get("status") in ("confirmed", "changed")]
-    bysite = {}
-    for i in live:
-        if "/" in i["id"]: bysite.setdefault(log[i["id"]]["site"], []).append(i)
-    for site, grp in bysite.items():
-        allsess = [i for i in items if "/" in i["id"] and log.get(i["id"], {}).get("site") == site]
-        keys = {_key(i.get(field)) for i in grp}
-        if len(grp) >= 2 and len(grp) == len(allsess) and len(keys) == 1 and None not in keys:
-            for i in grp: _hold(i, log, orig, field, "every session of this food bank shows the same times (shared boilerplate?); held for review")
-    for i in live:
-        ot = i.get(field)
-        if log[i["id"]].get("status") in ("confirmed", "changed") and isinstance(ot, dict) and BOILER.search(ot.get("raw") or ""):
-            _hold(i, log, orig, field, "times text mentions phone lines / office hours; held for review")
-def _hold(i, log, orig, field, why):
-    i[field] = orig.get(i["id"]); log[i["id"]].update(status="held_for_review", reason=why, reverted=True)
-    _unconfirm(i, "fb", field, why); i["times_status"] = "held_for_review"
 
 def summary(log):
     from collections import Counter
