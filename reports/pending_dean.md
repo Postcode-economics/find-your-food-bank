@@ -405,4 +405,7 @@ Every change is in logs/listings_batch_28oct.json with the old value (undo). Not
 - `newham-district/royal-docks-learning-activity-centre`: Newham Foodbank /locations/ shows this postcode (E16 2JB, Albert Road North Woolwich) as "St John's Community Centre". Number set to the food bank help line 020 7476 1666; name NOT changed. Rename?
 - `newham-district/bonny-downs`: locations page shows 0208 586 7070 for Bonny Downs Community Association at The Well, 35 Vicarage Lane E6 6DQ, but our pin is E6 6BT. Postcode does not match: number NOT changed
 - `waveney/framlingham-delivery-team`: Waveney /locations/ card 'Framlingham Delivery team' shows 07388 791126 but gives no address, so it can't be matched by postcode (IP13 9BQ): number NOT changed
+- `maghull`: our number is only on Give Food; the Sefton directory has 0151 526 7913. Unchanged
+- `illminster`: our number 0146057811 has only 10 digits and will not work. Unchanged until a source confirms a replacement
+- `st-ives-cambridgeshire`, `the-hive`, `storehouse-melton`: labelled 'Contact by email (no public phone)' with the email from their own page. The stored phone (not on their page) is still shown: remove it?
 <!-- /listings batch 28 oct -->

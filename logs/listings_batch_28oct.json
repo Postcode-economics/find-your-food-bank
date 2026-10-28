@@ -6697,6 +6697,81 @@
      "phone": "07985629201"
     }
    }
+  },
+  {
+   "kind": "website",
+   "id": "wellingborough-district",
+   "field": "website",
+   "old": "http://www.daylightcf.org/foodbank/",
+   "new": "https://daylightcf.org/foodbank",
+   "source": "https://daylightcf.org/foodbank",
+   "note": "old link dead; new page is the Daylight Centre food bank (Wellingborough) (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "website": "http://www.daylightcf.org/foodbank/"
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "foodshed",
+   "field": "website",
+   "old": "http://www.stevenage-vineyard.co.uk/compassion/foodshed",
+   "new": "https://stevenage-vineyard.co.uk/compassion/foodshed/",
+   "source": "https://stevenage-vineyard.co.uk/compassion/foodshed/",
+   "note": "old link dead; new page is Stevenage Vineyard Church Foodshed (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "website": "http://www.stevenage-vineyard.co.uk/compassion/foodshed"
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "st-ives-cambridgeshire",
+   "field": "notice",
+   "old": null,
+   "new": "Contact by email (no public phone): foodbank@stivesparishchurch.org.uk",
+   "source": "https://www.stivesparishchurch.org.uk/foodbank/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "the-hive",
+   "field": "notice",
+   "old": null,
+   "new": "Contact by email (no public phone): hivefoodbank@gmail.com",
+   "source": "https://thehivefoodbank.com",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "storehouse-melton",
+   "field": "notice",
+   "old": null,
+   "new": "Contact by email (no public phone): storehouse@meltonvineyard.org.uk",
+   "source": "https://www.storehousemelton.org.uk",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
   }
  ],
  "flags": [
