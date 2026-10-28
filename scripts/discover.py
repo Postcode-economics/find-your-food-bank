@@ -601,6 +601,7 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if not sig or prev.get("sig") != sig or prev.get("source_url") != src or prev.get("run_at") == run_at:
         why.append("times not read identically on 2 separate runs yet")
     if sig and (blocked or {}).get(key) == sig: why.append("this change was undone by Dean; not re-applied")
+    if hand_checked(i, field): why.append("hand-checked times are protected; refresh only flags differences")
     if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply)")
     return why
 _DAYRE = re.compile(r"mon|tue|wed|thu|fri|sat|sun", re.I)
@@ -628,6 +629,14 @@ def day_same_line(st, texts):
         for span in spans or []:
             if not all(x in seen.get(d[:3].lower(), set()) for x in span[:2]): return False
     return True
+def hand_checked(i, field):
+    """Times a person set. The refresh may flag them and must not overwrite them."""
+    if i.get("manual"): return True
+    ot = i.get(field)
+    if not isinstance(ot, dict): return False
+    if ot.get("protected"): return True
+    r = str(ot.get("reader") or "")
+    return r.startswith("hand-set") or "hand-reviewed" in r
 def _hours_read(new):
     """A times table was actually read (including an empty table or an explicit closed reading).
     None, or a result with no table, no text and no closed status, was not read."""
@@ -778,7 +787,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
             rec = {"site": s, "http": home and home.get("http"), "sha256": home and home.get("sha256"),
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
             if home and home.get("retries"): rec["retries"] = home["retries"]
-            hand = kind == "fb" and isinstance(i.get(field), dict) and str(i[field].get("reader") or "").startswith("hand-reviewed")
+            hand = hand_checked(i, field)
             def flag_kept(reason):
                 # Protected hand-checked times are never overwritten. A page that cannot be confirmed
                 # is the same flag as a page that disagrees (Dean, 23 Oct 23:37), not a generic review.
@@ -818,7 +827,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                 if isinstance(new, dict): rec["evidence"] = new.get("_evidence") or ""
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
-            elif st == "changed" and (i.get("manual") or str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed")):
+            elif st == "changed" and hand_checked(i, field):
                 # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
                 rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
                            new=new.get("structured") if isinstance(new, dict) else None)
