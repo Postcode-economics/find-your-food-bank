@@ -137,6 +137,7 @@ document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.g
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
 let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false};
 document.addEventListener('click',e=>{const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
+window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={}};  // 28 Oct QA B2: failed search clears these lists too
 function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data)continue;
   const ot=typeof F!=='undefined'&&F.open&&window.V3&&V3.shutToday;const all=L_.data.items.filter(i=>(!verOnly[k]||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d);const oo=false;const sc=x=>oo?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:0;
