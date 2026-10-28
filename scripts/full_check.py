@@ -12,7 +12,11 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number is auto-applied (reports/phone_fixes.json) only through the
     strict gate (Dean, 28 Oct 2026; phone_gate_reasons): read on the organisation's own host, exactly one clickable
-    number there (no conflicting own-site number), identical on 2 separate runs, not undone by Dean. Each change is
+    number there (no conflicting own-site number), identical on 2 separate runs, not undone by Dean, on a page that
+    mentions a food bank, with no shop/office/helpline-style label beside it. Phones are per listing (phone audit,
+    28 Oct 2026): a site-level number only replaces the single food bank pin, never a location pin or a number a
+    location pin shares; a centre's own line on its locations page wins; a host church page does not count when the
+    food bank has its own site. Older fixes are re-checked against each new reading and held when they fail. Each change is
     logged once in reports/phone_auto_applied.json with its source URL and an undo command (scripts/phone_revert.py),
      including when that number is a named person's, with the role the page gives
      (rule 21, Dean 26 Oct 2026), unless that listing is in overrides/phone_baseline.json: then it is held
@@ -101,7 +105,9 @@ def text_of(h):
     return '\n'.join(re.sub(r'[ \t\xa0]+', ' ', l).strip() for l in t.split('\n') if l.strip())
 
 SUB = re.compile(r'get[- ]?help|need[- ]?help|referr|voucher|how[- ]?(it|we)[- ]?work|contact|donat|items|shopping[- ]?list|opening|find[- ]?us|locations|centres', re.I)
-def links(h, base):
+CENTRES = re.compile(r'locations|centres', re.I)
+def links(h, base, centres_first=False):
+    """Up to 2 same-host links worth reading. centres_first (the phone pass) ranks /locations/ and /centres/ pages first."""
     out = []
     for href, label in re.findall(r'(?is)<a[^>]+href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', h):
         u = urllib.parse.urljoin(base, href.strip())
@@ -110,6 +116,7 @@ def links(h, base):
         if SUB.search(u) or SUB.search(re.sub('<[^>]+>', '', label)):
             if u not in out and u.rstrip('/') != base.rstrip('/'): out.append(u)
     rank = lambda u: 0 if re.search(r'help|referr|voucher', u, re.I) else 1 if re.search(r'donat|items|list', u, re.I) else 2
+    if centres_first: return sorted(out, key=lambda u: (0 if CENTRES.search(u) else 1, rank(u)))[:2]
     return sorted(out, key=rank)[:2]
 
 # ---------- signals ----------
@@ -165,7 +172,68 @@ def phone_gate_reasons(u, r, prev, undone=None):
         why.append("not read on the organisation's own host")
     if prev.get('phones') != phones or not own_host(u, prev.get('final_url')) or not prev.get('checked_at') or prev.get('checked_at') == r.get('checked_at'):
         why.append('number not read identically on 2 separate runs yet')
-    if phones and (undone or {}).get(u) == phones[0]: why.append('this change was undone by Dean; not re-applied')
+    if phones and phones[0] in undone_numbers(undone, u): why.append('this change was undone by Dean; not re-applied')
+    if r.get('fb_mention') is False: why.append('page does not mention a food bank or the listing name')
+    lab = (r.get('other_labels') or {}).get(phones[0]) if phones else ''
+    if lab: why.append('number sits beside another label (%s)' % lab)
+    return why
+def undone_numbers(undone, u):
+    import phone_revert
+    return phone_revert.undone_numbers(undone, u)
+
+# Phones are per listing, not per website (phone audit 28 Oct 2026, fixes A, B, E).
+SCOPE_HOLD = 'site-level number; centre pins need a centre-scoped read'
+def phone_targets(pins, old=None):
+    """(pins, reason). A site-level number may only replace the phone of the single food bank pin, and only when
+    no location pin has that same number. A location pin is never changed from a site-wide read."""
+    fb = [i for i in pins if i.get('type', 'foodbank') == 'foodbank']
+    if len(fb) != 1: return [], SCOPE_HOLD
+    cur = norm_phone(fb[0].get('phone'))
+    if not cur: return [], 'the food bank pin has no stored number to replace'
+    if old is not None and cur != old: return [], SCOPE_HOLD
+    if any(i.get('type') == 'location' and norm_phone(i.get('phone')) == cur for i in pins): return [], SCOPE_HOLD
+    return fb, ''
+def load_centre_phones(root=None):
+    """pin id -> the centre's own line(s) on its organisation's locations page (scripts/own_locations.py snapshot)."""
+    try: snap = json.load(open(os.path.join(root or ROOT, 'overrides', 'foodbank_own_pages.json'), encoding='utf-8'))
+    except Exception: return {}
+    return {k: v for k, v in (snap.get('_centre_phones') or {}).items() if isinstance(v, dict) and v.get('phones')}
+def load_own_sites(root=None):
+    """listing id -> the food bank's own site, where its listing website is a host page (rule change E)."""
+    try: cfg = json.load(open(os.path.join(root or ROOT, 'overrides', 'own_location_pages.json'), encoding='utf-8'))
+    except Exception: return {}
+    return {k: v for k, v in (cfg.get('_food_bank_own_sites') or {}).items() if not k.startswith('_') and isinstance(v, str) and v.startswith('http')}
+def pin_phone_reasons(u, pins, new, centre=None, own_sites=None):
+    """Reasons a site-level number must not go on these pins. Empty = the single food bank pin may take it."""
+    why = []
+    targets, scope = phone_targets(pins)
+    if scope: why.append(scope)
+    for i in pins:
+        line = (centre or {}).get(i.get('id'))
+        if line and new not in line['phones']:
+            why.append("centre's own line on own locations page differs (%s: %s)" % (i.get('id'), ', '.join(line['phones']))); break
+    for i in pins:
+        own = (own_sites or {}).get(i.get('id'))
+        if own and not own_host(own, u):
+            why.append("host page does not count: the food bank has its own site (%s)" % own); break
+    return why
+SHARED_NEW = 'the same new number was given for another organisation (likely a diocesan or general line)'
+def legacy_fix_reasons(u, f, fixes, site, pins, centre=None, own_sites=None, undone=None):
+    """An older phone_fixes.json entry (written before the strict gate) run through the current gate against
+    the latest reading of the site. Empty = it may still be applied (phone audit 28 Oct 2026, fix G)."""
+    new = f.get('new')
+    why = []
+    if any(v.get('new') == new for w, v in fixes.items() if w != u): why.append(SHARED_NEW)
+    if new in undone_numbers(undone, u): why.append('this change was undone by Dean; not re-applied')
+    if not own_host(u, f.get('source')): why.append("source not on the organisation's own host")
+    site = site or {}
+    if site.get('phones') != [new] or site.get('tel') != [new]: why.append('own site does not show exactly this one clickable number on the latest read')
+    if site.get('fb_mention') is not True: why.append('page does not mention a food bank or the listing name')
+    lab = (site.get('other_labels') or {}).get(new)
+    if lab: why.append('number sits beside another label (%s)' % lab)
+    targets, scope = phone_targets(pins, f.get('old'))
+    if scope: why.append(scope)
+    why += [w for w in pin_phone_reasons(u, pins, new, centre, own_sites) if w != SCOPE_HOLD and w not in why]
     return why
 def log_phone_changes(applied, path=None):
     """One undo-log entry per (website, new number). A fix re-applied on a later run (build.py rebuilds from the feed)
@@ -332,18 +400,26 @@ def check_site(url, order=None):
     res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http'), 'method': used if home.get('ok') else None, 'methods_tried': tried}
     if not home['ok']: res.update(ok=False, error=home.get('error') or 'not tried'); return res
     pages = [(home['final_url'], home['html'])]
-    for u in links(home['html'], home['final_url']):
+    sub_page = bool(urllib.parse.urlparse(url).path.strip('/'))  # a sub-page website (e.g. a host church's food bank page): no links followed
+    for u in ([] if sub_page else links(home['html'], home['final_url'])):
         r = fetch(u)
         if r['ok']: pages.append((r['final_url'], r['html']))
     t = '\n'.join(text_of(h) for _, h in pages)
+    # Phone pass: the organisation's /locations/ or /centres/ page too, so centre lines are seen and a site-wide number is not the only one.
+    for u in ([] if sub_page else [x for x in links(home['html'], home['final_url'], centres_first=True) if CENTRES.search(x)][:1]):
+        if u in [p for p, _ in pages]: continue
+        r = fetch(u)
+        if r['ok']: pages.append((r['final_url'], r['html']))
+    pt = '\n'.join(text_of(h) for _, h in pages)
     a, ev = access(t)
     hours = sorted({re.sub(r'\s+', ' ', m.group(0)).lower() for m in DAYS.finditer(t)})[:30]
-    phones = sorted({p for p in (norm_phone(x) for x in PHONE.findall(t)) if p and not p.startswith(('0800', '0808', '0300', '0345', '0844', '0845', '0870', '0330')) or p.startswith(('01', '02', '07'))} - {''})
+    phones = sorted({p for p in (norm_phone(x) for x in PHONE.findall(pt)) if p and not p.startswith(('0800', '0808', '0300', '0345', '0844', '0845', '0870', '0330')) or p.startswith(('01', '02', '07'))} - {''})
     tel = sorted({p for p in (norm_phone(urllib.parse.unquote(x)) for _, h in pages for x in re.findall(r'href=["\']tel:([^"\']+)', h, re.I)) if p})
     import phone_rule
-    res.update(tel=tel[:4], contact_labels=phone_rule.labels_in_text(t, norm_phone), ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
+    res.update(tel=tel[:4], contact_labels=phone_rule.labels_in_text(pt, norm_phone), ok=True, final_url=home['final_url'], pages=[u for u, _ in pages], access=a, access_evidence=ev,
                hours_hash=hashlib.sha1('\n'.join(hours).encode()).hexdigest()[:12] if hours else '', hours_sample=hours[:4],
-               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t))
+               seasonal=snippet(t, SEASON), closed=snippet(t, CLOSED), perm_closed=snippet(t, PERM_CLOSED), phones=phones[:8], needs=needs_list(t),
+               fb_mention=phone_rule.mentions_food_bank(pt), other_labels=phone_rule.other_labels(pt, norm_phone), sub_page=sub_page, _text=pt)
     return res
 
 # ---------- main ----------
@@ -451,18 +527,24 @@ def record_clear_phones(items, new, source, root=None, name=''):
 
 def apply_phone_fixes(by_site, fixes, flag, root=None, applied=None):
     """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
-    A listing in the phone baseline is never changed here: the proposal is held for Dean.
+    A listing in the phone baseline (or any existing listing while that file is missing) is never changed here: the
+    proposal is held for Dean. A fix only reaches the pins it was recorded for (`ids`); an older fix without them only
+    reaches the single food bank pin, never a location pin (phone_targets).
     `applied` collects (website, fix) only for numbers that were actually written."""
     root = root or ROOT
     n = 0
     for u, lst in by_site.items():
         f = fixes.get(u)
         if not f: continue
+        scope = {i.get('id') for i in lst if i.get('id') in f['ids']} if f.get('ids') else {i.get('id') for i in phone_targets(lst, f['old'])[0]}
         for i in lst:
             if norm_phone(i.get('phone')) != f['old']: continue
-            if phone_lock.is_listed(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
-                phone_lock.hold(root, i.get('id'), 'phone', i.get('phone'), f['new'], f.get('source') or '', 'phone fix', i.get('name') or '')
-                flag(u + '|' + i.get('id', ''), 'phone change skipped (frozen in phone baseline)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied: this number is frozen in overrides/phone_baseline.json and held for Dean')
+            if i.get('id') not in scope:
+                flag(u + '|' + i.get('id', ''), 'phone fix held (strict gate)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note=SCOPE_HOLD)
+                continue
+            if listing_phone_frozen(i.get('id'), root) and (i.get('phone') != f['new'] or i.get('tel') != f['new']):
+                hold_phone_for_dean(i, f['new'], f.get('source') or '', root)
+                flag(u + '|' + i.get('id', ''), 'phone change skipped (frozen in phone baseline)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied: this number is frozen in overrides/phone_baseline.json (or that file is missing, which locks every listing) and held for Dean')
                 continue  # phone and tel stay byte-identical
             if phone_locked(i):
                 flag(u + '|' + i.get('id', ''), 'phone change skipped (locked / hand-checked)', name=i.get('name', ''), id=i.get('id', ''), website=u, stored=i.get('phone'), proposed=f['new'], source=f.get('source', ''), note='not applied because this phone is marked phone_checked or locked; change it by hand if right')
@@ -511,6 +593,9 @@ def main():
     try: undone = json.load(open(os.path.join(ROOT, PHONE_UNDONE), encoding='utf-8'))
     except Exception: undone = {}
     fixes = {u: f for u, f in fixes.items() if undone.get(u) != f.get('new')}  # an undone fix is never re-applied
+    fixes = {u: f for u, f in fixes.items() if f.get('new') not in undone_numbers(undone, u)}  # every number Dean undid for that site
+    centre_phones, own_sites = load_centre_phones(), load_own_sites()
+    fixes_at_start, held_old = dict(fixes), {}
     changes = rj('access_changes.json', [])
     review = rj('daily_review.json', {})
     today = review.get(DAY, {'date': DAY, 'runs': [], 'items': {}}); review = {k: v for k, v in review.items() if k >= (NOW.date() - datetime.timedelta(days=14)).isoformat()}
@@ -623,27 +708,32 @@ def main():
             if len(ids_) < len(by_site[u]): flag(u, 'closure on hold (your hold list)', name=name, website=u, text=r['perm_closed'])
         elif r['perm_closed']: flag(u, 'closure pending (confirms next run)', name=name, website=u, text=r['perm_closed'], note='if the wording is still there next run the card gets a "May have closed" note and it goes to your pending list (never removed automatically)')
         elif r['closed'] and r['closed'] != prev.get('closed'): flag(u, 'own site mentions closure (temporary/unclear)', name=name, website=u, text=r['closed'])
-        # (4) phones
+        # (4) phones - per listing, never per website (phone audit 28 Oct 2026)
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
+        if r.get('fb_mention') is False and phone_rule.mentions_food_bank(r.get('_text') or '', names + [i.get('name') or '' for i in by_site[u]]): r['fb_mention'] = True
+        f0 = fixes.get(u)
+        if f0 and not f0.get('gated'):  # an older fix, recorded before the strict gate: re-checked against this run's reading
+            why = legacy_fix_reasons(u, f0, fixes_at_start, r, by_site[u], centre_phones, own_sites, undone)
+            if why:
+                fixes.pop(u); held_old[u] = dict(f0, held_on=DAY, why=why)
+                flag(u, 'phone fix held (older fix failed the strict gate)', name=name, website=u, stored=f0.get('old'), proposed=f0.get('new'), source=f0.get('source') or '', note='; '.join(why))
         if own_site_misses_stored(stored, r['phones']):
             clear = len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes
             gate = phone_gate_reasons(u, r, prev, undone) if clear else []
+            if clear: gate += [w for w in pin_phone_reasons(u, by_site[u], r['phones'][0], centre_phones, own_sites) if w not in gate]
             if clear and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
                 flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
             elif clear and gate:
                 flag(u, 'phone fix held (strict gate)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='; '.join(gate))
             elif clear:
-                new = r['phones'][0]; old = sorted(stored)[0]
+                new = r['phones'][0]; targets = phone_targets(by_site[u])[0]; old = norm_phone(targets[0].get('phone'))
                 lab = (r.get('contact_labels') or {}).get(new, '')
-                d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=False))
+                d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=bool((r.get('other_labels') or {}).get(new))))
                 if d['action'] == 'show':
-                    targets = [i for i in by_site[u] if norm_phone(i.get('phone')) == old]
-                    listed = [i for i in targets if phone_lock.is_listed(i.get('id'))]
-                    for i in listed:  # baselined listings are held, not auto-applied
-                        phone_lock.hold(ROOT, i.get('id'), 'phone', i.get('phone'), new, r.get('final_url') or '', 'phone fix', i.get('name') or name)
-                    if len(listed) < len(targets):
+                    apply_to = record_clear_phones(targets, new, r.get('final_url') or '', ROOT, name)  # baselined listings (all, with no baseline file) are held
+                    if apply_to:
                         fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label'],
-                                        first_run_at=prev.get('checked_at'), second_run_at=r.get('checked_at')); stats['phone_fixes'] += 1
+                                        first_run_at=prev.get('checked_at'), second_run_at=r.get('checked_at'), ids=[i['id'] for i in apply_to], gated=True); stats['phone_fixes'] += 1
                         today['items'].pop('phone number not on own site|' + u, None)
                         e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e); this_run.append(e)
                 else:
@@ -652,7 +742,9 @@ def main():
                 flag(u, 'phone number not on own site', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='only a single clickable number seen on 2 runs is auto-applied; this one is not clear')
         # (5) items needed
         if r['needs'] and prev.get('checked_at') and r['needs'] != prev.get('needs'): flag(u, 'items-needed list ' + ('updated' if prev.get('needs') else 'published'), name=name, website=u, list=r['needs'])
-        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse')}
+        state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse', 'fb_mention', 'other_labels')}
+    if held_old:  # older fixes the strict gate now holds: kept for Dean with their reasons, not re-applied
+        wj('phone_fixes_held.json', dict(rj('phone_fixes_held.json', {}), **held_old))
     review_hours(items, state, flag, t0 + BUDGET)
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
