@@ -58,6 +58,22 @@ class Bot3Review(unittest.TestCase):
                 self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
     def test_inverness_still_dropped(self):
         self.assertEqual((self.after["salvation-army/inverness"]["opening_times"] or {}).get("status"), "NO_TIMES")
+    def test_office_warehouse_postal_never_keeps_another_sites_block(self):
+        # Bot 3 re-sample 2 (28 Oct): each kept another site's block, or the warehouse's own donation / office hours
+        for k in ("peterborough", "arden", "chelmsford", "pbp", "doncaster", "cannock-district", "south-east-bristol"):
+            with self.subTest(k):
+                ot = self.after[k]["opening_times"] or {}
+                self.assertEqual(ot.get("raw") or "", ""); self.assertEqual(ot.get("status"), "NO_TIMES")
+                self.assertTrue(self.log[k].startswith("office/warehouse/postal"))
+    def test_dartmouth_keeps_own_friday_hub(self):
+        self.assertEqual(self.raw("dartmouth-district"), "Friday from 11.00 am to 12.30 pm")
+    def test_weymouth_trims_to_baptist_church(self):
+        self.assertEqual(self.raw("weymouth"), "Tuesday and Friday 10.30 am to 12.30pm")
+    def test_rushden_keeps_own_lines(self):
+        self.assertNotIn("rushden-and-higham", self.log)
+        self.assertEqual(self.raw("rushden-and-higham"), "Tuesday and Thursday 9:30am – 12:30pm | Wednesday 3.30pm to 5.30pm")
+    def test_burgess_hill_trims_to_church_walk(self):
+        self.assertEqual(self.raw("burgess-hill"), "Tuesday and Thursday 11am - 1pm | Saturday 10am - 12pm"); self.assertNotIn("Fridays", self.raw("burgess-hill"))
     def test_split_cards_not_merged_across_week(self):
         self.assertEqual(len(G._groups(["Mon Closed Fri Closed Sat 10:00 - 12:00", "Tue Closed Sun 12:30 - 13:30"])), 2)
         self.assertEqual(len(G._groups(["Mon Closed Tue 13:00 - 15:00", "Wed Closed Thu 13:00 - 15:00"])), 1)
@@ -70,6 +86,16 @@ class Unit(unittest.TestCase):
         self.assertNotIn("Mon 13:00 - 15:00 |", q["opening_times"]["raw"]); self.assertIn("Tue 10:00 - 12:00", q["opening_times"]["raw"])
         c2 = {"id": "x/b", "type": "location", "opening_times": {"raw": "Opening times Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed", "structured": {"tue": [["10:00", "12:00"]]}}}
         log = G.apply([p, c, c2]); self.assertEqual(p["opening_times"]["status"], "NO_TIMES"); self.assertIn("x", log)
+    def test_office_address_trim_gives_no_times(self):
+        c = {"id": "o/a", "type": "location", "opening_times": {"raw": "Mon 13:00 - 15:00", "structured": {"mon": [["13:00", "15:00"]]}}}
+        p = {"id": "o", "type": "foodbank", "address": "PO Box 1, Town", "opening_times": {"raw": "Mon 13:00 - 15:00 | Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed", "status": "TIMES_TEXT_ONLY"}}
+        log = G.apply([p, c]); self.assertEqual(p["opening_times"]["status"], "NO_TIMES"); self.assertTrue(log["o"].startswith("office/warehouse/postal"))
+    def test_quoted_own_line_kept_on_warehouse(self):
+        G.own_lines()["zz-test"] = {"lines": ["Fri 11:00 - 12:30"]}
+        try:
+            p = {"id": "zz-test", "type": "foodbank", "kind": "warehouse", "opening_times": {"raw": "Fri 11:00 - 12:30 | Sun 10:00 - 12:00 | Wed 12:00 - 15:00"}}
+            G.apply([p, {"id": "zz-test/a", "type": "location"}]); self.assertEqual(p["opening_times"]["raw"], "Fri 11:00 - 12:30")
+        finally: G.own_lines().pop("zz-test")
     def test_warehouse_never_joined(self):
         p = {"id": "y", "type": "foodbank", "kind": "warehouse", "opening_times": {"raw": "Tue 10:00 - 12:00 | Thu 13:00 - 15:00"}}
         c = {"id": "y/a", "type": "location", "opening_times": None}

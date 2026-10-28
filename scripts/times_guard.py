@@ -36,6 +36,20 @@ def _groups(segs):
         if CARDSEG.search(x) and g and CARDSEG.search(g[-1][0]) and not CARDSTART.search(x) and _first_day(x) > _last_day(g[-1][-1]): g[-1].append(x)
         else: g.append([x])
     return [" | ".join(y) for y in g]
+OFFICE = re.compile(r"\bp\.?\s?o\.?\s?box\b|\bc/o\b|postal|warehouse|head office|\boffice\b", re.I)
+_OWN = None
+def own_lines():
+    """overrides/own_centre_lines.json: the listing's own centre hours line, quoted from the organisation's own page."""
+    global _OWN
+    if _OWN is None:
+        import os, json
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "overrides", "own_centre_lines.json")
+        try: _OWN = {k: v for k, v in json.load(open(p)).items() if not k.startswith("_")}
+        except Exception: _OWN = {}
+    return _OWN
+def _office(i):
+    """An office, warehouse or PO-box/postal listing: classified warehouse/drop-off, or its own address says so."""
+    return i.get("kind") in ("warehouse", "dropoff") or bool(OFFICE.search(" ".join(str(i.get(k) or "") for k in ("name", "address"))))
 def joined_centre_times(i, centres):
     """-> new opening_times for parent i, or None when unchanged.
     Bot 3 review of #232 (28 Oct 00:10): a single block is the listing's own (dundonald, wythenshawe, weston, cheltenham, hart, vale,
@@ -48,6 +62,14 @@ def joined_centre_times(i, centres):
     if NOT_CLIENT_PAGE.search(path): return _none(ot, "times came from a vacancies/volunteer/donation page")
     segs = _segs(ot)
     from times import normalise
+    ev = own_lines().get(i["id"])
+    if ev:  # Bot 3 re-sample 2 (28 Oct): the page gives this listing's own centre a separate hours line -> keep exactly that line
+        want = {_norm(x) for x in ev.get("lines", [])}; groups0 = _groups(segs)
+        mine = [g for g in groups0 if _norm(g) in want] or [x for x in segs if _norm(x) in want]
+        if mine:
+            if " | ".join(mine) == " | ".join(segs): return None
+            return dict(normalise({"raw": " | ".join(mine), "status": "TIMES_TEXT_ONLY", "structured": None, "source_url": ot.get("source_url"),
+                                   "checked_date": ot.get("checked_date")}), guard="kept the listing's own centre line (quoted on its own page)")
     def st(x):
         o = normalise({"raw": x, "status": "TIMES_TEXT_ONLY", "structured": None}) or {}
         return o.get("structured") if o.get("status") == "TIMES_FOUND" else None
@@ -84,6 +106,8 @@ def joined_centre_times(i, centres):
     if i.get("kind") in ("warehouse", "dropoff") and len(keep) > 1: keep = []
     if " | ".join(keep) == " | ".join(segs): return None
     if not keep: return _none(ot, "centres' joined times removed")
+    if _office(i):  # Bot 3 re-sample 2: a leftover block on an office / warehouse / PO-box listing is another site's (or the warehouse's own donation hours)
+        return _none(ot, "office/warehouse/postal listing: another site's times not kept")
     return dict(normalise({"raw": " | ".join(keep), "status": "TIMES_TEXT_ONLY", "structured": None,
                            "source_url": ot.get("source_url"), "checked_date": ot.get("checked_date")}), guard="trimmed to the listing's own block")
 def salvation_army(i):
