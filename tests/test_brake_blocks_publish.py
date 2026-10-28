@@ -44,7 +44,7 @@ class MainStopsOnCombinedCount(unittest.TestCase):
                                            "ids": [i["id"] for i in items]}}
         LS = learning.load(path=os.path.join(tempfile.mkdtemp(), "none.json")); LS["change_counts"] = [{"day": "d%d" % n, "changes": 2} for n in range(4)]
         written, saved = {}, []
-        rep, tmp = tempfile.mkdtemp(), tempfile.mkdtemp(); out = os.path.join(tmp, "gh_output")
+        rep, tmp = tempfile.mkdtemp(), tempfile.mkdtemp(); out = os.path.join(tmp, "gh_output"); self.tmp = tmp
         def fake(u):
             return dict(url=u, ok=True, final_url=u + "/contact", pages=[u + "/contact"], access="unclear", hours_hash="", hours_sample=[],
                         seasonal=None, closed=None, perm_closed=None, phones=phone, tel=phone, needs=None, checked_at="2026-10-27T11:00:00+00:00", http=200)
@@ -75,6 +75,11 @@ class MainStopsOnCombinedCount(unittest.TestCase):
         self.assertIn("Counted: 0 own-site changes", md); self.assertIn("12 opening-times changes the refresh gate applied", md)
         self.assertIn("fails at its anomaly brake step, before the commit step", md)
         self.assertNotIn("phone_fixes.json", written); self.assertEqual({i["phone"] for i in items}, {"01000000000"})
+        for f in ("access_changes.json", "access_tags.json", "full_check_state.json", "provenance.json"):
+            self.assertNotIn(f, written)
+        self.assertEqual(os.listdir(self.tmp), ["gh_output"])   # no data.full.js or access.js
+        self.assertEqual(saved[-1]["change_counts"], [{"day": "d%d" % n, "changes": 2} for n in range(4)])   # the spike is not a new baseline
+        self.assertTrue(saved[-1]["anomaly"]["stop"])
         self.assertEqual(saved[-1]["anomaly"]["proposed"], 12)
 
     def test_without_gate_times_the_same_run_goes_ahead(self):
