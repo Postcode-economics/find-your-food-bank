@@ -99,6 +99,10 @@ def main():
         if nm:
             for k in ('name', 'foodbank'):
                 if nm.get(k): i[k] = nm[k]
+    webfix = {k: v for k, v in load_json(os.path.join(ROOT, 'overrides', 'foodbank_websites.json'), {}).items() if not k.startswith('_')}
+    for i in items:  # checked website corrections; url "" drops a dead/wrong link, the listing stays (28 Oct 2026)
+        wf = webfix.get(i['id'])
+        if isinstance(wf, dict) and 'url' in wf: i['website'] = wf['url']
     import own_locations  # own-site locations pages (overrides/own_location_pages.json), re-scraped every run; page beats Give Food
     own_log = own_locations.refresh(items, ROOT); print('own locations pages:', json.dumps(own_log))
     # postcode check: move pins >2 km from their postcode centroid

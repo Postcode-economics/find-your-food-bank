@@ -4938,11 +4938,13 @@
   }
  },
  "colchester": {
-  "checked_date": "2026-10-20",
-  "raw": "Tuesday-Wednesday 11:00 am to 1:00 pm | Thursday Closed Friday 11:00 am to 1:00 pm",
-  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "Collection times Monday-Saturday 10:00 am to 2:00 pm Sunday Closed",
+  "source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) Bot 3 held listing, 3 identical runs",
+  "previous": "Tuesday-Wednesday 11:00 am to 1:00 pm | Thursday Closed Friday 11:00 am to 1:00 pm"
  },
  "colchester/brightlingsea": {
   "card_name": "Brightlingsea Foodbank",
@@ -18695,11 +18697,13 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "selby-centre": {
-  "checked_date": "2026-10-20",
-  "raw": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm",
-  "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
   "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "structured": null,
+  "raw": "The Selby Food Hub is open weekly on Thursdays between 2pm and 4pm. You must collect a ticket in advance on the day from our Reception.",
+  "source_url": "https://www.selbytrust.co.uk/selby-foodhub",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) Bot 3 held listing, 3 identical runs",
+  "previous": "Monday to Friday: 8.30am to 5pm | Saturday: 9am to 3pm"
  },
  "selby-district": {
   "checked_date": "2026-10-20",
@@ -19089,36 +19093,13 @@
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
  },
  "silklife": {
-  "checked_date": "2026-10-20",
-  "raw": "Sunday Service 10:30 - 12:30",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 9:30am - 11:30am | Friday 9:30am - 11:30am",
   "source_url": "https://www.silklife.co.uk/foodbank",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "fri": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
-   "sat": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
-   "sun": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
-   "tue": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ]
-  }
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) Bot 3 held listing, 3 identical runs; page: \"on a Tuesday or a Friday morning between 9:30am and 11:30am\"",
+  "previous": "Sunday Service 10:30 - 12:30"
  },
  "skegness": {
   "status": "TIMES_FOUND",
@@ -27131,5 +27112,797 @@
   "source_url": "https://northayrshire.foodbank.org.uk/locations/",
   "checked_date": "2026-10-27",
   "reader": "hand-reviewed 2026-10-27 (own page re-fetched live; office/phone/depot hours labelled, not shown as food collection; fix/office-depot-labels)"
+ },
+ "covent-garden/7-dials-club": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Pantry is based at 7 Dials Club, 42 Earlham Street … WC2H 9LA | by appointment only. Collection only on Fridays between 11.30am and 3.30pm",
+  "source_url": "https://www.dragonhall.org.uk/food-bank",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/dundee": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Friday 4.00 - 6.00pm Hot meal and Food Parcels",
+  "source_url": "https://www.salvationarmy.org.uk/dundee",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/shaw": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 11:00am - 13:00 Food Bank (through Shaw Churches Together and hosted by Shaw Salvation Army)",
+  "source_url": "https://www.salvationarmy.org.uk/shaw",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/nelson": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "come along to the Foodbank at the following times: Tuesday The Salvation Army 2pm-3pm … Friday The Salvation Army 2pm-3pm",
+  "source_url": "https://www.salvationarmy.org.uk/nelson",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/burnley": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 10:00am – 12:00pm Emergency Food Parcel Requests* … *Food parcel requests must be made by phone or email in advance",
+  "source_url": "https://www.salvationarmy.org.uk/burnley",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/penrith": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday … 10am-3pm Food Bank & Practical Support … Friday … 10am-3pm Food Bank & Practical Support",
+  "source_url": "https://www.salvationarmy.org.uk/penrith",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "windsor-food-share/alma-beacon": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Alma Beacon , 73a Alma Rd, Windsor SL4 3HD Tuesdays between 1:00 pm and 2:30 pm",
+  "source_url": "https://www.windsorfoodshare.org.uk",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/bellshill": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Our Foodbank operates on a Monday primarily by referral",
+  "source_url": "https://www.salvationarmy.org.uk/bellshill",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/preston": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Food Bank Opening Hours: Monday, Tuesday, Thursday, Friday: 10am - 1pm",
+  "source_url": "https://www.salvationarmy.org.uk/preston",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/barking": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The food bank opening hours are Monday - Friday between 9.30am - 11.30am, 2pm - 3.30pm",
+  "source_url": "https://www.salvationarmy.org.uk/barking",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/new-addington": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Fieldway Centre, Fieldway, New Addington CR0 9AZ | 'The Vine' foodbank … between 11 & 13 Salcot Crescent … for food referrals on Wednesday and Saturday mornings from 10am-12pm",
+  "source_url": "https://www.salvationarmy.org.uk/new-addington",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-1.md)"
+ },
+ "salvation-army/dartford": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Thursday … 10am-12pm Food Bank",
+  "source_url": "https://www.salvationarmy.org.uk/dartford",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-2.md)"
+ },
+ "salvation-army/leighton-buzzard": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "MONDAY 11am - 2.00pm Community Drop-In … access to food parcels",
+  "source_url": "https://www.salvationarmy.org.uk/leighton-buzzard",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-2.md)"
+ },
+ "salvation-army/gravesend": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 9.00 am to 10.00am “ Food bank “",
+  "source_url": "https://www.salvationarmy.org.uk/gravesend",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-2.md)"
+ },
+ "salvation-army/dunstable": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Drop in and see us Mondays and Tuesdays 1.30pm - 3pm and Fridays 12.30pm - 2pm. We can issue food bank vouchers, or small food bags",
+  "source_url": "https://www.salvationarmy.org.uk/dunstable",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-2.md)"
+ },
+ "salvation-army/dudley": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "THURSDAY Community Cafe & Foodbank 10am - 12 noon",
+  "source_url": "https://www.salvationarmy.org.uk/dudley",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-2.md)"
+ },
+ "fusion/dewsbury": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "collect your food pack from Our office on Floor 2, Empire House, Wakefield Old Road, Dewsbury … Monday to Friday between 11 am and 3 pm",
+  "source_url": "https://fusionhousing.org.uk/services/food-and-more-service/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-2.md)"
+ },
+ "salvation-army/southwick-community-project": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Food Bank (By Referral Only) 9.30 - 12.00 Monday to Friday",
+  "source_url": "https://www.salvationarmy.org.uk/southwick-community-project",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/shepton-mallet": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Community Food bank is manned Mondays, Tuesdays and Thursdays @ 10:00 am to 12 noon",
+  "source_url": "https://www.salvationarmy.org.uk/shepton-mallet",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/gainsborough": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 10am - 1pm Food bank … Friday 10am - 1pm Food bank",
+  "source_url": "https://www.salvationarmy.org.uk/gainsborough",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/barton-upon-humber": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "2:00-3:30pm Barton Area Foodbank (external) Food parcels - referral only",
+  "source_url": "https://www.salvationarmy.org.uk/barton-upon-humber",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "fair-frome": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "We are open on Monday, Wednesday and Friday mornings between 10am and 1pm",
+  "source_url": "https://fairfrome.org/food-bank/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "brigg": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Pantry usually runs on the third Tuesday of each month, with daytime and evening sessions",
+  "source_url": "https://oikos-brigg.org.uk/what-we-do/food-and-more/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/harold-hill": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Friday 9:45am - 11:15am Food Share … come and get a bag",
+  "source_url": "https://www.salvationarmy.org.uk/harold-hill",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/crewe": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 10am - 12 noon Drop in centre (including Food Parcel distribution by referral only) … Thursday … 10am - 12 noon Food Bank, by referral only",
+  "source_url": "https://www.salvationarmy.org.uk/crewe",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/wickford": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Food Bank Weekly on Thursday from 10am – 11:30am",
+  "source_url": "https://www.salvationarmy.org.uk/wickford",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/keighley": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "every Thursday between 12.30pm and 2pm … only accept professional referrals",
+  "source_url": "https://www.salvationarmy.org.uk/keighley",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/darlington-citadel": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Friday 5:30pm - 7.00pm Foodbank (As of 28th August timings will be 5-6pm)",
+  "source_url": "https://www.salvationarmy.org.uk/darlington-citadel",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/bradford-citadel": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 9am - 12 noon Food Bank ( every week )",
+  "source_url": "https://www.salvationarmy.org.uk/bradford-citadel",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/shildon": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 12:00-14:00 Foodbank … Thursday … 10:00-12:00 Foodbank",
+  "source_url": "https://www.salvationarmy.org.uk/shildon",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/herne-bay": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday - Food Bank Pick Up Hub 10-11am Pick up for pre-ordered parcels from www.canterburyfoodbank.org",
+  "source_url": "https://www.salvationarmy.org.uk/herne-bay",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/stockport-citadel": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 1.30pm - 3.30pm food bank ( referral needed) Friday 2pm - 4pm food bank. (Referral needed)",
+  "source_url": "https://www.salvationarmy.org.uk/stockport-citadel",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "sustain": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "open for people to collect food parcels between 12.00 noon – 1.00pm Monday, Wednesday and Friday",
+  "source_url": "https://www.tonbridgebaptist.church/get-involved/tn10/sustain/?from=HomeSustain",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/scarborough": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Friday 10am - 12pm Emergency Food Bank",
+  "source_url": "https://www.salvationarmy.org.uk/scarborough",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/ripley": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 1pm to 4pm Foodbank - this is currently suspended until further notice … Friday … 11am to 2pm Foodbank",
+  "source_url": "https://www.salvationarmy.org.uk/ripley",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/dunfermline": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday … 11am Community Larder",
+  "source_url": "https://www.salvationarmy.org.uk/dunfermline",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "rye": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Rye Baptist Church Cinque Ports Street Rye TN31 7AN Open every Wednesday, 12 noon–2pm No referral or voucher is required",
+  "source_url": "https://ryefoodbank.com",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)"
+ },
+ "salvation-army/cowdenbeath": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 10am until 12 noon, Community Connect Drop In. Opportunity to collect emergency food provision",
+  "source_url": "https://www.salvationarmy.org.uk/cowdenbeath",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/chippenham": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tues 09:30 - 11:30am Chippenham Food Bank … Fri 10:00 - 11:30am Chippenham Food Bank (referrals are normally required)",
+  "source_url": "https://www.salvationarmy.org.uk/chippenham",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/south-normanton": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wednesdays FREE Café / Drop-In Centre 9am to 12pm: Food Share available throughout Food Bank also available",
+  "source_url": "https://www.salvationarmy.org.uk/south-normanton",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/banbury": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday Foodbank 10.30 am - 12 noon … Friday … Foodbank 10.30 - 12 noon",
+  "source_url": "https://www.salvationarmy.org.uk/banbury",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "the-hive": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "open to voucher holders every Wednesday at St Mary’s Hornsey Rise, Ashley Road N19 3AD. We open at 6.30pm and close at 8.30pm",
+  "source_url": "https://thehivefoodbank.com",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "st-demetrios": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Operating from the Church grounds each Saturday between 12:00 & 14:00",
+  "source_url": "https://stdemetrios.org.uk/foodbank/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/hemel-hempstead": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "MONDAY Community Outreach 9.30 - 12.00 pm … we give out food parcels",
+  "source_url": "https://www.salvationarmy.org.uk/hemel-hempstead",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/aldershot": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday … 10am-12noon Food Bank- emergency provision",
+  "source_url": "https://www.salvationarmy.org.uk/aldershot",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/bedford-congress-hall": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Friday … 1pm - 3pm Trussell Trust Food Bank With Citizens Advice",
+  "source_url": "https://www.salvationarmy.org.uk/bedford-congress-hall",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "beacon": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Open for referrals: weekdays 10am – 12.30pm … Hampers can be collected from Beacon Lounge",
+  "source_url": "https://beaconchurchhavant.org.uk/community/beacon-food-bank/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/risca": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "TUESDAY 09:45 - 11:30 Foodbank … FRIDAY 09:45 - 11:30 Foodbank The Salvation Army & Trussell Trust",
+  "source_url": "https://www.salvationarmy.org.uk/risca",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)"
+ },
+ "salvation-army/woodbridge": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday Food Bank 3.30 pm until 6.30 pm Wednesday Food Bank 9.30 am until 1.30 pm … Thursday Food Bank 9.30 am until 1.30 pm",
+  "source_url": "https://www.salvationarmy.org.uk/woodbridge",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-5.md)"
+ },
+ "salvation-army/horsham": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Thursday 6pm Hope In Community Services - Foodbank, drop-in, support, conversation, and meal",
+  "source_url": "https://www.salvationarmy.org.uk/horsham",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "bow": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Bow Community Hall William Place, London, E3 5ED … Click and Collect: Tuesdays 12:30 pm to 4 pm … Fridays 8 am to 12 pm … Come and see us: Tuesdays 10 am to 12 pm Thursdays 10 am to 1 pm … Wednesdays 14:00…",
+  "source_url": "https://www.bowfoodbank.org",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "salvation-army/leytonstone": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday … 11:00 - 14:00 Foodbank (please email … prior to arrival)",
+  "source_url": "https://www.salvationarmy.org.uk/leytonstone",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "ifan-656c3bdee3de82e43e1cd8-0": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "17 Doran Walk Stratford, London E15 2JL … Mon–Fri, 10am–2pm",
+  "source_url": "https://www.carpenterscafe.co.uk",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "ifan-604a74f1cb3c7d624b7f35-0": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The main larder is inside St James Church, Christow, EX6 7LZ. There is a 24/7 essentials box in the church porch",
+  "source_url": "https://www.teignvalley.org/larder/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "exmouth": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Salvation Army Hall, Sheppards Row Exmouth EX8 1PW … Tuesdays between 13:30 and 15:00 Fridays between 13:30 and 15:00",
+  "source_url": "https://www.exmouthfoodbank.org.uk",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "exeter/the-beacon-community-centre": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Beacon Community Centre Beacon Lane … EX4 8LZ … Wednesday 10:00 am – 12:00 pm … Friday 10:00 am – 12:00 pm",
+  "source_url": "https://exeterfoodbank.co.uk",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "exeter/ex5-alive": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "EX5 Alive, Cranbrook Education Campus, Tillhouse Road, Cranbrook, EX5 7EE … Thursday 5:00 pm – 7:00 pm",
+  "source_url": "https://exeterfoodbank.co.uk",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "salvation-army/newbury": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Friday … 1pm - 3pm West Berkshire Foodbank",
+  "source_url": "https://www.salvationarmy.org.uk/newbury",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "salvation-army/basingstoke": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "MONDAY … 10:30-11:00 COMMUNITY FOOD HUB / Fresh and frozen food … available to pick up by anyone",
+  "source_url": "https://www.salvationarmy.org.uk/basingstoke",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "salvation-army/kilbirnie": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 9.30am - 11.00am Foodbank … Thursday 1 - 2.30pm Foodbank",
+  "source_url": "https://www.salvationarmy.org.uk/kilbirnie",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "salvation-army/kilmarnock": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 10.30 - 11.30am Foodbank … Thursday 11.00am-12.30pm Community Drop-In (hot roll and emergency food parcels available)",
+  "source_url": "https://www.salvationarmy.org.uk/kilmarnock",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-6.md)"
+ },
+ "salvation-army/goldthorpe": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 9.30am - 3pm  Food Bank / Community Engagement Support",
+  "source_url": "https://www.salvationarmy.org.uk/goldthorpe",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/dinnington": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wednesday 08.30-12pm Foodbank … 11am Food give away",
+  "source_url": "https://www.salvationarmy.org.uk/dinnington",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "st-anthony-and-st-mark/st-marks": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "open every Wednesday, from 10:00 to 12:00 noon in St. Anthony's hall and from 12:00 noon to 2:00 pm in St. Mark's hall",
+  "source_url": "https://www.stanthonystmark.org.uk/ministries-and-groups/food-banks/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/parkhead": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Food Bank: 12PM-1PM Every Thursday A Food package can be obtained from our Drop-In service on Thursdays",
+  "source_url": "https://www.salvationarmy.org.uk/parkhead",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/cumbernauld": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wednesday … 11:00am - 12:30pm  Hope Kitchen (Foodbank offering Food Parcels and other help, no referral needed)",
+  "source_url": "https://www.salvationarmy.org.uk/cumbernauld",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/glasgow-west": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wednesdays Fortnightly Foodbank 2-3pm … Fortnightly in November - 12th and 26th then Weekly on: Wednesday 2nd December 2-3pm",
+  "source_url": "https://www.salvationarmy.org.uk/glasgow-west",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "west-dunbartonshire-community-foodshare": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Unit 21, Leven Valley Enterprise Centre, Castlehill Road, Dumbarton, G82 5BN Hours Mon 10:00 – 15:30 Tue 10:00 – 15:30 Wed 10:00 – 15:30 Thu 10:00 – 15:30 Fri 10:00 – 15:30 Sat Closed | If you need support please contact us by telephone only on: FREEPHONE 0800 345 7050",
+  "source_url": "https://westdunbartonshirecommunityfoodshare.co.uk/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "food-for-thought-dumbarton/central-alexandria-tenants-residents-association": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday - CATRA Centre, Alexandria, 11am to 12pm",
+  "source_url": "https://www.foodforthoughtwestdun.co.uk/services/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "merthyr-cynon/cornerstone-church-centre": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "CVC Cwmbach … Opening times Mon 10:00 - 12:00 … Address Collection only please Sion Terrace, Cwmbach CF44 OAS",
+  "source_url": "https://merthyrcynon.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "penarth": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Penarth Foodbank Where: Arcot House, Plassey Street, Penarth, CF64 1EN … When: open every weekday morning, 10am to 12noon",
+  "source_url": "https://www.tabs.church/food-bank",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/lurgan": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 10am - 12 Drop in for a cuppa and a chat Foodbank - drop in | Thursday 10am - 12 noon Drop in … Foodbank - drop in",
+  "source_url": "https://www.salvationarmy.org.uk/lurgan",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/pentre": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Thursday 10:00am - 12pm  Food Bank",
+  "source_url": "https://www.salvationarmy.org.uk/pentre",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/cradley-heath": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wednesday … 10.00am - 11:30am Foodbank vouchers",
+  "source_url": "https://www.salvationarmy.org.uk/cradley-heath",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "sparkhill/st-johns-church": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Sparkhill St John's … Opening times Mon Closed Tue Closed Wed 10:30 - 12:30 … St John's Road Sparkhill Birmingham Entrance on Shakespeare Street … B11 4RG",
+  "source_url": "https://sparkhill.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "arden/studley-centre": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Studley - Studley Methodist Church … Opening times Mon Closed Tue 14:00 - 15:30 … Alcester Road Studley B80 7NJ",
+  "source_url": "https://arden.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)"
+ },
+ "salvation-army/mansfield": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Thursday 10am to 12 noon - Community relief (aka Food Bank)",
+  "source_url": "https://www.salvationarmy.org.uk/mansfield",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "salvation-army/carmarthen": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday Community Support Open access - 10am-1pm This includes … access to food bank | Thursday Community Support Open access - 10am-1pm … access to food bank",
+  "source_url": "https://www.salvationarmy.org.uk/carmarthen",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "salvation-army/morriston": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wednesday 9:30 am - 12:00 noon Foodbank (open alternate weeks) Next open: October 14th & 28th November 25th",
+  "source_url": "https://www.salvationarmy.org.uk/morriston",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "salvation-army/hinckley": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tuesday 10-11.30am Carpet Bowls … 11.30am – 1.30pm: Lunch Club … 12pm - 2pm FoodBank Food Distribution Service",
+  "source_url": "https://www.salvationarmy.org.uk/hinckley",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "shipston": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Just come along on a Saturday morning between 10.30 and 12 at St Edmund's Church.",
+  "source_url": "https://www.shipstonfoodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "west-cheshire/chester-new-church": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Elton Community Hub (collection only) … Opening times Mon Closed Tue 10:00 - 13:00 Wed 10:00 - 13:00 Thu 10:00 - 13:00 Fri 10:00 - 13:00 Sat 10:00 - 13:00 Sun Closed Address Elton Community Centre",
+  "source_url": "https://westcheshire.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "salvation-army/gateshead": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Fridays 9-11am - Breakfast Café- open to everyone 11.30am -12.30pm Food Share and Hygiene Support",
+  "source_url": "https://www.salvationarmy.org.uk/gateshead",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-2.md)"
+ },
+ "salvation-army/great-yarmouth": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 10:00am - 12:00pm Advice Drop In & Crisis Food Bank (Food Bank - Referrals Only)",
+  "source_url": "https://www.salvationarmy.org.uk/great-yarmouth",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "waveney/st-lukes-beccles": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "ST. Lukes Beccles Opening times Mon 14:00 - 15:00 Tue Closed Wed Closed Thu Closed Fri 14:00 - 15:30",
+  "source_url": "https://waveney.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "north-norfolk": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Cromer Methodist Church Hall Cromer … NR27 9DT … Thursday 1:30 pm to 3:00 pm",
+  "source_url": "https://northnorfolk.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "salvation-army/briston": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Weekdays Tuesday 10.30-12.30 Coffee morning & Lunch … Our food bank will also be open during this time.",
+  "source_url": "https://www.salvationarmy.org.uk/briston",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "salvation-army/edinburgh-gorgie": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Food Bank opening times: Mondays, 1-3 Wednesdays, 11-1 Fridays, 10-12",
+  "source_url": "https://www.salvationarmy.org.uk/edinburgh-gorgie",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "spring-community-hub/st-pauls-church": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "WEDNESDAYS St Paul’s Church 4 Lorrimore Square, London SE17 3QU TIME: 11:30-13:30",
+  "source_url": "https://www.springcommunityhub.org.uk/food-bank/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "salvation-army/stafford": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 5:15pm-6pm - Community Food Bank",
+  "source_url": "https://www.salvationarmy.org.uk/stafford",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "micah-liverpool/st-brides-church-liverpool": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "St Bride’s Church Percy Street, Liverpool, L8 7LT Pantry Session Thursdays 10.30am – 12pm",
+  "source_url": "https://micahliverpool.com/our-food-bank/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "micah-liverpool/the-parish-church-of-st-vincent-de-paul": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "The Parish Church of St Vincent de Paul Hardy Street, Liverpool, L1 5JN Pantry Session Tuesdays 10.30am – 12pm",
+  "source_url": "https://micahliverpool.com/our-food-bank/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "south-liverpool": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Bridge Chapel Centre Heath Road, Garston Liverpool L19 4XR … Monday 10:30 am to 12:00 pm Tuesday-Thursday Closed Friday 10:30 am to 12:00 pm",
+  "source_url": "https://southliverpool.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "salvation-army/kettering-citadel": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Monday 10.30 am to 12 noon Breakfast Club, Warm Space and Foodbank … Tuesday 10.30 am to 12 noon Breakfast Club, Warm Space and Foodbank",
+  "source_url": "https://www.salvationarmy.org.uk/kettering-citadel",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-3.md)"
+ },
+ "anglesey/holyhead": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Anglesey Food Bank Holland Park Industrial Estate Holyhead, Anglesey LL65 2PU … Collection times … Monday-Friday 9:15 am to 2:00 pm Saturday-Sunday Closed",
+  "source_url": "https://anglesey.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-4.md)"
+ },
+ "salvation-army/irvine-new-plant": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "19 Townhead Irvine KA12 0BH … Wednesday 1pm - 3pm Food bank … Thursday … 1pm - 3pm Food bank",
+  "source_url": "https://www.salvationarmy.org.uk/irvine-new-plant",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-4.md)"
+ },
+ "horsham-district/hub-on-the-move-southwater": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Wed 12:30 - 13:30",
+  "source_url": "https://horshamdistrict.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) GB2 + Motion: Southwater, The Church Room"
+ },
+ "burgess-hill/hassocks-united-reformed-church": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Open on Fridays 10am - midday",
+  "source_url": "https://burgesshillfoodbank.org.uk/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)"
+ },
+ "south-ayrshire/troon-old-parish-church": {
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null,
+  "raw": "Tue 12:00 - 14:00 | Fri 12:00 - 14:00",
+  "source_url": "https://southayrshire.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)"
  }
 }

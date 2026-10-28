@@ -137,3 +137,272 @@ Your rule: no general council numbers as a venue's direct line or out-of-hours l
 
 Already fixed in this PR (no need to decide): Peasholme Homeless Hostel and James House in York showed 01904 554500 (York Council Housing Options). They now show their own numbers from their own pages, 01904 551901 and 01904 553626. JNR8 Youth & Community Centre, Manchester (warm space ww-55475981) showed 0800 023 2692 (Manchester City Council's Cost of Living Advice Line). It now shows its own number from its own contact page, 0161 881 3744.
 <!-- /council lines review -->
+
+<!-- listings batch 28 oct -->
+## Listings batch #239 (28 Oct 2026): for your review
+Every change is in logs/listings_batch_28oct.json with the old value (undo). Nothing removed except the 3 listed as REMOVED.
+
+- `ifan-9fef48d4f0fd3a3f6896d2-0`: hours on its own page but not clear-cut (Fri 17:00–18:00; address unconfirmed)
+- `covent-garden/7-dials-club`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/dundee`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/shaw`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/nelson`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/burnley`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/penrith`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `windsor-food-share/alma-beacon`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/slough`: hours on its own page but not clear-cut (Thu 19:30 (no end time given))
+- `salvation-army/bellshill`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/preston`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/barking`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/new-addington`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/teignmouth`: hours on its own page but not clear-cut (mark closed / point to Newton Abbot corps)
+- `salvation-army/dartford`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `lyme-regis`: own page times differ from stored hand-checked times: Wed 10:00–12:00
+- `st-philips`: hours on its own page but not clear-cut (delivery only: text by Wed for Fri-morning delivery)
+- `salvation-army/leighton-buzzard`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/harlesden`: hours on its own page but not clear-cut (mark temporarily closed)
+- `salvation-army/gravesend`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/dunstable`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/dudley`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `ifan-84cd0bf40986bfc9a427c6-0`: own page times differ from stored hand-checked times: Wed 10:00–14:00 (non-referral)
+- `castlehaven`: hours on its own page but not clear-cut (Thu pickup by arrangement (register Tue))
+- `fusion/dewsbury`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `trinity-mission-hope-centre`: hours on its own page but not clear-cut (Tue & Wed drop-in (meals/parcels); hours not given)
+- `salvation-army/southwick-community-project`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/staines`: hours on its own page but not clear-cut (Mon–Thu 09:00–12:00 (+Fri, confirm))
+- `salvation-army/shepton-mallet`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/gainsborough`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/barton-upon-humber`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `machars-churches`: own page times differ from stored hand-checked times: Tue–Thu 09:00–12:00
+- `fair-frome`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `brigg`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/harold-hill`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/bath-citadel`: hours on its own page but not clear-cut (pantry 15:00–17:30 (confirm day))
+- `salvation-army/buckie`: hours on its own page but not clear-cut (Tue 11:00–13:00 (larder, paid))
+- `salvation-army/crewe`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `ifan-d59b2e089746f7a97c1e15-0`: own page times differ from stored hand-checked times: Mon, Wed, Fri 09:00–14:00 (pantry)
+- `salvation-army/wickford`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/keighley`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/darlington-citadel`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/bradford-citadel`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/shildon`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/redruth`: hours on its own page but not clear-cut (Wed 10:00–12:00 (day inferred from layout))
+- `st-ives-cornwall`: hours on its own page but not clear-cut (Tue 10:00–12:00 collect (Edward Hain Centre — address differs; verify))
+- `salvation-army/herne-bay`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/stockport-citadel`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `sustain`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/scarborough`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/ripley`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/dunfermline`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `rye`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `hope-for-belper`: own page times differ from stored hand-checked times: Tue & Fri 12:00–14:00
+- `salvation-army/cowdenbeath`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/chippenham`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/south-normanton`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/banbury`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/southampton-sholing`: hours on its own page but not clear-cut (Tue 11:00–14:30 pantry (day from layout))
+- `hedge-end/the-hope-centre`: hours on its own page but not clear-cut (Mon food bank, Thu pantry (hours not given))
+- `the-hive`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `st-demetrios`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/wood-green`: hours on its own page but not clear-cut (mark no regular foodbank / signpost)
+- `salvation-army/hemel-hempstead`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/aldershot`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `liphook`: own page times differ from stored hand-checked times: Tue & Fri 09:30–11:30
+- `salvation-army/bedford-congress-hall`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `beacon`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/risca`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/woodbridge`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/harlow`: hours on its own page but not clear-cut (11:00–14:00 (confirm day, likely Wed))
+- `salvation-army/horsham`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `bow`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/leytonstone`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `ifan-656c3bdee3de82e43e1cd8-0`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `ifan-604a74f1cb3c7d624b7f35-0`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `exmouth`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `exeter/the-beacon-community-centre`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `exeter/ex5-alive`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/newbury`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/basingstoke`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/kilbirnie`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/kilmarnock`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/goldthorpe`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `living-hope`: own page times differ from stored hand-checked times: Wed 12:00–13:30
+- `salvation-army/dinnington`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `st-anthony-and-st-mark/st-marks`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/parkhead`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/cumbernauld`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/glasgow-west`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `west-dunbartonshire-community-foodshare`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `food-for-thought-dumbarton/central-alexandria-tenants-residents-association`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `merthyr-cynon/cornerstone-church-centre`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `penarth`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/lurgan`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/pentre`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `lalley-centre`: own page times differ from stored hand-checked times: Mon–Fri 10:30–15:00 (centre incl. pantry)
+- `salvation-army/cradley-heath`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `sparkhill/st-johns-church`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `arden/studley-centre`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `hucknall`: own page times differ from stored hand-checked times: Mon & Tue 09:30–13:30 (referral)
+- `salvation-army/mansfield`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/carmarthen`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/morriston`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/hinckley`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `masjid-faizan-e-madina`: hours on its own page but not clear-cut (Thu from 10:30 (end not given); note hub is at Old Nursery, Cobden Street)
+- `north-bristol-south-gloucestershire/thornbury`: hours on its own page but not clear-cut (Fri (times not given on page))
+- `shipston`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `west-cheshire/chester-new-church`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `ifan-3c7cb974c7ac6c1966b83c-0`: own page times differ from stored hand-checked times: Mon–Wed & Fri 12:00–14:00, Sat 11:00–13:00
+- `salvation-army/gateshead`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/great-yarmouth`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `waveney/st-lukes-beccles`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/north-walsham`: hours on its own page but not clear-cut (Community fridge Mon & Thu from 09:30 (end time not given – do not invent))
+- `north-norfolk`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/briston`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/edinburgh-gorgie`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `spring-community-hub/st-pauls-church`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/stafford`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `ifan-25c84c4582b7e7c60aeeac-0`: own page times differ from stored hand-checked times: Mon 09:30–14:00, Wed 12:30–16:30, Fri 09:30–16:30 (low-cost store)
+- `micah-liverpool/st-brides-church-liverpool`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `micah-liverpool/the-parish-church-of-st-vincent-de-paul`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `south-liverpool`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/kettering-citadel`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/leeds-central`: hours on its own page but not clear-cut (Tue from 11:30, small food parcels (end time not given – do not invent))
+- `anglesey/holyhead`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/irvine-new-plant`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `colchester`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `silklife`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `selby-centre`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `horsham-district/hub-on-the-move-southwater`: times changed from its own page (undo in logs/listings_batch_28oct.json)
+- `salvation-army/kinlochleven`: address/pin moved from its own page (undo logged)
+- `salvation-army/bexleyheath`: address/pin moved from its own page (undo logged)
+- `salvation-army/portland`: address/pin moved from its own page (undo logged)
+- `salvation-army/kirkcaldy`: address/pin moved from its own page (undo logged)
+- `salvation-army/plymouth-congress-hall`: address/pin moved from its own page (undo logged)
+- `salvation-army/bishops-stortford`: address/pin moved from its own page (undo logged)
+- `salvation-army/faversham`: address fix not applied: postcode ME13 7AW did not geocode
+- `salvation-army/mosborough`: address/pin moved from its own page (undo logged)
+- `salvation-army/chesterfield`: address/pin moved from its own page (undo logged)
+- `salvation-army/ballymoney`: address/pin moved from its own page (undo logged)
+- `broxtowe-community-projects`: address/pin moved from its own page (undo logged)
+- `salvation-army/sleaford`: address/pin moved from its own page (undo logged)
+- `salvation-army/cramlington`: address/pin moved from its own page (undo logged)
+- `salvation-army/irthlingborough`: address/pin moved from its own page (undo logged)
+- `salvation-army/wetherby`: address/pin moved from its own page (undo logged)
+- `salvation-army/nunhead`: address/pin moved from its own page (undo logged)
+- `thanet-food-link`: address/pin moved from its own page (undo logged)
+- `colchester`: address/pin moved from its own page (undo logged)
+- `horsham-district/hub-on-the-move-southwater`: address/pin moved from its own page (undo logged)
+- `salisbury/tidworth`: address/pin moved from its own page (undo logged)
+- `salvation-army/erskine-community-church-centre`: address/pin moved from its own page (undo logged)
+- `salvation-army/huddersfield`: address/pin moved from its own page (undo logged)
+- `salvation-army/willenhall`: address/pin moved from its own page (undo logged)
+- `salvation-army/batley`: address/pin moved from its own page (undo logged)
+- `salvation-army/hounslow`: address fix not applied: postcode TW3 7UF did not geocode
+- `salvation-army/feltham`: address/pin moved from its own page (undo logged)
+- `salvation-army/southend-citadel`: address/pin moved from its own page (undo logged)
+- `salvation-army/eastbourne-citadel`: address/pin moved from its own page (undo logged)
+- `salvation-army/limavady`: address/pin moved from its own page (undo logged)
+- `salvation-army/bristol-kingswood`: address/pin moved from its own page (undo logged)
+- `salvation-army/aylsham`: address/pin moved from its own page (undo logged)
+- `wirral/st-catherines-tranmere`: address/pin moved from its own page (undo logged)
+- `north-bristol-south-gloucestershire/lockleaze`: address/pin moved from its own page (undo logged)
+- `salvation-army/southend-southchurch`: reported closed by third-party/news only; removal needs an own-source closure
+- `salvation-army/lochgelly`: reported closed by third-party/news only; removal needs an own-source closure
+- `salvation-army/thornaby`: reported closed by third-party/news only; removal needs an own-source closure
+- `salvation-army/midsomer-norton`: reported closed by third-party/news only; removal needs an own-source closure
+- `salvation-army/west-cornforth`: reported closed by third-party/news only; removal needs an own-source closure
+- `salvation-army/wandsworth`: reported closed by third-party/news only; removal needs an own-source closure
+- `salvation-army/devon-cornwall`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/herts-essex`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/yorkshire-south-with-humber-division`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/north-west-england-north-wales`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/anglia`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/south-london`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/east-scotland`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/south-east`: Salvation Army divisional office, not a food centre: Dean to decide removal
+- `salvation-army/bath-temple`: own page: prayer room, no food bank (not stated closed): Dean to decide
+- `salvation-army/harlesden`: label from its own page; Dean review
+- `greenwich/woolwich`: label from its own page; Dean review
+- `east-dunbartonshire/st-josephs-church`: label from its own page; Dean review
+- `salvation-army/redditch`: label from its own page; Dean review
+- `salvation-army/wood-green`: label from its own page; Dean review
+- `salvation-army/morley`: label from its own page; Dean review
+- `widnes`: label from its own page; Dean review
+- `widnes/former-st-bedes-club`: label from its own page; Dean review
+- `waveney/st-johns-harleston`: label from its own page; Dean review
+- `salvation-army/corby`: label from its own page; Dean review
+- `salvation-army/aberdeen-citadel`: label from its own page; Dean review
+- `salvation-army/north-london`: label from its own page; Dean review
+- `salvation-army/bideford`: label from its own page; Dean review
+- `bournemouth/southbourne`: possible closure (not confirmed by own source)
+- `lowestoft-district/saxmundham`: possible closure (not confirmed by own source)
+- `salvation-army/the-salvation-army-in-whitleigh`: possible closure (not confirmed by own source)
+- `my-2nd-chance`: Bot 3 no-date batch 4: flagged for review
+- `newcastle-staffs/elim-pentecostal-church`: Bot 3 no-date batch 4: flagged for review
+- `salvation-army/jersey`: own page 404
+- `rhayader`: own page 404
+- `salvation-army/thurso`: own page 404
+- `salvation-army/maddiston`: own page 404
+- `salvation-army/stenhousemuir`: own page 404
+- `salvation-army/ashton-in-makerfield`: own page 404
+- `salvation-army/motherwell`: own page 404
+- `salvation-army/brixham`: own page 404
+- `luton/marsh-farm`: own page 404
+- `salvation-army/sedgley`: own page 404
+- `luton/stopsley-baptist-church`: own page 404
+- `luton/luton-central-library`: own page 404
+- `luton/high-town`: own page 404
+- `luton/dallow`: own page 404
+- `salvation-army/mablethorpe`: own page 404
+- `salvation-army/gawthorpe`: own page 404
+- `billericay`: own page 404
+- `salvation-army/saltcoats`: own page 404
+- `crookston-community-group`: own page 404
+- `salvation-army/shettleston`: own page 404
+- `salvation-army/grantham`: own page 404
+- `salvation-army/skewen-temple`: own page 404
+- `manor-house`: own page 404
+- `salvation-army/forest-of-dean`: own page 404
+- `salvation-army/severn-somerset`: own page 404
+- `bourne`: own page 404
+- `bristol-north-west/emmanuel-chapel`: own page 404
+- `bristol-north-west/emmaus-church-centre`: own page 404
+- `bristol-north-west/lawrence-weston-baptist-church`: own page 404
+- `bristol-north-west/hope-chapel`: own page 404
+- `salvation-army/bedworth`: own page 404
+- `the-bay`: own page 404
+- `widdrington-station-stobswood`: own page 404
+- `salvation-army/newbiggin-by-the-sea`: own page 404
+- `salvation-army/portobello`: own page 404
+- `salvation-army/stoke-on-trent`: own page 404
+- `alsager-district`: own page 404
+- `salvation-army/yorkshire-north-tees`: own page 404
+- `facebook groups`: Facebook GROUP links kept and flagged: Heston Farm, Accrington ACT, Cullompton, LauderLarder (council-directory times NOT applied), Maltby, Uist & Barra
+- `salvation-army/blackburn`: REMOVED: Own page is the church only and mentions no food bank (Dean approved removal 28 Oct 2026 05:43 GMT)
+- `salvation-army/saltcoats`: REMOVED: Closed: The Salvation Army's own Scotland guide (2024) lists Saltcoats only as a charity shop (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)
+- `salvation-army/teignmouth`: REMOVED: Closed: its own page says "17 Brunswick Street - Now Closed" (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)
+- `salvation-army/andover`: Bot 4 proposed 01264 335242: that is the charity shop line. Number unchanged, call before you go
+- `burgess-hill/hassocks-united-reformed-church`: Proposed 07850 945407 is the church building line. Unchanged
+- `ww-65441971 Lockswood`: Site shows two numbers (01962 868545, 07842 306034); ours 07842 306029. Unchanged
+- `ww-65437319 Lambourn`: 01488 505050 not shown for the lunch club; page gives 07770 394 123 (Helen). Unchanged
+- `sunderland/pennywell-community-centre`: Locations page lists the food bank central line 0191 543 7191. Unchanged
+- `windsor-food-share`: Site says call 03444 111 444 (RBWM council contact centre). Not added
+- `salvation-army/stanford-le-hope, barking-riverside, abersychan`: Using SA national HQ 020 7367 4500. Unchanged
+- `salvation-army/cardiff-cathays`: Using SA national HQ 020 7367 4500. Unchanged
+- `Salvation Army mobile mismatches (43), Trussell differences (4), ww-55474542, Kirklees`: From phones-bot4: unchanged, your call
+- `salvation-army/st-austell`: Page shows 01726 890174 and 07827 192126; applied 01726 890174 (Bot 3 pass 2 suggested the mobile)
+- `poole/parkstone URC, poole/calvary, winchester badger-farm, hastings/hawkhurst`: Bot 3 suggested the food bank help line but Bot 4 confirmed the venue number on its own page: kept venue number
+- `taunton/wiveliscombe`: Second number 01823 270316 not stored (one number per listing)
+- `salvation-army/faversham, salvation-army/hounslow`: Address fix not applied: new postcode did not geocode
+- `LauderLarder`: New times only in the council directory: not applied
+- `bournemouth/southbourne`: Help line applied and call-before-you-go label (may be a different organisation)
+- `salvation-army/lowestoft-south`, `salvation-army/lowestoft-citadel`: both SA pages show only the two church leaders' mobiles (07341 574505 / 07341 574492), no single corps number. Unchanged
+- OWNS Oxford: 3 conflicting numbers. Unchanged
+- `salvation-army/corby`, Malachi Place: SA national HQ number only. Unchanged
+- Hawkhurst and Renew Café 01580 752913: not found anywhere. Unchanged
+- Men's Hostel Belfast: HarmonI head office number; the direct line is only in search results. Unchanged
+- Closures round 3 applied from own pages (undo logged): Maidstone Family Food Bank 4 hubs renamed with new address and number (Family Hub 03000 numbers are each hub's own line), Hassocks now Powell House Fri 10-12, Hurstpierpoint delivery only, London Road Church Harleston Tue 13:30-15:00, Troon now St Meddan's Church Hall Tue/Fri 12-14, Stowmarket Catholic Centre labelled pop-up shop (£1 per bag). 25 UNKNOWN unchanged
+- `newham-district/royal-docks-learning-activity-centre`: Newham Foodbank /locations/ shows this postcode (E16 2JB, Albert Road North Woolwich) as "St John's Community Centre". Number set to the food bank help line 020 7476 1666; name NOT changed. Rename?
+- `newham-district/bonny-downs`: locations page shows 0208 586 7070 for Bonny Downs Community Association at The Well, 35 Vicarage Lane E6 6DQ, but our pin is E6 6BT. Postcode does not match: number NOT changed
+- `waveney/framlingham-delivery-team`: Waveney /locations/ card 'Framlingham Delivery team' shows 07388 791126 but gives no address, so it can't be matched by postcode (IP13 9BQ): number NOT changed
+<!-- /listings batch 28 oct -->

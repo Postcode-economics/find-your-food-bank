@@ -85,7 +85,7 @@ def gate(layer, ref='HEAD'):
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'sweep shelters', 'closures', 'phone lock', 'council lines review'):  # keep times review, sweep shelters, closures, held phones, and Dean's council-number review list (28 Oct)
+        for tag in ('times review', 'sweep shelters', 'closures', 'phone lock', 'council lines review', 'listings batch 28 oct'):  # keep times review, sweep shelters, closures, held phones, and Dean's council-number review list (28 Oct)
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     if gate.last_privacy:

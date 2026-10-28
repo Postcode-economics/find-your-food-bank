@@ -77,6 +77,30 @@
    "name": "Eastwood (not on Southend Foodbank's list)",
    "exact": true,
    "reason": "Not among the 4 distribution centres on https://southend.foodbank.org.uk/about-us/locations or the voucher page (checked 26 Oct 2026)."
+  },
+  {
+   "slug": "salvation-army/blackburn",
+   "name": "Blackburn ",
+   "exact": true,
+   "reason": "Own page is the church only and mentions no food bank (Dean approved removal 28 Oct 2026 05:43 GMT)",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/saltcoats",
+   "name": "Saltcoats",
+   "exact": true,
+   "reason": "Closed: The Salvation Army's own Scotland guide (2024) lists Saltcoats only as a charity shop (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/teignmouth",
+   "name": "Teignmouth",
+   "exact": true,
+   "reason": "Closed: its own page says \"17 Brunswick Street - Now Closed\" (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
   }
  ]
 }
