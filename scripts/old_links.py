@@ -7,6 +7,7 @@ Report: reports/old_links.md + logs/old_links.json."""
 import functools, http.server, json, mimetypes, os, subprocess, sys, tempfile, threading
 from playwright.sync_api import sync_playwright
 import check_browser as B
+import shard
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # commit -> must the FIRST open already show the latest build? v80's worker served HTML cache-first, so its first open shows the
 # old (working) page and the next open is the latest; v85+ pages carry the self-heal check and must show the latest at once.
@@ -40,9 +41,12 @@ def run(base=None):
         base = 'http://localhost:%d' % srv.server_address[1]
     base = base.rstrip('/'); build = json.load(open(os.path.join(ROOT, 'version.json')))['build']
     res = []
+    every = ['%s|%s|%s' % (commit, uaname, link) for commit in OLD_COMMITS for link in links() for uaname, _ in UAS]
+    mine = set(shard.pick(every))
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
         for commit in OLD_COMMITS:
+            if not any(k.startswith(commit + '|') for k in mine): continue
             old = snapshot(commit)
             def serve_old(route):
                 path = route.request.url.split(base, 1)[-1].split('?')[0].split('#')[0] or '/'
@@ -50,6 +54,7 @@ def run(base=None):
                 if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
             for link, (uaname, ua) in [(l, u) for l in links() for u in UAS]:
+                if '%s|%s|%s' % (commit, uaname, link) not in mine: continue
                 c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True, service_workers='allow')
                 c.route('**/*', serve_old)
                 B.stub_map_tiles(c)  # after the catch-all: continue_() would otherwise send tiles to the network
@@ -83,6 +88,7 @@ def run(base=None):
                 res.append(r); print('PASS' if r['ok'] else 'FAIL', commit, r.get('ua', ''), link, r['why'], flush=True); c.close()
         b.close()
     if srv: srv.shutdown()
+    shard.write_report('oldlinks', every, [k for k in every if k in mine], ['%s|%s|%s' % (r['old'], r['ua'], r['link']) for r in res])
     bad = [r for r in res if not r['ok']]
     os.makedirs(os.path.join(ROOT, 'logs'), exist_ok=True)
     json.dump(res, open(os.path.join(ROOT, 'logs', 'old_links.json'), 'w'), indent=1)

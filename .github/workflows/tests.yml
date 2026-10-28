@@ -63,6 +63,7 @@ jobs:
                 scripts/design_lock.py|scripts/design_lock.json) design=1 ;;
                 scripts/journeys.py|scripts/check_browser.py) journeys=1; browser=1; oldlinks=1; design=1 ;;
                 tests/site_ready.py) browser=1 ;;
+                scripts/shard.py|tests/conftest.py|tests/shard_weights.json) browser=1; oldlinks=1; journeys=1 ;;
                 .github/workflows/tests.yml) browser=1; oldlinks=1; design=1; journeys=1 ;;
                 tests/*.py) if [ ! -f "$f" ] || grep -q playwright "$f"; then browser=1; fi ;;
               esac
@@ -94,8 +95,16 @@ jobs:
     if: needs.changes.outputs.oldlinks == '1'
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
+    # Dean 28 Oct 2026: split in 3 parallel shards (scripts/shard.py); old-links-all below checks every case ran exactly once.
+    name: old-links shard ${{ matrix.shard }}/3
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
     runs-on: ubuntu-latest
     timeout-minutes: 60  # real offline tiles are rendered on the runner; ~33 min on blank tiles
+    env:
+      HELPMAP_SHARD: ${{ matrix.shard }}/3
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -103,13 +112,45 @@ jobs:
         with: {python-version: "3.12"}
       - uses: ./.github/actions/offline-tiles
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-oldlinks-${{ matrix.shard }}
+          path: logs/shards/oldlinks-${{ matrix.shard }}.json
+          retention-days: 3
+  old-links-all:
+    name: old-links
+    needs: [changes, old-links]
+    if: always() && needs.changes.outputs.oldlinks == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-oldlinks-*
+          path: shards
+          merge-multiple: true
+      - name: All shards passed
+        run: test "${{ needs.old-links.result }}" = success || { echo "::error::an old-links shard did not pass (${{ needs.old-links.result }})"; exit 1; }
+      - name: Every case ran in exactly one shard
+        if: always()
+        run: python3 scripts/shard.py verify oldlinks 3 shards
   journeys:
     needs: changes
     if: needs.changes.outputs.journeys == '1'
     # Dean 25 Oct 2026 (permanent rule): the real-click user-journey suite must pass before any site change merges
     # (all three types, 390/1366 px, light/dark). Runs on every push / PR that touches site html/css/js.
+    # Dean 28 Oct 2026: the four width/scheme combinations split over 2 parallel shards; journeys-all checks all four ran.
+    name: journeys shard ${{ matrix.shard }}/2
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      HELPMAP_SHARD: ${{ matrix.shard }}/2
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}  # the PR base must be present, or the site-change diff fails and journeys silently skip
@@ -124,13 +165,53 @@ jobs:
         uses: ./.github/actions/offline-tiles
       - if: steps.site.outputs.run == '1'
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/journeys.py
+      - if: always() && steps.site.outputs.run == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-journeys-${{ matrix.shard }}
+          path: logs/shards/journeys-${{ matrix.shard }}.json
+          retention-days: 3
+  journeys-all:
+    name: journeys
+    needs: [changes, journeys]
+    if: always() && needs.changes.outputs.journeys == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - id: site
+        run: |
+          base=${{ github.event.pull_request.base.sha || github.event.before }}
+          if git diff --name-only "$base" HEAD 2>/dev/null | grep -Eq '\.(html|css|js)$|^scripts/journeys\.py$|^scripts/check_browser\.py$'; then echo run=1 >> "$GITHUB_OUTPUT"; else echo run=0 >> "$GITHUB_OUTPUT"; fi
+      - if: steps.site.outputs.run == '1'
+        uses: actions/download-artifact@v4
+        with:
+          pattern: shard-journeys-*
+          path: shards
+          merge-multiple: true
+      - name: All shards passed
+        run: test "${{ needs.journeys.result }}" = success || { echo "::error::a journeys shard did not pass (${{ needs.journeys.result }})"; exit 1; }
+      - name: Every width/scheme combination ran in exactly one shard
+        if: always() && steps.site.outputs.run == '1'
+        run: python3 scripts/shard.py verify journeys 2 shards
   browser-tests:
     needs: changes
     if: needs.changes.outputs.browser == '1'
     # Dean 25 Oct 2026: browser tests (status line never cut off, list panel alignment, open-today, two-finger note, ...)
     # really run here; the plain test job has no Playwright so it skips them.
+    # Dean 28 Oct 2026: split in 4 parallel shards by whole test module (tests/conftest.py, weights in
+    # tests/shard_weights.json); browser-tests-all checks every collected test ran in exactly one shard.
+    name: browser-tests shard ${{ matrix.shard }}/4
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      HELPMAP_SHARD: ${{ matrix.shard }}/4
+      HELPMAP_SHARD_SUITE: browser
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -144,6 +225,30 @@ jobs:
       - name: Chrome binary guard
         if: always()
         run: test -x /usr/bin/google-chrome || { echo "::error::/usr/bin/google-chrome missing; the Chrome browser tests were skipped"; exit 1; }
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-browser-${{ matrix.shard }}
+          path: logs/shards/browser-${{ matrix.shard }}.json
+          retention-days: 3
+  browser-tests-all:
+    name: browser-tests
+    needs: [changes, browser-tests]
+    if: always() && needs.changes.outputs.browser == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-browser-*
+          path: shards
+          merge-multiple: true
+      - name: All shards passed
+        run: test "${{ needs.browser-tests.result }}" = success || { echo "::error::a browser-tests shard did not pass (${{ needs.browser-tests.result }})"; exit 1; }
+      - name: Every collected test ran in exactly one shard
+        if: always()
+        run: python3 scripts/shard.py verify browser 4 shards
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
@@ -164,8 +269,17 @@ jobs:
     # M1 1AE search, filters, Open today and scrolling all respond. Stand-in tiles only, no real network.
     # test_iphone_backup_map: iPhone 13 + SE, backup off/on, service worker on/off, blocked at the network layer
     # (local proxy) so the block holds for service-worker fetches too; the backup must paint.
+    # Dean 28 Oct 2026: split in 2 parallel shards by whole test module; iphone-webkit-all checks every test ran once.
+    name: iphone-webkit shard ${{ matrix.shard }}/2
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      HELPMAP_SHARD: ${{ matrix.shard }}/2
+      HELPMAP_SHARD_SUITE: webkit
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}  # the old-worker tests read sw.js from earlier commits
@@ -175,6 +289,30 @@ jobs:
       # 27 Oct 2026: the iPhone map-fix and stale-worker WebKit tests were skipped everywhere (browser-tests has no WebKit).
       # The vector fallback check uses a TLS proxy with the service worker allowed. It does not use route() with the worker blocked.
       - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py tests/test_iphone_freeze.py tests/test_iphone_vector_recover.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py tests/test_motion_28oct_3.py tests/test_website_link.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-webkit-${{ matrix.shard }}
+          path: logs/shards/webkit-${{ matrix.shard }}.json
+          retention-days: 3
+  iphone-webkit-all:
+    name: iphone-webkit
+    needs: [changes, iphone-webkit]
+    if: always() && needs.changes.outputs.browser == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-webkit-*
+          path: shards
+          merge-multiple: true
+      - name: All shards passed
+        run: test "${{ needs.iphone-webkit.result }}" = success || { echo "::error::an iphone-webkit shard did not pass (${{ needs.iphone-webkit.result }})"; exit 1; }
+      - name: Every collected test ran in exactly one shard
+        if: always()
+        run: python3 scripts/shard.py verify webkit 2 shards
   iphone-journeys:
     needs: changes
     if: needs.changes.outputs.browser == '1'

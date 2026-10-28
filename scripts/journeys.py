@@ -17,6 +17,7 @@ Usage: journeys.py [base-url]   (default: serve this checkout locally). Exit 1 o
 Results: reports/journeys.md, logs/journeys.json, screenshots of failures in logs/journeys/."""
 import functools, http.server, json, os, sys, threading, time
 import check_browser as B
+import shard
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 SHOTS = os.path.join(ROOT, 'logs', 'journeys')
 NOTE = 'Showing places open today. If no times are listed, call before you go.'
@@ -115,10 +116,13 @@ def run(base=None, chrome=None, quick=False):
     base = base.rstrip('/') + '/?nocount'
     global LAST
     r = R(); LAST = r; combos = [(390, 'light'), (390, 'dark'), (1366, 'light'), (1366, 'dark')]
+    every = ['%dpx %s' % c for c in combos]
+    mine = shard.pick(every); done = []
     scenario.deadline = time.time() + SUITE_LIMIT
     with sync_playwright() as p:
         b = p.chromium.launch(**({'executable_path': chrome} if chrome else {}))
         for w, sc in combos:
+            if '%dpx %s' % (w, sc) not in mine: continue
             V = '%dpx %s' % (w, sc)
             print('journeys %s' % V, flush=True)
             # J1 search options
@@ -267,8 +271,10 @@ def run(base=None, chrome=None, quick=False):
                     vis = pg.evaluate("[...document.querySelectorAll('body *')].some(e=>e.children.length==0&&/two fingers/i.test(e.textContent)&&e.getClientRects().length&&getComputedStyle(e).visibility!='hidden'&&getComputedStyle(e).opacity!='0')")
                     r.ok('J7 two-finger note', '%s | shown on one-finger drag' % V, vis)
                 scenario(r, 'J7 two-finger note', '%s | two fingers' % V, body_j7)
+            done.append(V)
         b.close()
     if srv: srv.shutdown()
+    shard.write_report('journeys', every, mine, done)
     return r.res
 
 LAST = None
