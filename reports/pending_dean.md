@@ -135,5 +135,7 @@ Your rule: no general council numbers as a venue's direct line or out-of-hours l
 
 - West Borough children's centre, Maidstone (food bank family-food-bank/west-borough-cc): 03000 421540, Kent County Council's line for that centre. It may be out of date: the KCC directory may now list West Borough Family Hub as 03000 419361 (not yet confirmed on the page). Not changed.
 
-Also waiting for your yes or no, not changed: Peasholme Homeless Hostel in York shows 01904 554500 (York Council Housing Options); JNR8 Youth & Community Centre, Manchester (warm space ww-55475981) shows 0800 023 2692 (Manchester City Council's Cost of Living Advice Line). The proposed own numbers, with the page and exact quote for each, are in PHONES-FOR-DEAN.md.
+Applied with your approval (28 Oct 06:55 GMT, undo in logs/council_numbers_238.json): Peasholme Homeless Hostel, York (osm-node-1533578890) 01904 554500 -> 01904 551901, from https://www.york.gov.uk/homelessness/hostels-supported-housing ("Peasholme Centre: 4 Fishergate, York YO10 4FH. Telephone: 01904 551901."); JNR8 Youth & Community Centre, Manchester (warm space ww-55475981) 0800 023 2692 -> 0161 881 3744, from https://www.whalleyrange.org/contact-us/ ("T: (0161) 881 3744"), keeping the council out-of-hours line 0161 234 5001. James House, York (01904 553626, approved 05:35) is applied in listings batch #239.
+
+- Peasholme Homeless Hostel, York: no council out-of-hours line on the card. York's is on the council's own page https://www.york.gov.uk/homelessness/temporary-accommodation-york: "Alternatively, you can reach the Emergency Duty Team outside of office hours on telephone: 0300 131 2131." Add it as Peasholme's council out-of-hours line? Not changed.
 <!-- /council lines review -->

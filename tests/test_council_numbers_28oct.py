@@ -1,17 +1,20 @@
 """Dean's rules (28 Oct 2026): no general council number as a venue's direct line or out-of-hours line,
 and no phone change is applied without Dean's approval.
 
-Peasholme (York) shows York's Housing Options line (01904 554500) and JNR8 Manchester shows the
-council's Cost of Living line (0800 023 2692). Their own numbers are proposed in PHONES-FOR-DEAN.md
-(council | current | proposed | URL | quote) and nothing changes on the map until Dean says yes.
+Dean approved both at 06:55 GMT: Peasholme (York) 01904 554500 (York Housing Options) -> 01904 551901,
+and JNR8 Manchester 0800 023 2692 (Cost of Living line) -> 0161 881 3744, keeping the council's
+out-of-hours line 0161 234 5001. Each is applied from its own page with an undo in
+logs/council_numbers_238.json, and a refresh can't put the council line back.
+James House (York) is applied by listings batch #239, not here.
 Council-wide library lines are not changed here; they wait on Dean's review list.
 """
-import json, os, re, sys, unittest
+import json, os, re, shutil, sys, tempfile, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import shelter_contacts, phone_lock
 
-# id -> (layer, current published number, proposed own number, page the proposed number is quoted from)
-HELD = {
+# id -> (layer, old general council number, approved own number, page the number is quoted from)
+APPROVED = {
     "osm-node-1533578890": ("shelters", "01904 554500", "01904 551901", "https://www.york.gov.uk/homelessness/hostels-supported-housing"),
     "ww-55475981": ("warmspaces", "0800 023 2692", "0161 881 3744", "https://www.whalleyrange.org/contact-us/"),
 }
@@ -20,54 +23,69 @@ def ov(name): return json.load(open(os.path.join(ROOT, "overrides", name), encod
 def items(layer):
     t = open(os.path.join(ROOT, layer + ".js"), encoding="utf-8").read()
     return {x["id"]: x for x in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
-def dean_rows():
-    t = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
-    rows = [[c.strip() for c in l.strip().strip("|").split("|")] for l in t.splitlines() if l.startswith("|")]
-    return rows[0], rows[2:]
+def contacts(layer): return ov("shelters_contacts.json" if layer == "shelters" else "warmspaces_contacts.json")
 
-class HeldForDean(unittest.TestCase):
-    def test_table_columns(self):
-        head, _ = dean_rows()
-        self.assertEqual([h.lower() for h in head], ["council", "current", "proposed", "url", "quote"])
-
-    def test_every_held_change_listed_with_url_and_quote(self):
-        _, rows = dean_rows()
-        for iid, (_, cur, new, url) in HELD.items():
-            row = [r for r in rows if iid in r[0]]
-            self.assertEqual(len(row), 1, iid)
-            council, current, proposed, u, quote = row[0]
-            self.assertIn("Council", council)
-            self.assertIn(cur, current); self.assertEqual(proposed, new); self.assertEqual(u, url)
-            self.assertIn(digits(new), digits(quote), iid)
-
-    def test_current_number_still_published(self):
-        for iid, (layer, cur, new, _) in HELD.items():
+class ApprovedNumbers(unittest.TestCase):
+    def test_published(self):
+        for iid, (layer, old, new, _) in APPROVED.items():
             x = items(layer)[iid]
-            self.assertEqual(x["phone"], cur, iid); self.assertEqual(digits(x["tel"]), digits(cur), iid)
-            self.assertNotEqual(digits(x["phone"]), digits(new), iid)
+            self.assertEqual(x["phone"], new, iid); self.assertEqual(digits(x["tel"]), digits(new), iid)
 
-    def test_no_override_or_baseline_applies_the_proposed_number(self):
+    def test_override_has_own_page_source_and_quote(self):
+        for iid, (layer, old, new, src) in APPROVED.items():
+            c = contacts(layer)[iid]
+            self.assertEqual(c["phone_fix"], new, iid); self.assertEqual(c["phone_source"], src, iid)
+            self.assertTrue(c["own_page"], iid); self.assertIn(digits(new), digits(c["phone_quote"]), iid)
+        self.assertEqual(ov("shelters_verified.json")["osm-node-1533578890"]["phone"], "01904 551901")
+
+    def test_baseline_frozen_on_new_number(self):
         b = ov("phone_baseline.json")["listings"]
-        for iid, (layer, cur, new, _) in HELD.items():
-            c = ov("shelters_contacts.json" if layer == "shelters" else "warmspaces_contacts.json").get(iid, {})
-            self.assertNotIn(digits(new), [digits(c.get(f)) for f in ("phone", "phone_fix")], iid)
-            self.assertFalse(c.get("own_page"), iid)
-            self.assertEqual(b[iid]["phone"], cur, iid)
-        sv = ov("shelters_verified.json")
-        for iid, (layer, cur, _, _) in HELD.items():
-            if layer == "shelters": self.assertEqual(sv[iid]["phone"], cur, iid)
+        for iid, (_, _, new, _) in APPROVED.items():
+            self.assertEqual(b[iid]["phone"], new, iid); self.assertEqual(b[iid]["tel"], digits(new), iid)
 
-    def test_pages_show_current_numbers(self):
+    def test_undo_log_entry_for_each(self):
+        log = json.load(open(os.path.join(ROOT, "logs", "council_numbers_238.json"), encoding="utf-8"))["changes"]
+        for iid, (layer, old, new, src) in APPROVED.items():
+            e = [c for c in log if c["id"] == iid]
+            self.assertEqual(len(e), 1, iid); e = e[0]
+            self.assertEqual((e["layer"], e["field"], e["old"], e["new"], e["source"]), (layer, "phone", old, new, src))
+            self.assertIn(digits(new), digits(e["quote"]), iid)
+            self.assertEqual(e["undo"]["set"]["phone"], old); self.assertEqual(e["undo"]["set"]["tel"], digits(old))
+            self.assertIn("Dean", e["note"])
+
+    def test_refresh_cannot_restore_council_line(self):
+        """A feed refresh that brings back the council line (OSM/source) ends with the venue's own number."""
+        for layer in ("shelters", "warmspaces"):
+            ids = {i: v for i, v in APPROVED.items() if v[0] == layer}
+            tmp = tempfile.mkdtemp()
+            try:
+                for d in ("overrides", "reports", "logs"): os.makedirs(os.path.join(tmp, d))
+                shutil.copy(os.path.join(ROOT, "overrides", "phone_baseline.json"), os.path.join(tmp, "overrides"))
+                feed = [dict(id=i, name="x", phone=v[1], tel=digits(v[1])) for i, v in ids.items()]
+                shelter_contacts.apply(feed, shelter_contacts.load(shelter_contacts.WS if layer == "warmspaces" else shelter_contacts.PATH))
+                for x in feed: phone_lock.settle_council(x)
+                phone_lock.guard(feed, tmp, via="refresh", source="test", layer=layer)
+                for x in feed:
+                    self.assertEqual(x["phone"], ids[x["id"]][2]); self.assertEqual(digits(x["tel"]), digits(ids[x["id"]][2]))
+                raw = [dict(id=i, name="x", phone=v[1], tel=digits(v[1])) for i, v in ids.items()]
+                phone_lock.guard(raw, tmp, via="refresh", source="test", layer=layer)
+                for x in raw: self.assertEqual(digits(x["phone"]), digits(ids[x["id"]][2]))
+            finally:
+                shutil.rmtree(tmp)
+
+    def test_pages_show_new_numbers(self):
         york = open(os.path.join(ROOT, "shelters", "york", "index.html"), encoding="utf-8").read()
+        i = york.index("Peasholme")
+        self.assertEqual(re.search(r'href="tel:(\d+)"', york[i:]).group(1), "01904551901")
         man = open(os.path.join(ROOT, "warm-spaces", "manchester", "index.html"), encoding="utf-8").read()
-        for iid, (layer, cur, new, _) in HELD.items():
-            h = york if layer == "shelters" else man
-            self.assertIn("tel:" + digits(cur), h, iid); self.assertNotIn("tel:" + digits(new), h, iid)
+        self.assertIn("tel:01618813744", man); self.assertNotIn("tel:08000232692", man)
 
-    def test_jnr8_council_ooh_untouched(self):
+    def test_jnr8_council_ooh_kept(self):
         c = ov("warmspaces_contacts.json")["ww-55475981"]
-        self.assertEqual(c["council_ooh"], "0161 234 5001")
-        self.assertEqual(items("warmspaces")["ww-55475981"]["council_phone"], "0161 234 5001")
+        self.assertEqual(c["council_ooh"], "0161 234 5001"); self.assertEqual(c["council_phone"], "0161 234 5001")
+        x = items("warmspaces")["ww-55475981"]
+        self.assertEqual(x["council_phone"], "0161 234 5001")
+        self.assertEqual(ov("phone_baseline.json")["listings"]["ww-55475981"]["council_ooh"], "0161 234 5001")
 
 class LibraryLinesUnchanged(unittest.TestCase):
     """Council-wide library lines stay as they are until Dean decides; they are on his review list."""
