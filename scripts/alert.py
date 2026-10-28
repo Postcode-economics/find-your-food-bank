@@ -3,28 +3,37 @@ alert.py open  <key> <title> <body>  -> open a GitHub issue labelled 'refresh-al
 alert.py resolve <key>               -> close the open issue for <key> with a note (the next good run clears it)
 alert.py stale <hours>               -> open an alert if stamp.js (last published refresh/sweep) is older than <hours>
 alert.py dates                       -> open an alert if the dates the site shows (stamp.js layers, live stamp.js) don't match the published data files
-Uses the gh CLI with GH_TOKEN (the workflow's own token). Also writes a line to the job summary. Never fails the job itself."""
+Uses the gh CLI with GH_TOKEN (the workflow's own token). Also writes a line to the job summary.
+Exits non-zero when gh fails or anything else goes wrong: an alert that could not be raised or cleared must show as a failed step."""
 import datetime, json, os, subprocess, sys
 from zoneinfo import ZoneInfo
 LABEL = 'refresh-alert'
 RUN = f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"
+class AlertError(Exception): pass
 def gh(*a):
-    return subprocess.run(['gh', *a], capture_output=True, text=True)
+    r = subprocess.run(['gh', *a], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise AlertError(f"gh {a[0]} {a[1]} failed (exit {r.returncode}): {r.stderr.strip()[:300]}")
+    return r
 def summary(line):
     p = os.environ.get('GITHUB_STEP_SUMMARY')
     if p:
         with open(p, 'a') as f: f.write(line + '\n')
     print(line)
 def find(key):
-    r = gh('issue', 'list', '--label', LABEL, '--state', 'open', '--json', 'number,title', '--limit', '50')
-    try: return next((i['number'] for i in json.loads(r.stdout or '[]') if f'[{key}]' in i['title']), None)
-    except Exception: return None
+    # Unreadable output must not look like 'no open issue': that opened duplicates and never closed the real one.
+    r = gh('issue', 'list', '--label', LABEL, '--state', 'open', '--json', 'number,title', '--limit', '1000')
+    return next((i['number'] for i in json.loads(r.stdout or '[]') if f'[{key}]' in i['title']), None)
 def open_(key, title, body):
     gh('label', 'create', LABEL, '--color', 'B60205', '--description', 'Automatic refresh/sweep problem', '--force')
     body = f"{body}\n\nRun: {RUN}\nTime (UK): {datetime.datetime.now(ZoneInfo('Europe/London')):%d %b %Y %H:%M}"
     n = find(key)
-    r = gh('issue', 'comment', str(n), '--body', body) if n else gh('issue', 'create', '--title', f'[{key}] {title}', '--label', LABEL, '--body', body)
-    summary(f"ALERT [{key}] {title} -> issue {'#'+str(n) if n else 'created'} ({'ok' if r.returncode == 0 else 'gh failed: ' + r.stderr.strip()[:200]})")
+    try:
+        gh('issue', 'comment', str(n), '--body', body) if n else gh('issue', 'create', '--title', f'[{key}] {title}', '--label', LABEL, '--body', body)
+    except AlertError as e:
+        summary(f"ALERT [{key}] {title} -> NOT raised: {e}")
+        raise
+    summary(f"ALERT [{key}] {title} -> issue {'#'+str(n) if n else 'created'} (ok)")
 def resolve(key):
     n = find(key)
     if n: gh('issue', 'close', str(n), '--comment', f'Resolved: the next run succeeded. {RUN}')
@@ -58,12 +67,15 @@ def dates():
     p = date_problems(live=live)
     if p: open_('dates', 'Shown dates do not match the published data', '\n'.join('- ' + x for x in p))
     else: resolve('dates')
+def main(argv):
+    c = argv[1] if len(argv) > 1 else ''
+    if c == 'open': open_(argv[2], argv[3], argv[4])
+    elif c == 'resolve': resolve(argv[2])
+    elif c == 'stale': stale(float(argv[2]))
+    elif c == 'dates': dates()
+    else: raise AlertError(f'unknown command {c!r} (open, resolve, stale, dates)')
 if __name__ == '__main__':
-    try:
-        c = sys.argv[1]
-        if c == 'open': open_(sys.argv[2], sys.argv[3], sys.argv[4])
-        elif c == 'resolve': resolve(sys.argv[2])
-        elif c == 'stale': stale(float(sys.argv[2]))
-        elif c == 'dates': dates()
+    try: main(sys.argv)
     except Exception as e:
-        print('alert.py problem (ignored):', e)
+        print(f'::error::alert.py failed: {type(e).__name__}: {e}', file=sys.stderr)
+        sys.exit(1)
