@@ -23,8 +23,6 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Rebuild shelters.js (re-fetches and re-checks every source page)
         run: python scripts/build_shelters.py
-      - name: Every entry has a phone or a labelled council fallback (overrides/*_contacts.json)
-        run: python scripts/shelter_contacts.py check
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py shelters
       - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
@@ -32,6 +30,9 @@ jobs:
           # Rule 9. Repository secret, one address or phone per line. See scripts/private_block.py.
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/publish_gate.py shelters
+      # After the gate (28 Oct): a new discovery with no number is held for Dean there, not failed here.
+      - name: Every entry has a phone or a labelled council fallback (overrides/*_contacts.json)
+        run: python scripts/shelter_contacts.py check
       - name: CI check - published shelters have phone + who it's for, warm spaces a phone (known gaps listed); food banks report-only
         env:
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
