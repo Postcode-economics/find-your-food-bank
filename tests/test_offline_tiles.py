@@ -130,6 +130,7 @@ class Browser(unittest.TestCase):
 
     def test_zero_external_tile_requests(self):
         from playwright.sync_api import sync_playwright
+        saved = os.environ.get(T.ENV)
         os.environ[T.ENV] = 'http://127.0.0.1:%d' % self.tiles.server_address[1]
         site = 'http://127.0.0.1:%d' % self.site.server_address[1]
         try:
@@ -144,12 +145,27 @@ class Browser(unittest.TestCase):
                 c.on('request', lambda r: T.is_external_tile_host(r.url) and seen.append(r.url))
                 pg = c.new_page()
                 pg.goto(site + '/index.html?fresh=1', wait_until='domcontentloaded')
-                pg.wait_for_function("()=>document.querySelectorAll('#map .leaflet-tile-loaded').length>=4", timeout=30000)
+                # wait_for_function uses eval, which this page's script-src rejects while scripts are still loading.
+                last = None
+                for _ in range(120):
+                    try:
+                        last = pg.evaluate("()=>document.querySelectorAll('#map .leaflet-tile-loaded').length")
+                    except Exception as e:
+                        last = '%s: %s' % (type(e).__name__, e)
+                    else:
+                        if last >= 4:
+                            break
+                    pg.wait_for_timeout(250)
+                else:
+                    raise AssertionError('tiles not loaded: %r' % (last,))
                 loaded = pg.evaluate("()=>document.querySelectorAll('#map .leaflet-tile-loaded').length")
                 pg.wait_for_timeout(500)
                 b.close()
         finally:
-            os.environ.pop(T.ENV, None)
+            if saved is None:
+                os.environ.pop(T.ENV, None)
+            else:
+                os.environ[T.ENV] = saved
         self.assertGreaterEqual(loaded, 4)
         self.assertGreaterEqual(stats.served, 4)
         self.assertGreaterEqual(len(self.hits), stats.served)
