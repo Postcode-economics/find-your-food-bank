@@ -21,7 +21,7 @@ R = os.path.join(os.path.dirname(__file__), '..')
 MAX_GAP_MS = 560
 RUN_MS = 20
 CHAIN = ['data.js', 'stamp.js', 'access.js', 'vendor/leaflet.js', 'vendor/leaflet.markercluster.js',
-         'tiles.js', 'boot', 'layers.js', 'report.js', 'register.js', 'v3.js']
+         'tiles.js', 'boot', 'layers.js', 'report.js', 'register.js', 'v3.js', 'showmore.js']  # main's show-more (#212) also waits for v3.js
 
 def have_webkit():
     try:
