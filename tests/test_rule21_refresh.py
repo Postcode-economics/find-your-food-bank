@@ -10,7 +10,7 @@ The daily sweep (scripts/sweep_daily.py, write=False), learning.py, and the
 food-bank phone steps in build.py must not drop them. An older hold whose only
 reason is that the number is a named person's does not drop them either.
 """
-import json, os, re, sys, unittest
+import json, os, re, shutil, sys, tempfile, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import phone_rule as P
@@ -179,10 +179,15 @@ class Rule21Refresh(unittest.TestCase):
         url = "https://beneficeoflangelei.org.uk/allsaints/contact/"
         item = {"id": "kings-langley", "name": "Kings Langley", "phone": "01923 903531", "tel": "01923903531",
                 "phone_label": "Team Rector", "phone_checked": True}
-        n = full_check.apply_phone_fixes(
-            {url: [item]},
-            {url: {"old": "01923903531", "new": "07754997144", "source": url, "label": "Churchwarden"}},
-            flag)
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "overrides"))
+            shutil.copy(os.path.join(ROOT, "overrides", "phone_baseline.json"), os.path.join(d, "overrides"))
+            n = full_check.apply_phone_fixes(
+                {url: [item]},
+                {url: {"old": "01923903531", "new": "07754997144", "source": url, "label": "Churchwarden"}},
+                flag, d)
+            with open(os.path.join(d, "reports", "pending_dean.md"), encoding="utf-8") as f:
+                self.assertIn("kings-langley | phone | via phone fix | source " + url, f.read())
         self.assertEqual(n, 0)
         self.assertEqual(item["phone"], "01923 903531")
         self.assertEqual(item["tel"], "01923903531")
