@@ -42,16 +42,41 @@ class Labels(unittest.TestCase):
 class Fixes(unittest.TestCase):
     def test_phones(self):
         d = items(); dg = lambda s: re.sub(r"\D", "", s or "")
-        exp = {"scunthorpe/epworth-baptist-church": "03001028061", "aberdeen-south": "01224569750", "leominster": "07563000862",
-               "3food4u": "07973166940", "st-monicas": "02088869568", "salvation-army/alton": "01420541778", "salvation-army/st-austell": "01726890174",
-               "stroud-district/dursley": "01453367077", "rickmansworth/abbots-langley": "07716856892", "shepway/lydd": "07913573403"}
-        for i, n in exp.items(): self.assertEqual(dg(d[i]["phone"]), n, i)
-        self.assertEqual(d["3food4u"]["phone_label"], "WhatsApp only")
-        self.assertEqual(d["stroud-district/dursley"]["phone_label"], "Food bank help line")
+        # Dean 28 Oct 06:37: phone changes wait for Dean. Current number stays; the proposal is listed in PHONES-FOR-DEAN.md.
+        exp = {"scunthorpe/epworth-baptist-church": ("01427875839", "03001028061"), "aberdeen-south": ("07360162919", "01224569750"),
+               "leominster": ("07715410575", "07563000862"), "3food4u": ("01992842642", "07973166940"), "st-monicas": ("02077989025", "02088869568"),
+               "salvation-army/alton": ("0142084456", "01420541778"), "salvation-army/st-austell": ("0172661791", "01726890174"),
+               "stroud-district/dursley": ("03001023254", "01453367077"), "rickmansworth/abbots-langley": ("03442451296", "07716856892"),
+               "shepway/lydd": ("01797320345", "07913573403")}
+        P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
+        L = J("logs/listings_batch_28oct.json")["changes"]
+        B = J("overrides/phone_baseline.json")["listings"]; O = J("overrides/phones.json")
+        for i, (cur, prop) in exp.items():
+            self.assertEqual(dg(d[i]["phone"]), cur, i); self.assertEqual(dg(B[i]["phone"]), cur, i)
+            self.assertNotEqual(dg(O.get(i)), prop, i)
+            self.assertFalse(d[i].get("phone_label"), i)
+            self.assertIn("| `%s` " % i, P); self.assertIn("| %s |" % prop, P)
+            self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "phone" and l["note"].startswith("reverted") and dg(l["undo"]["set"]["phone"]) == prop], i)
         self.assertFalse(d["andover/test-valley-borough-council-office"]["phone"])  # council switchboard removed, listing kept
+        self.assertIn("andover/test-valley-borough-council-office", P)
         self.assertNotEqual(dg(d["salvation-army/andover"]["phone"]), "01264335242")  # charity shop line not applied
-        B = J("overrides/phone_baseline.json")["listings"]
-        for i, n in exp.items(): self.assertEqual(dg(B[i]["phone"]), n, i)
+    def test_only_dean_approved_phones_changed(self):
+        d = items(); dg = lambda s: re.sub(r"\D", "", s or "")
+        self.assertEqual(dg(d["whitby"]["phone"]), "01947469004"); self.assertEqual(dg(d["whitby"]["tel"]), "01947469004")
+        self.assertEqual(J("overrides/phone_baseline.json")["listings"]["whitby"]["phone"], "01947469004")
+        self.assertTrue([l for l in J("logs/listings_batch_28oct.json")["changes"] if l["id"] == "whitby" and l["kind"] == "phone" and dg(l["undo"]["set"]["phone"]) == "07789765696"])
+        def layer(f):
+            t = open(os.path.join(ROOT, f), encoding="utf-8").read(); return {i["id"]: i for i in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
+        S, W = layer("shelters.js"), layer("warmspaces.js")
+        self.assertEqual(dg(S["osm-way-169564851"]["phone"]), "01904553626")  # James House, Dean approved
+        self.assertFalse(W["ww-68618605"].get("phone"))  # Bruton council switchboard removal, Dean approved
+        for i, n in (("hl-dens-the-elms", "01442800131"), ("osm-node-1533578890", "01904554500"), ("osm-way-556071354", "01414294541")):
+            self.assertEqual(dg(S[i]["phone"]), n, i)
+        for i, n in (("ww-55475981", "08000232692"), ("ww-57951889", "07821153701")): self.assertEqual(dg(W[i]["phone"]), n, i)
+        C = J("overrides/shelters_contacts.json")
+        for i in ("hl-dens-the-elms", "osm-node-1533578890", "osm-way-556071354"): self.assertNotIn("phone_fix", C[i])
+        self.assertEqual(C["osm-way-169564851"]["phone_fix"], "01904 553626")
+        for i in [k for k in d if k.startswith("milton-keynes/")]: self.assertNotIn("0300 303 4933", d[i].get("notice") or "", i)
     def test_address_name_website(self):
         d = items()
         self.assertIn("RH13 9BT", d["horsham-district/hub-on-the-move-southwater"]["address"])
@@ -85,3 +110,32 @@ class TimesRecheck0620(unittest.TestCase):
     def test_wendover_held(self):
         self.assertFalse(any(l["id"] == "chiltern/wendover" and "06:20" in l.get("note", "") for l in J("logs/listings_batch_28oct.json")["changes"]))
         self.assertIn("HELD `chiltern/wendover`", open(os.path.join(ROOT, "reports", "pending_dean.md")).read())
+class OwnSiteAudit28Oct(unittest.TestCase):
+    """Dean 28 Oct: every postcode, address, phone and time must be on the organisation's own page (2 reads)."""
+    POSTCODES = {"horsham-district/united-reform-church": "RH12 1PT", "salisbury/durrington-old-school": "SP4 8HP", "lambeth-croydon/streatham": "SW16 3NN", "wandsworth/roehampton-methodist-church": "SW15 4EB", "clevedon-district/portishead": "BS20 7DB", "rickmansworth/croxley-green-baptist-church": "WD3 3PF", "aylesbury/esquires-coffee-shop": "HP18 1AS", "colchester/highwoods": "CO4 9YN", "st-neots/st-marys-eaton-socon": "PE19 8EQ", "sparkhill/hall-green": "B28 8JQ", "sparkhill/st-johns-church": "B11 4RG", "sparkhill/balsall-heath": "B12 9LA"}
+    def test_postcodes_from_own_address_line(self):
+        d = items(); F = J("overrides/foodbank_address_fixes.json"); L = J("logs/listings_batch_28oct.json")["changes"]
+        for i, pc in self.POSTCODES.items():
+            self.assertEqual(d[i]["postcode"], pc, i); self.assertTrue(d[i]["address"].endswith(pc), i)
+            self.assertEqual(F[i]["postcode"], pc, i); self.assertEqual((F[i]["lat"], F[i]["lng"]), (d[i]["lat"], d[i]["lng"]), i)
+            self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "address" and l["new"] == pc and l["undo"]["set"]["postcode"] != pc], i)
+        self.assertIn("1st Portishead Scout Hut, Station Road", d["clevedon-district/portishead"]["address"])
+        for i, pc in (("horsham-district/hub-on-the-move-broadbridge-heath", "RH12 3XS"), ("stroud-district/wotton", "GL12 7AA")):
+            self.assertEqual(d[i]["postcode"], pc, i); self.assertIn("HELD `%s`" % i, open(os.path.join(ROOT, "reports", "pending_dean.md")).read())
+        self.assertEqual(d["thanet-food-link"]["postcode"], "CT9 2RD"); self.assertNotIn("thanet-food-link", F)
+    def test_st_johns_sparkhill_times(self):
+        self.assertEqual(items()["sparkhill/st-johns-church"]["opening_times"]["structured"], {"wed": [["10:30", "12:30"]]})
+    def test_dead_links_replaced_link_only(self):
+        d = items(); W = J("overrides/foodbank_websites.json")
+        for i, u, n in (("crookston-community-group", "https://ccg.scot/locations", "01418824333"), ("waterlooville", "https://www.wecockchurch.org.uk/contact/", "02392255288"),
+                        ("north-guildford", "https://www.guildfordfoodbank.org/", "07583025435"), ("glasgow-vineyard-storehouse", "https://dwellingplaceglasgow.org/contact-us/", "01413346746"),
+                        ("rhayader", "https://www.thearchesrhayader.co.uk/contact/", "01597810921")):
+            self.assertEqual(d[i]["website"], u, i); self.assertEqual(W[i]["url"], u, i); self.assertEqual(re.sub(r"\D", "", d[i]["phone"]), n, i)
+    def test_known_times_never_blanked(self):
+        d = items(); L = J("logs/listings_batch_28oct.json")["changes"]
+        for i in ["colchester", "corfe-mullen", "walk-inn", "the-community-cupboard", "stretton", "north-lakes", "broxbourne", "redcar-area", "selby-centre", "salvation-army/ivybridge", "salvation-army/dorchester", "salvation-army/hastings-temple", "rickmansworth/maple-cross", "aylesbury/tabitha-foodbank", "salvation-army/bourne", "salvation-army/chester", "newark/tuxford", "fusion/calderdale", "north-ayrshire/st-johns-church"]:
+            self.assertTrue((d[i].get("opening_times") or {}).get("structured"), i)
+            self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "hours" and l["note"].startswith("reverted")], i)
+    def test_unconfirmed_times_reverted(self):
+        L = J("logs/listings_batch_28oct.json")["changes"]
+        for i in ["hope-for-belper", "ross-community-larder", "shepshed", "newlands", "woodley"]: self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "hours" and l["note"].startswith("reverted")], i)

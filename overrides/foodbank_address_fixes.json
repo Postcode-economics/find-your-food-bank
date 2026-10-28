@@ -195,14 +195,6 @@
   "evidence": "Own page (re-fetched 28 Oct 2026, identical to the bot check): \"217a Gordon Road Nunhead London SE15 3RT … 11am - 1pm FOOD BANK Every second and fourth Wednesday\"",
   "evidence_url": "https://www.salvationarmy.org.uk/nunhead"
  },
- "thanet-food-link": {
-  "address": "Salvation Army Citadel, Union Crescent, Margate, CT9 1NS",
-  "postcode": "CT9 1NS",
-  "lat": 51.387269,
-  "lng": 1.384471,
-  "evidence": "Own page (re-fetched 28 Oct 2026, identical to the bot check): \"In May 2026 our Margate distribution centre moved from a long-term home in St Paul’s Church, Cliftonville to the Salvation Army Citadel in Union Crescent, Margate\"",
-  "evidence_url": "https://thanetfoodlink.org.uk"
- },
  "colchester": {
   "address": "Unit 3 Tollgate Retail Park, Stanway, Essex, CO3 8RG",
   "postcode": "CO3 8RG",
@@ -378,5 +370,101 @@
   "lng": -4.659584,
   "evidence": "Own page: Address St Meddan's Church Hall Church Street Troon KA10 6HT",
   "evidence_url": "https://southayrshire.foodbank.org.uk/locations/"
+ },
+ "horsham-district/united-reform-church": {
+  "address": "Springfield Road, Horsham, RH12 1PT",
+  "postcode": "RH12 1PT",
+  "lat": 51.063376,
+  "lng": -0.330929,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Springfield Road, Horsham, RH12 1PT\"",
+  "evidence_url": "https://horshamdistrict.foodbank.org.uk/locations/"
+ },
+ "salisbury/durrington-old-school": {
+  "address": "Old School Hall, SP4 8HP",
+  "postcode": "SP4 8HP",
+  "lat": 51.202335,
+  "lng": -1.77445,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Old School Hall, SP4 8HP\"",
+  "evidence_url": "https://salisbury.foodbank.org.uk/locations/"
+ },
+ "lambeth-croydon/streatham": {
+  "address": "Immanuel and St Andrew Church, 452 Streatham High Rd, London, SW16 3NN",
+  "postcode": "SW16 3NN",
+  "lat": 51.419594,
+  "lng": -0.12765,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Immanuel and St Andrew Church, 452 Streatham High Rd, London, SW16 3NN\"",
+  "evidence_url": "https://lambethcroydon.foodbank.org.uk/locations/"
+ },
+ "wandsworth/roehampton-methodist-church": {
+  "address": "Roehampton Methodist Church, Minstead Gardens, London, SW15 4EB",
+  "postcode": "SW15 4EB",
+  "lat": 51.451751,
+  "lng": -0.249912,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Roehampton Methodist Church, Minstead Gardens, London, SW15 4EB\"",
+  "evidence_url": "https://wandsworth.foodbank.org.uk/locations/"
+ },
+ "clevedon-district/portishead": {
+  "address": "1st Portishead Scout Hut, Station Road, Portishead, BS20 7DB",
+  "postcode": "BS20 7DB",
+  "lat": 51.487334,
+  "lng": -2.766472,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"1st Portishead Scout Hut, Station Road, Portishead, BS20 7DB\"",
+  "evidence_url": "https://clevedondistrict.foodbank.org.uk/locations/"
+ },
+ "rickmansworth/croxley-green-baptist-church": {
+  "address": "Sherbourne Way, Croxley Green, WD3 3PF",
+  "postcode": "WD3 3PF",
+  "lat": 51.652559,
+  "lng": -0.443719,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Sherbourne Way, Croxley Green, WD3 3PF\"",
+  "evidence_url": "https://rickmansworth.foodbank.org.uk/locations/"
+ },
+ "aylesbury/esquires-coffee-shop": {
+  "address": "Concorde Square, Berryfields, Aylesbury, HP18 1AS",
+  "postcode": "HP18 1AS",
+  "lat": 51.835746,
+  "lng": -0.851394,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Concorde Square, Berryfields, Aylesbury, HP18 1AS\"",
+  "evidence_url": "https://aylesbury.foodbank.org.uk/locations/"
+ },
+ "colchester/highwoods": {
+  "address": "The Ark, Methodist Church, Gavin Way, Colchester, Essex, CO4 9YN",
+  "postcode": "CO4 9YN",
+  "lat": 51.916484,
+  "lng": 0.92193,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"The Ark, Methodist Church, Gavin Way, Colchester, Essex, CO4 9YN\"",
+  "evidence_url": "https://colchester.foodbank.org.uk/locations/"
+ },
+ "st-neots/st-marys-eaton-socon": {
+  "address": "Great North Road, Eaton Socon, St Neots, PE19 8EQ",
+  "postcode": "PE19 8EQ",
+  "lat": 52.215881,
+  "lng": -0.289759,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Great North Road, Eaton Socon, St Neots, PE19 8EQ\"",
+  "evidence_url": "https://stneots.foodbank.org.uk/locations/"
+ },
+ "sparkhill/hall-green": {
+  "address": "Church of the Ascension Church Hall, School Road, Hall Green, Birmingham, B28 8JQ",
+  "postcode": "B28 8JQ",
+  "lat": 52.434543,
+  "lng": -1.841064,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Church of the Ascension Church Hall, School Road, Hall Green, Birmingham, B28 8JQ\"",
+  "evidence_url": "https://sparkhill.foodbank.org.uk/locations/"
+ },
+ "sparkhill/st-johns-church": {
+  "address": "St John's Church, St John's Road, Sparkhill, Birmingham, B11 4RG",
+  "postcode": "B11 4RG",
+  "lat": 52.454045,
+  "lng": -1.865687,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"St John's Church, St John's Road, Sparkhill, Birmingham, B11 4RG\"",
+  "evidence_url": "https://sparkhill.foodbank.org.uk/locations/"
+ },
+ "sparkhill/balsall-heath": {
+  "address": "Balsall Heath Church Centre, 100 Mary Street, Balsall Heath, Birmingham, B12 9LA",
+  "postcode": "B12 9LA",
+  "lat": 52.457984,
+  "lng": -1.89246,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Balsall Heath Church Centre, 100 Mary Street, Balsall Heath, Birmingham, B12 9LA\"",
+  "evidence_url": "https://sparkhill.foodbank.org.uk/locations/"
  }
 }
