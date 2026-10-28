@@ -155,6 +155,7 @@ class Source(unittest.TestCase):
                   "p[i]!=='hmheal=1'&&p[i]!=='hmboot=1'",
                   "if(!/[?&]hmheal=1(?:&|$)/.test(location.search))return",
                   "if(!/[?&]hmboot=1(?:&|$)/.test(location.search))return",
+                  "if(/[?&]hm(?:boot|heal)=1(?:&|$)/.test(location.search)||window.__hmHealBusy)return",  # no hmboot reload after an hmheal reload
                   "sessionStorage.setItem(k,v.build)", "location.reload()", "var k='hmBoot'", "k='hmHeal'"):
             self.assertIn(s, home)
         self.assertNotIn("searchParams.set('hmheal'", home)
