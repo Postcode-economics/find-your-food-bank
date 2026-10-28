@@ -6,9 +6,13 @@ Every 3x-daily run:
  3. own_site_check(): the candidate's OWN website is fetched this run (HTTP 200, same site after redirects,
     sha256/ETag/Last-Modified recorded). It passes only if the site names it, shows its postcode, shows it is
     food aid / shelter / warm space, and does not say it has closed. Pass -> added; anything else -> flagged in logs.
- 4. cross_check_times(): for every entry found or refreshed, the published times are re-confirmed on its own
-    website THIS run. Confirmed -> kept; different times found -> replaced (via times.normalise); site says closed
-    -> closure removal; unreachable / not confirmable -> times dropped and flagged (never carried over).
+ 4. cross_check_times(): for every entry, re-read opening times from its own website (and from opening_times.source_url
+    when that page is not already in the fetch). The hours the card shows are compared with a fresh per-postcode timetable.
+    The same timetable -> confirmed. One different timetable -> replaced. Pages that disagree, or a block that is
+    delivery-only / donation hours -> flagged (differs_review) and the published hours kept. Unreachable -> old hours
+    kept and marked unconfirmed. A page merely being up is not confirmation: every stored clock time occurring
+    somewhere on the site is not enough, because a Friday-only card stays "confirmed" while Monday and Wednesday
+    are also listed (Chichester, 26 Oct).
 Never invents data: everything published comes from a fetched page or a directory record."""
 import re, os, sys, json, html, ssl, math, hashlib, datetime, threading, urllib.request, urllib.parse, concurrent.futures as cf
 CTX = ssl._create_unverified_context()
@@ -51,20 +55,29 @@ def dedupe(cands, existing):
         seen.append(c); new.append(c)
     return new, dup
 
-# ---------- fetching (cached per run, so closure / times / discovery share one fetch per page) ----------
+# ---------- fetching ----------
+# _cache is only for closure/discovery sharing one fetch inside a single run. A check of opening times or
+# open days must not read it (Rule 27, 26 Oct 2026): those checks call fetch_live, which never reads or
+# writes this cache and never opens a saved page. If the live request fails, the listing is flagged and
+# the hours already on the card are left as they are.
 _cache, _lock = {}, threading.Lock()
-def fetch_raw(url):
-    with _lock:
-        if url in _cache: return _cache[url]
+def _request(url):
     try:
         r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20, context=CTX)
         raw = r.read(8_000_000).decode("utf8", "ignore")
-        res = {"http": r.status, "final_url": r.geturl(), "html": raw, "etag": r.headers.get("ETag", ""),
-               "last_modified": r.headers.get("Last-Modified", ""), "sha256": hashlib.sha256(raw.encode()).hexdigest()}
+        return {"http": r.status, "final_url": r.geturl(), "html": raw, "etag": r.headers.get("ETag", ""),
+                "last_modified": r.headers.get("Last-Modified", ""), "sha256": hashlib.sha256(raw.encode()).hexdigest()}
     except Exception as e:
-        res = {"http": getattr(e, "code", None) or "error", "final_url": url, "html": "", "error": str(e)[:120]}
+        return {"http": getattr(e, "code", None) or "error", "final_url": url, "html": "", "error": str(e)[:120]}
+def fetch_raw(url):
+    with _lock:
+        if url in _cache: return _cache[url]
+    res = _request(url)
     with _lock: _cache[url] = res
     return res
+def fetch_live(url):
+    """Open the page now. No cache read, no cache write, no saved or archived copy."""
+    return _request(url)
 def closure_fetcher(u):  # signature closure.py expects: (final_url, html)
     r = fetch_raw(u); return r["final_url"], (r["html"] if r["http"] == 200 else "")
 def text_of(h):
@@ -141,7 +154,8 @@ def want_times(ot):
     if isinstance(ot, dict):
         return norm_times(" ".join(map(str, ot.values()))), {k[:3].lower() for k in ot}
     return norm_times(str(ot)), {d for d in DAYN if d in str(ot).lower()}
-NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point", re.I)
+NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point"
+                        r"|phone ?lines? (?:is |are )?(?:open|monitored|answered)|phone answered|phoneline|manned|church services?|sunday services?|\bworship\b|\bmass\b", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours
 ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month", re.I)
 ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
 APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
@@ -151,27 +165,44 @@ def not_client_context(t, at, prev_span_end=None):
     Upper Eden (23 Oct): 'Wheelie Bins outside the Sands Methodist Church in Appleby on: Tuesdays 11 - 11:30am'."""
     lo = max(0, at - 160)
     if prev_span_end is not None and prev_span_end > lo: lo = prev_span_end
+    k = max(t.rfind(". ", lo, at), t.rfind("; ", lo, at))   # rule 27 (26 Oct): context stops at the previous sentence
+    if k >= 0: lo = k + 2
     return bool(NOT_CLIENT.search(t[lo:at]))
-def extract_times(text, postcode=None):
-    """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block."""
-    t = strip_phone_hours(text); pc = norm_pc(postcode)
-    if pc and pc not in t.upper().replace(" ", ""): return None   # never take times from a page that doesn't show this place
+def postcode_block(text, postcode):
+    """The slice of `text` that belongs to this postcode, or None when that slice cannot be fixed.
+    Same window extract_times uses: one postcode keeps the page; several postcodes keep only the block that
+    sits with this one, and an unclear layout is not guessed."""
+    t = text or ""
+    pc = norm_pc(postcode)
+    if not pc: return t
+    if pc not in t.upper().replace(" ", ""): return None
     pcs = list(PC_RE.finditer(t.upper()))
-    if pc and len({a + b for a, b in (m.groups() for m in pcs)}) > 1:
-        hit = [m for m in pcs if m.group(1) + m.group(2) == pc]
-        if not hit: return None
-        # Each centre's block runs between its neighbours' postcodes, never across them, so one centre's times are
-        # never read onto another (Ryedale / Oxford CEF mistakes, 23 Oct). Page layout decides the side: if the
-        # page puts times AFTER each postcode, take [this postcode, next postcode); if BEFORE, take (previous, this].
-        s = hit[0].start(); e = hit[0].end()
-        ends = [m.end() for m in pcs if m.end() <= s]; starts = [m.start() for m in pcs if m.start() >= e]
-        first, last = pcs[0], pcs[-1]
-        after = bool(TIMESPAN.search(t[last.end():last.end() + 300]))          # times follow the last centre's postcode
-        before = bool(TIMESPAN.search(t[max(0, first.start() - 300):first.start()]))  # times precede the first one
-        if after and not before: lo, hi = s, min([e + 500] + starts)
-        elif before and not after: lo, hi = max([max(0, s - 500)] + ends), e
-        else: return None   # layout unclear: never guess, the finder sends it to Dean's review list
-        t = t[lo:hi]
+    if len({a + b for a, b in (m.groups() for m in pcs)}) <= 1: return t
+    hit = [m for m in pcs if m.group(1) + m.group(2) == pc]
+    if not hit: return None
+    s = hit[0].start(); e = hit[0].end()
+    ends = [m.end() for m in pcs if m.end() <= s]; starts = [m.start() for m in pcs if m.start() >= e]
+    first, last = pcs[0], pcs[-1]
+    after = bool(TIMESPAN.search(t[last.end():last.end() + 300]))
+    before = bool(TIMESPAN.search(t[max(0, first.start() - 300):first.start()]))
+    if after and not before: lo, hi = s, min([e + 500] + starts)
+    elif before and not after: lo, hi = max([max(0, s - 500)] + ends), e
+    else: return None
+    return t[lo:hi]
+def extract_times(text, postcode=None):
+    """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block.
+    Recognised layouts (Trussell 2026 cards, Trussell /locations tables, day/value columns, '(Tues)/(Fri)' rows) are
+    read by rule27_formats first; prose is cleaned (non-breaking spaces, '12 noon', 'between X and Y', '10-12am',
+    'except bank holidays') and phone/office/donation/service sentences are dropped before reading."""
+    import rule27_formats as R27
+    lay = R27.read_centre(text, postcode)
+    if lay is not None:
+        if not lay.get("structured"): return None   # recognised layout, but this centre is unclear: never guess
+        return {"raw": lay["raw"], "status": "TIMES_FOUND", "structured": lay["structured"], "layout": lay["layout"],
+                "quote": lay["quote"], "unclear_days": lay.get("unclear_days") or {}}
+    text = strip_phone_hours(R27.clean(text))
+    t = postcode_block(text, postcode)
+    if t is None: return None   # postcode not on the page, or the layout is unclear: never guess
     segs, seen, prev_end, prev_skipped = [], set(), None, False
     found = []
     for m in ORD_SPAN.finditer(t):   # 'first Saturday of the month 9:30 - 11:30' kept as written (shown as text)
@@ -179,7 +210,7 @@ def extract_times(text, postcode=None):
     ords = [(a, a + len(x) + 20) for a, x in found]
     for m in TIMESPAN.finditer(t):
         if any(a <= m.start() < b for a, b in ords): continue
-        follows = prev_end is not None and m.start() - prev_end < 40   # a list continuing straight on from the last line
+        follows = prev_end is not None and m.start() - prev_end < 40 and not re.search(r"[.;]\s", t[prev_end:m.start()])   # a list continuing straight on from the last line (a full stop ends it)
         skip = (prev_skipped and follows) or not_client_context(t, m.start(), prev_end)
         prev_end, prev_skipped = m.end(), skip
         if skip: continue   # office / warehouse / donation / bin hours are not client times
@@ -221,26 +252,229 @@ def card_check(ot, texts, item, today=None, source_url=None):
     if old.get("structured") == new.get("structured") and (new.get("structured") or old.get("raw") == new.get("raw")):
         return "confirmed", ot, "matches this centre's own card (" + how + ")"
     return "changed", new, "this centre's own card now shows different times (" + how + ")"
-def confirm_times(ot, texts, postcode=None):
-    """-> (status, new_ot, reason). status: confirmed | changed | unconfirmed | none_published."""
-    texts = [strip_phone_hours(t) for t in texts]
-    alltext = " ".join(texts); low = alltext.lower()
+COLLECT_ROLE = re.compile(r"collect your (?:food )?parcel|collection only|collect a parcel", re.I)
+DELIVERY_ROLE = re.compile(r"delivery only|not open to the public", re.I)
+DONATION_ROLE = re.compile(r"\b(?:donat(?:e|ion|ions)|warehouse|drop[- ]?off)\b", re.I)
+def _same_url(a, b):
+    """Ignore scheme, www, and a trailing slash. Query strings are not part of the source identity.
+    Too loose for an opening-times check: use source_page_ok for that."""
+    if not a or not b: return False
+    def n(u):
+        p = urllib.parse.urlparse(u)
+        return (host(u), urllib.parse.unquote(p.path or "").rstrip("/").lower())
+    return n(a) == n(b)
+_CACHE_MARK = ("webcache", "archive.org", "googleusercontent", "bingj.com", "cdn-cgi", "cachedview", "/amp", "web.archive")
+def source_page_ok(wanted, landed):
+    """True only when `landed` is the source URL the listing shows.
+    http→https, a leading www, and one trailing slash are the same page. A different host, path, or query
+    is a different page. A cache, archive, amp, or cdn-cgi copy is not the live page."""
+    if not wanted or not landed: return False
+    def bits(u):
+        p = urllib.parse.urlsplit((u or "").strip())
+        h = (p.hostname or "").lower()
+        if h.startswith("www."): h = h[4:]
+        path = urllib.parse.unquote(p.path or "").rstrip("/").lower()
+        q = tuple(sorted(urllib.parse.parse_qsl(p.query, keep_blank_values=True)))
+        return (p.scheme or "").lower(), h, path, q, (p.query or "").lower()
+    try: ws, wh, wp, wq, _wqs = bits(wanted); ls, lh, lp, lq, lqs = bits(landed)
+    except Exception: return False
+    if not wh or not lh or ws not in ("http", "https") or ls not in ("http", "https"): return False
+    blob = " ".join((lh, lp, lqs))
+    if any(mark in blob for mark in _CACHE_MARK): return False
+    if any(k.lower() in ("cache", "cached") for k, _ in lq): return False
+    return wh == lh and wp == lp and wq == lq
+def live_hours_ok(table, text, postcode):
+    """(ok, quote). ok only when every open day recorded in `table` is listed in this postcode's block
+    and every clock time recorded there is written on that block, and every open day the block lists is
+    in the table (a Monday–Friday range counts as each day in the range). quote is a short slice copied
+    from `text`. Anything else is not confirmed."""
+    import rule27_formats as R27
+    lay = R27.read_centre(text or "", postcode)
+    if lay is not None:   # a recognised layout decides on its own; its quote is copied from the cleaned page text
+        if not lay.get("structured") or not isinstance(table, dict) or lay.get("unclear_days"): return False, ""
+        rec = {d: [list(p) for p in v] for d, v in table.items() if v}
+        return (rec == lay["structured"], lay["quote"] if rec == lay["structured"] else "")
+    text = R27.clean(text or "")   # office/phone days are NOT dropped here: a day the page lists must be accounted for
+    block = postcode_block(text or "", postcode)
+    if block is None or not isinstance(table, dict): return False, ""
+    from times import _days, DAYS, _range
+    recorded = {d for d, slots in table.items() if slots}
+    if not recorded: return False, ""
+    spans = list(TIMESPAN.finditer(block))
+    if not spans: return False, ""
+    page_days, endpoints = set(), set()
+    split = re.compile(r"\s*(?:-|–|—|\bto\b|\buntil\b|\btill\b)\s*", re.I)
+    for m in spans:
+        idxs = _days(m.group(1).lower())
+        if idxs is None: return False, ""
+        for i in idxs: page_days.add(DAYS[i])
+        parts = split.split(m.group(2).strip(), maxsplit=1)
+        if len(parts) != 2: return False, ""
+        rng = _range(parts[0], parts[1])
+        if not rng: return False, ""
+        endpoints.update(rng)
+    if page_days != recorded: return False, ""
+    for slots in table.values():
+        for pair in slots or []:
+            if len(pair) != 2 or pair[0] not in endpoints or pair[1] not in endpoints: return False, ""
+    base = (text or "").find(block)
+    if base < 0: base = 0
+    at = base + spans[0].start()
+    quote = (text or "")[max(0, at - 60):at + 180].strip()
+    if not quote or quote not in (text or ""): return False, ""
+    return True, quote
+def page_has_complete_times(text, postcode):
+    """True when the plain text already shows one timetable and every day and time in it is on the page.
+    A page that fails this may still be drawing the times with a script, so the reader renders it."""
+    ext = extract_times(text, postcode)
+    if not ext or ext.get("status") != "TIMES_FOUND" or not ext.get("structured"): return False
+    table = {k: v for k, v in ext["structured"].items() if v}
+    ok, quote = live_hours_ok(table, text, postcode)
+    return bool(ok and quote and quote in (text or ""))
+def render_live(url):
+    """Render the live URL in a headless browser and wait for load. No cache and no saved page.
+    The final URL is the address the browser landed on. If the browser cannot run, this is a failed
+    open, not a static-HTML fallback."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return {"ok": False, "http": None, "final_url": url, "html": "", "error": "headless browser unavailable"}
+    exe = os.environ.get("CHROME_PATH") or ("/usr/bin/google-chrome" if os.path.exists("/usr/bin/google-chrome") else None)
+    try:
+        with sync_playwright() as p:
+            kw = {"headless": True, "args": ["--no-sandbox", "--disable-gpu"]}
+            if exe: kw["executable_path"] = exe
+            browser = p.chromium.launch(**kw)
+            try:
+                page = browser.new_page(user_agent="Mozilla/5.0 (helpmap.uk times reader; hello@helpmap.uk)")
+                resp = page.goto(url, wait_until="load", timeout=20000)
+                page.wait_for_timeout(1000)
+                status = resp.status if resp else 0
+                return {"ok": status == 200 and bool(page.content()), "http": status, "final_url": page.url, "html": page.content()}
+            finally:
+                browser.close()
+    except Exception as e:
+        return {"ok": False, "http": None, "final_url": url, "html": "", "error": str(e)[:160]}
+def centre_role(text, postcode):
+    """What the words nearest this postcode say the address is: collection, delivery, donation, or None.
+    Uses the first time the postcode appears (Chichester lists collection at PO19 8ET, then the warehouse
+    at the same postcode further down). The nearest phrase wins, so a later 'Delivery only' for the next
+    centre is not read onto this one."""
+    pc = norm_pc(postcode)
+    if not text or not pc: return None
+    hits = [m for m in PC_RE.finditer(text.upper()) if m.group(1) + m.group(2) == pc]
+    if not hits: return None
+    m = hits[0]
+    pre = text[max(0, m.start() - 240):m.start()]
+    post = text[m.end():m.end() + 220]
+    cands = []
+    for rx, role in ((COLLECT_ROLE, "collection"), (DELIVERY_ROLE, "delivery"), (DONATION_ROLE, "donation")):
+        for hit in rx.finditer(pre): cands.append((m.start() - hit.end(), role))
+        for hit in rx.finditer(post): cands.append((hit.start() + 1, role))
+    if not cands: return None
+    cands.sort(key=lambda x: x[0])
+    return cands[0][1]
+def shown_table(ot):
+    """Open-day table the card actually prints, or None when it does not print one (text-only, warehouse, missing)."""
+    if isinstance(ot, dict) and ot.get("status") == "TIMES_FOUND" and isinstance(ot.get("structured"), dict):
+        return {k: v for k, v in ot["structured"].items() if v}
+    return None
+def hours_match(published, new):
+    """True when the card already shows this timetable. Text-only cards do not match a day table."""
+    if not isinstance(new, dict) or new.get("status") != "TIMES_FOUND" or not new.get("structured"): return False
+    table = shown_table(published)
+    if table is not None:
+        return json.dumps(table, sort_keys=True) == json.dumps({k: v for k, v in new["structured"].items() if v}, sort_keys=True)
+    if isinstance(published, dict) and "status" not in published and published:
+        got = hours_from_ot(new) or {}
+        def n(h): return {str(k)[:3].lower(): re.sub(r"\s+", "", str(v)) for k, v in h.items() if v}
+        return n(got) == n(published)
+    return False
+def _timed_readings(pairs, postcode):
+    """Per page (never joined: joining mashes two centres into one string). TIMES_FOUND readings, plus any TEXT_ONLY."""
+    found, messy = [], False
+    for u, t in pairs:
+        e = extract_times(t, postcode)
+        if e and e.get("status") == "TIMES_FOUND" and e.get("structured"):
+            e = dict(e, centre_role=centre_role(t, postcode), _page_text=t)
+            if u: e["_source_url"] = u
+            found.append(e)
+        elif e and e.get("status") == "TIMES_TEXT_ONLY":
+            messy = True
+    return found, messy
+def confirm_times(ot, texts, postcode=None, pages=None, source_url=None):
+    """-> (status, new_ot, reason).
+    status: confirmed | changed | differs_review | unconfirmed | none_published.
+    Compares the open days on the card with a per-postcode re-read of the source page. Finding the published
+    clock times somewhere on the page is not confirmation: a Friday-only card used to stay confirmed while the
+    same page also listed Monday and Wednesday."""
+    pairs = [(u, strip_phone_hours(t)) for u, t in (list(pages) if pages is not None else [(None, t) for t in (texts or [])])]
+    def decide(found, messy, from_source):
+        sigs = {}
+        for e in found: sigs.setdefault(json.dumps(e["structured"], sort_keys=True), e)
+        if len(sigs) > 1:
+            return "differs_review", None, "source pages disagree on this postcode's opening times"
+        if len(sigs) == 1:
+            new = next(iter(sigs.values()))
+            role = new.get("centre_role")
+            if role == "delivery":
+                return "differs_review", None, "source says delivery only or not open to the public; shown hours left unchanged"
+            if role == "donation":
+                return "differs_review", None, "nearest heading is donation or warehouse hours, not collection; shown hours left unchanged"
+            table = {k: v for k, v in new["structured"].items() if v}
+            ok, quote = live_hours_ok(table, new.get("_page_text") or "", postcode)
+            if not ok:
+                return "differs_review", None, "recorded days or times could not be confirmed on the live source page; shown hours left unchanged"
+            if hours_match(ot, new):
+                return "confirmed", {"_evidence": quote}, "shown hours match this postcode on the source page"
+            if role == "collection": new = dict(new, collection=True)
+            new = dict(new, _evidence=quote)
+            return "changed", new, "shown hours differ from this postcode on the source page"
+        if from_source and messy:
+            return "differs_review", None, "source page lists hours that do not parse to one timetable; shown hours left unchanged"
+        return None
+    if source_url:
+        # Only the URL the card shows. A redirect, another path, or a cached copy is not that page,
+        # and a different page on the same site is not used to fill the gap.
+        src_pairs = [(u, t) for u, t in pairs if u and source_page_ok(source_url, u)]
+        if not src_pairs:
+            return "differs_review", None, "source url redirected to a different page, domain or cached copy; shown hours left unchanged"
+        found, messy = _timed_readings(src_pairs, postcode)
+        decided = decide(found, messy, True)
+        if decided: return decided
+        return "differs_review", None, "source page did not confirm a day table; shown hours left unchanged"
+    found, messy = _timed_readings(pairs, postcode)
+    decided = decide(found, messy, False)
+    if decided: return decided
+    alltext = " ".join(t for _, t in pairs)
+    low = alltext.lower()
     want, days = want_times(ot)
     if not want:
         new = extract_times(alltext, postcode)
         return ("changed", new, "times found on own site") if new and new.get("status") == "TIMES_FOUND" else ("none_published", None, "no times published or found")
     got = norm_times(alltext)
     days_ok = all(re.search(r"\b" + d, low) for d in days)
-    if want <= got and days_ok: return "confirmed", ot, "all published days/times found on own site this run"
-    new = extract_times(alltext, postcode)
-    if new and new.get("status") == "TIMES_FOUND":
-        nw, _ = want_times(new)
-        if nw != want: return "changed", new, "own site now shows different times"
+    # No per-postcode timetable could be read. Only then fall back to "the published clock times occur on the page".
+    # This cannot confirm a shorter week: that case is handled above whenever a timetable was read.
+    # A subset of the stored clock times somewhere on the page is not confirmation: the open days were not accounted for.
+    if want <= got and days_ok:
+        return "differs_review", None, "published clock times occur on the page but the day table could not be confirmed; shown hours left unchanged"
     return "unconfirmed", None, "published times not found on own site this run"
 def hours_from_ot(ot):
-    """times.normalise structured table -> shelter/warm-space hours dict {'Mon': '10:00 - 14:00 / 18:00 - 20:00'}."""
-    if not ot or not ot.get("structured"): return None
-    return {d.title(): " / ".join(f"{a} - {b}" for a, b in r) for d, r in ot["structured"].items()}
+    """times.normalise structured table -> shelter/warm-space hours dict, Mon..Sun, closed days included."""
+    if not ot: return None
+    order = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    if ot.get("all_closed"): return {d: "Closed" for d in order}
+    if not ot.get("structured") and not ot.get("closed"): return None
+    notes = ot.get("notes") or {}
+    out = {}
+    for d, r in (ot.get("structured") or {}).items():
+        cell = " / ".join("%s - %s" % (a, b) for a, b in r)
+        if notes.get(d): cell += " " + notes[d]
+        out[d[:3].title()] = cell
+    for d in ot.get("closed") or []:
+        out.setdefault(d[:3].title(), "Closed")
+    return {d: out[d] for d in order if d in out} or None
 
 # Dean's standing default (21 Oct 2026): the place's OWN website is the main source. Where it gives times or says closed,
 # it overrides Give Food and every directory. Directory times are only a fallback, kept but marked unconfirmed.
@@ -260,9 +494,34 @@ def office_like(st):
     if len(wk) < 4 or len(set(wk)) > 2: return False
     def mins(t): h, m = t.split(":"); return int(h) * 60 + int(m)
     return all(mins(b) - mins(a) >= 240 for blk in wk for a, b in blk)
-def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads=24):
-    """Re-confirm every entry's times on its OWN website this run; mutates items. Returns {id: result} log.
-    kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text)."""
+def read_listing_source(src, fetcher, render, postcode):
+    """Open the exact source URL live. Render only when the plain HTML has no complete day/time set.
+    Returns (final_url, text) or (None, reason). A redirect's body is discarded and never used as hours."""
+    r = fetcher(src) or {}
+    landed = r.get("final_url") or ""
+    html = r.get("html") or ""
+    if r.get("http") != 200 or not html:
+        return None, "live source page could not be opened; shown hours left unchanged"
+    if not source_page_ok(src, landed):
+        return None, "source url redirected to a different page (%s); shown hours left unchanged" % landed
+    text = text_of(html)
+    if page_has_complete_times(text, postcode):
+        return landed, text
+    got = (render or render_live)(src) or {}
+    rland = got.get("final_url") or ""
+    rhtml = got.get("html") or ""
+    if not rhtml or not (got.get("ok") or got.get("http") == 200):
+        return landed, text
+    if not source_page_ok(src, rland):
+        return None, "rendered page redirected to a different page (%s); shown hours left unchanged" % rland
+    return rland, got.get("text") or text_of(rhtml)
+def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, threads=24, render=None):
+    """Re-read every entry's times from the live site this run; mutates items. Returns {id: result} log.
+    kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text).
+    fetcher defaults to fetch_live (Rule 27): a saved page, including the per-run fetch cache, is never consulted.
+    When a listing has source_url, only that URL is read. A redirect is not confirmed. Plain HTML with no
+    complete timetable is rendered once. If the live page does not open, the card is flagged and its hours
+    are left unchanged."""
     import closure
     today = (today or datetime.date.today()).isoformat()
     sites = {}
@@ -277,17 +536,34 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
     log = {}
     for s, home, pages in got:
         for i in sites[s]:
-            texts = [t for u, t in pages if not DONATION_PAGE.search(urllib.parse.urlparse(u).path)]   # never read client times from a giving/donation page
-            src = (i.get(field) or {}).get("source_url") if isinstance(i.get(field), dict) else None
-            if src and usable_site(src) and src not in [u for u, _ in pages]:
-                r = fetcher(src)
-                if r["http"] == 200: texts.append(text_of(r["html"]))
+            src = (i.get(field) or {}).get("source_url") if kind == "fb" and isinstance(i.get(field), dict) else None
             rec = {"site": s, "http": home and home.get("http"), "sha256": home and home.get("sha256"),
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
-            if not s or not home or home.get("http") != 200 or not texts:
+            hand = kind == "fb" and isinstance(i.get(field), dict) and str(i[field].get("reader") or "").startswith("hand-reviewed")
+            def flag_kept(reason):
+                # Protected hand-checked times are never overwritten. A page that cannot be confirmed
+                # is the same flag as a page that disagrees (Dean, 23 Oct 23:37), not a generic review.
+                if hand:
+                    rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean")
+                    i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
+                else:
+                    rec.update(status="differs_review", reason=reason)
+                    i["times_status"] = "differs_review"; i["times_reason"] = reason; i["times_checked"] = today
+                log[i["id"]] = rec
+            if src:
+                if not usable_site(src):
+                    flag_kept("source url is not a live page; shown hours left unchanged"); continue
+                landed, payload = read_listing_source(src, fetcher, render, i.get("postcode"))
+                if not landed:
+                    flag_kept(payload); continue
+                page_pairs, texts = [(landed, payload)], [payload]
+            else:
+                page_pairs = [(u, t) for u, t in pages if not DONATION_PAGE.search(urllib.parse.urlparse(u).path)]   # never read client times from a giving/donation page
+                texts = [t for _, t in page_pairs]
+            if not src and (not s or not home or home.get("http") != 200 or not texts):
                 rec.update(status="unreachable" if s else "no_website", reason="own site unreachable this run" if s else "no own website to check against")
                 _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
-            if host(home["final_url"]) != host(s) and not host(home["final_url"]).endswith("." + host(s)) and not host(s).endswith("." + host(home["final_url"])):
+            if not src and home and host(home["final_url"]) != host(s) and not host(home["final_url"]).endswith("." + host(s)) and not host(s).endswith("." + host(home["final_url"])):
                 rec.update(status="unconfirmed", reason="own site redirects to a different site")
                 _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
             ev = None
@@ -297,20 +573,33 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             if ev: rec.update(status="closed", reason="own site says closed", evidence=ev); i["_own_site_closed"] = ev; log[i["id"]] = rec; continue
             i["_orig_times"] = i.get(field)
             cc = card_check(i.get(field), texts, i, today, src) if kind == "fb" else None
-            st, new, why = cc or confirm_times(i.get(field), texts, i.get("postcode"))
+            st, new, why = cc or confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"), pages=page_pairs, source_url=src if kind == "fb" else None)
             rec.update(status=st, reason=why)
             if st == "confirmed":
+                if isinstance(new, dict): rec["evidence"] = new.get("_evidence") or ""
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
             elif st == "changed" and str((i.get(field) or {}).get("reader", "") if isinstance(i.get(field), dict) else "").startswith("hand-reviewed"):
                 # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
                 rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
-                           new=new.get("structured") if new else None)
+                           new=new.get("structured") if isinstance(new, dict) else None)
                 i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
             elif st == "changed":
-                if kind == "fb": new = dict(new, checked_date=today, source_url=home["final_url"]); i[field] = new
+                if kind == "fb" and isinstance(new, dict):
+                    src_u = new.pop("_source_url", None); new.pop("centre_role", None); new.pop("_page_text", None)
+                    rec["evidence"] = new.pop("_evidence", None) or ""
+                    new = dict(new, checked_date=today, source_url=src_u or src or (home and home.get("final_url")) or "")
+                    if not new.get("reader"): new["reader"] = "source_page"
+                    i[field] = new
                 else: i[field] = hours_from_ot(new) or i.get(field)
-                i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if new else None
+                i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured") if isinstance(new, dict) else None
+            elif st == "differs_review":
+                # The source page was re-read and does not agree with the card (or is not one walk-in timetable). Flag it; keep the hours.
+                if hand:
+                    rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean")
+                    i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
+                else:
+                    i["times_status"] = "differs_review"; i["times_reason"] = why; i["times_checked"] = today; rec["flagged"] = True
             elif st == "unconfirmed":
                 _unconfirm(i, kind, field, why)
             log[i["id"]] = rec
@@ -323,7 +612,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_raw, today=None, threads
             for i in grp:
                 why = None
                 if office_like(log[i["id"]].get("new")): why = "new own-site times look like office/centre hours"
-                elif len(grp) > 1: why = "own site gives one table for several branches; cannot tell which branch"
+                elif len(grp) > 1 and len({norm_pc(x.get("postcode")) for x in grp}) < len(grp): why = "own site gives one table for several branches; cannot tell which branch"
                 if why:
                     i["opening_times"] = orig.get(i["id"]); log[i["id"]].update(status="unconfirmed", reason=why, reverted=True)
                     _unconfirm(i, kind, field, why)

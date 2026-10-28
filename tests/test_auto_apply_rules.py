@@ -52,6 +52,22 @@ class NewPlace(unittest.TestCase):
         self.assertEqual(ids, ['old', 'ok1'])
         self.assertIn('waiting for your OK', open(os.path.join(d, 'reports', 'pending_dean.md')).read())
         shutil.rmtree(d)
+    def test_approved_foodbank_without_phone_is_kept(self):
+        """Dean 26 Oct: an approved food bank with no published phone (verified details only) stays on the map."""
+        d = tempfile.mkdtemp(); run = lambda *a: subprocess.run(a, cwd=d, check=True, capture_output=True)
+        for sub in ('logs', 'reports', 'overrides'): os.makedirs(os.path.join(d, sub))
+        w = lambda items: open(os.path.join(d, 'data.full.js'), 'w').write('window.FB_DATA=' + json.dumps({'items': items}) + ';')
+        w([dict(id='old', tel='01', name='Old')]); run('git', 'init', '-q'); run('git', 'add', '-A')
+        run('git', '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'base')
+        json.dump({'ok1': {'name': 'Pantry'}}, open(os.path.join(d, 'overrides', 'foodbank_approved_new.json'), 'w'))
+        w([dict(id='old', tel='01', name='Old'), dict(id='ok1', name='Pantry'), dict(id='bare', name='Bare')])
+        old = G.ROOT; G.ROOT = d
+        try: held = G.gate('foodbanks')
+        finally: G.ROOT = old
+        self.assertEqual([i['id'] for i, _ in held], ['bare'])
+        ids = [i['id'] for i in G.split(open(os.path.join(d, 'data.full.js')).read())[1]['items']]
+        self.assertEqual(ids, ['old', 'ok1'])
+        shutil.rmtree(d)
 
 if __name__ == '__main__': unittest.main()
 
