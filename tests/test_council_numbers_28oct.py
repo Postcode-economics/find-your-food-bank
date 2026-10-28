@@ -89,14 +89,20 @@ class ApprovedNumbers(unittest.TestCase):
 
 class LibraryLinesUnchanged(unittest.TestCase):
     """Council-wide library lines stay as they are until Dean decides; they are on his review list."""
-    LIB = {"ww-68618605": "0300 123 2224", "ww-69062943": "03000 41 31 31", "ww-68737520": "0300 1234 111",
+    LIB = {"ww-69062943": "03000 41 31 31", "ww-68737520": "0300 1234 111",
            "ww-55475504": "01484 414868", "ww-69100241": "01484 414868", "ww-69100298": "01484 414868"}
+    # Bruton: Dean approved removing Somerset's switchboard 0300 123 2224 (28 Oct 05:35), applied by listings batch #239.
+    APPROVED_REMOVAL = {"ww-68618605": "0300 123 2224"}
     def test_unchanged_and_listed_for_dean(self):
         ws = items("warmspaces"); pd = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
         m = re.search(r"(?s)<!-- council lines review -->.*?<!-- /council lines review -->", pd)
         self.assertTrue(m)
         for iid, ph in self.LIB.items():
             self.assertEqual(digits(ws[iid]["phone"]), digits(ph)); self.assertIn(iid, m.group(0))
+        for iid, ph in self.APPROVED_REMOVAL.items():
+            for f in ("phone", "tel"):
+                self.assertIn(digits(ws[iid].get(f)), (digits(ph), ""), f"{iid} {f}={ws[iid].get(f)}")
+            self.assertIn(iid, m.group(0))
 
     def test_publish_gate_keeps_review_section(self):
         src = open(os.path.join(ROOT, "scripts", "publish_gate.py"), encoding="utf-8").read()
