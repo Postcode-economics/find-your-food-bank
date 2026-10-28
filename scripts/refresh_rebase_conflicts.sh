@@ -6,4 +6,4 @@
 # files keep this run's copy. See scripts/rebase_resolve.py.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-python scripts/rebase_resolve.py
+python3 scripts/rebase_resolve.py
