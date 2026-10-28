@@ -42,6 +42,10 @@ def main(old_dir=None):
         for x in d["tier_flips"]: L.append(f"- TIER **{x['name']}**: {x['before'].get('tier')} → {x['after'].get('tier')}")
         for x in d["upcoming"]: L.append(f"- OPENS LATER {x}")
         L.append("")
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import ws_locked  # every locked hand fix stays on Dean's review list
+    lk = ws_locked.review_lines()
+    if lk: L += ["## Warm spaces – locked hand fixes (overrides/warmspaces_locked.json)", ""] + lk + [""]
     L += ["## SWEP", "Active: " + (", ".join(out["swep"]["active"]) or "none found")] + [f"- {c['council']}: {c['from']} → {c['to']} ({c['url']}) “{c['quote'][:160]}”" for c in out["swep"]["changes"]]
     open("reports/layers_review.md", "w").write("\n".join(L) + "\n")
     return out

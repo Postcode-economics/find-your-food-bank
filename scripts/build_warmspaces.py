@@ -163,6 +163,8 @@ sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.
 import phone_lock  # frozen numbers, and no daytime council line without a verified out-of-hours number
 for x in items: phone_lock.settle_council(x)
 phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="warmspaces", persist_new=not os.environ.get("DRY_RUN"))
+import ws_locked  # hand-checked fixes (Bot 3, 28 Oct 2026) re-applied last so the feed cannot undo them
+sources["Locked hand fixes"] = {"status": "ok", "applied": ws_locked.apply(items)}
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "ended": sum(x.get("ended", False) for x in items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})
 print(len(items), "warm spaces")
