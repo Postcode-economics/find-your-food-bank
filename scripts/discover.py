@@ -603,6 +603,10 @@ def _hours_read(new):
     if new.get("structured") is not None: return True
     if str(new.get("status") or "").upper() == "CLOSED": return True
     return bool((new.get("raw") or "").strip())
+def _logged(auto, iid, kind, structured, source_url):
+    """This exact change (same id, layer, parsed table and source page) already has an undo entry that was not reverted."""
+    return any(e.get("path") == "cross_check" and e.get("id") == iid and e.get("kind") == kind and not e.get("reverted")
+               and e.get("new_structured") == structured and e.get("source_url") == source_url for e in auto)
 def _jload(p, d):
     try: return json.load(open(p))
     except Exception: return d
@@ -656,7 +660,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     else:
         drop = {kind + ":" + i for i in keep_ids}
         new_seen = {k: v for k, v in seen.items() if k not in drop}
-    held, applied = [], []
+    held, applied, logged = [], [], []
     for i, rec, new, texts, home in cands:
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Do not blank the listing, do not mark it closed, do not queue it.
         if not _hours_read(new): continue
@@ -674,14 +678,17 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
         i[field] = val; i["times_status"] = "updated"; i["times_checked"] = today
         rec.update(status="changed", auto_applied=True)
         prev = seen.get(key, {})
-        auto.append({"id": i["id"], "kind": kind, "path": "cross_check", "name": i.get("name"), "old": old, "new": val,
-                     "new_structured": (new or {}).get("structured"), "source_url": home["final_url"], "first_run_at": prev.get("run_at"), "second_run_at": run_at,
-                     "revert": "python scripts/times_revert.py " + key})
+        # The feed rebuild puts the old times back each run, so the same change passes the gate again: log it once.
+        if not _logged(auto, i["id"], kind, (new or {}).get("structured"), home["final_url"]):
+            auto.append({"id": i["id"], "kind": kind, "path": "cross_check", "name": i.get("name"), "old": old, "new": val,
+                         "new_structured": (new or {}).get("structured"), "source_url": home["final_url"], "first_run_at": prev.get("run_at"), "second_run_at": run_at,
+                         "revert": "python scripts/times_revert.py " + key})
+            logged.append(i)
         applied.append(i)
     if not R: return
     os.makedirs(os.path.join(R, "logs"), exist_ok=True); os.makedirs(os.path.join(R, "reports"), exist_ok=True)
     json.dump(new_seen, open(os.path.join(R, XC_SEEN), "w"), indent=0, sort_keys=True, ensure_ascii=False)
-    if applied: json.dump(auto, open(os.path.join(R, AUTO_LOG), "w"), indent=1, ensure_ascii=False)
+    if logged: json.dump(auto, open(os.path.join(R, AUTO_LOG), "w"), indent=1, ensure_ascii=False)
     bullets = ["- AUTO-APPLIED `%s` %s (strict, 2 identical runs). Undo: `python scripts/times_revert.py %s:%s`" % (i["id"], i.get("name") or "", kind, i["id"]) for i in applied]
     for i, rec, new in held:
         bullets.append("- **%s** (`%s`, %s): own site now %s  \n  source: %s  \n  why held: %s" % (i.get("name"), i["id"], i.get("postcode") or "",
@@ -689,14 +696,6 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     own_ids = keep_ids if keep_ids is not None else [i["id"] for i, _, _, _, _ in cands]
     _write_times_pending(R, kind, bullets, own_ids, pending_mode)
 
-def client_week(ot):
-    """A real open/close table. Empty, missing, or all-closed is not one: the stored week stays."""
-    if not isinstance(ot, dict) or ot.get("all_closed"): return False
-    st = ot.get("structured") or {}
-    for rows in st.values():
-        for span in rows or []:
-            if isinstance(span, (list, tuple)) and len(span) >= 2 and span[0] and span[1] and span[0] != span[1]: return True
-    return False
 def read_listing_source(src, fetcher, render, postcode):
     """Open the exact source URL live. Render only when the plain HTML has no complete day/time set.
     Returns (final_url, text) or (None, reason). A redirect's body is discarded and never used as hours."""
@@ -718,7 +717,7 @@ def read_listing_source(src, fetcher, render, postcode):
     if not source_page_ok(src, rland):
         return None, "rendered page redirected to a different page (%s); shown hours left unchanged" % rland
     return rland, got.get("text") or text_of(rhtml)
-def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, threads=24, render=None, state_root=None, rules=None, run_at=None, pending_mode="replace", seen=None):
+def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, threads=24, render=None, state_root=None, rules=None, run_at=None, pending_mode="replace"):
     """Re-read every entry's times from the live site this run; mutates items. Returns {id: result} log.
     kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text).
     fetcher defaults to fetch_live (Rule 27): a saved page, including the per-run fetch cache, is never consulted.
@@ -726,11 +725,8 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
     complete timetable is rendered once. If the live page does not open, the card is flagged and its hours
     are left unchanged.
     The only hours write is times_gate_apply (strict rules, log, undo, Dean's review list). A changed reading is a
-    candidate here. It is not written on this pass.
-
-    Exception (batch 3B): a caller that passes `seen` (food banks only) gets the 2-run check done here instead: `seen` (id -> last run's pending table, from logs/foodbank_times_check.json). A clear table is
-    written only when the postcode matched and the same table was already pending. The first sight is stored and
-    the listing is not touched. A missing, unreadable, empty or all-closed reading never replaces the stored week."""
+    candidate here. It is not written on this pass. A missing, unreadable, empty or all-closed reading never
+    replaces the stored week (times_gate_reasons)."""
     import closure
     today = (today or datetime.date.today()).isoformat()
     sites = {}
@@ -800,30 +796,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                     src_u = new.pop("_source_url", None); new.pop("centre_role", None); new.pop("_page_text", None)
                     rec["evidence"] = new.pop("_evidence", None) or ""
                     if not new.get("reader"): new["reader"] = "source_page"
-                    if seen is not None:
-                        if not client_week(new) or office_like(new.get("structured")):
-                            rec.update(status="unconfirmed", reason="empty, closed or unreadable reading; stored week kept")
-                            _unconfirm(i, kind, field, rec["reason"])
-                        elif seen is None:
-                            # Callers that do not pass last run's pending table keep the previous one-run write.
-                            rec["undo"] = json.loads(json.dumps(i.get(field)))
-                            i[field] = new
-                            i["times_status"] = "updated"; i["times_checked"] = today; rec["new"] = new.get("structured")
-                        else:
-                            pc = norm_pc(i.get("postcode")); fp = new.get("structured")
-                            prev = seen.get(i["id"]) or {}
-                            if pc and prev.get("postcode") == pc and prev.get("structured") == fp:
-                                rec["undo"] = json.loads(json.dumps(i.get(field)))
-                                i[field] = new
-                                i["times_status"] = "updated"; i["times_checked"] = today
-                                rec["new"] = fp; rec["status"] = "changed"
-                            else:
-                                rec.update(status="seen_once", new=fp, pending={"structured": fp, "raw": new.get("raw"), "postcode": pc, "source_url": new.get("source_url")})
-                        log[i["id"]] = rec; continue
                     landed_u = src_u or (page_pairs[0][0] if src else None) or (home and home.get("final_url")) or ""
-                elif kind == "fb" and seen is not None:
-                    rec.update(status="unconfirmed", reason="empty, closed or unreadable reading; stored week kept")
-                    _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
                 else:
                     landed_u = (page_pairs[0][0] if src else None) or (home and home.get("final_url")) or ""
                 rec["new"] = new.get("structured") if isinstance(new, dict) else None
@@ -842,19 +815,6 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
     if kind == "fb":
         bysite = {}
         orig = {i["id"]: i.get("_orig_times") for i in items}
-        if seen is not None:
-            for i in items:
-                if log.get(i["id"], {}).get("status") in ("changed", "seen_once"): bysite.setdefault((log[i["id"]]["site"], json.dumps(log[i["id"]].get("new"), sort_keys=True)), []).append(i)
-            for (site, _), grp in bysite.items():
-                for i in grp:
-                    why = None
-                    if office_like(log[i["id"]].get("new")): why = "new own-site times look like office/centre hours"
-                    elif len(grp) > 1 and len({norm_pc(x.get("postcode")) for x in grp}) < len(grp): why = "own site gives one table for several branches; cannot tell which branch"
-                    if why:
-                        if log[i["id"]].get("status") == "changed": i["opening_times"] = orig.get(i["id"])
-                        log[i["id"]].update(status="unconfirmed", reason=why, reverted=True); log[i["id"]].pop("pending", None); log[i["id"]].pop("undo", None)
-                        _unconfirm(i, kind, field, why)
-        bysite = {}
         for i, rec, new, _, _ in cands: bysite.setdefault((rec["site"], json.dumps(rec.get("new"), sort_keys=True)), []).append(i)
         for (_, _), grp in bysite.items():
             for i in grp:
@@ -897,7 +857,7 @@ def _hold(i, log, orig, field, why):
     i[field] = orig.get(i["id"]); log[i["id"]].update(status="held_for_review", reason=why, reverted=True)
     _unconfirm(i, "fb", field, why); i["times_status"] = "held_for_review"
 
-def check_missing(items, log, kind, field, fetcher=fetch_raw, today=None, threads=24, state_root=None, rules=None, run_at=None):
+def check_missing(items, log, kind, field, fetcher=fetch_live, today=None, threads=24, state_root=None, rules=None, run_at=None):
     """Entries added AFTER the main times check (own-site extra centres, hand-added food banks, late IFAN pins) were
     never checked, so their card date froze. Check them on their own site now; merge into `log` (marked late_pass).
     Hand-checked (manual) centres are never overwritten: differences are only flagged.
