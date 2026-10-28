@@ -192,5 +192,51 @@ class Rule37(unittest.TestCase):
         self.assertGreaterEqual(len(KNOWN_DAYTIME), 40)
 
 
+
+class Rule37VenuePhone(unittest.TestCase):
+    """Stricter (Dean, 28 Oct 2026): no general council number as a venue's own `phone` either.
+    The banned list is KNOWN_DAYTIME plus the council lines removed from venue phones on 28 Oct.
+    The only allowance: a number Dean approved on 26 Oct that is waiting on his review list."""
+    BANNED_PHONE = dict(KNOWN_DAYTIME, **{
+        "01904554500": "City of York Council Housing Options (01904 554500)",
+        "08000232692": "Manchester City Council Cost of Living Advice Line (0800 023 2692)",
+    })
+    AWAITING_DEAN = {"ww-68618605": "03001232224"}  # Bruton library, Dean-approved 26 Oct; on reports/pending_dean.md
+
+    def test_awaiting_dean_is_on_review_list(self):
+        pd = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
+        m = re.search(r"(?s)<!-- council lines review -->.*?<!-- /council lines review -->", pd)
+        self.assertTrue(m)
+        for iid in self.AWAITING_DEAN:
+            self.assertIn(iid, m.group(0))
+
+    def _ok(self, iid, num):
+        return self.AWAITING_DEAN.get(iid) == num
+
+    def test_no_banned_number_as_venue_phone_in_overrides(self):
+        for name in ("shelters_contacts.json", "warmspaces_contacts.json"):
+            d = json.load(open(os.path.join(ROOT, "overrides", name), encoding="utf-8"))
+            for k, v in d.items():
+                if not isinstance(v, dict): continue
+                for f in ("phone", "phone_fix"):
+                    n = D(v.get(f))
+                    if n and not self._ok(k, n):
+                        self.assertNotIn(n, self.BANNED_PHONE, f"{name}:{k} {f}={v.get(f)} is a general council number")
+        b = json.load(open(os.path.join(ROOT, "overrides", "phone_baseline.json"), encoding="utf-8"))["listings"]
+        for k, v in b.items():
+            n = D(v.get("phone"))
+            if n and not self._ok(k, n):
+                self.assertNotIn(n, self.BANNED_PHONE, f"phone_baseline:{k} phone={v.get('phone')} is a general council number")
+
+    def test_no_banned_number_as_venue_phone_on_cards(self):
+        for layer in ("shelters", "warmspaces"):
+            items = built(layer)
+            sc.apply(items, sc.load(sc.WS if layer == "warmspaces" else sc.PATH))
+            for x in items:
+                for f in ("phone", "tel"):
+                    n = D(x.get(f))
+                    if n and not self._ok(x["id"], n):
+                        self.assertNotIn(n, self.BANNED_PHONE, f"{layer}:{x['id']} {f}={x.get(f)} is a general council number")
+
 if __name__ == "__main__":
     unittest.main()
