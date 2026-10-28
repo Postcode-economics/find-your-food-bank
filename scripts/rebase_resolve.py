@@ -29,7 +29,10 @@ SECTIONED = {"reports/pending_dean.md"}
 # maps: each key the run changed takes the run's value, every other key keeps main's.
 UNDO_LOGS = {"reports/times_auto_applied.json", "reports/phone_auto_applied.json"}
 KEYED = {"logs/times_crosscheck_seen.json", "logs/times_finder_seen.json",
-         "overrides/times_auto_undone.json", "overrides/phone_auto_undone.json"}
+         "overrides/times_auto_undone.json", "overrides/phone_auto_undone.json",
+         "overrides/opening_times.json", "reports/phone_fixes.json"}
+# (indent, sort_keys) each file's own writer uses, so a merge does not reformat it. Default for KEYED: (0, True).
+JSON_FORMAT = {"overrides/opening_times.json": (1, True), "reports/phone_fixes.json": (1, False)}
 SEC = re.compile(r"<!-- (?!/)([\w .-]+?) -->\n.*?<!-- /\1 -->\n?", re.S)
 
 
@@ -130,8 +133,9 @@ def resolve(f):
     if f in UNDO_LOGS or f in KEYED:
         ours, theirs = stage(f, 2), stage(f, 3)
         merged = (merge_undo_log if f in UNDO_LOGS else merge_keyed)(stage(f, 1), ours, theirs)
+        indent, sort = JSON_FORMAT.get(f, (1, False) if f in UNDO_LOGS else (0, True))
         with open(os.path.join(ROOT, f), "w", encoding="utf-8") as fh:
-            json.dump(merged, fh, indent=1 if f in UNDO_LOGS else 0, sort_keys=f in KEYED, ensure_ascii=False)
+            json.dump(merged, fh, indent=indent, sort_keys=sort, ensure_ascii=False)
         git("add", "--", f); return "json-merge"
     if f == "stamp.js":
         subprocess.run([sys.executable, "scripts/stamp.py", "combine-index"], cwd=ROOT, check=True)
