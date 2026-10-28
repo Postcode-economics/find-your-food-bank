@@ -167,4 +167,4 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
-      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py
+      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py
