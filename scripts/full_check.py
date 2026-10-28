@@ -10,9 +10,11 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  (Dean 25 Oct 2026: confirmed closures and new food banks are NOT auto-applied; they go to reports/pending_dean.md)
  2. opening-hours changes (seasonal / holiday notices, changed hours text) -> daily list
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
- 4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
-    stored one is nowhere on it, seen on 2 runs in a row) is auto-applied (reports/phone_fixes.json)
-     and logged, including when that number is a named person's, with the role the page gives
+ 4. dead sites and stale phones. A CLEAR new number is auto-applied (reports/phone_fixes.json) only through the
+    strict gate (Dean, 28 Oct 2026; phone_gate_reasons): read on the organisation's own host, exactly one clickable
+    number there (no conflicting own-site number), identical on 2 separate runs, not undone by Dean. Each change is
+    logged once in reports/phone_auto_applied.json with its source URL and an undo command (scripts/phone_revert.py),
+     including when that number is a named person's, with the role the page gives
      (rule 21, Dean 26 Oct 2026), unless that listing is in overrides/phone_baseline.json: then it is held
      for Dean with its source and not applied. Until that file exists, every existing listing is held the
      same way. Anything else -> daily list, with the reason recorded
@@ -145,6 +147,43 @@ def own_site_misses_stored(stored, site_phones):
     """True when the own page lists numbers and none of them is the stored one.
     A page that still shows the stored number, even among others, does not replace it."""
     return bool(stored and site_phones and not (set(stored) & set(site_phones)))
+
+# Strict gate for automatic phone changes (Dean, 28 Oct 2026): the same rules as the refresh times gate.
+PHONE_LOG = 'phone_auto_applied.json'                         # reports/: every automatic phone change, once
+PHONE_UNDONE = os.path.join('overrides', 'phone_auto_undone.json')  # website -> number Dean undid; never re-applied
+def _host(u):
+    return urllib.parse.urlparse(u or '').netloc.lower().split(':')[0].removeprefix('www.')
+def own_host(site, u):
+    a, b = _host(site), _host(u)
+    return bool(a and b and (a == b or b.endswith('.' + a) or a.endswith('.' + b)))
+def phone_gate_reasons(u, r, prev, undone=None):
+    """Reasons a proposed own-site phone change must be held for Dean. Empty = it may apply (tests/test_phone_gate.py)."""
+    why = []
+    phones = r.get('phones') or []
+    if len(phones) != 1 or r.get('tel') != phones: why.append('not exactly one clickable number on the own site (another own-site number conflicts, or none is clickable)')
+    if not own_host(u, r.get('final_url')) or not all(own_host(u, p) for p in (r.get('pages') or [])):
+        why.append("not read on the organisation's own host")
+    if prev.get('phones') != phones or not own_host(u, prev.get('final_url')) or not prev.get('checked_at') or prev.get('checked_at') == r.get('checked_at'):
+        why.append('number not read identically on 2 separate runs yet')
+    if phones and (undone or {}).get(u) == phones[0]: why.append('this change was undone by Dean; not re-applied')
+    return why
+def log_phone_changes(applied, path=None):
+    """One undo-log entry per (website, new number). A fix re-applied on a later run (build.py rebuilds from the feed)
+    is not logged again. Revert with scripts/phone_revert.py <website>."""
+    path = path or os.path.join(REP, PHONE_LOG)
+    try: log = json.load(open(path, encoding='utf-8'))
+    except Exception: log = []
+    have = {(e.get('website'), e.get('new')) for e in log if not e.get('reverted')}
+    added = []
+    for u, f in applied:
+        if (u, f['new']) in have: continue
+        have.add((u, f['new']))
+        e = dict(website=u, old=f.get('old'), new=f['new'], source_url=f.get('source') or '', since=f.get('since'),
+                 first_run_at=f.get('first_run_at'), second_run_at=f.get('second_run_at'), revert='python scripts/phone_revert.py ' + u)
+        log.append(e); added.append(e)
+    if added:
+        t = path + '.tmp'; json.dump(log, open(t, 'w', encoding='utf-8'), indent=1, ensure_ascii=False); os.replace(t, path)
+    return added
 def snippet(t, rx, n=220):
     m = rx.search(t)
     if not m: return ''
@@ -469,6 +508,9 @@ def main():
     for x, t in tags.items():
         if x in acc: acc[x] = t['tag']   # build_access.py regenerated access.js from the CSVs; re-apply our flips
     fixes = rj('phone_fixes.json', {})      # website -> {"old", "new", "since", "source"}
+    try: undone = json.load(open(os.path.join(ROOT, PHONE_UNDONE), encoding='utf-8'))
+    except Exception: undone = {}
+    fixes = {u: f for u, f in fixes.items() if undone.get(u) != f.get('new')}  # an undone fix is never re-applied
     changes = rj('access_changes.json', [])
     review = rj('daily_review.json', {})
     today = review.get(DAY, {'date': DAY, 'runs': [], 'items': {}}); review = {k: v for k, v in review.items() if k >= (NOW.date() - datetime.timedelta(days=14)).isoformat()}
@@ -584,9 +626,13 @@ def main():
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if own_site_misses_stored(stored, r['phones']):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
+            clear = len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes
+            gate = phone_gate_reasons(u, r, prev, undone) if clear else []
+            if clear and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
                 flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
-            elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
+            elif clear and gate:
+                flag(u, 'phone fix held (strict gate)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], source=r.get('final_url') or '', note='; '.join(gate))
+            elif clear:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 lab = (r.get('contact_labels') or {}).get(new, '')
                 d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=False))
@@ -596,7 +642,8 @@ def main():
                     for i in listed:  # baselined listings are held, not auto-applied
                         phone_lock.hold(ROOT, i.get('id'), 'phone', i.get('phone'), new, r.get('final_url') or '', 'phone fix', i.get('name') or name)
                     if len(listed) < len(targets):
-                        fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label']); stats['phone_fixes'] += 1
+                        fixes[u] = dict(old=old, new=new, since=DAY, source=r['final_url'], label=d['label'],
+                                        first_run_at=prev.get('checked_at'), second_run_at=r.get('checked_at')); stats['phone_fixes'] += 1
                         today['items'].pop('phone number not on own site|' + u, None)
                         e = dict(when=NOW.isoformat(), website=u, name=name, kind='phone', old=old, new=new, source=r['final_url']); changes.insert(0, e); log.append(e); this_run.append(e)
                 else:
@@ -638,6 +685,7 @@ def main():
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     applied_phones = []
     apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)
+    if not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): log_phone_changes(applied_phones)
     for u, f in applied_phones:
         # PR 204 owns confidence_for and the decision to hold a phone. This log only records a number that was written.
         if hasattr(learning, "confidence_for"): confidence = learning.confidence_for(u, conflicted)
@@ -653,7 +701,7 @@ def main():
     write_md(today, log, stats)
     try:
         import rate_ledger
-        if rate_ledger.LEDGER.counts and not os.environ.get('SAMPLE'): rate_ledger.save(day=DAY)
+        if rate_ledger.LEDGER.counts and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'): rate_ledger.save(day=DAY)
     except Exception: pass
     print('full check:', json.dumps(stats))
     apply_closure_notes(items, closure_pending); wj('closures_pending.json', closure_pending); write_pending_closures(closure_pending)
