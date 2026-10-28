@@ -43,6 +43,28 @@
     "phone": "07360162919",
     "evidence": "Aberdeen South Foodbank site: 'TLC 18 Palmerston Road (Office Only)'; 'provide a home delivery service on Mondays and Fridays, but do not offer a drop in or collection service'. https://aberdeensouth.foodbank.org.uk/locations/ Approved by Dean, 21 Oct 2026."
   },
+  "southend": {
+    "kind": "warehouse",
+    "centres": [
+      "southend/hawkwell-hockley",
+      "southend/belle-vue-baptist-church",
+      "southend/westcliff",
+      "southend/shoeburyness"
+    ],
+    "evidence": "Southend Foodbank locations page: Friendship House, 484 Southchurch Road, SS1 2QA is the office and warehouse, open for donations only Monday, Tuesday and Thursday 9am-2pm. You cannot get a voucher or collect food there. The page says there are 4 distribution centres (Hawkwell SS4 1UP, Belle Vue SS1 2QZ, St Saviour's SS0 8LL, Shoeburyness SS3 9JD). The voucher page lists those 4 plus the warehouse. Checked 26 Oct 2026. https://southend.foodbank.org.uk/about-us/locations"
+  },
+  "kings-langley": {
+    "kind": "client",
+    "evidence": "All Saints community page: a foodbank every Tuesday 10am to 11.30am, and anyone in need of food is welcome to come and take what they need. Donations can also be left daily. This is a client session, not a donations-only office. Checked 26 Oct 2026. https://beneficeoflangelei.org.uk/allsaints/community/"
+  },
+  "galashiels-and-area": {
+    "kind": "client",
+    "evidence": "St Peter's Church, Parsonage Road, TD1 3HS is a place to collect food, including the Wednesday emergency walk-in. Checked 26 Oct 2026. https://galashielsfoodbank.wordpress.com/get-food/"
+  },
+  "helensburgh-lomond": {
+    "kind": "client",
+    "evidence": "Helensburgh Community Hub, 116 East Princes Street, holds client sessions Monday 10-12 and Thursday 3-7pm. St Modan's is a second session, not a reason to hide the hub. Checked 26 Oct 2026. https://helensburghlomondfoodbank.org/"
+  },
   "york": {
     "kind": "dropoff",
     "label_en": "Donations only",

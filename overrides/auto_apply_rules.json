@@ -22,5 +22,11 @@
  "needs_dean": [
   "new places",
   "permanent closures (pin kept with card note)"
- ]
+ ],
+ "phone_rule": {
+  "show_verified_own_page": true,
+  "named_or_personal_is_not_a_reason_to_hold": true,
+  "host_church_contact_counts_as_own_page": true,
+  "why": "Dean 26 Oct 2026 08:29, rule 21, and 08:37: a verified number the venue's own page gives as its contact is shown, including a named person's or personal number, with the label that page gives. A host church contact page counts as that venue's own page. Unverified or doubtful numbers are held with the reason recorded. Dean's own details are never published."
+ }
 }
