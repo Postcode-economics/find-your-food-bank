@@ -82,7 +82,7 @@ def _add_hand(out, iid, rec):
     if not iid or str(iid).startswith("_") or not isinstance(rec, dict):
         return
     slot = out.setdefault(iid, {})
-    for f in FIELDS:
+    for f in FIELDS + ("hours", "opening_times"):
         if f in rec and not _blank(rec[f]):
             slot[f] = rec[f]
 
@@ -128,8 +128,10 @@ def _restore(item, field, was):
     else:
         item[field] = was
 
-def protect(items, previous, hand, root=None, source="refresh"):
+def protect(items, previous, hand, root=None, source="refresh", keep_times=()):
     """Put published address/postcode/lat/lng back unless this value is Dean's hand-set one.
+    For shelters and warm spaces, also put published hours back unless the times gate applied
+    them this run (keep_times) or a hand-set override has this timetable.
     Returns how many fields were restored. Writes the review section (replacing last run's)."""
     root = root or ROOT
     prev = {}
@@ -137,6 +139,10 @@ def protect(items, previous, hand, root=None, source="refresh"):
         if isinstance(old, dict) and old.get("id"):
             prev[old["id"]] = old
     hand = hand or {}
+    keep_times = set(keep_times or ())
+    # Food-bank times live in overrides/opening_times.json and the strict gate. Shelter and warm-space
+    # hours are rebuilt from a directory feed, so a feed timetable must not replace the published one.
+    time_fields = () if source == "foodbanks" else ("hours",)
     lines = []
     n = 0
     for item in items or []:
@@ -160,6 +166,22 @@ def protect(items, previous, hand, root=None, source="refresh"):
             shown = new if not _blank(new) else "(none)"
             line = "- address mismatch, held for Dean | %s | %s | via %s | stored %s | proposed %s | unchanged" % (
                 iid, field, source, kept, shown)
+            if item.get("name"):
+                line += " | " + item["name"]
+            if line not in lines:
+                lines.append(line)
+            n += 1
+        if iid in keep_times:
+            continue
+        allowed = hand.get(iid) or {}
+        for field in time_fields:
+            new, was = item.get(field), old.get(field)
+            if _without_check_date(new) == _without_check_date(was):
+                continue
+            if field in allowed and _without_check_date(allowed[field]) == _without_check_date(new):
+                continue
+            _restore(item, field, was)
+            line = "- times kept, not auto-applied | %s | %s | via %s | unchanged" % (iid, field, source)
             if item.get("name"):
                 line += " | " + item["name"]
             if line not in lines:

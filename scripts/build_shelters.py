@@ -119,7 +119,8 @@ import phone_lock  # frozen numbers, and no daytime council line without a verif
 for x in items: phone_lock.settle_council(x)
 phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="shelters", persist_new=not os.environ.get("DRY_RUN"))
 import place_lock
-restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters")
+_applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
+restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters", keep_times=_applied_times)
 print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(published_items, items)))
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})

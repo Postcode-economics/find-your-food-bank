@@ -43,6 +43,21 @@ class Protect(unittest.TestCase):
         self.assertEqual((item["lat"], item["lng"]), (51.5, -0.1))
         self.assertFalse(os.path.exists(os.path.join(self.root, "reports", "pending_dean.md")))
 
+    def test_directory_hours_are_put_back_unless_the_gate_applied_them(self):
+        old = dict(PUB, hours={"Tue": "10:00 - 12:00"})
+        item = dict(old, hours={"Thu": "14:00 - 16:00"})
+        n = place_lock.protect([item], [old], {}, self.root, "warmspaces")
+        self.assertGreater(n, 0)
+        self.assertEqual(item["hours"], {"Tue": "10:00 - 12:00"})
+        text = open(os.path.join(self.root, "reports", "pending_dean.md"), encoding="utf-8").read()
+        self.assertIn("times kept, not auto-applied", text)
+        gated = dict(old, hours={"Thu": "14:00 - 16:00"})
+        place_lock.protect([gated], [old], {}, self.root, "warmspaces", keep_times={"riverside"})
+        self.assertEqual(gated["hours"], {"Thu": "14:00 - 16:00"})
+        fb = dict(PUB, opening_times={"structured": {"thu": [["14:00", "16:00"]]}})
+        place_lock.protect([fb], [dict(PUB, opening_times={"structured": {"tue": [["10:00", "12:00"]]}})], {}, self.root, "foodbanks")
+        self.assertEqual(fb["opening_times"]["structured"], {"thu": [["14:00", "16:00"]]})
+
     def test_a_checked_date_bump_is_not_counted_as_new_hours(self):
         old = dict(PUB, opening_times={"structured": {"tue": [["10:00", "12:00"]]}, "checked_date": "2026-10-01"})
         new = dict(PUB, opening_times={"structured": {"tue": [["10:00", "12:00"]]}, "checked_date": "2026-10-28"})
