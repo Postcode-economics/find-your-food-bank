@@ -59,8 +59,8 @@ class Source(unittest.TestCase):
         tag = 'tiles.js?v=h' + hashlib.sha256(tiles.encode()).hexdigest()[:12]
         self.assertIn(tag, home)
         self.assertIn(tag, sw)
-        self.assertIn("const C='fyfb-v92'", sw)
-        self.assertIn('content="fyfb-v92"', home)
+        self.assertIn("const C='fyfb-v93'", sw)
+        self.assertIn('content="fyfb-v93"', home)
 
 
 @unittest.skipUnless(HAVE, 'needs playwright webkit')
