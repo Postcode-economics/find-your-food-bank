@@ -62,9 +62,22 @@ class Decide(unittest.TestCase):
         seen = {"ex": {"sig": json.dumps(ot["structured"], sort_keys=True), "source_url": ot["source_url"], "run_at": "2026-10-26T19:00:00+00:00"}}
         log, cur, md = self.run_decide({"ex": ot}, [self.it()], seen=seen, rules={"times_auto_apply": False})
         self.assertEqual(log["applied"], []); self.assertNotIn("ex", cur); self.assertIn("auto-apply is off", md)
-    def test_sweep_workflow_has_no_apply(self):
+    def test_sweep_workflow_auto_applies_food_bank_times_under_strict_rules(self):
+        """Dean 28 Oct 2026: the daily sweep auto-applies food bank times (the intended feature); only address and phone
+        changes wait for him. It must say so, publish what it applies with the undo log, and test before it pushes."""
         w = open(os.path.join(R, ".github", "workflows", "sweep-daily.yml")).read()
-        self.assertNotIn("times_finder.py --apply", w); self.assertIn("times_finder.py --render", w)
+        self.assertIn("python scripts/times_finder.py --render", w)
+        step = w[w.rindex("- name:", 0, w.index("times_finder.py --render")):w.index("times_finder.py --render")]
+        self.assertNotRegex(step.lower(), r"review only|never applied")
+        self.assertIn("auto-apply", step); self.assertIn("strict times rules", step); self.assertIn("2 runs", step)
+        commit = w.index("Commit new entries and the sweep log")
+        add = w[commit:w.index("git diff --cached --quiet", commit)]
+        for f in ("overrides/opening_times.json", "reports/times_auto_applied.json", "logs/times_finder_seen.json", "reports/pending_dean.md"):
+            self.assertIn(f, add, f)
+        suite, gate = w.index("python -m pytest -q tests"), w.index("python scripts/validate.py gate")
+        self.assertLess(w.index("times_finder.py --render"), suite); self.assertLess(suite, commit); self.assertLess(gate, commit)
+        self.assertNotIn("continue-on-error", w[w.rindex("- name:", 0, suite):commit])   # a failed suite or gate stops the push
+        self.assertTrue(TF.times_auto_on(json.load(open(os.path.join(R, "overrides", "auto_apply_rules.json")))))
     def test_oxford_copy_sent_to_review(self):   # same times read onto two centres with different postcodes
         f = {"a": self.ot(pc="OX39AA"), "b": self.ot(pc="OX41AA")}
         log, cur, md = self.run_decide(f, [self.it("a", "OX3 9AA"), self.it("b", "OX4 1AA")])
