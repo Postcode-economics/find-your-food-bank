@@ -42,16 +42,23 @@ def load_json(p, d):
 def excluded_ids(root='.'):
     return {e['id'] for e in load_json(os.path.join(root, 'overrides', 'warmspaces_exclude.json'), []) if isinstance(e, dict) and e.get('id')}
 
+def iso_day(d):
+    """'YYYY-MM-DD' from an ISO date or timestamp, else '' (e.g. '27/10/2026' never reaches the card)."""
+    try: return datetime.date.fromisoformat(str(d or '')[:10]).isoformat()
+    except ValueError: return ''
+
 def last_confirmed(o, confirmed=None):
-    d = (confirmed or {}).get(o['id']) or o.get('last_confirmed') or o.get('last_verified') or o.get('verified_on') or o.get('first_verified_on') or ''
-    return d[:10] if len(d) >= 10 and d[4] == '-' else ''
+    for d in ((confirmed or {}).get(o['id']), o.get('last_confirmed'), o.get('last_verified'), o.get('verified_on'), o.get('first_verified_on')):
+        if iso_day(d): return iso_day(d)
+    return ''
 
 def label(o, run_day, pending=None, confirmed=None):
     """The carried / restored copy of a previous venue: call_check, 'Not re-confirmed since <last confirmed>' note,
     website removed if its page now redirects to another site, review flag after REVIEW_DAYS or on a redirect."""
     x = dict(o); x['call_check'] = True; x['stale'] = False
     x.setdefault('carried_since', run_day); x['carried_forward'] = run_day
-    if not x.get('last_confirmed'):
+    if not iso_day(x.get('last_confirmed')):
+        x.pop('last_confirmed', None)
         lc = last_confirmed(o, confirmed)
         if lc: x['last_confirmed'] = lc
     x['carried_note'] = NOTE % (x.get('last_confirmed') or x['carried_since'])
