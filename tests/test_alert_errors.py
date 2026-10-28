@@ -117,6 +117,23 @@ class Workflows(unittest.TestCase):
         self.assertIn("python scripts/digest.py", s)
         self.assertNotIn("continue-on-error: true", s)
 
+    def test_digest_runs_after_the_publish_and_never_blocks_it(self):
+        y = rd(WF, "refresh.yml")
+        commit, digest = y.index("- name: Commit if changed"), y.index("- name: Alerts + morning digest")
+        self.assertLess(commit, digest)
+        self.assertIn("id: commit", step(y, "Commit if changed"))
+        s = step(y, "Alerts + morning digest")
+        self.assertIn("if: always() && steps.commit.outcome == 'success'", s)
+        self.assertIn("git add reports/morning_digest.md logs/digest_state.json", s)
+        self.assertIn("git pull --rebase --autostash", s)
+        self.assertIn("exit $rc", s)
+        self.assertIn("if: failure() && steps.commit.outcome != 'success'", step(y, "Alert - run failed (nothing new published)"))
+        self.assertIn("if: always() && steps.commit.outcome == 'success'", step(y, "Clear the run alert after a good run"))
+        a = step(y, "Alert - morning digest or its alerts failed")
+        self.assertIn("steps.digest.outcome == 'failure'", a)
+        self.assertIn("alert.py open digest ", a)
+        self.assertIn("alert.py resolve digest", step(y, "Clear the digest alert after a good digest"))
+
     def test_refreshes_never_share_an_alert_key(self):
         keys = lambda n: set(re.findall(r"alert\.py (?:open|resolve) ([\w-]+)", rd(WF, n)))
         fb, ws = keys("refresh.yml"), keys("refresh-warmspaces.yml")
