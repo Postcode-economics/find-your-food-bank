@@ -15,6 +15,7 @@ import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops 
 sys.path.insert(0, os.path.dirname(__file__))
 import trussell_times as TT
 import discover as D
+import phone_rule as PR
 RUN = datetime.date.today().isoformat()
 LINKW = re.compile(r"open|time|hour|when|contact|find|get-?help|need-?help|centre|center|location|visit|where|distribution|session", re.I)
 SOCIAL = re.compile(r"facebook\.com|instagram\.com|twitter\.com|x\.com/|linktr\.ee", re.I)
@@ -78,7 +79,8 @@ def generic(items_for_site, base):
             u, ot = best
             if ot.get("structured") and D.office_like(ot["structured"]): out[i["id"]] = (None, "times found look like office hours; skipped"); continue
             pcs = [norm_pc(i.get("postcode"))] if i.get("postcode") and norm_pc(i.get("postcode")) in dict(pages).get(u, "").upper().replace(" ", "") else []
-            ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs); out[i["id"]] = (ot, "found on own site")
+            fb = PR.mentions_food_bank(dict(pages).get(u, ""), [i.get("name"), i.get("foodbank")])
+            ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs, fb_mention=fb); out[i["id"]] = (ot, "found on own site")
         else: out[i["id"]] = (None, "no client times found on own site (home, sitemap and %d linked pages read)" % (len(pages) - 1))
     return out
 KNOWN = os.path.join(os.path.dirname(__file__), "..", "overrides", "known_sources.json")
@@ -123,6 +125,9 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None):
     if not pc_ok: why.append("postcode not matched exactly on the page")
     if not one_block(ot): why.append("not one clear weekly client-hours block (kept as text for review)")
     if not own_page(ot, it) and ot.get("reader") != "trussell_cards": why.append("not on the food bank's own site")
+    # Rule 21 (Dean 28 Oct): a host church page counts only when the page itself names the food bank. Trussell centre
+    # cards are on *.foodbank.org.uk; any other result without a recorded mention is held.
+    if ot.get("reader") != "trussell_cards" and ot.get("fb_mention") is not True: why.append(D.NO_FB_MENTION)
     if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
     if same_n > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
     prev = (seen or {}).get(k) or {}

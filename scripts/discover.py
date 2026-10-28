@@ -548,6 +548,7 @@ def _ot_empty(ot):
     st = ot.get("structured")
     if st is not None and not any(v for v in st.values()): return True
     return not (st or (ot.get("raw") or "").strip())
+NO_FB_MENTION = "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
 def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra=()):
     """Reasons a refresh times change must be held for Dean. Empty = may apply. Each blocks on its own (tests/test_times_crosscheck_gate.py)."""
     why = list(extra); key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured")); src = home.get("final_url") if home else None
@@ -557,6 +558,9 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if not src or not usable_site(site) or not (host(src) == host(site) or host(src).endswith("." + host(site)) or host(site).endswith("." + host(src))):
         why.append("not on the organisation's own site")
     if src and DONATION_PAGE.search(urllib.parse.urlparse(src).path): why.append("source page is about giving/donating, not getting food")
+    if kind == "fb":
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import phone_rule
+        if not any(phone_rule.mentions_food_bank(t, [i.get("name"), i.get("foodbank")]) for t in texts): why.append(NO_FB_MENTION)
     vals = set()
     for t in texts:
         e = extract_times(t, i.get("postcode"))

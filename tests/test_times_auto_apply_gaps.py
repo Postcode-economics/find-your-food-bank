@@ -7,7 +7,7 @@ import times_finder as F, times_revert as R
 ON = {"times_auto_apply": True}
 ITEM = {"id": "fb1", "name": "Test Foodbank", "postcode": "AB1 2CD", "website": "https://testfb.org.uk/"}
 GOOD = {"status": "TIMES_FOUND", "structured": {"wed": [["10:00", "12:00"]]}, "raw": "Wednesday 10am-12pm",
-        "source_url": "https://testfb.org.uk/opening-times", "pc_seen": ["AB12CD"], "reader": "times_finder", "checked_date": "2026-10-27"}
+        "source_url": "https://testfb.org.uk/opening-times", "pc_seen": ["AB12CD"], "reader": "times_finder", "checked_date": "2026-10-27", "fb_mention": True}
 SIG = json.dumps(GOOD["structured"], sort_keys=True)
 RUNS = ("2026-10-26T19:05:00+00:00", "2026-10-27T03:05:00+00:00", "2026-10-27T11:05:00+00:00", "2026-10-27T19:05:00+00:00")
 KS = {"pages": {}, "skip": {}}

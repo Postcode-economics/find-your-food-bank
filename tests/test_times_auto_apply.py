@@ -12,7 +12,7 @@ import times_revert as R
 ON, OFF = {"times_auto_apply": True}, {"times_auto_apply": False}
 ITEM = {"id": "fb1", "name": "Test Foodbank", "postcode": "AB1 2CD", "website": "https://testfb.org.uk/"}
 GOOD = {"status": "TIMES_FOUND", "structured": {"wed": [["10:00", "12:00"]]}, "raw": "Wednesday 10am-12pm",
-        "source_url": "https://testfb.org.uk/opening-times", "pc_seen": ["AB12CD"], "reader": "times_finder", "checked_date": "2026-10-27"}
+        "source_url": "https://testfb.org.uk/opening-times", "pc_seen": ["AB12CD"], "reader": "times_finder", "checked_date": "2026-10-27", "fb_mention": True}
 SEEN1 = {"fb1": {"sig": json.dumps(GOOD["structured"], sort_keys=True), "source_url": GOOD["source_url"], "run_at": "2026-10-26T19:05:00+00:00"}}
 class Auto(unittest.TestCase):
     def setUp(self):

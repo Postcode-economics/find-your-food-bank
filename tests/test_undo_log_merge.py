@@ -102,7 +102,7 @@ class RebaseRace(unittest.TestCase):
 
 class FinderLogsOnce(unittest.TestCase):
     GOOD = {"status": "TIMES_FOUND", "structured": {"wed": [["10:00", "12:00"]]}, "raw": "Wednesday 10am-12pm",
-            "source_url": "https://testfb.org.uk/opening-times", "pc_seen": ["AB12CD"], "reader": "times_finder", "checked_date": "2026-10-27"}
+            "source_url": "https://testfb.org.uk/opening-times", "pc_seen": ["AB12CD"], "reader": "times_finder", "checked_date": "2026-10-27", "fb_mention": True}
     ITEM = {"id": "fb1", "name": "Test Foodbank", "postcode": "AB1 2CD", "website": "https://testfb.org.uk/"}
     def setUp(self):
         self.old = os.getcwd(); self.d = tempfile.mkdtemp(); os.chdir(self.d)

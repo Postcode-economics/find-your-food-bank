@@ -341,8 +341,7 @@ class T9Replay(unittest.TestCase):
 
 
 class T10Times(unittest.TestCase):
-    """Times files belong to another agent in batch 3. The phone PR records the case; the times owner makes it pass."""
-    @unittest.expectedFailure
+    """Rule 21 for times (Dean 28 Oct): a host church page that never names the food bank is held, never applied."""
     def test_host_church_times_without_food_bank_wording_are_held(self):
         import times_finder as TF
         cwd = os.getcwd(); d = tempfile.mkdtemp(); os.chdir(d); self.addCleanup(os.chdir, cwd); self.addCleanup(shutil.rmtree, d, True)
