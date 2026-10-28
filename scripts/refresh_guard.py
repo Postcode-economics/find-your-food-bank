@@ -68,7 +68,11 @@ def ws_not_restorable(run_day, root=None, closed_ids=()):
     import carry_forward as CF
     root = root or ROOT
     lg = load_json(os.path.join(root, 'logs', 'warmspaces_carry_forward.json'), {})
-    nc = {r['id']: r.get('why', 'not_carried') for r in lg.get('not_carried', [])} if lg.get('run') == run_day else {}
+    # Same run, not same date (GB2, 28 Oct): a refresh that crosses midnight UTC wrote the log with yesterday's date.
+    # Match on the workflow run id when both sides have one; otherwise fall back to the run day.
+    rid = CF.run_id()
+    same = (lg.get('run_id') == rid) if (rid and lg.get('run_id')) else (lg.get('run') == run_day)
+    nc = {r['id']: r.get('why', 'not_carried') for r in lg.get('not_carried', [])} if same else {}
     for i in CF.excluded_ids(root): nc.setdefault(i, 'excluded')
     for i in closed_ids: nc.setdefault(i, 'closed')
     return nc

@@ -103,13 +103,20 @@ def carry_items(prev_items, items, closed, run_day, excluded=(), allowed=None, s
     out = sorted(list(items) + carried, key=lambda x: x['name'].lower())
     return out, carried, not_carried
 
+def run_id():
+    """Identity of this workflow run (GitHub run id + attempt), so a reader in the same run finds this log even after
+    midnight UTC. None outside Actions."""
+    rid = os.environ.get('REFRESH_RUN_ID') or os.environ.get('GITHUB_RUN_ID')
+    if not rid: return None
+    return '%s.%s' % (rid, os.environ.get('GITHUB_RUN_ATTEMPT', '1')) if not os.environ.get('REFRESH_RUN_ID') else rid
+
 def write_log(carried, run_day, root='.', layer='warmspaces', not_carried=()):
     rows = [{'id': x['id'], 'name': x['name'], 'postcode': x.get('postcode', ''), 'carried_since': x.get('carried_since', run_day), 'last_confirmed': x.get('last_confirmed', ''),
              'carried_days': x.get('carried_days', 0), 'review': bool(x.get('review')), 'note': x.get('carried_note', ''),
              **({'website_dropped': x['website_dropped'], 'redirects_to': x['website_redirects_to']} if x.get('website_redirects_to') else {}),
              'reason': 'missing from this run (left the feed or not re-confirmed); kept with call before you go'} for x in carried]
     os.makedirs(os.path.join(root, 'logs'), exist_ok=True); os.makedirs(os.path.join(root, 'reports'), exist_ok=True)
-    json.dump({'run': run_day, 'review_after_days': REVIEW_DAYS, 'carried': rows, 'not_carried': list(not_carried)},
+    json.dump({'run': run_day, 'run_id': run_id(), 'review_after_days': REVIEW_DAYS, 'carried': rows, 'not_carried': list(not_carried)},
               open(os.path.join(root, 'logs', f'{layer}_carry_forward.json'), 'w'), indent=1, ensure_ascii=False)
     line = lambda r: (f"- {r['name']} ({r['id']}, {r['postcode']}), last confirmed {r['last_confirmed'] or 'unknown'}, carried since {r['carried_since']} ({r['carried_days']} days)"
                       + (f"; website link removed, it now redirects to {r['redirects_to']}" if r.get('redirects_to') else ''))
