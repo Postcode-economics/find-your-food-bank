@@ -40,14 +40,24 @@
       // With service workers blocked, register() resolves to undefined. Do not touch it.
       if (!reg || !reg.addEventListener) return;
       // Claim once the document has loaded, so the first tile grid is not intercepted mid-startup and a pan is.
+      var armed = false;
       function claim() {
-        if (document.readyState !== 'complete') return;
         var w = reg.installing || reg.waiting;
         if (w) w.postMessage('hm-claim');
       }
-      window.addEventListener('load', claim);
-      reg.addEventListener('updatefound', claim);
-      if (document.readyState === 'complete') claim();
+      // The map's scripts run after window 'load' (they are text/plain until the boot loader).
+      // Claim once they have started, and at latest a few seconds after load, so a visit cannot stay on the previous worker.
+      function claimWhenReady() {
+        if (armed) return;
+        armed = true;
+        if (window.__hmBooted) { claim(); return; }
+        var n = 0, t = setInterval(function () {
+          if (window.__hmBooted || ++n > 80) { clearInterval(t); claim(); }
+        }, 50);
+      }
+      window.addEventListener('load', claimWhenReady);
+      reg.addEventListener('updatefound', function () { if (document.readyState === 'complete' || window.__hmBooted) claimWhenReady(); });
+      if (document.readyState === 'complete') claimWhenReady();
       return reg.update().catch(function () {}).then(function () {
         if (claimed || navigator.serviceWorker.controller) { dropCtrl(); return; }
         if (/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;

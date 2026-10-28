@@ -1,13 +1,13 @@
 {
- "run": "2026-10-27",
+ "run": "2026-10-28",
  "coverage": {
   "councils": 382,
-  "with_swep_page": 223,
+  "with_swep_page": 224,
   "with_line": 134,
   "active": [
    "Swindon Borough Council"
   ],
-  "flagged": 51
+  "flagged": 48
  },
  "councils": [
   {
@@ -130,9 +130,19 @@
    "homeless_phone": "03452 777 778",
    "ooh_phone": null,
    "phone_source": "https://www.angus.gov.uk/housing/homelessness/homelessness",
-   "pages": [],
-   "status": "no SWEP page",
-   "flags": []
+   "pages": [
+    {
+     "url": "https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": ""
+    }
+   ],
+   "status": "no SWEP wording",
+   "flags": [
+    "status no SWEP page -> no SWEP wording",
+    "new page https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch"
+   ]
   },
   {
    "code": "ARU",
@@ -445,14 +455,14 @@
    "pages": [
     {
      "url": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-     "http": 403,
+     "http": 302,
      "status": "unreachable",
      "quote": ""
     }
    ],
    "status": "unreachable",
    "flags": [
-    "dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 403)"
+    "dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 302)"
    ]
   },
   {
@@ -771,15 +781,14 @@
    "pages": [
     {
      "url": "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
-     "http": 202,
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "status unknown -> unreachable",
-    "dead page https://burnley.gov.uk/housing/housing-advice-and-homelessness/ (HTTP 202)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -1782,9 +1791,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "new page https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian"
-   ]
+   "flags": []
   },
   {
    "code": "ELS",
@@ -1880,15 +1887,14 @@
    "pages": [
     {
      "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
-     "http": 202,
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "status unknown -> unreachable",
-    "dead page https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (HTTP 202)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -3781,9 +3787,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "NWM",
@@ -4287,15 +4291,14 @@
    "pages": [
     {
      "url": "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "status unknown -> unreachable",
-    "dead page https://www.rugby.gov.uk/w/severe-weather-emergency-protocol (HTTP error)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -4438,15 +4441,14 @@
    "pages": [
     {
      "url": "https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update",
-     "http": 404,
-     "status": "unreachable",
+     "http": 200,
+     "status": "no SWEP wording",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "no SWEP wording",
    "flags": [
-    "status no SWEP wording -> unreachable",
-    "dead page https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update (HTTP 404)"
+    "status unreachable -> no SWEP wording"
    ]
   },
   {
@@ -5182,9 +5184,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unreachable -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "TEI",
@@ -5557,9 +5557,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "new page https://www.watford.gov.uk/news/article/1065/eight-years-of-hope-watford-s-winter-night-shelter-helps-hundreds-of-people"
-   ]
+   "flags": []
   },
   {
    "code": "WAW",
@@ -5622,14 +5620,14 @@
    "pages": [
     {
      "url": "https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/",
-     "http": 403,
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "dead page https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/ (HTTP 403)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -5774,8 +5772,8 @@
    "pages": [
     {
      "url": "https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": ""
     },
     {
@@ -5791,8 +5789,10 @@
      "quote": ""
     }
    ],
-   "status": "no SWEP wording",
+   "status": "unreachable",
    "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands (HTTP 403)",
     "dead page http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)",
     "dead page http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)"
    ]
