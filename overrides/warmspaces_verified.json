@@ -186,12 +186,19 @@
  "ww-68896770": {
   "name": "The Branch Cafe",
   "evidence_url": "https://newlifecommunitychurch.co.uk/connect/the-branch/",
-  "quote": "The Branch Cafe open Tuesday 10am-3pm and Thursday 10am-3pm",
-  "day_time_quote": "The Branch Cafe open Tuesday 10am-3pm and Thursday 10am-3pm",
+  "quote": "Opening Hours When are we open? Tuesday: 10am – 3pm Wednesday: 10am – 3pm Thursday: 10am – 3pm Friday: 11am – 3pm",
+  "day_time_quote": "Opening Hours When are we open? Tuesday: 10am – 3pm Wednesday: 10am – 3pm Thursday: 10am – 3pm Friday: 11am – 3pm",
   "listing_updated": "2026-09-21",
   "verified_on": "2026-10-21",
   "bar": "credible source states day/time, current",
-  "evidence_name": "newlifecommunitychurch.co.uk"
+  "evidence_name": "newlifecommunitychurch.co.uk",
+  "hours": {
+   "Tue": "10:00 - 15:00",
+   "Wed": "10:00 - 15:00",
+   "Thu": "10:00 - 15:00",
+   "Fri": "11:00 - 15:00"
+  },
+  "audit_27oct": "Fri was 10:00 - 15:00; page re-fetched twice 27 Oct 2026"
  },
  "ww-68777255": {
   "name": "Buckland Coffee Morning",
@@ -371,12 +378,19 @@
  "ww-64379462": {
   "name": "Fairford Library",
   "evidence_url": "https://www.gloslibraries.uk/library/fairford-library",
-  "quote": "Warm space during staffed opening hours (listed)",
-  "day_time_quote": "Warm space during staffed opening hours (listed)",
+  "quote": "Warm space during staffed opening hours. Opening times Monday: 10:00-13:00, 14:00-17:00 Tuesday: Closed Wednesday: 10:00-13:00, 14:00-17:00 Thursday: 10:00-13:00, 14:00-17:00 Friday: Closed Saturday: 10:00-13:00",
+  "day_time_quote": "Opening times Monday: 10:00-13:00, 14:00-17:00 Tuesday: Closed Wednesday: 10:00-13:00, 14:00-17:00 Thursday: 10:00-13:00, 14:00-17:00 Friday: Closed Saturday: 10:00-13:00",
   "listing_updated": "2026-10-13",
   "verified_on": "2026-10-21",
   "bar": "credible source states day/time, current",
-  "evidence_name": "gloslibraries.uk"
+  "evidence_name": "gloslibraries.uk",
+  "hours": {
+   "Mon": "10:00 - 13:00 / 14:00 - 17:00",
+   "Wed": "10:00 - 13:00 / 14:00 - 17:00",
+   "Thu": "10:00 - 13:00 / 14:00 - 17:00",
+   "Sat": "10:00 - 13:00"
+  },
+  "audit_27oct": "hours were 09:30 starts and Thu to 19:00; page re-fetched twice 27 Oct 2026"
  },
  "ww-68642792": {
   "name": "Fosdyke playing field social club (Fozzy’s)",
@@ -865,7 +879,7 @@
   "quote": "Stretham Community Hub – Opens: Thursday, 2pm – 4pm (fortnightly, first and third week of each month)",
   "day_time_quote": "Opens: Thursday, 2pm – 4pm (fortnightly, first and third week of each month)",
   "hours": {
-   "Thu": "14:00 - 16:00 Monthly"
+   "Thu": "14:00 - 16:00 Fortnightly"
   },
   "address": "Stretham Parish Rooms, 42 High Street, Stretham, Ely, CB6 3LD",
   "postcode": "CB6 3LD",
