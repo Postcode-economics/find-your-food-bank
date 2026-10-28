@@ -2,7 +2,8 @@
 Run after a layer is rebuilt and before anything is committed. Compares the new file with the live one (git HEAD):
  - a place that vanished is put back with its previous record (unless deliberately removed: food bank exclusion /
    own-site closure lists, or overrides/guard_allow_remove.json),
- - a phone (phone/tel) that vanished is put back,
+ - a phone (phone/tel) that vanished is put back, and so is its venue label (phone_label),
+ - a phone that stayed but lost its venue label gets that label back (same number only),
  - opening times (food banks: opening_times; shelters / warm spaces: hours) that vanished are put back.
 Nothing is lost silently: every restore is listed in reports/refresh_guard_<layer>.md and logs/refresh_guard.json,
 and (in CI, with GH_TOKEN) a 'refresh-alert' issue is opened. Never fails the job; the restored file is published.
@@ -44,29 +45,43 @@ def has_times(layer, i):
         return bool(ot.get('raw') or ot.get('structured') or ot.get('text') or ot.get('sessions'))
     return bool(i.get('hours'))
 
+_norm = lambda x: ''.join(c for c in (x or '').lower() if c.isalnum())
+
+def moved_index(new_items):
+    near = {}
+    for i in new_items: near.setdefault(_norm(i.get('name')), []).append(i)
+    return near
+
+def moved_to(o, near):  # same place under a new id (sources re-key, e.g. IFAN): same name within ~300 m, or same name + postcode
+    for i in near.get(_norm(o.get('name')), []):
+        if i.get('id') == o.get('id'): continue
+        try:
+            if abs(float(i['lat']) - float(o['lat'])) < 0.003 and abs(float(i['lng']) - float(o['lng'])) < 0.005: return i
+        except Exception: pass
+        if o.get('postcode') and i.get('postcode') == o.get('postcode'): return i
+    return None
+
 def guard(layer, old_items, new_items):
     ok, ex = allowed_removals(layer)
     new = {i['id']: i for i in new_items}
-    norm = lambda x: ''.join(c for c in (x or '').lower() if c.isalnum())
-    near = {}
-    for i in new_items: near.setdefault(norm(i.get('name')), []).append(i)
-    def moved(o):  # same place under a new id (sources re-key, e.g. IFAN): same name within ~300 m, or same name + postcode
-        for i in near.get(norm(o.get('name')), []):
-            try:
-                if abs(float(i['lat']) - float(o['lat'])) < 0.003 and abs(float(i['lng']) - float(o['lng'])) < 0.005: return True
-            except Exception: pass
-            if o.get('postcode') and i.get('postcode') == o.get('postcode'): return True
-        return False
+    mv = moved_index(new_items)
+    moved = lambda o: moved_to(o, mv) is not None
     out = list(new_items); rep = {'places': [], 'phones': [], 'times': []}
     for o in old_items:
         n = new.get(o['id'])
         if n is None:
             if removal_ok(o, ok, ex) or moved(o): continue
             out.append(dict(o, guard_kept=datetime.date.today().isoformat(), **({'call_check': True, 'stale': False} if layer == 'warmspaces' else {}))); rep['places'].append(o['id']); continue  # warm spaces: labelled 'call before you go' (28 Oct)
-        if (o.get('tel') or o.get('phone')) and not (n.get('tel') or n.get('phone')) and 'phone_was' not in n and o['id'] not in ok:  # phone_was = deliberate drop_phone override
+        had, has = o.get('tel') or o.get('phone'), n.get('tel') or n.get('phone')
+        if had and not has and 'phone_was' not in n and o['id'] not in ok:  # phone_was = deliberate drop_phone override
             for k in ('phone', 'tel', 'phone_source'):
                 if o.get(k): n[k] = o[k]
+            if o.get('phone_label'): n['phone_label'] = o['phone_label']  # rule 21: the venue label belongs with the number
             rep['phones'].append(o['id'])
+        elif had and has and 'phone_was' not in n and o['id'] not in ok and o.get('phone_label') and not str(n.get('phone_label') or '').strip():
+            od = ''.join(c for c in str(had) if c.isdigit()); nd = ''.join(c for c in str(has) if c.isdigit())
+            if od and od == nd:  # same number, label stripped: put the venue label back. A different number keeps no old label.
+                n['phone_label'] = o['phone_label']; rep.setdefault('phone_labels', []).append(o['id'])
         if has_times(layer, o) and not has_times(layer, n) and o['id'] not in ok and o['id'] not in wrong_times(layer):
             for k in (('opening_times',) if layer == 'foodbanks' else ('hours', 'hours_source', 'hours_checked')):
                 if k in o: n[k] = o[k]

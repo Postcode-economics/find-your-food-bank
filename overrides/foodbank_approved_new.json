@@ -1,1 +1,32 @@
-{"_about": "Food bank ids Dean has OKd to go on the map (Dean 25 Oct 08:20: no new food bank is auto-added; see reports/pending_dean.md)."}
+{
+ "_about": "Food bank ids Dean has OKd to go on the map (Dean 25 Oct 08:20: no new food bank is auto-added; see reports/pending_dean.md). Object values are full records inserted by scripts/classify.py add_approved_foodbanks (verified fields only).",
+ "st-peter-st-pauls-pantry": {
+  "name": "St Peter & St Paul's Pantry",
+  "address": "Rustington Church Hall, BN16 3NR",
+  "postcode": "BN16 3NR",
+  "lat": 50.810862,
+  "lng": -0.51025,
+  "network": "Independent",
+  "source_label": "Arun District Council cost of living page",
+  "opening_times": {
+   "checked_date": "2026-10-26",
+   "raw": "Wednesdays, times vary",
+   "status": "TIMES_TEXT_ONLY"
+  },
+  "evidence": "Dean approved 26 Oct 2026 10:19 GMT. Arun District Council cost of living page: Rustington Church Hall, BN16 3NR, Wednesdays, times vary, no referral. No phone was stated. Pin is the postcodes.io centroid for BN16 3NR."
+ },
+ "littlehampton-community-fridge": {
+  "name": "Littlehampton Community Fridge",
+  "address": "Venues vary",
+  "phone": "0300 030 9376",
+  "tel": "03000309376",
+  "phone_label": "Fare Divide number",
+  "venues_vary": true,
+  "service_lat": 50.8151,
+  "service_lng": -0.54,
+  "service_km": 8,
+  "network": "Independent",
+  "source_label": "Arun District Council cost of living page",
+  "evidence": "Dean approved 26 Oct 2026 10:19 GMT. Arun District Council cost of living page: Littlehampton Community Fridge, Fare Divide, phone 0300 030 9376, venues vary. No single address or opening times were stated, so this is not pinned."
+ }
+}
