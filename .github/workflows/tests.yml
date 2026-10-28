@@ -138,7 +138,7 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - uses: ./.github/actions/offline-tiles
-      - run: python -m pytest -q tests -rs
+      - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
