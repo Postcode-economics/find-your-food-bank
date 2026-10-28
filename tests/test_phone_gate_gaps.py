@@ -16,8 +16,6 @@ class Undo(unittest.TestCase):
         self.d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, self.d, True); os.makedirs(os.path.join(self.d, "reports"))
         self.log = os.path.join(self.d, "reports", "phone_auto_applied.json")
 
-    # fixed in fix/b3-times or fix/b3-phones; remove the marker on integration
-    @unittest.expectedFailure
     def test_every_number_dean_undid_stays_blocked(self):
         for n in ("01234500001", "01234500002"):
             f = dict(old="01234000000", new=n, source=U, first_run_at=R1, second_run_at=R2)
@@ -47,6 +45,7 @@ class MainPath(unittest.TestCase):
         store = {"full_check_state.json": {"sites": {a: last(a), b: last(b, "https://www.facebook.com/b"), c: last(c)}, "ids": [i["id"] for i in items]}}
         root = tempfile.mkdtemp(); os.makedirs(os.path.join(root, "overrides"))
         json.dump({c: new[0]}, open(os.path.join(root, "overrides", "phone_auto_undone.json"), "w"))
+        json.dump({"listings": {}}, open(os.path.join(root, "overrides", "phone_baseline.json"), "w"))   # no baseline file locks every listing
         written = {}; rep = tempfile.mkdtemp()
         def fake(u):
             return dict(url=u, ok=True, final_url=u + "contact", pages=[u + "contact"], access="unclear", hours_hash="", hours_sample=[],
