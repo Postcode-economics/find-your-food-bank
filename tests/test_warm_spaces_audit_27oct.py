@@ -72,3 +72,58 @@ def test_bot4_browser_batch3():
     assert u["ww-57951889"]["phone"] == "07876 372274" and u["ww-64432678"]["flag"]
     for i in ("ww-57951802", "ww-57952849", "ww-69175071", "ww-69068910", "ww-65437525", "ww-57951784", "ww-65441920"):
         assert u[i]["call_check"] is True and u[i]["flag"] and u[i]["sign_url"]
+
+# GB2 review of #234 (28 Oct 2026): assert on what a rebuild PRODUCES, not just on the override files.
+# Replays the tail of scripts/build_warmspaces.py (gate -> clean -> seasonal -> contacts -> phone lock) on
+# feed-shaped copies of the entries, i.e. with the feed's old values put back, offline (no recheck).
+import copy, shutil, sys, tempfile
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+REBUILT = {  # id -> fields the rebuilt warmspaces.js must carry
+    "ww-55473520": {"phone": "01606 42943"},          # St Helen's Northwich (feed: 0160 642 943)
+    "ww-57951889": {"phone": "07876 372274"},         # St Francis, Ingleby Barwick (feed/old override: 07821 153701)
+    "ww-65438881": {"phone": "01623 677 200"},        # Retford Library (Inspire's own line; feed: none)
+    "sbadc-the-hub-south-brent": {"scheme_dates": "Call before you go \u2013 closed for building works, due to reopen in November", "call_check": True},
+}
+FEED_REVERT = {"ww-55473520": {"phone": "0160 642 943"}, "ww-57951889": {"phone": "07821 153701"},
+               "ww-65438881": {"phone": ""}, "sbadc-the-hub-south-brent": {"scheme_dates": "Opens 1 Nov 2026"}}
+def _rebuild(ids, run="2026-10-28"):
+    import common, seasonal, shelter_contacts, phone_lock
+    from hours_fix import apply_phone
+    it = items()
+    fresh = []
+    for i in ids:
+        x = copy.deepcopy(it[i])
+        for k in ("tier", "verified", "sign_url", "call_check", "scheme_dates_lock", "tel", "phone_source", "phone_was"): x.pop(k, None)
+        x.update(FEED_REVERT[i]); x["last_verified"] = run; apply_phone(x); fresh.append(x)
+    tmp = tempfile.mkdtemp()
+    try:
+        os.makedirs(os.path.join(tmp, "overrides"))
+        shutil.copy(os.path.join(ROOT, "overrides", "phone_baseline.json"), os.path.join(tmp, "overrides"))
+        ver = {}  # these four are tier-2 (unverified) entries
+        unv = J("overrides/warmspaces_unverified.json")
+        pub = common.verification_gate(fresh, None, ver, run, os.path.join(tmp, "ws_pending.json"), unverified=unv, recheck=False)[0]
+        for x in pub: apply_phone(x)
+        out, _ = common.merge_lifecycle(None, pub, run)
+        out, _ = seasonal.apply(out, run, [])
+        shelter_contacts.apply(out, shelter_contacts.load(shelter_contacts.WS))
+        for x in out: phone_lock.settle_council(x)
+        phone_lock.guard(out, tmp, via="test", source="test", layer="warmspaces", persist_new=False)
+        return {x["id"]: x for x in out}
+    finally:
+        shutil.rmtree(tmp)
+def test_rebuild_keeps_gb2_fixes():
+    out = _rebuild(list(REBUILT))
+    for i, want in REBUILT.items():
+        assert i in out, i
+        for k, v in want.items(): assert out[i].get(k) == v, (i, k, out[i].get(k))
+        assert out[i].get("tel"), i  # tappable number survives
+def test_committed_file_matches_rebuild():
+    it = items()
+    for i, want in REBUILT.items():
+        for k, v in want.items(): assert it[i].get(k) == v, (i, k)
+def test_scheme_dates_lock_honoured():
+    import seasonal
+    x = {"id": "t", "scheme_start": "2026-11-01", "scheme_dates": "Closed for works", "scheme_dates_lock": True}
+    y = dict(x); y.pop("scheme_dates_lock")
+    seasonal.apply([x, y], "2026-10-28")
+    assert x["scheme_dates"] == "Closed for works" and y["scheme_dates"] == "Opens 1 Nov 2026"

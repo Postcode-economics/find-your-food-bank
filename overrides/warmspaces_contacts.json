@@ -1075,7 +1075,11 @@
   "council_ooh": "0800 590542",
   "council_label": "Council out-of-hours homeless line",
   "council_label_cy": "Llinell ddigartrefedd y cyngor y tu allan i oriau",
-  "council_note": "No own number found for the venue; council's out-of-hours homeless emergency line as labelled on the council's own page (Dean, 23 Oct)"
+  "council_note": "No own number found for the venue; council's out-of-hours homeless emergency line as labelled on the council's own page (Dean, 23 Oct)",
+  "phone": "01623 677 200",
+  "phone_fix": "01623 677 200",
+  "phone_source": "https://www.inspireculture.org.uk/retford",
+  "phone_note": "Inspire Libraries' own line (Bot 4 browser batch 1, 28 Oct 2026)"
  },
  "ww-65437466": {
   "phone": "07876 770236",
@@ -1240,8 +1244,10 @@
   "confidence": "medium: listed against this venue on the host listing page"
  },
  "ww-55473520": {
-  "phone": "0160 642 943",
-  "phone_source": "https://www.achurchnearyou.com/church/6775/"
+  "phone": "01606 42943",
+  "phone_fix": "01606 42943",
+  "phone_source": "https://www.achurchnearyou.com/church/6775/",
+  "confidence": "Bot 4 audit 27 Oct 2026; replaces 0160 642 943 (invalid grouping)"
  },
  "ww-65420068": {
   "phone": "07831904321",
@@ -2428,10 +2434,10 @@
   "confidence": "medium: directories agree (web search 2026-10-23)"
  },
  "ww-57951889": {
-  "phone": "07821 153701",
-  "phone_fix": "07821 153701",
+  "phone": "07876 372274",
+  "phone_fix": "07876 372274",
   "phone_source": "https://www.achurchnearyou.com/church/19363/get-in-touch/",
-  "confidence": "medium: A Church Near You + deanery (web search 2026-10-23)"
+  "confidence": "Bot 4 browser batch 3, 28 Oct 2026; replaces 07821 153701"
  },
  "ww-65419943": {
   "phone": "07445968142",

@@ -2,6 +2,7 @@
 Reads dates only from the source's own wording (never guessed). Sets on each item:
   scheme_start / scheme_end (ISO), upcoming (opens later), ended (past end date),
   scheme_dates (shown in the existing 'Scheme dates' row: 'Opens 7 Dec 2026', 'Until 31 Mar 2027', or both).
+A hand-checked note (scheme_dates_lock: true, from overrides) is never replaced by the date label.
 Ended entries are kept greyed (existing behaviour) for EXPIRE_DAYS, then moved to recently_closed."""
 import re, datetime
 MON = ["january","february","march","april","may","june","july","august","september","october","november","december"]
@@ -46,7 +47,7 @@ def apply(items, run, closed=None, expire_days=EXPIRE_DAYS):
         if e or "ended" in x: x["ended"] = bool(e and e < rd)
         if s or e:
             lab = label(s, e, rd)
-            if lab and not (not x["upcoming"] and str(x.get("scheme_dates", "")).startswith(lab)): x["scheme_dates"] = lab
+            if lab and not x.get("scheme_dates_lock") and not (not x["upcoming"] and str(x.get("scheme_dates", "")).startswith(lab)): x["scheme_dates"] = lab
         if not x["upcoming"]: x.pop("upcoming", None)
         if x.get("ended") and (datetime.date.fromisoformat(rd) - datetime.date.fromisoformat(e)).days > expire_days:
             x["closed_on"] = rd; x["closed_reason"] = f"Season ended {fmt(e)} (source's stated end date)"; gone.append(x)
