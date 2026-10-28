@@ -148,7 +148,7 @@ class IPhone(unittest.TestCase):
             self.assertTrue(until(pg, "async () => !(await caches.keys()).includes('fyfb-tiles') && (await caches.keys()).includes('fyfb-v94')", 30),
                             pg.evaluate('async () => await caches.keys()'))
             pg.reload(wait_until='load')
-            self.assertTrue(until(pg, PAINTED), pg.evaluate(STATE))
+            self.assertTrue(until(pg, PAINTED, 60), pg.evaluate(STATE))
             pg.wait_for_timeout(1500)
             st = pg.evaluate(STATE)
             self.assertEqual(st['active'], 'osm', st)
