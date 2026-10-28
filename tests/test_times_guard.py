@@ -99,6 +99,8 @@ class Resample3(unittest.TestCase):
             with self.subTest(k):
                 self.assertIn(k, self.after)
                 self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
+                if G._hand(self.before[k].get("opening_times")):  # hand-reviewed on main since #212 (helensburgh-lomond): never touched, times kept
+                    self.assertNotIn(k, self.log); continue
                 self.assertTrue(self.log[k].startswith("held for review"), self.log.get(k))
                 self.assertNotEqual((self.after[k]["opening_times"] or {}).get("status"), "NO_TIMES")
     def test_no_joined_removal_on_non_office(self):
