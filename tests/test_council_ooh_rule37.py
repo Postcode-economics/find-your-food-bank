@@ -199,9 +199,10 @@ class Rule37VenuePhone(unittest.TestCase):
     The only allowance: a number Dean approved on 26 Oct that is waiting on his review list."""
     BANNED_PHONE = dict(KNOWN_DAYTIME, **{
         "01904554500": "City of York Council Housing Options (01904 554500)",
+        "03001232224": "Somerset Council switchboard (0300 123 2224), removed from Bruton by Dean 28 Oct",
         "08000232692": "Manchester City Council Cost of Living Advice Line (0800 023 2692)",
     })
-    AWAITING_DEAN = {"ww-68618605": "03001232224"}  # Bruton library, Dean-approved 26 Oct; on reports/pending_dean.md
+    AWAITING_DEAN = {}  # Bruton 0300 123 2224 removed by Dean 28 Oct 2026 05:35 GMT; now banned like any council line
 
     def test_awaiting_dean_is_on_review_list(self):
         pd = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()

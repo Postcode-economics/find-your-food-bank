@@ -125,7 +125,7 @@ Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is
 
 Your rule: no general council numbers as a venue's direct line or out-of-hours line. Bot 4's live audit (28 Oct, about 05:10 GMT) found these. Nothing below has been changed; each needs your yes or no.
 
-- Bruton Community Library (warm space ww-68618605): 0300 123 2224. This is Somerset Council's main customer services number. You approved it on 26 Oct as a "Library service line" (source https://www.librarieswest.org.uk/-/bruton-community-library). Should we remove it? No own number for the library has been found yet.
+- DECIDED 28 Oct 05:35 GMT: Bruton Community Library (warm space ww-68618605): Somerset Council switchboard 0300 123 2224 removed, listing kept (council out-of-hours line stays).
 - Folkestone Library (warm space ww-69062943): 03000 41 31 31, Kent County Council's central libraries line. Approved 26 Oct as a library service line.
 - Bodmin Library (warm space ww-68737520): 0300 1234 111, Cornwall Council's libraries service line.
 - Kirklees Local Studies Library (ww-55475504), Huddersfield Library Hub (ww-69100241), Greenwood Centre Library Hub (ww-69100298): 01484 414868, Kirklees Council's central libraries line ("you can ring any library on 01484 414868"). For Local Studies it is also the published number.

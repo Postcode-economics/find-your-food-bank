@@ -26,7 +26,9 @@ class Audit(unittest.TestCase):
         self.assertEqual(s["hl-nightsafe-blackburn"]["hours"]["Sat"], "17:00 - 10:00"); self.assertEqual(s["hl-nightsafe-blackburn"]["hours"]["Sun"], "17:00 - 11:00")
         self.assertEqual(s["hl-dens-the-elms"]["phone"], "01442 262274")
         self.assertEqual(s["osm-node-1533578890"]["phone"], "01904 551901"); self.assertIn("24/7", s["osm-node-1533578890"]["hours"])
-        self.assertNotEqual(s["osm-way-169564851"]["phone"], "01904 553626")  # James House: council office line, not the hostel's own
+        self.assertEqual(s["osm-way-169564851"]["phone"], "01904 553626"); self.assertEqual(s["osm-way-169564851"]["tel"].replace(" ", ""), "01904553626")  # James House office, York's own page (Dean 28 Oct 05:35 GMT)
+        self.assertEqual(s["osm-way-169564851"].get("phone_label"), "James House office")
+        for f in ("phone", "tel", "council_phone", "council_ooh"): self.assertNotIn("01904554500", str(s["osm-way-169564851"].get(f, "")).replace(" ", ""))  # never the Housing Options main line
         self.assertTrue(s["hl-kings-lynn-night-shelter"]["referral"].startswith("By referral from any local organisation"))
         self.assertIn("St John's Vicarage", s["hl-kings-lynn-night-shelter"]["address"])
         self.assertIn("Acorn Recovery", s["osm-way-1119807447"]["operator"]); self.assertTrue(s["osm-way-1119807447"]["phone"])
@@ -49,7 +51,7 @@ class Audit(unittest.TestCase):
         self.assertEqual(B["hl-dens-the-elms"]["phone"], "01442 262274"); self.assertEqual(B["osm-node-1533578890"]["phone"], "01904 551901")
     def test_council_number_check_flags_not_removes(self):
         f = CC.check(list(self.s.values()))
-        self.assertIn("osm-way-169564851", [x["id"] for x in f])  # James House still on York Housing Options main line: flagged for Dean
+        self.assertNotIn("osm-way-169564851", [x["id"] for x in f])  # James House now on its own office line 01904 553626 (Dean 28 Oct), not a general council number
         self.assertNotIn("osm-node-1533578890", [x["id"] for x in f])
         x = {"id": "t", "name": "T", "phone": "01904 554500"}; CC.check([x]); self.assertEqual(x["phone"], "01904 554500")
 if __name__ == "__main__": unittest.main()

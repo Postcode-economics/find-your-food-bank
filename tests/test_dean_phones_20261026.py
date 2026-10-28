@@ -85,8 +85,9 @@ COUNCIL = {
     'life-line': ('07305 869103', 'https://birmingham.connecttosupport.org/search/directory-search/?id=09469875-25f9-46de-a339-abe301381ff5', 'Birmingham council directory'),
     'granville-community-kitchen': ('07543 824439', 'https://www.brent.gov.uk/neighbourhoods-and-communities/community-directory/granville-community-kitchen', 'Brent council directory'),
 }
+# Bruton Community Library (ww-68618605): Somerset Council switchboard 0300 123 2224 removed by Dean, 28 Oct 2026 05:35 GMT. Listing kept.
+REMOVED_SWITCHBOARD = {'ww-68618605': '03001232224'}
 LIBRARY = {
-    'ww-68618605': ('0300 123 2224', 'https://www.librarieswest.org.uk/-/bruton-community-library'),
     'ww-69062943': ('0300 041 3131', 'https://local.kent.gov.uk/kb5/kent/directory/service.page?id=YRWoQMs70mE'),
     'ww-69100298': ('01484 414868', 'https://www.kirklees.gov.uk/beta/libraries/contact-us.aspx'),
     'ww-69100241': ('01484 414868', 'https://www.kirklees.gov.uk/beta/libraries/contact-us.aspx'),
@@ -174,6 +175,11 @@ def test_exactly_the_approved_rows_and_no_held_rows():
         assert e["phone"] == num and e["phone_source"] == url, i
         assert e["phone_label"] == "Library service line", i
         assert url.startswith("https://"), i
+    for i, dg in REMOVED_SWITCHBOARD.items():
+        e = ws[i]
+        assert not e.get("phone") and "phone_source" not in e and not e.get("phone_label"), i
+        assert e.get("drop_phone") is True, i
+        assert dg not in digits(json.dumps(e.get("council_phone", "") + e.get("council_ooh", ""))), i
     for i, (num, url) in WARM_CLEAN.items():
         e = ws[i]
         assert e["phone"] == num and e["phone_source"] == url, i
@@ -185,7 +191,7 @@ def test_exactly_the_approved_rows_and_no_held_rows():
     blocked = list(HELD) + NOT_FOUND
     assert len(NOT_FOUND) == 41
     assert len(HELD) == 5
-    assert len(CLEAN) == 51 and len(NAMED) == 2 and len(SHARED) == 4 and len(COUNCIL) == 2 and len(LIBRARY) == 6 and len(WARM_CLEAN) == 1
+    assert len(CLEAN) == 51 and len(NAMED) == 2 and len(SHARED) == 4 and len(COUNCIL) == 2 and len(LIBRARY) == 5 and len(WARM_CLEAN) == 1
     for i in blocked:
         assert i not in phones and i not in sources and i not in labels, i
         if i in ws:

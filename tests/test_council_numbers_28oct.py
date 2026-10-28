@@ -77,7 +77,7 @@ class ManchesterJNR8(unittest.TestCase):
 
 class LibraryLinesUnchanged(unittest.TestCase):
     """Council-wide library lines stay as they are until Dean decides; they are on his review list."""
-    LIB = {"ww-68618605": "0300 123 2224", "ww-69062943": "03000 41 31 31", "ww-68737520": "0300 1234 111",
+    LIB = {"ww-69062943": "03000 41 31 31", "ww-68737520": "0300 1234 111",
            "ww-55475504": "01484 414868", "ww-69100241": "01484 414868", "ww-69100298": "01484 414868"}
     def test_unchanged_and_listed_for_dean(self):
         ws = items("warmspaces"); pd = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
@@ -94,5 +94,14 @@ class CouncilOohLocked(unittest.TestCase):
     def test_bruton_council_ooh_untouched(self):
         b = ov("phone_baseline.json")["listings"]["ww-68618605"]
         self.assertEqual(b["council_ooh"], "0300 123 2327")
+    def test_bruton_switchboard_absent(self):
+        # Dean, 28 Oct 2026 05:35 GMT: Somerset Council switchboard removed; listing kept
+        ws = items("warmspaces"); self.assertIn("ww-68618605", ws)
+        x = ws["ww-68618605"]; self.assertFalse(x.get("phone")); self.assertFalse(x.get("tel"))
+        self.assertNotIn("03001232224", digits(str(x.get("phone", "")) + str(x.get("tel", "")) + str(x.get("council_phone", "")) + str(x.get("council_ooh", ""))))
+        b = ov("phone_baseline.json")["listings"]["ww-68618605"]
+        self.assertFalse(b["phone"]); self.assertFalse(b["tel"])
+        h = open(os.path.join(ROOT, "warm-spaces", "somerset", "index.html"), encoding="utf-8").read() if os.path.exists(os.path.join(ROOT, "warm-spaces", "somerset", "index.html")) else ""
+        self.assertNotIn("tel:03001232224", h)
 
 if __name__ == "__main__": unittest.main()
