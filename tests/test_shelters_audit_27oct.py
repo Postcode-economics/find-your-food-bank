@@ -27,7 +27,7 @@ class Audit(unittest.TestCase):
         self.assertEqual((s["osm-way-1125252517"]["address"], s["osm-way-1125252517"]["postcode"]), ("235 Barmouth Street, Beswick, Manchester", "M11 3TB"))
         self.assertEqual(s["hl-nightsafe-blackburn"]["hours"]["Sat"], "17:00 - 10:00"); self.assertEqual(s["hl-nightsafe-blackburn"]["hours"]["Sun"], "17:00 - 11:00")
         self.assertEqual(s["hl-dens-the-elms"]["phone"], "01442 800131")  # proposed 01442 262274 is third-party only: held
-        self.assertEqual(s["osm-node-1533578890"]["phone"], "01904 554500"); self.assertIn("24/7", s["osm-node-1533578890"]["hours"])  # 01904 551901 is for Dean
+        self.assertIn("24/7", s["osm-node-1533578890"]["hours"])  # Peasholme phone belongs to #238: see test_peasholme_phone_left_to_238
         self.assertNotEqual(s["osm-way-169564851"]["phone"], "01904 553626")  # James House: council office line, not the hostel's own
         self.assertTrue(s["hl-kings-lynn-night-shelter"]["referral"].startswith("By referral from any local organisation"))
         self.assertIn("St John's Vicarage", s["hl-kings-lynn-night-shelter"]["address"])
@@ -48,11 +48,11 @@ class Audit(unittest.TestCase):
         its = list(stale.values()); SC.apply(its, self.C)
         self.assertEqual(its[0]["name"], "The Winchester Beacon"); self.assertEqual(its[0]["postcode"], "SO23 8RZ"); self.assertEqual(its[1]["phone"], "01442 800131")
         B = json.load(open(os.path.join(R, "overrides", "phone_baseline.json")))["listings"]
-        self.assertEqual(B["hl-dens-the-elms"]["phone"], "01442 800131"); self.assertEqual(B["osm-node-1533578890"]["phone"], "01904 554500"); self.assertEqual(B["osm-way-556071354"]["phone"], "0141 429 4541")
+        self.assertEqual(B["hl-dens-the-elms"]["phone"], "01442 800131"); self.assertEqual(B["osm-way-556071354"]["phone"], "0141 429 4541")
     def test_council_number_check_flags_not_removes(self):
         f = CC.check(list(self.s.values()))
         self.assertIn("osm-way-169564851", [x["id"] for x in f])  # James House still on York Housing Options main line: flagged for Dean
-        self.assertIn("osm-node-1533578890", [x["id"] for x in f])  # Peasholme stays on the Housing Options main line until Dean approves 01904 551901
+        self.assertEqual("osm-node-1533578890" in [x["id"] for x in f], self.s["osm-node-1533578890"]["phone"] == "01904 554500")  # flagged while on the Housing Options main line
         x = {"id": "t", "name": "T", "phone": "01904 554500"}; CC.check([x]); self.assertEqual(x["phone"], "01904 554500")
     def test_council_ooh_lines_are_quoted_out_of_hours(self):
         f = {(x["id"], x["field"]) for x in CC.check(list(self.s.values()))}
@@ -79,11 +79,20 @@ class Dean28Oct(unittest.TestCase):
         t = subprocess.run(["git", "-C", R, "show", "origin/main:shelters.js"], capture_output=True, text=True).stdout
         c.M = items(t) if t else {}
     def test_phone_proposals_listed_not_applied(self):
-        for k, cur, new in (("osm-node-1533578890", "01904 554500", "01904 551901"), ("osm-way-556071354", "0141 429 4541", "0141 418 1955"), ("hl-dens-the-elms", "01442 800131", "01442 262274")):
+        for k, cur, new in (("osm-way-556071354", "0141 429 4541", "0141 418 1955"), ("hl-dens-the-elms", "01442 800131", "01442 262274")):
             self.assertEqual(self.s[k]["phone"], cur, k); self.assertNotIn("phone_fix", self.C[k], k)
             row = [l for l in self.D.splitlines() if "`%s`" % k in l]; self.assertEqual(len(row), 1, k)
             self.assertIn("| %s | %s | https://" % (cur, new), row[0]); self.assertIn('"', row[0])
         self.assertIn("Held: third-party source only", [l for l in self.D.splitlines() if "`hl-dens-the-elms`" in l][0])
+        self.assertIn("Held: conflicting own page", [l for l in self.D.splitlines() if "`osm-way-556071354`" in l][0])
+    def test_peasholme_phone_left_to_238(self):
+        # Dean approved 01904 551901 in #238; this PR must not set Peasholme's phone either way
+        k = "osm-node-1533578890"; self.assertNotIn("phone_fix", self.C[k])
+        if self.M: self.assertEqual((self.s[k]["phone"], self.s[k]["tel"]), (self.M[k]["phone"], self.M[k]["tel"]))
+        self.assertFalse([l for l in self.D.splitlines() if l.startswith("|") and "`%s`" % k in l])
+        B = json.load(open(os.path.join(R, "overrides", "phone_baseline.json")))["listings"][k]
+        t = subprocess.run(["git", "-C", R, "show", "origin/main:overrides/phone_baseline.json"], capture_output=True, text=True).stdout
+        if t: self.assertEqual(B, json.loads(t)["listings"][k])
     def test_no_phone_changed_from_main(self):
         for k, x in self.s.items():
             if k in self.M: self.assertEqual((x.get("phone"), x.get("tel")), (self.M[k].get("phone"), self.M[k].get("tel")), k)
