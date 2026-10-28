@@ -21,38 +21,71 @@ def _segs(ot): return [s.strip() for s in str((ot or {}).get("raw") or "").split
 def _none(ot, why):
     return {"status": "NO_TIMES", "structured": None, "raw": "", "source_url": (ot or {}).get("source_url"),
             "checked_date": (ot or {}).get("checked_date"), "guard": why}
+CARDSEG = re.compile(r"^\s*(opening times\s+)?(mon|tue|wed|thu|fri|sat|sun)\s+(closed|\d{1,2}:\d{2})", re.I)  # Trussell card line
+CARDSTART = re.compile(r"^\s*(opening times\s+)?mon\s+(closed|\d{1,2}:\d{2})", re.I)
+NOT_CLIENT_PAGE = re.compile(r"vacanc|volunteer|donat|/jobs?\b|career|support-us|give", re.I)
+ZERO = re.compile(r"\b(\d{1,2}:\d{2})\s*-\s*\1\b")
+_DO = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+def _days(x): return [_DO.index(m.lower()[:3]) for m in re.findall(r"\b(mon|tue|wed|thu|fri|sat|sun)", x, re.I)]
+def _first_day(x): d = _days(x); return d[0] if d else -1
+def _last_day(x): d = _days(x); return d[-1] if d else 99
+def _groups(segs):
+    """Join split Trussell cards back together: a card starts at 'Mon ..' and runs to the next 'Mon ..'. Prose lines stay alone."""
+    g = []
+    for x in segs:
+        if CARDSEG.search(x) and g and CARDSEG.search(g[-1][0]) and not CARDSTART.search(x) and _first_day(x) > _last_day(g[-1][-1]): g[-1].append(x)
+        else: g.append([x])
+    return [" | ".join(y) for y in g]
 def joined_centre_times(i, centres):
-    """-> new opening_times for parent i, or None when unchanged."""
+    """-> new opening_times for parent i, or None when unchanged.
+    Bot 3 review of #232 (28 Oct 00:10): a single block is the listing's own (dundonald, wythenshawe, weston, cheltenham, hart, vale,
+    lichfield): never removed. Several centres -> trim to the listing's own block (bestwood-bulwell, dumbarton, watford keeps Thu).
+    Trims drop phone-line / volunteer / donation times (chesterfield, north-lakes, north-belfast). A warehouse pin whose only
+    centre's card it carries (rugby, middlewich) is held for review, never wiped."""
     ot = i.get("opening_times")
     if not ot or _hand(ot) or i.get("type") != "foodbank" or not centres: return None
+    src = str(ot.get("source_url") or ""); path = src.split("://", 1)[-1].split("/", 1)[-1] if "/" in src.split("://", 1)[-1] else ""
+    if NOT_CLIENT_PAGE.search(path): return _none(ot, "times came from a vacancies/volunteer/donation page")
     segs = _segs(ot)
-    cen = set()
-    for c in centres:
-        for s in _segs(c.get("opening_times")): cen.add(_norm(s.replace("Opening times", "")))
     from times import normalise
     def st(x):
         o = normalise({"raw": x, "status": "TIMES_TEXT_ONLY", "structured": None}) or {}
         return o.get("structured") if o.get("status") == "TIMES_FOUND" else None
-    cst = [c["opening_times"]["structured"] for c in centres if (c.get("opening_times") or {}).get("structured")]
-    def centre_owned(x):
-        a = st(x)
-        return bool(a) and any(all(cs.get(d) and all(r in cs[d] for r in rr) for d, rr in a.items()) for cs in cst)
-    segs_all = segs
-    keep = [s for s in segs if not centre_owned(s) and _norm(s.replace("Opening times", "")) not in cen and not CARD.search(s)
-            and not any(_norm(s) and _norm(s) in x for x in cen)]
-    # several segments giving the same day different hours = several centres' times joined together (Woodley)
+    groups = _groups(segs)
+    if len(groups) == 1:
+        if i.get("kind") in ("warehouse", "dropoff") and len(centres) == 1 and len(segs) > 1:
+            return {"_held": "warehouse pin carrying its only centre's times: held for review (rugby, middlewich)"}
+        return None  # one block: the listing's own (matched by name/postcode when it was read)
+    trussell = "foodbank.org.uk" in src
+    keep = []
+    for g in groups:
+        if ZERO.search(g): g = " | ".join(x for x in g.split(" | ") if not ZERO.search(x))  # 'Thu 10:00 - 10:00': not a session
+        if not g: continue
+        if trussell and not CARDSEG.search(g): continue  # prose on a Trussell locations page = donation / phone-line notes
+        keep.append(g)
+    cen_norm = set(); cen_st = []; names = []
+    for c in centres:
+        r = str((c.get("opening_times") or {}).get("raw") or "")
+        if r: cen_norm.add(_norm(r.replace("Opening times", ""))); cen_norm.update(_norm(x.replace("Opening times", "")) for x in _segs(c.get("opening_times")))
+        if (c.get("opening_times") or {}).get("structured"): cen_st.append(c["opening_times"]["structured"])
+        n = re.sub(r"\(.*?\)", "", c.get("name") or "").strip()
+        if len(n) >= 6: names.append(n.lower())
+    def owned(g):
+        a = st(g)
+        return (_norm(g.replace("Opening times", "")) in cen_norm or (a and a in cen_st) or any(n in g.lower() for n in names))
+    keep = [g for g in keep if not owned(g)]
     seen = {}; clash = 0
     for x in keep:
         for d, rr in (st(x) or {}).items():
             if d in seen and seen[d] != rr: clash += 1
             seen.setdefault(d, rr)
-    if clash >= 2: keep = []
-    if len(keep) == len(segs) and not (len(segs) > 1 and i.get("kind") in ("warehouse", "dropoff")): return None
-    if i.get("kind") in ("warehouse", "dropoff") and len(segs) > 1: keep = []  # office/warehouse: never centres' joined times
+    cards = [g for g in keep if CARDSEG.search(g)]
+    if clash >= 2 or len(cards) > 1: keep = []  # still several centres' blocks: cannot tell which is this listing's
+    if i.get("kind") in ("warehouse", "dropoff") and len(keep) > 1: keep = []
+    if " | ".join(keep) == " | ".join(segs): return None
     if not keep: return _none(ot, "centres' joined times removed")
-    from times import normalise
-    return normalise({"raw": " | ".join(keep), "status": "TIMES_TEXT_ONLY", "structured": None,
-                      "source_url": ot.get("source_url"), "checked_date": ot.get("checked_date")})
+    return dict(normalise({"raw": " | ".join(keep), "status": "TIMES_TEXT_ONLY", "structured": None,
+                           "source_url": ot.get("source_url"), "checked_date": ot.get("checked_date")}), guard="trimmed to the listing's own block")
 def salvation_army(i):
     ot = i.get("opening_times")
     if not ot or _hand(ot) or not i["id"].startswith("salvation-army/"): return None
@@ -63,7 +96,8 @@ def salvation_army(i):
     for s in _segs(ot) or [str(ot.get("raw") or "")]:
         if not FOOD.search(s): continue
         m = SPAN.search(s); d = DAY.search(s)
-        if m and re.match(r"\s*(mon|tue|wed|thu|fri|sat|sun)[a-z]*\s*$", s[m.end():], re.I) and not DAY.search(s[:m.start()]):
+        if m and re.match(r"\s*(mon|tue|wed|thu|fri|sat|sun)[a-z]*\s*$", s[m.end():], re.I) and not DAY.search(s[:m.start()]) \
+                and len(s[:m.start()].split()) <= 2:  # bare heading 'Foodbank 9am - 1pm Thursday' (Inverness); 'Foodbank is operating from ... Saturday' (Birkenhead) is one sentence
             continue  # 'Foodbank 9am - 1pm Thursday': the trailing day starts the next line (Inverness), not this one
         keep.append(s)
     if keep == _segs(ot): return None
@@ -80,6 +114,8 @@ def apply(items):
     for i in items:
         new = salvation_army(i)
         if new is None and i.get("type") == "foodbank": new = joined_centre_times(i, locs.get(i["id"], []))
+        if new is not None and new.get("_held"):
+            log[i["id"]] = "held for review: " + new["_held"]; continue  # times kept as they are
         if new is not None:
             log[i["id"]] = new.get("guard") or "trimmed"; i["opening_times"] = new
     return log

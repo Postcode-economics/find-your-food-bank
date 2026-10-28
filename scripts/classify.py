@@ -126,7 +126,12 @@ def classify(items, root):
             "class": {"client": "client-facing", "warehouse": "warehouse/office (donations only)", "dropoff": "donation drop-off only", "unclear": "unclear"}[kind],
             "proposed_label_en": en, "proposed_label_cy": cy, "applied": "yes" if apply else "no", "evidence": "; ".join(ev), "confidence": conf})
     items[:] = [i for i in items if i['id'] not in drop]
-    import times_guard; times_guard.apply(items)  # root-cause times rules (27 Oct 2026): no joined centre times, Salvation Army food-only
+    import times_guard; _tg = times_guard.apply(items)  # root-cause times rules (27 Oct 2026): no joined centre times, Salvation Army food-only
+    try:  # what the rules changed or held this build, for Dean's review (held = times kept, needs a look)
+        os.makedirs(os.path.join(root, "logs"), exist_ok=True)
+        json.dump({"changed": {k: v for k, v in _tg.items() if not v.startswith("held")}, "held": {k: v for k, v in _tg.items() if v.startswith("held")}},
+                  open(os.path.join(root, "logs", "times_guard.json"), "w"), indent=1, ensure_ascii=False)
+    except Exception: pass
     return rows
 def write_csv(rows, path):
     with open(path, "w", newline="", encoding="utf-8") as f:
