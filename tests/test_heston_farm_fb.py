@@ -47,11 +47,17 @@ class HestonFarmRendered(unittest.TestCase):
     def tearDownClass(cls):
         cls.b.close(); cls.pw.stop()
 
+    def btn(self, fid):
+        c = self.R.show_in_list(self.p, fid); self.assertIsNotNone(c, fid)
+        return c.evaluate("""c=>{const a=c.querySelector('a.btn.call.xfbk');return a?{href:a.getAttribute('href'),txt:a.textContent.trim(),
+          aria:a.getAttribute('aria-label'),bg:getComputedStyle(a).backgroundColor,html:a.outerHTML.replace(a.getAttribute('href'),'URL'),
+          calls:c.querySelectorAll('a.btn.call:not(.xfbk)').length}:null}""")
+
     def test_card_renders_standard_facebook_button(self):
-        c = self.R.show_in_list(self.p, 'heston-farm'); self.assertIsNotNone(c)
-        s = c.evaluate("""c=>{const a=c.querySelector('a.btn.call.xfbk');return a?{href:a.getAttribute('href'),txt:a.textContent.trim(),
-          aria:a.getAttribute('aria-label'),logo:!!a.querySelector('img.fboff'),calls:c.querySelectorAll('a.btn.call:not(.xfbk)').length}:null}""")
-        self.assertEqual(s, {'href': URL, 'txt': 'Send a message', 'aria': 'Send a message on Facebook', 'logo': True, 'calls': 0})
+        s = self.btn('heston-farm'); self.assertIsNotNone(s)
+        self.assertEqual((s['href'], s['txt'], s['aria'], s['calls']), (URL, 'Send a message', 'Send a message on Facebook', 0))
+        ref = self.btn('sandbach')  # an existing no-phone card with a verified page: same generic button
+        self.assertEqual({k: s[k] for k in ('html', 'bg', 'txt')}, {k: ref[k] for k in ('html', 'bg', 'txt')})
 
 
 if __name__ == "__main__": unittest.main()
