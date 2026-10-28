@@ -34,6 +34,15 @@ class Undo(unittest.TestCase):
         self.assertEqual(json.load(open(os.path.join(self.d, "reports", "phone_fixes.json"))), {U: newer})
 
 
+class Gate(unittest.TestCase):
+    # Gap (6): whether "identical on 2 runs" must also mean clickable on the last run is Dean's call (PR #243), not changed yet.
+    # expectedFailure, not skip: this turns into an unexpected success the day the gate starts requiring it.
+    @unittest.expectedFailure
+    def test_last_run_number_must_also_have_been_clickable(self):
+        n = "01234567890"
+        self.assertTrue(any("2 separate runs" in w for w in F.phone_gate_reasons(U, res(n), prev(n, tel=[]))))
+
+
 class MainPath(unittest.TestCase):
     """One run, three sites: clear on 2 runs (applied), last run read off-host (held, strict gate), Dean undid it (held)."""
     def test_main_applies_holds_and_honours_undo(self):
