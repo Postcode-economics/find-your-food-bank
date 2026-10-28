@@ -47,12 +47,14 @@
       }
       // The map's scripts run after window 'load' (they are text/plain until the boot loader).
       // Claim once they have started, and at latest a few seconds after load, so a visit cannot stay on the previous worker.
+      // armed only stops a second boot wait. Every later updatefound (a version bump found while the page is open)
+      // must still send hm-claim: sw.js waits for it before skipWaiting, so without it the new worker stays waiting.
       function claimWhenReady() {
+        if (window.__hmBooted) { claim(); return; }
         if (armed) return;
         armed = true;
-        if (window.__hmBooted) { claim(); return; }
         var n = 0, t = setInterval(function () {
-          if (window.__hmBooted || ++n > 80) { clearInterval(t); claim(); }
+          if (window.__hmBooted || ++n > 80) { clearInterval(t); armed = false; claim(); }
         }, 50);
       }
       window.addEventListener('load', claimWhenReady);
