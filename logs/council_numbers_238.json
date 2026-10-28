@@ -1,0 +1,53 @@
+{
+ "about": "PR #238 phone changes, 28 Oct 2026. Dean approved both at 06:55 GMT. Each entry has the old value and an undo (set every listed field back).",
+ "changes": [
+  {
+   "kind": "phone",
+   "layer": "shelters",
+   "id": "osm-node-1533578890",
+   "name": "Peasholme Homeless Hostel, York",
+   "field": "phone",
+   "old": "01904 554500",
+   "new": "01904 551901",
+   "source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+   "quote": "Peasholme Centre: 4 Fishergate, York YO10 4FH. Telephone: 01904 551901.",
+   "note": "Was City of York Council Housing Options line. Approved by Dean 28 Oct 06:55 GMT.",
+   "at": "2026-10-28T06:55Z",
+   "undo": {
+    "set": {
+     "phone": "01904 554500",
+     "tel": "01904554500"
+    },
+    "files": [
+     "overrides/shelters_contacts.json: remove phone_fix, phone_source, own_page, phone_quote, phone_checked, phone_note from osm-node-1533578890",
+     "overrides/shelters_verified.json: phone 01904 554500",
+     "overrides/phone_baseline.json: phone 01904 554500, tel 01904554500"
+    ]
+   }
+  },
+  {
+   "kind": "phone",
+   "layer": "warmspaces",
+   "id": "ww-55475981",
+   "name": "JNR8 Youth & Community Centre, Manchester",
+   "field": "phone",
+   "old": "0800 023 2692",
+   "new": "0161 881 3744",
+   "source": "https://www.whalleyrange.org/contact-us/",
+   "quote": "T: (0161) 881 3744",
+   "note": "Was Manchester City Council Cost of Living Advice Line. Council out-of-hours line 0161 234 5001 kept. Approved by Dean 28 Oct 06:55 GMT.",
+   "at": "2026-10-28T06:55Z",
+   "undo": {
+    "set": {
+     "phone": "0800 023 2692",
+     "tel": "08000232692",
+     "phone_source": "https://www.whalleyrange.org"
+    },
+    "files": [
+     "overrides/warmspaces_contacts.json: phone 0800 023 2692, phone_source https://www.whalleyrange.org, remove phone_fix, own_page, phone_quote, phone_checked, phone_note from ww-55475981",
+     "overrides/phone_baseline.json: phone 0800 023 2692, tel 08000232692"
+    ]
+   }
+  }
+ ]
+}

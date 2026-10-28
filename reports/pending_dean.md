@@ -122,3 +122,20 @@ Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is
   source: https://upperedenfoodbank.org.uk/get-help-2/  
   why: known skip: Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
 <!-- /times review -->
+
+<!-- council lines review -->
+## Council numbers shown as a venue's phone: your call (28 Oct 2026)
+
+Your rule: no general council numbers as a venue's direct line or out-of-hours line. Bot 4's live audit (28 Oct, about 05:10 GMT) found these. Nothing below has been changed; each needs your yes or no.
+
+- Bruton Community Library (warm space ww-68618605): 0300 123 2224. This is Somerset Council's main customer services number. You approved it on 26 Oct as a "Library service line" (source https://www.librarieswest.org.uk/-/bruton-community-library). Should we remove it? No own number for the library has been found yet.
+- Folkestone Library (warm space ww-69062943): 03000 41 31 31, Kent County Council's central libraries line. Approved 26 Oct as a library service line.
+- Bodmin Library (warm space ww-68737520): 0300 1234 111, Cornwall Council's libraries service line.
+- Kirklees Local Studies Library (ww-55475504), Huddersfield Library Hub (ww-69100241), Greenwood Centre Library Hub (ww-69100298): 01484 414868, Kirklees Council's central libraries line ("you can ring any library on 01484 414868"). For Local Studies it is also the published number.
+
+- West Borough children's centre, Maidstone (food bank family-food-bank/west-borough-cc): 03000 421540, Kent County Council's line for that centre. It may be out of date: the KCC directory may now list West Borough Family Hub as 03000 419361 (not yet confirmed on the page). Not changed.
+
+Applied with your approval (28 Oct 06:55 GMT, undo in logs/council_numbers_238.json): Peasholme Homeless Hostel, York (osm-node-1533578890) 01904 554500 -> 01904 551901, from https://www.york.gov.uk/homelessness/hostels-supported-housing ("Peasholme Centre: 4 Fishergate, York YO10 4FH. Telephone: 01904 551901."); JNR8 Youth & Community Centre, Manchester (warm space ww-55475981) 0800 023 2692 -> 0161 881 3744, from https://www.whalleyrange.org/contact-us/ ("T: (0161) 881 3744"), keeping the council out-of-hours line 0161 234 5001. James House, York (01904 553626, approved 05:35) is applied in listings batch #239.
+
+- Peasholme Homeless Hostel, York: no council out-of-hours line on the card. York's is on the council's own page https://www.york.gov.uk/homelessness/temporary-accommodation-york: "Alternatively, you can reach the Emergency Duty Team outside of office hours on telephone: 0300 131 2131." Add it as Peasholme's council out-of-hours line? Not changed.
+<!-- /council lines review -->
