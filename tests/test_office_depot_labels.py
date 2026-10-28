@@ -1121,7 +1121,7 @@ NOTICE = {
  "haverhill": "Times shown are contact hours, not food collection. See where to get food below.",
  "hays-community-pantry": "Call ahead: no food bank session times are confirmed on their own page.",
  "hucknall": "Referral needed. Call ahead.",
- "ifan-25c84c4582b7e7c60aeeac-0": "Low-cost food shop: you pay a small amount. Not a free food bank.",
+ "ifan-25c84c4582b7e7c60aeeac-0": "Low-cost community shop (you pay). Free food bank is delivery-only, Wed–Fri, by professional referral.",
  "ifan-9cf9dd4ce1df051c2c0a59-0": "Three pantries at different addresses. See their website for each one.",
  "ifan-d59b2e089746f7a97c1e15-0": "Community pantry for members only. Call ahead to join.",
  "lalley-centre": "Pantry sessions are at the Lalley Centre. Call ahead.",
@@ -1238,7 +1238,7 @@ class Round16(unittest.TestCase):
     def test_round16(self):
         t, n = J("opening_times.json"), J("foodbank_notices.json")
         self.assertNotIn("ifan-5b3e01fe979d373d9ba679-0", t)
-        self.assertIn("Low-cost food shop", n["ifan-25c84c4582b7e7c60aeeac-0"]["notice"])
+        self.assertEqual(n["ifan-25c84c4582b7e7c60aeeac-0"]["notice"], "Low-cost community shop (you pay). Free food bank is delivery-only, Wed–Fri, by professional referral.")  # 28 Oct: Bot 3 FAIL fixed, quoted on 2 fetches
         self.assertEqual(t["hereford"]["structured"]["wed"], [["10:00", "12:00"], ["13:00", "15:00"]])
         self.assertEqual(t["purley/old-lodge-lane-baptist-church"]["structured"], {"fri": [["09:00", "12:00"]]})
         self.assertNotIn("Parish Office", t["corfe-mullen"]["raw"])
