@@ -8,6 +8,12 @@ JOINED = ("southwark norwich slough sutton peterborough nuneaton hull hackney ma
           "thurrock salisbury").split()
 def load():
     t = open(os.path.join(R, "data.full.js")).read(); return json.loads(t[t.index("=") + 1:].strip().rstrip(";"))["items"]
+def _held_or_hand(self, k):
+    # #231 (28 Oct merge) hand-reviewed some of these from the own page; the guard must then leave them exactly as they are
+    if G._hand(self.before[k].get("opening_times")):
+        self.assertNotIn(k, self.log); self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"]); return True
+    return False
+
 class Joined(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -54,6 +60,7 @@ class Bot3Review(unittest.TestCase):
     def test_trims_drop_phone_volunteer_donation_times(self):
         # Changed for re-sample 3: chesterfield and north-belfast were joined-rule trims with no quoted own line -> now held, times kept
         for k in ("chesterfield", "north-belfast"):
+            if _held_or_hand(self, k): continue
             self.assertTrue(self.log[k].startswith("held for review"), k); self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
         self.assertEqual(self.raw("north-lakes"), "")  # vacancies page: still removed
         for k in ("chesterfield", "north-lakes"): self.assertNotEqual((self.after[k]["opening_times"] or {}).get("status"), "CLOSED")
@@ -65,6 +72,7 @@ class Bot3Review(unittest.TestCase):
     def test_inverness_held_with_wed_note(self):
         # Changed for re-sample 3 (was: dropped). A real food bank session with a mis-read day is held, never removed
         k = "salvation-army/inverness"
+        if _held_or_hand(self, k): self.assertIn("wed", self.after[k]["opening_times"]["structured"]); return
         self.assertEqual(self.after[k]["opening_times"], self.before[k]["opening_times"])
         self.assertTrue(self.log[k].startswith("held for review")); self.assertIn("Wed 9-1", self.log[k])
     def test_office_warehouse_postal_never_keeps_another_sites_block(self):
@@ -248,6 +256,7 @@ class Resample4(unittest.TestCase):
                        ("aberdeenshire-north", "aberdeenshirenorth.foodbank.org.uk/locations/"), ("salvation-army/hove", "salvationarmy.org.uk/hove"),
                        ("salvation-army/hastings-temple", "salvationarmy.org.uk/hastings-temple")):
             with self.subTest(k):
+                if _held_or_hand(self, k): self.assertEqual(self.after[k].get("address"), self.before[k].get("address")); continue
                 self.assertIn(src, self.log[k]); self.assertIn("not applied", self.log[k])
                 self.assertEqual(self.after[k].get("address"), self.before[k].get("address"))
         self.assertNotIn("Teignmouth", json.dumps(self.after["clevedon-district"]))
