@@ -30,7 +30,7 @@ CARDS_JS = r"""(sel)=>{const out=[];const rgb=e=>e?getComputedStyle(e).backgroun
    badge:(q('.tag')||{}).textContent||'',links,small,timesShown})}
  return out}"""
 
-ENFORCE_TIMES = False   # set True when the opening-times branch lands
+ENFORCE_TIMES = False   # a partial week can sit beside 'Times unknown' when today itself is not listed (Dean, 26 Oct)
 KNOWN = []
 TILES = []              # reported in reports/design_lock.md, do not fail the run
 
