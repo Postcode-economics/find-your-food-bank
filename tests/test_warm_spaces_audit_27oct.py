@@ -26,7 +26,7 @@ def test_built_file_matches():
     it = items()
     for i, a in ADDR.items():
         if i in it: assert it[i]["address"] == a
-    if "ww-63065216" in it: assert it["ww-63065216"]["hours"] == {"Thu": "14:00 - 16:00 Fortnightly"}
+    if "ww-63065216" in it: assert it["ww-63065216"]["hours"] == {"Thu": "14:00 - 16:00 (1st & 3rd of the month)"}  # #237 own-page lock (Bot 3, 28 Oct) replaces the older "Fortnightly" reading
 
 # Bot 4 audit additions (27 Oct 2026)
 def test_bot4_fixes():
