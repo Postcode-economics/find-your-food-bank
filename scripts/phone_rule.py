@@ -106,9 +106,9 @@ def other_label(text, number, norm=None):
         if norm(m.group(0)) != want: continue
         lo = max(m.start() - 60, ms[k - 1].end() if k else 0)
         hi = ms[k + 1].start() if k + 1 < len(ms) else len(text)
-        nl = text.find("\n", m.end())
-        if nl != -1: hi = min(hi, nl)
-        hit = OTHER_LABEL.search(text[lo:m.start()]) or OTHER_LABEL.search(text[m.end():min(hi, m.end() + 40)])
+        end = m.start() + len(m.group(0).rstrip())  # the pattern can swallow the newline after the number
+        after = re.split(r"[\n.;|,]", text[end:min(hi, end + 30)], 1)[0]
+        hit = OTHER_LABEL.search(text[lo:m.start()]) or OTHER_LABEL.search(after)
         if hit: return hit.group(0)
     return ""
 
