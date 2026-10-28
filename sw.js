@@ -41,9 +41,6 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    // readable (r.ok) responses are stored; it is never given to a CORS request. WebKit rejects it ("Response served by service worker is opaque"), so the tiles.js status probe goes
    // to the network instead and stores a readable copy. Offline, the probe fails and tiles.js shows the <img>,
    // which this cache still answers. The tile cache is renamed fyfb-tiles2 so activate drops the old opaque store.
-   // fyfb-v95: put(url) stores under new Request(url). match(e.request) misses that entry, because a CORS probe and a
-   // no-cors <img> are different requests from the URL string, so every pan fetched the tile again. match(url) and
-   // delete(url) hit the same stored copy for both.
    const url=e.request.url;
    const hit=await c.match(url);if(hit&&hit.type!=='opaque')return hit;
    if(hit)c.delete(url);  // opaque copy (old builds): dropped and refetched; only kept as the offline answer below

@@ -5,6 +5,11 @@
 <script>/* Service worker (28 Oct 2026): register from the head, before layers.js and the map, so tile fetches are intercepted. Waits for the old-cache heal only when it is actually healing (caches.keys() can stay pending in WebKit; capped 800 ms): register() during a pending unregister revives the old worker, and after a heal the script URL is sw.js?v=<hash>&heal=1 so WebKit cannot revive the poisoned one. skipWaiting and clients.claim run in sw.js. If this page still has no controller once the worker is activated, reload once. hmctrl=1 on the query is the loop guard (sessionStorage does not survive some webview reloads): no reload if the flag cannot be written, and no reload while hmheal or hmboot is already reloading the page. A page the worker already controls does not reload. */(function () {
   if (!('serviceWorker' in navigator)) return;
   var claimed = !!navigator.serviceWorker.controller;
+  var used = false;
+  function note() { used = true; }
+  addEventListener('pointerdown', note, true);
+  addEventListener('touchstart', note, true);
+  addEventListener('keydown', note, true);
   navigator.serviceWorker.addEventListener('controllerchange', function () { claimed = true; });
   navigator.serviceWorker.addEventListener('message', function (e) {
     if (e.data !== 'offline') return;
@@ -25,7 +30,7 @@
   var heal = /[?&]hmheal=1(?:&|$)/.test(location.search);
   Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })])
     .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
-    .then(function () { return navigator.serviceWorker.register('sw.js?v=h02fb1b21a14a' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
+    .then(function () { return navigator.serviceWorker.register('sw.js?v=h24cc1848c09c' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
     .then(function (reg) {
       // With service workers blocked, register() resolves to undefined. Do not touch it.
       if (!reg || !reg.addEventListener) return;
@@ -37,6 +42,7 @@
       }
       window.addEventListener('load', claim);
       reg.addEventListener('updatefound', claim);
+      if (document.readyState === 'complete') claim();
       return reg.update().catch(function () {}).then(function () {
         if (claimed || navigator.serviceWorker.controller) { dropCtrl(); return; }
         if (/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;
@@ -45,6 +51,7 @@
         if (!sw) return;
         var once = function () {
           setTimeout(function () {
+            if (used) return;
             if (claimed || navigator.serviceWorker.controller) { dropCtrl(); return; }
             if (/[?&]hmctrl=1(?:&|$)/.test(location.search)) return;
             if (/[?&]hm(?:heal|boot)=1(?:&|$)/.test(location.search) || window.__hmHealBusy) return;
@@ -64,7 +71,7 @@
 })();</script>
 <script>/* Boot watchdog (25 Oct 11:29): if the map or data has not come up 10 s after load (e.g. an old service worker served
 mismatched files to an old link), clear the worker + caches and reload once per tab session. */
-(function(){var k='hmBoot';function strip(){try{var s=location.search;if(!/[?&]hmheal=1(?:&|$)/.test(s)&&!/[?&]hmboot=1(?:&|$)/.test(s))return;var p=s.slice(1).split('&'),o=[],i;for(i=0;i<p.length;i++)if(p[i]!=='hmheal=1'&&p[i]!=='hmboot=1')o.push(p[i]);history.replaceState(null,'',location.pathname+(o.length?'?'+o.join('&'):'')+location.hash)}catch(_){}}
+(function(){var k='hmBoot';function strip(){try{var s=location.search;if(!/[?&]hmheal=1(?:&|$)/.test(s)&&!/[?&]hmboot=1(?:&|$)/.test(s)&&!/[?&]hmctrl=1(?:&|$)/.test(s))return;var p=s.slice(1).split('&'),o=[],i;for(i=0;i<p.length;i++)if(p[i]!=='hmheal=1'&&p[i]!=='hmboot=1'&&p[i]!=='hmctrl=1')o.push(p[i]);history.replaceState(null,'',location.pathname+(o.length?'?'+o.join('&'):'')+location.hash)}catch(_){}}
 window.__hmStripHeal=strip;
 addEventListener('load',function(){try{if(typeof items!=='undefined'&&items.length>0&&document.querySelector('#map .leaflet-pane'))strip()}catch(_){}
 setTimeout(function(){try{var ok=typeof items!=='undefined'&&items.length>0&&document.querySelector('#map .leaflet-pane');

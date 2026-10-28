@@ -4,8 +4,8 @@
    network request between them.
 2. data.js with a ?v=h<hash> stamp is cache-first; a new stamp fetches fresh and drops the old stamped copy;
    offline, the last copy still answers. Unstamped data.js stays network-first.
-3. fyfb-v95: the tile cache is keyed by the URL string. put(url, corsResponse) is found by match(url) for both a
-   CORS probe and a no-cors <img>. match(e.request) is a different key and misses."""
+3. fyfb-v95: put(url, corsResponse) is found by match(url) for both a CORS probe and a no-cors <img>.
+   The Cache API matches by URL (request mode is ignored)."""
 import json, os, re, shutil, subprocess, sys, unittest
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
@@ -13,11 +13,10 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 HARNESS = r"""
 const fs=require('fs');const src=fs.readFileSync(process.argv[1],'utf8');
 const store=new Map();let net=[],offline=false,slowPut=0,matches=[];const H={};
-// Real Cache: put(url) / match(url) share one key (new Request(url)). A page Request does not: a CORS probe and a
-// no-cors <img> both miss an entry stored under the URL string, which is why match(e.request) re-downloaded tiles.
-const slot=r=>{if(typeof r==='string')return 'U:'+r;if(r&&typeof r.mode==='string'&&r.mode)return 'R:'+r.mode+':'+(r.url||'');if(r&&r.url)return 'U:'+r.url;return 'U:'+String(r)};
-const cache={match:async r=>{matches.push(typeof r==='string'?'S:'+r:'R');return store.get(slot(r))},put:async(r,v)=>{if(slowPut)await new Promise(x=>setTimeout(x,slowPut));store.set(slot(r),v)},keys:async()=>[...store.keys()].filter(k=>String(k).startsWith('U:')).map(k=>({url:k.slice(2)})),delete:async r=>store.delete(slot(r)),addAll:async()=>{}};
-global.caches={open:async()=>cache,keys:async()=>[],match:async r=>store.get(slot(r)),delete:async()=>true};
+// The real Cache API keys by URL. Request mode is not part of the key.
+const key=r=>typeof r==='string'?r:(r&&r.url)||r;
+const cache={match:async r=>{matches.push(typeof r==='string'?'S:'+r:'R');return store.get(key(r))},put:async(r,v)=>{if(slowPut)await new Promise(x=>setTimeout(x,slowPut));store.set(key(r),v)},keys:async()=>[...store.keys()].map(url=>({url})),delete:async r=>store.delete(key(r)),addAll:async()=>{}};
+global.caches={open:async()=>cache,keys:async()=>[],match:async r=>store.get(key(r)),delete:async()=>true};
 global.self={addEventListener:(t,f)=>{H[t]=f},clients:{matchAll:async()=>[],claim:async()=>{}},skipWaiting:()=>{}};
 global.location={origin:'https://helpmap.uk',href:'https://helpmap.uk/'};
 global.Request=function(u,o){this.url=u;Object.assign(this,o||{})};
@@ -29,21 +28,21 @@ const go=async(url,mode)=>await start(url,mode);
 const tick=()=>new Promise(r=>setTimeout(r,20));
 (async()=>{const o={};
  const t='https://tile.openstreetmap.org/6/31/20.png';
- await go(t,'no-cors');await tick();o.img_fetched_cors=net[0][1]==='cors';o.img_tile_stored=store.has('U:'+t);
+ await go(t,'no-cors');await tick();o.img_fetched_cors=net[0][1]==='cors';o.img_tile_stored=store.has(t);
  const n=net.length;const r=await go(t,'no-cors');o.repeat_from_cache=net.length===n&&!r.error;
  const a='https://helpmap.uk/data.js?v=haaaaaaaaaaaa',b='https://helpmap.uk/data.js?v=hbbbbbbbbbbbb';
  const r1=await go(a,'no-cors');const n2=net.length;const r2=await go(a,'no-cors');o.stamped_cache_first=net.length===n2&&r2.body===r1.body;
- const r3=await go(b,'no-cors');o.new_stamp_fetched=r3.body!==r1.body&&net.length===n2+1;o.old_stamp_dropped=!store.has('U:'+a);
+ const r3=await go(b,'no-cors');o.new_stamp_fetched=r3.body!==r1.body&&net.length===n2+1;o.old_stamp_dropped=!store.has(a);
  const n3=net.length;await go('https://helpmap.uk/data.js','no-cors');o.unstamped_network_first=net.length===n3+1;
  slowPut=50;const t2='https://tile.openstreetmap.org/7/63/41.png',n4=net.length;
  const pr=start(t2,'cors');await new Promise(x=>setTimeout(x,5));const im=start(t2,'no-cors');const [q1,q2]=await Promise.all([pr,im]);
- o.one_request_per_tile=net.filter(x=>x[0]===t2).length===1&&net.length===n4+1&&!q1.error&&!q2.error&&store.has('U:'+t2);slowPut=0;
+ o.one_request_per_tile=net.filter(x=>x[0]===t2).length===1&&net.length===n4+1&&!q1.error&&!q2.error&&store.has(t2);slowPut=0;
  const t3='https://tile.openstreetmap.org/9/255/170.png';
  const corsResponse={ok:true,type:'cors',body:'stored-cors',clone(){return this}};
  await cache.put(t3,corsResponse);
  const probe={url:t3,method:'GET',mode:'cors',destination:''},imgReq={url:t3,method:'GET',mode:'no-cors',destination:'image'};
  o.direct_match_url_hits=!!(await cache.match(t3))&&(await cache.match(t3)).body==='stored-cors';
- o.direct_match_request_misses=!(await cache.match(probe))&&!(await cache.match(imgReq));
+ o.mode_ignored=(await cache.match(probe)).body==='stored-cors'&&(await cache.match(imgReq)).body==='stored-cors';
  const n6=net.length,gCors=await go(t3,'cors'),gImg=await go(t3,'no-cors');
  o.match_url_hits_cors_and_nocors=net.length===n6&&gCors.body==='stored-cors'&&gImg.body==='stored-cors'&&matches.filter(m=>m==='S:'+t3).length>=2;
  offline=true;const r4=await go('https://helpmap.uk/data.js?v=hcccccccccccc','no-cors');o.offline_last_copy=!!r4.body;
@@ -215,6 +214,41 @@ class PanBackTiles(unittest.TestCase):
             if site: site.shutdown()
             if tiles: tiles.shutdown()
             shutil.rmtree(certs, ignore_errors=True)
+
+
+class AtMostOneReload(unittest.TestCase):
+    """The first controller must not reload the page in a loop. One reload is the claim guard; a second is a bug."""
+    def test_page_reloads_at_most_once(self):
+        try:
+            from playwright.sync_api import sync_playwright
+        except Exception:
+            raise unittest.SkipTest('needs playwright')
+        import http.server, threading
+        class Site(http.server.SimpleHTTPRequestHandler):
+            def __init__(self, *a, **k):
+                super().__init__(*a, directory=str(ROOT), **k)
+            def log_message(self, fmt, *a):
+                pass
+        site = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Site)
+        threading.Thread(target=site.serve_forever, daemon=True).start()
+        try:
+            with sync_playwright() as p:
+                try:
+                    browser = p.chromium.launch()
+                except Exception as e:
+                    raise unittest.SkipTest('needs chromium: %s' % e)
+                ctx = browser.new_context(viewport={'width': 390, 'height': 844}, service_workers='allow',
+                                           user_agent='Mozilla/5.0 helpmap-check')
+                page = ctx.new_page()
+                navs = []
+                page.on('framenavigated', lambda fr: navs.append(fr.url) if fr == page.main_frame else None)
+                page.goto('http://127.0.0.1:%d/?nocount' % site.server_address[1], wait_until='load')
+                page.wait_for_timeout(8000)
+                self.assertLessEqual(len(navs), 2, navs)
+                self.assertTrue(page.evaluate("() => !!(document.getElementById('q') && document.querySelector('#map .leaflet-pane'))"))
+                browser.close()
+        finally:
+            site.shutdown()
 
 
 if __name__ == '__main__': unittest.main()

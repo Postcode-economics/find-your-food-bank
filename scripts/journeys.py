@@ -93,26 +93,6 @@ def settle(pg, first=1800):
         last = y; pg.wait_for_timeout(200)
 
 def pick(pg, k):
-    """Warm spaces and shelters arrive in their own files. No check runs until both lists are loaded."""
-    pg.evaluate("""() => {
-      ['warmspaces.js', 'shelters.js'].forEach(f => {
-        if ([...document.scripts].some(s => (s.getAttribute('src') || '').split('?')[0].endsWith(f))) return;
-        const el = document.createElement('script');
-        el.src = f + '?t=' + Math.floor(Date.now() / 9e5);
-        document.body.appendChild(el);
-      });
-    }""")
-    ready = False
-    for _ in range(150):
-        ready = pg.evaluate("""() => {
-          const w = window.WARMSPACES, s = window.SHELTERS;
-          return !!(w && w.items && w.items.length && s && s.items && s.items.length);
-        }""")
-        if ready:
-            break
-        pg.wait_for_timeout(200)
-    if not ready:
-        raise TimeoutError('WARMSPACES.items and SHELTERS.items did not load')
     pg.click('.v3b[data-l=%s]' % k); pg.wait_for_timeout(600)
 
 def shot(pg, name):
