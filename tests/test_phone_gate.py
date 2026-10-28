@@ -1,6 +1,6 @@
-"""Dean, 28 Oct 2026: a clear single new phone on the organisation's own site may auto-apply, but only through the same
-strict gate as times: read on the organisation's OWN host, identical on 2 separate runs, no conflicting own-site number,
-and every change logged once with its source URL and an undo command. Anything else is held. Each rule blocks on its own."""
+"""A phone change is never written. phone_gate_reasons still classifies a clear number (own host, identical on 2 runs,
+one clickable number, not undone). main() holds that number for Dean instead of recording a fix. Each doubtful case
+blocks on its own."""
 import json, os, re, shutil, sys, tempfile, unittest
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
@@ -93,18 +93,20 @@ class UndoLog(unittest.TestCase):
 
 
 class Wiring(unittest.TestCase):
-    """The gate sits in full_check.main() on the only path that writes a new phone fix."""
+    """The gate still runs. A clear number is held and no new phone fix is recorded."""
     src = open(os.path.join(ROOT, "scripts", "full_check.py"), encoding="utf-8").read()
     main = src[src.index("def main():"):]
 
     def test_gate_runs_before_a_fix_is_recorded(self):
         g = self.main.index("gate = phone_gate_reasons(u, r, prev, undone) if clear else []")
         held = self.main.index("elif clear and gate:")
-        rec = self.main.index("fixes[u] = dict(old=old, new=new")
-        self.assertLess(g, held); self.assertLess(held, rec)
+        never = self.main.index("phone changes are never auto-applied")
+        self.assertLess(g, held); self.assertLess(held, never)
         self.assertIn("'phone fix held (strict gate)'", self.main)
+        self.assertIn("'phone fix held (never auto-applied)'", self.main)
         self.assertIn("allow_under_rules('clear single new phone on own site'", self.main)
-        self.assertEqual(len(re.findall(r"fixes\[u\] = ", self.main)), 1)
+        self.assertNotIn("fixes[u] =", self.main)
+        self.assertNotIn("i['phone'] = i['tel']", self.src)
 
     def test_undone_fixes_are_dropped_and_every_write_is_logged(self):
         self.assertIn("fixes = {u: f for u, f in fixes.items() if undone.get(u) != f.get('new')}", self.main)

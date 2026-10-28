@@ -166,6 +166,10 @@ items, CARRIED, NOT_CARRIED = carry_forward.carry_items(PREV_ITEMS, items, close
 sources["Carried forward (call before you go)"] = {"status": "ok", "count": len(CARRIED), "ids": [x["id"] for x in CARRIED][:200],
                                                    "for_review": [x["id"] for x in CARRIED if x.get("review")], "not_carried": NOT_CARRIED[:200]}
 if not os.environ.get("DRY_RUN"): carry_forward.write_log(CARRIED, RUN, not_carried=NOT_CARRIED)
+import place_lock
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+restored = place_lock.protect(items, PREV_ITEMS, place_lock.hands(_ROOT, "warmspaces"), _ROOT, "warmspaces")
+print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(PREV_ITEMS, items)))
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "warm spaces", json.dumps(sources)[:1500]); sys.exit(0)
 import shelter_contacts  # venue numbers + labelled council fallback (overrides/warmspaces_contacts.json) survive every refresh
 sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items, shelter_contacts.load(shelter_contacts.WS)), "missing_any_number": shelter_contacts.check(items)}

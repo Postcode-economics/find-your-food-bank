@@ -32,8 +32,8 @@ class GateTimesCount(unittest.TestCase):
 
 
 class MainStopsOnCombinedCount(unittest.TestCase):
-    """4 own-site phone fixes + 8 refresh-gate times changes = 12 against a median of 2: stop, nothing written,
-    the step output says stop. The same run with no gate times does not stop and says ok."""
+    """12 refresh-gate times changes against a median of 2: stop, nothing written.
+    The 4 clear phone proposals in the same run are held and do not count. The same run with no gate times does not stop."""
     def run_main(self, gate_times, dry=False):
         sites = ["https://s%02d.example/home" % n for n in range(4)]
         items = [dict(id="bb-%02d" % n, type="foodbank", name="B%d" % n, foodbank="B%d" % n, website=u, phone="01000000000", tel="01000000000")
@@ -68,11 +68,11 @@ class MainStopsOnCombinedCount(unittest.TestCase):
         return items, written, saved, rep, open(out).read()
 
     def test_gate_times_push_the_run_over_the_bar_and_block_it(self):
-        items, written, saved, rep, out = self.run_main(8)
+        items, written, saved, rep, out = self.run_main(12)
         self.assertEqual(out, "brake=stop\n")
         md = open(os.path.join(rep, "anomaly_brake.md"), encoding="utf-8").read()
         self.assertIn("would change 12 places", md)
-        self.assertIn("Counted: 4 own-site changes", md); self.assertIn("8 opening-times changes the refresh gate applied", md)
+        self.assertIn("Counted: 0 own-site changes", md); self.assertIn("12 opening-times changes the refresh gate applied", md)
         self.assertIn("fails at its anomaly brake step, before the commit step", md)
         self.assertNotIn("phone_fixes.json", written); self.assertEqual({i["phone"] for i in items}, {"01000000000"})
         self.assertEqual(saved[-1]["anomaly"]["proposed"], 12)

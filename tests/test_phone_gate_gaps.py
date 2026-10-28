@@ -68,10 +68,10 @@ class MainPath(unittest.TestCase):
         finally:
             (F.rj, F.wj, F.load_data, F.load_access, F.write_md, F.REP, F.check_site, F.ROOT) = orig; os.environ.pop("DRY_RUN", None)
         fixes = written["phone_fixes.json"]
-        self.assertEqual(set(fixes), {a})
-        self.assertEqual((fixes[a]["first_run_at"], fixes[a]["second_run_at"], fixes[a]["source"]), (R1, R2, a + "contact"))
-        self.assertEqual([i["phone"] for i in items], ["02000000000", "01000000000", "01000000000"])
-        cats = {v["website"]: (v["category"], v.get("note", "")) for v in written["daily_review.json"][F.DAY]["items"].values() if v.get("website") in (b, c)}
+        self.assertEqual(fixes, {})
+        self.assertEqual([i["phone"] for i in items], ["01000000000", "01000000000", "01000000000"])
+        cats = {v["website"]: (v["category"], v.get("note", "")) for v in written["daily_review.json"][F.DAY]["items"].values() if v.get("website") in (a, b, c)}
+        self.assertEqual(cats[a][0], "phone fix held (never auto-applied)"); self.assertIn("never auto-applied", cats[a][1])
         self.assertEqual(cats[b][0], "phone fix held (strict gate)"); self.assertIn("2 separate runs", cats[b][1])
         self.assertEqual(cats[c][0], "phone fix held (strict gate)"); self.assertIn("undone by Dean", cats[c][1])
 

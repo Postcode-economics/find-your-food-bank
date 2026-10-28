@@ -61,6 +61,7 @@ for k, pc in reverse_postcodes(need).items():
     for x in fresh:
         if x["id"] == k: x["postcode"] = pc; x["postcode_note"] = "nearest postcode (postcodes.io)"
 prev = load_js(OUT, "SHELTERS")
+published_items = list((prev or {}).get("items") or [])
 # Verification gate: publish only allowlisted shelters; new finds go to logs/shelters_pending.json.
 VER = load_verified("overrides/shelters_verified.json")
 HE_HINT = "https://homeless.org.uk/homeless-england/"
@@ -117,6 +118,9 @@ sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.
 import phone_lock  # frozen numbers, and no daytime council line without a verified out-of-hours number
 for x in items: phone_lock.settle_council(x)
 phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="shelters", persist_new=not os.environ.get("DRY_RUN"))
+import place_lock
+restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters")
+print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(published_items, items)))
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})

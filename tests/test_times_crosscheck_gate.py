@@ -47,6 +47,20 @@ class Gate(unittest.TestCase):
         self.assertTrue(json.load(open(os.path.join(self.root, "reports", "times_auto_applied.json")))[0]["reverted"])
         it3 = [item()]; l3 = self.run1(it3, fetch({"https://x.org/": pg(html())}), "2026-10-27T19:00:00+00:00")   # undone: never re-applied
         self.assertEqual(l3["a"]["status"], "held_for_dean"); self.assertIn("undone by Dean", l3["a"]["reason"]); self.assertEqual(it3[0]["opening_times"], OLD)
+    def test_hand_set_times_are_kept(self):
+        stored = dict(OLD, reader="hand-set 2026-10-24 (Dean; church calendar, temporary venue)", protected=True)
+        it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=[item(opening_times=stored)])
+        self.assertEqual(log["a"]["status"], "differs_from_hand_checked")
+        self.assertEqual(it[0]["opening_times"]["structured"], OLD["structured"])
+        self.assertEqual(it[0]["opening_times"]["reader"], stored["reader"])
+        self.assertFalse(os.path.exists(os.path.join(self.root, "reports", "times_auto_applied.json")) and json.load(open(os.path.join(self.root, "reports", "times_auto_applied.json"))))
+
+    def test_hand_reviewed_marker_inside_the_reader_is_kept(self):
+        stored = dict(OLD, reader="sa_corps_page (hand-reviewed)")
+        it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=[item(opening_times=stored)])
+        self.assertEqual(log["a"]["status"], "differs_from_hand_checked")
+        self.assertEqual(it[0]["opening_times"], stored)
+
     def test_shelter_hours_positive(self):
         it = [item(id="a", opening_times=None, hours={"Tue": "10:00 - 12:00"})]; it[0].pop("opening_times")
         it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=it, kind="sh", field="hours")

@@ -116,7 +116,7 @@ def main():
                 if nm.get(k): i[k] = nm[k]
     import own_locations  # own-site locations pages (overrides/own_location_pages.json), re-scraped every run; page beats Give Food
     own_log = own_locations.refresh(items, ROOT); print('own locations pages:', json.dumps(own_log))
-    # postcode check: move pins >2 km from their postcode centroid
+    # Postcode check is a flag only. A pin is never moved to the postcode centroid (that used to rewrite lat/lng).
     pcs = sorted({i['postcode'] for i in items if i['postcode']}); res = {}
     try:
         for s in range(0, len(pcs), 100):
@@ -125,12 +125,15 @@ def main():
                 if x['result'] and x['result'].get('latitude'): res[x['query']] = (x['result']['latitude'], x['result']['longitude'])
     except Exception as e:
         print('warning: postcode check skipped:', e); res = None
+    far = []
     for i in items:
         if res is None: break
         r = res.get(i['postcode'])
         i['pc_checked'] = bool(r)
         if r and hav(i['lat'], i['lng'], *r) > 2:
-            i['orig_latlng'] = [i['lat'], i['lng']]; i['lat'], i['lng'] = round(r[0], 6), round(r[1], 6); i['moved_to_postcode'] = True
+            far.append(i['id'])
+    if far:
+        print('postcode check: %d pins are over 2 km from their postcode centroid; left where they are' % len(far))
     # classify client-facing vs warehouse/office (manual locks in overrides/foodbank_manual.json always applied)
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from classify import classify, write_csv
@@ -250,6 +253,16 @@ def main():
                           os.path.join(ROOT, 'logs', 'foodbank_times_review.json'))
     import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
     phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')))
+    import place_lock  # published pins and addresses stay; a hand-set override may still correct one
+    published = load_prev_items()
+    restored = place_lock.protect(items, published, place_lock.hands(ROOT, 'foodbanks'), ROOT, 'foodbanks')
+    diff = place_lock.changes(published, items)
+    import auto_rules
+    published_ids = {x['id'] for x in published}
+    new_ids = [i['id'] for i in items if i['id'] not in published_ids]
+    ok = auto_rules.approved('foodbanks', ROOT)
+    print('place lock:', restored, 'address/pin fields kept;', json.dumps(diff))
+    print('new food bank ids: %d, held for Dean: %d, already approved: %d' % (len(new_ids), sum(i not in ok for i in new_ids), sum(i in ok for i in new_ids)))
     import schema_version
     meta = schema_version.stamp(dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items))
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
