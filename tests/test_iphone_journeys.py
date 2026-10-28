@@ -524,6 +524,9 @@ def case_v90(device, sw):
             controlled = _until(pg, "() => !!(navigator.serviceWorker && navigator.serviceWorker.controller)", 25)
             if controlled is not True:
                 raise AssertionError('v90 worker did not take control: %s %s proxy=%s' % (controlled, errors[:2], proxy.errors[:3]))
+            active = _until(pg, "async () => { const r = await navigator.serviceWorker.getRegistration(); return !!(r && r.active && r.active.state === 'activated' && !r.installing && !r.waiting); }", 25)
+            if active is not True:
+                raise AssertionError('v90 worker did not activate: %s %s' % (active, errors[:2]))
             got = _until(pg, "async () => (await caches.keys()).indexOf('fyfb-v90') >= 0", 20)
             if got is not True:
                 keys = pg.evaluate('async () => await caches.keys()')

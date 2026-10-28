@@ -8,7 +8,7 @@ mismatched files to an old link), clear the worker + caches and reload once per 
 window.__hmStripHeal=strip;
 addEventListener('load',function(){try{if(typeof items!=='undefined'&&items.length>0&&document.querySelector('#map .leaflet-pane'))strip()}catch(_){}
 setTimeout(function(){try{var ok=typeof items!=='undefined'&&items.length>0&&document.querySelector('#map .leaflet-pane');
-if(ok){strip();sessionStorage.removeItem(k);return}if(/[?&]hmboot=1(?:&|$)/.test(location.search))return;if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1');var p=[];
+if(ok){strip();sessionStorage.removeItem(k);return}if(/[?&]hm(?:boot|heal)=1(?:&|$)/.test(location.search)||window.__hmHealBusy)return;if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1');var p=[];
 if(navigator.serviceWorker)p.push(navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.unregister()}))}));
 if(window.caches)p.push(caches.keys().then(function(ks){return Promise.all(ks.map(function(x){return caches.delete(x)}))}));
 Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='hmboot=1';if(!/[?&]hmboot=1(?:&|$)/.test(s))history.replaceState(null,'',location.pathname+(s?s+'&'+n:'?'+n)+location.hash)}catch(_){}if(!/[?&]hmboot=1(?:&|$)/.test(location.search))return;location.reload()})}catch(_){}},10000)})})();</script>
