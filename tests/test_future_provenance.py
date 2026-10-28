@@ -33,8 +33,9 @@ class Provenance(unittest.TestCase):
         ]
         phone = ["02000000000"]
         store = {"full_check_state.json": {"sites": {
-            clear: {"phones": phone, "checked_at": "x", "access": "unclear"},
-            held: {"phones": phone, "checked_at": "x", "access": "unclear"},
+            # last run's read, as full_check stores it: the strict phone gate needs it on the own host (Dean, 28 Oct)
+            clear: {"phones": phone, "tel": phone, "final_url": clear + "/contact", "checked_at": "x", "access": "unclear"},
+            held: {"phones": phone, "tel": phone, "final_url": held + "/contact", "checked_at": "x", "access": "unclear"},
         }, "ids": ["c", "h"]}}
         written = {}; rep = tempfile.mkdtemp()
         import learning_signals
