@@ -72,6 +72,8 @@ class Bot3Review(unittest.TestCase):
         for k in ("peterborough", "arden", "chelmsford", "pbp", "doncaster", "cannock-district", "south-east-bristol"):
             with self.subTest(k):
                 ot = self.after[k]["opening_times"] or {}
+                if G._hand(self.before[k].get("opening_times")):  # main since #229: hand-labelled as office hours (e.g. pbp) -> never touched
+                    self.assertNotIn(k, self.log); self.assertIn("not food collection", ot.get("raw") or ""); continue
                 self.assertEqual(ot.get("raw") or "", ""); self.assertEqual(ot.get("status"), "NO_TIMES")
                 self.assertTrue(self.log[k].startswith("office/warehouse/postal"))
     def test_dartmouth_keeps_own_friday_hub(self):

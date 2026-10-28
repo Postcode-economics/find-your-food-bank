@@ -1,32 +1,31 @@
 {
- "_about": "Preview of what the root-cause times rules change on the next build (computed from main's data.full.js, regenerated 28 Oct 2026 after Bot 3's re-sample 2 (office/warehouse/postal trims give no times; quoted own-centre lines kept)). Held = times kept, listed for review.",
- "count": 126,
- "changed": 124,
+ "_about": "Preview of what the root-cause times rules change on the next build (computed from main's data.full.js after merging main, regenerated 28 Oct 2026 after Bot 3's re-sample 3: the joined rule now holds rather than removes or trims, unless the listing is a proven office/warehouse/postal address or its own quoted centre line is on the page; Inverness held with Wed 9-1 note). Held = times kept, listed for review.",
+ "count": 122,
+ "changed": 57,
  "by_reason": {
-  "centres' joined times removed": 75,
-  "office/warehouse/postal listing: another site's times not kept": 11,
-  "held for review": 2,
+  "office/warehouse/postal listing: centres' joined times removed": 14,
+  "held for review": 65,
+  "office/warehouse/postal listing: another site's times not kept": 10,
   "kept the listing's own centre line (quoted on its own page)": 5,
   "times came from a vacancies/volunteer/donation page": 1,
-  "trimmed to the listing's own block": 4,
-  "no food bank time on its own line next to food bank wording": 19,
+  "no food bank time on its own line next to food bank wording": 18,
   "times came from another corps' page": 9
  },
  "listings": {
   "aberdeenshire-north": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 11:00 - 13:00 | Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon 10:00 - 12:00 | Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon Closed Tue 11:00 - 13:00 | Tue Closed Wed 11:00 - 13:00 | Thu Closed Fri 11:00 - 13:00",
    "after": "(no times: call ahead)"
   },
   "airdrie": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue Closed Wed 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:30",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue Closed Wed 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:30"
   },
   "anglesey": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday-Friday 9:15 am to 2:00 pm | Monday 10:00 am to 2:00 pm | Tuesday Closed Wednesday 2:00 pm to 6:30 pm | Thursday Closed Friday 10:00 am to 2:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday-Friday 9:15 am to 2:00 pm | Monday 10:00 am to 2:00 pm | Tuesday Closed Wednesday 2:00 pm to 6:30 pm | Thursday Closed Friday 10:00 am to 2:00 pm"
   },
   "arden": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -34,19 +33,19 @@
    "after": "(no times: call ahead)"
   },
   "barking": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue 10:00 - 12:00 | Wed Closed Thu 10:00 - 12:00 | Mon 10:30 - 12:00 | Tue Closed Wed 10:30 - 12:00 | Thu Closed Fri 10:30 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue 10:00 - 12:00 | Wed Closed Thu 10:00 - 12:00 | Mon 10:30 - 12:00 | Tue Closed Wed 10:30 - 12:00 | Thu Closed Fri 10:30 - 12:00"
   },
   "bath-keynsham-somer-valley": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 12:30 - 14:30 | Tue Closed Wed 12:30 - 14:30 | Thu Closed Fri 12:30 - 14:30 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:15 - 11:45 | Mon 10:00 - 12:00 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:00 - 13:30 | Mon 12:00 - 14:00 | Mon Closed Tue Closed Wed 13:00 - 14:30",
-   "after": "(no times: call ahead)"
+   "after": "Mon 12:30 - 14:30 | Tue Closed Wed 12:30 - 14:30 | Thu Closed Fri 12:30 - 14:30 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:15 - 11:45 | Mon 10:00 - 12:00 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:00 - 13:30 | Mon 12:00 - 14:00 | Mon Closed Tue Closed Wed 13:00 - 14:30"
   },
   "bedford": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 14:00 - 16:00 | Mon Closed Tue 13:00 - 15:00 | Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 13:30 - 15:30 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon 14:00 - 16:00 | Mon Closed Tue 13:00 - 15:00 | Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 13:30 - 15:30 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00"
   },
   "bestwood-bulwell": {
    "reason": "kept the listing's own centre line (quoted on its own page)",
@@ -54,17 +53,17 @@
    "after": "Mon Closed Tue 13:00 - 15:00 | Wed Closed Thu 13:00 - 15:00 | Fri Closed Sat 10:00 - 12:00"
   },
   "bradford-north": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm | Monday Closed Tuesday 2:00 pm to 4:30 pm | Tuesdays from 2pm to 4.30pm | Monday 12:30 pm to 3:00 pm | Mondays from 12.30pm to 3.00pm | Monday-Thursday Closed Friday 10:30 am to 12:30 pm | Fridays from 10.30am to 12.30pm | Monday 4:00 pm to 6:00 pm | Tuesday-Wednesday Closed Thursday 4:00 pm to 6:00 pm | Mondays and Thursdays from 4pm to 6pm | Monday-Wednesday Closed Thursday 11:00 am to 1:30 pm | Thursdays from 11am to 1.30pm | Monday 11:00 am to 1:30 pm | Mondays from 11am to 1.30pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm | Monday Closed Tuesday 2:00 pm to 4:30 pm | Tuesdays from 2pm to 4.30pm | Monday 12:30 pm to 3:00 pm | Mondays from 12.30pm to 3.00pm | Monday-Thursday Closed Friday 10:30 am to 12:30 pm | Fridays from 10.30am to 12.30pm | Monday 4:00 pm to 6:00 pm | Tuesday-Wednesday Closed Thursday 4:00 pm to 6:00 pm | Mondays and Thursdays from 4pm to 6pm | Monday-Wednesday Closed Thursday 11:00 am to 1:30 pm | Thursdays from 11am to 1.30pm | Monday 11:00 am to 1:30 pm | Mondays from 11am to 1.30pm"
   },
   "bristol-north-west": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon-Fri, 9-12 | Mon-Fri, 9-5 | Mon-Fri, 9-4.30",
-   "after": "(no times: call ahead)"
+   "after": "Mon-Fri, 9-12 | Mon-Fri, 9-5 | Mon-Fri, 9-4.30"
   },
   "bromley-borough": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Monday Closed Tuesday 11:00 am to 1:15 pm | Wednesday Closed Thursday 12:00 pm to 2:15 pm | Monday-Friday 9:00 am to 3:00 pm | Monday-Thursday Closed Friday 12:30 pm to 2:30 pm | Monday 10:30 am to 12:30 pm | Monday 12:30 pm to 2:30 pm | Tuesday Closed Wednesday 11:00 am to 1:30 pm",
    "after": "(no times: call ahead)"
   },
@@ -79,9 +78,9 @@
    "after": "(no times: call ahead)"
   },
   "causeway": {
-   "reason": "trimmed to the listing's own block",
+   "reason": "held for review: joined centre times: current times kept, needs a quoted own-centre line to trim",
    "before": "Mon Closed Tue 11:30 - 13:00 | Wed 11:30 - 13:00 | Thu 19:00 - 20:00 | Fri 11:30 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 16:30 - 18:00 | Mon Closed Tue Closed Wed Closed Thu 11:00 - 12:00",
-   "after": "Mon Closed Tue 11:30 - 13:00 | Wed 11:30 - 13:00 | Thu 19:00 - 20:00 | Fri 11:30 - 13:00"
+   "after": "Mon Closed Tue 11:30 - 13:00 | Wed 11:30 - 13:00 | Thu 19:00 - 20:00 | Fri 11:30 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 16:30 - 18:00 | Mon Closed Tue Closed Wed Closed Thu 11:00 - 12:00"
   },
   "chelmsford": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -89,14 +88,14 @@
    "after": "(no times: call ahead)"
   },
   "chesterfield": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday to Friday, 9am-5pm | Mon 12:00 - 14:00 | Mon 17:00 - 18:30 | Mon Closed Tue 13:00 - 15:00 | Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 10:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00",
-   "after": "(no times: call ahead)"
+   "after": "Monday to Friday, 9am-5pm | Mon 12:00 - 14:00 | Mon 17:00 - 18:30 | Mon Closed Tue 13:00 - 15:00 | Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 10:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00"
   },
   "chichester-district": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday: 2-4pm | Wednesday: 9.30-11.30am | Friday: 4-6pm | Friday: 10am - midday | Monday, Tuesday, Wednesday & Friday: 9.00am - 12.30pm | Monday: 08:30-16:00 | Tuesday: 09:00-12:00 | Thursday: 08:30 – 15:30",
-   "after": "(no times: call ahead)"
+   "after": "Monday: 2-4pm | Wednesday: 9.30-11.30am | Friday: 4-6pm | Friday: 10am - midday | Monday, Tuesday, Wednesday & Friday: 9.00am - 12.30pm | Monday: 08:30-16:00 | Tuesday: 09:00-12:00 | Thursday: 08:30 – 15:30"
   },
   "clevedon-district": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -104,19 +103,19 @@
    "after": "(no times: call ahead)"
   },
   "colchester": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Tuesday-Wednesday 11:00 am to 1:00 pm | Thursday Closed Friday 11:00 am to 1:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Tuesday-Wednesday 11:00 am to 1:00 pm | Thursday Closed Friday 11:00 am to 1:00 pm"
   },
   "coventry": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 09:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon 12:30 - 14:30 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue 11:30 - 13:30 | Wed 11:30 - 13:30 | Thu 11:30 - 13:30 | Fri 11:30 - 13:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 18:00 - 19:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 11:00 - 13:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon 09:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon 12:30 - 14:30 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue 11:30 - 13:30 | Wed 11:30 - 13:30 | Thu 11:30 - 13:30 | Fri 11:30 - 13:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 18:00 - 19:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 11:00 - 13:00"
   },
   "craigavon-area": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday Closed Tuesday 9:00 am to 3:00 pm | Wednesday Closed Thursday 9:00 am to 3:00 pm | Friday Closed Saturday 9:00 am to 3:00 pm | Monday Closed Tuesday 11:00 am to 12:00 pm | Monday-Thursday Closed Friday 11:00 am to 12:00 pm | Wednesday Closed Thursday 11:00 am to 12:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday Closed Tuesday 9:00 am to 3:00 pm | Wednesday Closed Thursday 9:00 am to 3:00 pm | Friday Closed Saturday 9:00 am to 3:00 pm | Monday Closed Tuesday 11:00 am to 12:00 pm | Monday-Thursday Closed Friday 11:00 am to 12:00 pm | Wednesday Closed Thursday 11:00 am to 12:00 pm"
   },
   "dartmouth-district": {
    "reason": "kept the listing's own centre line (quoted on its own page)",
@@ -124,9 +123,9 @@
    "after": "Friday from 11.00 am to 12.30 pm"
   },
   "deal-area": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon Closed Tue 09:30 - 11:00 | Wed Closed Thu Closed Fri 09:30 - 10:30 | Mon Closed Tue 11:15 - 12:00 | Wed Closed Thu Closed Fri 10:45 - 11:30",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon Closed Tue 09:30 - 11:00 | Wed Closed Thu Closed Fri 09:30 - 10:30 | Mon Closed Tue 11:15 - 12:00 | Wed Closed Thu Closed Fri 10:45 - 11:30"
   },
   "doncaster": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -134,9 +133,9 @@
    "after": "(no times: call ahead)"
   },
   "droitwich-spa": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday, Tuesday, Thursday and Friday between 10am – 4pm | Monday to Friday, 9am-5pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday, Tuesday, Thursday and Friday between 10am – 4pm | Monday to Friday, 9am-5pm"
   },
   "east-elmbridge": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -144,57 +143,57 @@
    "after": "(no times: call ahead)"
   },
   "east-renfrewshire": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Tues 12-2pm | Fri 2-4pm",
-   "after": "(no times: call ahead)"
+   "after": "Tues 12-2pm | Fri 2-4pm"
   },
   "east-yorkshire": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon Closed Tue Closed Wed 14:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 14:00 - 15:00 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon 14:00 - 15:00",
    "after": "(no times: call ahead)"
   },
   "eastbourne": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 09:00 - 12:00 | Mon 10:00 - 12:00 | Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Fri Closed Sat Closed Sun Closed Address The Gateway Centre 66-70 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon 09:00 - 12:00 | Mon 10:00 - 12:00 | Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Fri Closed Sat Closed Sun Closed Address The Gateway Centre 66-70 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00"
   },
   "enniskillen": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday-Tuesday Closed Wednesday 1:00 pm to 2:00 pm | Monday 1:00 pm to 3:00 pm | Tuesday Closed Wednesday 10:00 am to 12:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday-Tuesday Closed Wednesday 1:00 pm to 2:00 pm | Monday 1:00 pm to 3:00 pm | Tuesday Closed Wednesday 10:00 am to 12:00 pm"
   },
   "epping-forest": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 15:30",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 15:30"
   },
   "epsom-and-ewell": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday to Friday, 9am until 2pm | Mon Closed Tue 10:00 - 11:30 | Mon Closed Tue Closed Wed 13:15 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 15:30 - 17:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 11:30",
-   "after": "(no times: call ahead)"
+   "after": "Monday to Friday, 9am until 2pm | Mon Closed Tue 10:00 - 11:30 | Mon Closed Tue Closed Wed 13:15 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 15:30 - 17:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 11:30"
   },
   "exeter": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday Closed Tuesday Closed Wednesday 10:00 am – 12:00 pm | Thursday Closed Friday 10:00 am – 12:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday Closed Tuesday Closed Wednesday 10:00 am – 12:00 pm | Thursday Closed Friday 10:00 am – 12:00 pm"
   },
   "family-food-bank": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 9:00 – 16:00 | Tuesday 9 :00 – 16:00 | Wednesday 9.0 0 – 16:00 | Thursday 9.0 0 – 16:00 | Friday 9. 00 – 16:00",
-   "after": "(no times: call ahead)"
+   "after": "Monday 9:00 – 16:00 | Tuesday 9 :00 – 16:00 | Wednesday 9.0 0 – 16:00 | Thursday 9.0 0 – 16:00 | Friday 9. 00 – 16:00"
   },
   "farnborough": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon Closed Tue 14:00 - 16:30 | Mon Closed Tue Closed Wed 12:00 - 14:30 | Mon Closed Tue 10:00 - 14:30 | Wed 10:00 - 14:30 | Thu Closed Fri 09:30 - 12:00",
    "after": "(no times: call ahead)"
   },
   "farnham": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Friday morning from 10.00am-12.00am | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Wednesday morning from 10.00am-12.00am | Mon Closed Tue Closed Wed 10:00 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Friday morning from 10.00am-12.00am | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Wednesday morning from 10.00am-12.00am | Mon Closed Tue Closed Wed 10:00 - 12:00"
   },
   "flintshire": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 12:00 - 14:00 | Mon Closed Tue 12:30 - 14:30 | Wed Closed Thu Closed Fri 12:45 - 14:30 | Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon Closed Tue Closed Wed 13:30 - 15:30 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 09:30 - 11:15 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00",
    "after": "(no times: call ahead)"
   },
@@ -204,77 +203,67 @@
    "after": "Monday to Friday, 10am to 5pm"
   },
   "fosse": {
-   "reason": "trimmed to the listing's own block",
+   "reason": "held for review: joined centre times: current times kept, needs a quoted own-centre line to trim",
    "before": "Mon Closed Tue Closed Wed Closed Thu 12:30 - 14:00 | Mon 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 14:00 - 15:00",
-   "after": "Mon Closed Tue Closed Wed Closed Thu 12:30 - 14:00"
-  },
-  "godmanchester-huntingdon": {
-   "reason": "centres' joined times removed",
-   "before": "Monday to Friday 9.30am to 3.30pm | Monday to Friday, 9am-5pm",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue Closed Wed Closed Thu 12:30 - 14:00 | Mon 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu 14:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 14:00 - 15:00"
   },
   "hackney": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 6pm - 7.30pm | Tuesday 11am - 1pm | Wednesday 5pm - 6.45pm | Friday 10am - 12pm | Mon - Fri 8.30am - 2.30pm | Mon - Fri 10am- 2.30pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday 6pm - 7.30pm | Tuesday 11am - 1pm | Wednesday 5pm - 6.45pm | Friday 10am - 12pm | Mon - Fri 8.30am - 2.30pm | Mon - Fri 10am- 2.30pm"
   },
   "harrow": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday Closed Tuesday 1:00 pm to 3:00 pm | Wednesday-Thursday Closed Friday 1:00 pm to 3:00 pm | Monday-Tuesday Closed Wednesday 1:00 pm to 3:00 pm | Monday-Friday Closed Saturday 10:00 am to 12:00 pm | Monday 1:00 pm to 3:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday Closed Tuesday 1:00 pm to 3:00 pm | Wednesday-Thursday Closed Friday 1:00 pm to 3:00 pm | Monday-Tuesday Closed Wednesday 1:00 pm to 3:00 pm | Monday-Friday Closed Saturday 10:00 am to 12:00 pm | Monday 1:00 pm to 3:00 pm"
   },
   "helensburgh-lomond": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 10-12 | Thursday 3-7pm | Wednesday; 1-3pm | Monday 10-12am | Wednesday 1-3pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday 10-12 | Thursday 3-7pm | Wednesday; 1-3pm | Monday 10-12am | Wednesday 1-3pm"
   },
   "hillingdon": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun 12:30 - 13:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun 12:30 - 13:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00"
   },
   "hinckley-area": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 13:00 - 15:00 | Mon Closed Tue 12:00 - 14:00 | Mon Closed Tue Closed Wed 11:00 - 13:00 | Mon Closed Tue Closed Wed 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 15:30 | Mon Closed Tue Closed Wed Closed Thu 18:30 - 20:30 | Mon Closed Tue Closed Wed 17:00 - 19:00 | Mon Closed Tue Closed Wed 11:15 - 13:15",
-   "after": "(no times: call ahead)"
+   "after": "Mon 13:00 - 15:00 | Mon Closed Tue 12:00 - 14:00 | Mon Closed Tue Closed Wed 11:00 - 13:00 | Mon Closed Tue Closed Wed 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 15:30 | Mon Closed Tue Closed Wed Closed Thu 18:30 - 20:30 | Mon Closed Tue Closed Wed 17:00 - 19:00 | Mon Closed Tue Closed Wed 11:15 - 13:15"
   },
   "hull": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 11:00 - 14:00 | Tue Closed Wed 11:00 - 14:00 | Thu 11:00 - 14:00 | Fri 11:00 - 14:00 | Mon Closed Tue 11:30 - 14:00 | Wed 11:30 - 14:00 | Mon Closed Tue 10:30 - 13:00 | Mon Closed Tue 13:00 - 16:00",
    "after": "(no times: call ahead)"
   },
   "kingston": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon Closed Tue 11:00 - 12:30 | Wed Closed Thu Closed Fri 11:00 - 12:30 | Mon Closed Tue Closed Wed 09:00 - 10:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00",
    "after": "(no times: call ahead)"
   },
   "kirkcaldy": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mondays: 10am-3pm | Tuesdays: 10am-1pm | Wednesdays: 10am-1pm | Thursdays: 10am-3pm | Monday: 10am-12.30pm | Tuesday: 10am-12.30pm | Wednesday: Closed Thursday: 10am-12.30pm | Friday: 10am-12.30pm | Tuesday: Closed Wednesday: 10am-12.30pm | Thursday: Closed Friday: 10am-12.30pm | Monday:10am-4pm | Tuesday:10am-4pm | Wednesday:10am-4pm | Thursday: 10am-4pm | Friday: 10am-4pm",
-   "after": "(no times: call ahead)"
+   "after": "Mondays: 10am-3pm | Tuesdays: 10am-1pm | Wednesdays: 10am-1pm | Thursdays: 10am-3pm | Monday: 10am-12.30pm | Tuesday: 10am-12.30pm | Wednesday: Closed Thursday: 10am-12.30pm | Friday: 10am-12.30pm | Tuesday: Closed Wednesday: 10am-12.30pm | Thursday: Closed Friday: 10am-12.30pm | Monday:10am-4pm | Tuesday:10am-4pm | Wednesday:10am-4pm | Thursday: 10am-4pm | Friday: 10am-4pm"
   },
   "leeds-north-west": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mondays Woodhouse Distribution Centre 11am - 1pm | Tuesdays Burley Distribution Centre 10am - 12pm | Wednesday Moortown Distribution Centre 11am - 1pm | Thursday Ireland Wood Distribution Centre 10:30am - 12:30pm | Friday Redshaw Road Distribution Centre 10.30 am - 12.30pm | Mon Closed Tue Closed Wed 11:00 - 13:00 | Thu Closed Fri Closed Sat Closed Sun Closed Address 53-55 | Mon 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:30",
-   "after": "(no times: call ahead)"
-  },
-  "long-eaton-sawley": {
-   "reason": "trimmed to the listing's own block",
-   "before": "Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 09:00 - 11:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon Closed Tue 10:00 - 12:00 | Wed Closed Thu Closed Fri 10:00 - 12:00",
-   "after": "Mon Closed Tue 10:00 - 12:00 | Wed Closed Thu Closed Fri 10:00 - 12:00"
+   "after": "Mondays Woodhouse Distribution Centre 11am - 1pm | Tuesdays Burley Distribution Centre 10am - 12pm | Wednesday Moortown Distribution Centre 11am - 1pm | Thursday Ireland Wood Distribution Centre 10:30am - 12:30pm | Friday Redshaw Road Distribution Centre 10.30 am - 12.30pm | Mon Closed Tue Closed Wed 11:00 - 13:00 | Thu Closed Fri Closed Sat Closed Sun Closed Address 53-55 | Mon 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:30"
   },
   "lowestoft-district": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 10:00 - 12:00 | Tue Closed Wed 10:00 - 12:00 | Thu Closed Fri 10:00 - 12:00 | Sat Closed Sun Closed Address 5-6 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 14:00 - 16:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon 10:00 - 12:00 | Tue Closed Wed 10:00 - 12:00 | Thu Closed Fri 10:00 - 12:00 | Sat Closed Sun Closed Address 5-6 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 14:00 - 16:00"
   },
   "malvern-hills": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 10:15 to 12:30 | Tuesday 13:00 to 15:30 | Thursday 10:15 to 12:30",
-   "after": "(no times: call ahead)"
+   "after": "Monday 10:15 to 12:30 | Tuesday 13:00 to 15:30 | Thursday 10:15 to 12:30"
   },
   "manchester-central": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Tuesday 2.00pm-4.00pm | Thursday 10.30am-12.30pm | Friday 10.30am-12.30pm | Mon Closed Tue 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:30",
    "after": "(no times: call ahead)"
   },
@@ -284,49 +273,49 @@
    "after": "(no times: call ahead)"
   },
   "medway": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm | Monday 10:00 am to 12:30 pm | Tuesday-Thursday Closed Friday 10:00 am to 12:30 pm | Monday-Tuesday Closed Wednesday 9:30 am to 11:30 am | Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Monday Closed Tuesday 10:30 am to 12:30 pm | Monday-Wednesday Closed Thursday 1:00 pm to 3:00 pm | Friday Closed Saturday 10:00 am to 12:00 pm | Monday Closed Tuesday 11:30 am to 1:30 pm | Wednesday-Thursday Closed Friday 11:30 am to 1:30 pm | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm | Monday-Wednesday Closed Thursday 9:30 am to 12:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:30 am to 12:30 pm",
-   "after": "(no times: call ahead)"
+   "after": "Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm | Monday 10:00 am to 12:30 pm | Tuesday-Thursday Closed Friday 10:00 am to 12:30 pm | Monday-Tuesday Closed Wednesday 9:30 am to 11:30 am | Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Monday Closed Tuesday 10:30 am to 12:30 pm | Monday-Wednesday Closed Thursday 1:00 pm to 3:00 pm | Friday Closed Saturday 10:00 am to 12:00 pm | Monday Closed Tuesday 11:30 am to 1:30 pm | Wednesday-Thursday Closed Friday 11:30 am to 1:30 pm | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm | Monday-Wednesday Closed Thursday 9:30 am to 12:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:30 am to 12:30 pm"
   },
   "micah-liverpool": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Tuesdays 10.30am – 12pm | Thursdays 10.30am – 12pm",
-   "after": "(no times: call ahead)"
+   "after": "Tuesdays 10.30am – 12pm | Thursdays 10.30am – 12pm"
   },
   "mid-cheshire": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon, Tues, Wed, Fri – 09:00 – 12:00 | Thurs – 10:00 – 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 13:30 | Mon Closed Tue Closed Wed 12:15 - 12:45 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 13:30 | Mon Closed Tue 17:30 - 18:00 | Mon 12:00 - 12:30 | Mon Closed Tue 14:00 - 14:45 | Wed Closed Thu 14:00 - 14:45 | Mon Closed Tue Closed Wed 13:30 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 14:15",
-   "after": "(no times: call ahead)"
+   "after": "Mon, Tues, Wed, Fri – 09:00 – 12:00 | Thurs – 10:00 – 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 13:30 | Mon Closed Tue Closed Wed 12:15 - 12:45 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 13:30 | Mon Closed Tue 17:30 - 18:00 | Mon 12:00 - 12:30 | Mon Closed Tue 14:00 - 14:45 | Wed Closed Thu 14:00 - 14:45 | Mon Closed Tue Closed Wed 13:30 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 14:15"
   },
   "middlewich-district": {
    "reason": "held for review: warehouse pin carrying its only centre's times: held for review (rugby, middlewich)",
    "before": "Mon Closed Tue 11:45 - 13:45 | Wed Closed Thu Closed Fri 11:45 - 13:45",
-   "after": "(unchanged, held for review)"
+   "after": "Mon Closed Tue 11:45 - 13:45 | Wed Closed Thu Closed Fri 11:45 - 13:45"
   },
   "milton-keynes": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday to Friday 09:00 – 16:00pm | Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Weds 09;00 – 12:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am | Monday to Friday (Appointments only) 09:00 – 15:30pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday to Friday 09:00 – 16:00pm | Monday to Friday 12:00 – 14:00pm | Tuesday to Friday 12:30 – 14:30pm | Mon, Tues, Thurs, Fri 09:00 – 16:00pm | Weds 09;00 – 12:00pm | Tues and Thurs 10:00 – 16:00pm | Mon, Weds and Fri 13:30 – 14:30pm | Friday 13:15 – 14:30pm | Monday and Friday 13:45 – 14:45pm | Wednesday 10:00am – 12:30pm | Thursday 10:00am – 12:30pm | Mon & Weds 14:30pm – 15:30pm | Thursday 09:30 – 10:30am | Monday to Friday (Appointments only) 09:00 – 15:30pm"
   },
   "newcastle": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Tue: 10:00 – 13:00 | Wed: 10:00 – 13:00",
-   "after": "(no times: call ahead)"
+   "after": "Tue: 10:00 – 13:00 | Wed: 10:00 – 13:00"
   },
   "newquay": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:30 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue 10:00 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:30 - 14:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue 10:00 - 12:00"
   },
   "newstarts": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon-Fri 9am-4pm | Sat 10am-2pm",
-   "after": "(no times: call ahead)"
+   "after": "Mon-Fri 9am-4pm | Sat 10am-2pm"
   },
   "north-belfast": {
-   "reason": "trimmed to the listing's own block",
+   "reason": "held for review: joined centre times: current times kept, needs a quoted own-centre line to trim",
    "before": "Monday 6.15pm – 6.45pm | Mon Closed Tue 14:00 - 16:00 | Wed Closed Thu 18:30 - 20:00 | Mon 14:00 - 15:30",
-   "after": "Mon 14:00 - 15:30"
+   "after": "Monday 6.15pm – 6.45pm | Mon Closed Tue 14:00 - 16:00 | Wed Closed Thu 18:30 - 20:00 | Mon 14:00 - 15:30"
   },
   "north-lakes": {
    "reason": "times came from a vacancies/volunteer/donation page",
@@ -334,29 +323,24 @@
    "after": "(no times: call ahead)"
   },
   "north-solihull": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue 12:30 - 14:30 | Wed Closed Thu Closed Fri 12:30 - 14:30 | Mon Closed Tue Closed Wed Closed Thu 12:30 - 14:30",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue 12:30 - 14:30 | Wed Closed Thu Closed Fri 12:30 - 14:30 | Mon Closed Tue Closed Wed Closed Thu 12:30 - 14:30"
   },
   "norwich": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon, Thurs and Fri 9-1pm | Mon 14:00 - 15:30 | Mon Closed Tue 18:00 - 19:30 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Thu Closed Fri Closed Sat 10:00 - 11:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu 13:30 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon, Thurs and Fri 9-1pm | Mon 14:00 - 15:30 | Mon Closed Tue 18:00 - 19:30 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Thu Closed Fri Closed Sat 10:00 - 11:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu 13:30 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 12:00"
   },
   "nuneaton": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 10:30 - 12:00 | Tue Closed Wed Closed Thu 10:30 - 12:00 | Mon 13:30 - 15:00 | Tue Closed Wed Closed Thu 13:30 - 15:00 | Mon Closed Tue 10:30 - 12:00 | Wed Closed Thu Closed Fri 10:30 - 12:00 | Mon Closed Tue Closed Wed 13:30 - 15:00 | Thu Closed Fri 13:30 - 15:00",
    "after": "(no times: call ahead)"
   },
   "patch": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday – Friday 10am-2pm | Tuesday – Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday – Friday 10am – 2pm",
-   "after": "(no times: call ahead)"
-  },
-  "pbp": {
-   "reason": "office/warehouse/postal listing: another site's times not kept",
-   "before": "Monday* 10AM - 4PM | Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 10AM - 4PM | Friday 12PM - 4PM | Monday 10AM - 4PM",
-   "after": "(no times: call ahead)"
+   "after": "Monday – Friday 10am-2pm | Tuesday – Saturday 10am-3pm | Tuesday & Thursday 10am-1pm | Monday – Friday 10am – 2pm"
   },
   "peterborough": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -364,39 +348,39 @@
    "after": "(no times: call ahead)"
   },
   "poole": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
-   "after": "(no times: call ahead)"
+   "after": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm"
   },
   "portland": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Wednesday 9:30–11am | Wednesday 9:30am – 11:00am",
-   "after": "(no times: call ahead)"
+   "after": "Wednesday 9:30–11am | Wednesday 9:30am – 11:00am"
   },
   "ringwood": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday, Wednesday and Friday 9:30 to 12:30 | Mon 11:00 - 13:00 | Tue Closed Wed 10:30 - 12:30 | Thu Closed Fri 11:00 - 13:00 | Mon 11:30 - 13:30 | Tue Closed Wed 11:30 - 13:30 | Thu Closed Fri 11:30 - 13:30 | Mon Closed Tue Closed Wed 11:00 - 13:00",
-   "after": "(no times: call ahead)"
+   "after": "Monday, Wednesday and Friday 9:30 to 12:30 | Mon 11:00 - 13:00 | Tue Closed Wed 10:30 - 12:30 | Thu Closed Fri 11:00 - 13:00 | Mon 11:30 - 13:30 | Tue Closed Wed 11:30 - 13:30 | Thu Closed Fri 11:30 - 13:30 | Mon Closed Tue Closed Wed 11:00 - 13:00"
   },
   "rugby": {
    "reason": "held for review: warehouse pin carrying its only centre's times: held for review (rugby, middlewich)",
    "before": "Mon 12:30 - 15:00 | Tue Closed Wed 12:30 - 15:00 | Thu Closed Fri 12:30 - 15:00",
-   "after": "(unchanged, held for review)"
+   "after": "Mon 12:30 - 15:00 | Tue Closed Wed 12:30 - 15:00 | Thu Closed Fri 12:30 - 15:00"
   },
   "runcorn-district": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "MONDAY 31ST AUGUST Opening times Mon 12:00 - 14:00 | Mon Closed Tue 13:00 - 15:00 | Mon Closed Tue Closed Wed 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "MONDAY 31ST AUGUST Opening times Mon 12:00 - 14:00 | Mon Closed Tue 13:00 - 15:00 | Mon Closed Tue Closed Wed 14:00 - 16:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00"
   },
   "salisbury": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 11:00 - 14:00 | Tue Closed Wed 11:00 - 14:00 | Thu Closed Fri 11:00 - 14:00 | Mon Closed Tue 11:00 - 13:00 | Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 09:00 - 11:00 | Mon Closed Tue 15:30 - 18:00 | Wed Closed Thu 15:00 - 18:30 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon 15:00 - 17:30 | Mon Closed Tue Closed Wed 14:30 - 16:30",
    "after": "(no times: call ahead)"
   },
   "salvation-army": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Sunday Worship 10.30am - 12pm | Sunday School Halfway During the Morning Worship (YP Hall) 5-12 | Monday 👪 PCF (Parent & Carers Foundation) 10:30am-12:30pm | Tuesday 👪 PCF (Parent & Carers Foundation) 9:30am-2:30pm | Wednesday 🦶 Care South Nail Care 10am-2pm | Thursday 👪 Parent & Toddler Group 9:30-11:15am | Friday 📣 War Cry Outreach 10am–12pm | Saturday 🛍 Charity Shop 9:30am–1pm | Sunday ⛪ Morning Worship 10:30am-12pm | Monday 🛍 Charity Shop 9:30am-4pm | Tuesday 🛍 Charity Shop 9:30am-4pm | Wednesday 🛍 Charity Shop 9:30am-6pm | Thursday 🛍 Charity Shop 9:30am-4pm | Friday 🛍 Charity Shop 9:30am–4pm | Monday ☕ Café 9:30am-2pm | Tuesday ☕ Café 9:30am-4pm | Wednesday ☕ Café 9:30am-6pm | Thursday ☕ Café 9:30am-4pm",
-   "after": "(no times: call ahead)"
+   "after": "Sunday Worship 10.30am - 12pm | Sunday School Halfway During the Morning Worship (YP Hall) 5-12 | Monday 👪 PCF (Parent & Carers Foundation) 10:30am-12:30pm | Tuesday 👪 PCF (Parent & Carers Foundation) 9:30am-2:30pm | Wednesday 🦶 Care South Nail Care 10am-2pm | Thursday 👪 Parent & Toddler Group 9:30-11:15am | Friday 📣 War Cry Outreach 10am–12pm | Saturday 🛍 Charity Shop 9:30am–1pm | Sunday ⛪ Morning Worship 10:30am-12pm | Monday 🛍 Charity Shop 9:30am-4pm | Tuesday 🛍 Charity Shop 9:30am-4pm | Wednesday 🛍 Charity Shop 9:30am-6pm | Thursday 🛍 Charity Shop 9:30am-4pm | Friday 🛍 Charity Shop 9:30am–4pm | Monday ☕ Café 9:30am-2pm | Tuesday ☕ Café 9:30am-4pm | Wednesday ☕ Café 9:30am-6pm | Thursday ☕ Café 9:30am-4pm"
   },
   "salvation-army/boscombe": {
    "reason": "no food bank time on its own line next to food bank wording",
@@ -449,9 +433,9 @@
    "after": "(no times: call ahead)"
   },
   "salvation-army/inverness": {
-   "reason": "no food bank time on its own line next to food bank wording",
+   "reason": "held for review: food bank time with the day after it: current times kept, check the day: Bot 3 re-sample 3 (28 Oct): own page says \"Wednesday Foodbank 9am - 1pm\", so the correct time is Wed 9-1, not Thu",
    "before": "Foodbank 9am - 1pm Thursday",
-   "after": "(no times: call ahead)"
+   "after": "Foodbank 9am - 1pm Thursday"
   },
   "salvation-army/ivybridge": {
    "reason": "no food bank time on its own line next to food bank wording",
@@ -539,19 +523,19 @@
    "after": "(no times: call ahead)"
   },
   "sheffield-s6": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue 14:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 15:30 | Mon Closed Tue 12:30 - 14:00 | Mon 10:00 - 11:30 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon 10:00 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue 14:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:30 - 15:30 | Mon Closed Tue 12:30 - 14:00 | Mon 10:00 - 11:30 | Mon Closed Tue Closed Wed Closed Thu 10:30 - 12:30 | Mon 10:00 - 12:00"
   },
   "shepway": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 10:00 - 11:00 | Mon Closed Tue 11:00 - 13:00 | Mon Closed Tue 16:00 - 17:30 | Mon Closed Tue Closed Wed 10:00 - 11:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00",
    "after": "(no times: call ahead)"
   },
   "slough": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 12:00 - 14:00 | Tue Closed Wed Closed Thu 11:00 - 14:00 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue Closed Wed 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon 12:00 - 14:00 | Tue Closed Wed Closed Thu 11:00 - 14:00 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue Closed Wed 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:30 - 12:00"
   },
   "south-east-bristol": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -559,24 +543,24 @@
    "after": "(no times: call ahead)"
   },
   "southend": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday, Tuesday and Thursday between 9am - 2pm | Monday 5pm - 6.30pm | Tuesday 1pm - 3pm | Wednesday 1pm - 3pm | Thursday 12.30pm - 2.30pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday, Tuesday and Thursday between 9am - 2pm | Monday 5pm - 6.30pm | Tuesday 1pm - 3pm | Wednesday 1pm - 3pm | Thursday 12.30pm - 2.30pm"
   },
   "southwark": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon 13:00 - 15:00 | Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon 13:00 - 15:00 | Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00"
   },
   "stoke-on-trent": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 11:00 - 13:00 | Mon 10:00 - 12:00 | Mon 12:30 - 14:30 | Mon Closed Tue 10:00 - 12:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue Closed Wed 14:00 - 16:00 | Thu Closed Fri Closed Sat Closed Sun Closed Address 2-10 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue Closed Wed Closed Thu 12:30 - 14:30 | Mon Closed Tue Closed Wed Closed Thu 18:00 - 20:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 15:30 - 17:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 16:30 - 18:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00",
    "after": "(no times: call ahead)"
   },
   "stowmarket-area": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mondays: 9 am – 1 pm | Tuesdays: 9 am – 1 pm | Wednesdays: 9 am – 1 pm | Thursdays: 9 am – 1 pm | Fridays: 9 am – 1 pm | Tuesdays and Wednesdays (one day per family), 10:30 am to 11:30 am",
-   "after": "(no times: call ahead)"
+   "after": "Mondays: 9 am – 1 pm | Tuesdays: 9 am – 1 pm | Wednesdays: 9 am – 1 pm | Thursdays: 9 am – 1 pm | Fridays: 9 am – 1 pm | Tuesdays and Wednesdays (one day per family), 10:30 am to 11:30 am"
   },
   "stroud-district": {
    "reason": "office/warehouse/postal listing: another site's times not kept",
@@ -584,39 +568,34 @@
    "after": "(no times: call ahead)"
   },
   "sutton": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Mon 12:00 - 14:00 | Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 | Mon 18:00 - 19:30 | Mon Closed Tue Closed Wed 18:30 - 20:00 | Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00",
-   "after": "(no times: call ahead)"
+   "after": "Mon 12:00 - 14:00 | Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 | Mon 18:00 - 19:30 | Mon Closed Tue Closed Wed 18:30 - 20:00 | Mon Closed Tue Closed Wed Closed Thu 12:00 - 14:00"
   },
   "tameside-east": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Mon 11:00 - 13:00 | Tue 11:00 - 13:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 12:00 - 14:00 | Mon Closed Tue Closed Wed 10:00 - 12:00",
    "after": "(no times: call ahead)"
   },
   "tameside-south-longdendale": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "MONDAY 29 JULY 2024) Opening times Mon 09:00 - 11:00 | Mon Closed Tue Closed Wed 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 09:00 - 11:00",
-   "after": "(no times: call ahead)"
-  },
-  "the-forest": {
-   "reason": "centres' joined times removed",
-   "before": "Tuesday 1 pm - 3 pm | Wednesday 10 am - 12 | Thursday 1 pm - 3 pm | Monday, Tuesday, Wednesday and Thursday 9am to 1pm | Friday 9am to 3pm | Monday to Friday, 9am – 5pm | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed 10:00 - 12:00 | Mon Closed Tue 13:00 - 15:00",
-   "after": "(no times: call ahead)"
+   "after": "MONDAY 29 JULY 2024) Opening times Mon 09:00 - 11:00 | Mon Closed Tue Closed Wed 11:00 - 12:30 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 09:00 - 11:00"
   },
   "thurrock": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday-Friday Closed Saturday 9:30 am to 11:30 am | Monday-Friday Closed Saturday 10:00 am to 12:00 pm | Sunday Closed Grays Methodist Church Part of Thurrock Foodbank 01375-41 | Monday 1:00 pm to 3:00 pm | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm | Monday Closed Tuesday 2:00 pm to 4:00 pm | Monday-Thursday Closed Friday 10:00 am to 12:00 pm | Monday-Tuesday Closed Wednesday 11:00 am to 1:00 pm | Monday Closed Tuesday 11:00 am to 1:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday-Friday Closed Saturday 9:30 am to 11:30 am | Monday-Friday Closed Saturday 10:00 am to 12:00 pm | Sunday Closed Grays Methodist Church Part of Thurrock Foodbank 01375-41 | Monday 1:00 pm to 3:00 pm | Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm | Monday Closed Tuesday 2:00 pm to 4:00 pm | Monday-Thursday Closed Friday 10:00 am to 12:00 pm | Monday-Tuesday Closed Wednesday 11:00 am to 1:00 pm | Monday Closed Tuesday 11:00 am to 1:00 pm"
   },
   "walton-hersham": {
-   "reason": "centres' joined times removed",
+   "reason": "office/warehouse/postal listing: centres' joined times removed",
    "before": "Thursday 10 - 12 | Friday 10 - 12",
    "after": "(no times: call ahead)"
   },
   "wansbeck-valley": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday Closed Tuesday 12:00 – 13:00 | Wednesday Closed Thursday 12:00 – 13:00",
-   "after": "(no times: call ahead)"
+   "after": "Monday Closed Tuesday 12:00 – 13:00 | Wednesday Closed Thursday 12:00 – 13:00"
   },
   "weymouth": {
    "reason": "kept the listing's own centre line (quoted on its own page)",
@@ -624,24 +603,24 @@
    "after": "Tuesday and Friday 10.30 am to 12.30pm"
   },
   "wirral": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 1:00 pm to 2:30 pm | Monday-Friday Closed Saturday 10:30 am to 12:00 pm | Monday 12:30 pm to 2:30 pm | Tuesday Closed Wednesday 12:30 pm to 2:30 pm | Thursday Closed Friday 10:00 am to 12:00 pm | Monday Closed Tuesday 5:30 pm to 7:00 pm | Monday-Thursday Closed Friday 11:00 am to 1:00 pm | Monday Closed Tuesday 10:00 am to 1:00 pm | Monday-Tuesday Closed Wednesday 1:00 pm to 2:30 pm | Monday-Wednesday Closed Thursday 10:30 am to 12:30 pm | Monday-Friday 12:30 pm to 2:30 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday 1:00 pm to 2:30 pm | Monday-Friday Closed Saturday 10:30 am to 12:00 pm | Monday 12:30 pm to 2:30 pm | Tuesday Closed Wednesday 12:30 pm to 2:30 pm | Thursday Closed Friday 10:00 am to 12:00 pm | Monday Closed Tuesday 5:30 pm to 7:00 pm | Monday-Thursday Closed Friday 11:00 am to 1:00 pm | Monday Closed Tuesday 10:00 am to 1:00 pm | Monday-Tuesday Closed Wednesday 1:00 pm to 2:30 pm | Monday-Wednesday Closed Thursday 10:30 am to 12:30 pm | Monday-Friday 12:30 pm to 2:30 pm"
   },
   "woking": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 10:30 am to 12:30 pm | Tuesday Closed Wednesday 10:30 am to 12:30 pm | Thursday 10:30 am to 12:30 pm | Monday-Tuesday Closed Wednesday 12:00 pm to 2:30 pm | Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:00 am to 12:00 pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday 10:30 am to 12:30 pm | Tuesday Closed Wednesday 10:30 am to 12:30 pm | Thursday 10:30 am to 12:30 pm | Monday-Tuesday Closed Wednesday 12:00 pm to 2:30 pm | Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:00 am to 12:00 pm"
   },
   "wokingham": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday 13:00 - 15:00 | Tuesday Closed Wednesday 13:00 - 15:00 | Thursday Closed Friday 13:00 - 15:00 | Monday 13:00- 14:30 | Monday 9:30- 14:30 | Tuesday Closed Wednesday 9:30- 14:30 | Thursday Closed Friday 9:30-14:30",
-   "after": "(no times: call ahead)"
+   "after": "Monday 13:00 - 15:00 | Tuesday Closed Wednesday 13:00 - 15:00 | Thursday Closed Friday 13:00 - 15:00 | Monday 13:00- 14:30 | Monday 9:30- 14:30 | Tuesday Closed Wednesday 9:30- 14:30 | Thursday Closed Friday 9:30-14:30"
   },
   "woodley": {
-   "reason": "centres' joined times removed",
+   "reason": "held for review: joined centre times: current times kept, cannot tell which block is this listing's",
    "before": "Monday to Friday, 10:00 - noon | Monday 09:30 - 10:30 am | Tuesday 10:00 - 12:00 pm | Wednesday 10:00 - 12:00 pm | Thursday 9:30 -10:30 am | Friday 10:00 - 12:00 pm | Monday to Friday, 10:00 - 12:00 pm | Monday-Friday 9am-5pm",
-   "after": "(no times: call ahead)"
+   "after": "Monday to Friday, 10:00 - noon | Monday 09:30 - 10:30 am | Tuesday 10:00 - 12:00 pm | Wednesday 10:00 - 12:00 pm | Thursday 9:30 -10:30 am | Friday 10:00 - 12:00 pm | Monday to Friday, 10:00 - 12:00 pm | Monday-Friday 9am-5pm"
   }
  }
 }
