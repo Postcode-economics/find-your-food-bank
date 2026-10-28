@@ -581,6 +581,26 @@ def apply_closure_notes(items, pending):
     """Dean 25 Oct 08:20: a confirmed own-site closure keeps its pin; the card says it may have closed (every run, so build.py rebuilds can't drop it)."""
     for i in items:
         if i['id'] in pending: i['notice'] = MAY_CLOSED
+TIMES_LOG = 'reports/times_auto_applied.json'
+def gate_applied_times(root=None):
+    """Times the refresh gate (discover.times_gate_apply, run by build.py before this script) newly applied this run:
+    entries in reports/times_auto_applied.json that the last published commit does not have. They count towards the brake."""
+    import subprocess
+    root = root or ROOT
+    try: now = json.load(open(os.path.join(root, TIMES_LOG), encoding='utf-8'))
+    except Exception: return []
+    try:
+        head = json.loads(subprocess.run(['git', 'show', 'HEAD:' + TIMES_LOG], cwd=root, capture_output=True, text=True, check=True).stdout)
+    except Exception:
+        print('anomaly brake: no published copy of %s to compare with; refresh-gate times not counted' % TIMES_LOG); return []
+    published = {json.dumps(e, sort_keys=True) for e in head if isinstance(e, dict)}
+    return [e for e in now if isinstance(e, dict) and e.get('path') == 'cross_check' and not e.get('reverted')
+            and json.dumps(e, sort_keys=True) not in published]
+def signal_brake(stop):
+    """Step output read by refresh.yml: brake=stop fails the 'Anomaly brake' step, so the commit step never runs."""
+    out = os.environ.get('GITHUB_OUTPUT')
+    if out:
+        with open(out, 'a', encoding='utf-8') as fh: fh.write('brake=%s\n' % ('stop' if stop else 'ok'))
 def write_pending_closures(pending):
     """Closure section of reports/pending_dean.md (kept between markers; publish_gate.py preserves it)."""
     pd = os.path.join(REP, 'pending_dean.md'); t = open(pd, encoding='utf-8').read() if os.path.exists(pd) else ''
@@ -781,7 +801,9 @@ def main():
         # a robots block is a completed permission check, not a failed fetch and not a dead link
         checked = True if r.get('robots') else r.get('ok')
         learning.record(LS, u, DAY, checked, finds=int(u in found), method=('robots' if r.get('robots') else (r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site')), changed=u in {e.get('website') for e in log}, kind='foodbank_site')
-    n_applied = learning.applied_count(this_run)  # new places held for Dean are in this_run and do not count
+    n_own = learning.applied_count(this_run)  # new places held for Dean are in this_run and do not count
+    n_times = len(gate_applied_times(ROOT))
+    n_applied = n_own + n_times
     brake = learning.anomaly_brake(LS.get('change_counts') or [], n_applied)
     if not brake['stop'] and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
         LS.setdefault('change_counts', []); LS['change_counts'] = (LS['change_counts'] + [{'day': DAY, 'changes': n_applied}])[-30:]
@@ -796,9 +818,14 @@ def main():
         except Exception: pass
     if brake['stop']:
         os.makedirs(REP, exist_ok=True)
-        open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write('# Stopped\n\n%s\n\nNothing from this run was published.\n' % brake['reason'])
+        open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write(
+            '# Stopped\n\n%s\n\nCounted: %d own-site changes (access flips, phone fixes, removals) and %d opening-times changes the refresh gate applied.\n\n'
+            'Nothing from this run was published: the refresh workflow fails at its anomaly brake step, before the commit step, '
+            'so this run\'s data.js, access tags, phone fixes and times stay off the live site.\n' % (brake['reason'], n_own, n_times))
+        signal_brake(True)
         today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
         print('ANOMALY BRAKE:', brake['reason']); return
+    signal_brake(False)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     applied_phones = []
     apply_phone_fixes(by_site, fixes, flag, ROOT, applied=applied_phones)
