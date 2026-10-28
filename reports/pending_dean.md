@@ -408,4 +408,6 @@ Every change is in logs/listings_batch_28oct.json with the old value (undo). Not
 - `maghull`: our number is only on Give Food; the Sefton directory has 0151 526 7913. Unchanged
 - `illminster`: our number 0146057811 has only 10 digits and will not work. Unchanged until a source confirms a replacement
 - `st-ives-cambridgeshire`, `the-hive`, `storehouse-melton`: labelled 'Contact by email (no public phone)' with the email from their own page. The stored phone (not on their page) is still shown: remove it?
+- Not on their food bank's current /locations/ list (re-checked 28 Oct; labelled call before you go, NOT removed): Horsham Lavinia House, St Mary's Church, Hub on the Move Beech Road, Hub on the Move Warnham; Andover The Castle Practice
+- Newham (newhamfoodbank.org.uk/get-help, read twice): times and numbers set for Manor Park Centre, London Ghana SDA, Rehoboth, Royal Docks, WGMI. Note `newham-district/royal-docks-learning-activity-centre` and `newham/royal-docks-learning-activity-centre` are the same place (E16 2JB): duplicate?
 <!-- /listings batch 28 oct -->

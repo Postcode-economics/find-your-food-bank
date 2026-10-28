@@ -6772,6 +6772,300 @@
      "notice": null
     }
    }
+  },
+  {
+   "kind": "hours",
+   "id": "newham/manor-park-centre",
+   "field": "opening_times",
+   "old": null,
+   "new": {
+    "status": "TIMES_FOUND",
+    "structured": {
+     "tue": [
+      [
+       "10:00",
+       "12:00"
+      ]
+     ]
+    },
+    "raw": "Opening times Tuesday, 10am - 12pm",
+    "source_url": "https://newhamfoodbank.org.uk/get-help",
+    "checked_date": "2026-10-28",
+    "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)",
+    "parsed_from_text": true
+   },
+   "source": "https://newhamfoodbank.org.uk/get-help",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "opening_times": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "newham/manor-park-centre",
+   "field": "phone",
+   "old": "02074743060",
+   "new": "02084709930",
+   "source": "https://newhamfoodbank.org.uk/get-help",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "phone": "02074743060"
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "newham/london-ghana-sda-church",
+   "field": "opening_times",
+   "old": null,
+   "new": {
+    "status": "TIMES_FOUND",
+    "structured": {
+     "thu": [
+      [
+       "18:00",
+       "20:00"
+      ]
+     ]
+    },
+    "raw": "Opening times Thursday, 6pm – 8pm",
+    "source_url": "https://newhamfoodbank.org.uk/get-help",
+    "checked_date": "2026-10-28",
+    "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)",
+    "parsed_from_text": true
+   },
+   "source": "https://newhamfoodbank.org.uk/get-help",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "opening_times": null
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "newham/rehoboth-church",
+   "field": "opening_times",
+   "old": null,
+   "new": {
+    "status": "TIMES_FOUND",
+    "structured": {
+     "sat": [
+      [
+       "09:00",
+       "11:00"
+      ]
+     ]
+    },
+    "raw": "Opening times Saturday, 9am – 11am",
+    "source_url": "https://newhamfoodbank.org.uk/get-help",
+    "checked_date": "2026-10-28",
+    "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)",
+    "parsed_from_text": true
+   },
+   "source": "https://newhamfoodbank.org.uk/get-help",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "opening_times": null
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "newham/royal-docks-learning-activity-centre",
+   "field": "opening_times",
+   "old": null,
+   "new": {
+    "status": "TIMES_FOUND",
+    "structured": {
+     "mon": [
+      [
+       "10:30",
+       "14:30"
+      ]
+     ],
+     "tue": [
+      [
+       "10:30",
+       "14:30"
+      ]
+     ],
+     "wed": [
+      [
+       "10:30",
+       "14:30"
+      ]
+     ],
+     "thu": [
+      [
+       "10:30",
+       "14:30"
+      ]
+     ],
+     "fri": [
+      [
+       "10:30",
+       "14:30"
+      ]
+     ]
+    },
+    "raw": "Opening times Monday – Friday, 10:30am – 14:30pm",
+    "source_url": "https://newhamfoodbank.org.uk/get-help",
+    "checked_date": "2026-10-28",
+    "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)",
+    "parsed_from_text": true
+   },
+   "source": "https://newhamfoodbank.org.uk/get-help",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "opening_times": null
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "newham/wgmi-centre",
+   "field": "opening_times",
+   "old": null,
+   "new": {
+    "status": "TIMES_FOUND",
+    "structured": {
+     "sun": [
+      [
+       "11:00",
+       "13:00"
+      ]
+     ]
+    },
+    "raw": "Opening times Sunday, 11:00am – 13:00pm",
+    "source_url": "https://newhamfoodbank.org.uk/get-help",
+    "checked_date": "2026-10-28",
+    "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)",
+    "parsed_from_text": true
+   },
+   "source": "https://newhamfoodbank.org.uk/get-help",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "opening_times": null
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "ayrshire-east",
+   "field": "website",
+   "old": "https://cvoea.co.uk/what-we-do/ayrshire-east-foodbank/",
+   "new": "https://www.cvoea.co.uk/what-we-do/ayrshire-east-foodbank/",
+   "source": "https://www.cvoea.co.uk/what-we-do/ayrshire-east-foodbank/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "website": "https://cvoea.co.uk/what-we-do/ayrshire-east-foodbank/"
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "ayrshire-east",
+   "field": "notice",
+   "old": null,
+   "new": "Parcels by phone appointment: 01563 574000 option 3, Mon/Tue/Thu/Fri 9am-4:30pm, collect at Belford Mill, KA1 3HZ",
+   "source": "https://www.cvoea.co.uk/what-we-do/ayrshire-east-foodbank/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "horsham-district/lavinia-house",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://horshamdistrict.foodbank.org.uk/locations/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "horsham-district/st-marys-church",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://horshamdistrict.foodbank.org.uk/locations/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "horsham-district/hub-on-the-move-beech-road",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://horshamdistrict.foodbank.org.uk/locations/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "horsham-district/hub-on-the-move-warnham",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://horshamdistrict.foodbank.org.uk/locations/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "andover/the-castle-practice",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://andover.foodbank.org.uk/locations/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
   }
  ],
  "flags": [
