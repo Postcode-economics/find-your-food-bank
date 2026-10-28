@@ -1,13 +1,14 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
+// fyfb-v94 (batch 4): stamped data/stamp/access cache-first; OSM <img> tiles fetched in cors mode and deduped in flight.
 // fyfb-v93 (batch 3 on batch 1): v3.js carry-forward 'Not re-confirmed since' label (#235); v3.js and header.css ?v= hashes recomputed.
 // fyfb-v92 (batch 2): combined shell (layers.js, v3.js, v3.css) listed by ?v= hash, so the precache still changes.
 // fyfb-v92: a loaded tile whose decode() rejects is not a tile failure. The build id bumps so phones self-heal.
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v93',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=heb7df0751f55','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8e5dca8aa113','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h89a8d8eb1a23'];
+const C='fyfb-v94',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=hb01dc63f9dfc','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8e5dca8aa113','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h89a8d8eb1a23'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$/;
 // OpenFreeMap backup (27 Oct 2026): versioned tiles, fonts and sprites are cache-first; style and TileJSON are network-first with the cached copy offline.
 const OFM=/^tiles\.openfreemap\.org$/,OFM_FIXED=/^\/(planet\/\d{8}_[^/]+\/|fonts\/|sprites\/ofm_f384\/|natural_earth\/)/;
@@ -20,6 +21,7 @@ self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==T).map(x=>caches.delete(x))))
   .then(()=>caches.open(T)).then(async c=>{const ks=await c.keys();await Promise.all(ks.filter(r=>MAPTILER.test(new URL(r.url).host)).map(r=>c.delete(r)))})
   .then(()=>self.clients.claim()))});
+const tileNet=new Map();  // tile URL -> promise of "stored" for a tile fetch still in flight
 const tell=()=>self.clients.matchAll().then(cs=>cs.forEach(c=>c.postMessage('offline')));
 let trimming=false;const trim=c=>{if(trimming)return;trimming=true;c.keys().then(k=>Promise.all(k.slice(0,Math.max(0,k.length-TMAX)).map(r=>c.delete(r)))).finally(()=>{trimming=false})};
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
@@ -34,11 +36,24 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    // which this cache still answers. The tile cache is renamed fyfb-tiles2 so activate drops the old opaque store.
    const hit=await c.match(e.request);if(hit&&hit.type!=='opaque')return hit;
    if(hit)c.delete(e.request);  // opaque copy (old builds): dropped and refetched; only kept as the offline answer below
-   return fetch(e.request).then(r=>{if(r.ok){c.put(e.request,r.clone()).then(()=>trim(c))}return r}).catch(()=>{tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
+   // Batch 4 (27 Oct 2026): an <img> tile request is no-cors, so its answer is opaque and was never stored: repeat visits
+   // always went to the network. OpenStreetMap sends Access-Control-Allow-Origin: *, so the worker fetches the same URL
+   // in cors mode instead; the readable copy is stored and answers both the <img> and the tiles.js probe next time.
+   // tiles.js reveals the <img> as soon as the probe's headers arrive, before that copy is stored: a request for a tile
+   // already on its way waits for the stored copy instead of fetching the same tile again (one network request per tile).
+   const url=e.request.url,busy=tileNet.get(url);if(busy&&await busy){const got=await c.match(url);if(got)return got}
+   let fin;const saved=new Promise(r=>{fin=r});if(!busy){tileNet.set(url,saved);saved.then(()=>tileNet.delete(url))}
+   return fetch(e.request.mode==='no-cors'&&e.request.destination==='image'?new Request(url,{mode:'cors',credentials:'omit'}):e.request).catch(()=>fetch(e.request)).then(r=>{if(r.ok){c.put(url,r.clone()).then(()=>{fin(true);trim(c)},()=>fin(false))}else fin(false);return r}).catch(()=>{fin(false);tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
    .catch(async()=>{tell();return (await caches.match(e.request))||Response.error()}));return}
  if(u.origin!==location.origin)return;
  if(/^\/(favicon\.ico|apple-touch-icon\.png|icon(-\d+)?\.(png|svg)|site\.webmanifest|sitemap\.xml|robots\.txt|version\.json)$/.test(u.pathname))return;  // icons, manifest, sitemap, robots: always straight from the network
+ // Batch 4 (27 Oct 2026): data/stamp/access with a ?v=h<content hash> stamp are cache-first. The stamp is the file's own
+ // hash (seo_meta.content_stamp) and the HTML that names it is network-first, so a cached copy can never be an old one.
+ // Older stamped copies of the same file are dropped when a new one is saved. Unstamped requests stay network-first.
+ if(/^\/(data|stamp|access)\.js$/.test(u.pathname)&&/(^|&)v=h[0-9a-f]{12}(&|$)/.test(u.search.slice(1))){const k=u.origin+u.pathname;e.respondWith(caches.open(C).then(async c=>{const hit=await c.match(e.request.url);if(hit)return hit;
+     return fetch(e.request).then(async r=>{if(r.ok){const a=r.clone(),b=r.clone();const ks=await c.keys();await Promise.all(ks.filter(q=>{const x=new URL(q.url);return x.pathname===u.pathname&&x.search&&q.url!==e.request.url}).map(q=>c.delete(q)));await c.put(e.request.url,a);await c.put(k,b)}return r})
+       .catch(async()=>{tell();return (await c.match(k))||Response.error()})}));return}
  const put=r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r};
  if(/^\/(shelters|warmspaces|data|stamp|access)\.js$/.test(u.pathname)){const k=u.origin+u.pathname;  // shelters/warm spaces: network-first (a ?t= bucket gets past the CDN edge cache), one cache copy per file for offline
    e.respondWith(fetch(new Request(e.request,{cache:'no-cache'})).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(k,cp))}return r}).catch(async()=>{tell();return (await caches.match(k))||Response.error()}));return}

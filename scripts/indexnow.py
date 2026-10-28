@@ -6,7 +6,7 @@ import glob, json, os, re, subprocess, sys, urllib.request
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 HOST = 'helpmap.uk'
 NOISE = [r'<script type="application/ld\+json" data-ld="[a-z]+">.*?</script>', r'<!--mapchk(?:-cy|js)?-->.*?<!--/mapchk(?:js)?-->',
-         r'Information last updated [^.<]*\.', r'\?v=r\d{8}T\d{4}', r'<a id="freshtxt"[^>]*>[^<]*</a>']
+         r'Information last updated [^.<]*\.', r'\?v=(?:r\d{8}T\d{4}|h[0-9a-f]{12})', r'<a id="freshtxt"[^>]*>[^<]*</a>']
 
 def key(root=ROOT):
     ks = [os.path.basename(p)[:-4] for p in glob.glob(os.path.join(root, '*.txt')) if re.fullmatch(r'[0-9a-f]{32}', os.path.basename(p)[:-4])]
