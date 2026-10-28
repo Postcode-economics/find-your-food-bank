@@ -16,7 +16,7 @@ class T(unittest.TestCase):
         for x in ('self.skipWaiting()', 'self.clients.claim()', "fetch(e.request.url,{cache:'no-cache'", 'version\\.json)$/'):
             self.assertIn(x, s)
         self.assertNotIn('.navigate(', s)  # 25 Oct 11:29: navigating clients from activate left old-link visits blank
-        self.assertIn("updateViaCache:'none'", rd('layers.js'))
+        self.assertIn("updateViaCache:'none'", rd('index.html'))
 if __name__ == '__main__': unittest.main()
 
 class Beacon(unittest.TestCase):

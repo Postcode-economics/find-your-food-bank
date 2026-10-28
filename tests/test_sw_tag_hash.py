@@ -36,11 +36,14 @@ def canvas_fill_share(pg):
 
 class Tag(unittest.TestCase):
     def test_registration_uses_the_content_hash(self):
-        m = re.search(r"register\('sw\.js\?v=([\w.-]+)'", rd('layers.js'))
+        h = rd('index.html')
+        m = re.search(r"register\('sw\.js\?v=([\w.-]+)'", h)
         self.assertIsNotNone(m)
-        self.assertEqual(m.group(1), sw_tag(), 'sw.js changed: set layers.js register tag to sha256 of sw.js (no ?v= parts)')
+        self.assertEqual(m.group(1), sw_tag(), 'sw.js changed: set the head register tag to sha256 of sw.js (no ?v= parts)')
+        self.assertLess(m.start(), h.index('</head>'))
+        self.assertNotIn('serviceWorker.register', rd('layers.js'))
         self.assertNotIn(m.group(1), USED_TAGS)
-        self.assertIn("updateViaCache:'none'", rd('layers.js'))
+        self.assertIn("updateViaCache:'none'", h)
 
     def test_layers_js_tag_matches_its_content(self):
         lh = 'h' + hashlib.sha256(open(os.path.join(R, 'layers.js'), 'rb').read()).hexdigest()[:12]
@@ -104,13 +107,13 @@ class StaleWorker(unittest.TestCase):
         holder['sw'] = None
         before = len(loads)
         pg.goto(BASE + '/?nocount', wait_until='load')
-        self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v94') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
+        self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v95') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
                         pg.evaluate('async () => await caches.keys()'))
         self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
         pg.wait_for_timeout(3000)
         self.assertEqual(len(loads) - before, 2, ('expected the visit plus exactly one heal reload', loads[before:]))
         self.assertEqual(pg.evaluate("() => sessionStorage.getItem('hmHealOld')"), '1')
-        # layers.js registers after a heal as sw.js?v=<tag>&heal=1; that suffix is the only extra allowed.
+        # The head registers after a heal as sw.js?v=<tag>&heal=1; that suffix is the only extra allowed.
         self.assertTrue(pg.evaluate("() => !!navigator.serviceWorker.controller && /sw\\.js\\?v=%s(?:&heal=1)?$/.test(navigator.serviceWorker.controller.scriptURL)" % sw_tag()),
                         pg.evaluate("() => navigator.serviceWorker.controller && navigator.serviceWorker.controller.scriptURL"))
         return b, c, pg, net, loads
@@ -265,7 +268,7 @@ class OfflineAfterHeal(unittest.TestCase):
                 self.assertTrue(O.until(pg, "async () => (await caches.keys()).includes('fyfb-v90')", 30), 'old worker not installed')
                 body['sw'] = None; n = len(loads)
                 pg.goto(url, wait_until='domcontentloaded')
-                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v94') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
+                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v95') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
                 self.assertTrue(O.until(pg, PAINT, 30), 'no map after heal')
                 pg.wait_for_timeout(2500)
                 self.assertEqual(len(loads) - n, 2, loads[n:])  # the visit + exactly one heal reload
