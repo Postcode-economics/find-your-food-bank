@@ -1,4 +1,6 @@
 """Own-site locations pages (overrides/own_location_pages.json) -> food bank location pins.
+Each centre block's own phone line is kept in the snapshot under "_centre_phones" (pin id -> phones, matched by postcode);
+full_check holds any other proposed number for that pin. An entry with "phones_only": true is read only for those lines.
 The page is the authority: matched Give Food pins take the page's address/postcode (their times change only through discover.times_gate_apply,
 which reads this page), missing centres are added
 (snapshot in overrides/foodbank_own_pages.json, read by classify.add_extra_locations), Give Food pins not on the page are dropped.
@@ -21,8 +23,12 @@ def parse(page):
     for k, x in enumerate(L):
         if x != "Opening times": continue
         j = k - 1
-        while j > 0 and (re.match(r"^[\d ]{10,}$", x := L[j]) or "@" in L[j] or "[email" in L[j]): j -= 1
+        while j > 0 and (re.match(r"^[\d ]{10,}[,.;]?$", x := L[j]) or "@" in L[j] or "[email" in L[j]): j -= 1
         name = L[j].strip(); m = k + 1; rows = {}; raw = "Opening times "
+        phones = []  # the centre's own line(s), between its name and "Opening times"
+        for y in L[j + 1:k]:
+            d = re.sub(r"\D", "", y)
+            if re.match(r"^[\d ]{10,}[,.;]?$", y) and len(d) == 11 and d[0] == "0" and d not in phones: phones.append(d)
         for d in DAYS:
             if m + 1 >= len(L) or L[m] != d: break
             v = L[m + 1]; raw += "%s %s " % (d, v); m += 2
@@ -39,8 +45,23 @@ def parse(page):
             for a in addr:
                 a = PC.sub("", a.upper()) and re.sub(PC.pattern, "", a, flags=re.I).strip(" ,")
                 if a and a not in parts: parts.append(a)
-            out.append({"name": name, "address": ", ".join(parts + [pc]), "postcode": pc, "raw": raw, "structured": rows})
+            out.append({"name": name, "address": ", ".join(parts + [pc]), "postcode": pc, "raw": raw, "structured": rows, "phones": phones})
     return out
+
+CENTRE_PHONES = "_centre_phones"  # snapshot key: pin id -> the centre's own line(s) on its organisation's locations page
+
+def record_centre_phones(snap, parent, url, cs, pins, today):
+    """Save each centre block's phone(s) against the pin it matches by postcode (any pin of this food bank,
+    including the food bank pin). The previous record for this parent is replaced. Pins are not changed."""
+    keep = {k: v for k, v in (snap.get(CENTRE_PHONES) or {}).items() if v.get("parent") != parent}
+    norm = lambda pc: (pc or "").replace(" ", "").upper()
+    for x in cs:
+        if not x.get("phones"): continue
+        for i in pins:
+            if norm(i.get("postcode")) == norm(x["postcode"]):
+                keep[i["id"]] = {"parent": parent, "centre": x["name"], "postcode": x["postcode"], "phones": x["phones"],
+                                 "source_url": url, "checked_date": today}
+    snap[CENTRE_PHONES] = keep
 
 def slug(s): return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", s.lower().replace("'", ""))).strip("-")
 
@@ -70,6 +91,11 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
         except Exception as e: cs = []; log[parent] = {"status": "fetch failed: %r" % e}
         if len(cs) < c.get("min_centres", 1):
             log.setdefault(parent, {"status": "parsed only %d centres" % len(cs)}); log[parent]["kept_snapshot"] = True; continue
+        record_centre_phones(snap, parent, c["url"], cs, [i for i in items if i["id"].split("/")[0] == parent], today)
+        if c.get("phones_only"):  # read for the centres' own lines only: names, addresses, times and pins stay as they are
+            log[parent] = {"status": "ok (phones only)", "url": c["url"], "centres": len(cs),
+                           "centre_phones": sorted(k for k, v in snap[CENTRE_PHONES].items() if v.get("parent") == parent)}
+            continue
         gf = [i for i in items if i["type"] == "location" and i["id"].split("/")[0] == parent]
         try: ll = geo(sorted({x["postcode"] for x in cs}))
         except Exception: ll = {}
