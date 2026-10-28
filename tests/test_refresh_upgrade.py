@@ -54,7 +54,7 @@ class Decide(unittest.TestCase):
             return log, json.load(open("overrides/opening_times.json")), open("reports/pending_dean.md").read()
         finally: os.chdir(old)
     def ot(self, raw="Wednesday 10am - 12pm", url="https://ex.org/where", pc="AB12CD"):
-        return dict(normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None}), source_url=url, reader="times_finder", pc_seen=[pc])
+        return dict(normalise({"raw": raw, "status": "TIMES_TEXT_ONLY", "structured": None}), source_url=url, reader="times_finder", pc_seen=[pc], fb_mention=True)
     def it(self, i="ex", pc="AB1 2CD", w="https://ex.org"): return {"id": i, "name": i, "postcode": pc, "website": w}
     def test_auto_apply_off_even_for_perfect_match(self):   # Dean, 24 Oct: strict mode got 3 of 12 wrong
         # Dean 27 Oct turned times_auto_apply on (strict); with the switch OFF a perfect, 2-run match must still be held.
