@@ -5,7 +5,7 @@ Immediate alerts (GitHub issue via alert.py, the existing mechanism):
   (4) weather/flood: Met Office amber/red or severe flood warning (point 27, reports/weather.json)
   (3) a source's quality score dropped (point 8, scripts/source_score.py: more than 15 points below its usual level)
   Sources disappearing are already alerted by fill_rates.py (0% / sharp drop).
-Everything else goes in reports/morning_digest.md. Never fails the job."""
+Everything else goes in reports/morning_digest.md. Fails the step if the digest can't be built or an alert can't be raised."""
 import datetime, json, os, statistics, subprocess, sys
 sys.path.insert(0, os.path.dirname(__file__)); import source_score, learning
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -55,9 +55,13 @@ def main(now=None):
     except Exception as e: L += ['- learning signals unavailable: %r' % e, '']
     open(MD, "w", encoding="utf-8").write("\n".join(L))
     if os.environ.get("GITHUB_ACTIONS"):
-        for k, t, b in al: subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b])
+        failed = [k for k, t, b in al if subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b]).returncode != 0]
+        # state is not advanced, so the next run raises the same alerts again
+        if failed: raise RuntimeError("alert.py could not raise: " + ", ".join(failed))
     state["dups"] = (state.get("dups", []) + [likely])[-30:]; state["last_run"] = now.isoformat(timespec="seconds")
     json.dump(state, open(ST, "w"), indent=1); return al
 if __name__ == "__main__":
     try: print("digest alerts:", [a[0] for a in main()])
-    except Exception as e: print("digest failed (not fatal):", e)
+    except Exception as e:
+        print("::error::digest failed: %s: %s" % (type(e).__name__, e), file=sys.stderr)
+        sys.exit(1)
