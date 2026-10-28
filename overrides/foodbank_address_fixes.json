@@ -466,5 +466,13 @@
   "lng": -1.89246,
   "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (Dean: own address postcode is authoritative): \"Balsall Heath Church Centre, 100 Mary Street, Balsall Heath, Birmingham, B12 9LA\"",
   "evidence_url": "https://sparkhill.foodbank.org.uk/locations/"
+ },
+ "manchester-central": {
+  "address": "Trinity Methodist Church, Butler St, Ancoats, Manchester, M4 7JE",
+  "postcode": "M4 7JE",
+  "lat": 53.485291,
+  "lng": -2.218202,
+  "evidence": "Own page address, identical on 2 reads 28 Oct 2026 (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads); Dean: own address postcode is authoritative): \"Trinity Methodist Church, Butler St, Ancoats, Manchester, M4 7JE\"",
+  "evidence_url": "https://manchestercentral.foodbank.org.uk/contact-us/"
  }
 }

@@ -27910,5 +27910,44 @@
   "source_url": "https://newhamfoodbank.org.uk/get-help",
   "checked_date": "2026-10-28",
   "reader": "hand-reviewed 2026-10-28 (closures round 3: own page, 2 matching fetches)"
+ },
+ "harlow/the-harvey-centre": {
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  },
+  "raw": "Mon 10:00 - 14:00 Tue 10:00 - 14:00 Wed 10:00 - 14:00 Thu 10:00 - 14:00 Fri 10:00 - 14:00",
+  "source_url": "https://harlow.foodbank.org.uk/locations/",
+  "checked_date": "2026-10-28",
+  "reader": "own page, 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads))"
  }
 }

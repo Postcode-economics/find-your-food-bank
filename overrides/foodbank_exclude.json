@@ -109,6 +109,78 @@
    "reason": "Closed: Luton Foodbank's own get-food page says 'Marsh Farm - CLOSED until further notice' (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)",
    "removed": "2026-10-28",
    "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/tavistock",
+   "name": "Tavistock",
+   "exact": true,
+   "reason": "Duplicate: same building as `tavistock` (Tavistock United Reformed Church, Russell Street, Tavistock, PL19 8BD, PL19 8BD); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/risca",
+   "name": "Risca",
+   "exact": true,
+   "reason": "Duplicate: same building as `risca` (The Salvation Army, 66a Commercial Street, Pontymister, Risca, Newport, NP11 6BA, NP11 6BA); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/ilfracombe",
+   "name": "Ilfracombe",
+   "exact": true,
+   "reason": "Duplicate: same building as `northern-devon/ilfracombe` (Salvation Army Community Hall, Torrs Park, Ilfracombe, EX34 8AY, EX34 8AY); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/connahs-quay",
+   "name": "Connah's Quay",
+   "exact": true,
+   "reason": "Duplicate: same building as `flintshire/connahs-quay` (Salvation Army, Dee Road, Connah’s Quay, CH5 4NX, CH5 4NX); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/goldthorpe",
+   "name": "Goldthorpe",
+   "exact": true,
+   "reason": "Duplicate: same building as `barnsley/goldthorpe` (Salvation Army Community Centre, Straight Lane, Goldthorpe, Rotherham, S63 9DW, S63 9DW); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/royston",
+   "name": "Royston",
+   "exact": true,
+   "reason": "Duplicate: same building as `barnsley/royston` (Midland Rd, Royston, Barnsley, S71 4QJ, S71 4QJ); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/shildon",
+   "name": "Shildon",
+   "exact": true,
+   "reason": "Duplicate: same building as `county-durham/shildon` (Salvation Army Church Hall, Cross Street, Shildon, DL4 1PF, DL4 1PF); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/bedford-congress-hall",
+   "name": "Bedford Congress Hall",
+   "exact": true,
+   "reason": "Duplicate: same building as `bedford/salvation-army-bedford` (Commercial Road, Bedford, MK40 1QS, MK40 1QS); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "salvation-army/penge",
+   "name": "Penge",
+   "exact": true,
+   "reason": "Duplicate: same building as `bromley-borough/penge` (The Salvation Army, 172-176 Maple Rd, London, SE20 8JB, SE20 8JB); that row is kept (food bank own site, times). Fault scan 28 Oct, Dean: remove exact same-place duplicates",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
   }
  ]
 }

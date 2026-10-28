@@ -1067,5 +1067,23 @@
   "source": "https://b30.foodbank.org.uk/locations/",
   "checked": "2026-10-28",
   "note": "own page, identical on 2 reads (verify_own_page.py AUTO_APPLY); quote: collect food. No deliveries) 07582 143 972 Opening times Mon Closed Tue 13:30 - 15:"
+ },
+ "quex-road": {
+  "phone": "020 7624 1701",
+  "source": "https://parish.rcdow.org.uk/kilburn/",
+  "checked": "2026-10-28",
+  "note": "own page, identical on 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)); quote: don NW6 4PS Telephone number: 020 7624 1701 Option 4 E-mail:&nbsp; kilburn@rcdow.org"
+ },
+ "wansbeck-valley/ymca": {
+  "phone": "01670 943014",
+  "source": "https://wansbeckvalleyfoodbank.org/",
+  "checked": "2026-10-28",
+  "note": "own page, identical on 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)); quote: sbeckvalleyfoodbank.or g Tel: 01670 943014 Registered Charity No. 1177303 Menu Welc"
+ },
+ "family-food-bank/sunshine-cc": {
+  "phone": "01233 500477",
+  "source": "https://www.familyfoodbank.org",
+  "checked": "2026-10-28",
+  "note": "own page, identical on 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)); quote: Ashford, Kent, TN24 0FE Tel: 01233 500477 Email: familyfoodbank@children-families."
  }
 }

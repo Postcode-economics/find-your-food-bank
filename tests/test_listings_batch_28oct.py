@@ -79,10 +79,13 @@ class Fixes(unittest.TestCase):
         self.assertEqual(dg(S["osm-way-556071354"]["phone"]), "01414181955")  # Talbot Association own page
         self.assertEqual(dg(W["ww-57951889"]["phone"]), "07876372274")  # St Francis, the church's own A Church Near You page
         self.assertEqual(dg(S["hl-dens-the-elms"]["phone"]), "01442800131")  # DENS's own contact page names this as The Elms' number
-        # reverting these would put a general council line back on the venue (rule 5): kept, listed for Dean
-        self.assertEqual(dg(S["osm-node-1533578890"]["phone"]), "01904551901"); self.assertEqual(dg(W["ww-55475981"]["phone"]), "01618813744")
+        # Peasholme 01904 551901 approved by Dean (#238); JNR8 kept (reverting would put a council line back, rule 5) and listed for Dean
+        self.assertEqual(dg(S["osm-node-1533578890"]["phone"]), "01904551901"); self.assertEqual(dg(S["osm-node-1533578890"]["tel"]), "01904551901")
+        self.assertEqual(dg(J("overrides/phone_baseline.json")["listings"]["osm-node-1533578890"]["phone"]), "01904551901")
+        self.assertEqual(J("overrides/shelters_contacts.json")["osm-node-1533578890"]["phone_fix"], "01904 551901")
+        self.assertEqual(dg(W["ww-55475981"]["phone"]), "01618813744")
         P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
-        for i in ("osm-node-1533578890", "ww-55475981"): self.assertIn("| `%s` " % i, P)
+        self.assertIn("| `ww-55475981` ", P); self.assertNotIn("| `osm-node-1533578890` ", P)
         C = J("overrides/shelters_contacts.json")
         self.assertEqual((C["hl-dens-the-elms"]["phone_fix"], C["hl-dens-the-elms"]["phone_source"]), ("01442 800131", "https://www.dens.org.uk/contact/"))
         self.assertEqual(C["osm-way-556071354"]["phone_fix"], "0141 418 1955")
@@ -159,3 +162,42 @@ class OwnSiteAudit28Oct(unittest.TestCase):
         for i in REVERTED_TIMES:
             e = last_hours(L, i); self.assertTrue(e["note"].startswith("reverted"), i)
             self.assertEqual(d[i].get("opening_times"), e["new"], i); self.assertNotEqual(e["undo"]["set"]["opening_times"], e["new"], i)
+def _layer(f):
+    t = open(os.path.join(ROOT, f), encoding="utf-8").read(); return {i["id"]: i for i in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
+class FaultScan28Oct(unittest.TestCase):
+    """Fault scan 28 Oct: only verify_own_page.py AUTO_APPLY rows applied, each with source URL and undo."""
+    def test_phones(self):
+        d = items(); L = J("logs/listings_batch_28oct.json")["changes"]; S = J("overrides/phone_sources.json")
+        for i, n, old in (("quex-road", "02076241701", "02077989025"), ("wansbeck-valley/ymca", "01670943014", "01670857167"), ("family-food-bank/sunshine-cc", "01233500477", "03000417770")):
+            self.assertEqual(d[i]["phone"], n, i); self.assertEqual(J("overrides/phone_baseline.json")["listings"][i]["phone"], n, i)
+            self.assertTrue(d[i]["phone_label"]); self.assertTrue(S[i]["source"].startswith("http"), i)
+            self.assertTrue([l for l in L if l["id"] == i and l["kind"] == "phone" and l["new"] == n and l["undo"]["set"]["phone"] == old], i)
+        self.assertEqual(d["highland/dingwall"]["phone"], "07884869020")  # REVIEW: held
+    def test_times_and_address(self):
+        d = items()
+        self.assertEqual(d["harlow/the-harvey-centre"]["opening_times"]["structured"], {k: [["10:00", "14:00"]] for k in ("mon", "tue", "wed", "thu", "fri")})
+        self.assertEqual(d["harlow/the-harvey-centre"]["postcode"], "CM20 1LS")  # held: own page gives two postcodes
+        m = d["manchester-central"]; self.assertEqual((m["postcode"], m["address"]), ("M4 7JE", "Trinity Methodist Church, Butler St, Ancoats, Manchester, M4 7JE"))
+        self.assertEqual(J("overrides/foodbank_address_fixes.json")["manchester-central"]["postcode"], "M4 7JE")
+        self.assertIn("M4 7JE", J("overrides/district_cache.json"))
+        self.assertEqual(d["salvation-army/faversham"]["postcode"], "ME13 7JL")  # held: ME13 7AW not valid on postcodes.io
+        W = _layer("warmspaces.js"); K = {e["id"]: e for e in J("overrides/warmspaces_locked.json")["items"]}
+        for i, h in (("ww-62981326", {"Mon": "12:30 - 15:00"}), ("ww-65437319", {"Thu": "12:00 - 13:30"})):
+            self.assertEqual(W[i]["hours"], h, i); self.assertEqual(K[i]["set"]["hours"], h, i)
+        self.assertEqual(W["ww-64623495"]["hours"]["Wed"], "09:00 - 12:00"); self.assertEqual(W["ww-65437319"]["phone"], "07564 984210")
+    def test_duplicates_removed_with_exclusion_and_undo(self):
+        d = items(); ex = {e["slug"]: e for e in J("overrides/foodbank_exclude.json")["foodbanks"]}; L = J("logs/listings_batch_28oct.json")["changes"]
+        for gone, keep in (("salvation-army/tavistock", "tavistock"), ("salvation-army/risca", "risca"), ("salvation-army/ilfracombe", "northern-devon/ilfracombe"),
+                           ("salvation-army/connahs-quay", "flintshire/connahs-quay"), ("salvation-army/goldthorpe", "barnsley/goldthorpe"), ("salvation-army/royston", "barnsley/royston"),
+                           ("salvation-army/shildon", "county-durham/shildon"), ("salvation-army/bedford-congress-hall", "bedford/salvation-army-bedford"), ("salvation-army/penge", "bromley-borough/penge")):
+            self.assertNotIn(gone, d); self.assertIn(keep, d); self.assertTrue(ex[gone]["exact"]); self.assertIn(keep, ex[gone]["reason"])
+            e = [l for l in L if l["kind"] == "removed" and l["id"] == gone][0]; self.assertEqual(e["undo"]["set"]["listing"]["postcode"], d[keep]["postcode"])
+        for i in ("salvation-army/crook", "county-durham/crook", "salvation-army/cottenham", "ely/cottenham", "salvation-army/clay-cross", "clay-cross"): self.assertIn(i, d)
+    def test_warm_space_website_field(self):
+        import sys; sys.path.insert(0, os.path.join(ROOT, "scripts")); import ws_website
+        W = _layer("warmspaces.js")
+        for i in ("ww-69005962", "ww-69068971", "ww-69208997", "ww-68990442"): self.assertFalse(W[i].get("website"), i)
+        self.assertFalse([i for i, x in W.items() if x.get("website") and not ws_website.is_url(x["website"])])
+        x = [{"id": "a", "website": "We do not have a website"}, {"id": "b", "website": "undefined"}, {"id": "c", "website": "www.example.org/x"}, {"id": "d", "website": "https://a.b/c?d=1"}]
+        self.assertEqual([i for i, _ in ws_website.clean(x)], ["a", "b"]); self.assertEqual(x[2]["website"], "www.example.org/x")
+        self.assertIn("ws_website.clean(items)", open(os.path.join(ROOT, "scripts", "build_warmspaces.py")).read())

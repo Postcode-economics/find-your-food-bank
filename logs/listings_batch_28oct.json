@@ -13206,6 +13206,841 @@
      "times_source": null
     }
    }
+  },
+  {
+   "kind": "phone",
+   "id": "quex-road",
+   "field": "phone",
+   "old": "02077989025",
+   "new": "02076241701",
+   "source": "https://parish.rcdow.org.uk/kilburn/",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"don NW6 4PS Telephone number: 020 7624 1701 Option 4 E-mail:&nbsp; kilburn@rcdow.org\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "phone": "02077989025",
+     "tel": "02077989025",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "wansbeck-valley/ymca",
+   "field": "phone",
+   "old": "01670857167",
+   "new": "01670943014",
+   "source": "https://wansbeckvalleyfoodbank.org/",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"sbeckvalleyfoodbank.or g Tel: 01670 943014 Registered Charity No. 1177303 Menu Welc\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "phone": "01670857167",
+     "tel": "01670857167",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "family-food-bank/sunshine-cc",
+   "field": "phone",
+   "old": "03000417770",
+   "new": "01233500477",
+   "source": "https://www.familyfoodbank.org",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"Ashford, Kent, TN24 0FE Tel: 01233 500477 Email: familyfoodbank@children-families.\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "phone": "03000417770",
+     "tel": "03000417770",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "harlow/the-harvey-centre",
+   "field": "opening_times",
+   "old": null,
+   "new": {
+    "status": "TIMES_FOUND",
+    "structured": {
+     "mon": [
+      [
+       "10:00",
+       "14:00"
+      ]
+     ],
+     "tue": [
+      [
+       "10:00",
+       "14:00"
+      ]
+     ],
+     "wed": [
+      [
+       "10:00",
+       "14:00"
+      ]
+     ],
+     "thu": [
+      [
+       "10:00",
+       "14:00"
+      ]
+     ],
+     "fri": [
+      [
+       "10:00",
+       "14:00"
+      ]
+     ]
+    },
+    "raw": "Mon 10:00 - 14:00 Tue 10:00 - 14:00 Wed 10:00 - 14:00 Thu 10:00 - 14:00 Fri 10:00 - 14:00",
+    "source_url": "https://harlow.foodbank.org.uk/locations/",
+    "checked_date": "2026-10-28",
+    "reader": "own page, 2 reads (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads))"
+   },
+   "source": "https://harlow.foodbank.org.uk/locations/",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"Mon 10:00 - 14:00 Tue 10:00 - 14:00 Wed 10:00 - 14:00 Thu 10:00 - 14:00 Fri 10:00 - 14:00\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "opening_times": null,
+     "override": null
+    }
+   }
+  },
+  {
+   "kind": "address",
+   "id": "manchester-central",
+   "field": "postcode",
+   "old": "M4 7FX",
+   "new": "M4 7JE",
+   "source": "https://manchestercentral.foodbank.org.uk/contact-us/",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads); M4 7FX does not exist on postcodes.io): \"Trinity Methodist Church, Butler St, Ancoats, Manchester, M4 7JE\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "postcode": "M4 7FX",
+     "address": "Trinity Methodist Church, 7 Ridgeway Street, Ancoats, Manchester, M4 7FX",
+     "lat": 53.4852961,
+     "lng": -2.2181161,
+     "orig_latlng": null,
+     "moved_to_postcode": null
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/tavistock",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/tavistock",
+    "type": "location",
+    "name": "Tavistock",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "United Reformed Church, Russell Street, Tavistock, PL19 8BD",
+    "postcode": "PL19 8BD",
+    "lat": 50.548781,
+    "lng": -4.146647,
+    "phone": "01392822100",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/tavistock/",
+    "opening_times": null,
+    "pc_checked": true,
+    "tel": "01392822100",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `tavistock` (Tavistock United Reformed Church, Russell Street, Tavistock, PL19 8BD); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/tavistock",
+      "type": "location",
+      "name": "Tavistock",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "United Reformed Church, Russell Street, Tavistock, PL19 8BD",
+      "postcode": "PL19 8BD",
+      "lat": 50.548781,
+      "lng": -4.146647,
+      "phone": "01392822100",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/tavistock/",
+      "opening_times": null,
+      "pc_checked": true,
+      "tel": "01392822100",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/risca",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/risca",
+    "type": "location",
+    "name": "Risca",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "Commercial Street, Risca, NP11 6BA",
+    "postcode": "NP11 6BA",
+    "lat": 51.604084,
+    "lng": -3.094997,
+    "phone": "01633619418",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/risca/",
+    "opening_times": {
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null,
+     "raw": "TUESDAY 09:45 - 11:30 Foodbank … FRIDAY 09:45 - 11:30 Foodbank The Salvation Army & Trussell Trust",
+     "source_url": "https://www.salvationarmy.org.uk/risca",
+     "checked_date": "2026-10-28",
+     "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)",
+     "lines": [
+      "TUESDAY 09:45 - 11:30 Foodbank … FRIDAY 09:45 - 11:30 Foodbank The Salvation Army & Trussell Trust"
+     ]
+    },
+    "pc_checked": true,
+    "tel": "01633619418",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `risca` (The Salvation Army, 66a Commercial Street, Pontymister, Risca, Newport, NP11 6BA); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/risca",
+      "type": "location",
+      "name": "Risca",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "Commercial Street, Risca, NP11 6BA",
+      "postcode": "NP11 6BA",
+      "lat": 51.604084,
+      "lng": -3.094997,
+      "phone": "01633619418",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/risca/",
+      "opening_times": {
+       "status": "TIMES_TEXT_ONLY",
+       "structured": null,
+       "raw": "TUESDAY 09:45 - 11:30 Foodbank … FRIDAY 09:45 - 11:30 Foodbank The Salvation Army & Trussell Trust",
+       "source_url": "https://www.salvationarmy.org.uk/risca",
+       "checked_date": "2026-10-28",
+       "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)",
+       "lines": [
+        "TUESDAY 09:45 - 11:30 Foodbank … FRIDAY 09:45 - 11:30 Foodbank The Salvation Army & Trussell Trust"
+       ]
+      },
+      "pc_checked": true,
+      "tel": "01633619418",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/ilfracombe",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/ilfracombe",
+    "type": "location",
+    "name": "Ilfracombe",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "The Retreat, Ilfracombe, EX34 8AY",
+    "postcode": "EX34 8AY",
+    "lat": 51.2076,
+    "lng": -4.129273,
+    "phone": "01271321972",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/ilfracombe/",
+    "opening_times": null,
+    "pc_checked": true,
+    "tel": "01271321972",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `northern-devon/ilfracombe` (Salvation Army Community Hall, Torrs Park, Ilfracombe, EX34 8AY); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/ilfracombe",
+      "type": "location",
+      "name": "Ilfracombe",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "The Retreat, Ilfracombe, EX34 8AY",
+      "postcode": "EX34 8AY",
+      "lat": 51.2076,
+      "lng": -4.129273,
+      "phone": "01271321972",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/ilfracombe/",
+      "opening_times": null,
+      "pc_checked": true,
+      "tel": "01271321972",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/connahs-quay",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/connahs-quay",
+    "type": "location",
+    "name": "Connah's Quay",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "Dee Road, Connah's Quay, CH5 4NX",
+    "postcode": "CH5 4NX",
+    "lat": 53.215546,
+    "lng": -3.050298,
+    "phone": "01244830496",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/connahs-quay/",
+    "opening_times": {
+     "checked_date": "2026-10-27",
+     "raw": "Foodbank The Flintshire foodbank operates from our building every Friday from 9:30am - 11:30am",
+     "source_url": "https://www.salvationarmy.org.uk/connahs-quay",
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null,
+     "reader": "sa_corps_page (hand-reviewed)",
+     "lines": [
+      "Foodbank The Flintshire foodbank operates from our building every Friday from 9:30am - 11:30am"
+     ]
+    },
+    "pc_checked": true,
+    "times_status": "confirmed",
+    "times_checked": "2026-10-27",
+    "tel": "01244830496",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `flintshire/connahs-quay` (Salvation Army, Dee Road, Connah’s Quay, CH5 4NX); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/connahs-quay",
+      "type": "location",
+      "name": "Connah's Quay",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "Dee Road, Connah's Quay, CH5 4NX",
+      "postcode": "CH5 4NX",
+      "lat": 53.215546,
+      "lng": -3.050298,
+      "phone": "01244830496",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/connahs-quay/",
+      "opening_times": {
+       "checked_date": "2026-10-27",
+       "raw": "Foodbank The Flintshire foodbank operates from our building every Friday from 9:30am - 11:30am",
+       "source_url": "https://www.salvationarmy.org.uk/connahs-quay",
+       "status": "TIMES_TEXT_ONLY",
+       "structured": null,
+       "reader": "sa_corps_page (hand-reviewed)",
+       "lines": [
+        "Foodbank The Flintshire foodbank operates from our building every Friday from 9:30am - 11:30am"
+       ]
+      },
+      "pc_checked": true,
+      "times_status": "confirmed",
+      "times_checked": "2026-10-27",
+      "tel": "01244830496",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/goldthorpe",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/goldthorpe",
+    "type": "location",
+    "name": "Goldthorpe",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "Salvation Army Community Centre, Straight Lane, Rotherham, S63 9DW",
+    "postcode": "S63 9DW",
+    "lat": 53.533208,
+    "lng": -1.306562,
+    "phone": "01709898847",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/goldthorpe/",
+    "opening_times": {
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null,
+     "raw": "Monday 9.30am - 3pm  Food Bank / Community Engagement Support",
+     "source_url": "https://www.salvationarmy.org.uk/goldthorpe",
+     "checked_date": "2026-10-28",
+     "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)",
+     "lines": [
+      "Monday 9.30am - 3pm Food Bank / Community Engagement Support"
+     ]
+    },
+    "pc_checked": true,
+    "tel": "01709898847",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `barnsley/goldthorpe` (Salvation Army Community Centre, Straight Lane, Goldthorpe, Rotherham, S63 9DW); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/goldthorpe",
+      "type": "location",
+      "name": "Goldthorpe",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "Salvation Army Community Centre, Straight Lane, Rotherham, S63 9DW",
+      "postcode": "S63 9DW",
+      "lat": 53.533208,
+      "lng": -1.306562,
+      "phone": "01709898847",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/goldthorpe/",
+      "opening_times": {
+       "status": "TIMES_TEXT_ONLY",
+       "structured": null,
+       "raw": "Monday 9.30am - 3pm  Food Bank / Community Engagement Support",
+       "source_url": "https://www.salvationarmy.org.uk/goldthorpe",
+       "checked_date": "2026-10-28",
+       "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot3-nodate-1.md)",
+       "lines": [
+        "Monday 9.30am - 3pm Food Bank / Community Engagement Support"
+       ]
+      },
+      "pc_checked": true,
+      "tel": "01709898847",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/royston",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/royston",
+    "type": "location",
+    "name": "Royston",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "Midland Road, Barnsley, S71 4QJ",
+    "postcode": "S71 4QJ",
+    "lat": 53.600551,
+    "lng": -1.448654,
+    "phone": "01226727203",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/royston/",
+    "opening_times": null,
+    "pc_checked": true,
+    "tel": "01226727203",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `barnsley/royston` (Midland Rd, Royston, Barnsley, S71 4QJ); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/royston",
+      "type": "location",
+      "name": "Royston",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "Midland Road, Barnsley, S71 4QJ",
+      "postcode": "S71 4QJ",
+      "lat": 53.600551,
+      "lng": -1.448654,
+      "phone": "01226727203",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/royston/",
+      "opening_times": null,
+      "pc_checked": true,
+      "tel": "01226727203",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/shildon",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/shildon",
+    "type": "location",
+    "name": "Shildon",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "Cross Street, Shildon, DL4 1PF",
+    "postcode": "DL4 1PF",
+    "lat": 54.626202,
+    "lng": -1.643559,
+    "phone": "01388644277",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/shildon/",
+    "opening_times": {
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null,
+     "raw": "Monday 12:00-14:00 Foodbank … Thursday … 10:00-12:00 Foodbank",
+     "source_url": "https://www.salvationarmy.org.uk/shildon",
+     "checked_date": "2026-10-28",
+     "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)",
+     "lines": [
+      "Monday 12:00-14:00 Foodbank … Thursday … 10:00-12:00 Foodbank"
+     ]
+    },
+    "pc_checked": true,
+    "tel": "01388644277",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `county-durham/shildon` (Salvation Army Church Hall, Cross Street, Shildon, DL4 1PF); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/shildon",
+      "type": "location",
+      "name": "Shildon",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "Cross Street, Shildon, DL4 1PF",
+      "postcode": "DL4 1PF",
+      "lat": 54.626202,
+      "lng": -1.643559,
+      "phone": "01388644277",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/shildon/",
+      "opening_times": {
+       "status": "TIMES_TEXT_ONLY",
+       "structured": null,
+       "raw": "Monday 12:00-14:00 Foodbank … Thursday … 10:00-12:00 Foodbank",
+       "source_url": "https://www.salvationarmy.org.uk/shildon",
+       "checked_date": "2026-10-28",
+       "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-3.md)",
+       "lines": [
+        "Monday 12:00-14:00 Foodbank … Thursday … 10:00-12:00 Foodbank"
+       ]
+      },
+      "pc_checked": true,
+      "tel": "01388644277",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/bedford-congress-hall",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/bedford-congress-hall",
+    "type": "location",
+    "name": "Bedford Congress Hall",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "Commercial Road, Bedford, MK40 1QS",
+    "postcode": "MK40 1QS",
+    "lat": 52.134174,
+    "lng": -0.47309,
+    "phone": "01234329200",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/bedford-congress-hall/",
+    "opening_times": {
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null,
+     "raw": "Friday … 1pm - 3pm Trussell Trust Food Bank With Citizens Advice",
+     "source_url": "https://www.salvationarmy.org.uk/bedford-congress-hall",
+     "checked_date": "2026-10-28",
+     "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)",
+     "lines": [
+      "Friday … 1pm - 3pm Trussell Trust Food Bank With Citizens Advice"
+     ]
+    },
+    "pc_checked": true,
+    "tel": "01234329200",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `bedford/salvation-army-bedford` (Commercial Road, Bedford, MK40 1QS); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/bedford-congress-hall",
+      "type": "location",
+      "name": "Bedford Congress Hall",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "Commercial Road, Bedford, MK40 1QS",
+      "postcode": "MK40 1QS",
+      "lat": 52.134174,
+      "lng": -0.47309,
+      "phone": "01234329200",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/bedford-congress-hall/",
+      "opening_times": {
+       "status": "TIMES_TEXT_ONLY",
+       "structured": null,
+       "raw": "Friday … 1pm - 3pm Trussell Trust Food Bank With Citizens Advice",
+       "source_url": "https://www.salvationarmy.org.uk/bedford-congress-hall",
+       "checked_date": "2026-10-28",
+       "reader": "hand-reviewed 2026-10-28 (listings batch #239: own page quote, identical on 2 separate fetches) no-date check (bot4-nodate-4.md)",
+       "lines": [
+        "Friday … 1pm - 3pm Trussell Trust Food Bank With Citizens Advice"
+       ]
+      },
+      "pc_checked": true,
+      "tel": "01234329200",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "removed",
+   "id": "salvation-army/penge",
+   "field": "listing",
+   "old": {
+    "id": "salvation-army/penge",
+    "type": "location",
+    "name": "Penge",
+    "foodbank": "Salvation Army",
+    "network": "Independent",
+    "address": "174 Maple Road, Penge, SE20 8JB",
+    "postcode": "SE20 8JB",
+    "lat": 51.414509,
+    "lng": -0.05513,
+    "phone": "02086597321",
+    "website": "https://www.salvationarmy.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/penge/",
+    "opening_times": {
+     "checked_date": "2026-10-27",
+     "raw": "Foodbank Partnership Monday 11.00am - 1.00pm",
+     "source_url": "https://www.salvationarmy.org.uk/penge",
+     "status": "TIMES_TEXT_ONLY",
+     "structured": null,
+     "reader": "sa_corps_page (hand-reviewed)",
+     "lines": [
+      "Foodbank Partnership Monday 11.00am - 1.00pm"
+     ]
+    },
+    "pc_checked": true,
+    "times_status": "confirmed",
+    "times_checked": "2026-10-27",
+    "tel": "02086597321",
+    "fetched_at": "2026-10-27T13:38:27+00:00"
+   },
+   "new": null,
+   "source": "foodbank_exclude.json",
+   "note": "Exact same-place duplicate of `bromley-borough/penge` (The Salvation Army, 172-176 Maple Rd, London, SE20 8JB); removed with exclusion entry (Dean 28 Oct, fault scan section 9)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "salvation-army/penge",
+      "type": "location",
+      "name": "Penge",
+      "foodbank": "Salvation Army",
+      "network": "Independent",
+      "address": "174 Maple Road, Penge, SE20 8JB",
+      "postcode": "SE20 8JB",
+      "lat": 51.414509,
+      "lng": -0.05513,
+      "phone": "02086597321",
+      "website": "https://www.salvationarmy.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/salvation-army/penge/",
+      "opening_times": {
+       "checked_date": "2026-10-27",
+       "raw": "Foodbank Partnership Monday 11.00am - 1.00pm",
+       "source_url": "https://www.salvationarmy.org.uk/penge",
+       "status": "TIMES_TEXT_ONLY",
+       "structured": null,
+       "reader": "sa_corps_page (hand-reviewed)",
+       "lines": [
+        "Foodbank Partnership Monday 11.00am - 1.00pm"
+       ]
+      },
+      "pc_checked": true,
+      "times_status": "confirmed",
+      "times_checked": "2026-10-27",
+      "tel": "02086597321",
+      "fetched_at": "2026-10-27T13:38:27+00:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "ww-62981326",
+   "field": "hours",
+   "old": {
+    "Mon": "10:30 - 12:00"
+   },
+   "new": {
+    "Mon": "12:30 - 15:00"
+   },
+   "source": "https://www.jigsawhomes.org.uk/information-article/oldham/",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"every Monday 12:30m – 3:00pm\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "hours": {
+      "Mon": "10:30 - 12:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "ww-65437319",
+   "field": "hours",
+   "old": {
+    "Thu": "12:00 - 14:00"
+   },
+   "new": {
+    "Thu": "12:00 - 13:30"
+   },
+   "source": "https://lambournjunction.uk/lambourn-lunch-club/",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"every Thursday from 12:00 to 13:30\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "hours": {
+      "Thu": "12:00 - 14:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "hours",
+   "id": "ww-64623495",
+   "field": "hours",
+   "old": {
+    "Mon": "10:30 - 14:00",
+    "Tue": "19:15 - 20:30",
+    "Wed": "09:00 - 12:30 / 09:00 - 12:00",
+    "Thu": "10:30 - 14:30",
+    "Fri": "13:00 - 16:00",
+    "Sat": "09:00 - 14:00"
+   },
+   "new": {
+    "Mon": "10:30 - 14:00",
+    "Tue": "19:15 - 20:30",
+    "Wed": "09:00 - 12:00",
+    "Thu": "10:30 - 14:30",
+    "Fri": "13:00 - 16:00",
+    "Sat": "09:00 - 14:00"
+   },
+   "source": "https://www.heartofnewhaven.co.uk/regular-activities",
+   "note": "applied (fault scan 28 Oct; verify_own_page.py AUTO_APPLY (2 live reads)): \"Wednesdays 9am - 12noon\"",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "hours": {
+      "Mon": "10:30 - 14:00",
+      "Tue": "19:15 - 20:30",
+      "Wed": "09:00 - 12:30 / 09:00 - 12:00",
+      "Thu": "10:30 - 14:30",
+      "Fri": "13:00 - 16:00",
+      "Sat": "09:00 - 14:00"
+     }
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "ww-69068971",
+   "field": "website",
+   "old": "In progress",
+   "new": "",
+   "source": "scripts/ws_website.py",
+   "note": "blanked: not a web address (fault scan 28 Oct: the card linked to https://In progress)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "website": "In progress"
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "ww-68990442",
+   "field": "website",
+   "old": "undefined",
+   "new": "",
+   "source": "scripts/ws_website.py",
+   "note": "blanked: not a web address (fault scan 28 Oct: the card linked to https://undefined)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "website": "undefined"
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "ww-69005962",
+   "field": "website",
+   "old": "We do not have a website",
+   "new": "",
+   "source": "scripts/ws_website.py",
+   "note": "blanked: not a web address (fault scan 28 Oct: the card linked to https://We do not have a website)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "website": "We do not have a website"
+    }
+   }
+  },
+  {
+   "kind": "website",
+   "id": "ww-69208997",
+   "field": "website",
+   "old": "A Church Near You All Saints Heath and St Albans Holmewood",
+   "new": "",
+   "source": "scripts/ws_website.py",
+   "note": "blanked: not a web address (fault scan 28 Oct: the card linked to https://A Church Near You All Saints Heath and St Albans Holmewood)",
+   "at": "2026-10-28T07:55Z",
+   "undo": {
+    "set": {
+     "website": "A Church Near You All Saints Heath and St Albans Holmewood"
+    }
+   }
   }
  ],
  "flags": [
