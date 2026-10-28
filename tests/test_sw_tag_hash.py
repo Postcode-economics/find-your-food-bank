@@ -110,7 +110,8 @@ class StaleWorker(unittest.TestCase):
         pg.wait_for_timeout(3000)
         self.assertEqual(len(loads) - before, 2, ('expected the visit plus exactly one heal reload', loads[before:]))
         self.assertEqual(pg.evaluate("() => sessionStorage.getItem('hmHealOld')"), '1')
-        self.assertTrue(pg.evaluate("() => !!navigator.serviceWorker.controller && /sw\\.js\\?v=h[0-9a-f]{12}$/.test(navigator.serviceWorker.controller.scriptURL)"),
+        # layers.js registers after a heal as sw.js?v=<tag>&heal=1; that suffix is the only extra allowed.
+        self.assertTrue(pg.evaluate("() => !!navigator.serviceWorker.controller && /sw\\.js\\?v=%s(?:&heal=1)?$/.test(navigator.serviceWorker.controller.scriptURL)" % sw_tag()),
                         pg.evaluate("() => navigator.serviceWorker.controller && navigator.serviceWorker.controller.scriptURL"))
         return b, c, pg, net, loads
 
