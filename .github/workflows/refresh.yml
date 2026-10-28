@@ -29,6 +29,14 @@ jobs:
         id: full
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
         run: python scripts/full_check.py
+      # full_check.py is continue-on-error, so its stop is a step output: this step fails, every later step (the commit
+      # included) is skipped and the 'run failed (nothing new published)' alert opens. Counts include refresh-gate times.
+      - name: Anomaly brake - stop before anything is published (reports/anomaly_brake.md)
+        if: steps.full.outputs.brake == 'stop'
+        run: |
+          cat reports/anomaly_brake.md
+          echo "::error::anomaly brake stopped this run; nothing is committed or pushed"
+          exit 1
       - name: Publish gate - new places need a verified phone (shelters also who it's for); held ones go to reports/pending_dean.md
         env:
           # Rule 9. Repository secret, one address or phone per line. See scripts/private_block.py.
