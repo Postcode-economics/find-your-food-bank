@@ -79,13 +79,13 @@ class Fixes(unittest.TestCase):
         self.assertEqual(dg(S["osm-way-556071354"]["phone"]), "01414181955")  # Talbot Association own page
         self.assertEqual(dg(W["ww-57951889"]["phone"]), "07876372274")  # St Francis, the church's own A Church Near You page
         self.assertEqual(dg(S["hl-dens-the-elms"]["phone"]), "01442800131")  # DENS's own contact page names this as The Elms' number
-        # Peasholme 01904 551901 approved by Dean (#238); JNR8 kept (reverting would put a council line back, rule 5) and listed for Dean
+        # Peasholme 01904 551901 approved by Dean (#238); JNR8 0161 881 3744 approved by Dean (#238)
         self.assertEqual(dg(S["osm-node-1533578890"]["phone"]), "01904551901"); self.assertEqual(dg(S["osm-node-1533578890"]["tel"]), "01904551901")
         self.assertEqual(dg(J("overrides/phone_baseline.json")["listings"]["osm-node-1533578890"]["phone"]), "01904551901")
         self.assertEqual(J("overrides/shelters_contacts.json")["osm-node-1533578890"]["phone_fix"], "01904 551901")
         self.assertEqual(dg(W["ww-55475981"]["phone"]), "01618813744")
         P = open(os.path.join(ROOT, "PHONES-FOR-DEAN.md"), encoding="utf-8").read()
-        self.assertIn("| `ww-55475981` ", P); self.assertNotIn("| `osm-node-1533578890` ", P)
+        self.assertNotIn("| `ww-55475981` ", P); self.assertNotIn("| `osm-node-1533578890` ", P)
         C = J("overrides/shelters_contacts.json")
         self.assertEqual((C["hl-dens-the-elms"]["phone_fix"], C["hl-dens-the-elms"]["phone_source"]), ("01442 800131", "https://www.dens.org.uk/contact/"))
         self.assertEqual(C["osm-way-556071354"]["phone_fix"], "0141 418 1955")

@@ -196,13 +196,15 @@ class Rule37(unittest.TestCase):
 class Rule37VenuePhone(unittest.TestCase):
     """Stricter (Dean, 28 Oct 2026): no general council number as a venue's own `phone` either.
     The banned list is KNOWN_DAYTIME plus the council lines removed from venue phones on 28 Oct.
-    The only allowance: a number Dean approved on 26 Oct that is waiting on his review list."""
+    The only allowances: a number Dean approved on 26 Oct that is waiting on his review list, and a
+    current number whose replacement Dean has approved but another PR applies."""
     BANNED_PHONE = dict(KNOWN_DAYTIME, **{
         "01904554500": "City of York Council Housing Options (01904 554500)",
         "03001232224": "Somerset Council switchboard (0300 123 2224), removed from Bruton by Dean 28 Oct",
         "08000232692": "Manchester City Council Cost of Living Advice Line (0800 023 2692)",
     })
     AWAITING_DEAN = {}  # Bruton 0300 123 2224 removed by Dean 28 Oct 2026 05:35 GMT; now banned like any council line
+    APPROVED_ELSEWHERE = {}  # James House 01904 553626 (Dean 28 Oct 05:35) is applied in this branch, so 01904 554500 is banned here
 
     def test_awaiting_dean_is_on_review_list(self):
         pd = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
@@ -211,8 +213,14 @@ class Rule37VenuePhone(unittest.TestCase):
         for iid in self.AWAITING_DEAN:
             self.assertIn(iid, m.group(0))
 
+    def test_approved_elsewhere_shows_old_or_approved_number_only(self):
+        sh = {x["id"]: x for x in built("shelters")}
+        for iid, nums in self.APPROVED_ELSEWHERE.items():
+            for f in ("phone", "tel"):
+                self.assertIn(D(sh[iid].get(f)), nums, f"shelters:{iid} {f}={sh[iid].get(f)}")
+
     def _ok(self, iid, num):
-        return self.AWAITING_DEAN.get(iid) == num
+        return self.AWAITING_DEAN.get(iid) == num or self.APPROVED_ELSEWHERE.get(iid, ("",))[0] == num
 
     def test_no_banned_number_as_venue_phone_in_overrides(self):
         for name in ("shelters_contacts.json", "warmspaces_contacts.json"):
