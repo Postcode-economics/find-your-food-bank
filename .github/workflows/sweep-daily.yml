@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Test the sweep and verification checks
-        run: python -m unittest tests.test_sweep tests.test_recheck -v
+        run: python -m unittest tests.test_sweep tests.test_recheck tests.test_rule21_refresh -v
       - name: Sweep every council sitemap and list page (fail-safe; adds new entries only)
         run: python scripts/sweep_daily.py
       - name: Find council SWEP / rough sleeping pages (adds to overrides/swep_sources.json; fail-safe)

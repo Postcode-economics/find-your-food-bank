@@ -79,7 +79,9 @@ class NewLookRendered(unittest.TestCase):
           return {bg:g(a).backgroundColor,fs:g(t).fontSize,fw:g(t).fontWeight,icon:g(i).fill,mb:g(c).marginBottom,fb:!!c.querySelector('.xfbk')}}""")
         self.assertEqual(s, {'bg': 'rgb(52, 199, 89)', 'fs': '16px', 'fw': '800', 'icon': 'rgb(43, 43, 43)', 'mb': '26px', 'fb': False})
     def test_rendered_facebook_card_blue(self):
-        c = self.R.show_in_list(self.p, 'whitland-town-hall-community'); self.assertIsNotNone(c)
+        # Whitland now has the shared venue phone (Dean, 26 Oct), so its card is a call button.
+        # Sandbach still has no phone and a verified Facebook page, so this stays the blue Message button.
+        c = self.R.show_in_list(self.p, 'sandbach'); self.assertIsNotNone(c)
         s = c.evaluate("""c=>{const a=c.querySelector('a.btn.call.xfbk'),g=getComputedStyle;return {bg:g(a).backgroundColor,jc:g(a).justifyContent,
           logo:!!a.querySelector('img.fboff'),txt:a.textContent.trim(),fs:g(a.querySelector('span')).fontSize,fw:g(a.querySelector('span')).fontWeight}}""")
         self.assertEqual(s, {'bg': 'rgb(24, 119, 242)', 'jc': 'center', 'logo': True, 'txt': 'Send a message', 'fs': '16px', 'fw': '800'})
@@ -106,13 +108,13 @@ class SheetGreen(unittest.TestCase):  # Dean 24 Oct 21:31: sheet cards = same gr
             except Exception as e: raise unittest.SkipTest("no browser: %s" % e)
             try:
                 out = {}
-                for fid in ('selkirk', 'whitland-town-hall-community'):
+                for fid in ('selkirk', 'sandbach'):
                     p.evaluate("id=>{const k=items.findIndex(x=>x.id===id);map.setView(markers[k].getLatLng(),16);markers[k].fire('click')}", fid)
                     p.wait_for_timeout(700)
                     out[fid] = p.evaluate("""()=>{const a=document.querySelector('#sheetBody .card a.btn.call'),i=a.querySelector('svg.ico');
                       return [getComputedStyle(a).backgroundColor,i?getComputedStyle(i).fill:null]}""")
                 self.assertEqual(out['selkirk'], ['rgb(52, 199, 89)', 'rgb(43, 43, 43)'])
-                self.assertEqual(out['whitland-town-hall-community'][0], 'rgb(24, 119, 242)')
+                self.assertEqual(out['sandbach'][0], 'rgb(24, 119, 242)')
             finally: b.close()
 
 

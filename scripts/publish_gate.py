@@ -1,11 +1,19 @@
 """Publish gate (Dean, 23 Oct 2026). Runs in every shelters / warm spaces / food bank refresh, before the refresh guard.
+
+PRIVATE_BLOCKLIST (rule 9) is a GitHub Actions secret, never a file in this repo. Set it under
+Settings → Secrets and variables → Actions, name PRIVATE_BLOCKLIST, one address or phone per line.
+The refresh workflows pass secrets.PRIVATE_BLOCKLIST into this step. When the secret is set and a
+listing matches, that listing is held back without copying the secret, and this step exits non-zero.
+Logs print the match count only. See scripts/private_block.py.
 gate <layer>: a NEW place (not in the live file, git HEAD) is not published unless it has a verified phone
   (own number 'tel'; for shelters / warm spaces a labelled council homeless/out-of-hours line also counts) and,
   for shelters, a sourced 'who it's for' (groups). Held places go to logs/pending_dean.json + reports/pending_dean.md.
-  Existing places are never removed here (the refresh guard keeps their fields).
+  Existing places are never removed here (the refresh guard keeps their fields), except a private-blocklist
+  match, which is held back whether or not it is already on the map.
 check: CI. Fails if a published shelter lacks a phone or groups, or a warm space lacks a phone, unless the id is
   listed in overrides/known_gaps.json (existing gaps being worked on, each with a note). Food banks without a
-  phone are reported only (count printed), never failing, so the live map is not blocked."""
+  phone are reported only (count printed), never failing, so the live map is not blocked. A private-blocklist
+  match fails this check for every layer, including food banks."""
 import datetime, json, os, re, subprocess, sys
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 FILES = {'foodbanks': 'data.full.js', 'shelters': 'shelters.js', 'warmspaces': 'warmspaces.js'}
@@ -22,7 +30,7 @@ def load(p, d):
     try: return json.load(open(os.path.join(ROOT, p)))
     except Exception: return d
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026
+import auto_rules, private_block; RULES = auto_rules.load()  # Dean 25 Oct 2026
 def approved_new():
     """Dean 25 Oct 08:20: no new food bank is auto-added. Only ids Dean OK'd (overrides/foodbank_approved_new.json) or
     hand-added (overrides/foodbank_added.json) may go on the map; everything else waits in reports/pending_dean.md."""
@@ -30,10 +38,21 @@ def approved_new():
     for f in ('overrides/foodbank_approved_new.json', 'overrides/foodbank_added.json'):
         ok |= {k for k in load(f, {}) if not k.startswith('_')}
     return ok
+def _row(i, pr, now, secrets):
+    """Pending row. A private-blocklist hit copies no name, address, phone, or source."""
+    if secrets and private_block.matches(i, secrets):
+        return dict(id=private_block.safe_id(i, secrets), name='', postcode='', source='', why=['private details — not published'], held_on=now)
+    return dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now)
 def gate(layer, ref='HEAD'):
+    gate.last_privacy = False
     f = os.path.join(ROOT, FILES[layer])
-    try: live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
-    except Exception: print('gate: no live baseline, skipped'); return []
+    secrets = private_block.entries()
+    try:
+        live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
+    except Exception:
+        if not secrets:
+            print('gate: no live baseline, skipped'); return []
+        live = None  # no baseline: still hold a private-blocklist match (rule 9)
     pre, d, post = split(open(f).read()); keep, held = [], []
     ok = auto_rules.approved(layer, ROOT)
     import phone_lock
@@ -41,8 +60,16 @@ def gate(layer, ref='HEAD'):
     for i in d['items']:
         if phone_lock.settle_council(i): dirty = True  # no verified out-of-hours line: council line stays hidden
     for i in d['items']:
-        pr = [] if i['id'] in live else problems(layer, i)
-        if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
+        if live is None:
+            pr = []
+        else:
+            pr = [] if i['id'] in live else problems(layer, i)
+            if layer == 'foodbanks' and i['id'] in ok:
+                pr = [p for p in pr if p != 'no verified phone']  # Dean-approved food banks may have no published phone (verified details only, 26 Oct)
+            if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
+        if secrets and private_block.matches(i, secrets):
+            pr = ['private details — not published']
+            gate.last_privacy = True
         (held if pr else keep).append((i, pr))
     if phone_lock.guard([i for i, _ in keep], ROOT, via='publish', source='publish gate', layer=layer, persist_new=True):
         dirty = True
@@ -50,7 +77,7 @@ def gate(layer, ref='HEAD'):
         d['items'] = [i for i, _ in keep]
         open(f, 'w').write(pre + (json.dumps(d) if layer == 'foodbanks' else json.dumps(d, ensure_ascii=False, separators=(',', ':'))) + post)
     lg = load('logs/pending_dean.json', {}); now = datetime.date.today().isoformat()
-    lg[layer] = [dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now) for i, pr in held]
+    lg[layer] = [_row(i, pr, now, secrets) for i, pr in held]
     json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_dean.json'), 'w'), indent=1, ensure_ascii=False)
     md = ['# New places held back for Dean (not published)', '', 'No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
@@ -61,18 +88,28 @@ def gate(layer, ref='HEAD'):
         for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock'):  # keep the times review (times_finder) and sweep shelter review sections, held phone numbers
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
+    if gate.last_privacy:
+        n = private_block.match_count([i for i, _ in held], secrets)
+        print(f'publish gate {layer}: PRIVATE_BLOCKLIST matched {n} listing(s) — not published')
     print(f'publish gate {layer}: {len(held)} new places held for Dean')
     return held
 def check():
     gaps = load('overrides/known_gaps.json', {}); bad = []
+    secrets = private_block.entries()
     for layer in ('shelters', 'warmspaces', 'foodbanks'):
         items = split(open(os.path.join(ROOT, FILES[layer])).read())[1]['items']
         miss = [(i['id'], problems(layer, i)) for i in items if problems(layer, i)]
         if layer == 'foodbanks':
-            print(f'food banks without a phone (report only): {len(miss)}'); continue
-        known = set(gaps.get(layer, {}))
-        bad += [f'{layer}:{k} {p}' for k, p in miss if k not in known]
-        print(f'{layer}: {len(miss)} gaps, {len([1 for k, _ in miss if k in known])} listed in overrides/known_gaps.json')
+            print(f'food banks without a phone (report only): {len(miss)}')
+        else:
+            known = set(gaps.get(layer, {}))
+            bad += [f'{layer}:{k} {p}' for k, p in miss if k not in known]
+            print(f'{layer}: {len(miss)} gaps, {len([1 for k, _ in miss if k in known])} listed in overrides/known_gaps.json')
+        if secrets:
+            n = private_block.match_count(items, secrets)
+            if n:
+                bad += [f'{layer}: {n} private blocklist']
     print('unlisted gaps:', bad or 'none'); return 1 if bad else 0
 if __name__ == '__main__':
-    sys.exit(check()) if sys.argv[1] == 'check' else gate(sys.argv[1])
+    if sys.argv[1] == 'check': sys.exit(check())
+    gate(sys.argv[1]); sys.exit(1 if gate.last_privacy else 0)

@@ -55,15 +55,32 @@ def lookup(pcs, cache, fetch=True):
 
 def hours_fb(i):
     ot = i.get('opening_times') or {}
-    st = ot.get('structured') if ot.get('status') == 'TIMES_FOUND' else None
-    if not st: return '<div class="sub">Call for opening times</div>'
-    rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (DN[d], ', '.join('%s–%s' % (a, b) for a, b in st[d])) for d in ORD if st.get(d))
-    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
+    if ot.get('status') != 'TIMES_FOUND': return '<div class="sub">Call for opening times</div>'
+    if ot.get('all_closed'):
+        return '<table class="t">%s</table>' % ''.join('<tr><td>%s</td><td>Closed</td></tr>' % DN[d] for d in ORD)
+    st, closed, notes = ot.get('structured') or {}, set(ot.get('closed') or []), ot.get('notes') or {}
+    rows = []
+    for d in ORD:
+        if st.get(d):
+            cell = ', '.join('%s–%s' % (a, b) for a, b in st[d])
+            if notes.get(d): cell += ' ' + str(notes[d])
+            rows.append('<tr><td>%s</td><td>%s</td></tr>' % (DN[d], E(cell)))
+        elif d in closed:
+            rows.append('<tr><td>%s</td><td>Closed</td></tr>' % DN[d])
+    if not rows: return '<div class="sub">Call for opening times</div>'
+    extra = '<div class="sub">Other days not listed, call before you go</div>' if len(rows) < 7 else ''
+    return '<table class="t">%s</table>%s' % (''.join(rows), extra)
 
 def hours_ws(i):
     h = i.get('hours') or {}
-    rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(d), E(v)) for d, v in h.items() if v)
-    return '<table class="t">%s</table>' % rows if rows else '<div class="sub">Call for opening times</div>'
+    if isinstance(h, str):
+        return '<div class="t">%s</div><div class="sub">As written on their website</div>' % E(h) if h.strip() else '<div class="sub">Call for opening times</div>'
+    if not isinstance(h, dict): return '<div class="sub">Call for opening times</div>'
+    order = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(d), E(h[d])) for d in order if h.get(d))
+    if not rows: return '<div class="sub">Call for opening times</div>'
+    extra = '<div class="sub">Other days not listed, call before you go</div>' if sum(d in h for d in order) < 7 else ''
+    return '<table class="t">%s</table>%s' % (rows, extra)
 
 def shelter_public(i):
     """Same rule as the map: no stale/ended/closed entries, and no OpenStreetMap-only entry (must have own-site evidence)."""
@@ -92,7 +109,7 @@ def card_sh(i):
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
-            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone')), web, sh_contact(i), ref, hrs))
+            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone'), i.get('phone_label')), web, sh_contact(i), ref, hrs))
 
 def ws_fallback(i):
     if i.get('tel') or not i.get('council_phone'): return ''
@@ -112,9 +129,13 @@ def sh_contact(i):
               'or your local council&#39;s homeless team. Someone sleeping rough: <a href="https://thestreetlink.org.uk/" rel="noopener">StreetLink</a></div>')
     return o
 
-def phone_html(p):
+def phone_html(p, label=''):
     if not p: return ''
-    return '<div>Phone: <a href="tel:%s">%s</a></div>' % (E(re.sub(r'[^0-9+]', '', p)), E(p))
+    extra = ''
+    if label:
+        shown = label if re.search(r'(number|line)$', label, re.I) else 'Number for ' + label
+        extra = ' <span class="sub">%s</span>' % E(shown)
+    return '<div>Phone: <a href="tel:%s">%s</a>%s</div>' % (E(re.sub(r'[^0-9+]', '', p)), E(p), extra)
 
 def card_fb(i, acc):
     a = acc.get(i['id'], 'unconfirmed')
