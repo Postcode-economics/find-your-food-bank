@@ -11,7 +11,31 @@ PATH = "/emergency-food/i-have-a-food-voucher"
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 PC = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?) ?(\d[A-Z]{2})\b")
 T = r"\d{1,2}(?::\d{2})? ?[ap]m"
-ROW = re.compile(r"\b(" + "|".join(DAYS) + r")(?:\s*-\s*(" + "|".join(DAYS) + r"))?\s+(Closed|" + T + r" to " + T + r"(?:\s*(?:,|and|&)\s*" + T + r" to " + T + r")*)", re.I)
+# A day spec is one day, a hyphen range (Monday-Tuesday), or a list (Monday, Wednesday and Friday / & / &amp;).
+# The list must stop before the clock time: "Monday 2:00 pm to 4:00 pm and Wednesday 9:30 am to 11:30 am"
+# is two rows, not one dayspec. The old pattern kept only the last day of a list, so
+# "Monday, Wednesday and Friday 2:00 pm to 4:00 pm" became Friday alone (Chichester, 26 Oct).
+_DAY = "(?:" + "|".join(DAYS) + ")"
+_SEP = r"(?:\s*(?:,|&(?:amp;)?|\band\b|-)\s*)"
+ROW = re.compile(r"\b(" + _DAY + "(?:" + _SEP + _DAY + r")*)\s+(Closed|" + T + r" to " + T + r"(?:\s*(?:,|and|&(?:amp;)?)\s*" + T + r" to " + T + r")*)", re.I)
+def expand_days(spec):
+    """'Friday' / 'Tuesday-Wednesday' / 'Monday, Wednesday and Friday' -> ['monday', ...] or None."""
+    parts = re.split(r"\s*(?:,|&(?:amp;)?|\band\b)\s*", (spec or "").strip(), flags=re.I)
+    out = []
+    for p in parts:
+        m = re.fullmatch(r"(" + _DAY + r")(?:\s*-\s*(" + _DAY + r"))?", p.strip(), re.I)
+        if not m: return None
+        a = m.group(1).lower(); b = (m.group(2) or a).lower()
+        i, j = DAYS.index(a), DAYS.index(b)
+        if j < i: return None
+        for d in DAYS[i:j + 1]:
+            if d not in out: out.append(d)
+    return out or None
+def _label(days):
+    idxs = [DAYS.index(d) for d in days]
+    if len(days) > 1 and idxs == list(range(idxs[0], idxs[-1] + 1)):
+        return days[0].title() + "-" + days[-1].title()
+    return ", ".join(d.title() for d in days)
 IRREG = re.compile(r"fortnight|monthly|alternate|every other|1st|2nd|3rd|4th|first|second|third|last (mon|tue|wed|thu|fri|sat|sun)", re.I)
 def text_of(h):
     h = re.sub(r"(?is)<(script|style|svg).*?</\1>", " ", h or "")
@@ -22,7 +46,7 @@ def _24(s):
     if ap == "am" and h == 12: h = 0
     return f"{h:02d}:{mi:02d}"
 def parse_cards(text):
-    """-> [{'name','postcode','rows':[(day_from,day_to,'Closed'|'10:30 am to 12:30 pm')], 'raw', 'irregular'}]"""
+    """-> [{'name','postcode','rows':[(['monday','wednesday','friday'],'Closed'|'10:30 am to 12:30 pm')], 'raw', 'irregular'}]"""
     cards = []
     chunks = re.split(r"\bGet directions\b", text)
     for i in range(len(chunks) - 1):
@@ -37,11 +61,14 @@ def parse_cards(text):
         m = re.search(r"Collection times(.*?)(?:Delivery times|Part of [^0-9]{3,80}?(?:Foodbank|Food Bank)|See more information|$)", body, re.S)
         if not m: continue
         seg = re.sub(r"(Open today until " + T + r"|Closed today|Opens? (?:today|tomorrow) at " + T + ")", " ", m.group(1), flags=re.I)
-        rows = [(a.lower(), (b or a).lower(), v) for a, b, v in ROW.findall(seg)]
+        rows = []
+        for spec, v in ROW.findall(seg):
+            days = expand_days(spec)
+            if days: rows.append((days, v))
         # placeholder rows such as '12:00 am to 12:00 am' (appointment-only centres) are not opening times
-        rows = [r for r in rows if r[2].lower() == "closed" or all(_24(x) != _24(y) for x, y in re.findall("(" + T + ") to (" + T + ")", r[2], re.I))]
+        rows = [r for r in rows if r[1].lower() == "closed" or all(_24(x) != _24(y) for x, y in re.findall("(" + T + ") to (" + T + ")", r[1], re.I))]
         if not rows and not re.search(r"appointment", name, re.I): continue
-        raw = "; ".join(f"{a.title()}{'-' + b.title() if b != a else ''} {v}" for a, b, v in rows if v.lower() != "closed")
+        raw = "; ".join(f"{_label(days)} {v}" for days, v in rows if v.lower() != "closed")
         cards.append({"name": name, "postcode": pcs[-1][0] + " " + pcs[-1][1], "rows": rows, "raw": raw,
                       "irregular": bool(IRREG.search(name + " " + seg))})
     return cards
@@ -54,11 +81,10 @@ def to_ot(card, source_url, run_day):
         return {"status": "TIMES_TEXT_ONLY", "raw": card["raw"] + (" (" + re.search(r"\(([^)]*)\)", card["name"]).group(1) + ")" if "(" in card["name"] else ""),
                 "structured": None, "source_url": source_url, "checked_date": run_day, "reader": "trussell_cards"}
     st = {}
-    for a, b, v in card["rows"]:
+    for days, v in card["rows"]:
         if v.lower() == "closed": continue
-        i, j = DAYS.index(a), DAYS.index(b)
         rng = [[_24(x), _24(y)] for x, y in re.findall("(" + T + ") to (" + T + ")", v, re.I)]
-        for d in range(i, j + 1 if j >= i else i + 1): st.setdefault(DAYS[d][:3], []).extend(rng)
+        for d in days: st.setdefault(d[:3], []).extend(rng)
     return {"status": "TIMES_FOUND", "structured": {d: st[d] for d in [x[:3] for x in DAYS] if d in st}, "raw": card["raw"],
             "source_url": source_url, "checked_date": run_day, "reader": "trussell_cards"}
 CTX = ssl.create_default_context()
