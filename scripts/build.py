@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rebuild data.js from the Give Food API. Stdlib only. Fails safe: data.js is
 only replaced if the fetch succeeds and the entry count is >= 80% of the current one."""
-import json, math, os, sys, urllib.request, datetime
+import json, math, os, sys, urllib.request, urllib.error, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -13,12 +13,21 @@ def die(msg):
     print('FAIL SAFE:', msg, '- data.js not changed'); sys.exit(1)
 
 def get(url, data=None, tries=3):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        rate_ledger.LEDGER.record(url, 429)
+        raise RuntimeError('paused this run after HTTP 429')
+    err = None
     for n in range(tries):
         try:
             h = dict(UA)
             if data is not None: h['Content-Type'] = 'application/json'
             req = urllib.request.Request(url, data=data, headers=h)
-            return json.load(urllib.request.urlopen(req, timeout=90))
+            out = json.load(urllib.request.urlopen(req, timeout=90))
+            rate_ledger.LEDGER.record(url, 200)
+            return out
+        except urllib.error.HTTPError as e:
+            rate_ledger.LEDGER.record(url, e.code); err = e
         except Exception as e:
             err = e
     raise err
@@ -50,9 +59,15 @@ def main():
     api_meta = {}
     try:
         fb, api_meta['foodbanks'] = fb_recheck.fetch_api(API + 'foodbanks/'); loc, api_meta['locations'] = fb_recheck.fetch_api(API + 'locations/')
-    except Exception as e: die('fetch failed: %r' % e)
+    except Exception as e:
+        try: import learning; learning.record_sources(os.path.join(ROOT, 'reports', 'source_health.json'), {'Give Food': False})
+        except Exception: pass
+        die('fetch failed: %r' % e)
     records = {}  # id -> exact source record, hashed per entry by the recheck gate
-    if not isinstance(fb, list) or not isinstance(loc, list): die('unexpected API shape')
+    if not isinstance(fb, list) or not isinstance(loc, list):
+        try: import learning; learning.record_sources(os.path.join(ROOT, 'reports', 'source_health.json'), {'Give Food': False})
+        except Exception: pass
+        die('unexpected API shape')
     fbs = {f['slug']: f for f in fb}
     items = []
     for f in fb:
@@ -130,6 +145,11 @@ def main():
         prev = load_prev_items(); cands = [x for x in prev if x.get('directory') == 'IFAN']; st['kept_from_last_run'] = len(cands)
     disc['sources']['IFAN (foodaidnetwork.org.uk)'] = st
     disc['sources']['Trussell find-a-foodbank'] = directories.trussell()[1]
+    try:
+        import learning
+        learning.record_sources(os.path.join(ROOT, 'reports', 'source_health.json'), {
+            'Give Food': True, 'IFAN': st.get('status') == 'ok' and not st.get('empty_parse')})
+    except Exception: pass
     new_c, dup = discover.dedupe(cands, items); st['already_on_map'] = dup; st['new_candidates'] = len(new_c)
     import discovery_rules as DR  # Dean's auto-add rule (23 Oct 2026): valid in-area postcode, not a duplicate, working source, current
     live = st.get('status') == 'ok'
@@ -230,11 +250,16 @@ def main():
                           os.path.join(ROOT, 'logs', 'foodbank_times_review.json'))
     import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
     phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')))
-    meta = dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items)
+    import schema_version
+    meta = schema_version.stamp(dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items))
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'
     if os.environ.get('DRY_RUN'): print('DRY RUN: %d entries (previous %d), data.js not written' % (len(items), cur)); return
     tmp = OUT + '.tmp'; open(tmp, 'w').write(new); os.replace(tmp, OUT)
     print('wrote %d entries (previous %d)' % (len(items), cur))
+    try:
+        import rate_ledger
+        if rate_ledger.LEDGER.counts: rate_ledger.save(day=datetime.date.today().isoformat())
+    except Exception: pass
     import compact; compact.main()  # browser-facing compact data.js
     import build_access; build_access.main(ROOT)  # filter chips: regenerate access.js from overrides/access/*.csv
 

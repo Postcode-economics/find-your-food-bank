@@ -13,11 +13,17 @@ def og_title(h):
     m = re.search(r'<meta[^>]+property="og:title"[^>]+content="([^"]*)"', h or "") or re.search(r"<title>([^<]*)</title>", h or "")
     return html.unescape(m.group(1)).strip() if m else ""
 def fetch(url):
+    import rate_ledger
+    if not rate_ledger.LEDGER.allow(url):
+        rate_ledger.LEDGER.record(url, 429); return 429, ""
     try:
         r = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=20)
+        rate_ledger.LEDGER.record(url, r.status)
         return r.status, r.read(600_000).decode("utf-8", "replace")
-    except urllib.error.HTTPError as e: return e.code, ""
-    except Exception: return 0, ""
+    except urllib.error.HTTPError as e:
+        rate_ledger.LEDGER.record(url, e.code); return e.code, ""
+    except Exception:
+        rate_ledger.LEDGER.record(url, None); return 0, ""
 def classify(base_title, code, h):
     if code in (404, 410): return "dead", ""
     if code == 0 or code == 429 or code >= 500: return "unreachable", ""

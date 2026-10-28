@@ -14,6 +14,12 @@ ST = P("logs", "digest_state.json"); MD = P("reports", "morning_digest.md")
 def rj(p, d):
     try: return json.load(open(p))
     except Exception: return d
+def london_label(now):
+    """Clock time in Europe/London for the morning note. The scheduled cron lines are not moved."""
+    from zoneinfo import ZoneInfo
+    if now.tzinfo is None: now = now.replace(tzinfo=datetime.timezone.utc)
+    loc = now.astimezone(ZoneInfo("Europe/London"))
+    return loc.strftime("%A %d %B %Y, %H:%M %Z")
 def triggers(state, history, dups, since, weather=None):
     al = []
     closed = [c for v in history.values() for c in v if c.get("label", "").startswith("real closure") and c.get("when", "") >= since]
@@ -34,7 +40,7 @@ def main(now=None):
     errs = rj(P("reports", "source_errors.json"), {}).get("errors", [])
     hist = rj(P("logs", "entry_history.json"), {}); recent = [c for v in hist.values() for c in v if c.get("when", "") >= since]
     sw = rj(P("logs", "swep_tracker.json"), {}).get("days", {}); swl = sw[max(sw)]["still_to_check"] if sw else None
-    L = ["# Morning digest - %s" % now.date(), "", "## Alerts this run", ""] + (["- **%s**: %s" % (t, b) for _, t, b in al] or ["- none"]) + ["",
+    L = ["# Morning digest - %s" % now.date(), "", "London time: %s. The check clock is unchanged." % london_label(now), "", "## Alerts this run", ""] + (["- **%s**: %s" % (t, b) for _, t, b in al] or ["- none"]) + ["",
          "## Everything else", "", "- Changes since last run: %d (%d new, %d removed, %d field updates)" % (len(recent), sum(c["change"] == "added" for c in recent), sum(c["change"] == "removed" for c in recent), sum(c["change"] not in ("added", "removed") for c in recent)),
          "- Likely duplicates on the map: %d (reports/duplicates.md)" % likely,
          "- Weather/flood warnings: %d (reports/weather.md)" % len(rj(P("reports", "weather.json"), {}).get("warnings", [])),

@@ -22,8 +22,8 @@ DEC = ("(function(c){var K=c.k,C=c.c,G=c.g,n=c.n,it=[],i,j;for(i=0;i<n;i++){var 
        "window.FB_DATA={fetched:c.f,source:c.s,items:it}})")
 R5 = lambda v: round(v, 5) if isinstance(v, float) else v
 
-def load_full(p=FULL):
-    s = open(p, encoding='utf-8').read(); return json.loads(s[s.index('=') + 1:].rstrip().rstrip(';'))
+def load_full(p=None):
+    s = open(FULL if p is None else p, encoding='utf-8').read(); return json.loads(s[s.index('=') + 1:].rstrip().rstrip(';'))
 
 def enc(i, k):
     if k not in i: return M
@@ -66,7 +66,12 @@ def encode(meta):
     return DEC + '(' + json.dumps(c, separators=(',', ':'), ensure_ascii=False) + ');\n'
 
 def main():
-    out = encode(load_full())
+    meta = load_full()
+    import schema_version
+    if not schema_version.accepts(meta.get('schema_version')):
+        print('compact: schema_version %r is not accepted - data.js not written' % meta.get('schema_version'))
+        return
+    out = encode(meta)
     t = OUT + '.tmp'; open(t, 'w', encoding='utf-8').write(out); os.replace(t, OUT)
     print('compact data.js: %d bytes (full %d)' % (len(out.encode()), os.path.getsize(FULL)))
 
