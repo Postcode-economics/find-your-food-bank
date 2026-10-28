@@ -62,7 +62,7 @@ def guard(layer, old_items, new_items):
         n = new.get(o['id'])
         if n is None:
             if removal_ok(o, ok, ex) or moved(o): continue
-            out.append(dict(o, guard_kept=datetime.date.today().isoformat())); rep['places'].append(o['id']); continue
+            out.append(dict(o, guard_kept=datetime.date.today().isoformat(), **({'call_check': True, 'stale': False} if layer == 'warmspaces' else {}))); rep['places'].append(o['id']); continue  # warm spaces: labelled 'call before you go' (28 Oct)
         if (o.get('tel') or o.get('phone')) and not (n.get('tel') or n.get('phone')) and 'phone_was' not in n and o['id'] not in ok:  # phone_was = deliberate drop_phone override
             for k in ('phone', 'tel', 'phone_source'):
                 if o.get(k): n[k] = o[k]
