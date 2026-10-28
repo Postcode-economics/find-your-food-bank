@@ -1,6 +1,9 @@
 // Offline + traffic hardening (22 Oct 2026). App shell precached; static assets/data stale-while-revalidate (instant from cache,
 // refreshed in the background); page itself network-first; shelters/warm spaces cached only once those layers are opened;
 // OpenStreetMap tile URLs are cache-first, bounded to the 300 most recent, so a later visit still has a map with no network.
+// fyfb-v95: OSM tiles are cached and matched by the URL string, so a CORS probe and a no-cors <img> share one entry.
+// The worker registers from the document head and claims the page on load (clients.claim), so a pan is served from
+// the tile cache. The next visit is controlled from the first request.
 // fyfb-v94 (batch 4): stamped data/stamp/access cache-first; OSM <img> tiles fetched in cors mode and deduped in flight.
 // fyfb-v93 (batch 3 on batch 1): v3.js carry-forward 'Not re-confirmed since' label (#235); v3.js and header.css ?v= hashes recomputed.
 // fyfb-v92 (batch 2): combined shell (layers.js, v3.js, v3.css) listed by ?v= hash, so the precache still changes.
@@ -8,12 +11,16 @@
 // fyfb-v91: tile cache renamed fyfb-tiles2; the old fyfb-tiles store is deleted on activate.
 // fyfb-v90: when this version takes over, MapTiler entries are deleted from the tile cache and are never served from it.
 // OpenStreetMap tiles already in that cache stay.
-const C='fyfb-v94',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=hb01dc63f9dfc','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8e5dca8aa113','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h89a8d8eb1a23'];
+const C='fyfb-v95',T='fyfb-tiles2',TMAX=300,SHELL=['./','index.html','data.js','stamp.js','access.js','layers.js','layers.js?v=h8bdf5ba1b02c','layers.css','layers.css?v=h726ca8c057fc','report.js','register.js','report.css','v3.js','v3.js?v=h8e5dca8aa113','v3.css','v3.css?v=hbbb4057d00ac','icons.js','fb_secondary.png','privacy.html','terms.html','faq.html','accessibility.html','outcodes.json','counties.json','tiles.js','tiles.js?v=h36507c20f435','vendor/maptiler-logo.svg','vendor/leaflet.js','vendor/leaflet.css','vendor/leaflet.markercluster.js','vendor/leaflet.markercluster.js?v=hc3b59fe18416','vendor/MarkerCluster.css','vendor/MarkerCluster.Default.css','header.css?v=h89a8d8eb1a23'];
 const TILE=/(^|\.)tile\.openstreetmap\.org$|^api\.maptiler\.com$/;
 // OpenFreeMap backup (27 Oct 2026): versioned tiles, fonts and sprites are cache-first; style and TileJSON are network-first with the cached copy offline.
 const OFM=/^tiles\.openfreemap\.org$/,OFM_FIXED=/^\/(planet\/\d{8}_[^/]+\/|fonts\/|sprites\/ofm_f384\/|natural_earth\/)/;
 const MAPTILER=/(^|\.)maptiler\.com$/;
-self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
+// Precache, but do not skipWaiting until the page asks (message 'hm-claim', sent on load). Activating during
+// install took tile requests before the map had painted; a pan after load is then served from this cache, and the
+// next visit is controlled from the first request.
+self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)))});
+self.addEventListener('message',e=>{if(e.data==='hm-claim')self.skipWaiting()});
 // Self-heal (25 Oct 2026, Instagram in-app browser kept the old layout): on activate, drop old caches, take control and reload open map
 // pages once, so a page served by an old worker/cached HTML comes back as the current build. Navigation always revalidates (no-cache).
 // 25 Oct 11:29 live bug: navigating open pages from 'activate' left old-link visits (Instagram webview) blank/hung mid-load.
@@ -34,14 +41,18 @@ self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.me
    // readable (r.ok) responses are stored; it is never given to a CORS request. WebKit rejects it ("Response served by service worker is opaque"), so the tiles.js status probe goes
    // to the network instead and stores a readable copy. Offline, the probe fails and tiles.js shows the <img>,
    // which this cache still answers. The tile cache is renamed fyfb-tiles2 so activate drops the old opaque store.
-   const hit=await c.match(e.request);if(hit&&hit.type!=='opaque')return hit;
-   if(hit)c.delete(e.request);  // opaque copy (old builds): dropped and refetched; only kept as the offline answer below
+   // fyfb-v95: put(url) stores under new Request(url). match(e.request) misses that entry, because a CORS probe and a
+   // no-cors <img> are different requests from the URL string, so every pan fetched the tile again. match(url) and
+   // delete(url) hit the same stored copy for both.
+   const url=e.request.url;
+   const hit=await c.match(url);if(hit&&hit.type!=='opaque')return hit;
+   if(hit)c.delete(url);  // opaque copy (old builds): dropped and refetched; only kept as the offline answer below
    // Batch 4 (27 Oct 2026): an <img> tile request is no-cors, so its answer is opaque and was never stored: repeat visits
    // always went to the network. OpenStreetMap sends Access-Control-Allow-Origin: *, so the worker fetches the same URL
    // in cors mode instead; the readable copy is stored and answers both the <img> and the tiles.js probe next time.
    // tiles.js reveals the <img> as soon as the probe's headers arrive, before that copy is stored: a request for a tile
    // already on its way waits for the stored copy instead of fetching the same tile again (one network request per tile).
-   const url=e.request.url,busy=tileNet.get(url);if(busy&&await busy){const got=await c.match(url);if(got)return got}
+   const busy=tileNet.get(url);if(busy&&await busy){const got=await c.match(url);if(got)return got}
    let fin;const saved=new Promise(r=>{fin=r});if(!busy){tileNet.set(url,saved);saved.then(()=>tileNet.delete(url))}
    return fetch(e.request.mode==='no-cors'&&e.request.destination==='image'?new Request(url,{mode:'cors',credentials:'omit'}):e.request).catch(()=>fetch(e.request)).then(r=>{if(r.ok){c.put(url,r.clone()).then(()=>{fin(true);trim(c)},()=>fin(false))}else fin(false);return r}).catch(()=>{fin(false);tell();return (hit&&e.request.mode!=='cors')?hit:Response.error()})}));return}
  if(/api\.postcodes\.io/.test(u.host)){e.respondWith(fetch(e.request).then(r=>{if(r.ok){const cp=r.clone();caches.open(C).then(c=>c.put(e.request,cp))}return r})
