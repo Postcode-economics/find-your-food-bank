@@ -6,11 +6,14 @@ Each URL is opened twice in Playwright Chromium. A phone is CONFIRMED only when 
 written on both reads (digits run together across two numbers never count). Times are CONFIRMED only
 when both reads show the same timetable and it matches the claimed own-page times.
 
-Output adds verdict columns, a quote, action (AUTO_APPLY or REVIEW), and review_reason. AUTO_APPLY when
-the own site shows the value identically on both reads, listing rows do not conflict, and applying would
-not replace known session times with closed or empty. A one-line REVIEW summary is printed to stderr.
+Output adds verdict columns, a quote, action (AUTO_APPLY or REVIEW), and review_reason. AUTO_APPLY only
+for times-only rows, when the own site shows the times identically on both reads, listing rows do not
+conflict, and applying would not replace known session times with closed or empty. A one-line REVIEW
+summary is printed to stderr.
 
-A confirmed phone is still REVIEW (phone audit, Dean 28 Oct 2026) when:
+A row with an own-page phone is never AUTO_APPLY: every phone change needs Dean's approval, so a phone
+confirmed on both reads is REVIEW ("phone change needs Dean's approval") unless a more specific reason
+below applies. A confirmed phone is REVIEW for these reasons (phone audit, Dean 28 Oct 2026) when:
   - the page is a host page and the food bank has its own site (overrides/own_location_pages.json
     "_food_bank_own_sites"; rule 21 as narrowed by rule change E);
   - our current number is still on either read;
@@ -51,6 +54,7 @@ OUT_EXTRA = (
     "action",
     "review_reason",
 )
+PHONE_NEEDS_APPROVAL = "phone change needs Dean's approval"
 
 UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -438,9 +442,9 @@ def decide_action(r, conflict):
         return "REVIEW", "no number or times on the page"
     if need_times and would_blank_known_times(pick(r, "our times"), r.get("_times_fp", "")):
         return "REVIEW", "would blank data"
-    if need_phone and pv == "CONFIRMED" and (not need_times or tv == "CONFIRMED"):
-        return "AUTO_APPLY", ""
-    if need_times and tv == "CONFIRMED" and not need_phone:
+    if need_phone:
+        return "REVIEW", PHONE_NEEDS_APPROVAL
+    if need_times and tv == "CONFIRMED":
         return "AUTO_APPLY", ""
     return "REVIEW", "uncertain"
 
