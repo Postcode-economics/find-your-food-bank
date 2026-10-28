@@ -1,0 +1,53 @@
+{
+ "_about": "Proven own-centre hours lines: the organisation's own page gives THIS listing's centre (its address) a separate hours line. times_guard keeps only these lines (if still present in the read times) instead of removing or trimming by guesswork. Each entry: lines = exact read segments, quote + source_url + checked (Bot 3 review of #232, 28 Oct 2026). Remove an entry to undo.",
+ "dartmouth-district": {
+  "lines": [
+   "Friday from 11.00 am to 12.30 pm"
+  ],
+  "quote": "Dartmouth & District Friday Hub Townstal Community Hall Davis Road Dartmouth … We are open every Friday from 11.00 am to 12.30 pm.",
+  "source_url": "https://dartmouthanddistrictfoodbank.org.uk/",
+  "checked": "2026-10-28"
+ },
+ "weymouth": {
+  "lines": [
+   "Tuesday and Friday 10.30 am to 12.30pm"
+  ],
+  "quote": "Weymouth Baptist Church To collect food parcels 18 The Esplanade … Opening Times Tuesday and Friday 10.30 am to 12.30pm",
+  "source_url": "https://www.weymouthfoodbank.co.uk/locations",
+  "checked": "2026-10-28"
+ },
+ "rushden-and-higham": {
+  "lines": [
+   "Tuesday and Thursday 9:30am – 12:30pm",
+   "Wednesday 3.30pm to 5.30pm"
+  ],
+  "quote": "Rushden Opening Times: Every Tuesday and Thursday 9:30am - 12:30pm Wednesday 3.30pm to 5.30pm 19-21 Church Street, Rushden",
+  "source_url": "https://encompasscharity.org.uk/rushden-hf-foodbank",
+  "checked": "2026-10-28"
+ },
+ "burgess-hill": {
+  "lines": [
+   "Tuesday and Thursday 11am - 1pm",
+   "Saturday 10am - 12pm"
+  ],
+  "quote": "BURGESS HILL 85 Church Walk, Burgess Hill Tuesday and Thursday 11am - 1pm, Saturday 10am - 12pm",
+  "source_url": "https://burgesshillfoodbank.org.uk",
+  "checked": "2026-10-28"
+ },
+ "bestwood-bulwell": {
+  "lines": [
+   "Mon Closed Tue 13:00 - 15:00 | Wed Closed Thu 13:00 - 15:00 | Fri Closed Sat 10:00 - 12:00"
+  ],
+  "quote": "St Philip's Church ... Opening times Mon Closed Tue 13:00 - 15:00 Wed Closed Thu 13:00 - 15:00 Fri Closed Sat 10:00 - 12:00",
+  "source_url": "https://bestwoodbulwell.foodbank.org.uk/locations/",
+  "checked": "2026-10-28"
+ },
+ "food-for-thought-dumbarton": {
+  "lines": [
+   "Monday to Friday, 10am to 5pm"
+  ],
+  "quote": "We run our foodbank support service from Monday to Friday, 10am to 5pm from Unit 15 in the Artizan",
+  "source_url": "https://www.foodforthoughtwestdun.co.uk/services/",
+  "checked": "2026-10-28"
+ }
+}
