@@ -1,0 +1,505 @@
+{
+ "_about": "Replay fixture for tests/test_phone_audit_28oct.py (phone audit test 9). Copied 28 Oct 2026 from batch-3-combined: reports/phone_fixes.json (the 9 fixes of 25 Oct), the pins of those websites in data.full.js and their latest readings in reports/full_check_state.json; plus PR #239's applied phone rows (logs/listings_batch_28oct.json on batch-listings) with the quote verify_own_page read.",
+ "phone_fixes": {
+  "https://www.wantageandgrovefoodbank.org.uk": {
+   "old": "01865297403",
+   "new": "01235765348",
+   "since": "2026-10-25",
+   "source": "https://www.wantageandgrovefoodbank.org.uk"
+  },
+  "https://pontefractandknottingley.foodbank.org.uk/": {
+   "old": "01977339278",
+   "new": "07747168988",
+   "since": "2026-10-25",
+   "source": "https://pontefractandknottingley.foodbank.org.uk/"
+  },
+  "https://hull.foodbank.org.uk": {
+   "old": "01482224783",
+   "new": "01482328196",
+   "since": "2026-10-25",
+   "source": "https://hull.foodbank.org.uk"
+  },
+  "https://bognorregis.foodbank.org.uk": {
+   "old": "01243866952",
+   "new": "01243841275",
+   "since": "2026-10-25",
+   "source": "https://bognorregis.foodbank.org.uk"
+  },
+  "https://euston.foodbank.org.uk": {
+   "old": "07400053838",
+   "new": "02046159770",
+   "since": "2026-10-25",
+   "source": "https://euston.foodbank.org.uk"
+  },
+  "https://hartlepool.foodbank.org.uk": {
+   "old": "01429405543",
+   "new": "01429806895",
+   "since": "2026-10-25",
+   "source": "https://hartlepool.foodbank.org.uk"
+  },
+  "https://launceston.foodbank.org.uk": {
+   "old": "07849260486",
+   "new": "01566779550",
+   "since": "2026-10-25",
+   "source": "https://launceston.foodbank.org.uk"
+  },
+  "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank": {
+   "old": "02076241701",
+   "new": "02077989025",
+   "since": "2026-10-25",
+   "source": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank/"
+  },
+  "https://stmonica.co.uk/social-action": {
+   "old": "02088869568",
+   "new": "02077989025",
+   "since": "2026-10-25",
+   "source": "https://stmonica.co.uk/social-action/"
+  }
+ },
+ "pins": {
+  "https://www.wantageandgrovefoodbank.org.uk": [
+   {
+    "id": "wantage-and-grove",
+    "type": "foodbank",
+    "name": "Wantage and Grove Foodbank",
+    "foodbank": "Wantage and Grove Foodbank",
+    "phone": "01235765348",
+    "tel": "01235765348",
+    "website": "https://www.wantageandgrovefoodbank.org.uk",
+    "postcode": "OX12 8AE"
+   }
+  ],
+  "https://pontefractandknottingley.foodbank.org.uk/": [
+   {
+    "id": "pontefract-knottingley",
+    "type": "foodbank",
+    "name": "Pontefract & Knottingley Foodbank",
+    "foodbank": "Pontefract & Knottingley Foodbank",
+    "phone": "07935530583",
+    "tel": "07935530583",
+    "website": "https://pontefractandknottingley.foodbank.org.uk/",
+    "postcode": "WF8 1NB"
+   },
+   {
+    "id": "pontefract-knottingley/knottingley",
+    "type": "location",
+    "name": "Knottingley",
+    "foodbank": "Pontefract & Knottingley Foodbank",
+    "phone": "07747168988",
+    "tel": "07747168988",
+    "website": "https://pontefractandknottingley.foodbank.org.uk/",
+    "postcode": "WF11 9AL"
+   }
+  ],
+  "https://hull.foodbank.org.uk": [
+   {
+    "id": "hull",
+    "type": "foodbank",
+    "name": "Hull Foodbank",
+    "foodbank": "Hull Foodbank",
+    "phone": "01482328196",
+    "tel": "01482328196",
+    "website": "https://hull.foodbank.org.uk",
+    "postcode": "HU3 2DH"
+   },
+   {
+    "id": "hull/hull-west",
+    "type": "location",
+    "name": "Hull West",
+    "foodbank": "Hull Foodbank",
+    "phone": "01482352995",
+    "tel": "01482352995",
+    "website": "https://hull.foodbank.org.uk",
+    "postcode": "HU4 6DD"
+   },
+   {
+    "id": "hull/hull-foodbank",
+    "type": "location",
+    "name": "Hull Foodbank",
+    "foodbank": "Hull Foodbank",
+    "phone": "01482328196",
+    "tel": "01482328196",
+    "website": "https://hull.foodbank.org.uk",
+    "postcode": "HU1 3SL"
+   },
+   {
+    "id": "hull/hull-east",
+    "type": "location",
+    "name": "Hull East",
+    "foodbank": "Hull Foodbank",
+    "phone": "01482687858",
+    "tel": "01482687858",
+    "website": "https://hull.foodbank.org.uk",
+    "postcode": "HU9 2BN"
+   },
+   {
+    "id": "hull/hull-north",
+    "type": "location",
+    "name": "Hull North",
+    "foodbank": "Hull Foodbank",
+    "phone": "07985509863",
+    "tel": "07985509863",
+    "website": "https://hull.foodbank.org.uk",
+    "postcode": "HU6 9BX"
+   }
+  ],
+  "https://bognorregis.foodbank.org.uk": [
+   {
+    "id": "bognor-regis",
+    "type": "foodbank",
+    "name": "Bognor Regis Foodbank",
+    "foodbank": "Bognor Regis Foodbank",
+    "phone": "01243841275",
+    "tel": "01243841275",
+    "website": "https://bognorregis.foodbank.org.uk",
+    "postcode": "PO21 2SG"
+   }
+  ],
+  "https://euston.foodbank.org.uk": [
+   {
+    "id": "euston",
+    "type": "foodbank",
+    "name": "Euston Foodbank",
+    "foodbank": "Euston Foodbank",
+    "phone": "02046159770",
+    "tel": "02046159770",
+    "website": "https://euston.foodbank.org.uk",
+    "postcode": "NW1 1TA"
+   }
+  ],
+  "https://hartlepool.foodbank.org.uk": [
+   {
+    "id": "hartlepool",
+    "type": "foodbank",
+    "name": "Hartlepool Foodbank",
+    "foodbank": "Hartlepool Foodbank",
+    "phone": "01429806895",
+    "tel": "01429806895",
+    "website": "https://hartlepool.foodbank.org.uk",
+    "postcode": "TS24 7DH"
+   }
+  ],
+  "https://launceston.foodbank.org.uk": [
+   {
+    "id": "launceston/launceston-foodbank-charity-shop",
+    "type": "location",
+    "name": "Launceston Foodbank Charity Shop",
+    "foodbank": "Launceston Foodbank",
+    "phone": "07849260486",
+    "tel": "07849260486",
+    "website": "https://launceston.foodbank.org.uk",
+    "postcode": "PL15 8EX"
+   }
+  ],
+  "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank": [
+   {
+    "id": "quex-road",
+    "type": "foodbank",
+    "name": "Quex Road Foodbank",
+    "foodbank": "Quex Road Foodbank",
+    "phone": "02077989025",
+    "tel": "02077989025",
+    "website": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank",
+    "postcode": "NW6 4PS"
+   }
+  ],
+  "https://stmonica.co.uk/social-action": [
+   {
+    "id": "st-monicas",
+    "type": "foodbank",
+    "name": "St Monica's Foodbank",
+    "foodbank": "St Monica's Foodbank",
+    "phone": "02077989025",
+    "tel": "02077989025",
+    "website": "https://stmonica.co.uk/social-action",
+    "postcode": "N13 4DJ"
+   }
+  ]
+ },
+ "sites": {
+  "https://www.wantageandgrovefoodbank.org.uk": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://www.wantageandgrovefoodbank.org.uk",
+   "access": "unclear",
+   "hours_hash": "",
+   "hours_sample": [],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "01235765348"
+   ],
+   "tel": [
+    "01235765348"
+   ],
+   "needs": "Shopping list | Print this list | Meals | Tins or packets of soup | Packets of rice | Tins of fish | Packets of pasta | Tins of meat | Jars of pasta sauce | Tins and jars | Tins of tomatoes | Tins of fruit | Tins of potatoes",
+   "fail_runs": 0
+  },
+  "https://pontefractandknottingley.foodbank.org.uk/": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://pontefractandknottingley.foodbank.org.uk/",
+   "access": "voucher",
+   "hours_hash": "f974009eef8a",
+   "hours_sample": [
+    "friday 10:00 am to 1",
+    "monday 9:30 am to 1",
+    "thursday 12:30 pm to 2",
+    "tuesday 10:30 am to 1"
+   ],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "07747168988"
+   ],
+   "tel": [
+    "07747168988"
+   ],
+   "needs": "Items we need | As of 21/10/2026 | Cat food | Cereal | Cooking sauce in jars | Cup-a-soup | Dog food | Hot tinned meat | Jam | Long-life milk | Shampoo | Shower gel | Tampons | Tinned corned beef",
+   "fail_runs": 0
+  },
+  "https://hull.foodbank.org.uk": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://hull.foodbank.org.uk",
+   "access": "unclear",
+   "hours_hash": "e39cabbe4458",
+   "hours_sample": [
+    "monday to saturday 8:00 am – 6:00 pm sunday 10:30 am – 4"
+   ],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "01482328196"
+   ],
+   "tel": [
+    "01482328196"
+   ],
+   "needs": "shopping list on the right shows the food items that we need right now. | Location of food donation point | Opening hours | Comments | Hull Foodbank Warehouse,Unit 2, 6 -12 St James street, Hull, HU3 2DH | 1100-1400 | Monday, Wednesday, Thursday | Tesco Extra, 5 St Stephens Centre, Park St, Hull | 24 hours | in-store shoppers only please | front of store near exits | Waitrose, Beverley Road, Willerby | Asda, Hessle Road",
+   "fail_runs": 0
+  },
+  "https://bognorregis.foodbank.org.uk": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://bognorregis.foodbank.org.uk",
+   "access": "unclear",
+   "hours_hash": "ae18bfb86c42",
+   "hours_sample": [
+    "fridays 10.30am – 2",
+    "thursdays 11am – 1",
+    "tuesdays 10.30am – 2"
+   ],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "01243841275"
+   ],
+   "tel": [
+    "01243841275"
+   ],
+   "needs": "",
+   "fail_runs": 0
+  },
+  "https://euston.foodbank.org.uk": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://euston.foodbank.org.uk",
+   "access": "unclear",
+   "hours_hash": "bcfbef4a9e22",
+   "hours_sample": [
+    "saturday 9-1",
+    "thursday 12-4",
+    "tuesday 9-1"
+   ],
+   "seasonal": "s until further notice. We will also be closed from 23 Dec – 4 Jan for the Christmas break. Euston Foodbank Helping local people in crisis Learn more £1950 average rent of a 2 bed flat in our area 2017 the year that our",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "02046159770"
+   ],
+   "tel": [
+    "02046159770"
+   ],
+   "needs": "Most needed Christmas items | Make a donation | Donate here | Find us on Twitter | Find us on Facebook | Euston Foodbank | 28 Phoenix Road, | London, | NW1 1TA | DONATION TIMES | Tuesday 9-11 | Thursday 12-4 | Saturday 9-11",
+   "fail_runs": 0
+  },
+  "https://hartlepool.foodbank.org.uk": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://hartlepool.foodbank.org.uk",
+   "access": "unclear",
+   "hours_hash": "",
+   "hours_sample": [],
+   "seasonal": "olicies & Procedures. UPDATE 6 Aug 2026 SUMMER CLOSURE Make a donation We rely on our supporters for financial donations to help with the operational costs. Donate here Find us on Facebook Find us on Instagram Hartlepool",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "01429806895"
+   ],
+   "tel": [
+    "01429806895"
+   ],
+   "needs": "",
+   "fail_runs": 0
+  },
+  "https://launceston.foodbank.org.uk": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://launceston.foodbank.org.uk",
+   "access": "unclear",
+   "hours_hash": "",
+   "hours_sample": [],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "01566779550"
+   ],
+   "tel": [
+    "01566779550"
+   ],
+   "needs": "",
+   "fail_runs": 0
+  },
+  "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank/",
+   "access": "unclear",
+   "hours_hash": "4e6c9a5d22e4",
+   "hours_sample": [
+    "friday. our opening hours are from 10am-1"
+   ],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "02077989025"
+   ],
+   "tel": [
+    "02077989025"
+   ],
+   "needs": "",
+   "fail_runs": 0
+  },
+  "https://stmonica.co.uk/social-action": {
+   "checked_at": "2026-10-27T13:38:29+00:00",
+   "http": 200,
+   "final_url": "https://stmonica.co.uk/social-action/",
+   "access": "unclear",
+   "hours_hash": "f11ed56c7b4d",
+   "hours_sample": [
+    "monday, 11am – 1"
+   ],
+   "seasonal": "",
+   "closed": "",
+   "perm_closed": "",
+   "phones": [
+    "02077989025",
+    "02088869568"
+   ],
+   "tel": [
+    "02077989025",
+    "02088869568"
+   ],
+   "needs": "",
+   "fail_runs": 0
+  }
+ },
+ "pr239_rows": [
+  {
+   "kind": "phone",
+   "id": "northern-devon/south-molton",
+   "field": "phone",
+   "old": "07422651253",
+   "new": "01237422243",
+   "source": "https://northerndevon.foodbank.org.uk/about/",
+   "note": "applied (Dean 28 Oct 07:02: own-site confirmed changes go in): verify_own_page.py AUTO_APPLY, number on both reads: \"therndevon.foodbank.org.uk t: 01237 422243 FAQs Donate essential food Volunteer wit\"",
+   "at": "2026-10-28T07:20Z",
+   "undo": {
+    "set": {
+     "phone": "07422651253",
+     "tel": "07422651253",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "bournemouth/southbourne",
+   "field": "phone",
+   "old": "07517507221",
+   "new": "01202394505",
+   "source": "https://bournemouth.foodbank.org.uk/contact-us/",
+   "note": "applied (Dean 28 Oct 07:02: own-site confirmed changes go in): verify_own_page.py AUTO_APPLY, number on both reads: \"rnemouth, call our offices at 01202 394505. Monday to Thursday 10:00 am to 1:00 pm\"",
+   "at": "2026-10-28T07:20Z",
+   "undo": {
+    "set": {
+     "phone": "07517507221",
+     "tel": "07517507221",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "childs-hill",
+   "field": "phone",
+   "old": "02074353182",
+   "new": "02074435473",
+   "source": "https://allsaintschildshill.com/childs-hill-food-bank/",
+   "note": "applied (Dean 28 Oct 07:02: own-site confirmed changes go in): verify_own_page.py AUTO_APPLY, number on both reads: \"es, ring All Saints Church on 020 7443 5473. Organise a local collection If you wou\"",
+   "at": "2026-10-28T07:20Z",
+   "undo": {
+    "set": {
+     "phone": "02074353182",
+     "tel": "02074353182",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "bournemouth/citygate-community-hub",
+   "field": "phone",
+   "old": "01202299628",
+   "new": "01202394505",
+   "source": "https://bournemouth.foodbank.org.uk/contact-us/",
+   "note": "applied (Dean 28 Oct 07:02: own-site confirmed changes go in): verify_own_page.py AUTO_APPLY, number on both reads: \"rnemouth, call our offices at 01202 394505. Monday to Thursday 10:00 am to 1:00 pm\"",
+   "at": "2026-10-28T07:20Z",
+   "undo": {
+    "set": {
+     "phone": "01202299628",
+     "tel": "01202299628",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  },
+  {
+   "kind": "phone",
+   "id": "bournemouth/lifehouse",
+   "field": "phone",
+   "old": "01202530265",
+   "new": "01202394505",
+   "source": "https://bournemouth.foodbank.org.uk/contact-us/",
+   "note": "applied (Dean 28 Oct 07:02: own-site confirmed changes go in): verify_own_page.py AUTO_APPLY, number on both reads: \"rnemouth, call our offices at 01202 394505. Monday to Thursday 10:00 am to 1:00 pm\"",
+   "at": "2026-10-28T07:20Z",
+   "undo": {
+    "set": {
+     "phone": "01202530265",
+     "tel": "01202530265",
+     "phone_checked": null,
+     "phone_label": null
+    }
+   }
+  }
+ ]
+}
