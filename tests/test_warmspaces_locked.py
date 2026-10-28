@@ -24,7 +24,7 @@ class Published(unittest.TestCase):
         self.assertEqual(x["phone"], "07523 424686")
     def test_stretham(self):
         x = self.p["ww-63065216"]
-        self.assertEqual(x["hours"], {"Thu": "14:00 - 16:00 (1st & 3rd Thursday)"})
+        self.assertEqual(x["hours"], {"Thu": "14:00 - 16:00 (1st & 3rd of the month)"})
         self.assertNotIn("Monthly", json.dumps(x["hours"]))
         self.assertEqual(x["website"], "https://www.strethamparishcouncil.gov.uk/community/")
         self.assertEqual(x["postcode"], "CB6 3LD")  # not proven -> unchanged, flagged for Dean
