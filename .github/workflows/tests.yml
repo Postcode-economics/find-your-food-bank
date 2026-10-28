@@ -129,6 +129,13 @@ jobs:
     if: needs.changes.outputs.browser == '1'
     # Dean 25 Oct 2026: browser tests (status line never cut off, list panel alignment, open-today, two-finger note, ...)
     # really run here; the plain test job has no Playwright so it skips them.
+    # The suite took ~35 min in one job, so pytest-split runs it as 6 contiguous chunks balanced by tests/.test_durations
+    # (tests missing from that file count as the average). The browser-tests job below is the check to require.
+    name: browser-tests shard ${{ matrix.group }}/6
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [1, 2, 3, 4, 5, 6]
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -138,12 +145,65 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - uses: ./.github/actions/offline-tiles
-      - run: python -m pytest -q tests -rs
+      - run: pip install -q pytest-split==0.11.0
+      - run: python -m pytest -q tests -rs --splits 6 --group ${{ matrix.group }} --durations-path tests/.test_durations --junitxml=shard.xml
       # Chrome binary guard: the Chrome checks skip themselves without /usr/bin/google-chrome, so the job must not go green
       # without it. A separate step so pytest is still started on its own (test_iphone_journeys Wiring).
       - name: Chrome binary guard
         if: always()
         run: test -x /usr/bin/google-chrome || { echo "::error::/usr/bin/google-chrome missing; the Chrome browser tests were skipped"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-tests-shard-${{ matrix.group }}
+          path: shard.xml
+          if-no-files-found: error
+          retention-days: 7
+  browser-tests-all:
+    # Passes only if every shard passed and the shards' JUnit reports hold each collected test exactly once.
+    name: browser-tests
+    needs: [changes, browser-tests]
+    if: ${{ !cancelled() && needs.changes.outputs.browser == '1' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -q pytest==9.1.1 playwright==1.47.0
+      - uses: actions/download-artifact@v4
+        with: {pattern: browser-tests-shard-*, path: shards}
+      - name: Every test ran exactly once
+        run: |
+          python -m pytest -q tests --collect-only > collected.txt || { tail -20 collected.txt; exit 1; }
+          python - <<'EOF'
+          import collections, glob, sys
+          import xml.etree.ElementTree as ET
+          def address(nodeid):  # same mangling as pytest's junitxml
+              path, *rest = nodeid.split('::')
+              names = [path.replace('.py', '').replace('/', '.')] + rest
+              return '.'.join(names[:-1]), names[-1]
+          want = collections.Counter(address(l) for l in open('collected.txt').read().splitlines() if '::' in l)
+          got, totals = collections.Counter(), collections.Counter()
+          files = sorted(glob.glob('shards/*/shard.xml'))
+          for f in files:
+              for case in ET.parse(f).iter('testcase'):
+                  got[(case.get('classname'), case.get('name'))] += 1
+                  kids = {k.tag: k for k in case}
+                  if 'failure' in kids or 'error' in kids: totals['failed/error'] += 1
+                  elif 'skipped' in kids: totals['xfailed' if kids['skipped'].get('type') == 'pytest.xfail' else 'skipped'] += 1
+                  else: totals['passed'] += 1
+          print('%d shard reports; collected %d, reported %d: %s' % (len(files), sum(want.values()), sum(got.values()),
+                ', '.join('%d %s' % (totals[k], k) for k in ('passed', 'skipped', 'xfailed', 'failed/error'))))
+          missing, extra = want - got, got - want
+          for name, items in (('not run', missing), ('run twice or not collected', extra)):
+              for k, n in sorted(items.items())[:50]: print('::error::%s: %s::%s (x%d)' % (name, k[0], k[1], n))
+          sys.exit(1 if len(files) != 6 or missing or extra else 0)
+          EOF
+      - name: All shards passed
+        if: always()
+        run: |
+          test "${{ needs.browser-tests.result }}" = success || { echo "::error::browser-tests shards: ${{ needs.browser-tests.result }}"; exit 1; }
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
