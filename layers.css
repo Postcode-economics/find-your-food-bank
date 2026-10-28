@@ -32,6 +32,8 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 .pin svg path{fill:#F5C518;stroke:#0A1628}.pin.sel svg path{fill:#fff}
 #sheet .card table td{padding:1px 10px 1px 0}
 #xoff{position:sticky;top:0;z-index:6000;background:#F5C518;color:#0A1628;font-weight:800;font-size:16px;padding:12px;text-align:center;border-bottom:3px solid #0A1628}#xoff[hidden]{display:none}
+/* Rule 26: no tile (map service down, or nothing cached) keeps the map's existing light #ddd. Markers stay in the pane above. Never filter or recolour tiles, including in dark mode. */
+#map.notiles .leaflet-tile-pane{opacity:0}
 .pin svg circle{fill:#0A1628}
 .pin.wh svg{filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
 .ncb{background:#F2F4F8;color:#0A1628;font-weight:800;font-size:16px;padding:10px 12px;border-radius:8px;border-left:6px solid #E63946;margin-bottom:8px;line-height:1.3}

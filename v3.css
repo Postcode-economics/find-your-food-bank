@@ -603,3 +603,12 @@ html body #xextra .card:is(.xsh,.xws)>p.plab{order:6!important}
 html:not(.light) body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#F2F4F8!important}
 html.light body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#0A1628!important}
 html body .leaflet-popup-content p.plab{color:#0A1628!important;background:transparent!important}
+/* 28 Oct QA B1: the chosen type's 'Nearest' list is the only one shown (food banks hidden while Shelter or Warm space is chosen; the data and map are unchanged) */
+html[data-v3k=sh] #list,html[data-v3k=ws] #list,html[data-v3k=sh] #otshut,html[data-v3k=ws] #otshut{display:none!important}
+/* 28 Oct QA B6: 44px tap areas without changing the look. Invisible hit area around map pins; inline links get vertical padding cancelled by a negative margin, so text and layout stay put */
+.leaflet-marker-icon.pin::after,.leaflet-marker-icon.xpin::after,.leaflet-marker-icon.marker-cluster::after,.leaflet-marker-icon.xcl::after{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);background:transparent}
+:is(footer,.legal,.fresh,#xupd) a,:is(#list,#xextra,#sheet) .card a:not(.btn):not(.sosl):not(.v3share),a.v3pl{padding-top:14px!important;padding-bottom:14px!important;margin-top:-14px!important;margin-bottom:-14px!important;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;padding-right:10px!important;margin-left:-10px!important;margin-right:-10px!important}
+/* 28 Oct QA round 3 M2: the desktop map pop-up ✕ was Leaflet's 24x24px; now a 44x44px tap target (same glyph), and the pop-up text keeps clear of it. Leaflet pop-ups are used with both map engines. */
+.leaflet-container a.leaflet-popup-close-button{width:44px!important;height:44px!important;font:24px/44px Tahoma,Verdana,sans-serif!important;top:0!important;right:0!important;text-align:center!important}
+.leaflet-popup-content .pop>h3,.leaflet-popup-content .pop>.ncb:first-child,.leaflet-popup-content .pop>:first-child{padding-right:30px}
