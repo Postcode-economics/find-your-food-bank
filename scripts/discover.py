@@ -549,7 +549,33 @@ def _ot_empty(ot):
     if st is not None and not any(v for v in st.values()): return True
     return not (st or (ot.get("raw") or "").strip())
 NO_FB_MENTION = "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
-def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra=()):
+FB_OWN_SITES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overrides", "own_location_pages.json")
+SHARED_HOSTS = {"sites.google.com"}   # many organisations on one host: the first path segment is the site
+def food_bank_own_sites(path=None):
+    """listing id -> the food bank's own pages, where its listing website is a host page: its own site
+    (own_location_pages.json "_food_bank_own_sites") first, then its own locations page if that file lists one."""
+    try: cfg = json.load(open(path or FB_OWN_SITES, encoding="utf-8"))
+    except Exception: return {}
+    out = {}
+    for k, v in (cfg.get("_food_bank_own_sites") or {}).items():
+        if k.startswith("_") or not (isinstance(v, str) and v.startswith("http")): continue
+        loc = (cfg.get(k) or {}).get("url") if isinstance(cfg.get(k), dict) else None
+        out[k] = [v] + ([loc] if loc else [])
+    return out
+def on_site(src, site):
+    a, b = host(site), host(src)
+    if not (a and b and (a == b or b.endswith("." + a) or a.endswith("." + b))): return False
+    seg = lambda u: urllib.parse.urlparse(u).path.strip("/").split("/")[0].lower()
+    return a not in SHARED_HOSTS or seg(site) == seg(src)
+def not_own_site_reason(iid, src, own_sites):
+    """Rule 21 (Dean 28 Oct): when the food bank has its own site, times read on any page that is not its own (its own
+    site or own locations page), such as its host church, are held. Times for a session held at a church still apply
+    when the food bank's own page gives them. Centre pins ('parent/centre') take their food bank's own pages."""
+    own = (own_sites or {}).get(iid) or (own_sites or {}).get(iid.split("/")[0])
+    pages = [own] if isinstance(own, str) else list(own or [])
+    if not pages or any(on_site(src, p) for p in pages): return ""
+    return "host page does not count: the food bank has its own site (%s)" % pages[0]
+def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra=(), own_sites=None):
     """Reasons a refresh times change must be held for Dean. Empty = may apply. Each blocks on its own (tests/test_times_crosscheck_gate.py)."""
     why = list(extra); key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured")); src = home.get("final_url") if home else None
     pc = norm_pc(i.get("postcode"))
@@ -560,6 +586,8 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if src and DONATION_PAGE.search(urllib.parse.urlparse(src).path): why.append("source page is about giving/donating, not getting food")
     if kind == "fb":
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import phone_rule
+        own = not_own_site_reason(i["id"], src, food_bank_own_sites() if own_sites is None else own_sites)
+        if own: why.append(own)
         if not any(phone_rule.mentions_food_bank(t, [i.get("name"), i.get("foodbank")]) for t in texts): why.append(NO_FB_MENTION)
     vals = set()
     for t in texts:
@@ -657,6 +685,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     R = state_root
     seen = _jload(os.path.join(R, XC_SEEN), {}) if R else {}
     blocked = _jload(os.path.join(R, XC_BLOCK), {}) if R else {}
+    own_sites = food_bank_own_sites()
     auto = _jload(os.path.join(R, AUTO_LOG), []) if R else []
     # Drop this call's ids only. A later pass over centres added after the main check must not forget the main rows.
     if keep_ids is None:
@@ -669,7 +698,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Do not blank the listing, do not mark it closed, do not queue it.
         if not _hours_read(new): continue
         key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured"))
-        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()))
+        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()), own_sites)
         if sig: new_seen[key] = {"sig": sig, "source_url": home.get("final_url"), "run_at": run_at}
         if why:
             rec.update(status="held_for_dean", reason="; ".join(why), held=why)
