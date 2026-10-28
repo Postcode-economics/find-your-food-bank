@@ -94,7 +94,8 @@ def attach(context, base=None, fetch=None):
         stats.served += 1
         route.fulfill(status=200, body=body, headers={'content-type': 'image/png',
                                                       'access-control-allow-origin': '*',
-                                                      'cache-control': 'no-store'})
+                                                      'cache-control': 'no-store',
+                                                      'x-helpmap-offline-tile': '1'})
 
     local_prefix = base if base.startswith('http') else None
 
