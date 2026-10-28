@@ -62,7 +62,10 @@ window.V3={sched,status,badge,walk,share,strip,shutToday,openTodayL};
 // ---- food bank card + pop-up: status first, walking time, share. Donation-only sites get no open/closed badge (no client hours).
 const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div class="d">[^<]*<\/div>)/,'$1'+add):h.replace(/(<\/h3>)/,'$1'+add);
 const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return insAfterD(h,walk(d));
- h=badge('fb',i)+insAfterD(h,walk(d));return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};
+ h=badge('fb',i)+insAfterD(h,walk(d));
+ /* 28 Oct QA F3: a no-phone card's only contact button (Facebook "Send a message") sat after Share, below the fold of the mobile sheet. It now comes straight after Directions, before Share. */
+ const fbm=h.match(/<a class="btn call xfbk"[\s\S]*?<\/a>/);if(fbm)h=h.replace(fbm[0],'');
+ return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+(fbm?fbm[0]:'')+share(i))};
 const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i)).replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};  // Dean 25 Oct design lock: pop-up has Share too
 const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
  const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
