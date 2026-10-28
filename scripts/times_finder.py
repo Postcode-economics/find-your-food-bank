@@ -100,6 +100,8 @@ DONATION_URL = re.compile(r"donat|giv(e|ing)|volunteer|drop-?off|support-us|fund
 TIMES_KEY = "times_auto_apply"   # overrides/auto_apply_rules.json; missing = OFF
 SEEN = "logs/times_finder_seen.json"            # last run's parsed times per id (for the 2-run rule)
 AUTO_LOG = "reports/times_auto_applied.json"    # every automatic change, revert with scripts/times_revert.py <id>
+UNDONE = "overrides/times_auto_undone.json"     # 'finder:<id>' -> parsed table Dean undid (times_revert.py); never re-applied
+def undone_key(k): return "finder:" + k
 def times_auto_on(rules=None): return bool((rules if rules is not None else RULES).get(TIMES_KEY, False))
 def _sig(ot): return json.dumps(ot.get("structured"), sort_keys=True) if ot and ot.get("structured") else None
 def _empty(ot):
@@ -110,9 +112,9 @@ def _empty(ot):
     st = ot.get("structured")
     if st is not None and not any(v for v in st.values()): return True
     return not (st or (ot.get("raw") or "").strip())
-def strict_checks(k, ot, it, cur, seen, same_n, ks):
+def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None):
     """Reasons a finder result must stay held for Dean. Empty list = it may auto-apply (only if times_auto_apply is ON).
-    Each safeguard blocks on its own (tests/test_times_auto_apply.py)."""
+    Each safeguard blocks on its own (tests/test_times_auto_apply.py). blocked: overrides/times_auto_undone.json."""
     why = []
     if (cur.get(k) or {}).get("protected"): why.append("hand-checked times are protected; finder only flags differences")
     r = skipped(k, ks)
@@ -124,13 +126,18 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks):
     if DONATION_URL.search(urllib.parse.urlparse(ot.get("source_url") or "").path): why.append("source page is about giving/donating, not getting food")
     if same_n > 1: why.append("identical times read for several centres with different postcodes (possible copy)")
     prev = (seen or {}).get(k) or {}
-    if not _sig(ot) or prev.get("sig") != _sig(ot) or prev.get("source_url") != ot.get("source_url") or prev.get("run_at") == ot.get("_run_at"):
+    if (not _sig(ot) or prev.get("sig") != _sig(ot) or prev.get("source_url") != ot.get("source_url")
+            or not prev.get("run_at") or prev.get("run_at") == ot.get("_run_at")):
         why.append("times not read identically on 2 separate runs yet")
+    if _sig(ot) and not _empty(ot) and not D.day_same_line(ot.get("structured"), [ot.get("raw") or ""]):
+        why.append("day not on the same line as its times on the own-site page")
     old = cur.get(k) or it.get("opening_times")
     if old and not _empty(old) and _empty(ot): why.append("would change known times to closed/empty")
     # Hours only. A different phone on the stored listing is not a source conflict (that fix stays held on the phone path).
-    if old and not _empty(old) and _sig(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
+    # Known times kept as text (no table) from another source are known times too, so they conflict with any new table.
+    if old and not _empty(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
         why.append("conflicts with times from another source (%s)" % (old.get("source_url") or "unknown"))
+    if _sig(ot) and (blocked or {}).get(undone_key(k)) == _sig(ot): why.append("this change was undone by Dean; not re-applied")
     return why
 def _read(ot):
     """A times result was actually read. No table, no text and no explicit closed status means nothing was found."""
@@ -145,6 +152,7 @@ def decide(log, items, apply, rules=None, now=None):
     ix = {i["id"]: i for i in items}; ks = known()
     p = "overrides/opening_times.json"; cur = json.load(open(p)) if os.path.exists(p) else {}
     seen = json.load(open(SEEN)) if os.path.exists(SEEN) else {}
+    blocked = json.load(open(UNDONE)) if os.path.exists(UNDONE) else {}
     same = collections.defaultdict(set)
     for k, ot in log["found"].items():
         same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))].add(norm_pc(ix.get(k, {}).get("postcode")))
@@ -155,7 +163,7 @@ def decide(log, items, apply, rules=None, now=None):
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Leave the stored listing untouched and do not queue a pending row.
         if not _read(ot): continue
         it = ix.get(k, {}); ot = dict(ot, _run_at=now)
-        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks)
+        why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, blocked)
         if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
         if _sig(ot): new_seen[k] = {"sig": _sig(ot), "source_url": ot.get("source_url"), "run_at": now}
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
@@ -190,7 +198,7 @@ def decide(log, items, apply, rules=None, now=None):
     elif os.path.exists(pd):
         os.remove(pd)
 def norm_pc(pc): return re.sub(r"\s", "", (pc or "").upper())
-def run(items, apply=False, threads=12, render=None):
+def run(items, apply=False, threads=12, render=None, now=None):
     todo = [i for i in items if not (i.get("opening_times") or {}).get("status") and i.get("kind") != "warehouse"]
     by = collections.defaultdict(list)
     for i in todo:
@@ -222,7 +230,7 @@ def run(items, apply=False, threads=12, render=None):
     log = {"run": RUN, "checked": len(todo), "found": {k: v[0] for k, v in res.items() if v[0]}, "reasons": {k: v[1] for k, v in res.items()}}
     os.makedirs("logs", exist_ok=True)
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
-    decide(log, items, apply)
+    decide(log, items, apply, now=now)
     return log
 if __name__ == "__main__":
     src = sys.argv[sys.argv.index("--data") + 1] if "--data" in sys.argv else "data.full.js"
