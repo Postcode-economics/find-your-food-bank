@@ -138,7 +138,12 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - uses: ./.github/actions/offline-tiles
-      - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
+      - run: python -m pytest -q tests -rs
+      # Chrome binary guard: the Chrome checks skip themselves without /usr/bin/google-chrome, so the job must not go green
+      # without it. A separate step so pytest is still started on its own (test_iphone_journeys Wiring).
+      - name: Chrome binary guard
+        if: always()
+        run: test -x /usr/bin/google-chrome || { echo "::error::/usr/bin/google-chrome missing; the Chrome browser tests were skipped"; exit 1; }
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
@@ -160,11 +165,26 @@ jobs:
     # test_iphone_backup_map: iPhone 13 + SE, backup off/on, service worker on/off, blocked at the network layer
     # (local proxy) so the block holds for service-worker fetches too; the backup must paint.
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 1}
+        with: {fetch-depth: 0}  # the old-worker tests read sw.js from earlier commits
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
-      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py
+      # 27 Oct 2026: the iPhone map-fix and stale-worker WebKit tests were skipped everywhere (browser-tests has no WebKit).
+      # The vector fallback check uses a TLS proxy with the service worker allowed. It does not use route() with the worker blocked.
+      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py tests/test_iphone_freeze.py tests/test_iphone_vector_recover.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py tests/test_motion_28oct_3.py tests/test_website_link.py
+  iphone-journeys:
+    needs: changes
+    if: needs.changes.outputs.browser == '1'
+    # Dean 27 Oct 2026: iPhone 13 and iPhone SE, service worker on and off, stand-in tiles via a local TLS proxy.
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
+      - run: python -m pytest -q -rs tests/test_iphone_journeys.py

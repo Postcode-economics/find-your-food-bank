@@ -184,10 +184,10 @@ def run(root=ROOT):
         s = put(s, 'page', ld('page', {'@context': 'https://schema.org', '@type': 'WebPage', 'url': url_of(rel), 'name': title_of(s),
                                         'dateModified': iso, 'isPartOf': {'@type': 'WebSite', 'url': SITE + '/'}}))
         if rel == 'index.html':
-            # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy
-            # Batch 4 (27 Oct 2026): content-hash stamp (h + 12 hex of sha256), so the stamp only changes when the file does and
-            # sw.js can serve these cache-first: new content -> new stamp in the (network-first) HTML -> new URL -> fresh copy.
-            # Only the src value is rewritten; every other attribute on the tag (e.g. data-hm type="text/plain") is kept.
+            # cache-bust the refreshed data files so the Cloudflare edge can't serve an old copy.
+            # Batch 4 (27 Oct 2026): content-hash stamp (h + 12 hex of sha256), so the stamp only changes when the file does.
+            # The home page defers these (data-hm, type=text/plain). Only the src value is rewritten and every other attribute
+            # on the tag is kept, or a sweep would turn them back into scripts that run during parse.
             s = re.sub(r'(<script\b[^>]*\bsrc=")(data|stamp|access)\.js(?:\?v=[^"]*)?("[^>]*>\s*</script>)',
                        lambda m: '%s%s.js?v=%s%s' % (m.group(1), m.group(2), content_stamp(root, m.group(2) + '.js'), m.group(3)), s)
             s = put(s, 'dataset', ld('dataset', dataset(iso)))

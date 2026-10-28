@@ -53,9 +53,10 @@ def old_sw(rev='e3982436c'):
     return subprocess.check_output(['git', 'show', rev + ':sw.js'], cwd=R)
 
 
+# img.src is a data URL of the one tile fetch. data-tile is the OpenStreetMap URL that fetch loaded.
 PAINTED = """() => window.TILE_ACTIVE==='osm'
   && document.querySelectorAll('#map img.leaflet-tile-loaded').length >= 4
-  && [...document.querySelectorAll('#map img.leaflet-tile-loaded')].every(i => i.src.includes('tile.openstreetmap.org') && i.naturalWidth > 0)
+  && [...document.querySelectorAll('#map img.leaflet-tile-loaded')].every(i => (i.getAttribute('data-tile')||i.src).includes('tile.openstreetmap.org') && i.naturalWidth > 0)
   && !window.maplibregl && !window.TILE_FAILOVER"""
 STATE = "() => ({active: window.TILE_ACTIVE, fo: window.TILE_FAILOVER||null, v: window.TILE_VECTOR||null, stats: window.TILE_STATS||null, lib: !!window.maplibregl, imgs: document.querySelectorAll('#map img.leaflet-tile-loaded').length})"
 
@@ -77,10 +78,12 @@ class Source(unittest.TestCase):
         self.assertNotIn("r.type==='opaque'){c.put", sw)
         self.assertIn('#map .leaflet-gl-layer,#map .leaflet-gl-layer *{pointer-events:none!important}', home)
         self.assertIn('pointer-events:none!important', css)
-        tag = 'tiles.js?v=h' + hashlib.sha256(tiles.encode()).hexdigest()[:12]
-        self.assertIn(tag, home)
-        self.assertIn(tag, sw)
+        q = 'tiles.js?v=h' + hashlib.sha256(tiles.encode()).hexdigest()[:12]
+        self.assertIn(q, home)
+        self.assertIn(q, sw)
         self.assertIn("const C='fyfb-v92'", sw)
+        self.assertNotIn('sw.js?v=57', home)
+        self.assertNotIn("const C='fyfb-v91'", sw)
 
 
 @unittest.skipUnless(HAVE, 'needs playwright webkit')
@@ -141,7 +144,7 @@ class IPhone(unittest.TestCase):
             threw = pg.evaluate("async () => { try { await fetch('https://tile.openstreetmap.org/5/15/10.png'); return false } catch (e) { return true } }")
             self.assertTrue(threw, 'old worker did not reproduce the opaque failure')
             holder['sw'] = None  # the new sw.js from this checkout
-            pg.goto(BASE + '/?nocount', wait_until='load')  # layers.js registers sw.js?v=57, a new worker
+            pg.goto(BASE + '/?nocount', wait_until='load')  # layers.js registers sw.js?v=<content hash>, a new worker
             self.assertTrue(until(pg, "async () => !(await caches.keys()).includes('fyfb-tiles') && (await caches.keys()).includes('fyfb-v92')", 30),
                             pg.evaluate('async () => await caches.keys()'))
             pg.reload(wait_until='load')

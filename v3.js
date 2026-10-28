@@ -54,15 +54,18 @@ const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*
  if(min>120)return'';
  return `<div class="v3wk">${IC('walk')}${B(`About ${min} min walk (est.)`,`Tua ${min} munud o gerdded (amcan.)`)}</div>`};
 const share=i=>`<button type="button" class="btn v3share" data-n="${e_(i.name)}" data-a="${e_(i.address)}${i.postcode&&!(i.address||'').includes(i.postcode)?', '+e_(i.postcode):''}" data-ll="${i.lat},${i.lng}">${B('Share / text this address','Rhannu / tecstio’r cyfeiriad hwn')}</button>`;
-const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink. <b>In danger? Call 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Call 999</a></span><details class="hlp"><summary>More free helplines</summary><ul><li><b>Shelter</b> housing advice (England): <a href="tel:08088004444">0808 800 4444</a>, Mon–Fri 8am–5pm</li><li><b>National Domestic Abuse Helpline</b> (England): <a href="tel:08082000247">0808 2000 247</a>, 24 hours</li><li><b>Live Fear Free</b> (Wales): <a href="tel:08088010100">0808 80 10 100</a>, 24 hours</li><li><b>Samaritans</b>: <a href="tel:116123">116 123</a>, 24 hours</li></ul></details>',
- '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink. <b>Mewn perygl? Ffoniwch 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Ffonio 999</a></span><details class="hlp"><summary>Rhagor o linellau cymorth am ddim</summary><ul><li><b>Shelter</b> cyngor tai (Lloegr): <a href="tel:08088004444">0808 800 4444</a>, Llun–Gwener 8am–5pm</li><li><b>Llinell Gymorth Genedlaethol Cam-drin Domestig</b> (Lloegr): <a href="tel:08082000247">0808 2000 247</a>, 24 awr</li><li><b>Byw Heb Ofn</b> (Cymru): <a href="tel:08088010100">0808 80 10 100</a>, 24 awr</li><li><b>Samaritans</b>: <a href="tel:116123">116 123</a>, 24 awr</li></ul></details>')}</div>`;
+const strip=()=>`<div class="v3sos" role="note">${B('<b>Sleeping rough, or worried about someone who is?</b> In England and Wales, tell StreetLink. <b>In danger? Call 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Call 999</a></span><details class="hlp"><summary>More free helplines</summary><ul><li><b>Shelter</b> housing advice (England): <a href="tel:08088004444" aria-label="Call 0808 800 4444">0808 800 4444</a>, Mon–Fri 8am–5pm</li><li><b>National Domestic Abuse Helpline</b> (England): <a href="tel:08082000247" aria-label="Call 0808 2000 247">0808 2000 247</a>, 24 hours</li><li><b>Live Fear Free</b> (Wales): <a href="tel:08088010100" aria-label="Call 0808 80 10 100">0808 80 10 100</a>, 24 hours</li><li><b>Samaritans</b>: <a href="tel:116123" aria-label="Call 116 123">116 123</a>, 24 hours</li></ul></details>',
+ '<b>Yn cysgu allan, neu’n poeni am rywun sydd?</b> Yng Nghymru a Lloegr, rhowch wybod i StreetLink. <b>Mewn perygl? Ffoniwch 999.</b><span class="sosb"><a class="sosl" href="https://streetlink.org.uk" target="_blank" rel="noopener">streetlink.org.uk</a><a class="sosl s999" href="tel:999">'+IC('phone')+'Ffonio 999</a></span><details class="hlp"><summary>Rhagor o linellau cymorth am ddim</summary><ul><li><b>Shelter</b> cyngor tai (Lloegr): <a href="tel:08088004444" aria-label="Ffoniwch 0808 800 4444">0808 800 4444</a>, Llun–Gwener 8am–5pm</li><li><b>Llinell Gymorth Genedlaethol Cam-drin Domestig</b> (Lloegr): <a href="tel:08082000247" aria-label="Ffoniwch 0808 2000 247">0808 2000 247</a>, 24 awr</li><li><b>Byw Heb Ofn</b> (Cymru): <a href="tel:08088010100" aria-label="Ffoniwch 0808 80 10 100">0808 80 10 100</a>, 24 awr</li><li><b>Samaritans</b>: <a href="tel:116123" aria-label="Ffoniwch 116 123">116 123</a>, 24 awr</li></ul></details>')}</div>`;
 const shutToday=(layer,i,now)=>{now=clockNow(now);if(i.upcoming)return true;if(i.call_check)return false;const s=sched(layer,i);const day=s&&s[now.getDay()];return !!(day&&!day.length)};  // explicit closed only; a day that is not listed stays on the list. ?testdate= uses pageNow.
 const openTodayL=(layer,i,now)=>{now=clockNow(now);if(i.upcoming||i.call_check)return false;const s=sched(layer,i);return !!(s&&(s[now.getDay()]||[]).length)};
 window.V3={sched,status,badge,walk,share,strip,shutToday,openTodayL};
 // ---- food bank card + pop-up: status first, walking time, share. Donation-only sites get no open/closed badge (no client hours).
 const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div class="d">[^<]*<\/div>)/,'$1'+add):h.replace(/(<\/h3>)/,'$1'+add);
 const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return insAfterD(h,walk(d));
- h=badge('fb',i)+insAfterD(h,walk(d));return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};
+ h=badge('fb',i)+insAfterD(h,walk(d));
+ /* 28 Oct QA F3: a no-phone card's only contact button (Facebook "Send a message") sat after Share, below the fold of the mobile sheet. It now comes straight after Directions, before Share. */
+ const fbm=h.match(/<a class="btn call xfbk"[\s\S]*?<\/a>/);if(fbm)h=h.replace(fbm[0],'');
+ return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+(fbm?fbm[0]:'')+share(i))};
 const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i)).replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};  // Dean 25 Oct design lock: pop-up has Share too
 const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
  const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
@@ -80,7 +83,7 @@ const ukH=()=>{const q=new URLSearchParams(location.search).get('clock');if(q&&/
  const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());return +p.find(x=>x.type==='hour').value+(+p.find(x=>x.type==='minute').value)/60};
 window.V3.ukH=ukH;
 
-function mark(k){document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){};document.querySelectorAll('#chips [data-f]').forEach(e=>{e.classList.toggle('v3off',k!=='fb');e.inert=k!=='fb';e.setAttribute('aria-disabled',String(k!=='fb'))});['fwrap','ftab','fhide'].forEach(id=>{const e=document.getElementById(id);if(e){e.inert=false;e.classList.remove('v3off');e.removeAttribute('aria-disabled')}})}  /* 25 Oct live bug: only the food-bank-only chips dim; the ✕ and the Filters tab always work */  // round 4: food bank filters dim (not vanish) for the other types: no blank gap, no shift  // round 2: filter row lives above the results (below the map), so hiding it never moves the buttons or the map
+function mark(k){document.documentElement.dataset.v3k=k;/* 28 Oct QA B1: CSS shows only the chosen type's 'Nearest' list */document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){};document.querySelectorAll('#chips [data-f]').forEach(e=>{e.classList.toggle('v3off',k!=='fb');e.inert=k!=='fb';e.setAttribute('aria-disabled',String(k!=='fb'))});['fwrap','ftab','fhide'].forEach(id=>{const e=document.getElementById(id);if(e){e.inert=false;e.classList.remove('v3off');e.removeAttribute('aria-disabled')}})}  /* 25 Oct live bug: only the food-bank-only chips dim; the ✕ and the Filters tab always work */  // round 4: food bank filters dim (not vanish) for the other types: no blank gap, no shift  // round 2: filter row lives above the results (below the map), so hiding it never moves the buttons or the map
 function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed')==='true';
  ['fb','sh','ws'].forEach(x=>{const b=document.querySelector(`.xt[data-l=${x}]`);if(b&&on(b)!==(x===k))b.click()});
  mark(k);if(noGo)return;window.__go=false;
@@ -97,7 +100,8 @@ const pl=document.createElement('div');pl.id='v3pill';pl.setAttribute('aria-live
 let busyT=0;function busy(k){const b=big.querySelector(`.v3b[data-l=${k}]`);big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});
  if(!b)return;b.classList.add('v3busy');b.setAttribute('aria-busy','true');clearTimeout(busyT);busyT=setTimeout(()=>pill(k),8000)}
 const tgt=k=>document.getElementById(k==='fb'?'list':'xlist');
-function pill(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];pl.innerHTML=`<span class="v3ph">${B(`Showing ${W0[0]}. Enter a postcode or town above, or tap the pin, to see the nearest.`,`Yn dangos ${W0[1]}. Rhowch god post neu dref uchod, neu tapiwch y pin, i weld y rhai agosaf.`)}</span>`;flash();return}
+function pill(k,auto){if(auto&&window.__v3err)return;  /* 28 Oct QA B2: list redraws never hide a search error */
+ k=k||window.v3focus||'fb';const t=tgt(k);if(!t||!LN()){const W0={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];pl.innerHTML=`<span class="v3ph">${B(`Showing ${W0[0]}. Enter a postcode or town above, or tap the pin, to see the nearest.`,`Yn dangos ${W0[1]}. Rhowch god post neu dref uchod, neu tapiwch y pin, i weld y rhai agosaf.`)}</span>`;flash();return}
  const n=t.querySelectorAll('.card').length;if(k!=='fb'&&!n&&!t.textContent.trim())return;  // layer data still loading: stay busy, the observer calls again
  big.querySelectorAll('.v3b').forEach(x=>{x.classList.remove('v3busy');x.removeAttribute('aria-busy')});clearTimeout(busyT);
  const W={fb:['food banks','banc bwyd'],ws:['warm spaces','man cynnes'],sh:['shelters','lloches']}[k];
@@ -121,7 +125,7 @@ function scrollList(k){k=k||window.v3focus||'fb';const t=tgt(k);if(!t)return fal
 window.v3scrollList=scrollList;
 pl.addEventListener('click',e=>{const a=e.target.closest('a.v3pl');if(!a)return;e.preventDefault();if(!tgt(window.v3focus))return;scrollList(window.v3focus);
  const c=t.querySelector('.card a,.card button,.card h3');if(c)setTimeout(()=>{(t.querySelector('.lh')||t).setAttribute('tabindex','-1');(t.querySelector('.lh')||t).focus({preventScroll:true})},400)});
-{const ob=new MutationObserver(()=>{if(LN())pill(window.v3focus)});['list','xlist'].forEach(id=>{const e=document.getElementById(id);if(e)ob.observe(e,{childList:true})})}
+{const ob=new MutationObserver(()=>{if(LN())pill(window.v3focus,true)});['list','xlist'].forEach(id=>{const e=document.getElementById(id);if(e)ob.observe(e,{childList:true})})}
 big.addEventListener('click',e=>{const b=e.target.closest('.v3b');if(b)want(b.dataset.l)});
 big.addEventListener('keydown',e=>{const ks=['fb','ws','sh'],b=e.target.closest('.v3b');if(!b)return;let i=ks.indexOf(b.dataset.l);
  if(['ArrowDown','ArrowRight'].includes(e.key))i=(i+1)%3;else if(['ArrowUp','ArrowLeft'].includes(e.key))i=(i+2)%3;else if(e.key==='Home')i=0;else if(e.key==='End')i=2;else return;
@@ -163,7 +167,8 @@ addEventListener('load',()=>setTimeout(()=>{if(LN())return;let s=null;try{s=JSON
 // ---- map no longer hijacks the page scroll: wheel zoom only after a click/focus on the map, off again when the pointer leaves
 try{map.options.wheelPxPerZoomLevel=180;map.options.wheelDebounceTime=80;map.scrollWheelZoom.disable();const mc=map.getContainer();map.on('click focus',()=>map.scrollWheelZoom.enable());mc.addEventListener('mouseleave',()=>map.scrollWheelZoom.disable());mc.addEventListener('blur',()=>map.scrollWheelZoom.disable())}catch(e){}
 // ---- desktop (>=1024px): map and results side by side; phones keep the single column (CSS in v3.css)
-{const m=document.getElementById('map'),sp=document.createElement('div'),col=document.createElement('div');sp.id='v3split';col.id='v3col';m.before(sp);sp.append(m,col);
+// 27 Oct 2026: moving the map into the split runs one frame later, so the header rebuild above and the map move are separate iPhone frames.
+requestAnimationFrame(()=>setTimeout(()=>{const m=document.getElementById('map'),sp=document.createElement('div'),col=document.createElement('div');sp.id='v3split';col.id='v3col';m.before(sp);sp.append(m,col);
  let n=sp.nextElementSibling;while(n&&!(n.classList&&n.classList.contains('share'))&&n.tagName!=='FOOTER'){const nx=n.nextElementSibling;col.append(n);n=nx}
  const xb=document.getElementById('xbefore'),fw=document.getElementById('fwrap'),ft=document.getElementById('ftab'),chg=document.getElementById('v3chg');
  col.prepend(chg);  // round 3 (Dean): filters, 'Always call' and List only/Light mode back above the map, right under the type buttons
@@ -171,14 +176,14 @@ try{map.options.wheelPxPerZoomLevel=180;map.options.wheelDebounceTime=80;map.scr
     if(ot){const vr=document.getElementById('v3res'),mq=matchMedia('not all'),place=()=>{if(mq.matches){if(ot.parentElement!==vr)vr.prepend(ot)}else if(ot.parentElement!==fl)fl.insertBefore(ot,tl)};place();mq.addEventListener('change',place)}  // MD4: Open today sits with the chips where it fits (>=340px); below 340px it stays above the list so the map isn't pushed down
     const pr=document.createElement('div');pr.id='v3prow';fl.after(pr);pr.append(pl)}  // filters + 'Always call' + tools stay directly under the type buttons (Dean); pill row follows
  const xl=document.getElementById('xlist'),so=document.getElementById('v3sos');if(xl&&so)xl.before(so);
- setTimeout(()=>map.invalidateSize(),0);matchMedia('(min-width:1024px)').addEventListener('change',()=>setTimeout(()=>map.invalidateSize(),50))}
+ setTimeout(()=>map.invalidateSize(),0);matchMedia('(min-width:1024px)').addEventListener('change',()=>setTimeout(()=>map.invalidateSize(),50))},0));
 
 // ---- round 4: messages never push the map; offline helpers
 (function(){const note=document.createElement('div');note.id='v3note';note.setAttribute('role','status');note.setAttribute('aria-live','polite');
  const chg=document.getElementById('v3chg');(chg||document.getElementById('v3res')).after(note);
  const om=window.msg;window.msg=function(t,err){om.apply(this,arguments);const has=!!t;
-  if(err&&has){pl.innerHTML=`<span class="v3err" role="alert">${e_(t)}</span>`;  // errors take the reserved pill slot: no layout shift
-   const L=document.querySelector('#list>.lh');if(L&&!document.getElementById('v3stale')&&LN()){const d=document.createElement('div');d.id='v3stale';d.className='v3stale';d.textContent=(LG()==='cy'?'Canlyniadau blaenorol (ni weithiodd y chwiliad newydd)':'Earlier results (the new search didn’t work)');L.before(d)}}
+  window.__v3err=!!(err&&has);
+  if(err&&has){pl.innerHTML=`<span class="v3err" role="alert">${e_(t)}</span>`}  // errors take the reserved pill slot: no layout shift. A failed search clears the old results first (index.html noResults, 28 Oct QA B2)
   else if(has&&/^Searching|^Finding|^Chwilio/.test(t)){pl.innerHTML=`<span class="v3ph">${e_(t)}</span>`}
   else{note.textContent=t||'';note.hidden=!t}};
  note.hidden=true})();
