@@ -44,7 +44,9 @@ def _row(i, pr, now, secrets):
         return dict(id=private_block.safe_id(i, secrets), name='', postcode='', source='', why=['private details — not published'], held_on=now)
     return dict(id=i['id'], name=i.get('name'), postcode=i.get('postcode'), source=i.get('source_url') or i.get('website'), why=pr, held_on=now)
 def gate(layer, ref='HEAD'):
-    gate.last_privacy = False
+    """A held hand file or a rejected schema_version blocks the publish (gate.blocked, non-zero exit), but the
+    new-place, phone and private-blocklist checks still run, so nothing they hold can reach the map."""
+    gate.last_privacy = False; gate.blocked = ''
     f = os.path.join(ROOT, FILES[layer])
     secrets = private_block.entries()
     try:
@@ -56,12 +58,12 @@ def gate(layer, ref='HEAD'):
     import override_check
     ok_files, why = override_check.assess(ROOT)
     if not ok_files:
-        print('publish gate: ' + why); return []
+        gate.blocked = why; print('publish gate: ' + why + ' - publish blocked')
     pre, d, post = split(open(f).read()); keep, held = [], []
     import schema_version
     if layer == 'foodbanks' and not schema_version.accepts(d.get('schema_version')):
-        print('publish gate: schema_version %r is not accepted' % d.get('schema_version'))
-        return []
+        gate.blocked = 'schema_version %r is not accepted' % d.get('schema_version')
+        print('publish gate: ' + gate.blocked + ' - publish blocked')
     ok = auto_rules.approved(layer, ROOT)
     import phone_lock
     dirty = False
@@ -120,4 +122,6 @@ def check():
     print('unlisted gaps:', bad or 'none'); return 1 if bad else 0
 if __name__ == '__main__':
     if sys.argv[1] == 'check': sys.exit(check())
-    gate(sys.argv[1]); sys.exit(1 if gate.last_privacy else 0)
+    gate(sys.argv[1])
+    if gate.blocked: sys.exit(1)
+    sys.exit(1 if gate.last_privacy else 0)
