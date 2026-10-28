@@ -149,6 +149,9 @@ const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=or
  map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
  const fit=()=>{const k=window.v3focus,fx=window._fitX&&window._fitX[k],B=(k==='ws'||k==='sh')&&fx&&innerWidth<1024?fx:window._fitB;if(B){map.invalidateSize();map.fitBounds(B,{animate:false})}};/* phones: fit the LISTED type results (never filters anything) */fit();clearTimeout(window._refitT);window._refitT=setTimeout(fit,250);return r};  /* window._refitT: a later deliberate map move (e.g. the emergency banner) cancels this delayed re-fit */  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
+// a ?q= search can land before this file runs (postcodes.io answers while the parser is still fetching scripts): it went to the unwrapped
+// nearest(), so lastPos was never set and a shelter/warm space layer switched on later never listed anything near that place
+try{if(!lastPos&&typeof lastNear!=='undefined'&&lastNear)nearX(lastNear[0],lastNear[1],lastNear[2])}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];
  for(const k of ['sh','ws']){try{const d=await load(k);const c=d.recently_closed||[];parts.push(`<div class="lh">${t(k)}</div>`+(c.length?c.map(i=>`<p><b>${esc(i.name)}</b>, ${esc(i.postcode)}<br><span class="sub">${esc(vreason(i.closed_reason))} · ${fmt(i.closed_on)}</span></p>`).join(''):`<p class="sub">${t('noClosed')}</p>`))}catch(_){}}

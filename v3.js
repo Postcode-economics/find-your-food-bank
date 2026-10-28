@@ -128,7 +128,7 @@ big.addEventListener('keydown',e=>{const ks=['fb','ws','sh'],b=e.target.closest(
  e.preventDefault();const n=big.querySelector(`.v3b[data-l=${ks[i]}]`);n.focus();want(ks[i])});
 // restore the last chosen button (works offline: localStorage only)
 {let k=null;try{k=localStorage.getItem('v3layer')}catch(e){}if(!['fb','ws','sh'].includes(k))k='fb';
- mark(k);setTimeout(()=>want(k,true),0)}
+ mark(k);window.v3focus=k;setTimeout(()=>want(k,true),0)}  // focus set now: the first status line (setTimeout pill above) must name the saved type, not food banks
 // ---- shelters emergency strip: always visible while the shelters layer is on
 const shB=document.querySelector('.xt[data-l=sh]');const syncSos=()=>{sos.hidden=!(shB&&shB.getAttribute('aria-pressed')==='true')};
 if(shB)new MutationObserver(syncSos).observe(shB,{attributes:true,attributeFilter:['aria-pressed']});syncSos();
