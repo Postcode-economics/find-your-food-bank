@@ -74,7 +74,10 @@
   "sign_url": "https://www.warmwelcome.uk/find-a-space",
   "sign": "Warm Welcome listing updated 2026-10-13 (2026-27 season); no independent day/time page found",
   "listing_updated": "2026-10-13",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "ymcayorks.uk/opening-times: only 'Community Hub including Paypoint, Parcel Collections Monday to Friday – 9am – 8pm Saturday – 9am – 5pm', not described as the warm space (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
  },
  "ww-65441837": {
   "name": "BCG Community Hub",
@@ -123,7 +126,10 @@
   "sign_url": "https://www.warmwelcome.uk/find-a-space",
   "sign": "Warm Welcome listing updated 2026-10-17 (2026-27 season); no independent day/time page found",
   "listing_updated": "2026-10-17",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "bcnchurch.org.uk: 'Coffee Morning currently has no content'; no listed times on page (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
  },
  "ww-69177710": {
   "name": "Community Support Warm Welcome",
@@ -144,7 +150,10 @@
   "sign_url": "https://www.warmwelcome.uk/find-a-space",
   "sign": "Warm Welcome listing updated 2026-10-10 (2026-27 season); no independent day/time page found",
   "listing_updated": "2026-10-10",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "eightonbanksvillagehall.org: only 'Monthly Coffee morning', no Tue/Wed 10-12 (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
  },
  "ww-69062943": {
   "name": "Folkestone Library",
@@ -179,7 +188,10 @@
   "sign_url": "https://www.warmwelcome.uk/find-a-space",
   "sign": "Warm Welcome listing updated 2026-09-23 (2026-27 season); no independent day/time page found",
   "listing_updated": "2026-09-23",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "hcacommunity.org.uk: only 'Office Hours: Monday - Friday, 9:30am - 3.30pm' vs listed 9-22 daily (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
  },
  "ww-68990442": {
   "name": "Hope URC Denton",
@@ -193,7 +205,10 @@
   "sign_url": "https://www.warmwelcome.uk/find-a-space",
   "sign": "Warm Welcome listing updated 2026-10-06 (2026-27 season); no independent day/time page found",
   "listing_updated": "2026-10-06",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "hlcdartford.uk: no Men's Health session or Tue 13:00-15:00 time on the site (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
  },
  "ww-69038953": {
   "name": "NAN activity space/meeting room",
@@ -221,7 +236,10 @@
   "sign_url": "https://www.warmwelcome.uk/find-a-space",
   "sign": "Warm Welcome listing updated 2026-10-15 (2026-27 season); no independent day/time page found",
   "listing_updated": "2026-10-15",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "srcdc.org.uk: Mon/Thu 10-12 are 'weekly parents and toddler sessions (Monday 10am-12pm & Thursday 10am – 12pm)', not a warm space (fetched twice 27 Oct 2026)"
  },
  "ww-69208997": {
   "name": "St Albans Centre",
@@ -346,7 +364,9 @@
   "listing_updated": "2025-10-23",
   "checked_on": "2026-10-23",
   "scheme_start": "2026-09-09",
-  "scheme_dates": "Running since 9 Sep 2026 (own site)"
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "call_check": true,
+  "flag": "crossways.info: 'Our Community Cafe is closed for the Summer Holidays. We shall re-open ... on Wednesday 9th September 2026.' No Wed 12:00-14:30 time stated (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
  },
  "ww-62730894": {
   "name": "Darfield Church Hall",
@@ -381,7 +401,8 @@
   "sign_url": "https://www.inspireculture.org.uk/retford",
   "sign": "venue page live in 2026 and mentions the warm space",
   "listing_updated": "2025-12-22",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "audit_27oct": "inspireculture.org.uk Retford page: 'General enquiries Phone: 01623 677 200' (Inspire libraries line, not council) (fetched twice, 28 Oct 2026 00:00/00:02 GMT) Same number as the Dean-approved library service line in warmspaces_contacts.json (26 Oct), which supplies the phone."
  },
  "ww-55473794": {
   "name": "Seaview Project",
@@ -437,7 +458,10 @@
   "sign_url": "https://www.newquaymethodist.org",
   "sign": "r baby want to tell you? Stage 2 (14-30 months) at 10:15 Stage 1 [...] More Info Community Showers Tuesday 6th October 2026 14:00 - 15:00 The Oasis The Oasis A warm space, open to all. No Charge for use of shower, no need to book just turn up. We offer hygiene products and towels [...] More Info Com",
   "listing_updated": "2026-04-30",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "newquaymethodist.org/events: no Tue-Fri 10-15 or Sun 10-13 warm space in calendar (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
  },
  "ww-64379220": {
   "name": "Together We Thrive",
@@ -458,7 +482,10 @@
   "sign_url": "https://stmargaretschurchbarking.com/",
   "sign": "venue page live in 2026 and mentions the warm space",
   "listing_updated": "2026-01-27",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "FOR DEAN: listing name is a person ('Vicar Mark Adams'); venue is St Margaret's Church Barking. stmargaretschurchbarking.com shows 'Rough Sleepers Breakfast', not described as a warm space (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
  },
  "ww-63610903": {
   "name": "VineCCL Coffee Morning",
@@ -472,7 +499,10 @@
   "sign_url": "https://www.emmanuelww.org.uk",
   "sign": "venue page live in 2026 and mentions the warm space",
   "listing_updated": "2026-01-19",
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-10-21",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "emmanuelww.org.uk day-to-day: no Friday 10-16 warm welcome listed (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
  },
  "ww-62729499": {
   "name": "Warm welcome",
@@ -835,7 +865,11 @@
   "sign_url": "https://www.sbadc.org.uk",
   "sign": "SBADC site: 'The Hub is temporarily closed whilst the building work at the Old School Community Centre take place – due to reopen in November'; Warm Welcome listing: reopen 1 Nov 2026, weekdays 9.30–12.30",
   "day_time_quote": "",
-  "checked_on": "2026-10-23"
+  "checked_on": "2026-10-23",
+  "call_check": true,
+  "scheme_dates": "Call before you go – closed for building works, due to reopen in November",
+  "flag": "sbadc.org.uk: 'The Hub is temporarily closed whilst the building work at the Old School Community Centre take place – due to reopen in November!' (fetched twice, 28 Oct 2026 00:00/00:02 GMT)",
+  "scheme_dates_lock": true
  },
  "ww-69208833": {
   "name": "Kings Baptist Church",
@@ -850,5 +884,181 @@
   "sign": "Daily sweep: listed on Melton Borough Council (page says updated 2026-07-23); Storehouse Hope Centre 42-44 Nottingham Street, Melton Mowbray",
   "day_time_quote": "Storehouse Hope Centre 42-44 Nottingham Street, Melton Mowbray",
   "checked_on": "2026-10-23"
+ },
+ "ww-55473520": {
+  "name": "St Helen's Church Northwich",
+  "sign_url": "https://www.achurchnearyou.com/church/6775/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "phone": "01606 42943",
+  "audit_27oct": "phone was misformatted '0160 642 943'; achurchnearyou.com/church/6775/: 'Get in touch 01606 42943' (fetched twice, 27 Oct 2026)"
+ },
+ "ww-55473766": {
+  "name": "Home Space - Trinity Church Nottingham",
+  "sign_url": "https://trinitychurchnottingham.org/compassion",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "trinitychurchnottingham.org/compassion: 'After five years, our Home Space drop-in on a Wednesday afternoon has come to an end.' (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-65420022": {
+  "name": "St Mary's Church Hall",
+  "sign_url": "https://www.earlham.church/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "earlham.church: Monday is 'Toddler Group Every Monday in term time, 9.15 - 11.30am at St Mary's Church Hall', not the warm space (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-57952336": {
+  "name": "Community Hub",
+  "sign_url": "https://www.rowsleyvillagehall.org",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "rowsleyvillagehall.org: 'Community Hub | Every Tuesday ... 01/05/2026 31/07/2026' - may have ended, no times (fetched twice 27 Oct 2026)"
+ },
+ "ww-67506955": {
+  "name": "Green Synergy Community Warm and Cool Space",
+  "sign_url": "https://greensynergy.org.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "greensynergy.org.uk: 'On a Monday we offer a Lunch Club, between 11am and 1pm' (listed Mon 10-12); Thu 13-15 not on page; post dated Dec 2023 (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
+ },
+ "ww-55475166": {
+  "name": "Bentilee Volunteers",
+  "sign_url": "http://www.bentileevolunteers.org.uk",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – temporarily on hold",
+  "flag": "bentileevolunteers.org.uk/upcycling: 'THIS GROUP IS TEMPORARILY ON HOLD/CLOSED' (fetched twice, 28 Oct 2026 00:00/00:02 GMT)"
+ },
+ "ww-59951280": {
+  "name": "Wellness Hub At St Laurence's Church",
+  "sign_url": "https://www.stlaurencechorley.co.uk/Articles/698575/Wellness_Hub.aspx",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "stlaurencechorley.co.uk: listed Mon 17:00-17:30 is 'Open Table Every Monday 5-5.30pm ... free homecooked hot meal', not the warm space (the warm space is Taste cafe; not added in this PR) (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-55475350": {
+  "name": "Morden Leisure Centre",
+  "sign_url": "https://www.better.org.uk/healthy-communities/warm-spaces?gad_source=1&gclid=EAIaIQobChMIlofh2bKlggMVv4pQBh1ZMAzIEAAYASAAEgLXOfD_BwE&gclsrc=aw.ds",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "better.org.uk warm spaces page: the 'Mondays, Wednesdays & Fridays 1pm-3pm' belong to 'St Austell Leisure Centre'; Morden is named with no times (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-57953021": {
+  "name": "Warm Space at Royston Museum",
+  "sign_url": "https://www.roystonmuseum.org.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "roystonmuseum.org.uk: no warm-space mention; museum open 'Thursday to Sunday 10am to 4pm' (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-63353220": {
+  "name": "Circle Funerals",
+  "sign_url": "https://circlefunerals.co.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "circlefunerals.co.uk: funeral director; no warm-space session ('Our premises are warm, calm, and easy to find') (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-55473488": {
+  "name": "St Andrew's CE Parish Church, Wolverhampton WV6 0QZ",
+  "sign_url": "https://www.achurchnearyou.com/church/4642/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Check with the church before you go",
+  "flag": "FOR DEAN: listed phone 01543 306147 is the Diocese of Lichfield safeguarding advisor's number (achurchnearyou.com/church/4642/: 'Diocesan Safeguarding Advisor, Neil Spiring on 01543 306147'). No data override can hide a phone on a tier-2 warm space, so the number still shows: needs a code change. The churchwarden's personal mobile was deliberately not added (fetched twice, 28 Oct 2026 00:07/00:08 GMT)"
+ },
+ "ww-57951889": {
+  "name": "St. Francis of Assisi Church, Ingleby Barwick",
+  "sign_url": "https://www.achurchnearyou.com/church/19363/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "phone": "07876 372274",
+  "audit_27oct": "achurchnearyou.com/church/19363/get-in-touch/: 'Get in touch 07876372274' (listing had 07821 153701) (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
+ },
+ "ww-64432678": {
+  "name": "The One Love Project",
+  "sign_url": "https://theoneloveproject.co.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "flag": "FOR DEAN: listed phone 07939 901047 is not on theoneloveproject.co.uk (email only: info@theoneloveproject.co.uk); kept, unverified. Wed should end 14:00 ('every Wednesday from 11am – 2pm') but tier-2 hours have no override (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
+ },
+ "ww-57951802": {
+  "name": "St Botolph's Church",
+  "sign_url": "https://parish-of-boston.org.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "parish-of-boston.org.uk: 'Monday – Friday 9am – 3pm Saturday 10am – 4pm Sunday 10am – 2pm' are church opening times, not stated as warm-space hours (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
+ },
+ "ww-57952849": {
+  "name": "Willerby methodist church",
+  "sign_url": "https://www.willerbymc.org.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "willerbymc.org.uk: no Wed/Fri warm-space times on the site (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
+ },
+ "ww-65437525": {
+  "name": "Community Warm Space",
+  "sign_url": "https://clackmannandevelopmenttrust.org/community/community-space-and-one-stop-shop/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "clackmannandevelopmenttrust.org/events: 'There are no upcoming events'; last Community Space dated March 2024 (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
+ },
+ "ww-57951784": {
+  "name": "Delves Community Hall",
+  "sign_url": "https://www.redemptionhill.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "redemptionhill.uk/locations/the-delves: only 'We meet every Sunday at 10:45am'; no Tue 18-20 session (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
+ },
+ "ww-65441920": {
+  "name": "The King's Church Halifax",
+  "sign_url": "https://kingschurchhx.org.uk/",
+  "checked_on": "2026-10-23",
+  "discovered_via": "Warm Welcome",
+  "sign": "Own site names it, shows its postcode and describes the service (auto-discovered, 2026-10-23)",
+  "call_check": true,
+  "scheme_dates": "Call before you go – warm space times not confirmed on its own page",
+  "flag": "Now Cornerstone Church Halifax; cornerstonechurchhalifax.co.uk: King's Coffee House '9:00am - 2:00pm Monday – Friday' (listed 08:30-14:30); no warm space named (fetched twice, 28 Oct 2026 00:11-00:14 GMT)"
  }
 }

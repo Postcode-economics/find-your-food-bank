@@ -133,7 +133,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             elif rc: x["fetched_at"] = rc.get("fetched_at")
             if rc and rc.get("ok") and not grace: x["last_verified"] = run_day
             if u.get("access_type"): x["access_type"] = u["access_type"]
-            for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "call_check"):  # hand-checked fixes on tier-2 entries persist every run
+            for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "scheme_dates_lock", "call_check"):  # hand-checked fixes on tier-2 entries persist every run
                 if u.get(k): x[k] = u[k]
             pub.append(x)
         else:
