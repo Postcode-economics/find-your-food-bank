@@ -9,5 +9,23 @@
   "council": "City of York Council Housing Options Team office (James House)",
   "source": "https://www.york.gov.uk/homelessness/temporary-accommodation-york",
   "quote": "You must be referred to the accommodation by our Housing Options Team. Our office is based at James House, James Street, York, YO10 3WW. Telephone 01904 553626."
+ },
+ "_ooh_confirmed": {
+  "_about": "Council lines kept as out-of-hours lines: either the council's own page names them as its out-of-hours line (quote, read twice 28 Oct 2026), or Dean approved the number by name. Never a shelter's own phone.",
+  "020 8496 3000": {
+   "council": "Waltham Forest Council",
+   "source": "https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/help-if-you-are-homeless-or-about-become-homeless",
+   "quote": "Out of hours, you can call 020 8496 3000 or go to your local police station."
+  },
+  "0300 123 7718": {
+   "council": "Spelthorne Council",
+   "source": "https://www.spelthorne.gov.uk/page/1376/homelessness",
+   "quote": "If you have nowhere to stay and the offices are closed, please call our emergency out of hours on 0300 123 7718."
+  },
+  "03448 920 908": {
+   "council": "Housing Executive (NIHE)",
+   "approved_by": "Dean Goff, 27 Oct 2026 (council_note on scni-armagh / scni-portadown in overrides/shelters_contacts.json)",
+   "own_page_check": "28 Oct 2026: not shown on https://www.armaghbanbridgecraigavon.gov.uk/contact-us/; https://www.nihe.gov.uk/housing-help/homelessness/emergency-out-of-hours returned 403. Kept on Dean's by-name approval only."
+  }
  }
 }

@@ -17,21 +17,28 @@ def known(root=ROOT):
         if not n.startswith("_"): k[digits(n)] = dict(v, why="known council general number")
     c = os.path.join(root, "overrides", "shelters_contacts.json")
     C = json.load(open(c)) if os.path.exists(c) else {}
+    # council_phone equal to council_ooh is that council's out-of-hours line stored in both fields, not a daytime line
     for area, v in (C.get("_councils") or {}).items():
-        if v.get("council_phone"): k.setdefault(digits(v["council_phone"]), {"council": v.get("council"), "source": v.get("council_url"), "why": "council daytime/main line (" + area + ")"})
+        if v.get("council_phone"): k.setdefault(digits(v["council_phone"]), {"council": v.get("council"), "source": v.get("council_url"), "why": "council daytime/main line (" + area + ")",
+                                                                              "ooh": digits(v["council_phone"]) == digits(v.get("council_ooh"))})
     for i, v in C.items():
         if not i.startswith("_") and isinstance(v, dict) and v.get("council_phone"):
-            k.setdefault(digits(v["council_phone"]), {"council": v.get("council"), "source": v.get("council_url"), "why": "council daytime/main line"})
+            k.setdefault(digits(v["council_phone"]), {"council": v.get("council"), "source": v.get("council_url"), "why": "council daytime/main line",
+                                                      "ooh": digits(v["council_phone"]) == digits(v.get("council_ooh"))})
     return k
 def check(items, root=ROOT):
     K = known(root); out = []
     for x in items:
-        for n in numbers(x.get("phone")):
-            if n in K: out.append({"id": x["id"], "name": x.get("name"), "field": "phone", "number": x.get("phone"), **K[n]})
+        for n in numbers(x.get("phone")):  # a shelter's own phone must not be any council line, out-of-hours included
+            if n in K:
+                f = {k: v for k, v in K[n].items() if k != "ooh"}
+                if K[n].get("ooh"): f["why"] = "council out-of-hours line shown as the shelter's own phone"
+                out.append({"id": x["id"], "name": x.get("name"), "field": "phone", "number": x.get("phone"), **f})
         for fld in ("council_ooh", "council_phone"):  # the published council line must be an out-of-hours one, never the daytime main line
-            if x.get(fld) and digits(x[fld]) in K:
-                out.append({"id": x["id"], "name": x.get("name"), "field": fld, "number": x[fld], **K[digits(x[fld])],
-                            "why": "shown as the out-of-hours line but is " + K[digits(x[fld])]["why"]})
+            n = digits(x.get(fld))
+            if x.get(fld) and n in K and not K[n].get("ooh"):
+                out.append({"id": x["id"], "name": x.get("name"), "field": fld, "number": x[fld], **{k: v for k, v in K[n].items() if k != "ooh"},
+                            "why": "shown as the out-of-hours line but is " + K[n]["why"]})
     seen, uniq = set(), []
     for f in out:
         k = (f["id"], digits(f["number"]))
