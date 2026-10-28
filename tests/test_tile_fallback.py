@@ -208,7 +208,13 @@ class Browser(unittest.TestCase):
         os.makedirs(SHOTS, exist_ok=True)
         with sync_playwright() as p:
             b = self._chrome(p)
-            c = B.new_context(b, viewport={'width': 1100, 'height': 800}, color_scheme='dark', service_workers='block')
+            # The default (placeholder stub) path; HELPMAP_OFFLINE_TILES routes are checked in test_offline_tiles.
+            saved = {k: os.environ.pop(k, None) for k in ('HELPMAP_OFFLINE_TILES', 'HELPMAP_REAL_TILES')}
+            try:
+                c = B.new_context(b, viewport={'width': 1100, 'height': 800}, color_scheme='dark', service_workers='block')
+            finally:
+                os.environ.update({k: v for k, v in saved.items() if v is not None})
+            self.assertFalse(hasattr(c, 'offline_tile_stats'))
             pg = c.new_page()
             failed, tiles = [], []
 
