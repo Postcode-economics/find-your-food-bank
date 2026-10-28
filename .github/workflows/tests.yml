@@ -138,7 +138,12 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - uses: ./.github/actions/offline-tiles
-      - run: test -x /usr/bin/google-chrome && python -m pytest -q tests -rs
+      - run: python -m pytest -q tests -rs
+      # Chrome binary guard: the Chrome checks skip themselves without /usr/bin/google-chrome, so the job must not go green
+      # without it. A separate step so pytest is still started on its own (test_iphone_journeys Wiring).
+      - name: Chrome binary guard
+        if: always()
+        run: test -x /usr/bin/google-chrome || { echo "::error::/usr/bin/google-chrome missing; the Chrome browser tests were skipped"; exit 1; }
   design-lock:
     needs: changes
     if: needs.changes.outputs.design == '1'
