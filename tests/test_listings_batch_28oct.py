@@ -5,7 +5,7 @@ def J(p): return json.load(open(os.path.join(ROOT, p), encoding="utf-8"))
 def items():
     t = open(os.path.join(ROOT, "data.full.js"), encoding="utf-8").read()
     return {i["id"]: i for i in json.loads(t[t.index("{"):t.rindex("}") + 1])["items"]}
-REMOVED = ("salvation-army/blackburn", "salvation-army/saltcoats", "salvation-army/teignmouth")
+REMOVED = ("salvation-army/blackburn", "salvation-army/saltcoats", "salvation-army/teignmouth", "luton/marsh-farm")
 class Removals(unittest.TestCase):
     def test_removed_and_excluded_with_reason(self):
         d = items(); ex = {e["slug"]: e for e in J("overrides/foodbank_exclude.json")["foodbanks"]}

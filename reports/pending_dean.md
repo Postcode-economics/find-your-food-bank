@@ -410,4 +410,8 @@ Every change is in logs/listings_batch_28oct.json with the old value (undo). Not
 - `st-ives-cambridgeshire`, `the-hive`, `storehouse-melton`: labelled 'Contact by email (no public phone)' with the email from their own page. The stored phone (not on their page) is still shown: remove it?
 - Not on their food bank's current /locations/ list (re-checked 28 Oct; labelled call before you go, NOT removed): Horsham Lavinia House, St Mary's Church, Hub on the Move Beech Road, Hub on the Move Warnham; Andover The Castle Practice
 - Newham (newhamfoodbank.org.uk/get-help, read twice): times and numbers set for Manor Park Centre, London Ghana SDA, Rehoboth, Royal Docks, WGMI. Note `newham-district/royal-docks-learning-activity-centre` and `newham/royal-docks-learning-activity-centre` are the same place (E16 2JB): duplicate?
+- REMOVED `luton/marsh-farm`: Luton Foodbank's own get-food page says "Marsh Farm - CLOSED until further notice" (your own-source closure rule). Undo in logs/listings_batch_28oct.json
+- Not on their food bank's current list (labelled call before you go, NOT removed): St Albans Wheathampstead, Gloucester Kingsholm, Carmarthen The Table
+- Milton Keynes centres: venue number 01908 322800 kept; the MK Foodbank help line 0300 303 4933 (from mkfoodbank.org.uk) added as a card note, since a listing holds one phone
+- `merthyr-cynon/cornerstone-church-centre`: may have been renamed CVC Cwmbach (same number). Not renamed
 <!-- /listings batch 28 oct -->

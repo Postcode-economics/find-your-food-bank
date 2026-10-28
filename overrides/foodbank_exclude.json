@@ -101,6 +101,14 @@
    "reason": "Closed: its own page says \"17 Brunswick Street - Now Closed\" (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)",
    "removed": "2026-10-28",
    "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
+  },
+  {
+   "slug": "luton/marsh-farm",
+   "name": "Marsh Farm",
+   "exact": true,
+   "reason": "Closed: Luton Foodbank's own get-food page says 'Marsh Farm - CLOSED until further notice' (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed)",
+   "removed": "2026-10-28",
+   "undo": "delete this entry and restore the item from logs/listings_batch_28oct.json"
   }
  ]
 }

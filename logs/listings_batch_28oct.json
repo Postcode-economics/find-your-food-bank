@@ -7066,6 +7066,282 @@
      "notice": null
     }
    }
+  },
+  {
+   "kind": "removed",
+   "id": "luton/marsh-farm",
+   "field": "listing",
+   "old": {
+    "id": "luton/marsh-farm",
+    "type": "location",
+    "name": "Marsh Farm",
+    "foodbank": "Luton Foodbank",
+    "network": "Independent",
+    "address": "Futures House Community Halls, The Moakes, Marsh Farm, LU3 3QB",
+    "postcode": "LU3 3QB",
+    "lat": 51.9187889,
+    "lng": -0.4541099,
+    "phone": "01582725838",
+    "website": "https://lutonfoodbank.org.uk",
+    "givefood": "https://www.givefood.org.uk/needs/at/luton/marsh-farm/",
+    "opening_times": null,
+    "pc_checked": true,
+    "tel": "01582725838",
+    "fetched_at": "2026-10-27T13:38:27+00:00",
+    "notice": "Call before you go: its own web page could not be found (checked 28 Oct 2026)."
+   },
+   "new": null,
+   "source": "https://lutonfoodbank.org.uk/get-food/",
+   "note": "Closed: Luton Foodbank's own get-food page says 'Marsh Farm - CLOSED until further notice' (Dean rule 28 Oct 2026 05:44 GMT: own-source closure is removed) (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "listing": {
+      "id": "luton/marsh-farm",
+      "type": "location",
+      "name": "Marsh Farm",
+      "foodbank": "Luton Foodbank",
+      "network": "Independent",
+      "address": "Futures House Community Halls, The Moakes, Marsh Farm, LU3 3QB",
+      "postcode": "LU3 3QB",
+      "lat": 51.9187889,
+      "lng": -0.4541099,
+      "phone": "01582725838",
+      "website": "https://lutonfoodbank.org.uk",
+      "givefood": "https://www.givefood.org.uk/needs/at/luton/marsh-farm/",
+      "opening_times": null,
+      "pc_checked": true,
+      "tel": "01582725838",
+      "fetched_at": "2026-10-27T13:38:27+00:00",
+      "notice": "Call before you go: its own web page could not be found (checked 28 Oct 2026)."
+     }
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "st-albans-and-district/wheathampstead",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://stalbansdistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "gloucester/kingsholm",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://gloucester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "carmarthen/the-table",
+   "field": "notice",
+   "old": null,
+   "new": "Not on the food bank's current list, call before you go",
+   "source": "https://carmarthen.foodbank.org.uk/locations/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/newton-leys-pavilion",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/knowles-primary-school",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/frank-moran-centre-marc",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/moorlands-family-centre",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/hedgerows-family-centre",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/milton-keynes-christian-centre",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/glebe-farm-school",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/unity-park",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/broughton-pavillion",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/rowans-family-centre",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/kings-community-centre",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
+  },
+  {
+   "kind": "notice",
+   "id": "milton-keynes/great-linford-parish-office",
+   "field": "notice",
+   "old": null,
+   "new": "Food bank help line: 0300 303 4933 (or text HELP to 07874 964 505).",
+   "source": "https://mkfoodbank.org.uk/",
+   "note": " (closures round 3, re-fetched 28 Oct)",
+   "at": "2026-10-28T05:55Z",
+   "undo": {
+    "set": {
+     "notice": null
+    }
+   }
   }
  ],
  "flags": [
