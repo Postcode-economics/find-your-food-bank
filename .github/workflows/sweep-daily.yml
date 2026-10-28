@@ -32,7 +32,8 @@ jobs:
       - name: Headless Chromium for JavaScript-drawn Trussell centre cards (fail-safe)
         continue-on-error: true
         run: pip install playwright==1.47.0 && python -m playwright install --with-deps chromium
-      - name: Find missing food bank opening times (review only, never applied; every result -> reports/pending_dean.md for hand check; fail-safe)
+      # Dean 28 Oct 2026: food bank times update automatically. Only address and phone changes wait for him.
+      - name: Find missing food bank opening times and auto-apply the clean ones under the strict times rules (own site, postcode on the page, one weekly block, day and times on the same line, identical on 2 runs, no conflicting source, never known -> closed/empty, not undone; logged with undo in reports/times_auto_applied.json; everything else -> reports/pending_dean.md; fail-safe)
         continue-on-error: true
         timeout-minutes: 35
         run: python scripts/times_finder.py --render
@@ -41,6 +42,15 @@ jobs:
       - name: Page dates - WebPage/Dataset/FAQ JSON-LD dateModified, home 'Updated' line, sitemap.xml lastmod (fail-safe)
         continue-on-error: true
         run: python scripts/seo_meta.py
+      # Nothing is pushed unless this run's files pass the same suite as the CI 'test' job and the publish validator.
+      # A clean venv without Playwright, so the browser checks skip exactly as in that job.
+      - name: Full test suite on this run's files (a failure stops the push)
+        timeout-minutes: 25
+        run: |
+          python -m venv /tmp/suite && /tmp/suite/bin/pip install -q pytest==9.1.1
+          /tmp/suite/bin/python -m pytest -q tests
+      - name: Validate before publishing (a failure stops the push)
+        run: python scripts/validate.py gate
       - name: Commit new entries and the sweep log
         run: |
           python scripts/stamp.py verify
