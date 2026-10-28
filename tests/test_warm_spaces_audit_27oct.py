@@ -50,7 +50,8 @@ def test_bot4_browser_batch1():
     assert "2 Station Grove" in fx["ww-65070433"]["address"] and "Highcroft Avenue" in fx["ww-59806670"]["address"]
     assert fx["ww-65441837"]["address"].startswith("Units 5 & 6")
     u = J("overrides/warmspaces_unverified.json")
-    assert u["ww-65438881"]["phone"] == "01623 677 200"
+    # Retford: Inspire's own line 01623 677 200 == the Dean-approved library line (26 Oct), supplied by contacts
+    assert J("overrides/warmspaces_contacts.json")["ww-65438881"]["phone"].replace(" ", "") == "01623677200"
     for i in ("ww-67506955", "ww-55475166", "sbadc-the-hub-south-brent", "ww-66561578", "ww-69211163", "ww-57952419", "ww-69155575", "ww-68917333"):
         assert u[i]["call_check"] is True and u[i]["flag"] and u[i]["sign_url"]
 
@@ -81,7 +82,7 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 REBUILT = {  # id -> fields the rebuilt warmspaces.js must carry
     "ww-55473520": {"phone": "01606 42943"},          # St Helen's Northwich (feed: 0160 642 943)
     "ww-57951889": {"phone": "07876 372274"},         # St Francis, Ingleby Barwick (feed/old override: 07821 153701)
-    "ww-65438881": {"phone": "01623 677 200"},        # Retford Library (Inspire's own line; feed: none)
+    "ww-65438881": {"phone": "01623 677200"},         # Retford Library (Dean-approved 26 Oct library service line, #212; feed: none)
     "sbadc-the-hub-south-brent": {"scheme_dates": "Call before you go \u2013 closed for building works, due to reopen in November", "call_check": True},
 }
 FEED_REVERT = {"ww-55473520": {"phone": "0160 642 943"}, "ww-57951889": {"phone": "07821 153701"},
