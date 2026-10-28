@@ -206,3 +206,5 @@ html:not(.light) #map,html:not(.light) #map .leaflet-tile-pane,html:not(.light) 
 #v3filt>#v3tools,#v3filt>#v3tools.v3tight{order:6!important}
 /* 28 Oct QA round 3 M1 (768px and wider): one filter row. The ✕ sits right after 'Open today only' (not alone at the far right), and List only / Light mode share the row on the right instead of a row of their own. Phones keep the B4 layout. */
 @media (min-width:600px){#v3filt::before{display:none!important}#v3filt #fhide{margin-left:0!important}#v3filt>#v3tools,#v3filt>#v3tools.v3tight{margin-left:auto!important}}
+/* M1 at 768px: with system-ui resolving to DejaVu Sans (Ubuntu) the row was about 4px too narrow and List only / Light mode wrapped; tighter spacing up to 1023px leaves room for wider fallback fonts. */
+@media (min-width:600px) and (max-width:1023px){#v3filt{column-gap:6px!important}#v3filt .fchip,#v3filt>label#v3open{padding:0 6px!important}#v3filt>#v3tools,#v3filt>#v3tools.v3tight{gap:10px!important}}
