@@ -1,4 +1,6 @@
 """Own-site locations pages (overrides/own_location_pages.json) -> food bank location pins.
+Each centre block's own phone line is kept in the snapshot under "_centre_phones" (pin id -> phones, matched by postcode);
+full_check holds any other proposed number for that pin. An entry with "phones_only": true is read only for those lines.
 The page is the authority: matched Give Food pins take the page's address/postcode (their times change only through discover.times_gate_apply,
 which reads this page), missing centres are added
 (snapshot in overrides/foodbank_own_pages.json, read by classify.add_extra_locations), Give Food pins not on the page are dropped.
@@ -16,25 +18,17 @@ def lines_of(page):
     t = html.unescape(re.sub(r"<[^>]+>", "\n", t))
     return [re.sub(r"\s+", " ", x).strip() for x in t.split("\n") if x.strip()]
 
-def norm_phone(p):
-    d = re.sub(r"\D", "", p or "")
-    if d.startswith("44"): d = "0" + d[2:]
-    return d if len(d) == 11 and d[0] == "0" else ""
-
-def phone_line(x):
-    """A centre block's phone line, e.g. '01271 329902,' (Northern Devon's Barnstaple line ends in a comma)."""
-    return bool(re.match(r"^[\d\s()+-]{10,}$", x.strip().rstrip(",;.").strip()))
-
 def parse(page):
     L = lines_of(page); out = []
     for k, x in enumerate(L):
         if x != "Opening times": continue
-        j = k - 1; phones = []
-        while j > 0 and (phone_line(L[j]) or "@" in L[j] or "[email" in L[j]):
-            p = norm_phone(L[j]) if phone_line(L[j]) else ""
-            if p and p not in phones: phones.insert(0, p)
-            j -= 1
+        j = k - 1
+        while j > 0 and (re.match(r"^[\d ]{10,}[,.;]?$", x := L[j]) or "@" in L[j] or "[email" in L[j]): j -= 1
         name = L[j].strip(); m = k + 1; rows = {}; raw = "Opening times "
+        phones = []  # the centre's own line(s), between its name and "Opening times"
+        for y in L[j + 1:k]:
+            d = re.sub(r"\D", "", y)
+            if re.match(r"^[\d ]{10,}[,.;]?$", y) and len(d) == 11 and d[0] == "0" and d not in phones: phones.append(d)
         for d in DAYS:
             if m + 1 >= len(L) or L[m] != d: break
             v = L[m + 1]; raw += "%s %s " % (d, v); m += 2
@@ -51,31 +45,23 @@ def parse(page):
             for a in addr:
                 a = PC.sub("", a.upper()) and re.sub(PC.pattern, "", a, flags=re.I).strip(" ,")
                 if a and a not in parts: parts.append(a)
-            out.append({"name": name, "address": ", ".join(parts + [pc]), "postcode": pc, "raw": raw, "structured": rows,
-                        "phone": phones[0] if len(phones) == 1 else "", "phones": phones})
+            out.append({"name": name, "address": ", ".join(parts + [pc]), "postcode": pc, "raw": raw, "structured": rows, "phones": phones})
     return out
 
-CENTRE_PHONES = os.path.join("reports", "own_centre_phones.json")
-def centre_phone_record(old, centre, pin_id, parent, url, run_at):
-    """The phone a centre block gives for one pin, with the previous run's reading for the 2-run rule.
-    A block with no number, or more than one, records no phone."""
-    old = old if isinstance(old, dict) else {}
-    rec = {"parent": parent, "id": pin_id, "name": centre["name"], "postcode": centre["postcode"], "phone": centre.get("phone") or "",
-           "phones": centre.get("phones") or [], "source_url": url, "run_at": run_at}
-    if old.get("run_at") and old.get("run_at") != run_at:
-        rec["prev_phone"], rec["prev_run_at"] = old.get("phone") or "", old.get("run_at")
-    elif old.get("prev_run_at"):
-        rec["prev_phone"], rec["prev_run_at"] = old.get("prev_phone") or "", old.get("prev_run_at")
-    return rec
+CENTRE_PHONES = "_centre_phones"  # snapshot key: pin id -> the centre's own line(s) on its organisation's locations page
 
-def centre_phone_confirmed(rec):
-    """The same single number in this centre's block on 2 separate runs."""
-    return bool(isinstance(rec, dict) and rec.get("phone") and rec.get("prev_phone") == rec["phone"]
-                and rec.get("prev_run_at") and rec.get("prev_run_at") != rec.get("run_at"))
-
-def load_centre_phones(root):
-    try: return json.load(open(os.path.join(root, CENTRE_PHONES), encoding="utf-8"))
-    except Exception: return {}
+def record_centre_phones(snap, parent, url, cs, pins, today):
+    """Save each centre block's phone(s) against the pin it matches by postcode (any pin of this food bank,
+    including the food bank pin). The previous record for this parent is replaced. Pins are not changed."""
+    keep = {k: v for k, v in (snap.get(CENTRE_PHONES) or {}).items() if v.get("parent") != parent}
+    norm = lambda pc: (pc or "").replace(" ", "").upper()
+    for x in cs:
+        if not x.get("phones"): continue
+        for i in pins:
+            if norm(i.get("postcode")) == norm(x["postcode"]):
+                keep[i["id"]] = {"parent": parent, "centre": x["name"], "postcode": x["postcode"], "phones": x["phones"],
+                                 "source_url": url, "checked_date": today}
+    snap[CENTRE_PHONES] = keep
 
 def slug(s): return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", s.lower().replace("'", ""))).strip("-")
 
@@ -93,14 +79,9 @@ def all_closed(raw):
 
 def _sig(ot): return json.dumps((ot or {}).get("structured") if isinstance(ot, dict) else None, sort_keys=True)
 
-def refresh(items, root, today=None, fetcher=fetch, geo=geocode, run_at=None):
-    """Mutates items. Returns a log dict. Never raises.
-    Each centre block's own phone is recorded in reports/own_centre_phones.json for the phone gate (full_check.py);
-    no phone is written here."""
-    run_at = run_at or datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
+def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
+    """Mutates items. Returns a log dict. Never raises."""
     today = (today or datetime.date.today()).isoformat()
-    cp_path = os.path.join(root, CENTRE_PHONES)
-    old_cp = load_centre_phones(root); new_cp = dict(old_cp)
     cfg = {k: v for k, v in json.load(open(os.path.join(root, "overrides", "own_location_pages.json"))).items() if not k.startswith("_")}
     sp = os.path.join(root, "overrides", "foodbank_own_pages.json")
     snap = json.load(open(sp)) if os.path.exists(sp) else {"_comment": "Generated by scripts/own_locations.py from own locations pages; last good scrape. Read by classify.add_extra_locations."}
@@ -110,13 +91,12 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode, run_at=None):
         except Exception as e: cs = []; log[parent] = {"status": "fetch failed: %r" % e}
         if len(cs) < c.get("min_centres", 1):
             log.setdefault(parent, {"status": "parsed only %d centres" % len(cs)}); log[parent]["kept_snapshot"] = True; continue
+        record_centre_phones(snap, parent, c["url"], cs, [i for i in items if i["id"].split("/")[0] == parent], today)
+        if c.get("phones_only"):  # read for the centres' own lines only: names, addresses, times and pins stay as they are
+            log[parent] = {"status": "ok (phones only)", "url": c["url"], "centres": len(cs),
+                           "centre_phones": sorted(k for k, v in snap[CENTRE_PHONES].items() if v.get("parent") == parent)}
+            continue
         gf = [i for i in items if i["type"] == "location" and i["id"].split("/")[0] == parent]
-        for k in [k for k, v in new_cp.items() if isinstance(v, dict) and v.get("parent") == parent]: del new_cp[k]
-        # A centre at the food bank's own pin postcode is that pin (Bournemouth St George's Hub, Northern Devon Bideford), not a new place.
-        pa = next((i for i in items if i["type"] == "foodbank" and i["id"] == parent), None)
-        own = [x for x in cs if pa and (pa.get("postcode") or "").replace(" ", "") == x["postcode"].replace(" ", "")][:1]
-        for x in own: new_cp[parent] = centre_phone_record(old_cp.get(parent), x, parent, parent, c["url"], run_at)
-        cs = [x for x in cs if x not in own]
         try: ll = geo(sorted({x["postcode"] for x in cs}))
         except Exception: ll = {}
         for k in [k for k, v in snap.items() if not k.startswith("_") and v.get("parent") == parent]: del snap[k]
@@ -135,8 +115,6 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode, run_at=None):
             hit = pairs.get(id(x))
             if hit:
                 matched.append(hit["id"])
-                if hit["postcode"].replace(" ", "") == x["postcode"].replace(" ", ""):  # a centre's line is tied to its pin by postcode only
-                    new_cp[hit["id"]] = centre_phone_record(old_cp.get(hit["id"]), x, hit["id"], parent, c["url"], run_at)
                 hit.update(name=x["name"], address=x["address"], postcode=x["postcode"])
                 # The stored times stay. Only discover.times_gate_apply may change them (2 identical runs, log, undo);
                 # pointing the stored times at this page makes the gate read exactly this page for the centre.
@@ -150,16 +128,10 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode, run_at=None):
             k = "%s/%s" % (parent, slug(x["name"]))
             snap[k] = {"parent": parent, "name": x["name"], "address": x["address"], "postcode": x["postcode"], "lat": ll[x["postcode"]][0], "lng": ll[x["postcode"]][1],
                        "evidence": "%s locations page: %s, %s" % (parent, x["name"], x["raw"].strip()), "evidence_url": c["url"], "opening_times": ot}
-            if x.get("phone"): snap[k]["phone"] = x["phone"]
             added.append(k)
         dropped = [i["id"] for i in gf if i["id"] not in used]
         items[:] = [i for i in items if i["id"] not in set(dropped)]
-        log[parent] = {"status": "ok", "url": c["url"], "centres": len(cs) + len(own), "matched": matched, "added": added, "dropped_not_on_page": dropped,
+        log[parent] = {"status": "ok", "url": c["url"], "centres": len(cs), "matched": matched, "added": added, "dropped_not_on_page": dropped,
                        "times_for_gate": (log.get(parent) or {}).get("times_for_gate", [])}
-        if own: log[parent]["parent_centre"] = own[0]["name"]
     json.dump(snap, open(sp, "w"), indent=1, ensure_ascii=False)
-    try:
-        os.makedirs(os.path.dirname(cp_path), exist_ok=True)
-        json.dump(new_cp, open(cp_path, "w", encoding="utf-8"), indent=1, ensure_ascii=False, sort_keys=True)
-    except Exception as e: log["_centre_phones"] = "not written: %r" % e
     return log

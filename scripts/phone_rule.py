@@ -2,12 +2,12 @@
 
 A verified number that the venue's own source page gives as its contact is shown,
 including a named person's or personal number, with the label that page gives.
-A host church's contact page counts as that venue's own page (Dean 26 Oct 2026, 08:37) ONLY when the
-food bank has no own site (Dean 28 Oct 2026, PR #243). The food bank's own domain is read first; while
-it still shows the stored number, a different number on the church page is held.
-A number written next to a shop, office, helpline, school or similar (OTHER_LINE) is doubtful and held,
-and so is a number on a page that never mentions a food bank or the listing's name.
-An unverified or doubtful number is held, and the reason is recorded.
+A host church's contact page counts as that venue's own page (Dean 26 Oct 2026, 08:37),
+but only when the food bank has no own site of its own (Dean 28 Oct 2026, phone audit rule change E;
+known own sites: overrides/own_location_pages.json "_food_bank_own_sites").
+An unverified or doubtful number is held, and the reason is recorded. A number written beside a
+shop, office, helpline or similar label (other_label) is doubtful, and so is a page that never
+mentions a food bank (mentions_food_bank).
 Dean's own details are never published.
 
 named_person / personal are not reasons to hold a verified contact. Callers may
@@ -62,62 +62,11 @@ def is_dean(phone="", email="", text="", block=None):
 def personal_only(reason):
     return bool(PERSONAL_ONLY.match((reason or "").strip()))
 
-def _host(u):
-    return re.sub(r"^www\.", "", re.sub(r"^[a-z]+://", "", (u or "").strip().lower()).split("/")[0].split(":")[0])
-
-def same_host(a, b):
-    a, b = _host(a), _host(b)
-    return bool(a and b and (a == b or a.endswith("." + b) or b.endswith("." + a)))
-
-HOST_CHURCH = re.compile(r"host church|church contact|church page|parish|church office", re.I)
-def host_church_record(rec):
-    return isinstance(rec, dict) and (rec.get("host_church") is True or bool(HOST_CHURCH.search(rec.get("note") or "")))
-
-def host_church_counts(church_url, own_site=""):
-    """A host church page is the food bank's own page only when the food bank has no own site (Dean 28 Oct 2026)."""
-    return not own_site or same_host(church_url, own_site)
-
-def own_page_source(rec, own_site=""):
-    """True when the source record is the venue's own page, not a directory or register.
-    A host church page does not count when the food bank has its own site on another host."""
+def own_page_source(rec):
+    """True when the source record is the venue's own page, not a directory or register."""
     if not isinstance(rec, dict): return False
-    if host_church_record(rec) and not host_church_counts(rec.get("source") or "", own_site or rec.get("own_site") or ""):
-        return False
     if rec.get("own_page") is True: return True
     return bool(OWN_NOTE.search(rec.get("note") or ""))
-
-def church_page_reasons(stored, church_url, church_phone, own_site="", own_site_phones=None):
-    """Reasons a number read on a host church page must be held. The food bank's own domain is read first."""
-    why = []
-    if own_site and not same_host(church_url, own_site):
-        why.append("the food bank has its own site (%s); a host church page is not its own page" % _host(own_site))
-        if digits(stored) and digits(stored) in {digits(p) for p in own_site_phones or []}:
-            why.append("the stored number is still shown on the food bank's own site")
-    if digits(church_phone) and digits(stored) == digits(church_phone): why = []
-    return why
-
-OTHER_LINE = re.compile(
-    r"charity shop|\bshops?\b|caf[eé]s?\b|head office|registered office|parish office|\boffices?\b|\badmin\w*|"
-    r"help ?lines?\b|switchboard|dioces[ae]n?|\bdonations?\b|warehouse|furniture|nursery|\bschools?\b", re.I)
-CONTEXT = 60
-def other_line_reason(text, phone, width=CONTEXT):
-    """'number sits next to <word>' when an occurrence of the number has a shop/office/helpline/... word within ~60 chars."""
-    want = digits(phone)
-    if not want: return ""
-    for m in PHONE_RE.finditer(text or ""):
-        if digits(m.group(0)) != want: continue
-        near = (text[max(0, m.start() - width):m.start()] + " " + text[m.end():m.end() + width])
-        w = OTHER_LINE.search(near)
-        if w: return "number sits next to '%s' on the page (not the food bank's own line)" % w.group(0).strip().lower()
-    return ""
-
-FOODBANK_WORDS = re.compile(r"food[\s-]?banks?|food (?:parcels?|pantry|hub)", re.I)
-def _flat(s): return re.sub(r"[^a-z0-9]+", " ", (s or "").lower().replace("\u2019", "'").replace("'", "")).strip()
-def mentions_food_bank(text, names=()):
-    """The page says 'food bank' (or foodbank / food parcel / pantry), or gives the listing's full name."""
-    if FOODBANK_WORDS.search(text or ""): return True
-    flat = " " + _flat(text) + " "
-    return any(len(_flat(n)) >= 6 and " " + _flat(n) + " " in flat for n in names or () if n)
 
 def role_on(line):
     """The role written on this line, in the page's own wording. Empty when the line gives none."""
@@ -138,6 +87,47 @@ def labels_in_text(text, norm=None):
             lab = role_on(line)
             if lab: found[p] = lab
     return found
+
+OTHER_LABEL = re.compile(
+    r"\b(charity shops?|shops?|caf[eé]s?|head office|registered office|parish office|offices?|admin(?:istration)?|"
+    r"help ?lines?|switchboard|diocesan|diocese|donations?|warehouse|furniture|nursery|school)\b", re.I)
+FOOD_BANK_WORDS = re.compile(r"food ?bank|pantry|food parcels?", re.I)
+
+def other_label(text, number, norm=None):
+    """The non-food-bank label written beside `number` (shop, office, helpline, ...), or ''.
+    Looks at up to 60 characters before each occurrence (not past the previous number) and the rest
+    of its line (not past the next number). Any labelled occurrence counts."""
+    norm = norm or (lambda p: digits(p) if len(digits(p)) == 11 and digits(p).startswith("0") else "")
+    want = norm(number)
+    if not want: return ""
+    text = text or ""
+    ms = list(PHONE_RE.finditer(text))
+    for k, m in enumerate(ms):
+        if norm(m.group(0)) != want: continue
+        lo = max(m.start() - 60, ms[k - 1].end() if k else 0)
+        hi = ms[k + 1].start() if k + 1 < len(ms) else len(text)
+        nl = text.find("\n", m.end())
+        if nl != -1: hi = min(hi, nl)
+        hit = OTHER_LABEL.search(text[lo:m.start()]) or OTHER_LABEL.search(text[m.end():min(hi, m.end() + 40)])
+        if hit: return hit.group(0)
+    return ""
+
+def other_labels(text, norm=None):
+    """Map each number on the page to the non-food-bank label beside it (only labelled numbers)."""
+    norm = norm or (lambda p: digits(p) if len(digits(p)) == 11 and digits(p).startswith("0") else "")
+    out = {}
+    for m in PHONE_RE.finditer(text or ""):
+        p = norm(m.group(0))
+        if p and p not in out:
+            lab = other_label(text, p, norm)
+            if lab: out[p] = lab
+    return out
+
+def mentions_food_bank(text, names=()):
+    """True when the page mentions a food bank (food bank, pantry, food parcel) or one of the listing names."""
+    if FOOD_BANK_WORDS.search(text or ""): return True
+    low = re.sub(r"[\u2019']", "", (text or "").lower())
+    return any(n and re.sub(r"[\u2019']", "", n.lower()) in low for n in names if len((n or "").strip()) >= 4)
 
 def decide(cand, block=None):
     """Return {action, phone, label, reason}. action is 'show' or 'hold'.
