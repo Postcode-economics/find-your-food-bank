@@ -15,12 +15,18 @@ It **never decides what is published**.
 - All existing guards stay: the publish gate, the refresh guard, the 2-run confirmation, the 10% drop stop, schema checks and the "does the result make sense" check.
 - The weekly self-review can change a weight by at most 10% a week, and never outside 50–150% of its default.
 - Back-off for failing sites never goes past the weekly minimum check (7 days). A strong change signal ends a rest early.
+- Opening times on a food bank's own site are written only when the postcode is on that page and the same open/close table was already pending from the last run. The previous table is kept on the times-check log as undo. A missing or unreadable reading, including an empty or all-closed table, leaves the stored week as it is and adds no `pending_dean` row. A phone conflict holds the phone fix only; it does not block this hours update. A food-bank number in `overrides/phone_baseline.json` is held for Dean with its source and is not auto-applied. Until that file exists, every existing listing is held the same way.
 
 ## Plan in the agreed order, and status
 | # | Part | Where | Status |
 |---|------|-------|--------|
 | core | Reward per useful find, gaps first, back-off for stable or failing sites, weekly minimum check, per-site memory of which method worked | `scripts/learning.py` (used by `full_check.py` and `sweep_daily.py`) | **Live** (25 Oct) |
 | 8 | Time-decay: finds and checks fade with a 30-day half-life so a recent result outweighs an old one. Weekly floor unchanged | `learning.reward` / `record` | **Live** (25 Oct) |
+| 10 | Learn from Dean's decisions: same-host places move up the queue, and his phone/notice wording is remembered. He is still asked every time. A past yes is not reused | `dean_learning`, signal `dean` | Built 27 Oct (batch 3B) |
+| 14 | Cross-source conflicts: when the stored phone is not on the place's own site, flag it for Dean. `chosen` is always null. Nothing is picked | `conflicts`, signal `conflict` | Built 27 Oct (batch 3B) |
+| 15 | Weekly accuracy grade (Sundays): a signal whose boosted places found less than the others is turned down one step (at most 10%, and never outside 50–150% of its default). Not enough data: no change. It does not turn a signal up | `accuracy_grades` | Built 27 Oct (batch 3B) |
+| 16 | Self-healing fetches: try the method that worked for this site last time, and if it fails try the next. The switch is remembered. A total failure stays a failure | `learning.heal`, `full_check.check_site` | Built 27 Oct (batch 3B) |
+| 17 | Change confidence sits under `auto_apply_rules.json`. It can hold back an automatic edit when sources disagree. It cannot allow an add or a removal the rules forbid, and it does not edit the rules file | `learning.allow_under_rules` | Built 27 Oct (batch 3B) |
 | 18 | Anomaly brake: if a run would apply many more changes than the last few runs, stop and flag Dean. The count is access flips, phone fixes, hour changes and removals. New places held for Dean do not count. With fewer than four recorded runs it does not stop. Bars: at least 10, at least 3× the median, and at least 8 above that median | `learning.anomaly_brake` / `learning.applied_count` | **Live** (27 Oct) |
 | 19 | Monthly drill of that brake, on a copy of the recorded counts. The spike is not stored and `reports/anomaly_brake.md` is not written | `scripts/brake_drill.py` from `learning_signals.build` on the 1st | Built 27 Oct |
 | - | Read-only dry-run of the brake on the refresh files already in the repo (`reports/daily_review.json` + `reports/access_changes.json`). Writes nothing | `scripts/brake_dry_run.py` | Check after each refresh |
@@ -39,4 +45,4 @@ It **never decides what is published**.
 ## How it runs
 - `full_check.py` orders sites with `learning.plan(..., boosts=learning_signals.boosts())`.
 - After the full check, `refresh.yml` runs `scripts/learning_signals.py`. That writes `reports/learning_signals.json`, `reports/learning_review.md` and `reports/learning_state.json`, which the next run uses. The check and refresh clock times are not part of this.
-- Tests: `tests/test_learning.py` and `tests/test_learning_signals.py`.
+- Tests: `tests/test_learning.py`, `tests/test_learning_signals.py`, `tests/test_learning_dean.py`, `tests/test_learning_conflicts.py`, `tests/test_learning_accuracy.py`, `tests/test_learning_heal.py`, `tests/test_learning_confidence.py`, `tests/test_hours_confirm.py`.

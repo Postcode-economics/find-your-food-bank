@@ -122,3 +122,7 @@ Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is
   source: https://upperedenfoodbank.org.uk/get-help-2/  
   why: known skip: Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
 <!-- /times review -->
+
+<!-- phone lock -->
+- blocked, held for Dean | kings-langley | phone | via phone fix | source https://beneficeoflangelei.org.uk/allsaints/contact/ | stored 01923 903531 | proposed 07754997144 | unchanged (byte-identical) | Kings Langley
+<!-- /phone lock -->

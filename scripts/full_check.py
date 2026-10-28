@@ -12,8 +12,10 @@ shared Trussell server *.foodbank.org.uk, 15 s timeouts, time budget) and checks
  3. closures (own site says closed) and new / removed food banks vs last run -> daily list
  4. dead sites and stale phones. A CLEAR new number (site shows exactly one UK number and the
     stored one is nowhere on it, seen on 2 runs in a row) is auto-applied (reports/phone_fixes.json)
-    and logged, including when that number is a named person's, with the role the page gives
-    (rule 21, Dean 26 Oct 2026). Anything else -> daily list, with the reason recorded
+     and logged, including when that number is a named person's, with the role the page gives
+     (rule 21, Dean 26 Oct 2026), unless that listing is in overrides/phone_baseline.json: then it is held
+     for Dean with its source and not applied. Until that file exists, every existing listing is held the
+     same way. Anything else -> daily list, with the reason recorded
  5. published stock / items-needed lists (new or changed) -> daily list
 Nothing else is ever auto-applied. Fail safe: data.js is only rewritten if the item count is unchanged.
 Opening times (Rule 27): each listing is checked against the exact source URL on the card, live.
@@ -248,11 +250,19 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
             flag(i['id'], 'opening times unclear', name=i.get('name') or '', website=src, id=i['id'],
                  note=verdict.get('note') or '', evidence=verdict.get('evidence') or '')
     return n
-def check_site(url):
-    home = fetch(url)
-    if not home['ok'] and url.startswith('http://'): home = fetch('https://' + url[7:])  # many sites redirect anyway
-    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http')}
-    if not home['ok']: res.update(ok=False, error=home['error']); return res
+def check_site(url, order=None):
+    """Fetch with the methods in `order` (plain, then https for an http URL). Stops at the first that works.
+    The order comes from per-site method memory so a method that healed this site last time is tried first."""
+    order = list(order or (['plain', 'https'] if str(url).startswith('http://') else ['plain']))
+    home = {'ok': False, 'http': None, 'error': 'not tried'}; used, tried = None, []
+    for m in order:
+        if m == 'plain': home = fetch(url)
+        elif m == 'https' and str(url).startswith('http://'): home = fetch('https://' + str(url)[7:])
+        else: continue
+        tried.append(m); used = m
+        if home.get('ok'): break
+    res = {'url': url, 'checked_at': NOW.isoformat(), 'http': home.get('http'), 'method': used if home.get('ok') else None, 'methods_tried': tried}
+    if not home['ok']: res.update(ok=False, error=home.get('error') or 'not tried'); return res
     pages = [(home['final_url'], home['html'])]
     for u in links(home['html'], home['final_url']):
         r = fetch(u)
@@ -299,6 +309,77 @@ def retry_first(sites, queue):
 def phone_locked(i):
     """Point 1 (Dean, 24 Oct 2026): hand-checked or locked phones are never overwritten automatically."""
     return bool(i.get('phone_checked') or i.get('locked'))
+
+def phone_baseline_path(root=None):
+    return os.path.join(root or ROOT, 'overrides', 'phone_baseline.json')
+
+def in_phone_baseline(iid, root=None):
+    """True when overrides/phone_baseline.json exists and this id is in it.
+    A missing file is not a listing (the auto-apply path treats that separately). An unreadable file locks."""
+    root = root or ROOT
+    path = phone_baseline_path(root)
+    if not os.path.isfile(path): return False
+    try:
+        import phone_lock
+        return bool(phone_lock.is_listed(iid, root))
+    except ImportError:
+        pass
+    try: data = json.load(open(path, encoding='utf-8'))
+    except Exception: return True
+    return bool(iid) and iid in (data.get('listings') or {})
+
+def listing_phone_frozen(iid, root=None):
+    """The clear-phone auto-apply must hold this listing.
+    No baseline file yet (PR 211 not merged): every existing listing is locked.
+    Once the file exists, only an id recorded in it is locked. A new id may still be applied."""
+    if not os.path.isfile(phone_baseline_path(root)): return True
+    return in_phone_baseline(iid, root)
+
+def _mark_section(root, filename, tag, line):
+    path = os.path.join(root, 'reports', filename)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    start, end = '<!-- %s -->' % tag, '<!-- /%s -->' % tag
+    prev = open(path, encoding='utf-8').read() if os.path.exists(path) else ''
+    if start in prev and end in prev:
+        pre, rest = prev.split(start, 1)
+        mid, post = rest.split(end, 1)
+        if line not in mid: mid = mid.rstrip() + '\n' + line + '\n'
+        elif not mid.endswith('\n'): mid += '\n'
+        text = pre + start + '\n' + mid.lstrip('\n') + end + post
+    else:
+        text = prev.rstrip() + '\n\n' + start + '\n' + line + '\n' + end + '\n'
+    if not text.endswith('\n'): text += '\n'
+    open(path, 'w', encoding='utf-8').write(text)
+
+def hold_phone_for_dean(item, proposed, source, root=None, name=''):
+    """Hold one new number for Dean and log its source. The stored phone and tel are not written."""
+    root = root or ROOT
+    try:
+        import phone_lock
+    except ImportError:
+        phone_lock = None
+    if phone_lock is not None:
+        phone_lock.hold(root, item.get('id'), 'phone', item.get('phone'), proposed, source or '', 'phone fix', item.get('name') or name or '')
+        return
+    kept = item.get('phone') if str(item.get('phone') or '').strip() else '(none)'
+    shown = proposed if str(proposed or '').strip() else '(blank)'
+    line = '- blocked, held for Dean | %s | phone | via phone fix | source %s | stored %s | proposed %s | unchanged (byte-identical)' % (
+        item.get('id'), source or '(none)', kept, shown)
+    who = item.get('name') or name
+    if who: line += ' | ' + who
+    for fn in ('pending_dean.md', 'anomaly_brake.md'):
+        _mark_section(root, fn, 'phone lock', line)
+
+def record_clear_phones(items, new, source, root=None, name=''):
+    """Listings a confirmed single new number may be written onto. Frozen listings are held and left byte-identical."""
+    root = root or ROOT
+    apply_to = []
+    for i in items:
+        if listing_phone_frozen(i.get('id'), root):
+            hold_phone_for_dean(i, new, source, root, i.get('name') or name)
+        else:
+            apply_to.append(i)
+    return apply_to
 
 def apply_phone_fixes(by_site, fixes, flag, root=None):
     """Apply auto phone fixes, skipping locked/hand-checked entries; skipped changes go to Dean's review list.
@@ -370,6 +451,7 @@ def main():
     LS = learning.load(); gaps = {u: site_gap(by_site[u]) for u in by_site}
     import learning_signals  # corrections, change signals, source trust, season, demand, visitor reports (last run's file)
     order, resting_sites, _ = learning.plan(LS, sorted(by_site), DAY, gaps, boosts=learning_signals.boosts())
+    conflicted = {c.get('website') for c in (learning_signals.rj('reports/learning_signals.json', {}).get('conflicts') or []) if isinstance(c, dict) and c.get('website')}
     sites = retry_first(order, [u for u in (state.get('retry_queue') or []) if u not in resting_sites])  # point 3: last run's failed/unchecked sites go first
     if os.environ.get('SAMPLE'): sites = [u for u in sites if u.startswith('https') and 'foodbank.org.uk' not in u][:int(os.environ['SAMPLE'])]
     closure_pending = {k: v for k, v in rj('closures_pending.json', {}).items() if k not in approved_off}  # id -> evidence; Dean decides (25 Oct 08:20)
@@ -388,7 +470,11 @@ def main():
     t0 = time.time(); results = {}
     def job(u):
         if time.time() - t0 > BUDGET: return u, {'url': u, 'ok': None, 'error': 'time budget reached - not checked this run'}
-        try: return u, check_site(u)
+        try:
+            avail = ['plain', 'https'] if u.startswith('http://') else ['plain']
+            order = learning.method_order(LS, u, avail)
+            try: return u, check_site(u, order)
+            except TypeError: return u, check_site(u)  # a one-argument stand-in (tests) still works
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
@@ -423,7 +509,9 @@ def main():
             if trus:  # Trussell = voucher (Dean); walk-in wording on a Trussell site is a flag, never an automatic flip
                 flag(u, 'Trussell site with walk-in wording', name=name, website=u, current_tag='voucher', evidence=r['access_evidence'], note='left as voucher - please check')
                 todo = [x for x in todo if x not in trus]
-            if todo and prev.get('access') == r['access']:
+            if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
+            elif todo and prev.get('access') == r['access']:
                 for x in todo:
                     entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
                     changes.insert(0, entry); this_run.append(entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
@@ -443,7 +531,7 @@ def main():
         if r['perm_closed'] and prev.get('perm_closed'):
             ids_ = [i['id'] for i in by_site[u] if i['id'] not in closed_hold]
             for x in ids_:
-                if RULES['remove_confirmed_closures']: closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
+                if learning.allow_under_rules('remove_place', RULES, learning.confidence_for(u, conflicted)): closed_ov[x] = dict(url=r['final_url'], evidence=r['perm_closed'], confirmed='auto %s' % DAY); remove.add(x)
                 if x not in closure_pending:
                     closure_pending[x] = dict(name=name, website=u, url=r['final_url'], evidence=r['perm_closed'], since=DAY)
                     e = dict(when=NOW.isoformat(), id=x, website=u, name=name, kind='closure', old='on map', new='kept on map with "May have closed" note - waiting for your OK', source=r['final_url'], evidence=r['perm_closed'])
@@ -455,7 +543,9 @@ def main():
         # (4) phones
         stored = {norm_phone(i.get('phone')) for i in by_site[u]} - {''}
         if own_site_misses_stored(stored, r['phones']):
-            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
+            if len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes and not learning.allow_under_rules('clear single new phone on own site', RULES, learning.confidence_for(u, conflicted)):
+                flag(u, 'phone fix held (confidence under the rules)', name=name, website=u, stored=sorted(stored), on_site=r['phones'], note='the auto-apply rules would allow a single confirmed number, but confidence is too low - left for you')
+            elif len(r['phones']) == 1 and r.get('tel') == r['phones'] and prev.get('phones') == r['phones'] and u not in fixes:
                 new = r['phones'][0]; old = sorted(stored)[0]
                 lab = (r.get('contact_labels') or {}).get(new, '')
                 d = phone_rule.decide(dict(phone=new, own_page=True, verified=True, label=lab, doubtful=False))
@@ -482,7 +572,8 @@ def main():
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run
     found = {e.get('website') for e in log} | {v.get('website') for v in today['items'].values() if v.get('first_flagged', '') >= NOW.isoformat()}
     for u in sites:
-        r = results[u]; learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method='own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
+        r = results[u]; learning.note_heal(LS, u, r.get('methods_tried') or [], r.get('method'), DAY)
+        learning.record(LS, u, DAY, r.get('ok'), finds=int(u in found), method=r.get('method') or ((r.get('methods_tried') or [None])[-1]) or 'own_site', changed=u in {e.get('website') for e in log}, kind='foodbank_site')
     n_applied = learning.applied_count(this_run)  # new places held for Dean are in this_run and do not count
     brake = learning.anomaly_brake(LS.get('change_counts') or [], n_applied)
     if not brake['stop'] and not os.environ.get('SAMPLE') and not os.environ.get('DRY_RUN'):
@@ -498,7 +589,7 @@ def main():
         today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
         print('ANOMALY BRAKE:', brake['reason']); return
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
-    apply_phone_fixes(by_site, fixes, flag)
+    apply_phone_fixes(by_site, fixes, flag, ROOT)
     today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today
     wj('full_check_state.json', state); wj('access_tags.json', tags); wj('phone_fixes.json', fixes); wj('access_changes.json', changes[:2000]); wj('daily_review.json', review)
     write_md(today, log, stats)
