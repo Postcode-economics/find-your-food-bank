@@ -2,8 +2,12 @@
 
 A verified number that the venue's own source page gives as its contact is shown,
 including a named person's or personal number, with the label that page gives.
-A host church's contact page counts as that venue's own page (Dean 26 Oct 2026, 08:37).
-An unverified or doubtful number is held, and the reason is recorded.
+A host church's contact page counts as that venue's own page (Dean 26 Oct 2026, 08:37),
+but only when the food bank has no own site of its own (Dean 28 Oct 2026, phone audit rule change E;
+known own sites: overrides/own_location_pages.json "_food_bank_own_sites").
+An unverified or doubtful number is held, and the reason is recorded. A number written beside a
+shop, office, helpline or similar label (other_label) is doubtful, and so is a page that never
+mentions a food bank (mentions_food_bank).
 Dean's own details are never published.
 
 named_person / personal are not reasons to hold a verified contact. Callers may
@@ -83,6 +87,47 @@ def labels_in_text(text, norm=None):
             lab = role_on(line)
             if lab: found[p] = lab
     return found
+
+OTHER_LABEL = re.compile(
+    r"\b(charity shops?|shops?|caf[eé]s?|head office|registered office|parish office|offices?|admin(?:istration)?|"
+    r"help ?lines?|switchboard|diocesan|diocese|donations?|warehouse|furniture|nursery|school)\b", re.I)
+FOOD_BANK_WORDS = re.compile(r"food ?bank|pantry|food parcels?", re.I)
+
+def other_label(text, number, norm=None):
+    """The non-food-bank label written beside `number` (shop, office, helpline, ...), or ''.
+    Looks at up to 60 characters before each occurrence (not past the previous number) and the rest
+    of its line (not past the next number). Any labelled occurrence counts."""
+    norm = norm or (lambda p: digits(p) if len(digits(p)) == 11 and digits(p).startswith("0") else "")
+    want = norm(number)
+    if not want: return ""
+    text = text or ""
+    ms = list(PHONE_RE.finditer(text))
+    for k, m in enumerate(ms):
+        if norm(m.group(0)) != want: continue
+        lo = max(m.start() - 60, ms[k - 1].end() if k else 0)
+        hi = ms[k + 1].start() if k + 1 < len(ms) else len(text)
+        nl = text.find("\n", m.end())
+        if nl != -1: hi = min(hi, nl)
+        hit = OTHER_LABEL.search(text[lo:m.start()]) or OTHER_LABEL.search(text[m.end():min(hi, m.end() + 40)])
+        if hit: return hit.group(0)
+    return ""
+
+def other_labels(text, norm=None):
+    """Map each number on the page to the non-food-bank label beside it (only labelled numbers)."""
+    norm = norm or (lambda p: digits(p) if len(digits(p)) == 11 and digits(p).startswith("0") else "")
+    out = {}
+    for m in PHONE_RE.finditer(text or ""):
+        p = norm(m.group(0))
+        if p and p not in out:
+            lab = other_label(text, p, norm)
+            if lab: out[p] = lab
+    return out
+
+def mentions_food_bank(text, names=()):
+    """True when the page mentions a food bank (food bank, pantry, food parcel) or one of the listing names."""
+    if FOOD_BANK_WORDS.search(text or ""): return True
+    low = re.sub(r"[\u2019']", "", (text or "").lower())
+    return any(n and re.sub(r"[\u2019']", "", n.lower()) in low for n in names if len((n or "").strip()) >= 4)
 
 def decide(cand, block=None):
     """Return {action, phone, label, reason}. action is 'show' or 'hold'.
