@@ -15,6 +15,11 @@ def apply(items, data=None):
     for x in items:
         o = data.get(x.get("id"))
         if not o: continue
+        fx = o.get("fix") or {}  # hand-checked corrections (name/address/postcode/operator/hours/referral), quoted in fix_source: always win
+        for k2 in ("name", "address", "postcode", "operator", "hours", "referral", "season"):
+            if k2 in fx and x.get(k2) != fx[k2]:
+                x.setdefault(k2 + "_was", x.get(k2)); x[k2] = fx[k2]
+        if fx: x["fix_source"] = o.get("fix_source", ""); x["fix_checked"] = o.get("fix_checked", "")
         if o.get("phone_fix"):  # checked correction: always wins over the source number
             if x.get("phone") != o["phone_fix"]: x["phone_was"] = x.get("phone", "")
             x["phone"] = o["phone_fix"]; apply_phone(x); x["phone_source"] = o.get("phone_source", ""); n += 1
