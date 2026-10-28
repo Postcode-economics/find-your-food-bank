@@ -65,16 +65,25 @@ jobs:
         run: python scripts/validate.py gate
       - name: Commit if changed
         run: |
-          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md
+          git add stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md
           # district_cache.json is rewritten by build_seo.py; left unstaged it made 'git pull --rebase' refuse (07:41 + 19:44 23 Oct)
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "3x-daily Shelters refresh $(date -u +%F)"
+          # Guard (27 Oct 21:06 run 40583907794): a tracked file a step rewrote but the add list missed left the tree dirty,
+          # so 'git pull --rebase' refused 3 times. Print it, then stash it so the pull can run; --autostash covers later rebuilds.
+          in_rebase() { [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]; }
+          git status
+          left=$(git diff --name-only HEAD)
+          if [ -n "$left" ]; then
+            echo "::warning::tracked files modified but not in the add list (stashed, not published): $(echo $left)"
+            git stash push --quiet -m "refresh-leftovers" || true
+          fi
           # shared reports (new_today / manual_review / layers_review) may have been changed by another refresh meanwhile:
           # keep this run's files, then rebuild the discovery reports from every layer's log so nobody's entries are lost
           for n in 1 2 3; do
-            if git pull --rebase; then
+            if git pull --rebase --autostash; then
               python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
               git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
@@ -83,15 +92,14 @@ jobs:
               if git push; then exit 0; fi
             else
               # conflicts -X theirs can't settle (e.g. an area page deleted by one run, rewritten by another): keep this run's version
-              bash scripts/refresh_rebase_conflicts.sh
-              if GIT_EDITOR=true git rebase --continue; then
+              if in_rebase && { bash scripts/refresh_rebase_conflicts.sh; GIT_EDITOR=true git rebase --continue; }; then
                 python scripts/discovery_rules.py render || true
               { python scripts/build_seo.py && python scripts/seo_meta.py; } || echo "::warning::page rebuild after merge failed"
               git add -A food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json index.html version.json faq.html terms.html privacy.html accessibility.html overrides/district_cache.json
                 git add reports/new_today.md reports/manual_review.md
                 git diff --cached --quiet || git commit -m "Reports and area pages rebuilt after merge"
                 if git push; then exit 0; fi
-              else git rebase --abort 2>/dev/null || true; fi
+              else echo "::warning::rebase did not complete (conflict or no rebase in progress)"; git status; git rebase --abort 2>/dev/null || true; fi
             fi
             sleep $((n * 10))
           done
