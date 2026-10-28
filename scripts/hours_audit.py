@@ -8,8 +8,9 @@ Rule 27 (26 Oct 2026): the only page that counts is the live one. This script do
 cached, or archived copy. If the live page does not open, the card is unclear and is left unchanged.
 
 Unambiguous: one timetable for this postcode, not office-like, not delivery-only, not a donation block,
-not hand-reviewed, and not the same wording copied onto several postcodes. Those update
-overrides/opening_times.json. Anything else is listed and left unchanged. Hours are never invented.
+not hand-reviewed, and not the same wording copied onto several postcodes. Those are listed as clear mismatches.
+This audit writes no hours: the only hours-apply path is discover.times_gate_apply / times_finder.decide (2 identical
+runs, logged with an undo in reports/times_auto_applied.json, scripts/times_revert.py). Hours are never invented.
 
 Run as four equal shards (`--shard N --shards 4`), then `--merge`. One request at a time to a domain.
 """
@@ -284,7 +285,6 @@ def merge_shards(n, apply=False):
         w.writeheader(); w.writerows(rows)
     json.dump({"checked": checked, "shards": [{"shard": p["shard"], "checked": p["checked"], "rows": len(p["rows"])} for p in parts], "rows": rows},
               open(os.path.join(rep, "hours_live.json"), "w", encoding="utf-8"), ensure_ascii=False)
-    if apply: apply_rows(rows)
     write_review(rows, checked, apply)
     applied = [r for r in rows if r["decision"] == "apply"]
     review = [r for r in rows if r["decision"] == "review"]
@@ -292,26 +292,6 @@ def merge_shards(n, apply=False):
     unclear = [r for r in review if r["note"].startswith("unclear:")]
     print("checked %d mismatched %d auto-fixed %d unclear %d review %d" % (checked, len(mismatched), len(applied) if apply else 0, len(unclear), len(review)), flush=True)
     return rows
-
-def apply_rows(rows):
-    data = load_full()
-    overrides = json.load(open(os.path.join(ROOT, "overrides", "opening_times.json"), encoding="utf-8"))
-    by_id = {i["id"]: i for i in data["items"]}
-    for r in rows:
-        if r["decision"] != "apply" or not r.get("structured") or not (r.get("evidence") or "").strip(): continue
-        ot = {"status": "TIMES_FOUND", "structured": r["structured"], "raw": r["raw"], "source_url": r["source_url"],
-              "checked_date": "2026-10-26", "reader": "hours_audit", "parsed_from_text": True}
-        if r.get("role") == "collection": ot["collection"] = True
-        old = overrides.get(r["id"]) if isinstance(overrides.get(r["id"]), dict) else {}
-        for k in ("card_name", "matched_by"):
-            if old.get(k): ot[k] = old[k]
-        overrides[r["id"]] = ot
-        if r["id"] in by_id: by_id[r["id"]]["opening_times"] = dict(ot)
-    json.dump(overrides, open(os.path.join(ROOT, "overrides", "opening_times.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
-    import classify, compact
-    classify.classify(data["items"], ROOT)
-    open(os.path.join(ROOT, "data.full.js"), "w", encoding="utf-8").write("window.FB_DATA=" + json.dumps(data, ensure_ascii=False) + ";")
-    compact.main()
 
 def write_review(rows, checked, applied_now):
     review = [r for r in rows if r["decision"] == "review"]
@@ -343,8 +323,11 @@ if __name__ == "__main__":
     n = 4
     if "--shards" in args:
         n = int(args[args.index("--shards") + 1])
+    if "--apply" in args:
+        raise SystemExit("--apply was removed: this audit writes no hours. Clear mismatches reach the map only through "
+                         "the strict gate (discover.times_gate_apply / times_finder.decide).")
     if "--merge" in args:
-        merge_shards(n, apply="--apply" in args)
+        merge_shards(n)
     elif "--shard" in args:
         run_shard(int(args[args.index("--shard") + 1]), n)
     else:

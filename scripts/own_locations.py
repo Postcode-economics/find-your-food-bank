@@ -1,5 +1,6 @@
 """Own-site locations pages (overrides/own_location_pages.json) -> food bank location pins.
-The page is the authority: matched Give Food pins take the page's address/postcode/times, missing centres are added
+The page is the authority: matched Give Food pins take the page's address/postcode (their times change only through discover.times_gate_apply,
+which reads this page), missing centres are added
 (snapshot in overrides/foodbank_own_pages.json, read by classify.add_extra_locations), Give Food pins not on the page are dropped.
 opening_times uses the same schema as overrides/opening_times.json: {checked_date, raw, source_url, status, structured{mon..sun:[[HH:MM,HH:MM]]}}."""
 import datetime, html, json, os, re, urllib.request
@@ -55,6 +56,8 @@ def all_closed(raw):
     """True when the page lists all seven days, every one 'Closed' (e.g. a paused Coventry centre)."""
     return bool(raw) and bool(ALL_CLOSED_RE.match(raw.strip()))
 
+def _sig(ot): return json.dumps((ot or {}).get("structured") if isinstance(ot, dict) else None, sort_keys=True)
+
 def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
     """Mutates items. Returns a log dict. Never raises."""
     today = (today or datetime.date.today()).isoformat()
@@ -86,7 +89,12 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
             hit = pairs.get(id(x))
             if hit:
                 matched.append(hit["id"])
-                hit.update(name=x["name"], address=x["address"], postcode=x["postcode"], opening_times=ot)
+                hit.update(name=x["name"], address=x["address"], postcode=x["postcode"])
+                # The stored times stay. Only discover.times_gate_apply may change them (2 identical runs, log, undo);
+                # pointing the stored times at this page makes the gate read exactly this page for the centre.
+                old = hit.get("opening_times")
+                if isinstance(old, dict) and not old.get("source_url"): old["source_url"] = c["url"]
+                if ot and _sig(ot) != _sig(old): log.setdefault(parent, {}).setdefault("times_for_gate", []).append(hit["id"])
                 if ot is None and all_closed(x["raw"]): hit["_own_all_closed"] = {"checked_date": today, "raw": x["raw"], "source_url": c["url"]}
                 if x["postcode"] in ll: hit["lat"], hit["lng"] = ll[x["postcode"]]
                 continue
@@ -97,6 +105,7 @@ def refresh(items, root, today=None, fetcher=fetch, geo=geocode):
             added.append(k)
         dropped = [i["id"] for i in gf if i["id"] not in used]
         items[:] = [i for i in items if i["id"] not in set(dropped)]
-        log[parent] = {"status": "ok", "url": c["url"], "centres": len(cs), "matched": matched, "added": added, "dropped_not_on_page": dropped}
+        log[parent] = {"status": "ok", "url": c["url"], "centres": len(cs), "matched": matched, "added": added, "dropped_not_on_page": dropped,
+                       "times_for_gate": (log.get(parent) or {}).get("times_for_gate", [])}
     json.dump(snap, open(sp, "w"), indent=1, ensure_ascii=False)
     return log
