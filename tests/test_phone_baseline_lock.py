@@ -30,12 +30,11 @@ class Lock(unittest.TestCase):
         self.assertEqual(item["phone"].encode("utf-8"), FROZEN.encode("utf-8"))
         self.assertEqual(item["tel"], "02392824244")
         text = open(os.path.join(self.d, "reports", "pending_dean.md"), encoding="utf-8").read()
-        brake = open(os.path.join(self.d, "reports", "anomaly_brake.md"), encoding="utf-8").read()
-        for blob in (text, brake):
-            self.assertIn("blocked", blob)
-            self.assertIn("held for Dean", blob)
-            self.assertIn(FROZEN, blob)
-            self.assertIn("https://feed.example/lounge", blob)
+        self.assertFalse(os.path.exists(os.path.join(self.d, "reports", "anomaly_brake.md")))   # a hold is not a stop
+        self.assertIn("blocked", text)
+        self.assertIn("held for Dean", text)
+        self.assertIn(FROZEN, text)
+        self.assertIn("https://feed.example/lounge", text)
         self.assertNotEqual(item["phone"], "023 9282 2251")
 
     def test_blank_feed_does_not_wipe_frozen_number(self):
@@ -68,7 +67,7 @@ class Lock(unittest.TestCase):
         phone_lock.guard([item], self.d, via="learning", source="auto-apply", layer="warmspaces", persist_new=True)
         self.assertEqual(item["phone"], "01234 567890")
         self.assertEqual(item["phone"].encode("utf-8"), b"01234 567890")
-        self.assertIn("held for Dean", open(os.path.join(self.d, "reports", "anomaly_brake.md"), encoding="utf-8").read())
+        self.assertIn("held for Dean", open(os.path.join(self.d, "reports", "pending_dean.md"), encoding="utf-8").read())
 
     def test_second_change_to_new_listing_is_held(self):
         self.d = _tree({})
@@ -120,7 +119,8 @@ class Lock(unittest.TestCase):
         self.assertEqual(item["phone"], "01234 567890")
         self.assertEqual(item["tel"], "01234567890")
         self.assertEqual(item["phone"].encode("utf-8"), b"01234 567890")
-        text = open(os.path.join(self.d, "reports", "anomaly_brake.md"), encoding="utf-8").read()
+        self.assertFalse(os.path.exists(os.path.join(self.d, "reports", "anomaly_brake.md")))
+        text = open(os.path.join(self.d, "reports", "pending_dean.md"), encoding="utf-8").read()
         self.assertIn("blocked", text)
         self.assertIn("held for Dean", text)
         self.assertIn("https://a.org/c", text)

@@ -25,8 +25,7 @@ class PhoneBaselineHold(unittest.TestCase):
         self.assertIn("held for Dean", text)
         self.assertIn(item["id"], text)
         self.assertIn("source " + SOURCE, text)
-        brake = open(os.path.join(root, "reports", "anomaly_brake.md"), encoding="utf-8").read()
-        self.assertIn("source " + SOURCE, brake)
+        self.assertFalse(os.path.exists(os.path.join(root, "reports", "anomaly_brake.md")))   # a hold is not a stop
         self.assertEqual(item["phone"], "01234 567890")
         self.assertEqual(item["tel"], "01234567890")
 

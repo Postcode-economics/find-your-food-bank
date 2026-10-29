@@ -48,6 +48,8 @@ class Harness(unittest.TestCase):
         self.addCleanup(lambda: [setattr(F, k, v) for k, v in self._orig.items()])
         os.environ["DRY_RUN"] = "1"; self.addCleanup(os.environ.pop, "DRY_RUN", None)
         F.ROOT, F.REP = self.root, os.path.join(self.root, "reports")
+        import learning_signals  # its last-run conflicts (reports/learning_signals.json) come from the temp root, not the live repo
+        self.addCleanup(setattr, learning_signals, "ROOT", learning_signals.ROOT); learning_signals.ROOT = self.root
         self.store, self.pages, self.fetched = {}, {}, []
         F.rj = lambda n, d: copy.deepcopy(self.store.get(n, d))
         F.wj = lambda n, o: self.store.__setitem__(n, copy.deepcopy(o))
