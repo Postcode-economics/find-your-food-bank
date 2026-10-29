@@ -8,6 +8,9 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Bradford Cyrenians - Hostel for Homeless Men · BD8 7EP
 - Bridge House Mission · TS18 3AX
 
+## Deep sweep (council pages): 0 added
+- none
+
 ## Warm spaces: 2 added
 - Saifee Mosque · B18 6PU
 - The Midlands Greek & Cypriot Association · B23 7SJ

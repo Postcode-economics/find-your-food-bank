@@ -97,6 +97,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED 1625 Independent People - Charles England House · BS15 9TR · https://www.1625ip.co.uk/ — no valid postcode
 - QUEUED Bromford - Hayward Road Hostel · BS15 9TR · http://www.bromford.co.uk — no valid postcode
 
+### Deep sweep (council pages): 0 queued, 0 rejected
+
 ### Warm spaces: 2260 queued, 2 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
