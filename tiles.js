@@ -6,7 +6,9 @@
       Credit required by OpenFreeMap: "OpenFreeMap © OpenMapTiles Data from OpenStreetMap".
    3. maptiler: DISABLED future fallback. No key and no default. It is never tried while disabled is true,
       and a key alone does not enable it. Nothing promotes it on a date.
-   Stadia is not used. Reorder nothing: tileCandidates() keeps OpenStreetMap first whatever order this array is in. */
+   Stadia is not used. Reorder nothing: tileCandidates() keeps OpenStreetMap first whatever order this array is in.
+   index.html and sw.js load this file as tiles.js?v=<sha256 of this file>. Cloudflare holds the pre-zoom-fix copy under
+   he7823ea69839, so any change here, even to this comment, gives a tag the live site has never been asked for. */
 window.TILE_PROVIDERS = [
   { name: 'osm', url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>' },
