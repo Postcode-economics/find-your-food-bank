@@ -26,6 +26,17 @@ def snapshot(commit):
 def links():
     j = json.load(open(os.path.join(ROOT, 'scripts', 'old_links.json'))); return j['sent'] + j['variants']
 
+def cases():
+    return [(commit, link, uaname) for commit in OLD_COMMITS for link in links() for uaname, _ in UAS]
+
+def shard(spec=None):
+    """OLD_LINKS_SHARD=k/n (CI matrix): every n-th case starting at k. The n shards together are exactly cases()."""
+    spec = spec if spec is not None else os.environ.get('OLD_LINKS_SHARD', '')
+    if not spec: return cases()
+    k, n = (int(x) for x in spec.split('/'))
+    if not 1 <= k <= n: raise SystemExit('OLD_LINKS_SHARD %r: need 1 <= k <= n' % spec)
+    return cases()[k - 1::n]
+
 def page_ok(pg, link):
     if link.rstrip('/').split('/')[-1] and link.split('?')[0].split('#')[0].count('/') > 1:   # area pages: static listings
         return pg.evaluate("(()=>({ok:document.querySelectorAll('main li,main .card,main a[href^=\"tel:\"],table tr').length>0, why:'area page listings'}))()")
@@ -39,17 +50,20 @@ def run(base=None):
         srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), h); threading.Thread(target=srv.serve_forever, daemon=True).start()
         base = 'http://localhost:%d' % srv.server_address[1]
     base = base.rstrip('/'); build = json.load(open(os.path.join(ROOT, 'version.json')))['build']
-    res = []
+    res = []; todo = shard(); ua_of = dict(UAS)
+    print('%d of %d cases%s' % (len(todo), len(cases()), ' (shard %s)' % os.environ['OLD_LINKS_SHARD'] if os.environ.get('OLD_LINKS_SHARD') else ''), flush=True)
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=CHROME) if CHROME else p.chromium.launch()
         for commit in OLD_COMMITS:
+            mine = [(l, (u, ua_of[u])) for c, l, u in todo if c == commit]
+            if not mine: continue
             old = snapshot(commit)
             def serve_old(route):
                 path = route.request.url.split(base, 1)[-1].split('?')[0].split('#')[0] or '/'
                 f = os.path.join(old, path.lstrip('/')); f = os.path.join(f, 'index.html') if os.path.isdir(f) else f
                 if not route.request.url.startswith(base) or not os.path.exists(f): return route.continue_()
                 route.fulfill(status=200, body=open(f, 'rb').read(), headers={'content-type': mimetypes.guess_type(f)[0] or 'text/html'})
-            for link, (uaname, ua) in [(l, u) for l in links() for u in UAS]:
+            for link, (uaname, ua) in mine:
                 c = B.new_context(b, viewport={'width': 390, 'height': 844}, user_agent=ua, has_touch=True, is_mobile=True, service_workers='allow')
                 c.route('**/*', serve_old)
                 B.stub_map_tiles(c)  # after the catch-all: continue_() would otherwise send tiles to the network
