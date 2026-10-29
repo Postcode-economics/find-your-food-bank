@@ -319,26 +319,62 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 18 auto-applied, 17 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 69 held
 
-- AUTO-APPLIED `ww-55475042` Centenary Methodist Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55475042`
-- AUTO-APPLIED `ww-57951602` Community hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57951602`
-- AUTO-APPLIED `ww-57953101` Life Community Lunch Cafe (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57953101`
-- AUTO-APPLIED `ww-57953292` Martyrs Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57953292`
-- AUTO-APPLIED `ww-55473898` Museum of the Home (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55473898`
-- AUTO-APPLIED `ww-57953124` Mwldan (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57953124`
-- AUTO-APPLIED `ww-55475831` Norton Hive Community Library and Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55475831`
-- AUTO-APPLIED `ww-55474726` Renew 57 (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55474726`
-- AUTO-APPLIED `ww-64432631` Rushenden Warm Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-64432631`
-- AUTO-APPLIED `ww-55473488` St Andrew's CE Parish Church, Wolverhampton WV6 0QZ (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55473488`
-- AUTO-APPLIED `ww-55475671` St Mary Magdalene Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55475671`
-- AUTO-APPLIED `ww-55474433` Starfish Community Social Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55474433`
-- AUTO-APPLIED `ww-68255736` The Warm Welcome Community Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-68255736`
-- AUTO-APPLIED `ww-55472899` Wayfarers Caravan Park with St Hilary Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55472899`
-- AUTO-APPLIED `ww-65438771` Warmwell at Westbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-65438771`
-- AUTO-APPLIED `ww-65070433` Wembley Creative Community Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-65070433`
-- AUTO-APPLIED `ww-69189528` Wellbeing Group (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-69189528`
-- AUTO-APPLIED `cmn-carway-hall` Carway Hall (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:cmn-carway-hall`
+- **Carway Hall** (`cmn-carway-hall`, SA17 4HL): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/
+  why held: this change was undone by Dean; not re-applied; hand-checked times are protected; refresh only flags differences
+- **Wayfarers Caravan Park with St Hilary Church** (`ww-55472899`, TR20 9EF): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://wayfarerspark.co.uk/the-flying-duck-bistro/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **St Andrew's CE Parish Church, Wolverhampton WV6 0QZ** (`ww-55473488`, WV6 0QZ): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.achurchnearyou.com/church/4642/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **Museum of the Home** (`ww-55473898`, E2 8EA): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://museumofthehome.org.uk/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **Starfish Community Social Hub** (`ww-55474433`, TS18 3NA): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.starfishhealthandwellbeing.co.uk/
+  why held: venue general hours, not warm-space session
+- **Renew 57** (`ww-55474726`, LL57 2EU): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.penrallt.org/renew57/index.php
+  why held: venue general hours, not warm-space session
+- **Centenary Methodist Church** (`ww-55475042`, PE21 6NY): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.centenarymethodistchurchboston.org.uk/
+  why held: venue general hours, not warm-space session
+- **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.achurchnearyou.com/church/4605/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **Norton Hive Community Library and Hub** (`ww-55475831`, YO17 9ES): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://nortonhivelibrary.org/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **Community hub** (`ww-57951602`, ME20 7QR): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.aylesford-church.org.uk
+  why held: this change was undone by Dean; not re-applied; hand-checked times are protected; refresh only flags differences
+- **Life Community Lunch Cafe** (`ww-57953101`, CH63 7LA): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.mylifechurch.co.uk
+  why held: venue general hours, not warm-space session
+- **Mwldan** (`ww-57953124`, SA43 1JY): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.mwldan.co.uk/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **Martyrs Church** (`ww-57953292`, LE3 0QT): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://martyrs.org.uk/
+  why held: this change was undone by Dean; not re-applied; hand-checked times are protected; refresh only flags differences
+- **Rushenden Warm Hub** (`ww-64432631`, ME11 5LX): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.friendlyfacesofkent.co.uk
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
+- **Wembley Creative Community Hub** (`ww-65070433`, HA0 4AH): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://werest.art/wcch
+  why held: this change was undone by Dean; not re-applied; hand-checked times are protected; refresh only flags differences
+- **Warmwell at Westbank** (`ww-65438771`, EX6 8AT): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.westbank.org.uk/warmwell
+  why held: venue general hours, not warm-space session
+- **The Warm Welcome Community Centre** (`ww-68255736`, BS11 9EN): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://www.avonmouthcca.org.uk/
+  why held: venue general hours, not warm-space session
+- **Wellbeing Group** (`ww-69189528`, B42 2TU): held after Dean undo 29 Oct — auto-apply reverted
+  source: https://holfordsportshub.co.uk/
+  why held: venue general hours, not warm-space session; source is not the warm space's own page
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
