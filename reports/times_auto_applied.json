@@ -425,5 +425,2288 @@
   "first_run_at": "2026-10-29T06:00:48+00:00",
   "second_run_at": "2026-10-29T12:14:14+00:00",
   "revert": "python scripts/times_revert.py sawtry"
+ },
+ {
+  "id": "north-oxfordshire",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "North Oxfordshire Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday 9.30am – 11.00am",
+   "source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "09:30",
+      "11:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "raw": "Friday 11.00am – 1.00pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are"
+  },
+  "new_structured": {
+   "fri": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:north-oxfordshire"
+ },
+ {
+  "id": "wellingborough-district",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Wellingborough & District Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Friday 9am-12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "09:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.daylightcf.org/foodbank/"
+  },
+  "new_structured": {
+   "fri": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.daylightcf.org/foodbank/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:wellingborough-district"
+ },
+ {
+  "id": "west-cheshire/chester-city-centre",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Chester City Centre",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Opening times Mon Closed Tue Closed Wed 11:00 - 14:00 Thu Closed Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://westcheshire.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "11:00",
+      "14:00"
+     ]
+    ]
+   }
+  },
+  "new": {
+   "raw": "Mon Closed; Tue Closed; Wed 11:00 - 14:00; Thu Closed; Fri 09:00 - 11:00; Sat Closed; Sun Closed",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "11:00",
+      "14:00"
+     ]
+    ],
+    "fri": [
+     [
+      "09:00",
+      "11:00"
+     ]
+    ]
+   },
+   "layout": "trussell_old",
+   "quote": "Mon Closed Tue Closed Wed 11:00 - 14:00 Thu Closed Fri 09:00 - 11:00 Sat Closed Sun Closed",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://westcheshire.foodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "wed": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "11:00"
+    ]
+   ]
+  },
+  "source_url": "https://westcheshire.foodbank.org.uk/locations/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:west-cheshire/chester-city-centre"
+ },
+ {
+  "id": "west-cheshire/ellesmere-port",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Ellesmere Port",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Opening times Mon 10:00 - 12:00 Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://westcheshire.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   }
+  },
+  "new": {
+   "raw": "Mon Closed; Tue 10:00 - 12:00; Wed Closed; Thu Closed; Fri 10:00 - 12:00; Sat Closed; Sun Closed",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "layout": "trussell_old",
+   "quote": "Mon Closed Tue 10:00 - 12:00 Wed Closed Thu Closed Fri 10:00 - 12:00 Sat Closed Sun Closed",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://westcheshire.foodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://westcheshire.foodbank.org.uk/locations/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:west-cheshire/ellesmere-port"
+ },
+ {
+  "id": "pantry",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "PANTRY Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Sats & Tues 10am-12pm | Tuesday 10am - 12pm | Saturday 10am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.pantryfoodbank.org"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.pantryfoodbank.org",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:pantry"
+ },
+ {
+  "id": "hereford",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Hereford Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Monday to Friday 10:00 am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://herefordfoodbank.co.uk/contact-us"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://herefordfoodbank.co.uk/contact-us",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:hereford"
+ },
+ {
+  "id": "crescent",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Crescent Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Sunday 10AM -11AM | Sundays 10am-11:00am",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "sun": [
+     [
+      "10:00",
+      "11:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://crescentfoodbank.org.uk"
+  },
+  "new_structured": {
+   "sun": [
+    [
+     "10:00",
+     "11:00"
+    ]
+   ]
+  },
+  "source_url": "https://crescentfoodbank.org.uk",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:crescent"
+ },
+ {
+  "id": "burgess-hill",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Burgess Hill Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesday and Thursday 11am - 1pm | Saturday 10am - 12pm | Fridays 10am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ],
+    "thu": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://burgesshillfoodbank.org.uk"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://burgesshillfoodbank.org.uk",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:burgess-hill"
+ },
+ {
+  "id": "enniskillen",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Enniskillen Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Tuesday Closed Wednesday 1:00 pm to 2:00 pm | Monday 1:00 pm to 3:00 pm | Tuesday Closed Wednesday 10:00 am to 12:00 pm",
+   "source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Monday-Tuesday Closed Wednesday 1:00 pm to 2:00 pm",
+    "Monday 1:00 pm to 3:00 pm",
+    "Tuesday Closed Wednesday 10:00 am to 12:00 pm"
+   ]
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "raw": "Monday 1:00 pm to 3:00 pm; Wednesday 10:00 am to 12:00 pm",
+   "source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:enniskillen"
+ },
+ {
+  "id": "sunderland",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Sunderland Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday: 15:00-16:30 | Tuesday: Closed Wednesday: 15:00-16:30 | Monday: Closed Tuesday: 10:30-12:30 | Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 11:00-13:30 | Monday: 13:00-14:30 | Tuesday: Closed Wednesday: Closed Thursday: Closed Friday: 13:00-14:30 | Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 09:00-10:30 | Monday: Closed Tuesday: Closed Wednesday: 13:00-15:00 | Thursday: Closed Friday: 10:00-12:00 | Monday: 10:00-12:00 | Tuesday: Closed Wednesday: 13:00-15:00 | Thursday: 11:00-14:00 | Monday: Closed Tuesday: 13:30-15:30 | Monday: 13:00-15:00 | Monday: 11:30-13:00 | Tuesday: Closed Wednesday: Closed Thursday: 11:30-13:00 | Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 13:00-15:00 | Monday: Closed Tuesday: Closed Wednesday: 09:30-12:00",
+   "source_url": "https://sunderlandfoodbank.org.uk/locations/",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Monday: 15:00-16:30",
+    "Tuesday: Closed Wednesday: 15:00-16:30",
+    "Monday: Closed Tuesday: 10:30-12:30",
+    "Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 11:00-13:30",
+    "Monday: 13:00-14:30",
+    "Tuesday: Closed Wednesday: Closed Thursday: Closed Friday: 13:00-14:30",
+    "Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 09:00-10:30",
+    "Monday: Closed Tuesday: Closed Wednesday: 13:00-15:00",
+    "Thursday: Closed Friday: 10:00-12:00",
+    "Monday: 10:00-12:00",
+    "Tuesday: Closed Wednesday: 13:00-15:00",
+    "Thursday: 11:00-14:00",
+    "Monday: Closed Tuesday: 13:30-15:30",
+    "Monday: 13:00-15:00",
+    "Monday: 11:30-13:00",
+    "Tuesday: Closed Wednesday: Closed Thursday: 11:30-13:00",
+    "Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 13:00-15:00",
+    "Monday: Closed Tuesday: Closed Wednesday: 09:30-12:00"
+   ]
+  },
+  "new": {
+   "raw": "Thursday 09:00-10:30",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "09:00",
+      "10:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://sunderlandfoodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "09:00",
+     "10:30"
+    ]
+   ]
+  },
+  "source_url": "https://sunderlandfoodbank.org.uk/locations/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:sunderland"
+ },
+ {
+  "id": "sunderland/roker-methodist-church",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Roker Methodist Church",
+  "old": null,
+  "new": {
+   "raw": "Monday 13:00-15:00",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://sunderlandfoodbank.org.uk/get-help/"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "source_url": "https://sunderlandfoodbank.org.uk/get-help/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:sunderland/roker-methodist-church"
+ },
+ {
+  "id": "sunderland/downhill-centre-community-hub",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Downhill Centre Community Hub",
+  "old": null,
+  "new": {
+   "raw": "Thursday 11:00-13:30",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "11:00",
+      "13:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://sunderlandfoodbank.org.uk/get-help/"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:30"
+    ]
+   ]
+  },
+  "source_url": "https://sunderlandfoodbank.org.uk/get-help/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:sunderland/downhill-centre-community-hub"
+ },
+ {
+  "id": "nourish",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Nourish Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Tuesdays & Thursdays, 10am – 2pm | Mons, 10am – 12pm | Tues, 10am – 12pm | Thurs, 11am – 1pm | Fri, 2pm – 4pm | Tuesdays – Thursdays, 9.30am – 12.30pm | Fridays, 9.30am – 12pm | Wednesday, 10am – 12pm | Friday, 2pm – 4pm | Wednesdays, 9am – 12.30pm | Fridays, 2pm – 4pm | Sundays, 2.30pm – 4.30pm",
+   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Tuesdays & Thursdays, 10am – 2pm",
+    "Mons, 10am – 12pm",
+    "Tues, 10am – 12pm",
+    "Thurs, 11am – 1pm",
+    "Fri, 2pm – 4pm",
+    "Tuesdays – Thursdays, 9.30am – 12.30pm",
+    "Fridays, 9.30am – 12pm",
+    "Wednesday, 10am – 12pm",
+    "Friday, 2pm – 4pm",
+    "Wednesdays, 9am – 12.30pm",
+    "Fridays, 2pm – 4pm",
+    "Sundays, 2.30pm – 4.30pm"
+   ]
+  },
+  "new": {
+   "raw": "Tuesdays & Thursdays 10am – 2pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "14:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://faith-works.org.uk/locations-across-dorset/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://faith-works.org.uk/locations-across-dorset/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:nourish"
+ },
+ {
+  "id": "dens/way-inn-christian-centre",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Way Inn Christian Centre",
+  "old": null,
+  "new": {
+   "raw": "Tuesday-Friday 10am-12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.dens.org.uk/need-emergency-food/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.dens.org.uk/need-emergency-food/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:dens/way-inn-christian-centre"
+ },
+ {
+  "id": "salford-food-parcels",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Salford Food Parcels Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Wednesday 10-11.30am",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "10:00",
+      "11:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/"
+  },
+  "new_structured": {
+   "wed": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  },
+  "source_url": "https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:salford-food-parcels"
+ },
+ {
+  "id": "corsham-churches",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Corsham Churches Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesday and Saturday 10am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://corshamchurchesfoodbank.org.uk"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://corshamchurchesfoodbank.org.uk",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:corsham-churches"
+ },
+ {
+  "id": "warminster-and-district",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Warminster and District Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesday, Wednesday & Friday 9am to 12:30pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "09:00",
+      "12:30"
+     ]
+    ],
+    "wed": [
+     [
+      "09:00",
+      "12:30"
+     ]
+    ],
+    "fri": [
+     [
+      "09:00",
+      "12:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "http://warminsteranddistrictfoodbank.co.uk"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "http://warminsteranddistrictfoodbank.co.uk",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:warminster-and-district"
+ },
+ {
+  "id": "thurrock/st-john-the-baptist-church-tilbury",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St. John the Baptist Church, Tilbury",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Tuesday Closed Wednesday 11:00 am to 1:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "raw": "Tuesday 11:00 am to 1:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:thurrock/st-john-the-baptist-church-tilbury"
+ },
+ {
+  "id": "thurrock/gates-of-praise-international-christian-centre",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Gates of Praise International Christian Centre",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Friday Closed Saturday 9:30 am to 11:30 am",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "sat": [
+     [
+      "09:30",
+      "11:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "sat": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "raw": "Saturday 10:00 am to 12:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:thurrock/gates-of-praise-international-christian-centre"
+ },
+ {
+  "id": "thurrock/st-stephens-church-hall-purfleet",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St. Stephen's Church Hall, Purfleet",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday Closed Tuesday 2:00 pm to 4:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "14:00",
+      "16:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "raw": "Friday 10:00 am to 12:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:thurrock/st-stephens-church-hall-purfleet"
+ },
+ {
+  "id": "thurrock/st-francis-centre-linford",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St. Francis Centre, Linford",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday 1:00 pm to 3:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "raw": "Thursday 11:00 am to 1:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:thurrock/st-francis-centre-linford"
+ },
+ {
+  "id": "thurrock/all-saints-church-south-ockendon",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "All Saints Church, South Ockendon",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Thursday Closed Friday 10:00 am to 12:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "raw": "Thursday 11:00 am to 1:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:thurrock/all-saints-church-south-ockendon"
+ },
+ {
+  "id": "thurrock/gateway-peoples-centre",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Gateway People’s Centre",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "raw": "Wednesday 11:00 am to 1:00 pm",
+   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "wed": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:thurrock/gateway-peoples-centre"
+ },
+ {
+  "id": "ealing/northolt",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Northolt",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Opening times Mon Closed Tue 12:30 - 14:00 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://ealing.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "12:30",
+      "14:00"
+     ]
+    ]
+   }
+  },
+  "new": {
+   "raw": "Mon Closed; Tue 12:00 - 13:30; Wed Closed; Thu Closed; Fri Closed; Sat Closed; Sun Closed",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "12:00",
+      "13:30"
+     ]
+    ]
+   },
+   "layout": "trussell_old",
+   "quote": "Mon Closed Tue 12:00 - 13:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://ealing.foodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "12:00",
+     "13:30"
+    ]
+   ]
+  },
+  "source_url": "https://ealing.foodbank.org.uk/locations/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:ealing/northolt"
+ },
+ {
+  "id": "wokingham/waterford-house",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Waterford House",
+  "old": null,
+  "new": {
+   "raw": "Monday 13:00 - 15:00 | Wednesday 13:00 - 15:00 | Friday 13:00 - 15:00",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ],
+    "wed": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ],
+    "fri": [
+     [
+      "13:00",
+      "15:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://wokingham.foodbank.org.uk/about-us/locations"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ],
+   "fri": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "source_url": "https://wokingham.foodbank.org.uk/about-us/locations",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:wokingham/waterford-house"
+ },
+ {
+  "id": "salvation-army/weymouth",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Weymouth",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "TUESDAY: 6-30 pm | WEDNESDAY: 10 am - 12",
+   "source_url": "https://www.salvationarmy.org.uk/weymouth",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "TUESDAY: 6-30 pm",
+    "WEDNESDAY: 10 am - 12"
+   ]
+  },
+  "new": {
+   "raw": "THURSDAY : 10 am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "layout": "day_headings",
+   "quote": "THURSDAY : 10 am - 12pm",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.salvationarmy.org.uk/weymouth"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.salvationarmy.org.uk/weymouth",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:salvation-army/weymouth"
+ },
+ {
+  "id": "brentwood",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Brentwood Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Thursday Closed Friday 10:00 am to 1:00 pm",
+   "source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ]
+   },
+   "raw": "Tuesday-Wednesday 10:00 am to 1:00 pm",
+   "source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:brentwood"
+ },
+ {
+  "id": "the-community-cupboard",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "The Community Cupboard Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tues & Thur 12 -2pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "thu": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://thecommunitycupboard.co.uk/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://thecommunitycupboard.co.uk/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:the-community-cupboard"
+ },
+ {
+  "id": "purley/old-lodge-lane-baptist-church",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Old Lodge Lane Baptist Church",
+  "old": null,
+  "new": {
+   "raw": "Fridays 9am-12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "09:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.purleyfoodhub.net/get-help/"
+  },
+  "new_structured": {
+   "fri": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.purleyfoodhub.net/get-help/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:purley/old-lodge-lane-baptist-church"
+ },
+ {
+  "id": "causeway",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Causeway Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Mon Closed Tue 11:30 - 13:00 | Wed 11:30 - 13:00 | Thu 19:00 - 20:00 | Fri 11:30 - 13:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 16:30 - 18:00 | Mon Closed Tue Closed Wed Closed Thu 11:00 - 12:00",
+   "source_url": "https://causeway.foodbank.org.uk/locations/",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Tue 11:30–13:00",
+    "Wed 11:30–13:00",
+    "Thu 19:00–20:00",
+    "Fri 11:30–13:00",
+    "Fri 16:30–18:00",
+    "Thu 11:00–12:00"
+   ]
+  },
+  "new": {
+   "raw": "Mon Closed; Tue 11:30 - 13:00; Wed 11:30 - 13:00; Thu 19:00 - 20:00; Fri 11:30 - 13:00; Sat Closed; Sun Closed",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "11:30",
+      "13:00"
+     ]
+    ],
+    "wed": [
+     [
+      "11:30",
+      "13:00"
+     ]
+    ],
+    "thu": [
+     [
+      "19:00",
+      "20:00"
+     ]
+    ],
+    "fri": [
+     [
+      "11:30",
+      "13:00"
+     ]
+    ]
+   },
+   "layout": "trussell_old",
+   "quote": "Mon Closed Tue 11:30 - 13:00 Wed 11:30 - 13:00 Thu 19:00 - 20:00 Fri 11:30 - 13:00 Sat Closed Sun Closed",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://causeway.foodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "11:30",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "11:30",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "19:00",
+     "20:00"
+    ]
+   ],
+   "fri": [
+    [
+     "11:30",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://causeway.foodbank.org.uk/locations/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:causeway"
+ },
+ {
+  "id": "medway/the-net-community-cafe",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "The Net Community Cafe",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Wednesday Closed Thursday 11:00 am to 1:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
+   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Wednesday Closed Thursday 11:00 am to 1:00 pm",
+    "Mondays : Closed Tuesdays : 9.30am - 3.00pm",
+    "Wednesdays : 9.30am - 3.00pm",
+    "Thursdays : 9.30am - 3.00pm",
+    "Fridays : 9.30am – 1.30pm"
+   ]
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "09:30",
+      "12:00"
+     ]
+    ]
+   },
+   "raw": "Thursday 9:30 am to 12:00 pm",
+   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "09:30",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:medway/the-net-community-cafe"
+ },
+ {
+  "id": "medway/st-justus-church",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St Justus Church",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
+   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Monday-Tuesday Closed Wednesday 10:30 am to 3:30 pm",
+    "Mondays : Closed Tuesdays : 9.30am - 3.00pm",
+    "Wednesdays : 9.30am - 3.00pm",
+    "Thursdays : 9.30am - 3.00pm",
+    "Fridays : 9.30am – 1.30pm"
+   ]
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ]
+   },
+   "raw": "Tuesday 10:30 am to 12:30 pm",
+   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:medway/st-justus-church"
+ },
+ {
+  "id": "medway/twydall-foodbank-centre-coffee-shop",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Twydall Foodbank Centre & Coffee Shop",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Thursday 9:30 am to 12:00 pm | Mondays : Closed Tuesdays : 9.30am - 3.00pm | Wednesdays : 9.30am - 3.00pm | Thursdays : 9.30am - 3.00pm | Fridays : 9.30am – 1.30pm",
+   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Thursday 9:30 am to 12:00 pm",
+    "Mondays : Closed Tuesdays : 9.30am - 3.00pm",
+    "Wednesdays : 9.30am - 3.00pm",
+    "Thursdays : 9.30am - 3.00pm",
+    "Fridays : 9.30am – 1.30pm"
+   ]
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "12:30",
+      "14:30"
+     ]
+    ],
+    "fri": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ]
+   },
+   "raw": "Tuesday 12:30 pm to 2:30 pm; Friday 10:30 am to 12:30 pm",
+   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "12:30",
+     "14:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:medway/twydall-foodbank-centre-coffee-shop"
+ },
+ {
+  "id": "comfort-memorial-food-for-all",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Comfort Memorial Food For All Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Monday 11:00 - 15:30 | Wednesday 11:00 - 15:30 | Friday 11:00 - 15:30",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "11:00",
+      "15:30"
+     ]
+    ],
+    "wed": [
+     [
+      "11:00",
+      "15:30"
+     ]
+    ],
+    "fri": [
+     [
+      "11:00",
+      "15:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.cmffa.org.uk/"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "11:00",
+     "15:30"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "15:30"
+    ]
+   ],
+   "fri": [
+    [
+     "11:00",
+     "15:30"
+    ]
+   ]
+  },
+  "source_url": "https://www.cmffa.org.uk/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:comfort-memorial-food-for-all"
+ },
+ {
+  "id": "bridgwater",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Bridgwater Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Opening times Mon 13:00 - 15:30 Tue Closed Wed 13:00 - 15:30 Thu Closed Fri 13:00 - 15:30 Sat Closed Sun Closed ",
+   "source_url": "https://bridgwater.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "13:00",
+      "15:30"
+     ]
+    ],
+    "mon": [
+     [
+      "13:00",
+      "15:30"
+     ]
+    ],
+    "wed": [
+     [
+      "13:00",
+      "15:30"
+     ]
+    ]
+   }
+  },
+  "new": {
+   "raw": "Mon 10:30 - 13:30; Tue Closed; Wed 10:30 - 13:30; Thu Closed; Fri 10:30 - 13:30; Sat Closed; Sun Closed",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:30",
+      "13:30"
+     ]
+    ],
+    "wed": [
+     [
+      "10:30",
+      "13:30"
+     ]
+    ],
+    "fri": [
+     [
+      "10:30",
+      "13:30"
+     ]
+    ]
+   },
+   "layout": "trussell_old",
+   "quote": "Mon 10:30 - 13:30 Tue Closed Wed 10:30 - 13:30 Thu Closed Fri 10:30 - 13:30 Sat Closed Sun Closed",
+   "unclear_days": {},
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://bridgwater.foodbank.org.uk/locations/"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ]
+  },
+  "source_url": "https://bridgwater.foodbank.org.uk/locations/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:bridgwater"
+ },
+ {
+  "id": "3food4u/chigwell-row",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Chigwell Row",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Wednesday 4:45pm to 6:00pm",
+   "source_url": "https://3food4u.org/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "16:45",
+      "18:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "raw": "Thursday 12:15pm to 1:15pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "12:15",
+      "13:15"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://3food4u.org/"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "12:15",
+     "13:15"
+    ]
+   ]
+  },
+  "source_url": "https://3food4u.org/",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:3food4u/chigwell-row"
+ },
+ {
+  "id": "3food4u/budworth-hall",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Budworth Hall",
+  "old": null,
+  "new": {
+   "raw": "Friday 12:30pm to 2:00pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "12:30",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://3food4u.org"
+  },
+  "new_structured": {
+   "fri": [
+    [
+     "12:30",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://3food4u.org",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:3food4u/budworth-hall"
+ },
+ {
+  "id": "woking",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Woking Foodbank",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday 10:30 am to 12:30 pm | Tuesday Closed Wednesday 10:30 am to 12:30 pm | Thursday 10:30 am to 12:30 pm | Monday-Tuesday Closed Wednesday 12:00 pm to 2:30 pm | Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm | Monday Closed Tuesday 12:30 pm to 2:30 pm | Wednesday-Thursday Closed Friday 10:00 am to 12:00 pm",
+   "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Monday 10:30 am to 12:30 pm",
+    "Tuesday Closed Wednesday 10:30 am to 12:30 pm",
+    "Thursday 10:30 am to 12:30 pm",
+    "Monday-Tuesday Closed Wednesday 12:00 pm to 2:30 pm",
+    "Monday-Tuesday Closed Wednesday 2:00 pm to 4:00 pm",
+    "Monday Closed Tuesday 12:30 pm to 2:30 pm",
+    "Wednesday-Thursday Closed Friday 10:00 am to 12:00 pm"
+   ]
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ],
+    "wed": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ],
+    "thu": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ]
+   },
+   "raw": "Monday 10:30 am to 12:30 pm; Wednesday 10:30 am to 12:30 pm; Thursday 10:30 am to 12:30 pm",
+   "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:woking"
+ },
+ {
+  "id": "wirral/st-chads-liscard",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St Chads, Liscard",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Thursday Closed Friday 11:00 am to 1:00 pm",
+   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ]
+   },
+   "raw": "Tuesday 10:00 am to 1:00 pm",
+   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:wirral/st-chads-liscard"
+ },
+ {
+  "id": "wirral/st-james-church-new-brighton",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St James Church, New Brighton",
+  "old": {
+   "checked_date": "2026-10-20",
+   "raw": "Monday-Tuesday Closed Wednesday 1:00 pm to 2:30 pm",
+   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "13:00",
+      "14:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new": {
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ]
+   },
+   "raw": "Thursday 10:30 am to 12:30 pm",
+   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+   "checked_date": "2026-10-29",
+   "reader": "trussell_cards"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:wirral/st-james-church-new-brighton"
+ },
+ {
+  "id": "godalming-villages-community-store",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Godalming & Villages Community Store Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Monday - Friday 10am-12:30pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "12:30"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "12:30"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "12:30"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "12:30"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "12:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://godalmingcommunitystore.org/contact"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "https://godalmingcommunitystore.org/contact",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:godalming-villages-community-store"
+ },
+ {
+  "id": "ifan-da5df633f7eabc8fbdb2a3-0",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Castleman Community Larder CIC",
+  "old": null,
+  "new": {
+   "raw": "Mon, Tues, Wed 10am - 3pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "15:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "15:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "15:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://castlemancommunity.wixsite.com/larder/contact-us"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ]
+  },
+  "source_url": "https://castlemancommunity.wixsite.com/larder/contact-us",
+  "first_run_at": "2026-10-29T08:00:47+00:00",
+  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "revert": "python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0"
  }
 ]

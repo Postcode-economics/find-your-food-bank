@@ -9,7 +9,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 ## All sources (lowest first)
 
 - warmspaces: Cambridgeshire ACRE: 40
-- IFAN: 43.8
+- IFAN: 45.4
 - warmspaces: Council directory: 46.6
 - warmspaces: Warm Welcome: 49
 - own site blackcountryfoodbank.org.uk: 50
@@ -20,7 +20,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site durhamfoodbank.org.uk: 50
 - own site newhamfoodbank.org.uk: 50
 - own site northamptonhopecentre.org.uk: 50
-- own site purleyfoodhub.net: 50
 - own site widnesfoodbank.org.uk: 50
 - own site canterburyfoodbank.org: 50
 - warmspaces: Southwark Council warm spaces page: 50
@@ -28,17 +27,18 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
 - own site salvationarmy.org.uk: 54.2
 - own site familyfoodbank.org: 57.1
+- own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1
 - own site calderwoodbaptist.co.uk: 58.4
 - own site lutonfoodbank.org.uk: 58.4
 - own site loveworks.org.uk: 58.4
 - own site winchesterbasicsbank.co.uk: 60
 - own site reachhaverhill.org.uk: 60
-- own site dens.org.uk: 60
 - own site edinburghnefoodbank.com: 60
 - own site bristolnorthwestfoodbank.org.uk: 60
 - own site soarvalleyoutreach.org.uk: 62.5
-- Give Food (independent): 62.8
+- Give Food (independent): 63.6
+- own site dens.org.uk: 70
 - own site stratforduponavon.foodbank.org.uk: 70
 - own site warwickdistrict.foodbank.org.uk: 71.5
 - own site gloucester.foodbank.org.uk: 71.5
@@ -54,8 +54,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site southliverpool.foodbank.org.uk: 87.5
 - own site braintreearea.foodbank.org.uk: 87.5
 - own site swindonfoodcollective.org: 87.5
-- own site 3food4u.org: 87.5
-- own site sunderlandfoodbank.org.uk: 88.5
 - own site nbsg.foodbank.org.uk: 88.9
 - own site merthyrcynon.foodbank.org.uk: 88.9
 - own site sparkhill.foodbank.org.uk: 90
@@ -78,6 +76,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site taffely.foodbank.org.uk: 93.8
 - own site greenwich.foodbank.org.uk: 93.8
 - own site salford.foodbank.org.uk: 93.8
+- own site 3food4u.org: 93.8
 - own site hinckleyarea.foodbank.org.uk: 94.5
 - own site cambridgecity.foodbank.org.uk: 94.5
 - own site cardiff.foodbank.org.uk: 94.5
@@ -90,6 +89,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - shelters: OpenStreetMap: 95.2
 - own site thurrock.foodbank.org.uk: 95.5
 - Trussell Trust pages: 96
+- own site sunderlandfoodbank.org.uk: 96.2
 - own site northayrshire.foodbank.org.uk: 96.5
 - own site eastwestnottingham.foodbank.org.uk: 96.5
 - own site leicestersouth.foodbank.org.uk: 96.7

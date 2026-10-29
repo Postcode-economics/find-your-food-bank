@@ -2,7 +2,7 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
-## Food banks: 78 added
+## Food banks: 81 added
 - Lincoln Foodbank · LN1 1UL · https://www.givefood.org.uk/needs/at/lincoln/
 - Caterham Foodbank · CR3 6NA · https://www.givefood.org.uk/needs/at/caterham/
 - Padiham Parish Foodbank · BB12 8HG · https://www.givefood.org.uk/needs/at/padiham-parish/
@@ -81,6 +81,9 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Christ Apostolic Church Mount of Rehoboth · WV13 1QU
 - Bridge Church Food Bank · DN22 6AA
 - The Life House · B29 6PB
+- The Bright Morning Star Prisons and Homelessness Outreach · SW9 7PT
+- Highwayhope · M12 4QW
+- Ibijoke Children Foundation UK · L7 0JA
 
 ## Shelters: 4 added
 - Adullam Homes HA - Norman House · B70 9LS
