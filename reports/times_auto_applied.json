@@ -41,5 +41,389 @@
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
   "revert": "python scripts/times_revert.py the-gate"
+ },
+ {
+  "id": "auldhouse-community",
+  "name": "Auldhouse Community Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Thursdays 11.30am - 2.00pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "11:30",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://www.auldhousecommunitychurch.com/whats-mid-foodbank/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "G432XG"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://www.auldhousecommunitychurch.com/whats-mid-foodbank/",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py auldhouse-community"
+ },
+ {
+  "id": "exmouth",
+  "name": "Exmouth Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesdays 13:30 - 15:00 | Fridays 13:30 - 15:00",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "13:30",
+      "15:00"
+     ]
+    ],
+    "fri": [
+     [
+      "13:30",
+      "15:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://exmouthfoodbank.org.uk/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "EX81PW"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://exmouthfoodbank.org.uk/",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py exmouth"
+ },
+ {
+  "id": "feedo-needo",
+  "name": "Feedo Needo Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Friday 2pm - 4pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "14:00",
+      "16:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://feedoneedo.org.uk/cause-foodbank",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "B56BS"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://feedoneedo.org.uk/cause-foodbank",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py feedo-needo"
+ },
+ {
+  "id": "hucknall",
+  "name": "Hucknall Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Mondays and Tuesdays 9:30am - 1.30pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "09:30",
+      "13:30"
+     ]
+    ],
+    "tue": [
+     [
+      "09:30",
+      "13:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://uorhucknall.org.uk/hosted%20organisations",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "NG157HN"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://uorhucknall.org.uk/hosted%20organisations",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py hucknall"
+ },
+ {
+  "id": "ifan-5b9fd1318a04132921a389-0",
+  "name": "Holy Trinity Church, Wester Hailes",
+  "old": null,
+  "new": {
+   "raw": "Mondays 9.30am – 11.00am",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "09:30",
+      "11:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "EH142SL"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py ifan-5b9fd1318a04132921a389-0"
+ },
+ {
+  "id": "lalley-centre",
+  "name": "Lalley Centre Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesday 10.30am to 1pm | Thursday 1.30pm to 4pm | Friday 2pm to 4pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:30",
+      "13:00"
+     ]
+    ],
+    "thu": [
+     [
+      "13:30",
+      "16:00"
+     ]
+    ],
+    "fri": [
+     [
+      "14:00",
+      "16:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://www.caritassalford.org.uk/service/lalley-centre-community-pantry-allotment/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "M407RG"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://www.caritassalford.org.uk/service/lalley-centre-community-pantry-allotment/",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py lalley-centre"
+ },
+ {
+  "id": "liphook",
+  "name": "Liphook Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesdays and Fridays 9.30 - 11.30",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "09:30",
+      "11:30"
+     ]
+    ],
+    "fri": [
+     [
+      "09:30",
+      "11:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://liphookfoodbank.com",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "GU307QE"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://liphookfoodbank.com",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py liphook"
+ },
+ {
+  "id": "lyme-regis",
+  "name": "Lyme Regis Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Wednesday 10am - 12pm | Wednesdays 10am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://lymeregisfoodbank.co.uk",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "DT73LS"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://lymeregisfoodbank.co.uk",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py lyme-regis"
+ },
+ {
+  "id": "oadby",
+  "name": "Oadby Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Fridays 11.30 - 12.30",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "11:30",
+      "12:30"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://oadbyfoodbank.org.uk/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "LE24LA"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://oadbyfoodbank.org.uk/",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py oadby"
+ },
+ {
+  "id": "rye",
+  "name": "Rye Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Wednesday 12pm–2pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "wed": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://ryefoodbank.com",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "TN317AN"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://ryefoodbank.com",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py rye"
+ },
+ {
+  "id": "salcare",
+  "name": "Salcare Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Tuesday & Friday 10am until 1pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://www.salcare.org.uk/food-bank-community-pantry/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "DE757GF"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://www.salcare.org.uk/food-bank-community-pantry/",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py salcare"
+ },
+ {
+  "id": "sawtry",
+  "name": "Sawtry Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Fridays 3.00pm to 4.00pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "15:00",
+      "16:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "http://www.caresco.org.uk/?page=foodbank",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "PE285UX"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "http://www.caresco.org.uk/?page=foodbank",
+  "first_run_at": "2026-10-29T06:00:48+00:00",
+  "second_run_at": "2026-10-29T12:14:14+00:00",
+  "revert": "python scripts/times_revert.py sawtry"
  }
 ]
