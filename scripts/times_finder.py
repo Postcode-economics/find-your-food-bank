@@ -66,22 +66,27 @@ def generic(items_for_site, base):
         return out
     single = len(items_for_site) == 1
     for i in items_for_site:
-        best = None
+        best, rej = None, []
         for u, t in pages:
-            ot = D.extract_times(t, i.get("postcode"))
+            ot = D.extract_times(t, i.get("postcode"), rejected=rej)
             if ot: best = (u, ot); break
         if not best and single:
             for u, t in pages[1:]:
                 if re.search(r"open|times|when", u, re.I):
-                    ot = D.extract_times(t, None)
+                    # a page listing several centres' postcodes is a locations page: its times belong to those centres
+                    if len(D.find_pcs(t)) > 1:
+                        rej.append({"text": "", "reason": "page lists several centres (%d postcodes); times not tied to this listing" % len(D.find_pcs(t))}); continue
+                    ot = D.extract_times(t, None, rejected=rej)
                     if ot: best = (u, ot); break
+        note = ("; rejected: " + "; ".join(sorted({r["reason"] for r in rej}))[:300]) if rej else ""
         if best:
             u, ot = best
-            if ot.get("structured") and D.office_like(ot["structured"]): out[i["id"]] = (None, "times found look like office hours; skipped"); continue
+            if rej: ot = dict(ot, _rejected=rej[:12])   # logged in logs/times_finder.json; underscore keys are never written to overrides
+            if ot.get("structured") and D.office_like(ot["structured"]): out[i["id"]] = (None, "times found look like office hours; skipped" + note); continue
             pcs = [norm_pc(i.get("postcode"))] if i.get("postcode") and norm_pc(i.get("postcode")) in dict(pages).get(u, "").upper().replace(" ", "") else []
             fb = PR.mentions_food_bank(dict(pages).get(u, ""), [i.get("name"), i.get("foodbank")])
             ot = dict(ot, source_url=u, checked_date=RUN, reader="times_finder", pc_seen=pcs, fb_mention=fb); out[i["id"]] = (ot, "found on own site")
-        else: out[i["id"]] = (None, "no client times found on own site (home, sitemap and %d linked pages read)" % (len(pages) - 1))
+        else: out[i["id"]] = (None, "no client times found on own site (home, sitemap and %d linked pages read)" % (len(pages) - 1) + note)
     return out
 KNOWN = os.path.join(os.path.dirname(__file__), "..", "overrides", "known_sources.json")
 def known():
@@ -148,6 +153,8 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None, own_sites=None
     if old and not _empty(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
         why.append("conflicts with times from another source (%s)" % (old.get("source_url") or "unknown"))
     if _sig(ot) and (blocked or {}).get(undone_key(k)) == _sig(ot): why.append("this change was undone by Dean; not re-applied")
+    for extra in (D.jumble_reason(ot), D.shrink_reason(old, ot)):
+        if extra: why.append(extra)
     return why
 def _read(ot):
     """A times result was actually read. No table, no text and no explicit closed status means nothing was found."""

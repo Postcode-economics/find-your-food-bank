@@ -68,7 +68,8 @@ class Times(unittest.TestCase):
         it = self.items(); log = discover.cross_check_times(it, "fb", "opening_times", fake({"https://x.org/": page(FB)}))
         self.assertEqual(log["a"]["status"], "confirmed"); self.assertEqual(it[0]["opening_times"]["structured"], self.OT["structured"])
     def test_changed_updated_via_times_py(self):
-        it = self.items(); h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Wednesday 9am - 11am")
+        it = self.items({"status": "TIMES_FOUND", "structured": {"tue": [["10:00", "12:00"]]}})
+        h = FB.replace("Tuesday 10am - 12pm, Friday 1pm - 3pm", "Wednesday 9am - 11am")
         l1, log = two_runs(it, "fb", "opening_times", fake({"https://x.org/": page(h)}))
         self.assertEqual(l1["a"]["status"], "held_for_dean")
         self.assertEqual(log["a"]["status"], "changed"); self.assertEqual(it[0]["opening_times"]["structured"], {"wed": [["09:00", "11:00"]]})
