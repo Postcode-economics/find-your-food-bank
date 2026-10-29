@@ -6136,6 +6136,32 @@
    ]
   }
  },
+ "driffield-wolds": {
+  "checked_date": "2026-10-29",
+  "fb_mention": true,
+  "parsed_from_text": true,
+  "pc_seen": [
+   "YO256AW"
+  ],
+  "raw": "Monday and Thursday 10am -12pm",
+  "reader": "times_finder",
+  "source_url": "https://lovedriffield.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "droitwich-spa": {
   "checked_date": "2026-10-20",
   "raw": "Monday, Tuesday, Thursday and Friday between 10am – 4pm | Monday to Friday, 9am-5pm",
