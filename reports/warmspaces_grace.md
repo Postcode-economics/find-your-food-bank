@@ -1,6 +1,5 @@
-# warmspaces: kept on 48-hour grace (2026-10-29T14:46:41+00:00)
+# warmspaces: kept on 48-hour grace (2026-10-29T21:34:11+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
-- Dursley Library (ww-64379285): source unreachable this run (HTTP 522); last confirmed 2026-10-29T05:37:13+00:00 (9.2h ago)
-- St Botolph's Church (ww-57951802): source unreachable this run (HTTP error); last confirmed 2026-10-29T05:37:13+00:00 (9.2h ago)
+- Renew Wellbeing @ Tyndale (ww-68737547): source unreachable this run (HTTP error); last confirmed 2026-10-29T14:44:46+00:00 (6.8h ago)
