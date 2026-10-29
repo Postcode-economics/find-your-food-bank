@@ -1,4 +1,4 @@
-# Refresh guard: shelters (2026-10-29T14:50:00+00:00)
+# Refresh guard: shelters (2026-10-29T21:36:25+00:00)
 
 shelters: kept 4 places, 0 phones, 0 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
