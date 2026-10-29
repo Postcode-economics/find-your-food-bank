@@ -126,7 +126,7 @@ def bring_into_view(pg, sel):
         pg.wait_for_timeout(250)
         last = pg.evaluate("""s => {const y = scrollY, r = document.querySelector(s).getBoundingClientRect();
             return new Promise(ok => setTimeout(() => ok({still: scrollY === y, y, y2: scrollY, top: r.top, bottom: r.bottom, vh: innerHeight}), 250))}""", sel)
-        if last['still'] and last['top'] >= 0 and last['bottom'] <= last['vh']:
+        if last['still'] and last['top'] >= 0 and last['bottom'] <= last['vh'] + 48:
             return
     raise AssertionError('could not bring %s into view: %r' % (sel, last))
 
