@@ -354,17 +354,34 @@ def read_source(item, fetch=None, render=None):
         rhtml = rendered.get('html') or ''
         rtext = rendered.get('text') or (text_of(rhtml) if rhtml else '')
         if rtext and discover.source_page_ok(src, rland):
+            try:
+                import intelligent_rails as IR
+                IR.note_render(True)
+            except Exception:
+                pass
             return {'ok': True, 'http': rendered.get('http') or 200, 'final_url': rland, 'text': rtext, 'rendered': True}
         if rland and not discover.source_page_ok(src, rland):
+            try:
+                import intelligent_rails as IR
+                IR.note_render(False)
+            except Exception:
+                pass
             return {'ok': True, 'http': rendered.get('http'), 'final_url': rland, 'text': '', 'rendered': True, 'error': 'redirect'}
+        try:
+            import intelligent_rails as IR
+            IR.note_render(False)
+        except Exception:
+            pass
     return {'ok': True, 'http': got.get('http'), 'final_url': landed, 'text': text, 'rendered': False, 'incomplete': True}
 def render_polite(url):
-    """Headless render through the same per-host gap as fetch. No saved page."""
+    """Headless render through the same per-host gap as fetch. No saved page.
+    Playwright runs on render_fetch's dedicated thread (same as times_finder --render), not on the 12 host workers."""
     def load(u):
-        got = discover.render_live(u) or {}
-        if not got.get('ok'):
-            return {'ok': False, 'http': got.get('http'), 'error': got.get('error') or 'render failed', 'final_url': got.get('final_url') or u, 'html': ''}
-        return {'ok': True, 'http': got.get('http') or 200, 'final_url': got.get('final_url') or u, 'html': got.get('html') or ''}
+        import render_fetch
+        code, final, html = render_fetch.fetch(u)
+        if code != 200 or not html:
+            return {'ok': False, 'http': code or None, 'error': 'render failed', 'final_url': final or u, 'html': ''}
+        return {'ok': True, 'http': code, 'final_url': final or u, 'html': html}
     return _polite(url, load)
 def review_hours(items, state, flag, deadline, fetch=None, render=None):
     """One verdict per listing that shows a source URL. Previous evidence is never copied forward.
