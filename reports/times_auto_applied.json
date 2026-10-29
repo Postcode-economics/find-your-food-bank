@@ -4991,5 +4991,857 @@
   "first_run_at": "2026-10-29T08:00:47+00:00",
   "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0"
+ },
+ {
+  "id": "ww-55475042",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Centenary Methodist Church",
+  "old": {
+   "Wed": "09:30 - 13:00",
+   "Fri": "09:30 - 13:00"
+  },
+  "new": {
+   "Mon": "09:00 - 13:30",
+   "Tue": "09:00 - 13:30",
+   "Wed": "09:00 - 13:30",
+   "Thu": "09:00 - 13:30",
+   "Fri": "09:00 - 13:30"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "09:00",
+     "13:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "13:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "13:30"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "13:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "13:30"
+    ]
+   ]
+  },
+  "source_url": "https://www.centenarymethodistchurchboston.org.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55475042"
+ },
+ {
+  "id": "ww-57951602",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Community hub",
+  "old": {
+   "Wed": "09:00 - 13:00"
+  },
+  "new": {
+   "Mon": "09:00 - 14:00",
+   "Wed": "09:00 - 14:00",
+   "Fri": "09:00 - 14:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "09:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.aylesford-church.org.uk",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-57951602"
+ },
+ {
+  "id": "ww-57953101",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Life Community Lunch Cafe",
+  "old": {
+   "Fri": "12:00 - 14:00"
+  },
+  "new": {
+   "Tue": "09:00 - 17:00",
+   "Wed": "09:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.mylifechurch.co.uk",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-57953101"
+ },
+ {
+  "id": "ww-57953292",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Martyrs Church",
+  "old": {
+   "Wed": "12:00 - 14:00"
+  },
+  "new": {
+   "Thu": "10:00 - 11:30"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  },
+  "source_url": "https://martyrs.org.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-57953292"
+ },
+ {
+  "id": "ww-55473898",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Museum of the Home",
+  "old": {
+   "Tue": "10:00 - 17:00",
+   "Wed": "10:00 - 17:00",
+   "Thu": "10:00 - 17:00",
+   "Fri": "10:00 - 17:00",
+   "Sat": "10:00 - 17:00",
+   "Sun": "10:00 - 17:00"
+  },
+  "new": {
+   "Mon": "10:00 - 17:00",
+   "Tue": "10:00 - 17:00",
+   "Wed": "10:00 - 17:00",
+   "Thu": "10:00 - 17:00",
+   "Fri": "10:00 - 17:00",
+   "Sat": "10:00 - 17:00",
+   "Sun": "10:00 - 17:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ],
+   "sun": [
+    [
+     "10:00",
+     "17:00"
+    ]
+   ]
+  },
+  "source_url": "https://museumofthehome.org.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55473898"
+ },
+ {
+  "id": "ww-57953124",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Mwldan",
+  "old": {
+   "Tue": "12:00 - 20:00",
+   "Wed": "12:00 - 20:00",
+   "Thu": "12:00 - 20:00",
+   "Fri": "12:00 - 20:00",
+   "Sat": "12:00 - 20:00",
+   "Sun": "12:00 - 20:00"
+  },
+  "new": {
+   "Mon": "12:00 - 20:00",
+   "Tue": "12:00 - 20:00",
+   "Wed": "12:00 - 20:00",
+   "Thu": "12:00 - 20:00",
+   "Fri": "12:00 - 20:00",
+   "Sat": "12:00 - 20:00",
+   "Sun": "12:00 - 20:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ],
+   "thu": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ],
+   "sat": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ],
+   "sun": [
+    [
+     "12:00",
+     "20:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.mwldan.co.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-57953124"
+ },
+ {
+  "id": "ww-55475831",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Norton Hive Community Library and Hub",
+  "old": {
+   "Tue": "10:00 - 16:00",
+   "Wed": "10:00 - 16:00",
+   "Thu": "10:00 - 16:00",
+   "Sat": "10:00 - 13:00"
+  },
+  "new": {
+   "Tue": "09:30 - 17:00",
+   "Wed": "09:30 - 17:00",
+   "Thu": "09:30 - 17:00",
+   "Sat": "09:30 - 13:00"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "09:30",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:30",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:30",
+     "17:00"
+    ]
+   ],
+   "sat": [
+    [
+     "09:30",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://nortonhivelibrary.org/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55475831"
+ },
+ {
+  "id": "ww-55474726",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Renew 57",
+  "old": {
+   "Thu": "10:30 - 12:30"
+  },
+  "new": {
+   "Mon": "10:00 - 16:00",
+   "Tue": "10:00 - 16:00",
+   "Wed": "10:00 - 16:00",
+   "Thu": "10:00 - 16:00",
+   "Fri": "10:00 - 16:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.penrallt.org/renew57/index.php",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55474726"
+ },
+ {
+  "id": "ww-64432631",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Rushenden Warm Hub",
+  "old": {
+   "Wed": "12:00 - 14:00"
+  },
+  "new": {
+   "Mon": "10:00 - 16:00",
+   "Tue": "10:00 - 16:00",
+   "Wed": "10:00 - 16:00",
+   "Thu": "10:00 - 16:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.friendlyfacesofkent.co.uk",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-64432631"
+ },
+ {
+  "id": "ww-55473488",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "St Andrew's CE Parish Church, Wolverhampton WV6 0QZ",
+  "old": {
+   "Mon": "09:30 - 12:30",
+   "Fri": "09:30 - 12:00"
+  },
+  "new": {
+   "Mon": "09:30 - 12:30",
+   "Wed": "11:00 - 13:00",
+   "Fri": "09:30 - 12:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "09:30",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:30",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.achurchnearyou.com/church/4642/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55473488"
+ },
+ {
+  "id": "ww-55475671",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "St Mary Magdalene Church",
+  "old": {
+   "Wed": "10:00 - 12:00"
+  },
+  "new": {
+   "Tue": "08:30 - 10:00",
+   "Wed": "10:00 - 12:00",
+   "Fri": "10:00 - 12:00",
+   "Sun": "10:00 - 12:00"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "08:30",
+     "10:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "sun": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.achurchnearyou.com/church/4605/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55475671"
+ },
+ {
+  "id": "ww-55474433",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Starfish Community Social Hub",
+  "old": {
+   "Mon": "12:00 - 15:00 / 17:00 - 20:00",
+   "Tue": "17:00 - 20:00",
+   "Wed": "10:00 - 15:00 / 17:00 - 20:00",
+   "Thu": "10:00 - 15:30 / 17:00 - 20:00",
+   "Fri": "10:00 - 15:30 / 17:00 - 20:00"
+  },
+  "new": {
+   "Mon": "09:00 - 17:00",
+   "Tue": "09:00 - 17:00",
+   "Wed": "09:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.starfishhealthandwellbeing.co.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55474433"
+ },
+ {
+  "id": "ww-68255736",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "The Warm Welcome Community Centre",
+  "old": {
+   "Mon": "09:30 - 16:30",
+   "Tue": "10:00 - 16:00",
+   "Wed": "09:30 - 16:00",
+   "Thu": "10:00 - 16:00",
+   "Fri": "10:00 - 16:00"
+  },
+  "new": {
+   "Mon": "10:00 - 16:00",
+   "Tue": "10:00 - 16:00",
+   "Wed": "10:00 - 16:00",
+   "Thu": "10:00 - 16:00",
+   "Fri": "10:00 - 16:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "16:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.avonmouthcca.org.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-68255736"
+ },
+ {
+  "id": "ww-55472899",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Wayfarers Caravan Park with St Hilary Church",
+  "old": {
+   "Wed": "12:00 - 14:00"
+  },
+  "new": {
+   "Sun": "12:00 - 15:00"
+  },
+  "new_structured": {
+   "sun": [
+    [
+     "12:00",
+     "15:00"
+    ]
+   ]
+  },
+  "source_url": "https://wayfarerspark.co.uk/the-flying-duck-bistro/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-55472899"
+ },
+ {
+  "id": "ww-65438771",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Warmwell at Westbank",
+  "old": {
+   "Mon": "10:00 - 20:00",
+   "Tue": "10:00 - 16:00",
+   "Wed": "10:00 - 16:00",
+   "Thu": "10:00 - 16:00",
+   "Fri": "10:00 - 16:00"
+  },
+  "new": {
+   "Mon": "09:00 - 18:30",
+   "Tue": "09:00 - 18:30",
+   "Wed": "09:00 - 18:30",
+   "Thu": "09:00 - 18:30",
+   "Fri": "09:00 - 18:30"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "18:30"
+    ]
+   ]
+  },
+  "source_url": "https://www.westbank.org.uk/warmwell",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-65438771"
+ },
+ {
+  "id": "ww-65070433",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Wembley Creative Community Hub",
+  "old": {
+   "Thu": "10:00 - 13:00 / 18:00 - 20:00"
+  },
+  "new": {
+   "Thu": "11:30 - 12:30"
+  },
+  "new_structured": {
+   "thu": [
+    [
+     "11:30",
+     "12:30"
+    ]
+   ]
+  },
+  "source_url": "https://werest.art/wcch",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-65070433"
+ },
+ {
+  "id": "ww-69189528",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Wellbeing Group",
+  "old": {
+   "Wed": "10:30 - 13:30"
+  },
+  "new": {
+   "Mon": "09:00 - 17:00",
+   "Tue": "09:00 - 17:00",
+   "Wed": "09:00 - 17:00",
+   "Thu": "09:00 - 17:00",
+   "Fri": "09:00 - 17:00",
+   "Sat": "09:00 - 17:00",
+   "Sun": "10:00 - 14:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "fri": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "sat": [
+    [
+     "09:00",
+     "17:00"
+    ]
+   ],
+   "sun": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://holfordsportshub.co.uk/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:ww-69189528"
+ },
+ {
+  "id": "cmn-carway-hall",
+  "kind": "ws",
+  "path": "cross_check",
+  "name": "Carway Hall",
+  "old": {
+   "Tue": "10:00 - 14:00",
+   "Thu": "10:00 - 14:00"
+  },
+  "new": {
+   "Tue": "10:00 - 14:00",
+   "Wed": "10:00 - 14:00",
+   "Thu": "10:00 - 14:00"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
+  "first_run_at": "2026-10-29T05:39:35+00:00",
+  "second_run_at": "2026-10-29T14:47:47+00:00",
+  "revert": "python scripts/times_revert.py ws:cmn-carway-hall"
  }
 ]

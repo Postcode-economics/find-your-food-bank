@@ -94,7 +94,10 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 2 added
+## Warm spaces: 5 added
 - Saifee Mosque · B18 6PU
 - The Midlands Greek & Cypriot Association · B23 7SJ
+- Marlborough Primary School · B10 9NY
+- Warm Space at The Hepworth Wakefield · WF1 5AW (Opens 2026-11-03)
+- North Molton Community Shop · EX36 3HP (Opens 2026-11-02)
 

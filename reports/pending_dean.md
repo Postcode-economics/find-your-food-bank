@@ -7,10 +7,12 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
 - Shipshape Health and Wellbeing (S11 8AE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.shipshape.org.uk
 
-## warmspaces (2)
+## warmspaces (4)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Bishops Offley Open House (BOOH!) (ST21 6HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28654
+- North Molton Community Shop (EX36 3HP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28671
+- Warm Space at The Hepworth Wakefield (WF1 5AW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=20139
 
 ## shelters (0)
 
@@ -280,110 +282,77 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 34 held
+## Opening-times changes from the refresh (ws): 18 auto-applied, 17 held
 
+- AUTO-APPLIED `ww-55475042` Centenary Methodist Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55475042`
+- AUTO-APPLIED `ww-57951602` Community hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57951602`
+- AUTO-APPLIED `ww-57953101` Life Community Lunch Cafe (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57953101`
+- AUTO-APPLIED `ww-57953292` Martyrs Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57953292`
+- AUTO-APPLIED `ww-55473898` Museum of the Home (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55473898`
+- AUTO-APPLIED `ww-57953124` Mwldan (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-57953124`
+- AUTO-APPLIED `ww-55475831` Norton Hive Community Library and Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55475831`
+- AUTO-APPLIED `ww-55474726` Renew 57 (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55474726`
+- AUTO-APPLIED `ww-64432631` Rushenden Warm Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-64432631`
+- AUTO-APPLIED `ww-55473488` St Andrew's CE Parish Church, Wolverhampton WV6 0QZ (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55473488`
+- AUTO-APPLIED `ww-55475671` St Mary Magdalene Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55475671`
+- AUTO-APPLIED `ww-55474433` Starfish Community Social Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55474433`
+- AUTO-APPLIED `ww-68255736` The Warm Welcome Community Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-68255736`
+- AUTO-APPLIED `ww-55472899` Wayfarers Caravan Park with St Hilary Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-55472899`
+- AUTO-APPLIED `ww-65438771` Warmwell at Westbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-65438771`
+- AUTO-APPLIED `ww-65070433` Wembley Creative Community Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-65070433`
+- AUTO-APPLIED `ww-69189528` Wellbeing Group (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:ww-69189528`
+- AUTO-APPLIED `cmn-carway-hall` Carway Hall (strict, 2 identical runs). Undo: `python scripts/times_revert.py ws:cmn-carway-hall`
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
-  why held: times not read identically on 2 separate runs yet
-- **Centenary Methodist Church** (`ww-55475042`, PE21 6NY): own site now Mon-Fri 9.00-1.30pm  
-  source: https://www.centenarymethodistchurchboston.org.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Community hub** (`ww-57951602`, ME20 7QR): own site now Mon, Wed and Fri 9am-2pm  
-  source: https://www.aylesford-church.org.uk  
+  why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
+- **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
+  source: https://gatewayleisure.co.uk/  
   why held: times not read identically on 2 separate runs yet
 - **Kirkliston Parish Church** (`ww-55473134`, EH29 9AX): own site now Fridays 6:00pm - 8:00pm  
   source: https://www.kirklistonparish.org  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Lambourn Lunch Club** (`ww-65437319`, RG17 8NU): own site now Thursday 12:00 to 13:30  
   source: https://lambournjunction.uk/lambourn-lunch-club/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **Life Community Lunch Cafe** (`ww-57953101`, CH63 7LA): own site now Tues-Fri 9:00AM - 5:00PM  
-  source: https://www.mylifechurch.co.uk  
-  why held: times not read identically on 2 separate runs yet
-- **Martyrs Church** (`ww-57953292`, LE3 0QT): own site now Thursdays 10am-11:30am  
-  source: https://martyrs.org.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Museum of the Home** (`ww-55473898`, E2 8EA): own site now Monday to Sunday 10am–5pm  
-  source: https://www.museumofthehome.org.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Mwldan** (`ww-57953124`, SA43 1JY): own site now Monday - Sunday 12pm - 8pm  
-  source: https://mwldan.co.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Norton Hive Community Library and Hub** (`ww-55475831`, YO17 9ES): own site now Tuesday 9.30am – 5pm | Wednesday 9.30am – 5pm | Thursday 9.30am – 5pm | Saturday 9.30am – 1pm  
-  source: https://nortonhivelibrary.org/  
-  why held: times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Rainham Foodbank** (`ww-68641659`, RM13 8HT): own site now Mon 12:00 - 15:00; Tue Closed; Wed 12:00 - 15:00; Thu Closed; Fri 12:00 - 15:00; Sat Closed; Sun Closed  
   source: https://rainham.foodbank.org.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Renew 57** (`ww-55474726`, LL57 2EU): own site now Monday to Friday 10am to 4pm  
-  source: https://www.penrallt.org/renew57/index.php  
-  why held: times not read identically on 2 separate runs yet
+  why held: would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review
 - **Renew 88** (`ww-55475882`, GU21 2PZ): own site now Friday 10.30am – 12.30  
   source: http://www.knaphillbaptist.org.uk/whats-happening/renew-88  
-  why held: times not read identically on 2 separate runs yet
+  why held: would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review
 - **Revive Community Cafe** (`ww-65437466`, NR2 4DR): own site now Wednesday-Thursday 10am-3pm | Friday 10am-12pm | Saturday 10am-3pm | Sunday 12:45pm-2pm | Wednesday 10am - 3pm | Thursday 10am - 3pm | Friday 10am - 12pm | Saturday 10am - 3pm | Sunday 12:45pm - 2pm  
   source: http://revive-cafe.co.uk  
-  why held: times not read identically on 2 separate runs yet
-- **Rushenden Warm Hub** (`ww-64432631`, ME11 5LX): own site now Mon -Thurs 10am to 4pm  
-  source: https://www.friendlyfacesofkent.co.uk  
-  why held: times not read identically on 2 separate runs yet
+  why held: jumble: 9 separate time blocks read from one page; review only
 - **Shipston Community Warm Hub** (`ww-65413950`, CV36 4AX): own site now Mondays and Thursdays 11am - 12pm | Tuesday 9:30am to 11am  
   source: https://www.shwp.org.uk/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **St Andrew's CE Parish Church, Wolverhampton WV6 0QZ** (`ww-55473488`, WV6 0QZ): own site now Mondays 9.30-12.30pm | Wednesdays 11am-1pm | Fridays 9.30-12pm  
-  source: https://www.achurchnearyou.com/church/4642/  
-  why held: times not read identically on 2 separate runs yet
-- **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
-  source: https://www.achurchnearyou.com/church/4605/  
-  why held: times not read identically on 2 separate runs yet
-- **St Michael at the North Gate Church** (`ww-68737211`, OX1 3EY): own site now Mon – Fri 10:15am – 4:30pm | Sat 9:00am – 3:45pm | Sun 12:00pm – 5:00pm  
-  source: https://smng.org.uk/  
-  why held: times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **St Paul's Methodist Centre** (`ww-65437367`, SY23 2NN): own site now Tuesday and Thursday 11am-2pm | Friday 7-9pm | Tuesdays & Thursdays 11:00am - 2:00pm  
   source: https://www.ceredigionmethodists.org.uk/st-paul  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
-  why held: times not read identically on 2 separate runs yet
-- **Starfish Community Social Hub** (`ww-55474433`, TS18 3NA): own site now Monday - Friday 9-5pm  
-  source: https://www.starfishhealthandwellbeing.co.uk/  
-  why held: times not read identically on 2 separate runs yet
+  why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
 - **The Place at Platt Lane** (`ww-55473455`, M14 7FB): own site now Monday 9 AM – 7 PM | Tuesday 9 AM – 5 PM | Wednesday 9 AM – 5 PM | Thursday 10 AM – 7 PM | Friday 9 AM – 5 PM | Saturday 10 AM – 5 PM  
   source: https://theplacefallowfield.co.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **The Warm Welcome Community Centre** (`ww-68255736`, BS11 9EN): own site now Monday - Friday 10am - 4pm  
-  source: https://www.avonmouthcca.org.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Wayfarers Caravan Park with St Hilary Church** (`ww-55472899`, TR20 9EF): own site now Sunday 12:00-15:00  
-  source: https://wayfarerspark.co.uk/flying-duck-bistro/  
-  why held: times not read identically on 2 separate runs yet
-- **Warmwell at Westbank** (`ww-65438771`, EX6 8AT): own site now Monday - Friday 9am - 6.30pm  
-  source: https://www.westbank.org.uk/warmwell  
-  why held: times not read identically on 2 separate runs yet
-- **Wembley Creative Community Hub** (`ww-65070433`, HA0 4AH): own site now Thursday 11:30am–12:30pm  
-  source: https://werest.art/wcch  
-  why held: times not read identically on 2 separate runs yet
-- **Wellbeing Group** (`ww-69189528`, B42 2TU): own site now Monday–Saturday 9AM–5PM | Sunday 10AM–2PM  
-  source: https://holfordsportshub.co.uk/  
-  why held: times not read identically on 2 separate runs yet
+  why held: jumble: 6 separate time blocks read from one page; review only
 - **Wellness Hub At St Laurence's Church** (`ww-59951280`, PR7 1EB): own site now Monday 5-5.30pm  
   source: https://www.stlaurencechorley.co.uk/Articles/698575/Wellness_Hub.aspx  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review
+- **Warm Space at The Hepworth Wakefield** (`ww-69441263`, WF1 5AW): own site now Monday 10am - 5pm | Tuesday 10am - 5pm | Wednesday 10am - 5pm | Thursday 10am - 4pm | Friday 10am - 5pm | Saturday 10am - 5pm | Sunday 10am - 5pm  
+  source: https://hepworthwakefield.org/whats-on/warm-space/  
+  why held: jumble: 7 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
 - **The Friendship Café at Myplace** (`hav-friendship-cafe-myplace`, RM3 9EN): own site now Friday 12pm – 4  
   source: https://www.havering.gov.uk/warmspaces  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **Carway Hall** (`cmn-carway-hall`, SA17 4HL): own site now Tuesday and Wednesday 10am -2pm | Tuesday and Thursday 10am - 2pm  
-  source: https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/  
-  why held: times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Garnant Family Centre** (`cmn-garnant-family-centre`, SA18 2EP): own site now Thursday and 10.00am -1.00pm  
   source: https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/  
-  why held: times not read identically on 2 separate runs yet
+  why held: would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review
 - **Brandon 2 TRA Hall** (`swk-brandon-2-tra-hall`, SE17 3JQ): own site now Tuesday 11am to 2pm | Wednesday 10am to 3pm  
   source: https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces  
-  why held: times not read identically on 2 separate runs yet
+  why held: would cut known hours to fewer days (drops Mon, Thu) and the source does not say that session ended; review
 - **The Hub, South Brent (SBADC)** (`sbadc-the-hub-south-brent`, TQ10 9BP): own site now Monday – Thursday 9.30 – 12.30pm  
   source: https://www.sbadc.org.uk/  
-  why held: times not read identically on 2 separate runs yet
+  why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
 <!-- /times crosscheck ws -->
 
 
@@ -437,6 +406,38 @@ To remove one, add its id to overrides/foodbank_closed.json; to clear the note, 
 - blocked, held for Dean | hull/hull-foodbank | tel | via refresh | source feed refresh | stored 01482328196 | proposed 01482224783 | unchanged (byte-identical) | Hull Foodbank
 - blocked, held for Dean | kirkcaldy/park-road-centre | phone | via refresh | source feed refresh | stored (none) | proposed 01592 655422 | unchanged (byte-identical) | Park Road Centre
 - blocked, held for Dean | kirkcaldy/park-road-centre | tel | via refresh | source feed refresh | stored (none) | proposed 01592655422 | unchanged (byte-identical) | Park Road Centre
+- blocked, held for Dean | ww-64379621 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01279 655261 | unchanged (byte-identical) | Bishops Stortford Methodist Church
+- blocked, held for Dean | ww-58212607 | council_phone | via refresh | source feed refresh | stored (none) | proposed 020 7527 2000 | unchanged (byte-identical) | Chabad Lubavitch of Islington
+- blocked, held for Dean | ww-65437525 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01259 450000 | unchanged (byte-identical) | Community Warm Space
+- blocked, held for Dean | evergreen-elderberries-welling | council_phone | via refresh | source feed refresh | stored (none) | proposed 020 8303 7171 | unchanged (byte-identical) | Elderberries Vintage Tea Rooms (8th Bexleyheath Scout Group)
+- blocked, held for Dean | ww-55473505 | council_phone | via refresh | source feed refresh | stored (none) | proposed 0300 131 2131 | unchanged (byte-identical) | Glusburn Community & Arts Centre
+- blocked, held for Dean | ww-57993936 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01702 215000 | unchanged (byte-identical) | Leigh on Sea Elim Church
+- blocked, held for Dean | swk-london-lgbtq-community-centre | council_phone | via refresh | source feed refresh | stored (none) | proposed 020 7525 5000 | unchanged (byte-identical) | London LGBTQ+ Community Centre
+- blocked, held for Dean | ww-68472828 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01827 715341 | unchanged (byte-identical) | North Warwickshire Citizens Advice - Centre For Warmth
+- blocked, held for Dean | ww-55475831 | council_phone | via refresh | source feed refresh | stored (none) | proposed 0300 131 2131 | unchanged (byte-identical) | Norton Hive Community Library and Hub
+- blocked, held for Dean | ww-55474480 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01752 668000 | unchanged (byte-identical) | Salvation Army in Whitleigh
+- blocked, held for Dean | ww-65413950 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01789 267575 | unchanged (byte-identical) | Shipston Community Warm Hub
+- blocked, held for Dean | ww-60625347 | council_phone | via refresh | source feed refresh | stored (none) | proposed 0300 131 2131 | unchanged (byte-identical) | St. Thomas Church, Sutton-in-Craven
+- blocked, held for Dean | ww-57951953 | council_phone | via refresh | source feed refresh | stored (none) | proposed 020 8496 3000 | unchanged (byte-identical) | The Mill
+- blocked, held for Dean | ww-67526400 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01305 221000 | unchanged (byte-identical) | The Vale Family Hub
+- blocked, held for Dean | ww-55474116 | council_phone | via refresh | source feed refresh | stored (none) | proposed 01702 215000 | unchanged (byte-identical) | Wesley Warm Welcome
+- blocked, held for Dean | ww-59974983 | council_phone | via refresh | source feed refresh | stored (none) | proposed 020 8379 1000 | unchanged (byte-identical) | Windmill Warmbank
+- blocked, held for Dean | ww-64379621 | council_phone | via publish | source publish gate | stored (none) | proposed 01279 655261 | unchanged (byte-identical) | Bishops Stortford Methodist Church
+- blocked, held for Dean | ww-58212607 | council_phone | via publish | source publish gate | stored (none) | proposed 020 7527 2000 | unchanged (byte-identical) | Chabad Lubavitch of Islington
+- blocked, held for Dean | ww-65437525 | council_phone | via publish | source publish gate | stored (none) | proposed 01259 450000 | unchanged (byte-identical) | Community Warm Space
+- blocked, held for Dean | evergreen-elderberries-welling | council_phone | via publish | source publish gate | stored (none) | proposed 020 8303 7171 | unchanged (byte-identical) | Elderberries Vintage Tea Rooms (8th Bexleyheath Scout Group)
+- blocked, held for Dean | ww-55473505 | council_phone | via publish | source publish gate | stored (none) | proposed 0300 131 2131 | unchanged (byte-identical) | Glusburn Community & Arts Centre
+- blocked, held for Dean | ww-57993936 | council_phone | via publish | source publish gate | stored (none) | proposed 01702 215000 | unchanged (byte-identical) | Leigh on Sea Elim Church
+- blocked, held for Dean | swk-london-lgbtq-community-centre | council_phone | via publish | source publish gate | stored (none) | proposed 020 7525 5000 | unchanged (byte-identical) | London LGBTQ+ Community Centre
+- blocked, held for Dean | ww-68472828 | council_phone | via publish | source publish gate | stored (none) | proposed 01827 715341 | unchanged (byte-identical) | North Warwickshire Citizens Advice - Centre For Warmth
+- blocked, held for Dean | ww-55475831 | council_phone | via publish | source publish gate | stored (none) | proposed 0300 131 2131 | unchanged (byte-identical) | Norton Hive Community Library and Hub
+- blocked, held for Dean | ww-55474480 | council_phone | via publish | source publish gate | stored (none) | proposed 01752 668000 | unchanged (byte-identical) | Salvation Army in Whitleigh
+- blocked, held for Dean | ww-65413950 | council_phone | via publish | source publish gate | stored (none) | proposed 01789 267575 | unchanged (byte-identical) | Shipston Community Warm Hub
+- blocked, held for Dean | ww-60625347 | council_phone | via publish | source publish gate | stored (none) | proposed 0300 131 2131 | unchanged (byte-identical) | St. Thomas Church, Sutton-in-Craven
+- blocked, held for Dean | ww-57951953 | council_phone | via publish | source publish gate | stored (none) | proposed 020 8496 3000 | unchanged (byte-identical) | The Mill
+- blocked, held for Dean | ww-67526400 | council_phone | via publish | source publish gate | stored (none) | proposed 01305 221000 | unchanged (byte-identical) | The Vale Family Hub
+- blocked, held for Dean | ww-55474116 | council_phone | via publish | source publish gate | stored (none) | proposed 01702 215000 | unchanged (byte-identical) | Wesley Warm Welcome
+- blocked, held for Dean | ww-59974983 | council_phone | via publish | source publish gate | stored (none) | proposed 020 8379 1000 | unchanged (byte-identical) | Windmill Warmbank
 <!-- /phone lock -->
 
 

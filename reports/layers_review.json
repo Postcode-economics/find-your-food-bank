@@ -126,7 +126,7 @@
    },
    {
     "id": "osm-way-1104948217",
-    "reason": "source unreachable this run (HTTP 404)"
+    "reason": "source no longer names this place"
    },
    {
     "id": "osm-way-1262733230",
@@ -161,7 +161,251 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "cmn-carway-hall",
+    "name": "Carway Hall",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "10:00 - 14:00",
+      "Thu": "10:00 - 14:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Tue": "10:00 - 14:00",
+      "Wed": "10:00 - 14:00",
+      "Thu": "10:00 - 14:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55475042",
+    "name": "Centenary Methodist Church",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Wed": "09:30 - 13:00",
+      "Fri": "09:30 - 13:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:00 - 13:30",
+      "Tue": "09:00 - 13:30",
+      "Wed": "09:00 - 13:30",
+      "Thu": "09:00 - 13:30",
+      "Fri": "09:00 - 13:30"
+     }
+    }
+   },
+   {
+    "id": "ww-57951602",
+    "name": "Community hub",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Wed": "09:00 - 13:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:00 - 14:00",
+      "Wed": "09:00 - 14:00",
+      "Fri": "09:00 - 14:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55473898",
+    "name": "Museum of the Home",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "10:00 - 17:00",
+      "Wed": "10:00 - 17:00",
+      "Thu": "10:00 - 17:00",
+      "Fri": "10:00 - 17:00",
+      "Sat": "10:00 - 17:00",
+      "Sun": "10:00 - 17:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 17:00",
+      "Tue": "10:00 - 17:00",
+      "Wed": "10:00 - 17:00",
+      "Thu": "10:00 - 17:00",
+      "Fri": "10:00 - 17:00",
+      "Sat": "10:00 - 17:00",
+      "Sun": "10:00 - 17:00"
+     }
+    }
+   },
+   {
+    "id": "ww-57953124",
+    "name": "Mwldan",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "12:00 - 20:00",
+      "Wed": "12:00 - 20:00",
+      "Thu": "12:00 - 20:00",
+      "Fri": "12:00 - 20:00",
+      "Sat": "12:00 - 20:00",
+      "Sun": "12:00 - 20:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "12:00 - 20:00",
+      "Tue": "12:00 - 20:00",
+      "Wed": "12:00 - 20:00",
+      "Thu": "12:00 - 20:00",
+      "Fri": "12:00 - 20:00",
+      "Sat": "12:00 - 20:00",
+      "Sun": "12:00 - 20:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55475831",
+    "name": "Norton Hive Community Library and Hub",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "10:00 - 16:00",
+      "Wed": "10:00 - 16:00",
+      "Thu": "10:00 - 16:00",
+      "Sat": "10:00 - 13:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Tue": "09:30 - 17:00",
+      "Wed": "09:30 - 17:00",
+      "Thu": "09:30 - 17:00",
+      "Sat": "09:30 - 13:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55474726",
+    "name": "Renew 57",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Thu": "10:30 - 12:30"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 16:00",
+      "Tue": "10:00 - 16:00",
+      "Wed": "10:00 - 16:00",
+      "Thu": "10:00 - 16:00",
+      "Fri": "10:00 - 16:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55473488",
+    "name": "St Andrew's CE Parish Church, Wolverhampton WV6 0QZ",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "09:30 - 12:30",
+      "Fri": "09:30 - 12:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:30 - 12:30",
+      "Wed": "11:00 - 13:00",
+      "Fri": "09:30 - 12:00"
+     }
+    }
+   },
+   {
+    "id": "ww-55475671",
+    "name": "St Mary Magdalene Church",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Wed": "10:00 - 12:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Tue": "08:30 - 10:00",
+      "Wed": "10:00 - 12:00",
+      "Fri": "10:00 - 12:00",
+      "Sun": "10:00 - 12:00"
+     }
+    }
+   },
+   {
+    "id": "ww-65438771",
+    "name": "Warmwell at Westbank",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "10:00 - 20:00",
+      "Tue": "10:00 - 16:00",
+      "Wed": "10:00 - 16:00",
+      "Thu": "10:00 - 16:00",
+      "Fri": "10:00 - 16:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "09:00 - 18:30",
+      "Tue": "09:00 - 18:30",
+      "Wed": "09:00 - 18:30",
+      "Thu": "09:00 - 18:30",
+      "Fri": "09:00 - 18:30"
+     }
+    }
+   },
+   {
+    "id": "ww-65070433",
+    "name": "Wembley Creative Community Hub",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Thu": "10:00 - 13:00 / 18:00 - 20:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Thu": "11:30 - 12:30"
+     }
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -203,6 +447,10 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-64379285",
+    "reason": "source unreachable this run (HTTP 522)"
+   },
+   {
     "id": "ww-68642792",
     "reason": "published days not found on source this run"
    },
@@ -225,6 +473,10 @@
    {
     "id": "ww-57952222",
     "reason": "source no longer names this place"
+   },
+   {
+    "id": "ww-57951802",
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-65420055",
