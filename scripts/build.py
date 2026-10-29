@@ -278,6 +278,17 @@ def main():
         IR.finish_times(ROOT, 'foodbanks', tlog)
     except Exception as ex:
         print('intelligent mode summary skipped: %s' % ex)
+    else:
+        # Run 40875931731: Playwright was not installed until the sense-check step, so all 563
+        # source renders failed and the job still went green. Say so in the log and in the
+        # digest. Do not stop the run: the coverage gate already holds auto-applies when
+        # renders fail, and the refresh has to finish and publish.
+        failed = IR.every_render_failed('foodbanks')
+        if failed:
+            print('::error::' + failed, flush=True)
+            if not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')):
+                IR.alert(failed, ROOT)
+                IR.record_render_failure(ROOT, 'foodbanks', failed)
     import schema_version
     meta = schema_version.stamp(dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items))
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'

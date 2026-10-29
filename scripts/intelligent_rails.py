@@ -68,6 +68,21 @@ def note_render(ok, layer="foodbanks"):
             slot["render_errors"] = int(slot.get("render_errors") or 0) + 1
 
 
+def every_render_failed(layer="foodbanks"):
+    """This process's render tally only. A line when every attempt failed, else ''.
+
+    A summary left on disk by an earlier run is not consulted, so yesterday's
+    100% figure cannot fail a later run that did not render. Zero attempts is
+    not a failure: nothing needed a browser."""
+    with _lock:
+        stats = dict(_stats.get(layer) or {})
+    att = int(stats.get("render_attempts") or 0)
+    err = int(stats.get("render_errors") or 0)
+    if att > 0 and err == att:
+        return "render errors %d equals render_attempts %d; every headless render failed" % (err, att)
+    return ""
+
+
 def summary_path(root):
     return os.path.join(root or ".", SUMMARY)
 
@@ -408,6 +423,38 @@ def finish(root, layer, step, applied=0, held=0, rejected=None, stale_cleared=0,
     with _lock:
         _mem[layer] = 0
     return data
+
+
+def record_render_failure(root, layer, line):
+    """Keep a total render failure on today's times step so the digest still shows it.
+
+    A later step's finish() rebuilds layer alerts from each step, so the line has to
+    sit on the times step. Applied, held, and coverage stay as finish_times wrote them.
+    No file is written on a dry run or a sample, and nothing here stops the run.
+    """
+    if not line or not root or not layer:
+        return False
+    if os.environ.get("DRY_RUN") or os.environ.get("SAMPLE"):
+        return False
+    path = summary_path(root)
+    data = load_summary(root)
+    if data.get("run") != _today():
+        return False
+    slot = (data.get("layers") or {}).get(layer)
+    step = ((slot or {}).get("steps") or {}).get("times")
+    if not isinstance(slot, dict) or not isinstance(step, dict):
+        return False
+    alerts = list(step.get("alerts") or [])
+    if line not in alerts:
+        alerts.append(line)
+        step["alerts"] = alerts
+    _recompute(slot)
+    data["alerts"] = sorted({a for s in data["layers"].values() for a in (s.get("alerts") or [])})
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, indent=1, ensure_ascii=False)
+    os.replace(tmp, path)
+    return True
 
 
 def finish_times(root, layer, tlog):
