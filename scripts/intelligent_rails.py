@@ -425,6 +425,38 @@ def finish(root, layer, step, applied=0, held=0, rejected=None, stale_cleared=0,
     return data
 
 
+def record_render_failure(root, layer, line):
+    """Keep a total render failure on today's times step so the digest still shows it.
+
+    A later step's finish() rebuilds layer alerts from each step, so the line has to
+    sit on the times step. Applied, held, and coverage stay as finish_times wrote them.
+    No file is written on a dry run or a sample, and nothing here stops the run.
+    """
+    if not line or not root or not layer:
+        return False
+    if os.environ.get("DRY_RUN") or os.environ.get("SAMPLE"):
+        return False
+    path = summary_path(root)
+    data = load_summary(root)
+    if data.get("run") != _today():
+        return False
+    slot = (data.get("layers") or {}).get(layer)
+    step = ((slot or {}).get("steps") or {}).get("times")
+    if not isinstance(slot, dict) or not isinstance(step, dict):
+        return False
+    alerts = list(step.get("alerts") or [])
+    if line not in alerts:
+        alerts.append(line)
+        step["alerts"] = alerts
+    _recompute(slot)
+    data["alerts"] = sorted({a for s in data["layers"].values() for a in (s.get("alerts") or [])})
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, indent=1, ensure_ascii=False)
+    os.replace(tmp, path)
+    return True
+
+
 def finish_times(root, layer, tlog):
     """One times-step summary. No file on a dry run, so a dry run's reports stay as they were."""
     if os.environ.get("DRY_RUN") or os.environ.get("SAMPLE"):
