@@ -1,5 +1,5 @@
 {
-"generated": "2026-10-27",
+"generated": "2026-10-29",
 "attribution": "Warm space listings: helpmap.uk (https://helpmap.uk), credited per row to the original source (Warm Welcome https://www.warmwelcome.uk, councils, local VCS lists - see source / source_url)",
 "items": [
 {
@@ -381,7 +381,7 @@
 "postcode": "BA10 0HA",
 "lat": 51.112608,
 "lng": -2.453273,
-"phone": "",
+"phone": "0300 123 2224",
 "website": "",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=26802"
@@ -1365,7 +1365,7 @@
 "postcode": "CT20 1DP",
 "lat": 51.07971,
 "lng": 1.17995,
-"phone": "",
+"phone": "0300 041 3131",
 "website": "",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=28545"
@@ -1641,7 +1641,7 @@
 "postcode": "WF13 3JR",
 "lat": 53.6784,
 "lng": -1.6626,
-"phone": "",
+"phone": "01484 414868",
 "website": "https://www.kirklees.gov.uk/beta/cost-of-living/cost-of-living-libraries.aspx",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=16912"
@@ -1869,7 +1869,7 @@
 "postcode": "HD1 2RS",
 "lat": 53.644473,
 "lng": -1.780643,
-"phone": "",
+"phone": "01484 414868",
 "website": "https://www.kirklees.gov.uk/beta/cost-of-living/cost-of-living-libraries.aspx",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=16781"
@@ -2229,7 +2229,7 @@
 "postcode": "HD1 2RS",
 "lat": 53.644473,
 "lng": -1.780643,
-"phone": "",
+"phone": "01484 414868",
 "website": "https://www.kirklees.gov.uk/beta/cost-of-living/cost-of-living-libraries.aspx",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=23104"
@@ -3009,7 +3009,7 @@
 "postcode": "DN22 6PE",
 "lat": 53.324255,
 "lng": -0.942375,
-"phone": "",
+"phone": "01623 677200",
 "website": "www.inspireculture.org.uk/retford",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27478"
@@ -4035,6 +4035,18 @@
 "source_url": "https://www.warmwelcome.uk/space?l=27459"
 },
 {
+"id": "ww-65441920",
+"name": "The King's Church Halifax",
+"address": "The King's Centre, Halifax, Halifax HX1  2TS",
+"postcode": "HX1 2TS",
+"lat": 53.720529,
+"lng": -1.870715,
+"phone": "01422 250872",
+"website": "",
+"source": "Warm Welcome",
+"source_url": "https://www.warmwelcome.uk/space?l=15309"
+},
+{
 "id": "ww-55474363",
 "name": "The Life Rooms Walton",
 "address": "The Life Rooms Walton, Merseyside L9 2AF",
@@ -4677,7 +4689,7 @@
 "postcode": "HA0 4AH",
 "lat": 51.552045,
 "lng": -0.297078,
-"phone": "",
+"phone": "07523 424686",
 "website": "https://werest.art/wcch",
 "source": "Warm Welcome",
 "source_url": "https://www.warmwelcome.uk/space?l=27916"
@@ -4921,18 +4933,6 @@
 "website": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/",
 "source": "Council directory",
 "source_url": "https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/"
-},
-{
-"id": "ww-65441920",
-"name": "The King's Church Halifax",
-"address": "The King's Centre, Halifax, Halifax HX1  2TS",
-"postcode": "HX1 2TS",
-"lat": 53.720529,
-"lng": -1.870715,
-"phone": "01422 250872",
-"website": "https://kingschurchhx.org.uk/",
-"source": "Warm Welcome",
-"source_url": "https://www.warmwelcome.uk/space?l=15309"
 }
 ]
 }
