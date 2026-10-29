@@ -1,31 +1,139 @@
 {
- "run": "2026-10-28",
- "pages": 1600,
- "failed": 6,
+ "run": "2026-10-29",
+ "pages": 1593,
+ "failed": 33,
  "errors": [
   [
-   "https://www.cherwell.gov.uk/downloads/download/1602/warm-welcome-venues",
-   404
-  ],
-  [
-   "https://www.cherwell.gov.uk/downloads/file/12567/warm-welcome-venues-2025-26",
-   404
-  ],
-  [
-   "https://www.castlepoint.gov.uk/w/housing-swep-alert-wording",
+   "https://haringey.gov.uk/housing/homelessness/rough-sleeping/luna-project-specialist-support-women",
    "error"
   ],
   [
-   "https://www.cherwell.gov.uk/Warm-Spaces",
-   404
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/winkfield-resource-centre-0",
+   "error"
   ],
   [
-   "https://www.cherwell.gov.uk/download/downloads/id/12567/warm-welcome-venues-2025-26.pdf",
-   404
+   "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/who-to-contact-about-your-case",
+   "error"
+  ],
+  [
+   "https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+   403
+  ],
+  [
+   "https://www.castlepoint.gov.uk/w/rough-sleeping",
+   "error"
+  ],
+  [
+   "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
+   "error"
+  ],
+  [
+   "https://www.rugby.gov.uk/w/a-warm-welcome-awaits-at-rugby-art-gallery-and-museum",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/adult-social-care/adult-social-care-directory/welcome-space",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/adult-social-care/adult-social-care-directory/women-wellbeing-warm-welcome",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/care-support-adults/adult-social-care-directory/coffee-mornings-warm-welcome-afternoons-hosted-by-sweet-mind",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/bridge-hope",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/chestnuts-community-centre",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/ferry-lane-school",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/lordship-hub",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/neighbourhood-resource-centre",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/nodes-funeral-directors",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/community-support-safety/haringey-here-to-help/haringey-warm-welcome/a-warm-welcome-this-winter/ok-foundation",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/environment/major-emergencies/cold-weather",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/housing/find-a-home/help-you-are-temporary-emergency-accommodation/help-with-moving-temporary-accommodation",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/temporary-accommodation-repairs",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/who-to-contact-about-your-stay-your-accommodation",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/housing/find-a-home/temporary-emergency-accommodation/who-to-contact-about-your-temporary-accommodation-rent",
+   "error"
+  ],
+  [
+   "https://haringey.gov.uk/housing/homelessness/rough-sleeping/day-centres-hostelsshelters-homeless-people",
+   "error"
+  ],
+  [
+   "http://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
+   403
+  ],
+  [
+   "http://go.walsall.gov.uk/newsroom/walsall-residents-reminded-keep-warm-and-well-cold-weather-alert-issued",
+   403
+  ],
+  [
+   "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
+   202
+  ],
+  [
+   "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
+   202
   ],
   [
    "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
    429
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weathers-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "error"
+  ],
+  [
+   "https://www.lincolnshire.gov.uk/news/article/1323/childrens-centres-giving-families-a-warm-welcome-this-christmas",
+   "error"
   ]
  ],
  "added": [],
