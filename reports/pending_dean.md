@@ -60,9 +60,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
   source: https://holytrinitywesterhailes.org.uk/contact-supporting-wh/  
   why: times not read identically on 2 separate runs yet
-- **St Laurence's Larder & Open Kitchen** (`ifan-84cd0bf40986bfc9a427c6-0`, NW6 7BJ): Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm | Monday 10.30am - 2.00pm  
-  source: https://www.laurenceslarder.org.uk  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **Healthy Living Platform** (`ifan-9cf9dd4ce1df051c2c0a59-0`, SW9 7AA): Tuesdays 12-2pm | Thursdays 11-3pm  
   source: https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9  
   why: postcode not matched exactly on the page; times not read identically on 2 separate runs yet
@@ -132,9 +129,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Discovery Church** (`swindon/discovery-church`, SN4 9JT): Friday 11am to 1pm | Friday 10am to 12pm  
   source: https://www.swindonfoodcollective.org/news/two-new-centres-opened-in-abbey-meads-and-liden/  
   why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); times not read identically on 2 separate runs yet
-- **The Gate Foodbank** (`the-gate`, FK10 2DR): Monday to Friday 10am - 3pm (by arrangement)  
-  source: https://the-gate-charity.org/contact-us-2/  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 <!-- /times review -->
 
 
