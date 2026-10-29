@@ -23,7 +23,7 @@ FIXED_TABLE = {
         {'mon': [['12:00', '14:00']], 'tue': [['12:00', '14:00']], 'wed': [['12:00', '14:00']],
          'fri': [['12:00', '14:00']], 'sat': [['11:00', '13:00']]}),
 }
-STILL_QUEUED = ['ifan-a2fb0701e0208ee9e642a3-0', 'ifan-9fef48d4f0fd3a3f6896d2-0',
+STILL_QUEUED = ['ifan-9fef48d4f0fd3a3f6896d2-0',
                 'ifan-53c68645aa831ab649ac43-0', 'community-essentials', 'moorland']
 
 def items():

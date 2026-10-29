@@ -68,9 +68,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **The Gospel Church of Jesus Christ** (`ifan-9fef48d4f0fd3a3f6896d2-0`, WC1B 3PP): Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm  
   source: https://www.gcjc.co.uk/contact  
   why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon, Tue, Wed, Thu, Fri given different times in separate blocks on one page; review only
-- **Lambeth Larder** (`ifan-a2fb0701e0208ee9e642a3-0`, SW9 7QD): Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm | Monday to Friday 9am to 5pm  
-  source: https://www.lambethlarder.org  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 5 separate time blocks read from one page; review only
 - **Manna (Hatfield) Foodbank** (`manna-hatfield`, AL10 8NA): ... View Project Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service 02. Midweek Service Join us online for bible study: 07:30 pm -8:30 pm (Wednesday)  
   source: https://openheavenshatfield.com/  
   why: day not on the same line as its times on the own-site page
