@@ -5905,5 +5905,40 @@
   "first_run_at": "2026-10-29T14:03:49+00:00",
   "second_run_at": "2026-10-29T17:14:18+00:00",
   "revert": "python scripts/times_revert.py fb:st-james-thornton"
+ },
+ {
+  "id": "driffield-wolds",
+  "name": "Driffield & Wolds Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Monday and Thursday 10am -12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://lovedriffield.org.uk/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "YO256AW"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://lovedriffield.org.uk/",
+  "first_run_at": "2026-10-29T12:14:14+00:00",
+  "second_run_at": "2026-10-29T21:45:17+00:00",
+  "revert": "python scripts/times_revert.py driffield-wolds"
  }
 ]
