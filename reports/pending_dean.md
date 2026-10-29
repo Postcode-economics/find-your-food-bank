@@ -546,3 +546,27 @@ To remove one, add its id to overrides/foodbank_closed.json; to clear the note, 
 - blocked, held for Dean | kirkcaldy/park-road-centre | phone | via refresh | source feed refresh | stored (none) | proposed 01592 655422 | unchanged (byte-identical) | Park Road Centre
 - blocked, held for Dean | kirkcaldy/park-road-centre | tel | via refresh | source feed refresh | stored (none) | proposed 01592655422 | unchanged (byte-identical) | Park Road Centre
 <!-- /phone lock -->
+
+
+<!-- council line undo -->
+## Council lines undone (29 Oct 2026, Dean)
+
+The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a council_phone copied from their council_ooh, so a council line button appeared. Removed again on Dean's instruction; every other council field is byte-for-byte as before. Council lines are now locked like phone numbers: a refresh that proposes one is held below under "phone lock" and is not published. To OK one, edit the listing file and overrides/phone_baseline.json together in a reviewed PR. Log: reports/council_line_changes.json.
+
+- Bishops Stortford Methodist Church (CM23 3AZ) | ww-64379621 | council_phone 01279 655261 removed
+- Chabad Lubavitch of Islington (N1 8HX) | ww-58212607 | council_phone 020 7527 2000 removed
+- Community Warm Space (FK10 4JA) | ww-65437525 | council_phone 01259 450000 removed
+- Elderberries Vintage Tea Rooms (8th Bexleyheath Scout Group) (DA16 1PR) | evergreen-elderberries-welling | council_phone 020 8303 7171 removed
+- Glusburn Community & Arts Centre (BD20 8FQ) | ww-55473505 | council_phone 0300 131 2131 removed
+- Leigh on Sea Elim Church (SS9 2BE) | ww-57993936 | council_phone 01702 215000 removed
+- London LGBTQ+ Community Centre (SE1 9JH) | swk-london-lgbtq-community-centre | council_phone 020 7525 5000 removed
+- North Warwickshire Citizens Advice - Centre For Warmth (CV9 1DU) | ww-68472828 | council_phone 01827 715341 removed
+- Norton Hive Community Library and Hub (YO17 9ES) | ww-55475831 | council_phone 0300 131 2131 removed
+- Salvation Army in Whitleigh (PL5 4AA) | ww-55474480 | council_phone 01752 668000 removed
+- Shipston Community Warm Hub (CV36 4AX) | ww-65413950 | council_phone 01789 267575 removed
+- St. Thomas Church, Sutton-in-Craven (BD20 7JS) | ww-60625347 | council_phone 0300 131 2131 removed
+- The Mill (E17 7HA) | ww-57951953 | council_phone 020 8496 3000 removed
+- The Vale Family Hub (DT10 1AZ) | ww-67526400 | council_phone 01305 221000 removed
+- Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
+- Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
+<!-- /council line undo -->
