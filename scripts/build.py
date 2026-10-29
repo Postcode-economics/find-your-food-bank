@@ -194,6 +194,11 @@ def main():
     # own-site closure check (own site beats Give Food) - shares this run's page cache
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))
+    # Hand-checked times live in overrides/opening_times.json. Re-apply after IFAN discovery adds pins so
+    # cross_check_times sees protected metadata (29 Oct: ordering bug downgraded confirmed_by_hand).
+    for i in items:
+        ot = times.get(i['id'])
+        if ot: i['opening_times'] = normalise(ot)
     # times cross-check on every pin's OWN site this run: confirmed / updated / unconfirmed (withheld, never carried over)
     try:
         import intelligent_rails as IR
