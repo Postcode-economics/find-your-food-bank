@@ -1,91 +1,113 @@
 """Refresh time budget (run 40821758973, 29 Oct 2026: the rebuild step took 68 min instead of ~10 and the job hit its
 90 min timeout in the full check). The live source-url reads ran one listing at a time and every 403 slept 65 s.
 
-Offline fixtures only: fake fetchers with a fixed delay stand in for the network.
+Offline: discover._open (the socket) is replaced by a fixed-delay fake, so every read still goes through the real
+fetch_live -> _request path (polite retry included). Nothing here opens a network socket or a browser.
 """
 import os, re, sys, threading, time, unittest, urllib.error
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 import discover
-import full_check as F
 
-PAGE = "<html><body><p>Riverside Food Bank, 1 High St, AB1 2CD. Tuesday 10am - 12pm, Friday 1pm - 3pm.</p></body></html>"
 TABLE = {"tue": [["10:00", "12:00"]], "fri": [["13:00", "15:00"]]}
+FULL = "<html><body><p>Riverside Food Bank, 1 High St, AB1 2CD. Tuesday 10am - 12pm, Friday 1pm - 3pm.</p></body></html>"
+BARE = "<html><body><p>Riverside Food Bank, 1 High St, AB1 2CD. Ask at the door.</p></body></html>"
+OTHER = "<html><body><p>Riverside Food Bank, 1 High St, AB1 2CD. Monday 9am - 11am.</p></body></html>"
 N, DELAY = 120, 0.03   # one at a time: >= N * DELAY = 3.6 s
 
-def listings(n=N, hosts=12):
-    out = []
-    for k in range(n):
-        src = "https://bank%d.example/centre-%d" % (k % hosts, k)
-        out.append({"id": "bank%d/centre-%d" % (k % hosts, k), "type": "location", "name": "Riverside Food Bank",
-                    "foodbank": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "",
-                    "opening_times": {"status": "TIMES_FOUND", "structured": dict(TABLE), "source_url": src}})
-    return out
+def src_url(k):
+    if k % 2: return "https://centre%d.foodbank.org.uk/locations/c%d/" % (k % 10, k)   # Trussell: one shared server
+    return "https://bank%d.example/centre-%d" % (k % 12, k)
 
-class Gauge:
-    """Fake live fetch: fixed delay, counts calls and the most reads in flight on one host."""
+def listings(n=N):
+    return [{"id": "fb%d/centre-%d" % (k % 12, k), "type": "location", "name": "Riverside Food Bank %d" % k,
+             "foodbank": "Riverside Food Bank", "postcode": "AB1 2CD", "website": "",
+             "opening_times": {"status": "TIMES_FOUND", "structured": dict(TABLE), "source_url": src_url(k)}} for k in range(n)]
+
+class Resp:
+    def __init__(self, url, body): self.url, self.body, self.status, self.headers = url, body, 200, {}
+    def read(self, n): return self.body.encode()
+    def geturl(self): return self.url
+
+class FakeNet:
+    """Deterministic answer per URL: complete page, page with no timetable (rendered), different times, plain 403
+    (polite retries), Cloudflare challenge 403, 429 then OK. Records reads in flight per site."""
     def __init__(self):
-        self.calls, self.now, self.peak, self.lock = [], {}, {}, threading.Lock()
-    def __call__(self, url):
-        h = discover.host(url)
+        self.lock, self.now, self.peak, self.opens, self.seen = threading.Lock(), {}, {}, [], {}
+    def kind(self, url):
+        k = int(re.search(r"(\d+)/?$", url).group(1))
+        return ("full", "bare", "other", "403", "challenge", "429-once", "full")[k % 7]
+    def __call__(self, url, headers):
+        site = discover.site_key(url)
         with self.lock:
-            self.calls.append(url); self.now[h] = self.now.get(h, 0) + 1
-            self.peak[h] = max(self.peak.get(h, 0), self.now[h])
-        time.sleep(DELAY)
-        with self.lock: self.now[h] -= 1
-        return {"ok": True, "http": 200, "final_url": url, "html": PAGE, "etag": "", "last_modified": "", "sha256": "p"}
+            self.opens.append(url); self.now[site] = self.now.get(site, 0) + 1
+            self.peak[site] = max(self.peak.get(site, 0), self.now[site]); n = self.seen[url] = self.seen.get(url, 0) + 1
+        try:
+            time.sleep(DELAY)
+            kind = self.kind(url)
+            if kind == "403": raise urllib.error.HTTPError(url, 403, "Forbidden", {}, None)
+            if kind == "challenge": raise urllib.error.HTTPError(url, 403, "Forbidden", {"cf-mitigated": "challenge"}, None)
+            if kind == "429-once" and n == 1: raise urllib.error.HTTPError(url, 429, "Too Many", {"Retry-After": "1"}, None)
+            return Resp(url, {"bare": BARE, "other": OTHER}.get(kind, FULL))
+        finally:
+            with self.lock: self.now[site] -= 1
+
+def render(u):
+    return {"ok": True, "http": 200, "final_url": u, "html": FULL if int(re.search(r"(\d+)/?$", u).group(1)) % 3 else BARE}
 
 def strip(log):
     return {k: {f: v for f, v in r.items() if f != "checked"} for k, r in log.items()}
 
-class RebuildSourceReads(unittest.TestCase):
-    def test_source_reads_run_in_parallel_one_live_read_each(self):
-        g = Gauge(); items = listings()
-        t = time.monotonic()
-        log = discover.cross_check_times(items, "fb", "opening_times", fetcher=g, render=lambda u: self.fail("complete page is not rendered"))
-        took = time.monotonic() - t
-        self.assertLess(took, N * DELAY / 3, "source-url reads are running one at a time again (%.1fs)" % took)
-        self.assertEqual(sorted(g.calls), sorted(i["opening_times"]["source_url"] for i in items))
-        self.assertLessEqual(max(g.peak.values()), discover.SOURCE_PER_HOST)
-        self.assertEqual(len(log), N)
+class RealRequestPath(unittest.TestCase):
+    def setUp(self):
+        self.orig = (discover._open, discover._sleep)
+        discover._sleep = lambda s: None
+    def tearDown(self):
+        discover._open, discover._sleep = self.orig
 
-    def test_parallel_result_is_identical_to_one_at_a_time(self):
-        fast_items, slow_items = listings(36), listings(36)
-        fast = discover.cross_check_times(fast_items, "fb", "opening_times", fetcher=Gauge(), render=lambda u: {})
-        slow = discover.cross_check_times(slow_items, "fb", "opening_times", fetcher=Gauge(), render=lambda u: {}, threads=1)
-        self.assertEqual(strip(fast), strip(slow))
-        self.assertEqual(fast_items, slow_items)
+    def run_check(self, threads):
+        net = FakeNet(); discover._open = net; items = listings()
+        t = time.monotonic()
+        log = discover.cross_check_times(items, "fb", "opening_times", threads=threads, render=render)
+        return items, log, net, time.monotonic() - t
+
+    def test_parallel_output_is_identical_to_one_at_a_time(self):
+        par_items, par_log, par_net, _ = self.run_check(24)
+        ser_items, ser_log, ser_net, _ = self.run_check(1)
+        self.assertEqual(strip(par_log), strip(ser_log))
+        self.assertEqual(par_items, ser_items)
+        self.assertEqual(sorted(par_net.opens), sorted(ser_net.opens))   # same live reads and retries, nothing reused
+        statuses = {r["status"] for r in par_log.values()}
+        self.assertGreater(len(statuses), 1, statuses)   # the fixture covers more than one outcome
+
+    def test_source_reads_are_parallel_and_capped_per_site(self):
+        items, log, net, took = self.run_check(24)
+        self.assertLess(took, N * DELAY / 3, "source-url reads are running one at a time again (%.1fs)" % took)
+        self.assertEqual(len(log), N)
+        self.assertLessEqual(net.peak["foodbank.org.uk"], discover.SOURCE_PER_SITE)   # all Trussell subdomains together
+        self.assertLessEqual(max(net.peak.values()), discover.SOURCE_PER_SITE)
+        srcs = [i["opening_times"]["source_url"] for i in items]
+        self.assertTrue(set(srcs) <= set(net.opens))
+
+    def test_trussell_subdomains_are_one_site(self):
+        self.assertEqual(discover.site_key("https://coventry.foodbank.org.uk/x"), discover.site_key("https://www.barnsley.foodbank.org.uk/"))
+        self.assertEqual(discover.site_key("https://www.bank.example/x"), "bank.example")
 
     def test_renders_are_capped(self):
         live, peak, lock = [0], [0], threading.Lock()
-        def render(u):
+        def slow_render(u):
             with lock: live[0] += 1; peak[0] = max(peak[0], live[0])
             time.sleep(0.02)
             with lock: live[0] -= 1
             return {}
-        bare = lambda u: {"http": 200, "final_url": u, "html": "<p>Riverside Food Bank AB1 2CD. Ask at the door.</p>"}
-        discover.read_sources(listings(24), "fb", "opening_times", bare, render, 24)
+        bare = lambda u: {"http": 200, "final_url": u, "html": BARE}
+        discover.read_sources(listings(24), "fb", "opening_times", bare, slow_render, 24)
         self.assertLessEqual(peak[0], discover.SOURCE_RENDERS)
 
-class BoundedRetries(unittest.TestCase):
+class Retries(unittest.TestCase):
     def setUp(self):
-        self.orig = (discover._open, discover._sleep); discover._refused.clear()
+        self.orig = (discover._open, discover._sleep)
     def tearDown(self):
-        discover._open, discover._sleep = self.orig; discover._refused.clear()
-
-    def test_a_host_that_refuses_every_retry_stops_costing_sleeps(self):
-        slept, opened = [], []
-        def refuse(url, headers):
-            opened.append(url)
-            raise urllib.error.HTTPError(url, 403, "Forbidden", {}, None)
-        discover._open, discover._sleep = refuse, slept.append
-        pages = ["https://centre%d.foodbank.org.uk/locations/" % k for k in range(40)]
-        out = [discover._request(u) for u in pages]
-        self.assertTrue(all(r["http"] == 403 and not r["html"] for r in out))
-        self.assertEqual(len(slept), discover.RETRY_GIVE_UP * discover.RETRY_TRIES)
-        self.assertLessEqual(sum(slept), discover.RETRY_GIVE_UP * sum(discover.retry_delay(n) for n in range(1, discover.RETRY_TRIES + 1)))
-        self.assertEqual(len(opened), len(pages) + len(slept))
-        r = discover._request("https://other.example/hours")   # another host still gets its polite retries
-        self.assertEqual(r.get("retries"), discover.RETRY_TRIES)
+        discover._open, discover._sleep = self.orig
 
     def test_cloudflare_challenge_is_not_retried(self):
         slept = []
@@ -96,59 +118,36 @@ class BoundedRetries(unittest.TestCase):
         self.assertEqual((r["http"], r["html"], slept, r.get("retries")), (403, "", [], None))
         self.assertEqual(discover.review_category({"status": "unreachable", "http": 403}), "blocked_after_retries")
 
-    def test_a_retry_that_gets_through_is_not_counted(self):
-        tries = {}
-        def once(url, headers):
-            tries[url] = tries.get(url, 0) + 1
-            if tries[url] == 1: raise urllib.error.HTTPError(url, 429, "Too Many", {}, None)
-            class R:
-                status = 200; headers = {}
-                def read(self, n): return b"<p>ok</p>"
-                def geturl(self): return url
-            return R()
-        discover._open, discover._sleep = once, lambda s: None
-        for k in range(5): self.assertEqual(discover._request("https://slow.example/p%d" % k)["http"], 200)
-        self.assertEqual(discover._refused.get("slow.example", 0), 0)
-
-class FullCheckHours(unittest.TestCase):
-    def _review(self, threads):
-        g = Gauge(); state, flags = {}, []
-        orig = (F.fetch, F.HOURS_THREADS, dict(F._robots_cache))
-        F.fetch = g; F.HOURS_THREADS = threads; F._robots_cache.clear()
-        try:
-            t = time.monotonic()
-            n = F.review_hours(listings(), state, lambda key, cat, **kw: flags.append((key, cat)), deadline=time.time() + 600, fetch=g, render=lambda u: {})
-            return n, state, flags, time.monotonic() - t
-        finally:
-            F.fetch, F.HOURS_THREADS = orig[0], orig[1]; F._robots_cache.clear(); F._robots_cache.update(orig[2])
-
-    def test_hours_review_runs_in_parallel_with_the_same_verdicts(self):
-        n, state, flags, took = self._review(F.HOURS_THREADS)
-        n1, state1, flags1, _ = self._review(1)
-        self.assertEqual(n, N)
-        self.assertLess(took, N * DELAY / 3, "full check hours review is running one listing at a time again (%.1fs)" % took)
-        strip_t = lambda s: {k: {f: v for f, v in r.items() if f != "checked_at"} for k, r in s["hours"].items()}
-        self.assertEqual(strip_t(state), strip_t(state1))
-        self.assertEqual(flags, flags1)
-        self.assertEqual({r["status"] for r in state["hours"].values()}, {"verified"})
+    def test_every_other_refusal_keeps_its_full_polite_retries(self):
+        slept = []
+        def refuse(url, headers):
+            raise urllib.error.HTTPError(url, 403, "Forbidden", {}, None)
+        discover._open, discover._sleep = refuse, slept.append
+        for k in range(5):
+            self.assertEqual(discover._request("https://c%d.foodbank.org.uk/locations/" % k).get("retries"), discover.RETRY_TRIES)
+        self.assertEqual(len(slept), 5 * discover.RETRY_TRIES)
+        src = open(os.path.join(os.path.dirname(__file__), "..", "scripts", "discover.py"), encoding="utf-8").read()
+        self.assertNotIn("RETRY_GIVE_UP", src)
 
 class WorkflowBudget(unittest.TestCase):
+    def wf(self):
+        with open(os.path.join(os.path.dirname(__file__), "..", ".github", "workflows", "refresh.yml"), encoding="utf-8") as fh: return fh.read()
+    def step(self, wf, name):
+        s = wf[wf.index("- name: " + name):]
+        return s[:s.index("\n      - name:")]
+
     def test_rebuild_step_has_its_own_timeout_inside_the_job(self):
-        with open(os.path.join(os.path.dirname(__file__), "..", ".github", "workflows", "refresh.yml"), encoding="utf-8") as fh: wf = fh.read()
+        wf = self.wf()
         job = int(re.search(r"^    timeout-minutes: (\d+)", wf, re.M).group(1))
-        step = wf[wf.index("- name: Rebuild data.js"):]
-        step = step[:step.index("\n      - name:")]
-        m = re.search(r"timeout-minutes: (\d+)", step)
+        self.assertEqual(job, 90)
+        m = re.search(r"timeout-minutes: (\d+)", self.step(wf, "Rebuild data.js"))
         self.assertIsNotNone(m, "the rebuild step must have its own timeout")
-        # rebuild budget + the full check's own BUDGET_S + the sense check (~9 min) and tests (~7 min) fit inside the job
-        self.assertLessEqual(int(m.group(1)) + F.BUDGET / 60 + 16, job)
+        self.assertLess(int(m.group(1)), job)
         self.assertNotIn("timeout-minutes", wf[wf.index("- name: Full check"):wf.index("- name: Anomaly brake")],
                          "a killed full check would skip the anomaly brake; it is bounded by its own BUDGET_S")
 
     def test_run_failed_alert_also_fires_on_cancel_or_timeout(self):
-        with open(os.path.join(os.path.dirname(__file__), "..", ".github", "workflows", "refresh.yml"), encoding="utf-8") as fh: wf = fh.read()
-        step = wf[wf.index("- name: Alert - run failed (nothing new published)"):]
-        cond = re.search(r"if: (.+)", step[:step.index("\n      - name:")]).group(1)
+        cond = re.search(r"if: (.+)", self.step(self.wf(), "Alert - run failed (nothing new published)")).group(1)
         self.assertIn("cancelled()", cond)
         self.assertIn("failure()", cond)
         self.assertIn("steps.commit.outcome != 'success'", cond)

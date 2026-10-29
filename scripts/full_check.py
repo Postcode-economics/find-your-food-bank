@@ -47,7 +47,6 @@ def report_root():
     return staging
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
-HOURS_THREADS = int(os.environ.get('HOURS_THREADS', 12))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
 DAY = NOW.date().isoformat()
 
@@ -272,19 +271,17 @@ def needs_list(t):
     seg = t[m.start():m.start() + 700].split('\n')[:14]
     return ' | '.join(s.strip() for s in seg if 2 < len(s.strip()) < 80)[:500]
 
-_robots_cache, _robots_locks = {}, {}
+_robots_cache = {}
 def _robots_text(url):
     parts = urllib.parse.urlsplit(url)
     if not parts.scheme or not parts.netloc: return "", "/"
     base = "%s://%s" % (parts.scheme, parts.netloc)
-    with _g: lk = _robots_locks.setdefault(base, threading.Lock())
-    with lk:
-        if base not in _robots_cache:
-            try:
-                rb = fetch(base + "/robots.txt")
-                _robots_cache[base] = (rb.get("html") or "") if rb.get("http") == 200 else ""
-            except Exception:
-                _robots_cache[base] = ""
+    if base not in _robots_cache:
+        try:
+            rb = fetch(base + "/robots.txt")
+            _robots_cache[base] = (rb.get("html") or "") if rb.get("http") == 200 else ""
+        except Exception:
+            _robots_cache[base] = ""
     return _robots_cache[base], parts.path or "/"
 
 UNCLEAR_LINE = 'Opening times not listed. Call before you go.'
@@ -371,29 +368,20 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
     fetch = fetch or globals()['fetch']
     render = render if render is not None else render_polite
     state.setdefault('hours', {})
-    todo = [(i, listing_source_url(i)) for i in items if i.get('type') in ('foodbank', 'location')]
-    todo = [(i, src) for i, src in todo if src]
-    # Read in parallel (29 Oct 2026: 1,744 listings one after another overran the job). _polite still keeps one
-    # request at a time per host with the 2 s gap, and 2 at a time on *.foodbank.org.uk. Verdicts are applied below
-    # in listing order, so state and flags are the same as a one-at-a-time pass that reached the same listings.
-    def read(t):
-        i, src = t
-        if time.time() > deadline: return None
-        return hours_verdict(i, read_source(i, fetch=fetch, render=render))
-    t0 = time.time()
-    print('hours review: reading %d listing source pages (%d threads, %.0fs of budget left)' % (len(todo), HOURS_THREADS, max(0, deadline - t0)), flush=True)
-    with cf.ThreadPoolExecutor(HOURS_THREADS) as ex: verdicts = list(ex.map(read, todo))
-    print('hours review: %d read in %.0fs, %d not reached within the budget' % (len(todo), time.time() - t0, sum(v is None for v in verdicts)), flush=True)
     n = 0
-    for (i, src), verdict in zip(todo, verdicts):
+    for i in items:
+        if i.get('type') not in ('foodbank', 'location'): continue
+        src = listing_source_url(i)
+        if not src: continue
         n += 1
-        if verdict is None:
+        if time.time() > deadline:
             # Not opened this run. Drop any previous verified quote. The website skip already reports it once;
             # one row per listing would bury the review list.
             state['hours'][i['id']] = {'status': 'unclear', 'evidence': '', 'source_url': src, 'final_url': '',
                                        'note': 'unclear: not checked this run; previous hours are not verified. ' + UNCLEAR_LINE,
                                        'rendered': False, 'checked_at': NOW.isoformat()}
             continue
+        verdict = hours_verdict(i, read_source(i, fetch=fetch, render=render))
         state['hours'][i['id']] = {'status': verdict['status'], 'evidence': verdict.get('evidence') or '', 'source_url': src,
                                    'final_url': verdict.get('final_url') or '', 'note': verdict.get('note') or '',
                                    'rendered': bool(verdict.get('rendered')), 'checked_at': NOW.isoformat()}
@@ -790,7 +778,9 @@ def main():
         state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse', 'fb_mention', 'other_labels')}
     if held_old:  # older fixes the strict gate now holds: kept for Dean with their reasons, not re-applied
         wj('phone_fixes_held.json', dict(rj('phone_fixes_held.json', {}), **held_old))
-    review_hours(items, state, flag, t0 + BUDGET)
+    th = time.time()
+    n_hours = review_hours(items, state, flag, t0 + BUDGET)
+    print('hours review: %d listing source pages in %.0fs' % (n_hours, time.time() - th), flush=True)
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest

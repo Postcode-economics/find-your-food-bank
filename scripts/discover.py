@@ -79,18 +79,9 @@ def dedupe(cands, existing):
 # writes this cache and never opens a saved page. If the live request fails, the listing is flagged and
 # the hours already on the card are left as they are.
 _cache, _lock = {}, threading.Lock()
-# Bounded retries (29 Oct 2026): once a host has refused every polite retry RETRY_GIVE_UP times this run, a later
-# 403/429 from it is not retried (65 s of sleeps each, and the polite UA got through on 0 of 10 refused Trussell pages).
-# The read is recorded as refused, exactly as after a full retry chain. *.foodbank.org.uk is one Trussell server.
-RETRY_GIVE_UP = int(os.environ.get("TIMES_RETRY_GIVE_UP", "2"))
-_refused, _refused_lock = {}, threading.Lock()
-def retry_host(url):
-    h = host(url)
-    return "foodbank.org.uk" if h == "foodbank.org.uk" or h.endswith(".foodbank.org.uk") else h
 def _request(url):
     """One live request. A 403/429 is asked again more slowly (polite retry, 27 Oct 2026), identifying who we are."""
     res, retries, headers = None, 0, UA
-    rh = retry_host(url)
     while True:
         try:
             r = _open(url, headers)
@@ -100,18 +91,15 @@ def _request(url):
         except Exception as e:
             code = getattr(e, "code", None)
             res = {"http": code or "error", "final_url": url, "html": "", "error": str(e)[:120]}
-            with _refused_lock: dead = _refused.get(rh, 0) >= RETRY_GIVE_UP
             hdrs = getattr(e, "headers", None)
             challenge = hdrs is not None and str(hdrs.get("cf-mitigated") or "").lower() == "challenge"  # a script challenge: no retry can pass it
-            if code in RETRY_CODES and retries < RETRY_TRIES and not dead and not challenge:
+            if code in RETRY_CODES and retries < RETRY_TRIES and not challenge:
                 retries += 1
                 _sleep(retry_delay(retries, hdrs.get("Retry-After") if hdrs is not None else None))
                 headers = POLITE_UA
                 continue
         break
     if retries: res["retries"] = retries
-    if retries and res.get("http") in RETRY_CODES:
-        with _refused_lock: _refused[rh] = _refused.get(rh, 0) + 1
     return res
 def fetch_raw(url):
     with _lock:
@@ -774,9 +762,12 @@ def read_listing_source(src, fetcher, render, postcode):
     return rland, got.get("text") or text_of(rhtml)
 # Run 40821758973 (29 Oct 2026): the 1,744 source-url reads ran one after another inside the main loop, each 403 adding
 # 65 s of polite-retry sleeps, and the rebuild step took 68 min instead of ~10. They share the thread pool now, with at
-# most SOURCE_PER_HOST reads on one host at a time and SOURCE_RENDERS browser renders at once. Each listing still gets
-# its own live read of its own source URL; only the order in time changes.
-SOURCE_PER_HOST = int(os.environ.get("TIMES_SOURCE_PER_HOST", "4"))
+# most SOURCE_PER_SITE reads on one site at a time (every *.foodbank.org.uk is one Trussell server) and SOURCE_RENDERS
+# browser renders at once. Each listing still gets its own live read of its own source URL; only the order in time changes.
+SOURCE_PER_SITE = int(os.environ.get("TIMES_SOURCE_PER_SITE", "4"))
+def site_key(url):
+    h = host(url)
+    return "foodbank.org.uk" if h == "foodbank.org.uk" or h.endswith(".foodbank.org.uk") else h
 SOURCE_RENDERS = int(os.environ.get("TIMES_SOURCE_RENDERS", "2"))
 def read_sources(items, kind, field, fetcher, render, threads):
     """{id(item): read_listing_source(...)} for every fb listing with a usable source_url, read live in parallel."""
@@ -794,14 +785,12 @@ def read_sources(items, kind, field, fetcher, render, threads):
         with render_sem: return base_render(u)
     def one(t):
         iid, src, pc = t
-        with lock: sem = sems.setdefault(host(src), threading.Semaphore(max(1, SOURCE_PER_HOST)))
+        with lock: sem = sems.setdefault(site_key(src), threading.Semaphore(max(1, SOURCE_PER_SITE)))
         with sem: return iid, read_listing_source(src, fetcher, bounded_render, pc)
     t0 = time.monotonic()
-    print("times check: reading %d live source pages (%d hosts, %d threads)" % (len(todo), len({host(s) for _, s, _ in todo}), threads), flush=True)
+    print("times check: reading %d live source pages (%d sites, %d threads)" % (len(todo), len({site_key(s) for _, s, _ in todo}), threads), flush=True)
     with cf.ThreadPoolExecutor(max(1, threads)) as ex: out = dict(ex.map(one, todo))
-    opened = sum(1 for v in out.values() if v[0])
-    with _refused_lock: refused = dict(_refused)
-    print("times check: %d source pages read in %.0fs, %d opened; hosts that refused every retry: %s" % (len(todo), time.monotonic() - t0, opened, refused or "none"), flush=True)
+    print("times check: %d source pages read in %.0fs, %d opened" % (len(todo), time.monotonic() - t0, sum(1 for v in out.values() if v[0])), flush=True)
     return out
 def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, threads=24, render=None, state_root=None, rules=None, run_at=None, pending_mode="replace"):
     """Re-read every entry's times from the live site this run; mutates items. Returns {id: result} log.
