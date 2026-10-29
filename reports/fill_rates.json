@@ -1,2742 +1,6 @@
 {
  "runs": [
   {
-   "run": "2026-10-25T13:42:57+00:00",
-   "rates": {
-    "Give Food (independent)": {
-     "times": [
-      28.9,
-      1587
-     ],
-     "phone": [
-      96.6,
-      1587
-     ],
-     "fb_page": [
-      1.8,
-      1587
-     ],
-     "times_confirmed": [
-      22.3,
-      1587
-     ]
-    },
-    "Trussell Trust pages": {
-     "times": [
-      92.1,
-      1366
-     ],
-     "phone": [
-      98.5,
-      1366
-     ],
-     "fb_page": [
-      0.5,
-      1366
-     ],
-     "times_confirmed": [
-      90.0,
-      1366
-     ]
-    },
-    "own site colchester.foodbank.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site basingstoke.foodbank.org.uk": {
-     "times": [
-      87.5,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      87.5,
-      8
-     ]
-    },
-    "own site ely.foodbank.org.uk": {
-     "times": [
-      75.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      75.0,
-      8
-     ]
-    },
-    "own site winchesterbasicsbank.co.uk": {
-     "times": [
-      20.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      0.0,
-      5
-     ]
-    },
-    "own site bksv.foodbank.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site blackcountryfoodbank.org.uk": {
-     "times": [
-      0.0,
-      27
-     ],
-     "phone": [
-      100.0,
-      27
-     ],
-     "fb_page": [
-      0.0,
-      27
-     ],
-     "times_confirmed": [
-      0.0,
-      27
-     ]
-    },
-    "own site westlothian.foodbank.org.uk": {
-     "times": [
-      70.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      0.0,
-      10
-     ]
-    },
-    "own site swansea.foodbank.org.uk": {
-     "times": [
-      85.7,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      85.7,
-      7
-     ]
-    },
-    "own site mkfoodbank.org.uk": {
-     "times": [
-      100.0,
-      13
-     ],
-     "phone": [
-      100.0,
-      13
-     ],
-     "fb_page": [
-      0.0,
-      13
-     ],
-     "times_confirmed": [
-      100.0,
-      13
-     ]
-    },
-    "own site cvoea.co.uk": {
-     "times": [
-      0.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site leedssouthandeast.foodbank.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site northliverpool.foodbank.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site faith-works.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site thebigfoodproject.co.uk": {
-     "times": [
-      0.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      0.0,
-      10
-     ]
-    },
-    "own site aberdeenshirenorth.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site southamptoncitymission.co.uk": {
-     "times": [
-      0.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site leedsnorthandwest.foodbank.org.uk": {
-     "times": [
-      100.0,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      100.0,
-      9
-     ]
-    },
-    "own site westcheshire.foodbank.org.uk": {
-     "times": [
-      93.8,
-      16
-     ],
-     "phone": [
-      100.0,
-      16
-     ],
-     "fb_page": [
-      0.0,
-      16
-     ],
-     "times_confirmed": [
-      93.8,
-      16
-     ]
-    },
-    "own site midcheshire.foodbank.org.uk": {
-     "times": [
-      81.8,
-      11
-     ],
-     "phone": [
-      100.0,
-      11
-     ],
-     "fb_page": [
-      0.0,
-      11
-     ],
-     "times_confirmed": [
-      81.8,
-      11
-     ]
-    },
-    "own site runcorndistrict.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site wadebridgefoodbank.org": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site stalbansdistrict.foodbank.org.uk": {
-     "times": [
-      90.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      90.0,
-      10
-     ]
-    },
-    "own site wythenshawe.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site wrexham.foodbank.org.uk": {
-     "times": [
-      100.0,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      100.0,
-      9
-     ]
-    },
-    "own site bridgend.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site hull.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site reachhaverhill.org.uk": {
-     "times": [
-      20.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      0.0,
-      5
-     ]
-    },
-    "own site southayrshire.foodbank.org.uk": {
-     "times": [
-      90.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      90.0,
-      10
-     ]
-    },
-    "own site calderwoodbaptist.co.uk": {
-     "times": [
-      16.7,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site glasgowne.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site northayrshire.foodbank.org.uk": {
-     "times": [
-      100.0,
-      14
-     ],
-     "phone": [
-      100.0,
-      14
-     ],
-     "fb_page": [
-      0.0,
-      14
-     ],
-     "times_confirmed": [
-      100.0,
-      14
-     ]
-    },
-    "own site waveney.foodbank.org.uk": {
-     "times": [
-      50.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      50.0,
-      10
-     ]
-    },
-    "own site wandsworth.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site chelmsford.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site bedford.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site isleofwight.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site norwich.foodbank.org.uk": {
-     "times": [
-      100.0,
-      12
-     ],
-     "phone": [
-      100.0,
-      12
-     ],
-     "fb_page": [
-      0.0,
-      12
-     ],
-     "times_confirmed": [
-      100.0,
-      12
-     ]
-    },
-    "own site wcravenfoodbank.org": {
-     "times": [
-      0.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      0.0,
-      5
-     ]
-    },
-    "own site richmond.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site slough.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site durhamfoodbank.org.uk": {
-     "times": [
-      0.0,
-      23
-     ],
-     "phone": [
-      100.0,
-      23
-     ],
-     "fb_page": [
-      0.0,
-      23
-     ],
-     "times_confirmed": [
-      0.0,
-      23
-     ]
-    },
-    "own site southgwynedd.foodbank.org.uk": {
-     "times": [
-      83.3,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      83.3,
-      6
-     ]
-    },
-    "own site sutton.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site andover.foodbank.org.uk": {
-     "times": [
-      71.4,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      71.4,
-      7
-     ]
-    },
-    "own site newstarthighland.org": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      0.0,
-      5
-     ]
-    },
-    "own site tamesideeast.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site dens.org.uk": {
-     "times": [
-      20.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      20.0,
-      5
-     ]
-    },
-    "own site eastbristol.foodbank.org.uk": {
-     "times": [
-      85.7,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      85.7,
-      7
-     ]
-    },
-    "own site redbridge.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site york.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site sparkhill.foodbank.org.uk": {
-     "times": [
-      80.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      80.0,
-      5
-     ]
-    },
-    "own site sheffields6.foodbank.org.uk": {
-     "times": [
-      100.0,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      100.0,
-      9
-     ]
-    },
-    "own site hinckleyarea.foodbank.org.uk": {
-     "times": [
-      88.9,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      88.9,
-      9
-     ]
-    },
-    "own site nuneaton.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site leicestersouth.foodbank.org.uk": {
-     "times": [
-      93.3,
-      15
-     ],
-     "phone": [
-      100.0,
-      15
-     ],
-     "fb_page": [
-      0.0,
-      15
-     ],
-     "times_confirmed": [
-      93.3,
-      15
-     ]
-    },
-    "own site firstbasedumfries.co.uk": {
-     "times": [
-      100.0,
-      14
-     ],
-     "phone": [
-      100.0,
-      14
-     ],
-     "fb_page": [
-      0.0,
-      14
-     ],
-     "times_confirmed": [
-      92.9,
-      14
-     ]
-    },
-    "own site sthelens.foodbank.org.uk": {
-     "times": [
-      80.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      80.0,
-      5
-     ]
-    },
-    "own site warwickdistrict.foodbank.org.uk": {
-     "times": [
-      42.9,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      42.9,
-      7
-     ]
-    },
-    "own site peterborough.foodbank.org.uk": {
-     "times": [
-      83.3,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      83.3,
-      6
-     ]
-    },
-    "own site chesterfield.foodbank.org.uk": {
-     "times": [
-      85.7,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      85.7,
-      7
-     ]
-    },
-    "own site dunfermline.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site pembrokeshire.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site wimbledon.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site taffely.foodbank.org.uk": {
-     "times": [
-      87.5,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      87.5,
-      8
-     ]
-    },
-    "own site northerndevon.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site southend.foodbank.org.uk": {
-     "times": [
-      55.6,
-      9
-     ],
-     "phone": [
-      22.2,
-      9
-     ],
-     "fb_page": [
-      77.8,
-      9
-     ],
-     "times_confirmed": [
-      55.6,
-      9
-     ]
-    },
-    "own site southliverpool.foodbank.org.uk": {
-     "times": [
-      75.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      75.0,
-      8
-     ]
-    },
-    "own site northnorfolk.foodbank.org.uk": {
-     "times": [
-      85.7,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      85.7,
-      7
-     ]
-    },
-    "own site newcastlestaffs.foodbank.org.uk": {
-     "times": [
-      71.4,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      71.4,
-      7
-     ]
-    },
-    "own site cambridgecity.foodbank.org.uk": {
-     "times": [
-      88.9,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      88.9,
-      9
-     ]
-    },
-    "own site shepway.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site middlesbrough.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site newhamfoodbank.org.uk": {
-     "times": [
-      0.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site lutonfoodbank.org.uk": {
-     "times": [
-      16.7,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site bradfordnorth.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site loveworks.org.uk": {
-     "times": [
-      16.7,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site nbsg.foodbank.org.uk": {
-     "times": [
-      77.8,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      66.7,
-      9
-     ]
-    },
-    "own site eastwestnottingham.foodbank.org.uk": {
-     "times": [
-      92.9,
-      14
-     ],
-     "phone": [
-      100.0,
-      14
-     ],
-     "fb_page": [
-      0.0,
-      14
-     ],
-     "times_confirmed": [
-      92.9,
-      14
-     ]
-    },
-    "own site cardiff.foodbank.org.uk": {
-     "times": [
-      100.0,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      100.0,
-      9
-     ]
-    },
-    "own site eastyorkshire.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site newcastlefoodbank.org": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      0.0,
-      6
-     ]
-    },
-    "own site thurrock.foodbank.org.uk": {
-     "times": [
-      90.9,
-      11
-     ],
-     "phone": [
-      18.2,
-      11
-     ],
-     "fb_page": [
-      0.0,
-      11
-     ],
-     "times_confirmed": [
-      90.9,
-      11
-     ]
-    },
-    "own site aylesbury.foodbank.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site dealarea.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site ealing.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site horshamdistrict.foodbank.org.uk": {
-     "times": [
-      66.7,
-      15
-     ],
-     "phone": [
-      100.0,
-      15
-     ],
-     "fb_page": [
-      0.0,
-      15
-     ],
-     "times_confirmed": [
-      66.7,
-      15
-     ]
-    },
-    "own site southsefton.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site greenwich.foodbank.org.uk": {
-     "times": [
-      87.5,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      87.5,
-      8
-     ]
-    },
-    "own site vale.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site hillingdon.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site edinburghfoodproject.org": {
-     "times": [
-      50.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      50.0,
-      8
-     ]
-    },
-    "own site salvationarmy.org.uk": {
-     "times": [
-      8.6,
-      590
-     ],
-     "phone": [
-      99.8,
-      590
-     ],
-     "fb_page": [
-      0.0,
-      590
-     ],
-     "times_confirmed": [
-      7.8,
-      590
-     ]
-    },
-    "own site restorenorthampton.org.uk": {
-     "times": [
-      83.3,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      83.3,
-      6
-     ]
-    },
-    "own site gloucester.foodbank.org.uk": {
-     "times": [
-      42.9,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      42.9,
-      7
-     ]
-    },
-    "own site southport.foodbank.org.uk": {
-     "times": [
-      80.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      80.0,
-      5
-     ]
-    },
-    "own site lambethcroydon.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      83.3,
-      6
-     ]
-    },
-    "own site northamptonhopecentre.org.uk": {
-     "times": [
-      0.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      0.0,
-      10
-     ]
-    },
-    "own site familyfoodbank.org": {
-     "times": [
-      14.3,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      14.3,
-      7
-     ]
-    },
-    "own site purleyfoodhub.net": {
-     "times": [
-      0.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      0.0,
-      7
-     ]
-    },
-    "own site edinburghnefoodbank.com": {
-     "times": [
-      20.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      20.0,
-      5
-     ]
-    },
-    "own site thefoodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site hackney.foodbank.org.uk": {
-     "times": [
-      71.4,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      71.4,
-      7
-     ]
-    },
-    "own site bristolnorthwestfoodbank.org.uk": {
-     "times": [
-      20.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      20.0,
-      5
-     ]
-    },
-    "own site easternvalley.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site westberks.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site glasgowsw.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site renfrewshire.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site watfordfoodbank.co.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site medway.foodbank.org.uk": {
-     "times": [
-      100.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      100.0,
-      10
-     ]
-    },
-    "own site braintreearea.foodbank.org.uk": {
-     "times": [
-      75.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      75.0,
-      8
-     ]
-    },
-    "own site redcararea.foodbank.org.uk": {
-     "times": [
-      90.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      90.0,
-      10
-     ]
-    },
-    "own site flintshire.foodbank.org.uk": {
-     "times": [
-      90.0,
-      10
-     ],
-     "phone": [
-      100.0,
-      10
-     ],
-     "fb_page": [
-      0.0,
-      10
-     ],
-     "times_confirmed": [
-      90.0,
-      10
-     ]
-    },
-    "own site harrow.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site eastbourne.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site swindonfoodcollective.org": {
-     "times": [
-      75.0,
-      12
-     ],
-     "phone": [
-      100.0,
-      12
-     ],
-     "fb_page": [
-      0.0,
-      12
-     ],
-     "times_confirmed": [
-      75.0,
-      12
-     ]
-    },
-    "own site runnymede.foodbank.org.uk": {
-     "times": [
-      100.0,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      100.0,
-      7
-     ]
-    },
-    "own site salford.foodbank.org.uk": {
-     "times": [
-      87.5,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      87.5,
-      8
-     ]
-    },
-    "own site merthyrcynon.foodbank.org.uk": {
-     "times": [
-      77.8,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      66.7,
-      9
-     ]
-    },
-    "own site barnsley.foodbank.org.uk": {
-     "times": [
-      93.3,
-      15
-     ],
-     "phone": [
-      100.0,
-      15
-     ],
-     "fb_page": [
-      0.0,
-      15
-     ],
-     "times_confirmed": [
-      93.3,
-      15
-     ]
-    },
-    "own site bromleyborough.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site strouddistrict.foodbank.org.uk": {
-     "times": [
-      100.0,
-      11
-     ],
-     "phone": [
-      100.0,
-      11
-     ],
-     "fb_page": [
-      0.0,
-      11
-     ],
-     "times_confirmed": [
-      100.0,
-      11
-     ]
-    },
-    "own site widnesfoodbank.org.uk": {
-     "times": [
-      0.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      0.0,
-      5
-     ]
-    },
-    "own site eppingforest.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site 3food4u.org": {
-     "times": [
-      87.5,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      87.5,
-      8
-     ]
-    },
-    "own site northcotswold.foodbank.org.uk": {
-     "times": [
-      100.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      100.0,
-      8
-     ]
-    },
-    "own site coventry.foodbank.org.uk": {
-     "times": [
-      100.0,
-      16
-     ],
-     "phone": [
-      100.0,
-      16
-     ],
-     "fb_page": [
-      0.0,
-      16
-     ],
-     "times_confirmed": [
-      75.0,
-      16
-     ]
-    },
-    "own site bournemouth.foodbank.org.uk": {
-     "times": [
-      83.3,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      83.3,
-      6
-     ]
-    },
-    "own site epsomewell.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site stockport.foodbank.org.uk": {
-     "times": [
-      100.0,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      100.0,
-      6
-     ]
-    },
-    "own site wirral.foodbank.org.uk": {
-     "times": [
-      83.3,
-      12
-     ],
-     "phone": [
-      100.0,
-      12
-     ],
-     "fb_page": [
-      0.0,
-      12
-     ],
-     "times_confirmed": [
-      83.3,
-      12
-     ]
-    },
-    "own site salisbury.foodbank.org.uk": {
-     "times": [
-      88.9,
-      9
-     ],
-     "phone": [
-      100.0,
-      9
-     ],
-     "fb_page": [
-      0.0,
-      9
-     ],
-     "times_confirmed": [
-      88.9,
-      9
-     ]
-    },
-    "own site soarvalleyoutreach.org.uk": {
-     "times": [
-      25.0,
-      8
-     ],
-     "phone": [
-      100.0,
-      8
-     ],
-     "fb_page": [
-      0.0,
-      8
-     ],
-     "times_confirmed": [
-      25.0,
-      8
-     ]
-    },
-    "own site meonvalleyfoodbank.co.uk": {
-     "times": [
-      14.3,
-      7
-     ],
-     "phone": [
-      100.0,
-      7
-     ],
-     "fb_page": [
-      0.0,
-      7
-     ],
-     "times_confirmed": [
-      14.3,
-      7
-     ]
-    },
-    "own site canterburyfoodbank.org": {
-     "times": [
-      0.0,
-      22
-     ],
-     "phone": [
-      100.0,
-      22
-     ],
-     "fb_page": [
-      0.0,
-      22
-     ],
-     "times_confirmed": [
-      0.0,
-      22
-     ]
-    },
-    "own site stokeontrent.foodbank.org.uk": {
-     "times": [
-      94.1,
-      17
-     ],
-     "phone": [
-      100.0,
-      17
-     ],
-     "fb_page": [
-      0.0,
-      17
-     ],
-     "times_confirmed": [
-      94.1,
-      17
-     ]
-    },
-    "own site lincolnlarder.co.uk": {
-     "times": [
-      66.7,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ],
-     "fb_page": [
-      0.0,
-      6
-     ],
-     "times_confirmed": [
-      66.7,
-      6
-     ]
-    },
-    "own site stratforduponavon.foodbank.org.uk": {
-     "times": [
-      40.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      40.0,
-      5
-     ]
-    },
-    "own site lewisham.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site rickmansworth.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      60.0,
-      5
-     ]
-    },
-    "own site traffordsouth.foodbank.org.uk": {
-     "times": [
-      80.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      80.0,
-      5
-     ]
-    },
-    "own site antrim.foodbank.org.uk": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ],
-     "fb_page": [
-      0.0,
-      5
-     ],
-     "times_confirmed": [
-      100.0,
-      5
-     ]
-    },
-    "own site sunderlandfoodbank.org.uk": {
-     "times": [
-      76.9,
-      13
-     ],
-     "phone": [
-      100.0,
-      13
-     ],
-     "fb_page": [
-      0.0,
-      13
-     ],
-     "times_confirmed": [
-      76.9,
-      13
-     ]
-    },
-    "IFAN": {
-     "times": [
-      2.3,
-      43
-     ],
-     "phone": [
-      53.5,
-      43
-     ],
-     "fb_page": [
-      32.6,
-      43
-     ],
-     "times_confirmed": [
-      2.3,
-      43
-     ]
-    },
-    "shelters: The Salvation Army (operator page)": {
-     "times": [
-      100.0,
-      28
-     ],
-     "phone": [
-      100.0,
-      28
-     ]
-    },
-    "shelters: Operator website": {
-     "times": [
-      100.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ]
-    },
-    "shelters: OpenStreetMap": {
-     "times": [
-      93.5,
-      31
-     ],
-     "phone": [
-      96.8,
-      31
-     ]
-    },
-    "shelters: Manual (verified from source pages)": {
-     "times": [
-      83.3,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ]
-    },
-    "shelters: Homeless Link Find help + 2026 corroboration": {
-     "times": [
-      83.3,
-      6
-     ],
-     "phone": [
-      100.0,
-      6
-     ]
-    },
-    "shelters: Simon Community NI (operator page)": {
-     "times": [
-      100.0,
-      16
-     ],
-     "phone": [
-      100.0,
-      16
-     ]
-    },
-    "warmspaces: Warm Welcome": {
-     "times": [
-      0.0,
-      317
-     ],
-     "phone": [
-      95.9,
-      317
-     ]
-    },
-    "warmspaces: Southwark Council warm spaces page": {
-     "times": [
-      0.0,
-      25
-     ],
-     "phone": [
-      100.0,
-      25
-     ]
-    },
-    "warmspaces: Voluntary Action Islington warm spaces list": {
-     "times": [
-      0.0,
-      22
-     ],
-     "phone": [
-      100.0,
-      22
-     ]
-    },
-    "warmspaces: Council directory": {
-     "times": [
-      0.0,
-      30
-     ],
-     "phone": [
-      93.3,
-      30
-     ]
-    },
-    "warmspaces: Cambridgeshire ACRE": {
-     "times": [
-      0.0,
-      5
-     ],
-     "phone": [
-      80.0,
-      5
-     ]
-    },
-    "warmspaces: Voluntary Action Islington warm spaces (daily sweep)": {
-     "times": [
-      0.0,
-      5
-     ],
-     "phone": [
-      100.0,
-      5
-     ]
-    }
-   },
-   "alerts": []
-  },
-  {
    "run": "2026-10-25T21:33:35+00:00",
    "rates": {
     "Give Food (independent)": {
@@ -19153,6 +16417,2785 @@
    "alerts": [
     "own site colchester.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 100%. Possible site change.",
     "own site isleofwight.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 100%. Possible site change."
+   ]
+  },
+  {
+   "run": "2026-10-29T08:40:58+00:00",
+   "rates": {
+    "Give Food (independent)": {
+     "times": [
+      27.4,
+      1586
+     ],
+     "phone": [
+      98.1,
+      1586
+     ],
+     "fb_page": [
+      1.8,
+      1586
+     ],
+     "times_confirmed": [
+      10.8,
+      1586
+     ]
+    },
+    "Trussell Trust pages": {
+     "times": [
+      92.1,
+      1362
+     ],
+     "phone": [
+      99.9,
+      1362
+     ],
+     "fb_page": [
+      0.3,
+      1362
+     ],
+     "times_confirmed": [
+      61.7,
+      1362
+     ]
+    },
+    "own site colchester.foodbank.org.uk": {
+     "times": [
+      100.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      90.0,
+      10
+     ]
+    },
+    "own site basingstoke.foodbank.org.uk": {
+     "times": [
+      87.5,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      87.5,
+      8
+     ]
+    },
+    "own site ely.foodbank.org.uk": {
+     "times": [
+      75.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      75.0,
+      8
+     ]
+    },
+    "own site winchesterbasicsbank.co.uk": {
+     "times": [
+      20.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site bksv.foodbank.org.uk": {
+     "times": [
+      100.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      80.0,
+      10
+     ]
+    },
+    "own site blackcountryfoodbank.org.uk": {
+     "times": [
+      0.0,
+      27
+     ],
+     "phone": [
+      100.0,
+      27
+     ],
+     "fb_page": [
+      0.0,
+      27
+     ],
+     "times_confirmed": [
+      0.0,
+      27
+     ]
+    },
+    "own site westlothian.foodbank.org.uk": {
+     "times": [
+      70.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      70.0,
+      10
+     ]
+    },
+    "own site swansea.foodbank.org.uk": {
+     "times": [
+      85.7,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      71.4,
+      7
+     ]
+    },
+    "own site mkfoodbank.org.uk": {
+     "times": [
+      100.0,
+      13
+     ],
+     "phone": [
+      100.0,
+      13
+     ],
+     "fb_page": [
+      0.0,
+      13
+     ],
+     "times_confirmed": [
+      61.5,
+      13
+     ]
+    },
+    "own site cvoea.co.uk": {
+     "times": [
+      0.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      0.0,
+      6
+     ]
+    },
+    "own site leedssouthandeast.foodbank.org.uk": {
+     "times": [
+      100.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      80.0,
+      10
+     ]
+    },
+    "own site northliverpool.foodbank.org.uk": {
+     "times": [
+      100.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      80.0,
+      10
+     ]
+    },
+    "own site faith-works.org.uk": {
+     "times": [
+      100.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      20.0,
+      10
+     ]
+    },
+    "own site thebigfoodproject.co.uk": {
+     "times": [
+      0.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      0.0,
+      10
+     ]
+    },
+    "own site aberdeenshirenorth.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      40.0,
+      5
+     ]
+    },
+    "own site southamptoncitymission.co.uk": {
+     "times": [
+      0.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      0.0,
+      6
+     ]
+    },
+    "own site leedsnorthandwest.foodbank.org.uk": {
+     "times": [
+      100.0,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      77.8,
+      9
+     ]
+    },
+    "own site westcheshire.foodbank.org.uk": {
+     "times": [
+      93.8,
+      16
+     ],
+     "phone": [
+      100.0,
+      16
+     ],
+     "fb_page": [
+      0.0,
+      16
+     ],
+     "times_confirmed": [
+      68.8,
+      16
+     ]
+    },
+    "own site midcheshire.foodbank.org.uk": {
+     "times": [
+      81.8,
+      11
+     ],
+     "phone": [
+      100.0,
+      11
+     ],
+     "fb_page": [
+      0.0,
+      11
+     ],
+     "times_confirmed": [
+      63.6,
+      11
+     ]
+    },
+    "own site runcorndistrict.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      75.0,
+      8
+     ]
+    },
+    "own site wadebridgefoodbank.org": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site stalbansdistrict.foodbank.org.uk": {
+     "times": [
+      90.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      90.0,
+      10
+     ]
+    },
+    "own site wythenshawe.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site wrexham.foodbank.org.uk": {
+     "times": [
+      100.0,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      77.8,
+      9
+     ]
+    },
+    "own site bridgend.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      57.1,
+      7
+     ]
+    },
+    "own site hull.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site reachhaverhill.org.uk": {
+     "times": [
+      20.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      20.0,
+      5
+     ]
+    },
+    "own site southayrshire.foodbank.org.uk": {
+     "times": [
+      90.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      50.0,
+      10
+     ]
+    },
+    "own site calderwoodbaptist.co.uk": {
+     "times": [
+      16.7,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      16.7,
+      6
+     ]
+    },
+    "own site glasgowne.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      83.3,
+      6
+     ]
+    },
+    "own site northayrshire.foodbank.org.uk": {
+     "times": [
+      92.9,
+      14
+     ],
+     "phone": [
+      100.0,
+      14
+     ],
+     "fb_page": [
+      0.0,
+      14
+     ],
+     "times_confirmed": [
+      85.7,
+      14
+     ]
+    },
+    "own site waveney.foodbank.org.uk": {
+     "times": [
+      50.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      0.0,
+      10
+     ]
+    },
+    "own site wandsworth.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      66.7,
+      6
+     ]
+    },
+    "own site chelmsford.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      57.1,
+      7
+     ]
+    },
+    "own site bedford.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      75.0,
+      8
+     ]
+    },
+    "own site isleofwight.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site norwich.foodbank.org.uk": {
+     "times": [
+      100.0,
+      12
+     ],
+     "phone": [
+      100.0,
+      12
+     ],
+     "fb_page": [
+      0.0,
+      12
+     ],
+     "times_confirmed": [
+      83.3,
+      12
+     ]
+    },
+    "own site wcravenfoodbank.org": {
+     "times": [
+      0.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site richmond.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      71.4,
+      7
+     ]
+    },
+    "own site slough.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      66.7,
+      6
+     ]
+    },
+    "own site durhamfoodbank.org.uk": {
+     "times": [
+      0.0,
+      23
+     ],
+     "phone": [
+      100.0,
+      23
+     ],
+     "fb_page": [
+      0.0,
+      23
+     ],
+     "times_confirmed": [
+      0.0,
+      23
+     ]
+    },
+    "own site southgwynedd.foodbank.org.uk": {
+     "times": [
+      83.3,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      50.0,
+      6
+     ]
+    },
+    "own site sutton.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site andover.foodbank.org.uk": {
+     "times": [
+      71.4,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      42.9,
+      7
+     ]
+    },
+    "own site newstarthighland.org": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site tamesideeast.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      40.0,
+      5
+     ]
+    },
+    "own site dens.org.uk": {
+     "times": [
+      20.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      20.0,
+      5
+     ]
+    },
+    "own site eastbristol.foodbank.org.uk": {
+     "times": [
+      85.7,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      42.9,
+      7
+     ]
+    },
+    "own site redbridge.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      80.0,
+      5
+     ]
+    },
+    "own site york.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      85.7,
+      7
+     ]
+    },
+    "own site sparkhill.foodbank.org.uk": {
+     "times": [
+      80.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      20.0,
+      5
+     ]
+    },
+    "own site sheffields6.foodbank.org.uk": {
+     "times": [
+      100.0,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      66.7,
+      9
+     ]
+    },
+    "own site hinckleyarea.foodbank.org.uk": {
+     "times": [
+      88.9,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      66.7,
+      9
+     ]
+    },
+    "own site nuneaton.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site leicestersouth.foodbank.org.uk": {
+     "times": [
+      93.3,
+      15
+     ],
+     "phone": [
+      100.0,
+      15
+     ],
+     "fb_page": [
+      0.0,
+      15
+     ],
+     "times_confirmed": [
+      73.3,
+      15
+     ]
+    },
+    "own site firstbasedumfries.co.uk": {
+     "times": [
+      100.0,
+      14
+     ],
+     "phone": [
+      100.0,
+      14
+     ],
+     "fb_page": [
+      0.0,
+      14
+     ],
+     "times_confirmed": [
+      100.0,
+      14
+     ]
+    },
+    "own site sthelens.foodbank.org.uk": {
+     "times": [
+      80.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      20.0,
+      5
+     ]
+    },
+    "own site warwickdistrict.foodbank.org.uk": {
+     "times": [
+      42.9,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      42.9,
+      7
+     ]
+    },
+    "own site peterborough.foodbank.org.uk": {
+     "times": [
+      83.3,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      66.7,
+      6
+     ]
+    },
+    "own site chesterfield.foodbank.org.uk": {
+     "times": [
+      85.7,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      57.1,
+      7
+     ]
+    },
+    "own site dunfermline.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      80.0,
+      5
+     ]
+    },
+    "own site pembrokeshire.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      80.0,
+      5
+     ]
+    },
+    "own site wimbledon.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site taffely.foodbank.org.uk": {
+     "times": [
+      87.5,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      87.5,
+      8
+     ]
+    },
+    "own site northerndevon.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      85.7,
+      7
+     ]
+    },
+    "own site southend.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      80.0,
+      5
+     ],
+     "times_confirmed": [
+      100.0,
+      5
+     ]
+    },
+    "own site southliverpool.foodbank.org.uk": {
+     "times": [
+      75.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      75.0,
+      8
+     ]
+    },
+    "own site northnorfolk.foodbank.org.uk": {
+     "times": [
+      85.7,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      85.7,
+      7
+     ]
+    },
+    "own site newcastlestaffs.foodbank.org.uk": {
+     "times": [
+      71.4,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      71.4,
+      7
+     ]
+    },
+    "own site cambridgecity.foodbank.org.uk": {
+     "times": [
+      88.9,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      88.9,
+      9
+     ]
+    },
+    "own site shepway.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      66.7,
+      6
+     ]
+    },
+    "own site middlesbrough.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      87.5,
+      8
+     ]
+    },
+    "own site newhamfoodbank.org.uk": {
+     "times": [
+      0.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      0.0,
+      6
+     ]
+    },
+    "own site lutonfoodbank.org.uk": {
+     "times": [
+      16.7,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      16.7,
+      6
+     ]
+    },
+    "own site bradfordnorth.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      71.4,
+      7
+     ]
+    },
+    "own site loveworks.org.uk": {
+     "times": [
+      16.7,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      0.0,
+      6
+     ]
+    },
+    "own site nbsg.foodbank.org.uk": {
+     "times": [
+      77.8,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      11.1,
+      9
+     ]
+    },
+    "own site eastwestnottingham.foodbank.org.uk": {
+     "times": [
+      92.9,
+      14
+     ],
+     "phone": [
+      100.0,
+      14
+     ],
+     "fb_page": [
+      0.0,
+      14
+     ],
+     "times_confirmed": [
+      78.6,
+      14
+     ]
+    },
+    "own site cardiff.foodbank.org.uk": {
+     "times": [
+      88.9,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      88.9,
+      9
+     ]
+    },
+    "own site eastyorkshire.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site newcastlefoodbank.org": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      0.0,
+      6
+     ]
+    },
+    "own site thurrock.foodbank.org.uk": {
+     "times": [
+      90.9,
+      11
+     ],
+     "phone": [
+      100.0,
+      11
+     ],
+     "fb_page": [
+      0.0,
+      11
+     ],
+     "times_confirmed": [
+      27.3,
+      11
+     ]
+    },
+    "own site aylesbury.foodbank.org.uk": {
+     "times": [
+      90.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      70.0,
+      10
+     ]
+    },
+    "own site dealarea.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site ealing.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      62.5,
+      8
+     ]
+    },
+    "own site horshamdistrict.foodbank.org.uk": {
+     "times": [
+      66.7,
+      15
+     ],
+     "phone": [
+      100.0,
+      15
+     ],
+     "fb_page": [
+      0.0,
+      15
+     ],
+     "times_confirmed": [
+      33.3,
+      15
+     ]
+    },
+    "own site southsefton.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      50.0,
+      6
+     ]
+    },
+    "own site greenwich.foodbank.org.uk": {
+     "times": [
+      87.5,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      62.5,
+      8
+     ]
+    },
+    "own site vale.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      71.4,
+      7
+     ]
+    },
+    "own site hillingdon.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      71.4,
+      7
+     ]
+    },
+    "own site edinburghfoodproject.org": {
+     "times": [
+      50.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      25.0,
+      8
+     ]
+    },
+    "own site salvationarmy.org.uk": {
+     "times": [
+      8.6,
+      590
+     ],
+     "phone": [
+      99.8,
+      590
+     ],
+     "fb_page": [
+      0.0,
+      590
+     ],
+     "times_confirmed": [
+      3.9,
+      590
+     ]
+    },
+    "own site restorenorthampton.org.uk": {
+     "times": [
+      83.3,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      83.3,
+      6
+     ]
+    },
+    "own site gloucester.foodbank.org.uk": {
+     "times": [
+      42.9,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      42.9,
+      7
+     ]
+    },
+    "own site southport.foodbank.org.uk": {
+     "times": [
+      80.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site lambethcroydon.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      83.3,
+      6
+     ]
+    },
+    "own site northamptonhopecentre.org.uk": {
+     "times": [
+      0.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      0.0,
+      10
+     ]
+    },
+    "own site familyfoodbank.org": {
+     "times": [
+      14.3,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      0.0,
+      7
+     ]
+    },
+    "own site purleyfoodhub.net": {
+     "times": [
+      0.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      0.0,
+      7
+     ]
+    },
+    "own site edinburghnefoodbank.com": {
+     "times": [
+      20.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site thefoodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      50.0,
+      6
+     ]
+    },
+    "own site hackney.foodbank.org.uk": {
+     "times": [
+      71.4,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      57.1,
+      7
+     ]
+    },
+    "own site bristolnorthwestfoodbank.org.uk": {
+     "times": [
+      20.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site easternvalley.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      87.5,
+      8
+     ]
+    },
+    "own site westberks.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      87.5,
+      8
+     ]
+    },
+    "own site glasgowsw.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      100.0,
+      6
+     ]
+    },
+    "own site renfrewshire.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      80.0,
+      5
+     ]
+    },
+    "own site watfordfoodbank.co.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site medway.foodbank.org.uk": {
+     "times": [
+      100.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      60.0,
+      10
+     ]
+    },
+    "own site braintreearea.foodbank.org.uk": {
+     "times": [
+      75.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      75.0,
+      8
+     ]
+    },
+    "own site redcararea.foodbank.org.uk": {
+     "times": [
+      90.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      60.0,
+      10
+     ]
+    },
+    "own site flintshire.foodbank.org.uk": {
+     "times": [
+      90.0,
+      10
+     ],
+     "phone": [
+      100.0,
+      10
+     ],
+     "fb_page": [
+      0.0,
+      10
+     ],
+     "times_confirmed": [
+      70.0,
+      10
+     ]
+    },
+    "own site harrow.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      80.0,
+      5
+     ]
+    },
+    "own site eastbourne.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      57.1,
+      7
+     ]
+    },
+    "own site swindonfoodcollective.org": {
+     "times": [
+      75.0,
+      12
+     ],
+     "phone": [
+      100.0,
+      12
+     ],
+     "fb_page": [
+      0.0,
+      12
+     ],
+     "times_confirmed": [
+      75.0,
+      12
+     ]
+    },
+    "own site runnymede.foodbank.org.uk": {
+     "times": [
+      100.0,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      57.1,
+      7
+     ]
+    },
+    "own site salford.foodbank.org.uk": {
+     "times": [
+      87.5,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      62.5,
+      8
+     ]
+    },
+    "own site merthyrcynon.foodbank.org.uk": {
+     "times": [
+      77.8,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      55.6,
+      9
+     ]
+    },
+    "own site barnsley.foodbank.org.uk": {
+     "times": [
+      93.3,
+      15
+     ],
+     "phone": [
+      100.0,
+      15
+     ],
+     "fb_page": [
+      0.0,
+      15
+     ],
+     "times_confirmed": [
+      86.7,
+      15
+     ]
+    },
+    "own site bromleyborough.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      80.0,
+      5
+     ]
+    },
+    "own site strouddistrict.foodbank.org.uk": {
+     "times": [
+      100.0,
+      11
+     ],
+     "phone": [
+      100.0,
+      11
+     ],
+     "fb_page": [
+      0.0,
+      11
+     ],
+     "times_confirmed": [
+      72.7,
+      11
+     ]
+    },
+    "own site widnesfoodbank.org.uk": {
+     "times": [
+      0.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      0.0,
+      5
+     ]
+    },
+    "own site eppingforest.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      40.0,
+      5
+     ]
+    },
+    "own site 3food4u.org": {
+     "times": [
+      75.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      0.0,
+      8
+     ]
+    },
+    "own site northcotswold.foodbank.org.uk": {
+     "times": [
+      100.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      87.5,
+      8
+     ]
+    },
+    "own site coventry.foodbank.org.uk": {
+     "times": [
+      100.0,
+      16
+     ],
+     "phone": [
+      100.0,
+      16
+     ],
+     "fb_page": [
+      0.0,
+      16
+     ],
+     "times_confirmed": [
+      75.0,
+      16
+     ]
+    },
+    "own site bournemouth.foodbank.org.uk": {
+     "times": [
+      83.3,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      83.3,
+      6
+     ]
+    },
+    "own site epsomewell.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      66.7,
+      6
+     ]
+    },
+    "own site stockport.foodbank.org.uk": {
+     "times": [
+      100.0,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      83.3,
+      6
+     ]
+    },
+    "own site wirral.foodbank.org.uk": {
+     "times": [
+      83.3,
+      12
+     ],
+     "phone": [
+      100.0,
+      12
+     ],
+     "fb_page": [
+      0.0,
+      12
+     ],
+     "times_confirmed": [
+      50.0,
+      12
+     ]
+    },
+    "own site salisbury.foodbank.org.uk": {
+     "times": [
+      88.9,
+      9
+     ],
+     "phone": [
+      100.0,
+      9
+     ],
+     "fb_page": [
+      0.0,
+      9
+     ],
+     "times_confirmed": [
+      55.6,
+      9
+     ]
+    },
+    "own site soarvalleyoutreach.org.uk": {
+     "times": [
+      25.0,
+      8
+     ],
+     "phone": [
+      100.0,
+      8
+     ],
+     "fb_page": [
+      0.0,
+      8
+     ],
+     "times_confirmed": [
+      0.0,
+      8
+     ]
+    },
+    "own site meonvalleyfoodbank.co.uk": {
+     "times": [
+      14.3,
+      7
+     ],
+     "phone": [
+      100.0,
+      7
+     ],
+     "fb_page": [
+      0.0,
+      7
+     ],
+     "times_confirmed": [
+      14.3,
+      7
+     ]
+    },
+    "own site canterburyfoodbank.org": {
+     "times": [
+      0.0,
+      22
+     ],
+     "phone": [
+      100.0,
+      22
+     ],
+     "fb_page": [
+      0.0,
+      22
+     ],
+     "times_confirmed": [
+      0.0,
+      22
+     ]
+    },
+    "own site stokeontrent.foodbank.org.uk": {
+     "times": [
+      94.1,
+      17
+     ],
+     "phone": [
+      100.0,
+      17
+     ],
+     "fb_page": [
+      0.0,
+      17
+     ],
+     "times_confirmed": [
+      82.4,
+      17
+     ]
+    },
+    "own site lincolnlarder.co.uk": {
+     "times": [
+      66.7,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ],
+     "fb_page": [
+      0.0,
+      6
+     ],
+     "times_confirmed": [
+      66.7,
+      6
+     ]
+    },
+    "own site stratforduponavon.foodbank.org.uk": {
+     "times": [
+      40.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      40.0,
+      5
+     ]
+    },
+    "own site lewisham.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site rickmansworth.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site traffordsouth.foodbank.org.uk": {
+     "times": [
+      80.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      60.0,
+      5
+     ]
+    },
+    "own site antrim.foodbank.org.uk": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ],
+     "fb_page": [
+      0.0,
+      5
+     ],
+     "times_confirmed": [
+      40.0,
+      5
+     ]
+    },
+    "own site sunderlandfoodbank.org.uk": {
+     "times": [
+      76.9,
+      13
+     ],
+     "phone": [
+      100.0,
+      13
+     ],
+     "fb_page": [
+      0.0,
+      13
+     ],
+     "times_confirmed": [
+      61.5,
+      13
+     ]
+    },
+    "IFAN": {
+     "times": [
+      0.0,
+      40
+     ],
+     "phone": [
+      87.5,
+      40
+     ],
+     "fb_page": [
+      32.5,
+      40
+     ],
+     "times_confirmed": [
+      0.0,
+      40
+     ]
+    },
+    "shelters: The Salvation Army (operator page)": {
+     "times": [
+      100.0,
+      28
+     ],
+     "phone": [
+      100.0,
+      28
+     ]
+    },
+    "shelters: Operator website": {
+     "times": [
+      100.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ]
+    },
+    "shelters: OpenStreetMap": {
+     "times": [
+      93.5,
+      31
+     ],
+     "phone": [
+      96.8,
+      31
+     ]
+    },
+    "shelters: Manual (verified from source pages)": {
+     "times": [
+      83.3,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ]
+    },
+    "shelters: Homeless Link Find help + 2026 corroboration": {
+     "times": [
+      83.3,
+      6
+     ],
+     "phone": [
+      100.0,
+      6
+     ]
+    },
+    "shelters: Simon Community NI (operator page)": {
+     "times": [
+      100.0,
+      16
+     ],
+     "phone": [
+      100.0,
+      16
+     ]
+    },
+    "warmspaces: Warm Welcome": {
+     "times": [
+      0.0,
+      317
+     ],
+     "phone": [
+      98.1,
+      317
+     ]
+    },
+    "warmspaces: Southwark Council warm spaces page": {
+     "times": [
+      0.0,
+      25
+     ],
+     "phone": [
+      100.0,
+      25
+     ]
+    },
+    "warmspaces: Voluntary Action Islington warm spaces list": {
+     "times": [
+      0.0,
+      22
+     ],
+     "phone": [
+      100.0,
+      22
+     ]
+    },
+    "warmspaces: Council directory": {
+     "times": [
+      0.0,
+      30
+     ],
+     "phone": [
+      93.3,
+      30
+     ]
+    },
+    "warmspaces: Cambridgeshire ACRE": {
+     "times": [
+      0.0,
+      5
+     ],
+     "phone": [
+      80.0,
+      5
+     ]
+    },
+    "warmspaces: Voluntary Action Islington warm spaces (daily sweep)": {
+     "times": [
+      0.0,
+      5
+     ],
+     "phone": [
+      100.0,
+      5
+     ]
+    }
+   },
+   "alerts": [
+    "own site mkfoodbank.org.uk returned 61.5% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site faith-works.org.uk returned 20% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site aberdeenshirenorth.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site wadebridgefoodbank.org returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site wythenshawe.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site bridgend.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site hull.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site southayrshire.foodbank.org.uk returned 50% own-site confirmed opening times today, down from 90%. Possible site change.",
+    "own site waveney.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 50%. Possible site change.",
+    "own site wandsworth.foodbank.org.uk returned 66.7% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site chelmsford.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site isleofwight.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 86%. Possible site change.",
+    "own site slough.foodbank.org.uk returned 66.7% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site southgwynedd.foodbank.org.uk returned 50% own-site confirmed opening times today, down from 83%. Possible site change.",
+    "own site sutton.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site tamesideeast.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site eastbristol.foodbank.org.uk returned 42.9% own-site confirmed opening times today, down from 86%. Possible site change.",
+    "own site sparkhill.foodbank.org.uk returned 20% own-site confirmed opening times today, down from 80%. Possible site change.",
+    "own site sheffields6.foodbank.org.uk returned 66.7% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site nuneaton.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site sthelens.foodbank.org.uk returned 20% own-site confirmed opening times today, down from 80%. Possible site change.",
+    "own site wimbledon.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site shepway.foodbank.org.uk returned 66.7% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site nbsg.foodbank.org.uk returned 11.1% own-site confirmed opening times today, down from 67%. Possible site change.",
+    "own site eastyorkshire.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site thurrock.foodbank.org.uk returned 27.3% own-site confirmed opening times today, down from 91%. Possible site change.",
+    "own site dealarea.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site ealing.foodbank.org.uk returned 62.5% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site horshamdistrict.foodbank.org.uk returned 33.3% own-site confirmed opening times today, down from 67%. Possible site change.",
+    "own site southsefton.foodbank.org.uk returned 50% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site thefoodbank.org.uk returned 50% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site watfordfoodbank.co.uk returned 0% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site medway.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site eastbourne.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site runnymede.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site eppingforest.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site 3food4u.org returned 0% own-site confirmed opening times today, down from 88%. Possible site change.",
+    "own site epsomewell.foodbank.org.uk returned 66.7% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site salisbury.foodbank.org.uk returned 55.6% own-site confirmed opening times today, down from 89%. Possible site change.",
+    "own site soarvalleyoutreach.org.uk returned 0% own-site confirmed opening times today, down from 25%. Possible site change.",
+    "own site lewisham.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 100%. Possible site change.",
+    "own site antrim.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 100%. Possible site change."
    ]
   }
  ]

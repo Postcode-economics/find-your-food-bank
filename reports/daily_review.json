@@ -7849,5 +7849,3618 @@
     "list": "Items we need | As of 01/10/2026 | Long-life milk | Shampoo | Shaving foam/gel | Tinned custard | Tinned meat | Tinned soup | Tinned spaghetti | Tinned tomatoes | Washing powder | Women's deodorant | Support us | Get involved"
    }
   }
+ },
+ "2026-10-29": {
+  "date": "2026-10-29",
+  "runs": [
+   {
+    "at": "2026-10-29T08:00:57+00:00",
+    "sites": 1064,
+    "ok": 909,
+    "failed": 59,
+    "skipped": 0,
+    "voucher": 129,
+    "walkin": 62,
+    "mixed": 29,
+    "unclear": 689,
+    "flips": 0,
+    "phone_fixes": 0,
+    "closures": 0,
+    "robots": 96
+   }
+  ],
+  "items": {
+   "opening times not read|https://ccg.scot/projects/1073/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Crookston Community Group Foodbank",
+    "website": "https://ccg.scot/projects/1073/",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://ccg.scot/projects/1073/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Crookston Community Group Foodbank",
+    "website": "https://ccg.scot/projects/1073/",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "01418824333",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://dwellingplaceglasgow.org/storehouse/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Glasgow Vineyard Storehouse Foodbank",
+    "website": "https://dwellingplaceglasgow.org/storehouse/",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://dwellingplaceglasgow.org/storehouse/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Glasgow Vineyard Storehouse Foodbank",
+    "website": "https://dwellingplaceglasgow.org/storehouse/",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "0141 334 6746",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.vulcancentre.co.uk/food-distribution/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Vulcan Centre Foodbank",
+    "website": "https://www.vulcancentre.co.uk/food-distribution/",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.vulcancentre.co.uk/food-distribution/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Vulcan Centre Foodbank",
+    "website": "https://www.vulcancentre.co.uk/food-distribution/",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "01482 229230",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.bjoamaraassociation.org.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "BJO Amara Association Foodbank",
+    "website": "https://www.bjoamaraassociation.org.uk/",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.bjoamaraassociation.org.uk/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "BJO Amara Association Foodbank",
+    "website": "https://www.bjoamaraassociation.org.uk/",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "failed_runs": 10,
+    "phone": "",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.northlochs.co.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "North Lochs Foodbank",
+    "website": "https://www.northlochs.co.uk",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.northlochs.co.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "North Lochs Foodbank",
+    "website": "https://www.northlochs.co.uk",
+    "error": "HTTP 403",
+    "failed_runs": 10,
+    "phone": "",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.thorne-moorends.gov.uk/community/community-groups/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Thorne and Moorends Community Foodbank",
+    "website": "https://www.thorne-moorends.gov.uk/community/community-groups/",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.thorne-moorends.gov.uk/community/community-groups/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Thorne and Moorends Community Foodbank",
+    "website": "https://www.thorne-moorends.gov.uk/community/community-groups/",
+    "error": "HTTP 403",
+    "failed_runs": 10,
+    "phone": "",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|http://www.caistorfoodbank.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Caistor Foodbank",
+    "website": "http://www.caistorfoodbank.org",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|http://www.caistorfoodbank.org": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Caistor Foodbank",
+    "website": "http://www.caistorfoodbank.org",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07714624608",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|http://www.churchesfoodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Churches Foodbank",
+    "website": "http://www.churchesfoodbank.org.uk",
+    "error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|http://www.churchesfoodbank.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Churches Foodbank",
+    "website": "http://www.churchesfoodbank.org.uk",
+    "error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss",
+    "failed_runs": 10,
+    "phone": "02085341164",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|http://www.onevisionproject.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "One Vision Foodbank",
+    "website": "http://www.onevisionproject.org",
+    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|http://www.onevisionproject.org": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "One Vision Foodbank",
+    "website": "http://www.onevisionproject.org",
+    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "failed_runs": 10,
+    "phone": "01923372699",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Alhuda Welfare Foundation Foodbank",
+    "website": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Alhuda Welfare Foundation Foodbank",
+    "website": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07913121096",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://assyntdevelopmenttrust.org/assynt-food-bank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Assynt Foodbank",
+    "website": "https://assyntdevelopmenttrust.org/assynt-food-bank/",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://assyntdevelopmenttrust.org/assynt-food-bank/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Assynt Foodbank",
+    "website": "https://assyntdevelopmenttrust.org/assynt-food-bank/",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "01571844275",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://communitykitchenhub.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dartmoor Community Kitchen Hub Foodbank",
+    "website": "https://communitykitchenhub.org.uk",
+    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://communitykitchenhub.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dartmoor Community Kitchen Hub Foodbank",
+    "website": "https://communitykitchenhub.org.uk",
+    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+    "failed_runs": 10,
+    "phone": "01626836899",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://durhamfoodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "County Durham Foodbank",
+    "website": "https://durhamfoodbank.org.uk",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://durhamfoodbank.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "County Durham Foodbank",
+    "website": "https://durhamfoodbank.org.uk",
+    "error": "HTTP 403",
+    "failed_runs": 10,
+    "phone": "01913037559",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "not fetched, robots|https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Eastwood Foodbank",
+    "website": "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "opening times not read|https://kentonfoodbank.org.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kenton Foodbank",
+    "website": "https://kentonfoodbank.org.uk/",
+    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://kentonfoodbank.org.uk/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kenton Foodbank",
+    "website": "https://kentonfoodbank.org.uk/",
+    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+    "failed_runs": 10,
+    "phone": "01912864640",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://kingschurchleicester.org/foodbank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Manor House Foodbank",
+    "website": "https://kingschurchleicester.org/foodbank",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://kingschurchleicester.org/foodbank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Manor House Foodbank",
+    "website": "https://kingschurchleicester.org/foodbank",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07469759475",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://lesliecommunitypantry.co.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leslie Community Pantry Foodbank",
+    "website": "https://lesliecommunitypantry.co.uk",
+    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://lesliecommunitypantry.co.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leslie Community Pantry Foodbank",
+    "website": "https://lesliecommunitypantry.co.uk",
+    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+    "failed_runs": 10,
+    "phone": "07730789255",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://newmarketopendoor.org.uk/foodbank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newmarket Open Door Foodbank",
+    "website": "https://newmarketopendoor.org.uk/foodbank",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://newmarketopendoor.org.uk/foodbank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newmarket Open Door Foodbank",
+    "website": "https://newmarketopendoor.org.uk/foodbank",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
+    "failed_runs": 10,
+    "phone": "01638561711",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://okehamptonfoodbank.co.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Okehampton Foodbank",
+    "website": "https://okehamptonfoodbank.co.uk",
+    "error": "HTTP 401",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://okehamptonfoodbank.co.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Okehampton Foodbank",
+    "website": "https://okehamptonfoodbank.co.uk",
+    "error": "HTTP 401",
+    "failed_runs": 8,
+    "phone": "07585300537",
+    "note": "site failed 8 runs in a row - check contact details"
+   },
+   "opening times not read|https://orchardprimary.org/orchard-primary-school-food-bank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Orchard Primary School Foodbank",
+    "website": "https://orchardprimary.org/orchard-primary-school-food-bank",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://orchardprimary.org/orchard-primary-school-food-bank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Orchard Primary School Foodbank",
+    "website": "https://orchardprimary.org/orchard-primary-school-food-bank",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "01332810078",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://sanctuarytrust.org.uk/projects/conwyfoodbank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Conwy Foodbank",
+    "website": "https://sanctuarytrust.org.uk/projects/conwyfoodbank/",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://sanctuarytrust.org.uk/projects/conwyfoodbank/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Conwy Foodbank",
+    "website": "https://sanctuarytrust.org.uk/projects/conwyfoodbank/",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07484024671",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://southamptoncitymission.co.uk/basics-banks": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Southampton Basics Bank Foodbank",
+    "website": "https://southamptoncitymission.co.uk/basics-banks",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://southamptoncitymission.co.uk/basics-banks": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Southampton Basics Bank Foodbank",
+    "website": "https://southamptoncitymission.co.uk/basics-banks",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "02380550435",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://stmary-sutton.org.uk/page/marys-food-bank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Mary's (Sutton) Foodbank",
+    "website": "https://stmary-sutton.org.uk/page/marys-food-bank",
+    "error": "URLError: <urlopen error timed out>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://stmary-sutton.org.uk/page/marys-food-bank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Mary's (Sutton) Foodbank",
+    "website": "https://stmary-sutton.org.uk/page/marys-food-bank",
+    "error": "URLError: <urlopen error timed out>",
+    "failed_runs": 10,
+    "phone": "01623553579",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://wecockchurch.org.uk/waterlooville-foodbank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Waterlooville Foodbank",
+    "website": "https://wecockchurch.org.uk/waterlooville-foodbank/",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://wecockchurch.org.uk/waterlooville-foodbank/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Waterlooville Foodbank",
+    "website": "https://wecockchurch.org.uk/waterlooville-foodbank/",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "02392255288",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.betheltrustpt.co.uk/food-share": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bethel Foodbank",
+    "website": "https://www.betheltrustpt.co.uk/food-share",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.betheltrustpt.co.uk/food-share": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bethel Foodbank",
+    "website": "https://www.betheltrustpt.co.uk/food-share",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07971700105",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.dorchesterbc.org.uk/foodbank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dorchester Foodbank",
+    "website": "https://www.dorchesterbc.org.uk/foodbank",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.dorchesterbc.org.uk/foodbank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dorchester Foodbank",
+    "website": "https://www.dorchesterbc.org.uk/foodbank",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07554983978",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.foodshare.charity": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Maidenhead Foodbank",
+    "website": "https://www.foodshare.charity",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.foodshare.charity": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Maidenhead Foodbank",
+    "website": "https://www.foodshare.charity",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "failed_runs": 3,
+    "phone": "01628262711",
+    "note": "site failed 3 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Gatehouse Community Church Foodbank",
+    "website": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Gatehouse Community Church Foodbank",
+    "website": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07753370425",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.leominsterfoodbank.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leominster Foodbank",
+    "website": "https://www.leominsterfoodbank.org",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.leominsterfoodbank.org": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leominster Foodbank",
+    "website": "https://www.leominsterfoodbank.org",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
+    "failed_runs": 10,
+    "phone": "07715410575",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.salma-foodbank.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Salma Foodbank",
+    "website": "https://www.salma-foodbank.org",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.salma-foodbank.org": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Salma Foodbank",
+    "website": "https://www.salma-foodbank.org",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "failed_runs": 3,
+    "phone": "07767164246",
+    "note": "site failed 3 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.thearchesrhayader.co.uk/foodbank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Rhayader Foodbank",
+    "website": "https://www.thearchesrhayader.co.uk/foodbank",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.thearchesrhayader.co.uk/foodbank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Rhayader Foodbank",
+    "website": "https://www.thearchesrhayader.co.uk/foodbank",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "01597810921",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.widdstobpc.org/foodbank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Widdrington Station & Stobswood Foodbank",
+    "website": "https://www.widdstobpc.org/foodbank",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.widdstobpc.org/foodbank": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Widdrington Station & Stobswood Foodbank",
+    "website": "https://www.widdstobpc.org/foodbank",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "07391548264",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "not fetched, robots|https://gleadlessvalleyfoodbank.co.uk/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Gleadless Valley Foodbank",
+    "website": "https://gleadlessvalleyfoodbank.co.uk/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "opening times not read|https://www.newcastlefoodbank.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newcastle Foodbank",
+    "website": "https://www.newcastlefoodbank.org",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.newcastlefoodbank.org": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newcastle Foodbank",
+    "website": "https://www.newcastlefoodbank.org",
+    "error": "HTTP 403",
+    "failed_runs": 10,
+    "phone": "01912753019",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.thewelcomecentre.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Welcome Centre",
+    "website": "https://www.thewelcomecentre.org",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.thewelcomecentre.org": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Welcome Centre",
+    "website": "https://www.thewelcomecentre.org",
+    "error": "HTTP 404",
+    "failed_runs": 10,
+    "phone": "01484515086",
+    "note": "site failed 10 runs in a row - check contact details"
+   },
+   "not fetched, robots|https://www.facebook.com/ColwynBayCommunityHwb/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Colwyn Bay Foodbank",
+    "website": "https://www.facebook.com/ColwynBayCommunityHwb/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/friendsofmelvinhall/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Melvin Hall Community Centre Foodbank",
+    "website": "https://www.facebook.com/friendsofmelvinhall/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "opening times not read|https://oadbyfoodbank.org.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Oadby Foodbank",
+    "website": "https://oadbyfoodbank.org.uk/",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://oadbyfoodbank.org.uk/": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Oadby Foodbank",
+    "website": "https://oadbyfoodbank.org.uk/",
+    "error": "TimeoutError: The read operation timed out",
+    "failed_runs": 2,
+    "phone": "07723121794",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "opening times not read|https://okfp.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Old Kilpatrick Food Parcels Foodbank",
+    "website": "https://okfp.org.uk",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://okfp.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Old Kilpatrick Food Parcels Foodbank",
+    "website": "https://okfp.org.uk",
+    "error": "TimeoutError: The read operation timed out",
+    "failed_runs": 2,
+    "phone": "01389717792",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "opening times not read|https://www.taybridgeheadfoodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Tay Bridgehead Foodbank",
+    "website": "https://www.taybridgeheadfoodbank.org.uk",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.taybridgeheadfoodbank.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Tay Bridgehead Foodbank",
+    "website": "https://www.taybridgeheadfoodbank.org.uk",
+    "error": "HTTP 403",
+    "failed_runs": 2,
+    "phone": "07840957039",
+    "note": "site failed 2 runs in a row - check contact details"
+   },
+   "not fetched, robots|https://strettonparish.org.uk/strettons-food-bank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Stretton Foodbank",
+    "website": "https://strettonparish.org.uk/strettons-food-bank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "phone number not on own site|https://stpaulsparkside.org.uk/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
+    "website": "https://stpaulsparkside.org.uk/",
+    "stored": [
+     "02087882024"
+    ],
+    "on_site": [
+     "02087852341",
+     "02087856327",
+     "07483162573"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "access mixed|https://www.nbil-community.org": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "New beginnings - Improving Lives CIC",
+    "website": "https://www.nbil-community.org",
+    "current_tag": "voucher",
+    "evidence": [
+     "referral required",
+     "No referral needed"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "not fetched, robots|https://www.facebook.com/BancBwydLlandysul/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Llandysul Foodbank",
+    "website": "https://www.facebook.com/BancBwydLlandysul/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/DN7FoodBank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "DN7 Foodbank",
+    "website": "https://www.facebook.com/DN7FoodBank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Drighlingtonfoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Drighlington Foodbank",
+    "website": "https://www.facebook.com/Drighlingtonfoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100067159630392": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Clifton Road Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100067159630392",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "access mixed|https://www.laurenceslarder.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Laurence's Larder & Open Kitchen",
+    "website": "https://www.laurenceslarder.org.uk",
+    "current_tag": "walkin",
+    "evidence": [
+     "referral required",
+     "no referral required"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "items-needed list updated|https://www.laurenceslarder.org.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Laurence's Larder & Open Kitchen",
+    "website": "https://www.laurenceslarder.org.uk",
+    "list": "urgently need to raise funds to meet demand and expand our services.<\\/p>\", | \"button\": { | \"buttonText\": \"Donate Now\", | \"buttonLink\": \"/donate-funds\", | \"buttonNewWindow\": false | \"imageId\": \"663e4123fb784c41e6bdbdca\", | \"image\": { | \"id\": \"663e4123fb784c41e6bdbdca\", | \"recordType\": 2, | \"addedOn\": 1715355939821, | \"updatedOn\": 1715355940020, | \"workflowState\": 1, | \"publishOn\": 1715355939821,"
+   },
+   "not fetched, robots|https://www.facebook.com/Amblefoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Amble Foodbank",
+    "website": "https://www.facebook.com/Amblefoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/GwaunCaeGurwen": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "GCG Foodbank",
+    "website": "https://www.facebook.com/GwaunCaeGurwen",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/birchgrovecommunityfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Birchgrove Community Foodbank",
+    "website": "https://www.facebook.com/birchgrovecommunityfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/kirriefoodhub/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kirriemuir Foodbank",
+    "website": "https://www.facebook.com/kirriefoodhub/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100086170811325": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Selkirk Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100086170811325",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.axminsterwellbeing.com": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Axminster Health & Wellbeing Centre",
+    "website": "https://www.axminsterwellbeing.com",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/WAMCCommunity": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "West Ardsley Foodbank",
+    "website": "https://www.facebook.com/WAMCCommunity",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "phone number not on own site|http://breadlineproject.org": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Breadline Project Foodbank",
+    "website": "http://breadlineproject.org",
+    "stored": [
+     "07411602448"
+    ],
+    "on_site": [
+     "07473319782"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|http://www.foodbank4whitby.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Whitby Foodbank",
+    "website": "http://www.foodbank4whitby.org.uk",
+    "stored": [
+     "07789765696"
+    ],
+    "on_site": [
+     "01947469004"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://allsaintschildshill.com/childs-hill-food-bank/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Child's Hill Foodbank",
+    "website": "https://allsaintschildshill.com/childs-hill-food-bank/",
+    "stored": [
+     "02074353182"
+    ],
+    "on_site": [
+     "02074435473",
+     "02084559091",
+     "03031231113"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://bethanycc.uk/our-community/ministries/food-bank/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The King's Pantry Foodbank",
+    "website": "https://bethanycc.uk/our-community/ministries/food-bank/",
+    "stored": [
+     "01582329189"
+    ],
+    "on_site": [
+     "01582318171",
+     "07954276281"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://corshamchurchesfoodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Corsham Churches Foodbank",
+    "website": "https://corshamchurchesfoodbank.org.uk",
+    "stored": [
+     "07788115095"
+    ],
+    "on_site": [
+     "01225341520",
+     "01225712232",
+     "01225742361",
+     "01225775276",
+     "01225810358",
+     "01249445385",
+     "01249463040",
+     "01249466061"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://dover.foodbank.org.uk/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dover Foodbank",
+    "website": "https://dover.foodbank.org.uk/",
+    "stored": [
+     "07754178297"
+    ],
+    "on_site": [
+     "07754178295"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "items-needed list updated|https://dover.foodbank.org.uk/": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dover Foodbank",
+    "website": "https://dover.foodbank.org.uk/",
+    "list": "Items we need | As of 27/10/2026 | Baked beans | Christmas chocolates/biscuits | Coffee | Gluten-free food items | Household Cleaner | Instant mashed potato | Jam | Long-life juice | Men's deodorant | Pasta packets (microwavable) | Shampoo | Tinned custard"
+   },
+   "access mixed|https://faith-works.org.uk/locations-across-dorset/christchurch-food-bank-dorset/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Christchurch Foodbank",
+    "website": "https://faith-works.org.uk/locations-across-dorset/christchurch-food-bank-dorset/",
+    "current_tag": "voucher",
+    "evidence": [
+     "need to be referred",
+     "just turn up"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://jubileestorehouse.org": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Jubilee Storehouse Foodbank",
+    "website": "https://jubileestorehouse.org",
+    "current_tag": "walkin",
+    "evidence": [
+     "must be referred",
+     "self-refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone number not on own site|https://jubileestorehouse.org": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Jubilee Storehouse Foodbank",
+    "website": "https://jubileestorehouse.org",
+    "stored": [
+     "08002425844"
+    ],
+    "on_site": [
+     "01239621974",
+     "01970612817"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://landportra.wordpress.com/2016/05/31/landport-foodbank/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Landport Foodbank",
+    "website": "https://landportra.wordpress.com/2016/05/31/landport-foodbank/",
+    "stored": [
+     "07793953446"
+    ],
+    "on_site": [
+     "01273336870",
+     "01273482802",
+     "01273514753",
+     "03444111444"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://openheavenshatfield.com/food-bank/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Manna (Hatfield) Foodbank",
+    "website": "https://openheavenshatfield.com/food-bank/",
+    "stored": [
+     "07949182493"
+    ],
+    "on_site": [
+     "07907108904",
+     "07917454445"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://staugustineschurch0.wixsite.com/home": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Augustine's Foodbank",
+    "website": "https://staugustineschurch0.wixsite.com/home",
+    "stored": [
+     "01482890408"
+    ],
+    "on_site": [
+     "07946703083"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.12apostles.co.uk/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "12 Apostles Foodbank",
+    "website": "https://www.12apostles.co.uk/",
+    "stored": [
+     "07846096432"
+    ],
+    "on_site": [
+     "01707650147",
+     "07449890176",
+     "07956289978",
+     "07981810380"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.canaan-trust.co.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Canaan Trust Foodbank",
+    "website": "https://www.canaan-trust.co.uk",
+    "stored": [
+     "01159464903"
+    ],
+    "on_site": [
+     "01150547671",
+     "01158417711",
+     "01158554200",
+     "01158554250",
+     "01158960798",
+     "01159072244",
+     "01159177777",
+     "01159246210"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.nnetwork.org.uk/news/st-philips-food-bank-service/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Philip's Foodbank",
+    "website": "https://www.nnetwork.org.uk/news/st-philips-food-bank-service/",
+    "stored": [
+     "07396614430"
+    ],
+    "on_site": [
+     "01482826061",
+     "07929733555"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.wsfoodcupboard.org.uk/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "West Somerset Food Cupboard Foodbank",
+    "website": "https://www.wsfoodcupboard.org.uk/",
+    "stored": [
+     "07795080637"
+    ],
+    "on_site": [
+     "01643703155",
+     "01643707304",
+     "01643707598",
+     "01643709764",
+     "01643862763",
+     "01823276892",
+     "01823331222",
+     "03332001616"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "Trussell site with walk-in wording|https://southend.foodbank.org.uk": {
+    "category": "Trussell site with walk-in wording",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Southend Foodbank",
+    "website": "https://southend.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "self-referral"
+    ],
+    "note": "left as voucher - please check"
+   },
+   "access now uncertain|https://www.dens.org.uk/our-services/foodbank/": {
+    "category": "access now uncertain",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "DENS Foodbank",
+    "website": "https://www.dens.org.uk/our-services/foodbank/",
+    "current_tag": "voucher",
+    "note": "voucher wording no longer found - tag kept until you decide"
+   },
+   "phone number not on own site|https://3food4u.org": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "3food4u Foodbank",
+    "website": "https://3food4u.org",
+    "stored": [
+     "01992842642",
+     "07918462959"
+    ],
+    "on_site": [
+     "07973166940"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://chiltern.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Chiltern Foodbank",
+    "website": "https://chiltern.foodbank.org.uk",
+    "stored": [
+     "01494775668",
+     "01753887173"
+    ],
+    "on_site": [
+     "01753342010"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://doncaster.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Doncaster Foodbank",
+    "website": "https://doncaster.foodbank.org.uk",
+    "stored": [
+     "07519430980"
+    ],
+    "on_site": [
+     "07568247288",
+     "07845695015"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://feedingfamilies.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Feeding Families Foodbank",
+    "website": "https://feedingfamilies.org.uk",
+    "stored": [
+     "01919087163"
+    ],
+    "on_site": [
+     "07700102773"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "opening times not read|https://www.shipshape.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Shipshape Health and Wellbeing",
+    "website": "https://www.shipshape.org.uk",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certi",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "dead or unreachable website|https://www.shipshape.org.uk": {
+    "category": "dead or unreachable website",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Shipshape Health and Wellbeing",
+    "website": "https://www.shipshape.org.uk",
+    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certi",
+    "failed_runs": 3,
+    "phone": "",
+    "note": "site failed 3 runs in a row - check contact details"
+   },
+   "access mixed|https://basingstoke.foodbank.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Basingstoke Foodbank",
+    "website": "https://basingstoke.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "need to be referred",
+     "Self refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone number not on own site|https://basingstoke.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Basingstoke Foodbank",
+    "website": "https://basingstoke.foodbank.org.uk",
+    "stored": [
+     "07722673645"
+    ],
+    "on_site": [
+     "01256320877",
+     "01256325793",
+     "01256351026",
+     "01256460100",
+     "01256476572",
+     "01256593373",
+     "01256844844",
+     "01264332297"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://newcastlestaffs.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newcastle (Staffs) Foodbank",
+    "website": "https://newcastlestaffs.foodbank.org.uk",
+    "stored": [
+     "03001029088"
+    ],
+    "on_site": [
+     "07843838499"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://southliverpool.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "South Liverpool Foodbank",
+    "website": "https://southliverpool.foodbank.org.uk",
+    "stored": [
+     "01514751468",
+     "01514876421",
+     "01517929067",
+     "07760718640"
+    ],
+    "on_site": [
+     "07754556170"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "access mixed|https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Poole Foodbank",
+    "website": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
+    "current_tag": "voucher",
+    "evidence": [
+     "will need to be referred",
+     "just turn up"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Shoreham & Adur Community Foodbank",
+    "website": "https://www.adur-worthing.gov.uk/community-wellbeing/foodbanks/",
+    "current_tag": "unconfirmed",
+    "evidence": [
+     "require voucher",
+     "no referral needed"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone number not on own site|https://cheltenhamopendoor.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Cheltenham Open Door Foodbank",
+    "website": "https://cheltenhamopendoor.org.uk",
+    "stored": [
+     "01242577418"
+    ],
+    "on_site": [
+     "07827205456"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://downpatrickpresbyterian.org/foodbank/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Fountain Foodbank",
+    "website": "https://downpatrickpresbyterian.org/foodbank/",
+    "stored": [
+     "07444015883"
+    ],
+    "on_site": [
+     "02844612311",
+     "02844613630",
+     "02844615155",
+     "02844615201",
+     "02844615727",
+     "02844616557",
+     "02897566934",
+     "07443586701"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "access mixed|https://faith-works.org.uk/locations-across-dorset/wimborne-food-bank-dorset/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wimborne Foodbank",
+    "website": "https://faith-works.org.uk/locations-across-dorset/wimborne-food-bank-dorset/",
+    "current_tag": "voucher",
+    "evidence": [
+     "need to be referred",
+     "just turn up"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone number not on own site|https://hamiltondistrict.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hamilton District Foodbank",
+    "website": "https://hamiltondistrict.foodbank.org.uk",
+    "stored": [
+     "07884451512"
+    ],
+    "on_site": [
+     "01236703014",
+     "01315579800",
+     "01355263698",
+     "01355807385",
+     "01415842727",
+     "01416963192",
+     "01698200863",
+     "01698281922"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://highbridgearea.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Highbridge Area Foodbank",
+    "website": "https://highbridgearea.foodbank.org.uk",
+    "stored": [
+     "07570707400"
+    ],
+    "on_site": [
+     "03444889623",
+     "07979235218"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "opening times not read|https://kinmelbaychurch.org.uk/food-bank-2/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kinmel Bay Church Foodbank",
+    "website": "https://kinmelbaychurch.org.uk/food-bank-2/",
+    "error": "HTTP 429",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "access mixed|https://newportfoodbank.org": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newport (Shropshire) Foodbank",
+    "website": "https://newportfoodbank.org",
+    "current_tag": "voucher",
+    "evidence": [
+     "you need a referral",
+     "Self refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone number not on own site|https://newportfoodbank.org": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newport (Shropshire) Foodbank",
+    "website": "https://newportfoodbank.org",
+    "stored": [
+     "07485749855"
+    ],
+    "on_site": [
+     "01952586646"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "access mixed|https://ribblevalley.foodbank.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ribble Valley Foodbank",
+    "website": "https://ribblevalley.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "you will need a voucher",
+     "Self-referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone number not on own site|https://ribblevalley.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ribble Valley Foodbank",
+    "website": "https://ribblevalley.foodbank.org.uk",
+    "stored": [
+     "07849534431"
+    ],
+    "on_site": [
+     "01200425111",
+     "01254387444",
+     "01254672756",
+     "01254734526",
+     "01254888614",
+     "01282222030",
+     "01282690536",
+     "01282805050"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://sevenoaksfoodbank.co.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Sevenoaks Foodbank",
+    "website": "https://sevenoaksfoodbank.co.uk",
+    "stored": [
+     "01732451710"
+    ],
+    "on_site": [
+     "01233500477",
+     "01732227000",
+     "01732749400",
+     "07747133750"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://startupstirling.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Start Up Stirling Foodbank",
+    "website": "https://startupstirling.org.uk",
+    "stored": [
+     "01786561027"
+    ],
+    "on_site": [
+     "01786233528",
+     "01786233950",
+     "01786237862",
+     "01786237900",
+     "01786446066",
+     "01786470239",
+     "01786470897",
+     "01786471177"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://thelordslarder.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Lord's Larder Foodbank",
+    "website": "https://thelordslarder.org.uk",
+    "stored": [
+     "01531821641"
+    ],
+    "on_site": [
+     "07940525863",
+     "07944590520"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.redhillfoodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Redhill Foodbank",
+    "website": "https://www.redhillfoodbank.org.uk",
+    "stored": [
+     "07849253085"
+    ],
+    "on_site": [
+     "01483590150",
+     "01737233893",
+     "01737272500",
+     "01737276370",
+     "01737288960",
+     "01737322201",
+     "01737733919",
+     "01737760900"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.stthomasstluke.org.uk/ourtown/foodpantry": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ashton Pantry Foodbank",
+    "website": "https://www.stthomasstluke.org.uk/ourtown/foodpantry",
+    "stored": [
+     "01942728238"
+    ],
+    "on_site": [
+     "07598847391"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://wythenshawe.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wythenshawe Foodbank",
+    "website": "https://wythenshawe.foodbank.org.uk",
+    "stored": [
+     "01614374392",
+     "01619736887",
+     "07518198645",
+     "07919595503"
+    ],
+    "on_site": [
+     "01612057321",
+     "01612192336",
+     "01612341977",
+     "01612345001",
+     "01612360829",
+     "01612418100",
+     "01612710190",
+     "01612710279"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "not fetched, robots|https://www.facebook.com/100064507461520": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Silverton Community Larder Foodbank",
+    "website": "https://www.facebook.com/100064507461520",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Bettws-Food-Bank-100070864661631/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bettws Foodbank",
+    "website": "https://www.facebook.com/Bettws-Food-Bank-100070864661631/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/HenleyBridgeFreePantry": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Henley Bridge Free Pantry Foodbank",
+    "website": "https://www.facebook.com/HenleyBridgeFreePantry",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/The-Food-Pantry-Feltwell-103311221603276/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Food Pantry Feltwell Foodbank",
+    "website": "https://www.facebook.com/The-Food-Pantry-Feltwell-103311221603276/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/cgccfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "CGCC Foodbank",
+    "website": "https://www.facebook.com/cgccfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/940970613570584": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Heston Farm Foodbank",
+    "website": "https://www.facebook.com/groups/940970613570584",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/pages/Beechdale%20Community%20Centre/134488559955432/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Beechdale Community Centre Foodbank",
+    "website": "https://www.facebook.com/pages/Beechdale%20Community%20Centre/134488559955432/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=61580856995882": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Codsall & Bilbrook Community Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=61580856995882",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "access mixed|https://www.shipstonfoodbank.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Shipston Foodbank",
+    "website": "https://www.shipstonfoodbank.org.uk",
+    "current_tag": "walkin",
+    "evidence": [
+     "need a referral",
+     "Just come along"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone fix held (older fix failed the strict gate)|https://pontefractandknottingley.foodbank.org.uk/": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Pontefract & Knottingley Foodbank",
+    "website": "https://pontefractandknottingley.foodbank.org.uk/",
+    "stored": "01977339278",
+    "proposed": "07747168988",
+    "source": "https://pontefractandknottingley.foodbank.org.uk/",
+    "note": "site-level number; centre pins need a centre-scoped read"
+   },
+   "access mixed|https://www.stivesfoodbank.org/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Ives (Cornwall) Foodbank",
+    "website": "https://www.stivesfoodbank.org/",
+    "current_tag": "voucher",
+    "evidence": [
+     "will need to be referred",
+     "just turn up"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "seasonal/holiday hours notice|https://www.hopeworx.org.uk": {
+    "category": "seasonal/holiday hours notice",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hopeworx",
+    "website": "https://www.hopeworx.org.uk",
+    "text": "al help to those that need it. View Our Christmas Opening Hours View More --> View Our Christmas opening hours Read More --> Recently Added Items chest of drawers #66299 £25 Please refer to the Hopeworx website for our l"
+   },
+   "not fetched, robots|https://www.facebook.com/AHHITH1/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "A Helping Hand In The Highlands Foodbank",
+    "website": "https://www.facebook.com/AHHITH1/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/BancBwydAberaeron/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Aberaeron Foodbank",
+    "website": "https://www.facebook.com/BancBwydAberaeron/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/BethanyFoodbankErdington/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bethany Foodbank",
+    "website": "https://www.facebook.com/BethanyFoodbankErdington/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Brandlesholme": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Brandlesholme Foodbank",
+    "website": "https://www.facebook.com/Brandlesholme",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/COMMUNITYFOODBANKATSTJOHNSANNESLEY": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St John's Community Foodbank",
+    "website": "https://www.facebook.com/COMMUNITYFOODBANKATSTJOHNSANNESLEY",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/EileanSiarFoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Eilean Siar Foodbank",
+    "website": "https://www.facebook.com/EileanSiarFoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/IlminsterFoodBank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Illminster Foodbank",
+    "website": "https://www.facebook.com/IlminsterFoodBank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/LargsFoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Largs Foodbank",
+    "website": "https://www.facebook.com/LargsFoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/LeytonstoneSDA": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leytonstone Seventh-Day Adventist Church Foodbank",
+    "website": "https://www.facebook.com/LeytonstoneSDA",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/LighthouseWhitworth": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Lighthouse Community Foodbank",
+    "website": "https://www.facebook.com/LighthouseWhitworth",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Louthfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Louth's Community Larder Foodbank",
+    "website": "https://www.facebook.com/Louthfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/MaghullFoodBank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Maghull Foodbank",
+    "website": "https://www.facebook.com/MaghullFoodBank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Pantry14": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Pantry Foodbank",
+    "website": "https://www.facebook.com/Pantry14",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/StaffordFoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Stafford Foodbank",
+    "website": "https://www.facebook.com/StaffordFoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/SteppingStonesTotnes": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Stepping Stones Totnes Foodbank",
+    "website": "https://www.facebook.com/SteppingStonesTotnes",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/SupportHeywoodFoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Heywood Foodbank",
+    "website": "https://www.facebook.com/SupportHeywoodFoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/TeamRootsno1/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Roots Foodbank",
+    "website": "https://www.facebook.com/TeamRootsno1/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/TheShackFoodProject/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Shack Food Project",
+    "website": "https://www.facebook.com/TheShackFoodProject/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/ThrapstonFoodBank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Thrapston Foodbank",
+    "website": "https://www.facebook.com/ThrapstonFoodBank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Tuptonfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Tupton Foodbank",
+    "website": "https://www.facebook.com/Tuptonfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/TyishaPositiveActionGroup/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Tyisha Foodbank",
+    "website": "https://www.facebook.com/TyishaPositiveActionGroup/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/Weardalefoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Weardale Foodbank",
+    "website": "https://www.facebook.com/Weardalefoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/WolverhamptonMuslimForum/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wolverhampton Muslim Forum Foodbank",
+    "website": "https://www.facebook.com/WolverhamptonMuslimForum/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/agapecarefoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Agape Care Foodbank",
+    "website": "https://www.facebook.com/agapecarefoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/ballynahinchfoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ballynahinch Foodbank",
+    "website": "https://www.facebook.com/ballynahinchfoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/blackpoolsvoice/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Blackpool's Voice Foodbank",
+    "website": "https://www.facebook.com/blackpoolsvoice/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/christkingfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Christ The King Church Foodbank",
+    "website": "https://www.facebook.com/christkingfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/codicotefoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Codicote Foodbank",
+    "website": "https://www.facebook.com/codicotefoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/dulaisvalleyfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dulais Valley Foodbank",
+    "website": "https://www.facebook.com/dulaisvalleyfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/eastneukfoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "East Neuk Foodbank",
+    "website": "https://www.facebook.com/eastneukfoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/fitzjohnsfood": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Fitzjohn's Foodbank",
+    "website": "https://www.facebook.com/fitzjohnsfood",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/foodforfamiliescic/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Food For Families Penzance Foodbank",
+    "website": "https://www.facebook.com/foodforfamiliescic/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/247599576322053/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Mary Magdalene Church Maltby Foodbank",
+    "website": "https://www.facebook.com/groups/247599576322053/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/416782742925520/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "LauderLarder Foodbank",
+    "website": "https://www.facebook.com/groups/416782742925520/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/470266294357172": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Cullompton Foodbank",
+    "website": "https://www.facebook.com/groups/470266294357172",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/680009679371353/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Accrington Christians Together Foodbank",
+    "website": "https://www.facebook.com/groups/680009679371353/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/Uistandbarrafoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Uist & Barra Foodbank",
+    "website": "https://www.facebook.com/groups/Uistandbarrafoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/groups/headleydownfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Headley Down Foodbank",
+    "website": "https://www.facebook.com/groups/headleydownfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/highworthcommunitylarder/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Highworth Community Larder Foodbank",
+    "website": "https://www.facebook.com/highworthcommunitylarder/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/jenesescommunitycentre/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Jeneses Community Centre Foodbank",
+    "website": "https://www.facebook.com/jenesescommunitycentre/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/lampeterfoodbank": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Lampeter Foodbank",
+    "website": "https://www.facebook.com/lampeterfoodbank",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/lyndhurstfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Lyndhurst Foodbank",
+    "website": "https://www.facebook.com/lyndhurstfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/mylocalfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Horwich Foodshare Foodbank",
+    "website": "https://www.facebook.com/mylocalfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/newlifespilsby": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "New Life Centre Foodbank",
+    "website": "https://www.facebook.com/newlifespilsby",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/orchardliverpool": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Orchard Liverpool Foodbank",
+    "website": "https://www.facebook.com/orchardliverpool",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Banc-Bwyd-Amlwch-Food-Bank-100063792645975/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Amlwch Foodbank",
+    "website": "https://www.facebook.com/p/Banc-Bwyd-Amlwch-Food-Bank-100063792645975/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Christian-Care-Share-100076386488539/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Christian Care and Share Foodbank",
+    "website": "https://www.facebook.com/p/Christian-Care-Share-100076386488539/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Cornerstone-Foodbank-Kilkeel-100068293655694/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Cornerstone Kilkeel Foodbank",
+    "website": "https://www.facebook.com/p/Cornerstone-Foodbank-Kilkeel-100068293655694/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Crieff-Foodbank-100074266275159/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Crieff Foodbank",
+    "website": "https://www.facebook.com/p/Crieff-Foodbank-100074266275159/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Dengie-Food-Pantry-Food-Bank-100064879771886/?locale=en_GB": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dengie Foodbank",
+    "website": "https://www.facebook.com/p/Dengie-Food-Pantry-Food-Bank-100064879771886/?locale=en_GB",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Invergordon-Foodbank-61572212057828/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Invergordon Foodbank",
+    "website": "https://www.facebook.com/p/Invergordon-Foodbank-61572212057828/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Malling-Foodbank-100087661153814/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Malling Foodbank",
+    "website": "https://www.facebook.com/p/Malling-Foodbank-100087661153814/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/The-Larder-Newry-100064771626178/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Larder Newry Foodbank",
+    "website": "https://www.facebook.com/p/The-Larder-Newry-100064771626178/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/p/Ventnor-Community-Foodbank-100068020155033/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ventnor Community Foodbank",
+    "website": "https://www.facebook.com/p/Ventnor-Community-Foodbank-100068020155033/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Time for the Homeless Foodbank",
+    "website": "https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/penmaenmawrfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Penmaenmawr Foodbank",
+    "website": "https://www.facebook.com/penmaenmawrfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/people/Hooky-Neighbours-Pantry/61553824434301/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hooky Neighbours Pantry Foodbank",
+    "website": "https://www.facebook.com/people/Hooky-Neighbours-Pantry/61553824434301/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/pontarddulaisfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Pontarddulais Area Foodbank",
+    "website": "https://www.facebook.com/pontarddulaisfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100064504881937": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Brinsley Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100064504881937",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100065267809395&locale=en_GB": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kings Heath Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100065267809395&locale=en_GB",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100072026179699": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dunoon Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100072026179699",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100075914414393": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Slade Green Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100075914414393",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=100089973345266": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ockbrook & Borrowash Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=100089973345266",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/profile.php?id=61577815048282": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bedlington Foodbank",
+    "website": "https://www.facebook.com/profile.php?id=61577815048282",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/sewadaynotts/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Rushcliffe Foodbank",
+    "website": "https://www.facebook.com/sewadaynotts/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/stairfootfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Stairfoot Foodbank",
+    "website": "https://www.facebook.com/stairfootfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/stoneystantonfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Stoney Stanton Foodbank",
+    "website": "https://www.facebook.com/stoneystantonfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/thornabyfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Thornaby Foodbank",
+    "website": "https://www.facebook.com/thornabyfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "not fetched, robots|https://www.facebook.com/whitlandtownhallcommunityfoodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Whitland Town Hall Community Foodbank",
+    "website": "https://www.facebook.com/whitlandtownhallcommunityfoodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "access mixed|https://the-olivebranch.org.uk/services": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Olive Branch Foodbank",
+    "website": "https://the-olivebranch.org.uk/services",
+    "current_tag": "voucher",
+    "evidence": [
+     "need a referral",
+     "just drop in"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://therivermanchester.org.uk/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The River Foodbank",
+    "website": "https://therivermanchester.org.uk/",
+    "current_tag": "walkin",
+    "evidence": [
+     "referral only",
+     "self-refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|http://portlandfoodbank.co.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Portland Foodbank",
+    "website": "http://portlandfoodbank.co.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "voucher needed",
+     "no referral needed"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://encompasscharity.org.uk/raunds-foodbank": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Raunds Foodbank",
+    "website": "https://encompasscharity.org.uk/raunds-foodbank",
+    "current_tag": "walkin",
+    "evidence": [
+     "need a referral",
+     "self referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://encompasscharity.org.uk/rushden-hf-foodbank": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Rushden and Higham Foodbank",
+    "website": "https://encompasscharity.org.uk/rushden-hf-foodbank",
+    "current_tag": "walkin",
+    "evidence": [
+     "need a referral",
+     "self referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "Trussell site with walk-in wording|https://hospitalityandhope.org.uk/food-bank/": {
+    "category": "Trussell site with walk-in wording",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "South Tyneside Foodbank",
+    "website": "https://hospitalityandhope.org.uk/food-bank/",
+    "current_tag": "voucher",
+    "evidence": [
+     "self referral",
+     "self referral"
+    ],
+    "note": "left as voucher - please check"
+   },
+   "opening times not read|https://hphub.co.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Highams Park Hub Foodbank",
+    "website": "https://hphub.co.uk/",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "Trussell site with walk-in wording|https://wokingham.foodbank.org.uk": {
+    "category": "Trussell site with walk-in wording",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wokingham Foodbank",
+    "website": "https://wokingham.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "self-referral"
+    ],
+    "note": "left as voucher - please check"
+   },
+   "access mixed|https://www.alnwickdistrictfoodbank.co.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Alnwick District Foodbank",
+    "website": "https://www.alnwickdistrictfoodbank.co.uk",
+    "current_tag": "walkin",
+    "evidence": [
+     "require a referral",
+     "self-refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://www.bristolnorthwestfoodbank.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bristol North West Foodbank",
+    "website": "https://www.bristolnorthwestfoodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "Need a Voucher",
+     "without a voucher"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "opening times not read|https://www.coss-broomhouse.org.uk/the-foodbank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Community One Stop Shop Foodbank",
+    "website": "https://www.coss-broomhouse.org.uk/the-foodbank/",
+    "error": "HTTP 500",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "access mixed|https://www.hangletonfoodbank.org": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hangleton & West Blatchington Foodbank",
+    "website": "https://www.hangletonfoodbank.org",
+    "current_tag": "voucher",
+    "evidence": [
+     "must be referred",
+     "self-referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://www.purleyfoodhub.net": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Purley Foodbank",
+    "website": "https://www.purleyfoodhub.net",
+    "current_tag": "voucher",
+    "evidence": [
+     "need to be referred",
+     "No referral required"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "items-needed list updated|https://www.purleyfoodhub.net": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Purley Foodbank",
+    "website": "https://www.purleyfoodhub.net",
+    "list": "most needed in October | Read more … | September 2 | March-August meals down by a third on same period last year | Read more … | August 28 | Milk and tinned meat top of 'most needed' list in September | Read more … | View all News items > > | Most needed in October"
+   },
+   "access mixed|https://zink.org.uk/food-and-supplies/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "High Peak Foodbank",
+    "website": "https://zink.org.uk/food-and-supplies/",
+    "current_tag": "walkin",
+    "evidence": [
+     "require a referral",
+     "self-refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://winchesterbasicsbank.co.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Winchester Basics Bank Foodbank",
+    "website": "https://winchesterbasicsbank.co.uk",
+    "current_tag": "walkin",
+    "evidence": [
+     "you need a referral",
+     "Self-Referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "access mixed|https://patchcharity.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "PATCH Foodbank",
+    "website": "https://patchcharity.org.uk",
+    "current_tag": "walkin",
+    "evidence": [
+     "will need to be referred",
+     "self-referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone fix held (strict gate)|https://www.eyresmonsellcyp.co.uk": {
+    "category": "phone fix held (strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Eyres Monsell Club for Young People",
+    "website": "https://www.eyresmonsellcyp.co.uk",
+    "stored": [
+     "07736308883"
+    ],
+    "on_site": [
+     "01162779190"
+    ],
+    "source": "https://www.eyresmonsellcyp.co.uk",
+    "note": "number sits beside another label (admin)"
+   },
+   "access mixed|https://impakt.org.uk/food/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Impakt Food Community Larder Foodbank",
+    "website": "https://impakt.org.uk/food/",
+    "current_tag": "walkin",
+    "evidence": [
+     "need a referral",
+     "no referral needed"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "phone fix held (older fix failed the strict gate)|https://stmonica.co.uk/social-action": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Monica's Foodbank",
+    "website": "https://stmonica.co.uk/social-action",
+    "stored": "02088869568",
+    "proposed": "02077989025",
+    "source": "https://stmonica.co.uk/social-action/",
+    "note": "the same new number was given for another organisation (likely a diocesan or general line); own site does not show exactly this one clickable number on the latest read; site-level number; centre pins need a centre-scoped read"
+   },
+   "access mixed|https://medway.foodbank.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Medway Foodbank",
+    "website": "https://medway.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "need to be referred",
+     "just turn up"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "items-needed list updated|https://www.thebesomincamberley.com": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Besom in Camberley Foodbank",
+    "website": "https://www.thebesomincamberley.com",
+    "list": "Shopping List | Referrers | Contact Us | More | Use tab to navigate through the menu items. | Helping families in crisis across Surrey Heath | with food and household essentials | WELCOME | Christmas is coming! | ​​ ​ | Are you in need of help? | Please see list of organisations for support in the following areas:"
+   },
+   "phone fix held (older fix failed the strict gate)|https://www.wantageandgrovefoodbank.org.uk": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wantage and Grove Foodbank",
+    "website": "https://www.wantageandgrovefoodbank.org.uk",
+    "stored": "01865297403",
+    "proposed": "01235765348",
+    "source": "https://www.wantageandgrovefoodbank.org.uk",
+    "note": "site-level number; centre pins need a centre-scoped read"
+   },
+   "Trussell site with walk-in wording|https://sparkhill.foodbank.org.uk": {
+    "category": "Trussell site with walk-in wording",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Sparkhill Foodbank",
+    "website": "https://sparkhill.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "self-referral",
+     "self-referral"
+    ],
+    "note": "left as voucher - please check"
+   },
+   "opening times not read|http://www.james4u.org/foodbank-blog/index.html": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St James Thornton Foodbank",
+    "website": "http://www.james4u.org/foodbank-blog/index.html",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|http://www.raftfoundation.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Raft Foundation Foodbank",
+    "website": "http://www.raftfoundation.org",
+    "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "phone number not on own site|https://allenbyprimaryschool.com/ealing/primary/allenby/site/pages/parentsandcarers/servicesinealing": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Allenby Primary School Foodbank",
+    "website": "https://allenbyprimaryschool.com/ealing/primary/allenby/site/pages/parentsandcarers/servicesinealing",
+    "stored": [
+     "02085786636"
+    ],
+    "on_site": [
+     "02088255588",
+     "02088257819",
+     "02088259800",
+     "02088420220"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "items-needed list published|https://billericayfoodbank.org.uk": {
+    "category": "items-needed list published",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Billericay Foodbank",
+    "website": "https://billericayfoodbank.org.uk",
+    "list": "Facebook | follow our facebook to see recent updates"
+   },
+   "opening times not read|https://cdwfoodbank.co.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "CDW Foodbank",
+    "website": "https://cdwfoodbank.co.uk",
+    "error": "HTTP 404",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://churchestogetherinpenzance.co.uk/project/food-bank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Penzance Foodbank",
+    "website": "https://churchestogetherinpenzance.co.uk/project/food-bank/",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://dartmouthanddistrictfoodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dartmouth & District Foodbank",
+    "website": "https://dartmouthanddistrictfoodbank.org.uk",
+    "error": "TimeoutError: The read operation timed out",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://jacobswell.charity/food-bank": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Jacobs Well Foodbank",
+    "website": "https://jacobswell.charity/food-bank",
+    "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "phone number not on own site|https://lutonfoodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Luton Foodbank",
+    "website": "https://lutonfoodbank.org.uk",
+    "stored": [
+     "01582256666",
+     "01582725838",
+     "01582727352"
+    ],
+    "on_site": [
+     "01582393230",
+     "01582412636",
+     "01582422662",
+     "01582422818",
+     "01582452356",
+     "01582458384",
+     "01582504749",
+     "01582557155"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "opening times not read|https://newhamfoodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newham Foodbank",
+    "website": "https://newhamfoodbank.org.uk",
+    "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://ramsbottompantry.com": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ramsbottom Pantry Foodbank",
+    "website": "https://ramsbottompantry.com",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://riveroflife.org.uk/food-project/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "River of Life Church Foodbank",
+    "website": "https://riveroflife.org.uk/food-project/",
+    "error": "HTTP 500",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://stannsadvice.org.uk/foodbank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Annes Advice Nottingham Foodbank",
+    "website": "https://stannsadvice.org.uk/foodbank/",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://uorhucknall.org.uk/hosted%20organisations": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hucknall Foodbank",
+    "website": "https://uorhucknall.org.uk/hosted%20organisations",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://westdunbartonshirecommunityfoodshare.co.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "West Dunbartonshire Community Foodshare Foodbank",
+    "website": "https://westdunbartonshirecommunityfoodshare.co.uk/",
+    "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "phone number not on own site|https://www.hobstafford.co.uk/food-bank": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Cafe 43 - House of Bread Foodbank",
+    "website": "https://www.hobstafford.co.uk/food-bank",
+    "stored": [
+     "01785243492"
+    ],
+    "on_site": [
+     "01785332413"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "opening times not read|https://www.leightonlinsladehelpers.org.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leighton Linslade Helpers Foodbank",
+    "website": "https://www.leightonlinsladehelpers.org.uk/",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "opening times not read|https://www.mifoodbank.org": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Margate Foodbank",
+    "website": "https://www.mifoodbank.org",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "not fetched, robots|https://www.project-food.org.uk": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Project Food Foodbank",
+    "website": "https://www.project-food.org.uk",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "phone number not on own site|https://www.wearelibertychurch.com/serving-and-ministries/": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Liberty Church Mid-Ulster Foodbank",
+    "website": "https://www.wearelibertychurch.com/serving-and-ministries/",
+    "stored": [
+     "02886738217"
+    ],
+    "on_site": [
+     "07760668917",
+     "07788871287",
+     "07864703526"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "Trussell site with walk-in wording|https://haywardsheath.foodbank.org.uk": {
+    "category": "Trussell site with walk-in wording",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Haywards Heath Foodbank",
+    "website": "https://haywardsheath.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "do not need a referral",
+     "just come along"
+    ],
+    "note": "left as voucher - please check"
+   },
+   "access mixed|https://kingtonfoodbank.org.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kington Foodbank",
+    "website": "https://kingtonfoodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "you need a referral",
+     "just come along"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "Trussell site with walk-in wording|https://truro.foodbank.org.uk": {
+    "category": "Trussell site with walk-in wording",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Truro Foodbank",
+    "website": "https://truro.foodbank.org.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "just drop in"
+    ],
+    "note": "left as voucher - please check"
+   },
+   "access mixed|https://www.horleyfoodbank.com/": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Horley Foodbank",
+    "website": "https://www.horleyfoodbank.com/",
+    "current_tag": "voucher",
+    "evidence": [
+     "need a referral",
+     "self-referral"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "opening times not read|https://beneficeoflangelei.org.uk/allsaints/community/all-saints-foodbank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kings Langley Foodbank",
+    "website": "https://beneficeoflangelei.org.uk/allsaints/community/all-saints-foodbank/",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "phone fix held (older fix failed the strict gate)|https://hull.foodbank.org.uk": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hull Foodbank",
+    "website": "https://hull.foodbank.org.uk",
+    "stored": "01482224783",
+    "proposed": "01482328196",
+    "source": "https://hull.foodbank.org.uk",
+    "note": "own site does not show exactly this one clickable number on the latest read; site-level number; centre pins need a centre-scoped read"
+   },
+   "opening times not read|https://www.windsorfoodshare.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Windsor Food Share Foodbank",
+    "website": "https://www.windsorfoodshare.org.uk",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "phone fix held (older fix failed the strict gate)|https://bognorregis.foodbank.org.uk": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bognor Regis Foodbank",
+    "website": "https://bognorregis.foodbank.org.uk",
+    "stored": "01243866952",
+    "proposed": "01243841275",
+    "source": "https://bognorregis.foodbank.org.uk",
+    "note": "site-level number; centre pins need a centre-scoped read"
+   },
+   "phone fix held (older fix failed the strict gate)|https://euston.foodbank.org.uk": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Euston Foodbank",
+    "website": "https://euston.foodbank.org.uk",
+    "stored": "07400053838",
+    "proposed": "02046159770",
+    "source": "https://euston.foodbank.org.uk",
+    "note": "own site does not show exactly this one clickable number on the latest read; site-level number; centre pins need a centre-scoped read"
+   },
+   "phone fix held (older fix failed the strict gate)|https://hartlepool.foodbank.org.uk": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hartlepool Foodbank",
+    "website": "https://hartlepool.foodbank.org.uk",
+    "stored": "01429405543",
+    "proposed": "01429806895",
+    "source": "https://hartlepool.foodbank.org.uk",
+    "note": "own site does not show exactly this one clickable number on the latest read; site-level number; centre pins need a centre-scoped read"
+   },
+   "phone fix held (older fix failed the strict gate)|https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Quex Road Foodbank",
+    "website": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank",
+    "stored": "02076241701",
+    "proposed": "02077989025",
+    "source": "https://parish.rcdow.org.uk/kilburn/parish-groups/quex-road-food-bank/",
+    "note": "the same new number was given for another organisation (likely a diocesan or general line); own site does not show exactly this one clickable number on the latest read; site-level number; centre pins need a centre-scoped read"
+   },
+   "phone number not on own site|https://theforest.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Forest Foodbank",
+    "website": "https://theforest.foodbank.org.uk",
+    "stored": [
+     "01594842589",
+     "07775265263"
+    ],
+    "on_site": [
+     "01452223014",
+     "01452422660",
+     "01452426565",
+     "01452527202",
+     "01452726570",
+     "01594562985",
+     "01594839106",
+     "07539477286"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone fix held (older fix failed the strict gate)|https://launceston.foodbank.org.uk": {
+    "category": "phone fix held (older fix failed the strict gate)",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Launceston Foodbank",
+    "website": "https://launceston.foodbank.org.uk",
+    "stored": "07849260486",
+    "proposed": "01566779550",
+    "source": "https://launceston.foodbank.org.uk",
+    "note": "own site does not show exactly this one clickable number on the latest read; site-level number; centre pins need a centre-scoped read"
+   },
+   "access mixed|http://northguildfordfoodbank.co.uk": {
+    "category": "access mixed",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "North Guildford Foodbank",
+    "website": "http://northguildfordfoodbank.co.uk",
+    "current_tag": "voucher",
+    "evidence": [
+     "You will need a referral",
+     "self refer"
+    ],
+    "note": "site mentions both voucher and walk-in - left as is, please decide"
+   },
+   "opening times not read|https://ardwickandlongsightfoodbank.org.uk": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ardwick & Longsight Foodbank",
+    "website": "https://ardwickandlongsightfoodbank.org.uk",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "not fetched, robots|https://hebburnhelps.co.uk": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hebburn Helps Foodbank",
+    "website": "https://hebburnhelps.co.uk",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "opening times not read|https://peacecentre.org.uk/foodbank/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Peace Centre Foodbank",
+    "website": "https://peacecentre.org.uk/foodbank/",
+    "error": "HTTP 403",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "phone number not on own site|https://westberks.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "West Berks Foodbank",
+    "website": "https://westberks.foodbank.org.uk",
+    "stored": [
+     "07955626621"
+    ],
+    "on_site": [
+     "07512774864"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://wimbledon.foodbank.org.uk": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wimbledon Foodbank",
+    "website": "https://wimbledon.foodbank.org.uk",
+    "stored": [
+     "02085440018",
+     "02085440126"
+    ],
+    "on_site": [
+     "02080664086"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "items-needed list updated|https://wisbech.foodbank.org.uk": {
+    "category": "items-needed list updated",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wisbech Foodbank",
+    "website": "https://wisbech.foodbank.org.uk",
+    "list": "Items we need | As of 28/10/2026 | Bags for life | Cooking sauce in jars | Long-life juice | Long-life milk | Sanitary towels | Tampons | Tinned fruit | Support us | Get involved | Get involved | Donate food"
+   },
+   "phone number not on own site|https://www.churchinthepeak.org/jigsaw/foodbank": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Jigsaw Foodbank",
+    "website": "https://www.churchinthepeak.org/jigsaw/foodbank",
+    "stored": [
+     "01629584783"
+    ],
+    "on_site": [
+     "07718855386"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "phone number not on own site|https://www.newzioncf.net/food-bank": {
+    "category": "phone number not on own site",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Welwyn Garden City Foodbank",
+    "website": "https://www.newzioncf.net/food-bank",
+    "stored": [
+     "07452736033"
+    ],
+    "on_site": [
+     "01707954123"
+    ],
+    "note": "a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs"
+   },
+   "opening times not read|https://www.thefoodbank.org.uk/": {
+    "category": "opening times not read",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "North Lakes Foodbank",
+    "website": "https://www.thefoodbank.org.uk/",
+    "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+    "note": "live page did not open; no saved copy used. Opening times not listed. Call before you go."
+   },
+   "not fetched, robots|https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/": {
+    "category": "not fetched, robots",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Woodhouse Close Church Foodbank",
+    "website": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
+    "note": "the site asks us not to read this page. Opening hours were not guessed. The place stays on the map."
+   },
+   "opening times unclear|west-bromwich": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "West Bromwich Foodbank",
+    "website": "https://westbromwichfoodbank.com/",
+    "id": "west-bromwich",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|welwyn-garden-city": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Welwyn Garden City Foodbank",
+    "website": "https://www.newzioncf.net/food-bank",
+    "id": "welwyn-garden-city",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|colchester": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Colchester Foodbank",
+    "website": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+    "id": "colchester",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|trafford-north": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Trafford North Foodbank",
+    "website": "https://traffordnorth.foodbank.org.uk/locations/",
+    "id": "trafford-north",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|huddersfield": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Welcome Centre",
+    "website": "https://www.thewelcomecentre.org/pages/need-our-help",
+    "id": "huddersfield",
+    "note": "unclear: live source page could not be opened (HTTP 404). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-mags": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Mags Foodbank",
+    "website": "https://stmags.org.uk/page/the-store-room.html",
+    "id": "st-mags",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-anthony-and-st-mark": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Anthony and St Mark Foodbank",
+    "website": "https://www.stanthonystmark.org.uk/ministries-and-groups/food-banks/",
+    "id": "st-anthony-and-st-mark",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|woodgate-community-food": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Woodgate Community Food Foodbank",
+    "website": "https://woodgatecommunityfood.org.uk/",
+    "id": "woodgate-community-food",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|worcester": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Worcester Foodbank",
+    "website": "https://worcester.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+    "id": "worcester",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|breaking-bread": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Breaking Bread Foodbank",
+    "website": "https://www.breakingbreadfoodbank.co.uk/",
+    "id": "breaking-bread",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|harold-hill": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Harold Hill Foodbank",
+    "website": "https://haroldhill.foodbank.org.uk/locations/",
+    "id": "harold-hill",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|corby": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Corby Foodbank",
+    "website": "https://corby.foodbank.org.uk/locations/",
+    "id": "corby",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|kington": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kington Foodbank",
+    "website": "https://kingtonfoodbank.org.uk/",
+    "id": "kington",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|raven-house": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Raven House Foodbank",
+    "website": "https://www.ravenhouse.org/food-bank/",
+    "id": "raven-house",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|chipping-barnet": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Chipping Barnet Foodbank",
+    "website": "https://chippingbarnet.foodbank.org.uk/locations/",
+    "id": "chipping-barnet",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|pbp": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "PBP Foodbank",
+    "website": "https://cetma.org.uk/contact-page/",
+    "id": "pbp",
+    "note": "unclear: live source page could not be opened (TimeoutError: The read operation timed out). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|east-elmbridge": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "East Elmbridge Foodbank",
+    "website": "https://eastelmbridge.foodbank.org.uk/locations/",
+    "id": "east-elmbridge",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|market-drayton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Market Drayton Foodbank",
+    "website": "https://marketdrayton.foodbank.org.uk/locations/",
+    "id": "market-drayton",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|winchester-basics-bank": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Winchester Basics Bank Foodbank",
+    "website": "https://winchesterfoodandbasicsbank.co.uk/contact-us/",
+    "id": "winchester-basics-bank",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|windsor-food-share": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Windsor Food Share Foodbank",
+    "website": "https://www.windsorfoodshare.org.uk/",
+    "id": "windsor-food-share",
+    "note": "unclear: live source page could not be opened (URLError: <urlopen error [Errno 101] Network is unreachable>). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|storehouse": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Storehouse Foodbank",
+    "website": "https://wwv.church/food-bank",
+    "id": "storehouse",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|farnham": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Farnham Foodbank",
+    "website": "https://farnham.foodbank.org.uk/locations/",
+    "id": "farnham",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|liberty-thurcroft": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Liberty Thurcroft Foodbank",
+    "website": "https://thurcroft.libertyrotherham.org/blog/liberty-thurcroft-food-and-baby-bank/",
+    "id": "liberty-thurcroft",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|bath-keynsham-somer-valley": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Bath, Keynsham & Somer Valley Foodbank",
+    "website": "https://bksv.foodbank.org.uk/locations/",
+    "id": "bath-keynsham-somer-valley",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-ives-cambridgeshire": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Ives (Cambridgeshire) Foodbank",
+    "website": "https://www.stivesparishchurch.org.uk/foodbank/",
+    "id": "st-ives-cambridgeshire",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|peeblesshire": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Peeblesshire Foodbank",
+    "website": "https://peeblesshire.foodbank.org.uk/locations/",
+    "id": "peeblesshire",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|mustard-tree": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Mustard Tree Foodbank",
+    "website": "https://mustardtree.org.uk/contact/",
+    "id": "mustard-tree",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|green-lane-masjid-and-community-centre": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Green Lane Masjid and Community Centre Foodbank",
+    "website": "https://greenlanemasjid.org/contact/",
+    "id": "green-lane-masjid-and-community-centre",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|swansea": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Swansea Foodbank",
+    "website": "https://swansea.foodbank.org.uk/locations/",
+    "id": "swansea",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|milton-keynes": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Milton Keynes Foodbank",
+    "website": "https://mkfoodbank.org.uk/i-need-help/",
+    "id": "milton-keynes",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|harrogate-district": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Harrogate District Foodbank",
+    "website": "https://harrogatedistrict.foodbank.org.uk/locations/",
+    "id": "harrogate-district",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|wolverhampton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wolverhampton Foodbank",
+    "website": "https://www.thewellwolverhampton.co.uk/contact/",
+    "id": "wolverhampton",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|downham-market-district": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Downham Market & District Foodbank",
+    "website": "https://downhammarketdistrict.foodbank.org.uk/locations/",
+    "id": "downham-market-district",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|enfield": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Enfield Foodbank",
+    "website": "https://enfield.foodbank.org.uk/locations/",
+    "id": "enfield",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|cheddar-valley": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Cheddar Valley Foodbank",
+    "website": "https://cheddarvalley.foodbank.org.uk/locations/",
+    "id": "cheddar-valley",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|cheltenham-open-door": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Cheltenham Open Door Foodbank",
+    "website": "https://cheltenhamopendoor.org.uk/find-us/",
+    "id": "cheltenham-open-door",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|alton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Alton Foodbank",
+    "website": "https://alton.foodbank.org.uk/locations/",
+    "id": "alton",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|leeds-south-east": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leeds South & East Foodbank",
+    "website": "https://leedssouthandeast.foodbank.org.uk/locations/",
+    "id": "leeds-south-east",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|north-oxfordshire": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "North Oxfordshire Foodbank",
+    "website": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
+    "id": "north-oxfordshire",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|north-liverpool": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "North Liverpool Foodbank",
+    "website": "https://northliverpool.foodbank.org.uk/locations/",
+    "id": "north-liverpool",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|feeding-families": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Feeding Families Foodbank",
+    "website": "https://www.feedingfamilies.org.uk/contact-us/",
+    "id": "feeding-families",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|rock": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Rock Foodbank",
+    "website": "https://rockfoundation.org.uk/provision-of-food-banks-support-services/",
+    "id": "rock",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|newark": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Newark Foodbank",
+    "website": "https://newark.foodbank.org.uk/locations/",
+    "id": "newark",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|harvest": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Harvest Foodbank",
+    "website": "https://theharvestcentre.com/harvest-food-parcels",
+    "id": "harvest",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|vale-of-clwyd": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Vale of Clwyd Foodbank",
+    "website": "https://valeofclwyd.foodbank.org.uk/locations/",
+    "id": "vale-of-clwyd",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|ribble-valley": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ribble Valley Foodbank",
+    "website": "https://ribblevalley.foodbank.org.uk/locations/",
+    "id": "ribble-valley",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|wimborne": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Wimborne Foodbank",
+    "website": "https://faith-works.org.uk/locations-across-dorset/",
+    "id": "wimborne",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|aberdeenshire-north": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Aberdeenshire North Foodbank",
+    "website": "https://aberdeenshirenorth.foodbank.org.uk/locations/",
+    "id": "aberdeenshire-north",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|clay-cross": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Clay Cross Foodbank",
+    "website": "https://claycross.foodbank.org.uk/locations/",
+    "id": "clay-cross",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|kings-langley": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kings Langley Foodbank",
+    "website": "https://beneficeoflangelei.org.uk/allsaints/community/",
+    "id": "kings-langley",
+    "note": "unclear: live source page could not be opened (HTTP 403). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|mottingham": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Mottingham Foodbank",
+    "website": "https://www.stedwardsmottingham.org.uk/foodbank",
+    "id": "mottingham",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|trinity": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Trinity Foodbank",
+    "website": "https://trinityfoodbank.co.uk/",
+    "id": "trinity",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|food-relief": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Food Relief Foodbank",
+    "website": "https://www.foodrelief.org.uk/",
+    "id": "food-relief",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|fylde": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Fylde Foodbank",
+    "website": "https://fylde.foodbank.org.uk/locations/",
+    "id": "fylde",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|leeds-north-west": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leeds North & West Foodbank",
+    "website": "https://leedsnorthandwest.foodbank.org.uk/locations/",
+    "id": "leeds-north-west",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|hope-central": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Hope Central Foodbank",
+    "website": "https://hopecentral.org.uk/i-need-help/looking-for-community/",
+    "id": "hope-central",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|booth-centre": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Booth Centre Foodbank",
+    "website": "https://www.boothcentre.org.uk/get-help/",
+    "id": "booth-centre",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-peter-and-st-pauls": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Peter and St Paul's Foodbank",
+    "website": "https://www.aylesford-church.org.uk/Groups/353628/Food_Bank.aspx",
+    "id": "st-peter-and-st-pauls",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|corfe-mullen": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Corfe Mullen Foodbank",
+    "website": "https://parishofcorfemullen.church/contact",
+    "id": "corfe-mullen",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|leyland": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Leyland Foodbank",
+    "website": "https://www.stmaryscentre.net/leyland-food-bank/",
+    "id": "leyland",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|chepstow": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Chepstow Foodbank",
+    "website": "https://chepstow.foodbank.org.uk/locations/",
+    "id": "chepstow",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|south-normanton-area": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "South Normanton Area Foodbank",
+    "website": "https://southnormantonarea.foodbank.org.uk/locations/",
+    "id": "south-normanton-area",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-neots": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Neots Foodbank",
+    "website": "https://stneots.foodbank.org.uk/locations/",
+    "id": "st-neots",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|rochdale": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Rochdale Foodbank",
+    "website": "https://rochdale.foodbank.org.uk/locations/",
+    "id": "rochdale",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|the-forest": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "The Forest Foodbank",
+    "website": "https://theforest.foodbank.org.uk/locations/",
+    "id": "the-forest",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|ardwick-longsight": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Ardwick & Longsight Foodbank",
+    "website": "https://ardwickandlongsightfoodbank.org.uk/",
+    "id": "ardwick-longsight",
+    "note": "unclear: live source page could not be opened (URLError: <urlopen error [Errno 101] Network is unreachable>). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|tameside-south-longdendale": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Tameside South & Longdendale Foodbank",
+    "website": "https://tamesidesouthlongdendale.foodbank.org.uk/locations/",
+    "id": "tameside-south-longdendale",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|gateshead": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Gateshead Foodbank",
+    "website": "https://gateshead.foodbank.org.uk/locations/",
+    "id": "gateshead",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|sutton-bridge-community-larder": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Sutton Bridge Community Larder Foodbank",
+    "website": "https://sblarder.wixsite.com/larder",
+    "id": "sutton-bridge-community-larder",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|swale": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Swale Foodbank",
+    "website": "https://swale.foodbank.org.uk/locations/",
+    "id": "swale",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|storehouse-melton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Storehouse Melton Foodbank",
+    "website": "https://www.storehousemelton.org.uk/",
+    "id": "storehouse-melton",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|storehouse-influence-church": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "StoreHouse (Influence Church) Foodbank",
+    "website": "https://www.influencechurch.co.uk/storehouse/",
+    "id": "storehouse-influence-church",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-marys-haughton-green": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St. Mary's Haughton Green Foodbank",
+    "website": "https://www.stmaryshg.org.uk/food-bank",
+    "id": "st-marys-haughton-green",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-saviours-sunbury": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St Saviour's Sunbury Foodbank",
+    "website": "https://www.stsavs.org/foodbank",
+    "id": "st-saviours-sunbury",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|st-johns": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "St John's Foodbank",
+    "website": "https://www.stjohnskitchen.org.uk/",
+    "id": "st-johns",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|woodhouse-close-church": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Woodhouse Close Church Foodbank",
+    "website": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
+    "id": "woodhouse-close-church",
+    "note": "unclear: live source page could not be opened (not fetched, robots). Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|stamford-oundle": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Stamford & Oundle Foodbank",
+    "website": "https://stamfordoundle.foodbank.org.uk/locations/",
+    "id": "stamford-oundle",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|derby-hall": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Derby Hall Foodbank",
+    "website": "https://www.transformationchurchglobal.com/church-foodbank",
+    "id": "derby-hall",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|quinton": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Quinton Foodbank",
+    "website": "https://quinton.foodbank.org.uk/locations/",
+    "id": "quinton",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|colindale": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Colindale Foodbank",
+    "website": "https://colindale.foodbank.org.uk/locations/",
+    "id": "colindale",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|kensington-chelsea": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Kensington & Chelsea Foodbank",
+    "website": "https://kensingtonchelsea.foodbank.org.uk/locations/",
+    "id": "kensington-chelsea",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|dorking-area": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Dorking Area Foodbank",
+    "website": "https://dorkingarea.foodbank.org.uk/locations/",
+    "id": "dorking-area",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|southwark": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Southwark Foodbank",
+    "website": "https://southwark.foodbank.org.uk/locations/",
+    "id": "southwark",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|telford": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Telford Foodbank",
+    "website": "https://telfordcrisissupport.org.uk/get-help/winter-coats-shoes/",
+    "id": "telford",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|guernsey": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Guernsey Foodbank",
+    "website": "https://welfare.gg/index.php/food-bank",
+    "id": "guernsey",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|mid-cheshire": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Mid Cheshire Foodbank",
+    "website": "https://midcheshire.foodbank.org.uk/locations/",
+    "id": "mid-cheshire",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|runcorn-district": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Runcorn District Foodbank",
+    "website": "https://runcorndistrict.foodbank.org.uk/locations/",
+    "id": "runcorn-district",
+    "note": "unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|faversham": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Faversham Foodbank",
+    "website": "https://faversham.foodbank.org.uk/locations/",
+    "id": "faversham",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|buckfastleigh": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Buckfastleigh Foodbank",
+    "website": "https://buckfastleigh.foodbank.org.uk/locations/",
+    "id": "buckfastleigh",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|strabane": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Strabane Foodbank",
+    "website": "https://strabane.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+    "id": "strabane",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   },
+   "opening times unclear|brent": {
+    "category": "opening times unclear",
+    "first_flagged": "2026-10-29T08:00:57+00:00",
+    "name": "Brent Foodbank",
+    "website": "https://brent.foodbank.org.uk/locations/",
+    "id": "brent",
+    "note": "unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.",
+    "evidence": ""
+   }
+  }
  }
 }

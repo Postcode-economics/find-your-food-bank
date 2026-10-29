@@ -2,9 +2,10 @@
 
 No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
-## foodbanks (1)
+## foodbanks (2)
 
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
+- Shipshape Health and Wellbeing (S11 8AE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.shipshape.org.uk
 
 ## warmspaces (2)
 
@@ -135,6 +136,255 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://the-gate-charity.org/contact-us-2/  
   why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 <!-- /times review -->
+
+
+<!-- times crosscheck fb -->
+## Opening-times changes from the refresh (fb): 0 auto-applied, 81 held
+
+- **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
+  source: https://colchester.foodbank.org.uk  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **CETMA Llanelli** (`pbp/cetma-llanelli`, SA15 1YU): own site now Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 12PM - 4PM  
+  source: https://cetma.org.uk/projects/pbp-food-bank/  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **North Oxfordshire Foodbank** (`north-oxfordshire`, OX5 2DS): own site now Friday 11.00am – 1.00pm  
+  source: https://northoxfordshirecommunityfoodbank.org.uk/  
+  why held: times not read identically on 2 separate runs yet
+- **Wellingborough & District Foodbank** (`wellingborough-district`, NN8 4HB): own site now Friday 9am-12pm  
+  source: http://www.daylightcf.org/foodbank/  
+  why held: times not read identically on 2 separate runs yet
+- **Liphook Foodbank** (`liphook`, GU30 7QE): own site now Tuesdays and Fridays 9.30 - 11.30  
+  source: https://liphookfoodbank.com  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Inspero Foodbank** (`inspero`, RG22 5HN): own site now Monday – Friday 9:00 AM – 5:00 PM  
+  source: https://www.inspero.org.uk  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Chester City Centre** (`west-cheshire/chester-city-centre`, CH1 2AR): own site now Mon Closed; Tue Closed; Wed 11:00 - 14:00; Thu Closed; Fri 09:00 - 11:00; Sat Closed; Sun Closed  
+  source: https://westcheshire.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Ellesmere Port** (`west-cheshire/ellesmere-port`, CH65 6RS): own site now Mon Closed; Tue 10:00 - 12:00; Wed Closed; Thu Closed; Fri 10:00 - 12:00; Sat Closed; Sun Closed  
+  source: https://westcheshire.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **PANTRY Foodbank** (`pantry`, SA8 4HD): own site now Sats & Tues 10am-12pm | Tuesday 10am - 12pm | Saturday 10am - 12pm  
+  source: https://www.pantryfoodbank.org  
+  why held: times not read identically on 2 separate runs yet
+- **Storehouse Melton Foodbank** (`storehouse-melton`, LE13 1NW): own site now Monday 11:00am - 1:00pm | Wednesday 11:00am - 1:00pm | Friday 11:00am - 1:00pm  
+  source: https://www.storehousemelton.org.uk  
+  why held: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); times not read identically on 2 separate runs yet
+- **Hereford Foodbank** (`hereford`, HR1 2DX): own site now Monday to Friday 10:00 am - 12pm  
+  source: https://herefordfoodbank.co.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Old Kilpatrick Food Parcels Foodbank** (`old-kilpatrick-food-parcels`, G60 5JH): own site now Tuesday to Friday 11-3  
+  source: https://okfp.org.uk  
+  why held: new own-site times look like office/centre hours; day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Crescent Foodbank** (`crescent`, BL1 8HB): own site now Sunday 10AM -11AM | Sundays 10am-11:00am  
+  source: https://crescentfoodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Burgess Hill Foodbank** (`burgess-hill`, RH15 9AA): own site now Tuesday and Thursday 11am - 1pm | Saturday 10am - 12pm | Fridays 10am - 12pm  
+  source: https://burgesshillfoodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Enniskillen Foodbank** (`enniskillen`, BT74 7DX): own site now Monday 1:00 pm to 3:00 pm; Wednesday 10:00 am to 12:00 pm  
+  source: https://enniskillen.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Sunderland Foodbank** (`sunderland`, SR2 8AH): own site now Thursday 09:00-10:30  
+  source: https://sunderlandfoodbank.org.uk/  
+  why held: times not read identically on 2 separate runs yet
+- **Roker Methodist Church** (`sunderland/roker-methodist-church`, SR6 9TB): own site now Monday 13:00-15:00  
+  source: https://sunderlandfoodbank.org.uk/  
+  why held: times not read identically on 2 separate runs yet
+- **Downhill Centre Community Hub** (`sunderland/downhill-centre-community-hub`, SR5 4AY): own site now Thursday 11:00-13:30  
+  source: https://sunderlandfoodbank.org.uk/  
+  why held: times not read identically on 2 separate runs yet
+- **Nourish Foodbank** (`nourish`, DT11 7PY): own site now Tuesdays & Thursdays 10am – 2pm  
+  source: https://faith-works.org.uk/locations-across-dorset/nourish-blandford/  
+  why held: times not read identically on 2 separate runs yet
+- **Liberty Tea Rooms** (`dens/liberty-tea-rooms`, HP1 1BS): own site now Monday-Friday 9am-4.30pm  
+  source: https://www.dens.org.uk/our-services/foodbank/  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Way Inn Christian Centre** (`dens/way-inn-christian-centre`, HP4 1AQ): own site now Tuesday-Friday 10am-12pm  
+  source: https://www.dens.org.uk/our-services/foodbank/  
+  why held: times not read identically on 2 separate runs yet
+- **St Peter & St Paul Church** (`dens/st-peter-st-paul-church`, HP23 5AE): own site now Monday-Friday 9am-5pm | Saturday 9am-1pm  
+  source: https://www.dens.org.uk/our-services/foodbank/  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Sawtry Foodbank** (`sawtry`, PE28 5UX): own site now Fridays 3.00pm to 4.00pm  
+  source: http://www.caresco.org.uk/?page=foodbank  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Kirkby Storehouse Foodbank** (`kirkby-storehouse`, NG17 7AB): own site now Tuesday 2– 3pm  
+  source: https://www.ashwoodchurch.org.uk/community/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Salford Food Parcels Foodbank** (`salford-food-parcels`, M6 5PN): own site now Wednesday 10-11.30am  
+  source: https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/  
+  why held: times not read identically on 2 separate runs yet
+- **S20 Foodbank** (`s20`, S20 8NF): own site now Monday to Friday 10.00am - 4.00pm  
+  source: http://www.sheffieldfoodbank.org.uk/s20  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Owlsmoor Community Centre** (`crowthorne/owlsmoor-community-centre`, GU47 0TF): own site now Monday 12:30 pm to 2:00 pm  
+  source: https://crowthorne.foodbank.org.uk  
+  why held: would change known times to closed/empty; times not read identically on 2 separate runs yet
+- **St Luke's** (`bradford-north/st-lukes`, BD2 3NS): own site now Thursday 11:00 am to 1:30 pm  
+  source: https://bradfordnorth.foodbank.org.uk  
+  why held: postcode not matched exactly on the own-site page; times not read identically on 2 separate runs yet
+- **Link Living** (`kirkcaldy/link-living`, KY1 1TE): own site now Monday 10am-4pm | Tuesday 10am-4pm | Wednesday 10am-4pm | Thursday 10am-4pm | Friday 10am-4pm  
+  source: https://www.kirkcaldyfoodbankcharity.org.uk  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Anglesey Foodbank** (`anglesey`, LL65 1RR): own site now Monday-Friday 9:15 am to 2:00 pm  
+  source: https://anglesey.foodbank.org.uk  
+  why held: new own-site times look like office/centre hours; postcode not matched exactly on the own-site page; times not read identically on 2 separate runs yet
+- **The Bus Shelter Shop Foodbank** (`the-bus-shelter-shop`, IP11 7AJ): own site now Monday 10 am - 4 pm | Tuesday 10 am–4 pm | Wednesday 10 am–4 pm | Thursday 10 am–4 pm | Friday 10 am–4 pm | Saturday 10 am–4 pm  
+  source: https://www.thebusshelteripswich.co.uk/  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **New Wortley Community Centre Foodbank** (`new-wortley-community-centre`, LS12 1LZ): own site now SATURDAY PM 1:00pm - 3:00pm  
+  source: https://www.newwortleycc.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Corsham Churches Foodbank** (`corsham-churches`, SN13 9BS): own site now Tuesday and Saturday 10am - 12pm  
+  source: https://corshamchurchesfoodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Warminster and District Foodbank** (`warminster-and-district`, BA12 9AL): own site now Tuesday, Wednesday & Friday 9am to 12:30pm  
+  source: http://warminsteranddistrictfoodbank.co.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Chichester District Foodbank** (`chichester-district`, PO19 8ET): own site now Monday 2-4pm | Wednesday 9.30-11.30am | Friday 4-6pm  
+  source: https://chichesterdistrict.foodbank.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **St. John the Baptist Church, Tilbury** (`thurrock/st-john-the-baptist-church-tilbury`, RM18 7PP): own site now Tuesday 11:00 am to 1:00 pm  
+  source: https://thurrock.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Gates of Praise International Christian Centre** (`thurrock/gates-of-praise-international-christian-centre`, RM17 5YF): own site now Saturday 10:00 am to 12:00 pm  
+  source: https://thurrock.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **St. Stephen's Church Hall, Purfleet** (`thurrock/st-stephens-church-hall-purfleet`, RM19 1QD): own site now Friday 10:00 am to 12:00 pm  
+  source: https://thurrock.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **St. Francis Centre, Linford** (`thurrock/st-francis-centre-linford`, SS17 0QA): own site now Thursday 11:00 am to 1:00 pm  
+  source: https://thurrock.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **All Saints Church, South Ockendon** (`thurrock/all-saints-church-south-ockendon`, RM15 5HF): own site now Thursday 11:00 am to 1:00 pm  
+  source: https://thurrock.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Gateway People’s Centre** (`thurrock/gateway-peoples-centre`, SS17 0EY): own site now Wednesday 11:00 am to 1:00 pm  
+  source: https://thurrock.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Northolt** (`ealing/northolt`, UB5 4SX): own site now Mon Closed; Tue 12:00 - 13:30; Wed Closed; Thu Closed; Fri Closed; Sat Closed; Sun Closed  
+  source: https://ealing.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Waterford House** (`wokingham/waterford-house`, RG40 2YF): own site now Monday 13:00 - 15:00 | Wednesday 13:00 - 15:00 | Friday 13:00 - 15:00  
+  source: https://wokingham.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Weymouth** (`salvation-army/weymouth`, DT4 8NS): own site now THURSDAY : 10 am - 12pm  
+  source: https://www.salvationarmy.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Brentwood Foodbank** (`brentwood`, CM15 9EH): own site now Tuesday-Wednesday 10:00 am to 1:00 pm  
+  source: https://brentwood.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **The Community Cupboard Foodbank** (`the-community-cupboard`, TN15 6EL): own site now Tues & Thur 12 -2pm  
+  source: http://www.thecommunitycupboard.co.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Rickmansworth Foodbank** (`rickmansworth`, WD3 7HJ): own site now Tuesday 1:45 pm to 4:00 pm; Friday 10:00 am to 12:00 pm  
+  source: https://rickmansworth.foodbank.org.uk  
+  why held: own site gives one table for several branches; cannot tell which branch; times not read identically on 2 separate runs yet
+- **Mill End** (`rickmansworth/mill-end`, WD3 7HJ): own site now Tuesday 1:45 pm to 4:00 pm; Friday 10:00 am to 12:00 pm  
+  source: https://rickmansworth.foodbank.org.uk  
+  why held: own site gives one table for several branches; cannot tell which branch; times not read identically on 2 separate runs yet
+- **Old Lodge Lane Baptist Church** (`purley/old-lodge-lane-baptist-church`, CR8 4BQ): own site now Fridays 9am-12pm  
+  source: https://www.purleyfoodhub.net  
+  why held: times not read identically on 2 separate runs yet
+- **Salcare Foodbank** (`salcare`, DE75 7GF): own site now Tuesday & Friday 10am until 1pm  
+  source: https://www.salcare.org.uk/food-bank-community-pantry/  
+  why held: times not read identically on 2 separate runs yet
+- **Auldhouse Community Foodbank** (`auldhouse-community`, G43 2XG): own site now Thursdays 11.30am - 2.00pm  
+  source: https://www.auldhousecommunitychurch.com/whats-mid-foodbank/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Causeway Foodbank** (`causeway`, BT52 2ED): own site now Mon Closed; Tue 11:30 - 13:00; Wed 11:30 - 13:00; Thu 19:00 - 20:00; Fri 11:30 - 13:00; Sat Closed; Sun Closed  
+  source: https://causeway.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **The Net Community Cafe** (`medway/the-net-community-cafe`, ME5 0QX): own site now Thursday 9:30 am to 12:00 pm  
+  source: https://medway.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **St Justus Church** (`medway/st-justus-church`, ME1 2LT): own site now Tuesday 10:30 am to 12:30 pm  
+  source: https://medway.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Twydall Foodbank Centre & Coffee Shop** (`medway/twydall-foodbank-centre-coffee-shop`, ME8 6LQ): own site now Tuesday 12:30 pm to 2:30 pm; Friday 10:30 am to 12:30 pm  
+  source: https://medway.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Comfort Memorial Food For All Foodbank** (`comfort-memorial-food-for-all`, MK9 2AH): own site now Monday 11:00 - 15:30 | Wednesday 11:00 - 15:30 | Friday 11:00 - 15:30  
+  source: http://www.cmffa.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Bridgwater Foodbank** (`bridgwater`, TA6 3ER): own site now Mon 10:30 - 13:30; Tue Closed; Wed 10:30 - 13:30; Thu Closed; Fri 10:30 - 13:30; Sat Closed; Sun Closed  
+  source: https://bridgwater.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **PATCH Foodbank** (`patch`, SA73 2HA): own site now Monday – Friday 10am-2pm  
+  source: https://patchcharity.org.uk  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **St Aldhelm's Centre** (`swindon/st-aldhelms-centre`, SN1 1QS): own site now Monday , Thursday & Friday (except Good Friday) 2.30pm – 4.30 pm (Mon & Fri) 1.30pm - 4.15 pm (Thursday)  
+  source: https://www.swindonfoodcollective.org  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Tottenham SDA** (`3food4u/tottenham-sda`, N15 5EG): own site now Wednesday 4:45pm to 6:00pm  
+  source: https://3food4u.org  
+  why held: times not read identically on 2 separate runs yet
+- **Chigwell Row** (`3food4u/chigwell-row`, IG7 4QD): own site now Thursday 12:15pm to 1:15pm  
+  source: https://3food4u.org  
+  why held: times not read identically on 2 separate runs yet
+- **Budworth Hall** (`3food4u/budworth-hall`, CM5 9JG): own site now Friday 12:30pm to 2:00pm  
+  source: https://3food4u.org  
+  why held: times not read identically on 2 separate runs yet
+- **Woking Foodbank** (`woking`, GU21 6EL): own site now Monday 10:30 am to 12:30 pm; Wednesday 10:30 am to 12:30 pm; Thursday 10:30 am to 12:30 pm  
+  source: https://woking.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Whitby Foodbank** (`whitby`, YO21 3AJ): own site now Mondays and Fridays 2.00-4.00pm  
+  source: http://www.foodbank4whitby.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Cumbernauld Foodbank** (`cumbernauld`, G67 1QR): own site now Mon Closed; Tue 11:00 - 14:00; Wed Closed; Thu Closed; Fri Closed; Sat Closed; Sun Closed  
+  source: https://cumbernauld.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **St Chads, Liscard** (`wirral/st-chads-liscard`, CH46 1RW): own site now Tuesday 10:00 am to 1:00 pm  
+  source: https://wirral.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **St Joseph and St Alban's** (`wirral/st-joseph-and-st-albans`, CH44 5UD): own site now Tuesday 5:30 pm to 7:00 pm  
+  source: https://wirral.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **St James Church, New Brighton** (`wirral/st-james-church-new-brighton`, CH45 9LF): own site now Thursday 10:30 am to 12:30 pm  
+  source: https://wirral.foodbank.org.uk  
+  why held: times not read identically on 2 separate runs yet
+- **Godalming & Villages Community Store Foodbank** (`godalming-villages-community-store`, GU7 3BE): own site now Monday - Friday 10am-12:30pm  
+  source: https://godalmingcommunitystore.org  
+  why held: times not read identically on 2 separate runs yet
+- **Pontypridd Foodbank** (`pontypridd`, CF37 1BW): own site now Tuesday-Friday 9:00 am to 1:45 pm; Saturday 10:00 am to 11:45 am  
+  source: https://pontypridd.foodbank.org.uk  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **St George's Foodbank** (`st-georges`, WF2 8AA): own site now Monday-Friday 9am-2pm  
+  source: https://stgeorgeslupset.org.uk/  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Cann Hall Foodbank** (`cann-hall`, E11 3NJ): own site now Friday 4-6pm  
+  source: https://cannhall.org/foodbank/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Driffield & Wolds Foodbank** (`driffield-wolds`, YO25 6AW): own site now Monday and Thursday 10am -12pm  
+  source: https://lovedriffield.org.uk/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Rye Foodbank** (`rye`, TN31 7AN): own site now Wednesday 12pm–2pm  
+  source: https://ryefoodbank.com  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **West End Impact Foodbank** (`west-end-impact`, LA3 1DG): own site now Tuesday 10-1 | Thursday 10-1 | Tuesday 10-1pm  
+  source: https://www.westendimpact.org.uk/foodbank  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Pan Together** (`ifan-0ea12dd414fcb6a358d3f0-0`, PO30 2AX): own site now Friday 12pm to 2pm  
+  source: https://www.pantogether.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Hopeworx** (`ifan-4a6217d6ae69c4977d7d70-0`, SS6 7XJ): own site now Monday To Friday 09:30am - 4:30pm | Saturday 09:30am - 12.30pm  
+  source: https://www.hopeworx.org.uk  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): own site now Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
+  source: https://stpaulsparkside.org.uk/  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): own site now Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **Hangar Community Hub CIC** (`ifan-9d9a5ae13b3923c3fd7d0b-0`, CF11 8TT): own site now Mon-Fri 9-2pm  
+  source: https://hangarhub.org  
+  why held: new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
+- **Castleman Community Larder CIC** (`ifan-da5df633f7eabc8fbdb2a3-0`, BH22 0JB): own site now Mon, Tues, Wed 10am - 3pm  
+  source: https://castlemancommunity.wixsite.com/larder  
+  why held: times not read identically on 2 separate runs yet
+<!-- /times crosscheck fb -->
 
 
 <!-- times crosscheck ws -->
@@ -275,4 +525,24 @@ To remove one, add its id to overrides/foodbank_closed.json; to clear the note, 
 
 <!-- phone lock -->
 - blocked, held for Dean | kings-langley | phone | via phone fix | source https://beneficeoflangelei.org.uk/allsaints/contact/ | stored 01923 903531 | proposed 07754997144 | unchanged (byte-identical) | Kings Langley
+- blocked, held for Dean | hull | phone | via refresh | source feed refresh | stored 01482328196 | proposed 01482224783 | unchanged (byte-identical) | Hull Foodbank
+- blocked, held for Dean | hull | tel | via refresh | source feed refresh | stored 01482328196 | proposed 01482224783 | unchanged (byte-identical) | Hull Foodbank
+- blocked, held for Dean | bognor-regis | phone | via refresh | source feed refresh | stored 01243841275 | proposed 01243866952 | unchanged (byte-identical) | Bognor Regis Foodbank
+- blocked, held for Dean | bognor-regis | tel | via refresh | source feed refresh | stored 01243841275 | proposed 01243866952 | unchanged (byte-identical) | Bognor Regis Foodbank
+- blocked, held for Dean | quex-road | phone | via refresh | source feed refresh | stored 02077989025 | proposed 02076241701 | unchanged (byte-identical) | Quex Road Foodbank
+- blocked, held for Dean | quex-road | tel | via refresh | source feed refresh | stored 02077989025 | proposed 02076241701 | unchanged (byte-identical) | Quex Road Foodbank
+- blocked, held for Dean | euston | phone | via refresh | source feed refresh | stored 02046159770 | proposed 07400053838 | unchanged (byte-identical) | Euston Foodbank
+- blocked, held for Dean | euston | tel | via refresh | source feed refresh | stored 02046159770 | proposed 07400053838 | unchanged (byte-identical) | Euston Foodbank
+- blocked, held for Dean | wantage-and-grove | phone | via refresh | source feed refresh | stored 01235765348 | proposed 01865297403 | unchanged (byte-identical) | Wantage and Grove Foodbank
+- blocked, held for Dean | wantage-and-grove | tel | via refresh | source feed refresh | stored 01235765348 | proposed 01865297403 | unchanged (byte-identical) | Wantage and Grove Foodbank
+- blocked, held for Dean | hartlepool | phone | via refresh | source feed refresh | stored 01429806895 | proposed 01429405543 | unchanged (byte-identical) | Hartlepool Foodbank
+- blocked, held for Dean | hartlepool | tel | via refresh | source feed refresh | stored 01429806895 | proposed 01429405543 | unchanged (byte-identical) | Hartlepool Foodbank
+- blocked, held for Dean | st-monicas | phone | via refresh | source feed refresh | stored 02077989025 | proposed 02088869568 | unchanged (byte-identical) | St Monica's Foodbank
+- blocked, held for Dean | st-monicas | tel | via refresh | source feed refresh | stored 02077989025 | proposed 02088869568 | unchanged (byte-identical) | St Monica's Foodbank
+- blocked, held for Dean | pontefract-knottingley/knottingley | phone | via refresh | source feed refresh | stored 07747168988 | proposed 01977339278 | unchanged (byte-identical) | Knottingley
+- blocked, held for Dean | pontefract-knottingley/knottingley | tel | via refresh | source feed refresh | stored 07747168988 | proposed 01977339278 | unchanged (byte-identical) | Knottingley
+- blocked, held for Dean | hull/hull-foodbank | phone | via refresh | source feed refresh | stored 01482328196 | proposed 01482224783 | unchanged (byte-identical) | Hull Foodbank
+- blocked, held for Dean | hull/hull-foodbank | tel | via refresh | source feed refresh | stored 01482328196 | proposed 01482224783 | unchanged (byte-identical) | Hull Foodbank
+- blocked, held for Dean | kirkcaldy/park-road-centre | phone | via refresh | source feed refresh | stored (none) | proposed 01592 655422 | unchanged (byte-identical) | Park Road Centre
+- blocked, held for Dean | kirkcaldy/park-road-centre | tel | via refresh | source feed refresh | stored (none) | proposed 01592655422 | unchanged (byte-identical) | Park Road Centre
 <!-- /phone lock -->

@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-27",
+ "checked": "2026-10-29",
  "recently_closed": [
   {
    "id": "kentish-town",
@@ -100,6 +100,16 @@
    "source": "manual (own site)",
    "url": "https://welshpooldistrict.foodbank.org.uk/welshpool-and-district-foodbank-now-closed/",
    "evidence": "dbank now closed Welshpool and District Foodbank has now closed. Thank you for all your support. - - - Welshpool and District Foodbank"
+  },
+  {
+   "id": "coventry/hope-centre",
+   "name": "Hope Centre",
+   "address": "Sparkbrook Street, Coventry, CV1 5LB",
+   "postcode": "CV1 5LB",
+   "closed_on": "2026-10-29",
+   "source": "manual (own site)",
+   "url": "https://coventry.foodbank.org.uk/locations/",
+   "evidence": "Katy, Coventry Foodbank (email 22 Oct 2026): the Hope Centre, Sparkbrook Street CV1 5LB, is no longer a foodbank centre; it is not among the 15 centres on the locations page"
   }
  ],
  "removed_this_run": [
@@ -112,6 +122,7 @@
   "kentish-town",
   "shoreham/oasis-food-bank",
   "waveney/fressingfield-methodist-church",
+  "coventry/hope-centre",
   "stockport/tiviot-dale-stockport"
  ],
  "held_for_review": []

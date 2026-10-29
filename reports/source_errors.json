@@ -1,103 +1,103 @@
 {
- "run": "2026-10-27T13:38:29+00:00",
- "checked": 1066,
+ "run": "2026-10-29T08:00:57+00:00",
+ "checked": 1064,
  "errors": [
   {
    "website": "https://ccg.scot/projects/1073/",
    "name": "Crookston Community Group Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://dwellingplaceglasgow.org/storehouse/",
    "name": "Glasgow Vineyard Storehouse Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.vulcancentre.co.uk/food-distribution/",
    "name": "The Vulcan Centre Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
-  },
-  {
-   "website": "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/",
-   "name": "Eastwood Foodbank",
-   "http": 403,
-   "error": "HTTP 403",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.bjoamaraassociation.org.uk/",
    "name": "BJO Amara Association Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.northlochs.co.uk",
    "name": "North Lochs Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.thorne-moorends.gov.uk/community/community-groups/",
    "name": "Thorne and Moorends Community Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "http://www.caistorfoodbank.org",
    "name": "Caistor Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "http://www.churchesfoodbank.org.uk",
    "name": "Churches Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "http://www.onevisionproject.org",
    "name": "One Vision Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html",
    "name": "Alhuda Welfare Foundation Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://assyntdevelopmenttrust.org/assynt-food-bank/",
    "name": "Assynt Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://communitykitchenhub.org.uk",
    "name": "Dartmoor Community Kitchen Hub Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://durhamfoodbank.org.uk",
    "name": "County Durham Foodbank",
    "http": 403,
    "error": "HTTP 403",
+   "fail_runs": 10
+  },
+  {
+   "website": "https://eastwood-tc.gov.uk/directory/listing/eastwood-volunteer-bureau/",
+   "name": "Eastwood Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
    "fail_runs": 9
   },
   {
@@ -105,118 +105,132 @@
    "name": "Kenton Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://kingschurchleicester.org/foodbank",
    "name": "Manor House Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://lesliecommunitypantry.co.uk",
    "name": "Leslie Community Pantry Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://newmarketopendoor.org.uk/foodbank",
    "name": "Newmarket Open Door Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://okehamptonfoodbank.co.uk",
    "name": "Okehampton Foodbank",
    "http": 401,
    "error": "HTTP 401",
-   "fail_runs": 7
+   "fail_runs": 8
   },
   {
    "website": "https://orchardprimary.org/orchard-primary-school-food-bank",
    "name": "Orchard Primary School Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://sanctuarytrust.org.uk/projects/conwyfoodbank/",
    "name": "Conwy Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://southamptoncitymission.co.uk/basics-banks",
    "name": "Southampton Basics Bank Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://stmary-sutton.org.uk/page/marys-food-bank",
    "name": "Mary's (Sutton) Foodbank",
    "http": null,
    "error": "URLError: <urlopen error timed out>",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://wecockchurch.org.uk/waterlooville-foodbank/",
    "name": "Waterlooville Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.betheltrustpt.co.uk/food-share",
    "name": "Bethel Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.dorchesterbc.org.uk/foodbank",
    "name": "Dorchester Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
+  },
+  {
+   "website": "https://www.foodshare.charity",
+   "name": "Maidenhead Foodbank",
+   "http": 429,
+   "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+   "fail_runs": 3
   },
   {
    "website": "https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank",
    "name": "Gatehouse Community Church Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.leominsterfoodbank.org",
    "name": "Leominster Foodbank",
    "http": null,
    "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl",
-   "fail_runs": 9
+   "fail_runs": 10
+  },
+  {
+   "website": "https://www.salma-foodbank.org",
+   "name": "Salma Foodbank",
+   "http": 429,
+   "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+   "fail_runs": 3
   },
   {
    "website": "https://www.thearchesrhayader.co.uk/foodbank",
    "name": "Rhayader Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.widdstobpc.org/foodbank",
    "name": "Widdrington Station & Stobswood Foodbank",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://gleadlessvalleyfoodbank.co.uk/",
    "name": "Gleadless Valley Foodbank",
-   "http": 403,
-   "error": "HTTP 403",
+   "http": null,
+   "error": "not fetched, robots",
    "fail_runs": 8
   },
   {
@@ -224,48 +238,27 @@
    "name": "Newcastle Foodbank",
    "http": 403,
    "error": "HTTP 403",
-   "fail_runs": 9
+   "fail_runs": 10
   },
   {
    "website": "https://www.thewelcomecentre.org",
    "name": "The Welcome Centre",
    "http": 404,
    "error": "HTTP 404",
-   "fail_runs": 9
-  },
-  {
-   "website": "https://www.foodshare.charity",
-   "name": "Maidenhead Foodbank",
-   "http": 429,
-   "error": "HTTP 429",
-   "fail_runs": 2
-  },
-  {
-   "website": "https://www.salma-foodbank.org",
-   "name": "Salma Foodbank",
-   "http": 429,
-   "error": "HTTP 429",
-   "fail_runs": 2
-  },
-  {
-   "website": "https://www.gcjc.co.uk",
-   "name": "The Gospel Church of Jesus Christ",
-   "http": 429,
-   "error": "HTTP 429",
-   "fail_runs": 1
+   "fail_runs": 10
   },
   {
    "website": "https://www.facebook.com/ColwynBayCommunityHwb/",
    "name": "Colwyn Bay Foodbank",
    "http": null,
-   "error": "IncompleteRead: IncompleteRead(87507 bytes read)",
+   "error": "not fetched, robots",
    "fail_runs": 1
   },
   {
    "website": "https://www.facebook.com/friendsofmelvinhall/",
    "name": "Melvin Hall Community Centre Foodbank",
    "http": null,
-   "error": "RemoteDisconnected: Remote end closed connection without response",
+   "error": "not fetched, robots",
    "fail_runs": 1
   },
   {
@@ -273,49 +266,826 @@
    "name": "Oadby Foodbank",
    "http": null,
    "error": "TimeoutError: The read operation timed out",
-   "fail_runs": 1
-  },
-  {
-   "website": "https://strettonparish.org.uk/strettons-food-bank",
-   "name": "Stretton Foodbank",
-   "http": null,
-   "error": "TimeoutError: The read operation timed out",
-   "fail_runs": 1
+   "fail_runs": 2
   },
   {
    "website": "https://okfp.org.uk",
    "name": "Old Kilpatrick Food Parcels Foodbank",
    "http": null,
    "error": "TimeoutError: The read operation timed out",
-   "fail_runs": 1
-  },
-  {
-   "website": "https://www.bridgnorthfoodbank.co.uk",
-   "name": "Bridgnorth Foodbank",
-   "http": null,
-   "error": "TimeoutError: The read operation timed out",
-   "fail_runs": 1
-  },
-  {
-   "website": "https://www.lchaimfoodbank.co.uk/",
-   "name": "L'chaim Foodbank",
-   "http": null,
-   "error": "URLError: <urlopen error timed out>",
-   "fail_runs": 1
+   "fail_runs": 2
   },
   {
    "website": "https://www.taybridgeheadfoodbank.org.uk",
    "name": "Tay Bridgehead Foodbank",
    "http": 403,
    "error": "HTTP 403",
+   "fail_runs": 2
+  },
+  {
+   "website": "https://strettonparish.org.uk/strettons-food-bank",
+   "name": "Stretton Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
    "fail_runs": 1
   },
   {
-   "website": "https://stmags.org.uk/page/the-store-room.html",
-   "name": "St Mags Foodbank",
+   "website": "https://www.facebook.com/BancBwydLlandysul/",
+   "name": "Llandysul Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/DN7FoodBank",
+   "name": "DN7 Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Drighlingtonfoodbank",
+   "name": "Drighlington Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100067159630392",
+   "name": "Clifton Road Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Amblefoodbank/",
+   "name": "Amble Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/GwaunCaeGurwen",
+   "name": "GCG Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/birchgrovecommunityfoodbank/",
+   "name": "Birchgrove Community Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/kirriefoodhub/",
+   "name": "Kirriemuir Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100086170811325",
+   "name": "Selkirk Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.axminsterwellbeing.com",
+   "name": "Axminster Health & Wellbeing Centre",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/WAMCCommunity",
+   "name": "West Ardsley Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.shipshape.org.uk",
+   "name": "Shipshape Health and Wellbeing",
+   "http": null,
+   "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certi",
+   "fail_runs": 3
+  },
+  {
+   "website": "https://kinmelbaychurch.org.uk/food-bank-2/",
+   "name": "Kinmel Bay Church Foodbank",
    "http": 429,
    "error": "HTTP 429",
    "fail_runs": 1
+  },
+  {
+   "website": "https://www.facebook.com/100064507461520",
+   "name": "Silverton Community Larder Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Bettws-Food-Bank-100070864661631/",
+   "name": "Bettws Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/HenleyBridgeFreePantry",
+   "name": "Henley Bridge Free Pantry Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/The-Food-Pantry-Feltwell-103311221603276/",
+   "name": "The Food Pantry Feltwell Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/cgccfoodbank/",
+   "name": "CGCC Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/940970613570584",
+   "name": "Heston Farm Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/pages/Beechdale%20Community%20Centre/134488559955432/",
+   "name": "Beechdale Community Centre Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=61580856995882",
+   "name": "Codsall & Bilbrook Community Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/AHHITH1/",
+   "name": "A Helping Hand In The Highlands Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/BancBwydAberaeron/",
+   "name": "Aberaeron Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/BethanyFoodbankErdington/",
+   "name": "Bethany Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Brandlesholme",
+   "name": "Brandlesholme Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/COMMUNITYFOODBANKATSTJOHNSANNESLEY",
+   "name": "St John's Community Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/EileanSiarFoodbank/",
+   "name": "Eilean Siar Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/IlminsterFoodBank/",
+   "name": "Illminster Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/LargsFoodbank",
+   "name": "Largs Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/LeytonstoneSDA",
+   "name": "Leytonstone Seventh-Day Adventist Church Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/LighthouseWhitworth",
+   "name": "The Lighthouse Community Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Louthfoodbank/",
+   "name": "Louth's Community Larder Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/MaghullFoodBank/",
+   "name": "Maghull Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Pantry14",
+   "name": "The Pantry Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/StaffordFoodbank",
+   "name": "Stafford Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/SteppingStonesTotnes",
+   "name": "Stepping Stones Totnes Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/SupportHeywoodFoodbank",
+   "name": "Heywood Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/TeamRootsno1/",
+   "name": "Roots Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/TheShackFoodProject/",
+   "name": "The Shack Food Project",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/ThrapstonFoodBank/",
+   "name": "Thrapston Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Tuptonfoodbank/",
+   "name": "Tupton Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/TyishaPositiveActionGroup/",
+   "name": "Tyisha Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/Weardalefoodbank",
+   "name": "Weardale Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/WolverhamptonMuslimForum/",
+   "name": "Wolverhampton Muslim Forum Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/agapecarefoodbank/",
+   "name": "Agape Care Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/ballynahinchfoodbank",
+   "name": "Ballynahinch Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/blackpoolsvoice/",
+   "name": "Blackpool's Voice Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/christkingfoodbank/",
+   "name": "Christ The King Church Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/codicotefoodbank",
+   "name": "Codicote Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/dulaisvalleyfoodbank/",
+   "name": "Dulais Valley Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/eastneukfoodbank",
+   "name": "East Neuk Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/fitzjohnsfood",
+   "name": "Fitzjohn's Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/foodforfamiliescic/",
+   "name": "Food For Families Penzance Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/247599576322053/",
+   "name": "St Mary Magdalene Church Maltby Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/416782742925520/",
+   "name": "LauderLarder Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/470266294357172",
+   "name": "Cullompton Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/680009679371353/",
+   "name": "Accrington Christians Together Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/Uistandbarrafoodbank",
+   "name": "Uist & Barra Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/groups/headleydownfoodbank/",
+   "name": "Headley Down Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/highworthcommunitylarder/",
+   "name": "Highworth Community Larder Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/jenesescommunitycentre/",
+   "name": "Jeneses Community Centre Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/lampeterfoodbank",
+   "name": "Lampeter Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/lyndhurstfoodbank/",
+   "name": "Lyndhurst Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/mylocalfoodbank/",
+   "name": "Horwich Foodshare Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/newlifespilsby",
+   "name": "New Life Centre Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/orchardliverpool",
+   "name": "The Orchard Liverpool Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Banc-Bwyd-Amlwch-Food-Bank-100063792645975/",
+   "name": "Amlwch Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Christian-Care-Share-100076386488539/",
+   "name": "Christian Care and Share Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Cornerstone-Foodbank-Kilkeel-100068293655694/",
+   "name": "Cornerstone Kilkeel Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Crieff-Foodbank-100074266275159/",
+   "name": "Crieff Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Dengie-Food-Pantry-Food-Bank-100064879771886/?locale=en_GB",
+   "name": "Dengie Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Invergordon-Foodbank-61572212057828/",
+   "name": "Invergordon Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Malling-Foodbank-100087661153814/",
+   "name": "Malling Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/The-Larder-Newry-100064771626178/",
+   "name": "The Larder Newry Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/p/Ventnor-Community-Foodbank-100068020155033/",
+   "name": "Ventnor Community Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/pages/category/Charity-Organization/Time-For-The-Homeless-250523678990484/",
+   "name": "Time for the Homeless Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/penmaenmawrfoodbank/",
+   "name": "Penmaenmawr Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/people/Hooky-Neighbours-Pantry/61553824434301/",
+   "name": "Hooky Neighbours Pantry Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/pontarddulaisfoodbank/",
+   "name": "Pontarddulais Area Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100064504881937",
+   "name": "Brinsley Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100065267809395&locale=en_GB",
+   "name": "Kings Heath Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100072026179699",
+   "name": "Dunoon Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100075914414393",
+   "name": "Slade Green Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=100089973345266",
+   "name": "Ockbrook & Borrowash Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/profile.php?id=61577815048282",
+   "name": "Bedlington Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/sewadaynotts/",
+   "name": "Rushcliffe Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/stairfootfoodbank/",
+   "name": "Stairfoot Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/stoneystantonfoodbank/",
+   "name": "Stoney Stanton Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/thornabyfoodbank/",
+   "name": "Thornaby Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://www.facebook.com/whitlandtownhallcommunityfoodbank/",
+   "name": "Whitland Town Hall Community Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://hphub.co.uk/",
+   "name": "Highams Park Hub Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.coss-broomhouse.org.uk/the-foodbank/",
+   "name": "Community One Stop Shop Foodbank",
+   "http": 500,
+   "error": "HTTP 500",
+   "fail_runs": 1
+  },
+  {
+   "website": "http://www.james4u.org/foodbank-blog/index.html",
+   "name": "St James Thornton Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+   "fail_runs": 1
+  },
+  {
+   "website": "http://www.raftfoundation.org",
+   "name": "The Raft Foundation Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://cdwfoodbank.co.uk",
+   "name": "CDW Foodbank",
+   "http": 404,
+   "error": "HTTP 404",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://churchestogetherinpenzance.co.uk/project/food-bank/",
+   "name": "Penzance Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://dartmouthanddistrictfoodbank.org.uk",
+   "name": "Dartmouth & District Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://jacobswell.charity/food-bank",
+   "name": "Jacobs Well Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://newhamfoodbank.org.uk",
+   "name": "Newham Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://ramsbottompantry.com",
+   "name": "Ramsbottom Pantry Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://riveroflife.org.uk/food-project/",
+   "name": "River of Life Church Foodbank",
+   "http": 500,
+   "error": "HTTP 500",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://stannsadvice.org.uk/foodbank/",
+   "name": "St Annes Advice Nottingham Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://uorhucknall.org.uk/hosted%20organisations",
+   "name": "Hucknall Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://westdunbartonshirecommunityfoodshare.co.uk/",
+   "name": "West Dunbartonshire Community Foodshare Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.leightonlinsladehelpers.org.uk/",
+   "name": "Leighton Linslade Helpers Foodbank",
+   "http": 429,
+   "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.mifoodbank.org",
+   "name": "Margate Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.project-food.org.uk",
+   "name": "Project Food Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://beneficeoflangelei.org.uk/allsaints/community/all-saints-foodbank/",
+   "name": "Kings Langley Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.windsorfoodshare.org.uk",
+   "name": "Windsor Food Share Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://ardwickandlongsightfoodbank.org.uk",
+   "name": "Ardwick & Longsight Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://hebburnhelps.co.uk",
+   "name": "Hebburn Helps Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
+  },
+  {
+   "website": "https://peacecentre.org.uk/foodbank/",
+   "name": "Peace Centre Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.thefoodbank.org.uk/",
+   "name": "North Lakes Foodbank",
+   "http": 429,
+   "error": "paused this run after HTTP 429 - still due on a later scheduled run",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
+   "name": "Woodhouse Close Church Foodbank",
+   "http": null,
+   "error": "not fetched, robots",
+   "fail_runs": 0
   }
  ]
 }

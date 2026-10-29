@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27",
+ "generated": "2026-10-29",
  "source": "https://www.gov.uk/bank-holidays.json (Open Government Licence v3.0)",
  "bank_holidays": {
   "england-and-wales": [
@@ -385,6 +385,13 @@
    ]
   },
   {
+   "id": "dens",
+   "name": "DENS Foodbank",
+   "text": [
+    "Open Monday-Friday, 10am-1pm. Additional hours on Wednesdays 3pm-6pm. Closed on Bank Holidays"
+   ]
+  },
+  {
    "id": "bridgnorth",
    "name": "Bridgnorth Foodbank",
    "text": [
@@ -417,6 +424,27 @@
    "name": "St Bartholomew's Church",
    "text": [
     "Monday 1pm - 3pm (except bank holidays)"
+   ]
+  },
+  {
+   "id": "eastern-valley/victory-church",
+   "name": "Victory Church",
+   "text": [
+    "Victory Church Blaenavon - Broad Street NP4 9NE.- site closed on bank holidays  Opening times  Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 Fri Closed Sat Closed Sun Closed"
+   ]
+  },
+  {
+   "id": "manchester-south-central/st-brides-church",
+   "name": "St Bride's Church",
+   "text": [
+    "St Bride's Church, St Brides Way, Old Trafford, M16 9NW (Closed Christmas Eve and New Year's Eve)  0161 226 3413 / 07561 680009  Opening times  Mon Closed Tue Closed Wed 13:00 - 15:00 Thu Closed Fri Closed Sat Closed Sun Closed"
+   ]
+  },
+  {
+   "id": "manchester-south-central/ascension-church-hulme",
+   "name": "Ascension Church Hulme",
+   "text": [
+    "Ascension Church Hulme, 282 Stretford Road, Hulme, M15 5TQ (Closed Boxing Day)  0161 226 3413 / 07561 680009  Opening times  Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 Sat Closed Sun Closed"
    ]
   }
  ]

@@ -1,4 +1,404 @@
 {
+"fb:3food4u/budworth-hall": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"12:30\", \"14:00\"]]}",
+"source_url": "https://3food4u.org"
+},
+"fb:3food4u/chigwell-row": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"12:15\", \"13:15\"]]}",
+"source_url": "https://3food4u.org/"
+},
+"fb:3food4u/tottenham-sda": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"wed\": [[\"16:45\", \"18:00\"]]}",
+"source_url": "https://3food4u.org/"
+},
+"fb:anglesey": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:15\", \"14:00\"]], \"mon\": [[\"09:15\", \"14:00\"]], \"thu\": [[\"09:15\", \"14:00\"]], \"tue\": [[\"09:15\", \"14:00\"]], \"wed\": [[\"09:15\", \"14:00\"]]}",
+"source_url": "https://anglesey.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:auldhouse-community": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"11:30\", \"14:00\"]]}",
+"source_url": "https://www.auldhousecommunitychurch.com/whats-mid-foodbank/"
+},
+"fb:bradford-north/st-lukes": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"11:00\", \"13:30\"]]}",
+"source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:brentwood": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"10:00\", \"13:00\"]], \"wed\": [[\"10:00\", \"13:00\"]]}",
+"source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:bridgwater": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:30\", \"13:30\"]], \"mon\": [[\"10:30\", \"13:30\"]], \"wed\": [[\"10:30\", \"13:30\"]]}",
+"source_url": "https://bridgwater.foodbank.org.uk/locations/"
+},
+"fb:burgess-hill": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]], \"sat\": [[\"10:00\", \"12:00\"]], \"thu\": [[\"11:00\", \"13:00\"]], \"tue\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://burgesshillfoodbank.org.uk"
+},
+"fb:cann-hall": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"16:00\", \"18:00\"]]}",
+"source_url": "https://cannhall.org/foodbank/"
+},
+"fb:causeway": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"11:30\", \"13:00\"]], \"thu\": [[\"19:00\", \"20:00\"]], \"tue\": [[\"11:30\", \"13:00\"]], \"wed\": [[\"11:30\", \"13:00\"]]}",
+"source_url": "https://causeway.foodbank.org.uk/locations/"
+},
+"fb:chichester-district": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"16:00\", \"18:00\"]], \"mon\": [[\"14:00\", \"16:00\"]], \"wed\": [[\"09:30\", \"11:30\"]]}",
+"source_url": "https://chichesterdistrict.foodbank.org.uk/locations"
+},
+"fb:colchester": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"14:00\"]], \"mon\": [[\"10:00\", \"14:00\"]], \"sat\": [[\"10:00\", \"14:00\"]], \"thu\": [[\"10:00\", \"14:00\"]], \"tue\": [[\"10:00\", \"14:00\"]], \"wed\": [[\"10:00\", \"14:00\"]]}",
+"source_url": "https://colchester.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:comfort-memorial-food-for-all": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"11:00\", \"15:30\"]], \"mon\": [[\"11:00\", \"15:30\"]], \"wed\": [[\"11:00\", \"15:30\"]]}",
+"source_url": "https://www.cmffa.org.uk/"
+},
+"fb:corsham-churches": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"sat\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://corshamchurchesfoodbank.org.uk"
+},
+"fb:crescent": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"sun\": [[\"10:00\", \"11:00\"]]}",
+"source_url": "https://crescentfoodbank.org.uk"
+},
+"fb:cumbernauld": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"11:00\", \"14:00\"]]}",
+"source_url": "https://cumbernauld.foodbank.org.uk/locations/"
+},
+"fb:dens/liberty-tea-rooms": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"16:30\"]], \"mon\": [[\"09:00\", \"16:30\"]], \"thu\": [[\"09:00\", \"16:30\"]], \"tue\": [[\"09:00\", \"16:30\"]], \"wed\": [[\"09:00\", \"16:30\"]]}",
+"source_url": "https://www.dens.org.uk/need-emergency-food/"
+},
+"fb:dens/st-peter-st-paul-church": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"17:00\"]], \"mon\": [[\"09:00\", \"17:00\"]], \"sat\": [[\"09:00\", \"13:00\"]], \"thu\": [[\"09:00\", \"17:00\"]], \"tue\": [[\"09:00\", \"17:00\"]], \"wed\": [[\"09:00\", \"17:00\"]]}",
+"source_url": "https://www.dens.org.uk/need-emergency-food/"
+},
+"fb:dens/way-inn-christian-centre": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]], \"thu\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"10:00\", \"12:00\"]], \"wed\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://www.dens.org.uk/need-emergency-food/"
+},
+"fb:driffield-wolds": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"10:00\", \"12:00\"]], \"thu\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://lovedriffield.org.uk/"
+},
+"fb:ealing/northolt": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"12:00\", \"13:30\"]]}",
+"source_url": "https://ealing.foodbank.org.uk/locations/"
+},
+"fb:enniskillen": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"13:00\", \"15:00\"]], \"wed\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:godalming-villages-community-store": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:30\"]], \"mon\": [[\"10:00\", \"12:30\"]], \"thu\": [[\"10:00\", \"12:30\"]], \"tue\": [[\"10:00\", \"12:30\"]], \"wed\": [[\"10:00\", \"12:30\"]]}",
+"source_url": "https://godalmingcommunitystore.org/contact"
+},
+"fb:hereford": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]], \"mon\": [[\"10:00\", \"12:00\"]], \"thu\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"10:00\", \"12:00\"]], \"wed\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://herefordfoodbank.co.uk/contact-us"
+},
+"fb:ifan-0ea12dd414fcb6a358d3f0-0": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"12:00\", \"14:00\"]]}",
+"source_url": "https://pantogether.org.uk/"
+},
+"fb:ifan-4a6217d6ae69c4977d7d70-0": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:30\", \"16:30\"]], \"mon\": [[\"09:30\", \"16:30\"]], \"sat\": [[\"09:30\", \"12:30\"]], \"thu\": [[\"09:30\", \"16:30\"]], \"tue\": [[\"09:30\", \"16:30\"]], \"wed\": [[\"09:30\", \"16:30\"]]}",
+"source_url": "https://www.hopeworx.org.uk"
+},
+"fb:ifan-53c68645aa831ab649ac43-0": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"15:00\", \"17:00\"]], \"thu\": [[\"18:30\", \"19:30\"]], \"tue\": [[\"10:00\", \"12:00\"]], \"wed\": [[\"15:30\", \"17:30\"]]}",
+"source_url": "https://www.stpaulsparkside.org.uk/"
+},
+"fb:ifan-5b9fd1318a04132921a389-0": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"09:30\", \"11:00\"]]}",
+"source_url": "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/"
+},
+"fb:ifan-9d9a5ae13b3923c3fd7d0b-0": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"14:00\"]], \"mon\": [[\"09:00\", \"14:00\"]], \"thu\": [[\"09:00\", \"14:00\"]], \"tue\": [[\"09:00\", \"14:00\"]], \"wed\": [[\"09:00\", \"14:00\"]]}",
+"source_url": "https://hangarhub.org/contact/"
+},
+"fb:ifan-da5df633f7eabc8fbdb2a3-0": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"10:00\", \"15:00\"]], \"tue\": [[\"10:00\", \"15:00\"]], \"wed\": [[\"10:00\", \"15:00\"]]}",
+"source_url": "https://castlemancommunity.wixsite.com/larder/contact-us"
+},
+"fb:inspero": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"17:00\"]], \"mon\": [[\"09:00\", \"17:00\"]], \"thu\": [[\"09:00\", \"17:00\"]], \"tue\": [[\"09:00\", \"17:00\"]], \"wed\": [[\"09:00\", \"17:00\"]]}",
+"source_url": "https://www.inspero.org.uk"
+},
+"fb:kirkby-storehouse": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"14:00\", \"15:00\"]]}",
+"source_url": "https://www.ashwoodchurch.org.uk/community/"
+},
+"fb:kirkcaldy/link-living": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"16:00\"]], \"mon\": [[\"10:00\", \"16:00\"]], \"thu\": [[\"10:00\", \"16:00\"]], \"tue\": [[\"10:00\", \"16:00\"]], \"wed\": [[\"10:00\", \"16:00\"]]}",
+"source_url": "https://www.kirkcaldyfoodbankcharity.org.uk/contact-us"
+},
+"fb:liphook": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:30\", \"11:30\"]], \"tue\": [[\"09:30\", \"11:30\"]]}",
+"source_url": "https://liphookfoodbank.com"
+},
+"fb:medway/st-justus-church": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"10:30\", \"12:30\"]]}",
+"source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:medway/the-net-community-cafe": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"09:30\", \"12:00\"]]}",
+"source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:medway/twydall-foodbank-centre-coffee-shop": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:30\", \"12:30\"]], \"tue\": [[\"12:30\", \"14:30\"]]}",
+"source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:new-wortley-community-centre": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"sat\": [[\"13:00\", \"15:00\"]]}",
+"source_url": "https://www.newwortleycc.org.uk/timetable"
+},
+"fb:north-oxfordshire": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are"
+},
+"fb:nourish": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"10:00\", \"14:00\"]], \"tue\": [[\"10:00\", \"14:00\"]]}",
+"source_url": "https://faith-works.org.uk/locations-across-dorset/"
+},
+"fb:old-kilpatrick-food-parcels": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"11:00\", \"15:00\"]], \"thu\": [[\"11:00\", \"15:00\"]], \"tue\": [[\"11:00\", \"15:00\"]], \"wed\": [[\"11:00\", \"15:00\"]]}",
+"source_url": "https://www.okfp.org.uk/"
+},
+"fb:pantry": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"sat\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://www.pantryfoodbank.org"
+},
+"fb:patch": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"14:00\"]], \"mon\": [[\"10:00\", \"14:00\"]], \"thu\": [[\"10:00\", \"14:00\"]], \"tue\": [[\"10:00\", \"14:00\"]], \"wed\": [[\"10:00\", \"14:00\"]]}",
+"source_url": "https://patchcharity.org.uk/get-help/"
+},
+"fb:pbp/cetma-llanelli": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"12:00\", \"16:00\"]], \"thu\": [[\"10:00\", \"16:00\"]], \"tue\": [[\"10:00\", \"16:00\"]], \"wed\": [[\"10:00\", \"16:00\"]]}",
+"source_url": "https://cetma.org.uk/contact-page/"
+},
+"fb:pontypridd": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"13:45\"]], \"sat\": [[\"10:00\", \"11:45\"]], \"thu\": [[\"09:00\", \"13:45\"]], \"tue\": [[\"09:00\", \"13:45\"]], \"wed\": [[\"09:00\", \"13:45\"]]}",
+"source_url": "https://pontypridd.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:purley/old-lodge-lane-baptist-church": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"12:00\"]]}",
+"source_url": "https://www.purleyfoodhub.net/get-help/"
+},
+"fb:rickmansworth": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"13:45\", \"16:00\"]]}",
+"source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:rickmansworth/mill-end": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"13:45\", \"16:00\"]]}",
+"source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:rye": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"wed\": [[\"12:00\", \"14:00\"]]}",
+"source_url": "https://ryefoodbank.com"
+},
+"fb:s20": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"16:00\"]], \"mon\": [[\"10:00\", \"16:00\"]], \"thu\": [[\"10:00\", \"16:00\"]], \"tue\": [[\"10:00\", \"16:00\"]], \"wed\": [[\"10:00\", \"16:00\"]]}",
+"source_url": "http://www.sheffieldfoodbank.org.uk/s20/"
+},
+"fb:salcare": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"13:00\"]], \"tue\": [[\"10:00\", \"13:00\"]]}",
+"source_url": "https://www.salcare.org.uk/food-bank-community-pantry/"
+},
+"fb:salford-food-parcels": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"wed\": [[\"10:00\", \"11:30\"]]}",
+"source_url": "https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/"
+},
+"fb:salvation-army/weymouth": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://www.salvationarmy.org.uk/weymouth"
+},
+"fb:sawtry": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"15:00\", \"16:00\"]]}",
+"source_url": "http://www.caresco.org.uk/?page=foodbank"
+},
+"fb:st-georges": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"14:00\"]], \"mon\": [[\"09:00\", \"14:00\"]], \"thu\": [[\"09:00\", \"14:00\"]], \"tue\": [[\"09:00\", \"14:00\"]], \"wed\": [[\"09:00\", \"14:00\"]]}",
+"source_url": "https://stgeorgeslupset.org.uk/centre/"
+},
+"fb:storehouse-melton": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"11:00\", \"13:00\"]], \"mon\": [[\"11:00\", \"13:00\"]], \"wed\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://www.storehousemelton.org.uk/"
+},
+"fb:sunderland": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"09:00\", \"10:30\"]]}",
+"source_url": "https://sunderlandfoodbank.org.uk/locations/"
+},
+"fb:sunderland/downhill-centre-community-hub": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"11:00\", \"13:30\"]]}",
+"source_url": "https://sunderlandfoodbank.org.uk/get-help/"
+},
+"fb:sunderland/roker-methodist-church": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"13:00\", \"15:00\"]]}",
+"source_url": "https://sunderlandfoodbank.org.uk/get-help/"
+},
+"fb:swindon/st-aldhelms-centre": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"14:30\", \"16:30\"]], \"mon\": [[\"14:30\", \"16:30\"]], \"thu\": [[\"13:30\", \"16:15\"]]}",
+"source_url": "https://www.swindonfoodcollective.org/distribution-centres/"
+},
+"fb:the-bus-shelter-shop": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"16:00\"]], \"mon\": [[\"10:00\", \"16:00\"]], \"sat\": [[\"10:00\", \"16:00\"]], \"thu\": [[\"10:00\", \"16:00\"]], \"tue\": [[\"10:00\", \"16:00\"]], \"wed\": [[\"10:00\", \"16:00\"]]}",
+"source_url": "https://www.thebusshelteripswich.co.uk/"
+},
+"fb:the-community-cupboard": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"12:00\", \"14:00\"]], \"tue\": [[\"12:00\", \"14:00\"]]}",
+"source_url": "https://thecommunitycupboard.co.uk/"
+},
+"fb:thurrock/all-saints-church-south-ockendon": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:thurrock/gates-of-praise-international-christian-centre": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"sat\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:thurrock/gateway-peoples-centre": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"wed\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:thurrock/st-francis-centre-linford": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:thurrock/st-john-the-baptist-church-tilbury": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"11:00\", \"13:00\"]]}",
+"source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:thurrock/st-stephens-church-hall-purfleet": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:warminster-and-district": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"12:30\"]], \"tue\": [[\"09:00\", \"12:30\"]], \"wed\": [[\"09:00\", \"12:30\"]]}",
+"source_url": "http://warminsteranddistrictfoodbank.co.uk"
+},
+"fb:wellingborough-district": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"12:00\"]]}",
+"source_url": "https://www.daylightcf.org/foodbank/"
+},
+"fb:west-cheshire/chester-city-centre": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"09:00\", \"11:00\"]], \"wed\": [[\"11:00\", \"14:00\"]]}",
+"source_url": "https://westcheshire.foodbank.org.uk/locations/"
+},
+"fb:west-cheshire/ellesmere-port": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"10:00\", \"12:00\"]], \"tue\": [[\"10:00\", \"12:00\"]]}",
+"source_url": "https://westcheshire.foodbank.org.uk/locations/"
+},
+"fb:west-end-impact": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"10:00\", \"13:00\"]], \"tue\": [[\"10:00\", \"13:00\"]]}",
+"source_url": "https://www.westendimpact.org.uk/i-need-help"
+},
+"fb:whitby": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"14:00\", \"16:00\"]], \"mon\": [[\"14:00\", \"16:00\"]]}",
+"source_url": "https://www.foodbank4whitby.org.uk/"
+},
+"fb:wirral/st-chads-liscard": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"10:00\", \"13:00\"]]}",
+"source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:wirral/st-james-church-new-brighton": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"thu\": [[\"10:30\", \"12:30\"]]}",
+"source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:wirral/st-joseph-and-st-albans": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"tue\": [[\"17:30\", \"19:00\"]]}",
+"source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:woking": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"mon\": [[\"10:30\", \"12:30\"]], \"thu\": [[\"10:30\", \"12:30\"]], \"wed\": [[\"10:30\", \"12:30\"]]}",
+"source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher"
+},
+"fb:wokingham/waterford-house": {
+"run_at": "2026-10-29T08:00:47+00:00",
+"sig": "{\"fri\": [[\"13:00\", \"15:00\"]], \"mon\": [[\"13:00\", \"15:00\"]], \"wed\": [[\"13:00\", \"15:00\"]]}",
+"source_url": "https://wokingham.foodbank.org.uk/about-us/locations"
+},
 "ws:cmn-carway-hall": {
 "run_at": "2026-10-29T05:39:35+00:00",
 "sig": "{\"thu\": [[\"10:00\", \"14:00\"]], \"tue\": [[\"10:00\", \"14:00\"]], \"wed\": [[\"10:00\", \"14:00\"]]}",

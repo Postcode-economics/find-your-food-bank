@@ -11,16 +11,6 @@
    "source_url": "https://coventry.foodbank.org.uk/locations/",
    "checked_date": "2026-10-29"
   },
-  "coventry/our-lady-of-the-assumption-church": {
-   "parent": "coventry",
-   "centre": "Our Lady of the Assumption Church",
-   "postcode": "CV4 9LB",
-   "phones": [
-    "02476993770"
-   ],
-   "source_url": "https://coventry.foodbank.org.uk/locations/",
-   "checked_date": "2026-10-29"
-  },
   "coventry/redeemed-christian-church-of-god-holy-ghost-zone": {
    "parent": "coventry",
    "centre": "Redeemed Church Of God - Holy Ghost Zone",
@@ -71,30 +61,10 @@
    "source_url": "https://coventry.foodbank.org.uk/locations/",
    "checked_date": "2026-10-29"
   },
-  "coventry/authentic-centre": {
-   "parent": "coventry",
-   "centre": "Authentic Centre",
-   "postcode": "CV1 4AE",
-   "phones": [
-    "02476993770"
-   ],
-   "source_url": "https://coventry.foodbank.org.uk/locations/",
-   "checked_date": "2026-10-29"
-  },
   "coventry/walsgrave-baptist-church": {
    "parent": "coventry",
    "centre": "Walsgrave Baptist Church",
    "postcode": "CV2 2EX",
-   "phones": [
-    "02476993770"
-   ],
-   "source_url": "https://coventry.foodbank.org.uk/locations/",
-   "checked_date": "2026-10-29"
-  },
-  "coventry/holbrooks-evangelical-church": {
-   "parent": "coventry",
-   "centre": "Holbrooks Evangelical Church",
-   "postcode": "CV6 4GD",
    "phones": [
     "02476993770"
    ],
@@ -200,6 +170,78 @@
    ],
    "source_url": "https://northerndevon.foodbank.org.uk/locations/",
    "checked_date": "2026-10-29"
+  }
+ },
+ "coventry/our-lady-of-the-assumption-church": {
+  "parent": "coventry",
+  "name": "Our Lady of the Assumption Church",
+  "address": "Tile Hill Lane, Coventry, CV4 9LB",
+  "postcode": "CV4 9LB",
+  "lat": 52.404644,
+  "lng": -1.585258,
+  "evidence": "coventry locations page: Our Lady of the Assumption Church, Opening times Mon Closed Tue 10:30 - 12:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed",
+  "evidence_url": "https://coventry.foodbank.org.uk/locations/",
+  "opening_times": {
+   "checked_date": "2026-10-29",
+   "raw": "Opening times Mon Closed Tue 10:30 - 12:30 Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://coventry.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:30",
+      "12:30"
+     ]
+    ]
+   }
+  }
+ },
+ "coventry/authentic-centre": {
+  "parent": "coventry",
+  "name": "Authentic Centre",
+  "address": "7 Lamb Street, Coventry, CV1 4AE",
+  "postcode": "CV1 4AE",
+  "lat": 52.411448,
+  "lng": -1.51404,
+  "evidence": "coventry locations page: Authentic Centre, Opening times Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed",
+  "evidence_url": "https://coventry.foodbank.org.uk/locations/",
+  "opening_times": {
+   "checked_date": "2026-10-29",
+   "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://coventry.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   }
+  }
+ },
+ "coventry/holbrooks-evangelical-church": {
+  "parent": "coventry",
+  "name": "Holbrooks Evangelical Church",
+  "address": "20 Parkgate Road, CV6 4GD",
+  "postcode": "CV6 4GD",
+  "lat": 52.445905,
+  "lng": -1.513382,
+  "evidence": "coventry locations page: Holbrooks Evangelical Church, Opening times Mon Closed Tue Closed Wed Closed Thu 18:00 - 19:00 Fri Closed Sat Closed Sun Closed",
+  "evidence_url": "https://coventry.foodbank.org.uk/locations/",
+  "opening_times": {
+   "checked_date": "2026-10-29",
+   "raw": "Opening times Mon Closed Tue Closed Wed Closed Thu 18:00 - 19:00 Fri Closed Sat Closed Sun Closed ",
+   "source_url": "https://coventry.foodbank.org.uk/locations/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "18:00",
+      "19:00"
+     ]
+    ]
+   }
   }
  }
 }
