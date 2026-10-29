@@ -1,1 +1,45 @@
-[]
+[
+ {
+  "id": "ifan-84cd0bf40986bfc9a427c6-0",
+  "name": "St Laurence's Larder & Open Kitchen",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Wednesday 10am - 2pm (food bags, no referral needed)",
+   "source_url": "https://www.laurenceslarder.org.uk",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "quote": [
+    "Get Help\nFood Bags\nWednesday 10.00am - 2.00pm\nOpen to all to receive a bag of essential food items (no referral required)."
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page and /food-bags agree, 'Wednesdays 10:00am - 2:00pm', no referral; Thursday hot meals, clothes bank and Monday art cafe are other services and left out; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://www.laurenceslarder.org.uk",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py ifan-84cd0bf40986bfc9a427c6-0"
+ },
+ {
+  "id": "the-gate",
+  "name": "The Gate Foodbank",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Monday to Friday 2pm - 3pm (food parcel collection or by arrangement with staff; referral needed for a standard parcel)",
+   "source_url": "https://the-gate-charity.org/contact-us-2/",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "quote": [
+    "Food parcel collection times: Mon - Frid between 2pm to 3pm or by arrangement with Staff",
+    "A standard visit has more items than a larder visit but requires a referral."
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: contact page food parcel collection times; Mon-Fri 10am-3pm is the centre's general opening hours and is left out; referral from /new-project-information-page/; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://the-gate-charity.org/contact-us-2/",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py the-gate"
+ }
+]
