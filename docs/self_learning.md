@@ -16,7 +16,17 @@ It **never decides what is published**.
 - The weekly self-review can change a weight by at most 10% a week, and never outside 50–150% of its default.
 - Back-off for failing sites never goes past the weekly minimum check (7 days). A strong change signal ends a rest early.
 - Opening times from the refresh are written only through the strict gate (`discover.times_gate_apply`, the one hours-apply path): the postcode is on the organisation's own page, the same table is read on 2 separate runs, no other own-site table conflicts, known times never become closed or empty, and Dean has not undone it. Each change is logged once in `reports/times_auto_applied.json` with its source URL and undo (`scripts/times_revert.py`). A missing or unreadable reading leaves the stored week as it is and adds no `pending_dean` row; anything else read is held in `reports/pending_dean.md`. A phone conflict holds the phone fix only; it does not block this hours update.
-- A clear single new phone on the own site is applied only through the same kind of gate (`full_check.phone_gate_reasons`, Dean 28 Oct 2026): read on the organisation's own host, exactly one clickable number there, identical on 2 separate runs, not undone by Dean. Each change is logged once in `reports/phone_auto_applied.json` with its source URL and undo (`scripts/phone_revert.py <website>`). Anything else is held for Dean. A food-bank number in `overrides/phone_baseline.json` is held for Dean with its source and is not auto-applied. Until that file exists, every existing listing is held the same way.
+- Phone numbers are never auto-applied. A clear number is held for Dean (`full_check`, `phone_lock`). Council lines (`council_phone`, `council_ooh`, `council_label`, `council_label_cy`) are never added, changed, copied or removed by a job (#307).
+
+## Safety rails (29 Oct 2026)
+`intelligent_mode` in `overrides/auto_apply_rules.json` is **off**. The hours gate (`times_auto_apply`) is unchanged and still on. Turning intelligent mode on adds these rails in `scripts/intelligent_rails.py`. Until then a refresh writes `reports/intelligent_mode.json` for the 8am digest and does not change what is published.
+
+- **Coverage.** If a run opens under 80% of its source pages, skips sites because the full_check budget ran out, gives the hours review no time, or more than a quarter of renders fail (once at least 8 were tried), that step auto-applies nothing. The rest of the data is still published. The run log and the digest get a line starting `INTELLIGENT MODE ALERT`.
+- **Stale queue.** A pending times row whose held value already matches the live listing is cleared and not written again.
+- **Strict gate.** Two identical reads on separate runs, the organisation's own source, no conflicting hours, known hours never become closed or empty, a logged undo, and no automatic change to a phone or council field.
+- **Blast.** More than 40 auto-applies in one run, or in one layer, holds the whole batch.
+- **Resilience.** A transient geocoder or page failure is retried, then skipped with a log line. It does not remove a place or blank its times. The 48-hour verification grace is unchanged.
+- **Summary.** `reports/intelligent_mode.json` lists applied, held, rejected (with reasons), coverage and errors. `scripts/digest.py` adds an Intelligent mode section only when that file exists.
 
 ## Plan in the agreed order, and status
 | # | Part | Where | Status |

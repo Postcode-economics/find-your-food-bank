@@ -195,6 +195,12 @@ def main():
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))
     # times cross-check on every pin's OWN site this run: confirmed / updated / unconfirmed (withheld, never carried over)
+    try:
+        import intelligent_rails as IR
+        if IR.enabled(RULES):
+            IR.clear_pending_stale(ROOT, {"fb": {i["id"]: i.get("opening_times") for i in items}})
+    except Exception as ex:
+        print("intelligent mode stale clear skipped: %s" % ex)
     tlog = discover.cross_check_times(items, 'fb', 'opening_times', state_root=ROOT)
     held = [i['id'] for i in items if i.pop('_own_site_closed', None)]
     disc['times'] = discover.summary(tlog); disc['own_site_says_closed_held'] = held
@@ -267,6 +273,11 @@ def main():
     ok = auto_rules.approved('foodbanks', ROOT)
     print('place lock:', restored, 'address/pin fields kept;', json.dumps(diff))
     print('new food bank ids: %d, held for Dean: %d, already approved: %d' % (len(new_ids), sum(i not in ok for i in new_ids), sum(i in ok for i in new_ids)))
+    try:
+        import intelligent_rails as IR
+        IR.finish_times(ROOT, 'foodbanks', tlog)
+    except Exception as ex:
+        print('intelligent mode summary skipped: %s' % ex)
     import schema_version
     meta = schema_version.stamp(dict(fetched=datetime.date.today().isoformat(), source='Give Food API v2 https://www.givefood.org.uk/api/ + IFAN https://www.foodaidnetwork.org.uk/ (own-site checked)', items=items))
     new = 'window.FB_DATA=' + json.dumps(meta) + ';'

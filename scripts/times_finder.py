@@ -177,6 +177,21 @@ def decide(log, items, apply, rules=None, now=None):
     log["applied"], log["review"] = [], []
     auto = json.load(open(AUTO_LOG)) if os.path.exists(AUTO_LOG) else []
     new_seen = {}
+    import intelligent_rails as IR
+    rules_now = rules if rules is not None else RULES
+    im = IR.enabled(rules_now)
+    plan_block = ""
+    if im:
+        ready = 0
+        for k, ot0 in log["found"].items():
+            if not _read(ot0): continue
+            it0 = ix.get(k, {}); ot1 = dict(ot0, _run_at=now)
+            if IR.already_published(cur.get(k) or it0.get("opening_times"), ot1): continue
+            why0 = strict_checks(k, ot1, it0, cur, seen, len(same[(urllib.parse.urlparse(ot1.get("source_url") or "").netloc, ot1.get("raw"))]), ks, blocked, own_sites)
+            if not why0 and not on: why0 = ["off"]
+            if not why0: ready += 1
+        plan_block = IR.batch_block(rules_now, ready, "foodbanks", os.getcwd())
+        if plan_block: IR.alert(plan_block, os.getcwd())
     for k, ot in sorted(log["found"].items()):
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Leave the stored listing untouched and do not queue a pending row.
         if not _read(ot): continue
@@ -184,6 +199,10 @@ def decide(log, items, apply, rules=None, now=None):
         why = strict_checks(k, ot, it, cur, seen, len(same[(urllib.parse.urlparse(ot.get("source_url") or "").netloc, ot.get("raw"))]), ks, blocked, own_sites)
         if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply): hand check first")
         if _sig(ot): new_seen[k] = {"sig": _sig(ot), "source_url": ot.get("source_url"), "run_at": now}
+        if im and IR.already_published(cur.get(k) or it.get("opening_times"), ot):
+            IR.log_stale("finder:" + k)
+            continue
+        if im and plan_block and not why: why = [plan_block]
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
             clean = {x: v for x, v in ot.items() if not x.startswith("_")}
@@ -193,6 +212,7 @@ def decide(log, items, apply, rules=None, now=None):
                 auto.append({"id": k, "name": it.get("name"), "old": cur.get(k) or it.get("opening_times"), "new": clean, "source_url": ot.get("source_url"),
                              "first_run_at": seen[k]["run_at"], "second_run_at": now, "revert": "python scripts/times_revert.py " + k})
             cur[k] = clean; log["applied"].append(k)
+    if im and log["applied"]: IR.record_applied("foodbanks", len(log["applied"]))
     json.dump(log, open("logs/times_finder.json", "w"), indent=0, ensure_ascii=False)
     os.makedirs("logs", exist_ok=True); json.dump(new_seen, open(SEEN, "w"), indent=0, sort_keys=True, ensure_ascii=False)
     if log["applied"]:

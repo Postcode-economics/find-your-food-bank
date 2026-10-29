@@ -10,6 +10,9 @@ Config: `overrides/auto_apply_rules.json` (loaded by `scripts/auto_rules.py`; re
 - Opening times and temporary closures; voucher/walk-in flips; a clear single new phone on the food bank's own site (strict gate: own host, identical on 2 separate runs, no conflicting own-site number, logged with source URL and undo in reports/phone_auto_applied.json); warm space end dates; SWEP open/close; a moved link to the same organisation.
 - Dead links are hidden and listed for Dean.
 
+**Intelligent mode (off)**
+`intelligent_mode` is false. While it is false, the rails in `scripts/intelligent_rails.py` do not change what a refresh publishes. When Dean sets it true, a thin read or more than 40 auto-applies in one run or one layer applies nothing from that step, stale queue rows that already match the live listing are cleared, and phones plus every council field stay locked. Each refresh writes `reports/intelligent_mode.json`, which the morning digest reads when the file is there.
+
 ## Old links always work (Dean, 25 Oct 2026, permanent rule)
 `scripts/old_links.py` opens every helpmap.uk link ever sent out, listed in `scripts/old_links.json`. That covers launch emails, X/Threads/Instagram copy, the signature QR code, area pages, and the forms apps add to links (`?igsh`, `?utm_*`, `?fbclid`, hashes, `/index.html`).
 
