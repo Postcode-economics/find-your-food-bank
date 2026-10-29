@@ -11518,6 +11518,49 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "ifan-3c7cb974c7ac6c1966b83c-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Food and Supplies Market:\nMonday: 12pm \u2013 2pm\nTuesday: 12pm \u2013 2pm\nWednesday: 12pm \u2013 2pm\nThursday: Closed\nFriday: 12pm \u2013 2pm\nSaturday: 11am \u2013 1pm"
+  ],
+  "raw": "Food and Supplies Market: Monday 12pm - 2pm; Tuesday 12pm - 2pm; Wednesday 12pm - 2pm; Friday 12pm - 2pm; Saturday 11am - 1pm (Thursday closed)",
+  "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Caf\u00e9, Club Sessions and other programmes left out; Dean approved)",
+  "source_url": "https://www.neocommunity.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
  "ifan-5b9fd1318a04132921a389-0": {
   "checked_date": "2026-10-29",
   "fb_mention": true,

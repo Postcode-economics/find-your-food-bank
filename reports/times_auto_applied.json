@@ -85,6 +85,58 @@
   "revert": "python scripts/times_revert.py bow"
  },
  {
+  "id": "ifan-3c7cb974c7ac6c1966b83c-0",
+  "name": "Neo Community",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Food and Supplies Market: Monday 12pm - 2pm; Tuesday 12pm - 2pm; Wednesday 12pm - 2pm; Friday 12pm - 2pm; Saturday 11am - 1pm (Thursday closed)",
+   "source_url": "https://www.neocommunity.org.uk/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "tue": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "wed": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "fri": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "sat": [
+     [
+      "11:00",
+      "13:00"
+     ]
+    ]
+   },
+   "quote": [
+    "Food and Supplies Market:\nMonday: 12pm \u2013 2pm\nTuesday: 12pm \u2013 2pm\nWednesday: 12pm \u2013 2pm\nThursday: Closed\nFriday: 12pm \u2013 2pm\nSaturday: 11am \u2013 1pm"
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Caf\u00e9, Club Sessions and other programmes left out; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://www.neocommunity.org.uk/",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py ifan-3c7cb974c7ac6c1966b83c-0"
+ },
+ {
   "id": "auldhouse-community",
   "name": "Auldhouse Community Foodbank",
   "old": null,

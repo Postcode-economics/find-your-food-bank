@@ -59,9 +59,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Eyres Monsell Club for Young People** (`ifan-3598d68070dfe141274bc6-0`, LE2 9AQ): Monday 6:30am – 9:00pm | Tuesday 6:30am – 9:00pm | Wednesday 6:30am – 9:00pm | Thursday 8:00am – 9:00pm | Friday 8:00am – 8:00pm | Saturday 8:00am – 4:00pm | Sunday 8:00am – 2:00pm | Monday 9:00am – 2:00pm | Tuesday 9:00am – 2:00pm | Wednesday 9:00am – 2:00pm | Thursday 9:00am – 2:00pm | Friday 9:00am – 2:00pm | Saturday 9:00am – 1:00pm  
   source: https://www.eyresmonsellcyp.co.uk/contact-us/  
   why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 13 separate time blocks read from one page; review only
-- **Neo Community** (`ifan-3c7cb974c7ac6c1966b83c-0`, CH42 3YN): Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm  
-  source: https://www.neocommunity.org.uk/  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 10 separate time blocks read from one page; review only
 - **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
   source: https://www.stpaulsparkside.org.uk/  
   why: day not on the same line as its times on the own-site page
