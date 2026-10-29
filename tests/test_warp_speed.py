@@ -84,8 +84,17 @@ class WarpSW(unittest.TestCase):
 class PanBackTiles(unittest.TestCase):
     """A controlling worker caches OSM tiles. Panning away and back must paint the first tiles from that
     worker: fyfb-tiles2 holds them, and the tile server is not asked again (Cache-Control: no-store, so the
-    browser HTTP cache cannot answer)."""
+    browser HTTP cache cannot answer).
+    Since fyfb-v96, tiles.js also remembers the tiles it has painted (TILE_MEMO_MAX): on the same page a tile seen
+    before is painted with no request at all. The worker check runs with that memory off (window.TILE_MEMO_MAX = 0),
+    which is every tile's path on a fresh page or the next visit; the memory check asks for no request at all."""
     def test_pan_back_tiles_come_from_the_service_worker(self):
+        self._pan_back(memo=False)
+
+    def test_pan_back_tiles_come_from_memory_with_no_request(self):
+        self._pan_back(memo=True)
+
+    def _pan_back(self, memo):
         try:
             from playwright.sync_api import sync_playwright
         except Exception:
@@ -146,6 +155,8 @@ class PanBackTiles(unittest.TestCase):
                 browser = p.chromium.launch(args=['--host-rules=' + rules, '--ignore-certificate-errors'])
                 ctx = browser.new_context(viewport={'width': 1280, 'height': 800}, service_workers='allow',
                                            user_agent='Mozilla/5.0 helpmap-check')
+                if not memo:
+                    ctx.add_init_script('window.TILE_MEMO_MAX = 0;')
                 page = ctx.new_page()
                 navs = []
                 page.on('framenavigated', lambda fr: navs.append(fr.url) if fr == page.main_frame else None)
@@ -207,8 +218,11 @@ class PanBackTiles(unittest.TestCase):
                 self.assertGreaterEqual(len(cached), 1, 'fyfb-tiles2 is empty')
                 self.assertTrue(all(any(u.endswith(p) for u in cached) for p in paths), (paths[:4], cached[:8]))
                 self.assertEqual(after, before, ('pan-back tiles were downloaded again', before, after))
-                self.assertGreater(timing['n'], 0, timing)
-                self.assertEqual(timing['sw'], timing['n'], timing)
+                if memo:
+                    self.assertEqual(timing['n'], 0, ('pan-back tiles were requested again, not painted from memory', timing))
+                else:
+                    self.assertGreater(timing['n'], 0, timing)
+                    self.assertEqual(timing['sw'], timing['n'], timing)
                 browser.close()
         finally:
             if site: site.shutdown()
