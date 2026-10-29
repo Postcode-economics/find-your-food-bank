@@ -37,7 +37,7 @@ def _js(path):
     return json.loads(t[t.index("{"):t.rindex("}") + 1])
 
 def generate(root=None):
-    """Published numbers, then the contact overrides, then hide-until-found."""
+    """Published numbers, then the contact overrides. Council lines are the published bytes."""
     root = root or ROOT
     import shelter_contacts
     listings = {}
@@ -47,10 +47,13 @@ def generate(root=None):
             listings[it["id"]] = phone_lock.snap(it, "foodbanks")
     for layer, fn, contacts in CONTACTS:
         d = _js(os.path.join(root, fn))
+        live = phone_lock.live_council(d["items"])  # council lines are frozen as published, never derived
         shelter_contacts.apply(d["items"], shelter_contacts.load(os.path.join(root, contacts)))
         for it in d["items"]:
-            phone_lock.settle_council(it)
             if it.get("id"):
+                for k in phone_lock.COUNCIL_FIELDS:
+                    it.pop(k, None)
+                it.update(live.get(it["id"], {}))
                 listings[it["id"]] = phone_lock.snap(it, layer)
     overlap = set()
     # food-bank ids replaced by a shelter/warm-space id would hide a frozen food-bank number
@@ -116,10 +119,8 @@ def compare(refs, root=None):
     return rows
 
 def project_council(entry):
-    """Council line a place override would publish (hide-until-found applied)."""
-    item = {k: entry[k] for k in phone_lock.COUNCIL_FIELDS if isinstance(entry.get(k), str)}
-    phone_lock.settle_council(item)
-    return {k: item[k] for k in phone_lock.COUNCIL_FIELDS if isinstance(item.get(k), str) and item[k].strip()}
+    """Council line a place override sets, byte for byte (nothing copied between fields)."""
+    return {k: entry[k] for k in phone_lock.COUNCIL_FIELDS if isinstance(entry.get(k), str) and entry[k].strip()}
 
 def unreviewed(root=None):
     """Place-level council lines that are not the reviewed baseline bytes.

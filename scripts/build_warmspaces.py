@@ -75,6 +75,8 @@ for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no comm
     sources[k] = {"status": "not scraped: " + why}
 prev = load_js(OUT, "WARMSPACES")
 PREV_ITEMS = list((prev or {}).get("items", []))  # last published list, for carry-forward (never drop a venue)
+import phone_lock
+LIVE_COUNCIL = phone_lock.live_council(PREV_ITEMS)  # council lines only change through a reviewed PR (Dean, 29 Oct 2026)
 # Verification gate: publish only allowlisted warm spaces (independently confirmed for the current season).
 VER = load_verified("overrides/warmspaces_verified.json")
 def season_end(v):  # a verification is valid only for the winter season it was made in (to 30 April)
@@ -170,7 +172,7 @@ import shelter_contacts  # venue numbers + labelled council fallback (overrides/
 sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items, shelter_contacts.load(shelter_contacts.WS)), "missing_any_number": shelter_contacts.check(items)}
 import phone_lock  # frozen numbers, and no daytime council line without a verified out-of-hours number
 for x in items: phone_lock.settle_council(x)
-phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="warmspaces", persist_new=not os.environ.get("DRY_RUN"))
+phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="warmspaces", persist_new=not os.environ.get("DRY_RUN"), published=LIVE_COUNCIL)
 import place_lock
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
