@@ -516,16 +516,52 @@ def session_count(v):
         segs = [s.strip() for s in raw.split("|") if s.strip()]
         if segs: return len(segs)
     return None
-def uniform_weekday_hours(st, raw="", texts=()):
-    """Mon-Fri with the same block and no food-bank/distribution wording in the times line itself (office/shop pattern)."""
+def uniform_weekday_hours(st, raw="", texts=(), kind="fb"):
+    """Mon-Fri with the same block and no client-session wording in the times line (office/shop or general venue pattern)."""
     if not st: return False
     wk = ("mon", "tue", "wed", "thu", "fri")
     blocks = [tuple(map(tuple, st.get(d, []))) for d in wk if st.get(d)]
     if len(blocks) < 5 or len(set(blocks)) > 1: return False
     blob = ((raw or "") + " " + " ".join(texts or [])).lower()
-    if re.search(r"emergency food|food parcel|parcel collection|distribution session|referral|voucher|pantry session|drop-?in session", blob):
-        return False
+    if kind == "fb":
+        if re.search(r"emergency food|food parcel|parcel collection|distribution session|referral|voucher|pantry session|drop-?in session", blob):
+            return False
+    elif kind in ("ws", "sh"):
+        if re.search(r"warm (space|hub|welcome|room)|warm and welcoming|drop-?in|community lunch|lunch club|warm hub session", blob):
+            return False
     return True
+GENERAL_VENUE_PAGE = re.compile(
+    r"museum|achurchnearyou|/bistro|flying-duck|sportshub|sports hub|library\.org|hive.*library|mwldan\.co\.uk/?$|visitor opening|plan your visit",
+    re.I)
+def general_venue_hours_reason(st, raw, texts, src=None):
+    """Museum/library/church-homepage/sports-hub style opening tables, not a warm-space session."""
+    if not st: return ""
+    blob = ((raw or "") + " " + " ".join(texts or []) + " " + (src or "")).lower()
+    if not (GENERAL_VENUE_PAGE.search(blob) or re.search(r"opening hours|visitor information|church services?|sunday services?", blob)):
+        return ""
+    open_days = [d for d in DAYN if st.get(d)]
+    if len(open_days) >= 5 and (office_like(st) or uniform_weekday_hours(st, raw, texts, kind="ws")):
+        return "new own-site times look like general venue opening hours, not a warm-space session"
+    blocks = {tuple(map(tuple, st.get(d, []))) for d in open_days if st.get(d)}
+    if len(open_days) >= 6 and len(blocks) <= 2:
+        return "new own-site times look like general venue opening hours, not a warm-space session"
+    return ""
+def warm_space_page_reason(i, src, texts):
+    """Times read from a general venue or directory page, not this warm space's own session page."""
+    if not src: return "source page is not the warm space's own session page"
+    path = urllib.parse.urlparse(src).path.lower()
+    if re.search(r"warm[- ]?(space|hub|welcome|room)|/warmwell|renew\d+|cost[- ]of[- ]living|keep[- ]warm", path):
+        return ""
+    blob = " ".join(texts or []).lower()
+    if WARM_WORDS.search(blob) and not re.search(r"warm hubs? in |warm spaces in |/warm[- ]hubs/", path):
+        return ""
+    if re.search(r"/warm[- ]hubs/|/warm[- ]spaces|warm hubs in ", path):
+        return "source is a council warm-hub directory page, not this venue's own page"
+    if GENERAL_VENUE_PAGE.search(src) or re.search(r"/bistro|achurchnearyou|museum|sportshub|friendlyfacesofkent", src, re.I):
+        return "source page is not the warm space's own session page (general venue or directory page)"
+    if not WARM_WORDS.search(blob) and re.search(r"opening hours|plan your visit|visitor information|church services", blob):
+        return "source page is not the warm space's own session page (general venue or directory page)"
+    return ""
 def multi_centre_page_reason(texts, postcode):
     """Several postcodes on one page: a single table cannot be tied to this listing."""
     pc = norm_pc(postcode)
@@ -724,8 +760,22 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
         if mc: why.append(mc)
         st_new = (new or {}).get("structured")
         if st_new and office_like(st_new): why.append("new own-site times look like office/centre hours")
-        if st_new and uniform_weekday_hours(st_new, (new or {}).get("raw") or "", texts): why.append("new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)")
+        if st_new and uniform_weekday_hours(st_new, (new or {}).get("raw") or "", texts, kind="fb"): why.append("new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)")
         if _hours_read(new) and not one_client_block(new): why.append("not one clear weekly client-hours block (kept as text for review)")
+    if kind in ("ws", "sh"):
+        skip = known_times_skip(i["id"])
+        if skip: why.append("known skip: " + skip)
+        mc = multi_centre_page_reason(texts, i.get("postcode"))
+        if mc: why.append(mc)
+        st_new = (new or {}).get("structured")
+        if st_new and office_like(st_new): why.append("new own-site times look like office/centre hours")
+        if st_new and uniform_weekday_hours(st_new, (new or {}).get("raw") or "", texts, kind=kind):
+            why.append("new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording)")
+        gv = general_venue_hours_reason(st_new, (new or {}).get("raw") or "", texts, src)
+        if gv: why.append(gv)
+        if kind == "ws":
+            wp = warm_space_page_reason(i, src, texts)
+            if wp: why.append(wp)
     vals = set()
     for t in texts:
         e = extract_times(t, i.get("postcode"))
@@ -771,6 +821,7 @@ def day_same_line(st, texts):
 def hand_checked(i, field):
     """Times a person set. The refresh may flag them and must not overwrite them."""
     if i.get("manual"): return True
+    if field == "hours" and i.get("hours_protected"): return True
     ot = i.get(field)
     if not isinstance(ot, dict): return False
     if ot.get("protected"): return True
