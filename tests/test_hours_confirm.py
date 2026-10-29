@@ -25,6 +25,7 @@ def week_of(html):
 
 class HoursConfirm(unittest.TestCase):
     OT = {"status": "TIMES_FOUND", "structured": {"tue": [["10:00", "12:00"]], "fri": [["13:00", "15:00"]]}}
+    ONE_DAY = {"status": "TIMES_FOUND", "structured": {"tue": [["10:00", "12:00"]]}}   # Tue -> Wed is a move, not a shrink
     def setUp(self):
         self.root = tempfile.mkdtemp()
     def items(self, ot=None):
@@ -134,7 +135,7 @@ class HoursConfirm(unittest.TestCase):
         self.assertEqual(self.auto_log(), [])
 
     def test_same_table_on_two_runs_writes_and_logs_undo(self):
-        it = self.items()
+        it = self.items(self.ONE_DAY)
         old = json.loads(json.dumps(it[0]["opening_times"]))
         html = week_of(WED)
         log1 = self.check(it, html, R1)
@@ -157,7 +158,7 @@ class HoursConfirm(unittest.TestCase):
     def test_same_change_on_later_runs_is_logged_once(self):
         html = week_of(WED)
         for n, run_at in enumerate((R1, R2, "2026-10-27T19:00:00+00:00", "2026-10-28T03:00:00+00:00")):
-            it = self.items()   # the feed rebuild puts the old week back every run
+            it = self.items(self.ONE_DAY)   # the feed rebuild puts the old week back every run
             log = self.check(it, html, run_at)
             if n: self.assertEqual(log["a"]["status"], "changed")
         self.assertEqual(len(self.auto_log()), 1)
@@ -169,7 +170,7 @@ class HoursConfirm(unittest.TestCase):
         site = "https://x.org/"
         self.assertEqual(learning.confidence_for(site, {site}), 0.0)
         self.assertFalse(learning.allow_under_rules("clear single new phone on own site", rules, 0.0))
-        it = self.items()
+        it = self.items(self.ONE_DAY)
         log2 = self.twice(it, week_of(WED).replace("AB1 2CD.", "AB1 2CD. Call 07700 900123."))
         self.assertEqual(log2["a"]["status"], "changed")
         self.assertEqual(it[0]["opening_times"]["structured"], {"wed": [["09:00", "11:00"]]})
