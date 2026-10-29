@@ -64,7 +64,7 @@ document.getElementById('list').after(extra);
 function paint(){document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
  $x('xlang').innerHTML=lang==='en'?'<b>EN</b><span aria-hidden="true">|</span>CY':'EN<span aria-hidden="true">|</span><b>CY</b>';$x('xlang').setAttribute('aria-label',lang==='en'?'Newid i’r Gymraeg':'Switch to English');nearLabel();disc.innerHTML=t('disc');$x('xadd').textContent=t('add');
  document.getElementById('q').placeholder=t('ph');if(lang==='cy'||paint.done){document.querySelector('header h1').textContent=t('h1');document.querySelector('#f .go').textContent=t('search');document.getElementById('q').placeholder=t('ph')}
- paint.done=true;trAll();stamp('fb');banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(...lastPos)}
+ paint.done=true;trAll();stamp('fb');banner&&ban&&banner();for(const k in LAYERS)stamp(k);if(lastPos)nearX(lastPos[0],lastPos[1],lastPos[2],true)}
 function $x(i){return document.getElementById(i)}
 function stamp(k){if(k==='fb'){const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers.fb;$x('u_fb').textContent=`${t('upd')} ${S?slab(S):fmt(String(window.FB_DATA.fetched).slice(0,10))}`;return}const L_=LAYERS[k];const S=window.FB_STAMP&&FB_STAMP.layers&&FB_STAMP.layers[k];const d=L_.data&&L_.data.updated;$x('u_'+k).textContent=S?`${t('upd')} ${slab(S)}`:d?`${t('upd')} ${fmt(d)}`:t('notLoaded')}  // Dean 25 Oct: shelters/warm spaces show their own refresh date even before the layer is opened
 window.keyStamps=()=>['fb','sh','ws'].forEach(stamp);
@@ -137,14 +137,46 @@ document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.g
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
 let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false};
 document.addEventListener('click',e=>{const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
-window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={}};  // 28 Oct QA B2: failed search clears these lists too
-function nearX(lat,lng,label){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
- for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data)continue;
-  const ot=typeof F!=='undefined'&&F.open&&window.V3&&V3.shutToday;const all=L_.data.items.filter(i=>(!verOnly[k]||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d);const oo=false;const sc=x=>oo?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:0;
-  const st=x=>window.V3?({open:0,unknown:1,closed:2})[V3.status(k,x.i).st]:1;const r=ot?all.slice(0,3):(oo?all.slice(0,60).filter(x=>sc(x)<2&&!x.i.ended).sort((a,b)=>sc(a)-sc(b)||a.d-b.d):all.slice(0,3)).slice(0,3);
-  (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins */
-  out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(r.length?r.map(x=>`<div class="card x${k}${!x.i.ended&&st(x)===2?' v3closed':''}">${detail(k,x.i,x.d)}</div>`).join(''):`<p>${t('none')}</p>`))}
+window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={};for(const k in xRank)delete xRank[k]};  // 28 Oct QA B2: failed search clears these lists too
+// Show more (29 Oct 2026): same rules as the food bank list (showmore.js, window.SHOW_LIMITS). The first page is the nearest few,
+// each press appends the next batch before that layer's button, and a new search, Verified only or Open today starts again.
+// Ended places are labelled (detail) and sorted after the open ones; Open today leaves them out.
+const XLIM=()=>{const S=window.SHOW_LIMITS||{},f=+S.first,m=+S.more;return {first:f>0?f:5,more:m>0?m:10}};
+const xRank={},xOpen={};
+function rankX(k,lat,lng,vo,ot){const L_=LAYERS[k];if(!L_.data)return[];ot=ot&&window.V3&&V3.shutToday;
+ return L_.data.items.filter(i=>(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
+const xCard=(k,x)=>`<div class="card x${k}${!x.i.ended&&window.V3&&V3.status(k,x.i).st==='closed'?' v3closed':''}" data-id="${esc(x.i.id)}">${detail(k,x.i,x.d)}</div>`;
+const xBtn=k=>`<button type="button" id="xmore-${k}" class="showmore xmore" data-k="${k}" aria-controls="xlist" aria-expanded="${xOpen[k]?'true':'false'}"><span class="v-en">Show more</span><span class="v-cy" lang="cy">Dangos mwy</span></button>`;
+function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
+ const ot=!!(typeof F!=='undefined'&&F.open);save.xf={ot,sh:verOnly.sh,ws:verOnly.ws};const lim=XLIM();
+ for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data){delete xRank[k];continue}
+  const shown=keep?$x('xlist').querySelectorAll('.card.x'+k).length:0;if(!keep)xOpen[k]=false;
+  const all=rankX(k,lat,lng,verOnly[k],ot);xRank[k]=all;const r=all.slice(0,Math.max(lim.first,shown));
+  (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins (first page; Show more never moves the map) */
+  out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(r.length?r.map(x=>xCard(k,x)).join('')+(all.length>r.length?xBtn(k):''):`<p>${t('none')}</p>`))}
  $x('xlist').innerHTML=out.join('');save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+// Chromium scrolls a newly focused card into view on a later frame: put the scroll position back, including on that frame (as showmore.js).
+function pinScroll(x,y){let lock=true,busy=false;const fix=()=>{if(!lock||busy||(scrollX===x&&scrollY===y))return;busy=true;scrollTo(x,y);busy=false};
+ fix();addEventListener('scroll',fix,true);requestAnimationFrame(()=>{fix();requestAnimationFrame(()=>{fix();lock=false;removeEventListener('scroll',fix,true)})})}
+// Cards restored from the saved search (offline) have no ranking in memory: rebuild it from the saved centre and filters.
+function savedRank(k){let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
+ const p=lastPos||(s&&typeof s.lat==='number'?[s.lat,s.lng]:null);if(!p)return null;const f=!lastPos&&s&&s.xf;
+ return rankX(k,p[0],p[1],f?!!f[k]:verOnly[k],f?!!f.ot:!!(typeof F!=='undefined'&&F.open))}
+window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list||!btn||!list.contains(btn)||btn.hidden||!LAYERS[k])return 0;
+ if(!xRank[k]){if(!LAYERS[k].data)return load(k).then(()=>window.showMoreX(k),()=>0);const r=savedRank(k);if(!r)return 0;xRank[k]=r}
+ const x=scrollX,y=scrollY,fromBtn=document.activeElement===btn;
+ const have=new Set([...list.querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));
+ const batch=xRank[k].filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
+ const tpl=document.createElement('template');tpl.innerHTML=batch.map(it=>xCard(k,it)).join('');const added=[...tpl.content.children];
+ if(added.length){btn.before(tpl.content);xOpen[k]=true}
+ batch.forEach(it=>have.add(String(it.i.id)));const remain=xRank[k].filter(it=>!have.has(String(it.i.id))).length;
+ if(remain<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true');if(fromBtn&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}}
+ else{btn.setAttribute('aria-expanded',xOpen[k]?'true':'false');if(fromBtn)btn.focus({preventScroll:true})}
+ pinScroll(x,y);return added.length};
+document.addEventListener('click',e=>{const b=e.target.closest('#xlist .xmore');if(b)window.showMoreX(b.dataset.k)});
+{const css=document.createElement('style');css.setAttribute('data-showmore','x');
+ css.textContent='#xlist>.xmore.showmore{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;min-height:48px;margin:8px 0 18px;padding:10px 16px;background:transparent;color:#F5C518;border:2px solid #F5C518;border-radius:10px;font:inherit;font-weight:800;font-size:18px;cursor:pointer;overflow-anchor:none}#xlist>.xmore.showmore[hidden]{display:none!important}#xlist>.xmore.showmore:focus-visible{outline:3px solid #F2F4F8;outline-offset:3px}html.light #xlist>.xmore.showmore{color:#0A1628;border-color:#8A6A2E;background:#fff}html.light #xlist>.xmore.showmore:focus-visible{outline-color:#0A1628}';
+ document.head.appendChild(css)}
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
  const nk=window.__nearK;window.__nearK=null;if(nk&&!window.v3scrollList){const h=[...document.querySelectorAll('#xlist .lh')].find(e=>e.textContent===t(nk==='sh'?'nSh':'nWs'));if(h){const y=h.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.15);setTimeout(()=>scrollTo({top:Math.max(0,y),behavior:'auto'}),0)}}  // Find nearest shelter / warm space: land on that list, not the food banks
  map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
