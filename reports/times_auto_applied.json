@@ -165,6 +165,37 @@
   "revert": "python scripts/times_revert.py ifan-9fef48d4f0fd3a3f6896d2-0"
  },
  {
+  "id": "ifan-53c68645aa831ab649ac43-0",
+  "name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Every other Thursday, 6:30pm to 7:30pm, in church",
+   "source_url": "https://stpaulsparkside.org.uk/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "thu": [
+     [
+      "18:30",
+      "19:30"
+     ]
+    ]
+   },
+   "notes": {
+    "thu": "Fortnightly"
+   },
+   "quote": [
+    "St Paul's Pantry is our foodbank offering a bag of groceries and essential household items to those in need. Fortnightly on Thursday 6.30 - 7.30 pm in church."
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page St Paul's Pantry section; foodbank fortnightly Thu 6:30-7:30 only; Open Church, Lunch Club, Wednesday Club and other church activities left out; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://stpaulsparkside.org.uk/",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py ifan-53c68645aa831ab649ac43-0"
+ },
+ {
   "id": "auldhouse-community",
   "name": "Auldhouse Community Foodbank",
   "old": null,

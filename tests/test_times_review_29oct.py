@@ -1,7 +1,8 @@
 """Times review list hand check (Dean, 29 Oct 2026): hand-checked times from own pages published as protected overrides.
 Bow: walk-in Visit Us and Wednesday open session structured; Click and Collect in text with order deadlines.
 Neo Community: Food and Supplies Market only; Community Café and club sessions left out.
-Gospel Church: Food Bank Friday 5pm-6pm only from Church weekly schedule."""
+Gospel Church: Food Bank Friday 5pm-6pm only from Church weekly schedule.
+St Paul's Pantry: fortnightly foodbank Thu 6:30-7:30 only; church open times left out."""
 import json, os, sys
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
@@ -27,8 +28,12 @@ FIXED_TABLE = {
         'Food Bank: Fridays 5pm - 6pm',
         'https://www.gcjc.co.uk',
         {'fri': [['17:00', '18:00']]}),
+    'ifan-53c68645aa831ab649ac43-0': (
+        'Every other Thursday, 6:30pm to 7:30pm, in church',
+        'https://stpaulsparkside.org.uk/',
+        {'thu': [['18:30', '19:30']]}),
 }
-STILL_QUEUED = ['ifan-53c68645aa831ab649ac43-0', 'community-essentials', 'moorland']
+STILL_QUEUED = ['community-essentials', 'moorland']
 
 def items():
     s = open(os.path.join(ROOT, 'data.full.js'), encoding='utf-8').read()
@@ -50,6 +55,10 @@ def test_hand_checked_entries_protected_with_quotes():
     gc = OT['ifan-9fef48d4f0fd3a3f6896d2-0']
     assert 'Bible Study' not in gc['raw'] and 'Street Evangelism' not in gc['raw']
     assert list(gc['structured'].keys()) == ['fri']
+    sp = OT['ifan-53c68645aa831ab649ac43-0']
+    assert 'Every other Thursday' in sp['raw'] and sp['notes']['thu'] == 'Fortnightly'
+    assert list(sp['structured'].keys()) == ['thu']
+    assert 'Monday' not in sp['raw'] and 'Tuesday' not in sp['raw'] and 'Wednesday' not in sp['raw']
 
 def test_cards_show_the_hand_checked_times():
     ix = items()
@@ -68,6 +77,9 @@ def test_cards_show_the_hand_checked_times():
     gc = ix['ifan-9fef48d4f0fd3a3f6896d2-0']['opening_times']
     assert gc['structured']['fri'] == [['17:00', '18:00']]
     assert 'Sunday' not in gc['raw']
+    sp = ix['ifan-53c68645aa831ab649ac43-0']['opening_times']
+    assert sp['notes']['thu'] == 'Fortnightly' and sp['structured']['thu'] == [['18:30', '19:30']]
+    assert 'Every other Thursday' in sp['raw']
 
 def test_refresh_and_finder_treat_them_as_hand_checked():
     import discover, times_finder
