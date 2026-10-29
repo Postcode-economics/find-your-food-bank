@@ -660,8 +660,10 @@ def main():
             try: return u, check_site(u, order)
             except TypeError: return u, check_site(u)  # a one-argument stand-in (tests) still works
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
+    print('full check: checking %d websites (budget %ds)' % (len(sites), BUDGET), flush=True)
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
+    print('full check: websites done in %.0fs' % (time.time() - t0), flush=True)
     stats = dict(sites=len(sites), ok=0, failed=0, skipped=0, voucher=0, walkin=0, mixed=0, unclear=0, flips=0, phone_fixes=0, closures=0)
     for u in sites:
         r, prev = results[u], state['sites'].get(u, {}); names = sorted({i['foodbank'] for i in by_site[u]}); name = names[0]
@@ -776,7 +778,9 @@ def main():
         state['sites'][u] = {k: r.get(k) for k in ('checked_at', 'http', 'final_url', 'access', 'hours_hash', 'hours_sample', 'hours_status', 'hours_evidence', 'seasonal', 'closed', 'perm_closed', 'phones', 'tel', 'needs', 'fail_runs', 'empty_parse', 'fb_mention', 'other_labels')}
     if held_old:  # older fixes the strict gate now holds: kept for Dean with their reasons, not re-applied
         wj('phone_fixes_held.json', dict(rj('phone_fixes_held.json', {}), **held_old))
-    review_hours(items, state, flag, t0 + BUDGET)
+    th = time.time()
+    n_hours = review_hours(items, state, flag, t0 + BUDGET)
+    print('hours review: %d listing source pages in %.0fs' % (n_hours, time.time() - th), flush=True)
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest
