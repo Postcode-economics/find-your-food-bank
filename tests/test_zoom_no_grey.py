@@ -15,7 +15,7 @@ No real network: tests/netstub.py is the only way out of the browser, the servic
 150 ms with the OpenStreetMap cache headers, and each z/x/y is a different image (the real UK map when
 HELPMAP_OFFLINE_TILES points at the local tile server). Chromium also runs at a quarter of the CPU, like a phone.
 """
-import json, os, struct, sys, time, unittest, urllib.request, zlib
+import http.server, json, os, re, struct, sys, time, unittest, urllib.request, zlib
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, os.path.join(R, 'scripts'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -143,6 +143,11 @@ PINCH_JS = r"""async ([a, b, steps, ms]) => {
 }"""
 
 
+class _Quiet(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *a):
+        pass
+
+
 def until(pg, js, secs=30):
     end = time.time() + secs
     while time.time() < end:
@@ -263,6 +268,55 @@ class ZoomOutNoGrey(unittest.TestCase):
                 after = (net.osm_refused(), pg.evaluate("() => (window.TILE_STATS || {}).ahead || 0"))
                 self.assertEqual(after, before, 'OpenStreetMap was still asked for after the backup took over (refused, look-ahead)')
                 self.assertEqual(net.served['osm'], 0)
+            finally:
+                b.close()
+
+    @unittest.skipUnless(HAVE['chromium'], 'needs playwright chromium')
+    def test_chromium_lookahead_never_asks_again_for_a_refused_tile(self):
+        """Two refused tiles (429) are two refusals, not three: the look-ahead skips tiles that failed and tiles on
+        screen, so the 3-in-20 rule does not switch to the backup map on a repeat of the same refusal."""
+        from collections import Counter
+        from playwright.sync_api import sync_playwright
+        seen, refused = Counter(), set()
+
+        def handle(route):
+            url = route.request.url.split('?')[0]
+            if 'tile.openstreetmap.org' not in url:
+                return route.fulfill(status=404, body='')
+            seen[url] += 1
+            z = int(url.split('/')[-3])
+            if url in refused or (z == TOWN_ZOOM and len(refused) < 2):
+                refused.add(url)
+                return route.fulfill(status=429, content_type='image/png', body=_png(0, 0, 0), headers={'access-control-allow-origin': '*'})
+            route.fulfill(status=200, content_type='image/png', body=tile(url[url.index('.org') + 4:]),
+                          headers=dict({'access-control-allow-origin': '*'}, **OSM_HEADERS))
+
+        with sync_playwright() as p:
+            b = p.chromium.launch()
+            try:
+                c = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True, service_workers='block')
+                c.route(re.compile(r'^https://([a-c]\.)?tile\.openstreetmap\.org/'), handle)
+                c.route(re.compile(r'^https://tiles\.openfreemap\.org/'), lambda r: r.fulfill(
+                    status=200, content_type='application/json', body=OFM_STYLE, headers={'access-control-allow-origin': '*'}))
+                pg = c.new_page()
+                import threading
+                from functools import partial
+                srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), partial(_Quiet, directory=R))
+                threading.Thread(target=srv.serve_forever, daemon=True).start()
+                try:
+                    pg.goto('http://127.0.0.1:%d/?nocount' % srv.server_address[1], wait_until='domcontentloaded')
+                    self.assertTrue(until(pg, "() => typeof map !== 'undefined' && document.querySelectorAll('#map .leaflet-tile-loaded').length > 3", 60))
+                    pg.evaluate("() => map.setView(%s, %d, {animate: false})" % (json.dumps(TOWN), TOWN_ZOOM))
+                    self.assertTrue(until(pg, "() => (window.TILE_STATS || {}).error >= 2"), pg.evaluate("() => window.TILE_STATS"))
+                    pg.wait_for_timeout(4000)  # past the look-ahead's rest (TILE_AHEAD_IDLE_MS, 1.5 s)
+                    stats = pg.evaluate("() => window.TILE_STATS")
+                    self.assertGreater(stats.get('ahead', 0), 0, ('the look-ahead never ran', stats))
+                    self.assertEqual(len(refused), 2, refused)
+                    self.assertEqual({u: seen[u] for u in refused}, {u: 1 for u in refused}, 'a refused tile was asked for again')
+                    self.assertEqual(pg.evaluate("() => window.TILE_ACTIVE"), 'osm', pg.evaluate("() => window.TILE_FAILOVER || null"))
+                    self.assertIsNone(pg.evaluate("() => window.TILE_FAILOVER || null"))
+                finally:
+                    srv.shutdown()
             finally:
                 b.close()
 
