@@ -218,7 +218,8 @@ class ZoomOutNoGrey(unittest.TestCase):
                 self.assertTrue(settle(pg), 'the UK view never finished loading')
                 z0 = pg.evaluate('() => map.getZoom()')
                 self.assertLessEqual(z0, 7, 'the site no longer opens on the whole-UK view')
-                pg.evaluate("() => map.setView(%s, %d, {animate: false})" % (json.dumps(TOWN), round(z0)))
+                # A deliberate move cancels the page's delayed re-fit to the results (layers.js window._refitT).
+                pg.evaluate("() => { clearTimeout(window._refitT); map.setView(%s, %d, {animate: false}); }" % (json.dumps(TOWN), round(z0)))
                 self.assertTrue(settle(pg))
                 pg.wait_for_timeout(PAUSE_MS)
                 for _ in range(16):
@@ -226,8 +227,13 @@ class ZoomOutNoGrey(unittest.TestCase):
                         break
                     self.pinch(pg, c, engine, 60, 120)
                     self.assertTrue(settle(pg), 'zoom-in never finished loading')
+                    # At the lowest zooms the map's UK bounds hold the centre north of the coast; keep it on the town.
+                    pg.evaluate("t => { if (map.getCenter().distanceTo(L.latLng(t)) > 500) map.panTo(t, {animate: false}); }", TOWN)
+                    self.assertTrue(settle(pg), 'the view over the town never finished loading')
                     pg.wait_for_timeout(PAUSE_MS)
                 self.assertGreaterEqual(pg.evaluate('() => map.getZoom()'), TOWN_ZOOM - 0.01, 'the pinches never reached the town')
+                km = pg.evaluate("t => map.getCenter().distanceTo(L.latLng(t)) / 1000", TOWN)
+                self.assertLess(km, 5, 'the zoom-in ended %.0f km from the town' % km)
                 report, failed = [], False
                 for _ in range(12):
                     if pg.evaluate('() => map.getZoom()') <= z0 + 0.01:
