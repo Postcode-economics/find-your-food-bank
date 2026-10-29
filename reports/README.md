@@ -15,6 +15,16 @@ the robots never overwrite them, they only flag differences. Uncertain finder pr
 reports/pending_dean.md, never onto the map. Facebook pages are re-checked daily (reports/fb_pages_flagged.md), flagged
 never removed. Sharp fill-rate drops per source raise an alert at the top of daily_review.md (reports/fill_rates.json).
 
+## Lesson (29 Oct 2026, Dean): a refresh never adds, changes, copies or removes a council line
+The 29 Oct 05:44 warm spaces refresh gave 16 warm spaces a `council_phone` copied from their `council_ooh`, so a council line button
+appeared on their cards. The copy came from `phone_lock.settle_council` and from the same value in `overrides/warmspaces_contacts.json`.
+`phone_lock.guard` let it through because it compared only with `overrides/phone_baseline.json`, and the baseline already held that
+copy: `phone_baseline.py generate` ran `settle_council` before freezing (27 Oct 21:32). The 27 Oct 22:20 merge then published the file
+without it. Now `guard(published=...)` locks every council-line field (`council_phone`, `council_ooh`, `council_label`, `council_label_cy`)
+to the live bytes for warm spaces, shelters and food banks. A new place gets no council line until Dean OKs one, and any proposal,
+including a baseline that differs from the live file, is held under "phone lock" in `pending_dean.md`. The baseline freezes the published
+council bytes, never derived ones. Undo log: `council_line_changes.json`. Tests: `tests/test_council_line_lock_29oct.py`.
+
 ## Lesson (24 Oct 2026): the sweep never adds shelters to the map
 The daily sweep could add shelters found on council pages (including the SWEP pages swep.py discovers) straight onto the map, marked "Unverified - call before you go". That breaks Dean's standing rule: unsure finder results go to his review list, never straight onto the map. None had been added, but it could have happened. Now `scripts/sweep_daily.py` sends every shelter candidate to the "Shelter candidates from the sweep" section of `reports/pending_dean.md` only (tests: `tests/test_sweep.py` NoShelterAdds). The same rule already applies to opening times (times_finder, review only). Any new finder must be review-only by default.
 
