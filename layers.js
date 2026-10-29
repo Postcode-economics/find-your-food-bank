@@ -1,5 +1,7 @@
 /* Shelters + Warm Spaces layers. Loaded after the food bank script; it does not change food bank data or logic.
-   Each layer has its own data file (shelters.js / warmspaces.js), scraper and update log. */
+   Each layer has its own data file (shelters.js / warmspaces.js), scraper and update log.
+   index.html and sw.js load this file as layers.js?v=<sha256 of this file>. Cloudflare holds an old copy under
+   h48b3be38ff93, so any change here, even to this comment, gives a tag the live site has never been asked for. */
 (function(){
 const REPO='https://github.com/postcode-economics/find-your-food-bank';
 const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call before you go',legend:'Key',sh:'Shelters',ws:'Warm spaces',near:'Find nearest to me',upd:'updated',notLoaded:'tap to show',

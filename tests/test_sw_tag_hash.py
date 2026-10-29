@@ -50,6 +50,13 @@ class Tag(unittest.TestCase):
         self.assertIn('layers.js?v=' + lh, rd('index.html'))
         self.assertIn('layers.js?v=' + lh, rd('sw.js'))
 
+    def test_tags_served_stale_live_are_never_reused(self):
+        """Cloudflare stored the pre-#263 layers.js under v=h48b3be38ff93 (fetched by CI before the deploy), so Show
+        more did not show live. A tag that was ever served stale must never come back."""
+        for f in ('index.html', 'sw.js'):
+            self.assertNotIn('layers.js?v=h48b3be38ff93', rd(f), f)
+            self.assertNotIn('tiles.js?v=he7823ea69839', rd(f), f)  # fetched live by CI before the zoom fix shipped
+
     def test_old_cache_self_heal_is_in_the_head(self):
         h = rd('index.html'); i = h.index("k='hmHealOld'")
         self.assertLess(i, h.index('</head>'))
@@ -107,7 +114,7 @@ class StaleWorker(unittest.TestCase):
         holder['sw'] = None
         before = len(loads)
         pg.goto(BASE + '/?nocount', wait_until='load')
-        self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v95') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
+        self.assertTrue(until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v96') && k.includes('fyfb-tiles2') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 40),
                         pg.evaluate('async () => await caches.keys()'))
         self.assertTrue(until(pg, PAINTED, 30), pg.evaluate(STATE))
         pg.wait_for_timeout(3000)
@@ -268,7 +275,7 @@ class OfflineAfterHeal(unittest.TestCase):
                 self.assertTrue(O.until(pg, "async () => (await caches.keys()).includes('fyfb-v90')", 30), 'old worker not installed')
                 body['sw'] = None; n = len(loads)
                 pg.goto(url, wait_until='domcontentloaded')
-                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v95') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
+                self.assertTrue(O.until(pg, "async () => { const k = await caches.keys(); return k.includes('fyfb-v96') && !k.includes('fyfb-v90') && !k.includes('fyfb-tiles') }", 30))
                 self.assertTrue(O.until(pg, PAINT, 30), 'no map after heal')
                 pg.wait_for_timeout(2500)
                 self.assertEqual(len(loads) - n, 2, loads[n:])  # the visit + exactly one heal reload
