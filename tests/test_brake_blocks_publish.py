@@ -100,7 +100,7 @@ class WorkflowBlocks(unittest.TestCase):
         self.assertLess(full, stop); self.assertLess(stop, commit)
         cstep = w[w.rindex("- name:", 0, commit):w.index("run: |", commit)]
         self.assertNotIn("if:", cstep)   # a failed step before it skips the commit
-        self.assertIn("if: failure() && steps.commit.outcome != 'success'", w)   # and the 'nothing published' alert opens
+        self.assertIn("if: (failure() || cancelled()) && steps.commit.outcome != 'success'", w)   # and the 'nothing published' alert opens
 
 
 if __name__ == "__main__":

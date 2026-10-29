@@ -12,7 +12,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -22,12 +22,19 @@ jobs:
       - name: Test the checks
         run: python -m unittest discover -s tests -v
       - name: Rebuild data.js (discovery + own-site checks)
+        # ~10-12 min. 68 min on 29 Oct (run 40821758973) left no time for the full check; a stuck rebuild now fails
+        # here (nothing published, 'run failed' alert) instead of the job timing out later.
+        timeout-minutes: 40
+        env:
+          PYTHONUNBUFFERED: "1"
         run: python scripts/build.py
       - name: Refuse to publish without fresh verification
         run: python scripts/verify_fresh.py foodbanks
       - name: Full check of every food bank's own site (access flips, hours, closures, contacts, items needed -> reports/daily_review.md reports/fill_rates.json)
         id: full
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
+        env:
+          PYTHONUNBUFFERED: "1"
         run: python scripts/full_check.py
       # full_check.py is continue-on-error, so its stop is a step output: this step fails, every later step (the commit
       # included) is skipped and the 'run failed (nothing new published)' alert opens. Counts include refresh-gate times.
@@ -164,7 +171,8 @@ jobs:
           fi
           exit $rc
       - name: Alert - run failed (nothing new published)
-        if: failure() && steps.commit.outcome != 'success'
+        # cancelled() too: a job timeout (29 Oct run 40821758973) published nothing and raised no alert
+        if: (failure() || cancelled()) && steps.commit.outcome != 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py open foodbanks "Food bank refresh run failed" "A step failed, so this run did not publish. Earlier data stays live. Open the run log to see which step."
