@@ -139,17 +139,12 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - AUTO-APPLIED `west-cheshire/chester-city-centre` Chester City Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:west-cheshire/chester-city-centre`
 - AUTO-APPLIED `west-cheshire/ellesmere-port` Ellesmere Port (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:west-cheshire/ellesmere-port`
 - AUTO-APPLIED `pantry` PANTRY Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:pantry`
-- AUTO-APPLIED `hereford` Hereford Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:hereford`
-- AUTO-APPLIED `crescent` Crescent Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:crescent`
 - AUTO-APPLIED `burgess-hill` Burgess Hill Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:burgess-hill`
 - AUTO-APPLIED `enniskillen` Enniskillen Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:enniskillen`
-- AUTO-APPLIED `sunderland` Sunderland Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:sunderland`
 - AUTO-APPLIED `sunderland/roker-methodist-church` Roker Methodist Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:sunderland/roker-methodist-church`
 - AUTO-APPLIED `sunderland/downhill-centre-community-hub` Downhill Centre Community Hub (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:sunderland/downhill-centre-community-hub`
 - AUTO-APPLIED `nourish` Nourish Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:nourish`
 - AUTO-APPLIED `dens/way-inn-christian-centre` Way Inn Christian Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:dens/way-inn-christian-centre`
-- AUTO-APPLIED `salford-food-parcels` Salford Food Parcels Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:salford-food-parcels`
-- AUTO-APPLIED `corsham-churches` Corsham Churches Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:corsham-churches`
 - AUTO-APPLIED `warminster-and-district` Warminster and District Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:warminster-and-district`
 - AUTO-APPLIED `thurrock/st-john-the-baptist-church-tilbury` St. John the Baptist Church, Tilbury (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:thurrock/st-john-the-baptist-church-tilbury`
 - AUTO-APPLIED `thurrock/gates-of-praise-international-christian-centre` Gates of Praise International Christian Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:thurrock/gates-of-praise-international-christian-centre`
@@ -159,22 +154,18 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - AUTO-APPLIED `thurrock/gateway-peoples-centre` Gateway People’s Centre (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:thurrock/gateway-peoples-centre`
 - AUTO-APPLIED `ealing/northolt` Northolt (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ealing/northolt`
 - AUTO-APPLIED `wokingham/waterford-house` Waterford House (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:wokingham/waterford-house`
-- AUTO-APPLIED `salvation-army/weymouth` Weymouth (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:salvation-army/weymouth`
 - AUTO-APPLIED `brentwood` Brentwood Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:brentwood`
 - AUTO-APPLIED `the-community-cupboard` The Community Cupboard Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:the-community-cupboard`
-- AUTO-APPLIED `purley/old-lodge-lane-baptist-church` Old Lodge Lane Baptist Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:purley/old-lodge-lane-baptist-church`
 - AUTO-APPLIED `causeway` Causeway Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:causeway`
 - AUTO-APPLIED `medway/the-net-community-cafe` The Net Community Cafe (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:medway/the-net-community-cafe`
 - AUTO-APPLIED `medway/st-justus-church` St Justus Church (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:medway/st-justus-church`
 - AUTO-APPLIED `medway/twydall-foodbank-centre-coffee-shop` Twydall Foodbank Centre & Coffee Shop (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:medway/twydall-foodbank-centre-coffee-shop`
 - AUTO-APPLIED `comfort-memorial-food-for-all` Comfort Memorial Food For All Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:comfort-memorial-food-for-all`
-- AUTO-APPLIED `bridgwater` Bridgwater Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:bridgwater`
 - AUTO-APPLIED `3food4u/chigwell-row` Chigwell Row (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:3food4u/chigwell-row`
 - AUTO-APPLIED `3food4u/budworth-hall` Budworth Hall (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:3food4u/budworth-hall`
 - AUTO-APPLIED `woking` Woking Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:woking`
 - AUTO-APPLIED `wirral/st-chads-liscard` St Chads, Liscard (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:wirral/st-chads-liscard`
 - AUTO-APPLIED `wirral/st-james-church-new-brighton` St James Church, New Brighton (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:wirral/st-james-church-new-brighton`
-- AUTO-APPLIED `godalming-villages-community-store` Godalming & Villages Community Store Foodbank (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:godalming-villages-community-store`
 - AUTO-APPLIED `ifan-da5df633f7eabc8fbdb2a3-0` Castleman Community Larder CIC (strict, 2 identical runs). Undo: `python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0`
 - **Colchester Foodbank** (`colchester`, CO3 8RG): own site now Monday-Saturday 10:00 am to 2:00 pm  
   source: https://colchester.foodbank.org.uk  
@@ -278,6 +269,52 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Hangar Community Hub CIC** (`ifan-9d9a5ae13b3923c3fd7d0b-0`, CF11 8TT): own site now Mon-Fri 9-2pm  
   source: https://hangarhub.org  
   why held: new own-site times look like office/centre hours
+  source: https://bridgwater.foodbank.org.uk/locations/  
+  why held: Dean 29 Oct (#224): leave published times as-is until reviewed
+  source: https://herefordfoodbank.co.uk/contact-us  
+  why held: contact-page hours look like office/shop hours
+  source: https://godalmingcommunitystore.org/contact  
+  why held: store contact hours look like office/shop hours
+  source: https://crescentfoodbank.org.uk  
+  why held: source blocked or unclear on own site; cannot confirm
+  source: https://corshamchurchesfoodbank.org.uk  
+  why held: source blocked or multi-centre; cannot confirm
+  source: https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/  
+  why held: source blocked or multi-centre; cannot confirm
+  source: https://www.purleyfoodhub.net/get-help/  
+  why held: multi-centre get-help page; cannot confirm this centre
+  source: https://sunderlandfoodbank.org.uk/locations/  
+  why held: network pin cut to one slot from multi-branch locations page
+  source: https://www.salvationarmy.org.uk/weymouth  
+  why held: dropped Tuesday evening session still listed on its page
+
+- **Bridgwater Foodbank** (`bridgwater`): held after Dean undo 29 Oct  
+  source: https://bridgwater.foodbank.org.uk/locations/  
+  why held: Dean 29 Oct (#224): leave published times as-is until reviewed
+- **Hereford Foodbank** (`hereford`): held after Dean undo 29 Oct  
+  source: https://herefordfoodbank.co.uk/contact-us  
+  why held: contact-page hours look like office/shop hours
+- **Godalming & Villages Community Store Foodbank** (`godalming-villages-community-store`): held after Dean undo 29 Oct  
+  source: https://godalmingcommunitystore.org/contact  
+  why held: store contact hours look like office/shop hours
+- **Crescent Foodbank** (`crescent`): held after Dean undo 29 Oct  
+  source: https://crescentfoodbank.org.uk  
+  why held: source blocked or unclear on own site; cannot confirm
+- **Corsham Churches Foodbank** (`corsham-churches`): held after Dean undo 29 Oct  
+  source: https://corshamchurchesfoodbank.org.uk  
+  why held: source blocked or multi-centre; cannot confirm
+- **Salford Food Parcels Foodbank** (`salford-food-parcels`): held after Dean undo 29 Oct  
+  source: https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/  
+  why held: source blocked or multi-centre; cannot confirm
+- **Old Lodge Lane Baptist Church** (`purley/old-lodge-lane-baptist-church`): held after Dean undo 29 Oct  
+  source: https://www.purleyfoodhub.net/get-help/  
+  why held: multi-centre get-help page; cannot confirm this centre
+- **Sunderland Foodbank** (`sunderland`): held after Dean undo 29 Oct  
+  source: https://sunderlandfoodbank.org.uk/locations/  
+  why held: network pin cut to one slot from multi-branch locations page
+- **Weymouth** (`salvation-army/weymouth`): held after Dean undo 29 Oct  
+  source: https://www.salvationarmy.org.uk/weymouth  
+  why held: dropped Tuesday evening session still listed on its page
 <!-- /times crosscheck fb -->
 
 

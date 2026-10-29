@@ -358,6 +358,42 @@
   "dens/*": {
    "url": "https://www.dens.org.uk/need-help/need-emergency-food/",
    "reason": "finder copied Liberty Tea Rooms' times onto Way Inn"
+  },
+  "bridgwater": {
+   "url": "https://bridgwater.foodbank.org.uk/locations/",
+   "reason": "Dean 29 Oct 2026 (#224): leave published times as-is until reviewed"
+  },
+  "hereford": {
+   "url": "https://herefordfoodbank.co.uk/contact-us",
+   "reason": "contact-page hours look like office hours, not distribution sessions"
+  },
+  "godalming-villages-community-store": {
+   "url": "https://godalmingcommunitystore.org/contact",
+   "reason": "store contact hours look like office/shop hours, not food-bank sessions"
+  },
+  "crescent": {
+   "url": "https://crescentfoodbank.org.uk",
+   "reason": "source blocked / own-site read unclear; Dean review 29 Oct 2026"
+  },
+  "corsham-churches": {
+   "url": "https://corshamchurchesfoodbank.org.uk",
+   "reason": "source blocked / multi-centre wording; Dean review 29 Oct 2026"
+  },
+  "salford-food-parcels": {
+   "url": "https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/",
+   "reason": "source blocked / cannot confirm client sessions; Dean review 29 Oct 2026"
+  },
+  "purley/old-lodge-lane-baptist-church": {
+   "url": "https://www.purleyfoodhub.net/get-help/",
+   "reason": "multi-centre get-help page; cannot confirm this centre's sessions"
+  },
+  "sunderland": {
+   "url": "https://sunderlandfoodbank.org.uk/locations/",
+   "reason": "network pin: locations page lists every centre; one slot cannot replace the stored text"
+  },
+  "salvation-army/weymouth": {
+   "url": "https://www.salvationarmy.org.uk/weymouth",
+   "reason": "own page lists more sessions than the auto-read table (Tuesday evening dropped)"
   }
  }
 }

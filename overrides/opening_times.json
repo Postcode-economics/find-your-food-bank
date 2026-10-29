@@ -3291,6 +3291,7 @@
  },
  "bridgwater": {
   "checked_date": "2026-10-20",
+  "protected": true,
   "raw": "Opening times Mon 13:00 - 15:30 Tue Closed Wed 13:00 - 15:30 Thu Closed Fri 13:00 - 15:30 Sat Closed Sun Closed ",
   "source_url": "https://bridgwater.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
@@ -5286,6 +5287,28 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "corsham-churches": {
+  "checked_date": "2026-10-27",
+  "parsed_from_text": true,
+  "protected": true,
+  "raw": "Tuesday and Saturday 10am - 12:00",
+  "source_url": "https://corshamchurchesfoodbank.org.uk",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "coventry": {
   "checked_date": "2026-10-20",
   "raw": "Mon 09:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 10:00 - 12:00 | Mon 12:30 - 14:30 | Mon Closed Tue 10:30 - 12:30 | Mon Closed Tue 11:30 - 13:30 | Wed 11:30 - 13:30 | Thu 11:30 - 13:30 | Fri 11:30 - 13:30 | Mon Closed Tue Closed Wed 12:00 - 14:00 | Mon Closed Tue Closed Wed 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 10:00 - 12:00 | Mon Closed Tue Closed Wed Closed Thu 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu 18:00 - 19:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri 13:00 - 15:00 | Mon Closed Tue Closed Wed Closed Thu Closed Fri Closed Sat 11:00 - 13:00",
@@ -5597,6 +5620,22 @@
   "source_url": "https://creditonfoodbank.org.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "crescent": {
+  "checked_date": "2026-10-27",
+  "parsed_from_text": true,
+  "protected": true,
+  "raw": "Sunday 10AM -11AM | Sundays 10am-11:00am | Sunday 10am-11:00am",
+  "source_url": "https://crescentfoodbank.org.uk",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sun": [
+    [
+     "10:00",
+     "11:00"
+    ]
+   ]
+  }
  },
  "crossroads-community-hub": {
   "checked_date": "2026-10-20",
@@ -9416,6 +9455,46 @@
    ]
   }
  },
+ "godalming-villages-community-store": {
+  "checked_date": "2026-10-27",
+  "parsed_from_text": true,
+  "protected": true,
+  "raw": "Monday - Friday 10am-12:30pm",
+  "source_url": "https://godalmingcommunitystore.org",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:30"
+    ]
+   ]
+  }
+ },
  "godmanchester-huntingdon": {
   "checked_date": "2026-10-27",
   "raw": "Helpline hours, not food bank sessions: Rural Citizens Advice Huntingdonshire 0808 2787 807 (lines open Monday to Friday 9.30am to 3.30pm); Help through Hardship 0808 2082138 (open Monday to Friday, 9am-5pm)",
@@ -10568,6 +10647,46 @@
   "status": "TIMES_FOUND",
   "structured": {
    "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
+ "hereford": {
+  "checked_date": "2026-10-27",
+  "parsed_from_text": true,
+  "protected": true,
+  "raw": "Monday to Friday 10:00 am - 12",
+  "source_url": "https://herefordfoodbank.co.uk",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
     [
      "10:00",
      "12:00"
@@ -17469,6 +17588,34 @@
    ]
   }
  },
+ "purley/old-lodge-lane-baptist-church": {
+  "checked_date": "2026-10-23",
+  "parsed_from_text": true,
+  "protected": true,
+  "raw": "Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am",
+  "source_url": "https://www.purleyfoodhub.net",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:15",
+     "12:45"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  }
+ },
  "queens-park-govanhill-parish-church": {
   "checked_date": "2026-10-20",
   "raw": "Saturday November 7th from 11am till 1pm",
@@ -18981,6 +19128,22 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "salford-food-parcels": {
+  "checked_date": "2026-10-27",
+  "parsed_from_text": true,
+  "protected": true,
+  "raw": "Wednesday 10-11.30am",
+  "source_url": "https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "10:00",
+     "11:30"
+    ]
+   ]
+  }
+ },
  "salford/broughton": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon 10:00 - 18:00 Tue 10:00 - 18:00 Wed 10:00 - 18:00 Thu 10:00 - 18:00 Fri 10:00 - 18:00 Sat Closed Sun Closed ",
@@ -19686,6 +19849,7 @@
  },
  "salvation-army/weymouth": {
   "checked_date": "2026-10-20",
+  "protected": true,
   "raw": "TUESDAY: 6-30 pm | WEDNESDAY: 10 am - 12",
   "source_url": "https://www.salvationarmy.org.uk/weymouth",
   "status": "TIMES_TEXT_ONLY",
@@ -22679,6 +22843,7 @@
  },
  "sunderland": {
   "checked_date": "2026-10-20",
+  "protected": true,
   "raw": "Monday: 15:00-16:30 | Tuesday: Closed Wednesday: 15:00-16:30 | Monday: Closed Tuesday: 10:30-12:30 | Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 11:00-13:30 | Monday: 13:00-14:30 | Tuesday: Closed Wednesday: Closed Thursday: Closed Friday: 13:00-14:30 | Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 09:00-10:30 | Monday: Closed Tuesday: Closed Wednesday: 13:00-15:00 | Thursday: Closed Friday: 10:00-12:00 | Monday: 10:00-12:00 | Tuesday: Closed Wednesday: 13:00-15:00 | Thursday: 11:00-14:00 | Monday: Closed Tuesday: 13:30-15:30 | Monday: 13:00-15:00 | Monday: 11:30-13:00 | Tuesday: Closed Wednesday: Closed Thursday: 11:30-13:00 | Monday: Closed Tuesday: Closed Wednesday: Closed Thursday: 13:00-15:00 | Monday: Closed Tuesday: Closed Wednesday: 09:30-12:00",
   "source_url": "https://sunderlandfoodbank.org.uk/locations/",
   "status": "TIMES_TEXT_ONLY",
