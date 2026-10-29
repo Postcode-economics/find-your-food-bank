@@ -6,7 +6,9 @@ Run after a layer is rebuilt and before anything is committed. Compares the new 
  - a phone that stayed but lost its venue label gets that label back (same number only),
  - opening times (food banks: opening_times; shelters / warm spaces: hours) that vanished are put back.
 Nothing is lost silently: every restore is listed in reports/refresh_guard_<layer>.md and logs/refresh_guard.json,
-and (in CI, with GH_TOKEN) a 'refresh-alert' issue is opened. Never fails the job; the restored file is published.
+and (in CI, with GH_TOKEN) a 'refresh-alert' issue is opened. The restored file is published.
+Food banks: a kept place also keeps its access.js tag (29 Oct: build.py had rebuilt access.js without the kept places).
+The job fails, before anything is written, if a published food bank still has no access tag that it had before.
 Usage: refresh_guard.py foodbanks|shelters|warmspaces [baseline-git-ref, default HEAD]"""
 import datetime, json, os, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -120,12 +122,40 @@ def guard(layer, old_items, new_items, run_day=None, closed_ids=(), root=None):
             rep.setdefault('groups', []).append(o['id'])
     return out, rep
 
+ACCESS = 'access.js'
+NO_TAG = ('warehouse', 'dropoff')  # build_access.py never tags these
+
+def write_access(acc, root=None):
+    p = os.path.join(root or ROOT, ACCESS); t = p + '.tmp'
+    open(t, 'w', encoding='utf-8').write('window.FB_ACCESS=' + json.dumps(acc, separators=(',', ':')) + ';\n'); os.replace(t, p)
+
+def carry_access(kept, old_acc, acc):
+    """build.py rebuilds access.js only from the places it built (full_check.py then applies its flips), so a place the
+    guard kept has no filter-chip tag. Give it back the tag it had in the published access.js."""
+    back = [k for k in kept if k in old_acc and k not in acc]
+    for k in back: acc[k] = old_acc[k]
+    return back
+
+def lost_access(items, old_acc, acc):
+    """Published places that had an access tag before and have none now."""
+    return [i['id'] for i in items if i['id'] in old_acc and i['id'] not in acc and i.get('kind') not in NO_TAG]
+
 def main(layer, ref='HEAD'):
     f = os.path.join(ROOT, FILES[layer])
     try: old_txt = subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True)
     except Exception: print('guard: no baseline, skipped'); return {}
     _, old, _ = split(old_txt); pre, cur, post = split(open(f).read())
     items, rep = guard(layer, old['items'], cur['items'], closed_ids=[x['id'] for x in cur.get('recently_closed', []) if isinstance(x, dict) and 'id' in x])
+    if layer == 'foodbanks':
+        try: _, old_acc, _ = split(subprocess.check_output(['git', 'show', f'{ref}:{ACCESS}'], cwd=ROOT, text=True))
+        except Exception: old_acc = {}
+        _, acc, _ = split(open(os.path.join(ROOT, ACCESS), encoding='utf-8').read())
+        back = carry_access(rep['places'], old_acc, acc)
+        if back: write_access(acc); rep['access'] = back
+        lost = lost_access(items, old_acc, acc)
+        if lost:
+            print(f'::error::refresh guard: {len(lost)} published food banks lost their access tag (access.js): ' + ', '.join(lost))
+            sys.exit(1)
     n = sum(len(v) for k, v in rep.items() if k != 'not_restored')
     summ = f"{layer}: kept {len(rep['places'])} places, {len(rep['phones'])} phones, {len(rep['times'])} opening times that this run would have dropped" + (f"; {len(rep['not_restored'])} left out on purpose by the build were not restored" if rep.get('not_restored') else '')
     print('refresh guard:', summ)

@@ -187,7 +187,26 @@ def want_times(ot):
         return norm_times(" ".join(map(str, ot.values()))), {k[:3].lower() for k in ot}
     return norm_times(str(ot)), {d for d in DAYN if d in str(ot).lower()}
 NOT_CLIENT = re.compile(r"office|warehouse|donat|drop[- ]?off|admin|phone line|telephone|helpline|call us|volunteer|wheelie|\bbins?\b|collection point|donation point"
-                        r"|phone ?lines? (?:is |are )?(?:open|monitored|answered)|phone answered|phoneline|manned|church services?|sunday services?|\bworship\b|\bmass\b", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours
+                        r"|phone ?lines? (?:is |are )?(?:open|monitored|answered)|phone answered|phoneline|manned|church services?|sunday services?|\bworship\b|\bmass\b"
+                        r"|phone ?calls?|(?:accept|take|taking|answer)\w*\s+(?:phone\s+)?calls\b|calls? (?:are )?(?:taken|answered|accepted)"
+                        # check-only sweep 29 Oct 2026: Haverhill 'Contact hours', Eyres Monsell gym/centre hours, St Paul's Erith
+                        # preschool sessions, adviser drop-ins and café/coffee-shop times were read as food bank hours
+                        r"|contact (?:hours|times)|\badvis[eo]rs?\b|\bgym\b|fitness|leisure cent|swimming|\bpool\b|sports? (?:hall|cent)"
+                        r"|reception|centre opening (?:hours|times)|building (?:is )?open|pre-?school|nursery|playgroup|toddlers?|cr[eè]che"
+                        r"|caf[eé] (?:is )?open|caf[eé] (?:opening )?(?:hours|times)|coffee (?:shop|morning)|\bshop (?:is )?open|shop (?:opening )?(?:hours|times)", re.I)  # rule 27 (26 Oct): phone/office/donation/church-service hours
+# Trinity (29 Oct 2026): 'We accept phone calls Mon-Thurs 10am - 2pm only from Statuatory agencies'. A day and time
+# followed by an agency/professional-only line is a referral line, not a time a client can come.
+AGENCY_ONLY = re.compile(r"\bonly\s+(?:from|for|by)\s+(?:the\s+)?(?:statu\w*|referr\w*|professional\w*|partner\w*|support|external)\s+"
+                         r"(?:agenc\w*|agents?|organi[sz]ations?|partners?|professionals?|services?|workers?|bodies)"
+                         r"|\b(?:agenc(?:y|ies)|professionals?|referrers?|referral (?:agencies|partners))\s+only\b", re.I)
+def agency_only_after(t, end):
+    """The words right after a time span (up to the next span or sentence) say it is for agencies/professionals only."""
+    nxt = t[end:end + 90]
+    m = TIMESPAN.search(nxt)
+    if m: nxt = nxt[:m.start()]
+    k = nxt.find(". ")
+    if k >= 0: nxt = nxt[:k]
+    return bool(AGENCY_ONLY.search(nxt))
 ORDINAL = re.compile(r"\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month", re.I)
 ORD_SPAN = re.compile(r"(\b(?:first|second|third|fourth|last|1st|2nd|3rd|4th)\s+(?:mon|tues|wednes|thurs|fri|satur|sun)day\s+(?:of\s+)?(?:the|each|every)\s+month)[\s:,(–-]*((?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon)\s*(?:-|–|—|to|until|till)\s*(?:\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm)?|noon))", re.I)
 APPT = re.compile(r"by appointment|appointment only|appointments only|phone in advance|telephone request|by arrangement|on request", re.I)   # North Ayrshire St John's: 'only open upon a telephone request'
@@ -199,7 +218,8 @@ def not_client_context(t, at, prev_span_end=None):
     if prev_span_end is not None and prev_span_end > lo: lo = prev_span_end
     k = max(t.rfind(". ", lo, at), t.rfind("; ", lo, at))   # rule 27 (26 Oct): context stops at the previous sentence
     if k >= 0: lo = k + 2
-    return bool(NOT_CLIENT.search(t[lo:at]))
+    m = NOT_CLIENT.search(t[lo:at])
+    return m.group(0).lower() if m else ""
 def postcode_block(text, postcode):
     """The slice of `text` that belongs to this postcode, or None when that slice cannot be fixed.
     Same window extract_times uses: one postcode keeps the page; several postcodes keep only the block that
@@ -221,31 +241,47 @@ def postcode_block(text, postcode):
     elif before and not after: lo, hi = max([max(0, s - 500)] + ends), e
     else: return None
     return t[lo:hi]
-def extract_times(text, postcode=None):
+def _reject(rejected, m, reason):
+    if rejected is not None: rejected.append({"text": (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip(), "reason": reason})
+def extract_times(text, postcode=None, rejected=None):
     """Pull 'day(s) time-time' phrases from own-site text; if the site lists several postcodes, only this entry's block.
     Recognised layouts (Trussell 2026 cards, Trussell /locations tables, day/value columns, '(Tues)/(Fri)' rows) are
     read by rule27_formats first; prose is cleaned (non-breaking spaces, '12 noon', 'between X and Y', '10-12am',
-    'except bank holidays') and phone/office/donation/service sentences are dropped before reading."""
+    'except bank holidays') and phone/office/donation/service sentences are dropped before reading.
+    rejected: optional list; every day/time span that was read but not used is appended as {"text", "reason"}."""
     import rule27_formats as R27
     lay = R27.read_centre(text, postcode)
     if lay is not None:
-        if not lay.get("structured"): return None   # recognised layout, but this centre is unclear: never guess
+        if not lay.get("structured"):   # recognised layout, but this centre is unclear: never guess
+            if rejected is not None: rejected.append({"text": "", "reason": "recognised layout but this centre's times are unclear"})
+            return None
         return {"raw": lay["raw"], "status": "TIMES_FOUND", "structured": lay["structured"], "layout": lay["layout"],
                 "quote": lay["quote"], "unclear_days": lay.get("unclear_days") or {}}
     text = strip_phone_hours(R27.clean(text))
     t = postcode_block(text, postcode)
-    if t is None: return None   # postcode not on the page, or the layout is unclear: never guess
+    if t is None:   # postcode not on the page, or the layout is unclear: never guess
+        if rejected is not None and TIMESPAN.search(text or ""):
+            rejected.append({"text": "", "reason": "times on the page cannot be tied to this centre's postcode"})
+        return None
     segs, seen, prev_end, prev_skipped = [], set(), None, False
     found = []
     for m in ORD_SPAN.finditer(t):   # 'first Saturday of the month 9:30 - 11:30' kept as written (shown as text)
-        if not not_client_context(t, m.start()): found.append((m.start(), (m.group(1) + " " + m.group(2)).strip()))
+        why = not_client_context(t, m.start())
+        why = ("non-client hours (%s)" % why) if why else ("agency/professional-only line" if agency_only_after(t, m.end()) else "")
+        if why: _reject(rejected, m, why)
+        else: found.append((m.start(), (m.group(1) + " " + m.group(2)).strip()))
     ords = [(a, a + len(x) + 20) for a, x in found]
+    last_why = ""
     for m in TIMESPAN.finditer(t):
         if any(a <= m.start() < b for a, b in ords): continue
         follows = prev_end is not None and m.start() - prev_end < 40 and not re.search(r"[.;]\s", t[prev_end:m.start()])   # a list continuing straight on from the last line (a full stop ends it)
-        skip = (prev_skipped and follows) or not_client_context(t, m.start(), prev_end)
+        ctx = not_client_context(t, m.start(), prev_end)
+        why = ("non-client hours (%s)" % ctx) if ctx else ("agency/professional-only line" if agency_only_after(t, m.end()) else "")
+        if not why and prev_skipped and follows: why = last_why + " (same list)"
+        skip = bool(why)
         prev_end, prev_skipped = m.end(), skip
-        if skip: continue   # office / warehouse / donation / bin hours are not client times
+        if skip:   # office / warehouse / donation / bin hours are not client times
+            last_why = why.replace(" (same list)", ""); _reject(rejected, m, why); continue
         seg = (m.group(1).strip(" ,&-–") + " " + m.group(2)).strip()
         nxt = t[m.end():m.end() + 40]; nxt = nxt[:min([len(nxt)] + [x.start() for x in TIMESPAN.finditer(nxt)])]
         if APPT.search(nxt) or APPT.search(t[max(0, m.start() - 30):m.start()]): seg += " (by appointment)"
@@ -434,6 +470,41 @@ def _timed_readings(pairs, postcode):
         elif e and e.get("status") == "TIMES_TEXT_ONLY":
             messy = True
     return found, messy
+# Silklife (29 Oct 2026): the source page has no day table for the food bank (only 'Sunday Service 10:30 - 12:30').
+UNREADABLE = "unreadable: no day table for this listing on the source page; nothing guessed, shown hours left unchanged"
+def jumble_reason(ot):
+    """Many unrelated blocks read from one page (Purley, 29 Oct 2026: seven blocks for four centres), or one day given
+    different times in separate blocks. Review only, never applied. '' when the reading is one clear table."""
+    segs = [s.strip() for s in str((ot or {}).get("raw") or "").split("|") if s.strip()]
+    if len(segs) >= 5: return "jumble: %d separate time blocks read from one page; review only" % len(segs)
+    per = {}
+    for s in segs:
+        m = TIMESPAN.search(s)
+        if not m: continue
+        tm = tuple(sorted(norm_times(m.group(2))))
+        for d in _span_days(m.group(1)): per.setdefault(d, set()).add(tm)
+    clash = sorted((d for d, v in per.items() if len(v) > 1), key=DAYN.index)
+    if clash: return "jumble: %s given different times in separate blocks on one page; review only" % ", ".join(d.title() for d in clash)
+    return ""
+ENDED = re.compile(r"no longer (?:open|running|held|operat\w*|meet\w*|taking place)|(?:session|service|distribution|drop-?in|pantry|food ?bank)s?"
+                   r" (?:on \w+days? )?(?:has |have )?(?:now )?(?:ended|stopped|finished|closed|ceased)|(?:has|have) (?:now )?(?:stopped|ended|ceased)"
+                   r"|discontinued|(?:will )?no longer (?:be )?(?:running|open|held) on", re.I)
+def open_days(v):
+    """Open days of a stored or read week: times.py dict (structured) or shelter/warm-space hours dict. None if no table."""
+    if not isinstance(v, dict): return None
+    if "structured" in v or "status" in v or "raw" in v:
+        st = v.get("structured")
+        return {d[:3].lower() for d, s in st.items() if s} if isinstance(st, dict) else None
+    days = {str(d)[:3].lower() for d, s in v.items() if s and str(s).strip().lower() not in ("closed", "-", "")}
+    return {d for d in days if d in DAYN} or None
+def shrink_reason(old, new, texts=()):
+    """Apsley and Galashiels (29 Oct 2026): a re-read with fewer open days than the stored week. Known hours are not cut
+    to fewer days unless the source says that session ended. '' when the new week keeps as many days."""
+    a, b = open_days(old), open_days(new)
+    if not a or not b or len(b) >= len(a): return ""
+    if any(ENDED.search(t or "") for t in texts or ()): return ""
+    gone = sorted(a - b, key=DAYN.index) or sorted(a, key=DAYN.index)
+    return "would cut known hours to fewer days (drops %s) and the source does not say that session ended; review" % ", ".join(d.title() for d in gone)
 def confirm_times(ot, texts, postcode=None, pages=None, source_url=None):
     """-> (status, new_ot, reason).
     status: confirmed | changed | differs_review | unconfirmed | none_published.
@@ -474,7 +545,7 @@ def confirm_times(ot, texts, postcode=None, pages=None, source_url=None):
         found, messy = _timed_readings(src_pairs, postcode)
         decided = decide(found, messy, True)
         if decided: return decided
-        return "differs_review", None, "source page did not confirm a day table; shown hours left unchanged"
+        return "differs_review", None, UNREADABLE
     found, messy = _timed_readings(pairs, postcode)
     decided = decide(found, messy, False)
     if decided: return decided
@@ -598,6 +669,8 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if len(vals) > 1: why.append("conflict: own-site pages give different times")
     if sig and not _ot_empty(new) and not day_same_line((new or {}).get("structured"), texts): why.append("day not on the same line as its times on the own-site page")
     if not _ot_empty(i.get(field)) and (_ot_empty(new) or not sig): why.append("would change known times to closed/empty")
+    for extra_why in (jumble_reason(new), shrink_reason(i.get(field), new, texts)):
+        if extra_why: why.append(extra_why)
     prev = (seen or {}).get(key) or {}
     if not sig or prev.get("sig") != sig or prev.get("source_url") != src or prev.get("run_at") == run_at:
         why.append("times not read identically on 2 separate runs yet")
@@ -900,6 +973,9 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
             cc = card_check(i.get(field), texts, i, today, src) if kind == "fb" else None
             st, new, why = cc or confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"), pages=page_pairs, source_url=src if kind == "fb" else None)
             rec.update(status=st, reason=why)
+            rej = []
+            for t in texts: extract_times(t, i.get("postcode"), rejected=rej)
+            if rej: rec["rejected"] = rej[:12]   # every day/time span read but not used, with its reason (logs/*_times_check.json)
             if st == "confirmed":
                 if isinstance(new, dict): rec["evidence"] = new.get("_evidence") or ""
                 i["times_status"] = "confirmed"; i["times_checked"] = today
