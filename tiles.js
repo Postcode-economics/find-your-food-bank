@@ -107,10 +107,11 @@ window.addTiles = function (map) {
        even for tiles already seen). Leaflet drops a zoom level's <img>s once it leaves it, and a tile asked for again
        went through the fetch, the service worker, base64 and decode before it painted (about 0.4 s on a phone), so
        the ring outside the shrinking view stayed grey. A remembered tile is painted from this copy, with no request
-       and no fade. TILE_MEMO_MAX bounds the memory (a tile is a 15-40 KB data URL). */
-    var memo = new Map(), memoMax = window.TILE_MEMO_MAX || 600;
+       and no fade. TILE_MEMO_MAX bounds the memory (a tile is a 15-40 KB data URL); 0 turns it off, so every tile
+       goes through the service worker as on a fresh page. */
+    var memo = new Map(), memoMax = typeof window.TILE_MEMO_MAX === 'number' ? window.TILE_MEMO_MAX : 600;
     function remember(url, src) {
-      if (!src || src.indexOf('data:image/gif;base64,R0lGODlhAQABAAD') === 0) return;
+      if (memoMax <= 0 || !src || src.indexOf('data:image/gif;base64,R0lGODlhAQABAAD') === 0) return;
       memo.delete(url);
       memo.set(url, src);
       if (memo.size > memoMax) memo.delete(memo.keys().next().value);
@@ -273,7 +274,7 @@ window.addTiles = function (map) {
         /* While two fingers zoom, the grid follows them level by level. A tile that is not remembered waits
            TILE_PINCH_WAIT_MS, and is requested only while the pinch is still on its level: a level the fingers
            pass through is never fetched, and Leaflet drops it when the pinch ends. This is the guard against a
-           grid of requests at every level (the 429s of PR 202) now that updateWhenZooming is on. */
+           grid of requests at every level (the 429s of PR 202) now that a pinch follows the levels. */
         var waited = false;
         function begin() {
           if (dead() || (lay && img.isConnected === false)) return;
@@ -348,7 +349,7 @@ window.addTiles = function (map) {
       _tileReady: function (coords, err, tile) {
         L.TileLayer.prototype._tileReady.call(this, coords, err, tile);
         var t = this._tiles[this._tileCoordsToKey(coords)];
-        if (!err && t && tile && tile._hmInstant && t.el === tile) { t.loaded = +new Date - 1000; L.DomUtil.setOpacity(tile, 1); }
+        if (!err && t && tile && tile._hmInstant && t.el === tile) { t.loaded = 1; L.DomUtil.setOpacity(tile, 1); }
       },
       /* Leaflet sizes the tile area for the closer of the two zooms while it animates, so a zoom-out's widening edge
          stayed grey until the animation ended. Here it is the zoom being animated to. */
@@ -359,11 +360,12 @@ window.addTiles = function (map) {
         return new L.Bounds(pixelCenter.subtract(halfSize), pixelCenter.add(halfSize));
       }
     });
-    /* updateWhenZooming is Leaflet's default (on) again: with it off (PR 202), a pinch loaded nothing until the
-       fingers lifted, so zooming out showed grey around the shrinking view. Locate and search jump straight to
-       their view (fitBounds with animate: false), and begin() above holds a pinch's network requests to the level
-       the fingers rest on. keepBuffer stays 2: it only keeps tiles across a small pan. */
-    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution, keepBuffer: 2 });
+    /* updateWhenZooming stays false: Leaflet flyTo, and a zoom animation with the default, requests a
+       full grid at every integer zoom on the way. Locate crosses several levels; those grids are the
+       429s. Tiles already on screen scale, and one grid loads when the view settles. A pinch is the
+       exception, in widen() below: it follows the level under the fingers. keepBuffer stays 2 because
+       it only keeps tiles already fetched across a small pan. */
+    layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution, updateWhenZooming: false, keepBuffer: 2 });
     layer.on('tileabort tileunload', function (e) { if (e.tile && e.tile._hmAbort) e.tile._hmAbort(); });
     layer.addTo(map);
     /* Look-ahead (Dean, 29 Oct 2026): once the view has rested, the tiles a zoom-out needs are fetched at full
@@ -374,9 +376,9 @@ window.addTiles = function (map) {
        tiles first. Remembered tiles are skipped, at most TILE_AHEAD_MAX per rest and TILE_AHEAD_PARALLEL at a time.
        A move drops the queue; tiles already on the way are kept, since the move usually needs them. Each one counts
        towards a switch like a tile on screen. */
-    var aheadTimer = 0, aheadLive = [], aheadQueue = [], touchedAt = 0, box = map.getContainer();
+    var aheadTimer = 0, aheadLive = [], aheadQueue = [], touchedAt = -1e9, box = map.getContainer();
     var TOUCH = ['touchstart', 'pointerdown', 'wheel', 'dblclick', 'keydown'];
-    function touched() { touchedAt = +new Date; }
+    function touched() { touchedAt = performance.now(); }
     TOUCH.forEach(function (ev) { box.addEventListener(ev, touched, { passive: true }); });
     function aheadPause() { clearTimeout(aheadTimer); aheadTimer = 0; aheadQueue = []; }
     function aheadStop() {
@@ -425,20 +427,25 @@ window.addTiles = function (map) {
     }
     function ahead() {
       aheadTimer = 0;
-      if (my !== gen || !layer || !layer._map || pinching()) return;
+      if (my !== gen || !layer || !layer._map || pinching() || memoMax <= 0) return;
       var live = aheadLive.map(function (im) { return im._hmUrl; });
       aheadQueue = aheadWanted().filter(function (u) { return live.indexOf(u) < 0; });
       aheadNext();
     }
     function aheadSoon() {
       aheadPause();
-      var wait = +new Date - touchedAt < 5000 ? (window.TILE_AHEAD_TOUCH_MS || 250) : (window.TILE_AHEAD_IDLE_MS || 1500);
+      var wait = performance.now() - touchedAt < 5000 ? (window.TILE_AHEAD_TOUCH_MS || 250) : (window.TILE_AHEAD_IDLE_MS || 1500);
       aheadTimer = setTimeout(ahead, wait);
     }
-    /* During a pinch Leaflet adds tiles only when the zoom reaches another level, but the view keeps widening inside
-       a level: its new edge is filled here as the fingers move (remembered tiles at once, others via begin()). */
+    /* A pinch follows the fingers: the grid moves to the level the zoom rounds to (with updateWhenZooming false
+       Leaflet would stretch the starting level until they lift, the grey of PR 202), and the edge of a widening view
+       is filled as the fingers move, remembered tiles at once and others via begin(). */
     function widen() {
-      if (pinching() && layer && layer._map && layer._tileZoom !== undefined) layer._update(map.getCenter());
+      if (!pinching() || !layer || !layer._map) return;
+      var z = map.getZoom(), tz = Math.round(z);
+      if (tz > layer.options.maxZoom || tz < layer.options.minZoom) return;
+      if (tz !== layer._tileZoom) layer._setView(map.getCenter(), z, true, false);
+      else layer._update(map.getCenter());
     }
     /* A pinch's closing animation is started with tile updates off; when it zooms out, its wider view is filled now. */
     function widenAnim(e) {
