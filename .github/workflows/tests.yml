@@ -307,7 +307,7 @@ jobs:
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
       # 27 Oct 2026: the iPhone map-fix and stale-worker WebKit tests were skipped everywhere (browser-tests has no WebKit).
       # The vector fallback check uses a TLS proxy with the service worker allowed. It does not use route() with the worker blocked.
-      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py tests/test_iphone_freeze.py tests/test_iphone_vector_recover.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py tests/test_motion_28oct_3.py tests/test_website_link.py tests/test_zoom_no_grey.py
+      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py tests/test_iphone_freeze.py tests/test_iphone_vector_recover.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py tests/test_motion_28oct_3.py tests/test_website_link.py tests/test_showmore_layers.py tests/test_zoom_no_grey.py
   iphone-journeys:
     needs: changes
     if: needs.changes.outputs.browser == '1'
