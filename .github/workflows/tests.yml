@@ -305,9 +305,21 @@ jobs:
           path: ~/.cache/ms-playwright
           key: ms-playwright-${{ runner.os }}-1.47.0-webkit
       - run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps webkit >/dev/null
+      # route() misses a WebKit service worker's own fetches, so its precache went to the live site. Requesting a new
+      # ?v= tag there before deploy makes Cloudflare keep the old file under it (layers.js?v=h48b3be38ff93, 29 Oct 2026).
+      # helpmap.uk resolves only to this runner, which serves the checkout; the job stops if that does not hold.
+      - name: helpmap.uk answered by this checkout, never the live site
+        run: |
+          printf '127.0.0.1 helpmap.uk www.helpmap.uk\n::1 helpmap.uk www.helpmap.uk\n' | sudo tee -a /etc/hosts
+          sudo nohup python3 scripts/local_helpmap.py /tmp/helpmap-ci-ca.crt > /tmp/local_helpmap.log 2>&1 &
+          for i in $(seq 1 30); do [ -s /tmp/helpmap-ci-ca.crt ] && curl -fsS --cacert /tmp/helpmap-ci-ca.crt https://helpmap.uk/version.json >/dev/null 2>&1 && break; sleep 1; done
+          sudo cp /tmp/helpmap-ci-ca.crt /usr/local/share/ca-certificates/helpmap-ci-ca.crt && sudo update-ca-certificates
+          off=$(getent ahosts helpmap.uk www.helpmap.uk | awk '{print $1}' | sort -u | grep -vxE '127\.0\.0\.1|::1' || true)
+          [ -z "$off" ] || { echo "helpmap.uk resolves off this runner: $off"; exit 1; }
+          [ "$(curl -fsS https://helpmap.uk/version.json)" = "$(cat version.json)" ] || { cat /tmp/local_helpmap.log; exit 1; }
       # 27 Oct 2026: the iPhone map-fix and stale-worker WebKit tests were skipped everywhere (browser-tests has no WebKit).
       # The vector fallback check uses a TLS proxy with the service worker allowed. It does not use route() with the worker blocked.
-      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py tests/test_iphone_freeze.py tests/test_iphone_vector_recover.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py tests/test_motion_28oct_3.py tests/test_website_link.py tests/test_showmore_layers.py::IPhone
+      - run: python -m pytest -q -rsx tests/test_iphone_responsive.py tests/test_iphone_map_fix.py tests/test_sw_tag_hash.py tests/test_webkit_instagram.py tests/test_iphone_freeze.py tests/test_iphone_vector_recover.py tests/test_iphone_decode.py tests/test_iphone_backup_map.py tests/test_phone_qa_28oct.py tests/test_motion_28oct_3.py tests/test_website_link.py tests/test_showmore_layers.py::IPhone tests/test_zoom_no_grey.py
   iphone-journeys:
     needs: changes
     if: needs.changes.outputs.browser == '1'

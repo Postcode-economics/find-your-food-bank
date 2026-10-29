@@ -13,8 +13,10 @@ proxy (Playwright's proxy option), so every request - page, worker or service wo
   anything else             -> refused
 Every CONNECT is logged in Stub.seen so a test can prove the block held.
 Use the context with ignore_https_errors=True (the local certificate is self-signed).
+tile_png may be a function of the tile path (a different tile per z/x/y); every OSM tile path served is logged in
+Stub.tile_paths. tile_latency (seconds) and tile_headers make the stand-in answer like the real tile server.
 """
-import json, mimetypes, os, select, socket, ssl, subprocess, tempfile, threading
+import json, mimetypes, os, select, socket, ssl, subprocess, tempfile, threading, time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from socketserver import ThreadingTCPServer, StreamRequestHandler
 
@@ -33,9 +35,10 @@ def _cert(d):
 
 
 class Stub:
-    def __init__(self, ofm_style, tile_png, postcode=None, osm=True, root=R):
+    def __init__(self, ofm_style, tile_png, postcode=None, osm=True, root=R, tile_latency=0, tile_headers=None):
         self.ofm_style, self.tile_png, self.postcode, self.osm, self.root = ofm_style, tile_png, postcode, osm, root
-        self.seen, self.refused, self.served = [], [], {'osm': 0, 'ofm': 0}
+        self.tile_latency, self.tile_headers = tile_latency, dict(tile_headers or {})
+        self.seen, self.refused, self.served, self.tile_paths = [], [], {'osm': 0, 'ofm': 0}, []
         self._lock = threading.Lock()
 
     # --- local TLS origin for every allowed host ---
@@ -53,7 +56,8 @@ class Stub:
                 self.send_header('content-type', ctype)
                 self.send_header('content-length', str(len(body)))
                 self.send_header('access-control-allow-origin', '*')
-                self.send_header('cache-control', 'no-store')
+                if 'cache-control' not in {k.lower() for k in (extra or {})}:
+                    self.send_header('cache-control', 'no-store')
                 for k, v in (extra or {}).items():
                     self.send_header(k, v)
                 self.end_headers()
@@ -84,7 +88,11 @@ class Stub:
                 if host.endswith(OSM) and stub.osm:
                     with stub._lock:
                         stub.served['osm'] += 1
-                    return self.send(200, stub.tile_png, 'image/png', {'x-helpmap-tile': 'stub'})
+                        stub.tile_paths.append(path)
+                    if stub.tile_latency:
+                        time.sleep(stub.tile_latency)
+                    body = stub.tile_png(path) if callable(stub.tile_png) else stub.tile_png
+                    return self.send(200, body, 'image/png', dict({'x-helpmap-tile': 'stub'}, **stub.tile_headers))
                 return self.send(404)
 
             def do_OPTIONS(self):

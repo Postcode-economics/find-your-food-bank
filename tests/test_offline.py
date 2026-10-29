@@ -91,7 +91,7 @@ class Static(unittest.TestCase):
         self.assertIn("'index.html'", sw)
         self.assertIn("'outcodes.json'", sw)
         self.assertIn("'counties.json'", sw)
-        self.assertEqual(re.search(r"const C='([^']+)'", sw).group(1), 'fyfb-v95')
+        self.assertEqual(re.search(r"const C='([^']+)'", sw).group(1), 'fyfb-v96')
 
     def test_offline_line_and_plain_map_do_not_recolour_tiles(self):
         lj = open(os.path.join(R, 'layers.js'), encoding='utf-8').read()
