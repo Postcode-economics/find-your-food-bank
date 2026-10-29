@@ -1,37 +1,28 @@
 <!-- fill-rate alerts -->
 ## ⚠ Likely breakage (fill-rate alert)
 
-- own site mkfoodbank.org.uk returned 61.5% own-site confirmed opening times today, down from 94%. Possible site change. (13 places; existing values kept by the refresh guard, not treated as missing.)
-- own site faith-works.org.uk returned 30% own-site confirmed opening times today, down from 89%. Possible site change. (10 places; existing values kept by the refresh guard, not treated as missing.)
-- own site aberdeenshirenorth.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 91%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site wadebridgefoodbank.org returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site wythenshawe.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site bridgend.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 94%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
-- own site hull.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site southayrshire.foodbank.org.uk returned 50% own-site confirmed opening times today, down from 84%. Possible site change. (10 places; existing values kept by the refresh guard, not treated as missing.)
-- own site waveney.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 43%. Possible site change. (10 places; existing values kept by the refresh guard, not treated as missing.)
-- own site chelmsford.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 94%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
-- own site isleofwight.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 71%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site sutton.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site tamesideeast.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 91%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site eastbristol.foodbank.org.uk returned 42.9% own-site confirmed opening times today, down from 80%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
-- own site sparkhill.foodbank.org.uk returned 20% own-site confirmed opening times today, down from 71%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site nuneaton.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site sthelens.foodbank.org.uk returned 20% own-site confirmed opening times today, down from 71%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site wimbledon.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 86%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site nbsg.foodbank.org.uk returned 11.1% own-site confirmed opening times today, down from 59%. Possible site change. (9 places; existing values kept by the refresh guard, not treated as missing.)
-- own site eastyorkshire.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site dealarea.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site southsefton.foodbank.org.uk returned 50% own-site confirmed opening times today, down from 93%. Possible site change. (6 places; existing values kept by the refresh guard, not treated as missing.)
-- own site thefoodbank.org.uk returned 50% own-site confirmed opening times today, down from 93%. Possible site change. (6 places; existing values kept by the refresh guard, not treated as missing.)
-- own site watfordfoodbank.co.uk returned 0% own-site confirmed opening times today, down from 86%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site eastbourne.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 94%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
-- own site runnymede.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 94%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
-- own site eppingforest.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 91%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site 3food4u.org returned 25% own-site confirmed opening times today, down from 75%. Possible site change. (8 places; existing values kept by the refresh guard, not treated as missing.)
-- own site soarvalleyoutreach.org.uk returned 0% own-site confirmed opening times today, down from 21%. Possible site change. (8 places; existing values kept by the refresh guard, not treated as missing.)
-- own site lewisham.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 94%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
-- own site antrim.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 91%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site faith-works.org.uk returned 20% own-site confirmed opening times today, down from 79%. Possible site change. (10 places; existing values kept by the refresh guard, not treated as missing.)
+- own site aberdeenshirenorth.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 83%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site bridgend.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 88%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
+- own site waveney.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 36%. Possible site change. (10 places; existing values kept by the refresh guard, not treated as missing.)
+- own site chelmsford.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 88%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
+- own site isleofwight.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 57%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site tamesideeast.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 83%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site eastbristol.foodbank.org.uk returned 42.9% own-site confirmed opening times today, down from 73%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
+- own site sparkhill.foodbank.org.uk returned 20% own-site confirmed opening times today, down from 63%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site sthelens.foodbank.org.uk returned 20% own-site confirmed opening times today, down from 63%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site wimbledon.foodbank.org.uk returned 0% own-site confirmed opening times today, down from 71%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site nbsg.foodbank.org.uk returned 11.1% own-site confirmed opening times today, down from 51%. Possible site change. (9 places; existing values kept by the refresh guard, not treated as missing.)
+- own site thurrock.foodbank.org.uk returned 27.3% own-site confirmed opening times today, down from 81%. Possible site change. (11 places; existing values kept by the refresh guard, not treated as missing.)
+- own site southsefton.foodbank.org.uk returned 50% own-site confirmed opening times today, down from 86%. Possible site change. (6 places; existing values kept by the refresh guard, not treated as missing.)
+- own site thefoodbank.org.uk returned 50% own-site confirmed opening times today, down from 86%. Possible site change. (6 places; existing values kept by the refresh guard, not treated as missing.)
+- own site watfordfoodbank.co.uk returned 0% own-site confirmed opening times today, down from 71%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site medway.foodbank.org.uk returned 60% own-site confirmed opening times today, down from 93%. Possible site change. (10 places; existing values kept by the refresh guard, not treated as missing.)
+- own site eastbourne.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 88%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
+- own site runnymede.foodbank.org.uk returned 57.1% own-site confirmed opening times today, down from 88%. Possible site change. (7 places; existing values kept by the refresh guard, not treated as missing.)
+- own site eppingforest.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 83%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
+- own site 3food4u.org returned 0% own-site confirmed opening times today, down from 66%. Possible site change. (8 places; existing values kept by the refresh guard, not treated as missing.)
+- own site antrim.foodbank.org.uk returned 40% own-site confirmed opening times today, down from 83%. Possible site change. (5 places; existing values kept by the refresh guard, not treated as missing.)
 <!-- /fill-rate alerts -->
 
 # Daily review - food banks - 2026-10-29
@@ -44,14 +35,13 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 08:00 | 1064 | 909 | 59 | 0 | 129 | 62 | 29 | 689 | 0 | 0 | 0 |
 | 14:03 | 1066 | 922 | 47 | 0 | 130 | 64 | 28 | 700 | 0 | 0 | 0 |
+| 17:14 | 1066 | 926 | 43 | 0 | 130 | 63 | 28 | 705 | 0 | 0 | 0 |
 
 ## Auto-applied this run
 
-- new food bank: **The Bright Morning Star Prisons and Homelessness Outreach** (https://Www.thebrightmorningministries.com): not on map → added (SW9 7PT) — https://thebrightmorningministries.com/
-- new food bank: **Highwayhope** (https://www.Highwayhope.co.uk): not on map → added (M12 4QW) — https://www.Highwayhope.co.uk
-- new food bank: **Ibijoke Children Foundation UK** (https://www.ibijokefoundation.co.uk/): not on map → added (L7 0JA) — https://ibijokefoundation.co.uk/
+- none
 
-## For Dean to review (2030)
+## For Dean to review (2036)
 
 ### Trussell site with walk-in wording (6)
 
@@ -99,50 +89,52 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 
 - **DENS Foodbank** https://www.dens.org.uk/our-services/foodbank/ — current_tag: voucher; note: voucher wording no longer found - tag kept until you decide
 
-### dead or unreachable website (42)
+### dead or unreachable website (44)
 
-- **Alhuda Welfare Foundation Foodbank** https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Assynt Foodbank** https://assyntdevelopmenttrust.org/assynt-food-bank/ — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **BJO Amara Association Foodbank** https://www.bjoamaraassociation.org.uk/ — error: URLError: <urlopen error [Errno 101] Network is unreachable>; note: site failed 11 runs in a row - check contact details
-- **Bethel Foodbank** https://www.betheltrustpt.co.uk/food-share — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **CDW Foodbank** https://cdwfoodbank.co.uk — error: HTTP 404; note: site failed 2 runs in a row - check contact details
-- **Caistor Foodbank** http://www.caistorfoodbank.org — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Churches Foodbank** http://www.churchesfoodbank.org.uk — error: URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss; note: site failed 11 runs in a row - check contact details
-- **Conwy Foodbank** https://sanctuarytrust.org.uk/projects/conwyfoodbank/ — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **County Durham Foodbank** https://durhamfoodbank.org.uk — error: HTTP 403; note: site failed 11 runs in a row - check contact details
-- **Crookston Community Group Foodbank** https://ccg.scot/projects/1073/ — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Dartmoor Community Kitchen Hub Foodbank** https://communitykitchenhub.org.uk — error: URLError: <urlopen error [Errno -2] Name or service not known>; note: site failed 11 runs in a row - check contact details
-- **Dorchester Foodbank** https://www.dorchesterbc.org.uk/foodbank — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Gatehouse Community Church Foodbank** https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Glasgow Vineyard Storehouse Foodbank** https://dwellingplaceglasgow.org/storehouse/ — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Kenton Foodbank** https://kentonfoodbank.org.uk/ — error: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>; note: site failed 11 runs in a row - check contact details
+- **Alhuda Welfare Foundation Foodbank** https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Assynt Foodbank** https://assyntdevelopmenttrust.org/assynt-food-bank/ — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **BJO Amara Association Foodbank** https://www.bjoamaraassociation.org.uk/ — error: URLError: <urlopen error [Errno 101] Network is unreachable>; note: site failed 12 runs in a row - check contact details
+- **Bethel Foodbank** https://www.betheltrustpt.co.uk/food-share — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **CDW Foodbank** https://cdwfoodbank.co.uk — error: HTTP 404; note: site failed 3 runs in a row - check contact details
+- **Caistor Foodbank** http://www.caistorfoodbank.org — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Churches Foodbank** http://www.churchesfoodbank.org.uk — error: URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ss; note: site failed 12 runs in a row - check contact details
+- **Conwy Foodbank** https://sanctuarytrust.org.uk/projects/conwyfoodbank/ — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **County Durham Foodbank** https://durhamfoodbank.org.uk — error: HTTP 403; note: site failed 12 runs in a row - check contact details
+- **Crookston Community Group Foodbank** https://ccg.scot/projects/1073/ — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Dartmoor Community Kitchen Hub Foodbank** https://communitykitchenhub.org.uk — error: URLError: <urlopen error [Errno -2] Name or service not known>; note: site failed 12 runs in a row - check contact details
+- **Dorchester Foodbank** https://www.dorchesterbc.org.uk/foodbank — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Gatehouse Community Church Foodbank** https://www.gatehousecommunitychurch.co.uk/index.php/about-us/food-bank — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Glasgow Vineyard Storehouse Foodbank** https://dwellingplaceglasgow.org/storehouse/ — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Kenton Foodbank** https://kentonfoodbank.org.uk/ — error: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>; note: site failed 12 runs in a row - check contact details
 - **Kinmel Bay Church Foodbank** https://kinmelbaychurch.org.uk/food-bank-2/ — error: TimeoutError: The read operation timed out; note: site failed 2 runs in a row - check contact details
-- **Leighton Linslade Helpers Foodbank** https://www.leightonlinsladehelpers.org.uk/ — error: paused this run after HTTP 429 - still due on a later scheduled run; note: site failed 2 runs in a row - check contact details
-- **Leominster Foodbank** https://www.leominsterfoodbank.org — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl; note: site failed 11 runs in a row - check contact details
-- **Leslie Community Pantry Foodbank** https://lesliecommunitypantry.co.uk — error: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>; note: site failed 11 runs in a row - check contact details
-- **Maidenhead Foodbank** https://www.foodshare.charity — error: HTTP 429; note: site failed 4 runs in a row - check contact details
-- **Manor House Foodbank** https://kingschurchleicester.org/foodbank — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Mary's (Sutton) Foodbank** https://stmary-sutton.org.uk/page/marys-food-bank — error: URLError: <urlopen error timed out>; note: site failed 11 runs in a row - check contact details
-- **Newcastle Foodbank** https://www.newcastlefoodbank.org — error: HTTP 403; note: site failed 11 runs in a row - check contact details
-- **Newmarket Open Door Foodbank** https://newmarketopendoor.org.uk/foodbank — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl; note: site failed 11 runs in a row - check contact details
-- **North Lakes Foodbank** https://www.thefoodbank.org.uk/ — error: HTTP 429; note: site failed 2 runs in a row - check contact details
-- **North Lochs Foodbank** https://www.northlochs.co.uk — error: HTTP 403; note: site failed 11 runs in a row - check contact details
+- **Leighton Linslade Helpers Foodbank** https://www.leightonlinsladehelpers.org.uk/ — error: paused this run after HTTP 429 - still due on a later scheduled run; note: site failed 3 runs in a row - check contact details
+- **Leominster Foodbank** https://www.leominsterfoodbank.org — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl; note: site failed 12 runs in a row - check contact details
+- **Leslie Community Pantry Foodbank** https://lesliecommunitypantry.co.uk — error: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>; note: site failed 12 runs in a row - check contact details
+- **Maidenhead Foodbank** https://www.foodshare.charity — error: paused this run after HTTP 429 - still due on a later scheduled run; note: site failed 5 runs in a row - check contact details
+- **Manor House Foodbank** https://kingschurchleicester.org/foodbank — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Mary's (Sutton) Foodbank** https://stmary-sutton.org.uk/page/marys-food-bank — error: URLError: <urlopen error timed out>; note: site failed 12 runs in a row - check contact details
+- **Newcastle Foodbank** https://www.newcastlefoodbank.org — error: HTTP 403; note: site failed 12 runs in a row - check contact details
+- **Newmarket Open Door Foodbank** https://newmarketopendoor.org.uk/foodbank — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl; note: site failed 12 runs in a row - check contact details
+- **North Lakes Foodbank** https://www.thefoodbank.org.uk/ — error: paused this run after HTTP 429 - still due on a later scheduled run; note: site failed 3 runs in a row - check contact details
+- **North Lochs Foodbank** https://www.northlochs.co.uk — error: HTTP 403; note: site failed 12 runs in a row - check contact details
 - **Oadby Foodbank** https://oadbyfoodbank.org.uk/ — error: TimeoutError: The read operation timed out; note: site failed 2 runs in a row - check contact details
-- **Okehampton Foodbank** https://okehamptonfoodbank.co.uk — error: HTTP 401; note: site failed 9 runs in a row - check contact details
-- **Old Kilpatrick Food Parcels Foodbank** https://okfp.org.uk — error: TimeoutError: The read operation timed out; note: site failed 3 runs in a row - check contact details
-- **One Vision Foodbank** http://www.onevisionproject.org — error: URLError: <urlopen error [Errno -2] Name or service not known>; note: site failed 11 runs in a row - check contact details
-- **Orchard Primary School Foodbank** https://orchardprimary.org/orchard-primary-school-food-bank — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Rhayader Foodbank** https://www.thearchesrhayader.co.uk/foodbank — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **River of Life Church Foodbank** https://riveroflife.org.uk/food-project/ — error: HTTP 500; note: site failed 2 runs in a row - check contact details
+- **Okehampton Foodbank** https://okehamptonfoodbank.co.uk — error: HTTP 401; note: site failed 10 runs in a row - check contact details
+- **Old Kilpatrick Food Parcels Foodbank** https://okfp.org.uk — error: TimeoutError: The read operation timed out; note: site failed 4 runs in a row - check contact details
+- **One Vision Foodbank** http://www.onevisionproject.org — error: URLError: <urlopen error [Errno -2] Name or service not known>; note: site failed 12 runs in a row - check contact details
+- **Orchard Primary School Foodbank** https://orchardprimary.org/orchard-primary-school-food-bank — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **PATCH Foodbank** https://patchcharity.org.uk — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostn; note: site failed 2 runs in a row - check contact details
+- **Rhayader Foodbank** https://www.thearchesrhayader.co.uk/foodbank — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **River of Life Church Foodbank** https://riveroflife.org.uk/food-project/ — error: HTTP 500; note: site failed 3 runs in a row - check contact details
 - **Salma Foodbank** https://www.salma-foodbank.org — error: paused this run after HTTP 429 - still due on a later scheduled run; note: site failed 3 runs in a row - check contact details
 - **Shipshape Health and Wellbeing** https://www.shipshape.org.uk — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certi; note: site failed 3 runs in a row - check contact details
-- **Southampton Basics Bank Foodbank** https://southamptoncitymission.co.uk/basics-banks — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Tay Bridgehead Foodbank** https://www.taybridgeheadfoodbank.org.uk — error: HTTP 403; note: site failed 3 runs in a row - check contact details
-- **The Vulcan Centre Foodbank** https://www.vulcancentre.co.uk/food-distribution/ — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **The Welcome Centre** https://www.thewelcomecentre.org — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Thorne and Moorends Community Foodbank** https://www.thorne-moorends.gov.uk/community/community-groups/ — error: HTTP 403; note: site failed 11 runs in a row - check contact details
-- **Waterlooville Foodbank** https://wecockchurch.org.uk/waterlooville-foodbank/ — error: HTTP 404; note: site failed 11 runs in a row - check contact details
-- **Widdrington Station & Stobswood Foodbank** https://www.widdstobpc.org/foodbank — error: HTTP 404; note: site failed 11 runs in a row - check contact details
+- **South Derbyshire CVS Foodbank** https://www.sdcvs.org.uk/food-hub — error: paused this run after HTTP 429 - still due on a later scheduled run; note: site failed 2 runs in a row - check contact details
+- **Southampton Basics Bank Foodbank** https://southamptoncitymission.co.uk/basics-banks — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Tay Bridgehead Foodbank** https://www.taybridgeheadfoodbank.org.uk — error: HTTP 403; note: site failed 4 runs in a row - check contact details
+- **The Vulcan Centre Foodbank** https://www.vulcancentre.co.uk/food-distribution/ — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **The Welcome Centre** https://www.thewelcomecentre.org — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Thorne and Moorends Community Foodbank** https://www.thorne-moorends.gov.uk/community/community-groups/ — error: HTTP 403; note: site failed 12 runs in a row - check contact details
+- **Waterlooville Foodbank** https://wecockchurch.org.uk/waterlooville-foodbank/ — error: HTTP 404; note: site failed 12 runs in a row - check contact details
+- **Widdrington Station & Stobswood Foodbank** https://www.widdstobpc.org/foodbank — error: HTTP 404; note: site failed 12 runs in a row - check contact details
 
 ### items-needed list published (1)
 
@@ -156,7 +148,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Poole Foodbank** https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/ — list: Food can be donated at the following supermarkets: | Asda Poole Superstore, W Quay Road, Poole, BH15 1JQ | Co-operative Food, Northmead Drive, Creekmoor, Poole, BH17 7XD | Co-operative Food Poole, Tatnum Road, 147 Wimborne Rd, Poole BH15 2BS | Sainsbury’s Local, Orchard Plaza, 39 High Street, Poole, BH15 1EG | Tesco Branksome, Poole Road, Poole, BH12 1AU | Tesco Fleetsbridge, Waterloo Road, 
 - **Purley Foodbank** https://www.purleyfoodhub.net — list: most needed in October | Read more … | September 2 | March-August meals down by a third on same period last year | Read more … | View all News items > > | Most needed in November
 - **Rugby Foodbank** https://rugby.foodbank.org.uk — list: urgently needed items. | Foodbank Vouchers | Show previous slide | Show next slide | Where we are | Get directions & opening times | 29 Oct 2026 | Christmas Giving Calendar: 30 Days of Giving | 29 Sep 2026 | Harvest 2026: Let’s Come Together for Rugby | Make a donation | Donate here
-- **St Laurence's Larder & Open Kitchen** https://www.laurenceslarder.org.uk — list: urgently need to raise funds to meet demand and expand our services.<\/p>", | "button": { | "buttonText": "Donate Now", | "buttonLink": "/donate-funds", | "buttonNewWindow": false | "imageId": "663e4123fb784c41e6bdbdca", | "image": { | "id": "663e4123fb784c41e6bdbdca", | "recordType": 2, | "addedOn": 1715355939821, | "updatedOn": 1715355940020, | "workflowState": 1, | "publishOn": 1715355939
+- **St Laurence's Larder & Open Kitchen** https://www.laurenceslarder.org.uk — list: urgently need to raise funds to meet demand and expand our services. | Donate Now | Donate Goods | What products and items are needed and how to donate. | Learn More | Our Impact | 10,248 | volunteer hours per year | Laurence’s Larder is run almost entirely on volunteer effort | 5,000 | meals served | per year | Using surplus food that would otherwise go to waste | 600
 - **The Besom in Camberley Foodbank** https://www.thebesomincamberley.com — list: Shopping List | Referrers | Contact Us | More | Use tab to navigate through the menu items. | Helping families in crisis across Surrey Heath | with food and household essentials | WELCOME | Christmas is coming! | ​​ ​ | Are you in need of help? | Please see list of organisations for support in the following areas:
 - **Walton & Hersham Foodbank** https://waltonhersham.foodbank.org.uk — list: Most needed items: w/e 30.10.26 | Tinned meat | Tinned sweetcorn | Jam / peanut butter | Long-life juice / squash | Ketchup / mayonnaise | Chocolate and sweets | Washing up liquid and kitchen roll | Shaving gel / foam | Deodorant | Feminine hygiene products | Thank you but at the moment we've got a surplus of | Soup | Nappies of all sizes
 - **Wisbech Foodbank** https://wisbech.foodbank.org.uk — list: Items we need | As of 28/10/2026 | Bags for life | Cooking sauce in jars | Long-life juice | Long-life milk | Sanitary towels | Tampons | Tinned fruit | Support us | Get involved | Get involved | Donate food
@@ -261,7 +253,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Wolverhampton Muslim Forum Foodbank** https://www.facebook.com/WolverhamptonMuslimForum/ — note: the site asks us not to read this page. Opening hours were not guessed. The place stays on the map.
 - **Woodhouse Close Church Foodbank** https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/ — note: the site asks us not to read this page. Opening hours were not guessed. The place stays on the map.
 
-### opening times not read (67)
+### opening times not read (69)
 
 - **Alhuda Welfare Foundation Foodbank** https://alhudauk.com/index.php/services-islamic/social-welfare-services/food-bank.html — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Ardwick & Longsight Foodbank** https://ardwickandlongsightfoodbank.org.uk — error: URLError: <urlopen error [Errno 101] Network is unreachable>; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
@@ -293,14 +285,14 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Leighton Linslade Helpers Foodbank** https://www.leightonlinsladehelpers.org.uk/ — error: paused this run after HTTP 429 - still due on a later scheduled run; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Leominster Foodbank** https://www.leominsterfoodbank.org — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Leslie Community Pantry Foodbank** https://lesliecommunitypantry.co.uk — error: URLError: <urlopen error [Errno -3] Temporary failure in name resolution>; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
-- **Maidenhead Foodbank** https://www.foodshare.charity — error: HTTP 429; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
+- **Maidenhead Foodbank** https://www.foodshare.charity — error: paused this run after HTTP 429 - still due on a later scheduled run; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Manor House Foodbank** https://kingschurchleicester.org/foodbank — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Margate Foodbank** https://www.mifoodbank.org — error: HTTP 403; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Mary's (Sutton) Foodbank** https://stmary-sutton.org.uk/page/marys-food-bank — error: URLError: <urlopen error timed out>; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Newcastle Foodbank** https://www.newcastlefoodbank.org — error: HTTP 403; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Newham Foodbank** https://newhamfoodbank.org.uk — error: URLError: <urlopen error [Errno 104] Connection reset by peer>; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Newmarket Open Door Foodbank** https://newmarketopendoor.org.uk/foodbank — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unabl; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
-- **North Lakes Foodbank** https://www.thefoodbank.org.uk/ — error: HTTP 429; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
+- **North Lakes Foodbank** https://www.thefoodbank.org.uk/ — error: paused this run after HTTP 429 - still due on a later scheduled run; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **North Lochs Foodbank** https://www.northlochs.co.uk — error: HTTP 403; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Oadby Foodbank** https://oadbyfoodbank.org.uk/ — error: TimeoutError: The read operation timed out; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Okehampton Foodbank** https://okehamptonfoodbank.co.uk — error: HTTP 401; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
@@ -309,6 +301,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Open Hands Reigate Foodbank** https://www.openhandsreigate.com — error: paused this run after HTTP 429 - still due on a later scheduled run; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Orchard Primary School Foodbank** https://orchardprimary.org/orchard-primary-school-food-bank — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **PATCH Foodbank** https://patchcharity.org.uk — error: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostn; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
+- **PBP Foodbank** https://cetma.org.uk/projects/pbp-food-bank/ — error: TimeoutError: The read operation timed out; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Peace Centre Foodbank** https://peacecentre.org.uk/foodbank/ — error: HTTP 403; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Penzance Foodbank** https://churchestogetherinpenzance.co.uk/project/food-bank/ — error: TimeoutError: The read operation timed out; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Ramsbottom Pantry Foodbank** https://ramsbottompantry.com — error: HTTP 403; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
@@ -326,6 +319,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **The Vulcan Centre Foodbank** https://www.vulcancentre.co.uk/food-distribution/ — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **The Welcome Centre** https://www.thewelcomecentre.org — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Thorne and Moorends Community Foodbank** https://www.thorne-moorends.gov.uk/community/community-groups/ — error: HTTP 403; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
+- **Walk INN Foodbank** https://balcproject.org.uk/walk-inn-foodbank — error: TimeoutError: The read operation timed out; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Waterlooville Foodbank** https://wecockchurch.org.uk/waterlooville-foodbank/ — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **West Dunbartonshire Community Foodshare Foodbank** https://westdunbartonshirecommunityfoodshare.co.uk/ — error: URLError: <urlopen error [Errno 104] Connection reset by peer>; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
 - **Widdrington Station & Stobswood Foodbank** https://www.widdstobpc.org/foodbank — error: HTTP 404; note: live page did not open; no saved copy used. Opening times not listed. Call before you go.
@@ -433,14 +427,14 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Barnton Methodist Church** https://midcheshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Barrow Foodbank** https://barrow.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Barwell** https://hinckleyarea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Basildon** https://www.salvationarmy.org.uk/basildon — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Basildon** https://www.salvationarmy.org.uk/basildon — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/basildon?designationId=EVPZRVXC). Opening times not listed. Call before you go.
 - **Basildon Foodbank** https://basildon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bath, Keynsham & Somer Valley Foodbank** https://bksv.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Battle** https://bexhill.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Beaminster Foodbank** https://beaminsterteamchurches.org/foodbank/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Beaulieu Community Centre** https://chelmsford.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bedford Foodbank** https://bedford.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
-- **Bedlington** https://www.salvationarmy.org.uk/bedlington — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Bedlington** https://www.salvationarmy.org.uk/bedlington — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/bedlington?designationId=E2ME9QB9). Opening times not listed. Call before you go.
 - **Beeston** https://leedssouthandeast.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Beith Community Centre** https://northayrshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Belfast South Foodbank** https://southbelfast.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
@@ -469,7 +463,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Billingham & Stockton Borough Foodbank** https://billinghamstocktonborough.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bingley Foodbank** https://bingleyfoodbank.org.uk/how-to-get-help/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Birdwell Methodist Church** https://barnsley.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Birkenhead** https://www.salvationarmy.org.uk/birkenhead — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Birkenhead** https://www.salvationarmy.org.uk/birkenhead — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/birkenhead?designationId=EU2HMYJ4). Opening times not listed. Call before you go.
 - **Birmingham Central Foodbank** https://birminghamcentral.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Birtley** https://gateshead.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bishop Andrewes' Church** https://sutton.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -493,11 +487,11 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Bonny Downs** https://newhamdistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Booth Centre Foodbank** https://www.boothcentre.org.uk/get-help/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Borehamwood Foodbank** https://borehamwood.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Boscombe** https://www.salvationarmy.org.uk/boscombe — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Boscombe** https://www.salvationarmy.org.uk/boscombe — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/boscombe?designationId=EXDHR8TH). Opening times not listed. Call before you go.
 - **Boston Foodbank** https://boston.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bottesford Parish Rooms** https://leicestersouth.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bounds Green Foodbank** https://www.boundsgreenfoodbank.org/find-us — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Bourne** https://www.salvationarmy.org.uk/eastbourne-citadel — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Bourne** https://www.salvationarmy.org.uk/eastbourne-citadel — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/eastbourne-citadel?designationId=E5Z477YD). Opening times not listed. Call before you go.
 - **Bourne Community Hub** https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bournemouth Foodbank** https://bournemouth.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bournville Family Centre** https://westonsupermare.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -505,12 +499,12 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Bowthorpe Community Church** https://norwich.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bracknell Foodbank** https://bracknell.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bradford Central Foodbank** https://bradfordcentral.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Bradford Holmewood** https://www.salvationarmy.org.uk/bradford-holmewood — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Bradford Holmewood** https://www.salvationarmy.org.uk/bradford-holmewood — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/bradford-holmewood?designationId=EJBG3DVP). Opening times not listed. Call before you go.
 - **Bradford North Foodbank** https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Bradford on Avon Foodbank** https://bradfordonavon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bramley** https://leedsnorthandwest.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Branches Christian Fellowship** https://rochdale.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Branksome** https://www.salvationarmy.org.uk/branksome — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Branksome** https://www.salvationarmy.org.uk/branksome — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/branksome?designationId=ERQHD7U6). Opening times not listed. Call before you go.
 - **Braunton** https://northerndevon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Breaking Bread Foodbank** https://www.breakingbreadfoodbank.co.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Brecon Foodbank** https://brecon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -562,7 +556,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Burnham Methodist** https://highbridgearea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Burntisland & Kinghorn Foodbank** https://www.bkfoodbank.org.uk/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Burscough Methodist Church** https://skelmersdale.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Bury** https://www.salvationarmy.org.uk/fordingbridge — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Bury** https://www.salvationarmy.org.uk/fordingbridge — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/fordingbridge?designationId=EZ8EFLR6). Opening times not listed. Call before you go.
 - **Busby Centre** https://eastrenfrewshire.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Bute Foodbank** https://www.buteadvice.org.uk/contact — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Byfleet** https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -621,14 +615,14 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Cheadle and District Foodbank** https://cheadledistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Cheddar Valley Foodbank** https://cheddarvalley.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Chelmsford Foodbank** https://chelmsford.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
-- **Cheltenham** https://www.salvationarmy.org.uk/cheltenham — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Cheltenham** https://www.salvationarmy.org.uk/cheltenham — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/cheltenham?designationId=EHRHSLWW). Opening times not listed. Call before you go.
 - **Cheltenham Foodbank** https://cheltenham.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Cheltenham Open Door Foodbank** https://cheltenhamopendoor.org.uk/find-us/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Chelwood Foodbank Plus Foodbank** https://chelwoodfoodbankplus.org/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Chepstow Baptist Church** https://chepstow.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Chepstow Foodbank** https://chepstow.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Cheriton Baptist Church** https://shepway.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Chester** https://www.salvationarmy.org.uk/dorchester — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Chester** https://www.salvationarmy.org.uk/dorchester — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/dorchester?designationId=EEJTYFV7). Opening times not listed. Call before you go.
 - **Chester City - Crossroads Community Hub** https://westcheshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Chester City Centre** https://westcheshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Chesterfield Foodbank** https://chesterfield.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
@@ -690,7 +684,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Community Matters Mobile Van (Aylesham)** https://dealarea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Community Matters Mobile Van (Elvington)** https://dealarea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Congregational Church** https://newcastlestaffs.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Connah's Quay** https://www.salvationarmy.org.uk/connahs-quay — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Connah's Quay** https://www.salvationarmy.org.uk/connahs-quay — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/connahs-quay?designationId=EAUCA3LL). Opening times not listed. Call before you go.
 - **Connah’s Quay** https://flintshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Copenhagen Street Foodbank** https://www.copenhagenstreetfoodbank.org.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Corby Foodbank** https://corby.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -719,7 +713,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Crediton Foodbank** https://creditonfoodbank.org.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Crescent Foodbank** https://crescentfoodbank.org.uk — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Cricklade** https://malmesburydistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Crook** https://www.salvationarmy.org.uk/crook — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Crook** https://www.salvationarmy.org.uk/crook — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/crook?designationId=E8WV3SB4). Opening times not listed. Call before you go.
 - **Crookes** https://sheffields6.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Crossroads Community Hub Foodbank** https://cchub.org.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Crossroads Meltham Foodbank** https://www.thecrossroadsproject.co.uk/contact-us/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
@@ -758,7 +752,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Disused Taxi Rank** https://hivehope.org.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Dolgellau Library** https://southgwynedd.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Doncaster Foodbank** https://doncaster.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
-- **Dorchester** https://www.salvationarmy.org.uk/dorchester — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Dorchester** https://www.salvationarmy.org.uk/dorchester — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/dorchester?designationId=EEJTYFV7). Opening times not listed. Call before you go.
 - **Dorking Area Foodbank** https://dorkingarea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Dover Foodbank** https://dover.foodbank.org.uk/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Dowlais Elim Family Church** https://merthyrcynon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -945,7 +939,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Grove Hill Methodist Church** https://middlesbrough.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Grove Road Evangelical** https://chelmsford.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Guernsey Foodbank** https://welfare.gg/index.php/food-bank — note: unclear: live source page could not be opened (HTTP 503). Opening times not listed. Call before you go.
-- **Guildford** https://www.salvationarmy.org.uk/guildford — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Guildford** https://www.salvationarmy.org.uk/guildford — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/guildford?designationId=EUYEP44R). Opening times not listed. Call before you go.
 - **Guiseley** https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Gwersyllt** https://wrexham.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **HITS Foodbank** https://hitsfoodbank.org/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -977,10 +971,10 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Hartlepool Foodbank** https://hartlepool.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Harvest Foodbank** https://theharvestcentre.com/harvest-food-parcels — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Harvest Foodbank Centre** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Harwich** https://www.salvationarmy.org.uk/harwich — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Harwich** https://www.salvationarmy.org.uk/harwich — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/harwich?designationId=E95MZHWN). Opening times not listed. Call before you go.
 - **Hasland** https://chesterfield.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Hastings Foodbank** https://hastings.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Hastings Temple** https://www.salvationarmy.org.uk/hastings-temple — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Hastings Temple** https://www.salvationarmy.org.uk/hastings-temple — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/hastings-temple?designationId=ES55DRLF). Opening times not listed. Call before you go.
 - **Hatfield Foodbank** https://hatfield.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Haverfordwest** https://pembrokeshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Haverhill Foodbank** https://www.reachcp.org.uk/Groups/385046/Where_We_Operate.aspx — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
@@ -990,7 +984,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Hay-on-Wye** https://brecon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Hayes - Life Oasis** https://hillingdon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Hayes - St Edmund** https://hillingdon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Hayle** https://www.salvationarmy.org.uk/hayle — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Hayle** https://www.salvationarmy.org.uk/hayle — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/hayle?designationId=EY8QW5Q4). Opening times not listed. Call before you go.
 - **Hayle Foodbank** https://www.haylemethodist.co.uk/hayle-food-bank/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Hays Community Pantry Foodbank** https://www.placesforpeople.co.uk/about-us/community/community-projects/hay-avenue-community-hub/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Haywards Heath Foodbank** https://haywardsheath.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -999,7 +993,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Heaton Baptist Church** https://www.newcastlefoodbank.org/locations/ — note: unclear: live source page could not be opened (source paused for 10 min after 3 errors in a row). Opening times not listed. Call before you go.
 - **Hebburn Helps Foodbank** https://hebburnhelps.co.uk/ — note: unclear: live source page could not be opened (not fetched, robots). Opening times not listed. Call before you go.
 - **Hebron Church Stockton** https://billinghamstocktonborough.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Hedge End** https://www.salvationarmy.org.uk/hedge-end — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Hedge End** https://www.salvationarmy.org.uk/hedge-end — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/hedge-end?designationId=E9LCCZVM). Opening times not listed. Call before you go.
 - **Hedge End Foodbank** https://www.kingscommunitychurch.co.uk/foodcentre — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Hedgerows Family Centre** https://mkfoodbank.org.uk/i-need-help/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Helensburgh & Lomond Foodbank** https://helensburghlomondfoodbank.org/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1071,7 +1065,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Hunstanton & District Foodbank** https://hunstantondistrict.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Huntly** https://aberdeenshirenorth.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Hyde Central Methodist Church** https://tamesidesouthlongdendale.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Hythe** https://www.salvationarmy.org.uk/hythe — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Hythe** https://www.salvationarmy.org.uk/hythe — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/hythe?designationId=E9QZ8VST). Opening times not listed. Call before you go.
 - **Ibrox** https://glasgowsw.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Ignite Life Foodbank** https://www.ignite-life.co.uk/services#food-support — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Ilfracombe** https://northerndevon.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1079,14 +1073,14 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Instant Neighbour Foodbank** https://www.instantneighbour.co.uk/food-bank/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Inverclyde Foodbank** https://inverclyde.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Inverkeithing** https://dunfermline.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Inverness** https://www.salvationarmy.org.uk/inverness — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Inverness** https://www.salvationarmy.org.uk/inverness — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/inverness?designationId=EU5JBETE). Opening times not listed. Call before you go.
 - **Ireland Wood** https://leedsnorthandwest.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Irlam and Cadishead Foodbank** https://irlamcadishead.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Irvinestown** https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Isle of Wight Foodbank** https://isleofwight.foodbank.org.uk/locations/ — note: unclear: source url redirected to a different page (https://isleofwight.foodbank.org.uk/emergency-food). Opening times not listed. Call before you go.
 - **Islington Foodbank** https://islington.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Iver** https://slough.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Ivybridge** https://www.salvationarmy.org.uk/ivybridge — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Ivybridge** https://www.salvationarmy.org.uk/ivybridge — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/ivybridge?designationId=EFDHJEQA). Opening times not listed. Call before you go.
 - **Ivybridge & District Foodbank** https://ivybridge.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **James McKenna Community Hub** https://leedsnorthandwest.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Jennyfields Evangelical Church** https://harrogatedistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1217,7 +1211,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Maidstone Homeless Care Foodbank** https://www.homelesscare.org.uk/food-bank — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Malmesbury & District Foodbank** https://malmesburydistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Maltby Foodbank** https://maltby.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Malton** https://www.salvationarmy.org.uk/malton — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Malton** https://www.salvationarmy.org.uk/malton — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/malton?designationId=EZ37PYQY). Opening times not listed. Call before you go.
 - **Malvern Hills Foodbank** https://malvernhills.foodbank.org.uk/contact-us — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Manchester Central Foodbank** https://manchestercentral.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Manchester South Central Foodbank** https://manchestersouthcentral.foodbank.org.uk/get-help/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
@@ -1342,7 +1336,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Norwich Central Baptist Church** https://norwich.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Norwich Foodbank** https://norwich.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Nottingham William Booth Memorial Complex** https://www.salvationarmy.org.uk/nottingham-william-booth-memorial-complex — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
-- **Nourish Foodbank** https://faith-works.org.uk/locations-across-dorset/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Nourish Foodbank** https://faith-works.org.uk/locations-across-dorset/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Nuneaton Foodbank** https://nuneaton.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **OLEM Church** https://cambridgecity.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Oadby Foodbank** https://oadbyfoodbank.org.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1390,7 +1384,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Pembrokeshire Foodbank** https://pembrokeshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Pencoed** https://bridgend.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Penderry Community Pantry** https://swansea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Penge** https://www.salvationarmy.org.uk/penge — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Penge** https://www.salvationarmy.org.uk/penge — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/penge?designationId=ECK9YXGM). Opening times not listed. Call before you go.
 - **Penge** https://bromleyborough.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Penilee** https://glasgowsw.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Penistone** https://barnsley.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1444,7 +1438,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Radford (Arboretum)** https://eastwestnottingham.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Rainham Foodbank** https://rainham.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Ramsey Foodbank** https://ramsey.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Ramsgate** https://www.salvationarmy.org.uk/ramsgate — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Ramsgate** https://www.salvationarmy.org.uk/ramsgate — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/ramsgate?designationId=EYV57JJW). Opening times not listed. Call before you go.
 - **Rathenraw** https://antrim.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Raven House Foodbank** https://www.ravenhouse.org/food-bank/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Rawmarsh Foodbank** https://rawmarsh.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1504,7 +1498,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Sale West Credit Union Rooms** https://traffordsouth.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Salem Methodist Church** https://cannockdistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Salford Food Parcels Foodbank** https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Salisbury** https://www.salvationarmy.org.uk/fordingbridge — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Salisbury** https://www.salvationarmy.org.uk/fordingbridge — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/fordingbridge?designationId=EZ8EFLR6). Opening times not listed. Call before you go.
 - **Salisbury Foodbank** https://salisbury.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Salma Foodbank** https://www.salma-foodbank.org/ — note: unclear: live source page could not be opened (paused this run after HTTP 429 - still due on a later scheduled run). Opening times not listed. Call before you go.
 - **Saltash Foodbank** https://saltash.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1667,7 +1661,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **St Joseph's Church** https://banbury.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **St Joseph's Church** https://midcheshire.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **St Joseph's Church Hall** https://york.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **St Justus Church** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **St Justus Church** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **St Katherine's Church** https://hammersmithfulham.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **St Laurences Church** https://coventry.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **St Lawrence Abbots Langley** https://rickmansworth.foodbank.org.uk/locations/ — note: unclear: source url redirected to a different page (https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher). Opening times not listed. Call before you go.
@@ -1767,7 +1761,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Stechford** https://sparkhill.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Stobswell** https://dundeeandangus.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Stockport Foodbank** https://stockport.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Stockton** https://www.salvationarmy.org.uk/stockton — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Stockton** https://www.salvationarmy.org.uk/stockton — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/stockton?designationId=EJWSSL94). Opening times not listed. Call before you go.
 - **Stockton** https://billinghamstocktonborough.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Stoke Ferry** https://downhammarketdistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Stoke-on-Trent Foodbank** https://stokeontrent.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
@@ -1787,7 +1781,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Stretton Foodbank** https://strettonparish.org.uk/contact-us/ — note: unclear: live source page could not be opened (not fetched, robots). Opening times not listed. Call before you go.
 - **Strood Foodbank** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Stroud District Foodbank** https://strouddistrict.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
-- **Sundays** https://www.salvationarmy.org.uk/hastings-temple — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Sundays** https://www.salvationarmy.org.uk/hastings-temple — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/hastings-temple?designationId=ES55DRLF). Opening times not listed. Call before you go.
 - **Sutton Bridge Community Larder Foodbank** https://sblarder.wixsite.com/larder — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Sutton Foodbank** https://sutton.foodbank.org.uk/locations/ — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Sutton Salvation Army** https://sutton.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1858,7 +1852,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **The Lighthouse Centre** https://bksv.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **The Link Foodbank** https://www.smawthorne.church/compassion/foodbank/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **The Lounge, St Marys Church** https://andover.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **The Net Community Cafe** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **The Net Community Cafe** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **The Oaks Community Coffee Shop** https://aylesbury.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **The Old Butchers** https://lowestoftdistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **The Place (Fallowfield Community Library)** https://fallowfieldwithington.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1909,7 +1903,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Trinity Rooms** https://strouddistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Truro Foodbank** https://truro.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Tunstall Methodist Church** https://stokeontrent.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Twydall Foodbank Centre & Coffee Shop** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Twydall Foodbank Centre & Coffee Shop** https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Ty Croeso** https://swansea.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Uckfield Foodbank** https://uckfield.foodbank.org.uk/emergency-food/i-have-a-food-voucher — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Ulverston** https://barrow.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1942,7 +1936,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Walton Cornerstone** https://northliverpool.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Wandsworth Foodbank** https://wandsworth.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Wansbeck Valley Foodbank** https://wansbeckvalleyfoodbank.org/find-us/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Ware** https://www.salvationarmy.org.uk/bognor-regis — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
+- **Ware** https://www.salvationarmy.org.uk/bognor-regis — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/bognor-regis?designationId=EV7NF898). Opening times not listed. Call before you go.
 - **Wareham Foodbank** https://www.purbeckgatewaychurch.co.uk/visit-us — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Warminster and District Foodbank** http://warminsteranddistrictfoodbank.co.uk — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Warrington Foodbank** https://warrington.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -1983,7 +1977,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Weston-super-Mare Foodbank** https://westonsupermare.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Wetherby & District Foodbank** https://wetherbyanddistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Weybridge** https://runnymede.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Weymouth** https://www.salvationarmy.org.uk/weymouth — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Weymouth** https://www.salvationarmy.org.uk/weymouth — note: unclear: the listing has no day table that can be checked against the page. Opening times not listed. Call before you go.
 - **Weymouth Foodbank** https://www.weymouthfoodbank.co.uk/locations — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Whaley Bridge Foodbank** https://whaleybridgecanal.org/food-bank/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Whalley Range Methodist Church** https://manchestersouthcentral.foodbank.org.uk/get-help/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -2030,7 +2024,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Workington** https://www.thefoodbank.org.uk/about/vacancies — note: unclear: live source page could not be opened (paused this run after HTTP 429 - still due on a later scheduled run). Opening times not listed. Call before you go.
 - **Wormley Free Church** https://broxbourne.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Worth Valley Foodbank** https://worthvalleyfoodbank.com/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
-- **Worthing** https://www.salvationarmy.org.uk/worthing — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
+- **Worthing** https://www.salvationarmy.org.uk/worthing — note: unclear: source url redirected to a different page (https://www.salvationarmy.org.uk/worthing?designationId=EUJDN6JP). Opening times not listed. Call before you go.
 - **Worthing Food Foundation Foodbank** https://www.worthingfoodfoundation.org.uk/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Worthing Foodbank** https://worthing.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
 - **Wotton** https://strouddistrict.foodbank.org.uk/locations/ — note: unclear: recorded days or times could not be confirmed on the page. Opening times not listed. Call before you go.
@@ -2071,7 +2065,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 
 - **Eyres Monsell Club for Young People** https://www.eyresmonsellcyp.co.uk — stored: 07736308883; on_site: 01162779190; note: number sits beside another label (admin)
 
-### phone number not on own site (45)
+### phone number not on own site (46)
 
 - **12 Apostles Foodbank** https://www.12apostles.co.uk/ — stored: 07846096432; on_site: 01707650147 / 07449890176 / 07956289978 / 07981810380; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **3food4u Foodbank** https://3food4u.org — stored: 01992842642 / 07918462959; on_site: 07973166940; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
@@ -2093,6 +2087,7 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Highbridge Area Foodbank** https://highbridgearea.foodbank.org.uk — stored: 07570707400; on_site: 03444889623 / 07979235218; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **Jigsaw Foodbank** https://www.churchinthepeak.org/jigsaw/foodbank — stored: 01629584783; on_site: 07718855386; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **Jubilee Storehouse Foodbank** https://jubileestorehouse.org — stored: 08002425844; on_site: 01239621974 / 01970612817; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
+- **Kinmel Bay Church Foodbank** https://kinmelbaychurch.org.uk/food-bank-2/ — stored: 07841678889; on_site: 07885696522; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **Landport Foodbank** https://landportra.wordpress.com/2016/05/31/landport-foodbank/ — stored: 07793953446; on_site: 01273336870 / 01273482802 / 01273514753 / 03444111444; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **Liberty Church Mid-Ulster Foodbank** https://www.wearelibertychurch.com/serving-and-ministries/ — stored: 02886738217; on_site: 07760668917 / 07788871287 / 07864703526; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **Lord's Larder Foodbank** https://thelordslarder.org.uk — stored: 01531821641; on_site: 07940525863 / 07944590520; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
@@ -2119,11 +2114,12 @@ Generated by scripts/full_check.py on every refresh run. Auto-applied (Dean, 25 
 - **Windsor Food Share Foodbank** https://www.windsorfoodshare.org.uk — stored: 07972646613; on_site: 03444111444; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 - **Wythenshawe Foodbank** https://wythenshawe.foodbank.org.uk — stored: 01614374392 / 01619736887 / 07518198645 / 07919595503; on_site: 01612057321 / 01612192336 / 01612341977 / 01612345001 / 01612360829 / 01612418100 / 01612710190 / 01612710279; note: a phone change is never auto-applied; this one is not a single clickable number seen on 2 runs
 
-### seasonal/holiday hours notice (3)
+### seasonal/holiday hours notice (4)
 
+- **Bridgnorth Foodbank** https://www.bridgnorthfoodbank.co.uk — text: and its clients. These aims include: to open every Monday (including Bank Holidays) to play a vital role in the provision of emergency food parcels to provide medium term support for clients to provide basic essentials a
 - **Cambridge City Foodbank** https://cambridgecity.foodbank.org.uk — text: - 1pm The warehouse will not usually be open on Bank Holidays. Supermarket donations You can donate items during your supermarket shop by leaving them at donation points at the following locations. Volunteers will delive
 - **Hopeworx** https://www.hopeworx.org.uk — text: al help to those that need it. View Our Christmas Opening Hours View More --> View Our Christmas opening hours Read More --> Recently Added Items chest of drawers #66299 £25 Please refer to the Hopeworx website for our l
-- **Oadby Foodbank** https://oadbyfoodbank.org.uk/ — text: tails, and not the church phone number. CHRISTMAS CLOSURE – The Foodbank will be closed on 24th, 25th, 26th, 31st December and 1st January 2027 How can I reach you? Text/Call: 07723 121794 Email: ku.gr 1793282666 o.kna 1
+- **Oadby Foodbank** https://oadbyfoodbank.org.uk/ — text: tails, and not the church phone number. CHRISTMAS CLOSURE – The Foodbank will be closed on 24th, 25th, 26th, 31st December and 1st January 2027 How can I reach you? Text/Call: 07723 121794 Email: ku.gr 1793294252 o.kna 1
 
 <!-- phone lock new -->
 - new listing number | bexhill/sidley | 07866046106 | via refresh | source feed refresh

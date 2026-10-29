@@ -5870,5 +5870,40 @@
   "second_run_at": "2026-10-29T14:47:47+00:00",
   "revert": "python scripts/times_revert.py ws:cmn-carway-hall",
   "reverted": true
+ },
+ {
+  "id": "st-james-thornton",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St James Thornton Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Saturdays 10:00-12:00",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "sat": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-10-29",
+   "source_url": "https://www.james4u.org/foodbank-blog/index.html"
+  },
+  "new_structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.james4u.org/foodbank-blog/index.html",
+  "first_run_at": "2026-10-29T14:03:49+00:00",
+  "second_run_at": "2026-10-29T17:14:18+00:00",
+  "revert": "python scripts/times_revert.py fb:st-james-thornton"
  }
 ]

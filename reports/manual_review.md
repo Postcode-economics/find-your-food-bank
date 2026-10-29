@@ -154,8 +154,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Machars Churches Basics Food Bank · DG8 6EL · https://www.angycarehealth.co.uk — own site does not name it; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The5es Development · E16 3PJ · https://www.the5es.org — own site unreachable (HTTP error)
 - QUEUED The Bus Shelter Ipswich CIC · IP2 8LR — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — own site has no readable text
-- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA61 1QE · https://www.patchcharity.org.uk — own site has no readable text
+- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA61 1QE · https://www.patchcharity.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Homeschool Social Enterprise/ Active Christians · WS10 0GB · https://www.activechristians.org.uk — own site unreachable (HTTP error)
 - QUEUED Neema Women Community · B12 8LF · https://www.neemawomen.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Neema Women Community · B29 7EL · https://www.neemawomen.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -220,7 +220,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED DN7 Community Foodbank · DN7 4HT — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Paston Farm Community Foundation · PE4 7XB — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED STEP (South Tyrone  Empowerment Programme) · BT70 1BS · https://www.stepni.org — own site does not show food aid
-- QUEUED Hackney Church (Leyton Food Bank) · E10 5JP · https://www.saint.church/lighthouse/ — own site redirects to a different site (saintlighthouse.org)
+- QUEUED Hackney Church (Leyton Food Bank) · E10 5JP · https://www.saint.church/lighthouse/ — own site unreachable (HTTP error)
 - QUEUED Darkwood Crew - Helping Ferguslie Flourish · PA3 1NT · https://www.darkwoodcrew.co.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Vestry St Lukes Food Bank Club · SW3 6NH — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED South Machars Community Centre community fridge · DG8 8PN · https://smccwhithorn.org/ — own site unreachable (HTTP 403)
@@ -302,7 +302,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Proactive Communities, an arm of Blairgowrie and Rattray Development Trust · PH10 6NQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Bury Fellowship · BL9 0HE — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Katakata · SW2 1RS · https://www.facebook.com/KatakataBrixtonHill/ — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED House of Judah Church · CR0 3PB · https://www.houseofjudah.org.uk — own site unreachable (HTTP 429)
+- QUEUED House of Judah Church · CR0 3PB · https://www.houseofjudah.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Craft In Mind C.I.C · WA1 2QQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Independence Initiative Limited · L20 7EJ · https://www.independenceinitiative.org — own site does not show food aid
 - QUEUED Empower Women for Change · G1 1DT · https://www.ewfc.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -319,7 +319,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Calvary Mansfield  -  Gap Cafe · NG18 3FS — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hackney Church (Homerton Food Bank) · E9 6RT · https://www.saint.church/lighthouse/ — own site redirects to a different site (saintlighthouse.org)
 - QUEUED Edinburgh City Mission - Leith Foodbank+ · EH6 5JX · https://www.edinburghcitymission.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED PAL Multicultural Centre · L8 2TF · https://www.palcentre.org — own site unreachable (HTTP 429)
+- QUEUED PAL Multicultural Centre · L8 2TF · https://www.palcentre.org — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Foothold Cymru · SA14 9RA · https://www.footholdcymru.org.uk — own site does not show food aid
 - QUEUED Your Money Your Way CIC · B18 7LG · https://yourmoneyyourwaycic.co.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Hackney Church (Shoreditch Food Bank) · E1 6JN · https://www.saint.church/lighthouse/ — own site redirects to a different site (saintlighthouse.org)
