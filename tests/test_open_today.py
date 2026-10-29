@@ -88,7 +88,7 @@ class Browser(unittest.TestCase):
                   r = pg.evaluate("""([a,b])=>{nearest(a,b,'test');const out={fb:[...document.querySelectorAll('#list .card')].map(c=>dists[+c.dataset.k])};
                     for(const [k,D] of [['ws',window.WARMSPACES],['sh',window.SHELTERS]]){if(!D)continue;
                       out[k]=[...document.querySelectorAll('#xlist .card.x'+k+' h3')].map(h=>{const i=D.items.find(x=>x.name===h.textContent);return hav(a,b,i.lat,i.lng)});
-                      out['n'+k]=D.items.filter(i=>!i.ended).map(i=>hav(a,b,i.lat,i.lng)).sort((x,y)=>x-y).slice(0,3)}
+                      out['n'+k]=D.items.filter(i=>!i.ended).map(i=>hav(a,b,i.lat,i.lng)).sort((x,y)=>x-y).slice(0,5)}  // the first page before Show more (layers.js, SHOW_LIMITS.first)
                     return out}""", [lat, lng])
                   for k in ('fb', sel):
                       self.assertTrue(r[k], (k, lat)); self.assertEqual(r[k], sorted(r[k]), (k, lat))
