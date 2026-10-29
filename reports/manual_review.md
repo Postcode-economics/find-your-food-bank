@@ -283,7 +283,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Youth Aid Council · SE27 9JW · https://www.youthaidcouncil.org — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Youth Aid Council · SE26 4QD · https://www.youthaidcouncil.org — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Magic Wishing Well · WF15 8HG · https://www.themagicwishingwell.org.uk — own site does not show food aid
-- QUEUED JW3 Food Bank · NW3 6ET · https://www.jw3.org.uk — own site unreachable (HTTP error)
+- QUEUED JW3 Food Bank · NW3 6ET · https://www.jw3.org.uk — own site unreachable (HTTP 307)
 - QUEUED Daily Bread Pop up Cafe · CM13 1JS · https://www.huttonparish.com — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED TOOTING COMMUNITY KITCHEN · SW17 7EN · https://www.tootingcommunitykitchen.co.uk/ — own site unreachable (HTTP 404)
 - QUEUED EMS Ltd (Springhead Golf Club) · HU5 5JE · https://www.emsyorkshire.co.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
