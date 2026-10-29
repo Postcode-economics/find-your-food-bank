@@ -96,8 +96,17 @@ jobs:
     if: needs.changes.outputs.oldlinks == '1'
     # Dean 25 Oct 2026 (permanent): every link ever sent out, plus app-added forms (?igsh/?utm/?fbclid, hashes, old paths),
     # opened with an OLD service worker installed and the Instagram in-app UA, must show the map and listings.
+    # The 100 cases took ~31 min in one job (~18 s each), so OLD_LINKS_SHARD gives each of 4 jobs every 4th case.
+    # The old-links job below is the check to require.
+    name: old-links shard ${{ matrix.shard }}/4
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # real offline tiles are rendered on the runner; ~33 min on blank tiles
+    timeout-minutes: 30  # real offline tiles are rendered on the runner; ~9 min per shard
+    env:
+      OLD_LINKS_SHARD: ${{ matrix.shard }}/4
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -109,6 +118,48 @@ jobs:
           path: ~/.cache/ms-playwright
           key: ms-playwright-${{ runner.os }}-1.47.0-chromium
       - run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: old-links-shard-${{ matrix.shard }}
+          path: logs/old_links.json
+          if-no-files-found: error
+          retention-days: 7
+  old-links-all:
+    # Passes only if every shard passed and the shards' reports hold each case (old release, link, UA) exactly once, all ok.
+    name: old-links
+    needs: [changes, old-links]
+    if: ${{ !cancelled() && needs.changes.outputs.oldlinks == '1' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12", cache: pip, cache-dependency-path: .github/workflows/tests.yml}
+      - run: pip install -q playwright==1.47.0
+      - uses: actions/download-artifact@v4
+        with: {pattern: old-links-shard-*, path: shards}
+      - name: Every case ran exactly once and passed
+        run: |
+          python - <<'EOF'
+          import collections, glob, json, sys
+          sys.path.insert(0, 'scripts'); import old_links
+          want = collections.Counter(old_links.cases())
+          files = sorted(glob.glob('shards/*/old_links.json'))
+          rows = [r for f in files for r in json.load(open(f))]
+          got = collections.Counter((r['old'], r['link'], r['ua']) for r in rows)
+          bad = [r for r in rows if not r.get('ok')]
+          print('%d shard reports; %d cases expected, %d reported, %d passed, %d failed' % (len(files), sum(want.values()), len(rows), len(rows) - len(bad), len(bad)))
+          for r in bad: print('::error::FAIL %s %s %s: %s' % (r['old'], r['ua'], r['link'], r.get('why')))
+          missing, extra = want - got, got - want
+          for name, items in (('not run', missing), ('run twice or not a case', extra)):
+              for k, n in sorted(items.items()): print('::error::%s: %s %s %s (x%d)' % (name, k[0], k[2], k[1], n))
+          sys.exit(1 if len(files) != 4 or bad or missing or extra else 0)
+          EOF
+      - name: All shards passed
+        if: always()
+        run: |
+          test "${{ needs.old-links.result }}" = success || { echo "::error::old-links shards: ${{ needs.old-links.result }}"; exit 1; }
   journeys:
     needs: changes
     if: needs.changes.outputs.journeys == '1'
