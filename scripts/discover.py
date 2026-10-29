@@ -531,7 +531,11 @@ def multi_centre_page_reason(texts, postcode):
     pc = norm_pc(postcode)
     for t in texts or []:
         pcs = find_pcs(t or "")
-        if len(pcs) > 1 and (not pc or pc in pcs or len(pcs) >= 3):
+        if len(pcs) >= 3:
+            return "own site lists several centres (%d postcodes); cannot tie one table to this listing" % len(pcs)
+        if len(pcs) > 1 and pc and pc not in pcs:
+            return "own site lists several centres (%d postcodes); cannot tie one table to this listing" % len(pcs)
+        if len(pcs) > 1 and not pc:
             return "own site lists several centres (%d postcodes); cannot tie one table to this listing" % len(pcs)
     return ""
 def known_times_skip(iid):
