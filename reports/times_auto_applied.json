@@ -43,6 +43,48 @@
   "revert": "python scripts/times_revert.py the-gate"
  },
  {
+  "id": "bow",
+  "name": "Bow Foodbank",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Tuesdays 10am - 12pm and Thursdays 10am - 1pm (visit us); Wednesdays 2pm - 7pm (open to all). Click and Collect: Tuesdays 1pm - 4:30pm (order by 1pm Sunday); Fridays 8am - 12pm (order by 9pm Wednesday)",
+   "source_url": "https://www.bowfoodbank.org",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "wed": [
+     [
+      "14:00",
+      "19:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ]
+   },
+   "quote": [
+    "Come and see us:\nTuesdays 10 am to 12 pm\nThursdays 10 am to 1 pm",
+    "Open session \u2013 Non Tower Hamlets Residents welcome:\nWednesdays 14:00 to 19:00",
+    "Click and Collect:\nTuesdays 1:00 pm to 4:30 pm (Order by 1:00 pm Sunday)\nFridays 8:00 am to 12:00 pm (Order by 9:00 pm Wednesday)"
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page footer Sessions; Visit Us and Wednesday open session are walk-in client hours; Click and Collect slots and order deadlines kept in text only, not in the day table; Bethnal Green closed and points to Bow; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://www.bowfoodbank.org",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py bow"
+ },
+ {
   "id": "auldhouse-community",
   "name": "Auldhouse Community Foodbank",
   "old": null,

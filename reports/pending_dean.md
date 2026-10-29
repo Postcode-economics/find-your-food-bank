@@ -41,9 +41,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Waltham Abbey Baptist Church** (`3food4u/waltham-abbey-baptist-church`, EN9 1RL): 1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm  
   source: https://3food4u.org  
   why: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
-- **Bow Foodbank** (`bow`, E3 5ED): Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00  
-  source: https://www.bowfoodbank.org  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 5 separate time blocks read from one page; review only
 - **Community Essentials Foodbank** (`community-essentials`, B92 7HS): Monday to Wednesday 9:30 - 11:30 (appointment only)  
   source: https://community-essentials.org.uk/contact-us/  
   why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
