@@ -497,14 +497,67 @@ def open_days(v):
         return {d[:3].lower() for d, s in st.items() if s} if isinstance(st, dict) else None
     days = {str(d)[:3].lower() for d, s in v.items() if s and str(s).strip().lower() not in ("closed", "-", "")}
     return {d for d in days if d in DAYN} or None
+def session_count(v):
+    """Rough count of client sessions in a stored or read week (structured rows, text lines, or raw segments)."""
+    if not isinstance(v, dict): return None
+    st = v.get("structured")
+    if isinstance(st, dict) and st:
+        return sum(len(s or []) for s in st.values())
+    lines = v.get("lines") or []
+    if lines:
+        n = 0
+        for ln in lines:
+            low = (ln or "").lower()
+            if not ln.strip() or re.search(r"\bclosed\b", low): continue
+            if re.search(r"\d{1,2}[:.]\d{2}|\d{1,2}\s*(?:am|pm)", low): n += 1
+        return n or len(lines)
+    raw = (v.get("raw") or "").strip()
+    if raw and str(v.get("status") or "").upper() in ("TIMES_TEXT_ONLY", "TIMES_FOUND"):
+        segs = [s.strip() for s in raw.split("|") if s.strip()]
+        if segs: return len(segs)
+    return None
+def uniform_weekday_hours(st, raw="", texts=()):
+    """Mon-Fri with the same block and no food-bank/distribution wording in the times line itself (office/shop pattern)."""
+    if not st: return False
+    wk = ("mon", "tue", "wed", "thu", "fri")
+    blocks = [tuple(map(tuple, st.get(d, []))) for d in wk if st.get(d)]
+    if len(blocks) < 5 or len(set(blocks)) > 1: return False
+    blob = ((raw or "") + " " + " ".join(texts or [])).lower()
+    if re.search(r"emergency food|food parcel|parcel collection|distribution session|referral|voucher|pantry session|drop-?in session", blob):
+        return False
+    return True
+def multi_centre_page_reason(texts, postcode):
+    """Several postcodes on one page: a single table cannot be tied to this listing."""
+    pc = norm_pc(postcode)
+    for t in texts or []:
+        pcs = find_pcs(t or "")
+        if len(pcs) > 1 and (not pc or pc in pcs or len(pcs) >= 3):
+            return "own site lists several centres (%d postcodes); cannot tie one table to this listing" % len(pcs)
+    return ""
+def known_times_skip(iid):
+    """Same skip list as times_finder (overrides/known_sources.json). Refresh path must honour it too."""
+    try: ks = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overrides", "known_sources.json"), encoding="utf-8"))
+    except Exception: return ""
+    for k, v in (ks.get("skip") or {}).items():
+        if iid == k or (k.endswith("/*") and iid.startswith(k[:-1])) or (k.endswith("/*") and iid == k[:-2]):
+            return (v or {}).get("reason") or "known skip"
+    return ""
+def one_client_block(new):
+    """One clear parsed client-hours table, not office-like (times_finder.one_block, without import cycle)."""
+    st = (new or {}).get("structured")
+    return (new or {}).get("status") == "TIMES_FOUND" and bool(st) and not office_like(st)
 def shrink_reason(old, new, texts=()):
     """Apsley and Galashiels (29 Oct 2026): a re-read with fewer open days than the stored week. Known hours are not cut
     to fewer days unless the source says that session ended. '' when the new week keeps as many days."""
-    a, b = open_days(old), open_days(new)
-    if not a or not b or len(b) >= len(a): return ""
     if any(ENDED.search(t or "") for t in texts or ()): return ""
-    gone = sorted(a - b, key=DAYN.index) or sorted(a, key=DAYN.index)
-    return "would cut known hours to fewer days (drops %s) and the source does not say that session ended; review" % ", ".join(d.title() for d in gone)
+    a, b = open_days(old), open_days(new)
+    if a and b and len(b) < len(a):
+        gone = sorted(a - b, key=DAYN.index) or sorted(a, key=DAYN.index)
+        return "would cut known hours to fewer days (drops %s) and the source does not say that session ended; review" % ", ".join(d.title() for d in gone)
+    o_sess, n_sess = session_count(old), session_count(new)
+    if o_sess and n_sess and n_sess < o_sess:
+        return "would cut known hours to fewer sessions (%d to %d) and the source does not say that session ended; review" % (o_sess, n_sess)
+    return ""
 def confirm_times(ot, texts, postcode=None, pages=None, source_url=None):
     """-> (status, new_ot, reason).
     status: confirmed | changed | differs_review | unconfirmed | none_published.
@@ -658,9 +711,17 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if src and DONATION_PAGE.search(urllib.parse.urlparse(src).path): why.append("source page is about giving/donating, not getting food")
     if kind == "fb":
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import phone_rule
+        skip = known_times_skip(i["id"])
+        if skip: why.append("known skip: " + skip)
         own = not_own_site_reason(i["id"], src, food_bank_own_sites() if own_sites is None else own_sites)
         if own: why.append(own)
         if not any(phone_rule.mentions_food_bank(t, [i.get("name"), i.get("foodbank")]) for t in texts): why.append(NO_FB_MENTION)
+        mc = multi_centre_page_reason(texts, i.get("postcode"))
+        if mc: why.append(mc)
+        st_new = (new or {}).get("structured")
+        if st_new and office_like(st_new): why.append("new own-site times look like office/centre hours")
+        if st_new and uniform_weekday_hours(st_new, (new or {}).get("raw") or "", texts): why.append("new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)")
+        if _hours_read(new) and not one_client_block(new): why.append("not one clear weekly client-hours block (kept as text for review)")
     vals = set()
     for t in texts:
         e = extract_times(t, i.get("postcode"))
@@ -1018,12 +1079,16 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                 if len(grp) > 1 and len({norm_pc(x.get("postcode")) for x in grp}) < len(grp): why.append("own site gives one table for several branches; cannot tell which branch")
                 if why: extra[i["id"]] = why
         # Shared boilerplate check sees each candidate's NEW table, then the stored week is put back before the gate.
-        for i, rec, new, _, _ in cands:
+        for i, rec, new, texts, _ in cands:
             if isinstance(new, dict): i[field] = new
         hold_boilerplate(items, log, orig, field)
-        for i, rec, new, _, _ in cands:
+        for i, rec, new, texts, _ in cands:
             i[field] = orig.get(i["id"])
             if rec.get("status") == "held_for_review": extra.setdefault(i["id"], []).append(rec.get("reason") or "held for review")
+            for rj in (rec.get("rejected") or []):
+                rs = (rj.get("reason") or "")
+                if "several centres" in rs or "postcodes" in rs:
+                    extra.setdefault(i["id"], []).append(rs)
     times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=[i["id"] for i in items], pending_mode=pending_mode)
     for i in items: i.pop("_orig_times", None)
     return log
