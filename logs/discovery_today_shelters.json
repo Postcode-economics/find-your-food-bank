@@ -7,6 +7,13 @@
    "added": 4,
    "queued": 51,
    "rejected": 0
+  },
+  {
+   "at": "14:45Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 34,
+   "rejected": 0
   }
  ],
  "added": [
@@ -157,7 +164,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "1bd211ff574497e33c834bf33ca2ccf337e55875f8c964619ea9f904607358ec",
+   "sha256": "a7761ba828dc46a3317e773b7047b0710a2fa89f03f4757f05eafec0e5fbd626",
    "etag": "",
    "last_modified": ""
   },
@@ -228,7 +235,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "7ad557a376923be2f6421f5878905fb883840afdcb093710dfc639f8664276dd",
+   "sha256": "2624d3259fb476a2d4599cf6df281578d6eb0b09c8e4622b5f28514d08ea6512",
    "etag": "",
    "last_modified": ""
   },
@@ -245,9 +252,9 @@
    "url": "https://999club.org/",
    "final_url": "https://999club.org/",
    "http": 200,
-   "sha256": "6adbbd8f28f69b9bf2f011d62d834c0e4ca6408398b91a22cc6f948f4c4435b4",
+   "sha256": "93e0889d17144e87e27e9da4ed1f940710a626851e474cf53329583778f2c994",
    "etag": "",
-   "last_modified": "Wed, 28 Oct 2026 12:20:04 GMT"
+   "last_modified": "Thu, 29 Oct 2026 12:22:07 GMT"
   },
   "osm-node-13661455428": {
    "id": "osm-node-13661455428",
@@ -516,7 +523,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "c4f236ff3c3ed845ca2b61e120879fd1ab79af32d616526a38431cafa45e27ed",
+   "sha256": "2fbbdbcc1da60c9b49cc6e32fe8e67e23f0976a1c727880fb7e0448cb0214959",
    "etag": "",
    "last_modified": ""
   },
