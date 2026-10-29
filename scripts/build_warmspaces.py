@@ -144,6 +144,13 @@ raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/warmspaces_pending.json", unverified=UNV, autocheck=ws_autocheck, valid_until=season_end)
 fresh = [clean(x) for x in fresh]  # again: verified overrides can set hours/phone
 sources["am/pm hours fix"] = {"status": "ok", "entries_fixed": len({c['id'] for c in HFIX}), "detail": HFIX[:60]}
+try:
+    import intelligent_rails as _IR
+    import auto_rules as _ar
+    if _IR.enabled(_ar.load()):
+        _IR.clear_pending_stale(".", {"ws": {x["id"]: x.get("hours") for x in fresh}})
+except Exception as ex:
+    print("intelligent mode stale clear skipped: %s" % ex)
 tlog = discover.cross_check_times(fresh, "ws", "hours", state_root=".")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
 fresh = [clean(x) for x in fresh if not x.pop("_own_site_closed", None)]  # and after own-site times updates
@@ -153,6 +160,11 @@ sources["Hours normalised"] = {"status": "ok", "changed": hours_norm.apply(fresh
 sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending, "kept_on_48h_grace": [g["id"] for g in getattr(verification_gate, "graced", [])]}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
+    try:
+        import intelligent_rails as _IR
+        _IR.finish_times(".", "warmspaces", tlog)
+    except Exception as ex:
+        print("intelligent mode summary skipped: %s" % ex)
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
 items, expired = seasonal.apply(items, RUN, closed)  # 'Opens <date>' for pop-ups not open yet; ended > 14 days -> recently_closed
@@ -178,6 +190,11 @@ _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
 restored = place_lock.protect(items, PREV_ITEMS, place_lock.hands(_ROOT, "warmspaces"), _ROOT, "warmspaces", keep_times=_applied_times)
 print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(PREV_ITEMS, items)))
+try:
+    import intelligent_rails as _IR
+    _IR.finish_times(".", "warmspaces", tlog)
+except Exception as ex:
+    print("intelligent mode summary skipped: %s" % ex)
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "warm spaces", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "WARMSPACES", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "ended": sum(x.get("ended", False) for x in items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})

@@ -776,13 +776,38 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     else:
         drop = {kind + ":" + i for i in keep_ids}
         new_seen = {k: v for k, v in seen.items() if k not in drop}
-    held, applied, logged = [], [], []
+    import intelligent_rails as IR
+    im = IR.enabled(rules)
+    layer = IR.layer_name(kind)
+    def _why_for(i, new, texts, home):
+        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()), own_sites)
+        if field in IR.LOCKED_FIELDS:
+            why = list(why) + ["phones and council lines are never auto-changed"]
+        if IR.reading_is_outage(home, texts):
+            why = list(why) + ["transient failure; stored times left unchanged"]
+        return why
+    plan_block = ""
+    if im:
+        ready = 0
+        for i, rec, new, texts, home in cands:
+            if not _hours_read(new) or IR.already_published(i.get(field), new): continue
+            if not _why_for(i, new, texts, home): ready += 1
+        plan_block = IR.batch_block(rules, ready, layer, R)
+        if plan_block: IR.alert(plan_block, R)
+    held, applied, logged, stale = [], [], [], []
     for i, rec, new, texts, home in cands:
         # Dean 27 Oct 2026 12:12 GMT: nothing read. Do not blank the listing, do not mark it closed, do not queue it.
         if not _hours_read(new): continue
         key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured"))
-        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()), own_sites)
+        if im and IR.already_published(i.get(field), new):
+            if sig: new_seen[key] = {"sig": sig, "source_url": home.get("final_url"), "run_at": run_at}
+            IR.log_stale(key)
+            rec.update(status="stale_cleared", reason="held value already equals the live published value")
+            stale.append(i)
+            continue
+        why = _why_for(i, new, texts, home)
         if sig: new_seen[key] = {"sig": sig, "source_url": home.get("final_url"), "run_at": run_at}
+        if im and plan_block and not why: why = [plan_block]
         if why:
             rec.update(status="held_for_dean", reason="; ".join(why), held=why)
             _unconfirm(i, kind, field, "own site shows different times; held for Dean")
@@ -801,6 +826,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
                          "revert": "python scripts/times_revert.py " + key})
             logged.append(i)
         applied.append(i)
+    if im and applied: IR.record_applied(layer, len(applied))
     if not R: return
     os.makedirs(os.path.join(R, "logs"), exist_ok=True); os.makedirs(os.path.join(R, "reports"), exist_ok=True)
     json.dump(new_seen, open(os.path.join(R, XC_SEEN), "w"), indent=0, sort_keys=True, ensure_ascii=False)
@@ -829,9 +855,13 @@ def read_listing_source(src, fetcher, render, postcode):
     rland = got.get("final_url") or ""
     rhtml = got.get("html") or ""
     if not rhtml or not (got.get("ok") or got.get("http") == 200):
+        import intelligent_rails as IR
+        IR.note_render(False)
         return landed, text
     if not source_page_ok(src, rland):
         return None, "rendered page redirected to a different page (%s); shown hours left unchanged" % rland
+    import intelligent_rails as IR
+    IR.note_render(True)
     return rland, got.get("text") or text_of(rhtml)
 # Run 40821758973 (29 Oct 2026): the 1,744 source-url reads ran one after another inside the main loop, each 403 adding
 # 65 s of polite-retry sleeps, and the rebuild step took 68 min instead of ~10. They share the thread pool now, with at
@@ -863,7 +893,10 @@ def read_sources(items, kind, field, fetcher, render, threads):
     t0 = time.monotonic()
     print("times check: reading %d live source pages (%d sites, %d threads)" % (len(todo), len({site_key(s) for _, s, _ in todo}), threads), flush=True)
     with cf.ThreadPoolExecutor(max(1, threads)) as ex: out = dict(ex.map(one, todo))
-    print("times check: %d source pages read in %.0fs, %d opened" % (len(todo), time.monotonic() - t0, sum(1 for v in out.values() if v[0])), flush=True)
+    opened = sum(1 for v in out.values() if v[0])
+    print("times check: %d source pages read in %.0fs, %d opened" % (len(todo), time.monotonic() - t0, opened), flush=True)
+    import intelligent_rails as IR
+    IR.note(IR.layer_name(kind), source_pages=len(todo), source_opened=opened)
     return out
 def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, threads=24, render=None, state_root=None, rules=None, run_at=None, pending_mode="replace"):
     """Re-read every entry's times from the live site this run; mutates items. Returns {id: result} log.
@@ -887,7 +920,10 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
         return s, home, pages
     t0 = time.monotonic()
     with cf.ThreadPoolExecutor(threads) as ex: got = list(ex.map(one, list(sites)))
-    print("times check: %d own sites read in %.0fs for %d listings" % (len([s for s in sites if s]), time.monotonic() - t0, len(items)), flush=True)
+    n_sites = len([s for s in sites if s])
+    print("times check: %d own sites read in %.0fs for %d listings" % (n_sites, time.monotonic() - t0, len(items)), flush=True)
+    import intelligent_rails as IR
+    IR.note(IR.layer_name(kind), sites=n_sites, sites_opened=sum(1 for s, home, pages in got if s and home and home.get("http") == 200))
     src_read = read_sources(items, kind, field, fetcher, render, threads)
     log = {}; cands = []
     for s, home, pages in got:
@@ -927,7 +963,12 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
             for t in texts:
                 ev = closure.detect(t, i.get("postcode"))
                 if ev: break
-            if ev: rec.update(status="closed", reason="own site says closed", evidence=ev); i["_own_site_closed"] = ev; log[i["id"]] = rec; continue
+            if ev:
+                import intelligent_rails as IR
+                if IR.reading_is_outage(home, texts):
+                    rec.update(status="unreachable", reason="transient failure; stored times left unchanged")
+                    _unconfirm(i, kind, field, rec["reason"]); log[i["id"]] = rec; continue
+                rec.update(status="closed", reason="own site says closed", evidence=ev); i["_own_site_closed"] = ev; log[i["id"]] = rec; continue
             i["_orig_times"] = i.get(field)
             cc = card_check(i.get(field), texts, i, today, src) if kind == "fb" else None
             st, new, why = cc or confirm_times(i.get(field) if kind == "fb" else i.get(field), texts, i.get("postcode"), pages=page_pairs, source_url=src if kind == "fb" else None)
@@ -1064,15 +1105,26 @@ def summary(log):
     return dict(Counter(v["status"] for v in log.values()))
 
 def geocode(pcs, fetcher=None):
-    """Postcode -> (lat, lng) via postcodes.io bulk lookup. Unknown postcodes are simply absent (never guessed)."""
+    """Postcode -> (lat, lng) via postcodes.io bulk lookup. Unknown postcodes are simply absent (never guessed).
+    A transient failure is retried, then that batch is skipped. Existing coordinates are left as they are."""
+    import intelligent_rails as IR
     out, pcs = {}, sorted({p for p in pcs if p})
     for s in range(0, len(pcs), 100):
-        try:
-            req = urllib.request.Request("https://api.postcodes.io/postcodes", json.dumps({"postcodes": pcs[s:s + 100]}).encode(),
+        batch = pcs[s:s + 100]
+        def attempt(batch=batch):
+            req = urllib.request.Request("https://api.postcodes.io/postcodes", json.dumps({"postcodes": batch}).encode(),
                                          headers=dict(UA, **{"Content-Type": "application/json"}))
-            for x in json.load(urllib.request.urlopen(req, timeout=60, context=CTX))["result"]:
-                if x["result"]: out[x["query"]] = (x["result"]["latitude"], x["result"]["longitude"])
-        except Exception: pass
+            return json.load(urllib.request.urlopen(req, timeout=60, context=CTX))
+        try:
+            body = IR.retry_call(attempt)
+        except Exception as ex:
+            print("geocoder: skipped a batch after retries (%s); existing coordinates left unchanged" % ex, flush=True)
+            continue
+        try:
+            for x in (body or {}).get("result") or []:
+                if x.get("result"): out[x["query"]] = (x["result"]["latitude"], x["result"]["longitude"])
+        except Exception:
+            pass
     return out
 
 GOV = re.compile(r"(\.gov\.uk|\.gov\.wales|\.gov\.scot|nidirect\.gov\.uk)$")

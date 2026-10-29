@@ -391,6 +391,8 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
             i, src = todo[k]
             verdicts[k] = hours_verdict(i, read_source(i, fetch=fetch, render=render))
     with cf.ThreadPoolExecutor(HOURS_WORKERS) as ex: list(ex.map(read_host, sorted(groups.values(), key=len, reverse=True)))
+    review_hours.last_due = len(todo)
+    review_hours.last_opened = sum(1 for v in verdicts if v is not None)
     n = 0
     for (i, src), verdict in zip(todo, verdicts):
         n += 1
@@ -660,6 +662,16 @@ def main():
     log = []  # must exist before the new/removed block below (bug since 22 Oct: UnboundLocalError)
     this_run = []  # rows inserted into access_changes this run; the brake counts only the applied ones
     prov = []  # why an automatic edit was allowed; written only when one is actually applied
+    deferred = []  # access flips held back until coverage is known, and only when intelligent mode is on
+    def apply_access(todo, r, curs, u, name):
+        for x in todo:
+            entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
+            if RULES.get('intelligent_mode'): entry['revert'] = 'python scripts/access_revert.py ' + x
+            changes.insert(0, entry); this_run.append(entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
+        today['items'].pop('access flip pending (confirms next run)|' + u, None)
+        log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
+        note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted) if hasattr(learning, "confidence_for") else None, r.get('final_url'), RULES)
+        if note: prov.append(dict(note, when=NOW.isoformat()))
     # (3) new / removed food banks vs last run
     ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
     if prev_ids:
@@ -724,13 +736,8 @@ def main():
             if todo and prev.get('access') == r['access'] and not learning.allow_under_rules('voucher/walk-in flips', RULES, learning.confidence_for(u, conflicted)):
                 flag(u, 'access flip held (confidence under the rules)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='the auto-apply rules would allow this, but confidence is too low - left for you')
             elif todo and prev.get('access') == r['access']:
-                for x in todo:
-                    entry = dict(when=NOW.isoformat(), id=x, website=u, name=name, old=curs[x], new=r['access'], evidence=r['access_evidence'], source=r['final_url'])
-                    changes.insert(0, entry); this_run.append(entry); tags[x] = dict(tag=r['access'], since=DAY, evidence=r['access_evidence'], source=r['final_url'], was=curs[x]); acc[x] = r['access']
-                today['items'].pop('access flip pending (confirms next run)|' + u, None)
-                log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
-                note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted) if hasattr(learning, "confidence_for") else None, r.get('final_url'), RULES)
-                if note: prov.append(dict(note, when=NOW.isoformat()))
+                if RULES.get('intelligent_mode'): deferred.append((u, name, list(todo), r, dict(curs)))
+                else: apply_access(todo, r, curs, u, name)
             elif todo:
                 flag(u, 'access flip pending (confirms next run)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r['access_evidence'], note='clear %s wording found; applied automatically if seen again next run' % r['access'])
         elif r['access'] == 'mixed':
@@ -800,6 +807,28 @@ def main():
     th = time.time()
     n_hours = review_hours(items, state, flag, t0 + BUDGET)
     print('hours review: %d listing source pages in %.0fs' % (n_hours, time.time() - th), flush=True)
+    try:
+        import intelligent_rails as IR
+        IR.note('foodbanks', budget_skipped=stats['skipped'], hours_review_due=getattr(review_hours, 'last_due', 0), hours_review_opened=getattr(review_hours, 'last_opened', 0))
+    except Exception as ex:
+        print('intelligent mode coverage note skipped: %s' % ex, flush=True)
+    if deferred:
+        import intelligent_rails as IR
+        block = IR.batch_block(RULES, sum(len(t[2]) for t in deferred), 'foodbanks', report_root())
+        if block:
+            IR.alert(block, report_root())
+            for u, name, todo, r, curs in deferred:
+                flag(u, 'access flip held (intelligent mode)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in todo))), evidence=r.get('access_evidence'), note=block)
+        else:
+            undone_acc = IR.undone_access(ROOT)
+            for u, name, todo, r, curs in deferred:
+                blocked = [x for x in todo if x in undone_acc]
+                kept = [x for x in todo if x not in undone_acc]
+                if blocked:
+                    flag(u, 'access flip held (undone)', name=name, website=u, current_tag=', '.join(sorted(set(curs[x] for x in blocked))), note='this flip was undone; not re-applied')
+                if kept:
+                    apply_access(kept, r, curs, u, name)
+                    IR.record_applied('foodbanks', len(kept))
     if not os.environ.get('SAMPLE'): state['ids'] = ids
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest
@@ -825,6 +854,15 @@ def main():
             import replay
             replay.write(replay.cases_from_state(state), os.path.join(REP, 'replay_cases.json'))
         except Exception: pass
+    def _im_finish():
+        try:
+            import intelligent_rails as IR
+            held_n = sum(1 for v in today['items'].values() if str(v.get('category') or '').startswith('access flip held (intelligent'))
+            rejected = [{"id": v.get('website') or k, "reasons": [v.get('note') or v.get('category') or ""]} for k, v in list(today['items'].items())[:200] if "intelligent" in str(v.get("category") or "")]
+            alerts = [v.get('note') for v in today['items'].values() if v.get('category') == 'access flip held (intelligent mode)' and v.get('note')]
+            IR.finish(report_root(), 'foodbanks', 'access', stats.get('flips', 0), held_n, rejected, alerts=alerts[:8], coverage=IR.merged('foodbanks', report_root()))
+        except Exception as ex:
+            print('intelligent mode summary skipped: %s' % ex, flush=True)
     if brake['stop']:
         os.makedirs(REP, exist_ok=True)
         open(os.path.join(REP, 'anomaly_brake.md'), 'w', encoding='utf-8').write(
@@ -833,7 +871,7 @@ def main():
             'so this run\'s data.js, access tags, phone fixes and times stay off the live site.\n' % (brake['reason'], n_own, n_times))
         signal_brake(True)
         today['runs'].append(dict(at=NOW.isoformat(), **stats)); review[DAY] = today; write_md(today, log, stats)
-        print('ANOMALY BRAKE:', brake['reason']); return
+        print('ANOMALY BRAKE:', brake['reason']); _im_finish(); return
     signal_brake(False)
     # apply phone fixes to data.js (every run, since build.py rebuilds from the feed)
     applied_phones = []
@@ -862,7 +900,7 @@ def main():
         items[:] = [i for i in items if i['id'] not in remove]
         for x in remove: acc.pop(x, None)
     if len(items) != n0 - len(remove) or len(remove) > 30: print('FAIL SAFE: unexpected item count / too many closures (%d), nothing written' % len(remove)); sys.exit(1)
-    if os.environ.get('DRY_RUN') or os.environ.get('SAMPLE'): print('DRY RUN/SAMPLE: data.js not written'); return
+    if os.environ.get('DRY_RUN') or os.environ.get('SAMPLE'): _im_finish(); print('DRY RUN/SAMPLE: data.js not written'); return
     out = raw[:raw.index('=') + 1] + json.dumps(d) + ';'
     json.loads(out[out.index('=') + 1:].rstrip(';'))
     t = DATA + '.tmp'; open(t, 'w', encoding='utf-8').write(out); os.replace(t, DATA)
@@ -872,6 +910,7 @@ def main():
         json.dump(closed_raw, open(t, 'w', encoding='utf-8'), indent=2, ensure_ascii=False); os.replace(t, CLP)
     if acc:
         t = ACC + '.tmp'; open(t, 'w', encoding='utf-8').write('window.FB_ACCESS=' + json.dumps(acc, separators=(',', ':')) + ';\n'); os.replace(t, ACC)
+    _im_finish()
 
 def write_md(today, log, stats):
     L = ['# Daily review - food banks - %s' % today['date'], '',
