@@ -302,7 +302,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Proactive Communities, an arm of Blairgowrie and Rattray Development Trust · PH10 6NQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Bury Fellowship · BL9 0HE — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Katakata · SW2 1RS · https://www.facebook.com/KatakataBrixtonHill/ — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED House of Judah Church · CR0 3PB · https://www.houseofjudah.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED House of Judah Church · CR0 3PB · https://www.houseofjudah.org.uk — own site unreachable (HTTP 429)
 - QUEUED Craft In Mind C.I.C · WA1 2QQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Independence Initiative Limited · L20 7EJ · https://www.independenceinitiative.org — own site does not show food aid
 - QUEUED Empower Women for Change · G1 1DT · https://www.ewfc.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)

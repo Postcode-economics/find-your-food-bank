@@ -17,8 +17,7 @@
       {
        "id": "pbp/cetma-llanelli",
        "reasons": [
-        "new own-site times look like office/centre hours",
-        "transient failure; stored times left unchanged"
+        "new own-site times look like office/centre hours"
        ]
       },
       {
@@ -31,6 +30,13 @@
        "id": "storehouse-melton",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+       ]
+      },
+      {
+       "id": "old-kilpatrick-food-parcels",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -123,12 +129,6 @@
        ]
       },
       {
-       "id": "patch",
-       "reasons": [
-        "new own-site times look like office/centre hours"
-       ]
-      },
-      {
        "id": "swindon/st-aldhelms-centre",
        "reasons": [
         "day not on the same line as its times on the own-site page"
@@ -186,8 +186,7 @@
        "id": "west-end-impact",
        "reasons": [
         "day not on the same line as its times on the own-site page",
-        "jumble: Tue given different times in separate blocks on one page; review only",
-        "transient failure; stored times left unchanged"
+        "jumble: Tue given different times in separate blocks on one page; review only"
        ]
       },
       {
@@ -226,8 +225,8 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 563,
-      "render_errors": 563,
+      "render_attempts": 568,
+      "render_errors": 568,
       "source_pages": 18,
       "source_opened": 16
      },
@@ -246,8 +245,8 @@
       "hours_review_opened": 1719,
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 563,
-      "render_errors": 563,
+      "render_attempts": 568,
+      "render_errors": 568,
       "source_pages": 18,
       "source_opened": 16
      },
@@ -267,8 +266,7 @@
     {
      "id": "pbp/cetma-llanelli",
      "reasons": [
-      "new own-site times look like office/centre hours",
-      "transient failure; stored times left unchanged"
+      "new own-site times look like office/centre hours"
      ]
     },
     {
@@ -281,6 +279,13 @@
      "id": "storehouse-melton",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+     ]
+    },
+    {
+     "id": "old-kilpatrick-food-parcels",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -373,12 +378,6 @@
      ]
     },
     {
-     "id": "patch",
-     "reasons": [
-      "new own-site times look like office/centre hours"
-     ]
-    },
-    {
      "id": "swindon/st-aldhelms-centre",
      "reasons": [
       "day not on the same line as its times on the own-site page"
@@ -436,8 +435,7 @@
      "id": "west-end-impact",
      "reasons": [
       "day not on the same line as its times on the own-site page",
-      "jumble: Tue given different times in separate blocks on one page; review only",
-      "transient failure; stored times left unchanged"
+      "jumble: Tue given different times in separate blocks on one page; review only"
      ]
     },
     {
@@ -476,8 +474,8 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 563,
-    "render_errors": 563,
+    "render_attempts": 568,
+    "render_errors": 568,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
@@ -488,8 +486,8 @@
  },
  "alerts": [],
  "would_block": [
-  "coverage gate: render errors 563 of 563 (100% > 25%)"
+  "coverage gate: render errors 568 of 568 (100% > 25%)"
  ],
  "enabled": false,
- "generated_at": "2026-10-29T13:32:41+00:00"
+ "generated_at": "2026-10-29T14:26:00+00:00"
 }

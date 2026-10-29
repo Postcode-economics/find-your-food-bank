@@ -179,13 +179,16 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: new own-site times look like office/centre hours
 - **CETMA Llanelli** (`pbp/cetma-llanelli`, SA15 1YU): own site now Tuesday 10AM - 4PM | Wednesday 10AM - 4PM | Thursday 10AM - 4PM | Friday 12PM - 4PM  
   source: https://cetma.org.uk/projects/pbp-food-bank/  
-  why held: new own-site times look like office/centre hours; transient failure; stored times left unchanged
+  why held: new own-site times look like office/centre hours
 - **Inspero Foodbank** (`inspero`, RG22 5HN): own site now Monday – Friday 9:00 AM – 5:00 PM  
   source: https://www.inspero.org.uk  
   why held: new own-site times look like office/centre hours
 - **Storehouse Melton Foodbank** (`storehouse-melton`, LE13 1NW): own site now Monday 11:00am - 1:00pm | Wednesday 11:00am - 1:00pm | Friday 11:00am - 1:00pm  
   source: https://www.storehousemelton.org.uk  
   why held: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)
+- **Old Kilpatrick Food Parcels Foodbank** (`old-kilpatrick-food-parcels`, G60 5JH): own site now Tuesday to Friday 11-3  
+  source: https://okfp.org.uk  
+  why held: new own-site times look like office/centre hours; day not on the same line as its times on the own-site page
 - **Liberty Tea Rooms** (`dens/liberty-tea-rooms`, HP1 1BS): own site now Monday-Friday 9am-4.30pm  
   source: https://www.dens.org.uk/our-services/foodbank/  
   why held: new own-site times look like office/centre hours
@@ -228,9 +231,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Mill End** (`rickmansworth/mill-end`, WD3 7HJ): own site now Tuesday 1:45 pm to 4:00 pm; Friday 10:00 am to 12:00 pm  
   source: https://rickmansworth.foodbank.org.uk  
   why held: own site gives one table for several branches; cannot tell which branch
-- **PATCH Foodbank** (`patch`, SA73 2HA): own site now Monday – Friday 10am-2pm  
-  source: https://patchcharity.org.uk  
-  why held: new own-site times look like office/centre hours
 - **St Aldhelm's Centre** (`swindon/st-aldhelms-centre`, SN1 1QS): own site now Monday , Thursday & Friday (except Good Friday) 2.30pm – 4.30 pm (Mon & Fri) 1.30pm - 4.15 pm (Thursday)  
   source: https://www.swindonfoodcollective.org  
   why held: day not on the same line as its times on the own-site page
@@ -260,7 +260,7 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: day not on the same line as its times on the own-site page
 - **West End Impact Foodbank** (`west-end-impact`, LA3 1DG): own site now Tuesday 10-1 | Thursday 10-1 | Tuesday 10-1pm  
   source: https://www.westendimpact.org.uk/foodbank  
-  why held: day not on the same line as its times on the own-site page; jumble: Tue given different times in separate blocks on one page; review only; transient failure; stored times left unchanged
+  why held: day not on the same line as its times on the own-site page; jumble: Tue given different times in separate blocks on one page; review only
 - **Pan Together** (`ifan-0ea12dd414fcb6a358d3f0-0`, PO30 2AX): own site now Friday 12pm to 2pm  
   source: https://www.pantogether.org.uk  
   why held: day not on the same line as its times on the own-site page

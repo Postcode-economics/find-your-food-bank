@@ -1,5 +1,5 @@
 {
- "run": "2026-10-29T13:12:17+00:00",
+ "run": "2026-10-29T14:03:58+00:00",
  "checked": 1066,
  "errors": [
   {
@@ -353,11 +353,11 @@
    "fail_runs": 11
   },
   {
-   "website": "https://www.salma-foodbank.org",
-   "name": "Salma Foodbank",
-   "http": 429,
-   "error": "HTTP 429",
-   "fail_runs": 4
+   "website": "https://www.taybridgeheadfoodbank.org.uk",
+   "name": "Tay Bridgehead Foodbank",
+   "http": 403,
+   "error": "HTTP 403",
+   "fail_runs": 3
   },
   {
    "website": "https://www.thearchesrhayader.co.uk/foodbank",
@@ -888,14 +888,7 @@
    "website": "https://www.thefoodbank.org.uk/",
    "name": "North Lakes Foodbank",
    "http": 429,
-   "error": "paused this run after HTTP 429 - still due on a later scheduled run",
-   "fail_runs": 2
-  },
-  {
-   "website": "https://www.coss-broomhouse.org.uk/the-foodbank/",
-   "name": "Community One Stop Shop Foodbank",
-   "http": null,
-   "error": "TimeoutError: The read operation timed out",
+   "error": "HTTP 429",
    "fail_runs": 2
   },
   {
@@ -934,6 +927,13 @@
    "fail_runs": 2
   },
   {
+   "website": "https://kinmelbaychurch.org.uk/food-bank-2/",
+   "name": "Kinmel Bay Church Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
+   "fail_runs": 2
+  },
+  {
    "website": "https://hebburnhelps.co.uk",
    "name": "Hebburn Helps Foodbank",
    "http": null,
@@ -955,17 +955,17 @@
    "fail_runs": 1
   },
   {
-   "website": "https://pontefractandknottingley.foodbank.org.uk/",
-   "name": "Pontefract & Knottingley Foodbank",
+   "website": "https://www.eatsrosyth.org.uk",
+   "name": "EATS Rosyth Foodbank",
    "http": null,
-   "error": "URLError: <urlopen error timed out>",
+   "error": "TimeoutError: The read operation timed out",
    "fail_runs": 1
   },
   {
-   "website": "https://lambethcroydon.foodbank.org.uk/",
-   "name": "Lambeth & Croydon Foodbank",
-   "http": null,
-   "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+   "website": "https://www.openhandsreigate.com",
+   "name": "Open Hands Reigate Foodbank",
+   "http": 429,
+   "error": "paused this run after HTTP 429 - still due on a later scheduled run",
    "fail_runs": 1
   },
   {
@@ -976,10 +976,17 @@
    "fail_runs": 0
   },
   {
-   "website": "http://eatorheat.org",
-   "name": "Eat Or Heat Foodbank",
-   "http": 503,
-   "error": "HTTP 503",
+   "website": "https://patchcharity.org.uk",
+   "name": "PATCH Foodbank",
+   "http": null,
+   "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostn",
+   "fail_runs": 1
+  },
+  {
+   "website": "https://community-essentials.org.uk/food-bank",
+   "name": "Community Essentials Foodbank",
+   "http": null,
+   "error": "TimeoutError: The read operation timed out",
    "fail_runs": 1
   },
   {
@@ -990,10 +997,10 @@
    "fail_runs": 1
   },
   {
-   "website": "https://www.lochaberfoodbank.org",
-   "name": "Lochaber Foodbank",
-   "http": 429,
-   "error": "HTTP 429",
+   "website": "https://welfare.gg/index.php/food-bank",
+   "name": "Guernsey Foodbank",
+   "http": 503,
+   "error": "HTTP 503",
    "fail_runs": 1
   },
   {

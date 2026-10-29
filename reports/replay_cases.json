@@ -18,8 +18,8 @@
 },
 {
 "access": "walkin",
-"hours_hash": "",
-"http": 503,
+"hours_hash": "df0fc1511903",
+"http": 200,
 "phones": [],
 "url": "http://eatorheat.org"
 },
@@ -1519,9 +1519,11 @@
 },
 {
 "access": "voucher",
-"hours_hash": "",
+"hours_hash": "d3aa1c5ae1b5",
 "http": 200,
-"phones": [],
+"phones": [
+"01753342010"
+],
 "url": "https://chiltern.foodbank.org.uk"
 },
 {
@@ -1663,7 +1665,7 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [],
 "url": "https://community-essentials.org.uk/food-bank"
 },
@@ -3326,8 +3328,9 @@
 {
 "access": "unclear",
 "hours_hash": "",
-"http": 200,
+"http": null,
 "phones": [
+"01745369450",
 "07885696522"
 ],
 "url": "https://kinmelbaychurch.org.uk/food-bank-2/"
@@ -3352,8 +3355,8 @@
 },
 {
 "access": "unclear",
-"hours_hash": "",
-"http": null,
+"hours_hash": "b53ea1626602",
+"http": 200,
 "phones": [],
 "url": "https://lambethcroydon.foodbank.org.uk/"
 },
@@ -4090,7 +4093,7 @@
 },
 {
 "access": "unclear",
-"hours_hash": "",
+"hours_hash": "67834021d58b",
 "http": 200,
 "phones": [
 "07879375562"
@@ -4321,8 +4324,8 @@
 },
 {
 "access": "mixed",
-"hours_hash": "6bc0057e3221",
-"http": 200,
+"hours_hash": "",
+"http": null,
 "phones": [
 "01646699275"
 ],
@@ -4409,8 +4412,8 @@
 },
 {
 "access": "voucher",
-"hours_hash": "",
-"http": null,
+"hours_hash": "f974009eef8a",
+"http": 200,
 "phones": [
 "07747168988"
 ],

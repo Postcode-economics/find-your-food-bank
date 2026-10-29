@@ -3925,11 +3925,11 @@
 },
 "http://eatorheat.org": {
 "checks": 10,
-"consec_fail": 1,
+"consec_fail": 0,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.9548416039104165,
-"fails": 2,
+"fails": 1,
 "finds": 1,
 "kind": "foodbank_site",
 "last_change": "2026-10-25",
@@ -3937,17 +3937,13 @@
 "last_find": "2026-10-25",
 "last_method": "plain",
 "methods": {
-"https": {
-"fail": 1,
-"ok": 0
-},
 "own_site": {
 "fail": 1,
 "ok": 7
 },
 "plain": {
 "fail": 0,
-"ok": 1
+"ok": 2
 }
 }
 },
@@ -4560,26 +4556,19 @@
 "decayed_finds": 0.0,
 "fails": 0,
 "finds": 0,
-"healed_from": "plain",
-"healed_on": "2026-10-29",
-"healed_to": "https",
 "kind": "foodbank_site",
 "last_change": null,
 "last_check": "2026-10-29",
 "last_find": null,
-"last_method": "https",
+"last_method": "plain",
 "methods": {
-"https": {
-"fail": 0,
-"ok": 1
-},
 "own_site": {
 "fail": 0,
 "ok": 8
 },
 "plain": {
 "fail": 0,
-"ok": 1
+"ok": 2
 }
 }
 },
@@ -10080,11 +10069,11 @@
 },
 "https://community-essentials.org.uk/food-bank": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 1,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.0,
-"fails": 0,
+"fails": 1,
 "finds": 0,
 "kind": "foodbank_site",
 "last_change": null,
@@ -10097,8 +10086,8 @@
 "ok": 8
 },
 "plain": {
-"fail": 0,
-"ok": 2
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -15342,25 +15331,25 @@
 },
 "https://kinmelbaychurch.org.uk/food-bank-2/": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 2,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
-"decayed_finds": 3.8645248117312496,
-"fails": 2,
-"finds": 4,
+"decayed_finds": 2.8645248117312496,
+"fails": 3,
+"finds": 3,
 "kind": "foodbank_site",
 "last_change": null,
 "last_check": "2026-10-29",
-"last_find": "2026-10-29",
-"last_method": "plain",
+"last_find": "2026-10-27",
+"last_method": "own_site",
 "methods": {
 "own_site": {
 "fail": 1,
 "ok": 7
 },
 "plain": {
-"fail": 1,
-"ok": 1
+"fail": 2,
+"ok": 0
 }
 }
 },
@@ -15414,11 +15403,11 @@
 },
 "https://lambethcroydon.foodbank.org.uk/": {
 "checks": 10,
-"consec_fail": 1,
+"consec_fail": 0,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 1.909683207820833,
-"fails": 1,
+"fails": 0,
 "finds": 2,
 "kind": "foodbank_site",
 "last_change": null,
@@ -15431,8 +15420,8 @@
 "ok": 8
 },
 "plain": {
-"fail": 1,
-"ok": 1
+"fail": 0,
+"ok": 2
 }
 }
 },
@@ -18588,11 +18577,11 @@
 },
 "https://patchcharity.org.uk": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 1,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 3.8645248117312496,
-"fails": 2,
+"fails": 3,
 "finds": 4,
 "kind": "foodbank_site",
 "last_change": null,
@@ -18605,8 +18594,8 @@
 "ok": 6
 },
 "plain": {
-"fail": 0,
-"ok": 2
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -18828,11 +18817,11 @@
 },
 "https://pontefractandknottingley.foodbank.org.uk/": {
 "checks": 10,
-"consec_fail": 1,
+"consec_fail": 0,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 1.9548416039104164,
-"fails": 1,
+"fails": 0,
 "finds": 2,
 "kind": "foodbank_site",
 "last_change": "2026-10-25",
@@ -18845,8 +18834,8 @@
 "ok": 8
 },
 "plain": {
-"fail": 1,
-"ok": 1
+"fail": 0,
+"ok": 2
 }
 }
 },
@@ -23008,11 +22997,11 @@
 },
 "https://welfare.gg/index.php/food-bank": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 1,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 1.0,
-"fails": 0,
+"fails": 1,
 "finds": 1,
 "kind": "foodbank_site",
 "last_change": null,
@@ -23025,8 +23014,8 @@
 "ok": 8
 },
 "plain": {
-"fail": 0,
-"ok": 2
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -30451,25 +30440,25 @@
 },
 "https://www.coss-broomhouse.org.uk/the-foodbank/": {
 "checks": 10,
-"consec_fail": 2,
+"consec_fail": 0,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 2.8645248117312496,
-"fails": 3,
+"fails": 2,
 "finds": 3,
 "kind": "foodbank_site",
 "last_change": null,
 "last_check": "2026-10-29",
 "last_find": "2026-10-27",
-"last_method": "own_site",
+"last_method": "plain",
 "methods": {
 "own_site": {
 "fail": 1,
 "ok": 7
 },
 "plain": {
-"fail": 2,
-"ok": 0
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -33709,11 +33698,11 @@
 },
 "https://www.eatsrosyth.org.uk": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 1,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.0,
-"fails": 0,
+"fails": 1,
 "finds": 0,
 "kind": "foodbank_site",
 "last_change": null,
@@ -33726,8 +33715,8 @@
 "ok": 8
 },
 "plain": {
-"fail": 0,
-"ok": 2
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -41834,11 +41823,11 @@
 },
 "https://www.lochaberfoodbank.org": {
 "checks": 10,
-"consec_fail": 1,
+"consec_fail": 0,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.0,
-"fails": 3,
+"fails": 2,
 "finds": 0,
 "kind": "foodbank_site",
 "last_change": null,
@@ -41851,8 +41840,8 @@
 "ok": 6
 },
 "plain": {
-"fail": 1,
-"ok": 1
+"fail": 0,
+"ok": 2
 }
 }
 },
@@ -45913,11 +45902,11 @@
 },
 "https://www.openhandsreigate.com": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 1,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.0,
-"fails": 0,
+"fails": 1,
 "finds": 0,
 "kind": "foodbank_site",
 "last_change": null,
@@ -45930,8 +45919,8 @@
 "ok": 8
 },
 "plain": {
-"fail": 0,
-"ok": 2
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -49740,25 +49729,25 @@
 },
 "https://www.salma-foodbank.org": {
 "checks": 10,
-"consec_fail": 4,
+"consec_fail": 0,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.0,
-"fails": 8,
+"fails": 7,
 "finds": 0,
 "kind": "foodbank_site",
 "last_change": null,
 "last_check": "2026-10-29",
 "last_find": null,
-"last_method": "own_site",
+"last_method": "plain",
 "methods": {
 "own_site": {
 "fail": 6,
 "ok": 2
 },
 "plain": {
-"fail": 2,
-"ok": 0
+"fail": 1,
+"ok": 1
 }
 }
 },
@@ -53362,25 +53351,25 @@
 },
 "https://www.taybridgeheadfoodbank.org.uk": {
 "checks": 10,
-"consec_fail": 0,
+"consec_fail": 3,
 "decay_asof": "2026-10-29",
 "decayed_checks": 9.638732831283331,
 "decayed_finds": 0.0,
-"fails": 7,
+"fails": 8,
 "finds": 0,
 "kind": "foodbank_site",
 "last_change": null,
 "last_check": "2026-10-29",
 "last_find": null,
-"last_method": "plain",
+"last_method": "own_site",
 "methods": {
 "own_site": {
 "fail": 6,
 "ok": 2
 },
 "plain": {
-"fail": 1,
-"ok": 1
+"fail": 2,
+"ok": 0
 }
 }
 },
