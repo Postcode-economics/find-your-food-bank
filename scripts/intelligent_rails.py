@@ -98,8 +98,9 @@ def _today():
     return datetime.date.today().isoformat()
 
 
-def merged(layer, root=None):
-    """In-process notes, filled in with today's summary for keys this process has not noted."""
+def merged(layer, root=None, local_render=False):
+    """In-process notes, filled in with today's summary for keys this process has not noted.
+    local_render: render_attempts/render_errors stay in-process only (full_check access step must not inherit the times step tally)."""
     with _lock:
         stats = dict(_stats.get(layer) or {})
     data = load_summary(root) if root else {}
@@ -107,6 +108,8 @@ def merged(layer, root=None):
         return stats
     saved = ((data.get("layers") or {}).get(layer) or {}).get("coverage") or {}
     for k, v in saved.items():
+        if local_render and k in ("render_attempts", "render_errors"):
+            continue
         stats.setdefault(k, v)
     return stats
 
@@ -225,11 +228,11 @@ def blast_reason(n, layer, root=None):
     return ""
 
 
-def batch_block(rules, n, layer, root=None):
+def batch_block(rules, n, layer, root=None, local_render=False):
     """Reason to hold every auto-apply in this step, or '' when the step may apply."""
     if not enabled(rules):
         return ""
-    cov = coverage_reasons(merged(layer, root))
+    cov = coverage_reasons(merged(layer, root, local_render=local_render))
     if cov:
         return "coverage gate: " + "; ".join(cov)
     return blast_reason(n, layer, root)
