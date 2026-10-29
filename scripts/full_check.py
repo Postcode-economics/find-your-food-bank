@@ -49,6 +49,21 @@ UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +h
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
 HOURS_BUDGET = int(os.environ.get('HOURS_BUDGET_S', BUDGET))
 HOURS_WORKERS = int(os.environ.get('HOURS_WORKERS', 12))
+STEP_FINISH_GRACE_S = int(os.environ.get('STEP_FINISH_GRACE_S', 180))  # write reports/state before the Actions step timeout
+_POST_SITES_S = 300  # access/phone/closure pass after the website fetch pool, before review_hours
+
+def step_finish_by():
+    """Unix time by which review_hours must stop and the write pass must begin (STEP_HARD_MINUTES minus grace)."""
+    hard = os.environ.get('STEP_HARD_MINUTES')
+    if not hard:
+        return None
+    return time.time() + float(hard) * 60.0 - STEP_FINISH_GRACE_S
+
+def capped_site_budget(t0, finish_by):
+    if finish_by is None:
+        return BUDGET
+    left = finish_by - t0 - HOURS_BUDGET - _POST_SITES_S
+    return max(0, min(BUDGET, int(left)))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
 DAY = NOW.date().isoformat()
 
@@ -631,6 +646,15 @@ def write_pending_closures(pending):
 
 def main():
     os.makedirs(REP, exist_ok=True)
+    finish_by_box = [step_finish_by()]
+    import signal
+    def _stop_early(signum, frame):
+        print('full check: received signal %s; stopping fetches and saving partial state' % signum, flush=True)
+        if finish_by_box[0] is not None:
+            finish_by_box[0] = min(finish_by_box[0], time.time() + 30)
+    for sig in (getattr(signal, 'SIGTERM', None), getattr(signal, 'SIGINT', None)):
+        if sig is not None:
+            signal.signal(sig, _stop_early)
     raw, d = load_data(); items = d['items']; n0 = len(items)
     state = rj('full_check_state.json', {'sites': {}, 'ids': []})
     tags = rj('access_tags.json', {})       # pin id -> {"tag": "voucher"|"walkin", "since", "evidence", "source", "was"} (auto flips)
@@ -693,15 +717,23 @@ def main():
             e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='removed', old='on map', new='gone (no longer in the feed / closed on own site / excluded)', source='logs/foodbank_closed.json'); changes.insert(0, e); log.append(e); this_run.append(e)
     # fetch everything (time-boxed; whatever is left is reported, not guessed)
     t0 = time.time(); results = {}
+    site_budget = capped_site_budget(t0, finish_by_box[0])
     def job(u):
-        if time.time() - t0 > BUDGET: return u, {'url': u, 'ok': None, 'error': 'time budget reached - not checked this run'}
+        fb = finish_by_box[0]
+        budget = capped_site_budget(t0, fb)
+        if fb is not None and time.time() >= fb - HOURS_BUDGET - _POST_SITES_S:
+            return u, {'url': u, 'ok': None, 'error': 'step time budget reached - not checked this run'}
+        if time.time() - t0 > budget:
+            return u, {'url': u, 'ok': None, 'error': 'time budget reached - not checked this run'}
         try:
             avail = ['plain', 'https'] if u.startswith('http://') else ['plain']
             order = learning.method_order(LS, u, avail)
             try: return u, check_site(u, order)
             except TypeError: return u, check_site(u)  # a one-argument stand-in (tests) still works
         except Exception as e: return u, {'url': u, 'ok': False, 'error': 'check error: %r' % e}
-    print('full check: checking %d websites (budget %ds)' % (len(sites), BUDGET), flush=True)
+    print('full check: checking %d websites (budget %ds%s)' % (
+        len(sites), site_budget, '' if finish_by_box[0] is None else ', step finish by %s' % datetime.datetime.fromtimestamp(
+            finish_by_box[0], tz=datetime.timezone.utc).strftime('%H:%M:%SZ')), flush=True)
     with cf.ThreadPoolExecutor(12) as ex:
         for u, r in ex.map(job, sites): results[u] = r
     print('full check: websites done in %.0fs' % (time.time() - t0), flush=True)
@@ -815,7 +847,8 @@ def main():
     if held_old:  # older fixes the strict gate now holds: kept for Dean with their reasons, not re-applied
         wj('phone_fixes_held.json', dict(rj('phone_fixes_held.json', {}), **held_old))
     th = time.time()
-    hours_deadline = th + HOURS_BUDGET
+    fb = finish_by_box[0]
+    hours_deadline = min(th + HOURS_BUDGET, fb) if fb is not None else th + HOURS_BUDGET
     review_hours(items, state, flag, hours_deadline)
     print('hours review: %d of %d listing source pages opened in %.0fs' % (
         getattr(review_hours, 'last_opened', 0), getattr(review_hours, 'last_due', 0), time.time() - th), flush=True)
