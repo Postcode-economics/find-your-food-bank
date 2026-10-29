@@ -1,6 +1,7 @@
 """Times review list hand check (Dean, 29 Oct 2026): hand-checked times from own pages published as protected overrides.
 Bow: walk-in Visit Us and Wednesday open session structured; Click and Collect in text with order deadlines.
-Neo Community: Food and Supplies Market only; Community Café and club sessions left out."""
+Neo Community: Food and Supplies Market only; Community Café and club sessions left out.
+Gospel Church: Food Bank Friday 5pm-6pm only from Church weekly schedule."""
 import json, os, sys
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
@@ -22,9 +23,12 @@ FIXED_TABLE = {
         'https://www.neocommunity.org.uk/',
         {'mon': [['12:00', '14:00']], 'tue': [['12:00', '14:00']], 'wed': [['12:00', '14:00']],
          'fri': [['12:00', '14:00']], 'sat': [['11:00', '13:00']]}),
+    'ifan-9fef48d4f0fd3a3f6896d2-0': (
+        'Food Bank: Fridays 5pm - 6pm',
+        'https://www.gcjc.co.uk',
+        {'fri': [['17:00', '18:00']]}),
 }
-STILL_QUEUED = ['ifan-9fef48d4f0fd3a3f6896d2-0',
-                'ifan-53c68645aa831ab649ac43-0', 'community-essentials', 'moorland']
+STILL_QUEUED = ['ifan-53c68645aa831ab649ac43-0', 'community-essentials', 'moorland']
 
 def items():
     s = open(os.path.join(ROOT, 'data.full.js'), encoding='utf-8').read()
@@ -43,6 +47,9 @@ def test_hand_checked_entries_protected_with_quotes():
         assert e['quote'] and all(q for q in e['quote']), k
     assert 'Community Café' not in OT['ifan-3c7cb974c7ac6c1966b83c-0']['raw']
     assert 'thu' not in OT['ifan-3c7cb974c7ac6c1966b83c-0']['structured']
+    gc = OT['ifan-9fef48d4f0fd3a3f6896d2-0']
+    assert 'Bible Study' not in gc['raw'] and 'Street Evangelism' not in gc['raw']
+    assert list(gc['structured'].keys()) == ['fri']
 
 def test_cards_show_the_hand_checked_times():
     ix = items()
@@ -58,6 +65,9 @@ def test_cards_show_the_hand_checked_times():
         assert ot['status'] == 'TIMES_FOUND' and ix[k]['times_status'] == 'confirmed_by_hand', k
     neo = ix['ifan-3c7cb974c7ac6c1966b83c-0']['opening_times']
     assert '4:30pm' not in neo['raw'] and 'Communi-tea' not in neo['raw']
+    gc = ix['ifan-9fef48d4f0fd3a3f6896d2-0']['opening_times']
+    assert gc['structured']['fri'] == [['17:00', '18:00']]
+    assert 'Sunday' not in gc['raw']
 
 def test_refresh_and_finder_treat_them_as_hand_checked():
     import discover, times_finder

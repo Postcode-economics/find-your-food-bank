@@ -65,9 +65,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Healthy Living Platform** (`ifan-9cf9dd4ce1df051c2c0a59-0`, SW9 7AA): Tuesdays 12-2pm | Thursdays 11-3pm  
   source: https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9  
   why: postcode not matched exactly on the page
-- **The Gospel Church of Jesus Christ** (`ifan-9fef48d4f0fd3a3f6896d2-0`, WC1B 3PP): Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm  
-  source: https://www.gcjc.co.uk/contact  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon, Tue, Wed, Thu, Fri given different times in separate blocks on one page; review only
 - **Manna (Hatfield) Foodbank** (`manna-hatfield`, AL10 8NA): ... View Project Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service 02. Midweek Service Join us online for bible study: 07:30 pm -8:30 pm (Wednesday)  
   source: https://openheavenshatfield.com/  
   why: day not on the same line as its times on the own-site page

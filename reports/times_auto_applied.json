@@ -137,6 +137,34 @@
   "revert": "python scripts/times_revert.py ifan-3c7cb974c7ac6c1966b83c-0"
  },
  {
+  "id": "ifan-9fef48d4f0fd3a3f6896d2-0",
+  "name": "The Gospel Church of Jesus Christ",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Food Bank: Fridays 5pm - 6pm",
+   "source_url": "https://www.gcjc.co.uk",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "17:00",
+      "18:00"
+     ]
+    ]
+   },
+   "quote": [
+    "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://www.gcjc.co.uk",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py ifan-9fef48d4f0fd3a3f6896d2-0"
+ },
+ {
   "id": "auldhouse-community",
   "name": "Auldhouse Community Foodbank",
   "old": null,

@@ -11593,6 +11593,25 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "ifan-9fef48d4f0fd3a3f6896d2-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
+  ],
+  "raw": "Food Bank: Fridays 5pm - 6pm",
+  "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
+  "source_url": "https://www.gcjc.co.uk",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "17:00",
+     "18:00"
+    ]
+   ]
+  }
+ },
  "ifan-da5df633f7eabc8fbdb2a3-0": {
   "checked_date": "2026-10-23",
   "protected": true,
