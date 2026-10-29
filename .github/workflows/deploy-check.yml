@@ -5,7 +5,7 @@ name: Deploy check (live old links + user journeys + card design lock)
 on:
   push:
     branches: [main]
-    paths: ['**.html', '**.css', '**.js', 'scripts/old_links.py', 'scripts/old_links.json', 'scripts/journeys.py', 'scripts/design_lock.py', 'scripts/design_lock.json', 'scripts/check_browser.py', 'scripts/dark_default.py', 'tests/test_tile_fallback.py']
+    paths: ['**.html', '**.css', '**.js', 'scripts/old_links.py', 'scripts/old_links.json', 'scripts/journeys.py', 'scripts/design_lock.py', 'scripts/design_lock.json', 'scripts/check_browser.py', 'scripts/dark_default.py', 'scripts/live_build.py', 'tests/test_tile_fallback.py']
   schedule: [{cron: "15 6 * * *"}]
   workflow_dispatch:
 permissions: {contents: write, issues: write}
@@ -19,49 +19,78 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - id: install
+        name: Install Playwright (the wait step reads the live build in real Chrome)
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - id: wait
         name: Wait for the deploy (live version.json = this commit's build)
+        # 29 Oct: Cloudflare Bot Fight Mode answers curl from a runner with a 403 challenge and ignores the helpmap-check skip rule,
+        # so the build is read in real Chrome (check_browser, the same path as the live checks). Push and the daily run both use this step.
         run: |
           want=$(python -c "import json;print(json.load(open('version.json'))['build'])")
-          got=""
-          for i in $(seq 1 40); do
-            got=$(curl -fsS -A "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check" "https://helpmap.uk/version.json?t=$RANDOM" 2>/dev/null | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null || true)
-            if [ "$got" = "$want" ]; then echo "live is $got"; exit 0; fi
-            sleep 15
-          done
+          set +e
+          got=$(python scripts/live_build.py https://helpmap.uk "$want"); code=$?
+          set -e
+          if [ "$code" = 0 ]; then echo "live is $got"; exit 0; fi
+          # One plain request, errors shown: the HTTP status and cf-mitigated header say what the edge answered.
+          diag=$(curl -sS -o /dev/null -D - -A "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Mobile Safari/537.36 helpmap-check" "https://helpmap.uk/version.json?t=$RANDOM" 2>&1 || true)
+          echo "curl from this runner:"; printf '%s\n' "$diag" | grep -iE '^(HTTP|cf-mitigated|server|curl)' || true
           # 25 Oct 20:23: a run for an older commit tested the NEWER live build, "failed" on the build name and tried to revert. If main
           # has moved past this commit, a newer run checks the live site - this one stands down (no checks, never a revert).
+          if [ "$code" = 3 ]; then
+            echo "CF_BLOCKED=deploy-wait" >> "$GITHUB_ENV"
+            echo "::error::Cloudflare blocked the live check: real Chrome on the runner got a 403 / cf-mitigated / 'Just a moment' page for version.json for 10 min, so the live build could not be read"
+          fi
           if [ "$(git ls-remote origin refs/heads/main | cut -f1)" != "${{ github.sha }}" ]; then echo "::notice::superseded by a newer main commit; live is '$got'"; echo "SUPERSEDED=1" >> "$GITHUB_ENV"; exit 0; fi
+          [ "$code" != 3 ] || exit 1
           # Never test the old live build in this commit's name: a pass would be false and a failure would revert a commit that never went live.
           echo "::error::live build '$got' != '$want' after 10 min: this commit is not live, so the live checks did not run"
           exit 1
+      # Each check's output is kept in $RUNNER_TEMP so a Cloudflare block during the checks is named in the alert (step cf).
       - id: oldlinks
         name: Old links
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 45
-        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/old_links.py https://helpmap.uk
+        run: set -o pipefail; python scripts/old_links.py https://helpmap.uk 2>&1 | tee "$RUNNER_TEMP/live-old-links.log"
       - id: journeys
         name: User journeys
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 15
-        run: python scripts/journeys.py https://helpmap.uk
+        run: set -o pipefail; python scripts/journeys.py https://helpmap.uk 2>&1 | tee "$RUNNER_TEMP/live-journeys.log"
       - id: designlock
         name: Card design lock
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 15
-        run: python scripts/design_lock.py https://helpmap.uk
+        run: set -o pipefail; python scripts/design_lock.py https://helpmap.uk 2>&1 | tee "$RUNNER_TEMP/live-design-lock.log"
       - id: darkdefault
         name: Dark by default
         if: success() && env.SUPERSEDED != '1'
         timeout-minutes: 10
         # 26 Oct: check_browser retries once, for a challenge, an edge block, or a core script that never arrived.
         # A second block, a 404 or 500, a script error after load, a timeout, or a wrong theme still fails and still reverts.
-        run: python scripts/dark_default.py https://helpmap.uk
+        run: set -o pipefail; python scripts/dark_default.py https://helpmap.uk 2>&1 | tee "$RUNNER_TEMP/live-dark-default.log"
+      - id: cf
+        name: Was the live check blocked by Cloudflare?
+        if: failure()
+        run: |
+          logs=""
+          for s in "old-links:${{ steps.oldlinks.outcome }}" "journeys:${{ steps.journeys.outcome }}" "design-lock:${{ steps.designlock.outcome }}" "dark-default:${{ steps.darkdefault.outcome }}"; do
+            if [ "${s#*:}" = failure ]; then logs="$logs ${s%%:*}=$RUNNER_TEMP/live-${s%%:*}.log"; fi
+          done
+          hits=$(python scripts/live_build.py --scan $logs)
+          hits="${CF_BLOCKED:+$CF_BLOCKED }$hits"; hits="${hits% }"
+          if [ -n "$hits" ]; then
+            echo "CF_BLOCKED=$hits" >> "$GITHUB_ENV"
+            echo "::error::Cloudflare blocked the live check ($hits): 403 / cf-mitigated / 'Just a moment' instead of the site"
+          else
+            echo "no Cloudflare block in the failed checks"
+          fi
       - name: Revert the deploying commit (push only) and alert
         if: failure() && github.event_name == 'push'
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |
           failed=""
+          case "${{ steps.install.outcome }}" in failure) failed="install";; esac
           case "${{ steps.wait.outcome }}" in failure) failed="deploy-wait";; esac
           case "${{ steps.oldlinks.outcome }}" in failure) failed="${failed:+$failed }old-links";; esac
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
@@ -69,6 +98,15 @@ jobs:
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
+          if [ "$failed" = "install" ]; then
+            python scripts/alert.py open old-links "Playwright install failed - nothing tested, NOT reverted" "Commit ${{ github.sha }}: the browser install failed before the live build was read. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            exit 1
+          fi
+          # 29 Oct: a Cloudflare block is never reported as "deploy not live", and a check Cloudflare answered says nothing about this commit.
+          if [ -n "${CF_BLOCKED:-}" ]; then
+            python scripts/alert.py open old-links "Cloudflare blocked the live check ($CF_BLOCKED) - NOT reverted" "Commit ${{ github.sha }}: Cloudflare answered real Chrome on the runner with a 403 / cf-mitigated / 'Just a moment' page ($CF_BLOCKED), so these results are not about the site. Failed: $failed. Check Bot Fight Mode / security settings for helpmap.uk. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            exit 1
+          fi
           if [ "$failed" = "deploy-wait" ]; then
             python scripts/alert.py open old-links "Deploy not live after 10 min - nothing tested, NOT reverted" "Commit ${{ github.sha }} never became the live build, so the live checks did not run. Check the Pages deploy. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             exit 1
@@ -87,6 +125,7 @@ jobs:
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |
           failed=""
+          case "${{ steps.install.outcome }}" in failure) failed="install";; esac
           case "${{ steps.wait.outcome }}" in failure) failed="deploy-wait";; esac
           case "${{ steps.oldlinks.outcome }}" in failure) failed="${failed:+$failed }old-links";; esac
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
@@ -94,6 +133,10 @@ jobs:
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
+          if [ -n "${CF_BLOCKED:-}" ]; then
+            python scripts/alert.py open old-links "Cloudflare blocked the live check (daily: $CF_BLOCKED)" "Cloudflare answered real Chrome on the runner with a 403 / cf-mitigated / 'Just a moment' page ($CF_BLOCKED). Failed: $failed. Check Bot Fight Mode / security settings for helpmap.uk. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            exit 1
+          fi
           python scripts/alert.py open old-links "Daily live check failed ($failed)" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
       - if: success() && env.SUPERSEDED != '1'
         env: {GH_TOKEN: "${{ github.token }}"}
@@ -107,23 +150,41 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - name: Install Playwright (the wait step reads the live build in real Chrome)
+        run: pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
       - name: Wait for the deploy
         run: |
-          want=$(python -c "import json;print(json.load(open('version.json')).get('build',''))" 2>/dev/null || true)
-          for i in $(seq 1 40); do got=$(curl -fsS -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Safari/537.36 helpmap-check" "https://helpmap.uk/version.json?t=$(date +%s)" | python -c "import json,sys;print(json.load(sys.stdin).get('build',''))" 2>/dev/null || true); [ -z "$want" ] || [ "$got" = "$want" ] && exit 0; sleep 15; done
+          want=$(python -c "import json;print(json.load(open('version.json')).get('build',''))" || true)
+          [ -n "$want" ] || { echo "::warning::no build in version.json; not waiting"; exit 0; }
+          set +e
+          got=$(python scripts/live_build.py https://helpmap.uk "$want"); code=$?
+          set -e
+          if [ "$code" = 0 ]; then echo "live is $got"; exit 0; fi
+          diag=$(curl -sS -o /dev/null -D - -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.29 Safari/537.36 helpmap-check" "https://helpmap.uk/version.json?t=$(date +%s)" 2>&1 || true)
+          echo "curl from this runner:"; printf '%s\n' "$diag" | grep -iE '^(HTTP|cf-mitigated|server|curl)' || true
+          if [ "$code" = 3 ]; then
+            echo "CF_BLOCKED=deploy-wait" >> "$GITHUB_ENV"
+            echo "::error::Cloudflare blocked the live check: real Chrome on the runner got a 403 / cf-mitigated / 'Just a moment' page for version.json for 10 min, so the fallback check did not run"
+          fi
           if [ "$(git ls-remote origin refs/heads/main | cut -f1)" != "${{ github.sha }}" ]; then echo "::notice::superseded by a newer main commit; live is '$got'"; echo "SUPERSEDED=1" >> "$GITHUB_ENV"; exit 0; fi
+          [ "$code" != 3 ] || exit 1
           echo "::error::live build '$got' != '$want' after 10 min: this commit is not live, so the fallback check did not run"
           exit 1
       - id: fallback
         name: OSM blocked -> OpenFreeMap renders (live site)
         if: env.SUPERSEDED != '1'
         env: {HELPMAP_FALLBACK_BASE: "https://helpmap.uk", HELPMAP_SHOTS: "shots"}
-        run: |
-          pip install -q pytest==9.1.1 playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
-          python -m pytest -q tests/test_tile_fallback.py -k test_osm_blocked_switches_to_openfreemap_and_renders -rs
+        run: set -o pipefail; python -m pytest -q tests/test_tile_fallback.py -k test_osm_blocked_switches_to_openfreemap_and_renders -rs 2>&1 | tee "$RUNNER_TEMP/live-tile-fallback.log"
       - if: always()
         uses: actions/upload-artifact@v4
         with: {name: tile-fallback-live, path: shots, if-no-files-found: ignore}
-      - if: failure() && steps.fallback.outcome == 'failure'
+      - if: failure() && (steps.fallback.outcome == 'failure' || env.CF_BLOCKED != '')
         env: {GH_TOKEN: "${{ github.token }}"}
-        run: python scripts/alert.py open tile-fallback "Live map fallback check failed (OSM -> OpenFreeMap)" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+        run: |
+          hits="${CF_BLOCKED:-}"
+          if [ "${{ steps.fallback.outcome }}" = failure ] && [ -n "$(python scripts/live_build.py --scan tile-fallback=$RUNNER_TEMP/live-tile-fallback.log)" ]; then hits="${hits:+$hits }tile-fallback"; fi
+          if [ -n "$hits" ]; then
+            python scripts/alert.py open tile-fallback "Cloudflare blocked the live check (tile fallback: $hits)" "Cloudflare answered real Chrome on the runner with a 403 / cf-mitigated / 'Just a moment' page. Check Bot Fight Mode / security settings for helpmap.uk. See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          else
+            python scripts/alert.py open tile-fallback "Live map fallback check failed (OSM -> OpenFreeMap)" "See run $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          fi
