@@ -24,3 +24,4 @@ html.rpopen,html.rpopen body{overflow:hidden}
 .rpmsg{margin:10px 0;padding:10px 12px;border-radius:10px;font-size:15px;outline:none}.rpmsg p{margin:0 0 6px}.rpmsg.ok{background:#F5C518;color:#0A1628;font-weight:700}.rpmsg.err{background:#F2F4F8;color:#0A1628;border-left:6px solid #E63946}
 .rpmail{display:flex;align-items:center;justify-content:center;min-height:48px;background:#0A1628;color:#F5C518!important;border-radius:10px;font-weight:800;text-decoration:none;margin:6px 0}
 .rpmsg .rph{color:#0A1628}
+/* ci: keep journeys, design-lock and old-links on the path filter; no visual change */
