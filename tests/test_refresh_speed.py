@@ -139,12 +139,16 @@ class WorkflowBudget(unittest.TestCase):
     def test_rebuild_step_has_its_own_timeout_inside_the_job(self):
         wf = self.wf()
         job = int(re.search(r"^    timeout-minutes: (\d+)", wf, re.M).group(1))
-        self.assertEqual(job, 90)
+        self.assertEqual(job, 150)
         m = re.search(r"timeout-minutes: (\d+)", self.step(wf, "Rebuild data.js"))
         self.assertIsNotNone(m, "the rebuild step must have its own timeout")
         self.assertLess(int(m.group(1)), job)
-        self.assertNotIn("timeout-minutes", wf[wf.index("- name: Full check"):wf.index("- name: Anomaly brake")],
-                         "a killed full check would skip the anomaly brake; it is bounded by its own BUDGET_S")
+        full = self.step(wf, "Full check of every food bank's own site")
+        fm = re.search(r"timeout-minutes: (\d+)", full)
+        self.assertIsNotNone(fm, "full check must have its own step timeout so it can finish gracefully")
+        self.assertLess(int(fm.group(1)), job)
+        self.assertIn("STEP_HARD_MINUTES", full)
+        self.assertIn("HOURS_BUDGET_S", full)
 
     def test_run_failed_alert_also_fires_on_cancel_or_timeout(self):
         cond = re.search(r"if: (.+)", self.step(self.wf(), "Alert - run failed (nothing new published)")).group(1)

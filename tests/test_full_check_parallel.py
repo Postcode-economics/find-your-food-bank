@@ -176,5 +176,17 @@ class Unchanged(unittest.TestCase):
                          (2.0, 3, 600, 15, int(os.environ.get("BUDGET_S", 2400)), int(os.environ.get("HOURS_BUDGET_S", int(os.environ.get("BUDGET_S", 2400))))))
         self.assertEqual(F.TRUSSELL._value, 2)
 
+    def test_step_finish_by_reserves_grace_and_caps_site_budget(self):
+        t0 = time.time()
+        os.environ["STEP_HARD_MINUTES"] = "100"
+        os.environ["STEP_FINISH_GRACE_S"] = "180"
+        fb = F.step_finish_by()
+        self.assertIsNotNone(fb)
+        self.assertAlmostEqual(fb, t0 + 100 * 60 - 180, delta=2)
+        cap = F.capped_site_budget(t0, fb)
+        self.assertEqual(cap, min(F.BUDGET, int(fb - t0 - F.HOURS_BUDGET - F._POST_SITES_S)))
+        del os.environ["STEP_HARD_MINUTES"]
+        del os.environ["STEP_FINISH_GRACE_S"]
+
 if __name__ == "__main__":
     unittest.main()
