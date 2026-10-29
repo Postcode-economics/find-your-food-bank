@@ -91,9 +91,10 @@ def _request(url):
         except Exception as e:
             code = getattr(e, "code", None)
             res = {"http": code or "error", "final_url": url, "html": "", "error": str(e)[:120]}
-            if code in RETRY_CODES and retries < RETRY_TRIES:
+            hdrs = getattr(e, "headers", None)
+            challenge = hdrs is not None and str(hdrs.get("cf-mitigated") or "").lower() == "challenge"  # a script challenge: no retry can pass it
+            if code in RETRY_CODES and retries < RETRY_TRIES and not challenge:
                 retries += 1
-                hdrs = getattr(e, "headers", None)
                 _sleep(retry_delay(retries, hdrs.get("Retry-After") if hdrs is not None else None))
                 headers = POLITE_UA
                 continue
@@ -759,6 +760,38 @@ def read_listing_source(src, fetcher, render, postcode):
     if not source_page_ok(src, rland):
         return None, "rendered page redirected to a different page (%s); shown hours left unchanged" % rland
     return rland, got.get("text") or text_of(rhtml)
+# Run 40821758973 (29 Oct 2026): the 1,744 source-url reads ran one after another inside the main loop, each 403 adding
+# 65 s of polite-retry sleeps, and the rebuild step took 68 min instead of ~10. They share the thread pool now, with at
+# most SOURCE_PER_SITE reads on one site at a time (every *.foodbank.org.uk is one Trussell server) and SOURCE_RENDERS
+# browser renders at once. Each listing still gets its own live read of its own source URL; only the order in time changes.
+SOURCE_PER_SITE = int(os.environ.get("TIMES_SOURCE_PER_SITE", "4"))
+def site_key(url):
+    h = host(url)
+    return "foodbank.org.uk" if h == "foodbank.org.uk" or h.endswith(".foodbank.org.uk") else h
+SOURCE_RENDERS = int(os.environ.get("TIMES_SOURCE_RENDERS", "2"))
+def read_sources(items, kind, field, fetcher, render, threads):
+    """{id(item): read_listing_source(...)} for every fb listing with a usable source_url, read live in parallel."""
+    if kind != "fb": return {}
+    todo = []
+    for i in items:
+        ot = i.get(field)
+        src = ot.get("source_url") if isinstance(ot, dict) else None
+        if src and usable_site(src): todo.append((id(i), src, i.get("postcode")))
+    if not todo: return {}
+    sems, lock = {}, threading.Lock()
+    render_sem = threading.Semaphore(max(1, SOURCE_RENDERS))
+    base_render = render or render_live
+    def bounded_render(u):
+        with render_sem: return base_render(u)
+    def one(t):
+        iid, src, pc = t
+        with lock: sem = sems.setdefault(site_key(src), threading.Semaphore(max(1, SOURCE_PER_SITE)))
+        with sem: return iid, read_listing_source(src, fetcher, bounded_render, pc)
+    t0 = time.monotonic()
+    print("times check: reading %d live source pages (%d sites, %d threads)" % (len(todo), len({site_key(s) for _, s, _ in todo}), threads), flush=True)
+    with cf.ThreadPoolExecutor(max(1, threads)) as ex: out = dict(ex.map(one, todo))
+    print("times check: %d source pages read in %.0fs, %d opened" % (len(todo), time.monotonic() - t0, sum(1 for v in out.values() if v[0])), flush=True)
+    return out
 def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, threads=24, render=None, state_root=None, rules=None, run_at=None, pending_mode="replace"):
     """Re-read every entry's times from the live site this run; mutates items. Returns {id: result} log.
     kind 'fb': field 'opening_times' (times.py dict). kind 'sh'/'ws': field 'hours' (dict or text).
@@ -779,7 +812,10 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
         if not s: return s, None, []
         home, pages = site_pages(s, fetcher)
         return s, home, pages
+    t0 = time.monotonic()
     with cf.ThreadPoolExecutor(threads) as ex: got = list(ex.map(one, list(sites)))
+    print("times check: %d own sites read in %.0fs for %d listings" % (len([s for s in sites if s]), time.monotonic() - t0, len(items)), flush=True)
+    src_read = read_sources(items, kind, field, fetcher, render, threads)
     log = {}; cands = []
     for s, home, pages in got:
         for i in sites[s]:
@@ -801,7 +837,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
             if src:
                 if not usable_site(src):
                     flag_kept("source url is not a live page; shown hours left unchanged"); continue
-                landed, payload = read_listing_source(src, fetcher, render, i.get("postcode"))
+                landed, payload = src_read[id(i)]
                 if not landed:
                     flag_kept(payload); continue
                 page_pairs, texts = [(landed, payload)], [payload]
