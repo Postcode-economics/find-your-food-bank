@@ -1,5 +1,5 @@
 {
- "run": "2026-10-28",
+ "run": "2026-10-29",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
@@ -7,7 +7,7 @@
   "active": [
    "Swindon Borough Council"
   ],
-  "flagged": 48
+  "flagged": 42
  },
  "councils": [
   {
@@ -139,10 +139,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status no SWEP page -> no SWEP wording",
-    "new page https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch"
-   ]
+   "flags": []
   },
   {
    "code": "ARU",
@@ -455,14 +452,14 @@
    "pages": [
     {
      "url": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-     "http": 302,
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": ""
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 302)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -787,9 +784,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "BUR",
@@ -1893,9 +1888,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "ESK",
@@ -4297,9 +4290,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "RUH",
@@ -4447,9 +4438,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unreachable -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "SDE",
@@ -5626,9 +5615,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status unreachable -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "WEW",
@@ -5791,7 +5778,6 @@
    ],
    "status": "unreachable",
    "flags": [
-    "status no SWEP wording -> unreachable",
     "dead page https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands (HTTP 403)",
     "dead page http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)",
     "dead page http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands (HTTP error)"
