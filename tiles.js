@@ -109,7 +109,7 @@ window.addTiles = function (map) {
        the ring outside the shrinking view stayed grey. A remembered tile is painted from this copy, with no request
        and no fade. TILE_MEMO_MAX bounds the memory (a tile is a 15-40 KB data URL); 0 turns it off, so every tile
        goes through the service worker as on a fresh page. */
-    var memo = new Map(), memoMax = typeof window.TILE_MEMO_MAX === 'number' ? window.TILE_MEMO_MAX : 600;
+    var memo = new Map(), memoMax = typeof window.TILE_MEMO_MAX === 'number' ? window.TILE_MEMO_MAX : 600, failed = new Set();
     function remember(url, src) {
       if (memoMax <= 0 || !src || src.indexOf('data:image/gif;base64,R0lGODlhAQABAAD') === 0) return;
       memo.delete(url);
@@ -175,6 +175,7 @@ window.addTiles = function (map) {
         function countBad(refused, why) {
           if (dead()) return;
           window.TILE_STATS.error++;
+          failed.add(url);
           if (why === 'decode') codes.push('decode');
           else codes.push(why);
           done(new Error(String(why)), img);
@@ -389,7 +390,10 @@ window.addTiles = function (map) {
     function aheadWanted() {
       var z = Math.round(map.getZoom()), lo = Math.max(map.getMinZoom() || 0, z - (window.TILE_AHEAD_LEVELS || 3));
       var c = map.getCenter(), half = map.getSize().multiplyBy(Math.SQRT2 / 2), ts = layer.getTileSize().x;
-      var mb = map.options.maxBounds, want = [], Z, x, y;
+      var mb = map.options.maxBounds, want = [], shown = {}, Z, x, y, k;
+      /* A tile on screen is Leaflet's to load, and one that failed is never asked for again: a second refusal of the
+         same tile would count twice towards a switch. */
+      for (k in layer._tiles) shown[layer._tiles[k].el.getAttribute('data-tile')] = 1;
       for (Z = Math.min(z, p.maxZoom || 19); Z >= lo; Z--) {
         var pc = map.project(c, Z), n = Math.pow(2, Z), x0 = pc.x - half.x, x1 = pc.x + half.x, y0 = pc.y - half.y, y1 = pc.y + half.y;
         if (mb) {
@@ -399,7 +403,7 @@ window.addTiles = function (map) {
         for (y = Math.max(0, Math.floor(y0 / ts)); y <= Math.min(n - 1, Math.floor(y1 / ts)); y++) {
           for (x = Math.floor(x0 / ts); x <= Math.floor(x1 / ts); x++) {
             var url = L.Util.template(layer._url, L.extend({}, layer.options, { x: ((x % n) + n) % n, y: y, z: Z, s: '', r: '' }));
-            if (!memo.has(url) && want.indexOf(url) < 0) want.push(url);
+            if (!memo.has(url) && !failed.has(url) && !shown[url] && want.indexOf(url) < 0) want.push(url);
           }
         }
       }
