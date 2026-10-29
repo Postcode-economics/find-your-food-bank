@@ -49,8 +49,12 @@ def gate(layer, ref='HEAD'):
     gate.last_privacy = False; gate.blocked = ''
     f = os.path.join(ROOT, FILES[layer])
     secrets = private_block.entries()
+    live_council = None
     try:
-        live = {i['id'] for i in split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']}
+        live_items = split(subprocess.check_output(['git', 'show', f'{ref}:{FILES[layer]}'], cwd=ROOT, text=True))[1]['items']
+        live = {i['id'] for i in live_items}
+        import phone_lock
+        live_council = phone_lock.live_council(live_items)
     except Exception:
         if not secrets:
             print('gate: no live baseline, skipped'); return []
@@ -81,7 +85,7 @@ def gate(layer, ref='HEAD'):
             pr = ['private details — not published']
             gate.last_privacy = True
         (held if pr else keep).append((i, pr))
-    if phone_lock.guard([i for i, _ in keep], ROOT, via='publish', source='publish gate', layer=layer, persist_new=True):
+    if phone_lock.guard([i for i, _ in keep], ROOT, via='publish', source='publish gate', layer=layer, persist_new=True, published=live_council):
         dirty = True
     if held or dirty:
         d['items'] = [i for i, _ in keep]
@@ -95,7 +99,7 @@ def gate(layer, ref='HEAD'):
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock'):  # keep the times review (times_finder) and sweep shelter review sections, held phone numbers
+        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock', 'council line undo'):  # keep the times review (times_finder) and sweep shelter review sections, held phone numbers
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
     if gate.last_privacy:
