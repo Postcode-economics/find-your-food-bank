@@ -123,7 +123,7 @@ def _section(root, filename, tag, line):
         f.write(text if text.endswith("\n") else text + "\n")
 
 def hold(root, iid, field, stored, proposed, source, via, name=""):
-    """Block one attempted change: pending_dean and the brake report. The stored bytes stay."""
+    """Block one attempted change: pending_dean only (anomaly_brake.md is the stop report; a hold is not a stop). The stored bytes stay."""
     shown = proposed if not _blank(proposed) else "(blank)"
     kept = stored if not _blank(stored) else "(none)"
     line = "- blocked, held for Dean | %s | %s | via %s | source %s | stored %s | proposed %s | unchanged (byte-identical)" % (
@@ -131,7 +131,6 @@ def hold(root, iid, field, stored, proposed, source, via, name=""):
     if name:
         line += " | " + name
     _section(root, "pending_dean.md", "phone lock", line)
-    _section(root, "anomaly_brake.md", "phone lock", line)
     return False
 
 def log_new(root, iid, number, source, via):
