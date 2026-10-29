@@ -2,7 +2,8 @@
 Bow: walk-in Visit Us and Wednesday open session structured; Click and Collect in text with order deadlines.
 Neo Community: Food and Supplies Market only; Community Café and club sessions left out.
 Gospel Church: Food Bank Friday 5pm-6pm only from Church weekly schedule.
-St Paul's Pantry: fortnightly foodbank Thu 6:30-7:30 only; church open times left out."""
+St Paul's Pantry: fortnightly foodbank Thu 6:30-7:30 only; church open times left out.
+Community Essentials: book-a-slot online only; no walk-in structured hours."""
 import json, os, sys
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
@@ -11,6 +12,8 @@ FIXED_TEXT = {
     'ifan-84cd0bf40986bfc9a427c6-0': ('Wednesday 10am - 2pm (food bags, no referral needed)', 'https://www.laurenceslarder.org.uk'),
     'the-gate': ('Monday to Friday 2pm - 3pm (food parcel collection or by arrangement with staff; referral needed for a standard parcel)',
                  'https://the-gate-charity.org/contact-us-2/'),
+    'community-essentials': ('Book a collection slot online, 1 to 7 days ahead. No walk-ins.',
+                             'https://community-essentials.org.uk/food-bank'),
 }
 FIXED_TABLE = {
     'bow': (
@@ -33,7 +36,7 @@ FIXED_TABLE = {
         'https://stpaulsparkside.org.uk/',
         {'thu': [['18:30', '19:30']]}),
 }
-STILL_QUEUED = ['community-essentials', 'moorland']
+STILL_QUEUED = ['moorland']
 
 def items():
     s = open(os.path.join(ROOT, 'data.full.js'), encoding='utf-8').read()
@@ -59,6 +62,9 @@ def test_hand_checked_entries_protected_with_quotes():
     assert 'Every other Thursday' in sp['raw'] and sp['notes']['thu'] == 'Fortnightly'
     assert list(sp['structured'].keys()) == ['thu']
     assert 'Monday' not in sp['raw'] and 'Tuesday' not in sp['raw'] and 'Wednesday' not in sp['raw']
+    ce = OT['community-essentials']
+    assert ce['structured'] is None and 'walk-ins' in ce['raw'].lower()
+    assert '9:30' not in ce['raw'] and 'Monday' not in ce['raw']
 
 def test_cards_show_the_hand_checked_times():
     ix = items()
@@ -80,6 +86,10 @@ def test_cards_show_the_hand_checked_times():
     sp = ix['ifan-53c68645aa831ab649ac43-0']['opening_times']
     assert sp['notes']['thu'] == 'Fortnightly' and sp['structured']['thu'] == [['18:30', '19:30']]
     assert 'Every other Thursday' in sp['raw']
+    ce = ix['community-essentials']['opening_times']
+    assert ce['status'] == 'TIMES_TEXT_ONLY' and ce.get('structured') is None
+    assert ce['raw'] == FIXED_TEXT['community-essentials'][0]
+    assert ix['community-essentials']['times_status'] == 'confirmed_by_hand'
 
 def test_refresh_and_finder_treat_them_as_hand_checked():
     import discover, times_finder
