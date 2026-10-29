@@ -77,6 +77,7 @@ class Rails(unittest.TestCase):
     def test_merged_local_render_keeps_step_tallies(self):
         IR.reset()
         p = os.path.join(self.root, "reports", "intelligent_mode.json")
+        os.makedirs(os.path.dirname(p), exist_ok=True)
         json.dump({"run": IR._today(), "layers": {"foodbanks": {"coverage": {"render_attempts": 541, "render_errors": 4}}}},
                   open(p, "w"))
         IR.note_render(True)
