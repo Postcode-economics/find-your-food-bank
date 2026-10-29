@@ -172,8 +172,8 @@ class Parallel(unittest.TestCase):
 
 class Unchanged(unittest.TestCase):
     def test_politeness_limits_and_budget_are_unchanged(self):
-        self.assertEqual((F.MIN_GAP, F.ERR_LIMIT, F.PAUSE, F.TIMEOUT), (2.0, 3, 600, 15))
-        self.assertEqual(F.BUDGET, int(os.environ.get("BUDGET_S", 2400)))
+        self.assertEqual((F.MIN_GAP, F.ERR_LIMIT, F.PAUSE, F.TIMEOUT, F.BUDGET, F.HOURS_BUDGET),
+                         (2.0, 3, 600, 15, int(os.environ.get("BUDGET_S", 2400)), int(os.environ.get("HOURS_BUDGET_S", int(os.environ.get("BUDGET_S", 2400))))))
         self.assertEqual(F.TRUSSELL._value, 2)
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 """full_check.review_hours calls render_polite from up to 12 host worker threads. Playwright's sync API only works on
 the thread that started it; discover.render_live from every worker failed every hours-review render in refresh run
 40912857173 (568 render_errors of 568). render_polite must use render_fetch.fetch like times_finder --render."""
-import concurrent.futures as cf, importlib, os, sys, threading, types, unittest
+import concurrent.futures as cf, importlib, json, os, sys, tempfile, threading, types, unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "scripts"))
 
 
@@ -93,20 +93,28 @@ class FullCheckRenderThreads(unittest.TestCase):
         """Coverage gate must not see 100% render failure when workers call render_polite."""
         import intelligent_rails as IR
         IR.reset()
-        item = {"id": "fb/x", "type": "foodbank", "postcode": "AB1 2CD",
-                "opening_times": {"status": "TIMES_FOUND", "structured": {"tue": [["10:00", "12:00"]]},
-                                  "source_url": "https://bank0.example/page"}}
-        def ok_fetch(url):
-            return {"ok": True, "http": 200, "final_url": url, "html": "<html><body>Ask at the door</body></html>"}
         urls = ["https://bank%d.example/page" % n for n in range(16)]
         with cf.ThreadPoolExecutor(12) as ex:
-            list(ex.map(lambda u: self.F.read_source(dict(item, opening_times=dict(item["opening_times"], source_url=u)),
-                                                     fetch=ok_fetch, render=self.F.render_polite), urls))
-        stats = IR.merged("foodbanks")
+            list(ex.map(self.F.render_polite, urls))
+        stats = IR.merged("foodbanks", local_render=True)
         att = int(stats.get("render_attempts") or 0)
         err = int(stats.get("render_errors") or 0)
         self.assertEqual(att, len(urls))
         self.assertLess(err, att, "every render was counted as failed (thread/greenlet regression)")
+
+    def test_local_render_merge_ignores_times_step_tally(self):
+        import intelligent_rails as IR
+        IR.reset()
+        root = tempfile.mkdtemp()
+        os.makedirs(os.path.join(root, "reports"))
+        json.dump({"run": IR._today(), "layers": {"foodbanks": {"coverage": {"render_attempts": 568, "render_errors": 568}}}},
+                  open(os.path.join(root, "reports", "intelligent_mode.json"), "w"))
+        IR.note_render(True)
+        IR.note_render(False)
+        m = IR.merged("foodbanks", root, local_render=True)
+        self.assertEqual(m.get("render_attempts"), 2)
+        self.assertEqual(m.get("render_errors"), 1)
+        self.assertNotIn(568, (m.get("render_attempts"), m.get("render_errors")))
 
 
 if __name__ == "__main__":

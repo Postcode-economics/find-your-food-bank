@@ -47,6 +47,7 @@ def report_root():
     return staging
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
+HOURS_BUDGET = int(os.environ.get('HOURS_BUDGET_S', BUDGET))
 HOURS_WORKERS = int(os.environ.get('HOURS_WORKERS', 12))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
 DAY = NOW.date().isoformat()
@@ -354,32 +355,24 @@ def read_source(item, fetch=None, render=None):
         rhtml = rendered.get('html') or ''
         rtext = rendered.get('text') or (text_of(rhtml) if rhtml else '')
         if rtext and discover.source_page_ok(src, rland):
-            try:
-                import intelligent_rails as IR
-                IR.note_render(True)
-            except Exception:
-                pass
             return {'ok': True, 'http': rendered.get('http') or 200, 'final_url': rland, 'text': rtext, 'rendered': True}
         if rland and not discover.source_page_ok(src, rland):
-            try:
-                import intelligent_rails as IR
-                IR.note_render(False)
-            except Exception:
-                pass
             return {'ok': True, 'http': rendered.get('http'), 'final_url': rland, 'text': '', 'rendered': True, 'error': 'redirect'}
-        try:
-            import intelligent_rails as IR
-            IR.note_render(False)
-        except Exception:
-            pass
     return {'ok': True, 'http': got.get('http'), 'final_url': landed, 'text': text, 'rendered': False, 'incomplete': True}
 def render_polite(url):
     """Headless render through the same per-host gap as fetch. No saved page.
-    Playwright runs on render_fetch's dedicated thread (same as times_finder --render), not on the 12 host workers."""
+    Playwright runs on render_fetch's dedicated thread (same as times_finder --render), not on the 12 host workers.
+    Render tallies for intelligent mode use the same success test as discover.read_listing_source."""
     def load(u):
         import render_fetch
         code, final, html = render_fetch.fetch(u)
-        if code != 200 or not html:
+        ok = bool(html) and (code == 200)
+        try:
+            import intelligent_rails as IR
+            IR.note_render(ok)
+        except Exception:
+            pass
+        if not ok:
             return {'ok': False, 'http': code or None, 'error': 'render failed', 'final_url': final or u, 'html': ''}
         return {'ok': True, 'http': code, 'final_url': final or u, 'html': html}
     return _polite(url, load)
@@ -822,8 +815,10 @@ def main():
     if held_old:  # older fixes the strict gate now holds: kept for Dean with their reasons, not re-applied
         wj('phone_fixes_held.json', dict(rj('phone_fixes_held.json', {}), **held_old))
     th = time.time()
-    n_hours = review_hours(items, state, flag, t0 + BUDGET)
-    print('hours review: %d listing source pages in %.0fs' % (n_hours, time.time() - th), flush=True)
+    hours_deadline = th + HOURS_BUDGET
+    review_hours(items, state, flag, hours_deadline)
+    print('hours review: %d of %d listing source pages opened in %.0fs' % (
+        getattr(review_hours, 'last_opened', 0), getattr(review_hours, 'last_due', 0), time.time() - th), flush=True)
     try:
         import intelligent_rails as IR
         IR.note('foodbanks', budget_skipped=stats['skipped'], hours_review_due=getattr(review_hours, 'last_due', 0), hours_review_opened=getattr(review_hours, 'last_opened', 0))
@@ -831,7 +826,7 @@ def main():
         print('intelligent mode coverage note skipped: %s' % ex, flush=True)
     if deferred:
         import intelligent_rails as IR
-        block = IR.batch_block(RULES, sum(len(t[2]) for t in deferred), 'foodbanks', report_root())
+        block = IR.batch_block(RULES, sum(len(t[2]) for t in deferred), 'foodbanks', report_root(), local_render=True)
         if block:
             IR.alert(block, report_root())
             for u, name, todo, r, curs in deferred:
@@ -877,7 +872,8 @@ def main():
             held_n = sum(1 for v in today['items'].values() if str(v.get('category') or '').startswith('access flip held (intelligent'))
             rejected = [{"id": v.get('website') or k, "reasons": [v.get('note') or v.get('category') or ""]} for k, v in list(today['items'].items())[:200] if "intelligent" in str(v.get("category") or "")]
             alerts = [v.get('note') for v in today['items'].values() if v.get('category') == 'access flip held (intelligent mode)' and v.get('note')]
-            IR.finish(report_root(), 'foodbanks', 'access', stats.get('flips', 0), held_n, rejected, alerts=alerts[:8], coverage=IR.merged('foodbanks', report_root()))
+            IR.finish(report_root(), 'foodbanks', 'access', stats.get('flips', 0), held_n, rejected, alerts=alerts[:8],
+                      coverage=IR.merged('foodbanks', report_root(), local_render=True))
         except Exception as ex:
             print('intelligent mode summary skipped: %s' % ex, flush=True)
     if brake['stop']:
