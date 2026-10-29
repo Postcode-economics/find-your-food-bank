@@ -18,83 +18,122 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
-Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
 
 - **Waltham Abbey Baptist Church** (`3food4u/waltham-abbey-baptist-church`, EN9 1RL): 1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm  
   source: https://3food4u.org  
-  why: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+- **Auldhouse Community Foodbank** (`auldhouse-community`, G43 2XG): Thursdays 11.30am - 2.00pm  
+  source: https://www.auldhousecommunitychurch.com/whats-mid-foodbank/  
+  why: times not read identically on 2 separate runs yet
 - **Bow Foodbank** (`bow`, E3 5ED): Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00  
   source: https://www.bowfoodbank.org  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+- **Community Essentials Foodbank** (`community-essentials`, B92 7HS): Monday to Wednesday 9:30 - 11:30 (appointment only)  
+  source: https://community-essentials.org.uk/contact-us/  
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **South Hill Centre** (`dens/south-hill-centre`, HP1 1JF): Monday-Friday 9am-5pm | Monday-Friday 8.30am-6pm  
   source: https://www.dens.org.uk/need-help/need-emergency-food/  
-  why: known skip: finder copied Liberty Tea Rooms' times onto Way Inn; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: known skip: finder copied Liberty Tea Rooms' times onto Way Inn; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **Way Inn Christian Centre** (`dens/way-inn-christian-centre`, HP4 1AQ): Tuesday-Friday 10am-12pm  
   source: https://www.dens.org.uk/need-help/need-emergency-food/  
-  why: known skip: finder copied Liberty Tea Rooms' times onto Way Inn; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: known skip: finder copied Liberty Tea Rooms' times onto Way Inn; times not read identically on 2 separate runs yet
+- **Exmouth Foodbank** (`exmouth`, EX8 1PW): Tuesdays 13:30 - 15:00 | Fridays 13:30 - 15:00  
+  source: https://exmouthfoodbank.org.uk/  
+  why: times not read identically on 2 separate runs yet
+- **Feedo Needo Foodbank** (`feedo-needo`, B5 6BS): Friday 2pm - 4pm  
+  source: https://feedoneedo.org.uk/cause-foodbank  
+  why: times not read identically on 2 separate runs yet
 - **Knutsford** (`hope-central/knutsford`, WA16 8EL): Mondays 9.30-11am  
   source: https://hopecentral.org.uk/get-involved/giving-food/  
-  why: known skip: the times found are on the giving-food (donations) page; source page is about giving/donating, not getting food; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: known skip: the times found are on the giving-food (donations) page; source page is about giving/donating, not getting food; times not read identically on 2 separate runs yet
+- **Hucknall Foodbank** (`hucknall`, NG15 7HN): Mondays and Tuesdays 9:30am - 1.30pm  
+  source: https://uorhucknall.org.uk/hosted%20organisations  
+  why: times not read identically on 2 separate runs yet
 - **Neo Community** (`ifan-3c7cb974c7ac6c1966b83c-0`, CH42 3YN): Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm  
   source: https://www.neocommunity.org.uk/  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): Mondays 3.00 - 5.00 pm | Tuesdays 10.00 - 12.00 am | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+- **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
   source: https://www.stpaulsparkside.org.uk/  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: times not read identically on 2 separate runs yet; day not on the same line as its times on the own-site page
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
+  source: https://holytrinitywesterhailes.org.uk/contact-supporting-wh/  
+  why: times not read identically on 2 separate runs yet
 - **St Laurence's Larder & Open Kitchen** (`ifan-84cd0bf40986bfc9a427c6-0`, NW6 7BJ): Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm | Monday 10.30am - 2.00pm  
   source: https://www.laurenceslarder.org.uk  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **Healthy Living Platform** (`ifan-9cf9dd4ce1df051c2c0a59-0`, SW9 7AA): Tuesdays 12-2pm | Thursdays 11-3pm  
   source: https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9  
-  why: postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: postcode not matched exactly on the page; times not read identically on 2 separate runs yet
 - **The Gospel Church of Jesus Christ** (`ifan-9fef48d4f0fd3a3f6896d2-0`, WC1B 3PP): Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm  
   source: https://www.gcjc.co.uk/contact  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Lambeth Larder** (`ifan-a2fb0701e0208ee9e642a3-0`, SW9 7QD): Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm  
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+- **Lambeth Larder** (`ifan-a2fb0701e0208ee9e642a3-0`, SW9 7QD): Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm | Monday to Friday 9am to 5pm  
   source: https://www.lambethlarder.org  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Bishops Waltham** (`meon-valley/bishops-waltham`, ): Mon 10AM–noon  
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+- **Lalley Centre Foodbank** (`lalley-centre`, M40 7RG): Tuesday 10.30am to 1pm | Thursday 1.30pm to 4pm | Friday 2pm to 4pm  
+  source: https://www.caritassalford.org.uk/service/lalley-centre-community-pantry-allotment/  
+  why: times not read identically on 2 separate runs yet
+- **Liphook Foodbank** (`liphook`, GU30 7QE): Tuesdays and Fridays 9.30 - 11.30  
+  source: https://liphookfoodbank.com  
+  why: times not read identically on 2 separate runs yet
+- **Lyme Regis Foodbank** (`lyme-regis`, DT7 3LS): Wednesday 10am - 12pm | Wednesdays 10am - 12pm  
+  source: https://lymeregisfoodbank.co.uk  
+  why: times not read identically on 2 separate runs yet
+- **Manna (Hatfield) Foodbank** (`manna-hatfield`, AL10 8NA): ... View Project Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service 02. Midweek Service Join us online for bible study: 07:30 pm -8:30 pm (Wednesday)  
+  source: https://openheavenshatfield.com/  
+  why: times not read identically on 2 separate runs yet; day not on the same line as its times on the own-site page
+- **Bishops Waltham** (`meon-valley/bishops-waltham`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
-  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Droxford** (`meon-valley/droxford`, ): Mon 10AM–noon  
+  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; times not read identically on 2 separate runs yet
+- **Droxford** (`meon-valley/droxford`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
-  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Swanmore** (`meon-valley/swanmore`, ): Mon 10AM–noon  
+  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; times not read identically on 2 separate runs yet
+- **Swanmore** (`meon-valley/swanmore`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
-  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **West Meon** (`meon-valley/west-meon`, ): Mon 10AM–noon  
+  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; times not read identically on 2 separate runs yet
+- **West Meon** (`meon-valley/west-meon`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
-  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Whiteley** (`meon-valley/whiteley`, ): Mon 10AM–noon  
+  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; times not read identically on 2 separate runs yet
+- **Whiteley** (`meon-valley/whiteley`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
-  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Wickham and Knowle** (`meon-valley/wickham-and-knowle`, ): Mon 10AM–noon  
+  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; times not read identically on 2 separate runs yet
+- **Wickham and Knowle** (`meon-valley/wickham-and-knowle`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
-  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR0 4** (`purley/cr0-4`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR2** (`purley/cr2`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR5** (`purley/cr5`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **CR8** (`purley/cr8`, ): Tuesdays 10am-4pm | Monday-Friday 9am-5pm | Fridays 9am-12 | Thursdays 9.15am-12.45pm | Wednesdays 10-11.30am | Wednesdays and Saturdays 10am-12  
-  source: https://www.purleyfoodhub.net/get-help/  
-  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page; times not read identically on 2 separate runs yet
+- **Moorland Foodbank** (`moorland`, TA22 9HL): Thursday 10.30am - 12.30pm | 2nd Thursday of each month 10.30am - 12.30pm  
+  source: https://www.moorlandfoodbank.org.uk/get-help/  
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
+- **New Wortley Community Centre Foodbank** (`new-wortley-community-centre`, LS12 1LZ): SATURDAY PM 1:00pm - 3:00pm  
+  source: https://www.newwortleycc.org.uk/timetable  
+  why: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); times not read identically on 2 separate runs yet; day not on the same line as its times on the own-site page
+- **Newhaven Foodbank** (`newhaven`, BN9 9BA): Monday 5.30-7pm  
+  source: https://sussexcommunity.org.uk/our-services/newhaven-youth-centre/  
+  why: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); times not read identically on 2 separate runs yet; day not on the same line as its times on the own-site page
+- **Oadby Foodbank** (`oadby`, LE2 4LA): Fridays 11.30 - 12.30  
+  source: https://oadbyfoodbank.org.uk/  
+  why: times not read identically on 2 separate runs yet
+- **Rye Foodbank** (`rye`, TN31 7AN): Wednesday 12pm–2pm  
+  source: https://ryefoodbank.com  
+  why: times not read identically on 2 separate runs yet
+- **Salcare Foodbank** (`salcare`, DE75 7GF): Tuesday & Friday 10am until 1pm  
+  source: https://www.salcare.org.uk/food-bank-community-pantry/  
+  why: times not read identically on 2 separate runs yet
+- **Sawtry Foodbank** (`sawtry`, PE28 5UX): Fridays 3.00pm to 4.00pm  
+  source: http://www.caresco.org.uk/?page=foodbank  
+  why: times not read identically on 2 separate runs yet
 - **St Paul's Erith Foodbank** (`st-pauls-erith`, DA8 1HN): Monday to Friday 9.00am - 12.00pm | Monday to Friday 12.00pm - 3.00pm | Monday to Friday 9.00am - 2.00pm | Monday to Friday 9.00am - 3.00pm  
   source: https://www.spnh.org.uk/preschool/session-information/  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **Roker Methodist Church** (`sunderland/roker-methodist-church`, SR6 9TB): Monday 13:00-15:00  
   source: https://sunderlandfoodbank.org.uk/get-help/  
-  why: known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only; auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only; times not read identically on 2 separate runs yet
+- **Discovery Church** (`swindon/discovery-church`, SN4 9JT): Friday 11am to 1pm | Friday 10am to 12pm  
+  source: https://www.swindonfoodcollective.org/news/two-new-centres-opened-in-abbey-meads-and-liden/  
+  why: postcode not matched exactly on the page; not one clear weekly client-hours block (kept as text for review); source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); times not read identically on 2 separate runs yet
 - **The Gate Foodbank** (`the-gate`, FK10 2DR): Monday to Friday 10am - 3pm (by arrangement)  
   source: https://the-gate-charity.org/contact-us-2/  
-  why: not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
-- **Upper Eden Foodbank** (`upper-eden`, CA16 6XR): Mon-Fri 9am-5pm | Mon & Wed 10am-12pm  
-  source: https://upperedenfoodbank.org.uk/get-help-2/  
-  why: known skip: Tuesday/Friday times on the home page are donation wheelie-bin hours, not client hours; not one clear weekly client-hours block (kept as text for review); auto-apply is off (Dean, 24 Oct): every finder result is hand-checked before it reaches the map
+  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 <!-- /times review -->
 
 
@@ -209,7 +248,7 @@ Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
-Run 2026-10-28. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-10-29. Nothing here is on the map. Each needs a hand check before it is added.
 
 - Victory House (CT17 9BZ) - https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers
 - who a) have been verified rough sleeping (TN34 1EA) - https://www.hastings.gov.uk/housing/SWEP/

@@ -1,25 +1,11 @@
 {
- "day": "2026-10-27",
+ "day": "2026-10-29",
  "runs": [
   {
-   "at": "05:22Z",
+   "at": "05:39Z",
    "source": "shelters_discovery.json",
    "added": 4,
-   "queued": 52,
-   "rejected": 0
-  },
-  {
-   "at": "13:51Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 50,
-   "rejected": 0
-  },
-  {
-   "at": "21:23Z",
-   "source": "shelters_discovery.json",
-   "added": 4,
-   "queued": 53,
+   "queued": 51,
    "rejected": 0
   }
  ],
@@ -32,8 +18,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "1e016d88bef576b97a9ee52490fac1da870197ebd05bedfd8792a97d7bb69d2c",
-   "etag": "\"5809-1793074175;;;\"",
+   "sha256": "954da79168eb33ae8485f6caef91226abe7e7c0b37ef0e3e56bc2eb86e21c70f",
+   "etag": "\"6359-1793247100;;;\"",
    "last_modified": "",
    "upcoming": null,
    "scheme_start": null,
@@ -47,7 +33,7 @@
    "url": "http://www.amatuk.org",
    "final_url": "https://www.amatuk.org/",
    "http": 200,
-   "sha256": "372f815df0e95de2f02cbd178b94f2cd106fabfb48fd46b8c6a018f094c2c7ab",
+   "sha256": "0595cd1d37882fc820a53d6ddcdb0891ddf6db0a9e20ad960cc548ff3f5ea688",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -62,7 +48,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "6bf6c3e868a966b1c835b06676af872025b92586804cc86a24cdbdc6f26f4060",
+   "sha256": "d91fbc0f6925d84b4c23261a1fe34cc295efb00162fec56678a9c2d3b367ca17",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -77,7 +63,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "7e92ebf09dd00627b1d6441599ff52bdb6bd56e4ff3c0c0b4d017dcb47113661",
+   "sha256": "a81775d95f94854b5ff32557b583ffcb35ad1879d6f0be9747ad18b9a8ddf738",
    "etag": "",
    "last_modified": "",
    "upcoming": null,
@@ -100,7 +86,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "57d26e5180b60a536bc07b275a923974f774db88b5db7e848d22298f5f21f74f",
+   "sha256": "868193c46d67165639b56c209c66e6412da37d2b08a46b2aadaede2cb350ebd9",
    "etag": "",
    "last_modified": ""
   },
@@ -171,7 +157,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "b6be508ac5403ebe72d73c06469b52380a7aee90f432963fd20a99c8fe33326e",
+   "sha256": "1bd211ff574497e33c834bf33ca2ccf337e55875f8c964619ea9f904607358ec",
    "etag": "",
    "last_modified": ""
   },
@@ -242,7 +228,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "689cc7a9b19d4398ba41120d318aa49b96d4af99e7af4ced0679972330a3b46c",
+   "sha256": "7ad557a376923be2f6421f5878905fb883840afdcb093710dfc639f8664276dd",
    "etag": "",
    "last_modified": ""
   },
@@ -259,9 +245,9 @@
    "url": "https://999club.org/",
    "final_url": "https://999club.org/",
    "http": 200,
-   "sha256": "30a96e98e29ff01061c72fa382aaf4d0a5feaab0d3dad32759b96c4e749df724",
+   "sha256": "6adbbd8f28f69b9bf2f011d62d834c0e4ca6408398b91a22cc6f948f4c4435b4",
    "etag": "",
-   "last_modified": "Tue, 27 Oct 2026 12:19:15 GMT"
+   "last_modified": "Wed, 28 Oct 2026 12:20:04 GMT"
   },
   "osm-node-13661455428": {
    "id": "osm-node-13661455428",
@@ -386,9 +372,9 @@
    "url": "https://centrepoint.org.uk/",
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
-   "sha256": "5489dc54585e66185e8e6434b951e585e4d4e02944aef45478046f04784cd8f8",
-   "etag": "\"1793132771\"",
-   "last_modified": "Tue, 27 Oct 2026 20:26:11 GMT"
+   "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
+   "etag": "\"1793250349\"",
+   "last_modified": "Thu, 29 Oct 2026 05:05:49 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -530,7 +516,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "940c680b5f557d7b9ef4d864e1fec352e263514bdd5688de50146be724d86d60",
+   "sha256": "c4f236ff3c3ed845ca2b61e120879fd1ab79af32d616526a38431cafa45e27ed",
    "etag": "",
    "last_modified": ""
   },
@@ -583,8 +569,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "c606cbebf3bcdd8357e7d6a780a7c4d7b82dfdc8a50d1c5c08c256553ea24df3",
-   "etag": "W/\"2ae7c7a7cfa30b1db37d554045288fd4\"",
+   "sha256": "2f1b2fc6e969480acd60a555bda1c48f1410677a4c04c28c56e9710614ea79d5",
+   "etag": "W/\"9f41ffe1fac0611580d38d90d0813758\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {
@@ -708,7 +694,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "875244fc91fb5ec265c9dc4f678ac809174aab5f6bdf9aab43070190d6626b75",
+   "sha256": "5078d3d7ec97835d1960806d4cd96e29e1ca3bce89a84385a098735f024ef414",
    "etag": "",
    "last_modified": ""
   },
@@ -793,9 +779,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "e887d9a2f3afa0a7fad4092d87a3a9b81126596ff0d7eab733f57f10cdf18ce4",
+   "sha256": "865ed4cbc795ce39418a4d307e674ff191e7a7ad78f769b4514fc6ca894db676",
    "etag": "",
-   "last_modified": "Tue, 27 Oct 2026 00:03:29 GMT"
+   "last_modified": "Thu, 29 Oct 2026 00:01:48 GMT"
   },
   "hl-alabare-the-andover-foyer-sarum-house": {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -863,7 +849,7 @@
    "http": 200,
    "sha256": "dee10113bc52ebafd5621112a3c28f8dbdba9ed65245033d0047de3d0c6075eb",
    "etag": "",
-   "last_modified": "Tue, 27 Oct 2026 17:08:53 GMT"
+   "last_modified": "Thu, 29 Oct 2026 00:21:36 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -913,8 +899,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "3950c87366fe4642518bf4fe2865ecaf5361625ae096f8817dc127fc7798cda7",
-   "etag": "W/\"21bbc-B2ZTcAllw8xPwyRAEQp+n5OUqTY\"",
+   "sha256": "7f5bbeba70b875b2fec44d04f9f4fb84ea6c96b310ac93af0335fc01c7d05d76",
+   "etag": "W/\"21bbc-pbtWIR3ldECpgiKqJhk6yF4UKBQ\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
@@ -984,44 +970,6 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
-  },
-  "hl-cardinal-hume-centre-hostel": {
-   "id": "hl-cardinal-hume-centre-hostel",
-   "name": "Cardinal Hume Centre Hostel",
-   "postcode": "",
-   "website": "http://https://www.cardinalhumecentre.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  "hl-catalyst-britannia-foyer": {
-   "id": "hl-catalyst-britannia-foyer",
-   "name": "Catalyst - Britannia Foyer",
-   "postcode": "EN8 9XD",
-   "website": "http://www.broxbourne.gov.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
-   "reasons": [
-    "directory link is a council page, not the place's own site",
-    "name says foyer / supported housing / day centre, not an emergency shelter",
-    "own site does not name it",
-    "own site does not show it is a shelter/emergency accommodation",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "6d59a12be4d31cd81b36c918da7abdaa65ad36cff0a297a08f24168ce2831ae5",
-   "etag": "",
-   "last_modified": ""
   }
  },
  "rejected": {}
