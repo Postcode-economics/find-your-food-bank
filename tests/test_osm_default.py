@@ -86,7 +86,11 @@ class KeysAndDefault(unittest.TestCase):
 
 class RevertSinceV88(unittest.TestCase):
     def test_every_revert_leaves_osm(self):
-        v88 = subprocess.check_output(['git', 'rev-parse', V88], cwd=R, text=True).strip()
+        found = subprocess.run(['git', 'rev-parse', '--verify', '--quiet', V88 + '^{commit}'],
+                               cwd=R, capture_output=True, text=True)
+        if found.returncode != 0:
+            self.skipTest('commit %s is not in this checkout (shallow clone?); fetch full history to run this' % V88)
+        v88 = found.stdout.strip()
         commits = subprocess.check_output(['git', 'rev-list', '--reverse', v88 + '..HEAD'], cwd=R, text=True).split()
         self.assertGreater(len(commits), 0)
         d = tempfile.mkdtemp()
