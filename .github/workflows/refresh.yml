@@ -21,6 +21,11 @@ jobs:
           python-version: "3.12"
       - name: Test the checks
         run: python -m unittest discover -s tests -v
+      # build.py renders source pages that have no complete timetable in the plain HTML (discover.render_live),
+      # and full_check.py renders the same way. Run 40875931731 installed Playwright only at the sense-check
+      # step, after both of those, so every render failed. The sweep installs Chromium for its own render step.
+      - name: Install Playwright and Chromium for headless renders
+        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium
       - name: Rebuild data.js (discovery + own-site checks)
         # ~10-12 min. 68 min on 29 Oct (run 40821758973) left no time for the full check; a stuck rebuild now fails
         # here (nothing published, 'run failed' alert) instead of the job timing out later.
@@ -65,7 +70,7 @@ jobs:
       - name: Write compact browser data.js from data.full.js
         run: python scripts/compact.py
       - name: Does the result make sense? (real searches on all three types; failure stops publishing, scripts/sense_check.py)
-        run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null && python scripts/sense_check.py
+        run: python scripts/sense_check.py
       - name: Monthly counts for trends (point 34, scripts/monthly_counts.py)
         continue-on-error: true
         run: python scripts/monthly_counts.py
