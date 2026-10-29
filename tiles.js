@@ -6,7 +6,9 @@
       Credit required by OpenFreeMap: "OpenFreeMap © OpenMapTiles Data from OpenStreetMap".
    3. maptiler: DISABLED future fallback. No key and no default. It is never tried while disabled is true,
       and a key alone does not enable it. Nothing promotes it on a date.
-   Stadia is not used. Reorder nothing: tileCandidates() keeps OpenStreetMap first whatever order this array is in. */
+   Stadia is not used. Reorder nothing: tileCandidates() keeps OpenStreetMap first whatever order this array is in.
+   index.html and sw.js load this file as tiles.js?v=<sha256 of this file>. Cloudflare holds the pre-zoom-fix copy under
+   he7823ea69839, so any change here, even to this comment, gives a tag the live site has never been asked for. */
 window.TILE_PROVIDERS = [
   { name: 'osm', url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>' },
@@ -63,7 +65,7 @@ window.loadVectorLib = function () {
 };
 window.addTiles = function (map) {
   if (map._hmTileStop) map._hmTileStop();
-  var list = window.tileCandidates(), gen = 0, layer = null, logoCtl = null, vectorFailed = false;
+  var list = window.tileCandidates(), gen = 0, layer = null, logoCtl = null, vectorFailed = false, stopAhead = null;
   /* Freeze fix (Dean's iPhone, 27 Oct 2026, from PR 186): Leaflet takes the map's max zoom from its layers. The OpenFreeMap
      (MapLibre) layer does not register one, and while it loads there is no tile layer at all, so getMaxZoom() was
      Infinity. The marker cluster's clearLayers() then rebuilds clusters for every zoom from Infinity down, a loop
@@ -98,10 +100,30 @@ window.addTiles = function (map) {
   }
   function use(i) {
     var my = ++gen, p = list[i];
+    if (stopAhead) { stopAhead(); stopAhead = null; }
     if (layer) { map.removeLayer(layer); layer = null; }
     if (!p) return;
     if (p.type === 'vector') { useVector(p, my, i); return; }
     var n = i, switched = false, used = 0, ok = 0, bad = 0, recent = [], codes = [];
+    /* Painted tiles of this provider, newest last (Dean, 29 Oct 2026: zooming out showed grey squares around the view
+       even for tiles already seen). Leaflet drops a zoom level's <img>s once it leaves it, and a tile asked for again
+       went through the fetch, the service worker, base64 and decode before it painted (about 0.4 s on a phone), so
+       the ring outside the shrinking view stayed grey. A remembered tile is painted from this copy, with no request
+       and no fade. TILE_MEMO_MAX bounds the memory (a tile is a 15-40 KB data URL); 0 turns it off, so every tile
+       goes through the service worker as on a fresh page. */
+    var memo = new Map(), memoMax = typeof window.TILE_MEMO_MAX === 'number' ? window.TILE_MEMO_MAX : 600, failed = new Set();
+    function remember(url, src) {
+      if (memoMax <= 0 || !src || src.indexOf('data:image/gif;base64,R0lGODlhAQABAAD') === 0) return;
+      memo.delete(url);
+      memo.set(url, src);
+      if (memo.size > memoMax) memo.delete(memo.keys().next().value);
+    }
+    function recall(url) {
+      var src = memo.get(url);
+      if (src) { memo.delete(url); memo.set(url, src); }
+      return src;
+    }
+    function pinching() { return !!(map.touchZoom && map.touchZoom._zooming); }
     window.TILE_STATS = window.TILE_STATS || {load: 0, error: 0, probe: 0};
     /* recent holds 1 for a success, 0 for an error, 2 for a refusal (401, 403, 429). */
     function note(success, refused) {
@@ -130,16 +152,13 @@ window.addTiles = function (map) {
       window.TILE_FAILOVER = { from: p.name, to: list[n + 1].name, ok: ok, bad: bad, windowBad: windowBad, refused: refusals(), reason: String(reason), codes: codes.slice(-10) };
       use(n + 1);
     }
-    var Layer = L.TileLayer.extend({
-      createTile: function (coords, done) {
-        var img = document.createElement('img'), size = this.getTileSize();
-        img.alt = ''; img.width = size.x; img.height = size.y;
-        if (p.cap && used >= p.cap) { done(null, img); return img; }
-        if (p.cap) used++;
+    /* One tile, one fetch. lay and z are the layer and tile zoom of a tile on screen. A look-ahead tile has no
+       layer: its <img> is never shown and only fills memo. */
+    function loadTile(img, url, done, lay, z) {
         /* No crossOrigin (27 Oct 2026, iPhone outage). crossorigin="anonymous" makes the <img> a CORS
            request, and WebKit then refuses the opaque tile the service worker stored for a normal image. */
         img.referrerPolicy = 'strict-origin-when-cross-origin';
-        var url = this.getTileUrl(coords), tileGen = my, shown = false, counted = false;
+        var tileGen = my, shown = false, counted = false;
         /* data-tile is the real tile URL. img.src is a data URL of the one fetch, or the tile URL
            itself when that fetch threw and the <img> is the request. Offline checks read either.
            A blob: URL is a second request. WebKit's FileReader reads a blob that way, and a check
@@ -158,6 +177,7 @@ window.addTiles = function (map) {
         function countBad(refused, why) {
           if (dead()) return;
           window.TILE_STATS.error++;
+          failed.add(url);
           if (why === 'decode') codes.push('decode');
           else codes.push(why);
           done(new Error(String(why)), img);
@@ -179,6 +199,7 @@ window.addTiles = function (map) {
           tileSettled = true;
           countOk();
           paintPlain(false);
+          remember(url, img.getAttribute('src'));
           done(null, img);
         }
         function showBadDecode() {
@@ -253,8 +274,18 @@ window.addTiles = function (map) {
         /* Wait until this turn's view changes have aborted tiles that will never be shown (Locate fits
            twice back to back). Otherwise the first grid is already on the wire. */
         var start = window.queueMicrotask || function (fn) { setTimeout(fn, 0); };
-        start(function () {
-          if (dead()) return;
+        /* While two fingers zoom, the grid follows them level by level. A tile that is not remembered waits
+           TILE_PINCH_WAIT_MS, and is requested only while the pinch is still on its level: a level the fingers
+           pass through is never fetched, and Leaflet drops it when the pinch ends. This is the guard against a
+           grid of requests at every level (the 429s of PR 202) now that a pinch follows the levels. */
+        var waited = false;
+        function begin() {
+          if (dead() || (lay && img.isConnected === false)) return;
+          if (lay && pinching() && (!waited || lay._tileZoom !== z)) {
+            waited = true;
+            setTimeout(begin, window.TILE_PINCH_WAIT_MS || 120);
+            return;
+          }
           window.TILE_STATS.probe++;
           get(false).then(function (r) {
             if (dead()) return;
@@ -282,18 +313,160 @@ window.addTiles = function (map) {
             codes.push('probe-opaque');
             reveal();
           });
-        });
+        }
+        start(begin);
+    }
+    var Layer = L.TileLayer.extend({
+      createTile: function (coords, done) {
+        var img = document.createElement('img'), size = this.getTileSize();
+        img.alt = ''; img.width = size.x; img.height = size.y;
+        if (p.cap && used >= p.cap) { done(null, img); return img; }
+        var url = this.getTileUrl(coords), seen = recall(url);
+        if (seen) {
+          img.referrerPolicy = 'strict-origin-when-cross-origin';
+          img.setAttribute('data-tile', url);
+          img._hmInstant = true;
+          img.onload = function () {
+            img.onload = img.onerror = null;
+            if (my === gen) done(null, img);
+          };
+          img.onerror = function () {
+            img.onload = img.onerror = null;
+            memo.delete(url);
+            img._hmInstant = false;
+            if (my === gen && img.isConnected !== false) loadTile(img, url, done, this, coords.z);
+          }.bind(this);
+          img.src = seen;
+          /* A remembered copy is complete by the next microtask, a frame before its load event: ready it before
+             the next paint. */
+          (window.queueMicrotask || function (f) { Promise.resolve().then(f); })(function () {
+            if (img.onload && img.complete && img.naturalWidth > 0) img.onload();
+          });
+          return img;
+        }
+        if (p.cap) used++;
+        loadTile(img, url, done, this, coords.z);
         return img;
+      },
+      /* A remembered tile is shown at once: Leaflet's 200 ms fade would leave it half grey through a zoom. */
+      _tileReady: function (coords, err, tile) {
+        L.TileLayer.prototype._tileReady.call(this, coords, err, tile);
+        var t = this._tiles[this._tileCoordsToKey(coords)];
+        if (!err && t && tile && tile._hmInstant && t.el === tile) { t.loaded = 1; L.DomUtil.setOpacity(tile, 1); }
+      },
+      /* Leaflet sizes the tile area for the closer of the two zooms while it animates, so a zoom-out's widening edge
+         stayed grey until the animation ended. Here it is the zoom being animated to. */
+      _getTiledPixelBounds: function (center) {
+        var map = this._map, z = map._animatingZoom ? map._animateToZoom : map.getZoom();
+        var scale = map.getZoomScale(z, this._tileZoom), pixelCenter = map.project(center, this._tileZoom).floor(),
+            halfSize = map.getSize().divideBy(scale * 2);
+        return new L.Bounds(pixelCenter.subtract(halfSize), pixelCenter.add(halfSize));
       }
     });
     /* updateWhenZooming stays false: Leaflet flyTo, and a zoom animation with the default, requests a
        full grid at every integer zoom on the way. Locate crosses several levels; those grids are the
-       429s. Tiles already on screen scale, and one grid loads when the view settles. keepBuffer stays
-       2 because it only keeps tiles already fetched across a small pan. It does not prefetch, and
-       lowering it would refetch the same edge on the way back. */
+       429s. Tiles already on screen scale, and one grid loads when the view settles. A pinch is the
+       exception, in widen() below: it follows the level under the fingers. keepBuffer stays 2 because
+       it only keeps tiles already fetched across a small pan. */
     layer = new Layer(providerUrl(p), { maxZoom: p.maxZoom || 19, attribution: p.attribution, updateWhenZooming: false, keepBuffer: 2 });
     layer.on('tileabort tileunload', function (e) { if (e.tile && e.tile._hmAbort) e.tile._hmAbort(); });
     layer.addTo(map);
+    /* Look-ahead (Dean, 29 Oct 2026): once the view has rested, the tiles a zoom-out needs are fetched at full
+       resolution into memo, for this level and up to TILE_AHEAD_LEVELS levels out. Each level is fetched for the
+       view half a level further out, because Leaflet keeps showing a level until the zoom is half a level past it.
+       The rest is TILE_AHEAD_TOUCH_MS after the user pinched, scrolled or tapped the map (the next zoom-out may come
+       at once) and TILE_AHEAD_IDLE_MS after a view the page set (load, Locate, search), which needs only its own
+       tiles first. Remembered tiles are skipped, at most TILE_AHEAD_MAX per rest and TILE_AHEAD_PARALLEL at a time.
+       A move drops the queue; tiles already on the way are kept, since the move usually needs them. Each one counts
+       towards a switch like a tile on screen. */
+    var aheadTimer = 0, aheadLive = [], aheadQueue = [], touchedAt = -1e9, box = map.getContainer();
+    var TOUCH = ['touchstart', 'pointerdown', 'wheel', 'dblclick', 'keydown'];
+    function touched() { touchedAt = performance.now(); }
+    TOUCH.forEach(function (ev) { box.addEventListener(ev, touched, { passive: true }); });
+    function aheadPause() { clearTimeout(aheadTimer); aheadTimer = 0; aheadQueue = []; }
+    function aheadStop() {
+      aheadPause();
+      var live = aheadLive; aheadLive = [];
+      live.forEach(function (im) { if (im._hmAbort) im._hmAbort(); });
+    }
+    function aheadWanted() {
+      var z = Math.round(map.getZoom()), lo = Math.max(map.getMinZoom() || 0, z - (window.TILE_AHEAD_LEVELS || 3));
+      var c = map.getCenter(), half = map.getSize().multiplyBy(Math.SQRT2 / 2), ts = layer.getTileSize().x;
+      var mb = map.options.maxBounds, want = [], shown = {}, Z, x, y, k;
+      /* A tile on screen is Leaflet's to load, and one that failed is never asked for again: a second refusal of the
+         same tile would count twice towards a switch. */
+      for (k in layer._tiles) shown[layer._tiles[k].el.getAttribute('data-tile')] = 1;
+      for (Z = Math.min(z, p.maxZoom || 19); Z >= lo; Z--) {
+        var pc = map.project(c, Z), n = Math.pow(2, Z), x0 = pc.x - half.x, x1 = pc.x + half.x, y0 = pc.y - half.y, y1 = pc.y + half.y;
+        if (mb) {
+          var a = map.project(mb.getNorthWest(), Z), b = map.project(mb.getSouthEast(), Z);
+          x0 = Math.max(x0, a.x); y0 = Math.max(y0, a.y); x1 = Math.min(x1, b.x); y1 = Math.min(y1, b.y);
+        }
+        for (y = Math.max(0, Math.floor(y0 / ts)); y <= Math.min(n - 1, Math.floor(y1 / ts)); y++) {
+          for (x = Math.floor(x0 / ts); x <= Math.floor(x1 / ts); x++) {
+            var url = L.Util.template(layer._url, L.extend({}, layer.options, { x: ((x % n) + n) % n, y: y, z: Z, s: '', r: '' }));
+            if (!memo.has(url) && !failed.has(url) && !shown[url] && want.indexOf(url) < 0) want.push(url);
+          }
+        }
+      }
+      return want.slice(0, window.TILE_AHEAD_MAX || 48);
+    }
+    function aheadNext() {
+      var most = window.TILE_AHEAD_PARALLEL || 4;
+      while (my === gen && aheadLive.length < most && aheadQueue.length) {
+        (function (u) {
+          var im = document.createElement('img'), safety = 0;
+          im._hmUrl = u;
+          function free() {
+            clearTimeout(safety);
+            var at = aheadLive.indexOf(im);
+            if (at < 0) return;
+            aheadLive.splice(at, 1);
+            aheadNext();
+          }
+          aheadLive.push(im);
+          window.TILE_STATS.ahead = (window.TILE_STATS.ahead || 0) + 1;
+          safety = setTimeout(function () { if (im._hmAbort) im._hmAbort(); free(); }, 8000);
+          loadTile(im, u, free, null);
+        })(aheadQueue.shift());
+      }
+    }
+    function ahead() {
+      aheadTimer = 0;
+      if (my !== gen || !layer || !layer._map || pinching() || memoMax <= 0) return;
+      var live = aheadLive.map(function (im) { return im._hmUrl; });
+      aheadQueue = aheadWanted().filter(function (u) { return live.indexOf(u) < 0; });
+      aheadNext();
+    }
+    function aheadSoon() {
+      aheadPause();
+      var wait = performance.now() - touchedAt < 5000 ? (window.TILE_AHEAD_TOUCH_MS || 250) : (window.TILE_AHEAD_IDLE_MS || 1500);
+      aheadTimer = setTimeout(ahead, wait);
+    }
+    /* A pinch follows the fingers: the grid moves to the level the zoom rounds to (with updateWhenZooming false
+       Leaflet would stretch the starting level until they lift, the grey of PR 202), and the edge of a widening view
+       is filled as the fingers move, remembered tiles at once and others via begin(). */
+    function widen() {
+      if (!pinching() || !layer || !layer._map) return;
+      var z = map.getZoom(), tz = Math.round(z);
+      if (tz > layer.options.maxZoom || tz < layer.options.minZoom) return;
+      if (tz !== layer._tileZoom) layer._setView(map.getCenter(), z, true, false);
+      else layer._update(map.getCenter());
+    }
+    /* A pinch's closing animation is started with tile updates off; when it zooms out, its wider view is filled now. */
+    function widenAnim(e) {
+      if (layer && layer._map && layer._tileZoom !== undefined && e.zoom < map.getZoom()) layer._update(e.center);
+    }
+    map.on('moveend', aheadSoon);
+    map.on('movestart zoomstart', aheadPause);
+    map.on('zoom', widen);
+    map.on('zoomanim', widenAnim);
+    stopAhead = function () {
+      aheadStop();
+      TOUCH.forEach(function (ev) { box.removeEventListener(ev, touched, { passive: true }); });
+      map.off('moveend', aheadSoon); map.off('movestart zoomstart', aheadPause); map.off('zoom', widen); map.off('zoomanim', widenAnim);
+    };
+    aheadSoon();
     window.TILE_ACTIVE = p.name;
     logo(p.name === 'maptiler');
   }
@@ -489,6 +662,7 @@ window.addTiles = function (map) {
   }
   map._hmTileStop = function () {
     gen++;
+    if (stopAhead) { stopAhead(); stopAhead = null; }
     stopVectorWatch();
     if (layer) { map.removeLayer(layer); layer = null; }
     if (logoCtl) { map.removeControl(logoCtl); logoCtl = null; }
