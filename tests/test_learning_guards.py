@@ -32,6 +32,8 @@ def assert_schedule_and_guards():
     # Dean 27 Oct 2026 07:20 GMT: strict times auto-apply switched on. Pinned so it can't flip silently either way.
     if rules.get("times_auto_apply") is not True:
         raise AssertionError("times_auto_apply changed (Dean set it on, strict, 27 Oct)")
+    if rules.get("intelligent_mode") is not False:
+        raise AssertionError("intelligent_mode must stay off until Dean switches it on")
     if sorted(rules["automatic"]) != sorted(AUTOMATIC):
         raise AssertionError("automatic list changed")
     import sys

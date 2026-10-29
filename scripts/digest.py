@@ -53,6 +53,13 @@ def main(now=None):
     try:
         import learning_signals; L += learning_signals.digest_lines(rj(P('reports', 'learning_signals.json'), {})) if os.path.exists(P('reports', 'learning_signals.json')) else []
     except Exception as e: L += ['- learning signals unavailable: %r' % e, '']
+    sum_path = P("reports", "intelligent_mode.json")
+    if os.path.exists(sum_path):
+        try:
+            import intelligent_rails as IR
+            L += IR.digest_lines(json.load(open(sum_path, encoding="utf-8")))
+        except Exception as e:
+            L += ['## Intelligent mode', '', '- unavailable: %r' % e, '']
     open(MD, "w", encoding="utf-8").write("\n".join(L))
     if os.environ.get("GITHUB_ACTIONS"):
         failed = [k for k, t, b in al if subprocess.run([sys.executable, P("scripts", "alert.py"), "open", k, t, b]).returncode != 0]

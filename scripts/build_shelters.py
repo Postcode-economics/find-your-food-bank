@@ -94,6 +94,13 @@ raw_count = len(fresh)
 fresh, prev, n_pending = verification_gate(fresh, prev, VER, RUN, "logs/shelters_pending.json", unverified=UNV, autocheck=shelter_autocheck)
 from hours_fix import apply_phone
 for x in fresh: apply_phone(x)  # one valid UK number for tel:, others shown as text; invalid hidden
+try:
+    import intelligent_rails as _IR
+    import auto_rules as _ar
+    if _IR.enabled(_ar.load()):
+        _IR.clear_pending_stale(".", {"sh": {x["id"]: x.get("hours") for x in fresh}})
+except Exception as ex:
+    print("intelligent mode stale clear skipped: %s" % ex)
 # times cross-check on every published shelter's OWN site this run (closed -> removed; unconfirmed -> times withheld)
 tlog = discover.cross_check_times(fresh, "sh", "hours", state_root=".")
 gone = [x["id"] for x in fresh if x.get("_own_site_closed")]
@@ -104,6 +111,11 @@ sources["Hours normalised"] = {"status": "ok", "changed": hours_norm.apply(fresh
 sources["Own-site times check"] = {"status": "ok", **discover.summary(tlog), "removed_closed": gone}
 sources["Verification gate"] = {"status": "ok", "scraped": raw_count, "published": len(fresh), "pending": n_pending, "kept_on_48h_grace": [g["id"] for g in getattr(verification_gate, "graced", [])]}
 if not fresh or (prev and prev["items"] and len(fresh) < 0.8 * len(prev["items"]) and not os.environ.get("FORCE")):
+    try:
+        import intelligent_rails as _IR
+        _IR.finish_times(".", "shelters", tlog)
+    except Exception as ex:
+        print("intelligent mode summary skipped: %s" % ex)
     append_log(LOG, {"run": RUN, "result": "aborted: source returned too few entries", "sources": sources}); sys.exit(0)
 items, closed = merge_lifecycle(prev, fresh, RUN)
 import seasonal  # winter night shelters: 'Opens <date>' until the stated start, expire after the stated end
@@ -124,6 +136,11 @@ import place_lock
 _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
 restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters", keep_times=_applied_times)
 print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(published_items, items)))
+try:
+    import intelligent_rails as _IR
+    _IR.finish_times(".", "shelters", tlog)
+except Exception as ex:
+    print("intelligent mode summary skipped: %s" % ex)
 if os.environ.get("DRY_RUN"): print("DRY RUN:", len(items), "shelters", json.dumps(sources)[:1500]); sys.exit(0)
 write_js(OUT, "SHELTERS", {"updated": RUN, "items": items, "recently_closed": closed, "sources": sources})
 append_log(LOG, {"run": RUN, "result": "ok", "items": len(items), "stale": sum(x["stale"] for x in items), "recently_closed": len(closed), "sources": sources})

@@ -147,10 +147,16 @@ def is_dup(n, pc, pool):
     return any((b.get("postcode") or "").replace(" ", "").upper() == k for b in pool)
 
 def geo(pcs, opener=urllib.request.urlopen):
+    """Postcode lookup. A transient failure is retried; the last error is raised so the sweep adds nothing from it."""
+    import intelligent_rails as IR
     G = {}; pcs = sorted(set(pcs))
     for k in range(0, len(pcs), 100):
-        req = urllib.request.Request("https://api.postcodes.io/postcodes", json.dumps({"postcodes": pcs[k:k+100]}).encode(), {"Content-Type": "application/json"})
-        for x in json.load(opener(req, timeout=30))["result"]:
+        batch = pcs[k:k+100]
+        def attempt(batch=batch):
+            req = urllib.request.Request("https://api.postcodes.io/postcodes", json.dumps({"postcodes": batch}).encode(), {"Content-Type": "application/json"})
+            return json.load(opener(req, timeout=30))
+        body = IR.retry_call(attempt)
+        for x in body["result"]:
             if x["result"]: G[x["query"]] = x["result"]
     return G
 
@@ -159,14 +165,17 @@ def council_pages(c, fetcher):
     urls = list(c.get("known_pages", []))
     base = c["site"].rstrip("/")
     seen = set(); todo = [base + "/sitemap.xml"]
-    rb = fetcher(base + "/robots.txt")
+    import intelligent_rails as IR
+    def get(u):
+        return IR.retry_call(lambda: fetcher(u)) or {}
+    rb = get(base + "/robots.txt")
     todo += re.findall(r"(?im)^sitemap:\s*(\S+)", rb.get("raw", "") or rb.get("text", ""))
     n = 0
     while todo and n < 30:
         u = todo.pop(0)
         if u in seen: continue
         seen.add(u); n += 1
-        r = fetcher(u); body = r.get("raw") or r.get("text", "")
+        r = get(u); body = r.get("raw") or r.get("text", "")
         for loc in re.findall(r"https?://[^\s<>\"']+", body):
             if loc.endswith(".xml") or "sitemap" in loc.lower(): todo.append(loc)
             elif KEY_URL.search(loc): urls.append(loc)
@@ -276,8 +285,12 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     def one(j):
         u, name, hint, auto, parser, sect = j
         try:
-            r = fetcher(u)
-            if r.get("http") != 200 or not r.get("text"): return ("fail", u, r.get("http"))
+            import intelligent_rails as IR
+            r = IR.retry_call(lambda: fetcher(u)) or {}
+            if r.get("http") != 200 or not r.get("text"):
+                if IR.transient_fetch(r):
+                    print("sweep: skipped %s after retries (http %s); existing entries left unchanged" % (u, r.get("http")), flush=True)
+                return ("fail", u, r.get("http"))
             try:
                 import official_feeds
                 feeds = official_feeds.scan(r.get("text") or "")
@@ -287,7 +300,9 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
                 # if Dean's auto-add rule passes below (valid postcode, not within 150 m of anything, dated page, not held)
                 c = [dict(e, proposed_tier=e["tier"], tier="unverified", auto_rule=True) if e["tier"] in ("verified", "unverified") else e for e in c]
             return ("ok", u, c, feeds)
-        except Exception as ex: return ("fail", u, str(ex)[:80])
+        except Exception as ex:
+            print("sweep: skipped %s after retries (%s); existing entries left unchanged" % (u, str(ex)[:80]), flush=True)
+            return ("fail", u, str(ex)[:80])
     with cf.ThreadPoolExecutor(16) as ex: R = list(ex.map(one, jobs))
     fails = [r for r in R if r[0] == "fail"]; cands = [e for r in R if r[0] == "ok" for e in r[2]]
     if write and sources is None and jobs:
@@ -313,7 +328,10 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         state[layer] = dict(pool=pool, man=man, ver=json.load(open(os.path.join(OV, layer + "_verified.json"))), unv=json.load(open(os.path.join(OV, layer + "_unverified.json"))), new=0)
     good = [e for e in cands if e["tier"] in ("verified", "unverified")]
     try: G = geocoder([e["postcode"] for e in good]) if good else {}
-    except Exception as ex: G = {}; report["status"] = "geocoder failed: " + str(ex)[:80]
+    except Exception as ex:
+        G = {}
+        report["status"] = "geocoder failed: " + str(ex)[:80]
+        print("sweep: geocoder skipped (%s); nothing removed and no hours cleared" % str(ex)[:120], flush=True)
     adds = []; EX = excluded()
     shelter_review = []
     for e in cands:
@@ -345,6 +363,18 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     if len(adds) > MAX_NEW:
         report["status"] = f"HELD: {len(adds)} new entries > SWEEP_MAX_NEW={MAX_NEW}; nothing written, all pending review"
         report["pending"] += [dict(a[0], reason="held: too many new in one run") for a in adds]; adds = []
+    try:
+        import intelligent_rails as IR
+        IR.note("sweep", source_pages=len(jobs), source_opened=max(0, len(jobs) - len(fails)))
+        if adds:
+            block = IR.batch_block(RULES, len(adds), "sweep", ROOT)
+            if block:
+                IR.alert(block, ROOT)
+                report["status"] = block
+                report["pending"] += [dict(a[0], reason=block) for a in adds]
+                adds = []
+    except Exception as ex:
+        print("intelligent mode sweep gate skipped: %s" % ex, flush=True)
     for e, i, man, ov in adds:
         st = state[e["layer"]]; st["man"].append(man); (st["ver"] if e["tier"] == "verified" else st["unv"])[i] = ov; st["new"] += 1
         report["added"].append({"id": i, "layer": e["layer"], "tier": e["tier"], "name": e["name"], "postcode": e["postcode"], "source_url": e["source_url"]})
@@ -369,6 +399,16 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
         DR.record("sweep", d, [dict(a, upcoming=bool(a.get("scheme_start", "") > d)) for a in report["added"]],
                   [dict(x, id=x.get("name"), reasons=[x.get("reason", "")]) for x in report["pending"] if x.get("auto_rule") or x.get("reason", "").startswith(("on hold", "postcode"))],
                   report.get("rejected", []), source="council pages + SWEP pages", root=ROOT)
+    if write:
+        try:
+            import intelligent_rails as IR
+            errs = [str(e)[:160] for e in (report.get("errors") or [])[:40]]
+            IR.finish(ROOT, "sweep", "discover", applied=len(report.get("added") or []), held=len(report.get("pending") or []),
+                      rejected=[{"id": (e.get("name") or e.get("postcode") or ""), "reasons": [e.get("reason") or ""]} for e in (report.get("pending") or [])[:200]],
+                      errors=errs, coverage=IR.merged("sweep", ROOT),
+                      alerts=[report["status"]] if str(report.get("status") or "").startswith(("coverage gate", "blast limit", IR.ALERT)) else [])
+        except Exception as ex:
+            print("intelligent mode summary skipped: %s" % ex, flush=True)
     return report
 
 if __name__ == "__main__":
