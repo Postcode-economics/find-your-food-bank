@@ -32,6 +32,12 @@ def test_cards_show_the_hand_checked_times():
         assert ix[k]['times_status'] == 'confirmed_by_hand', k
     assert '10am - 3pm' not in ix['the-gate']['opening_times']['raw']
 
+def test_build_reapplies_hand_checked_times_after_ifan_discovery():
+    build = open(os.path.join(ROOT, 'scripts', 'build.py'), encoding='utf-8').read()
+    second = build.index("i['opening_times'] = normalise(times.get(i['id']))", build.index('IFAN pins added'))
+    cross = build.index("discover.cross_check_times(items, 'fb', 'opening_times'")
+    assert build.index('IFAN pins added') < second < cross
+
 def test_refresh_and_finder_treat_them_as_hand_checked():
     import discover, times_finder
     ix = items()
