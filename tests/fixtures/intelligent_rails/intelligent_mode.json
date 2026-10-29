@@ -1,0 +1,495 @@
+{
+ "run": "2026-10-29",
+ "layers": {
+  "foodbanks": {
+   "steps": {
+    "times": {
+     "applied": 42,
+     "held": 34,
+     "stale_cleared": 0,
+     "rejected": [
+      {
+       "id": "colchester",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "pbp/cetma-llanelli",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "transient failure; stored times left unchanged"
+       ]
+      },
+      {
+       "id": "inspero",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "storehouse-melton",
+       "reasons": [
+        "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+       ]
+      },
+      {
+       "id": "dens/liberty-tea-rooms",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "dens/st-peter-st-paul-church",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "st-annes-advice-nottingham",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "kirkby-storehouse",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "s20",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "crowthorne/owlsmoor-community-centre",
+       "reasons": [
+        "would change known times to closed/empty",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "bradford-north/st-lukes",
+       "reasons": [
+        "postcode not matched exactly on the own-site page"
+       ]
+      },
+      {
+       "id": "kirkcaldy/link-living",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "jumble: 5 separate time blocks read from one page; review only"
+       ]
+      },
+      {
+       "id": "anglesey",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "postcode not matched exactly on the own-site page"
+       ]
+      },
+      {
+       "id": "the-bus-shelter-shop",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "jumble: 6 separate time blocks read from one page; review only"
+       ]
+      },
+      {
+       "id": "new-wortley-community-centre",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "chichester-district",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "rickmansworth",
+       "reasons": [
+        "own site gives one table for several branches; cannot tell which branch"
+       ]
+      },
+      {
+       "id": "rickmansworth/mill-end",
+       "reasons": [
+        "own site gives one table for several branches; cannot tell which branch"
+       ]
+      },
+      {
+       "id": "patch",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "swindon/st-aldhelms-centre",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "3food4u/tottenham-sda",
+       "reasons": [
+        "would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "st-james-thornton",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "whitby",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "cumbernauld",
+       "reasons": [
+        "would cut known hours to fewer days (drops Thu) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "wirral/st-joseph-and-st-albans",
+       "reasons": [
+        "would cut known hours to fewer days (drops Mon, Wed, Fri) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "pontypridd",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "cann-hall",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "driffield-wolds",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "west-end-impact",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "jumble: Tue given different times in separate blocks on one page; review only",
+        "transient failure; stored times left unchanged"
+       ]
+      },
+      {
+       "id": "ifan-0ea12dd414fcb6a358d3f0-0",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "ifan-4a6217d6ae69c4977d7d70-0",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "ifan-53c68645aa831ab649ac43-0",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "ifan-5b9fd1318a04132921a389-0",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      }
+     ],
+     "errors": [],
+     "alerts": [],
+     "coverage": {
+      "sites": 15,
+      "sites_opened": 14,
+      "render_attempts": 563,
+      "render_errors": 563,
+      "source_pages": 18,
+      "source_opened": 16
+     },
+     "enabled": false
+    },
+    "access": {
+     "applied": 0,
+     "held": 0,
+     "stale_cleared": 0,
+     "rejected": [],
+     "errors": [],
+     "alerts": [],
+     "coverage": {
+      "budget_skipped": 0,
+      "hours_review_due": 1719,
+      "hours_review_opened": 1719,
+      "sites": 15,
+      "sites_opened": 14,
+      "render_attempts": 563,
+      "render_errors": 563,
+      "source_pages": 18,
+      "source_opened": 16
+     },
+     "enabled": false
+    }
+   },
+   "applied": 42,
+   "held": 34,
+   "stale_cleared": 0,
+   "rejected": [
+    {
+     "id": "colchester",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "pbp/cetma-llanelli",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "transient failure; stored times left unchanged"
+     ]
+    },
+    {
+     "id": "inspero",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "storehouse-melton",
+     "reasons": [
+      "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+     ]
+    },
+    {
+     "id": "dens/liberty-tea-rooms",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "dens/st-peter-st-paul-church",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "st-annes-advice-nottingham",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "kirkby-storehouse",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "s20",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "crowthorne/owlsmoor-community-centre",
+     "reasons": [
+      "would change known times to closed/empty",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "bradford-north/st-lukes",
+     "reasons": [
+      "postcode not matched exactly on the own-site page"
+     ]
+    },
+    {
+     "id": "kirkcaldy/link-living",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "jumble: 5 separate time blocks read from one page; review only"
+     ]
+    },
+    {
+     "id": "anglesey",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "postcode not matched exactly on the own-site page"
+     ]
+    },
+    {
+     "id": "the-bus-shelter-shop",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "jumble: 6 separate time blocks read from one page; review only"
+     ]
+    },
+    {
+     "id": "new-wortley-community-centre",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "chichester-district",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "rickmansworth",
+     "reasons": [
+      "own site gives one table for several branches; cannot tell which branch"
+     ]
+    },
+    {
+     "id": "rickmansworth/mill-end",
+     "reasons": [
+      "own site gives one table for several branches; cannot tell which branch"
+     ]
+    },
+    {
+     "id": "patch",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "swindon/st-aldhelms-centre",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "3food4u/tottenham-sda",
+     "reasons": [
+      "would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "st-james-thornton",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "whitby",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "cumbernauld",
+     "reasons": [
+      "would cut known hours to fewer days (drops Thu) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "wirral/st-joseph-and-st-albans",
+     "reasons": [
+      "would cut known hours to fewer days (drops Mon, Wed, Fri) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "pontypridd",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "cann-hall",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "driffield-wolds",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "west-end-impact",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "jumble: Tue given different times in separate blocks on one page; review only",
+      "transient failure; stored times left unchanged"
+     ]
+    },
+    {
+     "id": "ifan-0ea12dd414fcb6a358d3f0-0",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "ifan-4a6217d6ae69c4977d7d70-0",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "ifan-53c68645aa831ab649ac43-0",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "ifan-5b9fd1318a04132921a389-0",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    }
+   ],
+   "errors": [],
+   "alerts": [],
+   "coverage": {
+    "sites": 15,
+    "sites_opened": 14,
+    "render_attempts": 563,
+    "render_errors": 563,
+    "source_pages": 18,
+    "source_opened": 16,
+    "budget_skipped": 0,
+    "hours_review_due": 1719,
+    "hours_review_opened": 1719
+   }
+  }
+ },
+ "alerts": [],
+ "would_block": [
+  "coverage gate: render errors 563 of 563 (100% > 25%)"
+ ],
+ "enabled": false,
+ "generated_at": "2026-10-29T13:32:41+00:00"
+}

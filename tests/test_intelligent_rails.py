@@ -1,8 +1,9 @@
 """Intelligent-mode safety rails. The switch stays off; these tests turn it on only inside a temp root."""
-import hashlib, io, json, os, sys, tempfile, unittest
+import hashlib, io, json, os, shutil, sys, tempfile, unittest
 from contextlib import redirect_stdout
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
+FIX = os.path.join(HERE, "fixtures", "intelligent_rails")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discover as D
 import intelligent_rails as IR
@@ -156,9 +157,17 @@ class Rails(unittest.TestCase):
         self.assertIn("stale queue cleared fb:a", buf.getvalue())
 
     def test_today_queue_matches_deans_count(self):
-        pending = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
-        fb = {i["id"]: i.get("opening_times") for i in _js(os.path.join(ROOT, "data.full.js"), "=")["items"]}
-        ws = {i["id"]: i.get("hours") for i in _js(os.path.join(ROOT, "warmspaces.js"), "=")["items"]}
+        # Frozen 29 Oct 2026 queue (before the 13:39 refresh cleared most food-bank rows).
+        os.makedirs(os.path.join(self.root, "reports"))
+        pending_path = os.path.join(self.root, "reports", "pending_dean.md")
+        data_path = os.path.join(self.root, "data.full.js")
+        warm_path = os.path.join(self.root, "warmspaces.js")
+        shutil.copy(os.path.join(FIX, "pending_dean.md"), pending_path)
+        shutil.copy(os.path.join(FIX, "data.full.js"), data_path)
+        shutil.copy(os.path.join(FIX, "warmspaces.js"), warm_path)
+        pending = open(pending_path, encoding="utf-8").read()
+        fb = {i["id"]: i.get("opening_times") for i in _js(data_path, "=")["items"]}
+        ws = {i["id"]: i.get("hours") for i in _js(warm_path, "=")["items"]}
         fb_ids = IR.matching_ids(pending, fb, "times crosscheck fb")
         ws_ids = IR.matching_ids(pending, ws, "times crosscheck ws")
         self.assertEqual(len(ws_ids), 15, ws_ids)
@@ -311,18 +320,34 @@ class Rails(unittest.TestCase):
         lines = IR.digest_lines(data)
         self.assertTrue(any("INTELLIGENT MODE ALERT" in ln for ln in lines))
         self.assertIn("applied 0", "\n".join(lines))
+        import datetime
         import digest
-        self.assertFalse(os.path.exists(os.path.join(digest.ROOT, "reports", "intelligent_mode.json")))
-        md, st = os.path.join(self.root, "morning.md"), os.path.join(self.root, "state.json")
-        old = digest.MD, digest.ST
-        digest.MD, digest.ST = md, st
+        import learning
+        # Digest reads through its own root. Point that at an empty temp folder so a
+        # summary written by a real refresh cannot leak into this check.
+        digest_root = tempfile.mkdtemp()
+        when = datetime.datetime(2026, 10, 29, 8, 0, tzinfo=datetime.timezone.utc)
+        old = digest.ROOT, digest.MD, digest.ST, learning.load
+        digest.ROOT = digest_root
+        digest.MD = os.path.join(digest_root, "morning_digest.md")
+        digest.ST = os.path.join(digest_root, "digest_state.json")
+        missing = os.path.join(digest_root, "reports", "learning_state.json")
+        learning.load = lambda path=None, _missing=missing: old[3](_missing if path is None else path)
         try:
-            digest.main(__import__("datetime").datetime(2026, 10, 29, 8, 0, tzinfo=__import__("datetime").timezone.utc))
+            self.assertFalse(os.path.exists(os.path.join(digest.ROOT, "reports", "intelligent_mode.json")))
+            digest.main(when)
+            first = open(digest.MD, encoding="utf-8").read()
+            self.assertNotIn("## Intelligent mode", first)
+            self.assertNotIn("INTELLIGENT MODE ALERT", first)
+            os.makedirs(os.path.join(digest_root, "reports"))
+            shutil.copy(os.path.join(FIX, "intelligent_mode.json"), os.path.join(digest_root, "reports", "intelligent_mode.json"))
+            digest.main(when)
+            second = open(digest.MD, encoding="utf-8").read()
+            self.assertIn("## Intelligent mode", second)
+            self.assertIn("INTELLIGENT MODE ALERT", second)
+            self.assertIn("render errors 563 of 563", second)
         finally:
-            digest.MD, digest.ST = old
-        first = open(md, encoding="utf-8").read()
-        self.assertNotIn("## Intelligent mode", first)
-        self.assertNotIn("INTELLIGENT MODE ALERT", first)
+            digest.ROOT, digest.MD, digest.ST, learning.load = old
 
     def test_access_flip_waits_for_coverage_and_undo(self):
         import full_check as F
