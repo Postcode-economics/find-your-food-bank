@@ -47,6 +47,7 @@ def report_root():
     return staging
 UA = {'User-Agent': 'Mozilla/5.0 (helpmap.uk food bank map; full daily check; +https://helpmap.uk)', 'Accept': 'text/html'}
 TIMEOUT, BUDGET = 15, int(os.environ.get('BUDGET_S', 2400))
+HOURS_WORKERS = int(os.environ.get('HOURS_WORKERS', 12))
 NOW = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
 DAY = NOW.date().isoformat()
 
@@ -69,25 +70,28 @@ def _note(h, ok):
     _errs[h] = _errs.get(h, 0) + 1
     if _errs[h] >= ERR_LIMIT: _paused[h] = time.time() + PAUSE; _errs[h] = 0
 
+def polite_host(url):
+    """The per-host key _polite uses for its lock, MIN_GAP, error count and pause."""
+    return urllib.parse.urlparse(url).netloc.lower()
 def _polite(url, loader):
-    """One request at a time per host, then MIN_GAP. Shared by the plain fetch and the headless render."""
-    h = urllib.parse.urlparse(url).netloc.lower()
+    """One request at a time per host, then MIN_GAP. Shared by the plain fetch and the headless render.
+    The MIN_GAP wait happens before taking one of the 2 shared Trussell slots, so a slot is only held while a
+    request is actually open (29 Oct 2026: sleeping inside the slot made *.foodbank.org.uk the bottleneck)."""
+    h = polite_host(url)
     sem = TRUSSELL if h.endswith('foodbank.org.uk') else None
-    if sem: sem.acquire()
-    try:
-        with _hostlock(h):
-            if _paused.get(h, 0) > time.time(): return {'ok': False, 'http': None, 'error': 'source paused for 10 min after %d errors in a row' % ERR_LIMIT}
-            wait = MIN_GAP - (time.time() - _last.get(h, 0))
-            if wait > 0: time.sleep(wait)
-            try:
-                out = loader(url)
-            except Exception as e:
-                _note(h, False); out = {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
-            finally:
-                _last[h] = time.time()
-            return out
-    finally:
-        if sem: sem.release()
+    with _hostlock(h):
+        if _paused.get(h, 0) > time.time(): return {'ok': False, 'http': None, 'error': 'source paused for 10 min after %d errors in a row' % ERR_LIMIT}
+        wait = MIN_GAP - (time.time() - _last.get(h, 0))
+        if wait > 0: time.sleep(wait)
+        if sem: sem.acquire()
+        try:
+            out = loader(url)
+        except Exception as e:
+            _note(h, False); out = {'ok': False, 'http': None, 'error': type(e).__name__ + ': ' + str(e)[:80]}
+        finally:
+            _last[h] = time.time()
+            if sem: sem.release()
+        return out
 def _urllib_load(url):
     import rate_ledger
     req = urllib.request.Request(url, headers=UA)
@@ -368,20 +372,35 @@ def review_hours(items, state, flag, deadline, fetch=None, render=None):
     fetch = fetch or globals()['fetch']
     render = render if render is not None else render_polite
     state.setdefault('hours', {})
+    todo = [(i, listing_source_url(i)) for i in items if i.get('type') in ('foodbank', 'location')]
+    todo = [(i, src) for i, src in todo if src]
+    # One worker per host reads that host's listings strictly in listing order, so its 2 s gap, error count,
+    # 10-min pause and 429 ledger pause see the same sequence as one pass over every listing; different hosts run
+    # at the same time (the Trussell cap of 2 still holds). Verdicts are applied below in listing order.
+    # rate_ledger.host_of is the coarser key (www. and bare host share a ledger pause), so it groups both.
+    import rate_ledger
+    groups = {}
+    for k, (_, src) in enumerate(todo): groups.setdefault(rate_ledger.host_of(src), []).append(k)
+    verdicts = [None] * len(todo)
+    renders, base_render = threading.Semaphore(2), render
+    def render(u):
+        with renders: return base_render(u)
+    def read_host(ks):
+        for k in ks:
+            if time.time() > deadline: return
+            i, src = todo[k]
+            verdicts[k] = hours_verdict(i, read_source(i, fetch=fetch, render=render))
+    with cf.ThreadPoolExecutor(HOURS_WORKERS) as ex: list(ex.map(read_host, sorted(groups.values(), key=len, reverse=True)))
     n = 0
-    for i in items:
-        if i.get('type') not in ('foodbank', 'location'): continue
-        src = listing_source_url(i)
-        if not src: continue
+    for (i, src), verdict in zip(todo, verdicts):
         n += 1
-        if time.time() > deadline:
+        if verdict is None:
             # Not opened this run. Drop any previous verified quote. The website skip already reports it once;
             # one row per listing would bury the review list.
             state['hours'][i['id']] = {'status': 'unclear', 'evidence': '', 'source_url': src, 'final_url': '',
                                        'note': 'unclear: not checked this run; previous hours are not verified. ' + UNCLEAR_LINE,
                                        'rendered': False, 'checked_at': NOW.isoformat()}
             continue
-        verdict = hours_verdict(i, read_source(i, fetch=fetch, render=render))
         state['hours'][i['id']] = {'status': verdict['status'], 'evidence': verdict.get('evidence') or '', 'source_url': src,
                                    'final_url': verdict.get('final_url') or '', 'note': verdict.get('note') or '',
                                    'rendered': bool(verdict.get('rendered')), 'checked_at': NOW.isoformat()}
