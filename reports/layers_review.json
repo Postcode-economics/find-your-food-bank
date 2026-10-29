@@ -126,7 +126,7 @@
    },
    {
     "id": "osm-way-1104948217",
-    "reason": "source no longer names this place"
+    "reason": "source unreachable this run (HTTP 404)"
    },
    {
     "id": "osm-way-1262733230",
@@ -161,49 +161,7 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "ww-65441941",
-    "name": "St. Mary's, Broughty Ferry",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "09:00 - 17:00",
-      "Tue": "09:00 - 17:00",
-      "Wed": "09:00 - 17:00",
-      "Thu": "09:00 - 17:00",
-      "Fri": "09:00 - 17:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Wed": "11:15 - 16:00"
-     }
-    }
-   },
-   {
-    "id": "ww-59951280",
-    "name": "Wellness Hub At St Laurence's Church",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Tue": "11:00 - 13:30",
-      "Wed": "11:00 - 13:30",
-      "Thu": "11:00 - 13:30",
-      "Fri": "11:00 - 13:30"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "17:00 - 17:30"
-     }
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -287,10 +245,6 @@
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
-   },
-   {
-    "id": "ww-57952988",
-    "reason": "source unreachable this run (HTTP 500)"
    },
    {
     "id": "ww-67608542",

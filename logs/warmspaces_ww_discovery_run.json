@@ -1,17 +1,17 @@
 {
- "run": "2026-10-27",
- "candidates": 1,
+ "run": "2026-10-29",
+ "candidates": 7,
  "already_on_map": 0,
- "new": 1,
+ "new": 7,
  "added": [],
  "flagged": [
   {
-   "id": "ww-69425371",
-   "name": "ST AUSTELL AREA METHODIST CHURCH - NANPEAN",
-   "postcode": "PL26 7YB",
+   "id": "ww-69428701",
+   "name": "Warm Spaces at Red Roof Centre",
+   "postcode": "WF9 5BP",
    "website": "",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26500",
+   "directory_url": "https://www.warmwelcome.uk/space?l=24798",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -21,6 +21,110 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  {
+   "id": "ww-69433148",
+   "name": "St Peter's Church Community Cafe",
+   "postcode": "HU7 5XH",
+   "website": "https://spwkchurch.co.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28661",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "https://spwkchurch.co.uk",
+   "final_url": "https://spwkchurch.co.uk",
+   "http": 200,
+   "sha256": "ed8e3c015fdc0a5970e7a84d664a1fa0857cfea98bec95113635ddca43aa31d3",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-69433149",
+   "name": "Runcorn Library",
+   "postcode": "WA7 1LT",
+   "website": "www.halton.gov.uk/libraries",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28662",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.halton.gov.uk/libraries",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-69434448",
+   "name": "Community Café Warm Welcome",
+   "postcode": "NW10 4LL",
+   "website": "www.transitionhomelessproject.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=27110",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
+    "postcode NW10 4LL not recognised by postcodes.io"
+   ],
+   "url": "www.transitionhomelessproject.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-69434450",
+   "name": "Torquay Library",
+   "postcode": "TQ1 3DT",
+   "website": "www.librariesunlimited.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=16669",
+   "reasons": [
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "www.librariesunlimited.org.uk",
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "ww-69434451",
+   "name": "Churston Library",
+   "postcode": "TQ4 6LL",
+   "website": "https://www.librariesunlimited.org.uk",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=26192",
+   "reasons": [
+    "own site does not mention a warm space",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "https://www.librariesunlimited.org.uk",
+   "final_url": "https://www.librariesunlimited.org.uk",
+   "http": 200,
+   "sha256": "abb4c3124cccd907cf9170741cbcca86214ae35637313e7517dc0e6733eb33dc",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "ww-69434457",
+   "name": "BGfm Community Radio",
+   "postcode": "NP23 4NN",
+   "website": "http://www.bgfm.wales",
+   "directory": "Warm Welcome",
+   "directory_url": "https://www.warmwelcome.uk/space?l=20566",
+   "reasons": [
+    "own site does not mention a warm space"
+   ],
+   "url": "http://www.bgfm.wales",
+   "final_url": "https://www.bgfm.wales/",
+   "http": 200,
+   "sha256": "41ba5ca3768cd2058a201584b9516324cb57343bda241c78ce3d648e07498472",
+   "etag": "",
+   "last_modified": ""
   }
  ],
  "rejected": []
