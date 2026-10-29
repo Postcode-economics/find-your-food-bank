@@ -740,7 +740,7 @@ def not_own_site_reason(iid, src, own_sites):
     pages = [own] if isinstance(own, str) else list(own or [])
     if not pages or any(on_site(src, p) for p in pages): return ""
     return "host page does not count: the food bank has its own site (%s)" % pages[0]
-def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra=(), own_sites=None):
+def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra=(), own_sites=None, overrides=None):
     """Reasons a refresh times change must be held for Dean. Empty = may apply. Each blocks on its own (tests/test_times_crosscheck_gate.py)."""
     why = list(extra); key = kind + ":" + i["id"]; sig = _tsig((new or {}).get("structured")); src = home.get("final_url") if home else None
     pc = norm_pc(i.get("postcode"))
@@ -790,7 +790,7 @@ def times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_
     if not sig or prev.get("sig") != sig or prev.get("source_url") != src or prev.get("run_at") == run_at:
         why.append("times not read identically on 2 separate runs yet")
     if sig and (blocked or {}).get(key) == sig: why.append("this change was undone by Dean; not re-applied")
-    if hand_checked(i, field): why.append("hand-checked times are protected; refresh only flags differences")
+    if hand_checked(i, field, overrides): why.append("hand-checked times are protected; refresh only flags differences")
     if not why and not on: why.append("times auto-apply is off (overrides/auto_apply_rules.json times_auto_apply)")
     return why
 _DAYRE = re.compile(r"mon|tue|wed|thu|fri|sat|sun", re.I)
@@ -818,15 +818,45 @@ def day_same_line(st, texts):
         for span in spans or []:
             if not all(x in seen.get(d[:3].lower(), set()) for x in span[:2]): return False
     return True
-def hand_checked(i, field):
+def _override_hand_protected(ot):
+    if not isinstance(ot, dict): return False
+    if ot.get("protected"): return True
+    r = str(ot.get("reader") or "")
+    return r.startswith("hand-set") or "hand-reviewed" in r or r.startswith("hand-reviewed")
+def load_fb_opening_overrides(state_root):
+    if not state_root: return {}
+    p = os.path.join(state_root, "overrides", "opening_times.json")
+    try: return json.load(open(p, encoding="utf-8"))
+    except Exception: return {}
+def hand_checked(i, field, overrides=None):
     """Times a person set. The refresh may flag them and must not overwrite them."""
     if i.get("manual"): return True
     if field == "hours" and i.get("hours_protected"): return True
+    if overrides is not None and field == "opening_times" and _override_hand_protected(overrides.get(i.get("id"))): return True
     ot = i.get(field)
     if not isinstance(ot, dict): return False
     if ot.get("protected"): return True
     r = str(ot.get("reader") or "")
     return r.startswith("hand-set") or "hand-reviewed" in r
+def enforce_protected_times(items, kind, field, log, state_root, today):
+    """After cross_check_times: hand-checked rows in overrides/opening_times.json keep protected times and confirmed_by_hand."""
+    if kind != "fb" or field != "opening_times" or not state_root: return
+    overrides = load_fb_opening_overrides(state_root)
+    if not overrides: return
+    from times import normalise
+    for i in items:
+        raw = overrides.get(i.get("id"))
+        if not _override_hand_protected(raw): continue
+        applied = normalise(dict(raw)) if raw else None
+        if applied is None and raw: applied = dict(raw)
+        if applied: i[field] = applied
+        i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
+        i.pop("times_reason", None)
+        rec = log.get(i["id"])
+        if not rec: continue
+        if rec.get("status") in ("differs_review", "unconfirmed", "unreachable", "no_website", "held_for_review"):
+            rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean")
+            rec.pop("flagged", None)
 def _hours_read(new):
     """A times table was actually read (including an empty table or an explicit closed reading).
     None, or a result with no table, no text and no closed status, was not read."""
@@ -886,6 +916,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     blocked = _jload(os.path.join(R, XC_BLOCK), {}) if R else {}
     own_sites = food_bank_own_sites()
     auto = _jload(os.path.join(R, AUTO_LOG), []) if R else []
+    ot_overrides = load_fb_opening_overrides(R) if kind == "fb" and field == "opening_times" else {}
     # Drop this call's ids only. A later pass over centres added after the main check must not forget the main rows.
     if keep_ids is None:
         new_seen = {k: v for k, v in seen.items() if not k.startswith(kind + ":")}
@@ -896,7 +927,7 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
     im = IR.enabled(rules)
     layer = IR.layer_name(kind)
     def _why_for(i, new, texts, home):
-        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()), own_sites)
+        why = times_gate_reasons(i, kind, field, new, texts, home, seen, blocked, on, run_at, extra.get(i["id"], ()), own_sites, ot_overrides)
         if field in IR.LOCKED_FIELDS:
             why = list(why) + ["phones and council lines are never auto-changed"]
         if IR.reading_is_outage(home, texts):
@@ -926,7 +957,10 @@ def times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at
         if im and plan_block and not why: why = [plan_block]
         if why:
             rec.update(status="held_for_dean", reason="; ".join(why), held=why)
-            _unconfirm(i, kind, field, "own site shows different times; held for Dean")
+            if hand_checked(i, field, ot_overrides):
+                i["times_status"] = "confirmed_by_hand"; i["times_checked"] = today
+            else:
+                _unconfirm(i, kind, field, "own site shows different times; held for Dean")
             held.append((i, rec, new))
             continue
         old = i.get(field)
@@ -1042,13 +1076,14 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
     IR.note(IR.layer_name(kind), sites=n_sites, sites_opened=sum(1 for s, home, pages in got if s and home and home.get("http") == 200))
     src_read = read_sources(items, kind, field, fetcher, render, threads)
     log = {}; cands = []
+    ot_overrides = load_fb_opening_overrides(state_root) if kind == "fb" and field == "opening_times" else {}
     for s, home, pages in got:
         for i in sites[s]:
             src = (i.get(field) or {}).get("source_url") if kind == "fb" and isinstance(i.get(field), dict) else None
             rec = {"site": s, "http": home and home.get("http"), "sha256": home and home.get("sha256"),
                    "etag": home and home.get("etag"), "last_modified": home and home.get("last_modified"), "checked": today}
             if home and home.get("retries"): rec["retries"] = home["retries"]
-            hand = hand_checked(i, field)
+            hand = hand_checked(i, field, ot_overrides)
             def flag_kept(reason):
                 # Protected hand-checked times are never overwritten. A page that cannot be confirmed
                 # is the same flag as a page that disagrees (Dean, 23 Oct 23:37), not a generic review.
@@ -1096,7 +1131,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                 if isinstance(new, dict): rec["evidence"] = new.get("_evidence") or ""
                 i["times_status"] = "confirmed"; i["times_checked"] = today
                 if kind == "fb" and isinstance(i.get(field), dict): i[field] = dict(i[field], checked_date=today)  # re-checked OK on own site: card date advances even when times unchanged (Dean, 23 Oct 10:39)
-            elif st == "changed" and hand_checked(i, field):
+            elif st == "changed" and hand_checked(i, field, ot_overrides):
                 # Protected hand-checked times (Dean, 23 Oct 23:37): never overwritten by the robots, only flagged for review
                 rec.update(status="differs_from_hand_checked", reason="own site now reads differently from the hand-checked times; kept, flagged for Dean",
                            new=new.get("structured") if isinstance(new, dict) else None)
@@ -1146,6 +1181,7 @@ def cross_check_times(items, kind, field, fetcher=fetch_live, today=None, thread
                     extra.setdefault(i["id"], []).append(rs)
     times_gate_apply(cands, kind, field, today, extra, state_root, rules, run_at, keep_ids=[i["id"] for i in items], pending_mode=pending_mode)
     for i in items: i.pop("_orig_times", None)
+    enforce_protected_times(items, kind, field, log, state_root, today)
     return log
 BOILER = re.compile(r"phone lines?|telephone|lines (?:are )?monitored|office hours|office (?:is )?open", re.I)
 def _key(ot):
