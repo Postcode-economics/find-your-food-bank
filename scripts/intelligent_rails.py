@@ -68,6 +68,21 @@ def note_render(ok, layer="foodbanks"):
             slot["render_errors"] = int(slot.get("render_errors") or 0) + 1
 
 
+def every_render_failed(layer="foodbanks"):
+    """This process's render tally only. A line when every attempt failed, else ''.
+
+    A summary left on disk by an earlier run is not consulted, so yesterday's
+    100% figure cannot fail a later run that did not render. Zero attempts is
+    not a failure: nothing needed a browser."""
+    with _lock:
+        stats = dict(_stats.get(layer) or {})
+    att = int(stats.get("render_attempts") or 0)
+    err = int(stats.get("render_errors") or 0)
+    if att > 0 and err == att:
+        return "render errors %d equals render_attempts %d; every headless render failed" % (err, att)
+    return ""
+
+
 def summary_path(root):
     return os.path.join(root or ".", SUMMARY)
 
