@@ -8,6 +8,13 @@ that number is then frozen too. Later changes wait for a reviewed edit of the ba
 
 Council lines follow the same freeze, and a council with no verified out-of-hours
 number has its council line hidden (never a daytime number).
+
+Council-line fields (COUNCIL_FIELDS) are never added, changed, copied or removed by a job
+(Dean, 29 Oct 2026). guard(published=...) keeps the last published bytes of each field.
+A brand-new place has no council line until Dean OKs one. Anything else a refresh proposes
+(the contacts overrides, settle_council, or a baseline that differs from the live file) is held
+for Dean in reports/pending_dean.md. An OK'd change is a reviewed PR that edits the listing file
+and overrides/phone_baseline.json together.
 """
 import json, os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -138,6 +145,11 @@ def consider(item, field, proposed, root=None, via="auto-apply", source="", pers
     data = load(root)
     if data is None or not iid:
         return False
+    if field in COUNCIL_FIELDS:
+        cur = item.get(field)
+        if proposed != cur:
+            hold(root, iid, field, cur, proposed, source, via, item.get("name") or "")
+        return False
     if iid in data["listings"]:
         cur = data["listings"][iid].get(field)
         if proposed == cur:
@@ -159,22 +171,57 @@ def consider(item, field, proposed, root=None, via="auto-apply", source="", pers
         log_new(root, iid, item.get("phone") or proposed, source, via)
     return True
 
-def guard(items, root=None, via="refresh", source="feed refresh", layer="", persist_new=False):
-    """Keep frozen numbers. Returns how many items were held or newly frozen."""
+def live_council(items):
+    """Copy of each published item's council-line fields, taken before anything in the run can touch them."""
+    return {i["id"]: {k: i[k] for k in COUNCIL_FIELDS if k in i} for i in items or [] if isinstance(i, dict) and i.get("id")}
+
+def _by_id(published):
+    if published is None:
+        return None
+    if isinstance(published, dict):
+        return published
+    return live_council(published)
+
+def lock_council(item, pub, rec, root, via="refresh", source="feed refresh"):
+    """Put back the council-line bytes that are live (pub), else the baseline (rec), else none.
+    Every difference is held for Dean. Returns how many fields were held."""
+    ref = pub if pub is not None else (rec or {})
+    iid, name, n = item.get("id"), item.get("name") or "", 0
+    for f in COUNCIL_FIELDS:
+        prop = item.get(f)
+        if f in ref:
+            item[f] = ref[f]
+        else:
+            item.pop(f, None)
+        if prop != ref.get(f) and not (_blank(prop) and _blank(ref.get(f))):
+            hold(root, iid, f, ref.get(f), prop, source, via, name)
+            n += 1
+        if pub is not None and rec is not None and not (_blank(pub.get(f)) and _blank(rec.get(f))) and pub.get(f) != rec.get(f):
+            hold(root, iid, f, pub.get(f), rec.get(f), BASE_NAME, via, name)
+            n += 1
+    return n
+
+def guard(items, root=None, via="refresh", source="feed refresh", layer="", persist_new=False, published=None):
+    """Keep frozen numbers. `published` is the live list (or id map) the council lines are locked to.
+    Returns how many items were held or newly frozen."""
     root = root or ROOT
     data = load(root)
     if data is None:
         return 0
     n = 0
     listings = data["listings"]
+    live = _by_id(published)
     changed_file = False
     for item in items:
         iid = item.get("id")
         if not iid:
             continue
+        n += lock_council(item, live.get(iid) if live is not None else None, listings.get(iid), root, via, source)
         if iid in listings:
             rec = listings[iid]
             for field in FIELDS:
+                if field in COUNCIL_FIELDS:
+                    continue
                 cur = rec.get(field)
                 prop = item.get(field)
                 if _blank(cur) and _blank(prop):

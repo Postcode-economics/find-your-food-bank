@@ -62,6 +62,8 @@ for k, pc in reverse_postcodes(need).items():
         if x["id"] == k: x["postcode"] = pc; x["postcode_note"] = "nearest postcode (postcodes.io)"
 prev = load_js(OUT, "SHELTERS")
 published_items = list((prev or {}).get("items") or [])
+import phone_lock
+LIVE_COUNCIL = phone_lock.live_council(published_items)  # council lines only change through a reviewed PR (Dean, 29 Oct 2026)
 # Verification gate: publish only allowlisted shelters; new finds go to logs/shelters_pending.json.
 VER = load_verified("overrides/shelters_verified.json")
 HE_HINT = "https://homeless.org.uk/homeless-england/"
@@ -117,7 +119,7 @@ import shelter_contacts  # manual numbers/emails + council referral lines (overr
 sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items), "missing_any_number": shelter_contacts.check(items)}
 import phone_lock  # frozen numbers, and no daytime council line without a verified out-of-hours number
 for x in items: phone_lock.settle_council(x)
-phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="shelters", persist_new=not os.environ.get("DRY_RUN"))
+phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="shelters", persist_new=not os.environ.get("DRY_RUN"), published=LIVE_COUNCIL)
 import place_lock
 _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
 restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters", keep_times=_applied_times)

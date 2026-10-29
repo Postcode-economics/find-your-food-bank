@@ -253,10 +253,11 @@ def main():
         print('times check late pass: %d entries' % len(late))
     discover.write_review(discover.times_review(tlog, items), os.path.join(ROOT, 'logs', 'foodbank_times_review.csv'),
                           os.path.join(ROOT, 'logs', 'foodbank_times_review.json'))
-    import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
-    phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')))
-    import place_lock  # published pins and addresses stay; a hand-set override may still correct one
     published = load_prev_items()
+    import phone_lock  # frozen numbers survive the feed; a new id may take its first valid number
+    phone_lock.guard(items, ROOT, via='refresh', source='feed refresh', layer='foodbanks', persist_new=not (os.environ.get('DRY_RUN') or os.environ.get('SAMPLE')),
+                     published=phone_lock.live_council(published))
+    import place_lock  # published pins and addresses stay; a hand-set override may still correct one
     _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get('auto_applied')]
     restored = place_lock.protect(items, published, place_lock.hands(ROOT, 'foodbanks'), ROOT, 'foodbanks', keep_times=_applied_times)
     diff = place_lock.changes(published, items)
