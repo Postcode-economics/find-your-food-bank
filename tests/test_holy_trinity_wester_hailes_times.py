@@ -16,7 +16,7 @@ URL = "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/"
 QUOTE = ("For our Foodbank, no appointments are needed. You can just come on a Tuesday at 2.00pm "
          "and we'll be happy to speak about any help you need.")
 MON_SIG = {"mon": [["09:30", "11:00"]]}
-WED_SIG = {"wed": [["13:00", "13:00"]]}
+WED_SIG = {"wed": [["13:00", "14:00"]]}
 R1, R2 = "2026-10-30T03:00:00+00:00", "2026-10-30T11:00:00+00:00"
 ON = {"times_auto_apply": True}
 
@@ -65,11 +65,10 @@ class HolyTrinityWesterHailes(unittest.TestCase):
         why = TF.strict_checks(KID, found, ITEM, {KID: hand_override()}, seen, 1, self.ks, self.blocked, {})
         self.assertTrue(any("undone by Dean" in w for w in why), why)
         self.assertFalse(any("known skip" in w for w in why), why)
-        self.assertTrue(any("protected" in w for w in why), why)
+        self.assertFalse(any("protected" in w for w in why), why)
 
-    def test_wednesday_foodbank_change_stays_hand_checked_after_two_runs(self):
-        """Dean 28 Oct: a confirmed new time from the org's own page should be able to auto-apply. Today protected=True
-        blocks every auto-apply path even when the new table differs and passes the two-run gate."""
+    def test_wednesday_foodbank_change_auto_applies_after_two_runs(self):
+        """When the org's own page reads a new table on two runs, protected blocks only the old stored table."""
         stored = hand_override()
         json.dump({KID: stored}, open(os.path.join(self.root, "overrides", "opening_times.json"), "w"))
         ks = dict(self.ks)
@@ -77,7 +76,7 @@ class HolyTrinityWesterHailes(unittest.TestCase):
         json.dump(ks, open(os.path.join(self.root, "overrides", "known_sources.json"), "w"))
         fill = " lorem ipsum" * 40
         html = ("<html><body><h1>Foodbank</h1><p>Emergency food parcels. EH14 2SL. "
-                "For our Foodbank, no appointments are needed. You can just come on a Wednesday at 1.00pm "
+                "For our Foodbank, no appointments are needed. You can just come on a Wednesday 1.00pm - 2.00pm "
                 "and we'll be happy to speak about any help you need.</p>" + fill + "</body></html>")
 
         def pg(h):
@@ -99,18 +98,21 @@ class HolyTrinityWesterHailes(unittest.TestCase):
                "website": ITEM["website"] + "/", "opening_times": dict(stored)}]
         D.cross_check_times([dict(x) for x in it], "fb", "opening_times", f, state_root=self.root, rules=ON, run_at=R1)
         log = D.cross_check_times(it, "fb", "opening_times", f, state_root=self.root, rules=ON, run_at=R2)
-        self.assertEqual(log[KID]["status"], "differs_from_hand_checked")
-        self.assertEqual(it[0]["opening_times"]["raw"], RAW)
-        self.assertIsNone(it[0]["opening_times"].get("structured"))
-        auto = os.path.join(self.root, "reports", "times_auto_applied.json")
-        self.assertFalse(os.path.exists(auto) and json.load(open(auto)))
+        self.assertEqual(log[KID]["status"], "changed")
+        self.assertTrue(log[KID].get("auto_applied"))
+        self.assertEqual(it[0]["opening_times"]["structured"], WED_SIG)
+        self.assertEqual(it[0]["times_status"], "updated")
+        auto = json.load(open(os.path.join(self.root, "reports", "times_auto_applied.json")))
+        self.assertTrue(any(e.get("id") == KID and e.get("path") == "cross_check" for e in auto))
+        ot = json.load(open(os.path.join(self.root, "overrides", "opening_times.json")))
+        self.assertEqual(ot[KID]["structured"], WED_SIG)
+        self.assertTrue(ot[KID]["protected"])
 
-        wed = {"raw": "Wednesday 1pm", "status": "TIMES_FOUND", "structured": dict(WED_SIG),
-               "source_url": URL, "fb_mention": True, "reader": "times_finder", "pc_seen": ["EH142SL"]}
+        wed = {"raw": "Wednesday 1pm - 2pm", "status": "TIMES_FOUND", "structured": dict(WED_SIG),
+               "source_url": URL, "fb_mention": True, "reader": "times_finder", "pc_seen": ["EH142SL"], "_run_at": R2}
         seen = {KID: {"sig": json.dumps(WED_SIG, sort_keys=True), "source_url": URL, "run_at": R1}}
-        why = TF.strict_checks(KID, wed, ITEM, {KID: stored}, seen, 1, ks, self.blocked, {})
+        why = TF.strict_checks(KID, wed, ITEM, {KID: ot[KID]}, seen, 1, ks, self.blocked, {})
         self.assertIn("hand-checked times are protected; finder only flags differences", why)
-        self.assertFalse(any("known skip" in w for w in why), why)
 
     def test_protected_text_only_on_map(self):
         e = self.ot[KID]

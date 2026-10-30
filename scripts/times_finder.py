@@ -123,10 +123,8 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None, own_sites=None
     """Reasons a finder result must stay held for Dean. Empty list = it may auto-apply (only if times_auto_apply is ON).
     Each safeguard blocks on its own (tests/test_times_auto_apply.py). blocked: overrides/times_auto_undone.json."""
     why = []
-    stored = cur.get(k) or {}
-    reader = str(stored.get("reader") or "")
-    if stored.get("protected") or reader.startswith("hand-set") or "hand-reviewed" in reader:
-        why.append("hand-checked times are protected; finder only flags differences")
+    w = D.hand_checked_hold_reason(it, "opening_times", ot, overrides=cur, path="finder")
+    if w: why.append(w)
     r = skipped(k, ks)
     if r: why.append("known skip: " + r)
     pc_ok = ot.get("matched_by") == "postcode" or (it.get("postcode") and norm_pc(it["postcode"]) in (ot.get("pc_seen") or []))
@@ -206,6 +204,9 @@ def decide(log, items, apply, rules=None, now=None):
         if why: log["review"].append({"id": k, "name": it.get("name"), "postcode": it.get("postcode"), "proposed": ot.get("raw"), "source_url": ot.get("source_url"), "why": why})
         else:
             clean = {x: v for x, v in ot.items() if not x.startswith("_")}
+            prev_ot = cur.get(k) or {}
+            if D._override_hand_protected(prev_ot):
+                clean = D._merge_hand_override_on_apply(prev_ot, clean)
             dup = any(e.get("id") == k and not e.get("path") and not e.get("reverted") and (e.get("new") or {}).get("structured") == clean.get("structured")
                       and e.get("source_url") == clean.get("source_url") for e in auto)
             if not dup:
