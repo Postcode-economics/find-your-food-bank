@@ -21,9 +21,8 @@ EXCLUDE = (
     ("AL1 5UG", "Vineyard Church"),
 )
 SWEEP_JUNK = re.compile(
-    r"Victory House \(CT17|who a\) have been verified|451100 \(TN34|Merton Housing Advice|"
-    r"Victoria Hall Methodist|Salford|M27 5AW|\(freephone|Mary Rose Court \(RG21|Eastrop Way \(RG21|"
-    r"Vineyard Church \(AL1|YMCA Watford Charter",
+    r"Victory House \(CT17|who a\) have been verified|451100 \(TN34|Merton Civic Centre|Merton Housing Advice|"
+    r"Victoria Hall Methodist|Salford Housing Options|M27 5AW|\(freephone|Vineyard Church \(AL1",
     re.I,
 )
 
@@ -81,8 +80,18 @@ def test_sweep_exclusions():
         assert by_pc[key]["reason"] == reason
 
 
+def _sweep_shelter_block(md):
+    if "<!-- sweep shelters -->" not in md:
+        return ""
+    return md.split("<!-- sweep shelters -->", 1)[1].split("<!-- /sweep shelters -->", 1)[0]
+
+
 def test_pending_dean_sweep_section_cleared():
+    """Sweep exclusions from Dean 30 Oct (#327) must stay out of the live review block; block may list new finds."""
     md = open(os.path.join(ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
-    block = md.split("<!-- /sweep shelters -->", 1)[0].split("Shelter candidates from the sweep", 1)[-1]
-    assert "- none" in block
+    block = _sweep_shelter_block(md)
+    assert "<!-- sweep shelters -->" in md
+    excluded_pcs = {pc.replace(" ", "").upper() for pc, _ in EXCLUDE}
+    for m in re.finditer(r"\(([A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})\)", block):
+        assert m.group(1).replace(" ", "").upper() not in excluded_pcs, m.group(1)
     assert not SWEEP_JUNK.search(block)
