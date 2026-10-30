@@ -6,7 +6,7 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discover as D, times_finder as TF
 
-FX = os.path.join(os.path.dirname(__file__), "fixtures", "holy_trinity_wester_hailes_contact_2026-10-30.html")
+FX = os.path.join(os.path.dirname(__file__), "fixtures", "holy_trinity_wester_hailes_contact_2026-10-30.html.txt")
 KID = "ifan-5b9fd1318a04132921a389-0"
 ITEM = {"id": KID, "name": "Holy Trinity Church, Wester Hailes", "postcode": "EH14 2SL",
         "website": "https://www.holytrinitywesterhailes.org.uk"}
