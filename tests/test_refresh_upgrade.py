@@ -173,7 +173,7 @@ class FirstRunMistakes(unittest.TestCase):
         self.assertTrue(ot is None or ot["status"] == "TIMES_TEXT_ONLY")
     def test_seeded_skips(self):
         K = json.load(open(os.path.join(R, "overrides", "known_sources.json")))
-        for k in ("sunderland/*", "north-ayrshire/st-johns-church", "hope-central/*"): self.assertIn(k, K["skip"])
+        for k in ("sunderland/*", "north-ayrshire/st-johns-church", "hope-central/*", "ifan-5b9fd1318a04132921a389-0"): self.assertIn(k, K["skip"])
     def test_guard_lets_proven_wrong_times_drop_but_keeps_place_and_phone(self):
         import refresh_guard as G
         with mock.patch.object(G, "wrong_times", return_value={"x"}):

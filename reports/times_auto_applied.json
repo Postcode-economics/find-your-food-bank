@@ -370,26 +370,20 @@
   "name": "Holy Trinity Church, Wester Hailes",
   "old": null,
   "new": {
-   "raw": "Mondays 9.30am – 11.00am",
-   "status": "TIMES_FOUND",
-   "structured": {
-    "mon": [
-     [
-      "09:30",
-      "11:00"
-     ]
-    ]
-   },
-   "parsed_from_text": true,
+   "checked_date": "2026-10-30",
+   "raw": "Tuesdays from 2pm, no appointment needed",
    "source_url": "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/",
-   "checked_date": "2026-10-29",
-   "reader": "times_finder",
-   "pc_seen": [
-    "EH142SL"
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "quote": [
+    "For our Foodbank, no appointments are needed. You can just come on a Tuesday at 2.00pm and we'll be happy to speak about any help you need."
    ],
-   "fb_mention": true
+   "reader": "hand-reviewed 2026-10-30 (own site read: contact-supporting-wh foodbank paragraph is Tue 2pm walk-in; Play Café Monday hours in site nav/sidebar are a separate children's activity, not the food bank; Dean approved)",
+   "protected": true
   },
   "source_url": "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/",
+  "hand_reviewed": "2026-10-30",
+  "approved_by": "Dean (Holy Trinity Wester Hailes Play Café hours correction)",
   "first_run_at": "2026-10-29T06:00:48+00:00",
   "second_run_at": "2026-10-29T12:14:14+00:00",
   "revert": "python scripts/times_revert.py ifan-5b9fd1318a04132921a389-0"
