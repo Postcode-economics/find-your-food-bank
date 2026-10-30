@@ -14,6 +14,7 @@ class FindingsReport(unittest.TestCase):
         self.d = tempfile.mkdtemp()
         os.makedirs(os.path.join(self.d, "reports"), exist_ok=True)
         os.makedirs(os.path.join(self.d, "logs"), exist_ok=True)
+        os.makedirs(os.path.join(self.d, "overrides"), exist_ok=True)
         self.posted = []
 
         def fake_post(key, title, body):
@@ -74,6 +75,90 @@ class FindingsReport(unittest.TestCase):
         text = FR.build_report("warmspaces", root=self.d, ref=None, run_started=RUN_START)
         self.assertIn("and 10 more", text)
         self.assertEqual(text.count("- Place"), FR.LINE_CAP)
+
+    def test_emergency_swep_change_lists_section(self):
+        open(os.path.join(self.d, "logs", "discovery_today_shelters.json"), "w").write(
+            json.dumps({"day": "2026-10-30", "added": [], "queued": {}})
+        )
+        open(os.path.join(self.d, "logs", "swep_status.json"), "w").write(
+            json.dumps(
+                {
+                    "run": "2026-10-30",
+                    "changes": [
+                        {
+                            "council": "Swindon Borough Council",
+                            "url": "https://example.gov/swep",
+                            "from": "not active",
+                            "to": "active",
+                            "quote": "SWEP is now active for rough sleepers",
+                        }
+                    ],
+                }
+            )
+        )
+        text = FR.build_report("shelters", root=self.d, ref=None, run_started=RUN_START)
+        self.assertIn("EMERGENCY SHELTERS AND SWEP", text)
+        self.assertIn("Swindon Borough Council", text)
+        self.assertIn("SWEP is now active", text)
+
+    def test_emergency_preview_held_alone_does_not_skip_nothing_new_rule_without_other_news(self):
+        """Held emergency preview items count as news; no 'live on site' listing."""
+        open(os.path.join(self.d, "data.full.js"), "w").write("x=" + json.dumps({"items": []}) + ";")
+        open(os.path.join(self.d, "logs", "discovery_today_foodbanks.json"), "w").write(
+            json.dumps({"day": "2026-10-30", "added": [], "queued": {}})
+        )
+        open(os.path.join(self.d, "reports", "emergency_preview.json"), "w").write(
+            json.dumps({"held": [{"name": "Town Hall rest centre", "tell_dean": "needs OK first"}]})
+        )
+        text = FR.build_report("foodbanks", root=self.d, ref=None, run_started=RUN_START)
+        self.assertIn("Town Hall rest centre", text)
+        self.assertNotIn("live on the site", text.lower())
+        self.assertNotIn("went live", text.lower())
+
+    def test_address_held_listed(self):
+        open(os.path.join(self.d, "data.full.js"), "w").write("x=" + json.dumps({"items": []}) + ";")
+        open(os.path.join(self.d, "logs", "discovery_today_foodbanks.json"), "w").write(
+            json.dumps({"day": "2026-10-30", "added": [], "queued": {}})
+        )
+        tag = "address review foodbanks"
+        block = (
+            "<!-- %s -->\n## Address and pin mismatches (not applied)\n\n"
+            "- address mismatch, held for Dean | hull | address | via refresh | stored Old Street | proposed New Street | unchanged | Hull Foodbank\n"
+            "<!-- /%s -->\n"
+            % (tag, tag)
+        )
+        open(os.path.join(self.d, "reports", "pending_dean.md"), "w").write("# Pending\n\n" + block)
+        text = FR.build_report("foodbanks", root=self.d, ref=None, run_started=RUN_START)
+        self.assertIn("Address or pin held", text)
+        self.assertIn("Hull Foodbank", text)
+
+    def test_swep_unchanged_since_baseline_posts_nothing(self):
+        payload = {
+            "run": "2026-10-30",
+            "changes": [
+                {
+                    "council": "X Council",
+                    "url": "https://x.gov",
+                    "from": "not active",
+                    "to": "active",
+                    "quote": "active now",
+                }
+            ],
+        }
+        p = os.path.join(self.d, "logs", "swep_status.json")
+        open(p, "w").write(json.dumps(payload))
+        open(os.path.join(self.d, "logs", "discovery_today_shelters.json"), "w").write(
+            json.dumps({"day": "2026-10-30", "added": [], "queued": {}})
+        )
+        import subprocess
+
+        subprocess.run(["git", "init", "-q"], cwd=self.d, check=True)
+        subprocess.run(["git", "-C", self.d, "config", "user.email", "t@t.com"], check=True)
+        subprocess.run(["git", "-C", self.d, "config", "user.name", "t"], check=True)
+        subprocess.run(["git", "add", "logs/swep_status.json"], cwd=self.d, check=True)
+        subprocess.run(["git", "commit", "-qm", "base"], cwd=self.d, check=True)
+        ref = subprocess.check_output(["git", "-C", self.d, "rev-parse", "HEAD"], text=True).strip()
+        self.assertIsNone(FR.build_report("shelters", root=self.d, ref=ref, run_started=RUN_START))
 
 
 if __name__ == "__main__":

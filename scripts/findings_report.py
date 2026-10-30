@@ -22,7 +22,11 @@ WORKFLOWS = {
 LAYER_NAMES = {"foodbanks": "Food banks", "shelters": "Shelters", "warmspaces": "Warm spaces", "sweep": "Deep sweep"}
 LINE_CAP = 30
 _SECTION = re.compile(r"(?s)<!-- (?P<tag>[^>]+) -->.*?<!-- /(?P=tag) -->")
-_PENDING_LINE = re.compile(r"^- (.+)$")
+_EMERGENCY = re.compile(
+    r"rest centre|reception centre|evacuation centre|emergency shelter|severe weather emergency|"
+    r"\bSWEP\b|emergency accommodation|rest centre|open tonight",
+    re.I,
+)
 
 
 class ReportError(Exception):
@@ -106,6 +110,21 @@ def section_body(md, tag):
     block = m.group(0)
     inner = block.split("-->", 1)[-1].rsplit("<!--", 1)[0].strip()
     return [ln.strip() for ln in inner.splitlines() if ln.strip().startswith("- ")]
+
+
+def section_tags(md, prefix):
+    return sorted(set(re.findall(r"<!-- (" + re.escape(prefix) + r"[^>]*) -->", md or "")))
+
+
+def _is_emergency(text):
+    return bool(_EMERGENCY.search(text or ""))
+
+
+def _change_key(obj):
+    try:
+        return json.dumps(obj, sort_keys=True, ensure_ascii=False)
+    except Exception:
+        return repr(obj)
 
 
 def pending_ids(blob):
@@ -278,6 +297,157 @@ def phone_lock_new(root, ref):
     return sorted(set(cur) - set(prev))
 
 
+def address_held_new(root, ref):
+    cur_md = _read("reports/pending_dean.md", root)
+    prev_md = _git_show(ref, "reports/pending_dean.md", root) if ref else ""
+    prev_md = prev_md or ""
+    lines = []
+    for tag in section_tags(cur_md, "address review"):
+        lines.extend(sorted(set(section_body(cur_md, tag)) - set(section_body(prev_md, tag))))
+    return lines
+
+
+def swep_changes_new(root, ref):
+    cur = _load("logs/swep_status.json", root) or {}
+    prev = {}
+    if ref:
+        raw = _git_show(ref, "logs/swep_status.json", root)
+        if raw:
+            try:
+                prev = json.loads(raw)
+            except Exception:
+                prev = {}
+    seen = {_change_key(c) for c in (prev.get("changes") or [])}
+    out = []
+    for c in cur.get("changes") or []:
+        if _change_key(c) not in seen:
+            q = (c.get("quote") or "").replace("\n", " ")[:160]
+            url = c.get("url") or ""
+            out.append(
+                f"- {c.get('council', '?')}: {c.get('from', '?')} -> {c.get('to', '?')} — \"{q}\" {url}".strip()
+            )
+    return out
+
+
+def swep_triggered_new(root, ref):
+    cur = _load("logs/swep_triggered.json", root) or {}
+    prev = {}
+    if ref:
+        raw = _git_show(ref, "logs/swep_triggered.json", root)
+        if raw:
+            try:
+                prev = json.loads(raw)
+            except Exception:
+                prev = {}
+    prev_keys = {(r.get("council"), r.get("source_url"), r.get("open_tonight"), r.get("review")) for r in (prev.get("councils") or [])}
+    lines = []
+    for r in cur.get("councils") or []:
+        key = (r.get("council"), r.get("source_url"), r.get("open_tonight"), r.get("review"))
+        if key in prev_keys:
+            continue
+        council = r.get("council") or "?"
+        url = r.get("source_url") or r.get("url") or ""
+        quote = (r.get("quote") or "")[:120]
+        if r.get("open_tonight"):
+            lines.append(f'- {council}: council page says "open tonight" — {url} — "{quote}"')
+        elif r.get("review"):
+            lines.append(f"- {council}: held (unclear council page) — {r.get('review', '')[:120]} — {url}")
+    return lines
+
+
+def emergency_preview_held_new(root, ref):
+    cur = _load("reports/emergency_preview.json", root)
+    if not cur:
+        return []
+    prev = {}
+    if ref:
+        raw = _git_show(ref, "reports/emergency_preview.json", root)
+        if raw:
+            try:
+                prev = json.loads(raw)
+            except Exception:
+                prev = {}
+    prev_names = {(h.get("name"), h.get("tell_dean")) for h in (prev.get("held") or []) if isinstance(h, dict)}
+    lines = []
+    for h in cur.get("held") or []:
+        if not isinstance(h, dict):
+            continue
+        key = (h.get("name"), h.get("tell_dean"))
+        if key in prev_names:
+            continue
+        lines.append(f"- {h.get('name') or '?'}: {h.get('tell_dean') or 'held for Dean'}")
+    return lines
+
+
+def emergency_centres_new(root, ref):
+    path = "overrides/emergency_centres.json"
+    cur = _load(path, root) or {}
+    prev = {}
+    if ref:
+        raw = _git_show(ref, path, root)
+        if raw:
+            try:
+                prev = json.loads(raw)
+            except Exception:
+                prev = {}
+    new_ids = {k for k in cur if not str(k).startswith("_")} - {k for k in prev if not str(k).startswith("_")}
+    lines = []
+    for iid in sorted(new_ids):
+        rec = cur.get(iid) or {}
+        name = rec.get("name") or iid
+        place = rec.get("address") or rec.get("postcode") or "?"
+        lines.append(f"- {name} ({place}) — new in emergency_centres.json (preview only until Dean OKs)")
+    return lines
+
+
+def emergency_candidates_new(root, ref, workflow):
+    lines = []
+    if workflow == "sweep":
+        for ln in sweep_shelter_new(root, ref):
+            if _is_emergency(ln):
+                lines.append(ln if ln.startswith("-") else "- " + ln)
+    for ln in pending_new(root, ref):
+        if _is_emergency(ln):
+            lines.append(ln)
+    for layer in WORKFLOWS.get(workflow, {}).get("layers") or []:
+        for ln in discovery_queued_new(layer, root, ref):
+            if _is_emergency(ln):
+                lines.append(ln)
+    return lines
+
+
+def emergency_section(workflow, root, ref):
+    """Emergency shelters and SWEP — separate from regular shelter/warm-space rows."""
+    blocks = []
+    swep = swep_changes_new(root, ref)
+    if swep:
+        blocks.append(("SWEP switch-on/off this run", swep))
+    triggered = swep_triggered_new(root, ref)
+    if triggered:
+        blocks.append(("Council severe-weather / shelter pages (weather re-check)", triggered))
+    centres = emergency_centres_new(root, ref)
+    if centres:
+        blocks.append(("New emergency shelter records (preview)", centres))
+    candidates = emergency_candidates_new(root, ref, workflow)
+    if candidates:
+        body, extra = cap_lines(candidates)
+        head = f"New emergency shelter candidates ({len(candidates)})"
+        if extra:
+            head += f" — showing {len(body)}, and {extra} more"
+        blocks.append((head, body))
+    held = emergency_preview_held_new(root, ref)
+    if held:
+        blocks.append(("Emergency shelters held or waiting", held))
+    if not blocks:
+        return None
+    out = ["EMERGENCY SHELTERS AND SWEP (separate from regular shelters)", ""]
+    for title, body in blocks:
+        out.append(title)
+        out.extend(body if isinstance(body, list) else [body])
+        out.append("")
+    return "\n".join(out).rstrip()
+
+
 def held_items(root, layers):
     data = _load("reports/intelligent_mode.json", root) or {}
     lines = []
@@ -297,17 +467,6 @@ def held_items(root, layers):
     if extra:
         header += f" — showing {len(lines)}, and {extra} more"
     return [header] + lines if lines else []
-
-
-def swep_changes(root):
-    lr = _load("reports/layers_review.json", root) or {}
-    changes = (lr.get("swep") or {}).get("changes") or []
-    sw = _load("logs/swep_status.json", root) or {}
-    changes = changes or sw.get("changes") or []
-    return [
-        f"- {c.get('council', '?')}: {c.get('from', '?')} -> {c.get('to', '?')}"
-        for c in changes
-    ]
 
 
 def coverage_line(root, layers):
@@ -391,10 +550,17 @@ def build_report(workflow, root=None, ref=None, run_started=None, run_url=None):
             head += f" — showing {len(body)}, and {extra} more"
         sections.append(head + "\n" + "\n".join(body))
 
-    if workflow == "shelters":
-        swep = swep_changes(root)
-        if swep:
-            sections.append("SWEP status changes\n" + "\n".join(swep))
+    addresses = address_held_new(root, ref)
+    if addresses:
+        body, extra = cap_lines(addresses)
+        head = f"Address or pin held this run ({len(addresses)})"
+        if extra:
+            head += f" — showing {len(body)}, and {extra} more"
+        sections.append(head + "\n" + "\n".join(body))
+
+    emerg = emergency_section(workflow, root, ref)
+    if emerg:
+        sections.append(emerg)
 
     if not sections:
         return None
