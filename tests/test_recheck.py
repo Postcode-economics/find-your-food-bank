@@ -36,6 +36,11 @@ class T(unittest.TestCase):
         out = R.recheck_all([E, dict(E, id="x2")], {"x1": OV, "x2": dict(OV, evidence_url="https://example.org/gone")}, {}, log, "ws", fetcher=lambda u: pages[u])
         self.assertTrue(out["x1"]["ok"]); self.assertFalse(out["x2"]["ok"]); self.assertTrue(json.load(open(log))["_run"]["fetched_at"])
     def test_norm_times(self): self.assertEqual(R.norm_times("10.30am to 12pm, 5pm-10am"), {"10:30", "12:00", "17:00", "10:00"})
+    def test_blank_hours_skips_time_match(self):
+        e = dict(E, hours="")
+        ov = dict(OV, day_time_quote="Call Mon-Fri 9am to 5pm")
+        t = PAGE.replace("10.30am to 12noon", "nothing matching office hours")
+        self.assertTrue(R.check(e, ov, pg(text=t), OV["evidence_url"])["ok"])
 if __name__ == "__main__": unittest.main()
 
 class OsmOnly(unittest.TestCase):

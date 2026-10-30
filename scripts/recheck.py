@@ -56,10 +56,19 @@ def schema_errors(x, layer):
     elif h not in ("", None) and not isinstance(h, str): e.append("hours wrong type")
     if layer == "sh":
         if x.get("access_type") not in (None, "open_access", "self_referral", "referral_only"): e.append("access_type invalid")
-        if x.get("access_type") == "referral_only" and "referral" not in (x.get("referral") or "").lower(): e.append("referral requirement not stated")
+        if x.get("access_type") == "referral_only":
+            ref = (x.get("referral") or "").lower()
+            if not any(w in ref for w in ("referral", "refer", "application", "agencies")):
+                e.append("referral requirement not stated")
     if x.get("ended") not in (None, True, False): e.append("ended not boolean")
     if x.get("flag_closed"): e.append("flagged closed")
     return e
+
+def published_hours(entry):
+    h = entry.get("hours")
+    if isinstance(h, dict): return bool(h)
+    return bool(str(h or "").strip())
+
 def norm_times(s):
     """'10.30am', '10:30', '10am' -> {'10:30','10:00'} in 24h (am/pm aware)."""
     out = set(); s = s.lower().replace("noon", "12pm").replace("midday", "12pm")
@@ -103,8 +112,8 @@ def check(entry, ov, page, url=None, prev=None):
     res["referral_found"] = ("referral" in low or "refer" in low) if "referral" in acc else None
     if res["closed_words"]: return dict(res, ok=False, reason="source now says closed/ended")
     if not res["name_found"]: return dict(res, ok=False, reason="source no longer names this place")
-    if want_t and not (want_t & got_t): return dict(res, ok=False, reason="published times not found on source this run")
-    if want_d and not res["days_found"]: return dict(res, ok=False, reason="published days not found on source this run")
+    if published_hours(entry) and want_t and not (want_t & got_t): return dict(res, ok=False, reason="published times not found on source this run")
+    if published_hours(entry) and want_d and not res["days_found"]: return dict(res, ok=False, reason="published days not found on source this run")
     if osm_only(entry):
         # '100% categorically' (Dean, 21 Oct 2026): an entry that came from OpenStreetMap is never published on OSM alone.
         # Its evidence page must be a real (non-OSM) page that shows THIS place's postcode or street address this run.
@@ -134,7 +143,10 @@ def recheck_all(fresh, verified, unverified, log_path, layer=None, fetcher=None)
     out = {}
     for i, (x, ov, u) in jobs.items():
         merged = dict(x); merged.update({k: ov[k] for k in ("address", "postcode", "lat", "lng", "hours", "access_type") if k in ov})
-        if "access" in ov: merged["referral"] = ov["access"]
+        if "access" in ov and not (x.get("referral") or "").strip():
+            merged["referral"] = ov["access"]
+        elif "access" in ov:
+            merged["referral"] = x["referral"]
         if u and "warmwelcome.uk" in u and i not in verified:
             # Tier-2 warm space whose only sign of life is its Warm Welcome listing: the feed itself was re-downloaded
             # this run (the entry is in `fresh`), so the check is that it is still listed and not hidden/ended.

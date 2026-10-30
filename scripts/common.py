@@ -84,6 +84,24 @@ def _hours_since(ts, now):
         return (now - t).total_seconds() / 3600
     except Exception: return None
 
+def infer_shelter_groups(entry, verified=None):
+    """Who-it's-for for hand-verified manual rows when groups were left empty but quote/access state it (Dean 30 Oct 2026)."""
+    if entry.get("groups"):
+        return list(entry["groups"])
+    v = verified or {}
+    if v.get("groups"):
+        return list(v["groups"])
+    blob = " ".join(str(x or "") for x in (entry.get("referral"), v.get("quote"), v.get("access"), entry.get("name"))).lower()
+    if "single homeless adult" in blob:
+        return ["Single adults"]
+    if "rough sleep" in blob or "single homeless" in blob:
+        return ["Single homeless people"]
+    if re.search(r"adults?\s+(over|aged)\s*18", blob) or "adults over 18" in blob:
+        return ["Adults 18+"]
+    if "young people" in blob or re.search(r"aged?\s*18\s*(to|-)\s*30", blob):
+        return ["Young people"]
+    return []
+
 def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=None, valid_until=None, unverified=None, recheck=True, now=None):
     """Returns (published_fresh, filtered_prev). Writes pending list.
     recheck=True: every run re-fetches each entry's source page and only publishes what it confirms (scripts/recheck.py)."""
@@ -116,13 +134,18 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             x = dict(x); x["verified"] = True; x["evidence_url"] = v.get("evidence_url", ""); x["verified_on"] = v.get("verified_on", "")
             for k in ("phone", "address", "access", "postcode", "lat", "lng", "hours", "evidence_name", "scheme_start", "scheme_end", "scheme_dates"):  # pin/address fixes persist nightly
                 if v.get(k): x[k] = v[k]
-            if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             x["tier"] = "verified"
             if grace: x["grace"] = True; x["fetched_at"] = LC[x["id"]]
             elif rc and rc.get("ok"):  # Dean: every successful re-check moves the shown checked date forward
                 x["first_verified_on"] = v.get("verified_on", ""); x["verified_on"] = x["last_verified"] = run_day
             if not grace and rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
             if v.get("access_type"): x["access_type"] = v["access_type"]
+            if not x.get("groups"):
+                g = infer_shelter_groups(x, v)
+                if g:
+                    x["groups"] = g
+                    x["groups_source"] = v.get("evidence_url") or v.get("evidence_name") or ""
+            if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
             pub.append(x)
         elif unverified and x["id"] in unverified and (not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
                 and unverified[x["id"]].get("sign_url") and not x.get("ended") and not x.get("flag_closed"):
