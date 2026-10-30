@@ -80,9 +80,6 @@ Run 2026-10-29. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Wickham and Knowle** (`meon-valley/wickham-and-knowle`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
   why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page
-- **Moorland Foodbank** (`moorland`, TA22 9HL): Thursday 10.30am - 12.30pm | 2nd Thursday of each month 10.30am - 12.30pm  
-  source: https://www.moorlandfoodbank.org.uk/get-help/  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **New Wortley Community Centre Foodbank** (`new-wortley-community-centre`, LS12 1LZ): SATURDAY PM 1:00pm - 3:00pm  
   source: https://www.newwortleycc.org.uk/timetable  
   why: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); day not on the same line as its times on the own-site page

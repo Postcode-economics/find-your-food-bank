@@ -217,6 +217,27 @@
   "revert": "python scripts/times_revert.py community-essentials"
  },
  {
+  "id": "moorland",
+  "name": "Moorland Foodbank",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.",
+   "source_url": "https://www.moorlandfoodbank.org.uk",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "quote": [
+    "You can ask your support worker to contact Moorland Food Bank on your behalf, or contact us direct using the details on the Contact Page. We may ask a little about your circumstances... and, if appropriate, will arrange delivery of a one-off free food parcel. Please bear in mind that this is not an emergency service."
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: get-help / home delivery model only; no walk-in collection hours; finder Thu session text left out; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://www.moorlandfoodbank.org.uk",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py moorland"
+ },
+ {
   "id": "auldhouse-community",
   "name": "Auldhouse Community Foodbank",
   "old": null,

@@ -3,7 +3,8 @@ Bow: walk-in Visit Us and Wednesday open session structured; Click and Collect i
 Neo Community: Food and Supplies Market only; Community Café and club sessions left out.
 Gospel Church: Food Bank Friday 5pm-6pm only from Church weekly schedule.
 St Paul's Pantry: fortnightly foodbank Thu 6:30-7:30 only; church open times left out.
-Community Essentials: book-a-slot online only; no walk-in structured hours."""
+Community Essentials: book-a-slot online only; no walk-in structured hours.
+Moorland: referral/delivery only; no walk-in structured hours."""
 import json, os, sys
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.join(ROOT, 'scripts'))
@@ -14,6 +15,8 @@ FIXED_TEXT = {
                  'https://the-gate-charity.org/contact-us-2/'),
     'community-essentials': ('Book a collection slot online, 1 to 7 days ahead. No walk-ins.',
                              'https://community-essentials.org.uk/food-bank'),
+    'moorland': ('No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.',
+                 'https://www.moorlandfoodbank.org.uk'),
 }
 FIXED_TABLE = {
     'bow': (
@@ -36,7 +39,7 @@ FIXED_TABLE = {
         'https://stpaulsparkside.org.uk/',
         {'thu': [['18:30', '19:30']]}),
 }
-STILL_QUEUED = ['moorland']
+STILL_QUEUED = []
 
 def items():
     s = open(os.path.join(ROOT, 'data.full.js'), encoding='utf-8').read()
@@ -65,6 +68,9 @@ def test_hand_checked_entries_protected_with_quotes():
     ce = OT['community-essentials']
     assert ce['structured'] is None and 'walk-ins' in ce['raw'].lower()
     assert '9:30' not in ce['raw'] and 'Monday' not in ce['raw']
+    ml = OT['moorland']
+    assert ml['structured'] is None and 'walk-ins' in ml['raw'].lower()
+    assert '10.30' not in ml['raw'] and 'Thursday' not in ml['raw']
 
 def test_cards_show_the_hand_checked_times():
     ix = items()
@@ -90,6 +96,10 @@ def test_cards_show_the_hand_checked_times():
     assert ce['status'] == 'TIMES_TEXT_ONLY' and ce.get('structured') is None
     assert ce['raw'] == FIXED_TEXT['community-essentials'][0]
     assert ix['community-essentials']['times_status'] == 'confirmed_by_hand'
+    ml = ix['moorland']['opening_times']
+    assert ml['status'] == 'TIMES_TEXT_ONLY' and ml.get('structured') is None
+    assert ml['raw'] == FIXED_TEXT['moorland'][0]
+    assert ix['moorland']['times_status'] == 'confirmed_by_hand'
 
 def test_refresh_and_finder_treat_them_as_hand_checked():
     import discover, times_finder
