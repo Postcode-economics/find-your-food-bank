@@ -120,6 +120,29 @@ class NoShelterAdds(unittest.TestCase):
         finally: S.extract, S.write_shelter_review = orig_ex, orig_w
         self.assertFalse([a for a in r["added"] if a["layer"] == "shelters"])
         self.assertGreaterEqual(r["shelter_review"], 1)
+    def test_shelter_already_on_map_not_reviewed(self):
+        import tempfile, shutil
+        orig_ex, orig_w = S.extract, S.write_shelter_review
+        got = {}
+        S.write_shelter_review = lambda items, d, pd=None: got.setdefault("items", items)
+        cand = {"name": "Mary Rose Court", "postcode": "RG21 8ZY", "layer": "shelters", "tier": "verified",
+                "source_url": "https://www.basingstoke.gov.uk/homelessness", "address": "x"}
+        S.extract = lambda *a, **k: [dict(cand)]
+        tmp = tempfile.mkdtemp(); ov = os.path.join(tmp, "overrides"); os.makedirs(ov)
+        for l in ("warmspaces", "shelters"):
+            json.dump({}, open(os.path.join(ov, l + "_verified.json"), "w")); json.dump({}, open(os.path.join(ov, l + "_unverified.json"), "w"))
+        json.dump([], open(os.path.join(ov, "warmspaces_manual.json"), "w"))
+        json.dump([{"id": "man-mary-rose-court-basingstoke", "name": "Mary Rose Court (Home Group)", "postcode": "RG21 8ZY",
+                    "lat": 51.26, "lng": -1.09, "website": "https://example.org"}], open(os.path.join(ov, "shelters_manual.json"), "w"))
+        json.dump({}, open(os.path.join(ov, "shelters_verified.json"), "w")); json.dump({}, open(os.path.join(ov, "shelters_unverified.json"), "w"))
+        saved = (S.OV, S.ROOT); S.OV, S.ROOT = ov, tmp
+        try:
+            r = S.run(sources={"lists": [{"url": "https://example.gov.uk/swep", "name": "T", "layer": "shelters", "auto_add": True}], "councils": []},
+                      fetcher=lambda u: {"http": 200, "text": "x"}, geocoder=lambda pcs: {p: {"latitude": 51.26, "longitude": -1.09} for p in pcs}, write=False)
+        finally:
+            S.extract, S.write_shelter_review = orig_ex, orig_w; S.OV, S.ROOT = saved; shutil.rmtree(tmp)
+        self.assertEqual(r["shelter_review"], 0)
+        self.assertEqual(got.get("items", []), [])
     def test_review_section_written(self):
         import tempfile, os as _os
         pd = _os.path.join(tempfile.mkdtemp(), "pending_dean.md"); open(pd, "w").write("# x\n\n<!-- times review -->\nT\n<!-- /times review -->\n")
