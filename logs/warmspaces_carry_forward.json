@@ -1,6 +1,6 @@
 {
- "run": "2026-10-29",
- "run_id": "40957404377.1",
+ "run": "2026-10-30",
+ "run_id": "41008374203.1",
  "review_after_days": 14,
  "carried": [
   {
@@ -9,7 +9,7 @@
    "postcode": "HA1 3LL",
    "carried_since": "2026-10-29",
    "last_confirmed": "2026-10-27",
-   "carried_days": 0,
+   "carried_days": 1,
    "review": false,
    "note": "Not re-confirmed since 2026-10-27 – call before you go",
    "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
@@ -20,11 +20,22 @@
    "postcode": "HX1 2TS",
    "carried_since": "2026-10-29",
    "last_confirmed": "2026-10-26",
-   "carried_days": 0,
+   "carried_days": 1,
    "review": true,
    "note": "Not re-confirmed since 2026-10-26 – call before you go",
    "website_dropped": "https://kingschurchhx.org.uk/",
    "redirects_to": "cornerstonechurchhalifax.co.uk",
+   "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
+  },
+  {
+   "id": "ww-68652450",
+   "name": "The Space at Field Lane Community Hub",
+   "postcode": "HD6 3JT",
+   "carried_since": "2026-10-30",
+   "last_confirmed": "2026-10-29",
+   "carried_days": 0,
+   "review": false,
+   "note": "Not re-confirmed since 2026-10-29 – call before you go",
    "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
   }
  ],

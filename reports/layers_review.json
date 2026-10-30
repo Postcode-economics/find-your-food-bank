@@ -243,10 +243,6 @@
     "reason": "published times not found on source this run"
    },
    {
-    "id": "ww-68737547",
-    "reason": "source unreachable this run (HTTP error)"
-   },
-   {
     "id": "ww-57952222",
     "reason": "source no longer names this place"
    },
@@ -269,6 +265,10 @@
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-68652450",
+    "reason": "source unreachable this run (HTTP 404)"
    },
    {
     "id": "ww-67608542",
