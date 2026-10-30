@@ -9,17 +9,6 @@
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)"
    ],
    "held_on": "2026-10-30"
-  },
-  {
-   "id": "ifan-b595a2208802ba38bef45d-0",
-   "name": "Shipshape Health and Wellbeing",
-   "postcode": "S11 8AE",
-   "source": "https://www.shipshape.org.uk",
-   "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
-    "no verified phone"
-   ],
-   "held_on": "2026-10-30"
   }
  ],
  "warmspaces": [
@@ -68,5 +57,28 @@
    "held_on": "2026-10-30"
   }
  ],
- "shelters": []
+ "shelters": [
+  {
+   "id": "man-hastings-wuth-night-shelter",
+   "name": "Hastings Night Shelter (Warming Up The Homeless)",
+   "postcode": "TN34 1EA",
+   "source": "https://www.hastings.gov.uk/housing/SWEP/",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no sourced 'who it's for'"
+   ],
+   "held_on": "2026-10-30"
+  },
+  {
+   "id": "man-mary-rose-court-basingstoke",
+   "name": "Mary Rose Court (Home Group)",
+   "postcode": "RG21 8ZY",
+   "source": "https://www.basingstoke.gov.uk/homelessness",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no sourced 'who it's for'"
+   ],
+   "held_on": "2026-10-30"
+  }
+ ]
 }
