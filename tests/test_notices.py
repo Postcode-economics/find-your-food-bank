@@ -1,8 +1,14 @@
 import json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-def test_gcg_notice_override():
+def test_gcg_reopened_no_closure_notice():
     d = json.load(open(os.path.join(ROOT, 'overrides', 'foodbank_notices.json')))
-    assert d['gcg']['notice'].startswith('Closed until further notice')
+    assert 'gcg' not in d
+    r = d['_removed']['gcg']
+    assert 'GREAT NEWS' in r['why'] and 'WE HAVE NO BAGS' in r['why']
+    t = open(os.path.join(ROOT, 'data.full.js'), encoding='utf-8').read()
+    items = json.loads(t[t.index('=') + 1:].strip().rstrip(';'))['items']
+    gcg = next(i for i in items if i['id'] == 'gcg')
+    assert 'notice' not in gcg
 def test_build_and_card_use_notice():
     assert 'foodbank_notices.json' in open(os.path.join(ROOT, 'scripts', 'build.py')).read()
     assert 'i.notice?' in open(os.path.join(ROOT, 'index.html')).read()
