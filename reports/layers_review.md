@@ -1,7 +1,7 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 0 · changed 0 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 43
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 38
 
 - OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027
