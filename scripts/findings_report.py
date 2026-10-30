@@ -396,12 +396,12 @@ def build_report(workflow, root=None, ref=None, run_started=None, run_url=None):
         if swep:
             sections.append("SWEP status changes\n" + "\n".join(swep))
 
+    if not sections:
+        return None
+
     cov = coverage_line(root, layers)
     if cov:
         sections.append(cov)
-
-    if not sections:
-        return None
 
     when = datetime.datetime.now(UK).strftime("%d %b %Y %H:%M %Z")
     header = f"## {meta['title']}\n\nTime (UK): {when}\nRun: {run_url}\n"
