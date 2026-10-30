@@ -838,6 +838,10 @@ def _hand_stored_for_gate(i, field, overrides=None):
     return ot if isinstance(ot, dict) else {}
 def hand_checked_hold_reason(i, field, new, overrides=None, path="refresh"):
     """Block re-applying the same structured table as the stored hand-checked value. A different table may pass the gate."""
+    if i.get("manual") and _hours_read(new):
+        if path == "finder":
+            return "manual times are hand-set; finder only flags differences"
+        return "manual times are hand-set; refresh only flags differences"
     if not hand_checked(i, field, overrides): return None
     stored = _hand_stored_for_gate(i, field, overrides)
     new_sig = _tsig((new or {}).get("structured"))

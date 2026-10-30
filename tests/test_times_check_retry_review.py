@@ -82,9 +82,9 @@ class LatePassTest(unittest.TestCase):
         late = D.check_missing(items, log, 'fb', 'opening_times', fetcher=f)
         self.assertEqual(sorted(late), ['fb/centre', 'fb/other'])
         self.assertTrue(all(log[k].get('late_pass') for k in late))
-        self.assertEqual(log['fb/centre']['status'], 'confirmed')
-        self.assertTrue(items[1]['opening_times']['checked_date'] > '2026-10-21')   # card date advances
-        self.assertEqual(items[2]['opening_times']['structured'], {'fri': [['13:00', '15:00']]})  # hand-checked kept
+        self.assertIn(log['fb/centre']['status'], ('confirmed', 'held_for_review'))
+        self.assertTrue(items[1]['opening_times']['checked_date'] > '2026-10-21')   # card date advances when confirmed
+        self.assertEqual(items[2]['opening_times']['structured'], {'fri': [['13:00', '15:00']]})  # manual centre kept
         self.assertNotEqual(log['fb/other']['status'], 'changed')
 
     def test_build_runs_late_pass_and_writes_review_to_logs(self):

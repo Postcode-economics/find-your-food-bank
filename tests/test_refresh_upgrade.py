@@ -91,7 +91,7 @@ class Decide(unittest.TestCase):
     def test_protected_never_overwritten(self):
         prot = {"ex": {"raw": "Tuesday 1pm - 3pm", "protected": True, "reader": "hand-reviewed 2026-10-23"}}
         log, cur, md = self.run_decide({"ex": self.ot()}, [self.it()], cur=prot)
-        self.assertEqual(cur["ex"]["raw"], "Tuesday 1pm - 3pm"); self.assertIn("protected", md)
+        self.assertEqual(cur["ex"]["raw"], "Tuesday 1pm - 3pm"); self.assertIn("2 separate runs", md)
     def test_known_skip(self):
         ks = {"pages": {}, "skip": {"upper-eden": {"reason": "donation bin hours"}}}
         log, cur, md = self.run_decide({"upper-eden": self.ot()}, [self.it("upper-eden")], ks=ks)
@@ -103,7 +103,9 @@ class Protected(unittest.TestCase):
         page = {"http": 200, "final_url": "https://ex.org/", "html": "<p>AB1 2CD Food bank open Friday 9am - 11am</p>", "sha256": "s", "etag": None, "last_modified": None}
         with mock.patch.object(D, "site_pages", return_value=(page, [("https://ex.org/", "AB1 2CD Food bank open Friday 9am - 11am")])):
             log = D.cross_check_times([i], "fb", "opening_times", fetcher=lambda u: page, threads=1)
-        self.assertEqual(i["opening_times"]["raw"], "Tuesday 1pm - 3pm"); self.assertEqual(log["x"]["status"], "differs_from_hand_checked")
+        self.assertEqual(i["opening_times"]["raw"], "Tuesday 1pm - 3pm")
+        self.assertEqual(log["x"]["status"], "held_for_dean")
+        self.assertIn("2 separate runs", log["x"]["reason"])
 class Seeds(unittest.TestCase):
     def test_hand_checked_seeded_and_protected(self):
         O = json.load(open(os.path.join(R, "overrides", "opening_times.json")))
