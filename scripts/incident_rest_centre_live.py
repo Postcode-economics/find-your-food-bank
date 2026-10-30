@@ -124,12 +124,13 @@ def write_public(root=None, state=None, now=None):
     state = state or load_state(os.path.join(root, STATE))
     cards = []
     councils = {}
-    for v in (state.get("incidents") or {}).values():
-        c = v.get("card")
-        if c and not weather_browser_hide(c, now):
-            cards.append(c)
-            if c.get("lad") and c.get("council"):
-                councils[c["lad"]] = c["council"]
+    if public:
+        for v in (state.get("incidents") or {}).values():
+            c = v.get("card")
+            if c and not weather_browser_hide(c, now):
+                cards.append(c)
+                if c.get("lad") and c.get("council"):
+                    councils[c["lad"]] = c["council"]
     payload = {
         "public": public,
         "generated": now.isoformat(timespec="seconds"),

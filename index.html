@@ -452,7 +452,8 @@ try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');
 var c=document.createElement('link');c.rel='stylesheet';c.href='emergency.css';document.head.appendChild(c);
-var s=document.createElement('script');s.setAttribute('data-hm','');s.type='text/plain';s.setAttribute('src','emergency.js');document.body.appendChild(s);}
+if(mode==='preview'){var s=document.createElement('script');s.setAttribute('data-hm','');s.type='text/plain';s.setAttribute('src','emergency.js');document.body.appendChild(s);return}
+var s=document.createElement('script');s.src='emergency.js';document.body.appendChild(s);}
 if(prev){attach('preview');return}
 fetch('incident_rest_centre_live.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
  if(d&&d.public&&(d.cards||[]).length)attach('live');
