@@ -164,6 +164,12 @@ jobs:
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
+      - name: Findings report email (fail-safe)
+        if: always() && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/findings_report.py foodbanks || true
       - name: Alerts + morning digest (point 9, scripts/digest.py)
         # After the publish, so a digest or alert failure never stops the data going out; not continue-on-error, so it turns the run red.
         id: digest
