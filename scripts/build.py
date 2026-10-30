@@ -185,12 +185,12 @@ def main():
             items.append(c); disc['added'].append({'id': c['id'], 'name': c['name'], 'postcode': c['postcode'], **ev})
         else:
             disc['flagged'].append({'id': c['id'], 'name': c['name'], 'postcode': c.get('postcode'), 'website': c.get('website'), 'directory': c.get('directory'), 'reasons': why or r['reasons'], **ev})
-    # Give Food entries that are new since the last published run are logged as added too (Give Food is the primary feed)
+    discovery_added = []
     try:
         prev_ids = {x['id'] for x in load_prev_items()}
         gf_new = [{'id': x['id'], 'name': x.get('name'), 'postcode': x.get('postcode'), 'source_url': 'https://www.givefood.org.uk/needs/at/' + x['id'].split('/')[0] + '/'} for x in items if prev_ids and x['id'] not in prev_ids and not x.get('directory')]
-    except Exception: gf_new = []
-    DR.record('foodbanks', RUN_DAY, gf_new + disc['added'], disc['flagged'], disc['rejected'], source='Give Food + IFAN')
+        discovery_added = gf_new + disc['added']
+    except Exception: pass
     # own-site closure check (own site beats Give Food) - shares this run's page cache
     gone = closure.apply(items, ROOT, fetcher=discover.closure_fetcher)
     if gone: print('omitted as closed on own site:', ', '.join(gone))
@@ -278,6 +278,7 @@ def main():
     ok = auto_rules.approved('foodbanks', ROOT)
     print('place lock:', restored, 'address/pin fields kept;', json.dumps(diff))
     print('new food bank ids: %d, held for Dean: %d, already approved: %d' % (len(new_ids), sum(i not in ok for i in new_ids), sum(i in ok for i in new_ids)))
+    DR.record('foodbanks', RUN_DAY, discovery_added, disc['flagged'], disc['rejected'], source='Give Food + IFAN', publish_new_ids=new_ids)
     try:
         import intelligent_rails as IR
         IR.finish_times(ROOT, 'foodbanks', tlog)
