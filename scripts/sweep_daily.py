@@ -236,6 +236,7 @@ def atomic_dump(obj, path):
     os.replace(tmp, path)
 
 import discovery_rules as DR
+import discover as DISC
 def write_shelter_review(items, d, pd=None):
     """Shelter candidates found by the sweep go ONLY to the review section of reports/pending_dean.md (never the map)."""
     import re as _re
@@ -337,6 +338,12 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
     for e in cands:
         if e["postcode"].replace(" ", "").upper() in EX: continue
         if e["layer"] == "shelters":  # Dean's rule (24 Oct): the sweep never adds shelters to the map, not even as 'Unverified'
+            st = state["shelters"]
+            cand = {"name": e["name"], "postcode": e["postcode"], "website": e.get("source_url")}
+            g = G.get(e["postcode"])
+            if g: cand["lat"], cand["lng"] = g["latitude"], g["longitude"]
+            if is_dup(e["name"], e["postcode"], st["pool"]) or DISC.is_dup(cand, st["pool"]):
+                continue
             shelter_review.append(e); continue
         st = state[e["layer"]]
         if e["tier"] == "pending": report["pending"].append(e); continue
