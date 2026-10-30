@@ -19,6 +19,7 @@ RUNS = ("2026-10-27T03:05:00+00:00", "2026-10-27T11:05:00+00:00", "2026-10-27T19
 
 class CleanChangeAutoApplies(unittest.TestCase):
     def setUp(self):
+        import intelligent_rails as _IR; _IR.reset()  # production processes start with empty rail counters; earlier tests must not leak in
         self.old = os.getcwd(); self.d = tempfile.mkdtemp(); os.chdir(self.d)
         for x in ("logs", "reports", "overrides"): os.makedirs(x)
         self.orig = (F.polite, F.known)
@@ -55,8 +56,12 @@ class CleanChangeAutoApplies(unittest.TestCase):
         self.assertNotIn("path", log[0])
         self.assertIn("AUTO-APPLIED `fb1`", open("reports/pending_dean.md").read())
 
-        third = self.run_(RUNS[2])   # still the same on the site: stays applied, logged once
-        self.assertEqual(third["applied"], ["fb1"]); self.assertEqual(len(json.load(open(F.AUTO_LOG))), 1)
+        third = self.run_(RUNS[2])   # still the same on the site: stays on the map, logged once
+        # With intelligent mode on, a value already published is skipped (not re-applied); with it off it re-applies.
+        import intelligent_rails as _IR
+        self.assertEqual(third["applied"], [] if _IR.enabled() else ["fb1"])
+        self.assertEqual(self.cur()["fb1"]["structured"], {"wed": [["10:00", "12:00"]]})
+        self.assertEqual(len(json.load(open(F.AUTO_LOG))), 1)
 
     def test_new_food_bank_times_with_nothing_stored_apply(self):
         self.run_(RUNS[0]); self.assertEqual(self.run_(RUNS[1])["applied"], ["fb1"])
