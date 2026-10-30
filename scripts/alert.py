@@ -39,29 +39,34 @@ def resolve(key):
     n = find(key)
     if n: gh('issue', 'close', str(n), '--comment', f'Resolved: the next run succeeded. {RUN}')
     summary(f"OK [{key}]" + (f" (closed #{n})" if n else ''))
-def switch_on_title(council, label):
-    return f'Emergency shelter ON: {council} - {label}'
-def find_switch_on(council, label):
-    title = switch_on_title(council, label)
+def switch_on_title(council, label, category=None):
+    extra = f" [{category}]" if category else ""
+    return f'Rest centre / SWEP ON: {council} - {label}{extra}'
+def find_switch_on(council, label, category=None):
+    prefix = switch_on_title(council, label, category).split("[", 1)[0].rstrip()
     r = gh('issue', 'list', '--label', SWITCH_ON_LABEL, '--state', 'open', '--json', 'number,title', '--limit', '1000')
     try:
         items = json.loads(r.stdout or '[]')
     except json.JSONDecodeError as e:
         raise AlertError(f'switch-on issue list not JSON: {e}') from e
-    return next((i['number'] for i in items if i.get('title') == title), None)
-def switch_on_open(council, label, body):
+    exact = switch_on_title(council, label, category)
+    n = next((i['number'] for i in items if i.get('title') == exact), None)
+    if n:
+        return n
+    return next((i['number'] for i in items if (i.get('title') or '').startswith(prefix)), None)
+def switch_on_open(council, label, body, category=None):
     """Per-council SWEP / rest-centre switch-on: one GitHub issue (emailed), deduped while open."""
-    gh('label', 'create', SWITCH_ON_LABEL, '--color', 'B60205', '--description', 'Council emergency shelter switched ON', '--force')
-    title = switch_on_title(council, label)
-    if find_switch_on(council, label):
+    gh('label', 'create', SWITCH_ON_LABEL, '--color', 'B60205', '--description', 'Council rest centre or SWEP switched ON', '--force')
+    title = switch_on_title(council, label, category)
+    if find_switch_on(council, label, category):
         summary(f'SWITCH-ON {title} -> already open (ok)')
         return
     body = f"{body}\n\nRun: {RUN}\nTime (UK): {datetime.datetime.now(ZoneInfo('Europe/London')):%d %b %Y %H:%M}"
     gh('issue', 'create', '--title', title, '--label', SWITCH_ON_LABEL, '--body', body)
     summary(f'SWITCH-ON {title} -> issue created (ok)')
-def switch_on_close(council, label, comment=None):
-    title = switch_on_title(council, label)
-    n = find_switch_on(council, label)
+def switch_on_close(council, label, comment=None, category=None):
+    title = switch_on_title(council, label, category)
+    n = find_switch_on(council, label, category)
     if not n:
         summary(f'SWITCH-ON {title} -> nothing to close')
         return

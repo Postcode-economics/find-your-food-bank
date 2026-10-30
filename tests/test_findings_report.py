@@ -97,7 +97,7 @@ class FindingsReport(unittest.TestCase):
             )
         )
         text = FR.build_report("shelters", root=self.d, ref=None, run_started=RUN_START)
-        self.assertIn("EMERGENCY SHELTERS AND SWEP", text)
+        self.assertIn("INCIDENT REST CENTRES AND SWEP", text)
         self.assertIn("Swindon Borough Council", text)
         self.assertIn("SWEP is now active", text)
 

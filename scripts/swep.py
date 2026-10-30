@@ -75,7 +75,6 @@ def run(fetcher=None, run_day=None, threads=8):
             eso.enrich_page(p, txt, run_day)
         except Exception:
             p["rest_centre"] = p.get("rest_centre")
-        p.pop("_text", None)
         return p
     with cf.ThreadPoolExecutor(threads) as ex: pages = list(ex.map(one, srcs))
     changes = []
@@ -83,13 +82,15 @@ def run(fetcher=None, run_day=None, threads=8):
         o = prev.get(p["url"])
         if o and o["status"] != p["status"] and "active" in (o["status"], p["status"]) or (not o and p["status"] == "active"):
             changes.append({"council": p["council"], "url": p["url"], "from": (o or {}).get("status", "new"), "to": p["status"], "quote": p["quote"]})
-    out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in pages if p["status"] == "active"], "changes": changes, "pages": pages}
-    json.dump(out, open(LOG, "w"), indent=1, ensure_ascii=False)
     try:
         import emergency_switch_on as eso
         eso.apply(prev_pages, pages, run_day=run_day, root=os.getcwd())
     except Exception as e:
         print("emergency_switch_on:", e, file=sys.stderr)
+    for p in pages:
+        p.pop("_text", None)
+    out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in pages if p["status"] == "active"], "changes": changes, "pages": pages}
+    json.dump(out, open(LOG, "w"), indent=1, ensure_ascii=False)
     return out
 def discover(fetcher=None, councils_path="scripts/sweep_sources.json", budget_s=1500):
     """Overnight: scan council sites for SWEP / rough sleeping pages. Adds new URLs to overrides/swep_sources.json."""

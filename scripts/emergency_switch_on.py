@@ -1,4 +1,4 @@
-"""Immediate Dean email when a council emergency shelter switches ON (SWEP or rest centre).
+"""Immediate Dean email when a council incident rest centre or SWEP switches ON.
 
 Uses scripts/alert.py (label emergency-switch-on). Separate from digest weather alerts (key weather).
 Never blocks the refresh."""
@@ -9,12 +9,8 @@ TAG = "emergency switch-on"
 STATE = "logs/emergency_switch_state.json"
 RUN = f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"
 
-REST_OPEN = re.compile(
-    r"\b(rest centre|reception centre|evacuation centre|emergency shelter)\b[^.\n]{0,160}\b("
-    r"is (now )?open|has opened|has been opened|opened|opens)\b",
-    re.I,
-)
-POSTCODE = re.compile(r"\b([A-Z]{1,2}\d[\dA-Z]?\s*\d[A-Z]{2})\b")
+SWEP_LABEL = "Severe weather shelter (SWEP)"
+INCIDENT_LABEL = "INCIDENT rest centre"
 
 
 def _quote_excerpt(quote, limit=320):
@@ -23,12 +19,19 @@ def _quote_excerpt(quote, limit=320):
 
 
 def _location(text):
-    m = POSTCODE.search(text or "")
-    return m.group(1).upper() if m else ""
+    import rest_centre_scan as rcs
+    return rcs.extract_postcode(text)
+
+
+def _alert_label(kind):
+    return SWEP_LABEL if kind == "swep" else INCIDENT_LABEL
 
 
 def rest_centre_activation(text, council, url):
-    """Return an activation dict if visible text says a rest centre / emergency shelter is open."""
+    """Return an activation dict if visible text says a rest centre is open."""
+    import rest_centre_scan as rcs
+    if rcs.is_planning_page(text, url):
+        return None
     try:
         import weather
         ann = weather.parse_announcement(text, council, url)
@@ -43,13 +46,19 @@ def rest_centre_activation(text, council, url):
             "quote": _quote_excerpt(text),
             "url": url,
             "location": ann.get("address") or _location(text),
+            "category_label": INCIDENT_LABEL,
         }
-    m = REST_OPEN.search(text or "")
-    if not m:
+    if not rcs.rest_centre_on(text):
         return None
-    q = _quote_excerpt(text[max(0, m.start() - 40) : m.end() + 120])
-    name = m.group(1).strip().title()
-    return {"kind": "rest_centre", "label": name, "quote": q, "url": url, "location": _location(text)}
+    q = _quote_excerpt(text)
+    return {
+        "kind": "rest_centre",
+        "label": "Rest centre",
+        "quote": q,
+        "url": url,
+        "location": _location(text),
+        "category_label": INCIDENT_LABEL,
+    }
 
 
 def activations_for_page(page, run_day=None):
@@ -65,6 +74,7 @@ def activations_for_page(page, run_day=None):
             "quote": page.get("quote") or _quote_excerpt(text),
             "url": url,
             "location": _location(text),
+            "category_label": SWEP_LABEL,
         }
     rc = page.get("rest_centre")
     if isinstance(rc, dict) and rc.get("active"):
@@ -76,6 +86,7 @@ def activations_for_page(page, run_day=None):
             "quote": rc.get("quote") or _quote_excerpt(text),
             "url": url,
             "location": rc.get("location") or _location(text),
+            "category_label": INCIDENT_LABEL,
         }
     return out
 
@@ -106,8 +117,9 @@ def pending_lines(waiting):
     for key in sorted(waiting):
         w = waiting[key]
         loc = f" ({w['location']})" if w.get("location") else ""
+        cat = w.get("category_label") or _alert_label(w.get("kind"))
         lines.append(
-            f"- **{w['council']}** — {w['label']}{loc} — {w.get('url') or ''} — “{_quote_excerpt(w.get('quote',''), 160)}”"
+            f"- **{w['council']}** — [{cat}] {w['label']}{loc} — {w.get('url') or ''} — “{_quote_excerpt(w.get('quote',''), 160)}”"
         )
     return lines
 
@@ -124,9 +136,9 @@ def sync_pending_dean(waiting, root=None):
     else:
         body = [
             "<!-- %s -->" % TAG,
-            "## Emergency shelter switch-ons (waiting for Dean)",
+            "## Rest centre and SWEP switch-ons (waiting for Dean)",
             "",
-            "Council pages say these are ON. They are not on the map until you OK them. A GitHub issue was also opened for each switch-on.",
+            "Council pages say these are ON. Incident rest centres go live when overrides/emergency_mode.json has public true. A GitHub issue was also opened for each switch-on.",
             "",
         ]
         body.extend(lines)
@@ -140,23 +152,25 @@ def sync_pending_dean(waiting, root=None):
 def open_activation(act, detected_at=None):
     import alert
     loc = act.get("location") or ""
+    cat = act.get("category_label") or _alert_label(act.get("kind"))
     body = "\n".join(
         [
+            f"**Category:** {cat}",
             f"**Council:** {act['council']}",
-            f"**Shelter / centre:** {act['label']}" + (f" ({loc})" if loc else ""),
+            f"**Place:** {act['label']}" + (f" ({loc})" if loc else ""),
             f"**Council wording (excerpt):** “{act.get('quote') or ''}”",
             f"**Source:** {act.get('url') or ''}",
         ]
     )
     if detected_at:
         body += f"\n**Detected (UK):** {detected_at:%d %b %Y %H:%M %Z}"
-    alert.switch_on_open(act["council"], act["label"], body)
+    alert.switch_on_open(act["council"], act["label"], body, category=cat)
 
 
-def close_activation(council, label, comment=None):
+def close_activation(council, label, comment=None, category=None):
     import alert
-    comment = comment or f"Emergency shelter switched OFF (no longer active on the council page). {RUN}"
-    alert.switch_on_close(council, label, comment)
+    comment = comment or f"Switch-off: no longer active on the council page. {RUN}"
+    alert.switch_on_close(council, label, comment, category=category)
 
 
 def transitions(prev_pages, new_pages, run_day=None):
@@ -181,12 +195,20 @@ def apply(prev_pages, new_pages, run_day=None, root=None, detected_at=None):
             waiting[key] = act
         for act in off:
             key = f"{act['council']}|{act['label']}"
-            close_activation(act["council"], act["label"])
+            close_activation(act["council"], act["label"], category=act.get("category_label"))
             waiting.pop(key, None)
         state["waiting"] = waiting
         state["updated"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
         save_state(state, os.path.join(root, STATE))
         sync_pending_dean(waiting, root=root)
+        try:
+            import emergency_live as el
+            pages = []
+            for p in new_pages or []:
+                pages.append(dict(p))
+            el.sync_from_pages(pages, root=root, now=detected_at or datetime.datetime.now(datetime.timezone.utc))
+        except Exception as e:
+            print(f"emergency_live (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
         return {"opened": len(on), "closed": len(off), "waiting": len(waiting)}
     except Exception as e:
         print(f"emergency_switch_on (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
@@ -194,8 +216,13 @@ def apply(prev_pages, new_pages, run_day=None, root=None, detected_at=None):
 
 
 def enrich_page(page, visible_text, run_day=None):
+    import rest_centre_scan as rcs
     page["_text"] = visible_text
-    rc = rest_centre_activation(visible_text, page.get("council") or "", page.get("url") or "")
+    url = page.get("url") or ""
+    if rcs.is_planning_page(visible_text, url):
+        page["rest_centre"] = None
+        return page
+    rc = rest_centre_activation(visible_text, page.get("council") or "", url)
     if rc:
         page["rest_centre"] = {
             "active": True,
