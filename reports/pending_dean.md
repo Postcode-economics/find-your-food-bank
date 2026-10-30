@@ -209,15 +209,15 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
-- **Cafe Oasis** (`ww-64378921`, BL1 6RN): own site now Friday 10:30am - 12:45pm  
-  source: https://www.achurchnearyou.com/church/33204/  
-  why held: source page is not the warm space's own session page (general venue or directory page); day not on the same line as its times on the own-site page
 - **Centenary Methodist Church** (`ww-55475042`, PE21 6NY): own site now Mon-Fri 9.00-1.30pm  
   source: https://www.centenarymethodistchurchboston.org.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; this change was undone by Dean; not re-applied
 - **Community hub** (`ww-57951602`, ME20 7QR): own site now Mon, Wed and Fri 9am-2pm  
   source: https://www.aylesford-church.org.uk  
   why held: this change was undone by Dean; not re-applied
+- **Deptford Lounge** (`ww-57952616`, SE8 4RJ): own site now Monday 9am – 7pm | Tuesday 9am – 7pm | Wednesday 9am – 7pm | Thursday 9am – 7pm | Friday 9am – 7pm | Saturday 9am – 5pm | Sunday 10am – 4pm  
+  source: https://deptfordlounge.org.uk/  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
 - **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
   source: https://gatewayleisure.co.uk/  
   why held: new own-site times look like office/centre hours
@@ -242,9 +242,6 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - **Norton Hive Community Library and Hub** (`ww-55475831`, YO17 9ES): own site now Tuesday 9.30am – 5pm | Wednesday 9.30am – 5pm | Thursday 9.30am – 5pm | Saturday 9.30am – 1pm  
   source: https://nortonhivelibrary.org/  
   why held: source page is not the warm space's own session page (general venue or directory page); this change was undone by Dean; not re-applied
-- **Oasis Hub Hull** (`ww-55472824`, HU5 2NB): own site now Wednesdays and Thursdays 10am until 5pm  
-  source: https://oasishull.org/  
-  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Tue) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
 - **Rainham Foodbank** (`ww-68641659`, RM13 8HT): own site now Mon 12:00 - 15:00; Tue Closed; Wed 12:00 - 15:00; Thu Closed; Fri 12:00 - 15:00; Sat Closed; Sun Closed  
   source: https://rainham.foodbank.org.uk/  
   why held: would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review
@@ -269,6 +266,9 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
   why held: this change was undone by Dean; not re-applied
+- **St Paul's Methodist Centre** (`ww-65437367`, SY23 2NN): own site now Tuesday and Thursday 11am-2pm | Friday 7-9pm | Tuesdays & Thursdays 11:00am - 2:00pm  
+  source: https://www.ceredigionmethodists.org.uk/st-paul  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
