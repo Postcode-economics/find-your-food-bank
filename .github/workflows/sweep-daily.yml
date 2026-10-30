@@ -53,6 +53,7 @@ jobs:
       - name: Validate before publishing (a failure stops the push)
         run: python scripts/validate.py gate
       - name: Commit new entries and the sweep log
+        id: commit
         run: |
           python scripts/stamp.py verify
           bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_sweep.json reports/new_today.md reports/manual_review.md stamp.js overrides/swep_sources.json overrides/opening_times.json logs/times_finder.json logs/times_finder_seen.json reports/times_auto_applied.json reports/pending_dean.md overrides/shelters_manual.json overrides/shelters_verified.json overrides/shelters_unverified.json reports/learning_state.json \
@@ -98,6 +99,12 @@ jobs:
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
+      - name: Findings report email (fail-safe)
+        if: always() && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/findings_report.py sweep || true
       - name: Alert - run failed (nothing new published)
         if: failure()
         env:
