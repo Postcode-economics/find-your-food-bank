@@ -4,7 +4,6 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 ## foodbanks (2)
 
-- Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
 - Shipshape Health and Wellbeing (S11 8AE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.shipshape.org.uk
 
 ## warmspaces (4)
