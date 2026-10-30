@@ -325,7 +325,7 @@ class Rails(unittest.TestCase):
     def test_summary_and_digest(self):
         IR.note("foodbanks", source_pages=1685, source_opened=598, budget_skipped=98)
         data = IR.finish(self.root, "foodbanks", "times", applied=0, held=2, rejected=[{"id": "a", "reasons": ["coverage gate: thin"]}], coverage=IR.merged("foodbanks"))
-        self.assertFalse(data["enabled"])
+        self.assertEqual(data["enabled"], IR.enabled())  # mirrors the live switch (Dean switched it on 30 Oct)
         self.assertEqual(data["layers"]["foodbanks"]["applied"], 0)
         self.assertEqual(data["layers"]["foodbanks"]["held"], 2)
         self.assertTrue(any("598 of 1685" in b for b in data["would_block"]))

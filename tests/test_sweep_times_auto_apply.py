@@ -19,6 +19,7 @@ RUNS = ("2026-10-28T03:05:00+00:00", "2026-10-28T11:05:00+00:00")
 
 class SweepAutoAppliesFoodBankTimes(unittest.TestCase):
     def setUp(self):
+        import intelligent_rails as _IR; _IR.reset()  # production processes start with empty rail counters; earlier tests must not leak in
         self.old = os.getcwd(); self.d = tempfile.mkdtemp(); os.chdir(self.d)
         for x in ("logs", "reports", "overrides"): os.makedirs(x)
         json.dump({}, open("overrides/opening_times.json", "w"))
