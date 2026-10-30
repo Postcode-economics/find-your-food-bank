@@ -706,14 +706,26 @@ def main():
         log.append(dict(name=name, website=u, old=', '.join(sorted(set(curs[x] for x in todo))), new=r['access'] + ' (%d pins)' % len(todo), source=r['final_url'])); stats['flips'] += len(todo)
         note = learning.provenance('voucher/walk-in flips', learning.confidence_for(u, conflicted) if hasattr(learning, "confidence_for") else None, r.get('final_url'), RULES)
         if note: prov.append(dict(note, when=NOW.isoformat()))
-    # (3) new / removed food banks vs last run
-    ids = sorted(i['id'] for i in items if i['type'] == 'foodbank'); prev_ids = set(state.get('ids') or [])
+    # (3) new / removed food banks vs last published data.full.js (entry snapshot), not vs last run's foodbank slugs only
+    ids = {i['id'] for i in items}
+    snap_p = os.path.join(ROOT, 'logs', 'entry_snapshot.json')
+    if os.environ.get('DRY_RUN') and state.get('ids') is not None:
+        prev_ids = set(state.get('ids') or [])
+    elif os.path.isfile(snap_p):
+        try:
+            prev_ids = set(json.load(open(snap_p)))
+            if len(items) < 50 and len(prev_ids) > len(items) * 3:
+                prev_ids = set(state.get('ids') or [])
+        except Exception:
+            prev_ids = set(state.get('ids') or [])
+    else:
+        prev_ids = set(state.get('ids') or [])
     if prev_ids:
-        for x in sorted(set(ids) - prev_ids):
+        for x in sorted(ids - prev_ids):
             i = next(j for j in items if j['id'] == x)
             e = dict(when=NOW.isoformat(), id=x, website=i.get('website') or '', name=i['name'], kind='new food bank', old='not on map', new='added (%s)' % (i.get('postcode') or ''), source=(i.get('own_site_check') or {}).get('final_url') or i.get('website') or i.get('givefood') or '')
             changes.insert(0, e); log.append(e); this_run.append(e)  # held for Dean: logged, not an applied change
-        for x in sorted(prev_ids - set(ids)):
+        for x in sorted(prev_ids - ids):
             e = dict(when=NOW.isoformat(), id=x, website='', name=x, kind='removed', old='on map', new='gone (no longer in the feed / closed on own site / excluded)', source='logs/foodbank_closed.json'); changes.insert(0, e); log.append(e); this_run.append(e)
     # fetch everything (time-boxed; whatever is left is reported, not guessed)
     t0 = time.time(); results = {}
@@ -874,7 +886,7 @@ def main():
                 if kept:
                     apply_access(kept, r, curs, u, name)
                     IR.record_applied('foodbanks', len(kept))
-    if not os.environ.get('SAMPLE'): state['ids'] = ids
+    if not os.environ.get('SAMPLE'): state['ids'] = sorted(ids)
     state['last_run'] = NOW.isoformat()
     wj('source_errors.json', source_errors(sites, results, by_site, NOW.isoformat()))  # point 31: every failed/timed-out source this run, for the digest
     state['retry_queue'] = sorted(u for u in sites if results[u].get('ok') is not True)  # failed or not reached: retried first next run

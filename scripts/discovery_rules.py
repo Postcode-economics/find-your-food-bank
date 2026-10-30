@@ -80,10 +80,48 @@ def apply_dates(c, today):
     if end: c["scheme_end"] = end
     return c
 # ---------- logging: daily 'new today' + manual review queue ----------
-def record(layer, run_day, added=(), queued=(), rejected=(), source="", root=None):
+_LAYER_FILES = {"foodbanks": "data.full.js", "shelters": "shelters.js", "warmspaces": "warmspaces.js"}
+def _items_from_js(path):
+    t = open(path, encoding="utf-8").read()
+    if "data.full.js" in path.replace("\\", "/").split("/")[-1]:
+        t = t[t.index("=") + 1:].strip().rstrip(";")
+    else:
+        t = t[t.index("=") + 1:].strip().rstrip(";")
+    return json.loads(t).get("items") or []
+def published_ids(layer, root=None):
+    """Ids on the map in the last published layer file (the on-disk baseline before this refresh writes)."""
+    try:
+        root = root or ROOT
+        if layer == "sweep":
+            out = set()
+            for k in ("shelters", "warmspaces"):
+                out |= published_ids(k, root)
+            return out
+        rel = _LAYER_FILES.get(layer)
+        if not rel: return set()
+        path = os.path.join(root, rel)
+        if not os.path.isfile(path): return set()
+        return {i["id"] for i in _items_from_js(path) if i.get("id")}
+    except Exception:
+        return set()
+def filter_added(layer, added, root=None, publish_new_ids=None, baseline_ids=None):
+    """Keep only discovery adds that are genuinely new on the published map.
+    publish_new_ids: explicit ids in the new publish but not the previous (food banks, after build.py gates).
+    baseline_ids: optional override for the previous publish (tests); else read published_ids(layer)."""
+    try:
+        added = [a for a in added if a.get("id")]
+        if publish_new_ids is not None:
+            allow = set(publish_new_ids)
+            return [a for a in added if a["id"] in allow]
+        base = set(baseline_ids) if baseline_ids is not None else published_ids(layer, root or ROOT)
+        return [a for a in added if a["id"] not in base]
+    except Exception:
+        return list(added)
+def record(layer, run_day, added=(), queued=(), rejected=(), source="", root=None, publish_new_ids=None, baseline_ids=None):
     """Append this run's results to logs/discovery_today_<layer>.json (reset each UK day) and re-render the reports."""
     try:
         root = root or ROOT
+        added = filter_added(layer, added, root, publish_new_ids=publish_new_ids, baseline_ids=baseline_ids)
         p = os.path.join(root, "logs", "discovery_today_%s.json" % layer)
         try: d = json.load(open(p))
         except Exception: d = {}
