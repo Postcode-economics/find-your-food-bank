@@ -65,6 +65,7 @@ jobs:
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/validate.py gate
       - name: Commit if changed
+        id: commit
         run: |
           bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_shelters.json reports/new_today.md reports/manual_review.md shelters.js logs/shelters_discovery.json logs/shelters_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/shelters_log.json logs/shelters_pending.json logs/shelters_recheck.json logs/shelters_last_confirmed.json reports/shelters_grace.md logs/swep_status.json reports/layers_review.md reports/layers_review.json overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_shelters.md logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md
           # district_cache.json is rewritten by build_seo.py; left unstaged it made 'git pull --rebase' refuse (07:41 + 19:44 23 Oct)
@@ -110,6 +111,12 @@ jobs:
       - name: IndexNow - tell search engines which pages really changed (fail-safe)
         continue-on-error: true
         run: python scripts/indexnow.py "$GITHUB_SHA"
+      - name: Findings report email (fail-safe)
+        if: always() && steps.commit.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/findings_report.py shelters || true
       - name: Alert - run failed (nothing new published)
         if: failure()
         env:
