@@ -33,7 +33,8 @@ class Oct30NewToday(unittest.TestCase):
         open(os.path.join(d, "shelters.js"), "w").write(_git("shelters.js"))
         kept_ws = DR.filter_added("warmspaces", ws_log["added"], d)
         kept_sh = DR.filter_added("shelters", sh_log["added"], d)
-        self.assertEqual(kept_ws, [])
+        self.assertEqual(len(kept_ws), 1)
+        self.assertEqual(kept_ws[0]["name"], "Second Chance Headway Centre")
         self.assertEqual(kept_sh, [])
 
     def test_foodbanks_only_true_publish_diff(self):
