@@ -26726,5 +26726,146 @@
   "source_url": "https://www.ystradgynlaisvc.org.uk/what-we-do/foodbank",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "bow": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Come and see us:\nTuesdays 10 am to 12 pm\nThursdays 10 am to 1 pm",
+   "Open session – Non Tower Hamlets Residents welcome:\nWednesdays 14:00 to 19:00",
+   "Click and Collect:\nTuesdays 1:00 pm to 4:30 pm (Order by 1:00 pm Sunday)\nFridays 8:00 am to 12:00 pm (Order by 9:00 pm Wednesday)"
+  ],
+  "raw": "Tuesdays 10am - 12pm and Thursdays 10am - 1pm (visit us); Wednesdays 2pm - 7pm (open to all). Click and Collect: Tuesdays 1pm - 4:30pm (order by 1pm Sunday); Fridays 8am - 12pm (order by 9pm Wednesday)",
+  "reader": "hand-reviewed 2026-10-29 (own site read: home page footer Sessions; Visit Us and Wednesday open session are walk-in client hours; Click and Collect slots and order deadlines kept in text only, not in the day table; Bethnal Green closed and points to Bow; Dean approved)",
+  "source_url": "https://www.bowfoodbank.org",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "14:00",
+     "19:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "ifan-3c7cb974c7ac6c1966b83c-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Food and Supplies Market:\nMonday: 12pm – 2pm\nTuesday: 12pm – 2pm\nWednesday: 12pm – 2pm\nThursday: Closed\nFriday: 12pm – 2pm\nSaturday: 11am – 1pm"
+  ],
+  "raw": "Food and Supplies Market: Monday 12pm - 2pm; Tuesday 12pm - 2pm; Wednesday 12pm - 2pm; Friday 12pm - 2pm; Saturday 11am - 1pm (Thursday closed)",
+  "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Café, Club Sessions and other programmes left out; Dean approved)",
+  "source_url": "https://www.neocommunity.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
+ },
+ "ifan-9fef48d4f0fd3a3f6896d2-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
+  ],
+  "raw": "Food Bank: Fridays 5pm - 6pm",
+  "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
+  "source_url": "https://www.gcjc.co.uk",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "17:00",
+     "18:00"
+    ]
+   ]
+  }
+ },
+ "ifan-53c68645aa831ab649ac43-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "St Paul's Pantry is our foodbank offering a bag of groceries and essential household items to those in need. Fortnightly on Thursday 6.30 - 7.30 pm in church."
+  ],
+  "raw": "Every other Thursday, 6:30pm to 7:30pm, in church",
+  "reader": "hand-reviewed 2026-10-29 (own site read: home page St Paul's Pantry section; foodbank fortnightly Thu 6:30-7:30 only; Open Church, Lunch Club, Wednesday Club and other church activities left out; Dean approved)",
+  "source_url": "https://stpaulsparkside.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "18:30",
+     "19:30"
+    ]
+   ]
+  },
+  "notes": {
+   "thu": "Fortnightly"
+  }
+ },
+ "community-essentials": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "We are currently running at full capacity. If a day does not show as available, that means we are fully booked. Please do not call... You can only book a time slot between 1-7 days in the future"
+  ],
+  "raw": "Book a collection slot online, 1 to 7 days ahead. No walk-ins.",
+  "reader": "hand-reviewed 2026-10-29 (own site read: /food-bank online Collection Time booker only; no fixed walk-in hours; contact-us Mon-Wed appointment text left out; Dean approved)",
+  "source_url": "https://community-essentials.org.uk/food-bank",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "moorland": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "You can ask your support worker to contact Moorland Food Bank on your behalf, or contact us direct using the details on the Contact Page. We may ask a little about your circumstances... and, if appropriate, will arrange delivery of a one-off free food parcel. Please bear in mind that this is not an emergency service."
+  ],
+  "raw": "No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.",
+  "reader": "hand-reviewed 2026-10-29 (own site read: get-help / home delivery model only; no walk-in collection hours; finder Thu session text left out; Dean approved)",
+  "source_url": "https://www.moorlandfoodbank.org.uk",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  }
 }

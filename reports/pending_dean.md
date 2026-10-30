@@ -29,12 +29,6 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Waltham Abbey Baptist Church** (`3food4u/waltham-abbey-baptist-church`, EN9 1RL): 1st Tuesday of the month 10-2pm | 1st Thursday of the month 11-3pm | Tuesday 11-12:30pm  
   source: https://3food4u.org  
   why: known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday); not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
-- **Bow Foodbank** (`bow`, E3 5ED): Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00  
-  source: https://www.bowfoodbank.org  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 5 separate time blocks read from one page; review only
-- **Community Essentials Foodbank** (`community-essentials`, B92 7HS): Monday to Wednesday 9:30 - 11:30 (appointment only)  
-  source: https://community-essentials.org.uk/contact-us/  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **South Hill Centre** (`dens/south-hill-centre`, HP1 1JF): Monday-Friday 9am-5pm | Monday-Friday 8.30am-6pm  
   source: https://www.dens.org.uk/need-help/need-emergency-food/  
   why: known skip: finder copied Liberty Tea Rooms' times onto Way Inn; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon, Tue, Wed, Thu, Fri given different times in separate blocks on one page; review only
@@ -47,21 +41,9 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Eyres Monsell Club for Young People** (`ifan-3598d68070dfe141274bc6-0`, LE2 9AQ): Monday 6:30am – 9:00pm | Tuesday 6:30am – 9:00pm | Wednesday 6:30am – 9:00pm | Thursday 8:00am – 9:00pm | Friday 8:00am – 8:00pm | Saturday 8:00am – 4:00pm | Sunday 8:00am – 2:00pm | Monday 9:00am – 2:00pm | Tuesday 9:00am – 2:00pm | Wednesday 9:00am – 2:00pm | Thursday 9:00am – 2:00pm | Friday 9:00am – 2:00pm | Saturday 9:00am – 1:00pm  
   source: https://www.eyresmonsellcyp.co.uk/contact-us/  
   why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 13 separate time blocks read from one page; review only
-- **Neo Community** (`ifan-3c7cb974c7ac6c1966b83c-0`, CH42 3YN): Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm  
-  source: https://www.neocommunity.org.uk/  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 10 separate time blocks read from one page; review only
-- **St Paul's Pantry (St Paul's Wimbledon Parkside)** (`ifan-53c68645aa831ab649ac43-0`, SW19 6EW): Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm  
-  source: https://www.stpaulsparkside.org.uk/  
-  why: day not on the same line as its times on the own-site page
 - **Healthy Living Platform** (`ifan-9cf9dd4ce1df051c2c0a59-0`, SW9 7AA): Tuesdays 12-2pm | Thursdays 11-3pm  
   source: https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9  
   why: postcode not matched exactly on the page
-- **The Gospel Church of Jesus Christ** (`ifan-9fef48d4f0fd3a3f6896d2-0`, WC1B 3PP): Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm  
-  source: https://www.gcjc.co.uk/contact  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon, Tue, Wed, Thu, Fri given different times in separate blocks on one page; review only
-- **Lambeth Larder** (`ifan-a2fb0701e0208ee9e642a3-0`, SW9 7QD): Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm | Monday to Friday 9am to 5pm  
-  source: https://www.lambethlarder.org  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: 5 separate time blocks read from one page; review only
 - **Manna (Hatfield) Foodbank** (`manna-hatfield`, AL10 8NA): ... View Project Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service Sunday Service 02. Midweek Service Join us online for bible study: 07:30 pm -8:30 pm (Wednesday)  
   source: https://openheavenshatfield.com/  
   why: day not on the same line as its times on the own-site page
@@ -83,9 +65,6 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Wickham and Knowle** (`meon-valley/wickham-and-knowle`, ): Mon 10AM–12pm  
   source: https://meonvalleyfoodbank.co.uk/  
   why: known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon); postcode not matched exactly on the page
-- **Moorland Foodbank** (`moorland`, TA22 9HL): Thursday 10.30am - 12.30pm | 2nd Thursday of each month 10.30am - 12.30pm  
-  source: https://www.moorlandfoodbank.org.uk/get-help/  
-  why: not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet
 - **New Wortley Community Centre Foodbank** (`new-wortley-community-centre`, LS12 1LZ): SATURDAY PM 1:00pm - 3:00pm  
   source: https://www.newwortleycc.org.uk/timetable  
   why: source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank); day not on the same line as its times on the own-site page
