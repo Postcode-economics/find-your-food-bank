@@ -2,9 +2,10 @@
 
 No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it's for") before it goes on the map.
 
-## foodbanks (1)
+## foodbanks (2)
 
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
+- Shipshape Health and Wellbeing (S11 8AE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.shipshape.org.uk
 
 ## warmspaces (4)
 
@@ -13,8 +14,10 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - North Molton Community Shop (EX36 3HP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28671
 - Warm Space at The Hepworth Wakefield (WF1 5AW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=20139
 
-## shelters (0)
+## shelters (2)
 
+- Hastings Night Shelter (Warming Up The Homeless) (TN34 1EA) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no sourced 'who it's for' - https://www.hastings.gov.uk/housing/SWEP/
+- Mary Rose Court (Home Group) (RG21 8ZY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no sourced 'who it's for' - https://www.basingstoke.gov.uk/homelessness
 
 
 <!-- times review -->

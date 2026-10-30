@@ -375,12 +375,12 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Sussex Edwardian Hotel · TN37 7BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Womens Center M.W.Y.S. & E.F. · L8 2TU — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Glanrafon · CH5 1SA — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED 1625 Independent People - St George's House · BS1 5UP · http://www.1625ip.co.uk — own site has no readable text
+- QUEUED 1625 Independent People - St George's House · BS1 5UP · http://www.1625ip.co.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED a2Dominion - Matilda House · OX4 3LA · https://a2dominion.co.uk/services/Supported-housing — own site unreachable (HTTP 403)
 - QUEUED Action Homeless Leicester · http://www.actionhomeless.org.uk — no valid postcode
 - QUEUED Adullam Homes HA - Bury ABEN (Phase 3) · https://www.bury.gov.uk — no valid postcode
 - QUEUED Adullam Homes HA - Fleet House · http://www.irwellvalleyha.co.uk — no valid postcode
-- QUEUED Alabaré- North Devon · EX39 2AU · http://www.alabare.co.uk — own site has no readable text
+- QUEUED Alabaré- North Devon · EX39 2AU · http://www.alabare.co.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Alabaré - The Andover Foyer Sarum House · http://www.alabare.co.uk — no valid postcode
 - QUEUED Amplius - The New Haven · https://www.longhurst-group.org.uk/search-for-independent-living-extra-care-specialist-housing-and-support/the-new-haven/ — no valid postcode
 - QUEUED Homeless Action - Elm House · FY1 5DA · https://homelessaction.org/ — own site unreachable (HTTP 403)

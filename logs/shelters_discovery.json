@@ -1,8 +1,8 @@
 {
  "run": "2026-10-30",
- "candidates": 62,
- "already_on_map": 5,
- "new": 57,
+ "candidates": 57,
+ "already_on_map": 4,
+ "new": 53,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -12,8 +12,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "7e09ae2ad669d0bdc41edb0e2b83287549a04e5ef082294463106b98dc59027f",
-   "etag": "\"6511-1793333301;;;\"",
+   "sha256": "3fee8fe003686a8feb6d346addbdb86783b2d577b681d01d925df731b4c0bc32",
+   "etag": "\"6568-1793348090;;;\"",
    "last_modified": ""
   },
   {
@@ -24,7 +24,7 @@
    "url": "http://www.amatuk.org",
    "final_url": "https://www.amatuk.org/",
    "http": 200,
-   "sha256": "9872befa69bc23fd272a0428141f6b460348f2e87529ffce8ef51e1d7685e84d",
+   "sha256": "dde385b6e83c9e5e1bcfb7061bda713183eb9058959bc79960b9127cf0f918fb",
    "etag": "",
    "last_modified": ""
   },
@@ -36,7 +36,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "d9cc5a18b327335efbc169f7d534afac1e7803e9de2a991b85c84b33038d9d33",
+   "sha256": "7561351d974c74a246d36bc6798365a04efb473664791bf4b260516bfd2841b2",
    "etag": "",
    "last_modified": ""
   }
@@ -56,7 +56,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "197fb86b1123f9dc8f634bf008e568f868e6137c120c74af524b38ee03aa8172",
+   "sha256": "3d597593a0c121c1f861c8f26ba4d43e5d1e1bf15e01e9252d2ac1308555bc23",
    "etag": "",
    "last_modified": ""
   },
@@ -127,7 +127,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "7be505c4f3bdc9b58f7ff8633f02e2b142769c5ab537202100bea69b706435c1",
+   "sha256": "5b514918efab436a21f2e58470dcbc7ca81ff0431ef1490c052eea391ec9f563",
    "etag": "",
    "last_modified": ""
   },
@@ -180,8 +180,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "a8c10b9d642811ea9fc97b9b2ff38f51a2e0312a7e98bf65cc877ae93ff6b3ec",
-   "etag": "W/\"ebd741841b58dd73a87f80262af12069\"",
+   "sha256": "1c1f32326fee7e8758bb7e24d5956056b09f7446bdad72ddeeedb7ebb531aa00",
+   "etag": "W/\"0820d99e106a4857556dc2ff1c47ffb6\"",
    "last_modified": ""
   },
   {
@@ -198,7 +198,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "afb6f10a6aaf07d25721435eeac7180d3fa1eae4e646ec10f2c566391333dc11",
+   "sha256": "d29166f09fbfcd2dbc104ff6b99bbcd006abccb451e444bc2c5a9df82d51498e",
    "etag": "",
    "last_modified": ""
   },
@@ -659,12 +659,12 @@
    "directory": "Homeless Link",
    "directory_url": "https://homeless.org.uk/homeless-england/service/1625-independent-people-st-georges-house/",
    "reasons": [
-    "own site has no readable text"
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
    "url": "http://www.1625ip.co.uk",
-   "final_url": "http://www.1625ip.co.uk",
+   "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "182e12aa664b855a340dcf91fe084c890729fcc4487bd94f8437da036924496d",
+   "sha256": "65d49ac24560dc97f1bedc54f36a4546aeffbea47131083abc57cb7a52b36200",
    "etag": "",
    "last_modified": ""
   },
@@ -744,14 +744,14 @@
    "directory": "Homeless Link",
    "directory_url": "https://homeless.org.uk/homeless-england/service/alabare-christian-care-alabare-north-devon/",
    "reasons": [
-    "own site has no readable text"
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
    "url": "http://www.alabare.co.uk",
-   "final_url": "http://www.alabare.co.uk",
+   "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "7abf03d70bcaf3b78c1c15bf76a8849b98731f1676c6e219e9a861c75424c0f1",
+   "sha256": "08d53f6135ac2a6b93b502ff17cd09087207812cb7d12dc5e885433e85c96fe4",
    "etag": "",
-   "last_modified": ""
+   "last_modified": "Fri, 30 Oct 2026 00:08:36 GMT"
   },
   {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -819,7 +819,7 @@
    "http": 200,
    "sha256": "99aec91042bdd58b3307f606cde22ff989ffdb9391a34f71d7723f0317c2c9ca",
    "etag": "",
-   "last_modified": "Thu, 29 Oct 2026 23:49:29 GMT"
+   "last_modified": "Fri, 30 Oct 2026 05:52:21 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -869,8 +869,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "df5e882f4d5ac0f7e8f934c951cb144ed7d07990594b975083bcbc41333df7b5",
-   "etag": "W/\"22023-fx/lEgA7QmLElZ9NOW8iK6CykA8\"",
+   "sha256": "481c3fd1c9eb9b54364027943b01da27cdbdf7508b80d26b97ca1fabe635f5da",
+   "etag": "W/\"22015-hCBN0lh/b07rdgOujJapKWkHz+s\"",
    "last_modified": ""
   },
   {
@@ -923,78 +923,6 @@
    "sha256": "74efa9563195f1fc99273a150359aed2f46015d4df38b225c41c9dcc27033e05",
    "etag": "\"167-65e8055870200\"",
    "last_modified": "Fri, 23 Oct 2026 11:32:24 GMT"
-  },
-  {
-   "id": "hl-bromford-charles-england-house",
-   "name": "1625 Independent People - Charles England House",
-   "postcode": "BS15 9TR",
-   "website": "https://www.1625ip.co.uk/",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-charles-england-house/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-bromford-hayward-road-hostel",
-   "name": "Bromford - Hayward Road Hostel",
-   "postcode": "BS15 9TR",
-   "website": "http://www.bromford.co.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-cardinal-hume-centre-hostel",
-   "name": "Cardinal Hume Centre Hostel",
-   "postcode": "",
-   "website": "http://https://www.cardinalhumecentre.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-catalyst-britannia-foyer",
-   "name": "Catalyst - Britannia Foyer",
-   "postcode": "EN8 9XD",
-   "website": "http://www.broxbourne.gov.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
-   "reasons": [
-    "directory link is a council page, not the place's own site",
-    "name says foyer / supported housing / day centre, not an emergency shelter",
-    "own site does not name it",
-    "own site does not show it is a shelter/emergency accommodation",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "550ba106b064e78c5f3db6e611214e513707b07d0af3960fcdd434c05c7b4ee0",
-   "etag": "",
-   "last_modified": ""
   }
  ],
  "rejected": []
