@@ -62,15 +62,11 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+    "reason": "source no longer names this place"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "osm-way-180604493",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -95,10 +91,6 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
-   },
-   {
-    "id": "osm-way-608979359",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -163,18 +155,6 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "robes-winter-night-shelter",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "hab-barnet-winter-night-shelter",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "man-glasgow-city-mission-owc",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    }
   ]
  },
@@ -243,10 +223,6 @@
     "reason": "published times not found on source this run"
    },
    {
-    "id": "ww-68737547",
-    "reason": "source unreachable this run (HTTP error)"
-   },
-   {
     "id": "ww-57952222",
     "reason": "source no longer names this place"
    },
@@ -269,6 +245,10 @@
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-68652450",
+    "reason": "source unreachable this run (HTTP 404)"
    },
    {
     "id": "ww-67608542",
