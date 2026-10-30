@@ -8,6 +8,13 @@ Written by scripts/full_check.py on every 3x-daily refresh.
 - phone_fixes.json: clear new numbers from the bank's own site (single clickable number, seen 2 runs running)
 - full_check_state.json: last run's per-site snapshot used to spot changes
 
+## Rule (30 Oct 2026, Dean): verified items go on without asking
+Recorded in `overrides/auto_apply_rules.json` as `times_finder_rule` and `verified_pending_rule` so every session and refresh carries them.
+
+**Times finder (08:46 GMT):** opening times the times finder finds always go on automatically, with no approval gate. The strict two-run check (identical reads on 2 separate runs from the organisation's own source, plus all other strict gates) is the only safety net; anything that fails it is held, not sent to Dean for approval.
+
+**Verified pending (08:51 GMT):** once an item on the pending list (new places, phone and council-line changes, opening times, shelters) has been hand-checked and verified against its own reliable source by Grok Bot, it goes on without asking Dean again, through a normal reviewed PR with full tests and a live check. Unverified or doubtful items stay held. Refreshes still never change phones or council lines on their own: the phone lock stays; verified changes go in via those PRs.
+
 ## Standing rule (Dean, 23 Oct 2026 23:36)
 Whenever a mistake or a missed source is found, add a regression test for it (tests/test_refresh_upgrade.py) and update
 the refresh logic in the same change. Hand-checked times are protected (`"protected": true` in overrides/opening_times.json):
