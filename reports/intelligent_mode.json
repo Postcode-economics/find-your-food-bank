@@ -5,7 +5,7 @@
    "steps": {
     "times": {
      "applied": 9,
-     "held": 55,
+     "held": 57,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -58,6 +58,16 @@
        "id": "storehouse-melton",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+       ]
+      },
+      {
+       "id": "old-kilpatrick-food-parcels",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -290,6 +300,16 @@
        ]
       },
       {
+       "id": "patch/tenby",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "swindon/st-aldhelms-centre",
        "reasons": [
         "own site lists several centres (12 postcodes); cannot tie one table to this listing",
@@ -411,10 +431,13 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 551,
+      "render_attempts": 546,
       "render_errors": 4,
       "source_pages": 18,
-      "source_opened": 16
+      "source_opened": 16,
+      "budget_skipped": 0,
+      "hours_review_due": 1721,
+      "hours_review_opened": 1051
      },
      "enabled": false
     },
@@ -426,11 +449,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1030,
+      "render_attempts": 1007,
       "render_errors": 5,
       "budget_skipped": 0,
       "hours_review_due": 1721,
-      "hours_review_opened": 1051,
+      "hours_review_opened": 1028,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
@@ -440,7 +463,7 @@
     }
    },
    "applied": 9,
-   "held": 55,
+   "held": 57,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -493,6 +516,16 @@
      "id": "storehouse-melton",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+     ]
+    },
+    {
+     "id": "old-kilpatrick-food-parcels",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -725,6 +758,16 @@
      ]
     },
     {
+     "id": "patch/tenby",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "swindon/st-aldhelms-centre",
      "reasons": [
       "own site lists several centres (12 postcodes); cannot tie one table to this listing",
@@ -846,18 +889,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 1030,
+    "render_attempts": 1007,
     "render_errors": 5,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
     "hours_review_due": 1721,
-    "hours_review_opened": 1051
+    "hours_review_opened": 1028
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": false,
- "generated_at": "2026-10-30T01:02:21+00:00"
+ "generated_at": "2026-10-30T06:44:38+00:00"
 }
