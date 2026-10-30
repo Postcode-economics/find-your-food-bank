@@ -25,7 +25,7 @@ class VisibleText(unittest.TestCase):
         self.assertEqual(st, "not active")
 
 
-class EmergencySwitchOn(unittest.TestCase):
+class IncidentRestCentreSwitchOn(unittest.TestCase):
     def setUp(self):
         self.d = tempfile.mkdtemp()
         self.root = self.d
@@ -90,14 +90,14 @@ class EmergencySwitchOn(unittest.TestCase):
         st = json.load(open(os.path.join(self.d, "logs", "swep_status.json")))
         self.assertIn("Test Council", st["active"])
         pd = open(os.path.join(self.d, "reports", "pending_dean.md")).read()
-        self.assertIn("emergency switch-on", pd)
+        self.assertIn("rest centre switch-on", pd)
         self.assertIn("Test Council", pd)
-        creates = [c for c in self.gh_calls() if c.startswith("issue create --title Rest centre / SWEP ON:")]
+        creates = [c for c in self.gh_calls() if c.startswith("issue create --title Incident rest centre or SWEP switch-on:")]
         self.assertEqual(len(creates), 1)
 
     def test_staying_on_no_second_issue(self):
         self.run_swep("<p>SWEP is now active tonight.</p>", prev_status="unknown")
-        self.env["GH_LIST"] = '[{"number": 1, "title": "Rest centre / SWEP ON: Test Council - SWEP [Severe weather shelter (SWEP)]"}]'
+        self.env["GH_LIST"] = '[{"number": 1, "title": "Incident rest centre or SWEP switch-on: Test Council - SWEP [Severe weather shelter (SWEP)]"}]'
         n0 = len([c for c in self.gh_calls() if "issue create" in c])
         self.run_swep("<p>SWEP is now active tonight still.</p>", prev_status="active")
         n1 = len([c for c in self.gh_calls() if "issue create" in c])
@@ -107,7 +107,7 @@ class EmergencySwitchOn(unittest.TestCase):
         self.run_swep("<p>SWEP is now active tonight.</p>", prev_status="unknown")
         old = os.environ.copy()
         os.environ.update(self.env)
-        os.environ["GH_LIST"] = '[{"number": 5, "title": "Rest centre / SWEP ON: Test Council - SWEP [Severe weather shelter (SWEP)]"}]'
+        os.environ["GH_LIST"] = '[{"number": 5, "title": "Incident rest centre or SWEP switch-on: Test Council - SWEP [Severe weather shelter (SWEP)]"}]'
         try:
             self.run_swep("<p>SWEP has been stood down.</p>", prev_status="active")
         finally:
@@ -130,9 +130,9 @@ class EmergencySwitchOn(unittest.TestCase):
             os.chdir(cwd)
 
     def test_flood_rest_centre_counts_as_on(self):
-        import emergency_switch_on as eso
+        import incident_rest_centre_switch_on as irso
         text = "Due to flooding, the rest centre at Riverside Hall PO21 1XY has been opened for residents."
-        act = eso.rest_centre_activation(text, "Arun District Council", "https://example.gov.uk/emergency")
+        act = irso.rest_centre_activation(text, "Arun District Council", "https://example.gov.uk/incident-plan")
         self.assertIsNotNone(act)
         self.assertEqual(act["kind"], "rest_centre")
         self.assertIn("opened", act["quote"].lower())

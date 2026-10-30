@@ -1,4 +1,4 @@
-"""Strip non-visible HTML before classifying council pages (SWEP, emergency rest centres)."""
+"""Strip non-visible HTML before classifying council pages (SWEP, incident rest centres)."""
 import re
 
 _COMMENT = re.compile(r"(?s)<!--.*?-->")

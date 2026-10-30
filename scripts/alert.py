@@ -8,7 +8,8 @@ Exits non-zero when gh fails or anything else goes wrong: an alert that could no
 import datetime, json, os, subprocess, sys
 from zoneinfo import ZoneInfo
 LABEL = 'refresh-alert'
-SWITCH_ON_LABEL = 'emergency-switch-on'
+SWITCH_ON_LABEL = 'rest-centre-switch-on'
+LEGACY_SWITCH_ON_LABEL = 'emergency-switch-on'
 RUN = f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"
 class AlertError(Exception): pass
 def gh(*a):
@@ -41,14 +42,19 @@ def resolve(key):
     summary(f"OK [{key}]" + (f" (closed #{n})" if n else ''))
 def switch_on_title(council, label, category=None):
     extra = f" [{category}]" if category else ""
-    return f'Rest centre / SWEP ON: {council} - {label}{extra}'
+    return f'Incident rest centre or SWEP switch-on: {council} - {label}{extra}'
+def _switch_on_issues():
+    items = []
+    for lab in (SWITCH_ON_LABEL, LEGACY_SWITCH_ON_LABEL):
+        r = gh('issue', 'list', '--label', lab, '--state', 'open', '--json', 'number,title', '--limit', '1000')
+        try:
+            items.extend(json.loads(r.stdout or '[]'))
+        except json.JSONDecodeError as e:
+            raise AlertError(f'switch-on issue list not JSON: {e}') from e
+    return items
 def find_switch_on(council, label, category=None):
     prefix = switch_on_title(council, label, category).split("[", 1)[0].rstrip()
-    r = gh('issue', 'list', '--label', SWITCH_ON_LABEL, '--state', 'open', '--json', 'number,title', '--limit', '1000')
-    try:
-        items = json.loads(r.stdout or '[]')
-    except json.JSONDecodeError as e:
-        raise AlertError(f'switch-on issue list not JSON: {e}') from e
+    items = _switch_on_issues()
     exact = switch_on_title(council, label, category)
     n = next((i['number'] for i in items if i.get('title') == exact), None)
     if n:
@@ -56,7 +62,7 @@ def find_switch_on(council, label, category=None):
     return next((i['number'] for i in items if (i.get('title') or '').startswith(prefix)), None)
 def switch_on_open(council, label, body, category=None):
     """Per-council SWEP / rest-centre switch-on: one GitHub issue (emailed), deduped while open."""
-    gh('label', 'create', SWITCH_ON_LABEL, '--color', 'B60205', '--description', 'Council rest centre or SWEP switched ON', '--force')
+    gh('label', 'create', SWITCH_ON_LABEL, '--color', 'B60205', '--description', 'Council incident rest centre or SWEP page switched on', '--force')
     title = switch_on_title(council, label, category)
     if find_switch_on(council, label, category):
         summary(f'SWITCH-ON {title} -> already open (ok)')
@@ -70,7 +76,7 @@ def switch_on_close(council, label, comment=None, category=None):
     if not n:
         summary(f'SWITCH-ON {title} -> nothing to close')
         return
-    comment = comment or f'Emergency shelter switched OFF (no longer active on the council page). {RUN}'
+    comment = comment or f'Incident rest centre or SWEP switched OFF (no longer on the council page). {RUN}'
     gh('issue', 'close', str(n), '--comment', comment)
     summary(f'SWITCH-ON {title} -> closed #{n} (ok)')
 def stale(hours):

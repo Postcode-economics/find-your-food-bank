@@ -71,8 +71,8 @@ def run(fetcher=None, run_day=None, threads=8):
         p = {"council": s["council"], "url": s["url"], "http": r.get("http"), "status": st, "quote": q,
              "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "_text": txt}
         try:
-            import emergency_switch_on as eso
-            eso.enrich_page(p, txt, run_day)
+            import incident_rest_centre_switch_on as irso
+            irso.enrich_page(p, txt, run_day)
         except Exception:
             p["rest_centre"] = p.get("rest_centre")
         return p
@@ -83,10 +83,10 @@ def run(fetcher=None, run_day=None, threads=8):
         if o and o["status"] != p["status"] and "active" in (o["status"], p["status"]) or (not o and p["status"] == "active"):
             changes.append({"council": p["council"], "url": p["url"], "from": (o or {}).get("status", "new"), "to": p["status"], "quote": p["quote"]})
     try:
-        import emergency_switch_on as eso
-        eso.apply(prev_pages, pages, run_day=run_day, root=os.getcwd())
+        import incident_rest_centre_switch_on as irso
+        irso.apply(prev_pages, pages, run_day=run_day, root=os.getcwd())
     except Exception as e:
-        print("emergency_switch_on:", e, file=sys.stderr)
+        print("incident_rest_centre_switch_on:", e, file=sys.stderr)
     for p in pages:
         p.pop("_text", None)
     out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in pages if p["status"] == "active"], "changes": changes, "pages": pages}
@@ -143,9 +143,9 @@ def full(fetcher=None, run_day=None, threads=8):
             st, q = classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
             pg = {"url": u, "http": r.get("http"), "status": st, "quote": q, "rest_centre": None}
             try:
-                import emergency_switch_on as eso
+                import incident_rest_centre_switch_on as irso
                 work = dict(pg, council=c["name"], url=u)
-                eso.enrich_page(work, txt, run_day)
+                irso.enrich_page(work, txt, run_day)
                 pg["rest_centre"] = work.get("rest_centre")
             except Exception:
                 pass
@@ -176,10 +176,10 @@ def full(fetcher=None, run_day=None, threads=8):
             new_full_pages.append(dict(p, council=c.get("council"), url=p.get("url")))
     json.dump({"run": run_day, "coverage": cov, "councils": out}, open(FULL_LOG, "w"), indent=1, ensure_ascii=False)
     try:
-        import emergency_switch_on as eso
-        eso.apply(prev_full_pages, new_full_pages, run_day=run_day, root=os.getcwd())
+        import incident_rest_centre_switch_on as irso
+        irso.apply(prev_full_pages, new_full_pages, run_day=run_day, root=os.getcwd())
     except Exception as e:
-        print("emergency_switch_on:", e, file=sys.stderr)
+        print("incident_rest_centre_switch_on:", e, file=sys.stderr)
     os.makedirs("reports", exist_ok=True)
     with open(FULL_MD, "w") as f:
         f.write("# SWEP daily full check (%s)\n\n%d councils: %d with a SWEP page, %d with a homeless line, %d active, %d flagged.\n\n" % (run_day, cov["councils"], cov["with_swep_page"], cov["with_line"], len(cov["active"]), cov["flagged"]))

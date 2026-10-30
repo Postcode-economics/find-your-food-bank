@@ -1,16 +1,16 @@
-"""Immediate Dean email when a council incident rest centre or SWEP switches ON.
+"""Notify Dean when a council incident rest centre or SWEP page switches on.
 
-Uses scripts/alert.py (label emergency-switch-on). Separate from digest weather alerts (key weather).
+Uses scripts/alert.py (label rest-centre-switch-on). Separate from digest weather alerts (key weather).
 Never blocks the refresh."""
 import datetime, json, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-TAG = "emergency switch-on"
-STATE = "logs/emergency_switch_state.json"
+TAG = "rest centre switch-on"
+STATE = "logs/incident_rest_centre_switch_state.json"
 RUN = f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"
 
 SWEP_LABEL = "Severe weather shelter (SWEP)"
-INCIDENT_LABEL = "INCIDENT rest centre"
+INCIDENT_LABEL = "Rest centres (incidents)"
 
 
 def _quote_excerpt(quote, limit=320):
@@ -138,7 +138,7 @@ def sync_pending_dean(waiting, root=None):
             "<!-- %s -->" % TAG,
             "## Rest centre and SWEP switch-ons (waiting for Dean)",
             "",
-            "Council pages say these are ON. Incident rest centres go live when overrides/emergency_mode.json has public true. A GitHub issue was also opened for each switch-on.",
+            "Council pages say these are ON. Incident rest centres go live when overrides/incident_rest_centre_mode.json has public true. A GitHub issue was also opened for each switch-on.",
             "",
         ]
         body.extend(lines)
@@ -202,16 +202,16 @@ def apply(prev_pages, new_pages, run_day=None, root=None, detected_at=None):
         save_state(state, os.path.join(root, STATE))
         sync_pending_dean(waiting, root=root)
         try:
-            import emergency_live as el
+            import incident_rest_centre_live as live
             pages = []
             for p in new_pages or []:
                 pages.append(dict(p))
-            el.sync_from_pages(pages, root=root, now=detected_at or datetime.datetime.now(datetime.timezone.utc))
+            live.sync_from_pages(pages, root=root, now=detected_at or datetime.datetime.now(datetime.timezone.utc))
         except Exception as e:
-            print(f"emergency_live (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
+            print(f"incident_rest_centre_live (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
         return {"opened": len(on), "closed": len(off), "waiting": len(waiting)}
     except Exception as e:
-        print(f"emergency_switch_on (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
+        print(f"incident_rest_centre_switch_on (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
         return {"error": str(e)}
 
 

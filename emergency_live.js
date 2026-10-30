@@ -1,1 +1,0 @@
-window.emergencyLive={"public":false,"generated":"2026-10-30T00:00:00+00:00","category":"incident_rest_centre","cards":[],"councils":{}};

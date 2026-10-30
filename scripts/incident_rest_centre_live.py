@@ -2,10 +2,10 @@
 import datetime, json, os, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-MODE = "overrides/emergency_mode.json"
-STATE = "logs/emergency_live_state.json"
-OUT_JSON = "emergency_live.json"
-OUT_JS = "emergency_live.js"
+MODE = "overrides/incident_rest_centre_mode.json"
+STATE = "logs/incident_rest_centre_live_state.json"
+OUT_JSON = "incident_rest_centre_live.json"
+OUT_JS = "incident_rest_centre_live.js"
 
 
 def mode_public(root=None):
@@ -139,7 +139,7 @@ def write_public(root=None, state=None, now=None):
     }
     jp = os.path.join(root, OUT_JSON)
     json.dump(payload, open(jp, "w"), indent=1, ensure_ascii=False)
-    js = "window.emergencyLive=" + json.dumps(payload, ensure_ascii=False) + ";\n"
+    js = "window.incidentRestCentreLive=" + json.dumps(payload, ensure_ascii=False) + ";\n"
     open(os.path.join(root, OUT_JS), "w", encoding="utf-8").write(js)
     return payload
 

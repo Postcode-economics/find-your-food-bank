@@ -408,7 +408,7 @@ class Plan(unittest.TestCase):
         self.assertIsNone(off["key"])
         self.assertTrue(off["live_default_unchanged"])
         html = rd("index.html")
-        self.assertIn("emergency_live.json", html)
+        self.assertIn("incident_rest_centre_live.json", html)
         self.assertNotIn("em-card", html)
 
     def test_preview_report_does_not_invent_shelters(self):

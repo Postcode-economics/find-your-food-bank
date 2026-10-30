@@ -447,14 +447,14 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=ha503469c4aa0" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h8e5dca8aa113" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when emergency_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=ha503469c4aa0" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h8e5dca8aa113" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');
 var c=document.createElement('link');c.rel='stylesheet';c.href='emergency.css';document.head.appendChild(c);
 var s=document.createElement('script');s.setAttribute('data-hm','');s.type='text/plain';s.setAttribute('src','emergency.js');document.body.appendChild(s);}
 if(prev){attach('preview');return}
-fetch('emergency_live.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+fetch('incident_rest_centre_live.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
  if(d&&d.public&&(d.cards||[]).length)attach('live');
 }).catch(function(){});
 }catch(e){}})();</script><script>

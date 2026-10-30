@@ -40,7 +40,7 @@ class RestCentreScan(unittest.TestCase):
 
     def test_planning_page_false_positive(self):
         url = "https://council.example/emergency-plan.pdf"
-        text = "Emergency plan and guidance: what to do if we open a rest centre."
+        text = "Rest centre plan and guidance: what to do if we open a rest centre."
         self.assertTrue(R.is_planning_page(text, url))
         self.assertFalse(R.rest_centre_on(text))
 

@@ -1,4 +1,4 @@
-/* Incident rest centres: preview (?preview=emergency) or live (emergency_live.json). Red pins only for incident rest centres.
+/* Incident rest centres: preview (?preview=emergency) or live (incident_rest_centre_live.json). Red pins only for incident rest centres.
    House pictogram: UN OCHA Humanitarian Icons, House.svg, CC0 1.0. */
 (function(){
 var isPreview=document.documentElement.classList.contains('em-preview');
@@ -95,7 +95,7 @@ function applySearch(){var q=document.getElementById('q');document.documentEleme
 var form=document.getElementById('f');if(form)form.addEventListener('submit',function(){setTimeout(applySearch,0)},true);
 hideExpired(root);setInterval(function(){hideExpired(root)},30000);
 window.emPreview={hideExpired:function(){hideExpired(root)},emergencySearch:emergencySearch,goNearest:goNearest,centresForArea:centresForArea,centresForEveryone:function(d){return centresForArea(d,null)},applyData:applyData};
-function load(){var url=isLive?'emergency_live.json':'reports/emergency_preview.json';
+function load(){var url=isLive?'incident_rest_centre_live.json':'reports/emergency_preview.json';
  var bust=location.search.indexOf('fresh=1')>=0?('?t='+Date.now()):'';
  fetch(url+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){if(!data||sample)return;if(isLive&&!data.public)return;applyData(data)}).catch(function(){});}
 if(!sample)load();
