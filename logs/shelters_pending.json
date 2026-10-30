@@ -1,31 +1,5 @@
 [
  {
-  "id": "man-ymca-basingstoke",
-  "name": "YMCA Basingstoke",
-  "first_seen": "2026-10-30",
-  "reason": "omitted this run: published times not found on source this run",
-  "recheck": {
-   "url": "https://www.basingstoke.gov.uk/homelessness",
-   "final_url": "https://www.basingstoke.gov.uk/homelessness",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
-   "http": 200,
-   "sha256": "4e1a59456113efb584f65313bf3fde7164e96e0eb6ea0e85ab2183f36f777511"
-  }
- },
- {
-  "id": "man-ymca-watford-charter",
-  "name": "One YMCA Watford Hostel (Charter House)",
-  "first_seen": "2026-10-30",
-  "reason": "omitted this run: published times not found on source this run",
-  "recheck": {
-   "url": "https://www.stalbans.gov.uk/rough-sleeping",
-   "final_url": "https://www.stalbans.gov.uk/rough-sleeping",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
-   "http": 200,
-   "sha256": "3f38cf0f6029be70578542f143f708d7fc07d81faf2ac9ed30783e3f79f8edc3"
-  }
- },
- {
   "id": "osm-node-839135604",
   "name": "North Hertfordshire Sanctuary",
   "first_seen": "2026-10-26",
@@ -33,7 +7,7 @@
   "recheck": {
    "url": "https://oneymca.org/blog/north-herts-sanctuary/",
    "final_url": "https://oneymca.org/blog/north-herts-sanctuary/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "228f5cfdcf1726305f1ec125ab8a2080db21613d0e1324bdf9dba3f95506071b"
   }
@@ -86,7 +60,7 @@
   "recheck": {
    "url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
    "final_url": "https://www.alongsidecharity.org.uk/service-manvers-street-hostel",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "cd27c64ef4db347d110cb32f46300bf7b4b70344b9e18e05aef28d756f27bce7"
   }
@@ -142,7 +116,7 @@
   "recheck": {
    "url": "https://www.sng.org.uk/rent-or-buy/the-foyer-isle-of-wight",
    "final_url": "https://www.sng.org.uk/rent-or-buy/the-foyer-isle-of-wight",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "180df4a7d9a03ecbbcf64198a4f06bb0d87a89795a0b682438adfe08a829b626"
   }
@@ -155,7 +129,7 @@
   "recheck": {
    "url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
    "final_url": "https://www.fife.gov.uk/facilities/homeless-accommodation/home4good-centre3",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -208,7 +182,7 @@
   "recheck": {
    "url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
    "final_url": "https://www.newport.gov.uk/sites/default/files/media/media-documents/Newport-Directory-of-Housing-Support-Services-2026-2027.pdf",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "038ed60c90b7f3fdb0648d3da2680128c71af1bdee0468c6f7c8a204e8869e73"
   }
@@ -318,7 +292,7 @@
   "recheck": {
    "url": "https://www.hightownha.org.uk/care-support/homeless-services/need-a-bed-tonight/",
    "final_url": "https://www.hightownha.org.uk/care-support/homeless-services/need-a-bed-tonight/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "047771e6ec206a70ef4886dd09254b39f6ceaafe961a02557f159bb3c238ee43"
   }
@@ -352,7 +326,7 @@
   "recheck": {
    "url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
    "final_url": "https://centrepoint.org.uk/sites/default/files/2026-06/Statement%20of%20Purpose%20v8%20June%202026.pdf",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "ce41fb0129cb879d1b07ee61fac7b62af65abf47adf0472088f6ec6a831d84d6"
   }
@@ -387,7 +361,7 @@
   "recheck": {
    "url": "https://www.derbycitymission.org.uk/what-is-safe-space",
    "final_url": "https://www.derbycitymission.org.uk/what-is-safe-space",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "c6ead9005eb6a46c25408bb4b16a48495b3de8842f60356a19d94052259cecf0"
   }
@@ -400,7 +374,7 @@
   "recheck": {
    "url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
    "final_url": "https://www.ymcalondoncan.org/wp-content/uploads/YMCA_LCAN_Service_Descriptions_and_Arrangements_2026.pdf",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "28ed62616a40b02ebb47fd2fdcd781d9c87b93dce85fee6131b015e9134e3859"
   }
@@ -413,7 +387,7 @@
   "recheck": {
    "url": "https://newsroom.moray.gov.uk/news/morays-homelessness-support-partnership-renewed",
    "final_url": "https://newsroom.moray.gov.uk/news/morays-homelessness-support-partnership-renewed",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "a2631b325be9bb2c3a0d22959d82d663b2ab5ef50a1bcaf1b09268a83b0ace4e"
   }
@@ -426,7 +400,7 @@
   "recheck": {
    "url": "https://homelessoxfordshire.uk/our-work/",
    "final_url": "https://homelessoxfordshire.uk/our-work/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "aa2b032087b79a2cea386785fc90048508448f7540ed4d9bc4698ca5d94d2a37"
   }
@@ -502,7 +476,7 @@
   "recheck": {
    "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/the-springs-cambridge",
    "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/the-springs-cambridge",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -515,7 +489,7 @@
   "recheck": {
    "url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
    "final_url": "https://www.evolvehousing.org.uk/wp-content/uploads/2015/10/Burton-White-House-2024.pdf",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "2a850966ecf71c3db4b55fc0761a177b7a455e83c1567078863c19bc4d33db03"
   }
@@ -549,7 +523,7 @@
   "recheck": {
    "url": "https://wirralark.org.uk/supported-accommodation/",
    "final_url": "https://wirralark.org.uk/supported-accommodation/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -646,7 +620,7 @@
   "recheck": {
    "url": "https://www.frameworkha.org/about-us/our-services/",
    "final_url": "https://www.frameworkha.org/about-us/our-services/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -659,7 +633,7 @@
   "recheck": {
    "url": "https://www.turning-tides.org.uk/what-we-do/accommodation/",
    "final_url": "https://www.turning-tides.org.uk/what-we-do/accommodation/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "f8b8bc901adb4e45090fec5b3256774a3641abab8322da9961e72451f2a177ae"
   }
@@ -715,7 +689,7 @@
   "recheck": {
    "url": "https://leicester.gov.uk/your-community/housing/homelessness/temporary-accommodation/the-dawn-centre",
    "final_url": "https://leicester.gov.uk/your-community/housing/homelessness/temporary-accommodation/the-dawn-centre",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -728,7 +702,7 @@
   "recheck": {
    "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
    "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/newbury-house-manchester",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -760,7 +734,7 @@
   "recheck": {
    "url": "https://www.salvationarmyhomes.org.uk/homes/the-limes",
    "final_url": "https://www.salvationarmyhomes.org.uk/homes/the-limes",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "3a1483172a54b50b7e017ab27e3806df1e59e3f595644cd7f995fd12e4a1f3d5"
   }
@@ -773,7 +747,7 @@
   "recheck": {
    "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/support-if-you-are-homeless-or-risk-becoming-homeless",
    "final_url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/support-if-you-are-homeless-or-risk-becoming-homeless",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "6319a5786f32020878776bc1e194c1d8b136b42317b3208452cf397228c05f67"
   }
@@ -807,7 +781,7 @@
   "recheck": {
    "url": "https://www.salvationarmyhomes.org.uk/homes/abbott-lodge",
    "final_url": "https://www.salvationarmyhomes.org.uk/homes/abbott-lodge",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "ecb2f80c38a6b975666c911bd2fd957c63ca5c2579b20dff34ccb4cd528029b2"
   }
@@ -820,7 +794,7 @@
   "recheck": {
    "url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
    "final_url": "https://www.cardiff.gov.uk/ENG/resident/Housing/rough-sleeping/rough-sleeping/Pages/default.aspx",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -874,7 +848,7 @@
   "recheck": {
    "url": "https://anchorhouseperth.org/crieff-rd-accomodation/",
    "final_url": "https://anchorhouseperth.org/crieff-rd-accomodation/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -887,7 +861,7 @@
   "recheck": {
    "url": "https://homeless.org.uk/homeless-england/service/st-mungos-great-guildford-street/",
    "final_url": "https://homeless.org.uk/homeless-england/service/st-mungos-great-guildford-street/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -922,7 +896,7 @@
   "recheck": {
    "url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
    "final_url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "b33871d16911054382e4035c4864e5c2072db73c59eadb34a77f67e315d419f7"
   }
@@ -935,7 +909,7 @@
   "recheck": {
    "url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
    "final_url": "https://www.wrexham.gov.uk/service/wrexham-housing-support-grant-directory/wrexham-housing-support-grant-directory-young",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "b33871d16911054382e4035c4864e5c2072db73c59eadb34a77f67e315d419f7"
   }
@@ -948,7 +922,7 @@
   "recheck": {
    "url": "https://www.keychange.org.uk/wayside-community/",
    "final_url": "https://www.keychange.org.uk/wayside-community/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "014e71aa42a4ce862b9b13e69f095fb5da9d7cadfa5229e18daaf908ca3e92ce"
   }
@@ -961,7 +935,7 @@
   "recheck": {
    "url": "https://homeless.org.uk/homeless-england/service/places-for-people-salford-foyer/",
    "final_url": "https://homeless.org.uk/homeless-england/service/places-for-people-salford-foyer/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -974,7 +948,7 @@
   "recheck": {
    "url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
    "final_url": "https://democracy.chorley.gov.uk/documents/s183376/Appendix%203%20Homelessness%20Review%202024.pdf",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "c9bde17a7f203e9cf8919f7ea6924fc5d0d8b26aabd8fc3f67a21fbd43b9a95a"
   }
@@ -1048,9 +1022,9 @@
   "recheck": {
    "url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
    "final_url": "https://www.unitedwelsh.com/ty-parc-tredegar/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
-   "sha256": "54cb0a522ac015f09cbe94a2f19e45f6fbcc5a2a7bce0b730542c476a4470efc"
+   "sha256": "4944d8e73598efb410b1ce8e7e73027b261fb5047f21bba93e7b5cdee79e331a"
   }
  },
  {
@@ -1125,7 +1099,7 @@
   "recheck": {
    "url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
    "final_url": "https://www.wheatleyhomes-east.com/find-a-home/homelessness-advice/dunedin-harbour-hostel",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -1138,7 +1112,7 @@
   "recheck": {
    "url": "https://www.bethanychristiantrust.com/service/bethany-house/",
    "final_url": "https://www.bethanychristiantrust.com/service/bethany-house/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 200,
    "sha256": "0c19287e912d4334d9b0c8562efb8a0cfea7c5dc0765946b3462d06384329519"
   }
@@ -1151,7 +1125,7 @@
   "recheck": {
    "url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
    "final_url": "https://www.riverside.org.uk/care-and-support-services/supported-housing/wilson-carlile-house-manchester",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -1185,7 +1159,7 @@
   "recheck": {
    "url": "https://homeless.org.uk/homeless-england/service/ymca-lincolnshire-nomad-trust-night-shelter/",
    "final_url": "https://homeless.org.uk/homeless-england/service/ymca-lincolnshire-nomad-trust-night-shelter/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -1198,7 +1172,7 @@
   "recheck": {
    "url": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
    "final_url": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": "error",
    "sha256": ""
   }
@@ -1211,7 +1185,7 @@
   "recheck": {
    "url": "https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/",
    "final_url": "https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/",
-   "fetched_at": "2026-10-30T13:58:26+00:00",
+   "fetched_at": "2026-10-30T14:53:17+00:00",
    "http": 403,
    "sha256": ""
   }

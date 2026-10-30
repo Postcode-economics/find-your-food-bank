@@ -1,6 +1,27 @@
 {
  "shelters.js": {
-  "added": [],
+  "added": [
+   {
+    "id": "man-hastings-wuth-night-shelter",
+    "name": "Hastings Night Shelter (Warming Up The Homeless)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-mary-rose-court-basingstoke",
+    "name": "Mary Rose Court (Home Group)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ymca-basingstoke",
+    "name": "YMCA Basingstoke",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ymca-watford-charter",
+    "name": "One YMCA Watford Hostel (Charter House)",
+    "tier": "verified"
+   }
+  ],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -155,14 +176,6 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-ymca-basingstoke",
-    "reason": "published times not found on source this run"
-   },
-   {
-    "id": "man-ymca-watford-charter",
-    "reason": "published times not found on source this run"
    }
   ]
  },

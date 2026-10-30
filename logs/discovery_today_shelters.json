@@ -28,6 +28,13 @@
    "added": 0,
    "queued": 51,
    "rejected": 0
+  },
+  {
+   "at": "14:53Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 52,
+   "rejected": 0
   }
  ],
  "added": [
@@ -163,7 +170,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "db39caca512a6da2caabe62a30bb5a4b56b2968bf14fc78df8a82663fc77a4a1",
+   "sha256": "983dff3464913914a31aedd113185787907857a67fbc216fa67ba3bf464fb8e4",
    "etag": "",
    "last_modified": ""
   },
@@ -216,8 +223,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "a8c10b9d642811ea9fc97b9b2ff38f51a2e0312a7e98bf65cc877ae93ff6b3ec",
-   "etag": "W/\"ebd741841b58dd73a87f80262af12069\"",
+   "sha256": "2d98ab87b8cebf45b661c4e3a42df4f60adf116e254d86fbece25795abe30d91",
+   "etag": "W/\"b13c060e1ba884cfdf34b5f4e3b137d3\"",
    "last_modified": ""
   },
   "osm-node-12804949354": {
@@ -234,7 +241,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "b6000056126ebb237fd797ea9397febf7288bce9ea25faaf4621783e56be6026",
+   "sha256": "90e17e5e370c3897f220be0cc95ee9467c8919dba0ffe3a72071848fa86ff4e8",
    "etag": "",
    "last_modified": ""
   },
@@ -517,14 +524,15 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site unreachable (HTTP error)"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": 200,
-   "sha256": "8509288dd27ca4166bfd62fdfcc99644ad667483daf92e6013b1f30a0fb1c884",
-   "etag": "",
-   "last_modified": ""
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   "osm-way-699201604": {
    "id": "osm-way-699201604",
@@ -575,8 +583,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "c3614fdc8a3427a82da98ce313ce1abc089f09ef8d82f9f8a7bd6497635b1955",
-   "etag": "W/\"5f173353519647d4ffd3807f56c5ff2e\"",
+   "sha256": "2f1b2fc6e969480acd60a555bda1c48f1410677a4c04c28c56e9710614ea79d5",
+   "etag": "W/\"9f41ffe1fac0611580d38d90d0813758\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {
@@ -700,7 +708,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "01a95629612776d215270d6da128fa497d43cbbf03c5747164d28ec944afd5a1",
+   "sha256": "0bde020b4b95cada8d12426b695467585d8290d37a74ffc7f1a27c80dc9dc094",
    "etag": "",
    "last_modified": ""
   },
@@ -905,8 +913,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "5a43ef5046dea164f2aec14f91ec777d70c76ce43cebc1de6fa7097d6223b080",
-   "etag": "W/\"22015-BaDAD5ll1ED4Rz9Cc5bDklbqz40\"",
+   "sha256": "47c1a750fa03c34851119ee6ab62fd9a88a42a32f1e72111e65caa5aaafa004c",
+   "etag": "W/\"22021-MLbDOLr8tuKVye2+qAItaK+Ewk0\"",
    "last_modified": ""
   },
   "hl-bradford-cyrenians-hostel-for-homeless-men": {
