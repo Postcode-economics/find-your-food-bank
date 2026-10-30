@@ -1,5 +1,5 @@
 {
- "run": "2026-10-29",
+ "run": "2026-10-30",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
@@ -452,14 +452,15 @@
    "pages": [
     {
      "url": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
-     "http": 200,
-     "status": "unknown",
+     "http": 302,
+     "status": "unreachable",
      "quote": ""
     }
    ],
-   "status": "unknown",
+   "status": "unreachable",
    "flags": [
-    "status unreachable -> unknown"
+    "status unknown -> unreachable",
+    "dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 302)"
    ]
   },
   {
