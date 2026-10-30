@@ -136,8 +136,8 @@ def recheck(warnings, councils, sources, fetcher, run_day, threads=8):
         res = {"code": c["code"], "council": c["name"], "alerts": why, "open_tonight": False, "pages": [], "review": None}
         for u in urls:
             r = fetcher(u); h = r.get("html") or r.get("text") or ""
-            txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style).*?</\1>", " ", h))
-            st, q = swep.classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
+            st, q = swep.classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
+            txt = swep.page_text(h)
             res["pages"].append({"url": u, "http": r.get("http"), "status": st, "quote": q, "own_site": own_site(u, c.get("site"))})
         cond = lambda q: re.search(r"\b(if|when|whenever|until|will be updated)\b", q or "", re.I)   # e.g. "updated if SWEP is activated" is not an activation
         good = [p for p in res["pages"] if p["status"] == "active" and p["own_site"] and not cond(p["quote"])]
