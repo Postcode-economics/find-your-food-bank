@@ -25,7 +25,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - warmspaces: Voluntary Action Islington warm spaces list: 50
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
 - own site salvationarmy.org.uk: 54.2
-- IFAN: 54.9
+- IFAN: 56.8
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1
@@ -38,12 +38,13 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site edinburghnefoodbank.com: 60
 - own site bristolnorthwestfoodbank.org.uk: 60
 - own site soarvalleyoutreach.org.uk: 62.5
-- Give Food (independent): 63.7
+- Give Food (independent): 63.6
 - own site stratforduponavon.foodbank.org.uk: 70
 - own site warwickdistrict.foodbank.org.uk: 71.5
 - own site gloucester.foodbank.org.uk: 71.5
 - own site waveney.foodbank.org.uk: 75
 - own site edinburghfoodproject.org: 75
+- shelters: Manual (verified from source pages): 80
 - own site horshamdistrict.foodbank.org.uk: 83.3
 - own site lincolnlarder.co.uk: 83.3
 - own site westlothian.foodbank.org.uk: 85
@@ -68,7 +69,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site restorenorthampton.org.uk: 91.7
 - own site bournemouth.foodbank.org.uk: 91.7
 - own site wirral.foodbank.org.uk: 91.7
-- shelters: Manual (verified from source pages): 91.7
 - shelters: Homeless Link Find help + 2026 corroboration: 91.7
 - own site swansea.foodbank.org.uk: 92.8
 - own site eastbristol.foodbank.org.uk: 92.8
