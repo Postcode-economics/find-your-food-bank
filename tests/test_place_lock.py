@@ -82,10 +82,10 @@ class Protect(unittest.TestCase):
         self.assertNotIn("hit.update(", own)
 
     def test_hand_set_times_cannot_pass_the_finder(self):
-        ot = {"structured": {"mon": [["10:00", "12:00"]]}, "status": "TIMES_FOUND", "source_url": "https://x.org/",
-              "raw": "Monday 10:00 - 12:00", "pc_seen": ["AB12CD"], "fb_mention": True, "reader": "times_finder"}
+        ot = {"structured": {"tue": [["09:00", "10:00"]]}, "status": "TIMES_FOUND", "source_url": "https://x.org/",
+              "raw": "Tuesday 9-10", "pc_seen": ["AB12CD"], "fb_mention": True, "reader": "times_finder", "_run_at": "b"}
         why = TF.strict_checks("west", ot, {"id": "west", "postcode": "AB1 2CD", "website": "https://x.org/", "name": "West", "foodbank": "West"},
-                                {"west": {"protected": True, "reader": "hand-set 2026-10-24", "structured": {"tue": [["09:00", "10:00"]]}, "status": "TIMES_FOUND"}},
+                                {"west": {"protected": True, "reader": "hand-set 2026-10-24", "structured": {"tue": [["09:00", "10:00"]]}, "status": "TIMES_FOUND", "source_url": "https://x.org/"}},
                                 {"west": {"sig": json.dumps(ot["structured"]), "source_url": "https://x.org/", "run_at": "a"}},
                                 1, {"skip": {}}, {}, {})
         self.assertTrue(any("hand-checked" in w for w in why), why)

@@ -47,19 +47,28 @@ class Gate(unittest.TestCase):
         self.assertTrue(json.load(open(os.path.join(self.root, "reports", "times_auto_applied.json")))[0]["reverted"])
         it3 = [item()]; l3 = self.run1(it3, fetch({"https://x.org/": pg(html())}), "2026-10-27T19:00:00+00:00")   # undone: never re-applied
         self.assertEqual(l3["a"]["status"], "held_for_dean"); self.assertIn("undone by Dean", l3["a"]["reason"]); self.assertEqual(it3[0]["opening_times"], OLD)
-    def test_hand_set_times_are_kept(self):
+    def test_hand_set_same_table_held_new_table_applies(self):
         stored = dict(OLD, reader="hand-set 2026-10-24 (Dean; church calendar, temporary venue)", protected=True)
         it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=[item(opening_times=stored)])
-        self.assertEqual(log["a"]["status"], "differs_from_hand_checked")
+        self.assertEqual(log["a"]["status"], "changed")
+        self.assertTrue(log["a"].get("auto_applied"))
+        self.assertEqual(it[0]["opening_times"]["structured"], NEW_ST)
+        self.assertTrue(os.path.exists(os.path.join(self.root, "reports", "times_auto_applied.json")))
+
+    def test_hand_set_same_table_on_two_runs_is_held(self):
+        stored = dict(OLD, reader="hand-set 2026-10-24 (Dean; church calendar, temporary venue)", protected=True)
+        it, log = self.twice(fetch({"https://x.org/": pg(html("Tuesday 10am - 12pm"))}), it=[item(opening_times=stored)])
+        self.assertEqual(log["a"]["status"], "confirmed")
         self.assertEqual(it[0]["opening_times"]["structured"], OLD["structured"])
-        self.assertEqual(it[0]["opening_times"]["reader"], stored["reader"])
-        self.assertFalse(os.path.exists(os.path.join(self.root, "reports", "times_auto_applied.json")) and json.load(open(os.path.join(self.root, "reports", "times_auto_applied.json"))))
 
     def test_hand_reviewed_marker_inside_the_reader_is_kept(self):
-        stored = dict(OLD, reader="sa_corps_page (hand-reviewed)")
+        stored = dict(OLD, reader="sa_corps_page (hand-reviewed)", protected=True)
+        os.makedirs(os.path.join(self.root, "overrides"), exist_ok=True)
+        json.dump({"a": stored}, open(os.path.join(self.root, "overrides", "opening_times.json"), "w"))
         it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=[item(opening_times=stored)])
-        self.assertEqual(log["a"]["status"], "differs_from_hand_checked")
-        self.assertEqual(it[0]["opening_times"], stored)
+        self.assertEqual(log["a"]["status"], "changed")
+        self.assertEqual(it[0]["opening_times"]["structured"], NEW_ST)
+        self.assertIn("hand-reviewed", it[0]["opening_times"]["reader"])
 
     def test_shelter_hours_positive(self):
         it = [item(id="a", opening_times=None, hours={"Tue": "10:00 - 12:00"})]; it[0].pop("opening_times")
@@ -104,10 +113,11 @@ class Gate(unittest.TestCase):
         it = [item(), item(id="b")]
         it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=it)
         self.assertEqual(log["a"]["status"], "held_for_dean"); self.assertIn("several branches", log["a"]["reason"]); self.assertEqual(it[0]["opening_times"], OLD)
-    def test_hand_checked_still_never_overwritten(self):
+    def test_hand_checked_same_table_held_not_blanked(self):
         prot = dict(OLD, reader="hand-reviewed 2026-10-23", protected=True)
-        it, log = self.twice(fetch({"https://x.org/": pg(html())}), it=[item(opening_times=dict(prot))])
-        self.assertEqual(log["a"]["status"], "differs_from_hand_checked"); self.assertEqual(it[0]["opening_times"], prot)
+        it, log = self.twice(fetch({"https://x.org/": pg(html("Tuesday 10am - 12pm"))}), it=[item(opening_times=dict(prot))])
+        self.assertEqual(log["a"]["status"], "confirmed")
+        self.assertEqual(it[0]["opening_times"]["structured"], OLD["structured"])
     def test_a_later_pass_keeps_another_places_seen_row(self):
         """Centres checked after the main pass must not wipe the rows the main pass just stored."""
         f = fetch({"https://x.org/": pg(html())})
