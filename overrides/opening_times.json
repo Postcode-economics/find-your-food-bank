@@ -11512,24 +11512,16 @@
   "structured": null
  },
  "ifan-5b9fd1318a04132921a389-0": {
-  "checked_date": "2026-10-29",
-  "fb_mention": true,
-  "parsed_from_text": true,
-  "pc_seen": [
-   "EH142SL"
+  "checked_date": "2026-10-30",
+  "protected": true,
+  "quote": [
+   "For our Foodbank, no appointments are needed. You can just come on a Tuesday at 2.00pm and we'll be happy to speak about any help you need."
   ],
-  "raw": "Mondays 9.30am – 11.00am",
-  "reader": "times_finder",
+  "raw": "Tuesdays from 2pm, no appointment needed",
+  "reader": "hand-reviewed 2026-10-30 (own site read: contact-supporting-wh foodbank paragraph is Tue 2pm walk-in; Play Café Monday hours in site nav/sidebar are a separate children's activity, not the food bank; Dean approved)",
   "source_url": "https://holytrinitywesterhailes.org.uk/contact-supporting-wh/",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "09:30",
-     "11:00"
-    ]
-   ]
-  }
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "ifan-84cd0bf40986bfc9a427c6-0": {
   "checked_date": "2026-10-29",
