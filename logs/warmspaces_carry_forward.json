@@ -1,6 +1,6 @@
 {
  "run": "2026-10-30",
- "run_id": "41008374203.1",
+ "run_id": "41037391334.1",
  "review_after_days": 14,
  "carried": [
   {
@@ -15,6 +15,17 @@
    "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
   },
   {
+   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+   "name": "Saifee Mosque",
+   "postcode": "B18 6PU",
+   "carried_since": "2026-10-30",
+   "last_confirmed": "2026-10-30",
+   "carried_days": 0,
+   "review": false,
+   "note": "Not re-confirmed since 2026-10-30 – call before you go",
+   "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
+  },
+  {
    "id": "ww-65441920",
    "name": "The King's Church Halifax",
    "postcode": "HX1 2TS",
@@ -25,17 +36,6 @@
    "note": "Not re-confirmed since 2026-10-26 – call before you go",
    "website_dropped": "https://kingschurchhx.org.uk/",
    "redirects_to": "cornerstonechurchhalifax.co.uk",
-   "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
-  },
-  {
-   "id": "ww-68652450",
-   "name": "The Space at Field Lane Community Hub",
-   "postcode": "HD6 3JT",
-   "carried_since": "2026-10-30",
-   "last_confirmed": "2026-10-29",
-   "carried_days": 0,
-   "review": false,
-   "note": "Not re-confirmed since 2026-10-29 – call before you go",
    "reason": "missing from this run (left the feed or not re-confirmed); kept with call before you go"
   }
  ],

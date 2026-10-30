@@ -319,6 +319,9 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Norton Hive Community Library and Hub** (`ww-55475831`, YO17 9ES): own site now Tuesday 9.30am – 5pm | Wednesday 9.30am – 5pm | Thursday 9.30am – 5pm | Saturday 9.30am – 1pm  
   source: https://nortonhivelibrary.org/  
   why held: source page is not the warm space's own session page (general venue or directory page); this change was undone by Dean; not re-applied
+- **Oasis Hub Hull** (`ww-55472824`, HU5 2NB): own site now Wednesdays and Thursdays 10am until 5pm  
+  source: https://oasishull.org/  
+  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Tue) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
 - **Rainham Foodbank** (`ww-68641659`, RM13 8HT): own site now Mon 12:00 - 15:00; Tue Closed; Wed 12:00 - 15:00; Thu Closed; Fri 12:00 - 15:00; Sat Closed; Sun Closed  
   source: https://rainham.foodbank.org.uk/  
   why held: would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review
@@ -342,10 +345,7 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: this change was undone by Dean; not re-applied
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
-  why held: source page is not the warm space's own session page (general venue or directory page); this change was undone by Dean; not re-applied
-- **St Paul's Methodist Centre** (`ww-65437367`, SY23 2NN): own site now Tuesday and Thursday 11am-2pm | Friday 7-9pm | Tuesdays & Thursdays 11:00am - 2:00pm  
-  source: https://www.ceredigionmethodists.org.uk/st-paul  
-  why held: day not on the same line as its times on the own-site page
+  why held: this change was undone by Dean; not re-applied
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
