@@ -1,48 +1,7 @@
 {
 "run": "2026-10-30",
-"checked": 1184,
+"checked": 1177,
 "found": {
-"bow": {
-"raw": "Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Tuesdays 12:30 pm to 4 pm",
-"Fridays 8 am to 12 pm",
-"Tuesdays 10 am to 12 pm",
-"Thursdays 10 am to 1 pm",
-"Wednesdays 14:00 to 19:00"
-],
-"_rejected": [
-{
-"text": "Tuesdays 10:00 am to 12:00 pm",
-"reason": "non-client hours (donat)"
-},
-{
-"text": "Thursdays 10:00 am to 1:00 pm",
-"reason": "non-client hours (donat) (same list)"
-},
-{
-"text": "Tuesdays 01:00 pm to 4:30 pm",
-"reason": "non-client hours (donat) (same list)"
-},
-{
-"text": "Fridays 08:00 am to 12:00 pm",
-"reason": "non-client hours (donat) (same list)"
-},
-{
-"text": "Wednesdays 2:00 pm to 7:00 pm",
-"reason": "non-client hours (donat) (same list)"
-}
-],
-"source_url": "https://www.bowfoodbank.org",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"E35ED"
-],
-"fb_mention": true
-},
 "new-wortley-community-centre": {
 "raw": "SATURDAY PM 1:00pm - 3:00pm",
 "status": "TIMES_FOUND",
@@ -88,38 +47,6 @@
 "reader": "times_finder",
 "pc_seen": [
 "CA166XR"
-],
-"fb_mention": true
-},
-"moorland": {
-"raw": "Thursday 10.30am - 12.30pm | 2nd Thursday of each month 10.30am - 12.30pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Thursday 10.30am - 12.30pm",
-"2nd Thursday of each month 10.30am - 12.30pm"
-],
-"source_url": "https://www.moorlandfoodbank.org.uk/get-help/",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"TA229HL"
-],
-"fb_mention": true
-},
-"community-essentials": {
-"raw": "Monday to Wednesday 9:30 - 11:30 (appointment only)",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Wednesday 9:30 - 11:30",
-"(appointment only)"
-],
-"source_url": "https://community-essentials.org.uk/contact-us/",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"B927HS"
 ],
 "fb_mention": true
 },
@@ -561,68 +488,6 @@
 ],
 "fb_mention": true
 },
-"ifan-3c7cb974c7ac6c1966b83c-0": {
-"raw": "Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday 12pm – 2pm",
-"Tuesday 12pm – 2pm",
-"Wednesday 12pm – 2pm",
-"Friday 12pm – 2pm",
-"Saturday 11am – 1pm",
-"Monday 10am – 12pm",
-"Wednesday 10am – 12pm",
-"Tuesday 4:30pm – 6:30pm",
-"Thursday 6:30pm – 8:30pm",
-"Monday 4:30pm – 6:30pm"
-],
-"source_url": "https://www.neocommunity.org.uk/",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"CH423YN"
-],
-"fb_mention": true
-},
-"ifan-53c68645aa831ab649ac43-0": {
-"raw": "Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"15:00",
-"17:00"
-]
-],
-"tue": [
-[
-"10:00",
-"12:00"
-]
-],
-"wed": [
-[
-"15:30",
-"17:30"
-]
-],
-"thu": [
-[
-"18:30",
-"19:30"
-]
-]
-},
-"parsed_from_text": true,
-"source_url": "https://www.stpaulsparkside.org.uk/",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"SW196EW"
-],
-"fb_mention": true
-},
 "ifan-9cf9dd4ce1df051c2c0a59-0": {
 "raw": "Tuesdays 12-2pm | Thursdays 11-3pm",
 "status": "TIMES_FOUND",
@@ -659,47 +524,6 @@
 "checked_date": "2026-10-30",
 "reader": "times_finder",
 "pc_seen": [],
-"fb_mention": true
-},
-"ifan-9fef48d4f0fd3a3f6896d2-0": {
-"raw": "Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday – Friday. 10am-2pm",
-"Monday to Sunday 9 am - 5 pm"
-],
-"_rejected": [
-{
-"text": "",
-"reason": "times on the page cannot be tied to this centre's postcode"
-}
-],
-"source_url": "https://www.gcjc.co.uk/contact",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"WC1B3PP"
-],
-"fb_mention": true
-},
-"ifan-a2fb0701e0208ee9e642a3-0": {
-"raw": "Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm | Monday to Friday 9am to 5pm",
-"status": "TIMES_TEXT_ONLY",
-"structured": null,
-"lines": [
-"Monday to Friday 9am - 8pm",
-"Saturday 9:30am -1pm",
-"Monday to Friday 8am - 8pm",
-"Saturday 8am - 4pm",
-"Monday to Friday 9am to 5pm"
-],
-"source_url": "https://www.lambethlarder.org",
-"checked_date": "2026-10-30",
-"reader": "times_finder",
-"pc_seen": [
-"SW97QD"
-],
 "fb_mention": true
 }
 },
@@ -778,7 +602,6 @@
 "penmaenmawr": "only a social media page (needs login; not read)",
 "living-well-bromley": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "dons-local-action-group": "no client times found on own site (home, sitemap and 3 linked pages read)",
-"bow": "found on own site",
 "raunds": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "the-kings-pantry": "no client times found on own site (home, sitemap and 4 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "marys-sutton": "own site unreachable (HTTP None) after 3 tries",
@@ -891,7 +714,6 @@
 "food4u": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "breadline-project": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "upper-eden": "found on own site",
-"moorland": "found on own site",
 "cornerstone-kilkeel": "only a social media page (needs login; not read)",
 "llandysul": "only a social media page (needs login; not read)",
 "brixham": "no client times found on own site (home, sitemap and 0 linked pages read); rejected: non-client hours (donat)",
@@ -927,7 +749,6 @@
 "the-pantry": "only a social media page (needs login; not read)",
 "colburn-hub": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "dn7": "only a social media page (needs login; not read)",
-"community-essentials": "found on own site",
 "brandlesholme": "only a social media page (needs login; not read)",
 "caring-hands": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "canaan-trust": "no client times found on own site (home, sitemap and 3 linked pages read)",
@@ -1545,7 +1366,7 @@
 "salvation-army/kirkwall": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "salvation-army/lerwick": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "portland/easton-methodist-church": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"bournemouth/southbourne": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"bournemouth/southbourne": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "exeter/the-beacon-community-centre": "own site unreachable (HTTP 403) after 3 tries",
 "exeter/ex5-alive": "own site unreachable (HTTP 403) after 3 tries",
 "fareham-gosport-basics-bank/gosport": "no client times found on own site (home, sitemap and 2 linked pages read)",
@@ -1563,24 +1384,24 @@
 "southampton-basics-bank/lords-hill-church": "own site unreachable (HTTP 404) after 3 tries",
 "burgess-hill/hassocks-united-reformed-church": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "burgess-hill/court-bushes-community-hub": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"horsham-district/hub-on-the-move-southwater": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"horsham-district/lavinia-house": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"horsham-district/st-marys-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"horsham-district/hub-on-the-move-beech-road": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"horsham-district/hub-on-the-move-warnham": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
+"horsham-district/hub-on-the-move-southwater": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"horsham-district/lavinia-house": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"horsham-district/st-marys-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"horsham-district/hub-on-the-move-beech-road": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"horsham-district/hub-on-the-move-warnham": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "winchester-basics-bank/badger-farm-community-centre": "no client times found on own site (home, sitemap and 7 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "winchester-basics-bank/winchester-vineyard-church-the-storehouse": "no client times found on own site (home, sitemap and 7 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "winchester-basics-bank/st-barnabas-church": "no client times found on own site (home, sitemap and 7 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "winchester-basics-bank/new-alresford": "no client times found on own site (home, sitemap and 7 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"salisbury/fovant-wilton": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"salisbury/fovant-wilton": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 1 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "family-food-bank/marden-cc": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "family-food-bank/meadow-cc": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "family-food-bank/greenfields-cc": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "family-food-bank/sunshine-cc": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "family-food-bank/west-borough-cc": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "family-food-bank/east-borough-cc": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"andover/test-valley-borough-council-office": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear",
-"andover/the-castle-practice": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"andover/test-valley-borough-council-office": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"andover/the-castle-practice": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear",
 "canterbury/nailbourne": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "canterbury/chartham-stone-street": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "canterbury/wincheap": "no client times found on own site (home, sitemap and 3 linked pages read)",
@@ -1612,8 +1433,8 @@
 "purley/cr2": "found on own site",
 "purley/st-francis-church": "no client times found on own site (home, sitemap and 6 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "purley/cr0-4": "found on own site",
-"devizes-district/pewsey": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read)",
-"devizes-district/marlborough": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read)",
+"devizes-district/pewsey": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 1 linked pages read)",
+"devizes-district/marlborough": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 1 linked pages read)",
 "thanet-food-link/st-peters-baptist-church": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "margate/victoria-lights": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "ceyp/gefferys-hall-community-centre": "no client times found on own site (home, sitemap and 0 linked pages read)",
@@ -1623,11 +1444,11 @@
 "bristol-north-west/emmanuel-chapel": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "bristol-north-west/emmaus-church-centre": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "afril/church-of-the-good-shepherd": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"south-east-bristol/st-marks": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"south-east-bristol/st-marks": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "st-pauls-hounslow/good-shepherd": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "windsor-food-share/alma-beacon": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "spring-community-hub/st-pauls-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"greenwich/woolwich": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
+"greenwich/woolwich": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "north-bristol-south-gloucestershire/lockleaze": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 19 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "north-bristol-south-gloucestershire/thornbury": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 19 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "ay-group/strutton-ground": "no client times found on own site (home, sitemap and 0 linked pages read)",
@@ -1647,25 +1468,25 @@
 "chiltern/chalfont-st-peter": "no card for this postcode/name",
 "dengie/burnham-united-reformed-church": "only a social media page (needs login; not read)",
 "dengie/st-nicholas-church-tillingham": "only a social media page (needs login; not read)",
-"abingdon/abingdon-foodbank-south": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
-"swansea/gorseinon-institute": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"patch/tenby": "times found look like office hours; skipped",
-"patch/pembroke": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
+"abingdon/abingdon-foodbank-south": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"swansea/gorseinon-institute": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"patch/tenby": "own site unreachable (HTTP None) after 3 tries",
+"patch/pembroke": "own site unreachable (HTTP None) after 3 tries",
 "3food4u/waltham-abbey-baptist-church": "found on own site",
 "3food4u/budworth-hall": "found on own site",
-"merthyr-cynon/cornerstone-church-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
-"merthyr-cynon/carmel-chapel": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"merthyr-cynon/cornerstone-church-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"merthyr-cynon/carmel-chapel": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "kings-langley/bennetts-end": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "oxford-community-emergency/st-francis-church": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "dens/liberty-tea-rooms": "times found look like office hours; skipped; rejected: times on the page cannot be tied to this centre's postcode",
 "dens/south-hill-centre": "found on own site",
 "dens/way-inn-christian-centre": "found on own site",
 "dens/st-peter-st-paul-church": "times found look like office hours; skipped; rejected: times on the page cannot be tied to this centre's postcode",
-"harlow/the-harvey-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"harlow/the-harvey-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "gloucester/elim-church-gloucester": "card lists every day as Closed",
 "gloucester/bartongate-childrens-centre": "no card for this postcode/name",
 "gloucester/kingsholm": "no card for this postcode/name",
-"carmarthen/the-table": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"carmarthen/the-table": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
 "uttlesford/dunmow": "no card for this postcode/name",
 "uttlesford/takeley": "no card for this postcode/name",
 "uttlesford/stansted": "no card for this postcode/name",
@@ -1674,7 +1495,7 @@
 "luton/high-town": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "luton/stopsley-baptist-church": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "luton/marsh-farm": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"bicester/open-doors-cafe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"bicester/open-doors-cafe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read)",
 "braintree-area/hedingham-baptist": "no card for this postcode/name",
 "northampton-hope-centre/brackley-community-larder": "no client times found on own site (home, sitemap and 10 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "northampton-hope-centre/helmdon-community-larder": "no client times found on own site (home, sitemap and 10 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
@@ -1692,10 +1513,10 @@
 "stowmarket-area/catholic-centre": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "stratford-upon-avon/escape-arts-heritage-centre": "no card for this postcode/name",
 "stratford-upon-avon/bishopton-community-centre": "no card for this postcode/name",
-"lowestoft-district/saxmundham": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"lowestoft-district/saxmundham": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "northampton/briar-hill": "no client times found on own site (home, sitemap and 3 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "ely/burwell": "no card for this postcode/name",
-"arden/studley-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
+"arden/studley-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "still-good/freedom-church": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "warwick-district/westbury-centre-leamington-spa": "no card for this postcode/name",
 "warwick-district/st-marys-church-community-centre-leamington-sp": "no card for this postcode/name",
@@ -1728,7 +1549,7 @@
 "black-country/the-rock": "no client times found on own site (home, sitemap and 10 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "black-country/the-thomas-project": "no client times found on own site (home, sitemap and 10 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "black-country/the-lamp-project": "no client times found on own site (home, sitemap and 10 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"sparkhill/st-johns-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"sparkhill/st-johns-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "erdington/connected-life-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "hinckley-area/earl-shilton-social-institute": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "peterborough/dogsthorpe": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
@@ -1743,18 +1564,18 @@
 "soar-valley-community-food-project/barrow": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "leicester-south/sewstern-village-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "cafe-43-house-of-bread/cafe43": "no client times found on own site (home, sitemap and 2 linked pages read)",
-"boston/st-marys-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
-"south-gwynedd/penrynduedraeth": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"boston/st-marys-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"south-gwynedd/penrynduedraeth": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear",
 "east-west-nottingham/meadows": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "himmah/sneinton": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "newcastle-staffs/elim-pentecostal-church": "no card for this postcode/name",
-"stoke-on-trent/wesley-hall-methodist-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
-"mid-cheshire/ggo-bungalow": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
-"mid-cheshire/bethel-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"stoke-on-trent/wesley-hall-methodist-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"mid-cheshire/ggo-bungalow": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"mid-cheshire/bethel-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "flintshire/sealand-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 6 linked pages read); rejected: recognised layout but this centre's times are unclear",
 "lincoln-community-larder/st-john-the-baptist-church-hall": "no client times found on own site (home, sitemap and 4 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "lincoln-community-larder/all-saints-church": "no client times found on own site (home, sitemap and 4 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"west-cheshire/chester-new-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"west-cheshire/chester-new-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "chesterfield/hope-valley": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "anglesey/holyhead": "several centres share this postcode",
 "hope-central/knutsford": "found on own site",
@@ -1770,13 +1591,13 @@
 "south-liverpool/jubilee-church": "no card for this postcode/name",
 "micah-liverpool/st-brides-church-liverpool": "own site unreachable (HTTP 403) after 3 tries",
 "micah-liverpool/the-parish-church-of-st-vincent-de-paul": "own site unreachable (HTTP 403) after 3 tries",
-"trafford-south/st-albans-church-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear",
-"st-helens/the-mount": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read); rejected: recognised layout but this centre's times are unclear",
-"doncaster/rossington-holmescarr-community-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"trafford-south/st-albans-church-hall": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"st-helens/the-mount": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"doncaster/rossington-holmescarr-community-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "mustard-tree/eccles": "own site unreachable (HTTP 403) after 3 tries",
 "mustard-tree/worsley": "own site unreachable (HTTP 403) after 3 tries",
-"barnsley/st-lukes-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
-"southport/st-peters-birkdale": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; own site unreachable (HTTP 403) after 3 tries",
+"barnsley/st-lukes-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear",
+"southport/st-peters-birkdale": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "fusion/wakefield": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "fusion/dewsbury": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "blackpool/holy-cross-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -1794,7 +1615,7 @@
 "skipton/st-andrews-church-hall": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "isle-of-man/south": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "isle-of-man/north": "no client times found on own site (home, sitemap and 0 linked pages read)",
-"redcar-area/all-saints-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"redcar-area/all-saints-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "county-durham/newton-aycliffe": "own site unreachable (HTTP 403) after 3 tries",
 "county-durham/shildon": "own site unreachable (HTTP 403) after 3 tries",
 "county-durham/west-auckland": "own site unreachable (HTTP 403) after 3 tries",
@@ -1820,16 +1641,16 @@
 "feeding-families/sedgefield": "no client times found on own site (home, sitemap and 4 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "sunderland/pennywell-community-centre": "no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "washington-community/washington-community-furnishings": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"causeway/portstewart-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 4 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"causeway/portstewart-centre": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "ayrshire-east/the-zone": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ayrshire-east/community-routes": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ayrshire-east/open-doors": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ayrshire-east/st-matthews-church": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ayrshire-east/the-centre": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"south-ayrshire/troon-old-parish-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 3 linked pages read)",
+"south-ayrshire/troon-old-parish-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read); rejected: recognised layout but this centre's times are unclear",
 "galashiels-and-area/langlee-primary-school-car-park": "own site unreachable (HTTP 403) after 3 tries",
 "galashiels-and-area/focus-centre": "own site unreachable (HTTP 403) after 3 tries",
-"north-ayrshire/st-johns-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 5 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
+"north-ayrshire/st-johns-church": "Trussell site: no centre cards at /emergency-food/i-have-a-food-voucher; no client times found on own site (home, sitemap and 7 linked pages read); rejected: recognised layout but this centre's times are unclear; times on the page cannot be tied to this centre's postcode",
 "ek-community/church-at-lindsayfield": "no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "ek-community/westwood-baptist-church": "no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
 "ek-community/south-parish-church": "no client times found on own site (home, sitemap and 3 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
@@ -1858,11 +1679,10 @@
 "ifan-0ea12dd414fcb6a358d3f0-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-1f8203c780b955550f673f-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-25c84c4582b7e7c60aeeac-0": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
-"ifan-34121866eb63e9e50d317f-0": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: times on the page cannot be tied to this centre's postcode",
+"ifan-34121866eb63e9e50d317f-0": "own site unreachable (HTTP None) after 3 tries",
 "ifan-345925e365a20af9a2007e-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "ifan-3598d68070dfe141274bc6-0": "found on own site",
 "ifan-35c6027fbd4557dc7eb4bb-0": "times found look like office hours; skipped",
-"ifan-3c7cb974c7ac6c1966b83c-0": "found on own site",
 "ifan-3de702dac280937b2490eb-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-3e1f90aa3ff4d2ebf4b6d0-0": "no client times found on own site (home, sitemap and 2 linked pages read)",
 "ifan-4794bf126a61365207fff5-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
@@ -1870,7 +1690,6 @@
 "ifan-4843e1fec06a8fc46989df-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-4843e1fec06a8fc46989df-1": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-4a6217d6ae69c4977d7d70-0": "times found look like office hours; skipped",
-"ifan-53c68645aa831ab649ac43-0": "found on own site",
 "ifan-5b3e01fe979d373d9ba679-0": "no client times found on own site (home, sitemap and 2 linked pages read); rejected: non-client hours (telephone); times on the page cannot be tied to this centre's postcode",
 "ifan-604a74f1cb3c7d624b7f35-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "ifan-656c3bdee3de82e43e1cd8-0": "no client times found on own site (home, sitemap and 1 linked pages read); rejected: non-client hours (admin); non-client hours (donat)",
@@ -1878,7 +1697,6 @@
 "ifan-79789d4df6b2024369673c-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
 "ifan-9cf9dd4ce1df051c2c0a59-0": "found on own site",
 "ifan-9d9a5ae13b3923c3fd7d0b-0": "times found look like office hours; skipped",
-"ifan-9fef48d4f0fd3a3f6896d2-0": "found on own site",
 "ifan-b5024cf18b57b8b3790909-0": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "ifan-bbedc864f82d0a852b5735-0": "no client times found on own site (home, sitemap and 3 linked pages read)",
 "ifan-bcc7d26b922ed1d9edf4f5-0": "no client times found on own site (home, sitemap and 0 linked pages read)",
@@ -1886,7 +1704,6 @@
 "ifan-eddf2af4d3d092a3382b3c-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-edf226c522cd08e91d2afb-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
 "ifan-f4e21546df8eddabcf5d8e-0": "no client times found on own site (home, sitemap and 1 linked pages read)",
-"ifan-a2fb0701e0208ee9e642a3-0": "found on own site",
 "littlehampton-community-fridge": "no own website"
 },
 "applied": [],
@@ -1909,29 +1726,6 @@
 "source_url": "https://3food4u.org",
 "why": [
 "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
-"not one clear weekly client-hours block (kept as text for review)",
-"times not read identically on 2 separate runs yet"
-]
-},
-{
-"id": "bow",
-"name": "Bow Foodbank",
-"postcode": "E3 5ED",
-"proposed": "Tuesdays 12:30 pm to 4 pm | Fridays 8 am to 12 pm | Tuesdays 10 am to 12 pm | Thursdays 10 am to 1 pm | Wednesdays 14:00 to 19:00",
-"source_url": "https://www.bowfoodbank.org",
-"why": [
-"not one clear weekly client-hours block (kept as text for review)",
-"times not read identically on 2 separate runs yet",
-"jumble: 5 separate time blocks read from one page; review only"
-]
-},
-{
-"id": "community-essentials",
-"name": "Community Essentials Foodbank",
-"postcode": "B92 7HS",
-"proposed": "Monday to Wednesday 9:30 - 11:30 (appointment only)",
-"source_url": "https://community-essentials.org.uk/contact-us/",
-"why": [
 "not one clear weekly client-hours block (kept as text for review)",
 "times not read identically on 2 separate runs yet"
 ]
@@ -1983,28 +1777,6 @@
 ]
 },
 {
-"id": "ifan-3c7cb974c7ac6c1966b83c-0",
-"name": "Neo Community",
-"postcode": "CH42 3YN",
-"proposed": "Monday 12pm – 2pm | Tuesday 12pm – 2pm | Wednesday 12pm – 2pm | Friday 12pm – 2pm | Saturday 11am – 1pm | Monday 10am – 12pm | Wednesday 10am – 12pm | Tuesday 4:30pm – 6:30pm | Thursday 6:30pm – 8:30pm | Monday 4:30pm – 6:30pm",
-"source_url": "https://www.neocommunity.org.uk/",
-"why": [
-"not one clear weekly client-hours block (kept as text for review)",
-"times not read identically on 2 separate runs yet",
-"jumble: 10 separate time blocks read from one page; review only"
-]
-},
-{
-"id": "ifan-53c68645aa831ab649ac43-0",
-"name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
-"postcode": "SW19 6EW",
-"proposed": "Mondays 3.00 - 5.00 pm | Tuesdays 10.00am - 12pm | Wednesdays 3.30 to 5.30 pm | Thursday 6.30 - 7.30 pm",
-"source_url": "https://www.stpaulsparkside.org.uk/",
-"why": [
-"day not on the same line as its times on the own-site page"
-]
-},
-{
 "id": "ifan-9cf9dd4ce1df051c2c0a59-0",
 "name": "Healthy Living Platform",
 "postcode": "SW9 7AA",
@@ -2012,30 +1784,6 @@
 "source_url": "https://healthylivingplatform.org/healthy-living-platform-news/christmas-pantry-opening-times-mljr9",
 "why": [
 "postcode not matched exactly on the page"
-]
-},
-{
-"id": "ifan-9fef48d4f0fd3a3f6896d2-0",
-"name": "The Gospel Church of Jesus Christ",
-"postcode": "WC1B 3PP",
-"proposed": "Monday – Friday. 10am-2pm | Monday to Sunday 9 am - 5 pm",
-"source_url": "https://www.gcjc.co.uk/contact",
-"why": [
-"not one clear weekly client-hours block (kept as text for review)",
-"times not read identically on 2 separate runs yet",
-"jumble: Mon, Tue, Wed, Thu, Fri given different times in separate blocks on one page; review only"
-]
-},
-{
-"id": "ifan-a2fb0701e0208ee9e642a3-0",
-"name": "Lambeth Larder",
-"postcode": "SW9 7QD",
-"proposed": "Monday to Friday 9am - 8pm | Saturday 9:30am -1pm | Monday to Friday 8am - 8pm | Saturday 8am - 4pm | Monday to Friday 9am to 5pm",
-"source_url": "https://www.lambethlarder.org",
-"why": [
-"not one clear weekly client-hours block (kept as text for review)",
-"times not read identically on 2 separate runs yet",
-"jumble: 5 separate time blocks read from one page; review only"
 ]
 },
 {
@@ -2112,17 +1860,6 @@
 "why": [
 "known skip: village entries are delivery areas with no postcode; the only times are Wickham collection (Tue) and donations (Mon)",
 "postcode not matched exactly on the page"
-]
-},
-{
-"id": "moorland",
-"name": "Moorland Foodbank",
-"postcode": "TA22 9HL",
-"proposed": "Thursday 10.30am - 12.30pm | 2nd Thursday of each month 10.30am - 12.30pm",
-"source_url": "https://www.moorlandfoodbank.org.uk/get-help/",
-"why": [
-"not one clear weekly client-hours block (kept as text for review)",
-"times not read identically on 2 separate runs yet"
 ]
 },
 {

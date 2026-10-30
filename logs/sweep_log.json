@@ -1,11 +1,19 @@
 {
  "run": "2026-10-30",
- "pages": 1594,
- "failed": 1,
+ "pages": 1586,
+ "failed": 3,
  "errors": [
   [
-   "https://www.cherwell.gov.uk/Warm-Spaces",
-   404
+   "https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch",
+   403
+  ],
+  [
+   "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
+   403
+  ],
+  [
+   "https://www.angus.gov.uk/council_committees_and_elections/emergency_and_events_planning/severe_weather_news_and_guidance",
+   403
   ]
  ],
  "added": [],
