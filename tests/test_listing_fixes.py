@@ -165,5 +165,29 @@ class StMonicas(unittest.TestCase):
         self.assertIn("023 9282 5673", card)
         self.assertIn("Portsmouth Churches Housing Association number", card)
 
+class LambethLarder(unittest.TestCase):
+    LID = "ifan-a2fb0701e0208ee9e642a3-0"
+
+    def test_not_on_published_map(self):
+        self.assertNotIn(self.LID, by_id(items()))
+
+    def test_stays_off_after_refresh_exclusion_filter(self):
+        self.assertNotIn(self.LID, by_id(after_refresh()))
+
+    def test_exclude_rule(self):
+        rule = next(e for e in J("foodbank_exclude.json")["foodbanks"] if e["slug"] == self.LID)
+        self.assertTrue(rule.get("exact"))
+        self.assertEqual(rule["reason"], "not a food bank (directory), Dean 29 Oct")
+        self.assertEqual(rule.get("host"), "lambethlarder.org")
+
+    def test_refresh_guard_does_not_restore(self):
+        import refresh_guard as g
+        old = {"id": self.LID, "name": "Lambeth Larder", "lat": 51.463981, "lng": -0.113021,
+               "website": "https://www.lambethlarder.org", "postcode": "SW9 7QD"}
+        new = [i for i in items() if i["id"] != self.LID]
+        out, rep = g.guard("foodbanks", [old], new)
+        self.assertNotIn(self.LID, {i["id"] for i in out})
+        self.assertEqual(rep.get("places"), [])
+
 if __name__ == "__main__":
     unittest.main()
