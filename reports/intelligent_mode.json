@@ -1,11 +1,11 @@
 {
- "run": "2026-10-29",
+ "run": "2026-10-30",
  "layers": {
   "foodbanks": {
    "steps": {
     "times": {
-     "applied": 10,
-     "held": 58,
+     "applied": 9,
+     "held": 55,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -65,8 +65,7 @@
        "reasons": [
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
+        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -182,12 +181,6 @@
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 6 separate time blocks read from one page; review only",
         "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "new-wortley-community-centre",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -377,18 +370,11 @@
        ]
       },
       {
-       "id": "driffield-wolds",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
        "id": "west-end-impact",
        "reasons": [
         "day not on the same line as its times on the own-site page",
         "jumble: Tue given different times in separate blocks on one page; review only",
-        "would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review",
-        "transient failure; stored times left unchanged"
+        "would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review"
        ]
       },
       {
@@ -412,12 +398,6 @@
        ]
       },
       {
-       "id": "ifan-5b9fd1318a04132921a389-0",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
        "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
        "reasons": [
         "new own-site times look like office/centre hours",
@@ -431,13 +411,10 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 541,
+      "render_attempts": 551,
       "render_errors": 4,
       "source_pages": 18,
-      "source_opened": 16,
-      "budget_skipped": 0,
-      "hours_review_due": 1719,
-      "hours_review_opened": 1719
+      "source_opened": 16
      },
      "enabled": false
     },
@@ -449,21 +426,21 @@
      "errors": [],
      "alerts": [],
      "coverage": {
+      "render_attempts": 1030,
+      "render_errors": 5,
       "budget_skipped": 0,
-      "hours_review_due": 1715,
-      "hours_review_opened": 859,
+      "hours_review_due": 1721,
+      "hours_review_opened": 1051,
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 568,
-      "render_errors": 568,
       "source_pages": 18,
       "source_opened": 16
      },
      "enabled": false
     }
    },
-   "applied": 10,
-   "held": 58,
+   "applied": 9,
+   "held": 55,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -523,8 +500,7 @@
      "reasons": [
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
+      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -640,12 +616,6 @@
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 6 separate time blocks read from one page; review only",
       "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "new-wortley-community-centre",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -835,18 +805,11 @@
      ]
     },
     {
-     "id": "driffield-wolds",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
      "id": "west-end-impact",
      "reasons": [
       "day not on the same line as its times on the own-site page",
       "jumble: Tue given different times in separate blocks on one page; review only",
-      "would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review",
-      "transient failure; stored times left unchanged"
+      "would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review"
      ]
     },
     {
@@ -870,12 +833,6 @@
      ]
     },
     {
-     "id": "ifan-5b9fd1318a04132921a389-0",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
      "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
      "reasons": [
       "new own-site times look like office/centre hours",
@@ -889,20 +846,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 568,
-    "render_errors": 568,
+    "render_attempts": 1030,
+    "render_errors": 5,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
-    "hours_review_due": 1715,
-    "hours_review_opened": 859
+    "hours_review_due": 1721,
+    "hours_review_opened": 1051
    }
   }
  },
  "alerts": [],
- "would_block": [
-  "coverage gate: render errors 568 of 568 (100% > 25%)"
- ],
+ "would_block": [],
  "enabled": false,
- "generated_at": "2026-10-29T17:55:01+00:00"
+ "generated_at": "2026-10-30T01:02:21+00:00"
 }

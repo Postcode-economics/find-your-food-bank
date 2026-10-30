@@ -9,7 +9,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 ## All sources (lowest first)
 
 - warmspaces: Cambridgeshire ACRE: 40
-- IFAN: 45.4
 - warmspaces: Council directory: 46.6
 - warmspaces: Warm Welcome: 49
 - own site blackcountryfoodbank.org.uk: 50
@@ -25,6 +24,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - warmspaces: Southwark Council warm spaces page: 50
 - warmspaces: Voluntary Action Islington warm spaces list: 50
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
+- IFAN: 51.2
 - own site salvationarmy.org.uk: 54.2
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
@@ -38,7 +38,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site edinburghnefoodbank.com: 60
 - own site bristolnorthwestfoodbank.org.uk: 60
 - own site soarvalleyoutreach.org.uk: 62.5
-- Give Food (independent): 63.5
+- Give Food (independent): 63.6
 - own site stratforduponavon.foodbank.org.uk: 70
 - own site warwickdistrict.foodbank.org.uk: 71.5
 - own site gloucester.foodbank.org.uk: 71.5
@@ -96,6 +96,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site barnsley.foodbank.org.uk: 96.7
 - own site westcheshire.foodbank.org.uk: 96.9
 - own site stokeontrent.foodbank.org.uk: 97
+- own site lambethcroydon.foodbank.org.uk: 100
 - own site colchester.foodbank.org.uk: 100
 - own site bksv.foodbank.org.uk: 100
 - own site mkfoodbank.org.uk: 100
@@ -141,7 +142,6 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site southsefton.foodbank.org.uk: 100
 - own site vale.foodbank.org.uk: 100
 - own site hillingdon.foodbank.org.uk: 100
-- own site lambethcroydon.foodbank.org.uk: 100
 - own site thefoodbank.org.uk: 100
 - own site easternvalley.foodbank.org.uk: 100
 - own site westberks.foodbank.org.uk: 100
