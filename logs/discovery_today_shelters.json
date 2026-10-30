@@ -35,6 +35,13 @@
    "added": 0,
    "queued": 52,
    "rejected": 0
+  },
+  {
+   "at": "21:29Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 51,
+   "rejected": 0
   }
  ],
  "added": [
@@ -99,7 +106,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "3d597593a0c121c1f861c8f26ba4d43e5d1e1bf15e01e9252d2ac1308555bc23",
+   "sha256": "a89f286a7585df7e1d17a9fa8ed0946aef14a85d059bc7a97b0b67a1e8f0af38",
    "etag": "",
    "last_modified": ""
   },
@@ -170,7 +177,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "983dff3464913914a31aedd113185787907857a67fbc216fa67ba3bf464fb8e4",
+   "sha256": "80e87e66015fef1e2fe8048f2b47ddcfb6a92921e9d18dba9998f36663e191a6",
    "etag": "",
    "last_modified": ""
   },
@@ -241,7 +248,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "90e17e5e370c3897f220be0cc95ee9467c8919dba0ffe3a72071848fa86ff4e8",
+   "sha256": "86c8a090d445102c86c4385794a5d764b0fc7a35ea106f8d5f6cbc254ea08b9f",
    "etag": "",
    "last_modified": ""
   },
@@ -488,15 +495,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.ldhas.org.uk/",
    "final_url": "https://www.ldhas.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "973c2c1a64e79d3656c68b8a427f917562702c633fdeb309ff91e570fbf90ad0",
+   "etag": "",
+   "last_modified": ""
   },
   "osm-way-639048084": {
    "id": "osm-way-639048084",
@@ -524,15 +530,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "8509288dd27ca4166bfd62fdfcc99644ad667483daf92e6013b1f30a0fb1c884",
+   "etag": "",
+   "last_modified": ""
   },
   "osm-way-699201604": {
    "id": "osm-way-699201604",
@@ -708,7 +713,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "0bde020b4b95cada8d12426b695467585d8290d37a74ffc7f1a27c80dc9dc094",
+   "sha256": "afff34879743021ab909d182912507e2730729d3818552d918ef8eb1d7168b5b",
    "etag": "",
    "last_modified": ""
   },
@@ -863,7 +868,7 @@
    "http": 200,
    "sha256": "99aec91042bdd58b3307f606cde22ff989ffdb9391a34f71d7723f0317c2c9ca",
    "etag": "",
-   "last_modified": "Fri, 30 Oct 2026 12:27:51 GMT"
+   "last_modified": "Fri, 30 Oct 2026 18:30:34 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",

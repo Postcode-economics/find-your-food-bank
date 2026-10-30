@@ -1,8 +1,8 @@
 {
  "run": "2026-10-30",
- "candidates": 61,
- "already_on_map": 5,
- "new": 56,
+ "candidates": 59,
+ "already_on_map": 4,
+ "new": 55,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -24,7 +24,7 @@
    "url": "http://www.amatuk.org",
    "final_url": "https://www.amatuk.org/",
    "http": 200,
-   "sha256": "756dd965eab6a73631e38ced5798521cf483469fd00d58226d433502c37a306b",
+   "sha256": "b59f6c0ecd492daf9824294b89f7ac17f5b39f5f8f5b8c6df508e3c078e61d27",
    "etag": "",
    "last_modified": ""
   },
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "f69e84ebd37a631081ec2b0488e67dbf8088e6c360d07d5c2839fc97e1db02f9",
+   "sha256": "6bd152d7e7dacbc33c33ce774f528afd72952ee1fe87322fbe8d5eb41b193883",
    "etag": "",
    "last_modified": ""
   }
@@ -68,7 +68,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "3d597593a0c121c1f861c8f26ba4d43e5d1e1bf15e01e9252d2ac1308555bc23",
+   "sha256": "a89f286a7585df7e1d17a9fa8ed0946aef14a85d059bc7a97b0b67a1e8f0af38",
    "etag": "",
    "last_modified": ""
   },
@@ -139,7 +139,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "983dff3464913914a31aedd113185787907857a67fbc216fa67ba3bf464fb8e4",
+   "sha256": "80e87e66015fef1e2fe8048f2b47ddcfb6a92921e9d18dba9998f36663e191a6",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "90e17e5e370c3897f220be0cc95ee9467c8919dba0ffe3a72071848fa86ff4e8",
+   "sha256": "86c8a090d445102c86c4385794a5d764b0fc7a35ea106f8d5f6cbc254ea08b9f",
    "etag": "",
    "last_modified": ""
   },
@@ -457,15 +457,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.ldhas.org.uk/",
    "final_url": "https://www.ldhas.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "973c2c1a64e79d3656c68b8a427f917562702c633fdeb309ff91e570fbf90ad0",
+   "etag": "",
+   "last_modified": ""
   },
   {
    "id": "osm-way-639048084",
@@ -493,15 +492,14 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site unreachable (HTTP error)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
-   "http": "error",
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
+   "http": 200,
+   "sha256": "8509288dd27ca4166bfd62fdfcc99644ad667483daf92e6013b1f30a0fb1c884",
+   "etag": "",
+   "last_modified": ""
   },
   {
    "id": "osm-way-699201604",
@@ -677,7 +675,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "0bde020b4b95cada8d12426b695467585d8290d37a74ffc7f1a27c80dc9dc094",
+   "sha256": "afff34879743021ab909d182912507e2730729d3818552d918ef8eb1d7168b5b",
    "etag": "",
    "last_modified": ""
   },
@@ -832,7 +830,7 @@
    "http": 200,
    "sha256": "99aec91042bdd58b3307f606cde22ff989ffdb9391a34f71d7723f0317c2c9ca",
    "etag": "",
-   "last_modified": "Fri, 30 Oct 2026 12:27:51 GMT"
+   "last_modified": "Fri, 30 Oct 2026 18:30:34 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -944,23 +942,6 @@
    "website": "http://www.bromford.co.uk",
    "directory": "Homeless Link",
    "directory_url": "https://homeless.org.uk/homeless-england/service/bromford-hayward-road-hostel/",
-   "reasons": [
-    "no valid postcode"
-   ],
-   "url": null,
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "hl-cardinal-hume-centre-hostel",
-   "name": "Cardinal Hume Centre Hostel",
-   "postcode": "",
-   "website": "http://https://www.cardinalhumecentre.org.uk",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
    "reasons": [
     "no valid postcode"
    ],
