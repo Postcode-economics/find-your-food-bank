@@ -2,6 +2,11 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
+## Shelters: 3 added
+- Adullam Homes HA - Norman House · B70 9LS
+- Ashdown Medway Accommodation Trust (AMAT) · ME4 4PB — referral only
+- Bridge House Mission · TS18 3AX
+
 ## Deep sweep (council pages): 0 added
 - none
 
