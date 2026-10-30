@@ -93,8 +93,9 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 3 added
+## Warm spaces: 4 added
 - Marlborough Primary School · B10 9NY
 - Saifee Mosque · B18 6PU
 - The Midlands Greek & Cypriot Association · B23 7SJ
+- Second Chance Headway Centre · WF1 1AD (Opens 2026-11-02)
 

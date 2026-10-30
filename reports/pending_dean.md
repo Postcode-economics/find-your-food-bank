@@ -6,11 +6,12 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
 
-## warmspaces (4)
+## warmspaces (5)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Bishops Offley Open House (BOOH!) (ST21 6HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28654
 - North Molton Community Shop (EX36 3HP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28671
+- Second Chance Headway Centre (WF1 1AD) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28675
 - Warm Space at The Hepworth Wakefield (WF1 5AW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=20139
 
 ## shelters (0)
@@ -222,7 +223,7 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: this change was undone by Dean; not re-applied
 - **Deptford Lounge** (`ww-57952616`, SE8 4RJ): own site now Monday 9am – 7pm | Tuesday 9am – 7pm | Wednesday 9am – 7pm | Thursday 9am – 7pm | Friday 9am – 7pm | Saturday 9am – 5pm | Sunday 10am – 4pm  
   source: https://deptfordlounge.org.uk/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only
 - **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
   source: https://gatewayleisure.co.uk/  
   why held: new own-site times look like office/centre hours
@@ -273,7 +274,7 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: this change was undone by Dean; not re-applied
 - **St Paul's Methodist Centre** (`ww-65437367`, SY23 2NN): own site now Tuesday and Thursday 11am-2pm | Friday 7-9pm | Tuesdays & Thursdays 11:00am - 2:00pm  
   source: https://www.ceredigionmethodists.org.uk/st-paul  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+  why held: day not on the same line as its times on the own-site page
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
@@ -301,9 +302,9 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Wellness Hub At St Laurence's Church** (`ww-59951280`, PR7 1EB): own site now Monday 5-5.30pm  
   source: https://www.stlaurencechorley.co.uk/Articles/698575/Wellness_Hub.aspx  
   why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review
-- **Warm Space at The Hepworth Wakefield** (`ww-69441263`, WF1 5AW): own site now Monday 10am - 5pm | Tuesday 10am - 5pm | Wednesday 10am - 5pm | Thursday 10am - 4pm | Friday 10am - 5pm | Saturday 10am - 5pm | Sunday 10am - 5pm  
+- **Warm Space at The Hepworth Wakefield** (`ww-69441263`, WF1 5AW): own site now Tuesday 10am - 5pm | Wednesday 10am - 5pm | Thursday 10am - 5pm | Friday 10am - 5pm | Saturday 10am - 5pm | Sunday 10am - 5pm  
   source: https://hepworthwakefield.org/whats-on/warm-space/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 6 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
 - **The Friendship Café at Myplace** (`hav-friendship-cafe-myplace`, RM3 9EN): own site now Friday 12pm – 4  
   source: https://www.havering.gov.uk/warmspaces  
   why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; day not on the same line as its times on the own-site page
