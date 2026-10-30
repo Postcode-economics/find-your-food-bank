@@ -1,10 +1,5 @@
 {
  "_about": "Hand-set notice shown as a label at the top of a food bank card (build.py -> 'notice' field; index.html). Survives refresh. Pin stays on the map. Dean 24 Oct.",
- "gcg": {
-  "notice": "Closed until further notice (health and safety issues at the community centre, per their Facebook post on 20 Oct 2026)",
-  "source": "https://www.facebook.com/GwaunCaeGurwen",
-  "set": "2026-10-24"
- },
  "first-base-dumfriesshire/citizens-advice-castle-douglas": {
   "notice": "First Base emergency parcel pick-up point. Fridays by appointment only: call Citizens Advice on 0300 303 4321",
   "source": "https://www.dagcas.org/dagcas-location/castle-douglas-cab/",
@@ -180,5 +175,14 @@
   "notice": "Times shown are CETMA office hours, not food collection. See where to get food below.",
   "source": "https://cetma.org.uk/contact-page/",
   "set": "2026-10-27"
+ },
+ "_removed": {
+  "gcg": {
+   "notice": "Closed until further notice (health and safety issues at the community centre, per their Facebook post on 20 Oct 2026)",
+   "source": "https://www.facebook.com/GwaunCaeGurwen",
+   "set": "2026-10-24",
+   "removed": "2026-10-30",
+   "why": "Reopened (verified_pending_rule, Dean 30 Oct 2026 08:51 GMT). Facebook https://www.facebook.com/GwaunCaeGurwen: 27 Oct 2026 post \"GREAT NEWS! We will be open as normal this Friday!\"; 30 Oct ~08:00 GMT \"Just a polite reminder, WE HAVE NO BAGS. If you'd like a food parcel today, please bring your own.\" Page shows Open now."
+  }
  }
 }
