@@ -24,6 +24,8 @@ jobs:
       - name: Test the SWEP checks
         run: python -m unittest tests.test_swep_full -v
       - name: Full SWEP check (every council)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python scripts/swep.py full
       - name: SWEP tracker - still-to-check list (point 2)
         continue-on-error: true
