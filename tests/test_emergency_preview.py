@@ -692,5 +692,9 @@ class BannerClick(unittest.TestCase):
 
     def test_live_default_has_no_banner(self):
         pg = self._page(); pg.goto(self.base + "/?fresh=1&nocount=1", wait_until="load")
-        self.assertEqual(pg.locator("#em-banner").count(), 0)
+        pg.wait_for_timeout(1500)
         self.assertNotIn("em-preview", pg.evaluate("document.documentElement.className"))
+        banner = pg.locator("#em-banner")
+        if banner.count():
+            self.assertTrue(pg.evaluate("document.getElementById('em-banner').hidden"))
+        self.assertEqual(pg.locator("#em-root .em-card").count(), 0)

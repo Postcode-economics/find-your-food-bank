@@ -95,9 +95,10 @@ function applySearch(){var q=document.getElementById('q');document.documentEleme
 var form=document.getElementById('f');if(form)form.addEventListener('submit',function(){setTimeout(applySearch,0)},true);
 hideExpired(root);setInterval(function(){hideExpired(root)},30000);
 window.emPreview={hideExpired:function(){hideExpired(root)},emergencySearch:emergencySearch,goNearest:goNearest,centresForArea:centresForArea,centresForEveryone:function(d){return centresForArea(d,null)},applyData:applyData};
+var liveData=null;
 function load(){var url=isLive?'incident_rest_centre_live.json':'reports/emergency_preview.json';
  var bust=location.search.indexOf('fresh=1')>=0?('?t='+Date.now()):'';
- fetch(url+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){if(!data||sample)return;if(isLive&&!data.public)return;applyData(data)}).catch(function(){});}
+ fetch(url+bust,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(data){if(!data||sample)return;if(isLive&&!data.public)return;if(isLive)liveData=data;applyData(data)}).catch(function(){});}
 if(!sample)load();
-document.addEventListener('helpmap-search',function(){if(isLive)load()});
+document.addEventListener('helpmap-search',function(){if(!isLive)return;if(liveData)applyData(liveData);else load()});
 })();
