@@ -5,7 +5,7 @@
    "steps": {
     "times": {
      "applied": 9,
-     "held": 57,
+     "held": 55,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -66,8 +66,7 @@
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "day not on the same line as its times on the own-site page",
-        "times not read identically on 2 separate runs yet"
+        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -194,6 +193,13 @@
        ]
       },
       {
+       "id": "new-wortley-community-centre",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "chichester-district",
        "reasons": [
         "day not on the same line as its times on the own-site page",
@@ -288,25 +294,6 @@
        "reasons": [
         "own site lists several centres (9 postcodes); cannot tie one table to this listing",
         "would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "patch",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
-      },
-      {
-       "id": "patch/tenby",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -412,12 +399,6 @@
        ]
       },
       {
-       "id": "ifan-53c68645aa831ab649ac43-0",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
        "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
        "reasons": [
         "new own-site times look like office/centre hours",
@@ -431,15 +412,15 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 546,
-      "render_errors": 4,
+      "render_attempts": 554,
+      "render_errors": 6,
       "source_pages": 18,
       "source_opened": 16,
       "budget_skipped": 0,
       "hours_review_due": 1721,
-      "hours_review_opened": 1051
+      "hours_review_opened": 1028
      },
-     "enabled": false
+     "enabled": true
     },
     "access": {
      "applied": 0,
@@ -449,21 +430,21 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1007,
+      "render_attempts": 1034,
       "render_errors": 5,
       "budget_skipped": 0,
-      "hours_review_due": 1721,
-      "hours_review_opened": 1028,
+      "hours_review_due": 1727,
+      "hours_review_opened": 1058,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
       "source_opened": 16
      },
-     "enabled": false
+     "enabled": true
     }
    },
    "applied": 9,
-   "held": 57,
+   "held": 55,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -524,8 +505,7 @@
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "day not on the same line as its times on the own-site page",
-      "times not read identically on 2 separate runs yet"
+      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -652,6 +632,13 @@
      ]
     },
     {
+     "id": "new-wortley-community-centre",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "chichester-district",
      "reasons": [
       "day not on the same line as its times on the own-site page",
@@ -746,25 +733,6 @@
      "reasons": [
       "own site lists several centres (9 postcodes); cannot tie one table to this listing",
       "would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "patch",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
-    },
-    {
-     "id": "patch/tenby",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -870,12 +838,6 @@
      ]
     },
     {
-     "id": "ifan-53c68645aa831ab649ac43-0",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
      "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
      "reasons": [
       "new own-site times look like office/centre hours",
@@ -889,18 +851,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 1007,
+    "render_attempts": 1034,
     "render_errors": 5,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
-    "hours_review_due": 1721,
-    "hours_review_opened": 1028
+    "hours_review_due": 1727,
+    "hours_review_opened": 1058
    }
   }
  },
  "alerts": [],
  "would_block": [],
- "enabled": false,
- "generated_at": "2026-10-30T06:44:38+00:00"
+ "enabled": true,
+ "generated_at": "2026-10-30T15:01:38+00:00"
 }

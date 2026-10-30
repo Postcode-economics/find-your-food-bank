@@ -1,12 +1,13 @@
-# Refresh guard: foodbanks (2026-10-30T06:44:55+00:00)
+# Refresh guard: foodbanks (2026-10-30T15:01:46+00:00)
 
-foodbanks: kept 7 places, 0 phones, 33 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 8 places, 0 phones, 33 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (7)
+## places kept (8)
 
+- ifan-34121866eb63e9e50d317f-0
+- ifan-d59b2e089746f7a97c1e15-0
 - ty-hapus
 - colchester/wivenhoe
-- ifan-a2fb0701e0208ee9e642a3-0
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 - st-peter-st-pauls-pantry
@@ -53,11 +54,12 @@ foodbanks: kept 7 places, 0 phones, 33 opening times that this run would have dr
 - ifan-84cd0bf40986bfc9a427c6-0
 - ifan-9fef48d4f0fd3a3f6896d2-0
 
-## access kept (7)
+## access kept (8)
 
+- ifan-34121866eb63e9e50d317f-0
+- ifan-d59b2e089746f7a97c1e15-0
 - ty-hapus
 - colchester/wivenhoe
-- ifan-a2fb0701e0208ee9e642a3-0
 - ifan-e0054aa041ea174c4f6921-0
 - ifan-efde0ad76e7a121fb1cf96-0
 - st-peter-st-pauls-pantry
