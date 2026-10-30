@@ -397,17 +397,7 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 Run 2026-10-30. Nothing here is on the map. Each needs a hand check before it is added.
 
-- Victory House (CT17 9BZ) - https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers
-- who a) have been verified rough sleeping (TN34 1EA) - https://www.hastings.gov.uk/housing/SWEP/
-- 451100 (TN34 3UY) - https://www.hastings.gov.uk/housing/SWEP/
-- Rough sleepers placed out-of-hours should approach the Merton Housing Advice Service at the Civic Centre (SM4 5DX) - https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping
-- Victoria Hall Methodist Church (S1 2PF) - https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather
-- at the Housing Options Service (M27 5AW) - https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/
-- (freephone (WV1 4BL) - https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision
-- Mary Rose Court (RG21 8ZY) - https://www.basingstoke.gov.uk/homelessness
-- Eastrop Way (RG21 4QD) - https://www.basingstoke.gov.uk/homelessness
-- Vineyard Church (AL1 5UG) - https://www.stalbans.gov.uk/rough-sleeping
-- YMCA Watford Charter House (WD17 2RT) - https://www.stalbans.gov.uk/rough-sleeping
+- none
 <!-- /sweep shelters -->
 
 
