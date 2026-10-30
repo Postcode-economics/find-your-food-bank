@@ -1,88 +1,104 @@
 [
  {
-  "id": "ifan-84cd0bf40986bfc9a427c6-0",
-  "name": "St Laurence's Larder & Open Kitchen",
+  "id": "moorland",
+  "name": "Moorland Foodbank",
   "old": null,
   "new": {
    "checked_date": "2026-10-29",
-   "raw": "Wednesday 10am - 2pm (food bags, no referral needed)",
-   "source_url": "https://www.laurenceslarder.org.uk",
+   "raw": "No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.",
+   "source_url": "https://www.moorlandfoodbank.org.uk",
    "status": "TIMES_TEXT_ONLY",
    "structured": null,
    "quote": [
-    "Get Help\nFood Bags\nWednesday 10.00am - 2.00pm\nOpen to all to receive a bag of essential food items (no referral required)."
+    "You can ask your support worker to contact Moorland Food Bank on your behalf, or contact us direct using the details on the Contact Page. We may ask a little about your circumstances... and, if appropriate, will arrange delivery of a one-off free food parcel. Please bear in mind that this is not an emergency service."
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: home page and /food-bags agree, 'Wednesdays 10:00am - 2:00pm', no referral; Thursday hot meals, clothes bank and Monday art cafe are other services and left out; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: get-help / home delivery model only; no walk-in collection hours; finder Thu session text left out; Dean approved)",
    "protected": true
   },
-  "source_url": "https://www.laurenceslarder.org.uk",
+  "source_url": "https://www.moorlandfoodbank.org.uk",
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py ifan-84cd0bf40986bfc9a427c6-0"
+  "revert": "python scripts/times_revert.py moorland"
  },
  {
-  "id": "the-gate",
-  "name": "The Gate Foodbank",
+  "id": "community-essentials",
+  "name": "Community Essentials Foodbank",
   "old": null,
   "new": {
    "checked_date": "2026-10-29",
-   "raw": "Monday to Friday 2pm - 3pm (food parcel collection or by arrangement with staff; referral needed for a standard parcel)",
-   "source_url": "https://the-gate-charity.org/contact-us-2/",
+   "raw": "Book a collection slot online, 1 to 7 days ahead. No walk-ins.",
+   "source_url": "https://community-essentials.org.uk/food-bank",
    "status": "TIMES_TEXT_ONLY",
    "structured": null,
    "quote": [
-    "Food parcel collection times: Mon - Frid between 2pm to 3pm or by arrangement with Staff",
-    "A standard visit has more items than a larder visit but requires a referral."
+    "We are currently running at full capacity. If a day does not show as available, that means we are fully booked. Please do not call... You can only book a time slot between 1-7 days in the future"
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: contact page food parcel collection times; Mon-Fri 10am-3pm is the centre's general opening hours and is left out; referral from /new-project-information-page/; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: /food-bank online Collection Time booker only; no fixed walk-in hours; contact-us Mon-Wed appointment text left out; Dean approved)",
    "protected": true
   },
-  "source_url": "https://the-gate-charity.org/contact-us-2/",
+  "source_url": "https://community-essentials.org.uk/food-bank",
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py the-gate"
+  "revert": "python scripts/times_revert.py community-essentials"
  },
  {
-  "id": "bow",
-  "name": "Bow Foodbank",
+  "id": "ifan-53c68645aa831ab649ac43-0",
+  "name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
   "old": null,
   "new": {
    "checked_date": "2026-10-29",
-   "raw": "Tuesdays 10am - 12pm and Thursdays 10am - 1pm (visit us); Wednesdays 2pm - 7pm (open to all). Click and Collect: Tuesdays 1pm - 4:30pm (order by 1pm Sunday); Fridays 8am - 12pm (order by 9pm Wednesday)",
-   "source_url": "https://www.bowfoodbank.org",
+   "raw": "Every other Thursday, 6:30pm to 7:30pm, in church",
+   "source_url": "https://stpaulsparkside.org.uk/",
    "status": "TIMES_FOUND",
    "structured": {
-    "tue": [
-     [
-      "10:00",
-      "12:00"
-     ]
-    ],
-    "wed": [
-     [
-      "14:00",
-      "19:00"
-     ]
-    ],
     "thu": [
      [
-      "10:00",
-      "13:00"
+      "18:30",
+      "19:30"
+     ]
+    ]
+   },
+   "notes": {
+    "thu": "Fortnightly"
+   },
+   "quote": [
+    "St Paul's Pantry is our foodbank offering a bag of groceries and essential household items to those in need. Fortnightly on Thursday 6.30 - 7.30 pm in church."
+   ],
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page St Paul's Pantry section; foodbank fortnightly Thu 6:30-7:30 only; Open Church, Lunch Club, Wednesday Club and other church activities left out; Dean approved)",
+   "protected": true
+  },
+  "source_url": "https://stpaulsparkside.org.uk/",
+  "hand_reviewed": "2026-10-29",
+  "approved_by": "Dean (times review list 2026-10-29)",
+  "revert": "python scripts/times_revert.py ifan-53c68645aa831ab649ac43-0"
+ },
+ {
+  "id": "ifan-9fef48d4f0fd3a3f6896d2-0",
+  "name": "The Gospel Church of Jesus Christ",
+  "old": null,
+  "new": {
+   "checked_date": "2026-10-29",
+   "raw": "Food Bank: Fridays 5pm - 6pm",
+   "source_url": "https://www.gcjc.co.uk",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "fri": [
+     [
+      "17:00",
+      "18:00"
      ]
     ]
    },
    "quote": [
-    "Come and see us:\nTuesdays 10 am to 12 pm\nThursdays 10 am to 1 pm",
-    "Open session \u2013 Non Tower Hamlets Residents welcome:\nWednesdays 14:00 to 19:00",
-    "Click and Collect:\nTuesdays 1:00 pm to 4:30 pm (Order by 1:00 pm Sunday)\nFridays 8:00 am to 12:00 pm (Order by 9:00 pm Wednesday)"
+    "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: home page footer Sessions; Visit Us and Wednesday open session are walk-in client hours; Click and Collect slots and order deadlines kept in text only, not in the day table; Bethnal Green closed and points to Bow; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
    "protected": true
   },
-  "source_url": "https://www.bowfoodbank.org",
+  "source_url": "https://www.gcjc.co.uk",
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py bow"
+  "revert": "python scripts/times_revert.py ifan-9fef48d4f0fd3a3f6896d2-0"
  },
  {
   "id": "ifan-3c7cb974c7ac6c1966b83c-0",
@@ -126,9 +142,9 @@
     ]
    },
    "quote": [
-    "Food and Supplies Market:\nMonday: 12pm \u2013 2pm\nTuesday: 12pm \u2013 2pm\nWednesday: 12pm \u2013 2pm\nThursday: Closed\nFriday: 12pm \u2013 2pm\nSaturday: 11am \u2013 1pm"
+    "Food and Supplies Market:\nMonday: 12pm – 2pm\nTuesday: 12pm – 2pm\nWednesday: 12pm – 2pm\nThursday: Closed\nFriday: 12pm – 2pm\nSaturday: 11am – 1pm"
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Caf\u00e9, Club Sessions and other programmes left out; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Café, Club Sessions and other programmes left out; Dean approved)",
    "protected": true
   },
   "source_url": "https://www.neocommunity.org.uk/",
@@ -137,105 +153,89 @@
   "revert": "python scripts/times_revert.py ifan-3c7cb974c7ac6c1966b83c-0"
  },
  {
-  "id": "ifan-9fef48d4f0fd3a3f6896d2-0",
-  "name": "The Gospel Church of Jesus Christ",
+  "id": "bow",
+  "name": "Bow Foodbank",
   "old": null,
   "new": {
    "checked_date": "2026-10-29",
-   "raw": "Food Bank: Fridays 5pm - 6pm",
-   "source_url": "https://www.gcjc.co.uk",
+   "raw": "Tuesdays 10am - 12pm and Thursdays 10am - 1pm (visit us); Wednesdays 2pm - 7pm (open to all). Click and Collect: Tuesdays 1pm - 4:30pm (order by 1pm Sunday); Fridays 8am - 12pm (order by 9pm Wednesday)",
+   "source_url": "https://www.bowfoodbank.org",
    "status": "TIMES_FOUND",
    "structured": {
-    "fri": [
+    "tue": [
      [
-      "17:00",
-      "18:00"
+      "10:00",
+      "12:00"
      ]
-    ]
-   },
-   "quote": [
-    "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
-   ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
-   "protected": true
-  },
-  "source_url": "https://www.gcjc.co.uk",
-  "hand_reviewed": "2026-10-29",
-  "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py ifan-9fef48d4f0fd3a3f6896d2-0"
- },
- {
-  "id": "ifan-53c68645aa831ab649ac43-0",
-  "name": "St Paul's Pantry (St Paul's Wimbledon Parkside)",
-  "old": null,
-  "new": {
-   "checked_date": "2026-10-29",
-   "raw": "Every other Thursday, 6:30pm to 7:30pm, in church",
-   "source_url": "https://stpaulsparkside.org.uk/",
-   "status": "TIMES_FOUND",
-   "structured": {
+    ],
+    "wed": [
+     [
+      "14:00",
+      "19:00"
+     ]
+    ],
     "thu": [
      [
-      "18:30",
-      "19:30"
+      "10:00",
+      "13:00"
      ]
     ]
    },
-   "notes": {
-    "thu": "Fortnightly"
-   },
    "quote": [
-    "St Paul's Pantry is our foodbank offering a bag of groceries and essential household items to those in need. Fortnightly on Thursday 6.30 - 7.30 pm in church."
+    "Come and see us:\nTuesdays 10 am to 12 pm\nThursdays 10 am to 1 pm",
+    "Open session – Non Tower Hamlets Residents welcome:\nWednesdays 14:00 to 19:00",
+    "Click and Collect:\nTuesdays 1:00 pm to 4:30 pm (Order by 1:00 pm Sunday)\nFridays 8:00 am to 12:00 pm (Order by 9:00 pm Wednesday)"
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: home page St Paul's Pantry section; foodbank fortnightly Thu 6:30-7:30 only; Open Church, Lunch Club, Wednesday Club and other church activities left out; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page footer Sessions; Visit Us and Wednesday open session are walk-in client hours; Click and Collect slots and order deadlines kept in text only, not in the day table; Bethnal Green closed and points to Bow; Dean approved)",
    "protected": true
   },
-  "source_url": "https://stpaulsparkside.org.uk/",
+  "source_url": "https://www.bowfoodbank.org",
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py ifan-53c68645aa831ab649ac43-0"
+  "revert": "python scripts/times_revert.py bow"
  },
  {
-  "id": "community-essentials",
-  "name": "Community Essentials Foodbank",
+  "id": "ifan-84cd0bf40986bfc9a427c6-0",
+  "name": "St Laurence's Larder & Open Kitchen",
   "old": null,
   "new": {
    "checked_date": "2026-10-29",
-   "raw": "Book a collection slot online, 1 to 7 days ahead. No walk-ins.",
-   "source_url": "https://community-essentials.org.uk/food-bank",
+   "raw": "Wednesday 10am - 2pm (food bags, no referral needed)",
+   "source_url": "https://www.laurenceslarder.org.uk",
    "status": "TIMES_TEXT_ONLY",
    "structured": null,
    "quote": [
-    "We are currently running at full capacity. If a day does not show as available, that means we are fully booked. Please do not call... You can only book a time slot between 1-7 days in the future"
+    "Get Help\nFood Bags\nWednesday 10.00am - 2.00pm\nOpen to all to receive a bag of essential food items (no referral required)."
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: /food-bank online Collection Time booker only; no fixed walk-in hours; contact-us Mon-Wed appointment text left out; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page and /food-bags agree, 'Wednesdays 10:00am - 2:00pm', no referral; Thursday hot meals, clothes bank and Monday art cafe are other services and left out; Dean approved)",
    "protected": true
   },
-  "source_url": "https://community-essentials.org.uk/food-bank",
+  "source_url": "https://www.laurenceslarder.org.uk",
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py community-essentials"
+  "revert": "python scripts/times_revert.py ifan-84cd0bf40986bfc9a427c6-0"
  },
  {
-  "id": "moorland",
-  "name": "Moorland Foodbank",
+  "id": "the-gate",
+  "name": "The Gate Foodbank",
   "old": null,
   "new": {
    "checked_date": "2026-10-29",
-   "raw": "No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.",
-   "source_url": "https://www.moorlandfoodbank.org.uk",
+   "raw": "Monday to Friday 2pm - 3pm (food parcel collection or by arrangement with staff; referral needed for a standard parcel)",
+   "source_url": "https://the-gate-charity.org/contact-us-2/",
    "status": "TIMES_TEXT_ONLY",
    "structured": null,
    "quote": [
-    "You can ask your support worker to contact Moorland Food Bank on your behalf, or contact us direct using the details on the Contact Page. We may ask a little about your circumstances... and, if appropriate, will arrange delivery of a one-off free food parcel. Please bear in mind that this is not an emergency service."
+    "Food parcel collection times: Mon - Frid between 2pm to 3pm or by arrangement with Staff",
+    "A standard visit has more items than a larder visit but requires a referral."
    ],
-   "reader": "hand-reviewed 2026-10-29 (own site read: get-help / home delivery model only; no walk-in collection hours; finder Thu session text left out; Dean approved)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: contact page food parcel collection times; Mon-Fri 10am-3pm is the centre's general opening hours and is left out; referral from /new-project-information-page/; Dean approved)",
    "protected": true
   },
-  "source_url": "https://www.moorlandfoodbank.org.uk",
+  "source_url": "https://the-gate-charity.org/contact-us-2/",
   "hand_reviewed": "2026-10-29",
   "approved_by": "Dean (times review list 2026-10-29)",
-  "revert": "python scripts/times_revert.py moorland"
+  "revert": "python scripts/times_revert.py the-gate"
  },
  {
   "id": "auldhouse-community",
@@ -667,7 +667,7 @@
   },
   "source_url": "https://northoxfordshirecommunityfoodbank.org.uk/where-we-are",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:north-oxfordshire"
  },
  {
@@ -702,7 +702,7 @@
   },
   "source_url": "https://www.daylightcf.org/foodbank/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:wellingborough-district"
  },
  {
@@ -764,7 +764,7 @@
   },
   "source_url": "https://westcheshire.foodbank.org.uk/locations/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:west-cheshire/chester-city-centre"
  },
  {
@@ -832,7 +832,7 @@
   },
   "source_url": "https://westcheshire.foodbank.org.uk/locations/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:west-cheshire/ellesmere-port"
  },
  {
@@ -879,7 +879,7 @@
   },
   "source_url": "https://www.pantryfoodbank.org",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:pantry"
  },
  {
@@ -962,8 +962,9 @@
   },
   "source_url": "https://herefordfoodbank.co.uk/contact-us",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:hereford"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:hereford",
+  "reverted": true
  },
  {
   "id": "crescent",
@@ -997,8 +998,9 @@
   },
   "source_url": "https://crescentfoodbank.org.uk",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:crescent"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:crescent",
+  "reverted": true
  },
  {
   "id": "burgess-hill",
@@ -1068,7 +1070,7 @@
   },
   "source_url": "https://burgesshillfoodbank.org.uk",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:burgess-hill"
  },
  {
@@ -1125,7 +1127,7 @@
   },
   "source_url": "https://enniskillen.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:enniskillen"
  },
  {
@@ -1186,8 +1188,9 @@
   },
   "source_url": "https://sunderlandfoodbank.org.uk/locations/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:sunderland"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:sunderland",
+  "reverted": true
  },
  {
   "id": "sunderland/roker-methodist-church",
@@ -1221,7 +1224,7 @@
   },
   "source_url": "https://sunderlandfoodbank.org.uk/get-help/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:sunderland/roker-methodist-church"
  },
  {
@@ -1256,7 +1259,7 @@
   },
   "source_url": "https://sunderlandfoodbank.org.uk/get-help/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:sunderland/downhill-centre-community-hub"
  },
  {
@@ -1323,7 +1326,7 @@
   },
   "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:nourish"
  },
  {
@@ -1394,7 +1397,7 @@
   },
   "source_url": "https://www.dens.org.uk/need-emergency-food/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:dens/way-inn-christian-centre"
  },
  {
@@ -1429,8 +1432,9 @@
   },
   "source_url": "https://salfordfoodparcels.org/index.php/174-2/salford-food-parcels/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:salford-food-parcels"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:salford-food-parcels",
+  "reverted": true
  },
  {
   "id": "corsham-churches",
@@ -1476,8 +1480,9 @@
   },
   "source_url": "https://corshamchurchesfoodbank.org.uk",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:corsham-churches"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:corsham-churches",
+  "reverted": true
  },
  {
   "id": "warminster-and-district",
@@ -1535,7 +1540,7 @@
   },
   "source_url": "http://warminsteranddistrictfoodbank.co.uk",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:warminster-and-district"
  },
  {
@@ -1583,7 +1588,7 @@
   },
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:thurrock/st-john-the-baptist-church-tilbury"
  },
  {
@@ -1631,7 +1636,7 @@
   },
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:thurrock/gates-of-praise-international-christian-centre"
  },
  {
@@ -1679,7 +1684,7 @@
   },
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:thurrock/st-stephens-church-hall-purfleet"
  },
  {
@@ -1727,7 +1732,7 @@
   },
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:thurrock/st-francis-centre-linford"
  },
  {
@@ -1775,7 +1780,7 @@
   },
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:thurrock/all-saints-church-south-ockendon"
  },
  {
@@ -1823,7 +1828,7 @@
   },
   "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:thurrock/gateway-peoples-centre"
  },
  {
@@ -1873,7 +1878,7 @@
   },
   "source_url": "https://ealing.foodbank.org.uk/locations/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:ealing/northolt"
  },
  {
@@ -1932,7 +1937,7 @@
   },
   "source_url": "https://wokingham.foodbank.org.uk/about-us/locations",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:wokingham/waterford-house"
  },
  {
@@ -1979,8 +1984,9 @@
   },
   "source_url": "https://www.salvationarmy.org.uk/weymouth",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:salvation-army/weymouth"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:salvation-army/weymouth",
+  "reverted": true
  },
  {
   "id": "brentwood",
@@ -2039,7 +2045,7 @@
   },
   "source_url": "https://brentwood.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:brentwood"
  },
  {
@@ -2086,7 +2092,7 @@
   },
   "source_url": "https://thecommunitycupboard.co.uk/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:the-community-cupboard"
  },
  {
@@ -2121,8 +2127,9 @@
   },
   "source_url": "https://www.purleyfoodhub.net/get-help/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:purley/old-lodge-lane-baptist-church"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:purley/old-lodge-lane-baptist-church",
+  "reverted": true
  },
  {
   "id": "causeway",
@@ -2208,7 +2215,7 @@
   },
   "source_url": "https://causeway.foodbank.org.uk/locations/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:causeway"
  },
  {
@@ -2255,7 +2262,7 @@
   },
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:medway/the-net-community-cafe"
  },
  {
@@ -2302,7 +2309,7 @@
   },
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:medway/st-justus-church"
  },
  {
@@ -2361,7 +2368,7 @@
   },
   "source_url": "https://medway.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:medway/twydall-foodbank-centre-coffee-shop"
  },
  {
@@ -2420,7 +2427,7 @@
   },
   "source_url": "https://www.cmffa.org.uk/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:comfort-memorial-food-for-all"
  },
  {
@@ -2506,8 +2513,9 @@
   },
   "source_url": "https://bridgwater.foodbank.org.uk/locations/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:bridgwater"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:bridgwater",
+  "reverted": true
  },
  {
   "id": "3food4u/chigwell-row",
@@ -2555,7 +2563,7 @@
   },
   "source_url": "https://3food4u.org/",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:3food4u/chigwell-row"
  },
  {
@@ -2590,7 +2598,7 @@
   },
   "source_url": "https://3food4u.org",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:3food4u/budworth-hall"
  },
  {
@@ -2663,7 +2671,7 @@
   },
   "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:woking"
  },
  {
@@ -2711,7 +2719,7 @@
   },
   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:wirral/st-chads-liscard"
  },
  {
@@ -2759,7 +2767,7 @@
   },
   "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:wirral/st-james-church-new-brighton"
  },
  {
@@ -2842,8 +2850,9 @@
   },
   "source_url": "https://godalmingcommunitystore.org/contact",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
-  "revert": "python scripts/times_revert.py fb:godalming-villages-community-store"
+  "second_run_at": "2026-10-29T14:03:49+00:00",
+  "revert": "python scripts/times_revert.py fb:godalming-villages-community-store",
+  "reverted": true
  },
  {
   "id": "ifan-da5df633f7eabc8fbdb2a3-0",
@@ -2901,7 +2910,7 @@
   },
   "source_url": "https://castlemancommunity.wixsite.com/larder/contact-us",
   "first_run_at": "2026-10-29T08:00:47+00:00",
-  "second_run_at": "2026-10-29T13:12:04+00:00",
+  "second_run_at": "2026-10-29T14:03:49+00:00",
   "revert": "python scripts/times_revert.py fb:ifan-da5df633f7eabc8fbdb2a3-0"
  },
  {
@@ -6100,5 +6109,40 @@
   "first_run_at": "2026-10-29T14:03:49+00:00",
   "second_run_at": "2026-10-29T17:14:18+00:00",
   "revert": "python scripts/times_revert.py fb:st-james-thornton"
+ },
+ {
+  "id": "driffield-wolds",
+  "name": "Driffield & Wolds Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Monday and Thursday 10am -12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "source_url": "https://lovedriffield.org.uk/",
+   "checked_date": "2026-10-29",
+   "reader": "times_finder",
+   "pc_seen": [
+    "YO256AW"
+   ],
+   "fb_mention": true
+  },
+  "source_url": "https://lovedriffield.org.uk/",
+  "first_run_at": "2026-10-29T12:14:14+00:00",
+  "second_run_at": "2026-10-29T21:45:17+00:00",
+  "revert": "python scripts/times_revert.py driffield-wolds"
  }
 ]

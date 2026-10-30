@@ -1,4 +1,4 @@
-# New today (2026-10-29)
+# New today (2026-10-30)
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
@@ -41,6 +41,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Tiviot Dale, Stockport · SK1 1TA · https://www.givefood.org.uk/needs/at/stockport/
 - Shaw & Crompton Churches Together · OL2 8QY · https://www.givefood.org.uk/needs/at/oldham/
 - Bahja Initiative · BB5 0RT
+- The Bright Morning Star Prisons and Homelessness Outreach · SW9 7PT
 - South Norwood Community Kitchen · SE25 4PQ
 - Pan Together · PO30 2AX
 - Humans MCR · M9 6FQ
@@ -66,7 +67,9 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Carpenters Cafe · E15 2JL
 - AROUND AGAIN CHARITY · B37 6DX
 - The Gospel Centre ( Food bank) · N8 0LT
+- Highwayhope · M12 4QW
 - St Laurence's Larder & Open Kitchen · NW6 7BJ
+- Ibijoke Children Foundation UK · L7 0JA
 - Healthy Living Platform · SW9 7AA
 - Hangar Community Hub CIC · CF11 8TT
 - The Gospel Church of Jesus Christ · WC1B 3PP
@@ -81,23 +84,17 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Christ Apostolic Church Mount of Rehoboth · WV13 1QU
 - Bridge Church Food Bank · DN22 6AA
 - The Life House · B29 6PB
-- The Bright Morning Star Prisons and Homelessness Outreach · SW9 7PT
-- Highwayhope · M12 4QW
-- Ibijoke Children Foundation UK · L7 0JA
 
-## Shelters: 4 added
+## Shelters: 3 added
 - Adullam Homes HA - Norman House · B70 9LS
 - Ashdown Medway Accommodation Trust (AMAT) · ME4 4PB — referral only
-- Bradford Cyrenians - Hostel for Homeless Men · BD8 7EP
 - Bridge House Mission · TS18 3AX
 
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 5 added
+## Warm spaces: 3 added
+- Marlborough Primary School · B10 9NY
 - Saifee Mosque · B18 6PU
 - The Midlands Greek & Cypriot Association · B23 7SJ
-- Marlborough Primary School · B10 9NY
-- Warm Space at The Hepworth Wakefield · WF1 5AW (Opens 2026-11-03)
-- North Molton Community Shop · EX36 3HP (Opens 2026-11-02)
 

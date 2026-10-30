@@ -12,7 +12,11 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # Run 40949042476 (29 Oct): 90 min was too tight after #318 gave hours review its own 2400s slice on top of
+    # websites (~12 min) and rebuild (up to 40 min). 150 min fits rebuild + full check + publish; schedules are
+    # 8 h apart (04:29, 12:29, 20:29 UTC) with cancel-in-progress false, so a slow run queues the next rather than
+    # overlapping.
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -38,8 +42,15 @@ jobs:
       - name: Full check of every food bank's own site (access flips, hours, closures, contacts, items needed -> reports/daily_review.md reports/fill_rates.json)
         id: full
         continue-on-error: true   # the run still publishes the fresh discovery data, but a failure is now alerted below
+        # Up to ~40 min websites (BUDGET_S) + ~40 min hours review (HOURS_BUDGET_S) + post-pass; STEP_HARD_MINUTES
+        # matches this timeout so full_check.py stops review_hours and writes partial state before the step is killed.
+        timeout-minutes: 100
         env:
           PYTHONUNBUFFERED: "1"
+          STEP_HARD_MINUTES: "100"
+          STEP_FINISH_GRACE_S: "180"
+          BUDGET_S: "2400"
+          HOURS_BUDGET_S: "2400"
         run: python scripts/full_check.py
       # full_check.py is continue-on-error, so its stop is a step output: this step fails, every later step (the commit
       # included) is skipped and the 'run failed (nothing new published)' alert opens. Counts include refresh-gate times.

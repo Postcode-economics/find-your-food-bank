@@ -74,6 +74,18 @@ class Rails(unittest.TestCase):
         self.assertEqual(IR.coverage_reasons({}), [])
         self.assertEqual(IR.coverage_reasons({"source_pages": 100, "source_opened": 80}), [])
 
+    def test_merged_local_render_keeps_step_tallies(self):
+        IR.reset()
+        p = os.path.join(self.root, "reports", "intelligent_mode.json")
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        json.dump({"run": IR._today(), "layers": {"foodbanks": {"coverage": {"render_attempts": 541, "render_errors": 4}}}},
+                  open(p, "w"))
+        IR.note_render(True)
+        m = IR.merged("foodbanks", self.root, local_render=True)
+        self.assertEqual(m.get("render_attempts"), 1)
+        self.assertEqual(int(m.get("render_errors") or 0), 0)
+        self.assertNotEqual(m.get("render_attempts"), 541)
+
     def test_thin_read_applies_nothing_and_alerts(self):
         IR.note("foodbanks", source_pages=1685, source_opened=598, budget_skipped=98, hours_review_due=12, hours_review_opened=0)
         buf = io.StringIO()
@@ -313,7 +325,7 @@ class Rails(unittest.TestCase):
     def test_summary_and_digest(self):
         IR.note("foodbanks", source_pages=1685, source_opened=598, budget_skipped=98)
         data = IR.finish(self.root, "foodbanks", "times", applied=0, held=2, rejected=[{"id": "a", "reasons": ["coverage gate: thin"]}], coverage=IR.merged("foodbanks"))
-        self.assertFalse(data["enabled"])
+        self.assertEqual(data["enabled"], IR.enabled())  # mirrors the live switch (Dean switched it on 30 Oct)
         self.assertEqual(data["layers"]["foodbanks"]["applied"], 0)
         self.assertEqual(data["layers"]["foodbanks"]["held"], 2)
         self.assertTrue(any("598 of 1685" in b for b in data["would_block"]))

@@ -66,9 +66,11 @@ class Net:
             if h.endswith("foodbank.org.uk"):
                 with self.lock: self.live -= 1
 
-def fake_render(u):
+def fake_render_fetch(u):
     k = int(re.search(r"centre-(\d+)", u).group(1))
-    return {"ok": k % 2 == 0, "http": 200, "final_url": u, "html": html(FULL) if k % 4 == 0 else ""}
+    if k % 2 == 0:
+        return 200, u, html(FULL if k % 4 == 0 else "")
+    return 0, u, ""
 
 def main_serial(items, state, flag, deadline, fetch=None, render=None):
     """main's review_hours loop before 29 Oct, verbatim apart from the names."""
@@ -97,10 +99,12 @@ def main_serial(items, state, flag, deadline, fetch=None, render=None):
 
 class Parallel(unittest.TestCase):
     def setUp(self):
-        self.saved = (F.MIN_GAP, F.TRUSSELL, rate_ledger.LEDGER, discover.render_live)
+        import render_fetch
+        self.saved = (F.MIN_GAP, F.TRUSSELL, rate_ledger.LEDGER, render_fetch.fetch)
         F.MIN_GAP = 0.004   # the real gap logic, shortened
     def tearDown(self):
-        F.MIN_GAP, F.TRUSSELL, rate_ledger.LEDGER, discover.render_live = self.saved
+        import render_fetch
+        F.MIN_GAP, F.TRUSSELL, rate_ledger.LEDGER, render_fetch.fetch = self.saved
         self.reset()
     def reset(self):
         for d in (F._locks, F._last, F._errs, F._paused, F._robots_cache): d.clear()
@@ -108,7 +112,8 @@ class Parallel(unittest.TestCase):
 
     def run_once(self, fn, seed, n=90, deadline=None):
         self.reset(); net = Net(seed); state, flags = {}, []
-        discover.render_live = fake_render
+        import render_fetch
+        render_fetch.fetch = fake_render_fetch
         with mock.patch("urllib.request.urlopen", net.urlopen):
             t = time.monotonic()
             got = fn(listings(n), state, lambda key, cat, **kw: flags.append((key, cat, sorted(kw.items()))), deadline or time.time() + 600)
@@ -167,9 +172,21 @@ class Parallel(unittest.TestCase):
 
 class Unchanged(unittest.TestCase):
     def test_politeness_limits_and_budget_are_unchanged(self):
-        self.assertEqual((F.MIN_GAP, F.ERR_LIMIT, F.PAUSE, F.TIMEOUT), (2.0, 3, 600, 15))
-        self.assertEqual(F.BUDGET, int(os.environ.get("BUDGET_S", 2400)))
+        self.assertEqual((F.MIN_GAP, F.ERR_LIMIT, F.PAUSE, F.TIMEOUT, F.BUDGET, F.HOURS_BUDGET),
+                         (2.0, 3, 600, 15, int(os.environ.get("BUDGET_S", 2400)), int(os.environ.get("HOURS_BUDGET_S", int(os.environ.get("BUDGET_S", 2400))))))
         self.assertEqual(F.TRUSSELL._value, 2)
+
+    def test_step_finish_by_reserves_grace_and_caps_site_budget(self):
+        t0 = time.time()
+        os.environ["STEP_HARD_MINUTES"] = "100"
+        os.environ["STEP_FINISH_GRACE_S"] = "180"
+        fb = F.step_finish_by()
+        self.assertIsNotNone(fb)
+        self.assertAlmostEqual(fb, t0 + 100 * 60 - 180, delta=2)
+        cap = F.capped_site_budget(t0, fb)
+        self.assertEqual(cap, min(F.BUDGET, int(fb - t0 - F.HOURS_BUDGET - F._POST_SITES_S)))
+        del os.environ["STEP_HARD_MINUTES"]
+        del os.environ["STEP_FINISH_GRACE_S"]
 
 if __name__ == "__main__":
     unittest.main()

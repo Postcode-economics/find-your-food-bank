@@ -1,7 +1,18 @@
 {
-"generated": "2026-10-29",
+"generated": "2026-10-30",
 "attribution": "Food bank listings: Give Food (https://www.givefood.org.uk) and helpmap.uk (https://helpmap.uk)",
 "items": [
+{
+"id": "lambeth-croydon",
+"name": "Lambeth & Croydon Foodbank",
+"network": "Trussell",
+"address": "Oasis St Martin’s Village, 155 Tulse Hill, Norwood, London, SW2 3UP",
+"postcode": "SW2 3UP",
+"lat": 51.4439059,
+"lng": -0.1101422,
+"phone": "02079214205",
+"website": "https://lambethcroydon.foodbank.org.uk/"
+},
 {
 "id": "west-bromwich",
 "name": "West Bromwich Foodbank",
@@ -7371,17 +7382,6 @@
 "lng": -5.0604279,
 "phone": "07983622315",
 "website": "https://newquay.foodbank.org.uk"
-},
-{
-"id": "lambeth-croydon",
-"name": "Lambeth & Croydon Foodbank",
-"network": "Trussell",
-"address": "Oasis St Martin’s Village, 155 Tulse Hill, Norwood, London, SW2 3UP",
-"postcode": "SW2 3UP",
-"lat": 51.4439059,
-"lng": -0.1101422,
-"phone": "02079214205",
-"website": "https://lambethcroydon.foodbank.org.uk/"
 },
 {
 "id": "northampton-hope-centre",

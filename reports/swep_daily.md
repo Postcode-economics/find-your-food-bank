@@ -1,4 +1,4 @@
-# SWEP daily full check (2026-10-29)
+# SWEP daily full check (2026-10-30)
 
 382 councils: 224 with a SWEP page, 134 with a homeless line, 1 active, 42 flagged.
 
@@ -10,7 +10,7 @@
 
 - Basildon Borough Council: dead page https://www.basildon.gov.uk/article/5897/Rough-Sleeping (HTTP 403)
 - London Borough of Barking and Dagenham: dead page https://www.lbbd.gov.uk/civil-protection-service/severe-weather (HTTP 403)
-- Brighton and Hove City Council: status unreachable -> unknown
+- Brighton and Hove City Council: status unknown -> unreachable; dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 302)
 - Bolsover District Council: dead page https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness (HTTP 403)
 - Breckland District Council: dead page https://www.breckland.gov.uk/article/12299/Rough-sleeping-in-extreme-weather-conditions (HTTP 403)
 - Chichester District Council: dead page https://www.chichester.gov.uk/homelessapplications (HTTP 403)
