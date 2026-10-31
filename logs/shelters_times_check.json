@@ -50,14 +50,14 @@
 "reason": "no own website to check against"
 },
 "osm-way-96032322": {
-"site": "",
-"http": null,
-"sha256": null,
-"etag": null,
-"last_modified": null,
+"site": "https://www.salvationarmy.org.uk/willow-house",
+"http": 200,
+"sha256": "9b72d5e4860035e2427e395838c3a5a7ac6be3b1669c3183ebd89dd81cde6fc4",
+"etag": "\"1793459904-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:18:24 GMT",
 "checked": "2026-10-31",
-"status": "no_website",
-"reason": "no own website to check against"
+"status": "none_published",
+"reason": "no times published or found"
 },
 "osm-way-101893157": {
 "site": "",
@@ -242,7 +242,7 @@
 "osm-way-374003917": {
 "site": "https://www.crawleyopenhouse.co.uk/",
 "http": 200,
-"sha256": "5688111d473097dfeadd9a09a5e27224d80f3f03dc8d2d0602e67c53d8135ce7",
+"sha256": "9b6b23e9f7fdf64a15bb6b2a8f0c9891b743b535e0ca8b291ee4a9738f0a2dc0",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -264,8 +264,8 @@
 "osm-way-625141146": {
 "site": "https://juliantrust.org.uk",
 "http": 200,
-"sha256": "df54326965eb2a8dbb9afc2062db883ae3b1d85d04d8d556a2cb894fa2d708a9",
-"etag": "W/\"8d38e80b3d4f653bce1c7d19bc997cfd\"",
+"sha256": "cb71484dd8063003f896d55e7450a5121f51eebdabf82c945bd9cdf1b1bd470b",
+"etag": "W/\"6fa30b6ef889e7dc4754d0a9c059cc6f\"",
 "last_modified": "",
 "checked": "2026-10-31",
 "status": "differs_review",
@@ -289,9 +289,9 @@
 "osm-way-783633228": {
 "site": "https://www.salvationarmy.org.uk/james-lee-house",
 "http": 200,
-"sha256": "dad4a2f8d018dd2a4a7fb5210727329124d28ce79e7051628bd6608d79bbfd1c",
-"etag": "\"1793451763-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:02:43 GMT",
+"sha256": "3c618ba15b8392ac7f6dfb08770e380dd971914b4581f453a1038a64f63a9c02",
+"etag": "\"1793460093-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:33 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -309,7 +309,7 @@
 "osm-way-1374136281": {
 "site": "https://www.ncha.org.uk/care-and-support/services-and-care-homes/all-care-homes-and-services/malone-terrace/",
 "http": 200,
-"sha256": "09f5028e809d112fdc64c65133645d62b55a7ebc66bfc705210b67f0549056fc",
+"sha256": "f5853d8c91262f2ad06d8e952c67c1b38d77a7c9391b0b34025739044e4e9f17",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -319,7 +319,7 @@
 "osm-way-1553098331": {
 "site": "https://oneymca.org/what-we-do/accommodation/hostels/welwyn-garden-city-hostel/",
 "http": 200,
-"sha256": "bd0da5e3050e5f49fb0d98e8a70556ccaed6913f45f62d9cd0702032a156dd8c",
+"sha256": "98e5c4afa71e843a329dd2473485d311d6750e343c70fc352803e35e74efc404",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -339,7 +339,7 @@
 "man-nightsafe-blackburn": {
 "site": "https://nightsafe.org/nightsafe-houses/the-shelter/",
 "http": 200,
-"sha256": "a810d0b349f61f707a4c636eb6ab9c8bc76782850fad0b368b4003e82ac17d27",
+"sha256": "b9c05607d394b969df214728e00b5d81d3a0c09ae4a2867b8a37171b4e73133c",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -350,7 +350,7 @@
 "hl-nightsafe-blackburn": {
 "site": "https://nightsafe.org/nightsafe-houses/the-shelter/",
 "http": 200,
-"sha256": "a810d0b349f61f707a4c636eb6ab9c8bc76782850fad0b368b4003e82ac17d27",
+"sha256": "b9c05607d394b969df214728e00b5d81d3a0c09ae4a2867b8a37171b4e73133c",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -372,9 +372,9 @@
 "sa-devonport-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/devonport-lifehouse",
 "http": 200,
-"sha256": "9df4cdd31ce8ea4024d5b5260135220376c99a8b69d2758c73979b980f6a9923",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "692bb48a9255e8d9a2bf4e44429e374608274214137dbfd90b881f168882c636",
+"etag": "\"1793460091-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:31 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -382,9 +382,9 @@
 "sa-grosvenor-family-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/grosvenor-family-lifehouse",
 "http": 200,
-"sha256": "2cf5fa435987b35123e717bca1bf8af67485f55cd0207268bc371f24ec837ead",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "dce2c3cf74d9714081681586074258628b903540a8a3b13e6ed9db4df334a249",
+"etag": "\"1793460092-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:32 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -392,9 +392,9 @@
 "sa-harnall-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/harnall-lifehouse",
 "http": 200,
-"sha256": "d56bc65b89f3f2a3f34c0dcce6cef56bd097f23bf87df4d41a425805721027f8",
-"etag": "\"1793453919-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:38:39 GMT",
+"sha256": "fec38564eac5e7137f72433232ed4b72e3e3ebc491da8ff65c34b982807863ac",
+"etag": "\"1793459956-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:19:16 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -402,9 +402,9 @@
 "sa-northlands-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/northlands-lifehouse",
 "http": 200,
-"sha256": "04fcecf396f79ad0eef706c0317a6e85568880b87ca5d41addefa4c459d362a4",
-"etag": "\"1793454495-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:15 GMT",
+"sha256": "702ebe4d27200565a7c441b949b50e165299b50cbf62c6bcfb20a9c1445e8dcd",
+"etag": "\"1793459183-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:06:23 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -412,9 +412,9 @@
 "sa-wallace-of-campsie-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/wallace-campsie-lifehouse",
 "http": 200,
-"sha256": "09032784f94c16a78d4ed1df79ff10f924020dc7b48ea0cb18b666b0ad9bbb96",
-"etag": "\"1793453414-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:30:14 GMT",
+"sha256": "3c41714f2779df72efc953b1081d7c30be2d5b9bf0e84ee46d1389e279f68261",
+"etag": "\"1793460095-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:35 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -422,9 +422,9 @@
 "sa-skinnergate-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/skinnergate-lifehouse",
 "http": 200,
-"sha256": "edbdaa7a081c185be2a506d785f064c8598c23a606c0efccfb099a772ddf2909",
-"etag": "\"1793454494-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:14 GMT",
+"sha256": "1987db81e564df70087e3aaccf9f8faeb8af40087e30f4e7b462873c377e6816",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -432,9 +432,9 @@
 "sa-ty-dewr-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/ty-dewr-lifehouse",
 "http": 200,
-"sha256": "ad442964ef832b20743aadf8434e7eec68f4d5b1699c330b53b4c4246a6a22be",
-"etag": "\"1793454496-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:16 GMT",
+"sha256": "f9976baaabea3ee2ba2032ad1031f72673209b56dbe16e501afa6f360b39124e",
+"etag": "\"1793460095-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:35 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -442,9 +442,9 @@
 "sa-ty-gobaith-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/ty-gobaith-lifehouse",
 "http": 200,
-"sha256": "a88af16d0ccd033de7a39efe6b9b263f197c75eb4c549ad3cb9af9c04a70d0ff",
-"etag": "\"1793454496-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:16 GMT",
+"sha256": "60eaf05e693f4206db872a649bb54d99b9bac52f489655145a77c74604b94126",
+"etag": "\"1793460095-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:35 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -452,9 +452,9 @@
 "sa-ty-diogel-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/ty-diogel-lifehouse",
 "http": 200,
-"sha256": "0e5fd6a01122bc101274f84ab0129f015c56757f576591bd9aa8c446e9c91395",
-"etag": "\"1793454496-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:16 GMT",
+"sha256": "19349dfe8723674ac01adc817251cf152b979b5eaf06a0c167982a81cc06905f",
+"etag": "\"1793460095-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:35 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -462,9 +462,9 @@
 "sa-ann-fowler-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/ann-fowler-house",
 "http": 200,
-"sha256": "df95f630248346a94ddc52162ffb51f4210d05d7136cf80ccb04cf7b719b74de",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "8015b89c335b837b5e20fbdf59bf9ae3e11849fb0de65f6fbaaf82a6d6309252",
+"etag": "\"1793460091-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:31 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -472,9 +472,9 @@
 "sa-axholme-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/axholme-house",
 "http": 200,
-"sha256": "de0dd4deead98cb5ea9b03dec897b852878a8d49b91ebcdfdbb0a33c54abb1c3",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "6cb8579f928b2bf279cd963bbe5976149d93907d0c76629e540a517e70e576a1",
+"etag": "\"1793460091-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:31 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -482,9 +482,9 @@
 "sa-the-booth-centre-southampton-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/booth-centre-southampton",
 "http": 200,
-"sha256": "f3a94874060f0029cc7fe20c39bdcdd79b0a2e7fdabef8c19cbca9261b23baac",
-"etag": "\"1793451331-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 12:55:31 GMT",
+"sha256": "bd7dd83e0ee6d7a5b1639541e6b914591ea2b58573d36849f28b66c0dc6f1f45",
+"etag": "\"1793460091-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:31 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -492,9 +492,9 @@
 "sa-centenary-house-calder-fountain-lifehous": {
 "site": "https://www.salvationarmy.org.uk/centenary-house-calder-fountain",
 "http": 200,
-"sha256": "73714ccfdef523eb5541c1ecab48243e8a0b17fdc79e2766d57cf5ad60f444b2",
-"etag": "\"1793451929-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:05:29 GMT",
+"sha256": "943f4b864c3f3c0f36559bf5ed3e97464cf8118db0129bf8a3a5694167dbfefe",
+"etag": "\"1793458772-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 14:59:32 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -502,9 +502,9 @@
 "sa-booth-house-grimsby-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/booth-house-grimsby",
 "http": 200,
-"sha256": "d9541b61b4eee5dd576496b01c74b7073221f4fb1a2ca9b5391122e9f90896b6",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "9b6017aeb97ae0c14c0b8f2e8c31d2bf713d10b1dd79029996d3137cfb063439",
+"etag": "\"1793460091-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:31 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -512,9 +512,9 @@
 "sa-darbyshire-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/darbyshire-house",
 "http": 200,
-"sha256": "def21fba1148a822e4c70009526c3d9257cc0ca6548337f3303e6de340bd95ef",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "1322fe19fe54d99587d3e9ac478763577cc7ed8f9a884f3809d7c780468840d8",
+"etag": "\"1793460091-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:31 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -522,9 +522,9 @@
 "sa-fellowship-house": {
 "site": "https://www.salvationarmy.org.uk/fellowship-house",
 "http": 200,
-"sha256": "a98bae7f6e84ed2926d1631611e2a671d9300e34813e93fa000a0b5742361854",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "875784da2e2b091d33ea94029ca2a7a4e27d4973b0e6ba0a0e80f2c9000bf30a",
+"etag": "\"1793460092-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:32 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -532,9 +532,9 @@
 "sa-george-williams-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/george-williams-house",
 "http": 200,
-"sha256": "63cdf1abb10ed5052fb1584e94d2cd6595a918415e30c6606f5e20513cd2f8fc",
-"etag": "\"1793454493-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:13 GMT",
+"sha256": "61f2964d5f334e3c5c25cb77e6eaf7264b670df663bf2417b7739a3692e07026",
+"etag": "\"1793460092-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:32 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -542,9 +542,9 @@
 "sa-kings-ripton-court-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/kings-ripton-court",
 "http": 200,
-"sha256": "e5df0d63dcda47def7b9455545a1282162275fcab2c3dc739d6e99a71012ebfd",
-"etag": "\"1793454494-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:14 GMT",
+"sha256": "8caf02f841b3d140a61abc461265b34eeaa34731fd8f821f945839140b09a6f5",
+"etag": "\"1793460093-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:33 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -552,9 +552,9 @@
 "sa-glen-alva-family-centre-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/glen-alva-family-centre",
 "http": 200,
-"sha256": "3146e926bfca51bf4ff54b0a4d9926e72aa6876e28f3b5c78f4d42528449f764",
-"etag": "\"1793451703-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:01:43 GMT",
+"sha256": "7213cff3cc578bac84d3c94272946e3195ef5bafe33db82f80455b769d9af61d",
+"etag": "\"1793460093-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:33 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -562,9 +562,9 @@
 "sa-lincoln-court-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/lincoln-court",
 "http": 200,
-"sha256": "9c9ca1334953d386494d4608632085485012c93fa855fb82b1298d4609273f6c",
-"etag": "\"1793453801-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:36:41 GMT",
+"sha256": "082d8d599993e95b899f0d9a5488b25493d3b49c9aa70af0a2584566e0c9a8ea",
+"etag": "\"1793460093-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:33 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -572,9 +572,9 @@
 "sa-malachi-place": {
 "site": "https://www.salvationarmy.org.uk/malachi-place",
 "http": 200,
-"sha256": "023657b6c8653e57bf91dd5c257cc6585ad1c51ca3b0ea7e39ed63429aed6aab",
-"etag": "\"1793454494-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:14 GMT",
+"sha256": "024263cd4f12825196c69ad8629162beb8277c536486ad9e845c3a8da1978013",
+"etag": "\"1793460093-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:33 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -582,9 +582,9 @@
 "sa-southwark-young-people-service": {
 "site": "https://www.salvationarmy.org.uk/springfield-lodge",
 "http": 200,
-"sha256": "2150c4c00e448c52cc08344cc0b587d8fb4ab6d8d223c8a46d6c4c2987dad41d",
-"etag": "\"1793454495-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:15 GMT",
+"sha256": "5584cf42d61dcc5a3340cab06774aefd9775a0f264daff10ae52a4c4187ce3d2",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -592,9 +592,9 @@
 "sa-salisbury-house": {
 "site": "https://www.salvationarmy.org.uk/salisbury-house",
 "http": 200,
-"sha256": "656beecb225a28f8ebb314a4d66f12789fbf2f5bb72e3dfac1d92ce450197c34",
-"etag": "\"1793454494-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:14 GMT",
+"sha256": "5803207127d2e4c8998d3b5d0c4f0f5b9e45bb342ac4d940845e3f8cd91a0160",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -602,9 +602,9 @@
 "sa-st-monica-s-house-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/st-monicas-house",
 "http": 200,
-"sha256": "bc140768b4855d704ef595701b612376d10c018647659aad9565a6bc31a2b8fe",
-"etag": "\"1793454494-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:14 GMT",
+"sha256": "af8f74c78e8da5c218b25e5fb3bcd38594b409585afdd6a10ebc987ac49ba085",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -612,9 +612,9 @@
 "sa-strathmore-lodge-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/strathmore-lodge",
 "http": 200,
-"sha256": "d5eb02efd300f66e9acf8dd0a5312a09287b073de4b459897d0a4e54829c8906",
-"etag": "\"1793454495-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:15 GMT",
+"sha256": "fba940f5b507119ef75736f966f92f2810af70003162d190836235a9ecf7a34b",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -622,9 +622,9 @@
 "sa-st-paul-s-house-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/st-pauls-house",
 "http": 200,
-"sha256": "23b49c1136de04ce522157cf56794e012ee2a246f7c368d72d53b7ada7112229",
-"etag": "\"1793454495-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:15 GMT",
+"sha256": "759261752c3f8703b14a4aec49b3bc6b359a4d75472e846215f67ea54aaa0f42",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -632,9 +632,9 @@
 "sa-springfield-house-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/springfield-house",
 "http": 200,
-"sha256": "5859bc8b865e98b132dd73fc3543cb94431dc20dd071f95bdeea007561d63d0c",
-"etag": "\"1793454494-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:14 GMT",
+"sha256": "323445d0e682fb3210a3f5556644c3677f627b58ef3cfbe62086f772c84b4ed6",
+"etag": "\"1793460094-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:21:34 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -642,9 +642,9 @@
 "sa-william-hunter-lifehouse": {
 "site": "https://www.salvationarmy.org.uk/william-hunter-house",
 "http": 200,
-"sha256": "3ebf19a0a01806a787aefc3663ea6c6bea39b8efc78a2f4fa1e5ee9f367e59d8",
-"etag": "\"1793454496-gzip\"",
-"last_modified": "Sat, 31 Oct 2026 13:48:16 GMT",
+"sha256": "6601262576ec8e4ce2af475b0abc9d26f9f4cd9fb111a9cbc6c0be939df5fc19",
+"etag": "\"1793459228-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:07:08 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -812,7 +812,7 @@
 "man-streetlife-blackpool": {
 "site": "https://wearestreetlife.org/",
 "http": 200,
-"sha256": "1f29b2df6c9b2e3a3fde8b65c7350a6770d62f97050884a6a15d7680d8f67daa",
+"sha256": "def0fa6ad29bce9b2ea3c1d4ffeef1aa05ce30bef2f94b4b25c9172869f28ee4",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -822,9 +822,9 @@
 "man-springofhope-bristol": {
 "site": "https://www.inhope.uk/our-venues/spring-of-hope/",
 "http": 200,
-"sha256": "18aa1fa119da2dbd2e8d3d863ef7e2df68a0b5997f247ac45ae049b8e5e51c5d",
+"sha256": "3e0a94dffefb64757420e939cbcf60d2939676fbed664ca725b66928bc1aa7ba",
 "etag": "",
-"last_modified": "Sat, 31 Oct 2026 05:37:50 GMT",
+"last_modified": "Sat, 31 Oct 2026 15:21:33 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -842,7 +842,7 @@
 "hl-harrogate-homeless-project": {
 "site": "https://www.harrogate-homeless-project.org.uk/",
 "http": 200,
-"sha256": "e2d81461379919acbca77f1b0bba5b1ce28bd18c44d8bba7687f2c301ea6a75d",
+"sha256": "a65d55a3e5de188986740aee8b1459a5a40a92bb3361d273d6338b32009c533d",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -892,7 +892,7 @@
 "hl-dens-the-elms": {
 "site": "https://www.dens.org.uk/",
 "http": 200,
-"sha256": "34dde0deca99aa7823b733cf1194a4e14e485c07064fcd2ccce13856c55b452e",
+"sha256": "7b33f6ef40bfdc5a7959b9b7bae34b225dd71537c38d997b0de2522623135668",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -916,7 +916,7 @@
 "eh-nottingham-night-shelter": {
 "site": "https://www.emmanuelhouse.org.uk/",
 "http": 200,
-"sha256": "299a0cd9e81455b915d64ee8b49ba5034e94fcff9850673b352f060368c380ba",
+"sha256": "144d4a1df250966b2afe9c66722202cf7c76b91331542ffafe6a323cc2075762",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -961,9 +961,9 @@
 "glassdoor-winter-night-shelters": {
 "site": "https://www.glassdoor.org.uk/",
 "http": 200,
-"sha256": "203c66f95fa308c51cb149633c8457924b1732687a1226cf86ee5dc62f32a89f",
+"sha256": "6326e8e87c3a125f1a9197fe2f4541040e1a21298142433ca81ea97a2e6c2ed6",
 "etag": "",
-"last_modified": "Sat, 31 Oct 2026 13:48:10 GMT",
+"last_modified": "Sat, 31 Oct 2026 15:21:29 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
@@ -971,7 +971,7 @@
 "hab-barnet-winter-night-shelter": {
 "site": "https://www.habcentre.org/",
 "http": 200,
-"sha256": "d9d08a2e483c4749007f4b971b196aab61c1ab8945a2e8d419dcdc6f1fd66f7b",
+"sha256": "1b07a00ef55f74f12ac5af830a528dc636703294a6bc2901b358aae7aeca8911",
 "etag": "",
 "last_modified": "Sat, 31 Oct 2026 06:43:46 GMT",
 "checked": "2026-10-31",
@@ -991,8 +991,8 @@
 "man-c4ws-camden-winter-shelter": {
 "site": "https://c4wshomelessproject.org/winter-night-shelter-1",
 "http": 200,
-"sha256": "a174068ae33c03f4a1586d85242eeb641edcf05bb05fc0140792c096297f03a7",
-"etag": "W/\"9dadeecef0a6d280f6da451308ecaa48\"",
+"sha256": "dabb68b00a9a964cac03ed212d76fff903904387328153aacc0a3fab410457e3",
+"etag": "W/\"9dadeecef0a6d280f6da451308ecaa48--gzip\"",
 "last_modified": "",
 "checked": "2026-10-31",
 "status": "none_published",
@@ -1007,7 +1007,7 @@
 "man-noah-luton-winter-shelter": {
 "site": "https://noahenterprise.org/emergency-winter-night-shelter/",
 "http": 200,
-"sha256": "32fc782db537de87a6eb9bd9e71803d516c5f119f029c7f102dfdfece70ce1af",
+"sha256": "ecd86724ef770d191bde5af6df861b0dba97a753fa0d2ba0776993892ea54a9f",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -1096,7 +1096,7 @@
 "man-ymca-basingstoke": {
 "site": "https://ymca-fg.org/basingstoke/",
 "http": 200,
-"sha256": "f6f510ca876b98ac4fea925500c166db766e23e57cc12af90f84568eaa6f60c3",
+"sha256": "1f8d1b503e05f401592bc4fe535de07a4a3db35d55cd611c79c8127fbc16a3a1",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -1106,7 +1106,7 @@
 "man-ymca-watford-charter": {
 "site": "https://oneymca.org/what-we-do/accommodation/hostels/watford-hostel/",
 "http": 200,
-"sha256": "5ba7b3cf0ded91526eb0e174a3728131a87f9e746758269d7d11aad3ac82246a",
+"sha256": "a037b585496c748af34ac0792822ba34f4bd581de5f43672541a8bcfb01c5308",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
@@ -1123,44 +1123,65 @@
 }
 ]
 },
-"hl-adullam-homes-ha-norman-house": {
-"site": "http://www.adullam.org.uk",
+"man-cambria-house-lifehouse": {
+"site": "https://www.salvationarmy.org.uk/cambria-house",
 "http": 200,
-"sha256": "799fa9507a8c83110c7b9cd1743b595fa5d331c2e522e9fe58cbec1e261babd2",
-"etag": "\"6828-1793434702;;;\"",
-"last_modified": "",
+"sha256": "3685cf2fc12a4ff0043836005ccd57cff1d4131fdb605a380167cad868f0a5fc",
+"etag": "\"1793459907-gzip\"",
+"last_modified": "Sat, 31 Oct 2026 15:18:27 GMT",
 "checked": "2026-10-31",
 "status": "none_published",
 "reason": "no times published or found"
 },
-"hl-amat-uk": {
-"site": "http://www.amatuk.org",
+"man-union-terrace-hostel": {
+"site": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
 "http": 200,
-"sha256": "a942397d0ee7b80092afac85ea27453edb8114ce2080237bf516194e78caf846",
+"sha256": "9651c6412ef20419472fe6b7538d88dbd488240515670091df64c05051afbfac",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
-"status": "none_published",
-"reason": "no times published or found"
+"status": "differs_review",
+"reason": "published clock times occur on the page but the day table could not be confirmed; shown hours left unchanged",
+"rejected": [
+{
+"text": "",
+"reason": "times on the page cannot be tied to this centre's postcode"
+}
+],
+"flagged": true
 },
-"hl-bradford-cyrenians-hostel-for-homeless-men": {
-"site": "http://www.bradfordcyrenians.org.uk",
+"man-robinson-court": {
+"site": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
 "http": 200,
-"sha256": "1dd26c90958b9efce3dc6a518545c3a743aaaf8fb9f990d42e05980d7d4785bb",
+"sha256": "9651c6412ef20419472fe6b7538d88dbd488240515670091df64c05051afbfac",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
-"status": "none_published",
-"reason": "no times published or found"
+"status": "differs_review",
+"reason": "published clock times occur on the page but the day table could not be confirmed; shown hours left unchanged",
+"rejected": [
+{
+"text": "",
+"reason": "times on the page cannot be tied to this centre's postcode"
+}
+],
+"flagged": true
 },
-"hl-bridge-house-mission": {
-"site": "http://www.bridgehousemission.co.uk",
+"man-howe-hill-young-people": {
+"site": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
 "http": 200,
-"sha256": "8a575bafad623376e62885287cf5f8286462637bb3c22e7b70cb41a4f6c7783f",
+"sha256": "9651c6412ef20419472fe6b7538d88dbd488240515670091df64c05051afbfac",
 "etag": "",
 "last_modified": "",
 "checked": "2026-10-31",
-"status": "none_published",
-"reason": "no times published or found"
+"status": "differs_review",
+"reason": "published clock times occur on the page but the day table could not be confirmed; shown hours left unchanged",
+"rejected": [
+{
+"text": "",
+"reason": "times on the page cannot be tied to this centre's postcode"
+}
+],
+"flagged": true
 }
 }
