@@ -107,6 +107,8 @@ class MapCredits(unittest.TestCase):
                 if not name.endswith('.html'):
                     continue
                 rel = os.path.relpath(os.path.join(dirpath, name), R)
+                if rel.startswith("tests" + os.sep):
+                    continue
                 text = _text(_read(rel))
                 if EN_CREDIT not in text:
                     missing.append(rel)

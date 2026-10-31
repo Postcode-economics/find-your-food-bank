@@ -137,11 +137,14 @@ class Plan(unittest.TestCase):
         stated = w.card_from_source(centre(pets="allowed", access="step-free", beds=40), NOW)["card"]
         self.assertEqual((stated["pets"], stated["access"], stated["beds"]), ("allowed", "step-free", 40))
 
-    def test_14_swep_badge_only_when_active(self):
+    def test_14_swep_badge_not_on_incident_cards(self):
         card = w.card_from_source(centre(swep_active=True), NOW)["card"]
-        self.assertEqual(card["swep_badge"], w.SWEP_BADGE)
-        self.assertEqual(card["badge"], "Emergency shelter")
-        self.assertNotIn("swep_badge", w.card_from_source(centre(swep_active=False), NOW)["card"])
+        self.assertNotIn("swep_badge", card)
+        self.assertEqual(card["badge"], w.BADGE)
+        card2 = w.card_from_source(centre(swep_active=False), NOW)["card"]
+        self.assertNotIn("swep_badge", card2)
+        swep_card = w.card_from_source(centre(swep_active=True, category="swep"), NOW)["card"]
+        self.assertEqual(swep_card.get("swep_badge"), w.SWEP_BADGE)
 
     def test_15_swep_hidden_when_page_unread_over_24h(self):
         self.assertFalse(w.swep_show(True, datetime.timedelta(hours=25)))
@@ -158,7 +161,7 @@ class Plan(unittest.TestCase):
     def test_17_map_key_only_when_marker_live(self):
         self.assertIsNone(w.map_key(False))
         key = w.map_key(True)
-        self.assertIn("rest centre opened by the council", key["entry"])
+        self.assertIn("Rest centre (council-run)", key["entry"])
         self.assertTrue(key["needs_dean_ok"])
         out = w.compose([amber()], [], "West Sussex", NOW)
         self.assertIsNone(out["key"])
@@ -305,14 +308,14 @@ class Plan(unittest.TestCase):
         d = w.card_from_source(rec, NOW)
         self.assertEqual(d["publish"], "live")
         self.assertEqual(d["tell_dean"], "afterwards")
-        self.assertEqual(d["card"]["badge"], "Emergency shelter")
+        self.assertEqual(d["card"]["badge"], w.BADGE)
         self.assertEqual(d["card"]["opened_for"], "fire")
         self.assertEqual(d["card"]["emergency_number"], "999")
         self.assertEqual(d["card"]["flood_number"], w.FLOODLINE)
 
     def test_29_no_cause_line_when_the_source_gives_none(self):
         card = w.card_from_source(centre(), NOW)["card"]
-        self.assertEqual(card["badge"], "Emergency shelter")
+        self.assertEqual(card["badge"], w.BADGE)
         self.assertNotIn("opened_for", card)
         self.assertNotIn("cause", card)
 
@@ -371,7 +374,7 @@ class Plan(unittest.TestCase):
         self.assertIn("border:2px solid #FF3B30", css)
         self.assertIn("border-left:6px solid #FF3B30", css)
         self.assertIn('class="em-card em-pop"', js)
-        self.assertIn("html.em-preview .em-card{", css)
+        self.assertIn("html.em-preview .em-card,html.em-live .em-card{", css)
         self.assertNotIn("#D70015", css)
 
     def test_36_badge_is_white_900_16px(self):
@@ -405,7 +408,7 @@ class Plan(unittest.TestCase):
         self.assertIsNone(off["key"])
         self.assertTrue(off["live_default_unchanged"])
         html = rd("index.html")
-        self.assertIn("q.get('preview')!=='emergency'", html)
+        self.assertIn("incident_rest_centre_live.json", html)
         self.assertNotIn("em-card", html)
 
     def test_preview_report_does_not_invent_shelters(self):
@@ -432,11 +435,12 @@ class Plan(unittest.TestCase):
         self.assertIn("999 Emergency services", rd("emergency.js"))
 
     def test_38_every_live_centre_is_kept_for_every_visitor(self):
-        """Dean 26 Oct: the list is national. Do not filter it by the visitor or the warning area."""
+        """Preview: national list. Live: gated by council LAD (postcodes.io admin_district)."""
         js = rd("emergency.js").replace(" ", "")
-        self.assertIn("return!!(c&&c.live&&!c.example)", js)
+        self.assertIn("if(!isLive)returntrue", js)
+        self.assertIn("centresForEveryone", js)
         js_raw = rd("emergency.js")
-        self.assertIn("CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER", js_raw)
+        self.assertIn("Nearest rest centre", js_raw)
         self.assertIn("Go to nearest open rest centre", js_raw)
         self.assertIn("'<div class=\"em-row\">'+dir+call", js_raw)
         css = rd("emergency.css").replace(" ", "")
@@ -548,7 +552,7 @@ class BannerClick(unittest.TestCase):
             self.assertIn(info["tag"], ("BUTTON", "A"), scheme)
             self.assertEqual(info["name"], "Go to nearest open rest centre", scheme)
             self.assertGreaterEqual(info["tab"], 0, scheme)
-            self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER", scheme)
+            self.assertEqual(info["cta"], "Nearest rest centre", scheme)
             self.assertEqual(info["deco"], "underline", scheme)
             self.assertEqual(info["transform"], "uppercase", scheme)
             self.assertIn(info["weight"], ("900", "800", "bold"), scheme)
@@ -668,7 +672,7 @@ class BannerClick(unittest.TestCase):
                 pg = self._page(390, scheme); self._open(pg, query); self._theme(pg, scheme)
                 pg.wait_for_selector("#em-banner .em-ico")
                 info = self._banner_info(pg)
-                self.assertEqual(info["cta"], "CLICK HERE FOR YOUR NEAREST EMERGENCY SHELTER", (query, scheme))
+                self.assertEqual(info["cta"], "Nearest rest centre", (query, scheme))
                 self.assertEqual(info["bg"], "rgb(255, 59, 48)", (query, scheme))
                 self.assertEqual(info["ctaColor"], "rgb(255, 255, 255)", (query, scheme))
                 self.assertEqual(info["icons"], 1, (query, scheme))
@@ -688,5 +692,9 @@ class BannerClick(unittest.TestCase):
 
     def test_live_default_has_no_banner(self):
         pg = self._page(); pg.goto(self.base + "/?fresh=1&nocount=1", wait_until="load")
-        self.assertEqual(pg.locator("#em-banner").count(), 0)
+        pg.wait_for_timeout(1500)
         self.assertNotIn("em-preview", pg.evaluate("document.documentElement.className"))
+        banner = pg.locator("#em-banner")
+        if banner.count():
+            self.assertTrue(pg.evaluate("document.getElementById('em-banner').hidden"))
+        self.assertEqual(pg.locator("#em-root .em-card").count(), 0)

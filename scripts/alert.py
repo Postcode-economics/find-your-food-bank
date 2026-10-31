@@ -8,6 +8,8 @@ Exits non-zero when gh fails or anything else goes wrong: an alert that could no
 import datetime, json, os, subprocess, sys
 from zoneinfo import ZoneInfo
 LABEL = 'refresh-alert'
+SWITCH_ON_LABEL = 'rest-centre-switch-on'
+LEGACY_SWITCH_ON_LABEL = 'emergency-switch-on'
 RUN = f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"
 class AlertError(Exception): pass
 def gh(*a):
@@ -38,6 +40,45 @@ def resolve(key):
     n = find(key)
     if n: gh('issue', 'close', str(n), '--comment', f'Resolved: the next run succeeded. {RUN}')
     summary(f"OK [{key}]" + (f" (closed #{n})" if n else ''))
+def switch_on_title(council, label, category=None):
+    extra = f" [{category}]" if category else ""
+    return f'Incident rest centre or SWEP switch-on: {council} - {label}{extra}'
+def _switch_on_issues():
+    items = []
+    for lab in (SWITCH_ON_LABEL, LEGACY_SWITCH_ON_LABEL):
+        r = gh('issue', 'list', '--label', lab, '--state', 'open', '--json', 'number,title', '--limit', '1000')
+        try:
+            items.extend(json.loads(r.stdout or '[]'))
+        except json.JSONDecodeError as e:
+            raise AlertError(f'switch-on issue list not JSON: {e}') from e
+    return items
+def find_switch_on(council, label, category=None):
+    prefix = switch_on_title(council, label, category).split("[", 1)[0].rstrip()
+    items = _switch_on_issues()
+    exact = switch_on_title(council, label, category)
+    n = next((i['number'] for i in items if i.get('title') == exact), None)
+    if n:
+        return n
+    return next((i['number'] for i in items if (i.get('title') or '').startswith(prefix)), None)
+def switch_on_open(council, label, body, category=None):
+    """Per-council SWEP / rest-centre switch-on: one GitHub issue (emailed), deduped while open."""
+    gh('label', 'create', SWITCH_ON_LABEL, '--color', 'B60205', '--description', 'Council incident rest centre or SWEP page switched on', '--force')
+    title = switch_on_title(council, label, category)
+    if find_switch_on(council, label, category):
+        summary(f'SWITCH-ON {title} -> already open (ok)')
+        return
+    body = f"{body}\n\nRun: {RUN}\nTime (UK): {datetime.datetime.now(ZoneInfo('Europe/London')):%d %b %Y %H:%M}"
+    gh('issue', 'create', '--title', title, '--label', SWITCH_ON_LABEL, '--body', body)
+    summary(f'SWITCH-ON {title} -> issue created (ok)')
+def switch_on_close(council, label, comment=None, category=None):
+    title = switch_on_title(council, label, category)
+    n = find_switch_on(council, label, category)
+    if not n:
+        summary(f'SWITCH-ON {title} -> nothing to close')
+        return
+    comment = comment or f'Incident rest centre or SWEP switched OFF (no longer on the council page). {RUN}'
+    gh('issue', 'close', str(n), '--comment', comment)
+    summary(f'SWITCH-ON {title} -> closed #{n} (ok)')
 def stale(hours):
     s = json.loads(open(os.path.join(os.path.dirname(__file__), '..', 'stamp.js')).read().split('=', 1)[1].rstrip().rstrip(';'))
     age = (datetime.datetime.now(ZoneInfo('Europe/London')) - datetime.datetime.fromisoformat(s['run'])).total_seconds() / 3600
@@ -73,7 +114,15 @@ def main(argv):
     elif c == 'resolve': resolve(argv[2])
     elif c == 'stale': stale(float(argv[2]))
     elif c == 'dates': dates()
-    else: raise AlertError(f'unknown command {c!r} (open, resolve, stale, dates)')
+    elif c == 'switch-on':
+        sub = argv[2] if len(argv) > 2 else ''
+        if sub == 'open' and len(argv) >= 6:
+            switch_on_open(argv[3], argv[4], argv[5])
+        elif sub == 'close' and len(argv) >= 5:
+            switch_on_close(argv[3], argv[4], argv[5] if len(argv) > 5 else None)
+        else:
+            raise AlertError('switch-on usage: switch-on open <council> <label> <body> | switch-on close <council> <label> [comment]')
+    else: raise AlertError(f'unknown command {c!r} (open, resolve, stale, dates, switch-on)')
 if __name__ == '__main__':
     try: main(sys.argv)
     except Exception as e:

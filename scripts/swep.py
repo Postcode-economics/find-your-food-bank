@@ -10,14 +10,18 @@ import json, os, re, sys, datetime, concurrent.futures as cf, urllib.parse, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import auto_rules; RULES = auto_rules.load()  # Dean 25 Oct 2026: refresh stops if overrides/auto_apply_rules.json is missing
 sys.path.insert(0, os.path.dirname(__file__))
+from page_visible import html_to_visible_text
 SRC, LOG = "overrides/swep_sources.json", "logs/swep_status.json"
 KW = re.compile(r"\bSWEP\b|severe weather emergency|severe weather protocol|cold weather (shelter|provision|protocol)", re.I)
 ON = re.compile(r"(SWEP|severe weather emergency protocol|severe weather protocol|cold weather provision)[^.]{0,80}?\b(is (now |currently )?(active|activated|in place|in operation|open|running)|has been (activated|triggered|implemented)|(will be|has been) put in place)(?! (when|if|during|whenever))", re.I)
-OFF = re.compile(r"(SWEP|severe weather emergency protocol|severe weather protocol)[^.]{0,80}?\b(is (not|no longer) (active|in place|in operation)|has been (de-?activated|stood down|lifted|ended)|is currently inactive|stood down)", re.I)
+OFF = re.compile(r"(SWEP|severe weather emergency protocol|severe weather protocol)[^.]{0,80}?\b(is (not|no longer) (currently )?(active|in place|in operation)|:\s*not active|has been (de-?activated|stood down|lifted|ended)|is currently inactive|stood down)", re.I)
 LINK = re.compile(r'href="([^"#]+)"[^>]*>([^<]{0,140})<', re.I)
 LINKWORDS = re.compile(r"swep|severe[- ]weather|rough[- ]sleep|cold[- ]weather|winter[- ]shelter|night[- ]shelter", re.I)
+def classify_html(html, run_day=None):
+    """Classify SWEP status from council HTML (comments and hidden blocks stripped first)."""
+    return classify(html_to_visible_text(html), run_day)
 def classify(text, run_day=None):
-    """Return (status, quote). The LATEST-mentioned state on the page wins when both appear."""
+    """Return (status, quote) from visible plain text. The LATEST-mentioned state on the page wins when both appear."""
     t = re.sub(r"\s+", " ", text or "")
     if not KW.search(t): return "no SWEP wording", ""
     cond = lambda m: re.search(r"\b(when|if|whenever|until)\s+$", t[max(0, m.start() - 12):m.start()], re.I) or re.match(r"\s*(when|if)\b", t[m.end():m.end() + 8], re.I)
@@ -52,22 +56,39 @@ def seasonal_active(code, run_day, path="overrides/swep_seasonal.json"):
 def _fetch(u):
     from discover import fetch_raw
     return fetch_raw(u)
+def page_text(html):
+    return html_to_visible_text(html)
 def run(fetcher=None, run_day=None, threads=8):
     fetcher = fetcher or _fetch; run_day = run_day or datetime.date.today().isoformat()
     srcs = [x for x in (json.load(open(SRC)) if os.path.exists(SRC) else []) if x.get("url")]  # council records without a SWEP page carry url null
-    prev = {x["url"]: x for x in (json.load(open(LOG)).get("pages", []) if os.path.exists(LOG) else [])}
+    prev_log = json.load(open(LOG)) if os.path.exists(LOG) else {}
+    prev_pages = prev_log.get("pages", [])
+    prev = {x["url"]: x for x in prev_pages}
     def one(s):
         r = fetcher(s["url"]); h = r.get("html") or r.get("text") or ""
-        txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style).*?</\1>", " ", h))
-        st, q = classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
-        return {"council": s["council"], "url": s["url"], "http": r.get("http"), "status": st, "quote": q,
-                "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
+        txt = page_text(h)
+        st, q = classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
+        p = {"council": s["council"], "url": s["url"], "http": r.get("http"), "status": st, "quote": q,
+             "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "_text": txt}
+        try:
+            import incident_rest_centre_switch_on as irso
+            irso.enrich_page(p, txt, run_day)
+        except Exception:
+            p["rest_centre"] = p.get("rest_centre")
+        return p
     with cf.ThreadPoolExecutor(threads) as ex: pages = list(ex.map(one, srcs))
     changes = []
     for p in pages:
         o = prev.get(p["url"])
         if o and o["status"] != p["status"] and "active" in (o["status"], p["status"]) or (not o and p["status"] == "active"):
             changes.append({"council": p["council"], "url": p["url"], "from": (o or {}).get("status", "new"), "to": p["status"], "quote": p["quote"]})
+    try:
+        import incident_rest_centre_switch_on as irso
+        irso.apply(prev_pages, pages, run_day=run_day, root=os.getcwd())
+    except Exception as e:
+        print("incident_rest_centre_switch_on:", e, file=sys.stderr)
+    for p in pages:
+        p.pop("_text", None)
     out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in pages if p["status"] == "active"], "changes": changes, "pages": pages}
     json.dump(out, open(LOG, "w"), indent=1, ensure_ascii=False)
     return out
@@ -118,9 +139,17 @@ def full(fetcher=None, run_day=None, threads=8):
                "ooh_phone": line.get("ooh_phone"), "phone_source": line.get("phone_source"), "pages": []}
         for u in urls[:3]:
             r = fetcher(u); h = r.get("html") or r.get("text") or ""
-            txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style).*?</\1>", " ", h))
-            st, q = classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
-            res["pages"].append({"url": u, "http": r.get("http"), "status": st, "quote": q})
+            txt = page_text(h)
+            st, q = classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
+            pg = {"url": u, "http": r.get("http"), "status": st, "quote": q, "rest_centre": None}
+            try:
+                import incident_rest_centre_switch_on as irso
+                work = dict(pg, council=c["name"], url=u)
+                irso.enrich_page(work, txt, run_day)
+                pg["rest_centre"] = work.get("rest_centre")
+            except Exception:
+                pass
+            res["pages"].append(pg)
         res["status"] = next((p["status"] for p in res["pages"] if p["status"] == "active"), res["pages"][0]["status"] if res["pages"] else "no SWEP page")
         sz = seasonal_active(c["code"], run_day)
         if sz: res["status"] = "active"; res["pages"].append({"url": sz["url"], "http": None, "status": "active", "quote": "seasonal (council page): " + sz["quote"]})
@@ -137,7 +166,20 @@ def full(fetcher=None, run_day=None, threads=8):
     with cf.ThreadPoolExecutor(threads) as ex: out = list(ex.map(one, cs))
     cov = {"councils": len(out), "with_swep_page": sum(1 for r in out if r["pages"]), "with_line": sum(1 for r in out if r["homeless_phone"] or r["ooh_phone"]),
            "active": [r["council"] for r in out if r["status"] == "active"], "flagged": sum(1 for r in out if r["flags"])}
+    prev_full_pages = []
+    for c in prev.get("councils", []):
+        for p in c.get("pages", []):
+            prev_full_pages.append(dict(p, council=c.get("council"), url=p.get("url")))
+    new_full_pages = []
+    for c in out:
+        for p in c.get("pages", []):
+            new_full_pages.append(dict(p, council=c.get("council"), url=p.get("url")))
     json.dump({"run": run_day, "coverage": cov, "councils": out}, open(FULL_LOG, "w"), indent=1, ensure_ascii=False)
+    try:
+        import incident_rest_centre_switch_on as irso
+        irso.apply(prev_full_pages, new_full_pages, run_day=run_day, root=os.getcwd())
+    except Exception as e:
+        print("incident_rest_centre_switch_on:", e, file=sys.stderr)
     os.makedirs("reports", exist_ok=True)
     with open(FULL_MD, "w") as f:
         f.write("# SWEP daily full check (%s)\n\n%d councils: %d with a SWEP page, %d with a homeless line, %d active, %d flagged.\n\n" % (run_day, cov["councils"], cov["with_swep_page"], cov["with_line"], len(cov["active"]), cov["flagged"]))

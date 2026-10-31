@@ -136,8 +136,8 @@ def recheck(warnings, councils, sources, fetcher, run_day, threads=8):
         res = {"code": c["code"], "council": c["name"], "alerts": why, "open_tonight": False, "pages": [], "review": None}
         for u in urls:
             r = fetcher(u); h = r.get("html") or r.get("text") or ""
-            txt = re.sub(r"<[^>]+>", " ", re.sub(r"(?is)<(script|style).*?</\1>", " ", h))
-            st, q = swep.classify(txt, run_day) if r.get("http") == 200 else ("unreachable", "")
+            st, q = swep.classify_html(h, run_day) if r.get("http") == 200 else ("unreachable", "")
+            txt = swep.page_text(h)
             res["pages"].append({"url": u, "http": r.get("http"), "status": st, "quote": q, "own_site": own_site(u, c.get("site"))})
         cond = lambda q: re.search(r"\b(if|when|whenever|until|will be updated)\b", q or "", re.I)   # e.g. "updated if SWEP is activated" is not an activation
         good = [p for p in res["pages"] if p["status"] == "active" and p["own_site"] and not cond(p["quote"])]
@@ -157,8 +157,9 @@ BADGE_PX = 16
 BADGE_WEIGHT = 900
 FLOODLINE = "0345 988 1188"
 NI_FLOOD = "0300 2000 100"
-BADGE = "Emergency shelter"
-SWEP_BADGE = "Severe weather: open tonight"
+BADGE = "Rest centre (council-run)"
+SWEP_BADGE = "Rough sleeper shelter open tonight"
+INCIDENT_CATEGORY = "incident_rest_centre"
 FORBIDDEN = "Emergency: " + "open now"   # rejected wording; kept split so it is never a shown sentence
 PREVIEW_FLAG = "emergency"
 RUN_EVERY_MINUTES = 10
@@ -171,9 +172,9 @@ SWEP_UNREAD_H = 24
 SWEP_DAILY_FROM = datetime.date(2026, 11, 1)
 WEATHER_SOURCES = ("Met Office", "Environment Agency", "SEPA", "Natural Resources Wales")
 SEARCH_TERMS = ("emergency shelter", "rest centre", "power cut", "emergency", "evacuation", "evacuate", "earthquake", "flood", "storm", "fire", "gas")
-KEY_ENTRY = "Emergency shelter: a rest centre opened by the council in an emergency, such as a flood, fire, evacuation or power loss."
-KEY_BADGE = "A red Emergency shelter badge means the council has opened it for an emergency."
-KEY_SWEP = "A red Severe weather: open tonight badge means the council's Severe Weather Emergency Protocol (SWEP) is active, so extra emergency beds are open for people sleeping rough."
+KEY_ENTRY = "Rest centre (council-run): opened by the council for people affected by a major incident."
+KEY_BADGE = "A red Rest centre (council-run) pin means the council has opened a rest centre for people affected by an incident."
+KEY_SWEP = "Rough sleeper shelter open tonight means the council's Severe Weather Emergency Protocol (SWEP) is active."
 _DAYS = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 _MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 BGS_FEED = "https://www.earthquakes.bgs.ac.uk/feeds/MhSeismology.xml"
@@ -193,7 +194,17 @@ def _td(v):
     return datetime.timedelta(hours=float(v))
 
 def _vet(text):
-    if text and FORBIDDEN in text: raise RuntimeError("refusing rejected emergency wording")
+    if text and FORBIDDEN in text:
+        raise RuntimeError("refusing rejected emergency wording")
+    return text
+
+def _vet_label(text):
+    low = (text or "").lower()
+    if re.search(r"\bdisaster\b", low):
+        raise RuntimeError("refusing rejected emergency wording")
+    for banned in ("emergency shelter", "official source", "severe weather: open tonight"):
+        if banned in low:
+            raise RuntimeError("refusing rejected emergency wording")
     return text
 
 def is_ni(postcode=None, nation=None):
@@ -346,7 +357,7 @@ def card_from_source(src, now, warning_end=None, nation="england", postcode=None
     if browser_hide(ou, now): return {"publish": "expired", "card": None, "open_until": ou.isoformat()}
     label, num = flood_contact(nation or src.get("nation"), postcode or src.get("postcode"))
     card = {
-        "badge": BADGE, "name": src["name"], "open_until": ou.isoformat(),
+        "badge": _vet_label(BADGE), "name": src["name"], "open_until": ou.isoformat(),
         "open_until_label": src.get("open_until_label") or fmt_until(ou), "address": src.get("address") or "",
         "emergency_number": "999", "flood_label": label, "flood_number": num, "official_council": True, "live": True,
     }
@@ -359,7 +370,8 @@ def card_from_source(src, now, warning_end=None, nation="england", postcode=None
     if cause: card["opened_for"] = cause
     for key in ("pets", "access", "beds"):
         if src.get(key) not in (None, "", False) and not re.search(r"not stated", str(src.get(key)), re.I): card[key] = src[key]
-    if swep_show(src.get("swep_active"), src.get("swep_unreadable_for")): card["swep_badge"] = SWEP_BADGE
+    if src.get("category") == "swep" and swep_show(src.get("swep_active"), src.get("swep_unreadable_for")):
+        card["swep_badge"] = _vet_label(SWEP_BADGE)
     _vet(json.dumps(card, default=str))
     return {"publish": "live", "tell_dean": "afterwards", "card": card}
 
@@ -427,14 +439,19 @@ def power_trigger(source, area):
 
 def parse_announcement(text, council, url, now=None):
     """Pull a rest centre only from a plain statement that it is open. Missing pets, access, beds or cause stay missing."""
-    if re.search(r"\bif\b[^.]{0,50}\b(open|opened)\b", text or "", re.I): return None
-    closed = re.search(r"\b(rest centre|emergency shelter|reception centre|evacuation centre)\b[^.]{0,120}\b(is (now )?closed|has closed|stood down)\b", text or "", re.I)
-    if closed: return {"official_council": True, "closed": True, "council": council, "url": url}
-    if not re.search(r"\b(rest centre|emergency shelter|reception centre|evacuation centre)\b", text or "", re.I): return None
-    if not re.search(r"\b(is (now )?open|has opened|opened|opens)\b", text or "", re.I): return None
+    import rest_centre_scan as rcs
+    if rcs.is_planning_page(text, url):
+        return None
+    if re.search(r"\bif\b[^.]{0,50}\b(open|opened)\b", text or "", re.I):
+        return None
+    if rcs.rest_centre_off(text):
+        return {"official_council": True, "closed": True, "council": council, "url": url, "category": INCIDENT_CATEGORY}
+    if not rcs.rest_centre_on(text):
+        return None
     m = re.search(r"\bat ([A-Z][^.\n]{2,80})", text)
     if not m: return {"official_council": True, "review": True, "council": council, "url": url, "reason": "no name stated by the source"}
-    rec = {"official_council": True, "name": m.group(1).strip().rstrip(","), "council": council, "url": url, "added": _as_dt(now) if now else None, "address": ""}
+    rec = {"official_council": True, "name": m.group(1).strip().rstrip(","), "council": council, "url": url,
+           "added": _as_dt(now) if now else None, "address": "", "category": INCIDENT_CATEGORY}
     cm = re.search(r"\b(?:opened for|due to|because of)\s*:?\s*([A-Za-z][A-Za-z \-]{0,40})", text, re.I)
     if cm:
         cause = re.split(r"\b(open until|pets|access|beds)\b", cm.group(1).strip().rstrip("."), flags=re.I)[0].strip()
