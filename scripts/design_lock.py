@@ -92,6 +92,44 @@ BUTTON_JS = r"""(sel)=>{const bad=[];
  }
  return bad}"""
 
+# Shelter symbols (Dean 31 Oct): the strip sits under the map only while Shelter is selected,
+# its three symbols share one box, and it does not cover the OpenStreetMap credit.
+STRIP_JS = r"""async ()=>{const bad=[];
+ const shown=el=>!!(el&&el.getClientRects().length&&getComputedStyle(el).display!=='none');
+ const sh=document.documentElement.dataset.v3k==='sh';
+ const strip=document.getElementById('xsym');
+ if(sh&&!shown(strip)) bad.push('symbol strip hidden while Shelter is selected');
+ if(!sh&&shown(strip)) bad.push('symbol strip visible while Shelter is not selected');
+ const youth=document.querySelector('#chips [data-f=youth]');
+ const walk=document.querySelector('#chips [data-f=walk]');
+ const vouch=document.querySelector('#chips [data-f=vouch]');
+ const ink=svg=>new Promise(ok=>{const img=new Image();
+  img.onload=()=>{const c=document.createElement('canvas');c.width=300;c.height=300;const x=c.getContext('2d');x.drawImage(img,0,0,300,300);
+   const d=x.getImageData(0,0,300,300).data;let minx=300,miny=300,maxx=0,maxy=0,n=0;
+   for(let y=40;y<260;y++)for(let xx=40;xx<260;xx++){const o=(y*300+xx)*4;if(d[o+3]<20||d[o]>=40||d[o+1]>=50||d[o+2]>=70)continue;n++;
+    if(xx<minx)minx=xx;if(y<miny)miny=y;if(xx>maxx)maxx=xx;if(y>maxy)maxy=y;}
+   ok(n?{w:maxx-minx+1,h:maxy-miny+1}:null);};
+  img.onerror=()=>ok(null);img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));});
+ if(sh){
+  if(!shown(youth)) bad.push('Young people chip hidden on shelters');
+  if(shown(walk)||shown(vouch)) bad.push('food-bank chips still visible on shelters');
+  const items=strip?[...strip.querySelectorAll('.xsy')]:[];
+  if(items.length!==3) bad.push('strip symbols '+items.length);
+  else {
+   const tops=items.map(el=>el.getBoundingClientRect().top);
+   if(Math.max(...tops)-Math.min(...tops)>2) bad.push('strip is not one line');
+   const boxes=[]; for(const el of items) boxes.push(await ink(el.querySelector('svg')));
+   if(boxes.some(b=>!b)) bad.push('symbol ink missing '+JSON.stringify(boxes));
+   else boxes.forEach((b,i)=>{if(Math.abs(b.h-boxes[0].h)>4||Math.abs(b.w-boxes[0].w)>20) bad.push('symbol '+i+' ink '+b.w+'x'+b.h+' vs '+boxes[0].w+'x'+boxes[0].h);});
+  }
+  const attr=document.querySelector('#map .leaflet-control-attribution');
+  if(attr&&strip){const a=attr.getBoundingClientRect(),s=strip.getBoundingClientRect();
+   if(a.width&&s.width&&!(a.bottom<=s.top+1||s.bottom<=a.top+1||a.right<=s.left+1||s.right<=a.left+1)) bad.push('strip overlaps the map attribution');}
+  const more=document.getElementById('xmore-sh');
+  if(more&&shown(more)&&more.getBoundingClientRect().height<44) bad.push('Show more under 44px');
+ } else if(shown(youth)) bad.push('Young people chip visible off the shelters layer');
+ return bad}"""
+
 def type_diff(samples, where):
     """samples: layer -> metric dict. Fail when two layers both measured a piece and it is not the same."""
     bad, layers = [], [k for k, v in samples.items() if v]
@@ -187,7 +225,16 @@ def run(base=None, measure=False):
                         if not measure: bad += check(cards, mode, '%dpx %s %s %s list' % (w, mode, k, q), k)
                         if q == PLACES[0] and not typed.get(k):
                             typed[k] = pg.evaluate(TYPE_JS, sel)
-                            if not measure: bad += ['%dpx %s %s list %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, sel) or [])]
+                            if not measure:
+                                bad += ['%dpx %s %s list %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, sel) or [])]
+                                bad += ['%dpx %s %s' % (w, mode, x) for x in (pg.evaluate(STRIP_JS) or [])]
+                                if k == 'sh':
+                                    pg.click('#chips [data-f=youth]'); pg.wait_for_timeout(400)
+                                    fy = pg.evaluate("""()=>{const ids=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>c.dataset.id);
+                                      const bad=ids.filter(id=>{const i=(window.SHELTERS&&SHELTERS.items||[]).find(x=>x.id===id);return !i||i.kind!=='young_people'});
+                                      return {n:ids.length, bad}}""")
+                                    if not fy or fy.get('n') < 1 or fy.get('bad'): bad.append('%dpx %s youth filter %s' % (w, mode, fy))
+                                    pg.click('#chips [data-f=youth]'); pg.wait_for_timeout(300)
                     # pin pop-up card (a place with pins of every type nearby)
                     pg.fill('#q', 'M1 1AE'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
                     pg.evaluate("document.getElementById('map').scrollIntoView({block:'center'})"); pg.wait_for_timeout(500)
