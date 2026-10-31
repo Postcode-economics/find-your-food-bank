@@ -108,7 +108,7 @@ const chips=i=>{const p=i.provided||[];const c=CHIP.filter(([k])=>p.includes(k))
 const HAS_T=/\d{1,2}:\d{2}|\d{1,2}(\.\d{2})?\s*(am|pm)|24 hours|midday|noon/i;  // hours_checked counts only when the hours hold real times
 const timesChecked=(i,now=Date.now())=>{const d=['confirmed','updated','confirmed_by_hand'].includes(i.times_status)&&i.times_checked?i.times_checked:(HAS_T.test(typeof i.hours==='string'?i.hours:JSON.stringify(i.hours||''))?i.hours_checked:null);if(!d||!/^\d{4}-\d{2}-\d{2}$/.test(d))return null;const age=(now-new Date(d+'T12:00:00').getTime())/864e5;return age<=7.5&&age>=-1?d:null};
 window.timesChecked=timesChecked;
-const tierTop=(i,k)=>{const unk=!!(k&&window.V3&&V3.status(k,i).st==='unknown');const chk=!unk&&timesChecked(i);return (i.tier==='unverified'?(chk?`<div class="xunv xtchk">${t('tchk').replace('{d}',fmt(chk))}</div>`:(unk?'':`<div class="xunv">${t('unv')}</div>`)):'')+(i.access_type?`<span class="xacc xacc-${i.access_type}">${t(i.access_type==='referral_only'?'refOnly':i.access_type==='self_referral'?'selfRef':'openAcc')}</span>`:'')};
+const tierTop=(i,k)=>{const unk=!!(k&&window.V3&&V3.status(k,i).st==='unknown');const chk=!unk&&timesChecked(i);return (i.tier==='unverified'?(chk?`<div class="xunv xtchk">${t('tchk').replace('{d}',fmt(chk))}</div>`:(unk?'':`<div class="xunv">${t('unv')}</div>`)):'')};
 // Contact block (23 Oct): website + email up top; council line and national fallbacks, always labelled as NOT the venue's own number
 const tl=x=>String(x||'').replace(/[^\d+]/g,'');
 function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';const w=webUrl(i.website);
@@ -121,15 +121,15 @@ function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';const w=webUrl
  return o.join('')}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
  const day=k==='sh'&&i.kind==='day_centre';
- const dayHtml=day?`<span class="xkind">${t('dayCentre')}</span><p class="xday">${t('dayOnly')}</p>`:'';
- return `${tierTop(i,k)}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
+ const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:'';
+ const facts=window.UFacts?UFacts.block(k,i)+UFacts.checked(i):(k==='sh'?row('groups',esc((i.groups||[]).map(v).join(' · ')))+(day?'':row('beds',esc(i.beds)))+row('ref',esc(i.referral))+(REFONLY(i)?'':row('hours',hoursHtml(i.hours))):row('hours',hoursHtml(i.hours))+chips(i));
+ return `${tierTop(i,k)}${window.UFacts?UFacts.typeRow(k,i):''}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
  <p>${addr(i)}</p>
+ ${facts}
  <a class="btn gm" href="https://www.google.com/maps/dir/?api=1&destination=${i.lat},${i.lng}&travelmode=walking" target="_blank" rel="noopener">${t('dir')}</a>${window.V3?V3.share(i):''}
  ${tel?`<a class="btn call" href="tel:${tel}">${IC('phone')}${t('call')}<span class="xnum"> ${esc(String(i.phone).split(' or ')[0])}</span></a>${i.phone_label?window.phLab(i):''}${i.phone_unconfirmed?`<p class="sub">${lang==='cy'?'Rhif heb ei gadarnhau ar wefan swyddogol':'Number not yet confirmed on an official site'}</p>`:''}${String(i.phone).includes(' or ')?`<p class="sub xalt">${lang==='cy'?'Neu':'Or'}: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</p>`:''}`:''}
  ${shContact(i,tel,k)}
- ${k==='sh'?row('groups',esc((i.groups||[]).map(v).join(', ')))+(day?'':row('beds',esc(i.beds)))+row('season',esc(v(i.season)))+(i.scheme_dates&&known(i.scheme_dates)?row('dates',esc(vdates(i.scheme_dates))):'')+row('ref',esc(i.referral))+(day&&i.offer?row('offer',esc(i.offer)):'')+(REFONLY(i)?'':row('hours',i.hours&&typeof i.hours==='object'?hoursHtml(i.hours):esc(hDisp(i.hours))))
-  :row('hours',hoursHtml(i.hours))+chips(i)+(known(i.booking)?row('book',esc(v(i.booking))):'')+(known(i.scheme_dates)?row('dates',esc(vdates(i.scheme_dates))):'')}
  ${false?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
  ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}${i.evidence_url?`<p class="sub xchk">${t('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||i.evidence_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.verified_on||i.last_verified)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:(i.tier==='unverified'&&i.sign_url?`<p class="sub xchk">${t('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${esc(i.sign_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.checked_on)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:`<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>`)}
  ${window.repB?repB(k,i):''}`}

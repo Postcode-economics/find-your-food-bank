@@ -8,7 +8,8 @@ FULL = os.path.join(ROOT, 'data.full.js'); OUT = os.path.join(ROOT, 'data.js')
 # fields the app reads (index.html, layers.js, v3.js); everything else is pipeline bookkeeping
 KEYS = ['id', 'type', 'name', 'foodbank', 'postcode', 'address', 'lat', 'lng', 'phone', 'tel', 'website', 'givefood', 'opening_times',
         'kind', 'label_en', 'label_cy', 'centres', 'moved_to_postcode', 'phone_checked', 'locked', 'manual', 'evidence_url', 'fb_page', 'phone_label', 'notice',
-        'source_label', 'venues_vary', 'service_lat', 'service_lng', 'service_km']
+        'source_label', 'venues_vary', 'service_lat', 'service_lng', 'service_km',
+        'groups', 'referral', 'wheelchair', 'wheelchair_quote', 'wheelchair_source', 'provided', 'facilities']
 OT = ['status', 'structured', 'all_closed', 'closed', 'notes', 'checked_date', 'source_url', 'raw', 'lines']
 GF = 'https://www.givefood.org.uk/needs/at/%s/'
 M = '~'  # "field absent" marker (never a real value: checked below)
@@ -55,14 +56,22 @@ def enc(i, k):
         if v.get('source_url') and v.get('source_url') == i.get('website'): v['source_url'] = 1
     return v
 
+# Present only when at least one place states them. An all-absent column is left out so data.js does not grow for a blank field.
+OPTIONAL = {'groups', 'referral', 'wheelchair', 'wheelchair_quote', 'wheelchair_source', 'provided', 'facilities'}
+
 def encode(meta):
     global ITEMS, IDX
     it = ITEMS = meta['items']; IDX = {i['id']: n for n, i in enumerate(it)}
     cols = {k: [enc(i, k) for i in it] for k in KEYS}
+    use = []
     for k in KEYS:  # trailing absents can be dropped (undefined in JS)
         c = cols[k]
         while c and c[-1] == M: c.pop()
-    c = dict(f=meta.get('fetched'), s=meta.get('source'), g=GF, n=len(it), k=KEYS, c=cols)
+        if k in OPTIONAL and (not c or all(v == M for v in c)):
+            continue
+        cols[k] = c
+        use.append(k)
+    c = dict(f=meta.get('fetched'), s=meta.get('source'), g=GF, n=len(it), k=use, c={k: cols[k] for k in use})
     return DEC + '(' + json.dumps(c, separators=(',', ':'), ensure_ascii=False) + ');\n'
 
 def main():

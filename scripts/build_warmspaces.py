@@ -209,6 +209,12 @@ sources["Carried forward (call before you go)"] = {"status": "ok", "count": len(
 if not os.environ.get("DRY_RUN"): carry_forward.write_log(CARRIED, RUN, not_carried=NOT_CARRIED)
 import shelter_contacts  # venue numbers + labelled council fallback (overrides/warmspaces_contacts.json) survive every refresh
 sources["Manual contacts"] = {"status": "ok", "phones_filled": shelter_contacts.apply(items, shelter_contacts.load(shelter_contacts.WS)), "missing_any_number": shelter_contacts.check(items)}
+import place_facts  # explicit wheelchair from manual/fixes only. Accessible Toilets stays a facility and is not turned into wheelchair access.
+_ws_ov = {m["id"]: m for m in man if isinstance(m, dict) and m.get("id")}
+for _k, _v in FIX.items():
+    if isinstance(_v, dict) and any(x in _v for x in ("wheelchair", "wheelchair_quote", "wheelchair_source", "groups", "referral")):
+        _b = dict(_ws_ov.get(_k) or {"id": _k}); _b.update(_v); _ws_ov[_k] = _b
+sources["Place facts"] = {"status": "ok", "wheelchair": place_facts.stamp(items, _ws_ov, fill_missing=True)}
 import phone_lock  # frozen numbers, and no daytime council line without a verified out-of-hours number
 for x in items: phone_lock.settle_council(x)
 phone_lock.guard(items, phone_lock.ROOT, via="refresh", source="feed refresh", layer="warmspaces", persist_new=not os.environ.get("DRY_RUN"), published=LIVE_COUNCIL)

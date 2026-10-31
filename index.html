@@ -36,7 +36,7 @@
   new Promise(function (r) { if (window.__hmBooted) r(); else window.__hmOnBoot = r; })
     .then(function () { return Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })]); })
     .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
-    .then(function () { return navigator.serviceWorker.register('sw.js?v=h63472894e11a' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
+    .then(function () { return navigator.serviceWorker.register('sw.js?v=h936216c96a00' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
     .then(function (reg) {
       // With service workers blocked, register() resolves to undefined. Do not touch it.
       if (!reg || !reg.addEventListener) return;
@@ -111,7 +111,7 @@ Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=haa1c18429fc5"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=hbbb4057d00ac"><link rel="stylesheet" href="header.css?v=h89a8d8eb1a23"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=haa1c18429fc5"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h3bc4b5c38b43"><link rel="stylesheet" href="header.css?v=h89a8d8eb1a23"><script src="icons.js"></script><script src="facts.js?v=h3045bf79ae9f"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -232,7 +232,7 @@ const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m
 const webUrl=v=>{const s=typeof v==='string'?v.trim():'';if(!/^https?:\/\/\S+$/i.test(s))return null;try{const u=new URL(s);return /^https?:$/.test(u.protocol)&&/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(u.hostname)?u:null}catch(e){return null}};window.webUrl=webUrl;
 const web=i=>webUrl(i.website)?i.website.trim():'';
 const site=i=>web(i)||i.givefood;
-const tag=i=>acc(i)==='voucher'?'<div class="tag vtag" role="note">Food bank · voucher needed</div>':'<div class="tag" role="note">Food bank</div>';  // voucher-only per access.js (overrides/access CSVs)  // one label for every place clients can collect food
+const tag=i=>acc(i)==='voucher'?'<div class="tag vtag utag" role="note"><span class="v-en">Food bank · voucher needed</span><span class="v-cy" lang="cy">Banc bwyd · angen taleb</span></div>':'<div class="tag utag" role="note"><span class="v-en">Food bank</span><span class="v-cy" lang="cy">Banc bwyd</span></div>';  // voucher-only per access.js. Type label; the How to get in row repeats voucher / walk-in.
 // B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
 const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
 const telOf=i=>i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(i.phone||'').replace(/[^\d+]/g,'');  // build sets tel = first valid UK number
@@ -258,6 +258,7 @@ function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
  <div class="links">${site(i)?`<a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>`:''}${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
+ ${window.UFacts?UFacts.block('fb',i)+UFacts.checked(i):''}
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}<small>Phone (to donate or ask)</small></a>${phAlt(i)}${phLab(i)}`:''}${window.repB?repB('fb',i):''}`;
  return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
@@ -265,8 +266,8 @@ function card(i,dist){const tel=telOf(i);
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}${i.phone_label?phLab(i):`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`}`:''}${!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:''}
  ${site(i)?`<div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">${i.source_label?'Source':'Their website'}</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>`:''}
- ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>${phLab(i)}`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
+ ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${window.UFacts?UFacts.block('fb',i):times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.UFacts?UFacts.checked(i):''}${window.repB?repB('fb',i):''}`}
+function pop(i){const facts=!nc(i)&&window.UFacts?UFacts.block('fb',i)+UFacts.checked(i):'';return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}${facts}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>${phLab(i)}`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 /* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
    0 px high (in-app browser toolbars/header still laying out) zooms Leaflet out to the world. So: never zoom out past the UK, never fit
@@ -296,7 +297,7 @@ const whIcon=L.divIcon({className:'pin wh',html:'<svg width="30" height="30" vie
 const icFor=k=>nc(items[k])?whIcon:icon;
 items.forEach((i,k)=>{i._k=k;if(i.venues_vary||typeof i.lat!=='number'||typeof i.lng!=='number'){markers[k]=null;return}const m=L.marker([i.lat,i.lng],{icon:icFor(k),title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m});
 map.addLayer(cl);
-const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};
+const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};window.acc=acc;
 const accOk=i=>{if(!F.walk&&!F.vouch)return true;if(nc(i))return false;const a=acc(i);return (F.walk&&a!=='voucher')||(F.vouch&&a==='voucher')};
 const vis=k=>{const i=items[k];return !i.venues_vary&&typeof i.lat==='number'&&typeof i.lng==='number'&&accOk(i)&&(!F.open||(!closedToday(i)&&!nc(i)))};  // Dean 25 Oct 09:37: Open today hides places closed today; no-times places stay; always nearest first. Venues that vary are listed under the results, never pinned.
 let lastNear=null;
@@ -449,7 +450,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=hd80684dba14c" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h6024d89afd9b" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=h1bca0c6acd1b" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h6024d89afd9b" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');
