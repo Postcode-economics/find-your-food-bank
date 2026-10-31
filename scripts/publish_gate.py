@@ -114,9 +114,14 @@ def gate(layer, ref='HEAD'):
     pd = os.path.join(ROOT, 'reports', 'pending_dean.md'); keep = ''
     if os.path.exists(pd):  # keep the times review list section written by times_finder.py (Dean, 23 Oct)
         t = open(pd).read()
-        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock', 'council line undo', 'rest centre switch-on', 'emergency switch-on'):  # keep tagged sections in pending_dean.md
+        for tag in ('times review', 'times crosscheck fb', 'times crosscheck sh', 'times crosscheck ws', 'sweep shelters', 'closures', 'phone lock', 'council line undo', 'rest centre switch-on', 'emergency switch-on', 'held near cities', 'day centre candidates'):  # keep tagged sections in pending_dean.md
             m = re.search(r'(?s)<!-- ' + tag + r' -->.*?<!-- /' + tag + r' -->', t); keep += ('\n\n' + m.group(0) + '\n') if m else ''
     open(pd, 'w').write('\n'.join(md) + keep)
+    try:
+        import city_watch
+        city_watch.write_held_section(ROOT)
+    except Exception as ex:
+        print('held near cities skipped: %s' % ex)
     if gate.last_privacy:
         n = private_block.match_count([i for i, _ in held], secrets)
         print(f'publish gate {layer}: PRIVATE_BLOCKLIST matched {n} listing(s) — not published')

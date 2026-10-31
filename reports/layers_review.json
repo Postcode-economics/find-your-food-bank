@@ -159,128 +159,7 @@
   ]
  },
  "warmspaces.js": {
-  "added": [
-   {
-    "id": "bh-bn11uf-brighton-unitarian-church",
-    "name": "Brighton Unitarian Church",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn13be-first-church-of-christ-scientist",
-    "name": "First Church of Christ Scientist",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn15jd-withdean-sports-complex",
-    "name": "Withdean Sports Complex",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn21rl-openhouse-dg",
-    "name": "OpenHouse@DG",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn25pb-stanley-deason-leisure-centre",
-    "name": "Stanley Deason Leisure Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn26pa-woodingdean-methodist-church",
-    "name": "Woodingdean Methodist Church",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn32fl-the-hop-50",
-    "name": "The Hop 50+",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn32ww-king-alfred-leisure-centre",
-    "name": "King Alfred Leisure Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn35dr-hove-methodist-church",
-    "name": "Hove Methodist Church",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn411xr-portslade-library",
-    "name": "Portslade Library",
-    "tier": "verified"
-   },
-   {
-    "id": "bh-bn412ws-portslade-sports-centre",
-    "name": "Portslade Sports Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-55472979",
-    "name": "Jubilee Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-55473692",
-    "name": "Coldean library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-55474526",
-    "name": "Hangleton Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-55474875",
-    "name": "Hove Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-55474913",
-    "name": "Moulsecoomb Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-57952512",
-    "name": "St Andrew’s Church, Hove",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-57952647",
-    "name": "Saltdean Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-62827956",
-    "name": "The Good Shepherd, Prestonville",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-64379377",
-    "name": "Patcham Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-65345099",
-    "name": "St Mary the Virgin, Kemptown",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-68672319",
-    "name": "Whitehawk Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-68672327",
-    "name": "Woodingdean Library",
-    "tier": "verified"
-   },
-   {
-    "id": "ww-68672328",
-    "name": "Rottingdean Library",
-    "tier": "verified"
-   }
-  ],
+  "added": [],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -304,10 +183,6 @@
     "reason": "source no longer names this place"
    },
    {
-    "id": "ww-57979418",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-69189484",
     "reason": "source URL now redirects to a different site (soulsurvivor.church)"
    },
@@ -328,16 +203,12 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-59130027",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-68642792",
-    "reason": "published days not found on source this run"
+    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "ww-68642793",
-    "reason": "published days not found on source this run"
+    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "ww-67460238",
@@ -348,20 +219,8 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-67979812",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-65437506",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-58358850",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-57952705",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+    "id": "ww-55592264",
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-68762729",
@@ -384,24 +243,12 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
-    "id": "ww-65437496",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
     "id": "ww-65441920",
     "reason": "source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)"
    },
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
-   },
-   {
-    "id": "ww-69080400",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-68672320",
-    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "ww-65441921",

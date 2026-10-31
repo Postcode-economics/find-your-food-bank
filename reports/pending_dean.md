@@ -5,51 +5,157 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (27)
+## warmspaces (147)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
+- Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- All Saints' Church (PR4 4LN) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Alnwick Library (NE66 1PQ) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Amble Library (NE65 0ET) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Angelic Network CIC (GU22 7BD) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Angy Care Health Foundation (DA11 9NE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27103
+- Ashington Leisure Centre (NE63 9JY) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Banbury Community Fridge (OX16 4RP) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Banbury Sheikh Bin Baaz Mosque (OX16 0DH) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Berwick Sports & Leisure Centre (TD15 2AS) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - Bevendean Community Church (BN2 4LT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
 - Bishops Offley Open House (BOOH!) (ST21 6HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28654
 - Blackburn Salvation Army  (Church & Community Centre) (BB1 5BE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=16503
+- Blyth Sports Centre (NE24 5BT) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Board Games Night Chess Night Stay and Play (OX16 1ER) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Box Hill Village Hall (KT20 7JT) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Bramley Library (GU5 0HG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Café Rusty Musicians Rusty Musicians Knitters and Crocheters (OX16 5QE) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Camberley Baptist Church (GU15 3EN) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- cambo village hall cosy kitchen and also pub nights (NE61 4BA) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Central Lancashire Slings CIC (PR25 2LD) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Chatter Box Cafe (NE61 1TD) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - Churchill Square (BN1 2TE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
+- Coffee Morning (EX5 4HZ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28486
+- Coffee Morning (OX17 1NS) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Coffee Morning (OX27 8DS) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Coffee Morning Little Lambs (OX27 9AQ) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Community Club (includes activities) (OX16 3WT) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Community Coffee morning (OX27 8EY) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Community Drop In (OX16 1FA) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Community Nostalgia Café (OX16 0TT) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Community Space (OX25 5BX) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Community Workshop Lytham CIC (FY8 4HB) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- CommunityFutures (PR2 3BS) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Concordia Leisure Centre (NE23 6YB) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- CPA Social Club (BB4 8QT) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Cradley Heath Salvation Army (B64 5EP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26382
+- Craster Memorial Hall (NE66 3TP) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Dawley Christian Centre Warm Space (TF4 2EX) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26545
 - Devonport Morice Town Salvation Army (PL2 1RS) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14925
+- Dramatize - Charlton Village (TW17 0SP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Dramatize - Knaphill (GU21 2SP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Drop in for Tea, Toast and a Chat (OX15 4ET) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Egham Library (TW20 9EA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Elizabethan Hall (NE64 6ST) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Ellel Parish Council (LA2 0LQ) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Emmaus Transformation Trust (GU21 6EL) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Encounter Church, Winchcombe (GL54 5EE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/
+- Epsom Library (KT19 8AG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Epsom Methodist Church Family Centre (KT18 5AQ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Ewell Court Library (KT19 0EB) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Ewell Hall Warm Space (KT17 2AY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=25272
+- Ewell Library (KT17 1UF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Ezra Charitable Trust CIO (GU15 2QN) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Font Café () - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- FP RAFT CIC (PR1 5TR) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Friday Coffee Morning (OX25 2LS) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Godalming Library (GU7 1HT) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Grange Meadow CIC Ltd (RH1 4PE) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Ground Up Burnley (BB11 1NR) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Hadston House (NE65 9SF) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - Harbury Village Library (CV33 9HW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14724
+- Hersham Library (KT12 4RF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Holy Trinity Church Redhill (RH1 2BX) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Holy Trinity Church, Skipton (BD23 1NJ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=18428
+- Horsley Library (KT24 6QR) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Hurst Green Coffee Stop (BB7 9QA) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Ivybridge Warm Welcome Cafe (PL21 9AB) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27645
 - Keighley Salvation Army (BD21 2LJ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27668
+- Kids and Caffeine Coffee Morning Seniors Lunch Craft in Company (OX15 5SG) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Knaphill Baptist Church (GU21 2PZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- La Latte Lounge Community Cafe CIC (BB4 6QS) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Lightwater Library (GU18 5SB) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Love Me Love My Mind (KT19 8HA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Maybury and Sheerwater Community Trust (GU21 5NZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Maybury Support Group (GU22 8HF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Men's Breakfast (call to book place) Warm Welcome Warm Space 50+ Bingo Lunch Club (OX16 0JJ) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Merstham Baptist Church (RH1 3QA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Mini-market (children's clothes/toys) Bingo Community Larder (OX16 0PJ) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Molesey Library (KT8 2HZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Morpeth Sports & Leisure Centre (NE61 1SR) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- New Hartley Community Centre Association (Memorial Hall) (NE25 0RP) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- New Haw Library (KT15 3HA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- New Life Church, Woking (GU22 9BX) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Newbiggin Sports & Community Hub (NE64 6HG) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - North Molton Community Shop (EX36 3HP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28671
 - Oldbury Salvation Army (B68 8NG) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=23196
 - Open House Drop In (CT6 5RH) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=24737
+- Peter Birtwistle Trust (BB8 0JL) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Play and Learn (OX16 0EJ) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Ponteland Leisure Centre (NE20 9EG) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - Poplar Salvation Army - The Table (E14 6AJ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27947
+- Prudhoe Waterworld (NE42 5DQ) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- RammyMen (BL0 0NT) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Robert Windle Foundation (BB18 6QF) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Rothbury Library (NE65 7TZ) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Rowleys Centre for the Community (GU6 8NT) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Seated Yoga Social Afternoon (OX26 6XX) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Seaton Deleval Library (NE25 0AE) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - Second Chance Headway Centre (WF1 1AD) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28675
+- Shop and Museum (OX16 2PQ) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Soup and a Smile (OX16 5HD) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Agatha's Hall (RH8 9FP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Andrew's Church (GU21 3LG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - St John's Waterloo (SE1 8TY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=24492
+- St Johns Church Egham (TW20 9HR) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Johns the Baptist Church (OX15 4DW) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Martin's Church (GU15 4HE) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Mary's Ewell (KT17 2AQ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Peter and St Paul Church (RH7 6AH) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Peter's Shared Church (GU1 1NP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Peter's West Molesey (KT8 2QF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Petrock's Church, Timberscombe (TA24 7TP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=22081
+- St Saviour's Church of England Sunbury (TW16 7TP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Stanwell Events (TW19 7ER) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Stoneleigh Library (KT17 2JA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Stoneycroft Salvation Army (L13 3BT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=23318
+- Sunrise Multi Cultural Project (OX16 0EN) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Surrey Lifelong Learning Partnership (KT22 8AH) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Surrey Lifelong Learning Partnership (GU2 8DQ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Surrey Lifelong Learning Partnership (KT18 5AD) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Tattenhams Library (KT18 5NU) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - The Annexe at The Salvation Army (CT1 2RU) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26467
 - The Clarendon Centre (BN3 3RE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
+- The Cramlington Hub (NE23 6YB) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- The Hope Hub (GU15 3SY) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- The Miners Lamp Cafe and Hub (NE42 5DT) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- The Mytchett Community Association (GU16 6BS) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - The Salvation Army (BT23 4AB) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=16655
 - The Salvation Army (WA1 2BQ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=17225
+- The Unity Hub at Rawtenstall Unitarian Church (BB4 7QY) - no verified phone - https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json
+- The Village Centre (TW20 0QX) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- The Westcott Village Hub CIC (RH4 3PR) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- The Westway Wellbeing & Community Centre (CR3 5PG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Thursday coffee morning Social Club (OX16 5BZ) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Warm Space at The Hepworth Wakefield (WF1 5AW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=20139
 - Warm Welcome (SE6 2HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=22218
+- Welcome Church and Welcome Community Grocery (GU21 6DJ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Wentworth Leisure Centre (NE46 3PD) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Weybridge Library (KT13 8DE) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Willowbrun Sports & Leisure Centre (NE66 2JH) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Willowburn Sports and Leisure Centre (NE66 2JH) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Windlesham Field of Remembrance (GU20 6AA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Wooler Library (NE71 6BL) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
 - Y Cross Inn (SA62 5PR) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=25821
+- Yarnton Community Drop In (OX5 1TE) - no verified phone - https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 
 ## shelters (0)
-
-
-
-<!-- times review -->
-## Opening-times review list (times_finder)
-
-Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
-
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: conflicts with times from another source (https://holytrinitywesterhailes.org.uk/contact-supporting-wh/); this change was undone by Dean; not re-applied
-<!-- /times review -->
-
-
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 11 auto-applied, 58 held
 
@@ -242,7 +348,7 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 36 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 39 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
@@ -280,9 +386,6 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Norton Hive Community Library and Hub** (`ww-55475831`, YO17 9ES): own site now Tuesday 9.30am – 5pm | Wednesday 9.30am – 5pm | Thursday 9.30am – 5pm | Saturday 9.30am – 1pm  
   source: https://nortonhivelibrary.org/  
   why held: source page is not the warm space's own session page (general venue or directory page); this change was undone by Dean; not re-applied
-- **Rainham Foodbank** (`ww-68641659`, RM13 8HT): own site now Mon 12:00 - 15:00; Tue Closed; Wed 12:00 - 15:00; Thu Closed; Fri 12:00 - 15:00; Sat Closed; Sun Closed  
-  source: https://rainham.foodbank.org.uk/  
-  why held: would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review
 - **Renew 57** (`ww-55474726`, LL57 2EU): own site now Monday to Friday 10am to 4pm  
   source: https://www.penrallt.org/renew57/index.php  
   why held: new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
@@ -322,9 +425,6 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Wayfarers Caravan Park with St Hilary Church** (`ww-55472899`, TR20 9EF): own site now Sunday 12:00-15:00  
   source: https://wayfarerspark.co.uk/flying-duck-bistro/  
   why held: this change was undone by Dean; not re-applied
-- **Warmwell at Westbank** (`ww-65438771`, EX6 8AT): own site now Monday - Friday 9am - 6.30pm  
-  source: https://www.westbank.org.uk/warmwell  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; this change was undone by Dean; not re-applied
 - **Wembley Creative Community Hub** (`ww-65070433`, HA0 4AH): own site now Thursday 11:30am–12:30pm  
   source: https://werest.art/wcch  
   why held: this change was undone by Dean; not re-applied
@@ -352,6 +452,21 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **The Hub, South Brent (SBADC)** (`sbadc-the-hub-south-brent`, TQ10 9BP): own site now Monday – Thursday 9.30 – 12.30pm  
   source: https://www.sbadc.org.uk/  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
+- **Robert Windle Foundation** (`lancs-bb186qf-robert-windle-foundation`, BB18 6QF): own site now FRIDAY 13.00 - 16.00  
+  source: https://www.robertwindlefoundation.org  
+  why held: times not read identically on 2 separate runs yet
+- **Charter House Resource Centre** (`lancs-bb104pb-charter-house-resource-centre`, BB10 4PB): own site now Tuesday 9.00am – 4.30pm | Wednesday 9.00am – 4.30pm | Thursday 9.00am – 4.30pm | Friday 9.00am – 4.30pm  
+  source: https://charterhouseburnley.co.uk/  
+  why held: new own-site times look like office/centre hours; would cut known hours to fewer days (drops Mon, Sat) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+- **All Saints' Church** (`lancs-pr44ln-all-saints-church`, PR4 4LN): own site now Sunday 10am–5pm  
+  source: https://www.allsaintsnewlongton.com  
+  why held: times not read identically on 2 separate runs yet
+- **Brave Church** (`lancs-bb53hh-brave-church`, BB5 3HH): own site now Tuesday 9:30am-11:30am  
+  source: https://www.bravechurch.co.uk/community  
+  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Wed, Thu, Sun) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
+- **West End Impact** (`lancs-la31dg-west-end-impact`, LA3 1DG): own site now Tuesday 10-1 | Thursday 10-1 | Tuesday 10-1pm  
+  source: https://www.westendimpact.org.uk/  
+  why held: day not on the same line as its times on the own-site page; jumble: Tue given different times in separate blocks on one page; review only; would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
 <!-- /times crosscheck ws -->
 
 
@@ -452,3 +567,43 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
+
+
+<!-- held near cities -->
+## Held near cities
+
+Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
+
+- London: 231 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
+- Birmingham: 73 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Manchester: 108 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Leeds: 32 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Liverpool: 53 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Newcastle upon Tyne: 88 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Sheffield: 46 warm spaces, 2 shelters, 0 day centres — main reason: not on allowlist
+- Bristol: 89 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
+- Leicester: 49 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Cardiff: 65 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Bradford: 33 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Nottingham: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Southampton: 57 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+
+203 held places had no outcode centroid, so they are not counted under a city.
+<!-- /held near cities -->
+
+<!-- times review -->
+## Opening-times review list (times_finder)
+
+Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: conflicts with times from another source (https://holytrinitywesterhailes.org.uk/contact-supporting-wh/); this change was undone by Dean; not re-applied
+<!-- /times review -->

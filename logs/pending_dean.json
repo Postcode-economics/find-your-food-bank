@@ -13,12 +13,102 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-gu85ez-age-uk-surrey",
+   "name": "Age UK Surrey",
+   "postcode": "GU8 5EZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pr44ln-all-saints-church",
+   "name": "All Saints' Church",
+   "postcode": "PR4 4LN",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne661pq-alnwick-library",
+   "name": "Alnwick Library",
+   "postcode": "NE66 1PQ",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne650et-amble-library",
+   "name": "Amble Library",
+   "postcode": "NE65 0ET",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu227bd-angelic-network-cic",
+   "name": "Angelic Network CIC",
+   "postcode": "GU22 7BD",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-62980634",
    "name": "Angy Care Health Foundation",
    "postcode": "DA11 9NE",
    "source": "https://www.warmwelcome.uk/space?l=27103",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne639jy-ashington-leisure-centre",
+   "name": "Ashington Leisure Centre",
+   "postcode": "NE63 9JY",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox164rp-banbury-community-fridge",
+   "name": "Banbury Community Fridge",
+   "postcode": "OX16 4RP",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox160dh-banbury-sheikh-bin-baaz-mosque",
+   "name": "Banbury Sheikh Bin Baaz Mosque",
+   "postcode": "OX16 0DH",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-td152as-berwick-sports-leisure-centre",
+   "name": "Berwick Sports & Leisure Centre",
+   "postcode": "TD15 2AS",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -57,6 +147,96 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "nland-ne245bt-blyth-sports-centre",
+   "name": "Blyth Sports Centre",
+   "postcode": "NE24 5BT",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox161er-board-games-night-chess-night-stay-and-play",
+   "name": "Board Games Night Chess Night Stay and Play",
+   "postcode": "OX16 1ER",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt207jt-box-hill-village-hall",
+   "name": "Box Hill Village Hall",
+   "postcode": "KT20 7JT",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu50hg-bramley-library",
+   "name": "Bramley Library",
+   "postcode": "GU5 0HG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox165qe-caf-rusty-musicians-rusty-musicians-knitters-and",
+   "name": "Café Rusty Musicians Rusty Musicians Knitters and Crocheters",
+   "postcode": "OX16 5QE",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu153en-camberley-baptist-church",
+   "name": "Camberley Baptist Church",
+   "postcode": "GU15 3EN",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne614ba-cambo-village-hall-cosy-kitchen-and-also-pub-nig",
+   "name": "cambo village hall cosy kitchen and also pub nights",
+   "postcode": "NE61 4BA",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pr252ld-central-lancashire-slings-cic",
+   "name": "Central Lancashire Slings CIC",
+   "postcode": "PR25 2LD",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne611td-chatter-box-cafe",
+   "name": "Chatter Box Cafe",
+   "postcode": "NE61 1TD",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "bh-bn12te-churchill-square",
    "name": "Churchill Square",
    "postcode": "BN1 2TE",
@@ -67,10 +247,162 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "ww-68775963",
+   "name": "Coffee Morning",
+   "postcode": "EX5 4HZ",
+   "source": "https://www.warmwelcome.uk/space?l=28486",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox171ns-coffee-morning",
+   "name": "Coffee Morning",
+   "postcode": "OX17 1NS",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox278ds-coffee-morning",
+   "name": "Coffee Morning",
+   "postcode": "OX27 8DS",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox279aq-coffee-morning-little-lambs",
+   "name": "Coffee Morning Little Lambs",
+   "postcode": "OX27 9AQ",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox163wt-community-club-includes-activities",
+   "name": "Community Club (includes activities)",
+   "postcode": "OX16 3WT",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox278ey-community-coffee-morning",
+   "name": "Community Coffee morning",
+   "postcode": "OX27 8EY",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox161fa-community-drop-in",
+   "name": "Community Drop In",
+   "postcode": "OX16 1FA",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox160tt-community-nostalgia-caf",
+   "name": "Community Nostalgia Café",
+   "postcode": "OX16 0TT",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox255bx-community-space",
+   "name": "Community Space",
+   "postcode": "OX25 5BX",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-fy84hb-community-workshop-lytham-cic",
+   "name": "Community Workshop Lytham CIC",
+   "postcode": "FY8 4HB",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pr23bs-communityfutures",
+   "name": "CommunityFutures",
+   "postcode": "PR2 3BS",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne236yb-concordia-leisure-centre",
+   "name": "Concordia Leisure Centre",
+   "postcode": "NE23 6YB",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-bb48qt-cpa-social-club",
+   "name": "CPA Social Club",
+   "postcode": "BB4 8QT",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-58322099",
    "name": "Cradley Heath Salvation Army",
    "postcode": "B64 5EP",
    "source": "https://www.warmwelcome.uk/space?l=26382",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne663tp-craster-memorial-hall",
+   "name": "Craster Memorial Hall",
+   "postcode": "NE66 3TP",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "ww-59782766",
+   "name": "Dawley Christian Centre Warm Space",
+   "postcode": "TF4 2EX",
+   "source": "https://www.warmwelcome.uk/space?l=26545",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
     "no verified phone"
@@ -89,12 +421,213 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-tw170sp-dramatize-charlton-village",
+   "name": "Dramatize - Charlton Village",
+   "postcode": "TW17 0SP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu212sp-dramatize-knaphill",
+   "name": "Dramatize - Knaphill",
+   "postcode": "GU21 2SP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox154et-drop-in-for-tea-toast-and-a-chat",
+   "name": "Drop in for Tea, Toast and a Chat",
+   "postcode": "OX15 4ET",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw209ea-egham-library",
+   "name": "Egham Library",
+   "postcode": "TW20 9EA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne646st-elizabethan-hall",
+   "name": "Elizabethan Hall",
+   "postcode": "NE64 6ST",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-la20lq-ellel-parish-council",
+   "name": "Ellel Parish Council",
+   "postcode": "LA2 0LQ",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu216el-emmaus-transformation-trust",
+   "name": "Emmaus Transformation Trust",
+   "postcode": "GU21 6EL",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "tbc-encounter-church-winchcombe",
+   "name": "Encounter Church, Winchcombe",
+   "postcode": "GL54 5EE",
+   "source": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt198ag-epsom-library",
+   "name": "Epsom Library",
+   "postcode": "KT19 8AG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt185aq-epsom-methodist-church-family-centre",
+   "name": "Epsom Methodist Church Family Centre",
+   "postcode": "KT18 5AQ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt190eb-ewell-court-library",
+   "name": "Ewell Court Library",
+   "postcode": "KT19 0EB",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-65441919",
    "name": "Ewell Hall Warm Space",
    "postcode": "KT17 2AY",
    "source": "https://www.warmwelcome.uk/space?l=25272",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt171uf-ewell-library",
+   "name": "Ewell Library",
+   "postcode": "KT17 1UF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu152qn-ezra-charitable-trust-cio",
+   "name": "Ezra Charitable Trust CIO",
+   "postcode": "GU15 2QN",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell--font-caf",
+   "name": "Font Café",
+   "postcode": "",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pr15tr-fp-raft-cic",
+   "name": "FP RAFT CIC",
+   "postcode": "PR1 5TR",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox252ls-friday-coffee-morning",
+   "name": "Friday Coffee Morning",
+   "postcode": "OX25 2LS",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu71ht-godalming-library",
+   "name": "Godalming Library",
+   "postcode": "GU7 1HT",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh14pe-grange-meadow-cic-ltd",
+   "name": "Grange Meadow CIC Ltd",
+   "postcode": "RH1 4PE",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-bb111nr-ground-up-burnley",
+   "name": "Ground Up Burnley",
+   "postcode": "BB11 1NR",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne659sf-hadston-house",
+   "name": "Hadston House",
+   "postcode": "NE65 9SF",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -111,12 +644,52 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-kt124rf-hersham-library",
+   "name": "Hersham Library",
+   "postcode": "KT12 4RF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh12bx-holy-trinity-church-redhill",
+   "name": "Holy Trinity Church Redhill",
+   "postcode": "RH1 2BX",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-63057572",
    "name": "Holy Trinity Church, Skipton",
    "postcode": "BD23 1NJ",
    "source": "https://www.warmwelcome.uk/space?l=18428",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt246qr-horsley-library",
+   "name": "Horsley Library",
+   "postcode": "KT24 6QR",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-bb79qa-hurst-green-coffee-stop",
+   "name": "Hurst Green Coffee Stop",
+   "postcode": "BB7 9QA",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -139,6 +712,166 @@
    "source": "https://www.warmwelcome.uk/space?l=27668",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox155sg-kids-and-caffeine-coffee-morning-seniors-lunch-c",
+   "name": "Kids and Caffeine Coffee Morning Seniors Lunch Craft in Company",
+   "postcode": "OX15 5SG",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu212pz-knaphill-baptist-church",
+   "name": "Knaphill Baptist Church",
+   "postcode": "GU21 2PZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-bb46qs-la-latte-lounge-community-cafe-cic",
+   "name": "La Latte Lounge Community Cafe CIC",
+   "postcode": "BB4 6QS",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu185sb-lightwater-library",
+   "name": "Lightwater Library",
+   "postcode": "GU18 5SB",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt198ha-love-me-love-my-mind",
+   "name": "Love Me Love My Mind",
+   "postcode": "KT19 8HA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu215nz-maybury-and-sheerwater-community-trust",
+   "name": "Maybury and Sheerwater Community Trust",
+   "postcode": "GU21 5NZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu228hf-maybury-support-group",
+   "name": "Maybury Support Group",
+   "postcode": "GU22 8HF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox160jj-men-s-breakfast-call-to-book-place-warm-welcome",
+   "name": "Men's Breakfast (call to book place) Warm Welcome Warm Space 50+ Bingo Lunch Club",
+   "postcode": "OX16 0JJ",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh13qa-merstham-baptist-church",
+   "name": "Merstham Baptist Church",
+   "postcode": "RH1 3QA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox160pj-mini-market-children-s-clothes-toys-bingo-commun",
+   "name": "Mini-market (children's clothes/toys) Bingo Community Larder",
+   "postcode": "OX16 0PJ",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt82hz-molesey-library",
+   "name": "Molesey Library",
+   "postcode": "KT8 2HZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne611sr-morpeth-sports-leisure-centre",
+   "name": "Morpeth Sports & Leisure Centre",
+   "postcode": "NE61 1SR",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne250rp-new-hartley-community-centre-association-memoria",
+   "name": "New Hartley Community Centre Association (Memorial Hall)",
+   "postcode": "NE25 0RP",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt153ha-new-haw-library",
+   "name": "New Haw Library",
+   "postcode": "KT15 3HA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu229bx-new-life-church-woking",
+   "name": "New Life Church, Woking",
+   "postcode": "GU22 9BX",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne646hg-newbiggin-sports-community-hub",
+   "name": "Newbiggin Sports & Community Hub",
+   "postcode": "NE64 6HG",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -177,12 +910,112 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "lancs-bb80jl-peter-birtwistle-trust",
+   "name": "Peter Birtwistle Trust",
+   "postcode": "BB8 0JL",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox160ej-play-and-learn",
+   "name": "Play and Learn",
+   "postcode": "OX16 0EJ",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne209eg-ponteland-leisure-centre",
+   "name": "Ponteland Leisure Centre",
+   "postcode": "NE20 9EG",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-65240552",
    "name": "Poplar Salvation Army - The Table",
    "postcode": "E14 6AJ",
    "source": "https://www.warmwelcome.uk/space?l=27947",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne425dq-prudhoe-waterworld",
+   "name": "Prudhoe Waterworld",
+   "postcode": "NE42 5DQ",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-bl00nt-rammymen",
+   "name": "RammyMen",
+   "postcode": "BL0 0NT",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-bb186qf-robert-windle-foundation",
+   "name": "Robert Windle Foundation",
+   "postcode": "BB18 6QF",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne657tz-rothbury-library",
+   "name": "Rothbury Library",
+   "postcode": "NE65 7TZ",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu68nt-rowleys-centre-for-the-community",
+   "name": "Rowleys Centre for the Community",
+   "postcode": "GU6 8NT",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox266xx-seated-yoga-social-afternoon",
+   "name": "Seated Yoga Social Afternoon",
+   "postcode": "OX26 6XX",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne250ae-seaton-deleval-library",
+   "name": "Seaton Deleval Library",
+   "postcode": "NE25 0AE",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -199,6 +1032,46 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "cherwell-ox162pq-shop-and-museum",
+   "name": "Shop and Museum",
+   "postcode": "OX16 2PQ",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox165hd-soup-and-a-smile",
+   "name": "Soup and a Smile",
+   "postcode": "OX16 5HD",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh89fp-st-agatha-s-hall",
+   "name": "St Agatha's Hall",
+   "postcode": "RH8 9FP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu213lg-st-andrew-s-church",
+   "name": "St Andrew's Church",
+   "postcode": "GU21 3LG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-57952715",
    "name": "St John's Waterloo",
    "postcode": "SE1 8TY",
@@ -210,12 +1083,173 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-tw209hr-st-johns-church-egham",
+   "name": "St Johns Church Egham",
+   "postcode": "TW20 9HR",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox154dw-st-johns-the-baptist-church",
+   "name": "St Johns the Baptist Church",
+   "postcode": "OX15 4DW",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu154he-st-martin-s-church",
+   "name": "St Martin's Church",
+   "postcode": "GU15 4HE",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt172aq-st-mary-s-ewell",
+   "name": "St Mary's Ewell",
+   "postcode": "KT17 2AQ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh76ah-st-peter-and-st-paul-church",
+   "name": "St Peter and St Paul Church",
+   "postcode": "RH7 6AH",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu11np-st-peter-s-shared-church",
+   "name": "St Peter's Shared Church",
+   "postcode": "GU1 1NP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt82qf-st-peter-s-west-molesey",
+   "name": "St Peter's West Molesey",
+   "postcode": "KT8 2QF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "ww-68672296",
+   "name": "St Petrock's Church, Timberscombe",
+   "postcode": "TA24 7TP",
+   "source": "https://www.warmwelcome.uk/space?l=22081",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw167tp-st-saviour-s-church-of-england-sunbury",
+   "name": "St Saviour's Church of England Sunbury",
+   "postcode": "TW16 7TP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw197er-stanwell-events",
+   "name": "Stanwell Events",
+   "postcode": "TW19 7ER",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt172ja-stoneleigh-library",
+   "name": "Stoneleigh Library",
+   "postcode": "KT17 2JA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-55475278",
    "name": "Stoneycroft Salvation Army",
    "postcode": "L13 3BT",
    "source": "https://www.warmwelcome.uk/space?l=23318",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox160en-sunrise-multi-cultural-project",
+   "name": "Sunrise Multi Cultural Project",
+   "postcode": "OX16 0EN",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt228ah-surrey-lifelong-learning-partnership",
+   "name": "Surrey Lifelong Learning Partnership",
+   "postcode": "KT22 8AH",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu28dq-surrey-lifelong-learning-partnership",
+   "name": "Surrey Lifelong Learning Partnership",
+   "postcode": "GU2 8DQ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt185ad-surrey-lifelong-learning-partnership",
+   "name": "Surrey Lifelong Learning Partnership",
+   "postcode": "KT18 5AD",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt185nu-tattenhams-library",
+   "name": "Tattenhams Library",
+   "postcode": "KT18 5NU",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -236,6 +1270,46 @@
    "name": "The Clarendon Centre",
    "postcode": "BN3 3RE",
    "source": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne236yb-the-cramlington-hub",
+   "name": "The Cramlington Hub",
+   "postcode": "NE23 6YB",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu153sy-the-hope-hub",
+   "name": "The Hope Hub",
+   "postcode": "GU15 3SY",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne425dt-the-miners-lamp-cafe-and-hub",
+   "name": "The Miners Lamp Cafe and Hub",
+   "postcode": "NE42 5DT",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu166bs-the-mytchett-community-association",
+   "name": "The Mytchett Community Association",
+   "postcode": "GU16 6BS",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
    "why": [
     "no verified phone"
    ],
@@ -264,6 +1338,56 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "lancs-bb47qy-the-unity-hub-at-rawtenstall-unitarian-church",
+   "name": "The Unity Hub at Rawtenstall Unitarian Church",
+   "postcode": "BB4 7QY",
+   "source": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw200qx-the-village-centre",
+   "name": "The Village Centre",
+   "postcode": "TW20 0QX",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh43pr-the-westcott-village-hub-cic",
+   "name": "The Westcott Village Hub CIC",
+   "postcode": "RH4 3PR",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-cr35pg-the-westway-wellbeing-community-centre",
+   "name": "The Westway Wellbeing & Community Centre",
+   "postcode": "CR3 5PG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox165bz-thursday-coffee-morning-social-club",
+   "name": "Thursday coffee morning Social Club",
+   "postcode": "OX16 5BZ",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-69441263",
    "name": "Warm Space at The Hepworth Wakefield",
    "postcode": "WF1 5AW",
@@ -286,12 +1410,92 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-gu216dj-welcome-church-and-welcome-community-grocery",
+   "name": "Welcome Church and Welcome Community Grocery",
+   "postcode": "GU21 6DJ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne463pd-wentworth-leisure-centre",
+   "name": "Wentworth Leisure Centre",
+   "postcode": "NE46 3PD",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt138de-weybridge-library",
+   "name": "Weybridge Library",
+   "postcode": "KT13 8DE",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne662jh-willowbrun-sports-leisure-centre",
+   "name": "Willowbrun Sports & Leisure Centre",
+   "postcode": "NE66 2JH",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne662jh-willowburn-sports-and-leisure-centre",
+   "name": "Willowburn Sports and Leisure Centre",
+   "postcode": "NE66 2JH",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu206aa-windlesham-field-of-remembrance",
+   "name": "Windlesham Field of Remembrance",
+   "postcode": "GU20 6AA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne716bl-wooler-library",
+   "name": "Wooler Library",
+   "postcode": "NE71 6BL",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-57952323",
    "name": "Y Cross Inn",
    "postcode": "SA62 5PR",
    "source": "https://www.warmwelcome.uk/space?l=25821",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox51te-yarnton-community-drop-in",
+   "name": "Yarnton Community Drop In",
+   "postcode": "OX5 1TE",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
