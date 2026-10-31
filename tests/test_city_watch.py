@@ -80,6 +80,15 @@ class Coverage(unittest.TestCase):
         self.assertFalse(any("no shelter" in g for g in rows[0]["gaps"]))
         self.assertTrue(any("fewer than 5" in g for g in rows[0]["gaps"]))
 
+    def test_kind_day_centre_counts_and_is_not_a_night_shelter(self):
+        item = {"id": "d", "lat": 50.82, "lng": -0.14, "kind": "day_centre"}
+        self.assertTrue(C.is_day_centre(item))
+        self.assertTrue(C.is_day_centre({"service": "day-centre", "label": ""}))
+        rows = C.coverage([], [], [item], [BRIGHTON])
+        self.assertEqual(rows[0]["day_centres"], 1)
+        self.assertEqual(rows[0]["shelters"], 0)
+        self.assertFalse(any("no shelter" in g for g in rows[0]["gaps"]))
+
     def test_ended_places_are_not_counted(self):
         warm = [{"id": "old", "lat": 51.51, "lng": -0.12, "ended": True}]
         rows = C.coverage(warm, [], [], [LONDON])

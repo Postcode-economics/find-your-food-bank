@@ -80,7 +80,9 @@ def active(items):
 
 
 def is_day_centre(item):
-    return item.get("label") == "Day centre" or item.get("kind") == "day centre"
+    """A published day centre uses label 'Day centre' or kind/service day_centre (underscore, as on the map)."""
+    kind = (item.get("kind") or item.get("service") or "").lower().replace("-", " ").replace("_", " ")
+    return item.get("label") == "Day centre" or kind == "day centre"
 
 
 def within_pin(items, city, km=RADIUS_KM):

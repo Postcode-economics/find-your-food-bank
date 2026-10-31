@@ -3,7 +3,7 @@
 Published places within 10km of each top-20 city centre (the listing's own pin).
 An alert is raised when a city has fewer than 5 warm spaces or no shelter or day centre. This check does not fail the run.
 
-- London: 63 warm spaces, 4 shelters, 0 day centres — ok
+- London: 63 warm spaces, 5 shelters, 0 day centres — ok
 - Birmingham: 7 warm spaces, 1 shelter, 0 day centres — ok
 - Manchester: 7 warm spaces, 3 shelters, 0 day centres — ok
 - Glasgow: 0 warm spaces, 4 shelters, 0 day centres — fewer than 5 warm spaces (0)
@@ -22,4 +22,4 @@ An alert is raised when a city has fewer than 5 warm spaces or no shelter or day
 - Kingston upon Hull: 5 warm spaces, 0 shelters, 0 day centres — no shelter or day centre
 - Stoke-on-Trent: 1 warm space, 1 shelter, 0 day centres — fewer than 5 warm spaces (1)
 - Southampton: 4 warm spaces, 1 shelter, 0 day centres — fewer than 5 warm spaces (4)
-- Brighton and Hove: 1 warm space, 0 shelters, 0 day centres — fewer than 5 warm spaces (1); no shelter or day centre
+- Brighton and Hove: 1 warm space, 0 shelters, 2 day centres — fewer than 5 warm spaces (1)
