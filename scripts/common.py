@@ -140,6 +140,8 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                 x["first_verified_on"] = v.get("verified_on", ""); x["verified_on"] = x["last_verified"] = run_day
             if not grace and rc: x["fetched_at"] = rc.get("fetched_at"); x["recheck"] = {k: rc.get(k) for k in ("times_found", "days_found", "postcode_found", "referral_found")}
             if v.get("access_type"): x["access_type"] = v["access_type"]
+            if v.get("phone_source"): x["phone_source"] = v["phone_source"]
+            if v.get("phone_label"): x["phone_label"] = v["phone_label"]
             if not x.get("groups"):
                 g = infer_shelter_groups(x, v)
                 if g:

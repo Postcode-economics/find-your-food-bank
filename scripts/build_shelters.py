@@ -70,11 +70,12 @@ HE_HINT = "https://homeless.org.uk/homeless-england/"
 def shelter_autocheck(x):
     # Bar (Dean, 21 Oct 2026): a credible council/operator/charity/official page must show it is a homeless
     # shelter, night shelter or emergency accommodation, open in a stated period, with opening or access
-    # times/route. Day centres without beds do not count. This pre-check only flags; it never publishes.
+    # times/route. A day centre (kind day_centre) is daytime help with no overnight bed: it is not a shelter
+    # bed and is not flagged here. This pre-check only flags; it never publishes.
     flags = []
     if x.get("flag_closed"): flags.append("tagged closed/disused in OSM")
     n = x["name"].lower()
-    if any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee", "foyer"]): flags.append("name suggests not a shelter")
+    if x.get("kind") != "day_centre" and any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee", "foyer"]): flags.append("name suggests not a shelter")
     if any(w in n for w in ["night shelter", "winter shelter", "swep", "cold weather"]): flags.append("seasonal: needs stated open period")
     if not x.get("website"): flags.append("no operator website in source")
     return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}
