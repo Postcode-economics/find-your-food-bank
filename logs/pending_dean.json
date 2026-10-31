@@ -13,6 +13,26 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-gu85ez-age-uk-surrey",
+   "name": "Age UK Surrey",
+   "postcode": "GU8 5EZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu227bd-angelic-network-cic",
+   "name": "Angelic Network CIC",
+   "postcode": "GU22 7BD",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-62980634",
    "name": "Angy Care Health Foundation",
    "postcode": "DA11 9NE",
@@ -57,6 +77,36 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-kt207jt-box-hill-village-hall",
+   "name": "Box Hill Village Hall",
+   "postcode": "KT20 7JT",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu50hg-bramley-library",
+   "name": "Bramley Library",
+   "postcode": "GU5 0HG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu153en-camberley-baptist-church",
+   "name": "Camberley Baptist Church",
+   "postcode": "GU15 3EN",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "bh-bn12te-churchill-square",
    "name": "Churchill Square",
    "postcode": "BN1 2TE",
@@ -67,10 +117,42 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "ww-68775963",
+   "name": "Coffee Morning",
+   "postcode": "EX5 4HZ",
+   "source": "https://www.warmwelcome.uk/space?l=28486",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-58322099",
    "name": "Cradley Heath Salvation Army",
    "postcode": "B64 5EP",
    "source": "https://www.warmwelcome.uk/space?l=26382",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne663tp-craster-memorial-hall",
+   "name": "Craster Memorial Hall",
+   "postcode": "NE66 3TP",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "ww-59782766",
+   "name": "Dawley Christian Centre Warm Space",
+   "postcode": "TF4 2EX",
+   "source": "https://www.warmwelcome.uk/space?l=26545",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
     "no verified phone"
@@ -89,12 +171,143 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-tw170sp-dramatize-charlton-village",
+   "name": "Dramatize - Charlton Village",
+   "postcode": "TW17 0SP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu212sp-dramatize-knaphill",
+   "name": "Dramatize - Knaphill",
+   "postcode": "GU21 2SP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw209ea-egham-library",
+   "name": "Egham Library",
+   "postcode": "TW20 9EA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu216el-emmaus-transformation-trust",
+   "name": "Emmaus Transformation Trust",
+   "postcode": "GU21 6EL",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "tbc-encounter-church-winchcombe",
+   "name": "Encounter Church, Winchcombe",
+   "postcode": "GL54 5EE",
+   "source": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt198ag-epsom-library",
+   "name": "Epsom Library",
+   "postcode": "KT19 8AG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt185aq-epsom-methodist-church-family-centre",
+   "name": "Epsom Methodist Church Family Centre",
+   "postcode": "KT18 5AQ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt190eb-ewell-court-library",
+   "name": "Ewell Court Library",
+   "postcode": "KT19 0EB",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-65441919",
    "name": "Ewell Hall Warm Space",
    "postcode": "KT17 2AY",
    "source": "https://www.warmwelcome.uk/space?l=25272",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt171uf-ewell-library",
+   "name": "Ewell Library",
+   "postcode": "KT17 1UF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu152qn-ezra-charitable-trust-cio",
+   "name": "Ezra Charitable Trust CIO",
+   "postcode": "GU15 2QN",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "cherwell-ox252ls-friday-coffee-morning",
+   "name": "Friday Coffee Morning",
+   "postcode": "OX25 2LS",
+   "source": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu71ht-godalming-library",
+   "name": "Godalming Library",
+   "postcode": "GU7 1HT",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh14pe-grange-meadow-cic-ltd",
+   "name": "Grange Meadow CIC Ltd",
+   "postcode": "RH1 4PE",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -111,12 +324,42 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-kt124rf-hersham-library",
+   "name": "Hersham Library",
+   "postcode": "KT12 4RF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh12bx-holy-trinity-church-redhill",
+   "name": "Holy Trinity Church Redhill",
+   "postcode": "RH1 2BX",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-63057572",
    "name": "Holy Trinity Church, Skipton",
    "postcode": "BD23 1NJ",
    "source": "https://www.warmwelcome.uk/space?l=18428",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt246qr-horsley-library",
+   "name": "Horsley Library",
+   "postcode": "KT24 6QR",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -139,6 +382,96 @@
    "source": "https://www.warmwelcome.uk/space?l=27668",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu212pz-knaphill-baptist-church",
+   "name": "Knaphill Baptist Church",
+   "postcode": "GU21 2PZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu185sb-lightwater-library",
+   "name": "Lightwater Library",
+   "postcode": "GU18 5SB",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt198ha-love-me-love-my-mind",
+   "name": "Love Me Love My Mind",
+   "postcode": "KT19 8HA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu215nz-maybury-and-sheerwater-community-trust",
+   "name": "Maybury and Sheerwater Community Trust",
+   "postcode": "GU21 5NZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu228hf-maybury-support-group",
+   "name": "Maybury Support Group",
+   "postcode": "GU22 8HF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh13qa-merstham-baptist-church",
+   "name": "Merstham Baptist Church",
+   "postcode": "RH1 3QA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt82hz-molesey-library",
+   "name": "Molesey Library",
+   "postcode": "KT8 2HZ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt153ha-new-haw-library",
+   "name": "New Haw Library",
+   "postcode": "KT15 3HA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu229bx-new-life-church-woking",
+   "name": "New Life Church, Woking",
+   "postcode": "GU22 9BX",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -188,12 +521,42 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-gu68nt-rowleys-centre-for-the-community",
+   "name": "Rowleys Centre for the Community",
+   "postcode": "GU6 8NT",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-69464578",
    "name": "Second Chance Headway Centre",
    "postcode": "WF1 1AD",
    "source": "https://www.warmwelcome.uk/space?l=28675",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh89fp-st-agatha-s-hall",
+   "name": "St Agatha's Hall",
+   "postcode": "RH8 9FP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu213lg-st-andrew-s-church",
+   "name": "St Andrew's Church",
+   "postcode": "GU21 3LG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -210,12 +573,153 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-tw209hr-st-johns-church-egham",
+   "name": "St Johns Church Egham",
+   "postcode": "TW20 9HR",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu154he-st-martin-s-church",
+   "name": "St Martin's Church",
+   "postcode": "GU15 4HE",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt172aq-st-mary-s-ewell",
+   "name": "St Mary's Ewell",
+   "postcode": "KT17 2AQ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh76ah-st-peter-and-st-paul-church",
+   "name": "St Peter and St Paul Church",
+   "postcode": "RH7 6AH",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu11np-st-peter-s-shared-church",
+   "name": "St Peter's Shared Church",
+   "postcode": "GU1 1NP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt82qf-st-peter-s-west-molesey",
+   "name": "St Peter's West Molesey",
+   "postcode": "KT8 2QF",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "ww-68672296",
+   "name": "St Petrock's Church, Timberscombe",
+   "postcode": "TA24 7TP",
+   "source": "https://www.warmwelcome.uk/space?l=22081",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw167tp-st-saviour-s-church-of-england-sunbury",
+   "name": "St Saviour's Church of England Sunbury",
+   "postcode": "TW16 7TP",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-tw197er-stanwell-events",
+   "name": "Stanwell Events",
+   "postcode": "TW19 7ER",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt172ja-stoneleigh-library",
+   "name": "Stoneleigh Library",
+   "postcode": "KT17 2JA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-55475278",
    "name": "Stoneycroft Salvation Army",
    "postcode": "L13 3BT",
    "source": "https://www.warmwelcome.uk/space?l=23318",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt228ah-surrey-lifelong-learning-partnership",
+   "name": "Surrey Lifelong Learning Partnership",
+   "postcode": "KT22 8AH",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu28dq-surrey-lifelong-learning-partnership",
+   "name": "Surrey Lifelong Learning Partnership",
+   "postcode": "GU2 8DQ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt185ad-surrey-lifelong-learning-partnership",
+   "name": "Surrey Lifelong Learning Partnership",
+   "postcode": "KT18 5AD",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt185nu-tattenhams-library",
+   "name": "Tattenhams Library",
+   "postcode": "KT18 5NU",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -236,6 +740,36 @@
    "name": "The Clarendon Centre",
    "postcode": "BN3 3RE",
    "source": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu153sy-the-hope-hub",
+   "name": "The Hope Hub",
+   "postcode": "GU15 3SY",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "nland-ne425dt-the-miners-lamp-cafe-and-hub",
+   "name": "The Miners Lamp Cafe and Hub",
+   "postcode": "NE42 5DT",
+   "source": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu166bs-the-mytchett-community-association",
+   "name": "The Mytchett Community Association",
+   "postcode": "GU16 6BS",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
    "why": [
     "no verified phone"
    ],
@@ -264,6 +798,36 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-tw200qx-the-village-centre",
+   "name": "The Village Centre",
+   "postcode": "TW20 0QX",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-rh43pr-the-westcott-village-hub-cic",
+   "name": "The Westcott Village Hub CIC",
+   "postcode": "RH4 3PR",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-cr35pg-the-westway-wellbeing-community-centre",
+   "name": "The Westway Wellbeing & Community Centre",
+   "postcode": "CR3 5PG",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-69441263",
    "name": "Warm Space at The Hepworth Wakefield",
    "postcode": "WF1 5AW",
@@ -286,6 +850,36 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "surrey-gu216dj-welcome-church-and-welcome-community-grocery",
+   "name": "Welcome Church and Welcome Community Grocery",
+   "postcode": "GU21 6DJ",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-kt138de-weybridge-library",
+   "name": "Weybridge Library",
+   "postcode": "KT13 8DE",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "surrey-gu206aa-windlesham-field-of-remembrance",
+   "name": "Windlesham Field of Remembrance",
+   "postcode": "GU20 6AA",
+   "source": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-57952323",
    "name": "Y Cross Inn",
    "postcode": "SA62 5PR",
@@ -293,6 +887,1226 @@
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
     "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-217",
+   "name": "Positive Futures",
+   "postcode": "LA1 4XF",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-299",
+   "name": "Creative Spaces Burnley CIC",
+   "postcode": "BB11 1PP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-309",
+   "name": "St John's Church Centre",
+   "postcode": "BB9 9EY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-310",
+   "name": "Basically Cheer CIC",
+   "postcode": "BB11 5JT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-311",
+   "name": "NRG Health and Fitness CIC",
+   "postcode": "WN8 9SA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-312",
+   "name": "Whitewell Bottom Community Centre CIO",
+   "postcode": "BB4 9LB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-313",
+   "name": "Hesketh Bank Community Centre",
+   "postcode": "PR4 6SR",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-314",
+   "name": "Trinity Methodist Church",
+   "postcode": "PR3 2AX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-315",
+   "name": "Tanterton Christian Fellowship",
+   "postcode": "PR2 7BX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-316",
+   "name": "St Anne's-on-Sea United Reformed Church",
+   "postcode": "FY8 2AE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-317",
+   "name": "The Unity Hub at Rawtenstall Unitarian Church",
+   "postcode": "BB4 7QY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-318",
+   "name": "Borwick & Priest Hutton War Memorial Hall",
+   "postcode": "LA6 1JP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-319",
+   "name": "Hyndburn Food Pantry",
+   "postcode": "BB5 1ES",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-320",
+   "name": "Trinity United Reformed Church, Lancaster",
+   "postcode": "LA1 4AH",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-321",
+   "name": "HASKAYNE AND DOWNHOLLAND COMMUNITY ASSOCIATION",
+   "postcode": "L39 7JE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-322",
+   "name": "Bretherton Congregational  Church Warm Welcome",
+   "postcode": "PR26 9AJ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-323",
+   "name": "Slyne with Hest Memorial Hall",
+   "postcode": "LA2 6JB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-324",
+   "name": "Majestic Church",
+   "postcode": "BB18 5AA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-325",
+   "name": "New Era North West Ltd",
+   "postcode": "BB11 1LE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-326",
+   "name": "The Meeting Place",
+   "postcode": "PR7 1EP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-327",
+   "name": "St.Bernards Larches & Savick Community Hub",
+   "postcode": "PR2 1NT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-328",
+   "name": "Ellel Parish Council",
+   "postcode": "LA2 0LQ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-329",
+   "name": "ISSE ltd",
+   "postcode": "BB4 6HL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-330",
+   "name": "Community Workshop Lytham CIC",
+   "postcode": "FY8 4HB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-331",
+   "name": "Fathers House Elim Church",
+   "postcode": "LA1 2AP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-332",
+   "name": "Rosegrove Neighbourhood Watch – NW",
+   "postcode": "BB12 6HX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-333",
+   "name": "St John's Church, Yealand Conyers",
+   "postcode": "LA5 9SL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-334",
+   "name": "NRG Health and Fitness CIC",
+   "postcode": "WN8 9SA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-335",
+   "name": "The Olive Grove Community Cafe",
+   "postcode": "PR1 2NL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-336",
+   "name": "Colne Open Door Centre",
+   "postcode": "BB8 0SY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-337",
+   "name": "Trinity Methodist and United reformed church",
+   "postcode": "WN8 8AT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-338",
+   "name": "St Philip's Centre",
+   "postcode": "BB9 9XB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-339",
+   "name": "St John's Church",
+   "postcode": "BB9 9EY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-340",
+   "name": "Chorley Youth Zone",
+   "postcode": "PR7 1BS",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-341",
+   "name": "La Latte Lounge Community Cafe CIC",
+   "postcode": "BB4 6QS",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-342",
+   "name": "Freckleton Methodist Church",
+   "postcode": "PR4 1HS",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-343",
+   "name": "Whitworth Leisure Centre ",
+   "postcode": "OL12 8BT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-344",
+   "name": "Halton Community Association",
+   "postcode": "LA2 6NB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-345",
+   "name": "Disability Equality (nw) Ltd",
+   "postcode": "PR1 1TP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-346",
+   "name": "Burnley Bowls Partnership",
+   "postcode": "BB11 3QW",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-347",
+   "name": "Bank Mill House Senior Citizens Committee",
+   "postcode": "BB6 7NF",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-348",
+   "name": "Blue Flamingo Community Hub",
+   "postcode": "PR2 1AJ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-349",
+   "name": "St Aidan's Community Hub/Larder",
+   "postcode": "PR5 6QR",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-350",
+   "name": "Hyndburn Leisure",
+   "postcode": "BB5 4EP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-351",
+   "name": "Key Unlocking Futures Limited",
+   "postcode": "PR25 2GD",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-352",
+   "name": "West Craven Baptist Church",
+   "postcode": "BB18 6QS",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-353",
+   "name": "West Craven Baptist Church",
+   "postcode": "BB18 5NZ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-354",
+   "name": "Lancaster Men's Hub",
+   "postcode": "LA1 1XX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-355",
+   "name": "Peter Birtwistle Trust",
+   "postcode": "BB8 0JL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-356",
+   "name": "The Dog Inn (Belthorn)",
+   "postcode": "BB1 2NN",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-357",
+   "name": "Burnley Pendle and Rossendale Council for Voluntary Service ",
+   "postcode": "BB12 6RB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-358",
+   "name": "Community Solutions North West Ltd",
+   "postcode": "BB5 4AA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-359",
+   "name": "Burnley FC in the Community",
+   "postcode": "BB10 4BW",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-360",
+   "name": "The King's Community Church, Lancaster",
+   "postcode": "LA1 1DD",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-361",
+   "name": "Robert Windle Foundation",
+   "postcode": "BB18 6QF",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-362",
+   "name": "Roots to Branches Forest School CIC",
+   "postcode": "PR4 3JQ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-363",
+   "name": "Burscough Hub. Well-Being Café ",
+   "postcode": "L40 4AE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-364",
+   "name": "St Bartholomew's Community cafe",
+   "postcode": "BB8 0LG",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-365",
+   "name": "STRIVE FLEETWOOD CIC",
+   "postcode": "FY7 7ND",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-366",
+   "name": "Community Roots - LSCFT",
+   "postcode": "PR1 6SB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-367",
+   "name": "Neuro Drop In Centre",
+   "postcode": "LA1 5TQ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-368",
+   "name": "CPA Social Club ",
+   "postcode": "BB4 8QT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-369",
+   "name": "Regenerage",
+   "postcode": "PR5 5TA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-370",
+   "name": "Shirdley Hill community association ",
+   "postcode": "L39 8SF",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-371",
+   "name": "CommunityFutures",
+   "postcode": "PR2 3BS",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-372",
+   "name": "St George's Church ",
+   "postcode": "PR1 2NP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-373",
+   "name": "Preston Community Hub ",
+   "postcode": "PR1 4YE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-374",
+   "name": "Trinity Methodist Church",
+   "postcode": "PR5 0ED",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-375",
+   "name": "Community Assets Standing Tall",
+   "postcode": "OL13 8AB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-376",
+   "name": "Finley’s families cic",
+   "postcode": "PR5 5BP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-377",
+   "name": "RammyMen",
+   "postcode": "BL0 0NT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-378",
+   "name": "Hope Church Lytham",
+   "postcode": "FY8 5AA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-379",
+   "name": "Over Wyre United Reformed Church",
+   "postcode": "FY6 9AA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-380",
+   "name": "Central Lancashire Slings CIC",
+   "postcode": "PR25 2LD",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-381",
+   "name": "Burnley wood community group",
+   "postcode": "BB11 2QX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-382",
+   "name": "Burscough Methodist Church",
+   "postcode": "L40 0SG",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-383",
+   "name": "FP RAFT CIC",
+   "postcode": "PR1 5TR",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-384",
+   "name": "HelpPKE ",
+   "postcode": "FY6 0FA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-385",
+   "name": "Quwwat Education Centre",
+   "postcode": "PR1 6QX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-386",
+   "name": "Ember and Blossom CIC",
+   "postcode": "FY7 8PG",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-387",
+   "name": "Parochial Church Council of the Ecclesiastical Parish of Warton",
+   "postcode": "LA5 9PG",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-388",
+   "name": "Maundy Relief",
+   "postcode": "BB5 1EN",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-389",
+   "name": "Rosehill wellbeing ",
+   "postcode": "BB11 2JS",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-390",
+   "name": "Wesley's Community Cafe and Larder",
+   "postcode": "FY8 3NQ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-391",
+   "name": "About the Town CIC",
+   "postcode": "WN8 6HB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-392",
+   "name": "Fulwood Methodist Church",
+   "postcode": "PR2 8EA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-393",
+   "name": "Tanterton Christian Fellowship",
+   "postcode": "PR2 7BX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-394",
+   "name": "Leyland Baptist Church",
+   "postcode": "PR25 1XL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-395",
+   "name": "Revelation Community Church Leyland",
+   "postcode": "PR26 7SN",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-396",
+   "name": "Carnforth Town Council",
+   "postcode": "LA5 9LJ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-397",
+   "name": "Mens shed Fleetwood",
+   "postcode": "FY7 7HY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-398",
+   "name": "Sefton Road United Reformed Church",
+   "postcode": "LA3 1TZ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-399",
+   "name": "Tamhouse  Community Enterprise",
+   "postcode": "WN8 6AN",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-400",
+   "name": "Mill Bank Wellbeing Centre",
+   "postcode": "PR1 1ED",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-401",
+   "name": "Advocacy Focus",
+   "postcode": "BB11 1DZ",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-402",
+   "name": "Cornerstone Community Centre - Lancaster Methodist Church",
+   "postcode": "LA1 1PX",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-403",
+   "name": "Lancaster Methodist Church - Scotforth  Road",
+   "postcode": "LA1 4TE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-404",
+   "name": "Charter House Resource Centre",
+   "postcode": "BB10 4PB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-405",
+   "name": "The Greater Good Project CIC",
+   "postcode": "BB4 6PD",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-406",
+   "name": "The Greenhill. Community Hub Ltd",
+   "postcode": "WN8 8DL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-407",
+   "name": "Community Lives Matter",
+   "postcode": "L39 3NE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-408",
+   "name": "All Saints' Church",
+   "postcode": "PR4 4LN",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-409",
+   "name": "Hurst Green Coffee Stop",
+   "postcode": "BB7 9QA",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-410",
+   "name": "Brave Church",
+   "postcode": "BB5 3HH",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-412",
+   "name": "West End Impact",
+   "postcode": "LA3 1DG",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-413",
+   "name": "West End Impact",
+   "postcode": "LA3 1DG",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-414",
+   "name": "Stanleys Community Centre",
+   "postcode": "LA3 1UT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-415",
+   "name": "Lancaster District Food Justice Partnership",
+   "postcode": "LA1 2AP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-416",
+   "name": "Your Community Shop CIC Community ",
+   "postcode": "PR25 1TB",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-417",
+   "name": "Veterans in Communities",
+   "postcode": "BB4 5PL",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-418",
+   "name": "Stronger Together Carers Group ",
+   "postcode": "OL12 8DP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-419",
+   "name": "Trinity Community Hub",
+   "postcode": "BB7 2JY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-420",
+   "name": "Wellbeing Initiative Association",
+   "postcode": "BB10 1DT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-421",
+   "name": "The-Oasis C.I.C.",
+   "postcode": "BB10 2EN",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-422",
+   "name": "Enterprising Habits Ltd",
+   "postcode": "BB10 1BY",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-423",
+   "name": "Thornton-le-Fylde Christ Church",
+   "postcode": "FY5 2TW",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-424",
+   "name": "Creative Spaces Burnley",
+   "postcode": "BB11 1PP",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-425",
+   "name": "Ground Up Burnley ",
+   "postcode": "BB11 1NR",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-427",
+   "name": "NEWBURGH SPORTS CLUB",
+   "postcode": "WN8 7ND",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-428",
+   "name": "Alt-Space",
+   "postcode": "LA3 1QE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-429",
+   "name": "Alt-Space",
+   "postcode": "LA3 1QE",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "lancs-pending-430",
+   "name": "CPA  SOCIAL CLUB",
+   "postcode": "BB4 8QT",
+   "source": "Lancashire County Council warm spaces",
+   "why": [
+    "Lancashire feed not yet confirmed for 2026-27"
    ],
    "held_on": "2026-10-31"
   }
