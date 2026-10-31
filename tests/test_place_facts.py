@@ -149,7 +149,7 @@ class Cards(unittest.TestCase):
         self.assertEqual(self.r['types']['day'], ['Day centre', 'Canolfan ddydd'])
         self.assertEqual(self.r['types']['hostel'][0], 'Hostel')
         self.assertEqual(self.r['types']['ref'], ['Referral hostel', 'Hostel drwy atgyfeiriad'])
-        self.assertEqual(self.r['types']['foyer'][0], "Young people's housing (16-25)")
+        self.assertEqual(self.r['types']['foyer'][0], "Young people’s housing (16–25), referral needed")
         self.assertEqual(self.r['types']['night'], ['Night shelter', 'Lloches nos'])
         self.assertIn('Winter-only', self.r['winter'])
         self.assertIn('Gaeaf yn unig', self.r['winter'])

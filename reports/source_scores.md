@@ -23,9 +23,10 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site canterburyfoodbank.org: 50
 - warmspaces: Southwark Council warm spaces page: 50
 - warmspaces: Voluntary Action Islington warm spaces list: 50
+- warmspaces: Brighton & Hove City Council warm spaces: 50
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
 - own site salvationarmy.org.uk: 54.2
-- IFAN: 56.4
+- IFAN: 54.8
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1
@@ -44,9 +45,9 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site gloucester.foodbank.org.uk: 71.5
 - own site waveney.foodbank.org.uk: 75
 - own site edinburghfoodproject.org: 75
-- shelters: Manual (verified from source pages): 80
 - own site horshamdistrict.foodbank.org.uk: 83.3
 - own site lincolnlarder.co.uk: 83.3
+- shelters: Manual (verified from source pages): 83.3
 - own site westlothian.foodbank.org.uk: 85
 - own site andover.foodbank.org.uk: 85.7
 - own site newcastlestaffs.foodbank.org.uk: 85.7
@@ -87,7 +88,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site aylesbury.foodbank.org.uk: 95
 - own site redcararea.foodbank.org.uk: 95
 - own site flintshire.foodbank.org.uk: 95
-- shelters: OpenStreetMap: 95.2
+- shelters: OpenStreetMap: 95
 - own site thurrock.foodbank.org.uk: 95.5
 - Trussell Trust pages: 96
 - own site northayrshire.foodbank.org.uk: 96.5

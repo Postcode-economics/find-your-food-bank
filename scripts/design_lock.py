@@ -5,6 +5,9 @@ On list cards AND pin pop-up cards, all three types, 390 and 1366 px, light and 
   Their website / Give Food / source links are http(s); Report a problem; type badge; status dot colour per state
   (red = closed, green = open, grey = unknown, colours locked below) and 'Times unknown' only when no times are parsed;
   every button/link tap target >= 44 px tall. Also counts call and Facebook buttons over every listing in the data.
+  Type scale (Dean 31 Oct): on a phone (390px) and on desktop, the computed font-size and font-weight of the
+  type badge, name, distance, address, info-row label and value, and phone digits, and the Directions / call /
+  share button heights, are the same on a food bank, a shelter and a warm space (list card and pin pop-up).
 Usage: python scripts/design_lock.py [BASE_URL] [--measure]. Report: reports/design_lock.md, logs/design_lock.json."""
 import functools, http.server, json, os, sys, threading
 from playwright.sync_api import sync_playwright
@@ -29,6 +32,34 @@ CARDS_JS = r"""(sel)=>{const out=[];const rgb=e=>e?getComputedStyle(e).backgroun
    fb:fb.map(a=>a.getAttribute('href')),dir:dir?{href:dir.getAttribute('href'),bg:rgb(dir)}:null,share:!!share,report:!!rep,
    badge:(q('.tag')||{}).textContent||'',links,small,timesShown})}
  return out}"""
+
+# Same computed type on every layer. Missing pieces are skipped; a present piece that differs is a failure.
+TYPE_JS = r"""(sel)=>{const cards=[...document.querySelectorAll(sel)].filter(c=>c.offsetParent||c.getClientRects().length);
+ const c=cards[0];if(!c)return null;
+ const pick=el=>{if(!el)return null;const s=getComputedStyle(el);return {fs:s.fontSize,fw:String(s.fontWeight),lh:s.lineHeight}};
+ const row=c.querySelector('.ufact .xrow');const label=row&&row.querySelector('b');
+ const stated=[...c.querySelectorAll('.ufact .xrow span,.xrow.uchk span')].find(s=>/Not stated|Heb ei nodi/.test(s.textContent||''));
+ const call=[...c.querySelectorAll('a.btn.call')].find(a=>(a.getAttribute('href')||'').startsWith('tel:')&&!a.classList.contains('xfb'));
+ const num=call&&(call.querySelector('.xnum')||call);
+ const dir=c.querySelector('a.btn.gm,a[href*="google.com/maps"]');
+ const share=[...c.querySelectorAll('button,a')].find(b=>/Share \/ text this address|Rhannu \/ tecstio/.test(b.textContent||''));
+ const h=el=>el?Math.round(el.getBoundingClientRect().height):null;
+ const addr=[...c.children].find(e=>e.tagName==='P'&&!/xrow|sub|xday|xw|plab|warn/.test(e.className));
+ return {badge:pick(c.querySelector('.tag,.utag,.xkind')),name:pick(c.querySelector('h3')),dist:pick(c.querySelector('.d')),
+  addr:pick(addr),row:pick(row),label:pick((label&&label.querySelector('span'))||label),stated:pick(stated),phone:pick(num),
+  call:call?{fs:pick(call).fs,fw:pick(call).fw,h:h(call)}:null,dir:dir?{fs:pick(dir).fs,fw:pick(dir).fw,h:h(dir)}:null,
+  share:share?{fs:pick(share).fs,fw:pick(share).fw,h:h(share)}:null}}"""
+
+def type_diff(samples, where):
+    """samples: layer -> metric dict. Fail when two layers both measured a piece and it is not the same."""
+    bad, layers = [], [k for k, v in samples.items() if v]
+    for i, a in enumerate(layers):
+        for b in layers[i+1:]:
+            for key in ('badge', 'name', 'dist', 'addr', 'row', 'label', 'stated', 'phone', 'call', 'dir', 'share'):
+                x, y = samples[a].get(key), samples[b].get(key)
+                if not x or not y: continue
+                if x != y: bad.append('%s %s: %s %s vs %s %s' % (where, key, a, x, b, y))
+    return bad
 
 ENFORCE_TIMES = True   # Dean 31 Oct: a card that shows times must not say 'Times unknown' (partial weeks say Next open; text-only says Check times below)
 KNOWN = []
@@ -100,6 +131,7 @@ def run(base=None, measure=False):
                     print('FAIL design-lock %dpx %s (page)' % (w, mode), flush=True)
                     c.close(); continue
                 pg.evaluate("m=>{document.documentElement.classList.toggle('light',m==='light');try{localStorage.setItem('theme',m)}catch(e){}}", mode)
+                typed, typed_pop = {}, {}
                 try:
                   for k, sel in (('fb', '#list .card'), ('ws', '#xlist .card.xws'), ('sh', '#xlist .card.xsh')):
                     pg.evaluate("k=>{const t=document.querySelector('#v3big [data-l='+k+']');if(t)t.click()}", k); pg.wait_for_timeout(500)
@@ -111,6 +143,8 @@ def run(base=None, measure=False):
                             if x['call']: meas.setdefault(mode, {}).setdefault('call', set()).add(x['call']['bg'])
                             if x['dir']: meas.setdefault(mode, {}).setdefault('dir', set()).add(x['dir']['bg'])
                         if not measure: bad += check(cards, mode, '%dpx %s %s %s list' % (w, mode, k, q), k)
+                        if q == PLACES[0] and not typed.get(k):
+                            typed[k] = pg.evaluate(TYPE_JS, sel)
                     # pin pop-up card (a place with pins of every type nearby)
                     pg.fill('#q', 'M1 1AE'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
                     pg.evaluate("document.getElementById('map').scrollIntoView({block:'center'})"); pg.wait_for_timeout(500)
@@ -129,7 +163,11 @@ def run(base=None, measure=False):
                     pc = pg.evaluate(CARDS_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card')
                     if not pc: bad.append('%dpx %s %s pin pop-up: pin tapped, no pop-up card' % (w, mode, k))
                     elif not measure: bad += check(pc, mode, '%dpx %s %s pin pop-up' % (w, mode, k), k)
+                    typed_pop[k] = pg.evaluate(TYPE_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card')
                     pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
+                  if not measure:
+                    bad += type_diff(typed, '%dpx %s list type' % (w, mode))
+                    bad += type_diff(typed_pop, '%dpx %s pop type' % (w, mode))
                 except Exception as e:
                     bad.append('%dpx %s: %s' % (w, mode, str(e).splitlines()[0][:200]))
                 TILES.append((w, mode, tiles['ok'], tiles['bad']))

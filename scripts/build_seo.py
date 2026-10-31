@@ -128,21 +128,26 @@ def _facts(i, how, times):
 
 def card_sh(i):
     day = i.get('kind') == 'day_centre'
+    youth = i.get('kind') == 'young_people'
     kind_name = i.get('name') or ''
     if day:
         type_en = 'Day centre'
-    elif re.search(r'\bfoyers?\b', kind_name, re.I) or (re.search(r'\bhousing\b', kind_name, re.I) and re.search(r'16\s*[-–to]{1,3}\s*25', kind_name + ' ' + ' '.join(i.get('groups') or []), re.I)):
-        type_en = "Young people's housing (16-25)"
+    elif youth:
+        type_en = "Young people’s housing (16–25), referral needed"
     elif re.search(r'\bhostel\b', kind_name, re.I) and (i.get('access_type') == 'referral_only' or re.search(r'referral only', i.get('referral') or '', re.I)):
         type_en = 'Referral hostel'
     elif re.search(r'\bhostel\b', kind_name, re.I):
         type_en = 'Hostel'
+    elif re.search(r'\bfoyers?\b', kind_name, re.I):
+        type_en = "Young people’s housing (16–25), referral needed"
     else:
         type_en = 'Night shelter'
     tag = '<div class="tag">%s</div>' % E(type_en)
     if re.search(r'winter|swep|cold weather', str(i.get('season') or ''), re.I):
         tag += ' <span class="useason">Winter-only</span>'
+
     if day: tag += '<div class="sub">Daytime only. No overnight bed.</div>'
+    if youth: tag += '<div class="sub">For ages 16–25. Referral needed. Not an emergency bed.</div>'
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
     acc = ACC.get(i.get('access_type') or '')
     ref = ''
