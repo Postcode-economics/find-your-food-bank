@@ -342,11 +342,11 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED The People's Pantry · G42 7BX · https://www.govanhillbaths.com/pantry/ — own site does not show food aid
 
 ### Shelters: 55 queued, 0 rejected
-- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Alms Houses · B48 7SE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added
 - QUEUED The Wellspring Stockport · SK1 1YD — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED The Wallich · NP4 6JQ · https://thewallich.com/services/torfaen-tenancy-support/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
 - QUEUED The Shrewsbury Ark · SY1 2EH · https://www.shrewsburyark.co.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
@@ -400,7 +400,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 5140 queued, 4 rejected
+### Warm spaces: 7310 queued, 6 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -705,5 +705,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - rejected Ochiltree Hub · KA18 2PE · https://www.east-ayrshire.gov.uk/Community/cost-of-living/cost-of-living.aspx — dates all in the past (latest 2023-01-24)
 - rejected Sacred Heart Church Wadhurst · TN5 6DQ · http://sacredheartchurchwadhurst.org.uk/ — own site does not mention a warm space; own site says closed: ss the church and congratulate the parish. Sadly St Peter’s has now closed. Photography by: Daniel Archer Facebook © 2026 Sacred Heart
 - rejected Stonehouse Youth Club · GL10 2DG · https://www.thedoor.org.uk — postcode not on own site; own site does not mention a warm space; own site says closed: ade goods. 2006 – Light at The Door mentoring begins Having closed down our counselling service 2 years earlier 
+- rejected Olive Grove Community Cafe · PR1 2NL · https://centralmethodist.org.uk — own site says closed: ed into the Fox St reet Night Shelter. Although the shelter is now closed due to decisions made by the operator during covid, our mem
+- rejected Baltic Front Room · NE8 3BA · https://baltic.art/experience-your-baltic/front-room/ — own site says closed: top Six Rooftop Restaurant operated by Fresh Element is now permanently closed. To enquire about hiring this space for an event please con
 
 <!-- END AUTO-DISCOVERY QUEUE -->

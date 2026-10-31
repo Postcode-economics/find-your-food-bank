@@ -7,6 +7,13 @@
    "added": 0,
    "queued": 55,
    "rejected": 0
+  },
+  {
+   "at": "13:48Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 52,
+   "rejected": 0
   }
  ],
  "added": [],
@@ -20,12 +27,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not show it is a shelter/emergency accommodation"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://www.thegap.wales/",
-   "http": 202,
-   "sha256": "b8d52f21a43f48da829c32702ed7b8ccbb941a2c4594e6398fa237e22db4b55e",
+   "final_url": "https://thegap.wales/",
+   "http": 200,
+   "sha256": "ec88e6ab58c1a394b71e84f2b4bfa29f75ab68245673240be37eb91982f1fc54",
    "etag": "",
    "last_modified": ""
   },
@@ -91,13 +98,12 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 202,
-   "sha256": "c9d544d08850ec9e1456a4a7b843be20beaf59bc8a60f8138f129cc8cace526e",
+   "http": 200,
+   "sha256": "ed8d39e12d184f6608ae45083ae048349546a338c74367b4a516183fb31c74b8",
    "etag": "",
    "last_modified": ""
   },
@@ -150,8 +156,8 @@
    "url": "https://www.shrewsburyark.co.uk/",
    "final_url": "https://www.shrewsburyark.co.uk/",
    "http": 200,
-   "sha256": "2d98ab87b8cebf45b661c4e3a42df4f60adf116e254d86fbece25795abe30d91",
-   "etag": "W/\"b13c060e1ba884cfdf34b5f4e3b137d3\"",
+   "sha256": "a8c10b9d642811ea9fc97b9b2ff38f51a2e0312a7e98bf65cc877ae93ff6b3ec",
+   "etag": "W/\"ebd741841b58dd73a87f80262af12069\"",
    "last_modified": ""
   },
   "osm-node-12804949354": {
@@ -168,7 +174,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "f6067482cc490b7dc5087a7307cf64251e2621c6ffd9a5bb7296fd0dc567e612",
+   "sha256": "c4e30cf26e7ce0fd47e5c74e32458b8d054a6251bce7cdb8f54e9066d6034d2f",
    "etag": "",
    "last_modified": ""
   },
@@ -185,9 +191,9 @@
    "url": "https://999club.org/",
    "final_url": "https://999club.org/",
    "http": 200,
-   "sha256": "af5b1a56bbd23b527b54a9a261abcd87edc9bb72b0ade6dd0f8ee70b697f01ab",
+   "sha256": "e5e7295f97c362122656827a1e66b81efc3359b58dd1b1e63182112ea27bbb91",
    "etag": "",
-   "last_modified": "Fri, 30 Oct 2026 12:23:43 GMT"
+   "last_modified": "Sat, 31 Oct 2026 12:24:30 GMT"
   },
   "osm-node-13661455428": {
    "id": "osm-node-13661455428",
@@ -456,7 +462,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "f17043ca55d9d1d1523f0c910c821f1f7d611d8d4713ae443a28c44fba485356",
+   "sha256": "933a54e8223c5bb76a6afd23531c5cb30ffb43dbb73a973d139d0059bbccd925",
    "etag": "",
    "last_modified": ""
   },
@@ -509,8 +515,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "2f1b2fc6e969480acd60a555bda1c48f1410677a4c04c28c56e9710614ea79d5",
-   "etag": "W/\"9f41ffe1fac0611580d38d90d0813758\"",
+   "sha256": "c3614fdc8a3427a82da98ce313ce1abc089f09ef8d82f9f8a7bd6497635b1955",
+   "etag": "W/\"5f173353519647d4ffd3807f56c5ff2e\"",
    "last_modified": ""
   },
   "osm-way-1126940021": {
@@ -634,7 +640,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "f162034996d506628d749002c1d1465bba69f6dff67f9743437336fad4f15596",
+   "sha256": "d4882a1be791c631ff570b5c8f4a95119e1847c5a17656ff87fdde6fec7b769c",
    "etag": "",
    "last_modified": ""
   },
@@ -789,7 +795,7 @@
    "http": 200,
    "sha256": "99aec91042bdd58b3307f606cde22ff989ffdb9391a34f71d7723f0317c2c9ca",
    "etag": "",
-   "last_modified": "Sat, 31 Oct 2026 00:32:36 GMT"
+   "last_modified": "Sat, 31 Oct 2026 12:38:04 GMT"
   },
   "hl-barnardos-merriweather-home": {
    "id": "hl-barnardos-merriweather-home",
@@ -839,8 +845,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "8f2c1bb4cab265303599cc4f182ca40a868a4466d82793d1f8935726112f91f4",
-   "etag": "W/\"22015-52dXvqf/3NyYZ6Gpa7gEHtaqvGo\"",
+   "sha256": "df5e882f4d5ac0f7e8f934c951cb144ed7d07990594b975083bcbc41333df7b5",
+   "etag": "W/\"22023-fx/lEgA7QmLElZ9NOW8iK6CykA8\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
