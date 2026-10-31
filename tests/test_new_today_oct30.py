@@ -1,7 +1,11 @@
-"""Regression (30 Oct 2026): new_today.md relisted places already on the published map."""
+"""Regression (30 Oct 2026): new_today.md must not relist places already on the published map.
+
+Uses pinned git baselines plus fixtures under tests/fixtures/oct30_new_today/ — not live logs/.
+"""
 import json, os, subprocess, sys, tempfile, unittest
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
+FIX = os.path.join(os.path.dirname(__file__), "fixtures", "oct30_new_today")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import discovery_rules as DR
 
@@ -13,50 +17,79 @@ def _git(path):
     return subprocess.check_output(["git", "-C", ROOT, "show", "%s:%s" % (BASE, path)], text=True)
 
 
+def _fixture(name):
+    with open(os.path.join(FIX, name), encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _published_snapshot(root):
+    for name in ("warmspaces.js", "shelters.js", "data.full.js"):
+        with open(os.path.join(root, name), "w", encoding="utf-8") as f:
+            f.write(_git(name))
+
+
 class Oct30NewToday(unittest.TestCase):
+    def setUp(self):
+        self.root = tempfile.mkdtemp()
+        os.makedirs(os.path.join(self.root, "logs"))
+        os.makedirs(os.path.join(self.root, "reports"))
+        _published_snapshot(self.root)
+
+    def test_published_ids_match_oct30_baseline(self):
+        ws = DR.published_ids("warmspaces", self.root)
+        sh = DR.published_ids("shelters", self.root)
+        relisted_ws = {a["id"] for a in _fixture("warmspaces_relisted.json")}
+        relisted_sh = {a["id"] for a in _fixture("shelters_relisted.json")}
+        self.assertTrue(relisted_ws <= ws, relisted_ws - ws)
+        self.assertTrue(relisted_sh <= sh, relisted_sh - sh)
+
     def test_warmspaces_and_shelters_not_relisted(self):
-        ws = json.loads(_git("warmspaces.js").split("=", 1)[1].strip().rstrip(";"))
-        sh = json.loads(_git("shelters.js").split("=", 1)[1].strip().rstrip(";"))
-        base_ws = {i["id"] for i in ws["items"]}
-        base_sh = {i["id"] for i in sh["items"]}
-        ws_log = json.load(open(os.path.join(ROOT, "logs", "discovery_today_warmspaces.json")))
-        sh_log = json.load(open(os.path.join(ROOT, "logs", "discovery_today_shelters.json")))
-        ws_names = {"Marlborough Primary School B10 9NY", "Saifee Mosque B18 6PU", "The Midlands Greek & Cypriot Association B23 7SJ"}
-        ws_added = [a for a in ws_log["added"] if a.get("postcode") and any(n.split()[-1] in a["postcode"] or n in a["name"] for n in ws_names)]
-        self.assertEqual(len(ws_log["added"]), 3)
-        self.assertEqual(len([a for a in ws_added if a["id"] in base_ws]), 3)
-        sh_added = sh_log["added"]
-        self.assertEqual(len(sh_added), 3)
-        self.assertTrue(all(a["id"] in base_sh for a in sh_added))
-        d = tempfile.mkdtemp()
-        open(os.path.join(d, "warmspaces.js"), "w").write(_git("warmspaces.js"))
-        open(os.path.join(d, "shelters.js"), "w").write(_git("shelters.js"))
-        kept_ws = DR.filter_added("warmspaces", ws_log["added"], d)
-        kept_sh = DR.filter_added("shelters", sh_log["added"], d)
+        ws_added = _fixture("warmspaces_relisted.json")
+        sh_added = _fixture("shelters_relisted.json")
+        kept_ws = DR.filter_added("warmspaces", ws_added, self.root)
+        kept_sh = DR.filter_added("shelters", sh_added, self.root)
         self.assertEqual(kept_ws, [])
         self.assertEqual(kept_sh, [])
 
+    def test_genuinely_new_warm_space_is_kept(self):
+        ws_added = _fixture("warmspaces_relisted.json") + _fixture("warmspaces_genuinely_new.json")
+        kept = DR.filter_added("warmspaces", ws_added, self.root)
+        self.assertEqual([a["id"] for a in kept], ["ww-69464578"])
+
     def test_foodbanks_only_true_publish_diff(self):
-        fb = _git("data.full.js")
-        s = fb[fb.index("=") + 1 :].strip().rstrip(";")
-        before = {i["id"] for i in json.loads(s)["items"]}
-        after = before  # 30 Oct refresh commits changed no food-bank ids
-        publish_new = sorted(after - before)
+        """build.py passes publish_new_ids=new_ids; empty diff => nothing in new_today."""
+        before = DR.published_ids("foodbanks", self.root)
+        publish_new = sorted(before - before)
         self.assertEqual(publish_new, [])
-        fb_log = json.load(open(os.path.join(ROOT, "logs", "discovery_today_foodbanks.json")))
-        self.assertEqual(len(fb_log["added"]), 81)
-        kept = DR.filter_added("foodbanks", fb_log["added"], ROOT, publish_new_ids=publish_new)
+        fb_added = _fixture("foodbanks_discovery_sample.json")
+        kept = DR.filter_added("foodbanks", fb_added, self.root, publish_new_ids=publish_new)
         self.assertEqual(kept, [])
 
-    def test_record_writes_zero_for_oct30_case(self):
-        r = tempfile.mkdtemp()
-        os.makedirs(os.path.join(r, "reports"))
-        open(os.path.join(r, "reports", "manual_review.md"), "w").write("# Manual review queue\n")
-        open(os.path.join(r, "warmspaces.js"), "w").write(_git("warmspaces.js"))
-        ws_log = json.load(open(os.path.join(ROOT, "logs", "discovery_today_warmspaces.json")))
-        DR.record("warmspaces", DAY, ws_log["added"], [], [], source="test", root=r)
-        nt = open(os.path.join(r, "reports", "new_today.md")).read()
+    def test_foodbanks_publish_new_ids_allowlist(self):
+        fb_added = _fixture("foodbanks_discovery_sample.json")
+        allow = ["lincoln", "caterham"]
+        kept = DR.filter_added("foodbanks", fb_added, self.root, publish_new_ids=allow)
+        self.assertEqual([a["id"] for a in kept], allow)
+
+    def test_record_writes_zero_for_oct30_relisted_case(self):
+        with open(os.path.join(self.root, "reports", "manual_review.md"), "w", encoding="utf-8") as f:
+            f.write("# Manual review queue\n")
+        ws_added = _fixture("warmspaces_relisted.json")
+        DR.record("warmspaces", DAY, ws_added, [], [], source="test", root=self.root)
+        with open(os.path.join(self.root, "reports", "new_today.md"), encoding="utf-8") as f:
+            nt = f.read()
         self.assertIn("## Warm spaces: 0 added", nt)
+        self.assertNotIn("Marlborough Primary School", nt)
+
+    def test_record_lists_genuinely_new_warm_space(self):
+        with open(os.path.join(self.root, "reports", "manual_review.md"), "w", encoding="utf-8") as f:
+            f.write("# Manual review queue\n")
+        ws_added = _fixture("warmspaces_relisted.json") + _fixture("warmspaces_genuinely_new.json")
+        DR.record("warmspaces", DAY, ws_added, [], [], source="test", root=self.root)
+        with open(os.path.join(self.root, "reports", "new_today.md"), encoding="utf-8") as f:
+            nt = f.read()
+        self.assertIn("## Warm spaces: 1 added", nt)
+        self.assertIn("Second Chance Headway Centre", nt)
         self.assertNotIn("Marlborough Primary School", nt)
 
 
