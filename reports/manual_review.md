@@ -556,7 +556,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Chats and Crafts CIC · B31 3BS · https://www.birmingham.gov.uk/directory_record/904979/chats_and_crafts_cic — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Calling Ministries - Project Breaking Bread Warm Welcome · B7 5SN · https://www.birmingham.gov.uk/directory_record/521975/christ_calling_ministries_-_project_breaking_bread_warm_welcome — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Christ Church Summerfield · B16 0EZ · https://www.birmingham.gov.uk/directory_record/494174/christ_church_summerfield — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site does not mention a warm space
+- QUEUED Church of God of Prophecy · B18 7DL · https://aberdeenstcogop.org.uk/ — own site unreachable (HTTP error)
 - QUEUED Church of the Ascension Hall Green · B28 8JQ · http://www.ascensionhallgreen.uk/ — own site does not mention a warm space
 - QUEUED Church Road Surgery (Saathi House) · B6 5UP · https://www.birmingham.gov.uk/directory_record/858815/church_road_surgery_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Churchcentral · B12 0HD · https://www.birmingham.gov.uk/directory_record/435119/churchcentral — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -663,7 +663,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Rowheath Pavilion · B30 1EQ · https://www.birmingham.gov.uk/directory_record/438686/rowheath_pavilion — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Saathi House · B6 6HR · https://www.birmingham.gov.uk/directory_record/436287/saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Saheli Hub - Balsall Heath · B12 9LF · https://www.birmingham.gov.uk/directory_record/617903/saheli_hub_-_balsall_heath — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Saifee Mosque · B18 6PU · https://uk.thedawoodibohras.com/birmingham/ — own site did not return the page (HTTP 202; usually a bot check)
+- QUEUED Saifee Mosque · B18 6PU · https://uk.thedawoodibohras.com/birmingham/ — own site unreachable (HTTP error)
 - QUEUED Selly Oak Neighbourhood Network Scheme at Stirchley Baths · B30 2JT · https://www.birmingham.gov.uk/directory_record/876279/selly_oak_neighbourhood_network_scheme_at_stirchley_baths — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Shard End Library · B34 7AQ · https://www.birmingham.gov.uk/directory_record/863326/shard_end_library — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Small Heath Community Forum · B10 9TA · https://www.birmingham.gov.uk/directory_record/891287/small_heath_community_forum — directory listing only, with no 2026-27 season dates (latest stated start: none)

@@ -639,7 +639,7 @@
   "recheck": {
    "url": "https://kingschurchhx.org.uk/",
    "final_url": "https://cornerstonechurchhalifax.co.uk/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "9fceeb73fbe42a76409532bd0d517b3a28fb21ae533d58ce58407a2e18a051e4"
   }
@@ -841,18 +841,20 @@
  {
   "id": "ww-65437270",
   "name": "Ash Library",
-  "address": "Ash Street, Ash, Surrey GU12 6LF",
+  "address": "Ash Library, Surrey GU12 6LF",
   "postcode": "GU12 6LF",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+  "source_url": "https://www.warmwelcome.uk/space?l=23178",
+  "website": "",
   "first_seen": "2026-10-23",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -1591,18 +1593,20 @@
  {
   "id": "ww-65437267",
   "name": "Farnham Library",
-  "address": "Vernon House, 28 West Street, Farnham, Surrey GU9 7DR",
+  "address": "Surrey GU9 7DR",
   "postcode": "GU9 7DR",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+  "source_url": "https://www.warmwelcome.uk/space?l=23174",
+  "website": "",
   "first_seen": "2026-10-23",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -6059,10 +6063,10 @@
  },
  {
   "id": "ww-69356493",
-  "name": "About the Town CIC",
-  "address": "144, THE CONCOURSE, SOUTHWAY, SKELMERSDALE, LANCASHIRE, WN8 6HB",
+  "name": "About the Town Central",
+  "address": "About the Town Central, Unit 144, Lancashire WN8 6HB",
   "postcode": "WN8 6HB",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23365",
   "website": "www.aboutthetown.co.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -6385,10 +6389,10 @@
  },
  {
   "id": "ww-64717116",
-  "name": "Adapt Community Warm Space",
-  "address": "Burn Lane, Hexham NE46 3HN",
+  "name": "Adapt Community Hub and Warm Space",
+  "address": "Adapt Community Hub, Hexham, Northumberland NE46 3HN",
   "postcode": "NE46 3HN",
-  "source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27865",
   "website": "https://adapt-ne.org.uk/index.php/community-hub/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -6446,9 +6450,9 @@
  {
   "id": "ww-65438726",
   "name": "Addlestone Library",
-  "address": "Addlestone Library, Runnymede Civic Centre, Station Road, Addlestone, Surrey KT15 2AF",
+  "address": "Addlestone Library, Addlestone, Surrey KT15 2AF",
   "postcode": "KT15 2AF",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20489",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/addlestone",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -7105,7 +7109,7 @@
   "recheck": {
    "url": "https://www.westsomersetmethodists.org.uk/alcombe/",
    "final_url": "https://www.westsomersetmethodists.org.uk/alcombe/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -7145,26 +7149,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.suffolklibraries.co.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-64379130",
-  "name": "Alderley Edge Library",
-  "address": "Cheshire SK9 7GP",
-  "postcode": "SK9 7GP",
-  "source_url": "https://www.warmwelcome.uk/space?l=23328",
-  "website": "https://www.cheshireeast.gov.uk/libraries/nearest-library/alderley_edge_library.aspx",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.cheshireeast.gov.uk/libraries/nearest-library/alderley_edge_library.aspx",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -8840,7 +8824,7 @@
   "recheck": {
    "url": "https://www.newdaychurch.uk/serving-our-community/the-well",
    "final_url": "https://www.newdaychurch.uk/serving-our-community/the-well",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "c6ed5ba09d4c2b032f512b9c5bbf5858a032541e1b0cc65ae24799ca94c7b393"
   }
@@ -9488,9 +9472,9 @@
  {
   "id": "ww-55473432",
   "name": "Ashford Library",
-  "address": "Church Road, Ashford, Middlesex TW15 2XB",
+  "address": "Ashford Library, Church Road, Ashford, Surrey TW15 2XB",
   "postcode": "TW15 2XB",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20012",
   "website": "www.surreycc.gov.uk/ashfordlibrary",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -9551,9 +9535,9 @@
  {
   "id": "ww-56451743",
   "name": "Ashtead Library",
-  "address": "Woodfield Lane, Ashtead, Surrey, KT21 2BQ",
+  "address": "Ashtead Library, Surrey KT21 2BQ",
   "postcode": "KT21 2BQ",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=22925",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/ashtead",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -10822,9 +10806,9 @@
  {
   "id": "ww-65437485",
   "name": "Banstead Library",
-  "address": "The Horseshoe, Bolters Lane, Banstead, Surrey SM7 2AW",
+  "address": "Banstead Library, Banstead, Surrey SM7 2AW",
   "postcode": "SM7 2AW",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27639",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/banstead",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -14579,9 +14563,9 @@
  {
   "id": "ww-55473241",
   "name": "Bookham Library",
-  "address": "Townshott Close, Great Bookham, Surrey, KT23 4DQ",
+  "address": "Bookham Library, Surrey KT23 4DQ",
   "postcode": "KT23 4DQ",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23935",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/bookham",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -16240,26 +16224,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://lambethmethodistcircuit.org.uk/page/15/brixton-hill-methodist-church",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-68015693",
-  "name": "Brixton Library",
-  "address": "Brixton Library, London, SW2 1JQ",
-  "postcode": "SW2 1JQ",
-  "source_url": "https://www.warmwelcome.uk/space?l=28340",
-  "website": "https://www.lambeth.gov.uk/libraries-0/brixton-tate-library",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.lambeth.gov.uk/libraries-0/brixton-tate-library",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -18136,19 +18100,21 @@
  },
  {
   "id": "ww-57951652",
-  "name": "Open Doors Cafe",
-  "address": "Church Bell Lane, Bicester, OX26 6JQ",
+  "name": "Cafe 103",
+  "address": "Bicester Methodist Church, Oxfordshire OX26 6JQ",
   "postcode": "OX26 6JQ",
-  "source_url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.bicestermethodist.org.uk/",
+  "source_url": "https://www.warmwelcome.uk/space?l=24345",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.bicestermethodist.org.uk/",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -18428,7 +18394,7 @@
   "recheck": {
    "url": "https://www.soulsurvivorwatford.co.uk/cafeno7",
    "final_url": "https://soulsurvivor.church/cafeno7",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "0e97501bc6023d3529620d4f5980ca7f19cb12a879f853ac8f4a3cb36107e6c2"
   }
@@ -18973,9 +18939,9 @@
  {
   "id": "ww-65437325",
   "name": "Camberley Library",
-  "address": "Knoll Road, Camberley, Surrey, GU15 3SY",
+  "address": "Surrey County Council, Surrey GU15 3SY",
   "postcode": "GU15 3SY",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23207",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/camberley",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -19257,21 +19223,14 @@
  {
   "id": "ww-65437341",
   "name": "Canford Heath Library",
-  "address": "Canford Heath Library, Dorset BH17 8UE",
-  "postcode": "BH17 8UE",
-  "source_url": "https://www.warmwelcome.uk/space?l=23223",
-  "website": "https://www.bcpcouncil.gov.uk/Libraries/Your-local-library/Libraries-in-Poole/Canford-Heath-Library.aspx",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.bcpcouncil.gov.uk/Libraries/Your-local-library/Libraries-in-Poole/Canford-Heath-Library.aspx",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
+  "reason": "omitted this run: schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00",
+  "recheck": {
+   "url": "https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library",
+   "final_url": "https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "be1a03f938312ecc915067790b99194c451212fdb3a5d5f2f9a9ff213737e921"
   }
  },
  {
@@ -19765,26 +19724,6 @@
   }
  },
  {
-  "id": "ww-65438939",
-  "name": "Carlton in Lindrick Library",
-  "address": "Inspire Culture Learning & Libraries, Worksop, Nottinghamshire S81 9AR",
-  "postcode": "S81 9AR",
-  "source_url": "https://www.warmwelcome.uk/space?l=27540",
-  "website": "https://www.inspireculture.org.uk/reading-information/find-a-library/carlton-lindrick-library/?gad_source=1&gad_campaignid=23240360134&gclid=EAIaIQobChMIgbvd8NTTkQMVLpdQBh34VR0REAAYASAAEgKCSvD_BwE",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.inspireculture.org.uk/reading-information/find-a-library/carlton-lindrick-library/?gad_source=1&gad_campaignid=23240360134&gclid=EAIaIQobChMIgbvd8NTTkQMVLpdQBh34VR0REAAYASAAEgKCSvD_BwE",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65438916",
   "name": "Carlton Library",
   "address": "Inspire Culture, Learning & Libraries, Nottingham, Nottinghamshire NG4 3AY",
@@ -20195,9 +20134,9 @@
  {
   "id": "ww-65438741",
   "name": "Caterham Hill Library",
-  "address": "Westway, Caterham, Surrey, CR3 5TP",
+  "address": "Surrey County Council, Surrey CR3 5TP",
   "postcode": "CR3 5TP",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23251",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/caterham-hill",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -20215,9 +20154,9 @@
  {
   "id": "ww-65438744",
   "name": "Caterham Valley Library",
-  "address": "Stafford Road, Caterham, Surrey, CR3 6JG",
+  "address": "Stafford Road, Caterham, Surrey CR3 6JG",
   "postcode": "CR3 6JG",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20833",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/caterham-valley",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -21930,9 +21869,9 @@
  {
   "id": "ww-55473204",
   "name": "Chertsey Library",
-  "address": "Guildford Street, Chertsey, Surrey, KT16 9BE",
+  "address": "Surrey County Council, Surrey KT16 9BE",
   "postcode": "KT16 9BE",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23451",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/chertsey/events-and-activities#special",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -22784,9 +22723,9 @@
  {
   "id": "ww-65437317",
   "name": "Christ Church Ewell",
-  "address": "Christ Church Ewell, Cheam Road, Ewell, KT17 1AD",
+  "address": "Christ Church Ewell, Cheam Road, Ewell, Surrey KT17 1AD",
   "postcode": "KT17 1AD",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=16091",
   "website": "www.christchurchewell.co.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -22985,10 +22924,10 @@
  },
  {
   "id": "ww-65344921",
-  "name": "Christ Church Woking",
-  "address": "Christ Church, Jubilee Square, Woking, GU21 6YG",
+  "name": "Christ Church Warm Welcome",
+  "address": "Christ Church, Surrey GU21 6YG",
   "postcode": "GU21 6YG",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=22408",
   "website": "www.ccwoking.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -23524,21 +23463,14 @@
  {
   "id": "ww-62587523",
   "name": "Churchdown Library",
-  "address": "Parton Road, Gloucestershire GL3 2AF",
-  "postcode": "GL3 2AF",
-  "source_url": "https://www.warmwelcome.uk/space?l=23885",
-  "website": "https://gloslibraries.uk/library/churchdown-library",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://gloslibraries.uk/library/churchdown-library",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
+  "reason": "omitted this run: schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00",
+  "recheck": {
+   "url": "https://gloslibraries.uk/library/churchdown-library",
+   "final_url": "https://gloslibraries.uk/library/churchdown-library",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "1d2cfa717307a71b1cba1d3e4391185b575f39c91721baa4be8c647b363b20a9"
   }
  },
  {
@@ -24529,18 +24461,20 @@
  {
   "id": "ww-67931183",
   "name": "Cobham Library",
-  "address": "The Cedar Centre, Cedar Road, Cobham, Surrey, KT11 2AE",
+  "address": "Cobham Library, Surrey KT11 2AE",
   "postcode": "KT11 2AE",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+  "source_url": "https://www.warmwelcome.uk/space?l=23288",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -24998,6 +24932,19 @@
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
+  }
+ },
+ {
+  "id": "ww-68775963",
+  "name": "Coffee Morning",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://silvertonmethodist.church/blog/",
+   "final_url": "https://silvertonmethodist.church/blog/",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 403,
+   "sha256": ""
   }
  },
  {
@@ -27766,7 +27713,7 @@
   "recheck": {
    "url": "https://www.bishopbaptists.co.uk",
    "final_url": "https://www.bishopbaptists.co.uk",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "b1eccdb97c32e3490b93b6e3949ed6e51b2343ac1b76e6cd82a0e56a69bb56d6"
   }
@@ -28293,7 +28240,7 @@
   "recheck": {
    "url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
    "final_url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -29149,9 +29096,9 @@
  {
   "id": "ww-55475702",
   "name": "Cranleigh Library",
-  "address": "High Street, Cranleigh, Surrey, GU6 8AE",
-  "postcode": "GU6 8AE",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "address": "Cranleigh Library, Surrey GU6 8AF GU6 8AF",
+  "postcode": "GU6 8AF",
+  "source_url": "https://www.warmwelcome.uk/space?l=23512",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/cranleigh",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -30723,6 +30670,19 @@
   }
  },
  {
+  "id": "ww-59782766",
+  "name": "Dawley Christian Centre Warm Space",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://dcctelford.wordpress.com/",
+   "final_url": "https://dcctelford.wordpress.com/",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
   "id": "ww-56787377",
   "name": "Daytime Drop in",
   "address": "Southend City Baptist Church, Essex SS1 1AN",
@@ -31517,9 +31477,9 @@
  {
   "id": "ww-65437500",
   "name": "Dittons Library",
-  "address": "Mercer Close, Thames Ditton, Surrey, KT7 0BS",
+  "address": "Dittons Library, Surrey, Surrey KT7 0BS",
   "postcode": "KT7 0BS",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20662",
   "website": "https://www.surreycc.gov.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -31722,10 +31682,10 @@
  },
  {
   "id": "ww-56388532",
-  "name": "Dorking Christian Centre",
-  "address": "Church Street, Dorking, RH4 1DW",
+  "name": "DORKING CHRISTIAN CENTRE",
+  "address": "Dorking Christian Centre, Dorking, Surrey RH4 1DW",
   "postcode": "RH4 1DW",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=18514",
   "website": "www.dorkingchristiancentre.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -31743,9 +31703,9 @@
  {
   "id": "ww-55474839",
   "name": "Dorking Library",
-  "address": "St Martin's Walk, Dorking, Surrey RH4 1UT",
+  "address": "Dorking Library, Dorking, Surrey RH4 1UT",
   "postcode": "RH4 1UT",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20173",
   "website": "https://www.surreycc.gov.uk/libraries",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -31763,9 +31723,9 @@
  {
   "id": "ww-57951592",
   "name": "Dormansland Baptist Church",
-  "address": "7 High Street, Dormansland, Surrey, RH7 6PU",
+  "address": "7 High Street, Dormansland, Lingfield, Surrey RH7 6PU",
   "postcode": "RH7 6PU",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=18458",
   "website": "dormanslandbaptistchurch.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -34957,10 +34917,10 @@
  },
  {
   "id": "ww-65437483",
-  "name": "Esher Library",
-  "address": "Old Church Path, Esher, Surrey KT10 9NS",
+  "name": "Esher Library SCC",
+  "address": "Esher Library, Surrey, Surrey KT10 9NS",
   "postcode": "KT10 9NS",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20172",
   "website": "www.surreycc.gov.uk/libraries",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -37171,26 +37131,26 @@
   "id": "ww-68642792",
   "name": "Fosdyke playing field social club (Fozzy’s)",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "reason": "omitted this run: published days not found on source this run",
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
-   "http": 403,
-   "sha256": ""
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be"
   }
  },
  {
   "id": "ww-68642793",
   "name": "Fosdyke playing field social club (Fozzy’s)",
   "first_seen": "2026-10-21",
-  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "reason": "omitted this run: published days not found on source this run",
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
-   "http": 403,
-   "sha256": ""
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be"
   }
  },
  {
@@ -37465,19 +37425,21 @@
  },
  {
   "id": "ww-55474326",
-  "name": "Freckleton Methodist Church",
-  "address": "FRECKLETON METHODIST CHURCH, KIRKHAM ROAD, SOUTH OF BYPASS, FRECKLETON, LANCASHIRE, PR4 1HS",
+  "name": "Freckleton Methodist Church cafe & larder",
+  "address": "Freckleton Methodist Church, Lancashire PR4 1HS",
   "postcode": "PR4 1HS",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.freckleton-methodist-church.org.uk",
+  "source_url": "https://www.warmwelcome.uk/space?l=22265",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.freckleton-methodist-church.org.uk",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -38350,9 +38312,9 @@
  {
   "id": "ww-55475003",
   "name": "Frimley Green Library",
-  "address": "Beech Road, Frimley Green, Camberley, Surrey GU16 6LQ",
+  "address": "Surrey County Council, Surrey GU16 6LQ",
   "postcode": "GU16 6LQ",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23155",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/frimley-green",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -38370,9 +38332,9 @@
  {
   "id": "ww-65414000",
   "name": "Frimley Green Methodist Church",
-  "address": "The Green, Frimley Green, Surrey, GU16 6HF",
-  "postcode": "GU16 6HF",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "address": "https://www.frimleygreenmethodistchurch.org, 8, The Green, Frimley Green GU16 6EF",
+  "postcode": "GU16 6EF",
+  "source_url": "https://www.warmwelcome.uk/space?l=20812",
   "website": "https://www.frimleygreenmethodistchurch.org/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -39166,26 +39128,6 @@
   }
  },
  {
-  "id": "ww-65438940",
-  "name": "Gedling Library",
-  "address": "Inspire Culture Learning & Libraries, Nottingham, Nottinghamshire NG4 4HX",
-  "postcode": "NG4 4HX",
-  "source_url": "https://www.warmwelcome.uk/space?l=27541",
-  "website": "https://www.inspireculture.org.uk/reading-information/find-a-library/gedling-library/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.inspireculture.org.uk/reading-information/find-a-library/gedling-library/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-64379140",
   "name": "Genesis Care (North West) Limited",
   "address": "9 West Bank, Chorley, Lancashire PR7 1JF",
@@ -39793,19 +39735,21 @@
  },
  {
   "id": "ww-56851781",
-  "name": "Godalming Minster - Franklyn Road - St Mark's Church",
-  "address": "Franklyn Rd, Godalming GU7 2LD",
+  "name": "Godalming Minster -St Mark's Church & Community Centre",
+  "address": "St Mark's Church & Communitry Centre, Surrey GU7  2LD",
   "postcode": "GU7 2LD",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+  "source_url": "https://www.warmwelcome.uk/space?l=23950",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -41258,9 +41202,9 @@
  {
   "id": "ww-55476320",
   "name": "Guildford Library",
-  "address": "77 North Street, Guildford, Surrey GU1 4AL",
+  "address": "Surrey County Council, Surrey GU1 4AL",
   "postcode": "GU1 4AL",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23615",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/guildford",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -41623,10 +41567,10 @@
  },
  {
   "id": "ww-64396795",
-  "name": "Hale Community Centre",
-  "address": "130 Upper Hale Road, Farnham, Surrey, GU9 0JH",
+  "name": "Hale Community & Youth Centre",
+  "address": "Hale Community & Youth Centre, Farnham, Surrey GU9 0JH",
   "postcode": "GU9 0JH",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27189",
   "website": "https://www.halecommunitycentre.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -42222,7 +42166,7 @@
   "recheck": {
    "url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
    "final_url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 410,
    "sha256": ""
   }
@@ -42577,19 +42521,21 @@
  },
  {
   "id": "ww-55592299",
-  "name": "HASKAYNE AND DOWNHOLLAND COMMUNITY ASSOCIATION",
-  "address": "HASKAYNE VILLAGE HALL, 109, SCHOOL LANE, DOWNHOLLAND, LANCASHIRE, L39 7JE",
+  "name": "Haskayne Village Hall",
+  "address": "Haskayne Village Hall, Ormskirk, Lancashire L39 7JE",
   "postcode": "L39 7JE",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://haskaynevillagehall.org.uk",
+  "source_url": "https://www.warmwelcome.uk/space?l=22258",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://haskaynevillagehall.org.uk",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -42618,9 +42564,9 @@
  {
   "id": "ww-64379033",
   "name": "Haslemere Library",
-  "address": "91 Wey Hill, Haslemere, Surrey GU27 1HP",
+  "address": "91 Weyhill, Haslemere, Surrey GU27  1HP",
   "postcode": "GU27 1HP",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=25081",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/haslemere",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -43350,7 +43296,7 @@
   "recheck": {
    "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
    "final_url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -44260,9 +44206,9 @@
  {
   "id": "ww-55475482",
   "name": "Hesketh Bank Community Centre",
-  "address": "STATION ROAD, HESKETH BANK, LANCASHIRE, PR4 6SR",
+  "address": "Station Road, Hesketh Bank, Preston, Lancashire PR4 6SR",
   "postcode": "PR4 6SR",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=19171",
   "website": "www.heskethbankcommunitycentre.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -46178,10 +46124,10 @@
  },
  {
   "id": "ww-55475713",
-  "name": "Hope Church Lytham",
-  "address": "12, PRESTON ROAD, LYTHAM ST ANNES, LANCASHIRE, FY8 5AA",
+  "name": "Hope Cafe",
+  "address": "Hope Church Lytham, Lytham, Lancashire FY8 5AA",
   "postcode": "FY8 5AA",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=19790",
   "website": "https://www.hopechurchlytham.com/hope-cafe/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -46612,9 +46558,9 @@
  {
   "id": "ww-64378994",
   "name": "Horley Library",
-  "address": "55-57 Russell Square, Victoria Road, Horley, Surrey RH6 7QH",
+  "address": "55-57 Russell Square, Surrey RH6 7QH",
   "postcode": "RH6 7QH",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23428",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/horley",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -47548,18 +47494,20 @@
  {
   "id": "ww-55473215",
   "name": "Hyndburn Food Pantry",
-  "address": "27, BROADWAY, ACCRINGTON, LANCASHIRE, BB5 1ES",
+  "address": "27 Broadway, Accrington, Lancs BB5 1ES",
   "postcode": "BB5 1ES",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://Hyndburnfoodpantry.co.uk",
+  "source_url": "https://www.warmwelcome.uk/space?l=21766",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://Hyndburnfoodpantry.co.uk",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -48063,21 +48011,14 @@
  {
   "id": "ww-65438945",
   "name": "Inham Nook Library",
-  "address": "Inspire Culture Learning & Libraries, Chilwell, Nottinghamshire NG9  4HU",
-  "postcode": "NG9 4HU",
-  "source_url": "https://www.warmwelcome.uk/space?l=27546",
-  "website": "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
+  "reason": "omitted this run: schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30",
+  "recheck": {
+   "url": "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/",
+   "final_url": "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "f9ece669b6b22011f0d4f84f6544d2a899ac36c22e191255f67714b06ce064d5"
   }
  },
  {
@@ -50041,10 +49982,10 @@
  },
  {
   "id": "ww-55475744",
-  "name": "The King's Church, Epsom",
-  "address": "off Gibraltar Crescent, Epsom, KT19 9BU",
+  "name": "King's Church, Epsom Warm Welcome Space",
+  "address": "The Kings Church, Epsom, Surrey KT19 9BU",
   "postcode": "KT19 9BU",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=19621",
   "website": "thekingschurch.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -50748,9 +50689,9 @@
  {
   "id": "ww-68457971",
   "name": "Knaphill Library",
-  "address": "4 Anchor Crescent, Knaphill, Surrey GU21 2PD",
+  "address": "Knaphill Library, Surrey GU21 2PD",
   "postcode": "GU21 2PD",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23570",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/knaphill",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -51403,10 +51344,10 @@
  },
  {
   "id": "ww-65437503",
-  "name": "Lancaster Men's Hub",
-  "address": "STREET RECORD, PETER STREET, LANCASTER, LANCASHIRE, LA1 1XX",
+  "name": "Lancaster Men's Hub Warm Space at The LMH Studio",
+  "address": "LMH Studio, Lancaster, LANCASHIRE LA1  1XX",
   "postcode": "LA1 1XX",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27669",
   "website": "https://thelmh.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -51936,9 +51877,9 @@
  {
   "id": "ww-55475521",
   "name": "Leatherhead Library",
-  "address": "The Mansion, Church Street, Leatherhead, Surrey KT22 8DP",
+  "address": "Leatherhead Library, Surrey KT22 8DP",
   "postcode": "KT22 8DP",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23930",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/leatherhead",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -52385,10 +52326,10 @@
  },
  {
   "id": "ww-55476293",
-  "name": "Leyland Baptist Church",
-  "address": "CHURCH, 247, LEYLAND LANE, LEYLAND, LANCASHIRE, PR25 1XL",
+  "name": "Leyland Baptist Church Community Cafe",
+  "address": "247 Leyland Lane, Leyland, Lancashire PR25 1XL",
   "postcode": "PR25 1XL",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=14797",
   "website": "www.leylandbaptist.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -53968,26 +53909,6 @@
   }
  },
  {
-  "id": "ww-65441904",
-  "name": "Llandaff North & Gabalfa Hub",
-  "address": "Llandaff North & Gabalfa Hub, Cardiff, Wales CF14 2HU",
-  "postcode": "CF14 2HU",
-  "source_url": "https://www.warmwelcome.uk/space?l=25254",
-  "website": "https://cardiffhubs.co.uk/hub/llandaff-north-and-gabalfa-hub/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://cardiffhubs.co.uk/hub/llandaff-north-and-gabalfa-hub/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65414008",
   "name": "Llandaff North & Gabalfa Hub",
   "address": "Llandaff North & Gabalfa Hub, Cardiff CF14 2HU",
@@ -54476,26 +54397,6 @@
   }
  },
  {
-  "id": "ww-55475641",
-  "name": "Longton Library",
-  "address": "Longton Library, Lancashire PR4 5HA",
-  "postcode": "PR4 5HA",
-  "source_url": "https://www.warmwelcome.uk/space?l=23083",
-  "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/longton-library/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/longton-library/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-57951869",
   "name": "Looe Library & Community Hub",
   "address": "Looe Library & Community Hub, Looe, Cornwall PL13  2AF",
@@ -54845,10 +54746,10 @@
  },
  {
   "id": "ww-55592194",
-  "name": "Lower Green Community CIO",
-  "address": "Farm Road, Esher, KT10 8AU",
+  "name": "Lower Green Community Centre",
+  "address": "Lower Green Community Centre, Esher, Surrey KT10 8AU",
   "postcode": "KT10 8AU",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=22084",
   "website": "https://www.lowergreen.org/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -55978,26 +55879,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65438919",
-  "name": "Mansfield Central Library",
-  "address": "Inspire Culture, Learning & Libraries, Mansfield, Nottinghamshire NG18 1NH",
-  "postcode": "NG18 1NH",
-  "source_url": "https://www.warmwelcome.uk/space?l=27520",
-  "website": "https://www.inspireculture.org.uk/reading-information/find-a-library/mansfield-central-library/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.inspireculture.org.uk/reading-information/find-a-library/mansfield-central-library/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -57664,10 +57545,10 @@
  },
  {
   "id": "ww-65437494",
-  "name": "Merstham Community Facility Trust",
-  "address": "2b Portland Drive, Merstham, RH1 3HY",
+  "name": "Merstham Library",
+  "address": "Merstham Library, Redhill, Surrey RH1 3HY",
   "postcode": "RH1 3HY",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27649",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/merstham",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -58083,18 +57964,20 @@
  {
   "id": "ww-64379307",
   "name": "Mill Bank Wellbeing Centre",
-  "address": "Mill Bank Wellbeing Centre, Edmund Street, Preston, PR1 1ED",
+  "address": "Mill Bank Wellbeing Centre, Preston, Lancashire PR1  1ED",
   "postcode": "PR1 1ED",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/",
+  "source_url": "https://www.warmwelcome.uk/space?l=21754",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -58222,10 +58105,10 @@
  },
  {
   "id": "ww-65438703",
-  "name": "Guildford Baptist Church",
-  "address": "Millmead, Guildford, Surrey, GU2 4BE",
+  "name": "Millmead (Guildford Baptist Church)",
+  "address": "Millmead, Guildford, Surrey GU2 4BE",
   "postcode": "GU2 4BE",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=18894",
   "website": "https://www.guildfordbaptist.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -58561,26 +58444,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65438950",
-  "name": "Misterton Community Partnership Library",
-  "address": "Inspire Culture Learning & Libraries, Nottinghamshire DN10 4BU",
-  "postcode": "DN10 4BU",
-  "source_url": "https://www.warmwelcome.uk/space?l=27552",
-  "website": "https://www.inspireculture.org.uk/reading-information/find-a-library/misterton-library/visiting-us/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.inspireculture.org.uk/reading-information/find-a-library/misterton-library/visiting-us/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -63208,10 +63071,10 @@
  },
  {
   "id": "ww-64378922",
-  "name": "The Olive Grove Community Cafe",
-  "address": "STREET RECORD, LUNE STREET, PRESTON, LANCASHIRE, PR1 2NL",
+  "name": "Olive Grove Community Cafe",
+  "address": "Central Methodist Church, Preston, Lancashire PR1 2NL",
   "postcode": "PR1 2NL",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=21765",
   "website": "https://centralmethodist.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -64553,7 +64416,7 @@
   "name": "Oxted Library",
   "address": "12 Gresham Road, Oxted, Surrey RH8 0BQ",
   "postcode": "RH8 0BQ",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20282",
   "website": "https://www.surreycc.gov.uk/libraries",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -66324,7 +66187,7 @@
   "recheck": {
    "url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
    "final_url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "4b270256e38eff4844f2f3b1018e76adbdaa99af524b071fb540e3986795e4ca"
   }
@@ -69319,9 +69182,9 @@
  {
   "id": "ww-65437481",
   "name": "Redhill Library",
-  "address": "Warwick Quadrant, 18-20 London Road, Redhill, Surrey, RH1 1NN",
+  "address": "Surrey County Council, Redhill, Surrey RH1 1NN",
   "postcode": "RH1 1NN",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27637",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/redhill",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -69523,9 +69386,9 @@
  {
   "id": "ww-65437493",
   "name": "Reigate Library",
-  "address": "Bancroft House, Bancroft Road, Reigate, Surrey RH2 7RP",
+  "address": "Reigate Library, Reigate, Surrey RH2 7RP",
   "postcode": "RH2 7RP",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27648",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/reigate",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -70059,9 +69922,9 @@
  {
   "id": "ww-57953128",
   "name": "Revelation Community Church Leyland",
-  "address": "MOSS SIDE COMMUNITY CENTRE, DUNKIRK LANE, MOSS SIDE, LEYLAND, LANCASHIRE, PR26 7SN",
+  "address": "Moss Side Community Centre, Lancashire PR26 7SN",
   "postcode": "PR26 7SN",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23969",
   "website": "www.revelationcommunitychurch.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -71337,26 +71200,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.rothleycommunitylibrary.co.uk/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-55592198",
-  "name": "Round About Cafe",
-  "address": "Flat 12, Hampshire SO18 2LE",
-  "postcode": "SO18 2LE",
-  "source_url": "https://www.warmwelcome.uk/space?l=22094",
-  "website": "roundaboutcafe.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "roundaboutcafe.org",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -73387,9 +73230,9 @@
  {
   "id": "ww-66114451",
   "name": "Sefton Road United Reformed Church",
-  "address": "UNITED REFORMED CHURCH, SEFTON ROAD, HEYSHAM, LANCASHIRE, LA3 1TZ",
+  "address": "Sefton Road United Reformed Church, Morecambe, Lancashire LA3 1TZ",
   "postcode": "LA3 1TZ",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=26109",
   "website": "https://www.seftonroadurc.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -74139,9 +73982,9 @@
  {
   "id": "ww-55475265",
   "name": "Shepperton Library",
-  "address": "High Street, Shepperton, Middlesex TW17 9AU",
+  "address": "Surrey County Council, Middlesex TW17 9AU",
   "postcode": "TW17 9AU",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23448",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/shepperton/events-and-activities",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -74973,26 +74816,6 @@
   }
  },
  {
-  "id": "ww-55474396",
-  "name": "Silverdale Library",
-  "address": "Silverdale Library, Lancashire LA5 0RA",
-  "postcode": "LA5 0RA",
-  "source_url": "https://www.warmwelcome.uk/space?l=23254",
-  "website": "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/silverdale-library/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.lancashire.gov.uk/libraries-and-archives/libraries/find-a-library/silverdale-library/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65438694",
   "name": "Simon David Oram",
   "address": "St Julians Methodist Church, St Julians Avenue, NEWPORT, GWENT NP19 7JT NP19 7JT",
@@ -75366,7 +75189,7 @@
   "recheck": {
    "url": "https://www.gc4ehr.com/",
    "final_url": "https://www.gc4ehr.com/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "385c304a60ba3771deae0363003d3d81d2ed3e09baffd737bb8c70416f1bff1d"
   }
@@ -79840,19 +79663,21 @@
  },
  {
   "id": "ww-64815834",
-  "name": "St John's Church Centre",
-  "address": "ST JOHNS CHURCH, BARKERHOUSE ROAD, NELSON, LANCASHIRE, BB9 9EY",
+  "name": "St John's Church",
+  "address": "St John's Church, Nelson, Lancashire BB9 9EY",
   "postcode": "BB9 9EY",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/",
+  "source_url": "https://www.warmwelcome.uk/space?l=27883",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -81282,10 +81107,10 @@
  },
  {
   "id": "ww-65748690",
-  "name": "St Mary's East Molesey",
-  "address": "St Mary's Church, St Mary's Road, East Molesey, Surrey, KT8 0ST",
+  "name": "St Mary's Church",
+  "address": "St. Marys Church, East Molesey, Surrey KT8 0ST",
   "postcode": "KT8 0ST",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27790",
   "website": "https://www.smem.org.uk/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -81998,7 +81823,7 @@
   "recheck": {
    "url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
    "final_url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -82818,6 +82643,19 @@
   }
  },
  {
+  "id": "ww-68672296",
+  "name": "St Petrock's Church, Timberscombe",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://timberscombevillage.com/church-services/",
+   "final_url": "https://timberscombevillage.com/church-services/",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
   "id": "ww-55475275",
   "name": "St Philip & St James Church",
   "address": "St Philip & St James Church, Cheshire SK9 7UZ",
@@ -83627,7 +83465,7 @@
   "recheck": {
    "url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
    "final_url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -83694,10 +83532,10 @@
  },
  {
   "id": "ww-62871079",
-  "name": "St Nicholas' Community Hub",
-  "address": "St Nicholas' Church Hall, Summer Rd, Thames Ditton, KT7 0QQ",
+  "name": "St. Nicholas' Thames Ditton Community Hub",
+  "address": "St. Nicholas Church Hall, Surrey, Surrey KT7 0QQ",
   "postcode": "KT7 0QQ",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=19716",
   "website": "https://www.stnicholaschurch.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -83963,9 +83801,9 @@
  {
   "id": "ww-68062988",
   "name": "Staines Library",
-  "address": "Staines Library Hub, Elmsleigh Centre, Unit MSU 2, Staines-upon-Thames, TW18 4QB",
+  "address": "staines library hub, Middlesex TW18 4QB",
   "postcode": "TW18 4QB",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=28360",
   "website": "www.surreycc.gov.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -84263,9 +84101,9 @@
  {
   "id": "ww-68275388",
   "name": "Stanwell Library",
-  "address": "Hadrian Way, Stanwell, Surrey TW19 7HF",
-  "postcode": "TW19 7HF",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "address": "Stanwell Library, Hadrian Way, Stanwell, Surrey TW19 7HR",
+  "postcode": "TW19 7HR",
+  "source_url": "https://www.warmwelcome.uk/space?l=20011",
   "website": "www.surreycc.gov.uk/stanwelllibrary",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -84843,9 +84681,9 @@
  {
   "id": "ww-65437546",
   "name": "Stobhill Link",
-  "address": "37 Shields Road, Stobhill, Morpeth, NE61 2SA",
+  "address": "37 Shields Road, Morpeth, Northumberland NE61 2SA",
   "postcode": "NE61 2SA",
-  "source_url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27745",
   "website": "https://stobhilllink.org/",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -85533,26 +85371,6 @@
   }
  },
  {
-  "id": "ww-62567470",
-  "name": "Stroud Library",
-  "address": "Five Valleys Shopping Centre, Gloucestershire GL5 1RR",
-  "postcode": "GL5 1RR",
-  "source_url": "https://www.warmwelcome.uk/space?l=22965",
-  "website": "https://gloslibraries.uk/library/stroud-library",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://gloslibraries.uk/library/stroud-library",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65420041",
   "name": "Stubbington Library- Hampshire Libraries",
   "address": "Stubbington Library, Stubbington Lane, Stubbington, Fareham PO14 2PP",
@@ -85819,9 +85637,9 @@
  {
   "id": "ww-65437347",
   "name": "Sunbury Library",
-  "address": "The Parade, Staines Road West, Sunbury-on-Thames TW16 7AB",
+  "address": "Sunbury Library, The Parade, Staines Road West, Sunbury-on-Thames, Sunbury TW16 7AB",
   "postcode": "TW16 7AB",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=20005",
   "website": "www.surreycc.gov.uk/sunburylibrary",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -85995,26 +85813,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.christiancentre.info",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65438942",
-  "name": "Sutton Bonington Library",
-  "address": "Inspire Culture Learning & Libraries, Sutton Bonington, Nottinghamshire LE12 5NJ",
-  "postcode": "LE12 5NJ",
-  "source_url": "https://www.warmwelcome.uk/space?l=27543",
-  "website": "https://www.inspireculture.org.uk/reading-information/find-a-library/sutton-bonington-library/visiting-us/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.inspireculture.org.uk/reading-information/find-a-library/sutton-bonington-library/visiting-us/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -86880,10 +86678,10 @@
  },
  {
   "id": "ww-55473912",
-  "name": "Tanterton Christian Fellowship",
-  "address": "TANTERTON CHRISTIAN FELLOWSHIP CENTRE, KIDSGROVE, PRESTON, LANCASHIRE, PR2 7BX",
+  "name": "Tanterton Christian Centre",
+  "address": "Kidsgrove, Preston, Lancashire PR2 7BX",
   "postcode": "PR2 7BX",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=18805",
   "website": "www.tanterton.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -88070,19 +87868,21 @@
  },
  {
   "id": "ww-64379062",
-  "name": "Aggie Club Ltd",
-  "address": "Aggie Club, Bellfields Road, Guildford , GU1 1QG",
+  "name": "The Aggie Cafe & Social Club",
+  "address": "Aggie Club, Guildford, Surrey GU1 1QG",
   "postcode": "GU1 1QG",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+  "source_url": "https://www.warmwelcome.uk/space?l=26719",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -92504,7 +92304,7 @@
   "recheck": {
    "url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
    "final_url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "f5f69c3d48068a4f1d214dc251cc848d798263ccfeb129aec109d6c38064bff8"
   }
@@ -93012,9 +92812,9 @@
  {
   "id": "ww-63057712",
   "name": "The Meeting Place",
-  "address": "Chorley United Reformed Church, Hollinshead Street, Chorley PR7 1EP",
+  "address": "Chorley United Reformed Church, Chorley, Lancashire PR7 1EP",
   "postcode": "PR7 1EP",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=15091",
   "website": "http://www.hollinsheadcentre.org",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -95973,7 +95773,7 @@
   "recheck": {
    "url": "https://www.salvationarmy.org.uk/kirkcaldy",
    "final_url": "https://www.salvationarmy.org.uk/kirkcaldy",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "dd486015ffe3edd46f49cc9c78abbd8ce30e4c104f712a1504e8b327372c4ce7"
   }
@@ -98973,7 +98773,7 @@
   "recheck": {
    "url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
    "final_url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -99046,7 +98846,7 @@
   "recheck": {
    "url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
    "final_url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -100666,26 +100466,6 @@
   }
  },
  {
-  "id": "ww-57952178",
-  "name": "Westbury Library",
-  "address": "Wiltshire County Council, Westbury, Wiltshire BA13 3BD",
-  "postcode": "BA13 3BD",
-  "source_url": "https://www.warmwelcome.uk/space?l=25448",
-  "website": "https://apps.wiltshire.gov.uk/librariesinformation/Library/Index/31?isSearchPage=False&isListPage=True",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://apps.wiltshire.gov.uk/librariesinformation/Library/Index/31?isSearchPage=False&isListPage=True",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-64379267",
   "name": "Tuffley Library",
   "address": "Windsor Drive, Tuffley, Gloucestershire GL4 0RT",
@@ -101611,9 +101391,9 @@
  {
   "id": "ww-65437482",
   "name": "Walton Library",
-  "address": "54 The Heart (off Hepworth Way), Walton on Thames, Surrey KT12 1GH",
+  "address": "Walton Library, Walton-on-Thames, Surrey KT12 1GH",
   "postcode": "KT12 1GH",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=27636",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/walton",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -102029,26 +101809,6 @@
   }
  },
  {
-  "id": "ww-55473008",
-  "name": "Westminster Reference Library",
-  "address": "City Of Westminster, London WC2H 7HP",
-  "postcode": "WC2H 7HP",
-  "source_url": "https://www.warmwelcome.uk/space?l=23771",
-  "website": "https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/westminster-reference-library",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/westminster-reference-library",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-57951538",
   "name": "Watermeads warm space",
   "address": "90 Rawnsley Avenue, Mitcham, Surrey CR4 4BX",
@@ -102095,9 +101855,9 @@
  {
   "id": "ww-65438735",
   "name": "West Byfleet Library",
-  "address": "The Old Sorting Office, Rosemount Avenue, Surrey KT14 6LB",
+  "address": "West Byfleet Library, Surrey KT14 6LB",
   "postcode": "KT14 6LB",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23569",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/west-byfleet",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -102423,9 +102183,9 @@
  {
   "id": "ww-65438733",
   "name": "Woking Library",
-  "address": "Gloucester Walk, Woking, Surrey GU21 6EP",
+  "address": "Woking Library, Woking, Surrey GU21 6EP",
   "postcode": "GU21 6EP",
-  "source_url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=23565",
   "website": "https://www.surreycc.gov.uk/libraries/your-library/find-your-nearest/woking",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -104333,7 +104093,7 @@
   "recheck": {
    "url": "https://ullesthorpe.org/amenities/village-hall/",
    "final_url": "https://ullesthorpe.org/amenities/village-hall/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -106463,7 +106223,7 @@
   "recheck": {
    "url": "https://www.warmwelcome.uk/find-a-space",
    "final_url": "https://www.warmwelcome.uk/find-a-space",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": "feed",
    "sha256": null
   }
@@ -107731,26 +107491,6 @@
   }
  },
  {
-  "id": "ww-57953028",
-  "name": "Wollaton Library",
-  "address": "Wollaton Library, Nottingham, Nottinghamshire NG8 2NA",
-  "postcode": "NG8 2NA",
-  "source_url": "https://www.warmwelcome.uk/space?l=25537",
-  "website": "https://www.nottinghamcitylibraries.co.uk/library/wollaton-library/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.nottinghamcitylibraries.co.uk/library/wollaton-library/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-57951578",
   "name": "Welcome Wednesdays",
   "first_seen": "2026-10-21",
@@ -107758,7 +107498,7 @@
   "recheck": {
    "url": "https://bulwellurc.org.uk/",
    "final_url": "https://bulwellurc.org.uk/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "1b078923df625a6c3b9f5703a340a6d49f6fd865f29f54878f82d00655132e34"
   }
@@ -108992,18 +108732,20 @@
  {
   "id": "ww-55474043",
   "name": "Trinity Methodist Church",
-  "address": "GOOSNARGH METHODIST CHURCH, WHITTINGHAM LANE, BROUGHTON, PRESTON, LANCASHIRE, PR3 2AX",
+  "address": "Trinity Methodist Church, Lancashire  PR3  2AX",
   "postcode": "PR3 2AX",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.trinitygoosnargh.org.uk",
+  "source_url": "https://www.warmwelcome.uk/space?l=22275",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.trinitygoosnargh.org.uk",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -109011,10 +108753,10 @@
  },
  {
   "id": "ww-62870626",
-  "name": "Thornton-le-Fylde Christ Church",
-  "address": "THORNTON CHRIST CHURCH, MEADOWS AVENUE, THORNTON CLEVELEYS, LANCASHIRE, FY5 2TW",
+  "name": "Thornton le Fylde Christ Church",
+  "address": "Meadows Avenue, Lancashire, Lancashire FY5 2TW",
   "postcode": "FY5 2TW",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=16933",
   "website": "https://www.christchurchthornton.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -109471,10 +109213,10 @@
  },
  {
   "id": "ww-55472799",
-  "name": "Trinity Community Hub",
-  "address": "TRINITY METHODIST CHURCH, PARSON LANE, CLITHEROE, LANCASHIRE, BB7 2JY",
+  "name": "Warm Hub",
+  "address": "Trinity Methodist Church, Lancashire BB7 2JY",
   "postcode": "BB7 2JY",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "source_url": "https://www.warmwelcome.uk/space?l=22669",
   "website": "Trinity Hub",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -109618,9 +109360,9 @@
  {
   "id": "ww-55475272",
   "name": "West Craven Baptist Church",
-  "address": "MOUNT ZION BAPTIST CHURCH, WATER STREET, EARBY, LANCASHIRE, BB18 6QS",
-  "postcode": "BB18 6QS",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+  "address": "West Craven Baptist Centre, Barnoldswick, Lancashire BB18 5NZ",
+  "postcode": "BB18 5NZ",
+  "source_url": "https://www.warmwelcome.uk/space?l=16514",
   "website": "westcravenbaptistchurch.org.uk",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
@@ -109679,19 +109421,21 @@
  },
  {
   "id": "ww-55592203",
-  "name": "Whitewell Bottom Community Centre CIO",
-  "address": "WHITEWELL BOTTOM COMMUNITY CENTRE, BURNLEY ROAD EAST, WATERFOOT, ROSSENDALE, LANCASHIRE, BB4 9LB",
+  "name": "Whitewell Bottom Community Centre",
+  "address": "Whitewell Bottom Community Centre, Lancashire BB4 9LB",
   "postcode": "BB4 9LB",
-  "source_url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-  "website": "https://www.whitewellbottomcommunitycentre.co.uk/",
+  "source_url": "https://www.warmwelcome.uk/space?l=22098",
+  "website": "",
   "first_seen": "2026-10-21",
   "reason": "not on allowlist",
   "autocheck": {
    "result": "needs manual evidence",
-   "flags": [],
+   "flags": [
+    "no independent website: Warm Welcome listing alone is not evidence"
+   ],
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
-    "https://www.whitewellbottomcommunitycentre.co.uk/",
+    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -110087,7 +109831,7 @@
   "recheck": {
    "url": "https://www.christchurchhalifax.co.uk/",
    "final_url": "https://www.christchurchhalifax.co.uk/",
-   "fetched_at": "2026-10-31T19:25:20+00:00",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
    "http": 200,
    "sha256": "39f90991edf1bdf6aa0d4b738d04ee19ee2d55c8cc4983226c5468bb4400935c"
   }
@@ -112125,6 +111869,58 @@
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
+  }
+ },
+ {
+  "id": "tbc-encounter-church-winchcombe",
+  "name": "Encounter Church, Winchcombe",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
+   "final_url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 403,
+   "sha256": ""
+  }
+ },
+ {
+  "id": "ww-65437341",
+  "name": "Canford Heath Library",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00",
+  "recheck": {
+   "url": "https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library",
+   "final_url": "https://www.bcpcouncil.gov.uk/libraries/find-a-library/canford-heath-library",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "be1a03f938312ecc915067790b99194c451212fdb3a5d5f2f9a9ff213737e921"
+  }
+ },
+ {
+  "id": "ww-62587523",
+  "name": "Churchdown Library",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00",
+  "recheck": {
+   "url": "https://gloslibraries.uk/library/churchdown-library",
+   "final_url": "https://gloslibraries.uk/library/churchdown-library",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "1d2cfa717307a71b1cba1d3e4391185b575f39c91721baa4be8c647b363b20a9"
+  }
+ },
+ {
+  "id": "ww-65438945",
+  "name": "Inham Nook Library",
+  "first_seen": "2026-10-21",
+  "reason": "omitted this run: schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30",
+  "recheck": {
+   "url": "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/",
+   "final_url": "https://www.inspireculture.org.uk/reading-information/find-a-library/inham-nook-library/visiting-us/",
+   "fetched_at": "2026-10-31T21:55:22+00:00",
+   "http": 200,
+   "sha256": "f9ece669b6b22011f0d4f84f6544d2a899ac36c22e191255f67714b06ce064d5"
   }
  }
 ]

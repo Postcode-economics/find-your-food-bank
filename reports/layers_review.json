@@ -183,8 +183,20 @@
     "reason": "source no longer names this place"
    },
    {
+    "id": "ww-57979418",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
     "id": "ww-69189484",
     "reason": "source URL now redirects to a different site (soulsurvivor.church)"
+   },
+   {
+    "id": "ww-65437341",
+    "reason": "schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00"
+   },
+   {
+    "id": "ww-62587523",
+    "reason": "schema: hours value invalid: Tue=10:00 - 13:00, 14:00 - 18:00; hours value invalid: Wed=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00"
    },
    {
     "id": "ww-68775963",
@@ -203,12 +215,16 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
+    "id": "ww-59130027",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
     "id": "ww-68642792",
-    "reason": "source unreachable this run (HTTP 503)"
+    "reason": "published days not found on source this run"
    },
    {
     "id": "ww-68642793",
-    "reason": "source unreachable this run (HTTP 503)"
+    "reason": "published days not found on source this run"
    },
    {
     "id": "ww-67460238",
@@ -219,7 +235,23 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ww-55592264",
+    "id": "ww-67979812",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "ww-65438945",
+    "reason": "schema: hours value invalid: Thu=10:00 - 12:30, 14:00 - 16:30"
+   },
+   {
+    "id": "ww-65437506",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "ww-58358850",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "ww-57952705",
     "reason": "source unreachable this run (HTTP error)"
    },
    {
@@ -243,12 +275,24 @@
     "reason": "source unreachable this run (HTTP 404)"
    },
    {
+    "id": "ww-65437496",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
     "id": "ww-65441920",
     "reason": "source URL now redirects to a different site (cornerstonechurchhalifax.co.uk)"
    },
    {
     "id": "ww-68769406",
     "reason": "published times not found on source this run"
+   },
+   {
+    "id": "ww-69080400",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "ww-68672320",
+    "reason": "source unreachable this run (HTTP error)"
    },
    {
     "id": "ww-65441921",
