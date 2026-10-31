@@ -91,7 +91,9 @@ def shelter_public(i):
 ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open_access': 'Open access'}
 
 def card_sh(i):
-    tag = '<div class="tag">Shelter</div>'
+    day = i.get('kind') == 'day_centre'
+    tag = '<div class="tag">Day centre</div>' if day else '<div class="tag">Shelter</div>'
+    if day: tag += '<div class="sub">Daytime only. No overnight bed.</div>'
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
     acc = ACC.get(i.get('access_type') or '')
     ref = ''
@@ -104,8 +106,13 @@ def card_sh(i):
         opens = '<div class="opens">%s</div>' % E(i.get('scheme_dates') or ('Opens ' + i.get('scheme_start', '')))
     elif i.get('scheme_dates'):
         opens = '<div class="sub">Scheme dates: %s</div>' % E(i['scheme_dates'])
-    h = (i.get('hours') or '').strip() if isinstance(i.get('hours'), str) else ''
-    hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
+    if isinstance(i.get('hours'), dict):
+        hrs = hours_ws(i)
+    else:
+        h = (i.get('hours') or '').strip() if isinstance(i.get('hours'), str) else ''
+        hrs = '<div class="t">%s</div>' % E(h) if h else '<div class="sub"><a href="/faq.html#times">Call for opening times</a></div>'
+    if day and i.get('offer'):
+        hrs = '<div class="sub"><b>Offers:</b> %s</div>' % E(i['offer']) + hrs
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
@@ -124,7 +131,9 @@ def sh_contact(i):
         if i.get('council_ooh') and i['council_ooh'] != i['council_phone']:
             o += ' (out of hours <a href="tel:%s">%s</a>)' % (E(re.sub(r'[^0-9+]', '', i['council_ooh'])), E(i['council_ooh']))
         o += '</div>'
-    if not i.get('tel'):
+    if not i.get('tel') and i.get('kind') == 'day_centre':
+        o += '<div class="ref"><b>No direct number.</b> Call before you go. No overnight bed.</div>'
+    elif not i.get('tel'):
         o += ('<div class="ref"><b>No direct number.</b> Help tonight: Shelter national helpline (not this venue) <a href="tel:08088004444">0808 800 4444</a>, '
               'or your local council&#39;s homeless team. Someone sleeping rough: <a href="https://thestreetlink.org.uk/" rel="noopener">StreetLink</a></div>')
     return o

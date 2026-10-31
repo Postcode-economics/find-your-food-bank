@@ -111,7 +111,7 @@ Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=h726ca8c057fc"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=hbbb4057d00ac"><link rel="stylesheet" href="header.css?v=h89a8d8eb1a23"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=h95ac53221d9e"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=hbbb4057d00ac"><link rel="stylesheet" href="header.css?v=h89a8d8eb1a23"><script src="icons.js"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -449,7 +449,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=hd8a30d5ba77a" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h1644ff2b8f60" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=hcec49757e3b9" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h6024d89afd9b" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');
