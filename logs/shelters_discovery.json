@@ -1,8 +1,8 @@
 {
- "run": "2026-10-30",
- "candidates": 59,
- "already_on_map": 4,
- "new": 55,
+ "run": "2026-10-31",
+ "candidates": 64,
+ "already_on_map": 5,
+ "new": 59,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -12,8 +12,8 @@
    "url": "http://www.adullam.org.uk",
    "final_url": "https://www.adullam.org.uk/",
    "http": 200,
-   "sha256": "2c8a1a807b18eef8e641d5656594feb0085773186251aaead1d5d35d13b95bec",
-   "etag": "\"6674-1793360109;;;\"",
+   "sha256": "8a608a3b650ee9d0d55b3300540b4bed9a82b9913abb24325f61da05234bb777",
+   "etag": "\"6760-1793419746;;;\"",
    "last_modified": ""
   },
   {
@@ -24,7 +24,7 @@
    "url": "http://www.amatuk.org",
    "final_url": "https://www.amatuk.org/",
    "http": 200,
-   "sha256": "b59f6c0ecd492daf9824294b89f7ac17f5b39f5f8f5b8c6df508e3c078e61d27",
+   "sha256": "0cebaefe87d04e51ac4656e0b09ce0ffd1924414d831c0cab620da65eba25598",
    "etag": "",
    "last_modified": ""
   },
@@ -36,7 +36,7 @@
    "url": "http://www.bradfordcyrenians.org.uk",
    "final_url": "https://www.bradfordcyrenians.org.uk/",
    "http": 200,
-   "sha256": "439ee86e82b98e60c01920837d08bbe26f205878e6311d40b75c67beedfbf13b",
+   "sha256": "3ad19a5a7051c2a0e5f8282320483042eedc0717383e9fa9d0571b60347128cf",
    "etag": "",
    "last_modified": ""
   },
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "6bd152d7e7dacbc33c33ce774f528afd72952ee1fe87322fbe8d5eb41b193883",
+   "sha256": "5c7782f2bed3f0915f467997a6575bb75fb16ec9f1acd68a6d2bccdefd80760b",
    "etag": "",
    "last_modified": ""
   }
@@ -63,12 +63,12 @@
    "directory_url": null,
    "reasons": [
     "OpenStreetMap-only: needs verification on the place's own site before it can be added",
-    "own site does not show it is a shelter/emergency accommodation"
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://www.thegap.wales/",
-   "final_url": "https://thegap.wales/",
-   "http": 200,
-   "sha256": "a89f286a7585df7e1d17a9fa8ed0946aef14a85d059bc7a97b0b67a1e8f0af38",
+   "final_url": "https://www.thegap.wales/",
+   "http": 202,
+   "sha256": "b8d52f21a43f48da829c32702ed7b8ccbb941a2c4594e6398fa237e22db4b55e",
    "etag": "",
    "last_modified": ""
   },
@@ -134,12 +134,13 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site did not return the page (HTTP 202; usually a bot check)"
    ],
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
-   "http": 200,
-   "sha256": "80e87e66015fef1e2fe8048f2b47ddcfb6a92921e9d18dba9998f36663e191a6",
+   "http": 202,
+   "sha256": "c9d544d08850ec9e1456a4a7b843be20beaf59bc8a60f8138f129cc8cace526e",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +211,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "86c8a090d445102c86c4385794a5d764b0fc7a35ea106f8d5f6cbc254ea08b9f",
+   "sha256": "f6067482cc490b7dc5087a7307cf64251e2621c6ffd9a5bb7296fd0dc567e612",
    "etag": "",
    "last_modified": ""
   },
@@ -355,8 +356,8 @@
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
    "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1793357155\"",
-   "last_modified": "Fri, 30 Oct 2026 10:45:55 GMT"
+   "etag": "\"1793397992\"",
+   "last_modified": "Fri, 30 Oct 2026 22:06:32 GMT"
   },
   {
    "id": "osm-way-172932545",
@@ -457,14 +458,15 @@
    "directory": null,
    "directory_url": null,
    "reasons": [
-    "OpenStreetMap-only: needs verification on the place's own site before it can be added"
+    "OpenStreetMap-only: needs verification on the place's own site before it can be added",
+    "own site unreachable (HTTP error)"
    ],
    "url": "https://www.ldhas.org.uk/",
    "final_url": "https://www.ldhas.org.uk/",
-   "http": 200,
-   "sha256": "973c2c1a64e79d3656c68b8a427f917562702c633fdeb309ff91e570fbf90ad0",
-   "etag": "",
-   "last_modified": ""
+   "http": "error",
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   },
   {
    "id": "osm-way-639048084",
@@ -497,7 +499,7 @@
    "url": "https://www.manna-house.org.uk/",
    "final_url": "https://www.manna-house.org.uk/",
    "http": 200,
-   "sha256": "8509288dd27ca4166bfd62fdfcc99644ad667483daf92e6013b1f30a0fb1c884",
+   "sha256": "f17043ca55d9d1d1523f0c910c821f1f7d611d8d4713ae443a28c44fba485356",
    "etag": "",
    "last_modified": ""
   },
@@ -675,7 +677,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "afff34879743021ab909d182912507e2730729d3818552d918ef8eb1d7168b5b",
+   "sha256": "f162034996d506628d749002c1d1465bba69f6dff67f9743437336fad4f15596",
    "etag": "",
    "last_modified": ""
   },
@@ -760,9 +762,9 @@
    "url": "http://www.alabare.co.uk",
    "final_url": "https://alabare.co.uk/",
    "http": 200,
-   "sha256": "08d53f6135ac2a6b93b502ff17cd09087207812cb7d12dc5e885433e85c96fe4",
+   "sha256": "ccaeaa8e6cb7fc265c789fd104a43df0bd5202af9120e9dd9ebffa71a2ced9db",
    "etag": "",
-   "last_modified": "Fri, 30 Oct 2026 00:08:36 GMT"
+   "last_modified": "Sat, 31 Oct 2026 00:03:16 GMT"
   },
   {
    "id": "hl-alabare-the-andover-foyer-sarum-house",
@@ -830,7 +832,7 @@
    "http": 200,
    "sha256": "99aec91042bdd58b3307f606cde22ff989ffdb9391a34f71d7723f0317c2c9ca",
    "etag": "",
-   "last_modified": "Fri, 30 Oct 2026 18:30:34 GMT"
+   "last_modified": "Sat, 31 Oct 2026 00:32:36 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -880,8 +882,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "47c1a750fa03c34851119ee6ab62fd9a88a42a32f1e72111e65caa5aaafa004c",
-   "etag": "W/\"22021-MLbDOLr8tuKVye2+qAItaK+Ewk0\"",
+   "sha256": "8f2c1bb4cab265303599cc4f182ca40a868a4466d82793d1f8935726112f91f4",
+   "etag": "W/\"22015-52dXvqf/3NyYZ6Gpa7gEHtaqvGo\"",
    "last_modified": ""
   },
   {
@@ -948,6 +950,78 @@
    "url": null,
    "final_url": null,
    "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-cardinal-hume-centre-hostel",
+   "name": "Cardinal Hume Centre Hostel",
+   "postcode": "",
+   "website": "http://https://www.cardinalhumecentre.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "6fb00b3926ae8b67e9a7fee93921e5576012f5cc905947f949e63430433c7b0b",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "hl-ccp-bramah-house",
+   "name": "CCP - Bramah House",
+   "postcode": "",
+   "website": "http://www.ccp.org.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-bramah-house/",
+   "reasons": [
+    "no valid postcode"
+   ],
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
+  },
+  {
+   "id": "hl-ccp-cheltenham-foyer-the-arkells",
+   "name": "CCP - The Arkells",
+   "postcode": "GL50 3HW",
+   "website": "http://www.cheltborohomes.org",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ccp-cheltenham-foyer-the-arkells/",
+   "reasons": [
+    "own site unreachable (HTTP 522)"
+   ],
+   "url": "http://www.cheltborohomes.org",
+   "final_url": "http://www.cheltborohomes.org",
+   "http": 522,
    "sha256": null,
    "etag": null,
    "last_modified": null

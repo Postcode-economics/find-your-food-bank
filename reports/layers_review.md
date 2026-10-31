@@ -1,7 +1,7 @@
 # Shelters & warm spaces – review list
 
 ## shelters.js
-added 0 · removed 0 · changed 0 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 36
+added 0 · removed 0 · changed 0 · tier flips 0 · opens later 4 · season ended 0 · recheck failed 41
 
 - OPENS LATER Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026
 - OPENS LATER Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027
@@ -20,4 +20,5 @@ added 0 · removed 0 · changed 0 · tier flips 0 · opens later 7 · season end
 - OPENS LATER wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026
 
 ## SWEP
-Active: Swindon Borough Council
+Active: none found
+- Swindon Borough Council: active → not active (https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep) “arch this site Search You are here: Home Homes and property Severe Weather Emergency Protocol (SWEP) Severe Weather Emergency Protocol (SWEP) SWEP: not active T”

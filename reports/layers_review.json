@@ -54,7 +54,7 @@
    },
    {
     "id": "osm-way-97716790",
-    "reason": "source unreachable this run (HTTP 403)"
+    "reason": "schema: referral requirement not stated"
    },
    {
     "id": "osm-way-136647984",
@@ -62,11 +62,15 @@
    },
    {
     "id": "osm-way-147871099",
-    "reason": "source no longer names this place"
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-157731534",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "osm-way-180604493",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-327576971",
@@ -91,6 +95,10 @@
    {
     "id": "osm-way-585259224",
     "reason": "OpenStreetMap-only: own-site page does not show this place's postcode or street address this run"
+   },
+   {
+    "id": "osm-way-608979359",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    },
    {
     "id": "osm-way-642121557",
@@ -155,6 +163,18 @@
    {
     "id": "hl-st-georges-crypt-leeds",
     "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "robes-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "hab-barnet-winter-night-shelter",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "man-glasgow-city-mission-owc",
+    "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
    }
   ]
  },
@@ -313,9 +333,15 @@
   ]
  },
  "swep": {
-  "active": [
-   "Swindon Borough Council"
-  ],
-  "changes": []
+  "active": [],
+  "changes": [
+   {
+    "council": "Swindon Borough Council",
+    "url": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
+    "from": "active",
+    "to": "not active",
+    "quote": "arch this site Search You are here: Home Homes and property Severe Weather Emergency Protocol (SWEP) Severe Weather Emergency Protocol (SWEP) SWEP: not active The Severe Weather Emergency Protocol is not currently active in Swindon . If y"
+   }
+  ]
  }
 }
