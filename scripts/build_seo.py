@@ -92,8 +92,10 @@ ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open
 
 def card_sh(i):
     day = i.get('kind') == 'day_centre'
-    tag = '<div class="tag">Day centre</div>' if day else '<div class="tag">Shelter</div>'
+    youth = i.get('kind') == 'young_people'
+    tag = '<div class="tag">Day centre</div>' if day else ('<div class="tag">Young people’s housing (16–25), referral needed</div>' if youth else '<div class="tag">Shelter</div>')
     if day: tag += '<div class="sub">Daytime only. No overnight bed.</div>'
+    if youth: tag += '<div class="sub">For ages 16–25. Referral needed. Not an emergency bed.</div>'
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
     acc = ACC.get(i.get('access_type') or '')
     ref = ''
