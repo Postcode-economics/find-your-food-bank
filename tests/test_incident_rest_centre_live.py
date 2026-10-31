@@ -165,6 +165,7 @@ class LiveCouncilGate(unittest.TestCase):
             "opened_by": "Arun District Council",
             "opened_for": "flooding",
             "source_url": "https://example.gov.uk/page",
+            "checked_at": "2026-10-31T06:03:00+00:00",
             "category": "incident_rest_centre",
         }
         self._write_live([card], public=True)
@@ -174,6 +175,9 @@ class LiveCouncilGate(unittest.TestCase):
         pg.goto(self.base + "/?fresh=1&nocount=1", wait_until="load")
         pg.wait_for_selector("#em-banner .em-cta", timeout=15000)
         self.assertFalse(pg.evaluate("document.getElementById('em-banner').hidden"))
+        banner = pg.locator("#em-banner").inner_text()
+        self.assertIn("Checked 6:03am, Sat 31 Oct", banner)
+        self.assertNotIn("2026-10-31T06:03", banner)
         self.assertEqual(pg.locator("#em-root .em-card").count(), 1)
         ctx.close()
 

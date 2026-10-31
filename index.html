@@ -383,7 +383,8 @@ async function search(q){q=q.trim().replace(/\s+/g,' ');if(!q)return msg('Enter 
  msg('Searching…');lastQ=q;const e=encodeURIComponent(q);
  try{let r=await api('postcodes/'+e);
   if(r.status===200){var lad=r.result.codes&&r.result.codes.admin_district;return nearest(r.result.latitude,r.result.longitude,r.result.postcode,null,lad)}
-  if(r.terminated&&r.terminated.latitude)return nearest(r.terminated.latitude,r.terminated.longitude,r.terminated.postcode,`${r.terminated.postcode} is no longer in use (retired ${r.terminated.year_terminated}). Showing places near where it was.`);  // postcodes.io returns retired postcodes' location with the 404
+  if(r.terminated&&r.terminated.latitude){var tlad=null;try{var t=await api('terminated_postcodes/'+encodeURIComponent(r.terminated.postcode||q));if(t&&t.status===200&&t.result&&t.result.codes)tlad=t.result.codes.admin_district||null}catch(e){}
+   return nearest(r.terminated.latitude,r.terminated.longitude,r.terminated.postcode,`${r.terminated.postcode} is no longer in use (retired ${r.terminated.year_terminated}). Showing places near where it was.`,tlad)}  // postcodes.io returns retired postcodes' location with the 404; /terminated_postcodes supplies the council area when it can
   if(q.includes(' ')){const oc=q.split(' ')[0];const o=await api('outcodes/'+encodeURIComponent(oc));if(o.status===200)return nearest(o.result.latitude,o.result.longitude,o.result.outcode,`We couldn’t find ${q}, so we’re showing the centre of the ${o.result.outcode} area. Check the postcode for exact distances.`)}
   r=await api('outcodes/'+encodeURIComponent(q.replace(/ /g,'')));
   if(r.status===200)return nearest(r.result.latitude,r.result.longitude,r.result.outcode,`Showing the centre of the ${r.result.outcode} area. Add the full postcode for exact distances.`);

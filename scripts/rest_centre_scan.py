@@ -1,5 +1,5 @@
 """Detect council incident rest-centre switch-on/off from visible page text (SWEP handled elsewhere)."""
-import re
+import datetime, re
 
 SWEP = re.compile(r"\bSWEP\b|severe weather emergency protocol|rough sleeper shelter", re.I)
 PLAN = re.compile(r"\b(plan|guidance|what to do)\b", re.I)
@@ -58,7 +58,30 @@ def rest_centre_off(text):
     return bool(OFF.search(t))
 
 
-def rest_centre_on(text):
+def _on_windows(text):
+    t = text or ""
+    return [t[max(0, m.start() - 240): m.end() + 100] for m in ON.finditer(t)]
+
+
+def _stale_on(text, today=None):
+    """An ON phrase that only sits next to an old date is a past notice, not a rest centre that is open now."""
+    windows = _on_windows(text)
+    if not windows:
+        return False
+    today = today or datetime.date.today()
+    import seasonal
+    saw_date = False
+    for window in windows:
+        ds = seasonal._all(window)
+        if not ds:
+            return False
+        saw_date = True
+        if (today - max(ds)).days <= 10:
+            return False
+    return saw_date
+
+
+def rest_centre_on(text, today=None):
     """True only when council wording opens a rest/reception centre (not SWEP, not planning-only, not evac alone)."""
     t = _norm(text)
     if not t or SWEP.search(t) and not re.search(CENTRE, t, re.I):
@@ -74,6 +97,8 @@ def rest_centre_on(text):
             return False
         return False
     if MAJOR_ONLY.search(t) and not ON.search(t):
+        return False
+    if _stale_on(t, today):
         return False
     return True
 
