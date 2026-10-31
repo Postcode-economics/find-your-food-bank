@@ -135,7 +135,9 @@ for s0 in range(0, min(budget, len(pool)), 150):
     wadd += a; batch += chunk
     for k in ("candidates", "new"): wlog[k] += l[k]
     for k in ("added", "flagged", "rejected"): wlog[k] += l[k]
-    for x in chunk: wwc["checked"][x["id"]] = RUN
+    skipped = set(l.get("follow_skipped") or [])
+    for x in chunk:
+        if x["id"] not in skipped: wwc["checked"][x["id"]] = RUN
 for k in set(UNV) - before: wwc["passed"][k] = UNV[k]
 json.dump(wwc, open(WWLOG, "w"), indent=0, ensure_ascii=False)
 sources["Warm Welcome feed discovery"] = {"status": "ok", "pool": len(pool), "checked_this_run": len(batch), "added_this_run": len(wlog["added"]), "queued_this_run": len(wlog["flagged"]), "rejected_this_run": len(wlog["rejected"]), "passed_total": len(wwc["passed"])}
