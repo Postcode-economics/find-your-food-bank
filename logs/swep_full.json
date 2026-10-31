@@ -1,13 +1,11 @@
 {
- "run": "2026-10-30",
+ "run": "2026-10-31",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
   "with_line": 134,
-  "active": [
-   "Swindon Borough Council"
-  ],
-  "flagged": 42
+  "active": [],
+  "flagged": 61
  },
  "councils": [
   {
@@ -55,7 +53,8 @@
      "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -84,7 +83,8 @@
      "url": "https://www.anglesey.gov.wales/en/Residents/Housing/Homeless-or-at-risk/Homeless-severe-weather-emergency-protocol.aspx",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -133,13 +133,17 @@
    "pages": [
     {
      "url": "https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": ""
+     "http": 403,
+     "status": "unreachable",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch (HTTP 403)"
+   ]
   },
   {
    "code": "ARU",
@@ -153,7 +157,8 @@
      "url": "https://www.arun.gov.uk/rough-sleeping-support-services",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -171,13 +176,15 @@
      "url": "https://www.ashford.gov.uk/housing/housing-help/homelessness-support-and-guidance/severe-weather-emergency-protocol-swep/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.ashford.gov.uk/your-community/emergency-planning/severe-weather/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -195,7 +202,8 @@
      "url": "https://www.ashfield.gov.uk/housing/at-risk-of-being-homeless/rough-sleeping/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -213,7 +221,8 @@
      "url": "http://www.suffolk.gov.uk/about/severe-weather-information-and-services",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -231,7 +240,8 @@
      "url": "https://www.bassetlaw.gov.uk/housing-services/homelessness/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -249,7 +259,8 @@
      "url": "https://www.basildon.gov.uk/article/5897/Rough-Sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -269,7 +280,8 @@
      "url": "https://www.basingstoke.gov.uk/homelessness",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -320,7 +332,8 @@
      "url": "https://www.lbbd.gov.uk/civil-protection-service/severe-weather",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -340,7 +353,8 @@
      "url": "https://www.brent.gov.uk/the-council-and-democracy/emergencies/severe-weather",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -402,19 +416,22 @@
      "url": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1499/rough_sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.birmingham.gov.uk/news/article/1704/birmingham_mobilises_to_protect_people_who_are_sleeping_rough_during_the_severe_weather",
      "http": 200,
      "status": "old notice (latest date on page 2026-01-08)",
-     "quote": "le who sleep rough as temperatures fall. Birmingham&rsquo;s Severe Weather Emergency Protocol has been activated due to snow and very cold temperatures. The protocol is activated when a yellow"
+     "quote": "le who sleep rough as temperatures fall. Birmingham&rsquo;s Severe Weather Emergency Protocol has been activated due to snow and very cold temperatures. The protocol is activated when a yellow",
+     "rest_centre": null
     },
     {
      "url": "https://www.birmingham.gov.uk/info/50173/information_for_care_providers/2483/cold_weather_resources",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -454,12 +471,12 @@
      "url": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter",
      "http": 302,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
    "flags": [
-    "status unknown -> unreachable",
     "dead page https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/how-we-help-people-living-streets-city/severe-weather-emergency-shelter (HTTP 302)"
    ]
   },
@@ -475,7 +492,8 @@
      "url": "https://www.barnsley.gov.uk/services/housing/homeless-and-housing-advice/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -493,7 +511,8 @@
      "url": "https://www.bolton.gov.uk/news/article/1968/sleeper-pods-offer-new-hope-for-the-homeless-in-bolton",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -511,7 +530,8 @@
      "url": "https://www.bolsover.gov.uk/homelessness-housing-advice/homelessness",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -531,7 +551,8 @@
      "url": "https://www.lincolnshire.gov.uk/news/article/1318/the-cold-weather-s-here-top-tips-for-dealing-with-ice-and-snow-and-what-to-know-about-driving",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -549,7 +570,8 @@
      "url": "https://www.bcpcouncil.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -567,7 +589,8 @@
      "url": "https://www.blackpool.gov.uk/Residents/Housing/Housing-options/Emergency-help-with-housing.aspx",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -585,7 +608,8 @@
      "url": "https://www.braintree.gov.uk/housing/rough-sleepers-emergency-arrangements",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -603,7 +627,8 @@
      "url": "https://www.bracknell-forest.gov.uk/news/2026/07/plan-further-reduce-homelessness-and-rough-sleeping",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -621,13 +646,15 @@
      "url": "https://www.bradford.gov.uk/housing/homelessness/help-for-homeless-people-during-cold-weather/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.bradford.gov.uk/health/protecting-your-health/advice-for-cold-weather/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -645,7 +672,8 @@
      "url": "https://www.breckland.gov.uk/article/12299/Rough-sleeping-in-extreme-weather-conditions",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -687,7 +715,8 @@
      "url": "https://www.broxtowe.gov.uk/for-you/crime-safety-emergencies/severe-weather/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -705,7 +734,8 @@
      "url": "https://www.brentwood.gov.uk/sites/default/files/2025-07/Homelessness%20and%20Rough%20Sleeping%20Strategy%202020-25.pdf",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -745,7 +775,8 @@
      "url": "https://news.bristol.gov.uk/press-releases/e9f2f484-4536-4918-adf0-64b58a095d66/swep-deactivated-in-bristol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -763,7 +794,8 @@
      "url": "https://www.buckinghamshire.gov.uk/news/severe-weather-emergency-provision/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -781,7 +813,8 @@
      "url": "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -799,7 +832,8 @@
      "url": "https://www.bury.gov.uk/housing/homelessness/aben",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -817,13 +851,15 @@
      "url": "https://www.cambridgeshire.gov.uk/news/cold-weather-health-alert-advice-for-staying-warm-and-well-1",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.cambridge.gov.uk/news/2026/10/09/cambridge-city-council-highlights-support-available-for-people-experiencing-rough-sleeping-ahead-of-world-homeless-day",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -852,7 +888,8 @@
      "url": "https://www.cannockchasedc.gov.uk/residents/housing/housing-options-homelessness/swep-severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -870,7 +907,8 @@
      "url": "https://www.castlepoint.gov.uk/w/rough-sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -921,7 +959,8 @@
      "url": "https://www.centralbedfordshire.gov.uk/environmental-issues/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -972,7 +1011,8 @@
      "url": "https://www.cheshireeast.gov.uk/housing/rough-sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -990,7 +1030,8 @@
      "url": "https://www.chichester.gov.uk/homelessapplications",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1021,7 +1062,8 @@
      "url": "https://chorley.gov.uk/housing/severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1039,7 +1081,8 @@
      "url": "https://www.cherwell.gov.uk/info/80/homeless-or-risk-of-homelessness/250/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1057,7 +1100,8 @@
      "url": "https://www.chesterfield.gov.uk/housing/homelessness/homelessness-prevention/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1075,7 +1119,8 @@
      "url": "https://cheltenham.gov.uk/housing/housing-advice-and-options/homelessness-support-and-advice/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1126,13 +1171,15 @@
      "url": "https://www.camden.gov.uk/cold-weather-advice",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.camden.gov.uk/rough-sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1164,7 +1211,8 @@
      "url": "https://www.colchester.gov.uk/info/cbc-article/?id=KA-04819",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -1182,7 +1230,8 @@
      "url": "https://www.cornwall.gov.uk/housing/homeless-or-at-risk/street-homeless-or-rough-sleeping/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1200,7 +1249,8 @@
      "url": "https://cotswold.gov.uk/housing/homelessness-support-and-advice/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1218,13 +1268,15 @@
      "url": "https://www.coventry.gov.uk/directory-record/59179/rough-sleeper-numbers-during-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.coventry.gov.uk/homelessness-1/severe-weather-emergency-protocol-swep-extended-winter-provisions/2",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1242,7 +1294,8 @@
      "url": "https://www.cardiffhousing.co.uk/homelessness/homeless-now/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -1260,7 +1313,8 @@
      "url": "https://crawley.gov.uk/housing/finding-home/homelessness/severe-weather-accommodation",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1277,12 +1331,15 @@
     {
      "url": "https://www.croydon.gov.uk/housing/housing-support/homelessness/help-someone-who-homeless-or-risk/get-help-someone-who-sleeping-rough",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "CWY",
@@ -1296,7 +1353,8 @@
      "url": "https://www.conwy.gov.uk/en/Spotlight/Whats-New/Pages/Severe-Weather-Emergency-Protocol-SWEP.aspx",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1314,7 +1372,8 @@
      "url": "https://www.dacorum.gov.uk/home/housing/housing-advice-and-options/homeless-or-at-risk/rough-sleepers",
      "http": "error",
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1334,19 +1393,22 @@
      "url": "https://www.darlington.gov.uk/my-darlington/login?ReturnUrl=/housing/finding-a-home-or-garage/homelessness/i-am-worried-about-someone-rough-sleeping/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/i-am-worried-about-someone-rough-sleeping/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.darlington.gov.uk/housing/finding-a-home-or-garage/homelessness/preventing-rough-sleeping/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -1364,7 +1426,8 @@
      "url": "https://www.dartford.gov.uk/downloads/download/1806/severe-weather-emergency-protocol-swep-for-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1415,7 +1478,8 @@
      "url": "https://www.derby.gov.uk/housing/homelessness/concerned-about-rough-sleeper/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1477,7 +1541,8 @@
      "url": "https://www.dover.gov.uk/housing/homelessness/help-for-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1506,7 +1571,8 @@
      "url": "https://www.dorsetcouncil.gov.uk/w/rough-sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1526,7 +1592,8 @@
      "url": "https://www.dudley.gov.uk/council-community/emergencies/specific-risks/severe-weather/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -1544,7 +1611,8 @@
      "url": "https://www.durham.gov.uk/article/32292/Severe-Weather-Emergency-Protocol-SWEP-for-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1562,7 +1630,8 @@
      "url": "https://www.ealing.gov.uk/info/201102/finding_a_home/2558/rough_sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1580,7 +1649,8 @@
      "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1600,7 +1670,8 @@
      "url": "https://www.eastleigh.gov.uk/latest-news/cold-weather-support-for-people-sleeping-rough",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1631,7 +1702,8 @@
      "url": "https://eastcambs.gov.uk/services/housing-and-community-advice/homelessness/severe-weather-enforcement-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1649,7 +1721,8 @@
      "url": "https://eastdevon.gov.uk/housing-and-homelessness/homelessness/rough-sleepers/severe-weather-provision/",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1690,12 +1763,15 @@
     {
      "url": "https://www.easthants.gov.uk/emergency-advice/rough-sleepers-advice",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "EHE",
@@ -1709,13 +1785,15 @@
      "url": "https://www.eastherts.gov.uk/housing/homeless-or-threatened-homelessness/rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.eastherts.gov.uk/severe-weather-and-emergencies",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1733,7 +1811,8 @@
      "url": "https://www.e-lindsey.gov.uk/article/7964/Rough-Sleepers",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1752,18 +1831,22 @@
     {
      "url": "https://elmbridge.gov.uk/housing/homelessness/shelter-during-severe-weather",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.elmbridge.gov.uk/your-council/keeping-you-safe-emergency/storms-and-severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "ELN",
@@ -1777,13 +1860,15 @@
      "url": "https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -1812,7 +1897,8 @@
      "url": "https://www.enfield.gov.uk/services/housing/homelessness/sleeping-rough-or-on-the-streets",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1832,7 +1918,8 @@
      "url": "https://www.eppingforestdc.gov.uk/housing/homelessness/rough-sleeping-and-homeless-emergencies/",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1885,7 +1972,8 @@
      "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -1903,7 +1991,8 @@
      "url": "https://www.eastsuffolk.gov.uk/housing/housing/homelessness-advice-and-prevention/rough-sleeping",
      "http": 405,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1956,7 +2045,8 @@
      "url": "https://news.exeter.gov.uk/extra-measures-to-bring-rough-sleepers-inside-as-temperatures-dip/",
      "http": "error",
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -1976,7 +2066,8 @@
      "url": "https://www.falkirk.gov.uk/homelessness/rough-sleeping",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2005,7 +2096,8 @@
      "url": "https://fenland.gov.uk/roughsleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -2058,7 +2150,8 @@
      "url": "https://www.fdean.gov.uk/housing/homelessness-support-and-advice/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2153,7 +2246,8 @@
      "url": "https://www.gravesham.gov.uk/advice/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2193,7 +2287,8 @@
      "url": "https://www.great-yarmouth.gov.uk/article/8832/Council-ramps-up-rough-sleeper-support-in-the-heat-and-you-can-help",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -2213,7 +2308,8 @@
      "url": "https://www.gwynedd.llyw.cymru/en-gb/housing/homelessness/homelessness-severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2230,12 +2326,15 @@
     {
      "url": "https://www.havant.gov.uk/emergency-advice/advice-rough-sleepers",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "HAL",
@@ -2282,7 +2381,8 @@
      "url": "https://www.harlow.gov.uk/safety-and-crime/severe-weather-and-emergencies",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2300,7 +2400,8 @@
      "url": "https://www.hastings.gov.uk/housing/SWEP/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2329,7 +2430,8 @@
      "url": "https://www.havering.gov.uk/swep",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2347,19 +2449,22 @@
      "url": "https://www.hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/advice-temporary-accommodation-residents",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2377,7 +2482,8 @@
      "url": "https://www.herefordshire.gov.uk/family-support/housing/homelessness/emergency-beds-during-severe-weather/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2395,7 +2501,8 @@
      "url": "https://www.hertsmere.gov.uk/housing-private-property/housing-advice-and-homelessness/emergency-accommodation-and-night-shelters",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2435,7 +2542,8 @@
      "url": "https://www.hinckley-bosworth.gov.uk/info/200117/homelessness/2041/rough_sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2475,7 +2583,8 @@
      "url": "https://www.hounslow.gov.uk/community-safety/severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2504,7 +2613,8 @@
      "url": "https://www.hartlepool.gov.uk/homelessness-housing-advice/rough-sleeping",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2533,7 +2643,8 @@
      "url": "https://www.harrow.gov.uk/roughsleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2551,7 +2662,8 @@
      "url": "https://haringey.gov.uk/housing/homelessness/rough-sleeping/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2580,7 +2692,8 @@
      "url": "https://www.hyndburnbc.gov.uk/swep/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2609,7 +2722,8 @@
      "url": "https://www.iow.gov.uk/article/1750/Rough-sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -2628,12 +2742,23 @@
     {
      "url": "https://www.ipswich.gov.uk/housing/homelessness/support-rough-sleepers",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
+    },
+    {
+     "url": "https://www.ipswich.gov.uk/ipswich-newsroom/2026/ipswich-borough-council-strengthens-action-prevent-homelessness-and-tackle",
+     "http": 200,
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording",
+    "new page https://www.ipswich.gov.uk/ipswich-newsroom/2026/ipswich-borough-council-strengthens-action-prevent-homelessness-and-tackle"
+   ]
   },
   {
    "code": "ISL",
@@ -2647,19 +2772,22 @@
      "url": "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals/cold-weather-health-guidance-for-professionals",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.islington.gov.uk/about-the-council/emergency-planning-and-business-continuity/hot-and-cold-weather-guidance-for-professionals/heat-health-for-professionals",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.islington.gov.uk/housing/finding-a-home/homelessness/how-we-support-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2688,7 +2816,8 @@
      "url": "https://www.rbkc.gov.uk/cold-weather",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2717,7 +2846,8 @@
      "url": "https://www.hull.gov.uk/homelessness/rough-sleeper-team",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2735,7 +2865,8 @@
      "url": "https://www.west-norfolk.gov.uk/info/20229/homeless_or_at_risk_of_being_homeless/794/temporary_accommodation",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2753,7 +2884,8 @@
      "url": "https://www.kirklees.gov.uk/beta/housing/sleeping-rough.aspx",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2770,18 +2902,22 @@
     {
      "url": "https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/hot-weather-heatwaves",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "KWL",
@@ -2795,7 +2931,8 @@
      "url": "https://www.knowsley.gov.uk/housing/energy-efficiency/cold-weather-payments",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2813,7 +2950,8 @@
      "url": "https://www.lancaster.gov.uk/housing/help-for-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2853,7 +2991,8 @@
      "url": "https://love.lambeth.gov.uk/lambeth-council-activates-its-severe-weather-emergency-protocol-swep-for-rough-sleepers/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2871,7 +3010,8 @@
      "url": "https://www.leicester.gov.uk/housing/homelessness/sleeping-rough",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2889,7 +3029,8 @@
      "url": "https://news.leeds.gov.uk/news/extra-support-for-rough-sleepers-as-council-applies-its-cold-weather-protocol-from-next-monday",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2918,7 +3059,8 @@
      "url": "https://www.lewes-eastbourne.gov.uk/article/1261/Help-for-people-sleeping-rough",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -2938,7 +3080,8 @@
      "url": "https://lewisham.gov.uk/myservices/education/schools/emergencies-at-school",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -2967,7 +3110,8 @@
      "url": "https://www.lichfielddc.gov.uk/homelessness/concerned-someone-sleeping-rough",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -2996,7 +3140,8 @@
      "url": "https://liverpool.gov.uk/housing/homeless-or-at-risk/help-for-rough-sleepers/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3047,7 +3192,8 @@
      "url": "https://www.maldon.gov.uk/info/20056/homelessness/9630/emergency_accommodation_and_rough_sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3065,7 +3211,8 @@
      "url": "https://www.manchester.gov.uk/news/article/9811/manchesters_preparations_for_cold_weather_in_place_for_winter",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -3096,7 +3243,8 @@
      "url": "https://www.malvernhills.gov.uk/housing/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3114,7 +3262,8 @@
      "url": "https://www.middlesbrough.gov.uk/media/fvsmwecd/tees-valley-swep-protocol-2025-2026.pdf",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3132,7 +3281,8 @@
      "url": "https://www.middevon.gov.uk/residents/homelessness/how-we-can-help/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3150,7 +3300,8 @@
      "url": "https://www.medway.gov.uk/info/200857/homelessness_and_at_risk_of_homelessness_support/1957/help_for_rough_sleepers/2",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3190,19 +3341,22 @@
      "url": "https://www.milton-keynes.gov.uk/housing/housing-consultations/homelessness-and-rough-sleeping-consultation",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.milton-keynes.gov.uk/sites/default/files/2026-09/DRAFT%20Homelessness%20and%20Rough%20Sleeping%20strategy%20SM.pdf",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.milton-keynes.gov.uk/housing/rough-sleepers",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3242,7 +3396,8 @@
      "url": "https://www.monmouthshire.gov.uk/housing/finding-a-home/homelessness-2/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3259,12 +3414,15 @@
     {
      "url": "https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "MRY",
@@ -3289,7 +3447,8 @@
      "url": "https://www.midsussex.gov.uk/housing-council-tax/rough-sleepers/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3351,19 +3510,22 @@
      "url": "https://www.northumberland.gov.uk/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://nccform.northumberland.gov.uk/form/webfeedback?page=/education-skills/schools/school-transport/information-parents-during-periods-severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.northumberland.gov.uk/housing/homelessness-and-housing-options",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3391,12 +3553,15 @@
     {
      "url": "https://www.newark-sherwooddc.gov.uk/housing/homelessness/severe-weather-emergency-protocol",
      "http": 200,
-     "status": "not active",
-     "quote": "itable accommodation in these circumstances. Currently, the SWEP is not active. When the SWEP is active, we share an announcement and contact rough sleepers w"
+     "status": "unknown",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "not active",
-   "flags": []
+   "status": "unknown",
+   "flags": [
+    "status not active -> unknown"
+   ]
   },
   {
    "code": "NEC",
@@ -3410,7 +3575,8 @@
      "url": "https://www.newcastle-staffs.gov.uk/housing/homelessness-harassment/3",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3428,7 +3594,8 @@
      "url": "https://www.ne-derbyshire.gov.uk/housing-and-health/homelessness",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -3448,7 +3615,8 @@
      "url": "https://www.nelincs.gov.uk/north-east-lincolnshire-councils-severe-weather-emergency-protocol-to-offer-shelter-to-people-rough-sleeping-in-north-east-lincolnshire-now-in-place/",
      "http": 200,
      "status": "old notice (latest date on page 2025-11-18)",
-     "quote": "ago General With cold weather around the corner, the annual Severe Weather Emergency Protocol (SWEP) has been activated in North East Lincolnshire and will remain in place until the end of March. The"
+     "quote": "ago General With cold weather around the corner, the annual Severe Weather Emergency Protocol (SWEP) has been activated in North East Lincolnshire and will remain in place until the end of March. The",
+     "rest_centre": null
     }
    ],
    "status": "old notice (latest date on page 2025-11-18)",
@@ -3466,7 +3634,8 @@
      "url": "https://new.newcastle.gov.uk/housing/homelessness-and-rough-sleeping/severe-weather-emergency-help-newcastle",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3484,13 +3653,15 @@
      "url": "https://www.newforest.gov.uk/article/4133/Support-to-rough-sleepers-during-colder-weather",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://newforest.gov.uk/article/3846/Continuing-to-offer-support-to-rough-sleepers-this-winter",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -3522,7 +3693,8 @@
      "url": "https://streetsupport.net/nottingham/severe-weather-accommodation/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3551,7 +3723,8 @@
      "url": "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3591,7 +3764,8 @@
      "url": "https://www.newrymournedown.org/severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3609,19 +3783,22 @@
      "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homeless-tonight/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.north-norfolk.gov.uk/tasks/housing-services/homelessness-and-rough-sleeping-strategy/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.north-norfolk.gov.uk/tasks/consultations/homelessness-and-rough-sleeping-strategy-2026-2031-consultation/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3639,7 +3816,8 @@
      "url": "https://www.northnorthants.gov.uk/housing/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3657,7 +3835,8 @@
      "url": "https://www.norwich.gov.uk/housing-and-community-safety/apply-housing-housing-advice-and-homelessness/support-people-sleeping/severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3675,13 +3854,15 @@
      "url": "https://n-somerset.gov.uk/my-services/bins-recycling/recycling-rubbish-collections/collections-during-severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://n-somerset.gov.uk/my-services/housing/help-if-you-are-homeless-or-need-support/people-who-are-sleeping-rough",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3699,7 +3880,8 @@
      "url": "http://www.neath-porttalbot.gov.uk/parking-roads-and-travel/severe-weather/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3728,7 +3910,8 @@
      "url": "https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -3748,7 +3931,8 @@
      "url": "https://www.nuneatonandbedworth.gov.uk/swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3777,7 +3961,8 @@
      "url": "https://www.nwleics.gov.uk/pages/homelessness_rough_sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3795,13 +3980,15 @@
      "url": "https://www.newham.gov.uk/housing-homes-homelessness/homelessness-prevention-advice/2",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.newham.gov.uk/severeweather",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3830,7 +4017,8 @@
      "url": "https://www.northyorks.gov.uk/housing-and-homelessness/homelessness/housing-and-homelessness/homelessness/help-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3892,7 +4080,8 @@
      "url": "https://www.oxford.gov.uk/homelessness/swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -3943,13 +4132,15 @@
      "url": "https://www.plymouth.gov.uk/rough-sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.plymouth.gov.uk/severe-weather-emergency-protocol-swep",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -3970,7 +4161,8 @@
      "url": "https://www.portsmouth.gov.uk/services/council-tax/discounts-and-exemptions/disregard-discount/hostels-and-night-shelters",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -3999,7 +4191,8 @@
      "url": "https://www.preston.gov.uk/article/13797/Appendix-F-Severe-Weather-Emergency-Protocol-SWEP",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -4019,7 +4212,8 @@
      "url": "https://www.peterborough.gov.uk/housing/rough-sleeper-support-services",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4037,7 +4231,8 @@
      "url": "https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -4057,7 +4252,8 @@
      "url": "https://www.rochdale.gov.uk/housing/support-people-risk-homelessness",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4086,7 +4282,8 @@
      "url": "https://www.redbridge.gov.uk/news/january-2023/do-you-know-anyone-sleeping-rough-in-the-cold-weather/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4104,7 +4301,8 @@
      "url": "https://www.reading.gov.uk/housing/rough-sleeping/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4122,13 +4320,15 @@
      "url": "https://www.redditchbc.gov.uk/residents/my-home/find-me-a-home/homeless-services-and-advice/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.redditchbc.gov.uk/council/strategy/housing-and-homelessness-strategies/worcestershire-homelessness-and-rough-sleeping-strategy/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4157,19 +4357,22 @@
      "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/gritting-winter-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.renfrewshire.gov.uk/community-and-neighbourhood-issues/community-safety/emergencies-and-severe-weather/emergency-contact-numbers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4209,7 +4412,8 @@
      "url": "https://www.rochford.gov.uk/housing-options-service",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4227,7 +4431,8 @@
      "url": "https://www.rother.gov.uk/housing/housing-options-and-homelessness/rough-sleepers/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4245,13 +4450,15 @@
      "url": "https://www.rossendale.gov.uk/housing-homelessness/homeless-housing-options/3",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.rossendale.gov.uk/emergencies-safety/severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4269,7 +4476,8 @@
      "url": "https://www.rotherham.gov.uk/homelessness/homeless-now-rough-sleeping/3",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4287,7 +4495,8 @@
      "url": "https://www.rugby.gov.uk/w/severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4305,7 +4514,8 @@
      "url": "https://www.rushmoor.gov.uk/your-council/news-and-your-views/council-news/news-releases/june-2026/severe-weather-emergency-protocol/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4323,7 +4533,8 @@
      "url": "https://www.runnymede.gov.uk/news/article/307/severe-weather-emergency-protocol-active-22-june-2026-26-june-2026",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4352,7 +4563,8 @@
      "url": "https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4370,7 +4582,8 @@
      "url": "https://www.stalbans.gov.uk/rough-sleeping",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4388,7 +4601,8 @@
      "url": "https://www.sandwell.gov.uk/find-home/concerned-rough-sleeper",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4417,7 +4631,8 @@
      "url": "https://www.scambs.gov.uk/housing/housing-advice-and-homelessness/homelessness-advice/severe-weather-emergency-provision-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4435,7 +4650,8 @@
      "url": "https://www.scotborders.gov.uk/emergencies-safety/severe-weather-update",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4475,7 +4691,8 @@
      "url": "https://www.suffolk.gov.uk/about/severe-weather-information-and-services",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4504,7 +4721,8 @@
      "url": "https://life.southglos.gov.uk/kb5/southglos/directory/advice.page?id=2sQ79T30fdg",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -4524,7 +4742,8 @@
      "url": "https://www.southhams.gov.uk/news/2025/stay-safe-cold-weather",
      "http": 405,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -4554,12 +4773,15 @@
     {
      "url": "https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "SHN",
@@ -4584,7 +4806,8 @@
      "url": "https://www.sholland.gov.uk/article/22764/Severe-Weather",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -4604,19 +4827,22 @@
      "url": "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/winter/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/heatwaves/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://next.shropshire.gov.uk/emergencies-and-major-incidents/dealing-with-severe-weather/thunderstorms/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4632,13 +4858,17 @@
    "pages": [
     {
      "url": "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": ""
+     "http": 403,
+     "status": "unreachable",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf (HTTP 403)"
+   ]
   },
   {
    "code": "SKP",
@@ -4663,7 +4893,8 @@
      "url": "https://www.salford.gov.uk/housing/housing-advice-and-support/currently-homeless/help-for-rough-sleepers/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4681,19 +4912,22 @@
      "url": "https://www.slough.gov.uk/crime-safety/severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.slough.gov.uk/crime-safety/severe-weather/2",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.slough.gov.uk/crime-safety/severe-weather/3",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4721,12 +4955,15 @@
     {
      "url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "not active",
+     "quote": "on Other information Map of Warm Welcome Spaces Street Link SWEP status information Severe Weather Emergency Provision (SWEP) in Somerset is: Not active Summer SWEP is automatically triggered when the Met Office forecasts temperatur",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "not active",
+   "flags": [
+    "status unknown -> not active"
+   ]
   },
   {
    "code": "SND",
@@ -4761,18 +4998,22 @@
     {
      "url": "https://www.solihull.gov.uk/housing/rough-sleeping",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.solihull.gov.uk/sites/default/files/2023-04/Solihull-Severe-Weather-Emergency-Protocol-SWEP.pdf",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "SOS",
@@ -4786,7 +5027,8 @@
      "url": "https://www.southend.gov.uk/housing-1/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4804,7 +5046,8 @@
      "url": "https://www.southoxon.gov.uk/south-oxfordshire-district-council/housing/are-you-homeless/severe-weather-emergency-protocol-swep/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4833,7 +5076,8 @@
      "url": "https://southribble.gov.uk/housing/severe-weather-emergency-protocol",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4862,7 +5106,8 @@
      "url": "https://www.sstaffs.gov.uk/housing/housing-and-homelessness-advice",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4880,7 +5125,8 @@
      "url": "https://www.staffordbc.gov.uk/housing-advice-rough-sleeping",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4898,7 +5144,8 @@
      "url": "https://www.stoke.gov.uk/info/20050/problems_in_my_neighbourhood/729/snow_ice_and_cold_weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -4960,7 +5207,8 @@
      "url": "https://www.stroud.gov.uk/housing/homelessness/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -4978,7 +5226,8 @@
      "url": "https://www.stratford.gov.uk/news/press.cfm/current/1/item/136731",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5018,7 +5267,8 @@
      "url": "https://www.stevenage.gov.uk/housing/homelessness-and-housing-advice/street-homeless-services",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5036,7 +5286,8 @@
      "url": "https://www.southtyneside.gov.uk/article/20226/Severe-Weather-Emergency-Protocol-SWEP",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5056,7 +5307,8 @@
      "url": "https://www.surreyheath.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5084,12 +5336,15 @@
     {
      "url": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
      "http": 200,
-     "status": "active",
-     "quote": "g rough, you can still let us know using the details below. SWEP: currently active The Severe Weather Emergency Protocol is currently active in Swindon . We are providing emergency accommodation to anyone who is street h"
+     "status": "not active",
+     "quote": "arch this site Search You are here: Home Homes and property Severe Weather Emergency Protocol (SWEP) Severe Weather Emergency Protocol (SWEP) SWEP: not active The Severe Weather Emergency Protocol is not currently active in Swindon . If y",
+     "rest_centre": null
     }
    ],
-   "status": "active",
-   "flags": []
+   "status": "not active",
+   "flags": [
+    "status active -> not active"
+   ]
   },
   {
    "code": "SWK",
@@ -5102,12 +5357,15 @@
     {
      "url": "https://www.southwark.gov.uk/housing/homelessness/sleeping-rough/rough-sleeping-very-cold-weather",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "SWL",
@@ -5121,7 +5379,8 @@
      "url": "https://swale.gov.uk/your-council/strategies-and-policies/severe-weather-emergency-protocol-guidance",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5139,13 +5398,17 @@
    "pages": [
     {
      "url": "https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping",
-     "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "http": "error",
+     "status": "unreachable",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping (HTTP error)"
+   ]
   },
   {
    "code": "TAN",
@@ -5168,13 +5431,17 @@
    "pages": [
     {
      "url": "https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping",
-     "http": 200,
-     "status": "no SWEP wording",
-     "quote": ""
+     "http": 500,
+     "status": "unreachable",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping (HTTP 500)"
+   ]
   },
   {
    "code": "TEI",
@@ -5188,7 +5455,8 @@
      "url": "https://www.teignbridge.gov.uk/housing/rough-sleeping/severe-weather-provisions-for-rough-sleepers/",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5219,7 +5487,8 @@
      "url": "https://www.testvalley.gov.uk/severe-weather/severe-weather-emergency-protocol-swep",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5237,7 +5506,8 @@
      "url": "https://tewkesbury.gov.uk/services/housing/homelessness-and-housing-options/homeless-advice-and-prevention/",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5257,7 +5527,8 @@
      "url": "https://newsroom.telford.gov.uk/news/council-continues-to-make-great-strides-tackling-homelessness",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5275,19 +5546,22 @@
      "url": "https://www.thanet.gov.uk/info-pages/rough-sleeping/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.thanet.gov.uk/tag/rough-sleepers/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.thanet.gov.uk/tag/rough-sleeping/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5305,7 +5579,8 @@
      "url": "https://www.threerivers.gov.uk/services/housing/homelessness",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5323,7 +5598,8 @@
      "url": "https://www.thurrock.gov.uk/homelessness/rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5341,7 +5617,8 @@
      "url": "https://www.torbay.gov.uk/housing/homelessness/report-a-rough-sleeper/",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5359,7 +5636,8 @@
      "url": "https://www.torfaen.gov.uk/en/communities-leisure-and-wellbeing/keeping-communities-safe/emergency-management/severe-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5388,7 +5666,8 @@
      "url": "https://www.torridge.gov.uk/article/17676/Severe-Weather-Provision-for-Rough-Sleepers",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5430,7 +5709,8 @@
      "url": "https://www.towerhamlets.gov.uk/lgnl/housing/housing_options_service/helping_the_homeless.aspx",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5448,7 +5728,8 @@
      "url": "https://www.uttlesford.gov.uk/article/6001/Help-with-your-housing-needs",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5468,7 +5749,8 @@
      "url": "https://www.whitehorsedc.gov.uk/vale-of-white-horse-district-council/housing/are-you-homeless/severe-weather-emergency-protocol-swep/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5507,12 +5789,15 @@
     {
      "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/sleeping-rough-or-street-homeless",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "WAR",
@@ -5537,13 +5822,15 @@
      "url": "https://www.watford.gov.uk/homelessness/im-homeless-risk-homeless/12",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.watford.gov.uk/news/article/1065/eight-years-of-hope-watford-s-winter-night-shelter-helps-hundreds-of-people",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5561,7 +5848,8 @@
      "url": "https://www.warwickdc.gov.uk/info/20233/housing_advice_and_homelessness/1328/other_housing_options_and_local_support_services",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5612,7 +5900,8 @@
      "url": "https://www.wealden.gov.uk/housing/housing-options-homelessness-advice/homelessness/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5630,7 +5919,8 @@
      "url": "https://www.welhat.gov.uk/homelessness/homelessness-rough-sleeping-referrals/2",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5648,7 +5938,8 @@
      "url": "https://www.walthamforest.gov.uk/housing/homelessness/help-if-you-are-homeless-or-rough-sleeping/severe-weather-support-people-sleeping-rough",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5677,7 +5968,8 @@
      "url": "https://www.wiltshire.gov.uk/article/2026/Rough-Sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5697,7 +5989,8 @@
      "url": "https://www.winchester.gov.uk/no-listing/severe-weather-emergency-protocol",
      "http": 200,
      "status": "old notice (latest date on page 2024-11-21)",
-     "quote": "out on the street during the cold weather. The city&rsquo;s Severe Weather Emergency Protocol (SWEP) has been activated and will&nbsp;remain while the temperature has dropped. We work in partnership "
+     "quote": "out on the street during the cold weather. The city&rsquo;s Severe Weather Emergency Protocol (SWEP) has been activated and will&nbsp;remain while the temperature has dropped. We work in partnership ",
+     "rest_centre": null
     }
    ],
    "status": "old notice (latest date on page 2024-11-21)",
@@ -5715,7 +6008,8 @@
      "url": "https://www.wakefield.gov.uk/housing/homelessness/help-for-rough-sleepers",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5744,7 +6038,8 @@
      "url": "https://www.west-lindsey.gov.uk/sites/default/files/2026-08/Lincolnshire%20SWEP%20Protocol%20July%202026%20-%20Approved%20Version.pdf",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5762,19 +6057,22 @@
      "url": "https://go.walsall.gov.uk/newsroom/amber-cold-weather-alert-issued-west-midlands",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "http://go.walsall.gov.uk/feedback?rating=Good&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
      "http": "error",
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "http://go.walsall.gov.uk/feedback?rating=Ok&amp;page=/newsroom/amber-cold-weather-alert-issued-west-midlands&amp;title=Amber cold weather alert issued for West Midlands",
      "http": "error",
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5796,19 +6094,22 @@
      "url": "https://www.westlothian.gov.uk/article/33237/Severe-Weather-Arrangements",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.westlothian.gov.uk/media/1652/Severe-Weather-Policy/pdf/2023_12_19_Severe_Weather_Policy.pdf?m=1703003174077",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.westlothian.gov.uk/media/31635/EIB-Issue-24-Severe-Weather/pdf/EIBIssue24-SevereWeatherJanuary_2019.pdf?m=1572019787717",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5826,7 +6127,8 @@
      "url": "https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5855,7 +6157,8 @@
      "url": "https://www.rbwm.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
      "http": 202,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5875,7 +6178,8 @@
      "url": "https://www.westnorthants.gov.uk/homelessness/support-people-sleeping-rough/help-people-sleeping-rough-very-cold-or-extreme-weather",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -5893,7 +6197,8 @@
      "url": "https://www.worcester.gov.uk/housing/homeless-or-at-risk-of-homelessness/rough-sleeping",
      "http": 307,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5913,7 +6218,8 @@
      "url": "https://www.woking.gov.uk/housing/homelessness-rough-sleeping",
      "http": 403,
      "status": "unreachable",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unreachable",
@@ -5933,13 +6239,15 @@
      "url": "https://www.wokingham.gov.uk/health-and-wellbeing-services/health-services-and-advice/covid-19-and-public-health/public-health-campaigns/staying-well-winter/whos-most-risk-cold-weather",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.wokingham.gov.uk/housing-and-tenants/housing-needs/homelessness",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -5968,7 +6276,8 @@
      "url": "https://www.adur-worthing.gov.uk/housing/advice/rough-sleepers/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -6018,12 +6327,15 @@
     {
      "url": "https://www.wrexham.gov.uk/services/housing/homeless-or-risk/help-and-advice",
      "http": 200,
-     "status": "unknown",
-     "quote": ""
+     "status": "no SWEP wording",
+     "quote": "",
+     "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "no SWEP wording",
+   "flags": [
+    "status unknown -> no SWEP wording"
+   ]
   },
   {
    "code": "WSK",
@@ -6048,19 +6360,22 @@
      "url": "https://www.westminster.gov.uk/cold-weather-support-and-advice",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.westminster.gov.uk/form/page-feedback?path=/cold-weather-support-and-advice&amp;source_entity_type=node&amp;source_entity_id=25730",
      "http": 200,
      "status": "no SWEP wording",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     },
     {
      "url": "https://www.westminster.gov.uk/businesses/major-incidents-and-contingency-planning/risks-and-hazards/extreme-weather",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "no SWEP wording",
@@ -6100,7 +6415,8 @@
      "url": "https://wyreforestdc.gov.uk/housing-and-homes/homelessness/getting-a-home/housing-advice-for-specific-groups-of-people/housing-advice-for-rough-sleepers/",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",
@@ -6118,7 +6434,8 @@
      "url": "https://www.wyre.gov.uk/housing-options-homelessness/duty-refer/3",
      "http": 200,
      "status": "unknown",
-     "quote": ""
+     "quote": "",
+     "rest_centre": null
     }
    ],
    "status": "unknown",

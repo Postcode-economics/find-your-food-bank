@@ -6,13 +6,24 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 - Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
 
-## warmspaces (5)
+## warmspaces (16)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Bishops Offley Open House (BOOH!) (ST21 6HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28654
+- Blackburn Salvation Army  (Church & Community Centre) (BB1 5BE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=16503
+- Devonport Morice Town Salvation Army (PL2 1RS) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14925
+- Ewell Hall Warm Space (KT17 2AY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=25272
+- Harbury Village Library (CV33 9HW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14724
+- Ivybridge Warm Welcome Cafe (PL21 9AB) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27645
 - North Molton Community Shop (EX36 3HP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28671
+- Open House Drop In (CT6 5RH) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=24737
 - Second Chance Headway Centre (WF1 1AD) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28675
+- St John's Waterloo (SE1 8TY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=24492
+- Stoneycroft Salvation Army (L13 3BT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=23318
+- The Salvation Army (BT23 4AB) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=16655
 - Warm Space at The Hepworth Wakefield (WF1 5AW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=20139
+- Warm Welcome (SE6 2HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=22218
+- Y Cross Inn (SA62 5PR) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=25821
 
 ## shelters (0)
 
@@ -21,7 +32,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- times review -->
 ## Opening-times review list (times_finder)
 
-Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
+Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs; each has its undo command). Every other row is not on the map and needs a hand check before it is added.
 
 - **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
   source: https://www.holytrinitywesterhailes.org.uk  
@@ -318,7 +329,7 @@ Run 2026-10-30. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review
 - **Warm Space at The Hepworth Wakefield** (`ww-69441263`, WF1 5AW): own site now Tuesday 10am - 5pm | Wednesday 10am - 5pm | Thursday 10am - 5pm | Friday 10am - 5pm | Saturday 10am - 5pm | Sunday 10am - 5pm  
   source: https://hepworthwakefield.org/whats-on/warm-space/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 6 separate time blocks read from one page; review only; times not read identically on 2 separate runs yet
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 6 separate time blocks read from one page; review only
 - **The Friendship Café at Myplace** (`hav-friendship-cafe-myplace`, RM3 9EN): own site now Friday 12pm – 4  
   source: https://www.havering.gov.uk/warmspaces  
   why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; day not on the same line as its times on the own-site page

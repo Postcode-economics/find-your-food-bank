@@ -1,10 +1,16 @@
 {
- "run": "2026-10-30",
+ "run": "2026-10-31",
  "sources": 288,
- "active": [
-  "Swindon Borough Council"
+ "active": [],
+ "changes": [
+  {
+   "council": "Swindon Borough Council",
+   "url": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
+   "from": "active",
+   "to": "not active",
+   "quote": "arch this site Search You are here: Home Homes and property Severe Weather Emergency Protocol (SWEP) Severe Weather Emergency Protocol (SWEP) SWEP: not active The Severe Weather Emergency Protocol is not currently active in Swindon . If y"
+  }
  ],
- "changes": [],
  "pages": [
   {
    "council": "Birmingham City Council",
@@ -12,7 +18,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Birmingham City Council (news)",
@@ -20,7 +27,8 @@
    "http": 200,
    "status": "old notice (latest date on page 2026-01-08)",
    "quote": "le who sleep rough as temperatures fall. Birmingham&rsquo;s Severe Weather Emergency Protocol has been activated due to snow and very cold temperatures. The protocol is activated when a yellow",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bristol City Council (news)",
@@ -28,7 +36,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:49+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Boston Borough Council",
@@ -36,7 +45,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:49+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bracknell Forest Council",
@@ -44,7 +54,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Bradford Metropolitan District Council",
@@ -52,7 +63,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:49+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cambridge City Council",
@@ -60,7 +72,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Camden",
@@ -68,7 +81,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:49+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Camden",
@@ -76,7 +90,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:49+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Darlington Borough Council",
@@ -84,7 +99,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:49+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Darlington Borough Council",
@@ -92,7 +108,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Darlington Borough Council",
@@ -100,7 +117,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Dudley Metropolitan Borough Council",
@@ -108,7 +126,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Falkirk Council",
@@ -116,39 +135,44 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Hackney",
    "url": "https://www.hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Hackney",
    "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Hackney",
    "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/advice-temporary-accommodation-residents",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Hackney",
    "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/tell-us-about-rough-sleeper",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Herefordshire Council",
@@ -156,7 +180,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Hounslow",
@@ -164,7 +189,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Islington",
@@ -172,7 +198,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:50+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Islington",
@@ -180,7 +207,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:51+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Hull City Council",
@@ -188,15 +216,17 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:51+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Royal Borough of Kingston upon Thames",
    "url": "https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:56+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Knowsley Metropolitan Borough Council",
@@ -204,7 +234,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:51+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Lewisham",
@@ -212,7 +243,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:51+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Liverpool City Council",
@@ -220,7 +252,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:52+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Milton Keynes Council",
@@ -228,7 +261,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:52+00:00"
+   "checked_at": "2026-10-31T05:48:20+00:00",
+   "rest_centre": null
   },
   {
    "council": "Milton Keynes Council",
@@ -236,7 +270,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:53+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Northumberland County Council",
@@ -244,7 +279,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:52+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Northumberland County Council",
@@ -252,7 +288,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:52+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Somerset  Council",
@@ -260,7 +297,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:53+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Newham",
@@ -268,7 +306,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:53+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Plymouth City Council",
@@ -276,7 +315,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:53+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Plymouth City Council",
@@ -284,7 +324,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:53+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Portsmouth City Council",
@@ -292,7 +333,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:53+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -300,7 +342,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:54+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -308,7 +351,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:54+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -316,7 +360,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:54+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -324,7 +369,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:55+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -332,7 +378,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:55+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -340,7 +387,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:56+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -348,7 +396,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:55+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -356,7 +405,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:56+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Renfrewshire Council",
@@ -364,15 +414,17 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:56+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rutland County Council",
    "url": "https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:01+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Shropshire Council",
@@ -380,7 +432,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:56+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Shropshire Council",
@@ -388,7 +441,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:56+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Shropshire Council",
@@ -396,7 +450,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:56+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Shropshire Council",
@@ -404,7 +459,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:57+00:00"
+   "checked_at": "2026-10-31T05:48:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Salford City Council",
@@ -412,7 +468,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:57+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Slough Borough Council",
@@ -420,7 +477,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:57+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Slough Borough Council",
@@ -428,7 +486,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:57+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Slough Borough Council",
@@ -436,7 +495,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:58+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Slough Borough Council",
@@ -444,15 +504,17 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:58+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Solihull Metropolitan Borough Council",
    "url": "https://www.solihull.gov.uk/housing/rough-sleeping",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:58+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Solihull Metropolitan Borough Council",
@@ -460,7 +522,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:58+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "West Lothian Council",
@@ -468,7 +531,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:59+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "West Lothian Council",
@@ -476,7 +540,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:59+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "West Lothian Council",
@@ -484,7 +549,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:00+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "West Lothian Council",
@@ -492,7 +558,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:36:59+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wokingham Borough Council",
@@ -500,23 +567,26 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:00+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Westminster",
    "url": "https://www.westminster.gov.uk/cold-weather-support-and-advice",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Westminster",
    "url": "https://www.westminster.gov.uk/form/page-feedback?path=/cold-weather-support-and-advice&amp;source_entity_type=node&amp;source_entity_id=25730",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Milton Keynes Council",
@@ -524,7 +594,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Newry, Mourne and Down District Council",
@@ -532,7 +603,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:56+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Walsall Metropolitan Borough Council",
@@ -540,7 +612,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:01+00:00"
+   "checked_at": "2026-10-31T05:49:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Walsall Metropolitan Borough Council",
@@ -548,7 +621,8 @@
    "http": "error",
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Walsall Metropolitan Borough Council",
@@ -556,7 +630,8 @@
    "http": "error",
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Walsall Metropolitan Borough Council",
@@ -564,7 +639,8 @@
    "http": "error",
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:55+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Babergh District Council",
@@ -572,7 +648,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:56+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Neath Port Talbot County Borough Council",
@@ -580,7 +657,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:56+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Scottish Borders Council",
@@ -588,15 +666,17 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:56+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Lothian Council",
    "url": "https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:01+00:00"
+   "checked_at": "2026-10-31T05:48:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Adur District Council",
@@ -604,7 +684,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:56+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Isle of Anglesey County Council",
@@ -612,7 +693,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:57+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Arun District Council",
@@ -620,7 +702,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:57+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Ashford Borough Council",
@@ -628,7 +711,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:57+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Ashfield District Council",
@@ -636,7 +720,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:57+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bassetlaw District Council",
@@ -644,7 +729,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:57+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Basildon Borough Council",
@@ -652,7 +738,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:57+00:00"
+   "checked_at": "2026-10-31T05:48:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Basingstoke and Deane Borough Council",
@@ -660,15 +747,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:58+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Barking and Dagenham",
    "url": "https://www.lbbd.gov.uk/civil-protection-service/severe-weather",
-   "http": 200,
-   "status": "no SWEP wording",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:59+00:00"
+   "checked_at": "2026-10-31T05:49:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Brent",
@@ -676,7 +765,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:58+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Birmingham City Council",
@@ -684,7 +774,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:59+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Brighton and Hove City Council",
@@ -692,7 +783,8 @@
    "http": 302,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Barnsley Metropolitan Borough Council",
@@ -700,7 +792,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:59+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bolton Metropolitan Borough Council",
@@ -708,7 +801,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:59+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bolsover District Council",
@@ -716,7 +810,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:37:59+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bournemouth, Christchurch and Poole Council",
@@ -724,7 +819,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:00+00:00"
+   "checked_at": "2026-10-31T05:48:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Blackpool Borough Council",
@@ -732,7 +828,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:00+00:00"
+   "checked_at": "2026-10-31T05:48:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Braintree District Council",
@@ -740,7 +837,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:00+00:00"
+   "checked_at": "2026-10-31T05:48:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Bradford Metropolitan District Council",
@@ -748,7 +846,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:00+00:00"
+   "checked_at": "2026-10-31T05:48:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Breckland District Council",
@@ -756,7 +855,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:00+00:00"
+   "checked_at": "2026-10-31T05:48:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "Brentwood Borough Council",
@@ -764,7 +864,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:01+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Buckinghamshire Council",
@@ -772,15 +873,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:01+00:00"
+   "checked_at": "2026-10-31T05:48:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Burnley Borough Council",
    "url": "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
-   "http": 200,
-   "status": "unknown",
+   "http": 202,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Bury Metropolitan Borough Council",
@@ -788,7 +891,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cannock Chase District Council",
@@ -796,7 +900,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Castle Point Borough Council",
@@ -804,7 +909,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Central Bedfordshire Council",
@@ -812,7 +918,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cheshire East Council",
@@ -820,7 +927,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Chichester District Council",
@@ -828,7 +936,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:02+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Chorley Borough Council",
@@ -836,7 +945,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cherwell District Council",
@@ -844,7 +954,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Chesterfield Borough Council",
@@ -852,7 +963,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cheltenham Borough Council",
@@ -860,7 +972,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Colchester Borough Council",
@@ -868,7 +981,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cornwall Council",
@@ -876,7 +990,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cotswold District Council",
@@ -884,7 +999,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:03+00:00"
+   "checked_at": "2026-10-31T05:48:26+00:00",
+   "rest_centre": null
   },
   {
    "council": "Coventry City Council",
@@ -892,7 +1008,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:04+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Cardiff Council",
@@ -900,7 +1017,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:04+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "Crawley Borough Council",
@@ -908,15 +1026,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:04+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Croydon",
    "url": "https://www.croydon.gov.uk/housing/housing-support/homelessness/help-someone-who-homeless-or-risk/get-help-someone-who-sleeping-rough",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:04+00:00"
+   "checked_at": "2026-10-31T05:48:27+00:00",
+   "rest_centre": null
   },
   {
    "council": "Conwy County Borough Council",
@@ -924,7 +1044,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:04+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Dacorum Borough Council",
@@ -932,7 +1053,8 @@
    "http": "error",
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:24+00:00"
+   "checked_at": "2026-10-31T05:48:47+00:00",
+   "rest_centre": null
   },
   {
    "council": "Dartford Borough Council",
@@ -940,7 +1062,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:04+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Derby City Council",
@@ -948,7 +1071,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Dover District Council",
@@ -956,7 +1080,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Dorset Council",
@@ -964,7 +1089,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Durham County Council",
@@ -972,7 +1098,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Ealing",
@@ -980,7 +1107,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Eastbourne Borough Council",
@@ -988,7 +1116,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "Eastleigh Borough Council",
@@ -996,7 +1125,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:05+00:00"
+   "checked_at": "2026-10-31T05:48:28+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Cambridgeshire District Council",
@@ -1004,7 +1134,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Devon District Council",
@@ -1012,15 +1143,17 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:11+00:00"
+   "checked_at": "2026-10-31T05:49:35+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Hampshire District Council",
    "url": "https://www.easthants.gov.uk/emergency-advice/rough-sleepers-advice",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Hertfordshire District Council",
@@ -1028,7 +1161,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Lindsey District Council",
@@ -1036,15 +1170,17 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Elmbridge Borough Council",
    "url": "https://elmbridge.gov.uk/housing/homelessness/shelter-during-severe-weather",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Enfield",
@@ -1052,7 +1188,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Epping Forest District Council",
@@ -1060,23 +1197,26 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Riding of Yorkshire Council",
    "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
-   "http": 200,
-   "status": "unknown",
+   "http": 202,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Suffolk Council",
    "url": "https://www.eastsuffolk.gov.uk/housing/housing/homelessness-advice-and-prevention/rough-sleeping",
-   "http": 200,
-   "status": "unknown",
+   "http": 405,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:06+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Exeter City Council",
@@ -1084,7 +1224,8 @@
    "http": "error",
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:26+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "Fenland District Council",
@@ -1092,7 +1233,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Forest of Dean District Council",
@@ -1100,7 +1242,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Gravesham Borough Council",
@@ -1108,7 +1251,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Great Yarmouth Borough Council",
@@ -1116,7 +1260,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Gwynedd Council",
@@ -1124,15 +1269,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:31+00:00",
+   "rest_centre": null
   },
   {
    "council": "Havant Borough Council",
    "url": "https://www.havant.gov.uk/emergency-advice/advice-rough-sleepers",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Hastings Borough Council",
@@ -1140,7 +1287,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:07+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Havering",
@@ -1148,7 +1296,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:08+00:00"
+   "checked_at": "2026-10-31T05:48:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Hertsmere Borough Council",
@@ -1156,7 +1305,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:08+00:00"
+   "checked_at": "2026-10-31T05:48:31+00:00",
+   "rest_centre": null
   },
   {
    "council": "Hinckley and Bosworth Borough Council",
@@ -1164,7 +1314,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:08+00:00"
+   "checked_at": "2026-10-31T05:48:31+00:00",
+   "rest_centre": null
   },
   {
    "council": "Hartlepool Borough Council",
@@ -1172,7 +1323,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:08+00:00"
+   "checked_at": "2026-10-31T05:48:31+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Harrow",
@@ -1180,7 +1332,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:08+00:00"
+   "checked_at": "2026-10-31T05:48:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Haringey",
@@ -1188,7 +1341,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:09+00:00"
+   "checked_at": "2026-10-31T05:48:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Hyndburn Borough Council",
@@ -1196,7 +1350,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:09+00:00"
+   "checked_at": "2026-10-31T05:48:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Isle of Wight Council",
@@ -1204,15 +1359,17 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:10+00:00"
+   "checked_at": "2026-10-31T05:48:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Ipswich Borough Council",
    "url": "https://www.ipswich.gov.uk/housing/homelessness/support-rough-sleepers",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:09+00:00"
+   "checked_at": "2026-10-31T05:48:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Islington",
@@ -1220,7 +1377,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:09+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Royal Borough of Kensington and Chelsea",
@@ -1228,7 +1386,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:09+00:00"
+   "checked_at": "2026-10-31T05:48:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Borough Council of Kings Lynn and West Norfolk",
@@ -1236,7 +1395,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:10+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Kirklees Council",
@@ -1244,15 +1404,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:10+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Royal Borough of Kingston upon Thames",
    "url": "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/hot-weather-heatwaves",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:15+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Lancaster City Council",
@@ -1260,7 +1422,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:11+00:00"
+   "checked_at": "2026-10-31T05:48:34+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Lambeth",
@@ -1268,15 +1431,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:11+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Leicester City Council",
    "url": "https://www.leicester.gov.uk/housing/homelessness/sleeping-rough",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:16+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Leeds City Council",
@@ -1284,7 +1449,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:12+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Lewes District Council",
@@ -1292,7 +1458,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:12+00:00"
+   "checked_at": "2026-10-31T05:48:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "Lichfield District Council",
@@ -1300,15 +1467,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:12+00:00"
+   "checked_at": "2026-10-31T05:48:34+00:00",
+   "rest_centre": null
   },
   {
    "council": "Maldon District Council",
    "url": "https://www.maldon.gov.uk/info/20056/homelessness/9630/emergency_accommodation_and_rough_sleepers",
-   "http": 200,
-   "status": "unknown",
+   "http": 500,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:13+00:00"
+   "checked_at": "2026-10-31T05:48:34+00:00",
+   "rest_centre": null
   },
   {
    "council": "Manchester City Council",
@@ -1316,7 +1485,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:13+00:00"
+   "checked_at": "2026-10-31T05:48:34+00:00",
+   "rest_centre": null
   },
   {
    "council": "Malvern Hills District Council",
@@ -1324,7 +1494,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:16+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Middlesbrough Borough Council",
@@ -1332,7 +1503,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:17+00:00"
+   "checked_at": "2026-10-31T05:48:35+00:00",
+   "rest_centre": null
   },
   {
    "council": "Mid Devon District Council",
@@ -1340,7 +1512,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:18+00:00"
+   "checked_at": "2026-10-31T05:48:35+00:00",
+   "rest_centre": null
   },
   {
    "council": "Medway Council",
@@ -1348,7 +1521,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:18+00:00"
+   "checked_at": "2026-10-31T05:48:35+00:00",
+   "rest_centre": null
   },
   {
    "council": "Monmouthshire County Council",
@@ -1356,15 +1530,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:18+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Merton",
    "url": "https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:24+00:00"
+   "checked_at": "2026-10-31T05:48:35+00:00",
+   "rest_centre": null
   },
   {
    "council": "Mid Sussex District Council",
@@ -1372,7 +1548,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:24+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Northumberland County Council",
@@ -1380,15 +1557,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:25+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Newark and Sherwood District Council",
    "url": "https://www.newark-sherwooddc.gov.uk/housing/homelessness/severe-weather-emergency-protocol",
    "http": 200,
-   "status": "not active",
-   "quote": "itable accommodation in these circumstances. Currently, the SWEP is not active. When the SWEP is active, we share an announcement and contact rough sleepers w",
-   "checked_at": "2026-10-30T21:38:26+00:00"
+   "status": "unknown",
+   "quote": "",
+   "checked_at": "2026-10-31T05:48:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Newcastle-under-Lyme Borough Council",
@@ -1396,7 +1575,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:26+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "North East Derbyshire District Council",
@@ -1404,7 +1584,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:26+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "North East Lincolnshire Council",
@@ -1412,7 +1593,8 @@
    "http": 200,
    "status": "old notice (latest date on page 2025-11-18)",
    "quote": "ago General With cold weather around the corner, the annual Severe Weather Emergency Protocol (SWEP) has been activated in North East Lincolnshire and will remain in place until the end of March. The",
-   "checked_at": "2026-10-30T21:38:26+00:00"
+   "checked_at": "2026-10-31T05:48:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Newcastle City Council",
@@ -1420,7 +1602,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:27+00:00"
+   "checked_at": "2026-10-31T05:48:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "New Forest District Council",
@@ -1428,7 +1611,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:27+00:00"
+   "checked_at": "2026-10-31T05:48:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Nottingham City Council",
@@ -1436,15 +1620,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:27+00:00"
+   "checked_at": "2026-10-31T05:48:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Kesteven District Council",
    "url": "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:32+00:00"
+   "checked_at": "2026-10-31T05:48:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Norfolk District Council",
@@ -1452,7 +1638,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:28+00:00"
+   "checked_at": "2026-10-31T05:48:39+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Northamptonshire Council",
@@ -1460,7 +1647,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:29+00:00"
+   "checked_at": "2026-10-31T05:48:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Norwich City Council",
@@ -1468,7 +1656,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:29+00:00"
+   "checked_at": "2026-10-31T05:48:38+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Somerset  Council",
@@ -1476,15 +1665,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:30+00:00"
+   "checked_at": "2026-10-31T05:48:38+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Tyneside Council",
    "url": "https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough",
-   "http": 200,
-   "status": "unknown",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:31+00:00"
+   "checked_at": "2026-10-31T05:49:44+00:00",
+   "rest_centre": null
   },
   {
    "council": "Nuneaton and Bedworth Borough Council",
@@ -1492,7 +1683,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:31+00:00"
+   "checked_at": "2026-10-31T05:48:39+00:00",
+   "rest_centre": null
   },
   {
    "council": "North West Leicestershire District Council",
@@ -1500,7 +1692,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:32+00:00"
+   "checked_at": "2026-10-31T05:48:39+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Newham",
@@ -1508,7 +1701,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:32+00:00"
+   "checked_at": "2026-10-31T05:48:40+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Yorkshire Council",
@@ -1516,7 +1710,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:33+00:00"
+   "checked_at": "2026-10-31T05:48:40+00:00",
+   "rest_centre": null
   },
   {
    "council": "Oxford City Council",
@@ -1524,7 +1719,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:33+00:00"
+   "checked_at": "2026-10-31T05:48:40+00:00",
+   "rest_centre": null
   },
   {
    "council": "Preston City Council",
@@ -1532,7 +1728,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:33+00:00"
+   "checked_at": "2026-10-31T05:48:40+00:00",
+   "rest_centre": null
   },
   {
    "council": "Peterborough City Council",
@@ -1540,15 +1737,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:34+00:00"
+   "checked_at": "2026-10-31T05:48:41+00:00",
+   "rest_centre": null
   },
   {
    "council": "Redcar and Cleveland Borough Council",
    "url": "https://www.redcar-cleveland.gov.uk/housing/housing-advice-and-information/rough-sleeping",
-   "http": 200,
-   "status": "unknown",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:35+00:00"
+   "checked_at": "2026-10-31T05:49:47+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rochdale Metropolitan Borough Council",
@@ -1556,7 +1755,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:35+00:00"
+   "checked_at": "2026-10-31T05:48:42+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Redbridge",
@@ -1564,7 +1764,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:36+00:00"
+   "checked_at": "2026-10-31T05:48:42+00:00",
+   "rest_centre": null
   },
   {
    "council": "Reading Borough Council",
@@ -1572,7 +1773,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:36+00:00"
+   "checked_at": "2026-10-31T05:48:43+00:00",
+   "rest_centre": null
   },
   {
    "council": "Redditch Borough Council",
@@ -1580,7 +1782,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:37+00:00"
+   "checked_at": "2026-10-31T05:48:44+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rochford District Council",
@@ -1588,7 +1791,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:38+00:00"
+   "checked_at": "2026-10-31T05:48:45+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rother District Council",
@@ -1596,7 +1800,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:38+00:00"
+   "checked_at": "2026-10-31T05:48:46+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rossendale Borough Council",
@@ -1604,7 +1809,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:39+00:00"
+   "checked_at": "2026-10-31T05:48:46+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rotherham Metropolitan Borough Council",
@@ -1612,7 +1818,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:39+00:00"
+   "checked_at": "2026-10-31T05:48:47+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rugby Borough Council",
@@ -1620,7 +1827,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:40+00:00"
+   "checked_at": "2026-10-31T05:48:47+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rushmoor Borough Council",
@@ -1628,7 +1836,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:41+00:00"
+   "checked_at": "2026-10-31T05:48:48+00:00",
+   "rest_centre": null
   },
   {
    "council": "Runnymede Borough Council",
@@ -1636,7 +1845,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:41+00:00"
+   "checked_at": "2026-10-31T05:48:48+00:00",
+   "rest_centre": null
   },
   {
    "council": "St Albans City and District Council",
@@ -1644,7 +1854,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:42+00:00"
+   "checked_at": "2026-10-31T05:48:48+00:00",
+   "rest_centre": null
   },
   {
    "council": "Sandwell Metropolitan Borough Council",
@@ -1652,7 +1863,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:42+00:00"
+   "checked_at": "2026-10-31T05:48:48+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Cambridgeshire District Council",
@@ -1660,7 +1872,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:43+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Gloucestershire Council",
@@ -1668,7 +1881,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:43+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Hams District Council",
@@ -1676,15 +1890,17 @@
    "http": 405,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:38:43+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "Sheffield City Council",
    "url": "https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:48+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Holland District Council",
@@ -1692,15 +1908,17 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:01+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Kesteven District Council",
    "url": "https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:06+00:00"
+   "checked_at": "2026-10-31T05:48:49+00:00",
+   "rest_centre": null
   },
   {
    "council": "Slough Borough Council",
@@ -1708,15 +1926,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:02+00:00"
+   "checked_at": "2026-10-31T05:48:50+00:00",
+   "rest_centre": null
   },
   {
    "council": "Somerset Council",
    "url": "https://www.somerset.gov.uk/housing-support/homelessness-and-prevention/emergency-accommodation-in-severe-weather/",
    "http": 200,
-   "status": "unknown",
-   "quote": "",
-   "checked_at": "2026-10-30T21:39:02+00:00"
+   "status": "not active",
+   "quote": "on Other information Map of Warm Welcome Spaces Street Link SWEP status information Severe Weather Emergency Provision (SWEP) in Somerset is: Not active Summer SWEP is automatically triggered when the Met Office forecasts temperatur",
+   "checked_at": "2026-10-31T05:48:50+00:00",
+   "rest_centre": null
   },
   {
    "council": "Southend-on-Sea Borough Council",
@@ -1724,7 +1944,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:03+00:00"
+   "checked_at": "2026-10-31T05:48:50+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Oxfordshire District Council",
@@ -1732,7 +1953,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:03+00:00"
+   "checked_at": "2026-10-31T05:48:51+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Ribble Borough Council",
@@ -1740,15 +1962,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:04+00:00"
+   "checked_at": "2026-10-31T05:48:50+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Staffordshire Council",
    "url": "https://www.sstaffs.gov.uk/housing/housing-and-homelessness-advice",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:09+00:00"
+   "checked_at": "2026-10-31T05:48:50+00:00",
+   "rest_centre": null
   },
   {
    "council": "Stafford Borough Council",
@@ -1756,7 +1980,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:12+00:00"
+   "checked_at": "2026-10-31T05:48:51+00:00",
+   "rest_centre": null
   },
   {
    "council": "Stoke-on-Trent City Council",
@@ -1764,7 +1989,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:12+00:00"
+   "checked_at": "2026-10-31T05:48:51+00:00",
+   "rest_centre": null
   },
   {
    "council": "Stroud District Council",
@@ -1772,7 +1998,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:13+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "Stratford-on-Avon District Council",
@@ -1780,7 +2007,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:14+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "Stevenage Borough Council",
@@ -1788,7 +2016,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:14+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "South Tyneside Council",
@@ -1796,7 +2025,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:15+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "Surrey Heath Borough Council",
@@ -1804,23 +2034,26 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:15+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "Swindon Borough Council",
    "url": "https://www.swindon.gov.uk/info/20025/homes_and_property/894/severe_weather_emergency_protocol_swep",
    "http": 200,
-   "status": "active",
-   "quote": "g rough, you can still let us know using the details below. SWEP: currently active The Severe Weather Emergency Protocol is currently active in Swindon . We are providing emergency accommodation to anyone who is street h",
-   "checked_at": "2026-10-30T21:39:16+00:00"
+   "status": "not active",
+   "quote": "arch this site Search You are here: Home Homes and property Severe Weather Emergency Protocol (SWEP) Severe Weather Emergency Protocol (SWEP) SWEP: not active The Severe Weather Emergency Protocol is not currently active in Swindon . If y",
+   "checked_at": "2026-10-31T05:48:53+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Southwark",
    "url": "https://www.southwark.gov.uk/housing/homelessness/sleeping-rough/rough-sleeping-very-cold-weather",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:20+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "Swale Borough Council",
@@ -1828,23 +2061,26 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:16+00:00"
+   "checked_at": "2026-10-31T05:48:52+00:00",
+   "rest_centre": null
   },
   {
    "council": "Tameside Metropolitan Borough Council",
    "url": "https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping",
-   "http": 200,
-   "status": "unknown",
+   "http": "error",
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:17+00:00"
+   "checked_at": "2026-10-31T05:49:12+00:00",
+   "rest_centre": null
   },
   {
    "council": "Tamworth Borough Council",
    "url": "https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping",
-   "http": 200,
-   "status": "no SWEP wording",
+   "http": 500,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:17+00:00"
+   "checked_at": "2026-10-31T05:48:53+00:00",
+   "rest_centre": null
   },
   {
    "council": "Teignbridge District Council",
@@ -1852,7 +2088,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:23+00:00"
+   "checked_at": "2026-10-31T05:49:59+00:00",
+   "rest_centre": null
   },
   {
    "council": "Test Valley Borough Council",
@@ -1860,7 +2097,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:18+00:00"
+   "checked_at": "2026-10-31T05:48:54+00:00",
+   "rest_centre": null
   },
   {
    "council": "Tewkesbury Borough Council",
@@ -1868,7 +2106,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:23+00:00"
+   "checked_at": "2026-10-31T05:49:59+00:00",
+   "rest_centre": null
   },
   {
    "council": "Telford & Wrekin Council",
@@ -1876,7 +2115,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:24+00:00"
+   "checked_at": "2026-10-31T05:49:13+00:00",
+   "rest_centre": null
   },
   {
    "council": "Thanet District Council",
@@ -1884,7 +2124,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:25+00:00"
+   "checked_at": "2026-10-31T05:49:14+00:00",
+   "rest_centre": null
   },
   {
    "council": "Three Rivers District Council",
@@ -1892,7 +2133,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:25+00:00"
+   "checked_at": "2026-10-31T05:49:14+00:00",
+   "rest_centre": null
   },
   {
    "council": "Thurrock Council",
@@ -1900,7 +2142,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:26+00:00"
+   "checked_at": "2026-10-31T05:49:15+00:00",
+   "rest_centre": null
   },
   {
    "council": "Torbay Council",
@@ -1908,7 +2151,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:26+00:00"
+   "checked_at": "2026-10-31T05:49:16+00:00",
+   "rest_centre": null
   },
   {
    "council": "Torfaen County Borough Council",
@@ -1916,7 +2160,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:27+00:00"
+   "checked_at": "2026-10-31T05:49:16+00:00",
+   "rest_centre": null
   },
   {
    "council": "Torridge District Council",
@@ -1924,7 +2169,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:27+00:00"
+   "checked_at": "2026-10-31T05:49:17+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Tower Hamlets",
@@ -1932,7 +2178,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:28+00:00"
+   "checked_at": "2026-10-31T05:49:17+00:00",
+   "rest_centre": null
   },
   {
    "council": "Uttlesford District Council",
@@ -1940,7 +2187,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:28+00:00"
+   "checked_at": "2026-10-31T05:49:17+00:00",
+   "rest_centre": null
   },
   {
    "council": "Vale of White Horse District Council",
@@ -1948,15 +2196,17 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:29+00:00"
+   "checked_at": "2026-10-31T05:49:18+00:00",
+   "rest_centre": null
   },
   {
    "council": "Westmorland and Furness Council",
    "url": "https://www.westmorlandandfurness.gov.uk/housing/homeless-and-sleeping-rough-0/sleeping-rough-or-street-homeless",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:30+00:00"
+   "checked_at": "2026-10-31T05:49:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Watford Borough Council",
@@ -1964,7 +2214,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:30+00:00"
+   "checked_at": "2026-10-31T05:49:19+00:00",
+   "rest_centre": null
   },
   {
    "council": "Warwick District Council",
@@ -1972,7 +2223,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:31+00:00"
+   "checked_at": "2026-10-31T05:49:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wealden District Council",
@@ -1980,7 +2232,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:31+00:00"
+   "checked_at": "2026-10-31T05:49:21+00:00",
+   "rest_centre": null
   },
   {
    "council": "Welwyn Hatfield Borough Council",
@@ -1988,7 +2241,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:32+00:00"
+   "checked_at": "2026-10-31T05:49:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "London Borough of Waltham Forest",
@@ -1996,7 +2250,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:33+00:00"
+   "checked_at": "2026-10-31T05:49:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wiltshire Council",
@@ -2004,7 +2259,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:32+00:00"
+   "checked_at": "2026-10-31T05:49:22+00:00",
+   "rest_centre": null
   },
   {
    "council": "Winchester City Council",
@@ -2012,7 +2268,8 @@
    "http": 200,
    "status": "old notice (latest date on page 2024-11-21)",
    "quote": "out on the street during the cold weather. The city&rsquo;s Severe Weather Emergency Protocol (SWEP) has been activated and will&nbsp;remain while the temperature has dropped. We work in partnership ",
-   "checked_at": "2026-10-30T21:39:33+00:00"
+   "checked_at": "2026-10-31T05:49:23+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wakefield Metropolitan District Council",
@@ -2020,31 +2277,35 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:33+00:00"
+   "checked_at": "2026-10-31T05:49:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "West Lindsey District Council",
    "url": "https://www.west-lindsey.gov.uk/sites/default/files/2026-08/Lincolnshire%20SWEP%20Protocol%20July%202026%20-%20Approved%20Version.pdf",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:38+00:00"
+   "checked_at": "2026-10-31T05:49:24+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Wolverhampton Council",
    "url": "https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:39+00:00"
+   "checked_at": "2026-10-31T05:49:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Royal Borough of Windsor and Maidenhead",
    "url": "https://www.rbwm.gov.uk/housing/homelessness/severe-weather-emergency-protocol-swep",
-   "http": 200,
-   "status": "unknown",
+   "http": 202,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:49+00:00"
+   "checked_at": "2026-10-31T05:49:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "West Northamptonshire Council",
@@ -2052,7 +2313,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:49+00:00"
+   "checked_at": "2026-10-31T05:49:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Worcester City Council",
@@ -2060,23 +2322,26 @@
    "http": 307,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:49+00:00"
+   "checked_at": "2026-10-31T05:49:25+00:00",
+   "rest_centre": null
   },
   {
    "council": "Woking Borough Council",
    "url": "https://www.woking.gov.uk/housing/homelessness-rough-sleeping",
-   "http": 200,
-   "status": "no SWEP wording",
+   "http": 403,
+   "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:50+00:00"
+   "checked_at": "2026-10-31T05:50:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wokingham Borough Council",
    "url": "https://www.wokingham.gov.uk/housing-and-tenants/housing-needs/homelessness",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:50+00:00"
+   "checked_at": "2026-10-31T05:49:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Worthing Borough Council",
@@ -2084,23 +2349,26 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:50+00:00"
+   "checked_at": "2026-10-31T05:49:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wrexham County Borough Council",
    "url": "https://www.wrexham.gov.uk/services/housing/homeless-or-risk/help-and-advice",
    "http": 200,
-   "status": "unknown",
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:39:51+00:00"
+   "checked_at": "2026-10-31T05:49:29+00:00",
+   "rest_centre": null
   },
   {
    "council": "City of Westminster",
    "url": "https://www.westminster.gov.uk/businesses/major-incidents-and-contingency-planning/risks-and-hazards/extreme-weather",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:56+00:00"
+   "checked_at": "2026-10-31T05:49:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wyre Forest District Council",
@@ -2108,7 +2376,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:07+00:00"
+   "checked_at": "2026-10-31T05:49:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Wyre Borough Council",
@@ -2116,7 +2385,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:07+00:00"
+   "checked_at": "2026-10-31T05:49:30+00:00",
+   "rest_centre": null
   },
   {
    "council": "Ashford Borough Council",
@@ -2124,7 +2394,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:08+00:00"
+   "checked_at": "2026-10-31T05:49:31+00:00",
+   "rest_centre": null
   },
   {
    "council": "Broxtowe Borough Council",
@@ -2132,7 +2403,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:09+00:00"
+   "checked_at": "2026-10-31T05:49:31+00:00",
+   "rest_centre": null
   },
   {
    "council": "Cambridge City Council",
@@ -2140,7 +2412,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:10+00:00"
+   "checked_at": "2026-10-31T05:49:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Hertfordshire District Council",
@@ -2148,7 +2421,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:12+00:00"
+   "checked_at": "2026-10-31T05:49:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Elmbridge Borough Council",
@@ -2156,7 +2430,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:10+00:00"
+   "checked_at": "2026-10-31T05:49:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "Harlow District Council",
@@ -2164,7 +2439,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:11+00:00"
+   "checked_at": "2026-10-31T05:49:32+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Norfolk District Council",
@@ -2172,7 +2448,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:12+00:00"
+   "checked_at": "2026-10-31T05:49:34+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Norfolk District Council",
@@ -2180,7 +2457,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:13+00:00"
+   "checked_at": "2026-10-31T05:49:33+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Norfolk District Council",
@@ -2188,7 +2466,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:13+00:00"
+   "checked_at": "2026-10-31T05:49:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Norfolk District Council",
@@ -2196,7 +2475,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:14+00:00"
+   "checked_at": "2026-10-31T05:49:35+00:00",
+   "rest_centre": null
   },
   {
    "council": "North Norfolk District Council",
@@ -2204,7 +2484,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:14+00:00"
+   "checked_at": "2026-10-31T05:49:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Redditch Borough Council",
@@ -2212,7 +2493,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:14+00:00"
+   "checked_at": "2026-10-31T05:49:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Rossendale Borough Council",
@@ -2220,7 +2502,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:15+00:00"
+   "checked_at": "2026-10-31T05:49:36+00:00",
+   "rest_centre": null
   },
   {
    "council": "Suffolk County Council",
@@ -2228,7 +2511,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:15+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Thanet District Council",
@@ -2236,7 +2520,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:15+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Thanet District Council",
@@ -2244,7 +2529,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:16+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Thanet District Council",
@@ -2252,7 +2538,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:15+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Thanet District Council",
@@ -2260,7 +2547,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:16+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Coventry City Council",
@@ -2268,7 +2556,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:16+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "New Forest District Council",
@@ -2276,15 +2565,17 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:16+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "East Lothian Council",
    "url": "https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian",
-   "http": 403,
-   "status": "unreachable",
+   "http": 200,
+   "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:41:21+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Watford Borough Council",
@@ -2292,7 +2583,8 @@
    "http": 200,
    "status": "unknown",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:17+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Angus Council",
@@ -2300,7 +2592,8 @@
    "http": 403,
    "status": "unreachable",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:17+00:00"
+   "checked_at": "2026-10-31T05:49:37+00:00",
+   "rest_centre": null
   },
   {
    "council": "Ipswich Borough Council",
@@ -2308,7 +2601,8 @@
    "http": 200,
    "status": "no SWEP wording",
    "quote": "",
-   "checked_at": "2026-10-30T21:40:17+00:00"
+   "checked_at": "2026-10-31T05:49:38+00:00",
+   "rest_centre": null
   }
  ]
 }
