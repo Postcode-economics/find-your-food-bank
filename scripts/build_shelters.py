@@ -75,7 +75,7 @@ def shelter_autocheck(x):
     flags = []
     if x.get("flag_closed"): flags.append("tagged closed/disused in OSM")
     n = x["name"].lower()
-    if x.get("kind") != "day_centre" and any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee", "foyer"]): flags.append("name suggests not a shelter")
+    if x.get("kind") not in ("day_centre", "young_people") and any(w in n for w in ["hotel", "alms", "care home", "day centre", "refugee", "foyer"]): flags.append("name suggests not a shelter")
     if any(w in n for w in ["night shelter", "winter shelter", "swep", "cold weather"]): flags.append("seasonal: needs stated open period")
     if not x.get("website"): flags.append("no operator website in source")
     return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}

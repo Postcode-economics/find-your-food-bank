@@ -61,8 +61,8 @@
     if (i.kind === 'day_centre' || i.service === 'day_centre') return ['Day centre', 'Canolfan ddydd'];
     const name = String(i.name || '');
     const groups = (i.groups || []).join(' ');
-    if (/\bfoyers?\b/i.test(name) || (/\bhousing\b/i.test(name) && /16\s*[-–to]{1,3}\s*25/i.test(name + ' ' + groups)))
-      return ["Young people's housing (16-25)", 'Tai i bobl ifanc (16-25)'];
+    if (i.kind === 'young_people' || /\bfoyers?\b/i.test(name) || (/\bhousing\b/i.test(name) && /16\s*[-–to]{1,3}\s*25/i.test(name + ' ' + groups)))
+      return ['Young people’s housing (16–25), referral needed', 'Tai i bobl ifanc (16–25), angen atgyfeiriad'];
     const hostel = /\bhostel\b/i.test(name);
     const referral = i.access_type === 'referral_only' || /\breferral only\b/i.test(String(i.referral || ''));
     if (hostel && referral) return ['Referral hostel', 'Hostel drwy atgyfeiriad'];

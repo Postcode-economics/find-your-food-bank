@@ -226,7 +226,7 @@ function status(layer,i,now){now=clockNow(now);if(i.upcoming)return{st:'closed',
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
  for(let k=0;k<8;k++){const dd=(d+k)%7;if(s[dd]==null)return{st:'closed',day:null};const c=s[dd].filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
  return{st:'closed',day:null}}
-function badge(layer,i){let html=_badge(layer,i);if(layer==='sh'&&i&&i.kind==='day_centre')html=html.replace(/open tonight/ig,'open').replace(/\btonight\b/ig,'');return html}
+function badge(layer,i){let html=_badge(layer,i);if(layer==='sh'&&i&&(i.kind==='day_centre'||i.kind==='young_people'))html=html.replace(/open tonight/ig,'open').replace(/\btonight\b/ig,'');return html}
 function _badge(layer,i){const r=status(layer,i);
  if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('OPEN NOW','AR AGOR NAWR'):B('OPEN NOW until '+clk(r.until),'AR AGOR NAWR tan '+clk(r.until))}</div>`;
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;

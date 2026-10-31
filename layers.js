@@ -10,7 +10,7 @@ const T={en:{fb:'Food banks',before:'Before you go',beforeSum:'Always call befor
  groups:'Who for',beds:'Beds',season:'Season',ref:'Referral',hours:'Hours',prov:'Provided',book:'Booking',dates:'Scheme dates',
  src:'Source',ver:'verified',chk:'Checked',lst:'Original listing',unv:'Unverified – call before you go',tchk:'Times checked {d} – call before you go',seen:'Seen open',refOnly:'Referral only',selfRef:'Self-referral',openAcc:'Open access',verOnly:'Verified only',stale:'Not verified for over 7 days, call before you go',ended:'This season’s scheme has ended',
  nSh:'Nearest shelters',nWs:'Nearest warm spaces',loading:'Loading…',offline:'You’re offline. Showing places saved on ',offEnd:'. Call before you go.',offBare:'You’re offline. Call before you go.',chkL:'Listings last checked ',none:'None listed',
- dayCentre:'Day centre',dayOnly:'Daytime only. No overnight bed.',dayFilt:'Day centres',offer:'Offers',
+ dayCentre:'Day centre',youth:'Young people’s housing (16–25), referral needed',youthOnly:'For ages 16–25. Referral needed. Not an emergency bed.',dayOnly:'Daytime only. No overnight bed.',dayFilt:'Day centres',offer:'Offers',
  h1:'Find help near you',search:'Search',ph:'Postcode or town',lang:'Cymraeg',noClosed:'Nothing closed in the last 30 days.',on:'✓ ON',mi:'miles',srcNote:'Details are shown in the language the source published them in.'},
 cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn mynd',legend:'Allwedd',sh:'Llochesi',ws:'Mannau cynnes',near:'Dod o hyd i’r agosaf ataf',upd:'diweddarwyd',notLoaded:'tapiwch i ddangos',
  disc:'<b>Gall rhestrau newid heb rybudd.</b> Ffoniwch bob amser cyn teithio. Rydym yn rhestru gwasanaethau o wybodaeth gyhoeddus ac nid ydym yn ymweld â nhw nac yn eu harolygu. Mewn argyfwng ffoniwch 999. Os ydych chi’n cysgu ar y stryd, cysylltwch â’ch cyngor lleol.',
@@ -18,7 +18,7 @@ cy:{fb:'Banciau bwyd',before:'Cyn i chi fynd',beforeSum:'Ffoniwch bob amser cyn 
  groups:'I bwy',beds:'Gwelyau',season:'Tymor',ref:'Atgyfeirio',hours:'Oriau',prov:'Ar gael',book:'Archebu',dates:'Dyddiadau’r cynllun',
  src:'Ffynhonnell',ver:'gwiriwyd',chk:'Gwiriwyd',lst:'Rhestr wreiddiol',unv:'Heb ei wirio – ffoniwch cyn mynd',tchk:'Amseroedd wedi’u gwirio {d} – ffoniwch cyn mynd',seen:'Gwelwyd ar agor',refOnly:'Atgyfeirio yn unig',selfRef:'Hunangyfeirio',openAcc:'Mynediad agored',verOnly:'Wedi’u gwirio yn unig',stale:'Heb ei wirio ers dros 7 diwrnod, ffoniwch cyn mynd',ended:'Mae cynllun y tymor hwn wedi dod i ben',
  nSh:'Llochesi agosaf',nWs:'Mannau cynnes agosaf',loading:'Wrthi’n llwytho…',offline:'Rydych chi all-lein. Yn dangos lleoedd a gadwyd ar ',offEnd:'. Ffoniwch cyn mynd.',offBare:'Rydych chi all-lein. Ffoniwch cyn mynd.',chkL:'Gwiriwyd y rhestrau ddiwethaf ',none:'Dim wedi’u rhestru',
- dayCentre:'Canolfan ddydd',dayOnly:'Yn ystod y dydd yn unig. Dim gwely dros nos.',dayFilt:'Canolfannau dydd',offer:'Yn cynnig',
+ dayCentre:'Canolfan ddydd',youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad',youthOnly:'Ar gyfer oed 16–25. Angen atgyfeiriad. Nid gwely brys.',dayOnly:'Yn ystod y dydd yn unig. Dim gwely dros nos.',dayFilt:'Canolfannau dydd',offer:'Yn cynnig',
  h1:'Dod o hyd i help yn agos atoch',search:'Chwilio',ph:'Cod post neu dref',lang:'EN',noClosed:'Dim wedi cau yn y 30 diwrnod diwethaf.',on:'✓ YMLAEN',mi:'milltir',srcNote:'Dangosir y manylion yn yr iaith a ddefnyddiodd y ffynhonnell.'}};
 let lang=(()=>{try{return localStorage.getItem('lang')||'en'}catch(e){return 'en'}})();const t=k=>T[lang][k];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -47,7 +47,7 @@ const bar=document.createElement('div');bar.id='xbar';bar.setAttribute('role','t
 const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria-pressed="${on}"><i class="sw ${shape}" style="background:${col}"></i><span data-t="${k}"></span></button>`;
 bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)+seg('ws',LAYERS.ws.col,'dia',false);
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
-const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=`<span><i class="sw tear" style="background:#F5C518"></i><b data-t="fb"></b> <small id="u_fb"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="sh"></b> <small id="u_sh"></small></span><span><i class="sw dia" style="background:${LAYERS.ws.col}"></i><b data-t="ws"></b> <small id="u_ws"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="dayCentre"></b> <small data-t="dayOnly"></small></span>`;
+const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=`<span><i class="sw tear" style="background:#F5C518"></i><b data-t="fb"></b> <small id="u_fb"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="sh"></b> <small id="u_sh"></small></span><span><i class="sw dia" style="background:${LAYERS.ws.col}"></i><b data-t="ws"></b> <small id="u_ws"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="dayCentre"></b> <small data-t="dayOnly"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="youth"></b> <small data-t="youthOnly"></small></span>`;
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box
@@ -121,9 +121,12 @@ function shContact(i,tel,k){const cy=lang==='cy',o=[],sh=k!=='ws';const w=webUrl
  return o.join('')}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
  const day=k==='sh'&&i.kind==='day_centre';
- const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:'';
+ const youth=k==='sh'&&i.kind==='young_people';
+ const dayHtml=day?`<p class="xday">${t('dayOnly')}</p>`:youth?`<p class="xday">${t('youthOnly')}</p>`:'';
  const facts=window.UFacts?UFacts.block(k,i)+UFacts.checked(i):(k==='sh'?row('groups',esc((i.groups||[]).map(v).join(' · ')))+(day?'':row('beds',esc(i.beds)))+row('ref',esc(i.referral))+(REFONLY(i)?'':row('hours',hoursHtml(i.hours))):row('hours',hoursHtml(i.hours))+chips(i));
- return `${tierTop(i,k)}${window.UFacts?UFacts.typeRow(k,i):''}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
+ const typeHtml=window.UFacts?UFacts.typeRow(k,i):(day?`<span class="xkind">${t('dayCentre')}</span>`:youth?`<span class="xkind xyouth">${t('youth')}</span>`:'');
+ return `${tierTop(i,k)}${typeHtml}${window.V3?V3.badge(k,i):''}${dayHtml}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${dist*0.621<0.1?'0.1':dist*0.621<10?(dist*0.621).toFixed(1):Math.round(dist*0.621)} ${lang==='cy'?'milltir':(dist*0.621).toFixed(1)==='1.0'?'mile':'miles'}</div>`:''}${window.V3?V3.walk(dist):''}
+
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
  <p>${addr(i)}</p>
  ${facts}
@@ -138,7 +141,7 @@ async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[dat
  if(!on){if(L_.group)map.removeLayer(L_.group);if(lastPos)nearX(...lastPos);return}
  try{await load(k)}catch(e){return}
  if(!L_.group){L_.group=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45,iconCreateFunction:c=>L.divIcon({className:'xcl',html:`<div class="${L_.shape}" style="background:${L_.col}"><span>${c.getChildCount()}</span></div>`,iconSize:[40,40]})});
-  L_.data.items.forEach(i=>{const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
+  L_.data.items.forEach(i=>{if(i.no_pin)return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
    m.on('click',()=>showSheet(detail(k,i,lastPos?hav(lastPos[0],lastPos[1],i.lat,i.lng):null)));L_.group.addLayer(m)})}
  if(L_.on)map.addLayer(L_.group);if(lastPos)nearX(...lastPos)}
 document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.getAttribute('aria-pressed')!=='true'));
