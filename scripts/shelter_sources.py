@@ -539,6 +539,7 @@ def _place_url(url):
     if re.search(r"(?:^|&)(?:s|q|keys|highlight)=", query): return False
     if re.search(r"/(?:blog|news|press-release|press|tag|category|author|search|careers|jobs|vacancies|post)(?:/|$)", path):
         return False
+    if path.endswith(".xml") or "/sitemap" in path: return False
     if re.search(r"/page/\d+(?:/|$)|/\d{4}/\d{2}/|mourn|obituar", path): return False
     if re.search(r"cemetery|crematorium|register-office|registration-office|births-deaths|civil-partnership", path):
         return False
@@ -1042,17 +1043,6 @@ def _route_sentence(text):
     if not m: return ""
     return _snip(text, m)
 _TOWN_STOP = {"housing", "council", "local", "the", "referral", "street", "options", "city", "borough", "hostel", "england", "wales", "scotland", "northern", "ireland"}
-def _town_from(text):
-    m = re.search(r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+Housing Options\b", text or "")
-    if not m:
-        m = re.search(r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+(?:City |Borough |District |County )?Council\b", text or "")
-    if not m:
-        m = re.search(r"(?:based in|hostel in)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})", text or "")
-    if not m: return ""
-    town = m.group(1).strip()
-    words = [w.lower() for w in town.split()]
-    if not words or words[0] in _TOWN_STOP or all(w in _TOWN_STOP for w in words): return ""
-    return town
 def _operator_from(text, url):
     m = re.search(r"(?:run by|operated by|provided by|managed by)\s+([^.]{3,80})", text or "", re.I)
     if not m: return ""
@@ -1080,40 +1070,214 @@ def _phone_on_page(text):
         best = shown
         break
     return best
+CARD_ROUTE = re.compile(r"housing options|streetlink|(?<!\bno\s)referral(?:s)? (?:only|needed|required|via|through|from)|(?<!\bno\s)by referral|referred by|must be referred|(?<![\w-])self[- ]referr|(?<![\d-])direct access|(?<![\w-])walk[- ]in|referrals? from", re.I)
+_OP_BAD = re.compile(r"cookie|skip to|menu|search|newsletter|privacy|preferences|donate", re.I)
+def _url_names(url, name):
+    path = urllib.parse.urlparse(url or "").path.lower()
+    return any(w in path for w in distinctive(name) if len(w) >= 5)
+def _name_positions(text, name):
+    low = (text or "").lower()
+    out = []
+    for w in distinctive(name):
+        if len(w) < 4: continue
+        start = 0
+        while len(out) < 24:
+            j = low.find(w, start)
+            if j < 0: break
+            out.append(j)
+            start = j + len(w)
+    return out
+def _near_name(text, name, at, pad=900):
+    pos = _name_positions(text, name)
+    if not pos: return False
+    return min(abs(at - p) for p in pos) <= pad
+def _quote_at(text, at):
+    raw = text or ""
+    start = max(0, raw.rfind(".", 0, at) + 1)
+    end = raw.find(".", at)
+    if end == -1: end = min(len(raw), at + 90)
+    return re.sub(r"\s+", " ", raw[start:end]).strip(" -")[:200]
+def _sentences(text):
+    out = []
+    for s in re.split(r"(?<=[.!?])\s+", text or ""):
+        s = re.sub(r"\s+", " ", s).strip()
+        if 30 <= len(s) <= 240 and not re.search(r"livechat|cookie|skip to|tweet|powered by", s, re.I):
+            out.append(s)
+    return out
+def _best_sentence(text, *need):
+    need = [n.lower() for n in need if n]
+    best = ""
+    for s in _sentences(text):
+        low = s.lower()
+        if need and not all(n in low for n in need): continue
+        if not best or len(s) < len(best):
+            best = s
+    return best
+def _town_ok(town):
+    words = [w.lower() for w in (town or "").split()]
+    extra = {"families", "helping", "services", "residents", "information", "access", "about", "contact", "search", "home", "menu", "skip", "support", "people", "young", "single"}
+    if not words or words[0] in _TOWN_STOP or words[0] in extra: return ""
+    if all(w in _TOWN_STOP or w in extra for w in words): return ""
+    return town.strip()
+def _town_from(text):
+    raw = text or ""
+    found = []
+    for rx in (
+        r"(?:run by|operated by|provided by|managed by)\s+[^.]{3,70}?\s+in\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})",
+        r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+Housing Options\b",
+        r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+(?:City |Borough |District |County )?Council\b",
+        r"(?:based in|hostel in)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})",
+    ):
+        for m in re.finditer(rx, raw):
+            town = _town_ok(m.group(1))
+            if town: found.append((m.start(), town, _quote_at(raw, m.start())))
+    return found
+def _operator_ok(op, name):
+    op = re.sub(r"\s+", " ", op or "").strip(" ,-|")
+    if not op or len(op) < 3 or len(op) > 70: return ""
+    if _OP_BAD.search(op): return ""
+    if op.lower() in ("the council", "council", "housing options", "streetlink"): return ""
+    if op.lower() == (name or "").lower(): return ""
+    return op
+def _operators(text, name, url):
+    raw = text or ""
+    found = []
+    for m in re.finditer(r"(?:run by|operated by|provided by|managed by)\s+([^.]{3,80})", raw, re.I):
+        op = _operator_ok(re.split(r"\s+in\s+", m.group(1), maxsplit=1)[0], name)
+        if op: found.append((m.start(), op, _quote_at(raw, m.start())))
+    host = discover.host(url)
+    if host == "gov.uk" or host.endswith(".gov.uk"):
+        for m in re.finditer(r"((?:City of |London Borough of )?[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3}\s+Council)\b", raw):
+            op = _operator_ok(m.group(1), name)
+            if op: found.append((m.start(), op, _quote_at(raw, m.start())))
+    head = raw[:240]
+    for m in re.finditer(r"[|–-]\s*((?:[A-Z][A-Za-z0-9'&]+(?:\s+|$)){1,5})", head):
+        op = _operator_ok(re.split(r"\s+(?:Our|Skip|Search|Menu|Home|News|Contact|What|Get|Chat|Show|Back|With)\b", m.group(1))[0], name)
+        if op: found.append((m.start(), op, _quote_at(raw, m.start())))
+    return found
+def _phones(text, name):
+    raw = text or ""
+    found = []
+    for p in PHONE_RE.findall(raw):
+        shown = _uk_phone(p)
+        if not shown: continue
+        i = raw.find(p)
+        local = raw[max(0, i - 60): i + len(p) + 60]
+        if HQ_PHONE.search(local) or re.search(r"fundraising|donate", local, re.I): continue
+        pos = _name_positions(raw, name)
+        dist = min((abs(i - n) for n in pos), default=10 ** 9)
+        found.append((dist, i, shown, _quote_at(raw, i)))
+    found.sort()
+    return found
+def _routes(text):
+    raw = text or ""
+    found = []
+    for m in CARD_ROUTE.finditer(raw):
+        snip = _quote_at(raw, m.start())
+        if NOT_ACCESS.search(snip): continue
+        if re.search(r"preferences|livechat|skip to|powered by|cookie", snip, re.I): continue
+        found.append((m.start(), snip))
+    return found
+_AREA_GENERIC = GENERIC | {"council", "city", "borough", "district", "county", "homelessness", "homeless",
+    "scheme", "schemes", "project", "projects", "accommodation", "emergency", "temporary", "living",
+    "services", "partnership", "association", "group", "people", "single", "young", "support",
+    "resettlement", "options", "access", "point", "pathway", "advice", "team", "rough", "sleepers", "sleeper"}
+def _area_names(text, name):
+    """The specific part of the hostel name, not only the council or the word hostel.
+    One short leftover such as 'york' is not enough."""
+    words = set(re.findall(r"[a-z0-9]+", (text or "").lower()))
+    d = {w for w in (discover.tokens(name) - _AREA_GENERIC) if len(w) >= 4}
+    long = {w for w in d if len(w) >= 5}
+    if len(long) >= 2: return long <= words
+    if len(long) == 1: return bool(long & words)
+    if len(d) >= 2: return d <= words
+    return False
+def _already_named(name, existing):
+    """A hostel already on the map under the same specific name should not also become an area card."""
+    d = {w for w in (discover.tokens(name) - _AREA_GENERIC) if len(w) >= 4}
+    if len(d) < 2 and not any(len(w) >= 6 for w in d):
+        return False
+    for e in existing or []:
+        ed = {w for w in (discover.tokens(e.get("name") or "") - _AREA_GENERIC) if len(w) >= 4}
+        if len(d) >= 2 and d <= ed:
+            return True
+        if len(d) == 1 and d == ed:
+            return True
+    return False
+def _page_supported_only(name, text):
+    blob = (name or "") + " " + (text or "")
+    if not SUPPORTED.search(blob): return False
+    return not re.search(r"\bhostel\b|direct access|night shelter|emergency accommodation|emergency bed", blob, re.I)
 def referral_area_card(name, pages):
-    """An area card for a hostel whose building address is not public.
-    Name, operator, town, phone and referral route must be on the operator or council page.
-    No postcode, no pin. A directory postcode is ignored. A refuge is not a card."""
+    """An area card when an operator or council page names the hostel, who runs it, the town,
+    a phone, and how to get a bed (referral, self-referral or direct access).
+    No postcode and no pin. The page does not have to say the address is withheld.
+    A building postcode on that page is a pin, not an area card. A refuge, a supported-only
+    service, or a seasonal shelter without current dates is not a card."""
     blob = " ".join(t for _, t in pages or [])
     if is_refuge(name, blob) or is_refuge(name, ""): return None
     if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", name or "", re.I): return None
+    if seasonal_reason(name, blob) and not any(not seasonal_reason(name, t) for _, t in pages or []):
+        return None
     for url, text in pages or []:
-        if best_building(text, name, url): return None
+        if _place_url(url) and best_building(text, name, url): return None
     for url, text in pages or []:
         if not _place_url(url): continue
-        host = discover.host(url)
-        if (host == "gov.uk" or host.endswith(".gov.uk")) and not re.search(
-                r"hostel|homeless|night shelter|emergency accommodation", url + " " + (text or ""), re.I):
-            continue
-        window = _name_window(text, name)
-        if not names_place(window, name): continue
-        if not WITHHELD.search(window): continue
-        phone = _phone_on_page(window)
-        route = _route_sentence(window)
-        town = _town_from(window)
-        operator = _operator_from(window, url)
-        if not (phone and route and town and operator): continue
+        if seasonal_reason(name, text): continue
+        if _page_supported_only(name, text): continue
         host = discover.host(url)
         council = host == "gov.uk" or host.endswith(".gov.uk")
+        if council and not re.search(r"hostel|homeless|night shelter|emergency accommodation|direct access", url + " " + (text or ""), re.I):
+            continue
+        if not _area_names(text, name): continue
+        wide = _url_names(url, name)
+        routes = [r for r in _routes(text) if wide or _near_name(text, name, r[0])]
+        if not routes: continue
+        route, route_q = routes[0][1], routes[0][1]
+        phones = [p for p in _phones(text, name) if wide or p[0] <= 1500]
+        in_route = ""
+        for p in PHONE_RE.findall(route_q):
+            shown = _uk_phone(p)
+            if shown:
+                in_route = shown
+                break
+        if in_route:
+            phones = [(0, 0, in_route, route_q)] + phones
+        towns = [t for t in _town_from(text) if wide or _near_name(text, name, t[0])]
+        ops = [o for o in _operators(text, name, url) if wide or _near_name(text, name, o[0])]
+        if not (phones and towns and ops): continue
+        phone, phone_q = phones[0][2], phones[0][3]
+        town, town_q = towns[0][1], towns[0][2]
+        operator, op_q = ops[0][1], ops[0][2]
+        referralish = bool(re.search(r"referr|housing options", route, re.I)) and not re.search(r"\bno referral\b", route, re.I)
+        notice = "Referral needed, don't turn up without one" if referralish else "Call before you go"
+        name_at = (_name_positions(text, name) or [0])[0]
+        specific = sorted((w for w in distinctive(name) if len(w) >= 5), key=len)
+        name_q = _best_sentence(text, specific[-1] if specific else name.split()[0]) or _quote_at(text, name_at)
+        op_sentence = _best_sentence(text, operator) or op_q
+        town_sentence = route_q if town.lower() in route_q.lower() else (_best_sentence(text, town) or town_q)
+        phone_digits = re.sub(r"\D", "", phone)
+        phone_sentence = ""
+        for s in _sentences(text):
+            if phone_digits and phone_digits in re.sub(r"\D", "", s):
+                phone_sentence = s
+                break
+        phone_sentence = phone_sentence or phone_q
         return {"id": "", "name": name, "card_type": "referral_hostel", "status": "proposal", "layer": "shelters",
                 "operator": operator, "area": town, "town": town, "phone": phone, "phone_source": url,
-                "referral_route": route, "label": "Referral hostel",
-                "notice": "Referral needed, don't turn up without one",
+                "referral_route": route, "label": "Referral hostel", "notice": notice,
                 "postcode": "", "lat": None, "lng": None, "address": "",
-                "operator_page": url, "no_pin": True,
-                "evidence": ("council page names the hostel, the area, a phone and the referral route; no building address is published"
+                "operator_page": url, "evidence_url": url, "no_pin": True,
+                "quotes": [
+                    {"field": "name", "text": name_q},
+                    {"field": "operator", "text": op_sentence},
+                    {"field": "town", "text": town_sentence},
+                    {"field": "phone", "text": phone_sentence},
+                    {"field": "referral_route", "text": route_q},
+                ],
+                "evidence": ("council page names the hostel, the operator, the area, a phone and how to get a bed; no building postcode is used as a pin"
                              if council else
-                             "operator page names the hostel, the area, a phone and the referral route; no building address is published")}
+                             "operator page names the hostel, the operator, the area, a phone and how to get a bed; no building postcode is used as a pin")}
     return None
 def second_pass_one(hold, fetcher, council_url="", directory_text="", existing=()):
     """One publishable hold. A council page counts only when it names this hostel and a building postcode.
@@ -1338,12 +1502,18 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
     verified_ids = {p.get("id") for p in doc.get("proposals") or [] if isinstance(p, dict)}
     targets = []
     for h in doc.get("held") or []:
-        if h.get("category") != "publishable": continue
         if h.get("id") in verified_ids: continue
-        if is_refuge(h.get("name"), h.get("reason") or "") or is_refuge(h.get("name"), ""): continue
-        if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", h.get("name") or "", re.I): continue
+        name = h.get("name") or ""
+        if is_refuge(name, h.get("reason") or "") or is_refuge(name, ""): continue
+        if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", name, re.I): continue
+        if h.get("category") == "supported": continue
         reason = h.get("reason") or ""
-        if not any(reason.startswith(s) for s in ("no building postcode", "no operator page", "operator site unreachable")):
+        if reason.startswith("seasonal") or "supported housing" in reason: continue
+        directory = h.get("directory") or ""
+        if directory in ("Homeless Link", "Street Support"):
+            if not reason.startswith("no building postcode"): continue
+            if h.get("category") not in ("publishable", "hostel", "emergency", "night shelter", "direct access"): continue
+        elif "NIHE" not in directory or h.get("category") != "publishable":
             continue
         targets.append(h)
     districts = _districts([h.get("referral_postcode") for h in targets if h.get("referral_postcode")])
@@ -1353,6 +1523,7 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
     texts = {("hl-" + k): (v.get("directory_text") or "") for k, v in (index.get("hl_services") or {}).items()}
     raw = fetcher or discover.fetch_raw
     fetch = raw if fetcher else polite(raw, delay=delay, cache_dir=os.path.join(root, CACHE))
+    existing = load_existing(root)
     cards, seen = [], set()
     by_source, by_place = {}, {}
     for n, h in enumerate(targets, 1):
@@ -1366,9 +1537,15 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
             council = h.get("website") or ""
         elif h.get("referral_postcode"):
             council = council_url_for(districts.get(norm_pc(h["referral_postcode"]), ""), homes)
+        elif h.get("town"):
+            council = council_url_for(h.get("town"), homes)
         if council:
             pages += council_follow(council, name, fetch)
         pages = [(u, t) for u, t in pages if _place_url(u)]
+        if _already_named(name, existing):
+            if os.environ.get("SHELTER_SOURCE_PROGRESS"):
+                print("area card", n, "of", len(targets), "kept", len(cards), "already listed", name, flush=True)
+            continue
         card = referral_area_card(name, pages)
         if os.environ.get("SHELTER_SOURCE_PROGRESS"):
             print("area card", n, "of", len(targets), "kept", len(cards), name, flush=True)

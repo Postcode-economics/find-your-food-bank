@@ -19265,16 +19265,115 @@
   ],
   "excluded": []
  },
- "area_cards": [],
+ "area_cards": [
+  {
+   "id": "hl-turning-lives-around-seacole-scheme",
+   "name": "Our Way Leeds Emergency Accommodation",
+   "card_type": "referral_hostel",
+   "status": "proposal",
+   "layer": "shelters",
+   "operator": "Our Way Leeds",
+   "area": "Leeds",
+   "town": "Leeds",
+   "phone": "0113 391 8000",
+   "phone_source": "https://ourwayleeds.org.uk/",
+   "referral_route": "Access to our accommodation requires a referral from a professional like Leeds Housing Options",
+   "label": "Referral hostel",
+   "notice": "Referral needed, don't turn up without one",
+   "postcode": "",
+   "lat": null,
+   "lng": null,
+   "address": "",
+   "operator_page": "https://ourwayleeds.org.uk/",
+   "evidence_url": "https://ourwayleeds.org.uk/",
+   "no_pin": true,
+   "quotes": [
+    {
+     "field": "name",
+     "text": "The support and accommodation service for young people in Leeds."
+    },
+    {
+     "field": "operator",
+     "text": "The Our Way Leeds (or OWL) service was “born” on the 1st July 2020, just after the first UK lockdown."
+    },
+    {
+     "field": "town",
+     "text": "Access to our accommodation requires a referral from a professional like Leeds Housing Options"
+    },
+    {
+     "field": "phone",
+     "text": "Can we help you? If you've read information about our service and want to find out more please contact us: 0113 391 8000"
+    },
+    {
+     "field": "referral_route",
+     "text": "Access to our accommodation requires a referral from a professional like Leeds Housing Options"
+    }
+   ],
+   "evidence": "operator page names the hostel, the operator, the area, a phone and how to get a bed; no building postcode is used as a pin",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/turning-lives-around-seacole-scheme/",
+   "website": "https://ourwayleeds.org.uk/",
+   "place_type": "emergency"
+  },
+  {
+   "id": "ss-6311880e295b30de42434135",
+   "name": "Belvidere Family Centre",
+   "card_type": "referral_hostel",
+   "status": "proposal",
+   "layer": "shelters",
+   "operator": "The Whitechapel Centre",
+   "area": "Liverpool City",
+   "town": "Liverpool City",
+   "phone": "0800 731 6844",
+   "phone_source": "https://www.whitechapelcentre.co.uk/belvidere-family-centre.html",
+   "referral_route": "The Belvidere Family Centre provides emergency accommodation for homeless families who have been assessed as needing the service by Liverpool City Council's Housing Options Service",
+   "label": "Referral hostel",
+   "notice": "Referral needed, don't turn up without one",
+   "postcode": "",
+   "lat": null,
+   "lng": null,
+   "address": "",
+   "operator_page": "https://www.whitechapelcentre.co.uk/belvidere-family-centre.html",
+   "evidence_url": "https://www.whitechapelcentre.co.uk/belvidere-family-centre.html",
+   "no_pin": true,
+   "quotes": [
+    {
+     "field": "name",
+     "text": "The Whitechapel Centre, jointly with SHAP, runs the Belvidere Family Centre."
+    },
+    {
+     "field": "operator",
+     "text": "The Whitechapel Centre, jointly with SHAP, runs the Belvidere Family Centre."
+    },
+    {
+     "field": "town",
+     "text": "The Belvidere Family Centre provides emergency accommodation for homeless families who have been assessed as needing the service by Liverpool City Council's Housing Options Service"
+    },
+    {
+     "field": "phone",
+     "text": "They can be contacted on freephone 0800 731 6844."
+    },
+    {
+     "field": "referral_route",
+     "text": "The Belvidere Family Centre provides emergency accommodation for homeless families who have been assessed as needing the service by Liverpool City Council's Housing Options Service"
+    }
+   ],
+   "evidence": "operator page names the hostel, the operator, the area, a phone and how to get a bed; no building postcode is used as a pin",
+   "directory": "Street Support",
+   "directory_url": "https://www.streetsupport.net/find-help",
+   "website": "https://www.whitechapelcentre.co.uk/belvidere-family-centre.html",
+   "place_type": "hostel"
+  }
+ ],
  "area_card_counts": {
   "by_source": {
    "Homeless Link": {
-    "checked": 147,
-    "proposed": 0
+    "checked": 97,
+    "proposed": 1
    },
    "Street Support": {
-    "checked": 78,
-    "proposed": 0
+    "checked": 12,
+    "proposed": 1
    },
    "NIHE self-referral hostels": {
     "checked": 33,
@@ -19282,11 +19381,14 @@
    }
   },
   "by_type": {
-   "referral_hostel": 0
+   "referral_hostel": 2
   },
-  "by_place_type": {},
-  "checked": 258,
-  "proposed": 0,
+  "by_place_type": {
+   "emergency": 1,
+   "hostel": 1
+  },
+  "checked": 142,
+  "proposed": 2,
   "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners."
  }
 }

@@ -288,6 +288,24 @@ class ReferralHostel(unittest.TestCase):
         self.assertIsNone(card["lat"])
         self.assertTrue(card["no_pin"])
         self.assertIn("Referral needed, don't turn up without one", card["notice"])
+        self.assertEqual(card["evidence_url"], self.PAGE[0])
+        self.assertTrue(any(q["field"] == "phone" and "0114" in q["text"] for q in card["quotes"]))
+    def test_direct_access_does_not_need_withheld_wording(self):
+        page = ("https://river.example/river-hostel",
+                "River Hostel is run by River Trust in Sheffield. Direct access overnight. Call 0114 273 1234.")
+        card = S.referral_area_card("River Hostel", [page])
+        self.assertEqual(card["card_type"], "referral_hostel")
+        self.assertEqual(card["postcode"], "")
+        self.assertIn("Direct access", card["referral_route"])
+        self.assertEqual(card["notice"], "Call before you go")
+        self.assertTrue(card["quotes"])
+    def test_supported_housing_and_out_of_date_seasonal_are_not_cards(self):
+        supported = ("https://river.example/house",
+                     "River House is run by River Trust in Sheffield. Supported housing for six months. Referral via the council. Call 0114 273 1234.")
+        self.assertIsNone(S.referral_area_card("River House", [supported]))
+        winter = ("https://winter.example/shelter",
+                  "Old Market Winter Night Shelter is run by Night Trust in Bristol. Referral via the council. Call 0117 111 2222. Opens each winter.")
+        self.assertIsNone(S.referral_area_card("Old Market Winter Night Shelter", [winter]))
     def test_a_building_postcode_is_not_an_area_card(self):
         page = ("https://river.example/hostel", self.PAGE[1] + " Where we are River Hostel, 4 River Lane, Sheffield S1 2AB.")
         self.assertIsNone(S.referral_area_card("River Hostel", [page]))
@@ -299,7 +317,7 @@ class ReferralHostel(unittest.TestCase):
         html = build_seo.card_sh({"name": "River Hostel", "card_type": "referral_hostel", "area": "Sheffield",
                                    "phone": "0114 273 1234", "referral_route": "Sheffield Housing Options", "postcode": "AB1 2CD"})
         self.assertIn("Referral hostel", html)
-        self.assertIn("Referral needed, don't turn up without one", html)
+        self.assertIn("don&#x27;t turn up without one", html)
         self.assertNotIn("AB1 2CD", html)
         self.assertFalse(build_seo.shelter_public({"card_type": "referral_hostel", "postcode": "AB1 2CD", "name": "River Hostel"}))
         src = open(os.path.join(S.ROOT, "layers.js"), encoding="utf-8").read()

@@ -98,10 +98,11 @@ ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open
 
 def card_sh(i):
     if i.get('card_type') == 'referral_hostel':
+        notice = i.get('notice') or "Referral needed, don't turn up without one"
         return ('<li class="referral-hostel"><div class="n">%s</div><div class="tag">Referral hostel</div>'
-                '<div class="sub">Referral needed, don\'t turn up without one</div><div>%s</div>%s'
+                '<div class="sub">%s</div><div>%s</div>%s'
                 '<div class="ref"><b>How to get a place</b>: %s</div></li>'
-                % (E(i.get('name')), E(i.get('area') or i.get('town') or ''), phone_html(i.get('phone')), E(i.get('referral_route') or '')))
+                % (E(i.get('name')), E(notice), E(i.get('area') or i.get('town') or ''), phone_html(i.get('phone')), E(i.get('referral_route') or '')))
     day = i.get('kind') == 'day_centre'
     tag = '<div class="tag">Day centre</div>' if day else '<div class="tag">Shelter</div>'
     if day: tag += '<div class="sub">Daytime only. No overnight bed.</div>'

@@ -229,5 +229,41 @@ class Corrections(unittest.TestCase):
             shutil.rmtree(d, True)
 
 
+class BlanketThree(unittest.TestCase):
+    """Dean blanket approval 31 Oct 2026: three building-verified hostels publish."""
+    IDS = ("man-contact-hostel", "man-one-ymca-bishops-stortford", "man-roundabout-hostel")
+
+    def test_files_and_map(self):
+        manual, verified = _manual(), _verified()
+        approved = json.load(open(os.path.join(OV, "approved_new_places.json"), encoding="utf-8"))["shelters"]
+        base = json.load(open(os.path.join(OV, "phone_baseline.json"), encoding="utf-8"))["listings"]
+        live = _published()
+        expect = {
+            "man-contact-hostel": ("M16 8GL", "0161 861 9806", "01618619806"),
+            "man-one-ymca-bishops-stortford": ("CM23 2EX", "01279 838 068", "01279838068"),
+            "man-roundabout-hostel": ("S2 4TF", "0114 258 9829", "01142589829"),
+        }
+        for i in self.IDS:
+            pc, phone, tel = expect[i]
+            self.assertEqual(manual[i]["postcode"], pc)
+            self.assertEqual(manual[i]["phone"], phone)
+            self.assertTrue(manual[i]["groups"])
+            self.assertEqual(verified[i]["phone"], phone)
+            self.assertEqual(verified[i]["postcode"], pc)
+            self.assertTrue(verified[i]["evidence_url"] and verified[i]["quote"])
+            self.assertIn(i, approved)
+            self.assertEqual(base[i]["phone"], phone)
+            self.assertEqual(base[i]["tel"], tel)
+            self.assertEqual(base[i]["layer"], "shelters")
+            self.assertNotIn("council_phone", base[i])
+            self.assertEqual(live[i]["postcode"], pc)
+            self.assertEqual(live[i]["phone"], phone)
+            self.assertEqual(live[i]["tel"], tel)
+            self.assertEqual(live[i]["tier"], "verified")
+            self.assertTrue(live[i]["verified"])
+            r = R.check(manual[i], verified[i], _page(verified[i]), verified[i]["evidence_url"])
+            self.assertTrue(r["ok"], (i, r))
+
+
 if __name__ == "__main__":
     unittest.main()
