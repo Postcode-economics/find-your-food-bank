@@ -2,6 +2,9 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
+## Food banks: 1 added
+- Sidley · TN39 4FL · https://www.givefood.org.uk/needs/at/bexhill/
+
 ## Shelters: 0 added
 - none
 

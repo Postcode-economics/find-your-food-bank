@@ -1,14 +1,9 @@
-# Refresh guard: foodbanks (2026-10-30T22:41:35+00:00)
+# Refresh guard: foodbanks (2026-10-31T08:05:51+00:00)
 
-foodbanks: kept 12 places, 0 phones, 34 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 7 places, 0 phones, 34 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (12)
+## places kept (7)
 
-- ifan-01c4e7b3eb5fb6efb0189d-1
-- ifan-3598d68070dfe141274bc6-0
-- ifan-4a6217d6ae69c4977d7d70-0
-- ifan-79789d4df6b2024369673c-0
-- ifan-9d9a5ae13b3923c3fd7d0b-0
 - ifan-34121866eb63e9e50d317f-0
 - ty-hapus
 - colchester/wivenhoe
@@ -59,13 +54,8 @@ foodbanks: kept 12 places, 0 phones, 34 opening times that this run would have d
 - ifan-84cd0bf40986bfc9a427c6-0
 - ifan-9fef48d4f0fd3a3f6896d2-0
 
-## access kept (12)
+## access kept (7)
 
-- ifan-01c4e7b3eb5fb6efb0189d-1
-- ifan-3598d68070dfe141274bc6-0
-- ifan-4a6217d6ae69c4977d7d70-0
-- ifan-79789d4df6b2024369673c-0
-- ifan-9d9a5ae13b3923c3fd7d0b-0
 - ifan-34121866eb63e9e50d317f-0
 - ty-hapus
 - colchester/wivenhoe
