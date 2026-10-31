@@ -231,6 +231,7 @@ function badge(layer,i){const r=status(layer,i);
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
   return `<div class="v3st shut" role="note">${B(`Closed · Next open <b>${DEN[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`,`Ar gau · Ar agor nesaf <b>${DCY[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`)}</div>`}
+ if(layer==='sh'&&i.access_type==='referral_only')return `<div class="v3st unk" role="note">${B('Referral needed / check before you go','Angen atgyfeiriad / gwiriwch cyn mynd')}</div>`;
  if(layer==='sh'&&window.REFONLY&&REFONLY(i))return `<div class="v3st unk" role="note">${B('By referral – call before you go','Drwy atgyfeiriad – ffoniwch cyn mynd')}</div>`;
  if(i.carried_note&&i.carried_since){const cd=esc3(i.last_confirmed||i.carried_since);return `<div class="v3st unk carried" role="note">${B(`Not re-confirmed since ${cd} – call before you go`,`Heb ei ail-gadarnhau ers ${cd} – ffoniwch cyn mynd`)}</div>`}  // carry-forward (Dean 28 Oct)
  if(r.why==='dates')return `<div class="v3st unk" role="note">${B('Check dates – call before you go','Gwiriwch y dyddiadau – ffoniwch cyn mynd')}</div>`;

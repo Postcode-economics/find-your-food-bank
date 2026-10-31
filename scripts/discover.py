@@ -147,6 +147,18 @@ def own_site_check(c, kind, fetcher=fetch_raw, today=None):
             and not host(c["website"]).endswith("." + host(home["final_url"])):
         out["reasons"].append(f"own site redirects to a different site ({host(home['final_url'])})"); return out
     alltext = " ".join(t for _, t in pages)
+    if kind == "sh":
+        # Multi-site operators (YMCA, St Mungo's, Salvation Army) often omit this building's postcode
+        # from the homepage. Follow the sitemap / page index to the place's own page.
+        pc_now = norm_pc(c.get("postcode"))
+        if pc_now and pc_now not in alltext.upper().replace(" ", ""):
+            try:
+                import shelter_sources as _ss
+                for u, t in _ss.sitemap_follow(c.get("website"), c.get("name"), fetcher, pages, home.get("html") or ""):
+                    pages.append((u, t))
+                alltext = " ".join(t for _, t in pages)
+            except Exception:
+                pass
     if len(alltext) < 200: out["reasons"].append("own site has no readable text"); return out
     low = alltext.lower(); pc = norm_pc(c.get("postcode"))
     nt = tokens(c.get("name"))

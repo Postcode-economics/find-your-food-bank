@@ -79,14 +79,22 @@ def shelter_autocheck(x):
     if not x.get("website"): flags.append("no operator website in source")
     return {"result": "needs manual evidence", "flags": flags, "where_to_check": [x.get("website") or "", HE_HINT, "council homelessness page"]}
 # ---- discovery every run: Homeless Link 'Find help' + OSM finds not on our lists -> own-site check -> tier 2 or flagged ----
-import discover, directories
+import discover, shelter_sources
 UNV = load_verified("overrides/shelters_unverified.json")
 known = set(VER) | set(UNV)
-hl, st = directories.homeless_link(known=known)
-sources["Homeless Link 'Find help' (homeless.org.uk/homeless-england)"] = st
+# Full directory crawl (Homeless Link accommodation pages, Street Support, Lifehouses, NIHE) is
+# proposal-only. A directory postcode is a referral address, not the building, so nothing from
+# it is auto-published. Review file: reports/verified_new_places.json.
+if os.environ.get("SHELTER_PROPOSALS", "1") != "0":
+    try:
+        sources["Shelter directory proposals"] = shelter_sources.refresh(root=".", today=RUN)
+    except Exception as ex:
+        sources["Shelter directory proposals"] = {"status": "failed: %s" % ex}
+else:
+    sources["Shelter directory proposals"] = {"status": "skipped"}
 osm_new = [x for x in fresh if x["id"] not in known and x["id"].startswith("osm-")]
 base = [x for x in fresh if x["id"] in known]
-add, dlog = discover.discover_layer(osm_new + hl, base, "sh", RUN, UNV, "logs/shelters_discovery.json")
+add, dlog = discover.discover_layer(osm_new, base, "sh", RUN, UNV, "logs/shelters_discovery.json")
 have = {x["id"] for x in fresh}
 fresh += [c for c in add if c["id"] not in have]
 sources["Discovery"] = {"status": "ok", "candidates": dlog["candidates"], "new": dlog["new"], "added_unverified": len(dlog["added"]), "flagged": len(dlog["flagged"])}
