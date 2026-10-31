@@ -120,6 +120,11 @@ def guard(layer, old_items, new_items, run_day=None, closed_ids=(), root=None):
             n['groups'] = o['groups']
             if o.get('groups_source'): n['groups_source'] = o['groups_source']
             rep.setdefault('groups', []).append(o['id'])
+        if o.get('wheelchair') in ('yes', 'partial', 'no') and n.get('wheelchair') not in ('yes', 'partial', 'no'):
+            n['wheelchair'] = o['wheelchair']  # stated access is not dropped on a refresh that did not repeat it
+            for k in ('wheelchair_quote', 'wheelchair_source'):
+                if o.get(k): n[k] = o[k]
+            rep.setdefault('wheelchair', []).append(o['id'])
     return out, rep
 
 ACCESS = 'access.js'

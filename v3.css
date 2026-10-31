@@ -612,3 +612,18 @@ footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;paddin
 /* 28 Oct QA round 3 M2: the desktop map pop-up ✕ was Leaflet's 24x24px; now a 44x44px tap target (same glyph), and the pop-up text keeps clear of it. Leaflet pop-ups are used with both map engines. */
 .leaflet-container a.leaflet-popup-close-button{width:44px!important;height:44px!important;font:24px/44px Tahoma,Verdana,sans-serif!important;top:0!important;right:0!important;text-align:center!important}
 .leaflet-popup-content .pop>h3,.leaflet-popup-content .pop>.ncb:first-child,.leaflet-popup-content .pop>:first-child{padding-right:30px}
+/* Uniform fact rows (31 Oct 2026). Same block on every card. Full width so the Directions | Call row does not move sideways. */
+#list .card>.ufact,#xextra .card>.ufact,#sheet .card>.ufact,.leaflet-popup-content .ufact{order:8;flex:1 1 100%;width:100%;min-width:0;margin-top:8px}
+/* Shelter cards: facts sit with the status (order 5), before Directions | Call (order 6). The phone label stays on the button row. */
+#xextra .card:is(.xsh,.xws)>.ufact{order:5!important}
+#list .card>p.xrow.uchk,#xextra .card>.uchk,#sheet .card>.uchk{order:13!important;flex:1 1 100%!important;margin-top:8px}
+#xextra .card:is(.xsh,.xws)>p.xrow.uchk{order:12!important}
+#xextra .card>.utag,#sheet .card>.utag,#list .card>.utag{order:1;flex:1 1 auto}
+#xextra .card>.xday{order:2;flex:1 1 100%}
+.ufact{display:block}
+.ufact .xrow{display:block;margin:6px 0;font-size:16px;line-height:1.4;overflow-wrap:anywhere}
+.ufact .xrow b{font-weight:800}
+.useason{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;border:2px solid currentColor;font-size:12px;font-weight:800;vertical-align:middle}
+.ufact .chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 0}
+.ufact .chip{display:inline-block;font-size:15px;font-weight:700;padding:4px 10px;border-radius:999px;border:2px solid #D55E00}
+.leaflet-popup-content .ufact{margin-top:8px}
