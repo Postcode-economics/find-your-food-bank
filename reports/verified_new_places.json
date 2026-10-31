@@ -33,6 +33,47 @@
    "found_via": "direct",
    "checked_on": "2026-10-31",
    "rule": "official or own page states a weekday and a time"
+  },
+  {
+   "id": "ww-69367012",
+   "layer": "warmspaces",
+   "name": "Amersham Library",
+   "postcode": "HP6 5AH",
+   "address": "Amersham Library, Amersham, Buckinghamshire HP6 5AH",
+   "evidence_url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/amersham-library/",
+   "day_time_quote": "Monday 7am to 9pm | Tuesday 7am to 9pm | Wednesday 7am to 9pm | Thursday 7am to 9pm | Friday 7am to 9pm | Saturday 7am to 7pm | Sunday 7am to 7pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=28637",
+   "website": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/amersham-library/",
+   "found_via": "direct",
+   "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
+   "id": "ww-69441225",
+   "layer": "warmspaces",
+   "name": "Princes Risborough Library",
+   "address": "Bell Street, Princes Risborough, Buckinghamshire",
+   "evidence_url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/library-flex/",
+   "day_time_quote": "Saturday 1pm to 5pm | Monday 9am to 7pm | Tuesday 9am to 10am | Wednesday 9am to 7pm | Thursday 9am to 10am | Friday 9am to 10am | Saturday 2pm to 5pm | Wednesday 9am to 10am",
+   "source_url": "https://www.warmwelcome.uk/space?l=17918",
+   "website": "https://www.buckinghamshire.gov.uk/libraries/information-about-local-library/princes-risborough-library/",
+   "found_via": "link",
+   "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
+   "id": "ww-69441294",
+   "layer": "warmspaces",
+   "name": "Blakelaw Library at Leisure United",
+   "postcode": "NE5 3TS",
+   "address": "Lesiure United, Newcastle upon Tyne, Tyne and Wear NE5 3TS",
+   "evidence_url": "https://new.newcastle.gov.uk/search?s=Blakelaw+Library+at+Leisure+United",
+   "day_time_quote": "Wednesday 10am to 2pm | Friday 1pm to 5pm | Wednesdays 10:30am to 11am | Fridays 4pm to 4:30pm | Fridays 2pm to 4pm | Fridays 1:30pm to 3:30pm",
+   "source_url": "https://www.warmwelcome.uk/space?l=26318",
+   "website": "https://www.newcastle.gov.uk/services/libraries-and-culture",
+   "found_via": "search",
+   "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
   }
  ]
 }
