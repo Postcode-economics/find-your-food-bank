@@ -45,7 +45,7 @@ function fillBanner(html){banner.hidden=!html;if(!html){hit.innerHTML='';var old
  if(!banner.querySelector('a.em-text')){var a=document.createElement('a');a.className='em-text';a.href='emergency.txt';a.textContent='Text-only list';banner.appendChild(a)}}
 function visitorLad(){try{if(window.__visitorLad)return window.__visitorLad}catch(e){}return null}
 function centreAllowed(c,lad){if(!isLive)return true;if(!lad)return false;var cl=c.lad||'';return cl&&cl===lad}
-function centresForArea(data,lad){return ((data&&data.cards)||[]).filter(function(c){if(!(c&&c.live!==false&&!c.example))return false;if(isLive&&passed(c.open_until))return false;return centreAllowed(c,lad)})}
+function centresForArea(data,lad){return ((data&&data.cards)||[]).filter(function(c){if(!c||c.kind==='day_centre'||c.service==='day_centre')return false;if(!(c.live!==false&&!c.example))return false;if(isLive&&passed(c.open_until))return false;return centreAllowed(c,lad)})}
 function openCards(){return [].filter.call(root.querySelectorAll('.em-card'),function(el){if(el.hidden)return false;return !passed(el.getAttribute('data-open-until'))})}
 function hav(lat1,lng1,lat2,lng2){var r=function(x){return x*Math.PI/180},R=6371,x=Math.sin(r(lat2-lat1)/2),y=Math.sin(r(lng2-lng1)/2),h=x*x+Math.cos(r(lat1))*Math.cos(r(lat2))*y*y;return 2*R*Math.asin(Math.min(1,Math.sqrt(h)))}
 function choose(loc){var cards=openCards();if(!cards.length)return null;if(!loc)return cards[0];var best=null,bestD=Infinity,any=false;cards.forEach(function(el){var la=parseFloat(el.getAttribute('data-lat')),ln=parseFloat(el.getAttribute('data-lng'));if(!isFinite(la)||!isFinite(ln))return;any=true;var d=hav(loc.lat,loc.lng,la,ln);if(d<bestD){bestD=d;best=el}});return any?best:cards[0]}
