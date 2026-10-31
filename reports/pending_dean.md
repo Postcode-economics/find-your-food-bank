@@ -443,10 +443,10 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
 - Leicester: 49 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Cardiff: 65 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Cardiff: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Bradford: 33 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Nottingham: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Nottingham: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Southampton: 57 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
