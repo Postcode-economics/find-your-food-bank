@@ -23,14 +23,14 @@ CARDS_JS = r"""(sel)=>{const out=[];const rgb=e=>e?getComputedStyle(e).backgroun
   const rep=all('button,a').find(b=>/Report a problem/.test(b.textContent));
   const links=all('.links a,.src a,a.src').map(a=>a.getAttribute('href')||'');
   const small=all('a.btn,button.btn').filter(b=>b.offsetParent&&b.getBoundingClientRect().height<44).map(b=>b.textContent.trim().slice(0,30)+' '+Math.round(b.getBoundingClientRect().height)+'px');
-  const timesShown=!!q('.ot .raw,.ot table,.ot li,.hrs,.xhours,table.ot');
+  const timesShown=!!q('.ot .raw,.ot table,.ot li,.raw,table,.hrs,.xhours');
   out.push({name:(q('h3')||{}).textContent||'',k:c.dataset.k||'',status:st?st.className.replace('v3st','').trim():null,statusText:st?st.textContent.trim():'',dot,
    call:call?{href:call.getAttribute('href'),text:call.textContent.trim(),bg:rgb(call)}:null,
    fb:fb.map(a=>a.getAttribute('href')),dir:dir?{href:dir.getAttribute('href'),bg:rgb(dir)}:null,share:!!share,report:!!rep,
    badge:(q('.tag')||{}).textContent||'',links,small,timesShown})}
  return out}"""
 
-ENFORCE_TIMES = False   # a partial week can sit beside 'Times unknown' when today itself is not listed (Dean, 26 Oct)
+ENFORCE_TIMES = True   # Dean 31 Oct: a card that shows times must not say 'Times unknown' (partial weeks say Next open; text-only says Check times below)
 KNOWN = []
 TILES = []              # reported in reports/design_lock.md, do not fail the run
 
@@ -55,7 +55,7 @@ def check(cards, mode, where, k='fb'):
             if not h.startswith(('http://', 'https://', 'faq.html', '/')): bad.append(n + ': link %s' % h)
         if c['status'] in LOCK['dot'][mode] and c['dot'] != LOCK['dot'][mode][c['status']]: bad.append(n + ': %s dot %s' % (c['status'], c['dot']))
         if c['timesShown'] and 'Times unknown' in c['statusText']:
-            # KNOWN until the opening-times job is merged (Dean 13:39): reported, then enforced by flipping ENFORCE_TIMES.
+            # Dean 31 Oct: times on the card and 'Times unknown' on the badge is a failure.
             (bad if ENFORCE_TIMES else KNOWN).append(n + ': times listed but status says Times unknown')
         bad += [n + ': tap target ' + s for s in c['small']]
     return bad

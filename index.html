@@ -211,6 +211,7 @@ function nextOpenText(i){const s=parsed(i);if(!s)return 'Closed today';const nam
  return 'Closed today'}
 const srcLine=i=>{if(!i.source_label)return '';const u=i.evidence_url||web(i);return u?`<div class="src">Source: <a href="${esc(u)}" target="_blank" rel="noopener">${esc(i.source_label)}</a></div>`:`<div class="src">Source: ${esc(i.source_label)}</div>`};
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
+function shownLines(t){const src=(t.lines&&t.lines.length)?t.lines:[String(t.raw||'').trim()];return window.timesFmt?timesFmt.lines(src):src.map(x=>String(x).trim()).filter(Boolean)}  // display only: uniform day + 24-hour lines, originals kept when unsafe
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[pageNow().getDay()];
  const src=t&&t.source_url?` <a href="${esc(t.source_url)}" target="_blank" rel="noopener" style="color:var(--gold)">source</a>`:'';
  const ck=t&&t.checked_date?`, checked ${new Date(t.checked_date).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`:'';
@@ -219,7 +220,7 @@ function times(i){const t=i.opening_times,s=parsed(i),td=DK[pageNow().getDay()];
   const body=rows.map(d=>`<tr class="${d===td?'td':''}"><td>${DN[d]}</td><td>${(s[d]||[]).length?s[d].map(x=>x.join('–')).join(', ')+(notes[d]?' '+esc(notes[d]):''):'Closed'}</td></tr>`).join('');
   const rest=rows.length<7?'<div class="src">Other days not listed, call before you go</div>':'';
   return `<div class="ot"><b>${IC('clock')}Opening times</b><table>${body}</table>${rest}${foot||`<div class="src">From their website${ck}.${src}</div>`}</div>`}
- if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${(t.lines||[t.raw.trim()]).map(esc).join('<br>')}</div>${foot||`<div class="src">As written on their website${ck}.${src}</div>`}</div>`;
+ if(t&&t.status==='TIMES_TEXT_ONLY'&&t.raw)return `<div class="ot"><b>${IC('clock')}Opening times</b><div class="raw">${shownLines(t).map(esc).join('<br>')}</div>${foot||`<div class="src">As written on their website${ck}.${src}</div>`}</div>`;
  return ''}  // unknown: the status line is the only 'Times unknown – call before you go'
 {const L=chkDates[chkDates.length-1],F=D.fetched;if(L&&(!F||new Date(L)>new Date(F)))$('upd').textContent=new Date(L).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
 function showStamp(){if(!window.FB_STAMP)return;const FS=(FB_STAMP.layers&&FB_STAMP.layers.fb)||FB_STAMP;$('upd').textContent=FS.label;(function(){var r=FB_STAMP.run,m=r.match(/^(\d{4}-\d\d-\d\d)T(\d\d:\d\d)/),n=new Date(),td=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(n),e=$('freshtxt');if(m&&e)e.textContent=m[1]===td?'Updated today at '+m[2]:'Updated '+FB_STAMP.label})();$('chk').textContent='checked '+FS.label}  // Dean 25 Oct: footer food bank lines read the food bank refresh, the header the latest refresh of any layer
@@ -252,7 +253,7 @@ function phLabText(lab){lab=String(lab==null?'':lab).trim();if(!lab)return'';if(
 const phLab=i=>{const t=phLabText(i&&i.phone_label);return t?`<p class="plab">${esc(t)}</p>`:''};
 window.phLab=phLab;window.phLabText=phLabText;
 const todayLine=i=>{const s=parsed(i),td=DK[pageNow().getDay()],t=i.opening_times;if(s){const r=s[td]||[];if(r.length)return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.map(x=>x.join('–')).join(', ')}${t&&t.notes&&t.notes[td]?' '+esc(t.notes[td]):''}</div>`;if(dayClosed(i,td))return `<div class="ptd">${IC('clock')}<b>Today:</b> Closed</div>`;return ''}
- return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?(i.source_label?`<div class="ptd">${IC('clock')}${esc(t.raw)}</div>`:`<div class="ptd">${IC('clock')}Check times on their website</div>`):''};
+ return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?(i.source_label?`<div class="ptd">${IC('clock')}${shownLines(t).map(esc).join('<br>')}</div>`:`<div class="ptd">${IC('clock')}Check times on their website</div>`):''};
 function card(i,dist){const tel=telOf(i);
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
@@ -264,7 +265,7 @@ function card(i,dist){const tel=telOf(i);
  <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
  ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}${i.phone_label?phLab(i):`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`}`:''}${!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:''}
  ${site(i)?`<div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">${i.source_label?'Source':'Their website'}</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>`:''}
- ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${esc(i.opening_times.raw)}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
+ ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
 function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>${phLab(i)}`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 /* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
@@ -447,7 +448,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=ha503469c4aa0" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h8e5dca8aa113" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=hd8a30d5ba77a" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h1644ff2b8f60" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');

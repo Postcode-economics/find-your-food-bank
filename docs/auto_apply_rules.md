@@ -49,7 +49,7 @@ Share / text this address; Message on Facebook only where there is no phone (ver
 source links; Report a problem; food bank type badge; status dot colours locked (red closed, green open, grey unknown);
 tap targets at least 44 px; a cheap live map-tile load check; call/Facebook button counts must not drop over 3% below the v87 baseline.
 Runs in CI (`tests.yml` design-lock job), after every deploy and daily (`deploy-check.yml`, auto-revert on failure).
-'Times unknown while times are listed' is reported as a known issue until the opening-times job lands (`ENFORCE_TIMES`).
+'Times unknown while times are listed' fails the design lock (`ENFORCE_TIMES`). A partial week shows the next listed opening; text-only times say to check the lines below.
 
 ## Status line and list alignment
 Status line: fixed font, one line, fixed header height, never an ellipsis; 'X near Place' falls back to 'Place'; ', County' is
