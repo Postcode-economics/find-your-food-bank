@@ -287,6 +287,13 @@
    "added": 0,
    "queued": 2251,
    "rejected": 2
+  },
+  {
+   "at": "19:25Z",
+   "source": "warmspaces_discovery.json",
+   "added": 0,
+   "queued": 2219,
+   "rejected": 2
   }
  ],
  "added": [
@@ -2279,7 +2286,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "7a04a7218a4efe0f3a946b9917bbd9af79a8c0f2e1e485f79ee5a14dcf536254",
+   "sha256": "e178cc0682fe18f32f9c7b6a4387bf18b3995fe9f62297153f93921f562ebc7b",
    "etag": "",
    "last_modified": ""
   },
@@ -2383,7 +2390,7 @@
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
    "http": 200,
-   "sha256": "d3d031ad560ef54dc4c8034bbe1a0d80cfad38f47dd1337a929d853d9f155986",
+   "sha256": "9c7a171095051a6b8bcbd59d1b5badadb543a3b3730402f65d2bbc087194115a",
    "etag": "",
    "last_modified": "Sat, 31 Oct 2026 11:39:21 GMT"
   },
@@ -2689,7 +2696,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "abe60f8c43d803002494c62c9bda3aa905b080ba679e43f1d15be6ca0093b7d6",
+   "sha256": "f902a796bf4d40f01b9770773b247e53c4fdf6ee867c987c1b29d8bdb4dfcd57",
    "etag": "",
    "last_modified": ""
   },
@@ -2808,7 +2815,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "35c4e48f98a1220518f63ebe3f863544b74392b868d990dd76ea285d3e8ed33d",
+   "sha256": "67fd5867b8a45a8334ab953062200f58c91badb81de6f7fad8ad81a43341b83d",
    "etag": "",
    "last_modified": ""
   },
@@ -3218,8 +3225,8 @@
    "url": "http://www.ascensionhallgreen.uk/",
    "final_url": "https://ascensionhallgreen.uk/",
    "http": 200,
-   "sha256": "2dec5c6f6e8e0e2a205f25287a30b9c634d1197c8e5542e8bab7a6205dcc5638",
-   "etag": "W/\"3-1792744958;gz\"",
+   "sha256": "5b54a9d377712f1a67047c51b91c29706fa79538283df74d3c2384b931c5200a",
+   "etag": "W/\"67-1793350054;gz\"",
    "last_modified": ""
   },
   "oi-birmingham-council-church-road-surgery-saathi-house-b6-5up": {
@@ -3611,7 +3618,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "2a8c4e364dd978a4cfd2ba155c8b896670973dfc44289d2ee66191f1d0644a5f",
+   "sha256": "9a339921dff363f072aec86c9f2ad99e45e7995d729bd4a4ae0e9c0bff3a5b11",
    "etag": "",
    "last_modified": ""
   },
@@ -4570,7 +4577,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "7311b374eeab63886a2615cdcb953dac498ff35d8ba035109d996fcd79b05c75",
+   "sha256": "7ed2394f75981ca7a6483a0300ca54e7e4c28263d00f4a78351439e910cdc84f",
    "etag": "",
    "last_modified": ""
   },
@@ -5643,7 +5650,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "d5d3f2d729c3e4d43a514b5815e3f09981b4fa9a446d7435a029ae1c4e3c2f99",
+   "sha256": "4811bbbcae43e5bcd29db65ee6c5099a0376517bc8752a4f4c47ca775ab5e0aa",
    "etag": "",
    "last_modified": ""
   },
@@ -5694,7 +5701,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "b50dcd1486fa57c6b58e3cf6ac36c23551fc2fb48ab55a5506763f57e6d44626",
+   "sha256": "7acf55bb527304c00b6b6af98160ed856e6ac6c2157a419fe79069b70849e873",
    "etag": "",
    "last_modified": ""
   },
@@ -6071,7 +6078,7 @@
    "http": 200,
    "sha256": "c9ba8f447ee0f11b09044e4791c27a2f18be36c237a56d3bd03bd039b61ca9bc",
    "etag": "\"3cc16adb27ffc12c9f30adb3be841bab\"",
-   "last_modified": "Fri, 30 Oct 2026 23:29:23 GMT"
+   "last_modified": "Sat, 31 Oct 2026 18:19:31 GMT"
   },
   "oi-birmingham-council-walmley-library-b76-1np": {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -6222,7 +6229,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "012eff1fb0c429a6bf6788dbf4b02af0dd763c9fe6002a9c1a394ee77a454eb1",
+   "sha256": "42c28abae7fd295b182f4b66209ce4915320ea379efa7d25788d85c9bc19f2fb",
    "etag": "",
    "last_modified": ""
   },
@@ -6410,7 +6417,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "60ac4a8072d9f1c033af93c60eaf2905f063afdc4d9ba7f0396935a2104b6b87",
+   "sha256": "885583fed0c98cd22bbb956e45192dc8b7ae26c617d7c58453583f403d8056fd",
    "etag": "",
    "last_modified": ""
   },

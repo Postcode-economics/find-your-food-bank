@@ -1,14 +1,65 @@
 {
-  "_about": "Council ArcGIS FeatureServer warm-space feeds. Each refresh queries layer 0. A record with no postcode or no times is skipped. Phone numbers are not taken from this file.",
+  "_about": "Council ArcGIS warm-space feeds. Each refresh queries layer 0. A record with no postcode or no times is skipped. Phone numbers are not taken from this file except Lancashire OrgContactShare (written via warmspaces_verified.json).",
   "feeds": [
     {
       "id": "brighton-hove",
+      "format": "brighton",
       "id_prefix": "bh",
       "council": "Brighton & Hove City Council",
       "source": "Brighton & Hove City Council warm spaces",
       "evidence_name": "Brighton & Hove City Council",
       "url": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
       "website": "https://www.brighton-hove.gov.uk/cost-living-support/directories/warm-welcome-directory-indoor-activities-and-places-go"
+    },
+    {
+      "id": "lancashire",
+      "format": "lancashire",
+      "id_prefix": "lancs",
+      "council": "Lancashire County Council",
+      "source": "Lancashire County Council warm spaces",
+      "evidence_name": "Lancashire County Council",
+      "url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "website": "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/"
+    },
+    {
+      "id": "surrey",
+      "format": "surrey",
+      "id_prefix": "surrey",
+      "council": "Surrey County Council",
+      "source": "Surrey County Council Warm Welcome 2026-27",
+      "evidence_name": "Surrey County Council",
+      "url": "https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "website": "https://www.surreycc.gov.uk/community/support-for-people/warm-welcome-spaces"
+    },
+    {
+      "id": "cherwell",
+      "format": "cherwell",
+      "id_prefix": "cherwell",
+      "council": "Cherwell District Council",
+      "source": "Cherwell District Council warm spaces",
+      "evidence_name": "Cherwell District Council",
+      "url": "https://services8.arcgis.com/UQpattfmZaWDEU5y/arcgis/rest/services/Cherwell_Public_Warm_Spaces_TEST/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "website": "https://www.cherwell.gov.uk/warm-spaces"
+    },
+    {
+      "id": "northumberland",
+      "format": "northumberland",
+      "id_prefix": "nland",
+      "council": "Northumberland County Council",
+      "source": "Northumberland County Council warm spaces",
+      "evidence_name": "Northumberland County Council",
+      "url": "https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json",
+      "website": "https://www.northumberland.gov.uk/Welfare-and-benefits/Warm-spaces.aspx"
+    },
+    {
+      "id": "tower-hamlets",
+      "format": "tower-hamlets",
+      "id_prefix": "th",
+      "council": "London Borough of Tower Hamlets",
+      "source": "Tower Hamlets warm hubs",
+      "evidence_name": "London Borough of Tower Hamlets",
+      "url": "https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json",
+      "website": "https://www.towerhamlets.gov.uk/lifestyle_and_leisure/community_centres/Warm_Hubs.aspx"
     }
   ]
 }

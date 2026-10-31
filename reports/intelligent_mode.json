@@ -907,10 +907,577 @@
     "hours_review_due": 1727,
     "hours_review_opened": 1152
    }
+  },
+  "warmspaces": {
+   "steps": {
+    "times": {
+     "applied": 0,
+     "held": 39,
+     "stale_cleared": 0,
+     "rejected": [
+      {
+       "id": "ww-64379621",
+       "reasons": [
+        "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "ww-55475042",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-57951602",
+       "reasons": [
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-57952616",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "jumble: 7 separate time blocks read from one page; review only"
+       ]
+      },
+      {
+       "id": "ww-58567193",
+       "reasons": [
+        "new own-site times look like office/centre hours"
+       ]
+      },
+      {
+       "id": "ww-55473134",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "ww-65437319",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "ww-57953101",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-57953292",
+       "reasons": [
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55473898",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-57953124",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55475831",
+       "reasons": [
+        "source page is not the warm space's own session page (general venue or directory page)",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55474726",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55475882",
+       "reasons": [
+        "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "ww-65437466",
+       "reasons": [
+        "jumble: 9 separate time blocks read from one page; review only"
+       ]
+      },
+      {
+       "id": "ww-64432631",
+       "reasons": [
+        "own site lists several centres (6 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-65413950",
+       "reasons": [
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "ww-55473488",
+       "reasons": [
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55475671",
+       "reasons": [
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-65437367",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "ww-65419943",
+       "reasons": [
+        "would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "ww-55474433",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55473455",
+       "reasons": [
+        "jumble: 6 separate time blocks read from one page; review only"
+       ]
+      },
+      {
+       "id": "ww-68255736",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-55472899",
+       "reasons": [
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-65070433",
+       "reasons": [
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-69189528",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording)",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "source page is not the warm space's own session page (general venue or directory page)",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "ww-59951280",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "ww-69441263",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like general venue opening hours, not a warm-space session",
+        "jumble: 6 separate time blocks read from one page; review only"
+       ]
+      },
+      {
+       "id": "hav-friendship-cafe-myplace",
+       "reasons": [
+        "own site lists several centres (9 postcodes); cannot tie one table to this listing",
+        "day not on the same line as its times on the own-site page"
+       ]
+      },
+      {
+       "id": "cmn-carway-hall",
+       "reasons": [
+        "own site lists several centres (24 postcodes); cannot tie one table to this listing",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "cmn-garnant-family-centre",
+       "reasons": [
+        "own site lists several centres (24 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "swk-brandon-2-tra-hall",
+       "reasons": [
+        "own site lists several centres (58 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Thu) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "sbadc-the-hub-south-brent",
+       "reasons": [
+        "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "lancs-bb186qf-robert-windle-foundation",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "lancs-bb104pb-charter-house-resource-centre",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "would cut known hours to fewer days (drops Mon, Sat) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "lancs-pr44ln-all-saints-church",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "lancs-bb53hh-brave-church",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "would cut known hours to fewer days (drops Wed, Thu, Sun) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "lancs-la31dg-west-end-impact",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "jumble: Tue given different times in separate blocks on one page; review only",
+        "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      }
+     ],
+     "errors": [],
+     "alerts": [],
+     "coverage": {
+      "sites": 320,
+      "sites_opened": 290
+     },
+     "enabled": true
+    }
+   },
+   "applied": 0,
+   "held": 39,
+   "stale_cleared": 0,
+   "rejected": [
+    {
+     "id": "ww-64379621",
+     "reasons": [
+      "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "ww-55475042",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-57951602",
+     "reasons": [
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-57952616",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "jumble: 7 separate time blocks read from one page; review only"
+     ]
+    },
+    {
+     "id": "ww-58567193",
+     "reasons": [
+      "new own-site times look like office/centre hours"
+     ]
+    },
+    {
+     "id": "ww-55473134",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "ww-65437319",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "ww-57953101",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-57953292",
+     "reasons": [
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55473898",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-57953124",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55475831",
+     "reasons": [
+      "source page is not the warm space's own session page (general venue or directory page)",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55474726",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55475882",
+     "reasons": [
+      "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "ww-65437466",
+     "reasons": [
+      "jumble: 9 separate time blocks read from one page; review only"
+     ]
+    },
+    {
+     "id": "ww-64432631",
+     "reasons": [
+      "own site lists several centres (6 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-65413950",
+     "reasons": [
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "ww-55473488",
+     "reasons": [
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55475671",
+     "reasons": [
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-65437367",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "ww-65419943",
+     "reasons": [
+      "would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "ww-55474433",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55473455",
+     "reasons": [
+      "jumble: 6 separate time blocks read from one page; review only"
+     ]
+    },
+    {
+     "id": "ww-68255736",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-55472899",
+     "reasons": [
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-65070433",
+     "reasons": [
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-69189528",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording)",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "source page is not the warm space's own session page (general venue or directory page)",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "ww-59951280",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "ww-69441263",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like general venue opening hours, not a warm-space session",
+      "jumble: 6 separate time blocks read from one page; review only"
+     ]
+    },
+    {
+     "id": "hav-friendship-cafe-myplace",
+     "reasons": [
+      "own site lists several centres (9 postcodes); cannot tie one table to this listing",
+      "day not on the same line as its times on the own-site page"
+     ]
+    },
+    {
+     "id": "cmn-carway-hall",
+     "reasons": [
+      "own site lists several centres (24 postcodes); cannot tie one table to this listing",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "cmn-garnant-family-centre",
+     "reasons": [
+      "own site lists several centres (24 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "swk-brandon-2-tra-hall",
+     "reasons": [
+      "own site lists several centres (58 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Thu) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "sbadc-the-hub-south-brent",
+     "reasons": [
+      "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "lancs-bb186qf-robert-windle-foundation",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "lancs-bb104pb-charter-house-resource-centre",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "would cut known hours to fewer days (drops Mon, Sat) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "lancs-pr44ln-all-saints-church",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "lancs-bb53hh-brave-church",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "would cut known hours to fewer days (drops Wed, Thu, Sun) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "lancs-la31dg-west-end-impact",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "jumble: Tue given different times in separate blocks on one page; review only",
+      "would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    }
+   ],
+   "errors": [],
+   "alerts": [],
+   "coverage": {
+    "sites": 320,
+    "sites_opened": 290
+   }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-10-31T14:49:08+00:00"
+ "generated_at": "2026-10-31T19:28:23+00:00"
 }
