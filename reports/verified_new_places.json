@@ -539,6 +539,38 @@
    "rule": "official or own page states a weekday and a time",
    "applied": false,
    "not_applied_reason": "own page states the weekday and time, but it does not give a single venue phone, so it cannot be published"
+  },
+  {
+   "id": "oi-birmingham-council-the-midlands-greek-cypriot-association-b23-7sj",
+   "layer": "warmspaces",
+   "name": "The Midlands Greek & Cypriot Association",
+   "postcode": "B23 7SJ",
+   "address": "Magnet Centre Park Approach Birmingham B23 7SJ",
+   "lat": 52.51482,
+   "lng": -1.86684,
+   "evidence_url": "https://www.midlandsgreek.org/",
+   "day_time_quote": "Saturday & Sunday 10:00 – 16:00 | Monday 17:00 – 22:30 | Wednesday 17:00 – 22:30 | Sunday 12:00 – 18:00",
+   "source_url": "https://www.birmingham.gov.uk/directory_record/627826/the_midlands_greek_and_cypriot_association",
+   "website": "https://www.midlandsgreek.org/",
+   "found_via": "direct",
+   "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
+   "id": "oi-birmingham-council-wacky-community-caf-b13-0pt",
+   "layer": "warmspaces",
+   "name": "Wacky Community Café",
+   "postcode": "B13 0PT",
+   "address": "Full Gospel Tabernacle - Community Hall Next to 689 Yardley Wood Road, Billesley, Birmingham, B13 0PT",
+   "lat": 52.42686,
+   "lng": -1.87166,
+   "evidence_url": "https://www.fullgospeltab.co.uk/",
+   "day_time_quote": "Thursday 10:30am - 1:30pm",
+   "source_url": "https://www.birmingham.gov.uk/directory_record/451042/wacky_community_caf%C3%A9",
+   "website": "https://fullgospeltab.co.uk/",
+   "found_via": "direct",
+   "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
   }
  ]
 }
