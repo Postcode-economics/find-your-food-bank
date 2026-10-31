@@ -1,8 +1,8 @@
 {
  "run": "2026-10-31",
  "candidates": 4082,
- "already_on_map": 1828,
- "new": 2254,
+ "already_on_map": 1845,
+ "new": 2237,
  "added": [
   {
    "id": "oi-birmingham-council-marlborough-primary-school-b10-9ny",
@@ -13,6 +13,18 @@
    "final_url": "https://www.mps.bham.sch.uk/",
    "http": 200,
    "sha256": "2176bcc8771ca7db96a8e1e9add3fdf774b3bf714208c504ff302ed23892cc41",
+   "etag": "",
+   "last_modified": ""
+  },
+  {
+   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
+   "name": "Saifee Mosque",
+   "postcode": "B18 6PU",
+   "directory": "Open Innovations: Birmingham Council",
+   "url": "https://uk.thedawoodibohras.com/birmingham/",
+   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
+   "http": 200,
+   "sha256": "1d86d23b649690cd71367d8aaf38dcaac8a78eff14bc4fbe2330a66be747b945",
    "etag": "",
    "last_modified": ""
   },
@@ -1670,7 +1682,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "b47112a64d91b100045111b84cb843d2ad38718cf65316e50ae959ce124cd4c3",
+   "sha256": "72684ac449a74153642265601de2bef601400a8bb49dfbf78c27153ca22f9e52",
    "etag": "",
    "last_modified": ""
   },
@@ -1774,7 +1786,7 @@
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
    "http": 200,
-   "sha256": "24fcda97d017ad7918ca25570e700e0c1df865c10d4e77ba2aac8626755f4f1c",
+   "sha256": "ab15b3e84d7478d8fba82dd9cba3a496d8ed653037b25f14ad13363bb0c8d48f",
    "etag": "",
    "last_modified": "Sat, 31 Oct 2026 21:40:24 GMT"
   },
@@ -2080,7 +2092,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "5a778ef4142fd6dec2576eae41b56773796bbe62b11a60256d07fc002f8716ee",
+   "sha256": "c435bde14a4e2182c68667ec481cdc95b44a64fb8d19f66d3efe70ba025aeb6d",
    "etag": "",
    "last_modified": ""
   },
@@ -2199,7 +2211,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "1087699447b974792f85ad79517c9386a5c15068b957aad723260d3cd67d5d8c",
+   "sha256": "8fb8dcd4db219b88980c6f1f58055c194f27afa961056700b86f000ac50e0a22",
    "etag": "",
    "last_modified": ""
   },
@@ -2371,8 +2383,8 @@
    "url": "https://www.blesstcic.com/",
    "final_url": "https://www.blesstcic.com/",
    "http": 200,
-   "sha256": "ea9729b348bc6ed4867acbbaf096802c9ec170dacc7f95a4f8f94d641d45dd8d",
-   "etag": "W/\"f47a6e22ae9c99c87b8fef97e8eb8378\"",
+   "sha256": "0cdf4b1342925540374bc1dc2a8792d528e90bb86af74904923c3b09c99bb6a5",
+   "etag": "W/\"aa7f5d122a370d00053c04fdecfeafbc\"",
    "last_modified": ""
   },
   {
@@ -3002,7 +3014,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "b7a0cf9bed70c086061f15a5dc39e8104da9498baed6661bca5c337bc07b7f47",
+   "sha256": "0ba30cc34604dec63ca350abc887f42239eace0405be01f375b693c6d531dffb",
    "etag": "",
    "last_modified": ""
   },
@@ -3961,7 +3973,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "f097fc0632901dbd3757b01886c1284cb362b6b827c9f962321af0f0398878d8",
+   "sha256": "581392feb87d0965cb4a7db6748c7b9711d38c4af9c6539cdc6186694b9c1f63",
    "etag": "",
    "last_modified": ""
   },
@@ -4404,23 +4416,6 @@
    "url": "",
    "final_url": null,
    "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-birmingham-council-saifee-mosque-b18-6pu",
-   "name": "Saifee Mosque",
-   "postcode": "B18 6PU",
-   "website": "https://uk.thedawoodibohras.com/birmingham/",
-   "directory": "Open Innovations: Birmingham Council",
-   "directory_url": "https://www.birmingham.gov.uk/directory_record/626580/saifee_mosque",
-   "reasons": [
-    "own site unreachable (HTTP error)"
-   ],
-   "url": "https://uk.thedawoodibohras.com/birmingham/",
-   "final_url": "https://uk.thedawoodibohras.com/birmingham/",
-   "http": "error",
    "sha256": null,
    "etag": null,
    "last_modified": null
@@ -5034,7 +5029,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "6e8054e8eb1c16eada817904714784dc430fe50aeab5ee7981ab1cb82f1467d3",
+   "sha256": "e273846f9a1c8df8fba6f365d95039b568c6ca077cabece7e52a8e44456f434c",
    "etag": "",
    "last_modified": ""
   },
@@ -5085,7 +5080,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "a217f2f8b2077319f387da1a5dc849e6a40c57a3faad0a25cf4a40c600f85f1f",
+   "sha256": "242a792ed14a48cf4b56e578db29250c3a166ab7cfbc0087ca138bb5dbad4ac8",
    "etag": "",
    "last_modified": ""
   },
@@ -5462,7 +5457,7 @@
    "http": 200,
    "sha256": "c9ba8f447ee0f11b09044e4791c27a2f18be36c237a56d3bd03bd039b61ca9bc",
    "etag": "\"3cc16adb27ffc12c9f30adb3be841bab\"",
-   "last_modified": "Fri, 30 Oct 2026 13:13:04 GMT"
+   "last_modified": "Fri, 30 Oct 2026 23:29:23 GMT"
   },
   {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -5613,7 +5608,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "f35bd7cf684b129ac075c7a701d143876fbd9e6c1f01a54c38ff5ea6f81390ae",
+   "sha256": "168687b7ca5acc721e9150ddce64627db686b5cf4498359af31caf7dfba147f0",
    "etag": "",
    "last_modified": ""
   },
@@ -5801,7 +5796,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "220c134edcd56449eb249e3b74e4f67a9139c423d48ceb95663e67593cbcab84",
+   "sha256": "e93869605eaff0b8c5bec1e14acd24e9c73ee70dee77e7665e553d466c317a36",
    "etag": "",
    "last_modified": ""
   },
@@ -11501,63 +11496,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-cherwell-council-st-johns-the-baptist-church-ox15-4dw",
-   "name": "St Johns the Baptist Church",
-   "postcode": "OX15 4DW",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.bodicotechurch.org/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-cherwell-council-seecombe-court-care-home-ox17-3fw",
    "name": "Seecombe Court Care Home",
    "postcode": "OX17 3FW",
    "website": "",
    "directory": "Open Innovations: Cherwell Council",
    "directory_url": "https://www.cherwell.gov.uk/info/118/communities/977/help-with-the-cost-of-living",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-the-dupuis-centre-ox16-5hd",
-   "name": "The Dupuis Centre",
-   "postcode": "OX16 5HD",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.cherwell.gov.uk/info/118/communities/977/help-with-the-cost-of-living",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-banbury-madni-mosque-ox16-4rp",
-   "name": "Banbury Madni Mosque",
-   "postcode": "OX16 4RP",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.banburymadnimasjid.com/resources/banbury-community-fridge",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -11586,148 +11530,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-cherwell-council-green-pastures-christian-nursing-home-ox16-0tt",
-   "name": "Green Pastures Christian Nursing Home",
-   "postcode": "OX16 0TT",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.greenpastures.uk.com/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-the-mill-arts-centre-ox16-5qe",
-   "name": "The Mill Arts Centre",
-   "postcode": "OX16 5QE",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.themillartscentre.co.uk/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-cherwell-council-lake-house-adderbury-ox17-3ng",
    "name": "Lake House Adderbury",
    "postcode": "OX17 3NG",
    "website": "",
    "directory": "Open Innovations: Cherwell Council",
    "directory_url": "https://www.cherwell.gov.uk/info/118/communities/977/help-with-the-cost-of-living",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-royal-voluntary-service-ox16-5nt",
-   "name": "Royal Voluntary Service",
-   "postcode": "OX16 5NT",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.royalvoluntaryservice.org.uk/our-services/service-search/oxfordshire-hub/banbury-cornhill-centre-46125000/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-highmarket-house-care-home-ox16-0td",
-   "name": "Highmarket House Care Home",
-   "postcode": "OX16 0TD",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.careuk.com/care-homes/highmarket-house-banbury",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-general-foods-social-club-run-by-green-pastures-ox16-2pa",
-   "name": "General Foods Social Club (run by Green Pastures)",
-   "postcode": "OX16 2PA",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.cherwell.gov.uk/info/118/communities/977/help-with-the-cost-of-living",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-banbury-sheikh-bin-baaz-mosque-ox16-0dh",
-   "name": "Banbury Sheikh Bin Baaz Mosque",
-   "postcode": "OX16 0DH",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.bsbbm.org/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-sunrise-multicultural-project-ox16-0en",
-   "name": "Sunrise Multicultural Project",
-   "postcode": "OX16 0EN",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://sunrisemulticultural.org.uk/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-grimsbury-community-centre-ox16-3wt",
-   "name": "Grimsbury Community Centre",
-   "postcode": "OX16 3WT",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.grimsburycommunitycentre.co.uk",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -11756,63 +11564,12 @@
    "last_modified": null
   },
   {
-   "id": "oi-cherwell-council-the-sunshine-centre-ox16-0pj",
-   "name": "The Sunshine Centre",
-   "postcode": "OX16 0PJ",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://sunshinecentre.org/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-cherwell-council-ruscote-community-centre-ox16-1ph",
    "name": "Ruscote Community Centre",
    "postcode": "OX16 1PH",
    "website": "",
    "directory": "Open Innovations: Cherwell Council",
    "directory_url": "https://www.cherwell.gov.uk/info/118/communities/977/help-with-the-cost-of-living",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-bloxham-parish-rooms-ox15-4et",
-   "name": "Bloxham Parish Rooms",
-   "postcode": "OX15 4ET",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "N/A",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-st-francis-church-ox16-1fa",
-   "name": "St Francis Church",
-   "postcode": "OX16 1FA",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "https://www.stfrancischurch.org/",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -11875,23 +11632,6 @@
    "last_modified": null
   },
   {
-   "id": "oi-cherwell-council-cropredy-methodist-church-ox17-1ns",
-   "name": "Cropredy Methodist Church",
-   "postcode": "OX17 1NS",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "N/A",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
    "id": "oi-cherwell-council-hornton-methodist-church-ox15-6bs",
    "name": "Hornton Methodist Church",
    "postcode": "OX15 6BS",
@@ -11915,23 +11655,6 @@
    "website": "",
    "directory": "Open Innovations: Cherwell Council",
    "directory_url": "https://www.ardleywithfewcottvillagehall.co.uk/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-cherwell-council-hethe-village-hall-or-st-phillips-hall-ox27-8ey",
-   "name": "Hethe Village Hall or St Phillips Hall",
-   "postcode": "OX27 8EY",
-   "website": "",
-   "directory": "Open Innovations: Cherwell Council",
-   "directory_url": "N/A",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
@@ -35841,23 +35564,6 @@
    "id": "oi-voluntary-action-islington-showerbox-at-st-giles-in-the-fields-wc2h-8lg",
    "name": "ShowerBox at St Giles-in-the-Fields",
    "postcode": "WC2H 8LG",
-   "website": "",
-   "directory": "Open Innovations: Voluntary Action Islington",
-   "directory_url": "https://vai.org.uk/warm-spaces-in-islington/",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "oi-voluntary-action-islington-whitechapel-mission-e1-1bj",
-   "name": "Whitechapel Mission",
-   "postcode": "E1 1BJ",
    "website": "",
    "directory": "Open Innovations: Voluntary Action Islington",
    "directory_url": "https://vai.org.uk/warm-spaces-in-islington/",

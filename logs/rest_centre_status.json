@@ -1,6 +1,6 @@
 {
  "run": "2026-10-31",
- "seconds": 63.9,
+ "seconds": 52.4,
  "pages": [
   {
    "council": "Armagh City, Banbridge and Craigavon Borough Council",
@@ -492,8 +492,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -501,8 +501,8 @@
    "council": "Charnwood Borough Council",
    "url": "https://www.charnwood.gov.uk/pages/flooding",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1770,8 +1770,8 @@
    "council": "Newry, Mourne and Down District Council",
    "url": "https://www.newrymournedown.org/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 500,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1779,8 +1779,8 @@
    "council": "Newry, Mourne and Down District Council",
    "url": "https://www.newrymournedown.org/emergencies",
    "kind": "emergencies",
-   "http": 200,
-   "status": "checked",
+   "http": 500,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1887,8 +1887,8 @@
    "council": "North West Leicestershire District Council",
    "url": "https://www.nwleics.gov.uk/pages/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -1914,8 +1914,8 @@
    "council": "Oadby and Wigston Borough Council",
    "url": "https://www.oadby-wigston.gov.uk/news",
    "kind": "news",
-   "http": 200,
-   "status": "checked",
+   "http": 429,
+   "status": "unreachable",
    "quote": "",
    "rest_centre": null
   },
@@ -2787,8 +2787,8 @@
    "council": "Wealden District Council",
    "url": "https://www.wealden.gov.uk/news/",
    "kind": "news",
-   "http": null,
-   "status": "unreachable",
+   "http": 200,
+   "status": "checked",
    "quote": "",
    "rest_centre": null
   },
