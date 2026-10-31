@@ -36,6 +36,9 @@ CITIES = [
     {"name": "Kingston upon Hull", "lat": 53.7676, "lng": -0.3274},
     {"name": "Stoke-on-Trent", "lat": 53.0027, "lng": -2.1794},
     {"name": "Southampton", "lat": 50.9097, "lng": -1.4044},
+    # City centre near Churchill Square. Published coverage uses each listing's own pin in
+    # warmspaces.js / shelters.js, not the outcode. BN1, BN2, BN3 and BN41 fall inside 10km;
+    # BN17 (Littlehampton) and BN20 (Eastbourne) do not.
     {"name": "Brighton and Hove", "lat": 50.8225, "lng": -0.1372},
 ]
 

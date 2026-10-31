@@ -5,12 +5,14 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (24)
+## warmspaces (27)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Angy Care Health Foundation (DA11 9NE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27103
+- Bevendean Community Church (BN2 4LT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
 - Bishops Offley Open House (BOOH!) (ST21 6HE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28654
 - Blackburn Salvation Army  (Church & Community Centre) (BB1 5BE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=16503
+- Churchill Square (BN1 2TE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
 - Cradley Heath Salvation Army (B64 5EP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26382
 - Devonport Morice Town Salvation Army (PL2 1RS) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14925
 - Ewell Hall Warm Space (KT17 2AY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=25272
@@ -26,6 +28,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - St John's Waterloo (SE1 8TY) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=24492
 - Stoneycroft Salvation Army (L13 3BT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=23318
 - The Annexe at The Salvation Army (CT1 2RU) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26467
+- The Clarendon Centre (BN3 3RE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
 - The Salvation Army (BT23 4AB) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=16655
 - The Salvation Army (WA1 2BQ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=17225
 - Warm Space at The Hepworth Wakefield (WF1 5AW) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=20139
@@ -239,7 +242,7 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 35 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 36 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
@@ -301,6 +304,9 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
   why held: this change was undone by Dean; not re-applied
+- **St Paul's Methodist Centre** (`ww-65437367`, SY23 2NN): own site now Tuesday and Thursday 11am-2pm | Friday 7-9pm | Tuesdays & Thursdays 11:00am - 2:00pm  
+  source: https://www.ceredigionmethodists.org.uk/st-paul  
+  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
