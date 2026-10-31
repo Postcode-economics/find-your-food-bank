@@ -1,7 +1,7 @@
 {
  "run": "2026-10-31",
- "candidates": 61,
- "already_on_map": 5,
+ "candidates": 60,
+ "already_on_map": 4,
  "new": 56,
  "added": [
   {
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "47dcf2cf5c90255e236f5209510c0496af649a0360774b5eddfe9956aadc12ca",
+   "sha256": "760503f8d0fc8fe19a1703905f2a6d4f394c7220426c1f530c516a4317c5ea2b",
    "etag": "",
    "last_modified": ""
   }
@@ -68,7 +68,7 @@
    "url": "https://www.thegap.wales/",
    "final_url": "https://thegap.wales/",
    "http": 200,
-   "sha256": "ec88e6ab58c1a394b71e84f2b4bfa29f75ab68245673240be37eb91982f1fc54",
+   "sha256": "f986c18e5f7d34a1f87432bc8b97e8e8d5b89348da9e70dd46a20df68c8cac5b",
    "etag": "",
    "last_modified": ""
   },
@@ -139,7 +139,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "bd95ab6e58619b717b2c7b48c87ce229516604ded27e7ef4ebdde97aea4c75a2",
+   "sha256": "6ad285c593585e5e41bd77c85b4de20e8445ac0cf44234e11423d2a3df5216a8",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "4a91b18908a81ec035af9ab2faf59c499ea418384725f028dee34a7d7daa0b17",
+   "sha256": "9312479f3752747528c70b6522378f1039f0397d87179aee0259b2f8bbfc38da",
    "etag": "",
    "last_modified": ""
   },
@@ -551,8 +551,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "2f1b2fc6e969480acd60a555bda1c48f1410677a4c04c28c56e9710614ea79d5",
-   "etag": "W/\"9f41ffe1fac0611580d38d90d0813758\"",
+   "sha256": "c3614fdc8a3427a82da98ce313ce1abc089f09ef8d82f9f8a7bd6497635b1955",
+   "etag": "W/\"5f173353519647d4ffd3807f56c5ff2e\"",
    "last_modified": ""
   },
   {
@@ -676,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "8e5f65136750c892e6688dcd7a101eb06025ad89d939315da9c727c32d6f4a3b",
+   "sha256": "44255ce89d8f9bb32fde87ac8d4f6e8a89d4a2a089cec6007088320ac38d1277",
    "etag": "",
    "last_modified": ""
   },
@@ -831,7 +831,7 @@
    "http": 200,
    "sha256": "99aec91042bdd58b3307f606cde22ff989ffdb9391a34f71d7723f0317c2c9ca",
    "etag": "",
-   "last_modified": "Sat, 31 Oct 2026 12:38:04 GMT"
+   "last_modified": "Sat, 31 Oct 2026 18:39:00 GMT"
   },
   {
    "id": "hl-barnardos-merriweather-home",
@@ -881,8 +881,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "e6ae2b482f082adb344ac0c8883575806b7da28fdb6e7dc6d393a797548e5297",
-   "etag": "W/\"2203d-at0pNE484sEsRkPtqdCoN2sk/5E\"",
+   "sha256": "96665e039939a9db54f768d42267ea60b69e3c5cd2b9a31a9a1cf68efe93b953",
+   "etag": "W/\"22015-tweJrPdNFmLJZ8R/Ont3flbYNeE\"",
    "last_modified": ""
   },
   {
@@ -954,25 +954,29 @@
    "last_modified": null
   },
   {
-   "id": "hl-catalyst-osborne-house",
-   "name": "Catalyst - Osborne House",
-   "postcode": "EN8 9NB",
-   "website": "http://www.broxbourne.gov.uk",
+   "id": "hl-cardinal-hume-centre-hostel",
+   "name": "Cardinal Hume Centre Hostel",
+   "postcode": "",
+   "website": "http://https://www.cardinalhumecentre.org.uk",
    "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-osborne-house/",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/cardinal-hume-centre-hostel/",
    "reasons": [
-    "directory link is a council page, not the place's own site",
-    "own site does not name it",
-    "own site does not show it is a shelter/emergency accommodation",
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+    "no valid postcode"
    ],
-   "url": "http://www.broxbourne.gov.uk",
-   "final_url": "https://www.broxbourne.gov.uk:443/",
-   "http": 200,
-   "sha256": "fc4978f484cdfaedf46b7e2303916e785aa41b145a2bcfbe34ea60e9e032e777",
-   "etag": "",
-   "last_modified": ""
+   "url": null,
+   "final_url": null,
+   "http": null,
+   "sha256": null,
+   "etag": null,
+   "last_modified": null
   }
  ],
- "rejected": []
+ "rejected": [],
+ "follow_skipped": [
+  "hl-1625-independent-people-st-georges-house",
+  "hl-amat-uk"
+ ],
+ "verified_proposals": [
+  "osm-node-12876936676"
+ ]
 }
