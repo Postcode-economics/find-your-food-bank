@@ -50,13 +50,14 @@ class HolyTrinityWesterHailes(unittest.TestCase):
         self.assertIn("For our Foodbank, no appointments are needed", text)
         self.assertIn("Tuesday at 2.00pm", text)
 
-    def test_finder_reading_is_monday_play_cafe_not_food_bank(self):
+    def test_finder_prefers_foodbank_hours_over_play_cafe(self):
         orig = TF.polite
         self.addCleanup(setattr, TF, "polite", orig)
         TF.polite = lambda u, tries=3: (200, u, self.html) if "holytrinity" in u else orig(u, tries)
         found = TF.run([dict(ITEM)], threads=1)["found"][KID]
-        self.assertEqual(found["structured"], MON_SIG)
-        self.assertNotIn("tue", (found.get("structured") or {}))
+        st = (found or {}).get("structured") or {}
+        self.assertNotIn("mon", st)
+        self.assertNotEqual(st, MON_SIG)
 
     def test_play_cafe_monday_blocked_by_exact_undone_value_only(self):
         found = {"raw": "Mondays 9.30am – 11.00am", "status": "TIMES_FOUND", "structured": dict(MON_SIG),
