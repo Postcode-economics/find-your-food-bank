@@ -1,6 +1,67 @@
 {
  "generated": "2026-10-31",
  "label_ready": false,
- "note": "Day centre candidates. Not shelters. Not published.",
- "candidates": []
+ "note": "Day centre candidates. Not shelters. Not published. A reviewed PR can apply them only through the Day centre label, once that label exists.",
+ "candidates": [
+  {
+   "id": "dc-hl-beacon-house-day-centre",
+   "name": "Beacon House Day Centre",
+   "postcode": "",
+   "address": "",
+   "source_url": "https://homeless.org.uk/homeless-england/service/beacon-house-day-centre/",
+   "website": "http://www.beaconhouseministries.org.uk",
+   "source": "Homeless Link day centre category",
+   "day_time_quote": "",
+   "status": "held",
+   "publish": false,
+   "label": "",
+   "why": "Day centre label is not on the map yet; held as a candidate",
+   "checked_on": "2026-10-31"
+  },
+  {
+   "id": "dc-hl-chester-aid-to-the-homeless-harold-tomlins-day-cen",
+   "name": "Chester Aid To The Homeless Harold Tomlins Day Cen",
+   "postcode": "",
+   "address": "",
+   "source_url": "https://homeless.org.uk/homeless-england/service/chester-aid-to-the-homeless-harold-tomlins-day-cen/",
+   "website": "http://www.cath.org.uk",
+   "source": "Homeless Link day centre category",
+   "day_time_quote": "",
+   "status": "held",
+   "publish": false,
+   "label": "",
+   "why": "Day centre label is not on the map yet; held as a candidate",
+   "checked_on": "2026-10-31"
+  },
+  {
+   "id": "dc-hl-coastline-housing-day-centre",
+   "name": "Coastline Housing Day Centre",
+   "postcode": "",
+   "address": "",
+   "source_url": "https://homeless.org.uk/homeless-england/service/coastline-housing-day-centre/",
+   "website": "http://www.coastlinehousing.co.uk",
+   "source": "Homeless Link day centre category",
+   "day_time_quote": "Monday 9am to 5pm | Tuesday 9am to 5pm | Wednesday 9am to 5pm | Thursday 9am to 5pm | Friday 9am to 5pm",
+   "status": "held",
+   "publish": false,
+   "label": "",
+   "why": "Day centre label is not on the map yet; held as a candidate",
+   "checked_on": "2026-10-31"
+  },
+  {
+   "id": "dc-hl-first-base-day-centre",
+   "name": "First Base Day Centre",
+   "postcode": "",
+   "address": "",
+   "source_url": "https://homeless.org.uk/homeless-england/service/first-base-day-centre/",
+   "website": "http://www.bht.org.uk",
+   "source": "Homeless Link day centre category",
+   "day_time_quote": "",
+   "status": "held",
+   "publish": false,
+   "label": "",
+   "why": "Day centre label is not on the map yet; held as a candidate",
+   "checked_on": "2026-10-31"
+  }
+ ]
 }
