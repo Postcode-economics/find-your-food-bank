@@ -1,14 +1,14 @@
 {
  "generated": "2026-10-31",
  "layer": "shelters",
- "about": "Verified new shelters for review. Not published. A directory postcode is a referral address, never the pin. A proposal is only listed when an operator or official page names the place and shows a building postcode, with opening times or an access route. Phones are present only when that confirming page showed them; applying a proposal means adding the phone to overrides/phone_baseline.json in a reviewed change. Council-line fields are not set. Women's refuges are excluded and not mapped. Day centres are held candidates (no Day centre map label until that change is on main).",
+ "about": "Verified new shelters for review. Not published. A directory postcode is a referral address, never the pin. A proposal is only listed when an operator or official page names the place and shows a building postcode, with opening times or an access route. Phones are present only when that confirming page showed them; applying a proposal means adding the phone to overrides/phone_baseline.json in a reviewed change. Council-line fields are not set. Women's refuges are excluded and not mapped. Day centres are held candidates (no Day centre map label until that change is on main). Referral hostel area cards are listed under area_cards for review: no building pin, and not published.",
  "day_centre_label": "held candidates only",
  "counts": {
   "by_source": {
    "homeless_link": {
     "found": 994,
-    "verified": 4,
-    "held": 963,
+    "verified": 3,
+    "held": 964,
     "excluded": 3,
     "already_listed": 6,
     "day_centre_candidates": 18,
@@ -72,8 +72,8 @@
     }
    }
   },
-  "verified": 4,
-  "held": 1313,
+  "verified": 3,
+  "held": 1314,
   "day_centre_candidates": 254,
   "excluded": 18,
   "already_listed": 28
@@ -98,7 +98,9 @@
    "access_type": "",
    "operator_page": "https://contacthostel.co.uk/",
    "evidence": "official directory entry + operator page names the place and shows the building postcode",
-   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
+   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode",
+   "phone": "0161 861 9806",
+   "phone_source": "https://contacthostel.co.uk/"
   },
   {
    "id": "hl-one-ymca-bishops-stortford-hostel",
@@ -143,29 +145,6 @@
    "access": "Mixed 16 21 Accept self referrals and referrals from any agency via Sheffield City Councils Supported Housing pathway provision",
    "access_type": "self_referral",
    "operator_page": "https://www.roundabouthomeless.org/",
-   "evidence": "official directory entry + operator page names the place and shows the building postcode",
-   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
-  },
-  {
-   "id": "hl-stoll",
-   "name": "Stoll",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/stoll/",
-   "website": "http://www.stoll.org.uk",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "emergency",
-   "status": "verified",
-   "layer": "shelters",
-   "address": "bsite Work with us Newsletter Terms and conditions Policies Corporate Governance Stoll Registered Charity number: 207939 Get in contact The Stoll Foundation 446 Fulham Road London ",
-   "postcode": "SW6 1DT",
-   "lat": null,
-   "lng": null,
-   "phone": "020 7385 2110",
-   "phone_source": "https://www.stoll.org.uk/",
-   "access": "Mixed 18 99 Accept self referrals and referrals from veterans and mainstream support services",
-   "access_type": "self_referral",
-   "operator_page": "https://www.stoll.org.uk/",
    "evidence": "official directory entry + operator page names the place and shows the building postcode",
    "postcode_note": "building postcode is from the operator page; the directory listing had no postcode"
   }
@@ -3772,18 +3751,6 @@
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
   },
   {
-   "id": "hl-havebury-housing-partnership-tayfen-house",
-   "name": "Havebury Housing Partnership - Tayfen House",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/havebury-housing-partnership-tayfen-house/",
-   "website": "https://www.havebury.com/community/tayfen-house/",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "operator site unreachable (HTTP 404)"
-  },
-  {
    "id": "hl-haven-first-north-herts",
    "name": "Haven First - North Herts",
    "directory": "Homeless Link",
@@ -5883,18 +5850,6 @@
    "category": "unclassified",
    "status": "held",
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
-  },
-  {
-   "id": "hl-one-ymca-hatfield-hostel",
-   "name": "One YMCA - Hatfield Hostel",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-hatfield-hostel/",
-   "website": "http://www.oneymca.org",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-onward-homes-limited-alt-bank-house",
@@ -7997,18 +7952,6 @@
    "reason": "hosted accommodation (no fixed shelter building)"
   },
   {
-   "id": "hl-second-step-homefield-court",
-   "name": "Second Step - Homefield Court",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/second-step-homefield-court/",
-   "website": "http://www.second-step.co.uk",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
-  },
-  {
    "id": "hl-second-step-toll-house-court",
    "name": "Second Step - Toll House Court",
    "directory": "Homeless Link",
@@ -8561,18 +8504,6 @@
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
   },
   {
-   "id": "hl-st-annes-community-services-bevin-court",
-   "name": "St Anne's Community Services - Bevin Court",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/st-annes-community-services-bevin-court/",
-   "website": "http://www.st-annes.org.uk",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
-  },
-  {
    "id": "hl-st-annes-community-services-st-matthews-centre",
    "name": "St Anne's Community Services - St Matthew's Centre",
    "directory": "Homeless Link",
@@ -8823,18 +8754,6 @@
    "category": "supported",
    "status": "held",
    "reason": "longer-term supported housing or Emmaus — not published"
-  },
-  {
-   "id": "hl-st-mungos-camden-shared-houses",
-   "name": "St Mungo's - Camden Shared Houses",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-camden-shared-houses/",
-   "website": "http://www.mungos.org",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-st-mungos-chrysalis-project",
@@ -10650,18 +10569,6 @@
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
   },
   {
-   "id": "hl-ymca-community-housing-great-yarmouth",
-   "name": "YMCA Community Housing Great Yarmouth",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-community-housing-great-yarmouth/",
-   "website": "https://www.ymcanorfolk.org",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
-  },
-  {
    "id": "hl-ymca-cornwall-supported-housing",
    "name": "YMCA Cornwall - Supported Housing",
    "directory": "Homeless Link",
@@ -11044,18 +10951,6 @@
    "category": "unclassified",
    "status": "held",
    "reason": "not clearly an emergency, direct-access, night shelter or hostel"
-  },
-  {
-   "id": "hl-ymca-norwich-central",
-   "name": "YMCA Norwich Central",
-   "directory": "Homeless Link",
-   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-norwich-central/",
-   "website": "http://www.ymcanorfolk.org",
-   "referral_address": "",
-   "referral_postcode": "",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
    "id": "hl-ymca-nottinghamshire-shakespeare-street-and-peachy",
@@ -14359,18 +14254,6 @@
    "reason": "no operator page to confirm a building address"
   },
   {
-   "id": "ss-5c73de438498fc1570fcbb10",
-   "name": "Yardley House",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "",
-   "referral_address": "104 Blakesley Road, Birmingham, B25 8RN",
-   "referral_postcode": "B25 8RN",
-   "category": "publishable",
-   "status": "held",
-   "reason": "no operator page to confirm a building address"
-  },
-  {
    "id": "ss-5c1931edf20b1f51600fd2df",
    "name": "Faith Lodge",
    "directory": "Street Support",
@@ -15223,18 +15106,6 @@
    "reason": "no building postcode on the operator page (directory postcode is a referral address only)"
   },
   {
-   "id": "ss-5f7d9d9c8d96852224aa4f7b",
-   "name": "YMCA - Mansfield Road",
-   "directory": "Street Support",
-   "directory_url": "https://www.streetsupport.net/find-help",
-   "website": "https://www.nottsymca.com/housing/application/",
-   "referral_address": "7 Mansfield Road, Nottingham, NG1 3FB",
-   "referral_postcode": "NG1 3FB",
-   "category": "publishable",
-   "status": "held",
-   "reason": "operator site unreachable (HTTP 403)"
-  },
-  {
    "id": "ss-5cfa746fce0af61708fa2347",
    "name": "YMCA - Parkside Road",
    "directory": "Street Support",
@@ -16034,6 +15905,148 @@
    "evidence": "official directory entry + operator page names the place and shows the building postcode",
    "postcode_note": "building postcode is from the operator page; the directory listing had no postcode",
    "reason": "operator link was a news or story page, not the place's own page; directory postcode is not a pin"
+  },
+  {
+   "id": "hl-stoll",
+   "name": "Stoll",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/stoll/",
+   "website": "http://www.stoll.org.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "supported",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.stoll.org.uk/",
+   "evidence": "official directory entry + operator page names the place and shows the building postcode",
+   "postcode_note": "building postcode is from the operator page; the directory listing had no postcode",
+   "reason": "longer-term supported housing or Emmaus — not published"
+  },
+  {
+   "id": "hl-havebury-housing-partnership-tayfen-house",
+   "name": "Havebury Housing Partnership - Tayfen House",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/havebury-housing-partnership-tayfen-house/",
+   "website": "https://www.havebury.com/community/tayfen-house/",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "hostel",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.havebury.com/?s=Havebury%20Housing%20Partnership%20-%20Tayfen%20House",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "hl-one-ymca-hatfield-hostel",
+   "name": "One YMCA - Hatfield Hostel",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/one-ymca-hatfield-hostel/",
+   "website": "http://www.oneymca.org",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "hostel",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://oneymca.org/blog/hatfield-youth-club/",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "hl-second-step-homefield-court",
+   "name": "Second Step - Homefield Court",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/second-step-homefield-court/",
+   "website": "http://www.second-step.co.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "emergency",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.second-step.co.uk/?s=Second%20Step%20-%20Homefield%20Court",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "hl-st-annes-community-services-bevin-court",
+   "name": "St Anne's Community Services - Bevin Court",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-annes-community-services-bevin-court/",
+   "website": "http://www.st-annes.org.uk",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "emergency",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.st-annes.org.uk/?s=St%20Anne%27s%20Community%20Services%20-%20Bevin%20Court",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "hl-st-mungos-camden-shared-houses",
+   "name": "St Mungo's - Camden Shared Houses",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/st-mungos-camden-shared-houses/",
+   "website": "http://www.mungos.org",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "hostel",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "http://www.mungos.org/?s=St%20Mungo%27s%20-%20Camden%20Shared%20Houses",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "hl-ymca-community-housing-great-yarmouth",
+   "name": "YMCA Community Housing Great Yarmouth",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-community-housing-great-yarmouth/",
+   "website": "https://www.ymcanorfolk.org",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "emergency",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.ymcanorfolk.org/page/2/?s=YMCA+Community+Housing+Great+Yarmouth",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "hl-ymca-norwich-central",
+   "name": "YMCA Norwich Central",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/ymca-norwich-central/",
+   "website": "http://www.ymcanorfolk.org",
+   "referral_address": "",
+   "referral_postcode": "",
+   "category": "hostel",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.ymcanorfolk.org/?s=YMCA%20Norwich%20Central",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "ss-5c73de438498fc1570fcbb10",
+   "name": "Yardley House",
+   "directory": "Street Support",
+   "directory_url": "https://www.streetsupport.net/find-help",
+   "website": "https://www.birmingham.gov.uk/info/20207/homelessness_and_temporary_accommodation/1196/i_need_accommodation_now",
+   "referral_address": "104 Blakesley Road, Birmingham, B25 8RN",
+   "referral_postcode": "B25 8RN",
+   "category": "hostel",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.birmingham.gov.uk/directory_record/462/yardley_cemetery_and_crematorium",
+   "reason": "confirming page was a search, news or office page, not the building"
+  },
+  {
+   "id": "ss-5f7d9d9c8d96852224aa4f7b",
+   "name": "YMCA - Mansfield Road",
+   "directory": "Street Support",
+   "directory_url": "https://www.streetsupport.net/find-help",
+   "website": "https://www.nottsymca.com/housing/application/",
+   "referral_address": "7 Mansfield Road, Nottingham, NG1 3FB",
+   "referral_postcode": "NG1 3FB",
+   "category": "hostel",
+   "status": "held",
+   "layer": "shelters",
+   "operator_page": "https://www.nottinghamshire.gov.uk/births-deaths-marriages-and-civil-partnerships/register-offices-and-fees/nottinghamshire-register-offices/mansfield-registration-office",
+   "reason": "confirming page was a search, news or office page, not the building"
   }
  ],
  "day_centre_candidates": [
@@ -19212,5 +19225,68 @@
    "source": "https://www.housingrights.org.uk/sites/default/files/documents/advice/Self%20referral%20hostels_June%202025.pdf",
    "note": "nihe.gov.uk did not return the hostel list; used the Housing Rights copy of the NIHE self-referral list (June 2025). That public list is the self-referral subset, not a full hostel inventory."
   }
+ },
+ "second_pass": {
+  "checked": 235,
+  "newly_verified": 9,
+  "ids": [
+   "hl-havebury-housing-partnership-tayfen-house",
+   "hl-one-ymca-hatfield-hostel",
+   "hl-second-step-homefield-court",
+   "hl-st-annes-community-services-bevin-court",
+   "hl-st-mungos-camden-shared-houses",
+   "hl-ymca-community-housing-great-yarmouth",
+   "hl-ymca-norwich-central",
+   "ss-5c73de438498fc1570fcbb10",
+   "ss-5f7d9d9c8d96852224aa4f7b"
+  ],
+  "after_audit": {
+   "kept": 3,
+   "rejected": 9,
+   "reason": "Those 9 pages were a site search, a blog, a cemetery, or a register office. None is the hostel building. No further building was verified."
+  }
+ },
+ "audit": {
+  "kept": [
+   "Contact Hostel",
+   "One YMCA - Bishop's Stortford Hostel",
+   "Roundabout"
+  ],
+  "demoted": [
+   "Havebury Housing Partnership - Tayfen House",
+   "One YMCA - Hatfield Hostel",
+   "Second Step - Homefield Court",
+   "St Anne's Community Services - Bevin Court",
+   "St Mungo's - Camden Shared Houses",
+   "YMCA Community Housing Great Yarmouth",
+   "YMCA Norwich Central",
+   "Yardley House",
+   "YMCA - Mansfield Road"
+  ],
+  "excluded": []
+ },
+ "area_cards": [],
+ "area_card_counts": {
+  "by_source": {
+   "Homeless Link": {
+    "checked": 147,
+    "proposed": 0
+   },
+   "Street Support": {
+    "checked": 78,
+    "proposed": 0
+   },
+   "NIHE self-referral hostels": {
+    "checked": 33,
+    "proposed": 0
+   }
+  },
+  "by_type": {
+   "referral_hostel": 0
+  },
+  "by_place_type": {},
+  "checked": 258,
+  "proposed": 0,
+  "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners."
  }
 }

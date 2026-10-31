@@ -47,7 +47,7 @@ FOOTER = re.compile(r"territorial headquarters|registered charity|champion park|
 HQ_PHONE = re.compile(r"territorial headquarters|champion park|head office", re.I)
 REFERRAL_CTX = re.compile(r"referral address|referral via|housing options|council office|head office|for referrals", re.I)
 WHERE = re.compile(r"where we are|our address|find us", re.I)
-PHONE_RE = re.compile(r"(?:\+44\s?|0)\d[\d\s()-]{8,16}\d")
+PHONE_RE = re.compile(r"(?:\+44\s?|0)\d(?:[\d\s-]{8,14})\d")
 LOCATE = re.compile(r"Locate\s*(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)")
 SS_OVERNIGHT = {"emergency", "hostel", "shelter"}
 SS_SUPPORTED = {"supported", "social", "rented"}
@@ -123,6 +123,18 @@ def is_refuge(name, text):
     if re.search(r"women'?s\s+aid|women at risk of domestic abuse|women'?s?\s+refuges?|domestic (?:abuse|violence) refuges?", blob, re.I):
         return True
     return bool(re.search(r"\brefuges?\b", blob, re.I) and re.search(r"women|domestic", blob, re.I))
+EMERGENCY_BEDS = re.compile(r"direct access|emergency accommodation|emergency beds?|night shelter|emergency shelter", re.I)
+def veterans_supported_only(name, page_text):
+    """Stoll is veterans' supported housing. Propose it only when its own page describes emergency or direct-access beds."""
+    blob = (name or "") + " " + (page_text or "")
+    if not (re.search(r"\bstoll\b", name or "", re.I) or re.search(r"veterans?'\s+supported", blob, re.I)):
+        return False
+    return not EMERGENCY_BEDS.search(page_text or "")
+def shared_housing_only(name, page_text):
+    """Shared houses are supported housing unless that same page describes emergency or direct-access beds."""
+    if not re.search(r"shared (?:houses|flats)|semi[- ]independent", name or "", re.I):
+        return False
+    return not EMERGENCY_BEDS.search(page_text or "")
 def publishable_label(name, text, hint=""):
     blob = " ".join(x for x in (name, text, hint) if x)
     if re.search(r"direct access", blob, re.I): return "direct access"
@@ -201,20 +213,30 @@ def building_postcodes(text):
             continue
         if re.search(r"registered address", tight, re.I) and not re.search(r"\bhostel\b", tight, re.I):
             continue
+        if re.search(r"payroll|general enquir|human resources", tight, re.I) and not re.search(r"\bhostel\b", tight, re.I):
+            continue
         if REFERRAL_CTX.search(tight) and not WHERE.search(tight) and not STREET.search(tight):
             continue
         found.append((pc, at, wide, tight))
     return found
 def best_building(text, name, url=""):
     """The one postcode tied to this place. Several unnamed postcodes on one page are not a pin.
+    A search title that names the place does not make the only other postcode on the page the building.
     Returns (postcode, offset, wide_window) or None."""
     cands = building_postcodes(text)
     if not cands: return None
     # tie on the words touching the postcode, so a later footer postcode cannot borrow the building's name
     named = [c for c in cands if ties_place(c[3], url, name)]
     if len(cands) == 1 and not named:
-        title = (text or "")[:240]
-        if ties_place(title + " " + cands[0][3], url, name) and not SKIP_WIN.search(cands[0][3]):
+        parts = urllib.parse.urlparse(url or "")
+        blob = ((parts.path or "") + " " + (parts.netloc or "")).lower()
+        long = {w for w in distinctive(name) if len(w) >= 5}
+        short = {w for w in distinctive(name) if len(w) >= 4}
+        # every specific word of the name has to be in this place's own URL, and the postcode
+        # has to sit on a street. A search title, or a charity homepage used for a different site, does not.
+        url_names = all(w in blob for w in long) if long else bool(short) and any(w in blob for w in short)
+        tight = cands[0][3]
+        if url_names and (WHERE.search(tight) or STREET.search(tight)) and not SKIP_WIN.search(tight):
             named = [cands[0]]
     if len(named) > 1:
         hostelish = [c for c in named if re.search(r"\bhostel\b|\bnight shelter\b", c[3], re.I)]
@@ -225,22 +247,32 @@ def best_building(text, name, url=""):
     if len(named) != 1: return None
     pc, at, wide, tight = named[0]
     return pc, at, wide
+def _uk_phone(raw):
+    digits = re.sub(r"\D", "", raw or "")
+    if digits.startswith("44"): digits = "0" + digits[2:]
+    if digits.startswith("0") and len(digits) in (10, 11):
+        return re.sub(r"\s+", " ", raw).strip()
+    return ""
 def phone_near(text, postcode):
-    """A UK number in the same sentence as the building postcode, not the site-wide headquarters number."""
+    """The UK number closest to the building postcode, not a headquarters number further up the page."""
     if not text or not postcode: return ""
     n = norm_pc(postcode)
+    best, best_d = "", 10 ** 9
     for m in PC_RE.finditer(text.upper()):
         if norm_pc(m.group(1) + m.group(2)) != n: continue
-        window = text[max(0, m.start() - 80): m.end() + 180]
+        start, end = max(0, m.start() - 400), min(len(text), m.end() + 80)
+        window = text[start:end]
         for p in PHONE_RE.findall(window):
+            shown = _uk_phone(p)
+            if not shown: continue
             i = window.find(p)
             local = window[max(0, i - 50): i + len(p) + 50]
             if HQ_PHONE.search(local): continue
-            digits = re.sub(r"\D", "", p)
-            if digits.startswith("44"): digits = "0" + digits[2:]
-            if digits.startswith("0") and len(digits) in (10, 11):
-                return re.sub(r"\s+", " ", p).strip()
-    return ""
+            dist = abs((start + i) - m.start())
+            if dist < best_d:
+                best_d, best = dist, shown
+        break
+    return best
 def locate_near(text, postcode):
     if not text or not postcode: return None
     n = norm_pc(postcode)
@@ -445,7 +477,7 @@ def polite(fetcher, delay=0.0, cache_dir=None, ttl=20 * 3600):
     return f
 def _ok(res): return isinstance(res, dict) and res.get("http") == 200 and res.get("html")
 
-def sitemap_follow(website, name, fetcher, already=(), home_html=""):
+def sitemap_follow(website, name, fetcher, already=(), home_html="", max_pages=4):
     """Place pages linked from the operator sitemap or homepage, for a multi-site operator whose
     homepage does not name this building. Returns [(url, text)] not already fetched."""
     if not discover.usable_site(website): return []
@@ -490,11 +522,30 @@ def sitemap_follow(website, name, fetcher, already=(), home_html=""):
     for _, u in ranked:
         if u in have or u in seen: continue
         seen.add(u)
-        if len(out) >= 4: break
+        if len(out) >= max_pages: break
         res = fetcher(u)
         if _ok(res): out.append((res.get("final_url") or u, _text(res["html"])))
     return out
 
+def _place_url(url):
+    """A page that can confirm a building or an area card. Search, news, blogs and directory hosts cannot."""
+    if not url: return False
+    host = discover.host(url)
+    if host in ("homeless.org.uk", "www.homeless.org.uk", "streetsupport.net", "www.streetsupport.net"):
+        return False
+    parts = urllib.parse.urlparse(url)
+    path = (parts.path or "").lower()
+    query = (parts.query or "").lower()
+    if re.search(r"(?:^|&)(?:s|q|keys|highlight)=", query): return False
+    if re.search(r"/(?:blog|news|press-release|press|tag|category|author|search|careers|jobs|vacancies|post)(?:/|$)", path):
+        return False
+    if re.search(r"/page/\d+(?:/|$)|/\d{4}/\d{2}/|mourn|obituar", path): return False
+    if re.search(r"cemetery|crematorium|register-office|registration-office|births-deaths|civil-partnership", path):
+        return False
+    slug = path.strip("/").split("/")[-1] if path.strip("/") else ""
+    council = host == "gov.uk" or host.endswith(".gov.uk")
+    if not council and slug.count("-") >= 4: return False
+    return True
 def confirm_operator(candidate, fetcher):
     """Building postcode from the place's own page or an official operator page. Directory postcodes are ignored."""
     pages = list(candidate.get("operator_pages") or [])
@@ -512,17 +563,14 @@ def confirm_operator(candidate, fetcher):
             return {"ok": False, "reason": "operator site unreachable (HTTP %s)" % (res.get("http") if isinstance(res, dict) else "?")}
     official = []
     for url, text in pages:
+        if not _place_url(url): continue
         host = discover.host(url)
-        path = urllib.parse.urlparse(url or "").path.lower()
-        slug = path.strip("/").split("/")[-1]
-        # news posts and long story slugs are not the place's own page
-        if re.search(r"/post/|/\d{4}/\d{2}/|mourn|obituar", path) or slug.count("-") >= 4:
+        if (host == "gov.uk" or host.endswith(".gov.uk")) and not re.search(
+                r"hostel|homeless|night shelter|emergency accommodation", (url or "") + " " + (text or ""), re.I):
             continue
         if not names_place(text, candidate.get("name")): continue
         hit = best_building(text, candidate.get("name"), url)
         if not hit: continue
-        # a directory host does not confirm the building (Homeless Link, Street Support)
-        if host in ("homeless.org.uk", "www.homeless.org.uk", "streetsupport.net", "www.streetsupport.net"): continue
         official.append((url, text, hit))
     if not official:
         if not website and not pages:
@@ -571,9 +619,13 @@ def assess(candidate, fetcher, today, existing):
         return "held", dict(base, status="held", reason="hosted accommodation (no fixed shelter building)")
     if kind != "publishable":
         return "held", dict(base, status="held", reason="not clearly an emergency, direct-access, night shelter or hostel")
-    season = seasonal_reason(name, directory_text)
-    if season:
-        return "held", dict(base, status="held", reason=season)
+    if shared_housing_only(name, directory_text):
+        return "held", dict(base, status="held", category="supported",
+                            reason="longer-term supported housing or Emmaus — not published")
+    if not candidate.get("operator_pages"):
+        season = seasonal_reason(name, directory_text)
+        if season:
+            return "held", dict(base, status="held", reason=season)
     op = confirm_operator(candidate, fetcher)
     if not op.get("ok"):
         held_rec = dict(base, status="held", reason=op.get("reason") or "not confirmed")
@@ -589,10 +641,13 @@ def assess(candidate, fetcher, today, existing):
             return "already", None
     route = op.get("access") or ""
     page_text = op.get("text") or ""
-    if seasonal_reason(name, page_text):
-        return "held", dict(base, status="held", reason=seasonal_reason(name, page_text), operator_page=op.get("url"))
+    if seasonal_reason(name, directory_text + " " + page_text):
+        return "held", dict(base, status="held", reason=seasonal_reason(name, directory_text + " " + page_text), operator_page=op.get("url"))
     if is_refuge(name, page_text):
         return "excluded", {"id": base["id"], "name": name, "reason": "women's refuge or domestic abuse service — never mapped"}
+    if veterans_supported_only(name, page_text) or shared_housing_only(name, page_text):
+        return "held", dict(base, status="held", reason="longer-term supported housing or Emmaus — not published",
+                            operator_page=op.get("url"), category="supported")
     if classify(name, page_text, candidate.get("hint") or "") == "supported" and not PUBLISHABLE.search(page_text):
         return "held", dict(base, status="held", reason="operator page describes longer-term supported housing", operator_page=op.get("url"))
     if not route and not has_times(page_text) and not has_times(directory_text):
@@ -605,7 +660,9 @@ def assess(candidate, fetcher, today, existing):
                phone=op.get("phone") or "", phone_source=op.get("phone_source") or "",
                access=route, access_type=at or "",
                operator_page=op.get("url") or "",
-               evidence="official directory entry + operator page names the place and shows the building postcode")
+               evidence=("official directory entry + council page names the hostel and its address"
+                         if (discover.host(op.get("url")) == "gov.uk" or discover.host(op.get("url") or "").endswith(".gov.uk"))
+                         else "official directory entry + operator page names the place and shows the building postcode"))
     # directory postcode must not be reused as the building when the page showed a different one
     if rec.get("referral_postcode") and norm_pc(rec["postcode"]) == norm_pc(rec["referral_postcode"]):
         rec["postcode_note"] = "building postcode confirmed on the operator page; it matches the directory postcode"
@@ -842,7 +899,14 @@ def write_report(path, doc):
         except Exception: prev = {}
     if isinstance(prev, dict):
         others = [p for p in (prev.get("proposals") or []) if isinstance(p, dict) and p.get("layer") not in (None, "", "shelters")]
-        doc["proposals"] = list(doc.get("proposals") or []) + others
+        merged, seen = [], set()
+        for p in list(doc.get("proposals") or []) + others:
+            if not isinstance(p, dict): continue
+            i = p.get("id")
+            if i and i in seen: continue
+            if i: seen.add(i)
+            merged.append(p)
+        doc["proposals"] = merged
         for k, v in prev.items():
             if k not in doc: doc[k] = v
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
@@ -890,8 +954,459 @@ def refresh(root=None, today=None, fetcher=None, delay=0.4, evidence_limit=None,
             "day_centre_candidates": len(doc["day_centre_candidates"]), "excluded": len(doc["excluded"]),
             "by_source": doc["counts"]["by_source"]}
 
+def search_urls(website, name):
+    """Same-site search URLs. A result only counts once a fetched page names the place and a building postcode."""
+    if not discover.usable_site(website): return []
+    parts = urllib.parse.urlparse(website)
+    root = "%s://%s" % (parts.scheme or "https", parts.netloc)
+    q = urllib.parse.quote(name or "")
+    return [root + "/?s=" + q, root + "/search?q=" + q, root + "/search?keys=" + q]
+def _same_site_links(html, base, name, pred):
+    out = []
+    for href, label in re.findall(r'(?is)<a[^>]+href="([^"#]+)"[^>]*>(.*?)</a>', html or ""):
+        blob = href + " " + _text(label)
+        if not pred(blob): continue
+        u = urllib.parse.urljoin(base, href)
+        if discover.host(u) == discover.host(base) and u not in out:
+            out.append(u)
+    return out
+def council_follow(council_url, name, fetcher, cap=6):
+    """Homelessness / hostel pages on a council site. A hit still has to name this hostel and a building postcode."""
+    res = fetcher(council_url)
+    if not _ok(res): return []
+    base = res.get("final_url") or council_url
+    pages = [(base, _text(res["html"]))]
+    d = distinctive(name)
+    def pred(blob):
+        low = blob.lower()
+        if any(w in low for w in d): return True
+        return bool(re.search(r"hostel|homeless|night shelter|emergency accommodation", low))
+    links = _same_site_links(res["html"], base, name, pred)
+    pages += sitemap_follow(base, name, fetcher, pages, res["html"], max_pages=cap)
+    for u in links:
+        if len(pages) >= cap + 1: break
+        if any(u == p[0] for p in pages): continue
+        r = fetcher(u)
+        if _ok(r): pages.append((r.get("final_url") or u, _text(r["html"])))
+    return pages
+def operator_second_look(website, name, fetcher, cap=8):
+    """Sitemap plus site search, deeper than the first pass."""
+    if not discover.usable_site(website): return []
+    home = fetcher(website)
+    pages = []
+    html = ""
+    if _ok(home):
+        pages.append((home.get("final_url") or website, _text(home["html"])))
+        html = home["html"]
+    pages += sitemap_follow(website, name, fetcher, pages, html, max_pages=cap)
+    for u in search_urls(website, name):
+        if any(u == p[0] for p in pages): continue
+        r = fetcher(u)
+        if not _ok(r): continue
+        pages.append((r.get("final_url") or u, _text(r["html"])))
+        for link in _same_site_links(r["html"], r.get("final_url") or u, name, lambda b: any(w in b.lower() for w in distinctive(name))):
+            if len(pages) >= cap + 4: break
+            if any(link == p[0] for p in pages): continue
+            rr = fetcher(link)
+            if _ok(rr): pages.append((rr.get("final_url") or link, _text(rr["html"])))
+    return pages
+def norm_area(s):
+    s = re.sub(r"\b(city|council|borough|district|county|metropolitan|london|royal|of|the|and)\b", " ", (s or "").lower())
+    return re.sub(r"[^a-z]+", " ", s).strip()
+def load_council_homes(root=None):
+    """Council name -> homelessness page, from the SWEP source list. Used only to find a page to read."""
+    root = root or ROOT
+    out = {}
+    try:
+        rows = json.load(open(os.path.join(root, "overrides", "swep_sources.json"), encoding="utf-8"))
+    except Exception:
+        return out
+    for row in rows:
+        url = row.get("homeless_url") or ""
+        if not url or not (discover.host(url).endswith(".gov.uk") or discover.host(url) == "gov.uk"): continue
+        name = re.sub(r"\s*\(news\)\s*$", "", row.get("council") or "", flags=re.I).strip()
+        if name and norm_area(name) not in out:
+            out[norm_area(name)] = url
+    return out
+def council_url_for(district, homes):
+    key = norm_area(district)
+    if not key: return ""
+    if key in homes: return homes[key]
+    for name, url in homes.items():
+        if key in name or name in key: return url
+    return ""
+ROUTE_BIT = re.compile(r"housing options|streetlink|referral (?:only|needed|via|through)|referred by|via (?:the )?(?:council|outreach)|outreach team", re.I)
+WITHHELD = re.compile(r"address is not (?:public|published|disclosed)|no public address|do not (?:publish|share) the address|do not turn up|referral only|housing options|streetlink", re.I)
+def _route_sentence(text):
+    m = ROUTE_BIT.search(text or "")
+    if not m: return ""
+    return _snip(text, m)
+_TOWN_STOP = {"housing", "council", "local", "the", "referral", "street", "options", "city", "borough", "hostel", "england", "wales", "scotland", "northern", "ireland"}
+def _town_from(text):
+    m = re.search(r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+Housing Options\b", text or "")
+    if not m:
+        m = re.search(r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+(?:City |Borough |District |County )?Council\b", text or "")
+    if not m:
+        m = re.search(r"(?:based in|hostel in)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})", text or "")
+    if not m: return ""
+    town = m.group(1).strip()
+    words = [w.lower() for w in town.split()]
+    if not words or words[0] in _TOWN_STOP or all(w in _TOWN_STOP for w in words): return ""
+    return town
+def _operator_from(text, url):
+    m = re.search(r"(?:run by|operated by|provided by|managed by)\s+([^.]{3,80})", text or "", re.I)
+    if not m: return ""
+    op = re.split(r"\s+in\s+", m.group(1), maxsplit=1)[0]
+    op = re.sub(r"\s+", " ", op).strip(" ,")
+    if op.lower() in ("the council", "council", "housing options", "streetlink"): return ""
+    return op
+def _name_window(text, name, pad=700):
+    """Words around the place name, so a footer phone or a housing-options line further down the page does not count."""
+    raw = text or ""
+    low = raw.lower()
+    words = [w for w in distinctive(name) if len(w) >= 4] or list(discover.tokens(name))
+    idxs = [low.find(w) for w in words if w and low.find(w) >= 0]
+    if not idxs: return ""
+    i = min(idxs)
+    return raw[max(0, i - pad): i + pad]
+def _phone_on_page(text):
+    best = ""
+    for p in PHONE_RE.findall(text or ""):
+        shown = _uk_phone(p)
+        if not shown: continue
+        i = (text or "").find(p)
+        local = (text or "")[max(0, i - 40): i + len(p) + 40]
+        if HQ_PHONE.search(local): continue
+        best = shown
+        break
+    return best
+def referral_area_card(name, pages):
+    """An area card for a hostel whose building address is not public.
+    Name, operator, town, phone and referral route must be on the operator or council page.
+    No postcode, no pin. A directory postcode is ignored. A refuge is not a card."""
+    blob = " ".join(t for _, t in pages or [])
+    if is_refuge(name, blob) or is_refuge(name, ""): return None
+    if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", name or "", re.I): return None
+    for url, text in pages or []:
+        if best_building(text, name, url): return None
+    for url, text in pages or []:
+        if not _place_url(url): continue
+        host = discover.host(url)
+        if (host == "gov.uk" or host.endswith(".gov.uk")) and not re.search(
+                r"hostel|homeless|night shelter|emergency accommodation", url + " " + (text or ""), re.I):
+            continue
+        window = _name_window(text, name)
+        if not names_place(window, name): continue
+        if not WITHHELD.search(window): continue
+        phone = _phone_on_page(window)
+        route = _route_sentence(window)
+        town = _town_from(window)
+        operator = _operator_from(window, url)
+        if not (phone and route and town and operator): continue
+        host = discover.host(url)
+        council = host == "gov.uk" or host.endswith(".gov.uk")
+        return {"id": "", "name": name, "card_type": "referral_hostel", "status": "proposal", "layer": "shelters",
+                "operator": operator, "area": town, "town": town, "phone": phone, "phone_source": url,
+                "referral_route": route, "label": "Referral hostel",
+                "notice": "Referral needed, don't turn up without one",
+                "postcode": "", "lat": None, "lng": None, "address": "",
+                "operator_page": url, "no_pin": True,
+                "evidence": ("council page names the hostel, the area, a phone and the referral route; no building address is published"
+                             if council else
+                             "operator page names the hostel, the area, a phone and the referral route; no building address is published")}
+    return None
+def second_pass_one(hold, fetcher, council_url="", directory_text="", existing=()):
+    """One publishable hold. A council page counts only when it names this hostel and a building postcode.
+    The directory postcode is still not the pin. A refuge is excluded."""
+    name = hold.get("name") or ""
+    text = directory_text or hold.get("directory_text") or ""
+    if is_refuge(name, text):
+        return "excluded", {"id": hold.get("id"), "name": name, "reason": "women's refuge or domestic abuse service — never mapped"}
+    pages = operator_second_look(hold.get("website") or "", name, fetcher)
+    if council_url:
+        pages += council_follow(council_url, name, fetcher)
+    cand = {"id": hold.get("id"), "name": name, "website": hold.get("website") or council_url or "",
+            "directory": hold.get("directory"), "directory_url": hold.get("directory_url") or "",
+            "referral_address": hold.get("referral_address") or "", "referral_postcode": hold.get("referral_postcode") or "",
+            "directory_text": text, "hint": "hostel", "operator_pages": pages}
+    return assess(cand, fetcher, datetime.date.today().isoformat(), list(existing or []))
+
+def _districts(postcodes):
+    """Council area for a postcode, used only to choose which council page to read. Never a pin."""
+    cache = {}
+    try:
+        cache = json.load(open(os.path.join(ROOT, "overrides", "district_cache.json"), encoding="utf-8"))
+    except Exception:
+        cache = {}
+    out = {}
+    missing = []
+    for pc in postcodes:
+        if not split_pc(pc): continue
+        shown = pc if " " in pc else (pc[:-3] + " " + pc[-3:] if len(norm_pc(pc)) > 3 else pc)
+        hit = cache.get(shown) or cache.get(norm_pc(pc)) or cache.get(pc.upper())
+        if hit: out[norm_pc(pc)] = hit
+        else: missing.append(shown)
+    if missing:
+        try:
+            import urllib.request
+            for i in range(0, len(missing), 100):
+                batch = missing[i:i + 100]
+                req = urllib.request.Request("https://api.postcodes.io/postcodes",
+                                              json.dumps({"postcodes": batch}).encode(),
+                                              {"Content-Type": "application/json", "User-Agent": "helpmap.uk shelter check"})
+                body = json.loads(urllib.request.urlopen(req, timeout=30).read().decode())
+                for row in (body or {}).get("result") or []:
+                    res = row.get("result") or {}
+                    if res.get("admin_district") and row.get("query"):
+                        out[norm_pc(row["query"])] = res["admin_district"]
+        except Exception as ex:
+            print("postcodes.io district lookup skipped:", ex)
+    return out
+SECOND_REASONS = ("no building postcode", "no operator page", "operator site unreachable", "operator link was a news")
+def run_second_pass(root=None, fetcher=None, delay=0.25):
+    """Re-check publishable holds against the operator sitemap and site search, and the council homelessness page."""
+    root = root or ROOT
+    path = os.path.join(root, "reports", "verified_new_places.json")
+    doc = json.load(open(path, encoding="utf-8"))
+    homes = load_council_homes(root)
+    targets = []
+    for h in doc.get("held") or []:
+        if h.get("directory") not in ("Homeless Link", "Street Support"): continue
+        if h.get("category") != "publishable": continue
+        if not any((h.get("reason") or "").startswith(s) for s in SECOND_REASONS): continue
+        targets.append(h)
+    districts = _districts([h.get("referral_postcode") for h in targets if h.get("referral_postcode")])
+    index = {}
+    try: index = json.load(open(os.path.join(root, "logs", "shelter_source_index.json"), encoding="utf-8"))
+    except Exception: index = {}
+    texts = {("hl-" + k): (v.get("directory_text") or "") for k, v in (index.get("hl_services") or {}).items()}
+    raw = fetcher or discover.fetch_raw
+    fetch = raw if fetcher else polite(raw, delay=delay, cache_dir=os.path.join(root, CACHE))
+    existing = load_existing(root)
+    for p in doc.get("proposals") or []:
+        existing.append({"id": p.get("id"), "name": p.get("name"), "postcode": p.get("postcode")})
+    newly, still = [], []
+    seen = {h.get("id") for h in targets}
+    for n, h in enumerate(targets, 1):
+        council = ""
+        if (h.get("website") or "").endswith(".gov.uk") or discover.host(h.get("website")).endswith(".gov.uk"):
+            council = h.get("website") or ""
+        elif h.get("referral_postcode"):
+            council = council_url_for(districts.get(norm_pc(h["referral_postcode"]), ""), homes)
+        bucket, rec = second_pass_one(h, fetch, council_url=council, directory_text=texts.get(h.get("id"), ""), existing=existing)
+        if bucket == "verified" and rec:
+            newly.append(rec)
+            existing.append({"id": rec["id"], "name": rec["name"], "postcode": rec["postcode"]})
+        else:
+            still.append(h.get("id"))
+        if os.environ.get("SHELTER_SOURCE_PROGRESS"):
+            print("second pass", n, "of", len(targets), "new", len(newly), h.get("name"), flush=True)
+    doc["held"] = [h for h in doc["held"] if h.get("id") not in {r["id"] for r in newly}]
+    doc["proposals"] = list(doc.get("proposals") or []) + newly
+    doc["second_pass"] = {"checked": len(targets), "newly_verified": len(newly),
+                          "ids": [r["id"] for r in newly]}
+    doc["counts"]["verified"] = len(doc["proposals"])
+    doc["counts"]["held"] = len(doc["held"])
+    by = doc["counts"].get("by_source") or {}
+    for key, label in (("homeless_link", "Homeless Link"), ("street_support", "Street Support")):
+        if key not in by: continue
+        got = [r for r in newly if r.get("directory") == label]
+        by[key]["verified"] = by[key].get("verified", 0) + len(got)
+        by[key]["held"] = max(0, by[key].get("held", 0) - len(got))
+    write_report(path, doc)
+    return doc["second_pass"]
+def review_open_proposals(root=None, fetcher=None):
+    """Stoll stays proposed only if its own page describes emergency or direct-access beds.
+    Contact Hostel stays proposed only with a phone read on its own page."""
+    root = root or ROOT
+    path = os.path.join(root, "reports", "verified_new_places.json")
+    doc = json.load(open(path, encoding="utf-8"))
+    raw = fetcher or discover.fetch_raw
+    fetch = raw if fetcher else polite(raw, delay=0.2, cache_dir=os.path.join(root, CACHE))
+    kept, demoted = [], []
+    for p in doc.get("proposals") or []:
+        res = fetch(p.get("operator_page") or p.get("website") or "")
+        text = _text(res["html"]) if _ok(res) else ""
+        if veterans_supported_only(p.get("name"), text):
+            q = dict(p, status="held", category="supported",
+                     reason="longer-term supported housing or Emmaus — not published")
+            for k in ("postcode", "address", "lat", "lng", "phone", "phone_source", "access", "access_type"):
+                q.pop(k, None)
+            demoted.append(q)
+            continue
+        if re.search(r"contact hostel", p.get("name") or "", re.I):
+            phone = phone_near(text, p.get("postcode") or "")
+            if not phone:
+                q = dict(p, status="held", reason="no phone on the place's own page")
+                q.pop("phone", None); q.pop("phone_source", None)
+                demoted.append(q)
+                continue
+            p = dict(p, phone=phone, phone_source=res.get("final_url") or p.get("operator_page"))
+        kept.append(strip_council(p))
+    doc["proposals"] = kept
+    doc["held"] = list(doc.get("held") or []) + demoted
+    doc["counts"]["verified"] = len(kept)
+    doc["counts"]["held"] = len(doc["held"])
+    hl = (doc.get("counts") or {}).get("by_source", {}).get("homeless_link")
+    if hl:
+        hl["verified"] = sum(1 for p in kept if p.get("directory") == "Homeless Link")
+        hl["held"] = hl.get("held", 0) + sum(1 for p in demoted if p.get("directory") == "Homeless Link")
+    write_report(path, doc)
+    return {"kept": [p["name"] for p in kept], "demoted": [p["name"] for p in demoted]}
+def _drop_pin(rec, reason, category=None):
+    q = dict(rec, status="held", reason=reason)
+    if category: q["category"] = category
+    for k in ("postcode", "address", "lat", "lng", "phone", "phone_source", "access", "access_type", "postcode_note", "evidence", "no_pin"):
+        q.pop(k, None)
+    return strip_council(q)
+def audit_open_proposals(root=None, fetcher=None):
+    """Drop a pin whose page is a search, news or office page, or whose postcode is not that building.
+    Stoll and shared houses stay held unless the page describes emergency beds. Contact Hostel needs its own phone."""
+    root = root or ROOT
+    path = os.path.join(root, "reports", "verified_new_places.json")
+    doc = json.load(open(path, encoding="utf-8"))
+    raw = fetcher or discover.fetch_raw
+    fetch = raw if fetcher else polite(raw, delay=0.15, cache_dir=os.path.join(root, CACHE))
+    kept, demoted, excluded_n = [], [], []
+    for p in doc.get("proposals") or []:
+        if not isinstance(p, dict) or p.get("layer") not in (None, "", "shelters") or p.get("card_type") == "referral_hostel":
+            kept.append(p)
+            continue
+        url = p.get("operator_page") or ""
+        if not _place_url(url):
+            demoted.append(_drop_pin(p, "confirming page was a search, news or office page, not the building"))
+            continue
+        res = fetch(url)
+        text = _text(res["html"]) if _ok(res) else ""
+        host = discover.host(url)
+        if text and (host == "gov.uk" or host.endswith(".gov.uk")) and not re.search(
+                r"hostel|homeless|night shelter|emergency accommodation", url + " " + text, re.I):
+            demoted.append(_drop_pin(p, "council page does not describe a hostel or homelessness service"))
+            continue
+        if not text or not names_place(text, p.get("name")):
+            demoted.append(_drop_pin(p, "no building postcode on the operator page (directory postcode is a referral address only)"))
+            continue
+        if is_refuge(p.get("name"), text):
+            excluded_n.append({"id": p.get("id"), "name": p.get("name"), "directory": p.get("directory"),
+                               "reason": "women's refuge or domestic abuse service — never mapped"})
+            continue
+        if veterans_supported_only(p.get("name"), text) or shared_housing_only(p.get("name"), text):
+            demoted.append(_drop_pin(p, "longer-term supported housing or Emmaus — not published", "supported"))
+            continue
+        hit = best_building(text, p.get("name"), url)
+        if not hit or norm_pc(hit[0]) != norm_pc(p.get("postcode")):
+            demoted.append(_drop_pin(p, "no building postcode on the operator page (directory postcode is a referral address only)"))
+            continue
+        if re.search(r"contact hostel", p.get("name") or "", re.I):
+            phone = phone_near(text, p.get("postcode") or "")
+            if not phone:
+                demoted.append(_drop_pin(p, "no phone on the place's own page"))
+                continue
+            p = dict(p, phone=phone, phone_source=res.get("final_url") or url)
+        kept.append(strip_council(p))
+    doc["proposals"] = kept
+    held_ids = {h.get("id") for h in doc.get("held") or []}
+    for d in demoted:
+        if d.get("id") not in held_ids:
+            doc.setdefault("held", []).append(d)
+            held_ids.add(d.get("id"))
+    if excluded_n:
+        doc["excluded"] = list(doc.get("excluded") or []) + excluded_n
+    doc.setdefault("counts", {})
+    doc["counts"]["verified"] = len([p for p in kept if p.get("layer") in (None, "", "shelters")])
+    doc["counts"]["held"] = len(doc.get("held") or [])
+    doc["counts"]["excluded"] = len(doc.get("excluded") or [])
+    labels = {"homeless_link": "Homeless Link", "street_support": "Street Support",
+              "lifehouses": "Salvation Army Lifehouses", "nihe": "NIHE self-referral hostels"}
+    for key, label in labels.items():
+        row = (doc["counts"].get("by_source") or {}).get(key)
+        if not row: continue
+        row["verified"] = sum(1 for p in kept if p.get("directory") == label)
+        row["held"] = sum(1 for h in doc.get("held") or [] if h.get("directory") == label)
+    doc["audit"] = {"kept": [p.get("name") for p in kept if p.get("layer") in (None, "", "shelters")],
+                    "demoted": [p.get("name") for p in demoted],
+                    "excluded": [p.get("name") for p in excluded_n]}
+    write_report(path, doc)
+    return doc["audit"]
+def run_area_cards(root=None, fetcher=None, delay=0.15):
+    """Area cards for publishable hostels whose building address is not public.
+    Written to area_cards for review. Not added to shelters.js, not pinned, not put in SWEP or emergency banners."""
+    root = root or ROOT
+    path = os.path.join(root, "reports", "verified_new_places.json")
+    doc = json.load(open(path, encoding="utf-8"))
+    homes = load_council_homes(root)
+    verified_ids = {p.get("id") for p in doc.get("proposals") or [] if isinstance(p, dict)}
+    targets = []
+    for h in doc.get("held") or []:
+        if h.get("category") != "publishable": continue
+        if h.get("id") in verified_ids: continue
+        if is_refuge(h.get("name"), h.get("reason") or "") or is_refuge(h.get("name"), ""): continue
+        if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", h.get("name") or "", re.I): continue
+        reason = h.get("reason") or ""
+        if not any(reason.startswith(s) for s in ("no building postcode", "no operator page", "operator site unreachable")):
+            continue
+        targets.append(h)
+    districts = _districts([h.get("referral_postcode") for h in targets if h.get("referral_postcode")])
+    index = {}
+    try: index = json.load(open(os.path.join(root, "logs", "shelter_source_index.json"), encoding="utf-8"))
+    except Exception: index = {}
+    texts = {("hl-" + k): (v.get("directory_text") or "") for k, v in (index.get("hl_services") or {}).items()}
+    raw = fetcher or discover.fetch_raw
+    fetch = raw if fetcher else polite(raw, delay=delay, cache_dir=os.path.join(root, CACHE))
+    cards, seen = [], set()
+    by_source, by_place = {}, {}
+    for n, h in enumerate(targets, 1):
+        src = h.get("directory") or "unknown"
+        by_source.setdefault(src, {"checked": 0, "proposed": 0})
+        by_source[src]["checked"] += 1
+        name = h.get("name") or ""
+        pages = operator_second_look(h.get("website") or "", name, fetch) if h.get("website") else []
+        council = ""
+        if discover.host(h.get("website")).endswith(".gov.uk"):
+            council = h.get("website") or ""
+        elif h.get("referral_postcode"):
+            council = council_url_for(districts.get(norm_pc(h["referral_postcode"]), ""), homes)
+        if council:
+            pages += council_follow(council, name, fetch)
+        pages = [(u, t) for u, t in pages if _place_url(u)]
+        card = referral_area_card(name, pages)
+        if os.environ.get("SHELTER_SOURCE_PROGRESS"):
+            print("area card", n, "of", len(targets), "kept", len(cards), name, flush=True)
+        if not card: continue
+        key = re.sub(r"[^a-z0-9]+", " ", name.lower()).strip()
+        if key in seen: continue
+        seen.add(key)
+        place_type = publishable_label(name, texts.get(h.get("id"), "") or h.get("directory_text") or "", h.get("hint") or "hostel")
+        card.update({"id": h.get("id") or "", "directory": src, "directory_url": h.get("directory_url") or "",
+                     "website": h.get("website") or "", "place_type": place_type})
+        card.pop("referral_postcode", None)
+        card.pop("referral_address", None)
+        cards.append(strip_council(card))
+        by_source[src]["proposed"] += 1
+        by_place[place_type] = by_place.get(place_type, 0) + 1
+    doc["area_cards"] = cards
+    doc["area_card_counts"] = {"by_source": by_source, "by_type": {"referral_hostel": len(cards)},
+                               "by_place_type": by_place, "checked": len(targets), "proposed": len(cards),
+                               "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners."}
+    extra = " Referral hostel area cards are listed under area_cards for review: no building pin, and not published."
+    if extra.strip() not in (doc.get("about") or ""):
+        doc["about"] = (doc.get("about") or "") + extra
+    write_report(path, doc)
+    return doc["area_card_counts"]
 def _main():
     import sys
+    did = False
+    if "--second-pass" in sys.argv:
+        print(json.dumps(review_open_proposals(), indent=1))
+        print(json.dumps(run_second_pass(), indent=1)[:4000])
+        did = True
+    if "--audit" in sys.argv:
+        print(json.dumps(audit_open_proposals(), indent=1)[:4000])
+        did = True
+    if "--area-cards" in sys.argv:
+        print(json.dumps(run_area_cards(), indent=1)[:4000])
+        did = True
+    if did: return
     delay = float(os.environ.get("SHELTER_SOURCE_DELAY", "0.4"))
     lim = os.environ.get("SHELTER_EVIDENCE_LIMIT")
     pages = os.environ.get("SHELTER_HL_PAGES")

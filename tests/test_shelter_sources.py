@@ -48,6 +48,8 @@ class Classify(unittest.TestCase):
         hit = S.best_building(S._text(text), "River Hostel")
         self.assertEqual(S.norm_pc(hit[0]), "CV14EZ")
         self.assertEqual(S.phone_near(S._text(text), "CV1 4EZ"), "02477 714443")
+        far = "Call 0161 861 9806 (8am-8pm) for advice. " + ("Other ways to reach us. " * 4) + "Find us at 339 Wilbraham Road, M16 8GL."
+        self.assertEqual(S.phone_near(far, "M16 8GL"), "0161 861 9806")
         footer = "Alabare Homeless Charity privacy notice cookie sitemap GET IN TOUCH SP2 7UD"
         self.assertIsNone(S.best_building(footer, "Alabare Supported Housing South", "https://alabare.co.uk/"))
         many = "Chalvey is in Slough. YMCA Hayes UB3 4DQ. YMCA Ealing W5 2QB. YMCA Parsons Green SW6 4TQ."
@@ -213,6 +215,141 @@ class Evidence(unittest.TestCase):
         r = discover.own_site_check({"name": "River Hostel", "postcode": "CV1 4EZ", "website": home}, "sh", lambda u: urls.get(u, {"http": 404, "html": "", "final_url": u}))
         self.assertEqual(r["result"], "add", r.get("reasons"))
         self.assertTrue(any("river-hostel" in u for u in r["pages"]))
+
+class SecondPass(unittest.TestCase):
+    def test_stoll_without_emergency_beds_is_supported_housing(self):
+        self.assertTrue(S.veterans_supported_only("Stoll", "Supported housing for veterans at 446 Fulham Road, London SW6 1DT."))
+        self.assertFalse(S.veterans_supported_only("Stoll", "Direct access emergency beds at 446 Fulham Road, London SW6 1DT."))
+    def test_council_page_names_the_hostel_and_its_address(self):
+        url = "https://www.coventry.gov.uk/hostels/river-hostel"
+        html = "<html><body><h1>River Hostel</h1><p>River Hostel, 4 River Lane, Coventry CV1 4EZ. Direct access, open 24 hours. Phone 02477 714443.</p></body></html>"
+        def fetch(u):
+            if "coventry.gov.uk" in u and "sitemap" not in u:
+                return page(html, url)
+            return {"http": 404, "html": "", "final_url": u}
+        hold = {"id": "hl-river", "name": "River Hostel", "website": "", "directory": "Homeless Link",
+                "directory_url": "https://homeless.org.uk/x", "referral_postcode": "AB1 2CD", "category": "publishable"}
+        bucket, rec = S.second_pass_one(hold, fetch, council_url=url, directory_text="Direct access hostel. Referral address AB1 2CD.")
+        self.assertEqual(bucket, "verified", rec)
+        self.assertEqual(rec["postcode"], "CV1 4EZ")
+        self.assertNotEqual(S.norm_pc(rec["postcode"]), "AB12CD")
+        self.assertIn("council page", rec["evidence"])
+        self.assertFalse(any(k.startswith("council_") for k in rec))
+    def test_refuge_is_not_fetched_on_the_second_pass(self):
+        hold = {"id": "hl-refuge", "name": "Northside Women's Aid", "directory": "Homeless Link", "category": "publishable"}
+        bucket, rec = S.second_pass_one(hold, lambda u: (_ for _ in ()).throw(AssertionError("fetched")),
+                                        directory_text="Women's refuge for women at risk of domestic abuse")
+        self.assertEqual(bucket, "excluded")
+        self.assertNotIn("phone", rec)
+    def test_search_page_does_not_pin_the_office_or_a_job_address(self):
+        html = ("<html><title>You searched for YMCA Norwich Central</title><body>"
+                "<h1>Search results for YMCA Norwich Central</h1><p>No pages matched.</p>"
+                "<p>Send a CV to the HR / Payroll Officer, 35-37 Exchange Street, Norwich, Norfolk, NR2 1DP.</p>"
+                "</body></html>")
+        self.assertIsNone(S.best_building(S._text(html), "YMCA Norwich Central", "https://ymca.example/?s=YMCA+Norwich+Central"))
+        self.assertFalse(S._place_url("https://ymca.example/?s=YMCA+Norwich+Central"))
+        self.assertFalse(S._place_url("https://ymca.example/blog/hatfield-youth-club/"))
+        self.assertFalse(S._place_url("https://www.birmingham.gov.uk/directory_record/462/yardley_cemetery_and_crematorium"))
+        self.assertFalse(S._place_url("https://www.nottinghamshire.gov.uk/births-deaths-marriages-and-civil-partnerships/register-offices-and-fees/mansfield"))
+        place = ("<html><body><h1>Norwich Central</h1><p>Where we are Norwich Central, 10 Winalls Yard, Norwich NR1 3GX. "
+                 "Direct access hostel, open 24 hours.</p></body></html>")
+        hit = S.best_building(S._text(place), "YMCA Norwich Central", "https://ymca.example/accommodation/norwich-central")
+        self.assertEqual(S.norm_pc(hit[0]), "NR13GX")
+        contact = ("<html><title>Contact Hostel</title><body><p>Email enquiries@contacthostel.co.uk "
+                   "Find us at 339 Wilbraham Road, M16 8GL.</p></body></html>")
+        hit = S.best_building(S._text(contact), "Contact Hostel", "https://contacthostel.co.uk/")
+        self.assertEqual(S.norm_pc(hit[0]), "M168GL")
+        self.assertFalse(S._place_url("https://contacthostel.co.uk/?s=Contact+Hostel"))
+    def test_shared_houses_without_emergency_beds_are_held(self):
+        self.assertTrue(S.shared_housing_only("St Mungo's - Camden Shared Houses", "Supported housing at 8 Warner Street, London EC1R 5HA."))
+        self.assertFalse(S.shared_housing_only("St Mungo's - Camden Shared Houses", "Direct access emergency beds at 8 Warner Street, London EC1R 5HA."))
+        page = ("https://mungos.example/camden-shared",
+                "Camden Shared Houses, 8 Warner Street, London EC1R 5HA. Supported housing. Referral via the council.")
+        cand = {"id": "hl-shared", "name": "St Mungo's - Camden Shared Houses", "website": "https://mungos.example/",
+                "directory": "Homeless Link", "directory_url": "https://homeless.org.uk/x", "hint": "hostel",
+                "directory_text": "Hostel. Referral only via the council.", "operator_pages": [page]}
+        bucket, rec = S.assess(cand, lambda u: {"http": 404, "html": "", "final_url": u}, "2026-10-31", [])
+        self.assertEqual(bucket, "held")
+        self.assertEqual(rec["category"], "supported")
+        self.assertNotIn("postcode", rec)
+
+class ReferralHostel(unittest.TestCase):
+    PAGE = ("https://river.example/hostel",
+            "River Hostel is run by River Trust in Sheffield. The building address is not published. "
+            "Referral only via Sheffield Housing Options. Call 0114 273 1234. Do not turn up without a referral.")
+    def test_area_card_has_no_pin_and_ignores_a_directory_postcode(self):
+        card = S.referral_area_card("River Hostel", [self.PAGE])
+        self.assertEqual(card["card_type"], "referral_hostel")
+        self.assertEqual(card["area"], "Sheffield")
+        self.assertEqual(card["operator"], "River Trust")
+        self.assertEqual(card["phone"], "0114 273 1234")
+        self.assertIn("Housing Options", card["referral_route"])
+        self.assertEqual(card["postcode"], "")
+        self.assertIsNone(card["lat"])
+        self.assertTrue(card["no_pin"])
+        self.assertIn("Referral needed, don't turn up without one", card["notice"])
+    def test_a_building_postcode_is_not_an_area_card(self):
+        page = ("https://river.example/hostel", self.PAGE[1] + " Where we are River Hostel, 4 River Lane, Sheffield S1 2AB.")
+        self.assertIsNone(S.referral_area_card("River Hostel", [page]))
+    def test_a_refuge_is_not_an_area_card(self):
+        page = ("https://x.example/", "Northside Women's Aid is run by Women's Aid in Belfast. Referral only via the council. Call 028 9066 6049. Address is not published.")
+        self.assertIsNone(S.referral_area_card("Northside Women's Aid", [page]))
+    def test_area_page_card_and_not_a_map_pin(self):
+        import build_seo
+        html = build_seo.card_sh({"name": "River Hostel", "card_type": "referral_hostel", "area": "Sheffield",
+                                   "phone": "0114 273 1234", "referral_route": "Sheffield Housing Options", "postcode": "AB1 2CD"})
+        self.assertIn("Referral hostel", html)
+        self.assertIn("Referral needed, don't turn up without one", html)
+        self.assertNotIn("AB1 2CD", html)
+        self.assertFalse(build_seo.shelter_public({"card_type": "referral_hostel", "postcode": "AB1 2CD", "name": "River Hostel"}))
+        src = open(os.path.join(S.ROOT, "layers.js"), encoding="utf-8").read()
+        self.assertIn("card_type==='referral_hostel'", src)
+        self.assertIn("card_type!=='referral_hostel'", src)
+        clean = {"name": "River Hostel", "card_type": "referral_hostel", "no_pin": True, "area": "Sheffield",
+                 "phone": "0114 273 1234", "referral_route": "Sheffield Housing Options", "postcode": ""}
+        self.assertTrue(build_seo.shelter_public(clean))
+        self.assertFalse(build_seo.shelter_public(dict(clean, postcode="AB1 2CD")))
+        groups = build_seo.attach_referral_hostels({"Sheffield": [{"name": "Other", "postcode": "S1 2AB"}]}, [clean])
+        self.assertEqual([i["name"] for i in groups["Sheffield"]], ["Other", "River Hostel"])
+        self.assertNotIn("AB1 2CD", html)
+        # the emergency / SWEP banner is not built from these cards
+        for fn in ("scripts/swep.py", "scripts/alert.py"):
+            body = open(os.path.join(S.ROOT, fn), encoding="utf-8").read()
+            self.assertNotIn("referral_hostel", body)
+            self.assertNotIn("area_cards", body)
+    def test_area_cards_are_proposals_and_do_not_touch_phones(self):
+        import tempfile
+        d = tempfile.mkdtemp()
+        os.makedirs(os.path.join(d, "reports"))
+        hold = {"id": "hl-river", "name": "River Hostel", "website": "https://river.example/hostel",
+                "directory": "Homeless Link", "directory_url": "https://homeless.org.uk/x",
+                "category": "publishable",
+                "reason": "no building postcode on the operator page (directory postcode is a referral address only)"}
+        refuge = {"id": "hl-refuge", "name": "Northside Women's Aid", "website": "https://refuge.example/",
+                  "directory": "Homeless Link", "category": "publishable",
+                  "reason": "no operator page to confirm a building address"}
+        json.dump({"proposals": [], "held": [hold, refuge], "excluded": [], "counts": {"by_source": {}}, "about": ""},
+                  open(os.path.join(d, "reports", "verified_new_places.json"), "w"))
+        def fetch(u):
+            if "refuge" in u: raise AssertionError("refuge fetched")
+            if u.startswith("https://river.example/hostel"):
+                return page("<html><body><p>%s</p></body></html>" % self.PAGE[1], self.PAGE[0])
+            return {"http": 404, "html": "", "final_url": u}
+        base = os.path.join(S.ROOT, "overrides", "phone_baseline.json")
+        before = open(base, encoding="utf-8").read()
+        counts = S.run_area_cards(root=d, fetcher=fetch, delay=0)
+        self.assertEqual(counts["by_type"]["referral_hostel"], 1)
+        self.assertEqual(counts["by_source"]["Homeless Link"]["proposed"], 1)
+        saved = json.load(open(os.path.join(d, "reports", "verified_new_places.json")))
+        card = saved["area_cards"][0]
+        self.assertEqual(card["postcode"], "")
+        self.assertIsNone(card["lat"])
+        self.assertTrue(card["no_pin"])
+        self.assertNotIn("referral_postcode", card)
+        self.assertFalse(any(k.startswith("council_") for k in card))
+        self.assertEqual(saved["proposals"], [])
+        self.assertEqual(open(base, encoding="utf-8").read(), before)
+        self.assertNotIn("referral_hostel", open(os.path.join(S.ROOT, "shelters.js"), encoding="utf-8").read())
 
 class Report(unittest.TestCase):
     def test_cards_say_referral_needed_and_file_keeps_other_layers(self):

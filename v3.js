@@ -226,7 +226,7 @@ function status(layer,i,now){now=clockNow(now);if(i.upcoming)return{st:'closed',
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
  for(let k=0;k<8;k++){const dd=(d+k)%7;if(s[dd]==null)return{st:'closed',day:null};const c=s[dd].filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
  return{st:'closed',day:null}}
-function badge(layer,i){const r=status(layer,i);
+function badge(layer,i){if(i.card_type==='referral_hostel')return `<div class="v3st unk" role="note">${B("Referral needed, don't turn up without one",'Angen atgyfeiriad, peidiwch â throi i fyny heb un')}</div>`;const r=status(layer,i);
  if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('OPEN NOW','AR AGOR NAWR'):B('OPEN NOW until '+clk(r.until),'AR AGOR NAWR tan '+clk(r.until))}</div>`;
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
