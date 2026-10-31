@@ -5,7 +5,7 @@ alert.py stale <hours>               -> open an alert if stamp.js (last publishe
 alert.py dates                       -> open an alert if the dates the site shows (stamp.js layers, live stamp.js) don't match the published data files
 Uses the gh CLI with GH_TOKEN (the workflow's own token). Also writes a line to the job summary.
 Exits non-zero when gh fails or anything else goes wrong: an alert that could not be raised or cleared must show as a failed step."""
-import datetime, json, os, subprocess, sys
+import datetime, json, os, re, subprocess, sys
 from zoneinfo import ZoneInfo
 LABEL = 'refresh-alert'
 SWITCH_ON_LABEL = 'rest-centre-switch-on'
@@ -40,9 +40,15 @@ def resolve(key):
     n = find(key)
     if n: gh('issue', 'close', str(n), '--comment', f'Resolved: the next run succeeded. {RUN}')
     summary(f"OK [{key}]" + (f" (closed #{n})" if n else ''))
+def _clip_words(text, limit):
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= limit: return text
+    head = text[:limit]
+    if " " not in head: return text.split(" ", 1)[0]
+    return head.rsplit(" ", 1)[0].rstrip(" ,;:-")
 def switch_on_title(council, label, category=None):
     extra = f" [{category}]" if category else ""
-    return f'Incident rest centre or SWEP switch-on: {council} - {label}{extra}'
+    return f'Incident rest centre or SWEP switch-on: {council} - {_clip_words(label, 80)}{extra}'
 def _switch_on_issues():
     items = []
     for lab in (SWITCH_ON_LABEL, LEGACY_SWITCH_ON_LABEL):

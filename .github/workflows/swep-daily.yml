@@ -24,6 +24,8 @@ jobs:
       - name: Test the SWEP checks
         run: python -m unittest tests.test_swep_full -v
       - name: Full SWEP check (every council)
+        id: full
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/swep.py full
@@ -31,8 +33,10 @@ jobs:
         continue-on-error: true
         run: python scripts/swep_tracker.py
       - name: Commit logs
+        id: commit
+        if: steps.full.outcome == 'success' || steps.full.outcome == 'failure'
         run: |
-          git add logs/swep_full.json reports/swep_daily.md; git add logs/swep_tracker.json reports/swep_tracker.md 2>/dev/null || true
+          bash scripts/git_add_existing.sh logs/swep_full.json reports/swep_daily.md logs/rest_centre_status.json logs/incident_rest_centre_pages.json logs/incident_rest_centre_switch_state.json logs/incident_rest_centre_live_state.json incident_rest_centre_live.json incident_rest_centre_live.js reports/pending_dean.md logs/swep_tracker.json reports/swep_tracker.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -43,12 +47,14 @@ jobs:
           done
           exit 1
       - name: Alert - SWEP daily check failed
-        if: failure()
+        if: always() && (failure() || steps.full.outcome == 'failure')
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python scripts/alert.py open swep-daily "SWEP daily full check failed" "The daily all-council SWEP check did not finish. The 3x-daily watcher still runs. Open the run log."
+        run: |
+          echo "::error::SWEP daily full check, rest centre switch-on alert, or issue open/close failed."
+          python scripts/alert.py open swep-daily "SWEP daily full check failed" "The daily all-council check wrote its logs where it could, but a step failed (page check, switch-on alert, or issue open/close). The 3x-daily watcher still runs. Open the run log."
       - name: Clear the alert after a good run
-        if: success()
+        if: steps.full.outcome == 'success' && steps.commit.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python scripts/alert.py resolve swep-daily

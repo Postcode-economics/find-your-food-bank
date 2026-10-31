@@ -1,0 +1,319 @@
+# Rest centre (council-run) sources
+
+The added scan of these pages (news and emergencies only, not the severe weather shelter pages already fetched by the shelters refresh) took 39 seconds for 340 pages.
+
+382 councils. 257 with a verified news or newsroom page. 125 unresolved (no news page verified; nothing guessed).
+83 also have an emergencies, major incident or flooding page.
+
+## Unresolved
+
+- Aberdeen City Council (ABE): no news or newsroom page found on the council website
+- Isle of Anglesey County Council (AGY): no news or newsroom page found on the council website
+- Angus Council (ANS): council website returned HTTP 403
+- Basildon Borough Council (BAI): council website returned HTTP 403
+- Blackburn with Darwen Borough Council (BBD): council website returned HTTP URLError
+- Bedford Borough Council (BDF): no news or newsroom page found on the council website
+- Blaenau Gwent County Borough Council (BGW): no news or newsroom page found on the council website
+- London Borough of Barnet (BNE): no news or newsroom page found on the council website
+- Brighton and Hove City Council (BNH): council website returned HTTP 403
+- Boston Borough Council (BOT): council website returned HTTP 403
+- Breckland District Council (BRE): council website returned HTTP 403
+- Broadland District Council (BRO): no news or newsroom page found on the council website
+- Burnley Borough Council (BUN): no news or newsroom page found on the council website
+- Bury Metropolitan Borough Council (BUR): no news or newsroom page found on the council website
+- Canterbury City Council (CAT): no news or newsroom page found on the council website
+- Caerphilly County Borough Council (CAY): council website returned HTTP TimeoutError
+- Ceredigion County Council (CGN): no news or newsroom page found on the council website
+- Cheshire East Council (CHE): council website could not be read (ValueError)
+- Chichester District Council (CHI): council website returned HTTP 403
+- Chelmsford City Council (CHL): no news or newsroom page found on the council website
+- Calderdale Metropolitan Borough Council (CLD): no news or newsroom page found on the council website
+- London Borough of Camden (CMD): council website returned HTTP 403
+- Colchester Borough Council (COL): no news or newsroom page found on the council website
+- City of Cardiff Council (CRF): council website returned HTTP 403
+- Conwy County Borough Council (CWY): no news or newsroom page found on the council website
+- Dacorum Borough Council (DAC): council website returned HTTP URLError
+- Derbyshire County Council (DBY): no news or newsroom page found on the council website
+- Derbyshire Dales District Council (DEB): no news or newsroom page found on the council website
+- Devon County Council (DEV): council website returned HTTP 403
+- Dumfries and Galloway Council (DGY): council website returned HTTP 403
+- City of Doncaster Council (DNC): council website returned HTTP 403
+- Dorset Council (DST): council website returned HTTP 403
+- Eastbourne Borough Council (EAS): council website returned HTTP 403
+- Eastleigh Borough Council (EAT): council website returned HTTP 403
+- East Devon District Council (EDE): council website returned HTTP 403
+- East Lindsey District Council (ELI): council website returned HTTP 403
+- East Lothian Council (ELN): council website returned HTTP 403
+- Comhairle nan Eilean Siar (ELS): no news or newsroom page found on the council website
+- London Borough of Enfield (ENF): council website returned HTTP 403
+- Epping Forest District Council (EPP): council website returned HTTP 403
+- East Renfrewshire Council (ERW): council website returned HTTP 403
+- East Riding of Yorkshire Council (ERY): council website returned HTTP 502
+- Essex County Council (ESS): council website returned HTTP 202
+- East Staffordshire Borough Council (EST): council website returned HTTP URLError
+- East Sussex County Council (ESX): no news or newsroom page found on the council website
+- Exeter City Council (EXE): council website returned HTTP 403
+- Fenland District Council (FEN): council website returned HTTP 403
+- Fife Council (FIF): council website returned HTTP 403
+- Flintshire County Council (FLN): no news or newsroom page found on the council website
+- Gateshead Metropolitan Borough Council (GAT): council website returned HTTP 403
+- Gedling Borough Council (GED): council website returned HTTP 403
+- Glasgow City Council (GLG): council website returned HTTP 403
+- Gosport Borough Council (GOS): council website returned HTTP 403
+- Great Yarmouth Borough Council (GRY): council website returned HTTP 403
+- Halton Borough Council (HAL): no news or newsroom page found on the council website
+- Hampshire County Council (HAM): council website returned HTTP 403
+- Hertsmere Borough Council (HER): council website could not be read (ValueError)
+- Horsham District Council (HOR): council website returned HTTP 403
+- Isle of Wight Council (IOW): council website returned HTTP 403
+- Inverclyde Council (IVC): council website returned HTTP URLError
+- Royal Borough of Kensington and Chelsea (KEC): council website returned HTTP 403
+- Kent County Council (KEN): council website returned HTTP 403
+- Kirklees Council (KIR): no news or newsroom page found on the council website
+- Royal Borough of Kingston upon Thames (KTT): council website returned HTTP 403
+- Knowsley Metropolitan Borough Council (KWL): no news or newsroom page found on the council website
+- Lancaster City Council (LAC): no news or newsroom page found on the council website
+- Leicestershire County Council (LEC): council website returned HTTP 403
+- Lewes District Council (LEE): council website returned HTTP 403
+- Liverpool City Council (LIV): no news or newsroom page found on the council website
+- Maidstone Borough Council (MAI): council website returned HTTP 403
+- Manchester City Council (MAN): council website returned HTTP 403
+- Middlesbrough Borough Council (MDB): council website returned HTTP 403
+- Milton Keynes Council (MIK): no news or newsroom page found on the council website
+- London Borough of Merton (MRT): no news or newsroom page found on the council website
+- Merthyr Tydfil County Borough Council (MTY): no news or newsroom page found on the council website
+- North Devon District Council (NDE): council website returned HTTP 202
+- North East Derbyshire District Council (NED): council website returned HTTP 403
+- New Forest District Council (NEW): council website returned HTTP 403
+- Norfolk County Council (NFK): council website returned HTTP 403
+- Nottingham City Council (NGM): no news or newsroom page found on the council website
+- North Lincolnshire Council (NLN): no news or newsroom page found on the council website
+- North Tyneside Council (NTY): no news or newsroom page found on the council website
+- Newport City Council (NWP): council website returned HTTP 403
+- Pembrokeshire County Council (PEM): no news or newsroom page found on the council website
+- Perth and Kinross Council (PKN): council website returned HTTP 403
+- Plymouth City Council (PLY): council website returned HTTP 403
+- Portsmouth City Council (POR): no news or newsroom page found on the council website
+- Powys County Council (POW): no news or newsroom page found on the council website
+- Preston City Council (PRE): council website returned HTTP 403
+- Rhondda Cynon Taf County Borough Council (RCT): no news or newsroom page found on the council website
+- South Ayrshire Council (SAY): council website returned HTTP 403
+- South Gloucestershire Council (SGC): council website returned HTTP URLError
+- South Hams District Council (SHA): council website returned HTTP 405
+- Sheffield City Council (SHF): council website returned HTTP 202
+- South Holland District Council (SHO): council website returned HTTP 403
+- South Kesteven District Council (SKE): no news or newsroom page found on the council website
+- Sunderland City Council (SND): council website returned HTTP 403
+- South Norfolk District Council (SNO): no news or newsroom page found on the council website
+- South Staffordshire Council (SST): no news or newsroom page found on the council website
+- Southampton City Council (STH): no news or newsroom page found on the council website
+- London Borough of Sutton (STN): council website returned HTTP 202
+- Stockton-on-Tees Borough Council (STT): council website returned HTTP 403
+- South Tyneside Council (STY): council website returned HTTP 403
+- City and County of Swansea Council (SWA): council website returned HTTP 403
+- London Borough of Southwark (SWK): council website returned HTTP 202
+- Swale Borough Council (SWL): council website returned HTTP 403
+- Teignbridge District Council (TEI): council website returned HTTP 403
+- Tewkesbury Borough Council (TEW): council website returned HTTP 403
+- Telford & Wrekin Council (TFW): council website returned HTTP TimeoutError
+- Thanet District Council (THA): council website returned HTTP 403
+- Torfaen County Borough Council (TOF): no news or newsroom page found on the council website
+- Tonbridge and Malling Borough Council (TON): council website returned HTTP URLError
+- Torridge District Council (TOR): council website returned HTTP 403
+- Tunbridge Wells Borough Council (TUN): council website returned HTTP 403
+- Uttlesford District Council (UTT): council website returned HTTP 403
+- Vale of Glamorgan Council (VGL): no news or newsroom page found on the council website
+- West Berkshire Council (WBK): council website returned HTTP 403
+- West Devon Borough Council (WDE): council website returned HTTP 405
+- London Borough of Waltham Forest (WFT): council website returned HTTP 202
+- Wiltshire Council (WIL): council website returned HTTP 403
+- Worcester City Council (WOC): council website returned HTTP 307
+- Wirral Borough Council (WRL): no news or newsroom page found on the council website
+- Warrington Borough Council (WRT): council website returned HTTP 403
+- Wrexham County Borough Council (WRX): no news or newsroom page found on the council website
+- Wychavon District Council (WYC): council website returned HTTP 307
+
+## No emergencies, major incident or flooding page found
+
+- Armagh City, Banbridge and Craigavon Borough Council (ABC)
+- Aberdeenshire Council (ABD)
+- Adur District Council (ADU)
+- Argyll and Bute Council (AGB)
+- Amber Valley Borough Council (AMB)
+- Ards and North Down Borough Council (AND)
+- Antrim and Newtownabbey Borough Council (ANN)
+- Arun District Council (ARU)
+- Ashfield District Council (ASH)
+- Babergh District Council (BAB)
+- Basingstoke and Deane Borough Council (BAN)
+- Bath and North East Somerset Council (BAS)
+- London Borough of Brent (BEN)
+- London Borough of Bexley (BEX)
+- Belfast City Council (BFS)
+- Birmingham City Council (BIR)
+- Blaby District Council (BLA)
+- Barnsley Metropolitan Borough Council (BNS)
+- Bolton Metropolitan Borough Council (BOL)
+- Bolsover District Council (BOS)
+- Bournemouth, Christchurch and Poole Council (BPC)
+- Blackpool Borough Council (BPL)
+- Braintree District Council (BRA)
+- City of Bradford Metropolitan District Council (BRD)
+- Broxbourne Borough Council (BRX)
+- London Borough of Bromley (BRY)
+- Buckinghamshire Council (BUC)
+- Cambridge City Council (CAB)
+- Cannock Chase District Council (CAN)
+- Castle Point Borough Council (CAS)
+- Cumberland Council (CBD)
+- Central Bedfordshire Council (CBF)
+- Causeway Coast and Glens Borough Council (CCG)
+- Chorley Borough Council (CHO)
+- Cherwell District Council (CHR)
+- Chesterfield Borough Council (CHS)
+- Clackmannanshire Council (CLK)
+- Carmarthenshire County Council (CMN)
+- Cornwall Council (CON)
+- Coventry City Council (COV)
+- Crawley Borough Council (CRW)
+- London Borough of Croydon (CRY)
+- Derby City Council (DER)
+- Dundee City Council (DND)
+- London Borough of Ealing (EAL)
+- East Ayrshire Council (EAY)
+- East Cambridgeshire District Council (ECA)
+- East Dunbartonshire Council (EDU)
+- East Hampshire District Council (EHA)
+- Elmbridge Borough Council (ELM)
+- Falkirk Council (FAL)
+- Fareham Borough Council (FAR)
+- Fermanagh and Omagh District Council (FMO)
+- Fylde Borough Council (FYL)
+- Gloucester City Council (GLO)
+- Royal Borough of Greenwich (GRE)
+- Guildford Borough Council (GRT)
+- Gwynedd Council (GWN)
+- Havant Borough Council (HAA)
+- Harlow District Council (HAR)
+- Hart District Council (HAT)
+- London Borough of Hackney (HCK)
+- Herefordshire Council (HEF)
+- London Borough of Hillingdon (HIL)
+- Hinckley and Bosworth Borough Council (HIN)
+- London Borough of Hounslow (HNS)
+- Hertfordshire County Council (HRT)
+- London Borough of Harrow (HRW)
+- London Borough of Haringey (HRY)
+- Hyndburn Borough Council (HYN)
+- Ipswich Borough Council (IPS)
+- London Borough of Islington (ISL)
+- Hull City Council (KHL)
+- Borough Council of Kings Lynn and West Norfolk (KIN)
+- Lancashire County Council (LAN)
+- Lisburn and Castlereagh City Council (LBC)
+- Leicester City Council (LCE)
+- Leeds City Council (LDS)
+- City of Lincoln Council (LIC)
+- Lichfield District Council (LIF)
+- City of London Corporation (LND)
+- Luton Borough Council (LUT)
+- Maldon District Council (MAL)
+- Mansfield District Council (MAS)
+- Malvern Hills District Council (MAV)
+- Mid Devon District Council (MDE)
+- Medway Council (MDW)
+- Mid and East Antrim Borough Council (MEA)
+- Melton Borough Council (MEL)
+- Monmouthshire County Council (MON)
+- The Moray Council (MRY)
+- Mid Sussex District Council (MSS)
+- Mid Suffolk District Council (MSU)
+- Mid Ulster District Council (MUL)
+- North Ayrshire Council (NAY)
+- Northumberland County Council (NBL)
+- Newcastle-under-Lyme Borough Council (NEC)
+- North East Lincolnshire Council (NEL)
+- Newcastle City Council (NET)
+- North Hertfordshire District Council (NHE)
+- North Kesteven District Council (NKE)
+- North Lanarkshire Council (NLK)
+- Norwich City Council (NOW)
+- North Somerset  Council (NSM)
+- Neath Port Talbot County Borough Council (NTL)
+- Nuneaton and Bedworth Borough Council (NUN)
+- North Warwickshire Borough Council (NWA)
+- North West Leicestershire District Council (NWL)
+- London Borough of Newham (NWM)
+- North Yorkshire Council (NYE)
+- Oadby and Wigston Borough Council (OAD)
+- Oldham Metropolitan Borough Council (OLD)
+- Oxfordshire County Council (OXF)
+- Pendle Borough Council (PEN)
+- Peterborough City Council (PTE)
+- London Borough of Redbridge (RDB)
+- Reading Borough Council (RDG)
+- Reigate and Banstead Borough Council (REI)
+- Renfrewshire Council (RFW)
+- Ribble Valley Borough Council (RIB)
+- London Borough of Richmond upon Thames (RIC)
+- Rochford District Council (ROC)
+- Rother District Council (ROH)
+- Rotherham Metropolitan Borough Council (ROT)
+- Runnymede Borough Council (RUN)
+- Rutland County Council (RUT)
+- St Albans City and District Council (SAL)
+- Sandwell Metropolitan Borough Council (SAW)
+- South Cambridgeshire District Council (SCA)
+- South Derbyshire District Council (SDE)
+- Sevenoaks District Council (SEV)
+- Suffolk County Council (SFK)
+- Sefton Metropolitan Borough Council (SFT)
+- Folkestone and Hythe District Council (SHE)
+- St Helens Council (SHN)
+- Shropshire Council (SHR)
+- Slough Borough Council (SLG)
+- South Lanarkshire Council (SLK)
+- Solihull Metropolitan Borough Council (SOL)
+- Southend-on-Sea Borough Council (SOS)
+- South Oxfordshire District Council (SOX)
+- South Ribble Borough Council (SRI)
+- Stafford Borough Council (STA)
+- Stoke-on-Trent City Council (STE)
+- Stroud District Council (STO)
+- Stratford-on-Avon District Council (STR)
+- Staffordshire County Council (STS)
+- Stevenage Borough Council (STV)
+- Surrey Heath Borough Council (SUR)
+- Tameside Metropolitan Borough Council (TAM)
+- Tandridge District Council (TAN)
+- Tamworth Borough Council (TAW)
+- Tendring District Council (TEN)
+- Test Valley Borough Council (TES)
+- Three Rivers District Council (THE)
+- Thurrock Council (THR)
+- London Borough of Tower Hamlets (TWH)
+- Vale of White Horse District Council (VAL)
+- Waverley Borough Council (WAE)
+- Westmorland and Furness Council (WAF)
+- Warwickshire County Council (WAR)
+- Watford Borough Council (WAT)
+- Warwick District Council (WAW)
+- Wealden District Council (WEA)
+- Welwyn Hatfield Borough Council (WEW)
+- Winchester City Council (WIN)
+- Wakefield Metropolitan District Council (WKF)
+- West Lancashire Borough Council (WLA)
+- West Lindsey District Council (WLI)
+- Walsall Metropolitan Borough Council (WLL)
+- West Lothian Council (WLN)
+- City of Wolverhampton Council (WLV)
+- London Borough of Wandsworth (WND)
+- Royal Borough of Windsor and Maidenhead (WNM)
+- Wokingham Borough Council (WOK)
+- Worcestershire County Council (WOR)
+- Worthing Borough Council (WOT)
+- West Suffolk Council (WSK)
+- Wyre Forest District Council (WYE)
+- Wyre Borough Council (WYR)
+- City of York Council (YOR)
+- Shetland Islands Council (ZET)

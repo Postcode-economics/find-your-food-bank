@@ -1,0 +1,3688 @@
+{
+ "checked": "2026-10-31",
+ "councils": [
+  {
+   "code": "ABC",
+   "council": "Armagh City, Banbridge and Craigavon Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.armaghbanbridgecraigavon.gov.uk",
+   "news": "https://www.armaghbanbridgecraigavon.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "ABD",
+   "council": "Aberdeenshire Council",
+   "nation": "Scotland",
+   "site": "https://www.aberdeenshire.gov.uk/",
+   "news": "https://www.aberdeenshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ABE",
+   "council": "Aberdeen City Council",
+   "nation": "Scotland",
+   "site": "https://www.aberdeencity.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ADU",
+   "council": "Adur District Council",
+   "nation": "England",
+   "site": "https://www.adur-worthing.gov.uk",
+   "news": "https://www.adur-worthing.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "AGB",
+   "council": "Argyll and Bute Council",
+   "nation": "Scotland",
+   "site": "https://www.argyll-bute.gov.uk/",
+   "news": "https://www.argyll-bute.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "AGY",
+   "council": "Isle of Anglesey County Council",
+   "nation": "Wales",
+   "site": "https://www.anglesey.gov.uk/Cyngor-Sir-Ynys-Mon-Isle-of-Anglesey-County-Council.aspx",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "AMB",
+   "council": "Amber Valley Borough Council",
+   "nation": "England",
+   "site": "https://www.ambervalley.gov.uk",
+   "news": "https://www.ambervalley.gov.uk/council/news/",
+   "emergencies": null
+  },
+  {
+   "code": "AND",
+   "council": "Ards and North Down Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.ardsandnorthdown.gov.uk/",
+   "news": "https://www.ardsandnorthdown.gov.uk/News",
+   "emergencies": null
+  },
+  {
+   "code": "ANN",
+   "council": "Antrim and Newtownabbey Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://antrimandnewtownabbey.gov.uk/",
+   "news": "https://antrimandnewtownabbey.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "ANS",
+   "council": "Angus Council",
+   "nation": "Scotland",
+   "site": "https://www.angus.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ARU",
+   "council": "Arun District Council",
+   "nation": "England",
+   "site": "https://www.arun.gov.uk",
+   "news": "https://www.arun.gov.uk/news-archive/joint-statement-from-arun-district-council-and-the-cole-family-10882",
+   "emergencies": null
+  },
+  {
+   "code": "ASF",
+   "council": "Ashford Borough Council",
+   "nation": "England",
+   "site": "https://www.ashford.gov.uk",
+   "news": "https://www.ashford.gov.uk/news",
+   "emergencies": "https://www.ashford.gov.uk/your-community/emergency-planning/"
+  },
+  {
+   "code": "ASH",
+   "council": "Ashfield District Council",
+   "nation": "England",
+   "site": "https://www.ashfield.gov.uk",
+   "news": "https://www.ashfield.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "BAB",
+   "council": "Babergh District Council",
+   "nation": "England",
+   "site": "https://www.babergh.gov.uk",
+   "news": "https://www.babergh.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BAE",
+   "council": "Bassetlaw District Council",
+   "nation": "England",
+   "site": "https://www.bassetlaw.gov.uk",
+   "news": "https://www.bassetlaw.gov.uk/media-centre/",
+   "emergencies": "https://www.bassetlaw.gov.uk/flooding"
+  },
+  {
+   "code": "BAI",
+   "council": "Basildon Borough Council",
+   "nation": "England",
+   "site": "https://www.basildon.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BAN",
+   "council": "Basingstoke and Deane Borough Council",
+   "nation": "England",
+   "site": "https://www.basingstoke.gov.uk",
+   "news": "https://www.basingstoke.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BAS",
+   "council": "Bath and North East Somerset Council",
+   "nation": "England",
+   "site": "http://www.bathnes.gov.uk/",
+   "news": "https://newsroom.bathnes.gov.uk",
+   "emergencies": null
+  },
+  {
+   "code": "BBD",
+   "council": "Blackburn with Darwen Borough Council",
+   "nation": "England",
+   "site": "https://www.blackburn.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BDF",
+   "council": "Bedford Borough Council",
+   "nation": "England",
+   "site": "https://www.bedford.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BDG",
+   "council": "London Borough of Barking and Dagenham",
+   "nation": "England",
+   "site": "https://www.lbbd.gov.uk/",
+   "news": "https://www.lbbd.gov.uk/news",
+   "emergencies": "https://www.lbbd.gov.uk/roads-and-pavements/report-flooding-and-drain-problems"
+  },
+  {
+   "code": "BEN",
+   "council": "London Borough of Brent",
+   "nation": "England",
+   "site": "https://www.brent.gov.uk/",
+   "news": "https://www.brent.gov.uk/news-in-brent",
+   "emergencies": null
+  },
+  {
+   "code": "BEX",
+   "council": "London Borough of Bexley",
+   "nation": "England",
+   "site": "https://www.bexley.gov.uk/",
+   "news": "https://www.bexley.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BFS",
+   "council": "Belfast City Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.belfastcity.gov.uk/",
+   "news": "https://www.belfastcity.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BGE",
+   "council": "Bridgend County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.bridgend.gov.uk/residents/",
+   "news": "https://www.bridgend.gov.uk/news/",
+   "emergencies": "https://www.bridgend.gov.uk/residents/nature-and-environment/flooding/"
+  },
+  {
+   "code": "BGW",
+   "council": "Blaenau Gwent County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.blaenau-gwent.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BIR",
+   "council": "Birmingham City Council",
+   "nation": "England",
+   "site": "https://www.birmingham.gov.uk/",
+   "news": "https://www.birmingham.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BLA",
+   "council": "Blaby District Council",
+   "nation": "England",
+   "site": "https://www.blaby.gov.uk",
+   "news": "https://www.blaby.gov.uk/your-council/news-and-awards/news/",
+   "emergencies": null
+  },
+  {
+   "code": "BNE",
+   "council": "London Borough of Barnet",
+   "nation": "England",
+   "site": "https://www.barnet.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BNH",
+   "council": "Brighton and Hove City Council",
+   "nation": "England",
+   "site": "https://www.brighton-hove.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BNS",
+   "council": "Barnsley Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.barnsley.gov.uk/",
+   "news": "https://www.barnsley.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "BOL",
+   "council": "Bolton Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.bolton.gov.uk:443/",
+   "news": "https://www.bolton.gov.uk:443/news",
+   "emergencies": null
+  },
+  {
+   "code": "BOS",
+   "council": "Bolsover District Council",
+   "nation": "England",
+   "site": "https://www.bolsover.gov.uk",
+   "news": "https://www.bolsover.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BOT",
+   "council": "Boston Borough Council",
+   "nation": "England",
+   "site": "https://www.boston.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BPC",
+   "council": "Bournemouth, Christchurch and Poole Council",
+   "nation": "England",
+   "site": "https://www.bcpcouncil.gov.uk",
+   "news": "https://www.bcpcouncil.gov.uk/news-sign-up",
+   "emergencies": null
+  },
+  {
+   "code": "BPL",
+   "council": "Blackpool Borough Council",
+   "nation": "England",
+   "site": "https://www.blackpool.gov.uk/Home.aspx",
+   "news": "https://www.blackpool.gov.uk/News/Newsroom.aspx",
+   "emergencies": null
+  },
+  {
+   "code": "BRA",
+   "council": "Braintree District Council",
+   "nation": "England",
+   "site": "https://www.braintree.gov.uk",
+   "news": "https://www.braintree.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BRC",
+   "council": "Bracknell Forest Council",
+   "nation": "England",
+   "site": "https://www.bracknell-forest.gov.uk/",
+   "news": "https://www.bracknell-forest.gov.uk/news",
+   "emergencies": "https://www.bracknell-forest.gov.uk/crime-and-emergencies/emergencies"
+  },
+  {
+   "code": "BRD",
+   "council": "City of Bradford Metropolitan District Council",
+   "nation": "England",
+   "site": "https://www.bradford.gov.uk/",
+   "news": "https://news.bradford.gov.uk/",
+   "emergencies": null
+  },
+  {
+   "code": "BRE",
+   "council": "Breckland District Council",
+   "nation": "England",
+   "site": "https://www.breckland.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BRM",
+   "council": "Bromsgrove District Council",
+   "nation": "England",
+   "site": "https://www.bromsgrove.gov.uk",
+   "news": "https://www.bromsgrove.gov.uk/news/",
+   "emergencies": "https://www.bromsgrove.gov.uk/residents/my-place/landscape-and-trees/emergencies/"
+  },
+  {
+   "code": "BRO",
+   "council": "Broadland District Council",
+   "nation": "England",
+   "site": "https://www.southnorfolkandbroadland.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BRT",
+   "council": "Broxtowe Borough Council",
+   "nation": "England",
+   "site": "https://www.broxtowe.gov.uk",
+   "news": "https://www.broxtowe.gov.uk/news-events/news/",
+   "emergencies": "https://www.broxtowe.gov.uk/for-you/crime-safety-emergencies/emergency-planning/"
+  },
+  {
+   "code": "BRW",
+   "council": "Brentwood Borough Council",
+   "nation": "England",
+   "site": "https://www.brentwood.gov.uk",
+   "news": "https://www.brentwood.gov.uk/news",
+   "emergencies": "https://www.brentwood.gov.uk/emergency-planning"
+  },
+  {
+   "code": "BRX",
+   "council": "Broxbourne Borough Council",
+   "nation": "England",
+   "site": "https://www.broxbourne.gov.uk",
+   "news": "https://www.broxbourne.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BRY",
+   "council": "London Borough of Bromley",
+   "nation": "England",
+   "site": "https://www.bromley.gov.uk/",
+   "news": "https://www.bromley.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "BST",
+   "council": "Bristol City Council",
+   "nation": "England",
+   "site": "https://www.bristol.gov.uk/",
+   "news": "https://news.bristol.gov.uk/",
+   "emergencies": "https://www.bristol.gov.uk/residents/crime-and-emergencies"
+  },
+  {
+   "code": "BUC",
+   "council": "Buckinghamshire Council",
+   "nation": "England",
+   "site": "https://www.buckinghamshire.gov.uk",
+   "news": "https://www.buckinghamshire.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "BUN",
+   "council": "Burnley Borough Council",
+   "nation": "England",
+   "site": "https://burnley.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "BUR",
+   "council": "Bury Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.bury.gov.uk/",
+   "news": null,
+   "emergencies": "https://www.bury.gov.uk/emergencies"
+  },
+  {
+   "code": "CAB",
+   "council": "Cambridge City Council",
+   "nation": "England",
+   "site": "https://www.cambridge.gov.uk",
+   "news": "https://www.cambridge.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CAM",
+   "council": "Cambridgeshire County Council",
+   "nation": "England",
+   "site": "https://www.cambridgeshire.gov.uk",
+   "news": "https://www.cambridgeshire.gov.uk/news",
+   "emergencies": "https://www.cambridgeshire.gov.uk/council/emergency-planning"
+  },
+  {
+   "code": "CAN",
+   "council": "Cannock Chase District Council",
+   "nation": "England",
+   "site": "https://www.cannockchasedc.gov.uk",
+   "news": "https://www.cannockchasedc.gov.uk/council/latest-news",
+   "emergencies": null
+  },
+  {
+   "code": "CAS",
+   "council": "Castle Point Borough Council",
+   "nation": "England",
+   "site": "https://www.castlepoint.gov.uk",
+   "news": "https://www.castlepoint.gov.uk/news1",
+   "emergencies": null
+  },
+  {
+   "code": "CAT",
+   "council": "Canterbury City Council",
+   "nation": "England",
+   "site": "https://www.canterbury.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CAY",
+   "council": "Caerphilly County Borough Council",
+   "nation": "Wales",
+   "site": "http://www.caerphilly.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CBD",
+   "council": "Cumberland Council",
+   "nation": "England",
+   "site": "https://www.cumberland.gov.uk",
+   "news": "https://www.cumberland.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CBF",
+   "council": "Central Bedfordshire Council",
+   "nation": "England",
+   "site": "https://www.centralbedfordshire.gov.uk/",
+   "news": "https://www.centralbedfordshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CCG",
+   "council": "Causeway Coast and Glens Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://causewaycoastandglens.gov.uk/",
+   "news": "https://causewaycoastandglens.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CGN",
+   "council": "Ceredigion County Council",
+   "nation": "Wales",
+   "site": "https://www.ceredigion.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CHA",
+   "council": "Charnwood Borough Council",
+   "nation": "England",
+   "site": "https://www.charnwood.gov.uk",
+   "news": "https://www.charnwood.gov.uk/pages/news",
+   "emergencies": "https://www.charnwood.gov.uk/pages/flooding"
+  },
+  {
+   "code": "CHE",
+   "council": "Cheshire East Council",
+   "nation": "England",
+   "site": "https://www.cheshireeast.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CHI",
+   "council": "Chichester District Council",
+   "nation": "England",
+   "site": "https://www.chichester.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CHL",
+   "council": "Chelmsford City Council",
+   "nation": "England",
+   "site": "https://www.chelmsford.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CHO",
+   "council": "Chorley Borough Council",
+   "nation": "England",
+   "site": "https://chorley.gov.uk",
+   "news": "https://chorley.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CHR",
+   "council": "Cherwell District Council",
+   "nation": "England",
+   "site": "https://www.cherwell.gov.uk",
+   "news": "https://www.cherwell.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CHS",
+   "council": "Chesterfield Borough Council",
+   "nation": "England",
+   "site": "https://www.chesterfield.gov.uk",
+   "news": "https://www.chesterfield.gov.uk/latest-news/",
+   "emergencies": null
+  },
+  {
+   "code": "CHT",
+   "council": "Cheltenham Borough Council",
+   "nation": "England",
+   "site": "https://www.cheltenham.gov.uk",
+   "news": "https://www.cheltenham.gov.uk/news-centre/",
+   "emergencies": "https://www.cheltenham.gov.uk/environment/"
+  },
+  {
+   "code": "CHW",
+   "council": "Cheshire West and Chester Council",
+   "nation": "England",
+   "site": "https://www.cheshirewestandchester.gov.uk/",
+   "news": "https://www.cheshirewestandchester.gov.uk/news",
+   "emergencies": "https://www.cheshirewestandchester.gov.uk/news-and-views/incidents/flooding"
+  },
+  {
+   "code": "CLD",
+   "council": "Calderdale Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.calderdale.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CLK",
+   "council": "Clackmannanshire Council",
+   "nation": "Scotland",
+   "site": "https://www.clacks.gov.uk/",
+   "news": "https://www.clacks.gov.uk/council/press/",
+   "emergencies": null
+  },
+  {
+   "code": "CMD",
+   "council": "London Borough of Camden",
+   "nation": "England",
+   "site": "https://www.camden.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CMN",
+   "council": "Carmarthenshire County Council",
+   "nation": "Wales",
+   "site": "https://www.carmarthenshire.gov.wales/home/council-services/",
+   "news": "https://newsroom.carmarthenshire.gov.wales/",
+   "emergencies": null
+  },
+  {
+   "code": "COL",
+   "council": "Colchester Borough Council",
+   "nation": "England",
+   "site": "https://www.colchester.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CON",
+   "council": "Cornwall Council",
+   "nation": "England",
+   "site": "https://www.cornwall.gov.uk/",
+   "news": "https://www.cornwall.gov.uk/council-news/",
+   "emergencies": null
+  },
+  {
+   "code": "COT",
+   "council": "Cotswold District Council",
+   "nation": "England",
+   "site": "https://www.cotswold.gov.uk",
+   "news": "https://news.cotswold.gov.uk",
+   "emergencies": "https://www.cotswold.gov.uk/environment/flooding/"
+  },
+  {
+   "code": "COV",
+   "council": "Coventry City Council",
+   "nation": "England",
+   "site": "https://www.coventry.gov.uk/",
+   "news": "https://www.coventry.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "CRF",
+   "council": "City of Cardiff Council",
+   "nation": "Wales",
+   "site": "https://www.cardiff.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "CRW",
+   "council": "Crawley Borough Council",
+   "nation": "England",
+   "site": "https://crawley.gov.uk",
+   "news": "https://crawley.gov.uk/council-information/news-and-events/latest-news",
+   "emergencies": null
+  },
+  {
+   "code": "CRY",
+   "council": "London Borough of Croydon",
+   "nation": "England",
+   "site": "https://www.croydon.gov.uk/",
+   "news": "https://news.croydon.gov.uk/",
+   "emergencies": null
+  },
+  {
+   "code": "CWY",
+   "council": "Conwy County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.conwy.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DAC",
+   "council": "Dacorum Borough Council",
+   "nation": "England",
+   "site": "https://www.dacorum.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DAL",
+   "council": "Darlington Borough Council",
+   "nation": "England",
+   "site": "https://www.darlington.gov.uk/",
+   "news": "https://www.darlington.gov.uk/news/",
+   "emergencies": "https://www.darlington.gov.uk/environment/rain-and-flooding/"
+  },
+  {
+   "code": "DAR",
+   "council": "Dartford Borough Council",
+   "nation": "England",
+   "site": "https://www.dartford.gov.uk",
+   "news": "https://www.dartford.gov.uk/news",
+   "emergencies": "https://www.dartford.gov.uk/community-safety/emergencies"
+  },
+  {
+   "code": "DBY",
+   "council": "Derbyshire County Council",
+   "nation": "England",
+   "site": "https://www.derbyshire.gov.uk/home.aspx",
+   "news": null,
+   "emergencies": "https://www.derbyshire.gov.uk/community/emergency-planning/emergency-planning.aspx"
+  },
+  {
+   "code": "DEB",
+   "council": "Derbyshire Dales District Council",
+   "nation": "England",
+   "site": "https://www.derbyshiredales.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DEN",
+   "council": "Denbighshire County Council",
+   "nation": "Wales",
+   "site": "https://www.denbighshire.gov.uk/en/home.aspx",
+   "news": "https://www.denbighshire.gov.uk/en/news/news.aspx",
+   "emergencies": "https://www.denbighshire.gov.uk/en/emergencies/emergencies.aspx"
+  },
+  {
+   "code": "DER",
+   "council": "Derby City Council",
+   "nation": "England",
+   "site": "https://www.derby.gov.uk/",
+   "news": "https://www.derby.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "DEV",
+   "council": "Devon County Council",
+   "nation": "England",
+   "site": "https://new.devon.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DGY",
+   "council": "Dumfries and Galloway Council",
+   "nation": "Scotland",
+   "site": "https://www.dumgal.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DNC",
+   "council": "City of Doncaster Council",
+   "nation": "England",
+   "site": "http://www.doncaster.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DND",
+   "council": "Dundee City Council",
+   "nation": "Scotland",
+   "site": "https://www.dundeecity.gov.uk/",
+   "news": "https://www.dundeecity.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "DOV",
+   "council": "Dover District Council",
+   "nation": "England",
+   "site": "https://www.dover.gov.uk/Home.aspx",
+   "news": "https://www.dover.gov.uk/News/Home.aspx",
+   "emergencies": "https://www.dover.gov.uk/Environment/Flooding/Home.aspx"
+  },
+  {
+   "code": "DRS",
+   "council": "Derry City and Strabane District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.derrystrabane.com/",
+   "news": "https://www.derrystrabane.com/news",
+   "emergencies": "https://www.derrystrabane.com/about-council/weather-warning-advice"
+  },
+  {
+   "code": "DST",
+   "council": "Dorset Council",
+   "nation": "England",
+   "site": "https://www.dorsetcouncil.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "DUD",
+   "council": "Dudley Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.dudley.gov.uk/residents/",
+   "news": "https://www.dudley.gov.uk/media-centre/",
+   "emergencies": "https://www.dudley.gov.uk/council-community/emergencies/"
+  },
+  {
+   "code": "DUR",
+   "council": "Durham County Council",
+   "nation": "England",
+   "site": "https://www.durham.gov.uk/",
+   "news": "https://www.durham.gov.uk/article/1873/News-and-events",
+   "emergencies": "https://www.durham.gov.uk/emergencies"
+  },
+  {
+   "code": "EAL",
+   "council": "London Borough of Ealing",
+   "nation": "England",
+   "site": "https://www.ealing.gov.uk/site/",
+   "news": "https://www.ealing.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "EAS",
+   "council": "Eastbourne Borough Council",
+   "nation": "England",
+   "site": "https://www.lewes-eastbourne.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EAT",
+   "council": "Eastleigh Borough Council",
+   "nation": "England",
+   "site": "https://www.eastleigh.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EAY",
+   "council": "East Ayrshire Council",
+   "nation": "Scotland",
+   "site": "https://www.east-ayrshire.gov.uk/Home.aspx",
+   "news": "https://newsroom.east-ayrshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ECA",
+   "council": "East Cambridgeshire District Council",
+   "nation": "England",
+   "site": "https://eastcambs.gov.uk:443/",
+   "news": "https://eastcambs.gov.uk:443/press-releases",
+   "emergencies": null
+  },
+  {
+   "code": "EDE",
+   "council": "East Devon District Council",
+   "nation": "England",
+   "site": "https://eastdevon.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EDH",
+   "council": "City of Edinburgh Council",
+   "nation": "Scotland",
+   "site": "https://www.edinburgh.gov.uk/",
+   "news": "https://www.edinburgh.gov.uk/news",
+   "emergencies": "https://www.edinburgh.gov.uk/emergencies-safety-crime"
+  },
+  {
+   "code": "EDU",
+   "council": "East Dunbartonshire Council",
+   "nation": "Scotland",
+   "site": "https://www.eastdunbarton.gov.uk/",
+   "news": "https://www.eastdunbarton.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "EHA",
+   "council": "East Hampshire District Council",
+   "nation": "England",
+   "site": "https://www.easthants.gov.uk",
+   "news": "https://www.easthants.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "EHE",
+   "council": "East Hertfordshire District Council",
+   "nation": "England",
+   "site": "https://www.eastherts.gov.uk",
+   "news": "https://www.eastherts.gov.uk/latest-news",
+   "emergencies": "https://www.eastherts.gov.uk/emergencies"
+  },
+  {
+   "code": "ELI",
+   "council": "East Lindsey District Council",
+   "nation": "England",
+   "site": "https://www.e-lindsey.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ELM",
+   "council": "Elmbridge Borough Council",
+   "nation": "England",
+   "site": "https://www.elmbridge.gov.uk",
+   "news": "https://www.elmbridge.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ELN",
+   "council": "East Lothian Council",
+   "nation": "Scotland",
+   "site": "https://www.eastlothian.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ELS",
+   "council": "Comhairle nan Eilean Siar",
+   "nation": "Scotland",
+   "site": "https://www.cne-siar.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ENF",
+   "council": "London Borough of Enfield",
+   "nation": "England",
+   "site": "https://new.enfield.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EPP",
+   "council": "Epping Forest District Council",
+   "nation": "England",
+   "site": "https://www.eppingforestdc.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EPS",
+   "council": "Epsom and Ewell Borough Council",
+   "nation": "England",
+   "site": "https://www.epsom-ewell.gov.uk",
+   "news": "https://www.epsom-ewell.gov.uk/news",
+   "emergencies": "https://www.epsom-ewell.gov.uk/residents/emergency-planning"
+  },
+  {
+   "code": "ERE",
+   "council": "Erewash Borough Council",
+   "nation": "England",
+   "site": "https://www.erewash.gov.uk",
+   "news": "https://www.erewash.gov.uk/news",
+   "emergencies": "https://www.erewash.gov.uk/environmental-issues/flooding"
+  },
+  {
+   "code": "ERW",
+   "council": "East Renfrewshire Council",
+   "nation": "Scotland",
+   "site": "http://www.eastrenfrewshire.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ERY",
+   "council": "East Riding of Yorkshire Council",
+   "nation": "England",
+   "site": "http://www.eastriding.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ESK",
+   "council": "East Suffolk Council",
+   "nation": "England",
+   "site": "https://www.eastsuffolk.gov.uk",
+   "news": "https://www.eastsuffolk.gov.uk/news",
+   "emergencies": "https://www.eastsuffolk.gov.uk/community-safety-and-emergencies"
+  },
+  {
+   "code": "ESS",
+   "council": "Essex County Council",
+   "nation": "England",
+   "site": "https://www.essex.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EST",
+   "council": "East Staffordshire Borough Council",
+   "nation": "England",
+   "site": "https://www.eaststaffsbc.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "ESX",
+   "council": "East Sussex County Council",
+   "nation": "England",
+   "site": "https://www.eastsussex.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "EXE",
+   "council": "Exeter City Council",
+   "nation": "England",
+   "site": "https://exeter.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "FAL",
+   "council": "Falkirk Council",
+   "nation": "Scotland",
+   "site": "https://www.falkirk.gov.uk/",
+   "news": "https://www.falkirk.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "FAR",
+   "council": "Fareham Borough Council",
+   "nation": "England",
+   "site": "https://www.fareham.gov.uk",
+   "news": "https://www.fareham.gov.uk/latest_news/intro.aspx",
+   "emergencies": null
+  },
+  {
+   "code": "FEN",
+   "council": "Fenland District Council",
+   "nation": "England",
+   "site": "https://www.fenland.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "FIF",
+   "council": "Fife Council",
+   "nation": "Scotland",
+   "site": "https://www.fife.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "FLN",
+   "council": "Flintshire County Council",
+   "nation": "Wales",
+   "site": "https://www.flintshire.gov.uk/",
+   "news": null,
+   "emergencies": "https://www.flintshire.gov.uk/cy/Business/Emergency-Planning/Home.aspx"
+  },
+  {
+   "code": "FMO",
+   "council": "Fermanagh and Omagh District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.fermanaghomagh.com/",
+   "news": "https://www.fermanaghomagh.com/news/",
+   "emergencies": null
+  },
+  {
+   "code": "FOE",
+   "council": "Forest of Dean District Council",
+   "nation": "England",
+   "site": "https://www.fdean.gov.uk",
+   "news": "https://news.fdean.gov.uk",
+   "emergencies": "https://www.fdean.gov.uk/environment/"
+  },
+  {
+   "code": "FYL",
+   "council": "Fylde Borough Council",
+   "nation": "England",
+   "site": "https://new.fylde.gov.uk/",
+   "news": "https://new.fylde.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "GAT",
+   "council": "Gateshead Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.gateshead.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "GED",
+   "council": "Gedling Borough Council",
+   "nation": "England",
+   "site": "https://www.gedling.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "GLG",
+   "council": "Glasgow City Council",
+   "nation": "Scotland",
+   "site": "https://www.glasgow.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "GLO",
+   "council": "Gloucester City Council",
+   "nation": "England",
+   "site": "https://www.gloucester.gov.uk",
+   "news": "https://www.gloucester.gov.uk/news/2026-news/",
+   "emergencies": null
+  },
+  {
+   "code": "GLS",
+   "council": "Gloucestershire County Council",
+   "nation": "England",
+   "site": "https://www.gloucestershire.gov.uk",
+   "news": "https://www.gloucestershire.gov.uk/gcc-news/",
+   "emergencies": "https://www.gloucestershire.gov.uk/your-community/emergencies-and-your-safety/"
+  },
+  {
+   "code": "GOS",
+   "council": "Gosport Borough Council",
+   "nation": "England",
+   "site": "https://www.gosport.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "GRA",
+   "council": "Gravesham Borough Council",
+   "nation": "England",
+   "site": "https://www.gravesham.gov.uk",
+   "news": "https://www.gravesham.gov.uk/news",
+   "emergencies": "https://www.gravesham.gov.uk/emergencies"
+  },
+  {
+   "code": "GRE",
+   "council": "Royal Borough of Greenwich",
+   "nation": "England",
+   "site": "https://www.royalgreenwich.gov.uk/",
+   "news": "https://www.royalgreenwich.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "GRT",
+   "council": "Guildford Borough Council",
+   "nation": "England",
+   "site": "https://www.guildford.gov.uk:443/?ccp=true#cookie-consent-prompt",
+   "news": "https://www.guildford.gov.uk:443/newsroom?ccp=true#cookie-consent-prompt",
+   "emergencies": null
+  },
+  {
+   "code": "GRY",
+   "council": "Great Yarmouth Borough Council",
+   "nation": "England",
+   "site": "https://www.great-yarmouth.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "GWN",
+   "council": "Gwynedd Council",
+   "nation": "Wales",
+   "site": "https://www.gwynedd.llyw.cymru/",
+   "news": "https://www.gwynedd.llyw.cymru/newyddion-diweddaraf",
+   "emergencies": null
+  },
+  {
+   "code": "HAA",
+   "council": "Havant Borough Council",
+   "nation": "England",
+   "site": "https://www.havant.gov.uk",
+   "news": "https://www.havant.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HAL",
+   "council": "Halton Borough Council",
+   "nation": "England",
+   "site": "https://www3.halton.gov.uk/Pages/Home.aspx",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "HAM",
+   "council": "Hampshire County Council",
+   "nation": "England",
+   "site": "https://www.hants.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "HAO",
+   "council": "Harborough District Council",
+   "nation": "England",
+   "site": "https://www.harborough.gov.uk",
+   "news": "https://www.harborough.gov.uk/news",
+   "emergencies": "https://www.harborough.gov.uk/emergency-planning"
+  },
+  {
+   "code": "HAR",
+   "council": "Harlow District Council",
+   "nation": "England",
+   "site": "https://www.harlow.gov.uk",
+   "news": "https://www.harlow.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HAS",
+   "council": "Hastings Borough Council",
+   "nation": "England",
+   "site": "https://www.hastings.gov.uk",
+   "news": "https://www.hastings.gov.uk/news",
+   "emergencies": "https://www.hastings.gov.uk/coastlinebeaches/flooding/"
+  },
+  {
+   "code": "HAT",
+   "council": "Hart District Council",
+   "nation": "England",
+   "site": "https://www.hart.gov.uk",
+   "news": "https://www.hart.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HAV",
+   "council": "London Borough of Havering",
+   "nation": "England",
+   "site": "https://www.havering.gov.uk/",
+   "news": "https://www.havering.gov.uk/news",
+   "emergencies": "https://www.havering.gov.uk/community-1/emergency-planning"
+  },
+  {
+   "code": "HCK",
+   "council": "London Borough of Hackney",
+   "nation": "England",
+   "site": "https://www.hackney.gov.uk/",
+   "news": "https://news.hackney.gov.uk/",
+   "emergencies": null
+  },
+  {
+   "code": "HEF",
+   "council": "Herefordshire Council",
+   "nation": "England",
+   "site": "https://www.herefordshire.gov.uk/",
+   "news": "https://www.herefordshire.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "HER",
+   "council": "Hertsmere Borough Council",
+   "nation": "England",
+   "site": "https://www.hertsmere.gov.uk/home.aspx",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "HIG",
+   "council": "High Peak Borough Council",
+   "nation": "England",
+   "site": "https://www.highpeak.gov.uk",
+   "news": "https://www.highpeak.gov.uk/article/599/News",
+   "emergencies": "https://www.highpeak.gov.uk/article/202/Crime-and-emergencies"
+  },
+  {
+   "code": "HIL",
+   "council": "London Borough of Hillingdon",
+   "nation": "England",
+   "site": "https://pre.hillingdon.gov.uk/",
+   "news": "https://pre.hillingdon.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HIN",
+   "council": "Hinckley and Bosworth Borough Council",
+   "nation": "England",
+   "site": "https://www.hinckley-bosworth.gov.uk",
+   "news": "https://www.hinckley-bosworth.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "HLD",
+   "council": "The Highland Council",
+   "nation": "Scotland",
+   "site": "https://www.highland.gov.uk/",
+   "news": "https://www.highland.gov.uk/news",
+   "emergencies": "https://www.highland.gov.uk/emergencies-safety-crime/winter-service"
+  },
+  {
+   "code": "HMF",
+   "council": "London Borough of Hammersmith & Fulham",
+   "nation": "England",
+   "site": "https://www.lbhf.gov.uk/",
+   "news": "https://www.lbhf.gov.uk/news",
+   "emergencies": "https://www.lbhf.gov.uk/emergencies-and-safety"
+  },
+  {
+   "code": "HNS",
+   "council": "London Borough of Hounslow",
+   "nation": "England",
+   "site": "https://www.hounslow.gov.uk/",
+   "news": "https://www.hounslow.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HOR",
+   "council": "Horsham District Council",
+   "nation": "England",
+   "site": "https://www.horsham.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "HPL",
+   "council": "Hartlepool Borough Council",
+   "nation": "England",
+   "site": "https://www.hartlepool.gov.uk/",
+   "news": "https://www.hartlepool.gov.uk/news",
+   "emergencies": "https://www.hartlepool.gov.uk/emergencies"
+  },
+  {
+   "code": "HRT",
+   "council": "Hertfordshire County Council",
+   "nation": "England",
+   "site": "https://www.hertfordshire.gov.uk/home.aspx",
+   "news": "https://www.hertfordshire.gov.uk/About-the-council/News/Media-centre.aspx",
+   "emergencies": null
+  },
+  {
+   "code": "HRW",
+   "council": "London Borough of Harrow",
+   "nation": "England",
+   "site": "https://www.harrow.gov.uk/",
+   "news": "https://www.harrow.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HRY",
+   "council": "London Borough of Haringey",
+   "nation": "England",
+   "site": "https://haringey.gov.uk/",
+   "news": "https://haringey.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "HUN",
+   "council": "Huntingdonshire District Council",
+   "nation": "England",
+   "site": "https://www.huntingdonshire.gov.uk",
+   "news": "https://www.huntingdonshire.gov.uk/news/",
+   "emergencies": "https://www.huntingdonshire.gov.uk/environmental-issues/flooding/"
+  },
+  {
+   "code": "HYN",
+   "council": "Hyndburn Borough Council",
+   "nation": "England",
+   "site": "https://www.hyndburnbc.gov.uk",
+   "news": "https://www.hyndburnbc.gov.uk/hyndburnnews/",
+   "emergencies": null
+  },
+  {
+   "code": "IOS",
+   "council": "Council of the Isles of Scilly",
+   "nation": "England",
+   "site": "https://www.scilly.gov.uk/",
+   "news": "https://www.scilly.gov.uk/news/update-outcome-tender-process-inter-island-boating-services-%E2%80%93-30-october-2026",
+   "emergencies": "https://www.scilly.gov.uk/community-safety/emergency-planning"
+  },
+  {
+   "code": "IOW",
+   "council": "Isle of Wight Council",
+   "nation": "England",
+   "site": "https://www.iow.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "IPS",
+   "council": "Ipswich Borough Council",
+   "nation": "England",
+   "site": "https://www.ipswich.gov.uk",
+   "news": "https://www.ipswich.gov.uk/ipswich-newsroom",
+   "emergencies": null
+  },
+  {
+   "code": "ISL",
+   "council": "London Borough of Islington",
+   "nation": "England",
+   "site": "https://www.islington.gov.uk/",
+   "news": "https://www.islington.gov.uk/jobs-and-careers/council-pension-scheme/news",
+   "emergencies": null
+  },
+  {
+   "code": "IVC",
+   "council": "Inverclyde Council",
+   "nation": "Scotland",
+   "site": "https://www.inverclyde.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "KEC",
+   "council": "Royal Borough of Kensington and Chelsea",
+   "nation": "England",
+   "site": "https://www.rbkc.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "KEN",
+   "council": "Kent County Council",
+   "nation": "England",
+   "site": "https://www.kent.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "KHL",
+   "council": "Hull City Council",
+   "nation": "England",
+   "site": "https://www.hull.gov.uk",
+   "news": "https://www.hull.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "KIN",
+   "council": "Borough Council of Kings Lynn and West Norfolk",
+   "nation": "England",
+   "site": "https://www.west-norfolk.gov.uk",
+   "news": "https://www.west-norfolk.gov.uk/newsroom",
+   "emergencies": null
+  },
+  {
+   "code": "KIR",
+   "council": "Kirklees Council",
+   "nation": "England",
+   "site": "https://www.kirklees.gov.uk/beta/default.aspx",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "KTT",
+   "council": "Royal Borough of Kingston upon Thames",
+   "nation": "England",
+   "site": "https://www.kingston.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "KWL",
+   "council": "Knowsley Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.knowsley.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "LAC",
+   "council": "Lancaster City Council",
+   "nation": "England",
+   "site": "https://www.lancaster.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "LAN",
+   "council": "Lancashire County Council",
+   "nation": "England",
+   "site": "https://www.lancashire.gov.uk",
+   "news": "https://news.lancashire.gov.uk",
+   "emergencies": null
+  },
+  {
+   "code": "LBC",
+   "council": "Lisburn and Castlereagh City Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.lisburncastlereagh.gov.uk/",
+   "news": "https://www.lisburncastlereagh.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "LBH",
+   "council": "London Borough of Lambeth",
+   "nation": "England",
+   "site": "https://www.lambeth.gov.uk/",
+   "news": "https://love.lambeth.gov.uk/?utm_source=footer&utm_campaign=news",
+   "emergencies": "https://www.lambeth.gov.uk/emergencies"
+  },
+  {
+   "code": "LCE",
+   "council": "Leicester City Council",
+   "nation": "England",
+   "site": "https://www.leicester.gov.uk/",
+   "news": "https://news.leicester.gov.uk/",
+   "emergencies": null
+  },
+  {
+   "code": "LDS",
+   "council": "Leeds City Council",
+   "nation": "England",
+   "site": "https://www.leeds.gov.uk/",
+   "news": "https://news.leeds.gov.uk",
+   "emergencies": null
+  },
+  {
+   "code": "LEC",
+   "council": "Leicestershire County Council",
+   "nation": "England",
+   "site": "https://www.leicestershire.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "LEE",
+   "council": "Lewes District Council",
+   "nation": "England",
+   "site": "https://www.lewes-eastbourne.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "LEW",
+   "council": "London Borough of Lewisham",
+   "nation": "England",
+   "site": "https://lewisham.gov.uk/",
+   "news": "https://lewisham.gov.uk/news",
+   "emergencies": "https://lewisham.gov.uk/inmyarea/publicsafety/emergencies"
+  },
+  {
+   "code": "LIC",
+   "council": "City of Lincoln Council",
+   "nation": "England",
+   "site": "https://www.lincoln.gov.uk",
+   "news": "https://www.lincoln.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "LIF",
+   "council": "Lichfield District Council",
+   "nation": "England",
+   "site": "https://www.lichfielddc.gov.uk",
+   "news": "https://www.lichfielddc.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "LIN",
+   "council": "Lincolnshire County Council",
+   "nation": "England",
+   "site": "https://www.lincolnshire.gov.uk",
+   "news": "https://www.lincolnshire.gov.uk/news",
+   "emergencies": "https://www.lincolnshire.gov.uk/fire-emergencies-crime"
+  },
+  {
+   "code": "LIV",
+   "council": "Liverpool City Council",
+   "nation": "England",
+   "site": "https://liverpool.gov.uk/",
+   "news": null,
+   "emergencies": "https://liverpool.gov.uk/communities-and-safety/emergency-planning/"
+  },
+  {
+   "code": "LND",
+   "council": "City of London Corporation",
+   "nation": "England",
+   "site": "https://www.cityoflondon.gov.uk/",
+   "news": "https://news.cityoflondon.gov.uk",
+   "emergencies": null
+  },
+  {
+   "code": "LUT",
+   "council": "Luton Borough Council",
+   "nation": "England",
+   "site": "https://www.luton.gov.uk/",
+   "news": "https://www.luton.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "MAI",
+   "council": "Maidstone Borough Council",
+   "nation": "England",
+   "site": "https://maidstone.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "MAL",
+   "council": "Maldon District Council",
+   "nation": "England",
+   "site": "https://www.maldon.gov.uk/site/",
+   "news": "https://www.maldon.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "MAN",
+   "council": "Manchester City Council",
+   "nation": "England",
+   "site": "http://www.manchester.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "MAS",
+   "council": "Mansfield District Council",
+   "nation": "England",
+   "site": "https://www.mansfield.gov.uk",
+   "news": "https://www.mansfield.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "MAV",
+   "council": "Malvern Hills District Council",
+   "nation": "England",
+   "site": "https://www.malvernhills.gov.uk",
+   "news": "https://www.malvernhills.gov.uk/news-alerts",
+   "emergencies": null
+  },
+  {
+   "code": "MDB",
+   "council": "Middlesbrough Borough Council",
+   "nation": "England",
+   "site": "https://www.middlesbrough.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "MDE",
+   "council": "Mid Devon District Council",
+   "nation": "England",
+   "site": "https://www.middevon.gov.uk",
+   "news": "https://www.middevon.gov.uk/news-items/",
+   "emergencies": null
+  },
+  {
+   "code": "MDW",
+   "council": "Medway Council",
+   "nation": "England",
+   "site": "https://www.medway.gov.uk/",
+   "news": "https://www.medway.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "MEA",
+   "council": "Mid and East Antrim Borough Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.midandeastantrim.gov.uk/",
+   "news": "https://www.midandeastantrim.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "MEL",
+   "council": "Melton Borough Council",
+   "nation": "England",
+   "site": "https://www.melton.gov.uk",
+   "news": "https://www.melton.gov.uk/your-council/news-and-awards/news/",
+   "emergencies": null
+  },
+  {
+   "code": "MIK",
+   "council": "Milton Keynes Council",
+   "nation": "England",
+   "site": "https://www.milton-keynes.gov.uk/",
+   "news": null,
+   "emergencies": "https://www.milton-keynes.gov.uk/emergency-planning"
+  },
+  {
+   "code": "MLN",
+   "council": "Midlothian Council",
+   "nation": "Scotland",
+   "site": "https://www.midlothian.gov.uk/",
+   "news": "https://www.midlothian.gov.uk/rss/news",
+   "emergencies": "https://www.midlothian.gov.uk/info/396/emergencies_safety_and_crime"
+  },
+  {
+   "code": "MOL",
+   "council": "Mole Valley District Council",
+   "nation": "England",
+   "site": "https://www.molevalley.gov.uk",
+   "news": "https://news.molevalley.gov.uk",
+   "emergencies": "https://www.molevalley.gov.uk/crime-safety-emergencies/"
+  },
+  {
+   "code": "MON",
+   "council": "Monmouthshire County Council",
+   "nation": "Wales",
+   "site": "https://www.monmouthshire.gov.uk/",
+   "news": "https://www.monmouthshire.gov.uk/category/news/",
+   "emergencies": null
+  },
+  {
+   "code": "MRT",
+   "council": "London Borough of Merton",
+   "nation": "England",
+   "site": "https://www.merton.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "MRY",
+   "council": "The Moray Council",
+   "nation": "Scotland",
+   "site": "https://www.moray.gov.uk/",
+   "news": "https://newsroom.moray.gov.uk/",
+   "emergencies": null
+  },
+  {
+   "code": "MSS",
+   "council": "Mid Sussex District Council",
+   "nation": "England",
+   "site": "https://www.midsussex.gov.uk",
+   "news": "https://www.midsussex.gov.uk/about-us/latest-news/",
+   "emergencies": null
+  },
+  {
+   "code": "MSU",
+   "council": "Mid Suffolk District Council",
+   "nation": "England",
+   "site": "https://www.midsuffolk.gov.uk",
+   "news": "https://www.midsuffolk.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "MTY",
+   "council": "Merthyr Tydfil County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.merthyr.gov.uk",
+   "news": null,
+   "emergencies": "https://www.merthyr.gov.uk/resident/crime-safety-and-emergencies/emergency-planning/"
+  },
+  {
+   "code": "MUL",
+   "council": "Mid Ulster District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.midulstercouncil.org/",
+   "news": "https://www.midulstercouncil.org/news",
+   "emergencies": null
+  },
+  {
+   "code": "NAY",
+   "council": "North Ayrshire Council",
+   "nation": "Scotland",
+   "site": "https://www.north-ayrshire.gov.uk/",
+   "news": "https://www.north-ayrshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NBL",
+   "council": "Northumberland County Council",
+   "nation": "England",
+   "site": "https://www.northumberland.gov.uk/",
+   "news": "https://www.northumberland.gov.uk/News",
+   "emergencies": null
+  },
+  {
+   "code": "NDE",
+   "council": "North Devon District Council",
+   "nation": "England",
+   "site": "https://www.northdevon.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NEA",
+   "council": "Newark and Sherwood District Council",
+   "nation": "England",
+   "site": "https://www.newark-sherwooddc.gov.uk",
+   "news": "https://www.newark-sherwooddc.gov.uk/news",
+   "emergencies": "https://www.newark-sherwooddc.gov.uk/community-environment"
+  },
+  {
+   "code": "NEC",
+   "council": "Newcastle-under-Lyme Borough Council",
+   "nation": "England",
+   "site": "https://www.newcastle-staffs.gov.uk",
+   "news": "https://www.newcastle-staffs.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NED",
+   "council": "North East Derbyshire District Council",
+   "nation": "England",
+   "site": "https://www.ne-derbyshire.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NEL",
+   "council": "North East Lincolnshire Council",
+   "nation": "England",
+   "site": "https://www.nelincs.gov.uk/",
+   "news": "https://www.nelincs.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "NET",
+   "council": "Newcastle City Council",
+   "nation": "England",
+   "site": "https://new.newcastle.gov.uk/",
+   "news": "https://new.newcastle.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NEW",
+   "council": "New Forest District Council",
+   "nation": "England",
+   "site": "https://www.newforest.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NFK",
+   "council": "Norfolk County Council",
+   "nation": "England",
+   "site": "https://www.norfolk.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NGM",
+   "council": "Nottingham City Council",
+   "nation": "England",
+   "site": "https://www.nottinghamcity.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NHE",
+   "council": "North Hertfordshire District Council",
+   "nation": "England",
+   "site": "https://www.north-herts.gov.uk",
+   "news": "https://www.north-herts.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NKE",
+   "council": "North Kesteven District Council",
+   "nation": "England",
+   "site": "https://www.n-kesteven.gov.uk",
+   "news": "https://www.n-kesteven.gov.uk/council-news",
+   "emergencies": null
+  },
+  {
+   "code": "NLK",
+   "council": "North Lanarkshire Council",
+   "nation": "Scotland",
+   "site": "https://www.northlanarkshire.gov.uk/",
+   "news": "https://www.northlanarkshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NLN",
+   "council": "North Lincolnshire Council",
+   "nation": "England",
+   "site": "https://www.northlincs.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NMD",
+   "council": "Newry, Mourne and Down District Council",
+   "nation": "Northern Ireland",
+   "site": "https://www.newrymournedown.org/",
+   "news": "https://www.newrymournedown.org/news",
+   "emergencies": "https://www.newrymournedown.org/emergencies"
+  },
+  {
+   "code": "NNO",
+   "council": "North Norfolk District Council",
+   "nation": "England",
+   "site": "https://www.north-norfolk.gov.uk",
+   "news": "https://www.north-norfolk.gov.uk/news/",
+   "emergencies": "https://www.north-norfolk.gov.uk/section/environment-emergencies/"
+  },
+  {
+   "code": "NNT",
+   "council": "North Northamptonshire Council",
+   "nation": "England",
+   "site": "https://www.northnorthants.gov.uk",
+   "news": "https://www.northnorthants.gov.uk/news",
+   "emergencies": "https://www.northnorthants.gov.uk/emergencies"
+  },
+  {
+   "code": "NOW",
+   "council": "Norwich City Council",
+   "nation": "England",
+   "site": "https://www.norwich.gov.uk",
+   "news": "https://www.norwich.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NSM",
+   "council": "North Somerset  Council",
+   "nation": "England",
+   "site": "https://n-somerset.gov.uk/",
+   "news": "https://n-somerset.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NTL",
+   "council": "Neath Port Talbot County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.npt.gov.uk/",
+   "news": "https://www.npt.gov.uk/council/newsroom/",
+   "emergencies": null
+  },
+  {
+   "code": "NTT",
+   "council": "Nottinghamshire County Council",
+   "nation": "England",
+   "site": "https://www.nottinghamshire.gov.uk",
+   "news": "https://newsroom.nottinghamshire.gov.uk",
+   "emergencies": "https://www.nottinghamshire.gov.uk/planning-and-environment/flooding-help-and-advice/flooding-grants"
+  },
+  {
+   "code": "NTY",
+   "council": "North Tyneside Council",
+   "nation": "England",
+   "site": "https://my.northtyneside.gov.uk/?originalUrl=https://my.northtyneside.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NUN",
+   "council": "Nuneaton and Bedworth Borough Council",
+   "nation": "England",
+   "site": "https://www.nuneatonandbedworth.gov.uk",
+   "news": "https://www.nuneatonandbedworth.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NWA",
+   "council": "North Warwickshire Borough Council",
+   "nation": "England",
+   "site": "https://www.northwarks.gov.uk/",
+   "news": "https://www.northwarks.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NWL",
+   "council": "North West Leicestershire District Council",
+   "nation": "England",
+   "site": "https://www.nwleics.gov.uk",
+   "news": "https://www.nwleics.gov.uk/pages/news",
+   "emergencies": null
+  },
+  {
+   "code": "NWM",
+   "council": "London Borough of Newham",
+   "nation": "England",
+   "site": "https://www.newham.gov.uk/",
+   "news": "https://www.newham.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "NWP",
+   "council": "Newport City Council",
+   "nation": "Wales",
+   "site": "https://www.newport.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "NYE",
+   "council": "North Yorkshire Council",
+   "nation": "England",
+   "site": "https://www.northyorks.gov.uk",
+   "news": "https://www.northyorks.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "OAD",
+   "council": "Oadby and Wigston Borough Council",
+   "nation": "England",
+   "site": "https://www.oadby-wigston.gov.uk",
+   "news": "https://www.oadby-wigston.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "OLD",
+   "council": "Oldham Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.oldham.gov.uk/",
+   "news": "https://www.oldham.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ORK",
+   "council": "Orkney Islands Council",
+   "nation": "Scotland",
+   "site": "https://www.orkney.gov.uk/",
+   "news": "https://www.orkney.gov.uk/latest-news",
+   "emergencies": "https://www.orkney.gov.uk/council-and-democracy/preparing-for-emergencies"
+  },
+  {
+   "code": "OXF",
+   "council": "Oxfordshire County Council",
+   "nation": "England",
+   "site": "https://www.oxfordshire.gov.uk",
+   "news": "https://news.oxfordshire.gov.uk",
+   "emergencies": null
+  },
+  {
+   "code": "OXO",
+   "council": "Oxford City Council",
+   "nation": "England",
+   "site": "https://www.oxford.gov.uk",
+   "news": "https://www.oxford.gov.uk/news",
+   "emergencies": "https://www.oxford.gov.uk/flooding"
+  },
+  {
+   "code": "PEM",
+   "council": "Pembrokeshire County Council",
+   "nation": "Wales",
+   "site": "https://www.pembrokeshire.gov.uk",
+   "news": null,
+   "emergencies": "https://www.pembrokeshire.gov.uk/emergency-planning"
+  },
+  {
+   "code": "PEN",
+   "council": "Pendle Borough Council",
+   "nation": "England",
+   "site": "https://www.pendle.gov.uk",
+   "news": "https://www.pendle.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "PKN",
+   "council": "Perth and Kinross Council",
+   "nation": "Scotland",
+   "site": "https://www.pkc.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "PLY",
+   "council": "Plymouth City Council",
+   "nation": "England",
+   "site": "https://www.plymouth.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "POR",
+   "council": "Portsmouth City Council",
+   "nation": "England",
+   "site": "https://www.portsmouth.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "POW",
+   "council": "Powys County Council",
+   "nation": "Wales",
+   "site": "https://www.powys.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "PRE",
+   "council": "Preston City Council",
+   "nation": "England",
+   "site": "https://www.preston.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "PTE",
+   "council": "Peterborough City Council",
+   "nation": "England",
+   "site": "https://www.peterborough.gov.uk/",
+   "news": "https://www.peterborough.gov.uk/engagement-hub",
+   "emergencies": null
+  },
+  {
+   "code": "RCC",
+   "council": "Redcar and Cleveland Borough Council",
+   "nation": "England",
+   "site": "https://www.redcar-cleveland.gov.uk/",
+   "news": "https://www.redcar-cleveland.gov.uk/news",
+   "emergencies": "https://www.redcar-cleveland.gov.uk/environment/flooding/reporting-flooding"
+  },
+  {
+   "code": "RCH",
+   "council": "Rochdale Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.rochdale.gov.uk:443/",
+   "news": "https://www.rochdale.gov.uk/rss/news",
+   "emergencies": "https://www.rochdale.gov.uk/emergencies"
+  },
+  {
+   "code": "RCT",
+   "council": "Rhondda Cynon Taf County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.rctcbc.gov.uk/Index.aspx",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "RDB",
+   "council": "London Borough of Redbridge",
+   "nation": "England",
+   "site": "https://www.redbridge.gov.uk/",
+   "news": "https://www.redbridge.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "RDG",
+   "council": "Reading Borough Council",
+   "nation": "England",
+   "site": "https://www.reading.gov.uk/",
+   "news": "https://www.reading.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "RED",
+   "council": "Redditch Borough Council",
+   "nation": "England",
+   "site": "https://www.redditchbc.gov.uk",
+   "news": "https://www.redditchbc.gov.uk/news/",
+   "emergencies": "https://www.redditchbc.gov.uk/residents/my-place/landscapes-and-trees/emergencies/"
+  },
+  {
+   "code": "REI",
+   "council": "Reigate and Banstead Borough Council",
+   "nation": "England",
+   "site": "https://www.reigate-banstead.gov.uk",
+   "news": "https://www.reigate-banstead.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "RFW",
+   "council": "Renfrewshire Council",
+   "nation": "Scotland",
+   "site": "https://www.renfrewshire.gov.uk/",
+   "news": "https://www.renfrewshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "RIB",
+   "council": "Ribble Valley Borough Council",
+   "nation": "England",
+   "site": "https://www.ribblevalley.gov.uk",
+   "news": "https://www.ribblevalley.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "RIC",
+   "council": "London Borough of Richmond upon Thames",
+   "nation": "England",
+   "site": "https://www.richmond.gov.uk/",
+   "news": "https://www.richmond.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ROC",
+   "council": "Rochford District Council",
+   "nation": "England",
+   "site": "https://www.rochford.gov.uk",
+   "news": "https://www.rochford.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ROH",
+   "council": "Rother District Council",
+   "nation": "England",
+   "site": "https://www.rother.gov.uk",
+   "news": "https://www.rother.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "ROS",
+   "council": "Rossendale Borough Council",
+   "nation": "England",
+   "site": "https://www.rossendale.gov.uk",
+   "news": "https://www.rossendale.gov.uk/news",
+   "emergencies": "https://www.rossendale.gov.uk/emergencies-safety"
+  },
+  {
+   "code": "ROT",
+   "council": "Rotherham Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.rotherham.gov.uk/",
+   "news": "https://www.rotherham.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "RUG",
+   "council": "Rugby Borough Council",
+   "nation": "England",
+   "site": "https://www.rugby.gov.uk",
+   "news": "https://www.rugby.gov.uk/news",
+   "emergencies": "https://www.rugby.gov.uk/w/disruption-and-emergencies"
+  },
+  {
+   "code": "RUH",
+   "council": "Rushmoor Borough Council",
+   "nation": "England",
+   "site": "https://www.rushmoor.gov.uk",
+   "news": "https://www.rushmoor.gov.uk/your-council/news-and-your-views/",
+   "emergencies": "https://www.rushmoor.gov.uk/recycling-rubbish-and-environment/water-flooding-and-drainage/"
+  },
+  {
+   "code": "RUN",
+   "council": "Runnymede Borough Council",
+   "nation": "England",
+   "site": "https://www.runnymede.gov.uk",
+   "news": "https://www.runnymede.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "RUS",
+   "council": "Rushcliffe Borough Council",
+   "nation": "England",
+   "site": "https://www.rushcliffe.gov.uk",
+   "news": "https://www.rushcliffe.gov.uk/news-area/",
+   "emergencies": "https://www.rushcliffe.gov.uk/emergency-planning/"
+  },
+  {
+   "code": "RUT",
+   "council": "Rutland County Council",
+   "nation": "England",
+   "site": "https://www.rutland.gov.uk/",
+   "news": "https://www.rutland.gov.uk/council-news",
+   "emergencies": null
+  },
+  {
+   "code": "SAL",
+   "council": "St Albans City and District Council",
+   "nation": "England",
+   "site": "https://www.stalbans.gov.uk",
+   "news": "https://www.stalbans.gov.uk/news-and-whats",
+   "emergencies": null
+  },
+  {
+   "code": "SAW",
+   "council": "Sandwell Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.sandwell.gov.uk:443/",
+   "news": "https://www.sandwell.gov.uk:443/news",
+   "emergencies": null
+  },
+  {
+   "code": "SAY",
+   "council": "South Ayrshire Council",
+   "nation": "Scotland",
+   "site": "https://www.south-ayrshire.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SCA",
+   "council": "South Cambridgeshire District Council",
+   "nation": "England",
+   "site": "https://www.scambs.gov.uk",
+   "news": "https://www.scambs.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SCB",
+   "council": "Scottish Borders Council",
+   "nation": "Scotland",
+   "site": "https://www.scotborders.gov.uk",
+   "news": "https://www.scotborders.gov.uk/news",
+   "emergencies": "https://www.scotborders.gov.uk/flooding-1"
+  },
+  {
+   "code": "SDE",
+   "council": "South Derbyshire District Council",
+   "nation": "England",
+   "site": "https://www.southderbyshire.gov.uk",
+   "news": "https://www.southderbyshire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SEV",
+   "council": "Sevenoaks District Council",
+   "nation": "England",
+   "site": "https://www.sevenoaks.gov.uk",
+   "news": "https://www.sevenoaks.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SFK",
+   "council": "Suffolk County Council",
+   "nation": "England",
+   "site": "https://www.suffolk.gov.uk",
+   "news": "https://www.suffolk.gov.uk/council-and-democracy/council-news",
+   "emergencies": null
+  },
+  {
+   "code": "SFT",
+   "council": "Sefton Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.sefton.gov.uk/",
+   "news": "https://www.sefton.gov.uk/mysefton-news/",
+   "emergencies": null
+  },
+  {
+   "code": "SGC",
+   "council": "South Gloucestershire Council",
+   "nation": "England",
+   "site": "http://www.southglos.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SHA",
+   "council": "South Hams District Council",
+   "nation": "England",
+   "site": "https://www.southhams.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SHE",
+   "council": "Folkestone and Hythe District Council",
+   "nation": "England",
+   "site": "https://www.folkestone-hythe.gov.uk",
+   "news": "https://www.folkestone-hythe.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SHF",
+   "council": "Sheffield City Council",
+   "nation": "England",
+   "site": "https://www.sheffield.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SHN",
+   "council": "St Helens Council",
+   "nation": "England",
+   "site": "https://www.sthelens.gov.uk",
+   "news": "http://news.sthelens.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SHO",
+   "council": "South Holland District Council",
+   "nation": "England",
+   "site": "https://www.sholland.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SHR",
+   "council": "Shropshire Council",
+   "nation": "England",
+   "site": "https://next.shropshire.gov.uk/",
+   "news": "https://newsroom.shropshire.gov.uk",
+   "emergencies": null
+  },
+  {
+   "code": "SKE",
+   "council": "South Kesteven District Council",
+   "nation": "England",
+   "site": "https://www.southkesteven.gov.uk",
+   "news": null,
+   "emergencies": "https://www.southkesteven.gov.uk/community-and-neighbourhood/emergency-planning-and-business-continuity"
+  },
+  {
+   "code": "SKP",
+   "council": "Stockport Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.stockport.gov.uk/",
+   "news": "https://www.stockport.gov.uk/landing/news-media",
+   "emergencies": "https://www.stockport.gov.uk/topic/parking-roads-and-travel"
+  },
+  {
+   "code": "SLF",
+   "council": "Salford City Council",
+   "nation": "England",
+   "site": "https://www.salford.gov.uk/",
+   "news": "https://news.salford.gov.uk/",
+   "emergencies": "https://www.salford.gov.uk/crime-reduction-and-emergencies/"
+  },
+  {
+   "code": "SLG",
+   "council": "Slough Borough Council",
+   "nation": "England",
+   "site": "https://www.slough.gov.uk/",
+   "news": "https://www.slough.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SLK",
+   "council": "South Lanarkshire Council",
+   "nation": "Scotland",
+   "site": "https://www.southlanarkshire.gov.uk/",
+   "news": "https://www.southlanarkshire.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "SMT",
+   "council": "Somerset Council",
+   "nation": "England",
+   "site": "https://www.somerset.gov.uk",
+   "news": "https://www.somerset.gov.uk/newsroom/",
+   "emergencies": "https://www.somerset.gov.uk/beaches-ports-and-flooding/"
+  },
+  {
+   "code": "SND",
+   "council": "Sunderland City Council",
+   "nation": "England",
+   "site": "https://www.sunderland.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SNO",
+   "council": "South Norfolk District Council",
+   "nation": "England",
+   "site": "https://www.southnorfolkandbroadland.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SOL",
+   "council": "Solihull Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.solihull.gov.uk/",
+   "news": "https://www.solihull.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SOS",
+   "council": "Southend-on-Sea Borough Council",
+   "nation": "England",
+   "site": "https://www.southend.gov.uk:443/",
+   "news": "https://www.southend.gov.uk:443/news",
+   "emergencies": null
+  },
+  {
+   "code": "SOX",
+   "council": "South Oxfordshire District Council",
+   "nation": "England",
+   "site": "https://www.southoxon.gov.uk",
+   "news": "https://www.southoxon.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "SPE",
+   "council": "Spelthorne Borough Council",
+   "nation": "England",
+   "site": "https://www.spelthorne.gov.uk",
+   "news": "https://www.spelthorne.gov.uk/news",
+   "emergencies": "https://www.spelthorne.gov.uk/resident-services/emergency-information"
+  },
+  {
+   "code": "SRI",
+   "council": "South Ribble Borough Council",
+   "nation": "England",
+   "site": "https://southribble.gov.uk/",
+   "news": "https://southribble.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SRY",
+   "council": "Surrey County Council",
+   "nation": "England",
+   "site": "https://www.surreycc.gov.uk",
+   "news": "https://www.surreycc.gov.uk/community/news",
+   "emergencies": "https://www.surreycc.gov.uk/community/emergency-planning-and-community-safety"
+  },
+  {
+   "code": "SST",
+   "council": "South Staffordshire Council",
+   "nation": "England",
+   "site": "https://www.sstaffs.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "STA",
+   "council": "Stafford Borough Council",
+   "nation": "England",
+   "site": "https://www.staffordbc.gov.uk",
+   "news": "https://www.staffordbc.gov.uk/news/oh-yes-it-countdown-biggest-party-year-stafford",
+   "emergencies": null
+  },
+  {
+   "code": "STE",
+   "council": "Stoke-on-Trent City Council",
+   "nation": "England",
+   "site": "https://www.stoke.gov.uk/",
+   "news": "https://www.stoke.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "STF",
+   "council": "Staffordshire Moorlands District Council",
+   "nation": "England",
+   "site": "https://www.staffsmoorlands.gov.uk",
+   "news": "https://www.staffsmoorlands.gov.uk/article/723/News",
+   "emergencies": "https://www.staffsmoorlands.gov.uk/article/494/Crime-and-emergencies"
+  },
+  {
+   "code": "STG",
+   "council": "Stirling Council",
+   "nation": "Scotland",
+   "site": "https://www.stirling.gov.uk/",
+   "news": "https://www.stirling.gov.uk/news/",
+   "emergencies": "https://www.stirling.gov.uk/emergencies-and-emergency-planning/flooding/"
+  },
+  {
+   "code": "STH",
+   "council": "Southampton City Council",
+   "nation": "England",
+   "site": "http://www.southampton.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "STN",
+   "council": "London Borough of Sutton",
+   "nation": "England",
+   "site": "https://www.sutton.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "STO",
+   "council": "Stroud District Council",
+   "nation": "England",
+   "site": "https://www.stroud.gov.uk",
+   "news": "https://www.stroud.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "STR",
+   "council": "Stratford-on-Avon District Council",
+   "nation": "England",
+   "site": "https://www.stratford.gov.uk",
+   "news": "https://www.stratford.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "STS",
+   "council": "Staffordshire County Council",
+   "nation": "England",
+   "site": "https://www.staffordshire.gov.uk",
+   "news": "https://www.staffordshire.gov.uk/newsroom",
+   "emergencies": null
+  },
+  {
+   "code": "STT",
+   "council": "Stockton-on-Tees Borough Council",
+   "nation": "England",
+   "site": "https://www.stockton.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "STV",
+   "council": "Stevenage Borough Council",
+   "nation": "England",
+   "site": "https://www.stevenage.gov.uk",
+   "news": "https://www.stevenage.gov.uk/news-and-events",
+   "emergencies": null
+  },
+  {
+   "code": "STY",
+   "council": "South Tyneside Council",
+   "nation": "England",
+   "site": "http://www.southtyneside.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SUR",
+   "council": "Surrey Heath Borough Council",
+   "nation": "England",
+   "site": "https://www.surreyheath.gov.uk",
+   "news": "https://www.surreyheath.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "SWA",
+   "council": "City and County of Swansea Council",
+   "nation": "Wales",
+   "site": "https://www.swansea.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SWD",
+   "council": "Swindon Borough Council",
+   "nation": "England",
+   "site": "https://www.swindon.gov.uk/",
+   "news": "https://www.swindon.gov.uk/rss/news",
+   "emergencies": "https://www.swindon.gov.uk/info/20273/resilience_and_emergencies"
+  },
+  {
+   "code": "SWK",
+   "council": "London Borough of Southwark",
+   "nation": "England",
+   "site": "https://www.southwark.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "SWL",
+   "council": "Swale Borough Council",
+   "nation": "England",
+   "site": "https://www.swale.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TAM",
+   "council": "Tameside Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.tameside.gov.uk/",
+   "news": "https://www.tameside.gov.uk/newsroom",
+   "emergencies": null
+  },
+  {
+   "code": "TAN",
+   "council": "Tandridge District Council",
+   "nation": "England",
+   "site": "https://www.tandridge.gov.uk",
+   "news": "https://www.tandridge.gov.uk/Your-council/News-and-consultation/News",
+   "emergencies": null
+  },
+  {
+   "code": "TAW",
+   "council": "Tamworth Borough Council",
+   "nation": "England",
+   "site": "https://www.tamworth.gov.uk",
+   "news": "https://www.tamworth.gov.uk/news-and-media",
+   "emergencies": null
+  },
+  {
+   "code": "TEI",
+   "council": "Teignbridge District Council",
+   "nation": "England",
+   "site": "https://www.teignbridge.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TEN",
+   "council": "Tendring District Council",
+   "nation": "England",
+   "site": "https://www.tendringdc.gov.uk",
+   "news": "https://www.tendringdc.gov.uk/news-and-events/news",
+   "emergencies": null
+  },
+  {
+   "code": "TES",
+   "council": "Test Valley Borough Council",
+   "nation": "England",
+   "site": "https://www.testvalley.gov.uk",
+   "news": "https://www.testvalley.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "TEW",
+   "council": "Tewkesbury Borough Council",
+   "nation": "England",
+   "site": "https://tewkesbury.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TFW",
+   "council": "Telford & Wrekin Council",
+   "nation": "England",
+   "site": "https://www.telford.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "THA",
+   "council": "Thanet District Council",
+   "nation": "England",
+   "site": "https://www.thanet.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "THE",
+   "council": "Three Rivers District Council",
+   "nation": "England",
+   "site": "https://www.threerivers.gov.uk",
+   "news": "https://www.threerivers.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "THR",
+   "council": "Thurrock Council",
+   "nation": "England",
+   "site": "https://www.thurrock.gov.uk/",
+   "news": "https://www.thurrock.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "TOB",
+   "council": "Torbay Council",
+   "nation": "England",
+   "site": "https://www.torbay.gov.uk/",
+   "news": "https://www.torbay.gov.uk/news",
+   "emergencies": "https://www.torbay.gov.uk/emergencies/"
+  },
+  {
+   "code": "TOF",
+   "council": "Torfaen County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.torfaen.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TON",
+   "council": "Tonbridge and Malling Borough Council",
+   "nation": "England",
+   "site": "https://www.tmbc.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TOR",
+   "council": "Torridge District Council",
+   "nation": "England",
+   "site": "https://www.torridge.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TRF",
+   "council": "Trafford Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.trafford.gov.uk/",
+   "news": "https://www.trafford.gov.uk/news",
+   "emergencies": "https://www.trafford.gov.uk/communities-safety-and-emergencies"
+  },
+  {
+   "code": "TUN",
+   "council": "Tunbridge Wells Borough Council",
+   "nation": "England",
+   "site": "https://www.tunbridgewells.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "TWH",
+   "council": "London Borough of Tower Hamlets",
+   "nation": "England",
+   "site": "https://www.towerhamlets.gov.uk/Home.aspx",
+   "news": "https://pages.news.towerhamlets.gov.uk/p/subscribe-tower-hamlets?utm_campaign=newsletterSignup&utm_source=Website&utm_medium=TopBanner",
+   "emergencies": null
+  },
+  {
+   "code": "UTT",
+   "council": "Uttlesford District Council",
+   "nation": "England",
+   "site": "https://www.uttlesford.gov.uk/home",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "VAL",
+   "council": "Vale of White Horse District Council",
+   "nation": "England",
+   "site": "https://www.whitehorsedc.gov.uk",
+   "news": "https://www.whitehorsedc.gov.uk/latest-news/",
+   "emergencies": null
+  },
+  {
+   "code": "VGL",
+   "council": "Vale of Glamorgan Council",
+   "nation": "Wales",
+   "site": "https://www.valeofglamorgan.gov.uk/en/index.aspx",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WAE",
+   "council": "Waverley Borough Council",
+   "nation": "England",
+   "site": "https://www.waverley.gov.uk",
+   "news": "https://www.waverley.gov.uk/council-updates/read-our-latest-news",
+   "emergencies": null
+  },
+  {
+   "code": "WAF",
+   "council": "Westmorland and Furness Council",
+   "nation": "England",
+   "site": "https://www.westmorlandandfurness.gov.uk",
+   "news": "https://www.westmorlandandfurness.gov.uk/westmorland-and-furness-council-news",
+   "emergencies": null
+  },
+  {
+   "code": "WAR",
+   "council": "Warwickshire County Council",
+   "nation": "England",
+   "site": "https://www.warwickshire.gov.uk",
+   "news": "https://www.warwickshire.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "WAT",
+   "council": "Watford Borough Council",
+   "nation": "England",
+   "site": "https://www.watford.gov.uk",
+   "news": "https://www.watford.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WAW",
+   "council": "Warwick District Council",
+   "nation": "England",
+   "site": "https://www.warwickdc.gov.uk/site/",
+   "news": "https://www.warwickdc.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WBK",
+   "council": "West Berkshire Council",
+   "nation": "England",
+   "site": "http://www.westberks.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WDE",
+   "council": "West Devon Borough Council",
+   "nation": "England",
+   "site": "https://www.westdevon.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WDU",
+   "council": "West Dunbartonshire Council",
+   "nation": "Scotland",
+   "site": "https://www.west-dunbarton.gov.uk/",
+   "news": "https://www.west-dunbarton.gov.uk/council/newsroom/news",
+   "emergencies": "https://www.west-dunbarton.gov.uk/preparing-responding-emergencies"
+  },
+  {
+   "code": "WEA",
+   "council": "Wealden District Council",
+   "nation": "England",
+   "site": "https://www.wealden.gov.uk",
+   "news": "https://www.wealden.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "WEW",
+   "council": "Welwyn Hatfield Borough Council",
+   "nation": "England",
+   "site": "https://www.welhat.gov.uk",
+   "news": "https://www.welhat.gov.uk/rss/news",
+   "emergencies": null
+  },
+  {
+   "code": "WFT",
+   "council": "London Borough of Waltham Forest",
+   "nation": "England",
+   "site": "https://www.walthamforest.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WGN",
+   "council": "Wigan Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://www.wigan.gov.uk/index.aspx",
+   "news": "https://www.wigan.gov.uk/News/Borough-news.aspx",
+   "emergencies": "https://www.wigan.gov.uk/Resident/Crime-Emergencies/Emergencies.aspx"
+  },
+  {
+   "code": "WIL",
+   "council": "Wiltshire Council",
+   "nation": "England",
+   "site": "https://www.wiltshire.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WIN",
+   "council": "Winchester City Council",
+   "nation": "England",
+   "site": "https://www.winchester.gov.uk",
+   "news": "https://www.winchester.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WKF",
+   "council": "Wakefield Metropolitan District Council",
+   "nation": "England",
+   "site": "https://www.wakefield.gov.uk/",
+   "news": "https://www.wakefield.gov.uk/your-district",
+   "emergencies": null
+  },
+  {
+   "code": "WLA",
+   "council": "West Lancashire Borough Council",
+   "nation": "England",
+   "site": "https://www.westlancs.gov.uk",
+   "news": "https://www.westlancs.gov.uk/news/christmas-light-switch-ons-to-spark-festive-season-to-life-in-west-lancashire.aspx",
+   "emergencies": null
+  },
+  {
+   "code": "WLI",
+   "council": "West Lindsey District Council",
+   "nation": "England",
+   "site": "https://www.west-lindsey.gov.uk",
+   "news": "https://www.west-lindsey.gov.uk/council-news",
+   "emergencies": null
+  },
+  {
+   "code": "WLL",
+   "council": "Walsall Metropolitan Borough Council",
+   "nation": "England",
+   "site": "https://go.walsall.gov.uk/",
+   "news": "https://go.walsall.gov.uk/newsroom",
+   "emergencies": null
+  },
+  {
+   "code": "WLN",
+   "council": "West Lothian Council",
+   "nation": "Scotland",
+   "site": "https://www.westlothian.gov.uk/",
+   "news": "https://news.westlothian.gov.uk/",
+   "emergencies": null
+  },
+  {
+   "code": "WLV",
+   "council": "City of Wolverhampton Council",
+   "nation": "England",
+   "site": "https://www.wolverhampton.gov.uk/",
+   "news": "https://www.wolverhampton.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WND",
+   "council": "London Borough of Wandsworth",
+   "nation": "England",
+   "site": "https://www.wandsworth.gov.uk/",
+   "news": "https://www.wandsworth.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "WNM",
+   "council": "Royal Borough of Windsor and Maidenhead",
+   "nation": "England",
+   "site": "https://www.rbwm.gov.uk/",
+   "news": "https://www.rbwm.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WNT",
+   "council": "West Northamptonshire Council",
+   "nation": "England",
+   "site": "https://www.westnorthants.gov.uk",
+   "news": "https://www.westnorthants.gov.uk/news",
+   "emergencies": "https://www.westnorthants.gov.uk/emergency-planning"
+  },
+  {
+   "code": "WOC",
+   "council": "Worcester City Council",
+   "nation": "England",
+   "site": "https://www.worcester.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WOI",
+   "council": "Woking Borough Council",
+   "nation": "England",
+   "site": "https://www.woking.gov.uk",
+   "news": "https://www.woking.gov.uk/newsroom",
+   "emergencies": "https://www.woking.gov.uk/safety-community-care"
+  },
+  {
+   "code": "WOK",
+   "council": "Wokingham Borough Council",
+   "nation": "England",
+   "site": "https://www.wokingham.gov.uk/",
+   "news": "https://www.wokingham.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WOR",
+   "council": "Worcestershire County Council",
+   "nation": "England",
+   "site": "https://www.worcestershire.gov.uk",
+   "news": "https://www.worcestershire.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "WOT",
+   "council": "Worthing Borough Council",
+   "nation": "England",
+   "site": "https://www.adur-worthing.gov.uk",
+   "news": "https://www.adur-worthing.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "WOX",
+   "council": "West Oxfordshire District Council",
+   "nation": "England",
+   "site": "https://www.westoxon.gov.uk",
+   "news": "https://news.westoxon.gov.uk",
+   "emergencies": "https://www.westoxon.gov.uk/environment/"
+  },
+  {
+   "code": "WRL",
+   "council": "Wirral Borough Council",
+   "nation": "England",
+   "site": "https://www.wirral.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WRT",
+   "council": "Warrington Borough Council",
+   "nation": "England",
+   "site": "https://www.warrington.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WRX",
+   "council": "Wrexham County Borough Council",
+   "nation": "Wales",
+   "site": "https://www.wrexham.gov.uk/",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WSK",
+   "council": "West Suffolk Council",
+   "nation": "England",
+   "site": "https://www.westsuffolk.gov.uk",
+   "news": "https://www.westsuffolk.gov.uk/news/",
+   "emergencies": null
+  },
+  {
+   "code": "WSM",
+   "council": "City of Westminster",
+   "nation": "England",
+   "site": "https://www.westminster.gov.uk/",
+   "news": "https://www.westminster.gov.uk/news",
+   "emergencies": "https://www.westminster.gov.uk/businesses/major-incidents-and-contingency-planning"
+  },
+  {
+   "code": "WSX",
+   "council": "West Sussex County Council",
+   "nation": "England",
+   "site": "https://www.westsussex.gov.uk",
+   "news": "https://www.westsussex.gov.uk/news/",
+   "emergencies": "https://www.westsussex.gov.uk/fire-emergencies-and-crime/"
+  },
+  {
+   "code": "WYC",
+   "council": "Wychavon District Council",
+   "nation": "England",
+   "site": "https://www.wychavon.gov.uk",
+   "news": null,
+   "emergencies": null
+  },
+  {
+   "code": "WYE",
+   "council": "Wyre Forest District Council",
+   "nation": "England",
+   "site": "https://www.wyreforestdc.gov.uk",
+   "news": "https://www.wyreforestdc.gov.uk/your-council/communications-and-news/",
+   "emergencies": null
+  },
+  {
+   "code": "WYR",
+   "council": "Wyre Borough Council",
+   "nation": "England",
+   "site": "https://www.wyre.gov.uk",
+   "news": "https://www.wyre.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "YOR",
+   "council": "City of York Council",
+   "nation": "England",
+   "site": "https://www.york.gov.uk/",
+   "news": "https://www.york.gov.uk/news",
+   "emergencies": null
+  },
+  {
+   "code": "ZET",
+   "council": "Shetland Islands Council",
+   "nation": "Scotland",
+   "site": "https://www.shetland.gov.uk/",
+   "news": "https://www.shetland.gov.uk/news",
+   "emergencies": null
+  }
+ ],
+ "unresolved": [
+  {
+   "code": "ABE",
+   "council": "Aberdeen City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "AGY",
+   "council": "Isle of Anglesey County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "ANS",
+   "council": "Angus Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "BAI",
+   "council": "Basildon Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "BBD",
+   "council": "Blackburn with Darwen Borough Council",
+   "reason": "council website returned HTTP URLError"
+  },
+  {
+   "code": "BDF",
+   "council": "Bedford Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "BGW",
+   "council": "Blaenau Gwent County Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "BNE",
+   "council": "London Borough of Barnet",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "BNH",
+   "council": "Brighton and Hove City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "BOT",
+   "council": "Boston Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "BRE",
+   "council": "Breckland District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "BRO",
+   "council": "Broadland District Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "BUN",
+   "council": "Burnley Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "BUR",
+   "council": "Bury Metropolitan Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "CAT",
+   "council": "Canterbury City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "CAY",
+   "council": "Caerphilly County Borough Council",
+   "reason": "council website returned HTTP TimeoutError"
+  },
+  {
+   "code": "CGN",
+   "council": "Ceredigion County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "CHE",
+   "council": "Cheshire East Council",
+   "reason": "council website could not be read (ValueError)"
+  },
+  {
+   "code": "CHI",
+   "council": "Chichester District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "CHL",
+   "council": "Chelmsford City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "CLD",
+   "council": "Calderdale Metropolitan Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "CMD",
+   "council": "London Borough of Camden",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "COL",
+   "council": "Colchester Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "CRF",
+   "council": "City of Cardiff Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "CWY",
+   "council": "Conwy County Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "DAC",
+   "council": "Dacorum Borough Council",
+   "reason": "council website returned HTTP URLError"
+  },
+  {
+   "code": "DBY",
+   "council": "Derbyshire County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "DEB",
+   "council": "Derbyshire Dales District Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "DEV",
+   "council": "Devon County Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "DGY",
+   "council": "Dumfries and Galloway Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "DNC",
+   "council": "City of Doncaster Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "DST",
+   "council": "Dorset Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "EAS",
+   "council": "Eastbourne Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "EAT",
+   "council": "Eastleigh Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "EDE",
+   "council": "East Devon District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "ELI",
+   "council": "East Lindsey District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "ELN",
+   "council": "East Lothian Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "ELS",
+   "council": "Comhairle nan Eilean Siar",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "ENF",
+   "council": "London Borough of Enfield",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "EPP",
+   "council": "Epping Forest District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "ERW",
+   "council": "East Renfrewshire Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "ERY",
+   "council": "East Riding of Yorkshire Council",
+   "reason": "council website returned HTTP 502"
+  },
+  {
+   "code": "ESS",
+   "council": "Essex County Council",
+   "reason": "council website returned HTTP 202"
+  },
+  {
+   "code": "EST",
+   "council": "East Staffordshire Borough Council",
+   "reason": "council website returned HTTP URLError"
+  },
+  {
+   "code": "ESX",
+   "council": "East Sussex County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "EXE",
+   "council": "Exeter City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "FEN",
+   "council": "Fenland District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "FIF",
+   "council": "Fife Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "FLN",
+   "council": "Flintshire County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "GAT",
+   "council": "Gateshead Metropolitan Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "GED",
+   "council": "Gedling Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "GLG",
+   "council": "Glasgow City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "GOS",
+   "council": "Gosport Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "GRY",
+   "council": "Great Yarmouth Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "HAL",
+   "council": "Halton Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "HAM",
+   "council": "Hampshire County Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "HER",
+   "council": "Hertsmere Borough Council",
+   "reason": "council website could not be read (ValueError)"
+  },
+  {
+   "code": "HOR",
+   "council": "Horsham District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "IOW",
+   "council": "Isle of Wight Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "IVC",
+   "council": "Inverclyde Council",
+   "reason": "council website returned HTTP URLError"
+  },
+  {
+   "code": "KEC",
+   "council": "Royal Borough of Kensington and Chelsea",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "KEN",
+   "council": "Kent County Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "KIR",
+   "council": "Kirklees Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "KTT",
+   "council": "Royal Borough of Kingston upon Thames",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "KWL",
+   "council": "Knowsley Metropolitan Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "LAC",
+   "council": "Lancaster City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "LEC",
+   "council": "Leicestershire County Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "LEE",
+   "council": "Lewes District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "LIV",
+   "council": "Liverpool City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "MAI",
+   "council": "Maidstone Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "MAN",
+   "council": "Manchester City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "MDB",
+   "council": "Middlesbrough Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "MIK",
+   "council": "Milton Keynes Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "MRT",
+   "council": "London Borough of Merton",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "MTY",
+   "council": "Merthyr Tydfil County Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "NDE",
+   "council": "North Devon District Council",
+   "reason": "council website returned HTTP 202"
+  },
+  {
+   "code": "NED",
+   "council": "North East Derbyshire District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "NEW",
+   "council": "New Forest District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "NFK",
+   "council": "Norfolk County Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "NGM",
+   "council": "Nottingham City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "NLN",
+   "council": "North Lincolnshire Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "NTY",
+   "council": "North Tyneside Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "NWP",
+   "council": "Newport City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "PEM",
+   "council": "Pembrokeshire County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "PKN",
+   "council": "Perth and Kinross Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "PLY",
+   "council": "Plymouth City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "POR",
+   "council": "Portsmouth City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "POW",
+   "council": "Powys County Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "PRE",
+   "council": "Preston City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "RCT",
+   "council": "Rhondda Cynon Taf County Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "SAY",
+   "council": "South Ayrshire Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "SGC",
+   "council": "South Gloucestershire Council",
+   "reason": "council website returned HTTP URLError"
+  },
+  {
+   "code": "SHA",
+   "council": "South Hams District Council",
+   "reason": "council website returned HTTP 405"
+  },
+  {
+   "code": "SHF",
+   "council": "Sheffield City Council",
+   "reason": "council website returned HTTP 202"
+  },
+  {
+   "code": "SHO",
+   "council": "South Holland District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "SKE",
+   "council": "South Kesteven District Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "SND",
+   "council": "Sunderland City Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "SNO",
+   "council": "South Norfolk District Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "SST",
+   "council": "South Staffordshire Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "STH",
+   "council": "Southampton City Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "STN",
+   "council": "London Borough of Sutton",
+   "reason": "council website returned HTTP 202"
+  },
+  {
+   "code": "STT",
+   "council": "Stockton-on-Tees Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "STY",
+   "council": "South Tyneside Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "SWA",
+   "council": "City and County of Swansea Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "SWK",
+   "council": "London Borough of Southwark",
+   "reason": "council website returned HTTP 202"
+  },
+  {
+   "code": "SWL",
+   "council": "Swale Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "TEI",
+   "council": "Teignbridge District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "TEW",
+   "council": "Tewkesbury Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "TFW",
+   "council": "Telford & Wrekin Council",
+   "reason": "council website returned HTTP TimeoutError"
+  },
+  {
+   "code": "THA",
+   "council": "Thanet District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "TOF",
+   "council": "Torfaen County Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "TON",
+   "council": "Tonbridge and Malling Borough Council",
+   "reason": "council website returned HTTP URLError"
+  },
+  {
+   "code": "TOR",
+   "council": "Torridge District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "TUN",
+   "council": "Tunbridge Wells Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "UTT",
+   "council": "Uttlesford District Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "VGL",
+   "council": "Vale of Glamorgan Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "WBK",
+   "council": "West Berkshire Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "WDE",
+   "council": "West Devon Borough Council",
+   "reason": "council website returned HTTP 405"
+  },
+  {
+   "code": "WFT",
+   "council": "London Borough of Waltham Forest",
+   "reason": "council website returned HTTP 202"
+  },
+  {
+   "code": "WIL",
+   "council": "Wiltshire Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "WOC",
+   "council": "Worcester City Council",
+   "reason": "council website returned HTTP 307"
+  },
+  {
+   "code": "WRL",
+   "council": "Wirral Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "WRT",
+   "council": "Warrington Borough Council",
+   "reason": "council website returned HTTP 403"
+  },
+  {
+   "code": "WRX",
+   "council": "Wrexham County Borough Council",
+   "reason": "no news or newsroom page found on the council website"
+  },
+  {
+   "code": "WYC",
+   "council": "Wychavon District Council",
+   "reason": "council website returned HTTP 307"
+  }
+ ]
+}

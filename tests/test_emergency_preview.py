@@ -129,8 +129,10 @@ class Plan(unittest.TestCase):
     def test_13_omit_pets_access_beds_when_not_stated(self):
         text = "Arun District Council has opened a rest centre at Littlehampton Leisure Centre."
         rec = w.parse_announcement(text, "Arun District Council", "https://www.arun.gov.uk/emergency-planning", NOW)
-        for key in ("pets", "access", "beds", "opened_for"):
+        for key in ("pets", "access", "beds"):
             self.assertNotIn(key, rec)
+        self.assertEqual(rec["opened_for"], "an incident")
+        self.assertEqual(rec["name"], "Littlehampton Leisure Centre")
         card = w.card_from_source(centre(), NOW)["card"]
         for key in ("pets", "access", "beds", "opened_for"):
             self.assertNotIn(key, card)
