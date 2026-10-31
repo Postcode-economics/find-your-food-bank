@@ -69,7 +69,14 @@ man = json.load(open("overrides/warmspaces_manual.json")) if os.path.exists("ove
 for m in man:
     m["ended"] = bool(m.get("scheme_end") and m["scheme_end"] < RUN); fresh.append(m)
 sources["Manual (council pages, press releases, approved self-registrations)"] = {"status": "ok", "count": len(man)}
-for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no common format; most councils now list via the Warm Welcome map (already included). Individual council pages to be added via overrides/warmspaces_manual.json with source URL",
+import arcgis_warmspaces
+try:
+    _ag_added, _ag_skipped, _ag_status = arcgis_warmspaces.merge_into(fresh, RUN, pending_path="logs/warmspaces_pending.json")
+    sources["Council ArcGIS warm-space feeds"] = {k: v for k, v in _ag_status.items() if k != "ids"}
+    sources["Council ArcGIS warm-space feeds"]["ids"] = _ag_status.get("ids", [])[:80]
+except Exception as ex:
+    sources["Council ArcGIS warm-space feeds"] = {"status": "failed: " + str(ex)[:180]}
+for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no common format, except ArcGIS FeatureServer feeds listed in overrides/arcgis_warmspaces.json (read above). Other council pages are added via overrides/warmspaces_manual.json with a source URL",
                "warmspaces.org (Warm Spaces directory)": "inactive since Nov 2024 (per Open Innovations register); site returns 404",
                "Age UK branches, British Red Cross, libraries, church directories": "no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"}.items():
     sources[k] = {"status": "not scraped: " + why}

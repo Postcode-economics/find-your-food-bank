@@ -21,6 +21,13 @@
    "added": 0,
    "queued": 34,
    "rejected": 0
+  },
+  {
+   "at": "17:14Z",
+   "source": "shelters_discovery.json",
+   "added": 0,
+   "queued": 52,
+   "rejected": 0
   }
  ],
  "added": [],
@@ -110,7 +117,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "7f3e151902a91145a5099cdc06de261e68f5e5d96e61c9b94194705548d471f3",
+   "sha256": "bd95ab6e58619b717b2c7b48c87ce229516604ded27e7ef4ebdde97aea4c75a2",
    "etag": "",
    "last_modified": ""
   },
@@ -181,7 +188,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "950bc8bc0033766b9009e8bff05aba26e656cd9c5f5051e08c2aff25e53d84cd",
+   "sha256": "4a91b18908a81ec035af9ab2faf59c499ea418384725f028dee34a7d7daa0b17",
    "etag": "",
    "last_modified": ""
   },
@@ -325,9 +332,9 @@
    "url": "https://centrepoint.org.uk/",
    "final_url": "https://centrepoint.org.uk/",
    "http": 200,
-   "sha256": "f33b7e960cacf2acb850d574209a20a8220749569a021677abf911440f3f2aa7",
-   "etag": "\"1793397992\"",
-   "last_modified": "Fri, 30 Oct 2026 22:06:32 GMT"
+   "sha256": "5489dc54585e66185e8e6434b951e585e4d4e02944aef45478046f04784cd8f8",
+   "etag": "\"1793466340\"",
+   "last_modified": "Sat, 31 Oct 2026 17:05:40 GMT"
   },
   "osm-way-172932545": {
    "id": "osm-way-172932545",
@@ -647,7 +654,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "d4882a1be791c631ff570b5c8f4a95119e1847c5a17656ff87fdde6fec7b769c",
+   "sha256": "8e5f65136750c892e6688dcd7a101eb06025ad89d939315da9c727c32d6f4a3b",
    "etag": "",
    "last_modified": ""
   },
@@ -852,8 +859,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "df5e882f4d5ac0f7e8f934c951cb144ed7d07990594b975083bcbc41333df7b5",
-   "etag": "W/\"22023-fx/lEgA7QmLElZ9NOW8iK6CykA8\"",
+   "sha256": "e6ae2b482f082adb344ac0c8883575806b7da28fdb6e7dc6d393a797548e5297",
+   "etag": "W/\"2203d-at0pNE484sEsRkPtqdCoN2sk/5E\"",
    "last_modified": ""
   },
   "hl-branches-hostel": {
@@ -995,6 +1002,26 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  "hl-catalyst-osborne-house": {
+   "id": "hl-catalyst-osborne-house",
+   "name": "Catalyst - Osborne House",
+   "postcode": "EN8 9NB",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-osborne-house/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "fc4978f484cdfaedf46b7e2303916e785aa41b145a2bcfbe34ea60e9e032e777",
+   "etag": "",
+   "last_modified": ""
   }
  },
  "rejected": {}

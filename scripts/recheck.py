@@ -50,7 +50,7 @@ def schema_errors(x, layer):
     if isinstance(h, dict):
         for k, v in h.items():
             if k not in DAYKEYS: e.append(f"hours day key invalid: {k}")
-            if str(v) == "24 hours": continue  # 24/7 from OSM, laid out per day by hours_norm
+            if str(v) in ("24 hours", "Closed"): continue  # 24/7 from OSM, or a day the source says is closed
             for part in str(v).replace(" Monthly", "").replace(" Fortnightly", "").split(" / "):
                 if not TIME_RE.match(part.strip()): e.append(f"hours value invalid: {k}={v}")
     elif h not in ("", None) and not isinstance(h, str): e.append("hours wrong type")

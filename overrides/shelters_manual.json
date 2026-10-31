@@ -1652,6 +1652,73 @@
   "access_type": "referral_only"
  },
  {
+  "id": "man-first-base-brighton",
+  "name": "First Base Day Centre",
+  "address": "St Stephen's Hall, Montpelier Place, Brighton",
+  "postcode": "BN1 3BF",
+  "lat": 50.826364,
+  "lng": -0.153299,
+  "phone": "01273 326844",
+  "website": "https://www.bht.org.uk/services/homelessness/first-base-day-centre/",
+  "hours": {
+   "Mon": "09:00 - 10:30 / 11:00 - 12:30",
+   "Tue": "09:00 - 10:30 / 11:00 - 12:30",
+   "Wed": "09:00 - 10:30 / 11:00 - 12:30",
+   "Thu": "09:00 - 10:30 / 11:00 - 12:30",
+   "Fri": "09:00 - 10:30 / 11:00 - 12:30"
+  },
+  "referral": "No referral is required",
+  "beds": "",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "season": "Daytime only",
+  "operator": "BHT Sussex",
+  "flag_closed": false,
+  "source": "BHT Sussex",
+  "source_url": "https://www.bht.org.uk/services/homelessness/first-base-day-centre/",
+  "last_verified": "2026-10-31",
+  "stale": false,
+  "access_type": "open_access",
+  "kind": "day_centre",
+  "offer": "Support and use of the facilities. No referral is required."
+ },
+ {
+  "id": "man-clock-tower-sanctuary",
+  "name": "Clock Tower Sanctuary",
+  "address": "Wenlock House, 41-43 North Street, Brighton",
+  "postcode": "BN1 1RH",
+  "lat": 50.82319,
+  "lng": -0.142534,
+  "phone": "07884 417146 or 01273 722353",
+  "email": "ctsservices@thects.org.uk",
+  "website": "https://www.thects.org.uk/get-help/the-day-centre/",
+  "hours": {
+   "Mon": "10:30 - 13:30",
+   "Tue": "10:30 - 13:30",
+   "Wed": "Closed",
+   "Thu": "10:30 - 13:30",
+   "Fri": "10:30 - 13:30",
+   "Sat": "10:30 - 13:30",
+   "Sun": "Closed"
+  },
+  "referral": "No need for a referral, just drop in",
+  "beds": "",
+  "groups": [
+   "Young people aged 16 to 25"
+  ],
+  "season": "Daytime only",
+  "operator": "Clock Tower Sanctuary",
+  "flag_closed": false,
+  "source": "Clock Tower Sanctuary",
+  "source_url": "https://www.thects.org.uk/get-help/the-day-centre/",
+  "last_verified": "2026-10-31",
+  "stale": false,
+  "access_type": "open_access",
+  "kind": "day_centre",
+  "offer": "Free hot lunch, one-to-one casework, laundry and showers."
+ },
+ {
   "id": "man-cambria-house-lifehouse",
   "name": "Cambria House Lifehouse",
   "address": "37 Hunter Street, London",
@@ -1663,7 +1730,10 @@
   "hours": "",
   "referral": "Referral needed – contact other hostels in Camden, the Safer Streets team in Camden, or Housing Options Camden",
   "beds": "48",
-  "groups": ["Single men", "Age 18+"],
+  "groups": [
+   "Single men",
+   "Age 18+"
+  ],
   "season": "Year-round",
   "operator": "The Salvation Army",
   "flag_closed": false,
@@ -1685,7 +1755,10 @@
   "hours": "Staffed 24 hours a day, 7 days a week",
   "referral": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
   "beds": "35",
-  "groups": ["Men", "Couples without children"],
+  "groups": [
+   "Men",
+   "Couples without children"
+  ],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -1707,7 +1780,11 @@
   "hours": "Staffed 24 hours a day, 7 days a week",
   "referral": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
   "beds": "18",
-  "groups": ["Women", "Young people", "Age 18+"],
+  "groups": [
+   "Women",
+   "Young people",
+   "Age 18+"
+  ],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -1729,7 +1806,10 @@
   "hours": "Staffed 24 hours a day, 7 days a week",
   "referral": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
   "beds": "29",
-  "groups": ["Young people 16-25", "Young parents"],
+  "groups": [
+   "Young people 16-25",
+   "Young parents"
+  ],
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
@@ -1751,7 +1831,13 @@
   "hours": "By referral, call to arrange",
   "referral": "Referral (Reading Borough Council)",
   "beds": "2-3 sit up beds (night shelter), 4-8 emergency/assessment beds",
-  "groups": ["Men and women", "Age 18+", "Some couples", "Local connection", "Council referral"],
+  "groups": [
+   "Men and women",
+   "Age 18+",
+   "Some couples",
+   "Local connection",
+   "Council referral"
+  ],
   "season": "Not stated",
   "operator": "The Salvation Army",
   "flag_closed": false,

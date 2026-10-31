@@ -1,0 +1,14 @@
+{
+  "_about": "Council ArcGIS FeatureServer warm-space feeds. Each refresh queries layer 0. A record with no postcode or no times is skipped. Phone numbers are not taken from this file.",
+  "feeds": [
+    {
+      "id": "brighton-hove",
+      "id_prefix": "bh",
+      "council": "Brighton & Hove City Council",
+      "source": "Brighton & Hove City Council warm spaces",
+      "evidence_name": "Brighton & Hove City Council",
+      "url": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
+      "website": "https://www.brighton-hove.gov.uk/cost-living-support/directories/warm-welcome-directory-indoor-activities-and-places-go"
+    }
+  ]
+}

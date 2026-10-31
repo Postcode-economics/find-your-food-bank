@@ -639,7 +639,7 @@
   "recheck": {
    "url": "https://kingschurchhx.org.uk/",
    "final_url": "https://cornerstonechurchhalifax.co.uk/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "9fceeb73fbe42a76409532bd0d517b3a28fb21ae533d58ce58407a2e18a051e4"
   }
@@ -7109,7 +7109,7 @@
   "recheck": {
    "url": "https://www.westsomersetmethodists.org.uk/alcombe/",
    "final_url": "https://www.westsomersetmethodists.org.uk/alcombe/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -8844,7 +8844,7 @@
   "recheck": {
    "url": "https://www.newdaychurch.uk/serving-our-community/the-well",
    "final_url": "https://www.newdaychurch.uk/serving-our-community/the-well",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "c6ed5ba09d4c2b032f512b9c5bbf5858a032541e1b0cc65ae24799ca94c7b393"
   }
@@ -16006,19 +16006,6 @@
   }
  },
  {
-  "id": "ww-57952197",
-  "name": "Brighton Bevendean Salvation Army Church",
-  "first_seen": "2026-10-21",
-  "reason": "omitted this run: schema: hours value invalid: Sat=Closed Monthly",
-  "recheck": {
-   "url": "https://www.salvationarmy.org.uk/brighton-bevendean",
-   "final_url": "https://www.salvationarmy.org.uk/brighton-bevendean",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
-   "http": 200,
-   "sha256": "53814f41e86ee2a1b109acaf3ace4a43fe6c6ae654d87cacd63a0ea3871ce4e9"
-  }
- },
- {
   "id": "ww-57979495",
   "name": "Brinsworth Community Library and Neighbourhood hubs",
   "address": "Field View Road, Brinsworth, South Yorkshire S60 5DG",
@@ -18447,7 +18434,7 @@
   "recheck": {
    "url": "https://www.soulsurvivorwatford.co.uk/cafeno7",
    "final_url": "https://soulsurvivor.church/cafeno7",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "0e97501bc6023d3529620d4f5980ca7f19cb12a879f853ac8f4a3cb36107e6c2"
   }
@@ -25029,7 +25016,7 @@
   "recheck": {
    "url": "https://silvertonmethodist.church/blog/",
    "final_url": "https://silvertonmethodist.church/blog/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -25315,26 +25302,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.craccl.org",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-55473692",
-  "name": "Coldean Library",
-  "address": "East Sussex County Council, East Sussex BN1 9EW",
-  "postcode": "BN1 9EW",
-  "source_url": "https://www.warmwelcome.uk/space?l=23895",
-  "website": "Our libraries and their opening times (brighton-hove.gov.uk)",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "Our libraries and their opening times (brighton-hove.gov.uk)",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -27820,7 +27787,7 @@
   "recheck": {
    "url": "https://www.bishopbaptists.co.uk",
    "final_url": "https://www.bishopbaptists.co.uk",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "b1eccdb97c32e3490b93b6e3949ed6e51b2343ac1b76e6cd82a0e56a69bb56d6"
   }
@@ -28347,7 +28314,7 @@
   "recheck": {
    "url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
    "final_url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -30784,7 +30751,7 @@
   "recheck": {
    "url": "https://dcctelford.wordpress.com/",
    "final_url": "https://dcctelford.wordpress.com/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -37242,7 +37209,7 @@
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be"
   }
@@ -37255,7 +37222,7 @@
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be"
   }
@@ -42015,26 +41982,6 @@
   }
  },
  {
-  "id": "ww-55474526",
-  "name": "Hangleton Library",
-  "address": "Hangleton Library, East Sussex BN3 8LD",
-  "postcode": "BN3 8LD",
-  "source_url": "https://www.warmwelcome.uk/space?l=23863",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-62853474",
   "name": "Hanham Library",
   "address": "Hanham Library, Bristol, Avon BS15 3EJ",
@@ -42313,7 +42260,7 @@
   "recheck": {
    "url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
    "final_url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 410,
    "sha256": ""
   }
@@ -43443,7 +43390,7 @@
   "recheck": {
    "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
    "final_url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -46989,26 +46936,6 @@
   }
  },
  {
-  "id": "ww-55474875",
-  "name": "Hove Library",
-  "address": "182 - 186 Church Road, East Sussex BN3 2GE",
-  "postcode": "BN3 2GE",
-  "source_url": "https://www.warmwelcome.uk/space?l=20420",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-55473388",
   "name": "Howdon Library",
   "address": "North Tyneside Council, Tyne and Wear NE28 7TG",
@@ -48894,26 +48821,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/our-libraries-and-their-opening-times",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-55472979",
-  "name": "Jubilee Library",
-  "address": "The Jubilee Library, Brighton, East Sussex BN1 1GE",
-  "postcode": "BN1 1GE",
-  "source_url": "https://www.warmwelcome.uk/space?l=22134",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -59486,26 +59393,6 @@
   }
  },
  {
-  "id": "ww-55474913",
-  "name": "Moulsecoomb Library",
-  "address": "Brighton & Hove City Council, East Sussex BN2 4PA",
-  "postcode": "BN2 4PA",
-  "source_url": "https://www.warmwelcome.uk/space?l=23937",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65939566",
   "name": "Moulton Library Health & Wellbeing Hub",
   "address": "Moulton Community Centre, Moulton, Northamptonshire NN3 7AX",
@@ -65322,26 +65209,6 @@
   }
  },
  {
-  "id": "ww-64379377",
-  "name": "Patcham Library",
-  "address": "Brighton & Hove City Council, East Sussex BN1 8TA",
-  "postcode": "BN1 8TA",
-  "source_url": "https://www.warmwelcome.uk/space?l=23746",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/directories/our-libraries-and-their-opening-times",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/directories/our-libraries-and-their-opening-times",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-62853870",
   "name": "Patchway Library",
   "address": "Patchway Library, Patchway, South Gloucestershire  BS34 5PE",
@@ -66501,7 +66368,7 @@
   "recheck": {
    "url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
    "final_url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "4b270256e38eff4844f2f3b1018e76adbdaa99af524b071fb540e3986795e4ca"
   }
@@ -71520,26 +71387,6 @@
   }
  },
  {
-  "id": "ww-68672328",
-  "name": "Rottingdean Library",
-  "address": "Rottingdean Library The Grange, East Sussex BN2 7HA",
-  "postcode": "BN2 7HA",
-  "source_url": "https://www.warmwelcome.uk/space?l=24115",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/our-libraries-and-their-opening-times/rottingdean-library",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/our-libraries-and-their-opening-times/rottingdean-library",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-55592198",
   "name": "Round About Cafe",
   "address": "Flat 12, Hampshire SO18 2LE",
@@ -72796,26 +72643,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "www.wesleyweb.co.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-57952647",
-  "name": "Saltdean Library",
-  "address": "Saltdean Library, Brighton, East Sussex BN2 8SP",
-  "postcode": "BN2 8SP",
-  "source_url": "https://www.warmwelcome.uk/space?l=26044",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -75583,7 +75410,7 @@
   "recheck": {
    "url": "https://www.gc4ehr.com/",
    "final_url": "https://www.gc4ehr.com/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "385c304a60ba3771deae0363003d3d81d2ed3e09baffd737bb8c70416f1bff1d"
   }
@@ -81804,26 +81631,6 @@
   }
  },
  {
-  "id": "ww-65345099",
-  "name": "St Mary’s  Church Kemp Town",
-  "address": "61 St James's Street, Brighton, East Sussex BN2  1PR",
-  "postcode": "BN2 1PR",
-  "source_url": "https://www.warmwelcome.uk/space?l=19013",
-  "website": "www.stmaryschurchbrighton.org.uk",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.stmaryschurchbrighton.org.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65438773",
   "name": "St Mary’s Church Ticehurst",
   "address": "Sy Mary's Church, Wadhurst, East Sussex TN5 7AB",
@@ -82237,7 +82044,7 @@
   "recheck": {
    "url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
    "final_url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -83064,7 +82871,7 @@
   "recheck": {
    "url": "https://timberscombevillage.com/church-services/",
    "final_url": "https://timberscombevillage.com/church-services/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -83478,26 +83285,6 @@
   }
  },
  {
-  "id": "ww-57952512",
-  "name": "St. Andrew's Church, Hove",
-  "address": "163, Church Road, East Sussex, East Sussex BN3 2AD",
-  "postcode": "BN3 2AD",
-  "source_url": "https://www.warmwelcome.uk/space?l=15656",
-  "website": "www.standrewshove.org",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "www.standrewshove.org",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65345096",
   "name": "St. Andrew's United Church, New Brighton",
   "address": "Rowson Street, New Brighton, Merseyside CH45 2LY",
@@ -83899,7 +83686,7 @@
   "recheck": {
    "url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
    "final_url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -87637,26 +87424,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-62827956",
-  "name": "Tea at the Good Shepherd",
-  "address": "Church Of The Good Shepherd, Brighton, East Sussex BN1 5AE",
-  "postcode": "BN1 5AE",
-  "source_url": "https://www.warmwelcome.uk/space?l=26966",
-  "website": "https://www.goodshepherdbrighton.org.uk/tea.htm",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.goodshepherdbrighton.org.uk/tea.htm",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -92798,7 +92565,7 @@
   "recheck": {
    "url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
    "final_url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "f5f69c3d48068a4f1d214dc251cc848d798263ccfeb129aec109d6c38064bff8"
   }
@@ -96267,7 +96034,7 @@
   "recheck": {
    "url": "https://www.salvationarmy.org.uk/kirkcaldy",
    "final_url": "https://www.salvationarmy.org.uk/kirkcaldy",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "dd486015ffe3edd46f49cc9c78abbd8ce30e4c104f712a1504e8b327372c4ce7"
   }
@@ -99267,7 +99034,7 @@
   "recheck": {
    "url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
    "final_url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -99340,7 +99107,7 @@
   "recheck": {
    "url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
    "final_url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -99744,48 +99511,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-68672319",
-  "name": "Whitehawk Library",
-  "address": "Whitehawk Community Hub, East Sussex BN2 5FL",
-  "postcode": "BN2 5FL",
-  "source_url": "https://www.warmwelcome.uk/space?l=23730",
-  "website": "",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [
-    "no independent website: Warm Welcome listing alone is not evidence"
-   ],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-68672327",
-  "name": "Woodingdean Library",
-  "address": "Woodingdean Library, East Sussex BN2 6BA",
-  "postcode": "BN2 6BA",
-  "source_url": "https://www.warmwelcome.uk/space?l=23829",
-  "website": "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/our-libraries-and-their-opening-times/woodingdean-library",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.brighton-hove.gov.uk/libraries-leisure-and-arts/libraries/our-libraries-and-their-opening-times/woodingdean-library",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -104669,7 +104394,7 @@
   "recheck": {
    "url": "https://ullesthorpe.org/amenities/village-hall/",
    "final_url": "https://ullesthorpe.org/amenities/village-hall/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -106799,7 +106524,7 @@
   "recheck": {
    "url": "https://www.warmwelcome.uk/find-a-space",
    "final_url": "https://www.warmwelcome.uk/find-a-space",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": "feed",
    "sha256": null
   }
@@ -108094,7 +107819,7 @@
   "recheck": {
    "url": "https://bulwellurc.org.uk/",
    "final_url": "https://bulwellurc.org.uk/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "1b078923df625a6c3b9f5703a340a6d49f6fd865f29f54878f82d00655132e34"
   }
@@ -110427,7 +110152,7 @@
   "recheck": {
    "url": "https://www.christchurchhalifax.co.uk/",
    "final_url": "https://www.christchurchhalifax.co.uk/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 200,
    "sha256": "39f90991edf1bdf6aa0d4b738d04ee19ee2d55c8cc4983226c5468bb4400935c"
   }
@@ -112475,7 +112200,7 @@
   "recheck": {
    "url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
    "final_url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
-   "fetched_at": "2026-10-31T14:03:03+00:00",
+   "fetched_at": "2026-10-31T17:08:31+00:00",
    "http": 403,
    "sha256": ""
   }
