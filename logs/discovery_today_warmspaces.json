@@ -280,6 +280,13 @@
    "added": 0,
    "queued": 2252,
    "rejected": 2
+  },
+  {
+   "at": "18:46Z",
+   "source": "warmspaces_discovery.json",
+   "added": 0,
+   "queued": 2251,
+   "rejected": 2
   }
  ],
  "added": [
@@ -2272,7 +2279,7 @@
    "url": "https://www.afcscic.org",
    "final_url": "https://www.afcscic.org",
    "http": 200,
-   "sha256": "fb200a62dae4a6c0d358b11925ba5604d4d3b5da5314bd89df725d897a9b6fff",
+   "sha256": "7a04a7218a4efe0f3a946b9917bbd9af79a8c0f2e1e485f79ee5a14dcf536254",
    "etag": "",
    "last_modified": ""
   },
@@ -2371,14 +2378,14 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/876246/al_mahdi_institute",
    "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not mention a warm space"
    ],
    "url": "https://almahdi.edu/",
    "final_url": "https://almahdi.edu/",
-   "http": 202,
-   "sha256": "8f5bcb56c754ecc5b5ff627c9d9c0076343bc5b3788614892722ef99987a86c0",
+   "http": 200,
+   "sha256": "d3d031ad560ef54dc4c8034bbe1a0d80cfad38f47dd1337a929d853d9f155986",
    "etag": "",
-   "last_modified": ""
+   "last_modified": "Sat, 31 Oct 2026 11:39:21 GMT"
   },
   "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr": {
    "id": "oi-birmingham-council-all-saint-s-church-and-centre-b74-4tr",
@@ -2682,7 +2689,7 @@
    "url": "https://www.birminghamleisure.com/beeches-pool-fitness-centre/",
    "final_url": "https://www.moreleisure.com/beeches-pool-fitness-centre/",
    "http": 200,
-   "sha256": "1b3d404f4afc306b4043022da9c3a946d4681ec18c04a0a2e7f4e01824ff3699",
+   "sha256": "abe60f8c43d803002494c62c9bda3aa905b080ba679e43f1d15be6ca0093b7d6",
    "etag": "",
    "last_modified": ""
   },
@@ -2801,7 +2808,7 @@
    "url": "https://www.birminghamleisure.com/billesley-tennis-fitness-centre/",
    "final_url": "https://www.moreleisure.com/billesley-tennis-fitness-centre/",
    "http": 200,
-   "sha256": "1997a80ca3efff4ba390725fc31308329a744b8075b4541f7e7dd36d4e34d7e2",
+   "sha256": "35c4e48f98a1220518f63ebe3f863544b74392b868d990dd76ea285d3e8ed33d",
    "etag": "",
    "last_modified": ""
   },
@@ -2973,8 +2980,8 @@
    "url": "https://www.blesstcic.com/",
    "final_url": "https://www.blesstcic.com/",
    "http": 200,
-   "sha256": "e24c96f95ccfb7590b586275dec15a63f35a00b7ff8e7869112fb9966a7cad5f",
-   "etag": "W/\"b430d3a29df54c9f4474d6b55ea2df47\"",
+   "sha256": "0cdf4b1342925540374bc1dc2a8792d528e90bb86af74904923c3b09c99bb6a5",
+   "etag": "W/\"aa7f5d122a370d00053c04fdecfeafbc\"",
    "last_modified": ""
   },
   "oi-birmingham-council-bosnia-and-herzegovina-uk-network-b11-4dy": {
@@ -3189,12 +3196,12 @@
    "directory": "Open Innovations: Birmingham Council",
    "directory_url": "https://www.birmingham.gov.uk/directory_record/666738/church_of_god_of_prophecy",
    "reasons": [
-    "own site did not return the page (HTTP 202; usually a bot check)"
+    "own site does not mention a warm space"
    ],
    "url": "https://aberdeenstcogop.org.uk/",
    "final_url": "https://aberdeenstcogop.org.uk/",
-   "http": 202,
-   "sha256": "ccd00d6388c9e52daf6aeb9504f3f19528551f4e8dbd4c205a82b320db835082",
+   "http": 200,
+   "sha256": "ef3a0f0ce6e1daec86da1ecc527012ad00711d37a066ff6ae6800fc66899a756",
    "etag": "",
    "last_modified": ""
   },
@@ -3211,8 +3218,8 @@
    "url": "http://www.ascensionhallgreen.uk/",
    "final_url": "https://ascensionhallgreen.uk/",
    "http": 200,
-   "sha256": "5b54a9d377712f1a67047c51b91c29706fa79538283df74d3c2384b931c5200a",
-   "etag": "W/\"67-1793350054;gz\"",
+   "sha256": "2dec5c6f6e8e0e2a205f25287a30b9c634d1197c8e5542e8bab7a6205dcc5638",
+   "etag": "W/\"3-1792744958;gz\"",
    "last_modified": ""
   },
   "oi-birmingham-council-church-road-surgery-saathi-house-b6-5up": {
@@ -3604,7 +3611,7 @@
    "url": "https://www.birminghamleisure.com/fox-hollies-leisure-centre/",
    "final_url": "https://www.moreleisure.com/fox-hollies-leisure-centre/",
    "http": 200,
-   "sha256": "705e76b432b90da6179c6b6f13cc8710332d7b80645bd6c1054a9149657f2516",
+   "sha256": "2a8c4e364dd978a4cfd2ba155c8b896670973dfc44289d2ee66191f1d0644a5f",
    "etag": "",
    "last_modified": ""
   },
@@ -4377,8 +4384,8 @@
    "final_url": "https://www.aston.ac.uk/current-students/health-and-wellbeing/chaplaincy",
    "http": 200,
    "sha256": "34f5bbabaaf90a986a73b66b34b515eab7ab67c7650575aa471c7f3f9f26ee77",
-   "etag": "\"1793456345\"",
-   "last_modified": "Sat, 31 Oct 2026 14:19:05 GMT"
+   "etag": "\"1793470770\"",
+   "last_modified": "Sat, 31 Oct 2026 18:19:30 GMT"
   },
   "oi-birmingham-council-moseley-community-development-trust-b13-8dd": {
    "id": "oi-birmingham-council-moseley-community-development-trust-b13-8dd",
@@ -4563,7 +4570,7 @@
    "url": "https://www.birminghamleisure.com/northfield-leisure-centre/",
    "final_url": "https://www.moreleisure.com/northfield-leisure-centre/",
    "http": 200,
-   "sha256": "f8baddfcbd1b144e166d74238f91b19cf7098deaa0cc7d9b7b599a46bc0c80d1",
+   "sha256": "7311b374eeab63886a2615cdcb953dac498ff35d8ba035109d996fcd79b05c75",
    "etag": "",
    "last_modified": ""
   },
@@ -5176,7 +5183,7 @@
    "url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "final_url": "https://www.placesleisure.org/centres/sparkhill-pool-and-fitness-centre/",
    "http": 200,
-   "sha256": "758360009dc5ef05d6cf614c66f03e03f61682c8c300f32539d3f2255e8ba40b",
+   "sha256": "7e407114777cc9ab0ca17d3537c58f9c87fe46cbd5cda9e957a4a54f835a1a50",
    "etag": "",
    "last_modified": ""
   },
@@ -5636,7 +5643,7 @@
    "url": "https://stpetersmaney.org.uk",
    "final_url": "https://stpetersmaney.org.uk",
    "http": 200,
-   "sha256": "7e397b39fbc1a137d95e45a4a3dbebe391afb9ea8287b550602be62b1b0e0402",
+   "sha256": "d5d3f2d729c3e4d43a514b5815e3f09981b4fa9a446d7435a029ae1c4e3c2f99",
    "etag": "",
    "last_modified": ""
   },
@@ -5687,7 +5694,7 @@
    "url": "https://www.birminghamleisure.com/stechford-leisure-centre/",
    "final_url": "https://www.moreleisure.com/stechford-leisure-centre/",
    "http": 200,
-   "sha256": "af6df9112c614e6490bbd204fa24fa667ddefe938441ee75f97a7c2809639977",
+   "sha256": "b50dcd1486fa57c6b58e3cf6ac36c23551fc2fb48ab55a5506763f57e6d44626",
    "etag": "",
    "last_modified": ""
   },
@@ -6064,7 +6071,7 @@
    "http": 200,
    "sha256": "c9ba8f447ee0f11b09044e4791c27a2f18be36c237a56d3bd03bd039b61ca9bc",
    "etag": "\"3cc16adb27ffc12c9f30adb3be841bab\"",
-   "last_modified": "Fri, 30 Oct 2026 13:13:04 GMT"
+   "last_modified": "Fri, 30 Oct 2026 23:29:23 GMT"
   },
   "oi-birmingham-council-walmley-library-b76-1np": {
    "id": "oi-birmingham-council-walmley-library-b76-1np",
@@ -6215,7 +6222,7 @@
    "url": "https://www.birminghamleisure.com/wyndley-leisure-centre/",
    "final_url": "https://www.moreleisure.com/wyndley-leisure-centre/",
    "http": 200,
-   "sha256": "ed2048eb0a7c3e36923e912510b9658c8b4f489e5d06fa449bc52f9361e84fcd",
+   "sha256": "012eff1fb0c429a6bf6788dbf4b02af0dd763c9fe6002a9c1a394ee77a454eb1",
    "etag": "",
    "last_modified": ""
   },
@@ -6403,7 +6410,7 @@
    "url": "https://poolecommunitiestrust.org.uk/home/branksome-centre/",
    "final_url": "https://poolecommunitiestrust.org.uk/poole-communities-trust/branksome-centre/",
    "http": 200,
-   "sha256": "bc016ecb6c82ca6d55f7119de3b1a7ed34cf895a935c230eba3702dea834ddf8",
+   "sha256": "60ac4a8072d9f1c033af93c60eaf2905f063afdc4d9ba7f0396935a2104b6b87",
    "etag": "",
    "last_modified": ""
   },
