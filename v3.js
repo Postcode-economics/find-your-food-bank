@@ -226,12 +226,13 @@ function status(layer,i,now){now=clockNow(now);if(i.upcoming)return{st:'closed',
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
  for(let k=0;k<8;k++){const dd=(d+k)%7;if(s[dd]==null)return{st:'closed',day:null};const c=s[dd].filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
  return{st:'closed',day:null}}
-function badge(layer,i){let html=_badge(layer,i);if(layer==='sh'&&i&&i.kind==='day_centre')html=html.replace(/open tonight/ig,'open').replace(/\btonight\b/ig,'');return html}
+function badge(layer,i){if(i&&i.card_type==='referral_hostel')return `<div class="v3st unk" role="note">${i.notice?esc3(i.notice):B("Referral needed, don't turn up without one",'Angen atgyfeiriad, peidiwch â throi i fyny heb un')}</div>`;let html=_badge(layer,i);if(layer==='sh'&&i&&i.kind==='day_centre')html=html.replace(/open tonight/ig,'open').replace(/\btonight\b/ig,'');return html}
 function _badge(layer,i){const r=status(layer,i);
  if(r.st==='open')return `<div class="v3st open" role="note">${r.next24||(r.until===1440&&sched(layer,i)[0][0]&&false)?B('OPEN NOW','AR AGOR NAWR'):B('OPEN NOW until '+clk(r.until),'AR AGOR NAWR tan '+clk(r.until))}</div>`;
  if(r.st==='closed'){if(r.day==null)return `<div class="v3st shut" role="note">${B('Closed','Ar gau')}</div>`;
   const de=r.day==='today'?'today':r.day==='tomorrow'?'tomorrow':DEN[r.day],dc=r.day==='today'?'heddiw':r.day==='tomorrow'?'yfory':DCY[r.day];
   return `<div class="v3st shut" role="note">${B(`Closed · Next open <b>${DEN[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`,`Ar gau · Ar agor nesaf <b>${DCY[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`)}</div>`}
+ if(layer==='sh'&&i.access_type==='referral_only')return `<div class="v3st unk" role="note">${B('Referral needed / check before you go','Angen atgyfeiriad / gwiriwch cyn mynd')}</div>`;
  if(layer==='sh'&&window.REFONLY&&REFONLY(i))return `<div class="v3st unk" role="note">${B('By referral – call before you go','Drwy atgyfeiriad – ffoniwch cyn mynd')}</div>`;
  if(i.carried_note&&i.carried_since){const cd=esc3(i.last_confirmed||i.carried_since);return `<div class="v3st unk carried" role="note">${B(`Not re-confirmed since ${cd} – call before you go`,`Heb ei ail-gadarnhau ers ${cd} – ffoniwch cyn mynd`)}</div>`}  // carry-forward (Dean 28 Oct)
  if(r.why==='dates')return `<div class="v3st unk" role="note">${B('Check dates – call before you go','Gwiriwch y dyddiadau – ffoniwch cyn mynd')}</div>`;
