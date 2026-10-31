@@ -242,7 +242,7 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 35 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 38 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
@@ -325,6 +325,9 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Wembley Creative Community Hub** (`ww-65070433`, HA0 4AH): own site now Thursday 11:30am–12:30pm  
   source: https://werest.art/wcch  
   why held: this change was undone by Dean; not re-applied
+- **Westminster Reference Library** (`ww-55473008`, WC2H 7DE): own site now Monday to Friday 10am to 6pm | Saturday 1pm to 5pm  
+  source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/westminster-reference-library  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
 - **Wellbeing Group** (`ww-69189528`, B42 2TU): own site now Monday–Saturday 9AM–5PM | Sunday 10AM–2PM  
   source: https://holfordsportshub.co.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; source page is not the warm space's own session page (general venue or directory page); this change was undone by Dean; not re-applied
@@ -349,6 +352,9 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **The Hub, South Brent (SBADC)** (`sbadc-the-hub-south-brent`, TQ10 9BP): own site now Monday – Thursday 9.30 – 12.30pm  
   source: https://www.sbadc.org.uk/  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
+- **West End Arts Library** (`ww-55473008`, WC2H 7DE): own site now Monday to Friday 10am to 6pm | Saturday 1pm to 5pm  
+  source: https://www.westminster.gov.uk/leisure-libraries-and-community/library-opening-times-and-contact-details/west-end-arts-library  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
 <!-- /times crosscheck ws -->
 
 
@@ -456,7 +462,7 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 
 Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
 
-- London: 231 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
+- London: 229 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
 - Birmingham: 73 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Manchester: 108 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
@@ -474,10 +480,10 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Nottingham: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Southampton: 57 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
-211 held places had no outcode centroid, so they are not counted under a city.
+217 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 
