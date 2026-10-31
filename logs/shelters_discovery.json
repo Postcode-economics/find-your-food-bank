@@ -1,8 +1,8 @@
 {
  "run": "2026-10-31",
- "candidates": 60,
- "already_on_map": 4,
- "new": 56,
+ "candidates": 62,
+ "already_on_map": 5,
+ "new": 57,
  "added": [
   {
    "id": "hl-adullam-homes-ha-norman-house",
@@ -48,7 +48,7 @@
    "url": "http://www.bridgehousemission.co.uk",
    "final_url": "https://bridgehousemission.co.uk/",
    "http": 200,
-   "sha256": "760503f8d0fc8fe19a1703905f2a6d4f394c7220426c1f530c516a4317c5ea2b",
+   "sha256": "00386706d8a529b459ab0bd37e07b67ef5c3139d594b2cd4c3fc4ba928966263",
    "etag": "",
    "last_modified": ""
   }
@@ -139,7 +139,7 @@
    "url": "https://housethehomeless.com",
    "final_url": "https://housethehomeless.com",
    "http": 200,
-   "sha256": "6ad285c593585e5e41bd77c85b4de20e8445ac0cf44234e11423d2a3df5216a8",
+   "sha256": "25c2f3a0e6457d6e36c071c8535237ddaad5a719539f5603949da34265a157a3",
    "etag": "",
    "last_modified": ""
   },
@@ -210,7 +210,7 @@
    "url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management",
    "final_url": "https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-supported-accommodation",
    "http": 200,
-   "sha256": "9312479f3752747528c70b6522378f1039f0397d87179aee0259b2f8bbfc38da",
+   "sha256": "af6548c37f9dbdd2f76acfa77b875cba6d321769f7c88b1dbd51c1677e5ded56",
    "etag": "",
    "last_modified": ""
   },
@@ -551,8 +551,8 @@
    "url": "https://www.eastclaytonfarm.org.uk/",
    "final_url": "https://www.eastclaytonfarm.org.uk/",
    "http": 200,
-   "sha256": "c3614fdc8a3427a82da98ce313ce1abc089f09ef8d82f9f8a7bd6497635b1955",
-   "etag": "W/\"5f173353519647d4ffd3807f56c5ff2e\"",
+   "sha256": "2f1b2fc6e969480acd60a555bda1c48f1410677a4c04c28c56e9710614ea79d5",
+   "etag": "W/\"9f41ffe1fac0611580d38d90d0813758\"",
    "last_modified": ""
   },
   {
@@ -676,7 +676,7 @@
    "url": "http://www.1625ip.co.uk",
    "final_url": "https://www.1625ip.co.uk/",
    "http": 200,
-   "sha256": "44255ce89d8f9bb32fde87ac8d4f6e8a89d4a2a089cec6007088320ac38d1277",
+   "sha256": "99accd04effa98c07a4dc3e009ca93852c4910eb2c8fd268b493460f65ee43ee",
    "etag": "",
    "last_modified": ""
   },
@@ -881,8 +881,8 @@
    "url": "http://www.bournemouth.gov.uk",
    "final_url": "https://www.bcpcouncil.gov.uk/",
    "http": 200,
-   "sha256": "96665e039939a9db54f768d42267ea60b69e3c5cd2b9a31a9a1cf68efe93b953",
-   "etag": "W/\"22015-tweJrPdNFmLJZ8R/Ont3flbYNeE\"",
+   "sha256": "47c1a750fa03c34851119ee6ab62fd9a88a42a32f1e72111e65caa5aaafa004c",
+   "etag": "W/\"22021-MLbDOLr8tuKVye2+qAItaK+Ewk0\"",
    "last_modified": ""
   },
   {
@@ -969,6 +969,27 @@
    "sha256": null,
    "etag": null,
    "last_modified": null
+  },
+  {
+   "id": "hl-catalyst-britannia-foyer",
+   "name": "Catalyst - Britannia Foyer",
+   "postcode": "EN8 9XD",
+   "website": "http://www.broxbourne.gov.uk",
+   "directory": "Homeless Link",
+   "directory_url": "https://homeless.org.uk/homeless-england/service/catalyst-britannia-foyer/",
+   "reasons": [
+    "directory link is a council page, not the place's own site",
+    "name says foyer / supported housing / day centre, not an emergency shelter",
+    "own site does not name it",
+    "own site does not show it is a shelter/emergency accommodation",
+    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
+   ],
+   "url": "http://www.broxbourne.gov.uk",
+   "final_url": "https://www.broxbourne.gov.uk:443/",
+   "http": 200,
+   "sha256": "5e2390e29234d02deff0b5e076b29c31a7412c384dfd08d3e18c6dd38c3bf4f7",
+   "etag": "",
+   "last_modified": ""
   }
  ],
  "rejected": [],

@@ -5,7 +5,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (204)
+## warmspaces (208)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -18,13 +18,16 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - Bramley Library (GU5 0HG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Camberley Baptist Church (GU15 3EN) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Churchill Square (BN1 2TE) - no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
+- Coffee Morning (EX5 4HZ) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=28486
 - Cradley Heath Salvation Army (B64 5EP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26382
 - Craster Memorial Hall (NE66 3TP) - no verified phone - https://services2.arcgis.com/LrUbY6lLLgV3tEa5/arcgis/rest/services/Warm_Spaces/FeatureServer/0/query?where=Do_you_give_permission_to_share_your_details_on_the_Northumberland_County_Council_website_which_includes_the_details_on_a_map_%3D%27Yes%27&outFields=*&f=json
+- Dawley Christian Centre Warm Space (TF4 2EX) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26545
 - Devonport Morice Town Salvation Army (PL2 1RS) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=14925
 - Dramatize - Charlton Village (TW17 0SP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Dramatize - Knaphill (GU21 2SP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Egham Library (TW20 9EA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Emmaus Transformation Trust (GU21 6EL) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Encounter Church, Winchcombe (GL54 5EE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/
 - Epsom Library (KT19 8AG) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Epsom Methodist Church Family Centre (KT18 5AQ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Ewell Court Library (KT19 0EB) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -65,6 +68,7 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - St Peter and St Paul Church (RH7 6AH) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - St Peter's Shared Church (GU1 1NP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - St Peter's West Molesey (KT8 2QF) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- St Petrock's Church, Timberscombe (TA24 7TP) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=22081
 - St Saviour's Church of England Sunbury (TW16 7TP) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Stanwell Events (TW19 7ER) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Stoneleigh Library (KT17 2JA) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
@@ -658,7 +662,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
-217 held places had no outcode centroid, so they are not counted under a city.
+219 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 

@@ -35,6 +35,22 @@
    "rule": "official or own page states a weekday and a time"
   },
   {
+   "id": "osm-node-12876936676",
+   "layer": "shelters",
+   "name": "999 Club",
+   "postcode": "SE8 4PA",
+   "address": "21 Deptford Broadway, London",
+   "lat": 51.4749378,
+   "lng": -0.0243997,
+   "evidence_url": "https://999club.org/",
+   "day_time_quote": "Mon-Fri 9am-3pm | Monday - Friday 9am - 3pm | Monday – Friday 9 am - 3 pm",
+   "source_url": "https://www.openstreetmap.org/node/12876936676",
+   "website": "https://999club.org/",
+   "found_via": "direct",
+   "checked_on": "2026-10-31",
+   "rule": "official or own page states a weekday and a time"
+  },
+  {
    "id": "ww-55473008",
    "layer": "warmspaces",
    "name": "West End Arts Library",
