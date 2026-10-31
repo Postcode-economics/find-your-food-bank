@@ -686,6 +686,9 @@
   "groups_checked": "2026-10-23"
  },
  "osm-node-1533578890": {
+  "phone_fix": "01904 551901",
+  "phone_source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+  "phone_fix_why": "31 Oct 2026: venue line on the City of York Council hostels page is Telephone: 01904 551901. 01904 554500 is the Housing Options line at West Offices. phone_fix wins over the feed; phone_baseline freezes the same number.",
   "hours": "By referral, call to arrange",
   "hours_source": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
   "hours_checked": "2026-10-23",

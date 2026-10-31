@@ -448,11 +448,11 @@
   "name": "Peasholme Homeless Hostel",
   "access": "referral (York Single Access Point)",
   "evidence_url": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
-  "quote": "Hostels and supported housing",
-  "phone": "01904 554500",
+  "quote": "Peasholme Centre: 4 Fishergate, York YO10 4FH. Telephone: 01904 551901.",
+  "phone": "01904 551901",
   "address": "4 Fishergate, York",
-  "verified_on": "2026-10-21",
-  "note": "24-hour supported homeless accommodation",
+  "verified_on": "2026-10-31",
+  "note": "24-hour supported homeless accommodation. Phone corrected 31 Oct 2026: the City of York Council hostels page lists Telephone: 01904 551901 for Peasholme Centre. 01904 554500 is the Housing Options line at West Offices, not this hostel. phone_baseline and shelters_contacts phone_fix keep 01904 551901.",
   "day_time_quote": "Hostels and supported housing",
   "evidence_name": "City of York Council",
   "access_type": "referral_only"
@@ -497,15 +497,15 @@
   "access_type": "self_referral"
  },
  "osm-way-96032322": {
-  "name": "Salvation Army",
+  "name": "Willow House Lifehouse",
   "access": "referral (Reading Borough Council)",
   "evidence_url": "https://www.salvationarmy.org.uk/willow-house",
-  "quote": "Willow House Lifehouse",
+  "quote": "Willow House Lifehouse Willow Street Reading RG1 6AB. We offer emergency beds for up to 2 weeks, emergency and assessment beds for up to 8 weeks, as well as a number of longer term temporary beds. 2-3 sit up beds (night shelter), 4-8 emergency/assessment beds, 31-34 single rooms and up to 4 couples rooms.",
   "phone": "",
   "address": "Willow Street, Reading",
-  "verified_on": "2026-10-21",
-  "note": "Willow House Lifehouse: emergency, assessment and temporary accommodation",
-  "day_time_quote": "Willow House Lifehouse",
+  "verified_on": "2026-10-31",
+  "note": "Renamed 31 Oct 2026 from the OSM label Salvation Army. Own page title is Willow House Lifehouse. Own page: '2-3 sit up beds (night shelter), 4-8 emergency/assessment beds' and 'We offer emergency beds for up to 2 weeks, emergency and assessment beds for up to 8 weeks'. The manual row with this OSM id is what the refresh publishes.",
+  "day_time_quote": "2-3 sit up beds (night shelter), 4-8 emergency/assessment beds",
   "evidence_name": "salvationarmy.org.uk",
   "access_type": "referral_only"
  },
@@ -1116,5 +1116,115 @@
   "evidence_name": "St Albans City and District Council",
   "access_type": "referral_only",
   "note": "Dean approved adding, 30 Oct 2026"
+ },
+ "man-first-base-brighton": {
+  "name": "First Base Day Centre",
+  "access": "No referral is required",
+  "evidence_url": "https://www.bht.org.uk/services/homelessness/first-base-day-centre/",
+  "quote": "First Base is an ‘open access’ day centre which means that people do not need a referral to access our service. We run two open access sessions each weekday morning from 9:00 – 10:30 and 11:00 – 12:30. No referral is required and anyone experiencing homelessness can come to these sessions for support and use of the facilities.",
+  "day_time_quote": "We run two open access sessions each weekday morning from 9:00 – 10:30 and 11:00 – 12:30. No referral is required and anyone experiencing homelessness can come to these sessions for support and use of the facilities.",
+  "phone": "01273 326844",
+  "address": "St Stephen's Hall, Montpelier Place, Brighton",
+  "postcode": "BN1 3BF",
+  "lat": 50.826364,
+  "lng": -0.153299,
+  "hours": {
+   "Mon": "09:00 - 10:30 / 11:00 - 12:30",
+   "Tue": "09:00 - 10:30 / 11:00 - 12:30",
+   "Wed": "09:00 - 10:30 / 11:00 - 12:30",
+   "Thu": "09:00 - 10:30 / 11:00 - 12:30",
+   "Fri": "09:00 - 10:30 / 11:00 - 12:30"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "bht.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Dean blanket approval 30 Oct 2026; own page checked 31 Oct 2026."
+ },
+ "man-clock-tower-sanctuary": {
+  "name": "Clock Tower Sanctuary",
+  "access": "No need for a referral, just drop in",
+  "evidence_url": "https://www.thects.org.uk/get-help/the-day-centre/",
+  "quote": "Young people can access the centre 10.30am – 1:30pm on Monday, Tuesday, Thursday, Friday and Saturday. We are not open on Wednesdays or Sundays. A free hot lunch is available on Mondays, Tuesdays, Thursdays, Fridays, and Saturdays between 12:30-1:30pm.",
+  "day_time_quote": "Young people can access the centre 10.30am – 1:30pm on Monday, Tuesday, Thursday, Friday and Saturday. We are not open on Wednesdays or Sundays.",
+  "phone": "07884 417146 or 01273 722353",
+  "address": "Wenlock House, 41-43 North Street, Brighton",
+  "postcode": "BN1 1RH",
+  "lat": 50.82319,
+  "lng": -0.142534,
+  "hours": {
+   "Mon": "10:30 - 13:30",
+   "Tue": "10:30 - 13:30",
+   "Wed": "Closed",
+   "Thu": "10:30 - 13:30",
+   "Fri": "10:30 - 13:30",
+   "Sat": "10:30 - 13:30",
+   "Sun": "Closed"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "thects.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "Young people aged 16 to 25"
+  ],
+  "note": "Day centre for ages 16-25, no overnight bed. Phone on https://www.thects.org.uk/get-help/ (07884 417146 and 01273 722353). Dean blanket approval 30 Oct 2026; own page checked 31 Oct 2026."
+ },
+ "man-cambria-house-lifehouse": {
+  "name": "Cambria House Lifehouse",
+  "access": "Referral needed – contact other hostels in Camden, the Safer Streets team in Camden, or Housing Options Camden",
+  "evidence_url": "https://www.salvationarmy.org.uk/cambria-house",
+  "quote": "Cambria House 37 Hunter Street London WC1N 1BJ United Kingdom. Phone: 02078410230. Cambria House is open to single men over the age of 18. Referrals to our service are by other hostels in Camden, the Safer Streets team in Camden, and Housing Options Camden. 48 ensuite rooms.",
+  "day_time_quote": "Referrals to our service are by other hostels in Camden, the Safer Streets team in Camden, and Housing Options Camden.",
+  "phone": "020 7841 0230",
+  "address": "37 Hunter Street, London",
+  "postcode": "WC1N 1BJ",
+  "verified_on": "2026-10-31",
+  "evidence_name": "salvationarmy.org.uk",
+  "access_type": "referral_only",
+  "note": "Dean blanket approval for verified items, checked 31 Oct 2026. Stay up to two years. Pin is the postcodes.io centroid for WC1N 1BJ."
+ },
+ "man-union-terrace-hostel": {
+  "name": "Union Terrace Hostel",
+  "access": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
+  "evidence_url": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+  "quote": "Union Terrace Hostel: Union Terrace, York YO31 7ES. Telephone: 01904 630500. Union Terrace Hostel, formerly Arc Light, is staffed 24 hours a day, 7 days a week and offers accommodation for men and couples without children. The building has 35 bed spaces.",
+  "day_time_quote": "staffed 24 hours a day, 7 days a week",
+  "phone": "01904 630500",
+  "address": "Union Terrace, York",
+  "postcode": "YO31 7ES",
+  "verified_on": "2026-10-31",
+  "evidence_name": "City of York Council",
+  "access_type": "referral_only",
+  "note": "Dean blanket approval for verified items, checked 31 Oct 2026. Access to all hostels is through a referral from Housing Options, the Rough Sleeper Team drop-in, or multi-agency referrers, filtered through a Single Access Point. Pin is the postcodes.io centroid for YO31 7ES."
+ },
+ "man-robinson-court": {
+  "name": "Robinson Court",
+  "access": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
+  "evidence_url": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+  "quote": "Robinson Court: 101 Walmgate, York YO1 9TR. Telephone: 01904 642307. Robinson Court offers accommodation for women and young people aged 18+ (18 units). Robinson Court is staffed 24 hours a day, 7 days a week.",
+  "day_time_quote": "staffed 24 hours a day, 7 days a week",
+  "phone": "01904 642307",
+  "address": "101 Walmgate, York",
+  "postcode": "YO1 9TR",
+  "verified_on": "2026-10-31",
+  "evidence_name": "City of York Council",
+  "access_type": "referral_only",
+  "note": "Dean blanket approval for verified items, checked 31 Oct 2026. Pin is the postcodes.io centroid for YO1 9TR."
+ },
+ "man-howe-hill-young-people": {
+  "name": "Howe Hill for Young People",
+  "access": "Referral needed – contact City of York Council Housing Options, the Rough Sleeper Team drop-in, or the Single Access Point",
+  "evidence_url": "https://www.york.gov.uk/homelessness/hostels-supported-housing",
+  "quote": "Howe Hill for Young People: 136 Acomb Road, York YO24 4HA. Telephone: 01904 553141. Howe Hill is a 29 bed hostel for 16- to 25-year-olds, including young parents. Howe Hill is staffed 24 hours a day, 7 days a week.",
+  "day_time_quote": "staffed 24 hours a day, 7 days a week",
+  "phone": "01904 553141",
+  "address": "136 Acomb Road, York",
+  "postcode": "YO24 4HA",
+  "verified_on": "2026-10-31",
+  "evidence_name": "City of York Council",
+  "access_type": "referral_only",
+  "note": "Dean blanket approval for verified items, checked 31 Oct 2026. Pin is the postcodes.io centroid for YO24 4HA."
  }
 }

@@ -25,7 +25,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - warmspaces: Voluntary Action Islington warm spaces list: 50
 - warmspaces: Voluntary Action Islington warm spaces (daily sweep): 50
 - own site salvationarmy.org.uk: 54.2
-- IFAN: 54.8
+- IFAN: 56.4
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1

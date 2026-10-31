@@ -11,7 +11,7 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 ## Deep sweep (council pages): 0 added
 - none
 
-## Warm spaces: 14 added
+## Warm spaces: 22 added
 - Blackburn Salvation Army  (Church & Community Centre) · BB1 5BE
 - Y Cross Inn · SA62 5PR
 - Ivybridge Warm Welcome Cafe · PL21 9AB
@@ -26,4 +26,12 @@ Places added automatically by discovery today. Each passed: valid postcode in it
 - Alcombe Friendship Centre · TA24 6AN
 - St John's Waterloo · SE1 8TY
 - Open House Drop In · CT6 5RH
+- Cradley Heath Salvation Army · B64 5EP
+- The Annexe at The Salvation Army · CT1 2RU
+- Angy Care Health Foundation · DA11 9NE
+- Holy Trinity Church, Skipton · BD23 1NJ
+- Poplar Salvation Army - The Table · E14 6AJ
+- Oldbury Salvation Army · B68 8NG
+- Keighley Salvation Army · BD21 2LJ
+- The Salvation Army · WA1 2BQ
 
