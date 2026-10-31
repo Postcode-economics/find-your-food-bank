@@ -7,7 +7,9 @@ On list cards AND pin pop-up cards, all three types, 390 and 1366 px, light and 
   every button/link tap target >= 44 px tall. Also counts call and Facebook buttons over every listing in the data.
   Type scale (Dean 31 Oct): on a phone (390px) and on desktop, the computed font-size and font-weight of the
   type badge, name, distance, address, info-row label and value, and phone digits, and the Directions / call /
-  share button heights, are the same on a food bank, a shelter and a warm space (list card and pin pop-up).
+  share button minimum heights, are the same on a food bank, a shelter and a warm space (list card and pin pop-up).
+  Side-by-side buttons on one card share a height and the site font. The block from the first action button
+  to the last holds buttons only (a phone caption sits on the Phone row).
 Usage: python scripts/design_lock.py [BASE_URL] [--measure]. Report: reports/design_lock.md, logs/design_lock.json."""
 import functools, http.server, json, os, sys, threading
 from playwright.sync_api import sync_playwright
@@ -43,12 +45,52 @@ TYPE_JS = r"""(sel)=>{const cards=[...document.querySelectorAll(sel)].filter(c=>
  const num=call&&(call.querySelector('.xnum')||call);
  const dir=c.querySelector('a.btn.gm,a[href*="google.com/maps"]');
  const share=[...c.querySelectorAll('button,a')].find(b=>/Share \/ text this address|Rhannu \/ tecstio/.test(b.textContent||''));
- const h=el=>el?Math.round(el.getBoundingClientRect().height):null;
+ const minH=el=>el?getComputedStyle(el).minHeight:null;
  const addr=[...c.children].find(e=>e.tagName==='P'&&!/xrow|sub|xday|xw|plab|warn/.test(e.className));
  return {badge:pick(c.querySelector('.tag,.utag,.xkind')),name:pick(c.querySelector('h3')),dist:pick(c.querySelector('.d')),
   addr:pick(addr),row:pick(row),label:pick((label&&label.querySelector('span'))||label),stated:pick(stated),phone:pick(num),
-  call:call?{fs:pick(call).fs,fw:pick(call).fw,h:h(call)}:null,dir:dir?{fs:pick(dir).fs,fw:pick(dir).fw,h:h(dir)}:null,
-  share:share?{fs:pick(share).fs,fw:pick(share).fw,h:h(share)}:null}}"""
+  call:call?{fs:pick(call).fs,fw:pick(call).fw,minH:minH(call)}:null,dir:dir?{fs:pick(dir).fs,fw:pick(dir).fw,minH:minH(dir)}:null,
+  share:share?{fs:pick(share).fs,fw:pick(share).fw,minH:minH(share)}:null}}"""
+
+# Side-by-side action buttons match in height and use the site font. Nothing but those buttons
+# sits inside the vertical span from the first action button to the last (list card and pin pop-up).
+BUTTON_JS = r"""(sel)=>{const bad=[];
+ const cards=[...document.querySelectorAll(sel)].filter(c=>c.offsetParent||c.getClientRects().length).slice(0,8);
+ const norm=s=>(s||'').replace(/["']/g,'').replace(/\s+/g,'').toLowerCase();
+ const site=norm(getComputedStyle(document.body).fontFamily);
+ const act=el=>el.matches&&el.matches('a.btn.gm,button.v3share,a.btn.web,a.btn.call')&&!el.classList.contains('xfb');
+ for(const c of cards){
+  const name=((c.querySelector('h3')||{}).textContent||'').trim().slice(0,40);
+  const kids=[...c.children];
+  const btns=kids.filter(act);
+  if(!btns.length) continue;
+  const rs=btns.map(b=>b.getBoundingClientRect());
+  const y0=Math.min(...rs.map(r=>r.top)), y1=Math.max(...rs.map(r=>r.bottom));
+  for(const el of kids){
+   if(act(el)) continue;
+   const r=el.getBoundingClientRect();
+   if(r.width<2||r.height<2) continue;
+   const mid=(r.top+r.bottom)/2;
+   if(mid>y0+2 && mid<y1-2) bad.push(name+' loose '+(el.className||el.tagName)+' '+el.textContent.trim().slice(0,48));
+  }
+  const used=[];
+  for(const b of btns){
+   const r=b.getBoundingClientRect();
+   let g=used.find(x=>x.top<r.bottom-4 && r.top<x.bottom-4);
+   if(!g){g={top:r.top,bottom:r.bottom,items:[]};used.push(g)}
+   g.top=Math.min(g.top,r.top); g.bottom=Math.max(g.bottom,r.bottom);
+   const s=getComputedStyle(b);
+   g.items.push({h:Math.round(r.height),ff:norm(s.fontFamily)});
+  }
+  for(const g of used){
+   for(const i of g.items){ if(i.ff!==site) bad.push(name+' button font '+i.ff); }
+   if(g.items.length<2) continue;
+   const hs=g.items.map(i=>i.h);
+   if(Math.max(...hs)-Math.min(...hs)>1) bad.push(name+' pair height '+hs.join(','));
+   if(new Set(g.items.map(i=>i.ff)).size>1) bad.push(name+' pair font');
+  }
+ }
+ return bad}"""
 
 def type_diff(samples, where):
     """samples: layer -> metric dict. Fail when two layers both measured a piece and it is not the same."""
@@ -145,6 +187,7 @@ def run(base=None, measure=False):
                         if not measure: bad += check(cards, mode, '%dpx %s %s %s list' % (w, mode, k, q), k)
                         if q == PLACES[0] and not typed.get(k):
                             typed[k] = pg.evaluate(TYPE_JS, sel)
+                            if not measure: bad += ['%dpx %s %s list %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, sel) or [])]
                     # pin pop-up card (a place with pins of every type nearby)
                     pg.fill('#q', 'M1 1AE'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
                     pg.evaluate("document.getElementById('map').scrollIntoView({block:'center'})"); pg.wait_for_timeout(500)
@@ -164,6 +207,7 @@ def run(base=None, measure=False):
                     if not pc: bad.append('%dpx %s %s pin pop-up: pin tapped, no pop-up card' % (w, mode, k))
                     elif not measure: bad += check(pc, mode, '%dpx %s %s pin pop-up' % (w, mode, k), k)
                     typed_pop[k] = pg.evaluate(TYPE_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card')
+                    if not measure: bad += ['%dpx %s %s pop %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card') or [])]
                     pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
                   if not measure:
                     bad += type_diff(typed, '%dpx %s list type' % (w, mode))

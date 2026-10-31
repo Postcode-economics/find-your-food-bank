@@ -252,6 +252,7 @@
     const fac = facHtml(i);
     const times = timesHtml(layer, i);
     let extra = '';
+    if (opt.phoneHtml) extra += row('Phone', 'Ffôn', opt.phoneHtml);
     if (i.beds) extra += row('Beds', 'Gwelyau', esc(i.beds));
     if (i.offer) extra += row('Offers', 'Yn cynnig', esc(i.offer));
     const sd = i.scheme_dates;

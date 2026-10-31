@@ -345,7 +345,7 @@ html:not(.light) :is(#list,#xextra) .card a:not(.btn):not(.sosl):not(.v3sos a),h
 /* 5. action row: equal buttons, 48px */
 #list .card>.btn.gm,#list .card>.btn.call{order:10;flex:1 1 0;min-width:0;min-height:var(--hm-btn-h)!important;margin-top:16px!important;padding:0 8px!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
 /* 6. secondary: share, links, source notes, report — quiet and grouped */
-#list .card>.v3share{order:11;min-height:var(--hm-btn-h)!important;height:var(--hm-btn-h);margin-top:8px!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh);background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;color:var(--white)!important;border-radius:10px}
+#list .card>.v3share{order:11;min-height:var(--hm-btn-h)!important;height:auto;margin-top:8px!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh);background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;color:var(--white)!important;border-radius:10px}
 #list .card>.links{order:12;margin-top:12px!important;gap:16px;font-size:15px!important}
 #list .card>.links a{min-height:44px;display:inline-flex;align-items:center;font-size:15px!important}
 #list .card>.psrc,#list .card>.palt{order:13;font-size:13px!important;color:var(--muted)!important}
@@ -390,10 +390,10 @@ html.light #xextra .card:is(.xsh,.xws)>:is(.v3sos+p,.xchk,.xlst,.rpb){color:#4A5
 #xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call,.v3share,.btn.web){white-space:normal!important;line-height:1.2;text-align:center;padding:6px 8px!important;font-size:15px!important;overflow-wrap:anywhere}
 /* ===== final2: shelter + warm-space cards ===== */
 /* action row: Directions | Call (number on a 2nd line inside the button, never mid-word) */
-#xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call){flex:1 1 0!important;min-width:0;min-height:var(--hm-btn-h)!important;height:var(--hm-btn-h);overflow-wrap:normal!important;word-break:normal!important;white-space:nowrap!important;flex-wrap:nowrap;align-content:center;row-gap:0;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh)}
+#xextra .card:is(.xsh,.xws)>:is(.btn.gm,.btn.call){flex:1 1 0!important;min-width:0;min-height:var(--hm-btn-h)!important;height:auto;overflow-wrap:normal!important;word-break:normal!important;white-space:nowrap!important;flex-wrap:nowrap;align-content:center;row-gap:0;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh)}
 #xextra .card:is(.xsh,.xws)>.btn.call .xnum{flex:0 0 auto;font-size:var(--hm-phone-size)!important;font-weight:var(--hm-phone-weight);line-height:1;letter-spacing:var(--hm-phone-space);font-variant-numeric:tabular-nums;text-align:center}
 /* quieter row: Share | Website (domain on a 2nd line) */
-#xextra .card:is(.xsh,.xws)>:is(.v3share,.btn.web){flex:1 1 0!important;white-space:normal!important;overflow-wrap:normal!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh);display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-height:var(--hm-btn-h)!important;height:var(--hm-btn-h)}
+#xextra .card:is(.xsh,.xws)>:is(.v3share,.btn.web){flex:1 1 0!important;white-space:normal!important;overflow-wrap:normal!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight);line-height:var(--hm-btn-lh);display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-height:var(--hm-btn-h)!important;height:auto}
 #xextra .card:is(.xsh,.xws)>.btn.web .xdom{font-size:12px;font-weight:400;color:var(--muted);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* compact help box */
 #xextra .card:is(.xsh,.xws)>.v3sos{padding:12px!important;font-size:14px!important;line-height:1.35;border-radius:10px}
@@ -612,6 +612,11 @@ html body #xextra .card:is(.xsh,.xws)>p.plab{order:6!important}
 html:not(.light) body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#F2F4F8!important}
 html.light body :is(#list,#xextra,#sheet,#sheetBody) p.plab{color:#0A1628!important}
 html body .leaflet-popup-content p.plab{color:#0A1628!important;background:transparent!important}
+/* Phone caption lives in the Phone info row, never between the action buttons. */
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .ufact .plab{display:inline-block!important;box-sizing:border-box!important;width:auto!important;max-width:100%!important;min-width:0!important;height:auto!important;max-height:none!important;margin:0!important;padding:0!important;flex:0 1 auto!important;order:0!important;font-size:var(--hm-row-size)!important;font-weight:var(--hm-row-weight)!important;line-height:var(--hm-row-lh)!important;letter-spacing:normal!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere!important;word-break:break-word!important;vertical-align:baseline!important;-webkit-line-clamp:unset!important;line-clamp:unset!important}
+html:not(.light) body :is(#list,#xextra,#sheet,#sheetBody) .plab{color:#F2F4F8!important}
+html.light body :is(#list,#xextra,#sheet,#sheetBody) .plab{color:#0A1628!important}
+html body .leaflet-popup-content .plab{color:#0A1628!important;background:transparent!important}
 /* 28 Oct QA B1: the chosen type's 'Nearest' list is the only one shown (food banks hidden while Shelter or Warm space is chosen; the data and map are unchanged) */
 html[data-v3k=sh] #list,html[data-v3k=ws] #list,html[data-v3k=sh] #otshut,html[data-v3k=ws] #otshut{display:none!important}
 /* 28 Oct QA B6: 44px tap areas without changing the look. Invisible hit area around map pins; inline links get vertical padding cancelled by a negative margin, so text and layout stay put */
@@ -623,11 +628,14 @@ footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;paddin
 .leaflet-popup-content .pop>h3,.leaflet-popup-content .pop>.ncb:first-child,.leaflet-popup-content .pop>:first-child{padding-right:30px}
 /* Uniform fact rows (31 Oct 2026). Same block on every card. Full width so the Directions | Call row does not move sideways. */
 #list .card>.ufact,#xextra .card>.ufact,#sheet .card>.ufact,.leaflet-popup-content .ufact{order:8;flex:1 1 100%;width:100%;min-width:0;margin-top:8px}
-/* Shelter cards: facts sit with the status (order 5), before Directions | Call (order 6). The phone label stays on the button row. */
+/* Shelter cards: facts sit with the status (order 5), before Directions | Call (order 6). */
 #xextra .card:is(.xsh,.xws)>.ufact{order:5!important}
 #list .card>p.xrow.uchk,#xextra .card>.uchk,#sheet .card>.uchk{order:13!important;flex:1 1 100%!important;margin-top:8px}
 #xextra .card:is(.xsh,.xws)>p.xrow.uchk{order:12!important}
-#xextra .card>.utag,#sheet .card>.utag,#list .card>.utag{order:1;flex:1 1 auto}
+#xextra .card>.utag,#sheet .card>.utag,#list .card>.utag,.leaflet-popup-content .utag{order:1!important;flex:1 1 auto!important;min-width:0}
+#xextra .card:is(.xsh,.xws)>.utag,#sheet .card>.utag{margin:0 8px 8px 0!important;align-self:center}
+#xextra .card:is(.xsh,.xws)>.xacc,#sheet .card>.xacc{order:1!important;flex:0 0 auto!important;align-self:center;margin:0 0 8px 0!important}
+#xextra .card:is(.xsh,.xws)>.xunv{order:0!important;flex:1 1 100%!important}
 #xextra .card>.xday{order:2;flex:1 1 100%}
 .ufact{display:block}
 .ufact .xrow{display:block;margin:6px 0;font-size:16px;line-height:1.4;overflow-wrap:anywhere}
@@ -655,5 +663,7 @@ html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) a.btn.call:not(.x
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) a.btn.call:not(.xfb) :is(.xnum,.xcn),
 html body .leaflet-popup-content a.btn.call:not(.xfb),
 html body .leaflet-popup-content a.btn.call:not(.xfb) :is(.xnum,.xcn){font-size:var(--hm-phone-size)!important;font-weight:var(--hm-phone-weight)!important;line-height:var(--hm-btn-lh)!important;letter-spacing:var(--hm-phone-space)!important;font-variant-numeric:tabular-nums}
-html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share),
-html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share){font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight)!important;line-height:var(--hm-btn-lh)!important;min-height:var(--hm-btn-h)!important;height:var(--hm-btn-h)!important;box-sizing:border-box}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web),
+html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web){font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight)!important;line-height:var(--hm-btn-lh)!important;min-height:var(--hm-btn-h)!important;height:auto!important;align-self:stretch!important;box-sizing:border-box}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web) :is(span,.xdom,.xnum),
+html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web) :is(span,.xdom,.xnum){font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important}
