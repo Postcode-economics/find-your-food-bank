@@ -9,5 +9,4 @@ Missing from this run, so kept from the previous file and labelled "Not re-confi
 ## Carried
 
 - Community Support Warm Welcome (ww-69177710, HA1 3LL), last confirmed 2026-10-27, carried since 2026-10-29 (2 days)
-- Saifee Mosque (oi-birmingham-council-saifee-mosque-b18-6pu, B18 6PU), last confirmed 2026-10-30, carried since 2026-10-30 (1 days)
 - The King's Church Halifax (ww-65441920, HX1 2TS), last confirmed 2026-10-26, carried since 2026-10-29 (2 days); website link removed, it now redirects to cornerstonechurchhalifax.co.uk

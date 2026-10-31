@@ -416,6 +416,23 @@ def run(sources=None, fetcher=fetch, geocoder=geo, write=True):
                       alerts=[report["status"]] if str(report.get("status") or "").startswith(("coverage gate", "blast limit", IR.ALERT)) else [])
         except Exception as ex:
             print("intelligent mode summary skipped: %s" % ex, flush=True)
+    if write and sources is None:
+        try:
+            import follow_through
+            follow_through.sweep_held(ROOT, limit=int(os.environ.get("FOLLOW_HELD_LIMIT", "40")))
+        except Exception as ex:
+            print("follow-through skipped: %s" % ex, flush=True)
+        try:
+            import day_centres
+            day_centres.collect(ROOT, day=d)
+        except Exception as ex:
+            print("day centre sources skipped: %s" % ex, flush=True)
+        try:
+            import city_watch
+            city_watch.write_held_section(ROOT)
+            city_watch.write_coverage(ROOT)
+        except Exception as ex:
+            print("city watch skipped: %s" % ex, flush=True)
     return report
 
 if __name__ == "__main__":

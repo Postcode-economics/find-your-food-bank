@@ -242,7 +242,7 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 36 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 35 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
@@ -304,9 +304,6 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
   why held: this change was undone by Dean; not re-applied
-- **St Paul's Methodist Centre** (`ww-65437367`, SY23 2NN): own site now Tuesday and Thursday 11am-2pm | Friday 7-9pm | Tuesdays & Thursdays 11:00am - 2:00pm  
-  source: https://www.ceredigionmethodists.org.uk/st-paul  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
 - **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
   source: https://www.saintbarnabaswalthamstow.com  
   why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
@@ -452,3 +449,33 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 - Wesley Warm Welcome (SS9 1SJ) | ww-55474116 | council_phone 01702 215000 removed
 - Windmill Warmbank (N18 1PL) | ww-59974983 | council_phone 020 8379 1000 removed
 <!-- /council line undo -->
+
+
+<!-- held near cities -->
+## Held near cities
+
+Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
+
+- London: 231 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
+- Birmingham: 73 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Manchester: 108 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Leeds: 32 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Liverpool: 53 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Newcastle upon Tyne: 88 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Sheffield: 46 warm spaces, 2 shelters, 0 day centres — main reason: not on allowlist
+- Bristol: 89 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
+- Leicester: 49 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Cardiff: 65 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Bradford: 33 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Nottingham: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Southampton: 57 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+
+207 held places had no outcode centroid, so they are not counted under a city.
+<!-- /held near cities -->
