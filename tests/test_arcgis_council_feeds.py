@@ -24,10 +24,22 @@ def feed(fid):
 class LancashireFeed(unittest.TestCase):
     def test_parses_orgapproved_rows(self):
         raw = load_fixture("arcgis_lancashire_warm.json")
-        records, skipped = A.parse_features(raw["features"], feed("lancashire"), "2026-10-31")
-        self.assertGreaterEqual(len(records), 1)
-        self.assertTrue(all(r["phone"] == "" for r in records))
-        self.assertTrue(all(TIME.match(list(r["hours"].values())[0].split(" / ")[0]) for r in records if r["hours"]))
+        feats = json.loads(json.dumps(raw["features"]))
+        row = dict(feats[0])
+        row["attributes"] = dict(row["attributes"], EditDate=1791219200000, OrgOpenTimes="Mon - Fri 10:00 - 16:00")
+        records, skipped = A.parse_features([row], feed("lancashire"), "2026-10-31")
+        self.assertEqual(len(records), 1)
+        self.assertEqual(records[0]["phone"], "")
+        self.assertTrue(TIME.match(list(records[0]["hours"].values())[0].split(" / ")[0]))
+
+    def test_stale_season_rows_skipped(self):
+        raw = load_fixture("arcgis_lancashire_warm.json")
+        feats = list(raw["features"])
+        old = dict(feats[0])
+        old["attributes"] = dict(old["attributes"], EditDate=1732883981841)
+        records, skipped = A.parse_features([old], feed("lancashire"), "2026-10-31")
+        self.assertEqual(records, [])
+        self.assertEqual(skipped[0]["reason"], A.LANCS_HOLD_REASON)
 
     def test_skips_unapproved_when_present(self):
         feats = load_fixture("arcgis_lancashire_warm.json")["features"]
@@ -53,11 +65,18 @@ class SurreyFeed(unittest.TestCase):
 
 
 class CherwellFeed(unittest.TestCase):
-    def test_skips_check_website_hours(self):
+    def test_cornhill_cafe_hours_and_name(self):
         raw = load_fixture("arcgis_cherwell_warm.json")
-        records, skipped = A.parse_features(raw["features"], feed("cherwell"), "2026-10-31")
-        self.assertTrue(any(s.get("reason") == "hours say check website" for s in skipped))
-        self.assertTrue(all(r["postcode"] for r in records))
+        records, _ = A.parse_features(raw["features"], feed("cherwell"), "2026-10-31")
+        corn = next(r for r in records if "Cornhill" in r["address"])
+        self.assertEqual(corn["name"], "Royal Voluntary Service Café, Cornhill Centre")
+        self.assertEqual(corn["hours"]["Mon"], "10:00 - 14:00")
+        self.assertEqual(set(corn["hours"]), {"Mon", "Tue", "Wed", "Thu", "Fri"})
+
+    def test_skips_multi_activity_without_warm_row(self):
+        raw = load_fixture("arcgis_cherwell_warm.json")
+        _, skipped = A.parse_features(raw["features"], feed("cherwell"), "2026-10-31")
+        self.assertTrue(any(s.get("reason") == "no warm welcome / warm space row" for s in skipped))
 
     def test_combines_opening_days_and_times(self):
         raw = load_fixture("arcgis_cherwell_warm.json")

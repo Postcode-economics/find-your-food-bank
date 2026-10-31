@@ -19,7 +19,8 @@
       "source": "Lancashire County Council warm spaces",
       "evidence_name": "Lancashire County Council",
       "url": "https://services-eu1.arcgis.com/9MmxkLJT84uEwsJx/arcgis/rest/services/Warm_Spaces_Public_View/FeatureServer/0/query?where=OrgApproved%3D%27Yes%27&outFields=*&outSR=4326&returnGeometry=true&f=json",
-      "website": "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/"
+      "website": "https://www.lancashire.gov.uk/health-and-social-care/welfare-and-benefits/warm-spaces/",
+      "require_current_season": true
     },
     {
       "id": "surrey",

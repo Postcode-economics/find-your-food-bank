@@ -20,6 +20,9 @@ def test_council_listed_warmspace_auto_ok_without_approved_list():
     no_phone = dict(ok_row, tel='')
     assert not pg.council_listed_warmspace(no_phone)
     assert pg.problems('warmspaces', no_phone) == ['no verified phone']
+    lancs = dict(ok_row, id='lancs-bb11-test', source_url='https://services-eu1.arcgis.com/x')
+    assert not pg.council_listed_warmspace(lancs)
+    assert pg.LANCS_HOLD in pg.warmspace_publish_holds(lancs)
 
 def test_published_data_passes_check():
     assert pg.check() == 0

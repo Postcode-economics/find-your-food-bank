@@ -108,7 +108,7 @@ def register(run_day, feed_ids=None, lookup_phones=False, dry_run=False):
             merged["name"] = rec["name"]
             if not merged.get("verified_on"):
                 merged["verified_on"] = run_day
-            if rec.get("_feed_phone") and not merged.get("phone"):
+            if rec.get("_feed_phone") and not merged.get("phone") and not rec.get("_hold_phone"):
                 merged["phone"] = rec["_feed_phone"]
                 merged["phone_source"] = rec.get("_feed_phone_source") or feed.get("url")
                 merged["phone_quote"] = rec["_feed_phone"]
