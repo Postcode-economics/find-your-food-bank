@@ -436,6 +436,34 @@ Run 2026-10-31. Nothing here is on the map. Each needs a hand check before it is
 
 - none this run
 <!-- /sweep shelters -->
+<!-- held near cities -->
+## Held near cities
+
+Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
+
+- London: 232 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
+- Birmingham: 74 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Manchester: 108 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Leeds: 32 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Liverpool: 53 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Newcastle upon Tyne: 88 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Sheffield: 46 warm spaces, 2 shelters, 0 day centres — main reason: not on allowlist
+- Bristol: 89 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
+- Leicester: 49 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
+- Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Cardiff: 65 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Bradford: 33 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Nottingham: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Southampton: 57 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Brighton and Hove: 26 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+
+208 held places had no outcode centroid, so they are not counted under a city.
+<!-- /held near cities -->
 
 <!-- times review -->
 ## Opening-times review list (times_finder)
@@ -444,5 +472,5 @@ Run 2026-10-31. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 - **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.30am – 11.00am  
   source: https://www.holytrinitywesterhailes.org.uk  
-  why: times not read identically on 2 separate runs yet; conflicts with times from another source (https://holytrinitywesterhailes.org.uk/contact-supporting-wh/); this change was undone by Dean; not re-applied
+  why: conflicts with times from another source (https://holytrinitywesterhailes.org.uk/contact-supporting-wh/); this change was undone by Dean; not re-applied
 <!-- /times review -->
