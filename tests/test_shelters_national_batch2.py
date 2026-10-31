@@ -5,12 +5,10 @@ ROOT = os.path.join(os.path.dirname(__file__), "..")
 OV = os.path.join(ROOT, "overrides")
 NEW_IDS = [
     "man-cathedral-archer-project",
-    "man-st-george-s-crypt",
     "man-doorstep-hull",
     "man-positive-pathways-drop-in-depaul",
     "man-dominion-community-hub",
     "man-bradford-day-shelter-salvation-army-the-orchard",
-    "man-bradford-nightstop",
     "man-huddersfield-mission",
     "man-crisis-skylight-newcastle",
     "man-first-stop-darlington",
@@ -62,7 +60,6 @@ NEW_IDS = [
     "man-alabare-unity-house-drop-in",
     "man-somewhere-to-go-project",
     "man-p3-stroud-community-based-support-drop-in",
-    "man-gloucestershire-nightstop",
     "man-ymca-bournemouth-delta-house-hostel",
     "man-bh1-project-salvation-army-boscombe",
     "man-chat-churches-housing-action-team-tiverton",
@@ -77,7 +74,6 @@ NEW_IDS = [
     "man-spires-centre",
     "man-the-margins-project-union-chapel",
     "man-new-horizon-youth-centre",
-    "man-newday-newway-project",
     "man-greenwich-homeless-project-day-centre",
     "man-crisis-skylight-brent",
     "man-crisis-skylight-croydon",
@@ -114,7 +110,6 @@ NEW_IDS = [
     "man-the-shrewsbury-ark",
     "man-pottergate-arc-salvation-army",
     "man-harp-bradbury-day-centre",
-    "man-the-glebe-centre-ymca-black-country",
     "man-the-beacon-project",
     "man-the-falcon-centre-falcon-support-services",
     "man-beacon-house",
@@ -148,7 +143,6 @@ NEW_IDS = [
     "man-vaughan-house",
     "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
     "man-genesis-trust-lifeline",
-    "man-elim-connect-centre-wells",
     "man-the-zone-plymouth-youth-housing-homelessness-drop-",
     "man-highway-house",
     "man-simon-community-scotland-edinburgh-support-hub",
@@ -170,10 +164,7 @@ NEW_IDS = [
     "man-launchpad-reading-drop-in-the-stables",
     "man-open-door-homeless-hub-hightown",
     "man-streets2homes-day-centre",
-    "man-high-peak-homeless-help",
-    "man-maggs-malvern-day-centre",
     "man-h4bd-hope-4-barking-dagenham-night-shelter",
-    "man-padley-homeless-centre",
     "man-birmingham-city-mission-care-centre",
     "man-crisis-skylight-birmingham",
     "man-st-wilfrid-s-centre",
@@ -183,13 +174,11 @@ NEW_IDS = [
     "man-under-1-roof-st-martins",
     "man-crisis-skylight-oxford",
     "man-carecent",
-    "man-byker-bridge-hub-tyne-housing",
     "man-crisis-skylight-edinburgh",
     "man-bradford-no-second-night-out-humankind-discovery-h",
     "man-coventry-cyrenians",
     "man-joining-communities-together-jct",
     "man-the-macari-centre-victoria",
-    "man-lighthouse-hostel-ni-lighthouse-hostel-ltd-living-",
     "man-home4good-centre-dunfermline",
     "man-victoria-house",
     "man-crossreach-cunningham-house",
@@ -216,6 +205,14 @@ class Batch2(unittest.TestCase):
             self.assertTrue(ver[i]["evidence_url"].startswith("http"), i)
             self.assertIn(i, app)
             self.assertEqual(base[i]["phone"], m["phone"], i)
+            if isinstance(m["facilities"], list):
+                self.assertTrue(m["facilities"] and m.get("facilities_quote"), i)
+            else:
+                self.assertEqual(m["facilities"], "Not stated", i)
+            if m["groups"] and i != "man-new-horizon-youth-centre":
+                self.assertTrue(m.get("groups_quote"), i)
+            self.assertEqual(m["who_for"], m["groups"] or "Not stated", i)
+            self.assertNotIn("Women only", m["groups"], i)
             if "wheelchair" in m:
                 self.assertIn(m["wheelchair"], ("yes", "partial", "no"))
                 self.assertTrue(m["wheelchair_quote"])
