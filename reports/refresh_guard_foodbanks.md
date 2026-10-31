@@ -1,6 +1,6 @@
-# Refresh guard: foodbanks (2026-10-31T08:05:51+00:00)
+# Refresh guard: foodbanks (2026-10-31T09:58:30+00:00)
 
-foodbanks: kept 7 places, 0 phones, 34 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 7 places, 0 phones, 33 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
 ## places kept (7)
 
@@ -12,7 +12,7 @@ foodbanks: kept 7 places, 0 phones, 34 opening times that this run would have dr
 - st-peter-st-pauls-pantry
 - littlehampton-community-fridge
 
-## times kept (34)
+## times kept (33)
 
 - godalming
 - kintyre
@@ -26,7 +26,6 @@ foodbanks: kept 7 places, 0 phones, 34 opening times that this run would have dr
 - community-works
 - alnwick-district
 - klsb
-- st-james-thornton
 - earlsfield
 - whitby
 - honiton

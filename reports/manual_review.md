@@ -154,7 +154,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Machars Churches Basics Food Bank · DG8 6EL · https://www.angycarehealth.co.uk — own site does not name it; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The5es Development · E16 3PJ · https://www.the5es.org — own site unreachable (HTTP error)
 - QUEUED The Bus Shelter Ipswich CIC · IP2 8LR — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA68 0YH · https://www.patchcharity.org.uk — own site has no readable text
 - QUEUED PATCH - Pembrokeshire Action to Combat Hardship · SA61 1QE · https://www.patchcharity.org.uk — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Homeschool Social Enterprise/ Active Christians · WS10 0GB · https://www.activechristians.org.uk — own site unreachable (HTTP error)
 - QUEUED Neema Women Community · B12 8LF · https://www.neemawomen.com — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -193,9 +193,9 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Oldmeldrum Community Pantry · AB51 0AA — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Slawa Birmingham · B23 5GY · https://www.slawa.org.uk — own site unreachable (HTTP error)
 - QUEUED EMS Ltd · HU9 3QB · https://www.emsyorkshire.co.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Caritas Portsmouth · PO9 1LP · https://www.caritasportsmouth.org.uk — own site unreachable (HTTP error)
-- QUEUED Caritas Portsmouth · PO1 3QA · https://www.caritasportsmouth.org.uk — own site unreachable (HTTP error)
-- QUEUED Caritas Portsmouth · SO17 3SB · https://www.caritasportsmouth.org.uk — own site unreachable (HTTP error)
+- QUEUED Caritas Portsmouth · PO9 1LP · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
+- QUEUED Caritas Portsmouth · PO1 3QA · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
+- QUEUED Caritas Portsmouth · SO17 3SB · https://www.caritasportsmouth.org.uk — own site redirects to a different site (portsmouthdiocese.org.uk)
 - QUEUED Trust House Whitefield · BL9 9AU · https://www.trusthousewhitefield.org — own site redirects to a different site (trusthousebury.org)
 - QUEUED Littleport Independent Foodbank · CB6 1PS — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED The Collective Sharehouse · YO23 1BW · https://www.thecollectivesharehouse.co.uk — own site does not show food aid
@@ -300,7 +300,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Proactive Communities, an arm of Blairgowrie and Rattray Development Trust · PH10 6NQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Bury Fellowship · BL9 0HE — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Katakata · SW2 1RS · https://www.facebook.com/KatakataBrixtonHill/ — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED House of Judah Church · CR0 3PB · https://www.houseofjudah.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
+- QUEUED House of Judah Church · CR0 3PB · https://www.houseofjudah.org.uk — own site unreachable (HTTP 429)
 - QUEUED Craft In Mind C.I.C · WA1 2QQ — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Independence Initiative Limited · L20 7EJ · https://www.independenceinitiative.org — own site does not show food aid
 - QUEUED Empower Women for Change · G1 1DT · https://www.ewfc.org.uk — own site does not show food aid; directory listing only, with no 2026-27 season dates (latest stated start: none)
