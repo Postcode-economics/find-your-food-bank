@@ -1,3 +1,162 @@
+/* Display-only opening-times lines (Dean, 31 Oct 2026).
+   Rewrites each free-text line into the same style as the structured table:
+   short day name(s) plus 24-hour HH:MM–HH:MM. Does not read or write stored data.
+   A line that is not a clear day and time is returned unchanged. Exact duplicate
+   lines are dropped after normalising. Two different times for the same day both stay. */
+(function(){
+const SHORT=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const DAY='mon(?:day)?s?|tues(?:day)?s?|tue|weds(?:nesday)?s?|wed(?:nesday)?s?|thurs(?:day)?s?|thu|fri(?:day)?s?|sat(?:urday)?s?|sun(?:day)?s?';
+const AP='a\\.?\\s*m\\.?|p\\.?\\s*m\\.?';
+const CLOCK='(?:\\d{1,2}\\s*[:.;]\\s*\\d{2}\\s*(?:'+AP+')?|\\d{1,2}\\s*(?:'+AP+')|\\d{1,2}\\s*(?:noon|midday)|noon|midday|midnight|\\d{1,2})';
+const RANGE='('+CLOCK+')\\s*(?:\\-|\\u2013|\\u2014|to|until|till)\\s*('+CLOCK+')';
+const FILL='from|between|the|hours|hour|of|morning|mornings|afternoon|afternoons|evening|evenings|open|opens|is|are|on|a|an|at|our|we|drop|in|session|sessions|each|every|just|currently|weekly';
+const DAYGROUP='(?:'+DAY+')(?:\\s*(?:,|&|/|\\band\\b|to|through|thru|\\-|\\u2013|\\u2014)\\s*(?:'+DAY+'))*';
+const CHUNK=new RegExp('('+DAYGROUP+')(?:[\\s:.,\\-\\u2013\\u2014]+|\\b(?:'+FILL+')\\b\\s*)+(closed|(?:'+RANGE+')(?:\\s*(?:,|&|and)\\s*'+RANGE+')?)','ig');
+const HARD=/\b(?:appoint\w*|except|unless|alternat\w*|referral|referred|donation|weather|delivery|collection|family|aged|ages|holiday|term|phone|only\s+when)\b|\*|\b[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}\b/i;
+const LEAD=/^(?:(?:opening|times|time|open|every|each|weekly|currently|just|foodbank|food|bank)\b[\s:,.\-\u2013\u2014]*)+/i;
+
+function dayIndex(w){
+  w=String(w||'').toLowerCase();
+  const keys=[['monday',0],['mon',0],['tues',1],['tue',1],['weds',2],['wednes',2],['wed',2],['thurs',3],['thu',3],['fri',4],['sat',5],['sun',6]];
+  for(let i=0;i<keys.length;i++) if(w.indexOf(keys[i][0])===0) return keys[i][1];
+  return null;
+}
+function formatDays(spec){
+  const rx=new RegExp('('+DAY+')|(to|through|thru|\\-|\\u2013|\\u2014)|(?:,|&|/|\\band\\b)|(\\S+)','ig');
+  const toks=[]; let m;
+  while((m=rx.exec(spec))){
+    if(m[3]) return null; // a word that is not a day
+    if(m[1]){const i=dayIndex(m[1]); if(i==null) return null; toks.push(i);}
+    else if(m[2]) toks.push('to');
+    else toks.push(',');
+  }
+  if(!toks.length) return null;
+  const label=[]; const seen={};
+  for(let i=0;i<toks.length;i++){
+    if(toks[i]==='to'||toks[i]===',') return null;
+    const a=toks[i];
+    if(toks[i+1]==='to'&&typeof toks[i+2]==='number'){
+      const b=toks[i+2];
+      const text=SHORT[a]+'\u2013'+SHORT[b];
+      if(!seen[text]){seen[text]=1; label.push(text);}
+      i+=2;
+    }else{
+      const text=SHORT[a];
+      if(!seen[text]){seen[text]=1; label.push(text);}
+    }
+    if(i+1<toks.length){
+      if(toks[i+1]!==',') return null;
+      i++;
+    }
+  }
+  return label.length?label.join(', '):null;
+}
+function parseClock(tok){
+  let t=String(tok||'').toLowerCase().replace(/\s+/g,'').replace(/a\.m\.?/g,'am').replace(/p\.m\.?/g,'pm');
+  t=t.replace(/(\d);(\d{2})/g,'$1:$2');
+  if(/^(?:12(?::00|\.00)?)?(?:noon|midday)$/.test(t)||t==='noon'||t==='midday') return {fixed:12*60};
+  if(t==='midnight') return {fixed:0};
+  const m=t.match(/^(\d{1,2})(?:[:.](\d{2}))?(am|pm)?$/);
+  if(!m) return null;
+  let h=+m[1], mi=m[2]?+m[2]:0, ap=m[3]||null;
+  if(mi>59||h>23) return null;
+  if(ap){
+    if(h>12){if(ap!=='pm') return null; return {fixed:h*60+mi};}
+    if(h===0) return null;
+    if(ap==='pm'&&h<12) h+=12;
+    if(ap==='am'&&h===12) h=0;
+    return {fixed:h*60+mi};
+  }
+  if(h>12) return {fixed:h*60+mi};
+  if(h===0) return {fixed:mi};
+  if(h===12) return {fixed:12*60+mi}; // obvious daytime reading: noon, not midnight
+  return {am:h*60+mi, pm:(h+12)*60+mi};
+}
+function hhmm(mins){mins=((mins%1440)+1440)%1440; return String(Math.floor(mins/60)).padStart(2,'0')+':'+String(mins%60).padStart(2,'0');}
+function resolve(a,b){
+  const A=parseClock(a), B=parseClock(b);
+  if(!A||!B) return null;
+  const as=A.fixed!=null?[A.fixed]:[A.am,A.pm], bs=B.fixed!=null?[B.fixed]:[B.am,B.pm];
+  const cands=[];
+  for(let i=0;i<as.length;i++) for(let j=0;j<bs.length;j++){
+    const s=as[i], e=bs[j];
+    if(e>s&&e-s<=16*60) cands.push([s,e]);
+    else if(A.fixed!=null&&B.fixed!=null&&s>=12*60&&e<s&&(1440-s+e)<=16*60) cands.push([s,e]); // explicit overnight only
+  }
+  if(cands.length!==1) return null; // still two daytime readings, or none: do not guess
+  return cands[0];
+}
+function overlap(slots){
+  const s=slots.slice().sort(function(a,b){return a[0]-b[0];});
+  for(let i=1;i<s.length;i++) if(s[i][0]<s[i-1][1]) return true;
+  return false;
+}
+function gapOk(g){return !g||/^[\s|,;/\-\u2013\u2014]*$/.test(g);}
+function tryParse(original){
+  let s=String(original||'').replace(/\s+/g,' ').trim();
+  if(!s) return null;
+  s=s.replace(LEAD,'').trim();
+  const notes=[];
+  s=s.replace(/\(([^)]*)\)/g,function(m,inner){
+    const t=inner.trim();
+    if(/^monthly$/i.test(t)){notes.push('Monthly'); return ' ';}
+    if(/^fortnightly$/i.test(t)){notes.push('Fortnightly'); return ' ';}
+    return m;
+  });
+  if(/\([^)]*\)/.test(s)) return null;
+  if(/\bmonthly\b/i.test(s)){notes.push('Monthly'); s=s.replace(/\bmonthly\b/ig,' ');}
+  if(/\bfortnightly\b/i.test(s)){notes.push('Fortnightly'); s=s.replace(/\bfortnightly\b/ig,' ');}
+  if(HARD.test(s)) return null;
+  const note=notes.length?' '+notes.filter(function(n,i){return notes.indexOf(n)===i;}).join(' '):'';
+  const parts=[]; let pos=0, m;
+  CHUNK.lastIndex=0;
+  while((m=CHUNK.exec(s))){
+    if(!gapOk(s.slice(pos,m.index))){CHUNK.lastIndex=0; return null;}
+    const days=formatDays(m[1]);
+    if(!days){CHUNK.lastIndex=0; return null;}
+    let body;
+    if(/^closed$/i.test(m[2])) body='Closed';
+    else{
+      const slots=[];
+      const r1=resolve(m[3],m[4]);
+      if(!r1){CHUNK.lastIndex=0; return null;}
+      slots.push(r1);
+      if(m[5]){
+        const r2=resolve(m[5],m[6]);
+        if(!r2){CHUNK.lastIndex=0; return null;}
+        slots.push(r2);
+      }
+      if(overlap(slots)){CHUNK.lastIndex=0; return null;}
+      body=slots.map(function(r){return hhmm(r[0])+'\u2013'+hhmm(r[1]);}).join(', ');
+    }
+    parts.push(days+' '+body+note);
+    pos=m.index+m[0].length;
+    if(m.index===CHUNK.lastIndex) CHUNK.lastIndex++;
+  }
+  CHUNK.lastIndex=0;
+  if(!parts.length||!gapOk(s.slice(pos))) return null;
+  return parts;
+}
+function clean(s){return String(s==null?'':s).replace(/\s+/g,' ').trim();}
+function formatLine(raw){
+  const original=clean(raw);
+  if(!original) return [];
+  return tryParse(original)||[original];
+}
+function lines(arr){
+  const out=[], seen={};
+  (arr||[]).forEach(function(raw){
+    formatLine(raw).forEach(function(p){
+      const k=clean(p);
+      if(!k||seen[k]) return;
+      seen[k]=1; out.push(k);
+    });
+  });
+  return out;
+}
+window.timesFmt={lines:lines, formatLine:formatLine, tryParse:tryParse};
+})();
+
 /* v3 layout (Motion Designer review, approved by Dean 21 Oct 2026). Display only: never changes food bank, shelter or warm space data. */
 (function(){
 try{history.scrollRestoration='manual'}catch(e){}  // round 4: a reload starts at the top, never at an old scroll position
@@ -37,9 +196,33 @@ function sched(layer,i){
  return any?s:null}
 const p2=n=>String(n).padStart(2,'0'),clk=m=>{m=((m%1440)+1440)%1440;return p2(Math.floor(m/60))+':'+p2(m%60)};
 function clockNow(now){return now||(typeof window.pageNow==='function'?window.pageNow():new Date())}
-function status(layer,i,now){now=clockNow(now);if(i.upcoming)return{st:'closed',day:null};if(i.call_check)return{st:'unknown'};const s=sched(layer,i);if(!s)return{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
+// What the card actually prints. 'table' = a day table, 'text' = free-text lines, false = nothing to show.
+function cardShowsTimes(layer,i){
+ if(layer==='fb'){const t=i.opening_times;if(!t)return false;
+  if(t.status==='TIMES_FOUND'&&((t.structured&&Object.keys(t.structured).length)||t.all_closed))return 'table';
+  if(t.status==='TIMES_TEXT_ONLY'&&(t.raw||(t.lines&&t.lines.length)))return 'text';
+  return false}
+ const h=i.hours;if(!h)return false;
+ if(typeof h==='string'){const s=h.trim();if(!s||/^by referral\b|^self-referral\b/i.test(s))return false;return 'text'}
+ if(typeof h==='object'&&Object.keys(h).length)return 'table';
+ return false}
+function dateCaution(layer,i){
+ if(layer==='fb'){const n=i.opening_times&&i.opening_times.notes;return !!(n&&Object.values(n).some(x=>/monthly|fortnight/i.test(x)))}
+ const h=i.hours;if(!h)return false;const blob=typeof h==='string'?h:Object.values(h).join(' ');return /monthly|fortnight/i.test(blob)}
+// Next listed opening when today itself is not in the table. Skips days the source never mentions. Never calls them closed.
+function nextListed(s,now){const d=now.getDay();
+ for(let k=1;k<=6;k++){const dd=(d+k)%7,slots=s[dd];if(!slots||!slots.length)continue;const c=slots.slice().sort((x,y)=>x[0]-y[0])[0];if(c)return{dd:dd,at:c[0],to:c[1]}}
+ return null}
+function status(layer,i,now){now=clockNow(now);if(i.upcoming)return{st:'closed',day:null};
+ const show=cardShowsTimes(layer,i);
+ if(dateCaution(layer,i)&&show)return{st:'unknown',why:'dates'}; // monthly/fortnightly: times are listed, the date is not
+ if(i.call_check){const s=sched(layer,i); // carried copy: do not claim open or closed from the clock
+  if(show==='table'&&s&&s[now.getDay()]==null){const n=nextListed(s,now);if(n)return{st:'unknown',why:'next',dd:n.dd,at:n.at,to:n.to}}
+  if(show)return{st:'unknown',why:'text'};
+  return{st:'unknown'}}
+ const s=sched(layer,i);if(!s)return show?{st:'unknown',why:'text'}:{st:'unknown'};const d=now.getDay(),m=now.getHours()*60+now.getMinutes();
  const prev=s[(d+6)%7];if(prev)for(const[a,b]of prev)if(b>1440&&m<b-1440)return{st:'open',until:b-1440};
- if(s[d]==null)return{st:'unknown'};
+ if(s[d]==null){const n=show==='table'?nextListed(s,now):null;if(n)return{st:'unknown',why:'next',dd:n.dd,at:n.at,to:n.to};return show?{st:'unknown',why:'text'}:{st:'unknown'};}
  for(const[a,b]of s[d])if(m>=a&&m<b)return{st:'open',until:b,next24:b-a>=1440};
  for(let k=0;k<8;k++){const dd=(d+k)%7;if(s[dd]==null)return{st:'closed',day:null};const c=s[dd].filter(([a])=>k>0||a>m).sort((x,y)=>x[0]-y[0])[0];if(c)return{st:'closed',day:k===0?'today':k===1?'tomorrow':dd,dd,at:c[0],to:c[1]}}
  return{st:'closed',day:null}}
@@ -50,6 +233,9 @@ function badge(layer,i){const r=status(layer,i);
   return `<div class="v3st shut" role="note">${B(`Closed · Next open <b>${DEN[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`,`Ar gau · Ar agor nesaf <b>${DCY[r.dd]} ${clk(r.at)}–${clk(r.to)}</b>`)}</div>`}
  if(layer==='sh'&&window.REFONLY&&REFONLY(i))return `<div class="v3st unk" role="note">${B('By referral – call before you go','Drwy atgyfeiriad – ffoniwch cyn mynd')}</div>`;
  if(i.carried_note&&i.carried_since){const cd=esc3(i.last_confirmed||i.carried_since);return `<div class="v3st unk carried" role="note">${B(`Not re-confirmed since ${cd} – call before you go`,`Heb ei ail-gadarnhau ers ${cd} – ffoniwch cyn mynd`)}</div>`}  // carry-forward (Dean 28 Oct)
+ if(r.why==='dates')return `<div class="v3st unk" role="note">${B('Check dates – call before you go','Gwiriwch y dyddiadau – ffoniwch cyn mynd')}</div>`;
+ if(r.why==='next')return `<div class="v3st unk" role="note">${B(`Next open: ${DEN[r.dd]} ${clk(r.at)}–${clk(r.to)} – call before you go`,`Ar agor nesaf: ${DCY[r.dd]} ${clk(r.at)}–${clk(r.to)} – ffoniwch cyn mynd`)}</div>`;
+ if(r.why==='text')return `<div class="v3st unk" role="note">${B('Check times below – call before you go','Gwiriwch yr amseroedd isod – ffoniwch cyn mynd')}</div>`;
  return `<div class="v3st unk" role="note">${B('Times unknown – call before you go','Amseroedd heb eu rhestru – ffoniwch cyn mynd')}</div>`}
 const walk=km=>{if(km==null)return'';const min=Math.max(1,Math.round(km*1.3/4.8*60));// est.: straight line x1.3 at 4.8 km/h
  if(min>120)return'';
