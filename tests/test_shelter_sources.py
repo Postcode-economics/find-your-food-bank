@@ -309,6 +309,31 @@ class ReferralHostel(unittest.TestCase):
     def test_a_building_postcode_is_not_an_area_card(self):
         page = ("https://river.example/hostel", self.PAGE[1] + " Where we are River Hostel, 4 River Lane, Sheffield S1 2AB.")
         self.assertIsNone(S.referral_area_card("River Hostel", [page]))
+    def test_a_current_directory_listing_is_evidence(self):
+        fields = S.hl_directory_fields(
+            {"name": "River Trust - River Hostel", "website": "https://river.example/hostel",
+             "directory_url": "https://homeless.org.uk/homeless-england/service/river-hostel/"},
+            {"directory_text": "0114 273 1234 River Hostel in Sheffield. Referral via Sheffield Housing Options.",
+             "referral_procedure": "Referral via Sheffield Housing Options.",
+             "referral_address": "", "directory_url": "https://homeless.org.uk/homeless-england/service/river-hostel/"},
+            "2026-10-31")
+        card = S.directory_area_card("River Trust - River Hostel", fields, [])
+        self.assertEqual(card["evidence_level"], "directory")
+        self.assertEqual(card["postcode"], "")
+        self.assertIsNone(card["lat"])
+        self.assertEqual(card["town"], "Sheffield")
+        self.assertEqual(card["phone"], "0114 273 1234")
+        self.assertIn("homeless.org.uk", card["evidence_url"])
+        self.assertIn("https://river.example/hostel", card["evidence_urls"])
+        # a readable page that does not mention the hostel is not a contradiction
+        quiet = [("https://river.example/", "River Trust runs several projects. " * 20)]
+        self.assertIsNotNone(S.directory_area_card("River Trust - River Hostel", fields, quiet))
+        # a different phone next to the name is a contradiction
+        clash = [("https://river.example/river-hostel",
+                  "River Hostel in Sheffield. Call 0114 999 8888 for the hostel. Referral via housing options. " * 5)]
+        self.assertIsNone(S.directory_area_card("River Trust - River Hostel", fields, clash))
+        refuge = dict(fields, text="Women's refuge. " + fields["text"])
+        self.assertIsNone(S.directory_area_card("Northside Women's Aid", refuge, []))
     def test_a_refuge_is_not_an_area_card(self):
         page = ("https://x.example/", "Northside Women's Aid is run by Women's Aid in Belfast. Referral only via the council. Call 028 9066 6049. Address is not published.")
         self.assertIsNone(S.referral_area_card("Northside Women's Aid", [page]))
@@ -367,7 +392,8 @@ class ReferralHostel(unittest.TestCase):
         self.assertFalse(any(k.startswith("council_") for k in card))
         self.assertEqual(saved["proposals"], [])
         self.assertEqual(open(base, encoding="utf-8").read(), before)
-        self.assertNotIn("referral_hostel", open(os.path.join(S.ROOT, "shelters.js"), encoding="utf-8").read())
+        rules = json.load(open(os.path.join(S.ROOT, "overrides", "auto_apply_rules.json"), encoding="utf-8"))
+        self.assertTrue(rules["referral_hostel_auto_add"]["on"])
 
 class Report(unittest.TestCase):
     def test_cards_say_referral_needed_and_file_keeps_other_layers(self):

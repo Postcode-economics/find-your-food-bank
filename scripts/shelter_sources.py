@@ -1267,7 +1267,7 @@ def referral_area_card(name, pages):
                 "operator": operator, "area": town, "town": town, "phone": phone, "phone_source": url,
                 "referral_route": route, "label": "Referral hostel", "notice": notice,
                 "postcode": "", "lat": None, "lng": None, "address": "",
-                "operator_page": url, "evidence_url": url, "no_pin": True,
+                "operator_page": url, "evidence_url": url, "evidence_level": "operator", "no_pin": True,
                 "quotes": [
                     {"field": "name", "text": name_q},
                     {"field": "operator", "text": op_sentence},
@@ -1279,6 +1279,170 @@ def referral_area_card(name, pages):
                              if council else
                              "operator page names the hostel, the operator, the area, a phone and how to get a bed; no building postcode is used as a pin")}
     return None
+def _first_phone(text):
+    for p in PHONE_RE.findall(text or ""):
+        shown = _uk_phone(p)
+        if shown: return shown
+    return ""
+def _route_ok(text):
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if not text: return ""
+    if re.search(r"\bno referral\b|do not accept", text, re.I) and not re.search(r"self[- ]referr|direct access|housing options", text, re.I):
+        return ""
+    if re.search(r"referr|direct access|self[- ]referr|housing options|streetlink|walk[- ]in", text, re.I):
+        return text[:240]
+    return ""
+def directory_town(text, address=""):
+    """A town or council area named in a directory record. The postcode is not used as a location."""
+    addr = PC_RE.sub(" ", address or "")
+    parts = [p.strip(" ,") for p in re.split(r",|\n", addr) if p.strip(" ,")]
+    for p in reversed(parts):
+        if _town_ok(p) and not re.search(r"\d", p) and len(p) > 2:
+            return p, re.sub(r"\s+", " ", address or "").strip()[:200]
+    found = _town_from(text or "")
+    if found: return found[0][1], found[0][2]
+    m = re.search(r"\b(?:in|across)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\b", text or "")
+    if m and _town_ok(m.group(1)):
+        return m.group(1), _quote_at(text, m.start())
+    return "", ""
+def _digits(phone):
+    return re.sub(r"\D", "", phone or "")
+def directory_contradicts(pages, name, town, phone):
+    """A readable operator page contradicts the directory when it names this hostel and states a different phone or town, or says it has closed."""
+    for url, text in pages or []:
+        if not text or len(text) < 200: continue
+        if not (names_place(text, name) or _area_names(text, name)): continue
+        if re.search(r"permanently closed|has closed|no longer (?:running|open|operating)", text, re.I):
+            return True
+        if is_refuge(name, text): return True
+        want = _digits(phone)
+        for dist, _i, shown, _q in _phones(text, name):
+            if dist > 900: continue
+            got = _digits(shown)
+            if want and got and want != got:
+                return True
+            break
+        if town:
+            for at, page_town, _q in _town_from(text):
+                if not _near_name(text, name, at, 500): continue
+                a, b = town.lower(), page_town.lower()
+                if a not in b and b not in a:
+                    return True
+                break
+    return False
+def directory_area_card(name, fields, pages):
+    """A Homeless Link or Street Support record can be the evidence when it is a current listing
+    of a hostel or emergency bed, and a readable operator page does not contradict it.
+    No postcode and no pin. A directory postcode is not a location."""
+    if not fields or not fields.get("listed_on"): return None
+    if is_refuge(name, fields.get("text") or "") or is_refuge(name, ""): return None
+    if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", name or "", re.I): return None
+    if seasonal_reason(name, fields.get("text") or ""): return None
+    if _page_supported_only(name, fields.get("text") or "") and not re.search(r"\bhostel\b|emergency|night shelter|direct access", name or "", re.I):
+        return None
+    phone, route, town, operator = fields.get("phone"), fields.get("route"), fields.get("town"), fields.get("operator")
+    if not (phone and route and town and operator): return None
+    if directory_contradicts(pages, name, town, phone): return None
+    referralish = bool(re.search(r"referr|housing options", route, re.I)) and not re.search(r"\bno referral\b", route, re.I)
+    notice = "Referral needed, don't turn up without one" if referralish else "Call before you go"
+    urls = [u for u in (fields.get("directory_url"), fields.get("operator_url")) if u]
+    return {"id": "", "name": name, "card_type": "referral_hostel", "status": "proposal", "layer": "shelters",
+            "operator": operator, "area": town, "town": town, "phone": phone, "phone_source": fields.get("directory_url") or "",
+            "referral_route": route[:240], "label": "Referral hostel", "notice": notice,
+            "postcode": "", "lat": None, "lng": None, "address": "", "no_pin": True,
+            "evidence_level": "directory", "listed_on": fields.get("listed_on"),
+            "evidence_url": fields.get("directory_url") or "", "operator_page": fields.get("operator_url") or "",
+            "evidence_urls": urls,
+            "quotes": fields.get("quotes") or [],
+            "evidence": "%s listing of %s names the hostel, the operator, the area, a phone and how to get a bed. A readable operator page does not contradict it. No building postcode is used as a pin." % (fields.get("source") or "Directory", fields.get("listed_on"))}
+def hl_directory_fields(hold, rec, listed_on):
+    text = (rec or {}).get("directory_text") or ""
+    name = hold.get("name") or (rec or {}).get("name") or ""
+    phone = _first_phone(text)
+    route = _route_ok((rec or {}).get("referral_procedure") or "") or _route_ok(text)
+    town, town_q = directory_town(text, (rec or {}).get("referral_address") or hold.get("referral_address") or "")
+    operator = ""
+    if " - " in name:
+        operator = _operator_ok(name.split(" - ", 1)[0], name)
+    if not operator:
+        ops = _operators(text, name, "")
+        operator = ops[0][1] if ops else ""
+    if not (phone and route and town and operator and listed_on): return None
+    phone_q = _best_sentence(text, re.sub(r"\D", "", phone)[-6:]) or _quote_at(text, text.find(phone[:4]) if phone[:4] in text else 0)
+    return {"text": text, "phone": phone, "route": route, "town": town, "operator": operator,
+            "source": "Homeless Link",
+            "directory_url": (rec or {}).get("directory_url") or hold.get("directory_url") or "",
+            "operator_url": hold.get("website") or "", "listed_on": listed_on,
+            "quotes": [
+                {"field": "name", "text": name},
+                {"field": "operator", "text": operator},
+                {"field": "town", "text": town_q or town},
+                {"field": "phone", "text": phone_q or phone},
+                {"field": "referral_route", "text": route[:240]},
+            ]}
+def ss_directory_fields(hold, rec, listed_on):
+    if not rec: return None
+    accom = rec.get("accommodationData") if isinstance(rec.get("accommodationData"), dict) else {}
+    org = rec.get("organisation") if isinstance(rec.get("organisation"), dict) else {}
+    notes = accom.get("referralNotes") or ""
+    desc = rec.get("description") or ""
+    text = " ".join(x for x in (rec.get("name"), rec.get("ServiceProviderName"), desc, notes, org.get("name"), org.get("description")) if x)
+    name = hold.get("name") or rec.get("name") or ""
+    route = _route_ok(notes) or _route_ok(desc)
+    if not route and accom.get("isOpenAccess"): route = "Direct access."
+    phone = _first_phone(notes) or _first_phone(desc) or _first_phone(text)
+    addr = rec.get("Address") if isinstance(rec.get("Address"), dict) else {}
+    town = _town_ok(addr.get("City") or "")
+    town_q = town
+    if not town:
+        town, town_q = directory_town(text, hold.get("referral_address") or "")
+    operator = _operator_ok(org.get("name") or rec.get("ServiceProviderName") or "", name)
+    if not operator and " - " in name:
+        operator = _operator_ok(name.split(" - ", 1)[0], name)
+    if not (phone and route and town and operator and listed_on): return None
+    return {"text": text, "phone": phone, "route": route, "town": town, "operator": operator,
+            "source": "Street Support",
+            "directory_url": "https://www.streetsupport.net/find-help",
+            "operator_url": hold.get("website") or "", "listed_on": listed_on,
+            "quotes": [
+                {"field": "name", "text": name},
+                {"field": "operator", "text": operator},
+                {"field": "town", "text": "City: %s" % town if town_q == town else town_q},
+                {"field": "phone", "text": notes.strip()[:240] or phone},
+                {"field": "referral_route", "text": route[:240]},
+            ]}
+def load_ss_records(cache_dir):
+    """Street Support accommodation rows from the cached live API. The id matches the hold id."""
+    out = {}
+    if not cache_dir or not os.path.isdir(cache_dir): return out
+    for fn in os.listdir(cache_dir):
+        if not fn.endswith(".json"): continue
+        try: d = json.load(open(os.path.join(cache_dir, fn), encoding="utf-8"))
+        except Exception: continue
+        url = d.get("final_url") or ""
+        if "streetsupport.net/api/services" not in url or "accom" not in url: continue
+        try: data = json.loads(d.get("html") or "")
+        except Exception: continue
+        for rec in data.get("results") or []:
+            if isinstance(rec, dict) and rec.get("_id"):
+                out["ss-" + str(rec["_id"])] = rec
+    return out
+def operator_gap(name, pages, had_website, fetch_failed):
+    """Why an operator or council page did not make an area card. One reason, in the order Dean asked for."""
+    if not had_website and not pages:
+        return "no own page"
+    readable = [(u, t) for u, t in pages or [] if t and len(t) > 80]
+    if not readable:
+        return "page unreadable" if fetch_failed or had_website else "no own page"
+    saw_phone = saw_route = saw_town = False
+    for u, t in readable:
+        if _phones(t, name): saw_phone = True
+        if _routes(t): saw_route = True
+        if _town_from(t): saw_town = True
+    if not saw_phone: return "no phone"
+    if not saw_route: return "no referral route"
+    if not saw_town: return "no town"
+    return "other"
 def second_pass_one(hold, fetcher, council_url="", directory_text="", existing=()):
     """One publishable hold. A council page counts only when it names this hostel and a building postcode.
     The directory postcode is still not the pin. A refuge is excluded."""
@@ -1520,21 +1684,28 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
     index = {}
     try: index = json.load(open(os.path.join(root, "logs", "shelter_source_index.json"), encoding="utf-8"))
     except Exception: index = {}
-    texts = {("hl-" + k): (v.get("directory_text") or "") for k, v in (index.get("hl_services") or {}).items()}
+    hl = index.get("hl_services") or {}
+    texts = {("hl-" + k): (v.get("directory_text") or "") for k, v in hl.items()}
+    listed_on = index.get("fetched") or datetime.date.today().isoformat()
     raw = fetcher or discover.fetch_raw
     fetch = raw if fetcher else polite(raw, delay=delay, cache_dir=os.path.join(root, CACHE))
+    ss_recs = load_ss_records(os.path.join(root, CACHE))
     existing = load_existing(root)
     cards, seen = [], set()
-    by_source, by_place = {}, {}
+    by_source, by_place, by_level = {}, {}, {}
+    gaps = {}
     for n, h in enumerate(targets, 1):
         src = h.get("directory") or "unknown"
         by_source.setdefault(src, {"checked": 0, "proposed": 0})
         by_source[src]["checked"] += 1
         name = h.get("name") or ""
-        pages = operator_second_look(h.get("website") or "", name, fetch) if h.get("website") else []
+        web = h.get("website") or ""
+        home = fetch(web) if web else {}
+        fetch_failed = bool(web) and not _ok(home)
+        pages = operator_second_look(web, name, fetch) if web else []
         council = ""
-        if discover.host(h.get("website")).endswith(".gov.uk"):
-            council = h.get("website") or ""
+        if discover.host(web).endswith(".gov.uk"):
+            council = web
         elif h.get("referral_postcode"):
             council = council_url_for(districts.get(norm_pc(h["referral_postcode"]), ""), homes)
         elif h.get("town"):
@@ -1543,28 +1714,51 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
             pages += council_follow(council, name, fetch)
         pages = [(u, t) for u, t in pages if _place_url(u)]
         if _already_named(name, existing):
+            gaps[h.get("id")] = "other"
             if os.environ.get("SHELTER_SOURCE_PROGRESS"):
                 print("area card", n, "of", len(targets), "kept", len(cards), "already listed", name, flush=True)
             continue
         card = referral_area_card(name, pages)
+        if not card:
+            gaps[h.get("id")] = operator_gap(name, pages, bool(web), fetch_failed)
+            fields = None
+            if src == "Homeless Link":
+                slug = (h.get("id") or "")[3:]
+                fields = hl_directory_fields(h, hl.get(slug) or {}, listed_on)
+            elif src == "Street Support":
+                fields = ss_directory_fields(h, ss_recs.get(h.get("id")), listed_on)
+            if fields:
+                card = directory_area_card(name, fields, pages)
         if os.environ.get("SHELTER_SOURCE_PROGRESS"):
             print("area card", n, "of", len(targets), "kept", len(cards), name, flush=True)
         if not card: continue
+        if card.get("evidence_level") == "directory" and not pages:
+            card["operator_page"] = ""
+            card["evidence_urls"] = [u for u in (card.get("evidence_url"),) if u]
         key = re.sub(r"[^a-z0-9]+", " ", name.lower()).strip()
         if key in seen: continue
         seen.add(key)
         place_type = publishable_label(name, texts.get(h.get("id"), "") or h.get("directory_text") or "", h.get("hint") or "hostel")
-        card.update({"id": h.get("id") or "", "directory": src, "directory_url": h.get("directory_url") or "",
-                     "website": h.get("website") or "", "place_type": place_type})
+        card.update({"id": h.get("id") or "", "directory": src, "directory_url": h.get("directory_url") or card.get("evidence_url") or "",
+                     "website": web, "place_type": place_type})
         card.pop("referral_postcode", None)
         card.pop("referral_address", None)
+        if card.get("postcode"): card["postcode"] = ""
+        card["lat"] = card["lng"] = None
         cards.append(strip_council(card))
         by_source[src]["proposed"] += 1
         by_place[place_type] = by_place.get(place_type, 0) + 1
+        level = card.get("evidence_level") or "operator"
+        by_level.setdefault(src, {}).setdefault(level, 0)
+        by_level[src][level] += 1
+    from collections import Counter
+    gap_counts = dict(Counter(gaps.values()))
     doc["area_cards"] = cards
     doc["area_card_counts"] = {"by_source": by_source, "by_type": {"referral_hostel": len(cards)},
-                               "by_place_type": by_place, "checked": len(targets), "proposed": len(cards),
-                               "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners."}
+                               "by_place_type": by_place, "by_evidence_level": by_level,
+                               "checked": len(targets), "proposed": len(cards),
+                               "operator_page_gaps": gap_counts,
+                               "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners. evidence_level operator means the place's own page or a council page. evidence_level directory means a current Homeless Link or Street Support listing, and a readable operator page did not contradict the name, town or phone."}
     extra = " Referral hostel area cards are listed under area_cards for review: no building pin, and not published."
     if extra.strip() not in (doc.get("about") or ""):
         doc["about"] = (doc.get("about") or "") + extra

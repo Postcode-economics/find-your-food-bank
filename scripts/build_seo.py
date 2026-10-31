@@ -84,12 +84,12 @@ def hours_ws(i):
 
 def shelter_public(i):
     """Same rule as the map: no stale/ended/closed entries, and no OpenStreetMap-only entry (must have own-site evidence).
-    A referral hostel is list-only. A postcode or a pin on one is a directory address, so it stays off the page.
-    Nothing in this run adds referral hostels to shelters.js; they stay in the proposals file until reviewed."""
+    A referral hostel is list-only on the council-area page. A postcode or a pin is never its location.
+    Dean 31 Oct 2026 18:31 GMT: one with a town and a phone, confirmed current, is published."""
     if i.get('card_type') == 'referral_hostel':
         if i.get('postcode') or isinstance(i.get('lat'), (int, float)) or isinstance(i.get('lng'), (int, float)):
             return False
-        return bool(i.get('no_pin') and i.get('name') and (i.get('area') or i.get('town')) and i.get('phone') and i.get('referral_route'))
+        return bool(i.get('no_pin') and i.get('name') and (i.get('area') or i.get('town')) and i.get('phone'))
     if i.get('stale') or i.get('ended') or i.get('flag_closed') or not i.get('postcode'): return False
     if i.get('source') == 'OpenStreetMap' and not (i.get('evidence_url') or i.get('sign_url')): return False
     return True

@@ -8,6 +8,12 @@ Written by scripts/full_check.py on every 3x-daily refresh.
 - phone_fixes.json: clear new numbers from the bank's own site (single clickable number, seen 2 runs running)
 - full_check_state.json: last run's per-site snapshot used to spot changes
 
+## Standing rule (31 Oct 2026 18:31 GMT, Dean): a hostel with a town and a phone goes on
+
+Recorded in `overrides/auto_apply_rules.json` as `referral_hostel_auto_add`.
+
+A shelter that has an approximate location (town or council area) and a phone number, confirmed current by its own site, a council page, or Homeless Link or Street Support, is added automatically. The card type is **Referral hostel**. It appears on the council-area list only: no map pin, and a directory postcode is never used as the location. It is not shown in the emergency strip or a SWEP banner. Women's refuges, domestic-abuse services and supported housing stay off the map. Anything without a phone stays held. This does not change an existing phone or council line.
+
 ## Rule (30 Oct 2026, Dean): verified items go on without asking
 Recorded in `overrides/auto_apply_rules.json` as `times_finder_rule` and `verified_pending_rule` so every session and refresh carries them.
 
