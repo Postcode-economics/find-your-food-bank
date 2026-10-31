@@ -127,6 +127,13 @@ def _feed_website(raw, feed):
     return u
 
 
+def _feed_phone_meta(feed, tel, source=None):
+    tel = _clean_phone(tel)
+    if not tel:
+        return {}
+    return {"_feed_phone": tel, "_feed_phone_source": source or feed.get("url") or ""}
+
+
 def _arcgis_stamp(v):
     if v in (None, ""):
         return None
@@ -662,8 +669,12 @@ def _parse_northumberland(features, feed, run_day, kept, skipped, used):
             skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
             continue
         quote = re.sub(r"\s+", " ", hours_raw).strip()
+        meta = {}
+        tel = _clean_phone(a.get("contact_telephone_number"))
+        if tel:
+            meta.update(_feed_phone_meta(feed, tel))
         kept.append(_record(feed, run_day, prefix, used, oid, name, addr, pc, lat, lng, table, quote,
-                            feed.get("source") or "Northumberland warm spaces", feed.get("website") or ""))
+                            feed.get("source") or "Northumberland warm spaces", _feed_website(a.get("website"), feed) or feed.get("website") or "", meta))
 
 
 def _tower_hamlets_page(name):
