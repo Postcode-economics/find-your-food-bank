@@ -260,7 +260,7 @@ def write_coverage(root=None, warm=None, shelters=None, day_items=None):
         shelters = load_items(os.path.join(root, "shelters.js"))
     if day_items is None:
         day_items = [i for i in shelters + warm if is_day_centre(i)]
-        shelters = [i for i in shelters if not is_day_centre(i)]
+        shelters = [i for i in shelters if not is_day_centre(i) and i.get("kind") != "young_people"]  # young people's housing is not an emergency bed
     rows = coverage(warm, shelters, day_items)
     path = os.path.join(root, "reports", "city_coverage.md")
     os.makedirs(os.path.dirname(path), exist_ok=True)

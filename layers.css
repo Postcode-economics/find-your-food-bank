@@ -49,6 +49,7 @@ label.tog{display:flex;width:100%;min-height:48px;align-items:center;gap:10px;cu
 .xunv{display:block;margin:0 0 8px;padding:8px 10px;border:2px dashed #8a94a6;border-radius:10px;color:#e6e9ef;font-weight:700;background:#1b2436}
 .xacc,.xkind{display:inline-block;margin:0 0 8px;padding:3px 9px;border-radius:999px;font-size:13px;font-weight:700;border:1px solid #8a94a6;color:#e6e9ef}
 .xkind{border-color:#56B4E9;color:#cfe9f8}
+.xkind.xyouth{border-color:#56B4E9;color:#cfe9f8}
 .xday{margin:0 0 8px;font-weight:700}
 .xacc-open_access{border-color:#3fbf6f;color:#9fe3b8}.xacc-referral_only{border-color:#e0a030;color:#f3cf8e}
 html.light .xunv,html.light .xacc,html.light .xkind{background:#fff;color:#000;border-color:#000}
