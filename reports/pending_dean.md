@@ -4,7 +4,6 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 
 ## foodbanks (1)
 
-- Sidley (TN39 4FL) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://bexhill.foodbank.org.uk
 
 ## warmspaces (16)
 
