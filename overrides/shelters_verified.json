@@ -1226,5 +1226,282 @@
   "evidence_name": "City of York Council",
   "access_type": "referral_only",
   "note": "Dean blanket approval for verified items, checked 31 Oct 2026. Pin is the postcodes.io centroid for YO24 4HA."
+ },
+ "man-bht-phase-one": {
+  "name": "BHT Phase One",
+  "access": "Referral only: ask Brighton & Hove Council's housing team (Supported Accommodation Panel). You need a local connection.",
+  "evidence_url": "https://www.bht.org.uk/services/homelessness/phase-one/",
+  "quote": "Phase One is a 52 bed, high support hostel for single homeless people with complex support needs. To be referred to the Phase One Project you have to have a local connection and have identified support needs. All referrals to Phase One are made directly by Brighton and Hove City Councils Supported Accommodation Panel. 29-32 Oriental Place, Brighton, East Sussex, BN1 2LL",
+  "day_time_quote": "All referrals to Phase One are made directly by Brighton and Hove City Councils Supported Accommodation Panel.",
+  "phone": "01273 294400",
+  "phone_source": "https://www.brighton-hove.gov.uk/housing/homelessness-and-living-streets/get-help-if-youre-worried-about-losing-your-home-or-are-homeless",
+  "phone_quote": "Housing Advice Team 01273 29 44 00 Contact the Housing advice team to get help to prevent homelessness and look at alternative forms of accommodation.",
+  "address": "29-32 Oriental Place, Brighton",
+  "postcode": "BN1 2LL",
+  "verified_on": "2026-10-31",
+  "evidence_name": "bht.org.uk",
+  "access_type": "referral_only",
+  "note": "Dean sent this page 31 Oct 2026 22:10 GMT; blanket approval for verified items. BHT page shows no phone for Phase One; BHT contact page numbers are Brighton Advice Service 01273 645455, First Base day centre 01273 326844 and head office 01273 645400, none for Phase One. Phone used is the council Housing Advice Team line, labelled as the council referral line.",
+  "groups": [
+   "Single adults",
+   "Complex support needs",
+   "Local connection"
+  ]
+ },
+ "man-connection-st-martins": {
+  "name": "The Connection at St Martin's",
+  "access": "Drop in. Wednesday mornings women only.",
+  "evidence_url": "https://www.connection-at-stmartins.org.uk/get-help-homelessness/",
+  "quote": "You can visit us at 12 Adelaide St, London WC2N 4HW. Monday-Tuesday, Thursday-Friday: 9am-1.30pm for general drop-in. Wednesdays: on Wednesdays our centre is only open to women in the morning. Saturday and Sunday: Closed. Main switchboard 020 7766 5544",
+  "day_time_quote": "Monday-Tuesday, Thursday-Friday: 9am-1.30pm for general drop-in",
+  "phone": "020 7766 5544",
+  "address": "12 Adelaide Street, London",
+  "postcode": "WC2N 4HW",
+  "lat": 51.509235,
+  "lng": -0.126111,
+  "hours": {
+   "Mon": "09:00 - 13:30",
+   "Tue": "09:00 - 13:30",
+   "Wed": "Morning: women only",
+   "Thu": "09:00 - 13:30",
+   "Fri": "09:00 - 13:30"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "connection-at-stmartins.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-manna-day-centre": {
+  "name": "Manna Day Centre",
+  "access": "Drop in. Open 7 days.",
+  "evidence_url": "https://mannasociety.org.uk/get-help/opening-hours-location/",
+  "quote": "The Manna Centre is open from 8.30am to 1.30pm, seven days a week, 51 weeks a year. Manna Day Centre 12 Melior Street London SE1 3QP 0207 357 9363",
+  "day_time_quote": "The Manna Centre is open from 8.30am to 1.30pm, seven days a week, 51 weeks a year.",
+  "phone": "020 7357 9363",
+  "address": "12 Melior Street, London",
+  "postcode": "SE1 3QP",
+  "lat": 51.502433,
+  "lng": -0.084662,
+  "hours": {
+   "Mon": "08:30 - 13:30",
+   "Tue": "08:30 - 13:30",
+   "Wed": "08:30 - 13:30",
+   "Thu": "08:30 - 13:30",
+   "Fri": "08:30 - 13:30",
+   "Sat": "08:30 - 13:30",
+   "Sun": "08:30 - 13:30"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "mannasociety.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-sifa-fireside": {
+  "name": "SIFA Fireside Support Centre",
+  "access": "Walk in. Ages 25 and over (under 25s: St Basils 0300 303 0099).",
+  "evidence_url": "https://sifafireside.co.uk/homelessness-support/",
+  "quote": "Emergency and Rough Sleeper Support: Mon-Fri, 9am – 12.45pm. Telephone: 0121 766 1700 (Reception hours: 9am – 3pm, Monday – Friday). SIFA Fireside works with single adults and childless couples aged 25 or over. The main entrance to our Support Centre is at Liverpool Street, Deritend, Birmingham, B9 4DY",
+  "day_time_quote": "Emergency and Rough Sleeper Support: Mon-Fri, 9am – 12.45pm",
+  "phone": "0121 766 1700",
+  "address": "Liverpool Street, Deritend, Birmingham",
+  "postcode": "B9 4DY",
+  "lat": 52.475979,
+  "lng": -1.880977,
+  "hours": {
+   "Mon": "09:00 - 12:45",
+   "Tue": "09:00 - 12:45",
+   "Wed": "09:00 - 12:45",
+   "Thu": "09:00 - 12:45",
+   "Fri": "09:00 - 12:45"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "sifafireside.co.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-booth-centre": {
+  "name": "Booth Centre",
+  "access": "Drop in. Visit in person.",
+  "evidence_url": "https://www.boothcentre.org.uk/get-help/",
+  "quote": "The best way to get help from the Booth Centre is to visit us in person. Monday 8.30am 3.30pm Tuesday 8.30am 3.30pm Wednesday 8.30am 1.00pm Thursday 8.30am 6.00pm Friday 8.30am 3.30pm Saturday 9.30am 1.30pm Sunday CLOSED. Booth Centre, Edward Holt House, Pimblett Street, Manchester M3 1FU Telephone: 0161 835 2499",
+  "day_time_quote": "Monday 8.30am 3.30pm Tuesday 8.30am 3.30pm Wednesday 8.30am 1.00pm Thursday 8.30am 6.00pm Friday 8.30am 3.30pm Saturday 9.30am 1.30pm",
+  "phone": "0161 835 2499",
+  "address": "Edward Holt House, Pimblett Street, Manchester",
+  "postcode": "M3 1FU",
+  "lat": 53.492462,
+  "lng": -2.242475,
+  "hours": {
+   "Mon": "08:30 - 15:30",
+   "Tue": "08:30 - 15:30",
+   "Wed": "08:30 - 13:00",
+   "Thu": "08:30 - 18:00",
+   "Fri": "08:30 - 15:30",
+   "Sat": "09:30 - 13:30"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "boothcentre.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-whitechapel-centre": {
+  "name": "The Whitechapel Centre",
+  "access": "Call or chat online for housing advice, Mon-Fri 9am-4pm.",
+  "evidence_url": "https://www.whitechapelcentre.co.uk/contact-us.html",
+  "quote": "The Whitechapel Centre Langsdale Street Liverpool L3 8DT Tel: 0151 207 7617. If you are concerned about your housing situation or are at risk of homelessness you can contact us for advice, Monday to Friday 9am to 4pm by calling 0151 207 7617 or online chat.",
+  "day_time_quote": "Monday to Friday 9am to 4pm by calling 0151 207 7617",
+  "phone": "0151 207 7617",
+  "address": "Langsdale Street, Liverpool",
+  "postcode": "L3 8DT",
+  "lat": 53.413532,
+  "lng": -2.971519,
+  "hours": {
+   "Mon": "09:00 - 16:00",
+   "Tue": "09:00 - 16:00",
+   "Wed": "09:00 - 16:00",
+   "Thu": "09:00 - 16:00",
+   "Fri": "09:00 - 16:00"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "whitechapelcentre.co.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-peoples-kitchen-newcastle": {
+  "name": "The People's Kitchen",
+  "access": "Drop in for food, clothes and company.",
+  "evidence_url": "https://peopleskitchen.co.uk/about-us/",
+  "quote": "Alison Centre, 56 Bath Lane, Newcastle upon Tyne, NE4 5SQ Opening hours Weekdays: 6:30pm – 8:30pm Weekends: 9:30am – 11:30am Phone: 0191 222 0699 Freephone: 0800 488 0415",
+  "day_time_quote": "Weekdays: 6:30pm – 8:30pm Weekends: 9:30am – 11:30am",
+  "phone": "0191 222 0699",
+  "address": "Alison Centre, 56 Bath Lane, Newcastle upon Tyne",
+  "postcode": "NE4 5SQ",
+  "lat": 54.972149,
+  "lng": -1.621444,
+  "hours": {
+   "Mon": "18:30 - 20:30",
+   "Tue": "18:30 - 20:30",
+   "Wed": "18:30 - 20:30",
+   "Thu": "18:30 - 20:30",
+   "Fri": "18:30 - 20:30",
+   "Sat": "09:30 - 11:30",
+   "Sun": "09:30 - 11:30"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "peopleskitchen.co.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-emmanuel-house-dropin": {
+  "name": "Emmanuel House drop-in day centre",
+  "access": "Drop in on weekday mornings.",
+  "evidence_url": "https://www.emmanuelhouse.org.uk/get-help/",
+  "quote": "The drop-in service at our support centre in Hockley provides advice, showers, clothing, hot meals and care of address on weekday mornings. Call the centre on 0115 9507140. Monday: 9:30am – 12pm for morning drop-in, then 1pm – 2pm for lunch ... Wednesday: 9:30am – 12pm for morning drop-in. Emmanuel House Support Centre 53-61 Goose Gate Nottingham NG1 1FE Telephone 0115 950 7140",
+  "day_time_quote": "Monday: 9:30am – 12pm for morning drop-in, then 1pm – 2pm for lunch",
+  "phone": "0115 950 7140",
+  "address": "53-61 Goose Gate, Nottingham",
+  "postcode": "NG1 1FE",
+  "lat": 52.953845,
+  "lng": -1.142689,
+  "hours": {
+   "Mon": "09:30 - 12:00 / 13:00 - 14:00",
+   "Tue": "09:30 - 12:00 / 13:00 - 14:00",
+   "Wed": "09:30 - 12:00",
+   "Thu": "09:30 - 12:00 / 13:00 - 14:00",
+   "Fri": "09:30 - 12:00 / 13:00 - 14:00"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "emmanuelhouse.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-lhm360-glasgow": {
+  "name": "Lodging House Mission (LHM360)",
+  "access": "Drop in.",
+  "evidence_url": "https://www.lhm360.org/",
+  "quote": "35 E Campbell St, Glasgow, G1 5DT. 0141 552 0285. Opening Hours Mon - Thur 8:30 am – 3:00 pm Fri 8:30 am – 2:00 pm Saturday Closed Sunday Closed",
+  "day_time_quote": "Mon - Thur 8:30 am – 3:00 pm Fri 8:30 am – 2:00 pm",
+  "phone": "0141 552 0285",
+  "address": "35 East Campbell Street, Glasgow",
+  "postcode": "G1 5DT",
+  "lat": 55.856023,
+  "lng": -4.237312,
+  "hours": {
+   "Mon": "08:30 - 15:00",
+   "Tue": "08:30 - 15:00",
+   "Wed": "08:30 - 15:00",
+   "Thu": "08:30 - 15:00",
+   "Fri": "08:30 - 14:00"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "lhm360.org",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-two-saints-day-centre": {
+  "name": "Two Saints Day Centre",
+  "access": "Drop in on weekdays.",
+  "evidence_url": "https://twosaints.org.uk/southampton/",
+  "quote": "Our Day Centre is the homeless hub for Southampton, providing vital services for people affected by homelessness. It is open weekdays 10am – 2pm. Two Saints Ltd Day Centre 30 Cranbury Avenue Southampton SO14 0LT Phone: 02380 223443",
+  "day_time_quote": "It is open weekdays 10am – 2pm.",
+  "phone": "023 8022 3443",
+  "address": "30 Cranbury Avenue, Southampton",
+  "postcode": "SO14 0LT",
+  "lat": 50.91397,
+  "lng": -1.394871,
+  "hours": {
+   "Mon": "10:00 - 14:00",
+   "Tue": "10:00 - 14:00",
+   "Wed": "10:00 - 14:00",
+   "Thu": "10:00 - 14:00",
+   "Fri": "10:00 - 14:00"
+  },
+  "verified_on": "2026-10-31",
+  "evidence_name": "twosaints.org.uk",
+  "access_type": "open_access",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "note": "Day centre, no overnight bed. Web sweep 31 Oct 2026 group A; own page re-opened and phone, address and hours checked 31 Oct 2026. Pin is the postcodes.io centroid."
+ },
+ "man-brighton-hove-foyer": {
+  "name": "Brighton and Hove Foyer",
+  "access": "For ages 16-25. Referral needed: Brighton & Hove City Council Housing Options team.",
+  "evidence_url": "https://www.sanctuary-supported-living.co.uk/support-services/young-people/brighton-and-hove-foyer-brighton",
+  "quote": "Brighton and Hove Foyer, Brighton, BN1. How do I apply? We accept referrals from Brighton and Hove City Council Housing Options team. If you have any questions about the support services we provide ... call 01273 242 700 during office hours.",
+  "day_time_quote": "We accept referrals from Brighton and Hove City Council Housing Options team.",
+  "phone": "01273 242700",
+  "address": "Brighton (exact address not published)",
+  "postcode": "BN1",
+  "verified_on": "2026-10-31",
+  "evidence_name": "sanctuary-supported-living.co.uk",
+  "access_type": "referral_only",
+  "note": "Young people's housing (16-25), not an emergency bed. Dean approved foyers with their own label 31 Oct 2026 22:15 GMT. 50 young people aged 16 to 25, 24-hour staff, up to 2 years.",
+  "groups": [
+   "Young people 16-25"
+  ]
  }
 }

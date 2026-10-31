@@ -145,11 +145,11 @@ class Coverage(unittest.TestCase):
         self.assertNotIn("ww-68672298", near)
         self.assertNotIn("ww-55473189", near)
         day = [i for i in shelters if C.is_day_centre(i)]
-        night = [i for i in shelters if not C.is_day_centre(i)]
+        night = [i for i in shelters if not C.is_day_centre(i) and i.get("kind") != "young_people"]
         row = C.coverage(warm, night, day, [BRIGHTON])[0]
         self.assertGreaterEqual(row["warm"], 25)
         self.assertEqual(row["day_centres"], 2)
-        self.assertEqual(row["shelters"], 0)
+        self.assertEqual(row["shelters"], 1)  # BHT Phase One hostel (31 Oct 2026); the Foyer is young people's housing, not counted
         self.assertEqual(row["gaps"], [])
 
     def test_watch_returns_zero_when_the_alert_cannot_be_sent(self):
