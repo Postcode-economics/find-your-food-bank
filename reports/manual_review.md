@@ -400,7 +400,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
-### Warm spaces: 5140 queued, 4 rejected
+### Warm spaces: 7310 queued, 6 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Community Centre · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
@@ -705,5 +705,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - rejected Ochiltree Hub · KA18 2PE · https://www.east-ayrshire.gov.uk/Community/cost-of-living/cost-of-living.aspx — dates all in the past (latest 2023-01-24)
 - rejected Sacred Heart Church Wadhurst · TN5 6DQ · http://sacredheartchurchwadhurst.org.uk/ — own site does not mention a warm space; own site says closed: ss the church and congratulate the parish. Sadly St Peter’s has now closed. Photography by: Daniel Archer Facebook © 2026 Sacred Heart
 - rejected Stonehouse Youth Club · GL10 2DG · https://www.thedoor.org.uk — postcode not on own site; own site does not mention a warm space; own site says closed: ade goods. 2006 – Light at The Door mentoring begins Having closed down our counselling service 2 years earlier 
+- rejected Olive Grove Community Cafe · PR1 2NL · https://centralmethodist.org.uk — own site says closed: ed into the Fox St reet Night Shelter. Although the shelter is now closed due to decisions made by the operator during covid, our mem
+- rejected Baltic Front Room · NE8 3BA · https://baltic.art/experience-your-baltic/front-room/ — own site says closed: top Six Rooftop Restaurant operated by Fresh Element is now permanently closed. To enquire about hiring this space for an event please con
 
 <!-- END AUTO-DISCOVERY QUEUE -->
