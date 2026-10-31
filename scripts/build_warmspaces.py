@@ -82,6 +82,24 @@ for k, why in {"Council warm spaces / warm hubs pages (~360 councils)": "no comm
     sources[k] = {"status": "not scraped: " + why}
 prev = load_js(OUT, "WARMSPACES")
 PREV_ITEMS = list((prev or {}).get("items", []))  # last published list, for carry-forward (never drop a venue)
+_prev_by_id = {x["id"]: x for x in PREV_ITEMS}
+try:
+    import subprocess
+    import publish_gate as _pg
+    _main_items = _pg.split(subprocess.check_output(["git", "show", "origin/main:warmspaces.js"],
+                                                    cwd=os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."), text=True))[1]["items"]
+    _main_by_id = {x["id"]: x for x in _main_items}
+except Exception:
+    _main_by_id = {}
+for x in fresh:
+    p = _prev_by_id.get(x["id"]) or _main_by_id.get(x["id"])
+    if not p:
+        continue
+    if p.get("provided") and not x.get("provided"):
+        x["provided"] = p["provided"]
+    for k in ("sign_url", "checked_on"):
+        if p.get(k) and not x.get(k):
+            x[k] = p[k]
 import phone_lock
 LIVE_COUNCIL = phone_lock.live_council(PREV_ITEMS)  # council lines only change through a reviewed PR (Dean, 29 Oct 2026)
 # Verification gate: publish only allowlisted warm spaces (independently confirmed for the current season).

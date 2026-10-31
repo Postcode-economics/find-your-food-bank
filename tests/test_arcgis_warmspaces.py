@@ -45,7 +45,7 @@ class Reader(unittest.TestCase):
         self.assertNotIn("Wed", by["Bevendean Community Church"])  # "Wednesday (Open house)" has no clock time
         self.assertEqual(by["Jubilee Library"]["Tue"], "10:00 - 19:00")
         self.assertEqual(by["The Hop 50+"]["Fri"], "Closed")
-        self.assertEqual(by["Hove Methodist Church"], {"Fri": "10:00 - 11:30"})  # only the Chatty Cafe line is a clear clock time
+        self.assertEqual(by["Hove Methodist Church"], {"Fri": "10:00 - 11:30", "Sun": "10:30 - 11:30"})
         self.assertEqual(by["Woodingdean Methodist Church"], {"Thu": "10:00 - 11:30"})
         self.assertEqual(by["First Church of Christ Scientist"]["Sun"], "11:00 - 12:00")
         for rec in records:

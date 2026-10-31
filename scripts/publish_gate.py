@@ -38,6 +38,35 @@ def approved_new():
     for f in ('overrides/foodbank_approved_new.json', 'overrides/foodbank_added.json'):
         ok |= {k for k in load(f, {}) if not k.startswith('_')}
     return ok
+
+def _arcgis_feed_urls(root=ROOT):
+    cfg = load('overrides/arcgis_warmspaces.json', {})
+    return {f.get('url') or '' for f in (cfg.get('feeds') or []) if f.get('url')}
+
+LANCS_HOLD = "Lancashire feed not yet confirmed for 2026-27"
+STILL_WATERS_HOLD = "Cherwell Still Waters: phone only on council feed, not on venue website"
+
+
+def warmspace_publish_holds(i):
+    pr = []
+    iid = str(i.get("id") or "")
+    if iid.startswith("lancs-"):
+        pr.append(LANCS_HOLD)
+    if iid.startswith("cherwell-") and "still-waters" in iid:
+        pr.append(STILL_WATERS_HOLD)
+    return pr
+
+
+def council_listed_warmspace(i, root=ROOT):
+    """Dean 31 Oct 2026 18:31 GMT: a council ArcGIS warm-space row with address and verified phone publishes without per-id OK."""
+    if warmspace_publish_holds(i):
+        return False
+    if not (i.get('address') or i.get('postcode')):
+        return False
+    if problems('warmspaces', i):
+        return False
+    src = i.get('source_url') or i.get('evidence_url') or ''
+    return src in _arcgis_feed_urls(root)
 def _row(i, pr, now, secrets):
     """Pending row. A private-blocklist hit copies no name, address, phone, or source."""
     if secrets and private_block.matches(i, secrets):
@@ -74,13 +103,18 @@ def gate(layer, ref='HEAD'):
     for i in d['items']:
         if phone_lock.settle_council(i): dirty = True  # no verified out-of-hours line: council line stays hidden
     for i in d['items']:
+        pr = warmspace_publish_holds(i) if layer == 'warmspaces' else []
         if live is None:
-            pr = []
+            if not pr:
+                pr = []
         else:
-            pr = [] if i['id'] in live else problems(layer, i)
+            if i['id'] not in live:
+                pr = pr + problems(layer, i)
             if layer == 'foodbanks' and i['id'] in ok:
                 pr = [p for p in pr if p != 'no verified phone']  # Dean-approved food banks may have no published phone (verified details only, 26 Oct)
-            if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok: pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
+            if not auto_rules.may_add(layer, RULES) and i['id'] not in live and i['id'] not in ok:
+                if not (layer == 'warmspaces' and council_listed_warmspace(i)):
+                    pr = ['new place - waiting for your OK (add id to overrides/approved_new_places.json)'] + pr
         if secrets and private_block.matches(i, secrets):
             pr = ['private details — not published']
             gate.last_privacy = True
@@ -92,6 +126,11 @@ def gate(layer, ref='HEAD'):
         open(f, 'w').write(pre + (json.dumps(d) if layer == 'foodbanks' else json.dumps(d, ensure_ascii=False, separators=(',', ':'))) + post)
     lg = load('logs/pending_dean.json', {}); now = datetime.date.today().isoformat()
     lg[layer] = [_row(i, pr, now, secrets) for i, pr in held]
+    if layer == 'warmspaces':
+        lg[layer] = [x for x in lg[layer] if LANCS_HOLD not in x.get('why', [])]
+        for s in load('logs/arcgis_lancs_pending.json', []):
+            lg[layer].append(dict(id='lancs-pending-%s' % (s.get('objectid') or 'x'), name=s.get('name'), postcode=s.get('postcode'),
+                                  source='Lancashire County Council warm spaces', why=[LANCS_HOLD], held_on=now))
     json.dump(lg, open(os.path.join(ROOT, 'logs', 'pending_dean.json'), 'w'), indent=1, ensure_ascii=False)
     md = ['# New places held back for Dean (not published)', '', 'No new place (food bank, shelter or warm space) is added automatically: each waits here for your OK (add its id under its layer in overrides/approved_new_places.json). Approved shelters / warm spaces also need a verified phone number (shelters also a sourced "who it\'s for") before it goes on the map.', '']
     for L, xs in lg.items():
