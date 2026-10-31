@@ -104,8 +104,88 @@ def _name_window(text, name):
     return text[max(0, i - 400):i + 500]
 
 
-def quote_for_venue(text, name, postcode):
-    """Weekday + clock time tied to this venue, or None. Never guesses across a multi-venue page."""
+FLAT_ADDR = re.compile(r"\bflat\s+\d+[a-z]?\b", re.I)
+OTHER_SERVICE = re.compile(r"\b(?:pantr(?:y|ies)|food[-\s]*clubs?|food[-\s]*banks?|foodbanks?|caf[eé]s?)\b", re.I)
+WARM_TIE = re.compile(r"warm\s*(?:space|spaces|hub|welcome|room|place)", re.I)
+
+
+def clean_address(addr):
+    """Drop a 'Flat N' fragment. It is not a street address."""
+    if not addr:
+        return ""
+    s = FLAT_ADDR.sub("", addr)
+    s = re.sub(r"\s+,", ",", s)
+    s = re.sub(r"(,\s*)+", ", ", s)
+    s = re.sub(r"\s+", " ", s).strip(" ,")
+    return s
+
+
+def _page_identity(html):
+    """Title, first heading, and site name: who the page says it is."""
+    html = html or ""
+    title = ""
+    m = re.search(r"<title[^>]*>(.*?)</title>", html, re.I | re.S)
+    if m:
+        title = discover.text_of(m.group(1))
+    h1 = ""
+    m = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.I | re.S)
+    if m:
+        h1 = discover.text_of(m.group(1))
+    site = ""
+    m = re.search(r'<meta[^>]+property=["\']og:site_name["\'][^>]+content=["\']([^"\']*)["\']', html, re.I)
+    if not m:
+        m = re.search(r'<meta[^>]+content=["\']([^"\']*)["\'][^>]+property=["\']og:site_name["\']', html, re.I)
+    if m:
+        site = m.group(1).strip()
+    return title, h1, site
+
+
+def org_differs(name, url, html):
+    """True when the page presents a different organisation from the warm space.
+
+    A council page (.gov.uk) can be the venue's own page. A gallery or other
+    named organisation whose title, heading and site name do not share the
+    venue's name is not that page.
+    """
+    if _gov(url):
+        return False
+    title, h1, site = _page_identity(html)
+    identity = " ".join(x for x in (title, h1, site) if x)
+    venue = discover.tokens(name)
+    if not venue or not identity:
+        return False
+    named = discover.tokens(identity)
+    if venue & named:
+        return False
+    if venue & discover.tokens(discover.host(url).replace(".", " ")):
+        return False
+    return bool(named)
+
+
+def service_hours_only(quote, name, kind, text=""):
+    """Pantry, food-club or café hours are not a warm space's hours unless the page ties them to it.
+
+    The stored quote is often only the clock line, so the check reads the page text those
+    hours were taken from. A listing that is itself a café or pantry keeps those hours.
+    """
+    if kind not in ("ws", "warmspaces"):
+        return False
+    blob = " ".join(x for x in (text, quote) if x)
+    if not blob or not OTHER_SERVICE.search(blob):
+        return False
+    if WARM_TIE.search(blob):
+        return False
+    if OTHER_SERVICE.search(name or ""):
+        return False
+    return True
+
+
+def quote_for_venue(text, name, postcode, kind=None):
+    """Weekday + clock time tied to this venue, or None. Never guesses across a multi-venue page.
+
+    For a warm space, pantry, food-club or café hours are not evidence unless the same
+    text ties them to the warm space, or the listing itself is that café or pantry.
+    """
     text = text or ""
     pc = discover.norm_pc(postcode)
     if pc and pc in text.upper().replace(" ", ""):
@@ -129,7 +209,10 @@ def quote_for_venue(text, name, postcode):
     raw = (got.get("quote") or got.get("raw") or "").strip()
     if not raw or not CLOCK.search(raw) or not DAYW.search(raw):
         return None
-    return re.sub(r"\s+", " ", raw)[:240]
+    raw = re.sub(r"\s+", " ", raw)[:240]
+    if service_hours_only(raw, name, kind, block):
+        return None
+    return raw
 
 
 def needs_follow(url, text, name, postcode):
@@ -158,7 +241,7 @@ def _record(c, kind, evidence_url, quote, found_via, day):
         "layer": LAYER.get(kind, kind),
         "name": c.get("name") or "",
         "postcode": c.get("postcode") or "",
-        "address": c.get("address") or "",
+        "address": clean_address(c.get("address") or ""),
         "evidence_url": evidence_url,
         "day_time_quote": quote,
         "source_url": c.get("source_url") or c.get("directory_url") or "",
@@ -321,10 +404,14 @@ def _pass_on(c, kind, res, found_via, day, home):
     final = res.get("final_url") or ""
     if final and not _same_site(final, home):
         return None
-    q = quote_for_venue(_page_text(res), c.get("name"), c.get("postcode"))
+    q = quote_for_venue(_page_text(res), c.get("name"), c.get("postcode"), kind)
     if not q:
         return None
-    return _record(c, kind, final or home, q, found_via, day)
+    evidence = final or home
+    html = res.get("html") or ""
+    if org_differs(c.get("name"), evidence, html):
+        return None
+    return _record(c, kind, evidence, q, found_via, day)
 
 
 def follow(c, kind, budget, day=None, landing=None):
@@ -391,10 +478,12 @@ def consider(c, check, decision, kind, budget, day):
     if not discover.usable_site(url):
         return None
     text = (check or {}).get("_text") or ""
-    if text and quote_for_venue(text, c.get("name"), c.get("postcode")):
+    html = (check or {}).get("html") or ""
+    direct_quote = quote_for_venue(text, c.get("name"), c.get("postcode"), kind) if text else None
+    if direct_quote:
         final = (check or {}).get("final_url") or url
-        if _same_site(final, url) or _gov(url):
-            return _record(c, kind, final, quote_for_venue(text, c.get("name"), c.get("postcode")), "direct", day)
+        if (_same_site(final, url) or _gov(url)) and not org_differs(c.get("name"), final, html):
+            return _record(c, kind, final, direct_quote, "direct", day)
     if text and not needs_follow(url, text, c.get("name"), c.get("postcode")):
         return None
     if not text and not needs_follow(url, text, c.get("name"), c.get("postcode")):
