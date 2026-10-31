@@ -29,13 +29,13 @@ def error_line(name, exc):
     """Name the feed and, for an HTTP error, the status code. Never the body, and never a key."""
     if isinstance(exc, urllib.error.HTTPError): return "%s: HTTP %s" % (name, exc.code)
     return "%s: %s" % (name, exc.__class__.__name__)
-def get(u, headers=None):
+def get(u, headers=None, timeout=30):
     import rate_ledger
     if not rate_ledger.LEDGER.allow(u):
         rate_ledger.LEDGER.record(u, 429)
         raise urllib.error.HTTPError(u, 429, "paused this run", None, None)
     try:
-        body = urllib.request.urlopen(urllib.request.Request(u, headers=dict({"User-Agent": "helpmap.uk"}, **(headers or {}))), timeout=30).read()
+        body = urllib.request.urlopen(urllib.request.Request(u, headers=dict({"User-Agent": "helpmap.uk"}, **(headers or {}))), timeout=timeout).read()
     except urllib.error.HTTPError as e:
         rate_ledger.LEDGER.record(u, e.code); raise
     rate_ledger.LEDGER.record(u, 200)
@@ -223,6 +223,60 @@ def flood_phrase(nation=None, postcode=None):
 def fmt_until(v):
     t = _as_dt(v).astimezone(ZoneInfo("Europe/London"))
     return "%02d:%02d %s %d %s" % (t.hour, t.minute, _DAYS[t.weekday()], t.day, _MONTHS[t.month - 1])
+
+def fmt_checked(v):
+    """UK clock time for the banner and card, e.g. 'Checked 6:03am, Sat 31 Oct'."""
+    t = _as_dt(v).astimezone(ZoneInfo("Europe/London"))
+    h24 = t.hour
+    h = h24 % 12 or 12
+    ap = "am" if h24 < 12 else "pm"
+    return "Checked %d:%02d%s, %s %d %s" % (h, t.minute, ap, _DAYS[t.weekday()], t.day, _MONTHS[t.month - 1])
+
+def clip_words(text, limit):
+    """Shorten on a word boundary. A single long word is kept whole."""
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= limit:
+        return text
+    head = text[:limit]
+    if " " not in head:
+        return text.split(" ", 1)[0]
+    return head.rsplit(" ", 1)[0].rstrip(" ,;:-–—")
+
+def incident_phrase(text):
+    """Short incident wording: flood, gas leak, fire, evacuation, power cut, or 'an incident'."""
+    import rest_centre_scan as rcs
+    t = text or ""
+    m = rcs.ON.search(t)
+    blob = t[max(0, m.start() - 40): m.end() + 200] if m else t
+    if re.search(r"\bgas leak\b", blob, re.I):
+        return "gas leak"
+    if re.search(r"\bpower cut\b|\bpower outage\b", blob, re.I):
+        return "power cut"
+    if re.search(r"\bflood", blob, re.I):
+        return "flood"
+    if re.search(r"\bevacuat", blob, re.I):
+        return "evacuation"
+    fire = re.search(r"\bfire\b", blob, re.I)
+    service = re.search(r"\bfire (and rescue|service|brigade)\b", blob, re.I)
+    stated = re.search(r"\b(opened for|due to|because of)\s*:?\s*fire\b", blob, re.I)
+    if fire and (stated or not service):
+        return "fire"
+    return "an incident"
+
+def place_name(text):
+    """Venue named after 'at'. Otherwise 'Rest centre'. Never a chopped sentence."""
+    m = re.search(r"\bat\s+((?:the\s+)?[A-Za-z0-9][^.\n]{1,70})", text or "")
+    if not m:
+        return "Rest centre"
+    raw = m.group(1).strip()
+    raw = re.split(r"\b(for|after|due|because|following|open until|opened for|which|where|when|from)\b", raw, maxsplit=1, flags=re.I)[0]
+    raw = re.split(r"[,;]", raw, maxsplit=1)[0]
+    raw = re.sub(r"\s+", " ", raw).strip(" -–—")
+    raw = re.sub(r"\s+[A-Z]{1,2}\d[\dA-Z]?\s*\d[A-Z]{2}$", "", raw).strip()
+    name = clip_words(raw, 80)
+    if not name or len(name) < 3:
+        return "Rest centre"
+    return name
 
 def fetch_all(getter, key):
     """Same four public feeds as main(), then NRW only when a key is present. The key is never copied into errors."""
@@ -448,14 +502,9 @@ def parse_announcement(text, council, url, now=None):
         return {"official_council": True, "closed": True, "council": council, "url": url, "category": INCIDENT_CATEGORY}
     if not rcs.rest_centre_on(text):
         return None
-    m = re.search(r"\bat ([A-Z][^.\n]{2,80})", text)
-    if not m: return {"official_council": True, "review": True, "council": council, "url": url, "reason": "no name stated by the source"}
-    rec = {"official_council": True, "name": m.group(1).strip().rstrip(","), "council": council, "url": url,
-           "added": _as_dt(now) if now else None, "address": "", "category": INCIDENT_CATEGORY}
-    cm = re.search(r"\b(?:opened for|due to|because of)\s*:?\s*([A-Za-z][A-Za-z \-]{0,40})", text, re.I)
-    if cm:
-        cause = re.split(r"\b(open until|pets|access|beds)\b", cm.group(1).strip().rstrip("."), flags=re.I)[0].strip()
-        if cause: rec["opened_for"] = cause
+    rec = {"official_council": True, "name": place_name(text), "council": council, "url": url,
+           "added": _as_dt(now) if now else None, "address": "", "category": INCIDENT_CATEGORY,
+           "opened_for": incident_phrase(text)}
     if re.search(r"\bpets?\b[^.]{0,40}\ballowed\b", text, re.I): rec["pets"] = "allowed"
     if re.search(r"\bstep-free\b", text, re.I): rec["access"] = "step-free"
     bm = re.search(r"\b(\d+)\s+beds?\b", text, re.I)

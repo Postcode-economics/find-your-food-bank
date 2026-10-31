@@ -80,6 +80,7 @@ def incident_record(page, now=None):
     lad = council_lad.lad_for_council(council)
     if lad:
         src["lad"] = lad
+    src["checked_label"] = weather.fmt_checked(now or datetime.datetime.now(datetime.timezone.utc))
     return src
 
 
@@ -93,6 +94,7 @@ def sync_from_pages(pages, root=None, now=None):
     state = load_state(os.path.join(root, STATE))
     inc = state.get("incidents") or {}
     seen = set()
+    confirmed_off = set()
     for p in pages or []:
         key = (p.get("council") or "") + "|" + (p.get("url") or "")
         rec = incident_record(dict(p, _text=p.get("_text") or ""), now=now)
@@ -104,11 +106,27 @@ def sync_from_pages(pages, root=None, now=None):
                 card["council"] = p.get("council")
                 card["lad"] = rec.get("lad")
                 card["quote"] = rec.get("quote")
-                card["checked_at"] = now.isoformat(timespec="seconds")
+                card["last_checked"] = rec.get("checked_label") or weather.fmt_checked(now)
+                card["checked_at"] = card["last_checked"]
+                prev = (inc.get(key) or {}).get("card") or {}
+                if prev.get("open_until") and not weather.browser_hide(prev.get("open_until"), now):
+                    card["open_until"] = prev["open_until"]
+                    if prev.get("open_until_label"):
+                        card["open_until_label"] = prev["open_until_label"]
                 inc[key] = {"council": p.get("council"), "url": p.get("url"), "card": card}
                 seen.add(key)
+            elif p.get("http") in (200, None) and p.get("url"):
+                confirmed_off.add(p.get("url"))
+        elif p.get("http") in (200, None) and p.get("url"):
+            confirmed_off.add(p.get("url"))
     for key in list(inc):
-        if key not in seen:
+        url = (inc[key].get("url") or "")
+        card = (inc[key].get("card") or {})
+        if key in seen:
+            continue
+        if url and url in confirmed_off:
+            del inc[key]
+        elif weather.browser_hide(card.get("open_until"), now):
             del inc[key]
     state["incidents"] = inc
     state["updated"] = now.isoformat(timespec="seconds")
@@ -149,3 +167,25 @@ def weather_browser_hide(card, now):
     import weather
 
     return weather.browser_hide(card.get("open_until"), now)
+
+
+def drop_expired(root=None, now=None):
+    """Remove live cards whose open-until time has passed. Returns the removed records. Does not rewrite the file when nothing expired."""
+    root = root or ROOT
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    import weather
+    state = load_state(os.path.join(root, STATE))
+    inc = state.get("incidents") or {}
+    gone = []
+    for key, v in list(inc.items()):
+        card = v.get("card") or {}
+        if weather.browser_hide(card.get("open_until"), now):
+            gone.append(v)
+            del inc[key]
+    if not gone:
+        return []
+    state["incidents"] = inc
+    state["updated"] = now.isoformat(timespec="seconds")
+    save_state(state, os.path.join(root, STATE))
+    write_public(root=root, state=state, now=now)
+    return gone

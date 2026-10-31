@@ -82,15 +82,24 @@ def run(fetcher=None, run_day=None, threads=8):
         o = prev.get(p["url"])
         if o and o["status"] != p["status"] and "active" in (o["status"], p["status"]) or (not o and p["status"] == "active"):
             changes.append({"council": p["council"], "url": p["url"], "from": (o or {}).get("status", "new"), "to": p["status"], "quote": p["quote"]})
-    try:
-        import incident_rest_centre_switch_on as irso
-        irso.apply(prev_pages, pages, run_day=run_day, root=os.getcwd())
-    except Exception as e:
-        print("incident_rest_centre_switch_on:", e, file=sys.stderr)
+    rc_pages, rc_seconds, rc_prev = _rest_centre_pages(run_day)
+    saved = []
     for p in pages:
-        p.pop("_text", None)
-    out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in pages if p["status"] == "active"], "changes": changes, "pages": pages}
+        q = dict(p)
+        q.pop("_text", None)
+        saved.append(q)
+    out = {"run": run_day, "sources": len(srcs), "active": [p["council"] for p in saved if p["status"] == "active"], "changes": changes, "pages": saved}
     json.dump(out, open(LOG, "w"), indent=1, ensure_ascii=False)
+    try:
+        import rest_centre_sources as rcsrc
+        rcsrc.save_log(rc_pages, run_day, rc_seconds)
+    except Exception as e:
+        print("::error::rest centre (council-run) log failed: %s: %s" % (type(e).__name__, e), file=sys.stderr)
+    alert_error = _switch_on(prev_pages, rc_prev, pages, rc_pages, run_day)
+    if alert_error:
+        out["alert_error"] = alert_error
+    if rc_pages:
+        print("rest centre (council-run) scan: %d pages in %.0fs" % (len(rc_pages), rc_seconds or 0))
     return out
 def discover(fetcher=None, councils_path="scripts/sweep_sources.json", budget_s=1500):
     """Overnight: scan council sites for SWEP / rough sleeping pages. Adds new URLs to overrides/swep_sources.json."""
@@ -175,11 +184,17 @@ def full(fetcher=None, run_day=None, threads=8):
         for p in c.get("pages", []):
             new_full_pages.append(dict(p, council=c.get("council"), url=p.get("url")))
     json.dump({"run": run_day, "coverage": cov, "councils": out}, open(FULL_LOG, "w"), indent=1, ensure_ascii=False)
+    rc_pages, rc_seconds, rc_prev = _rest_centre_pages(run_day)
     try:
-        import incident_rest_centre_switch_on as irso
-        irso.apply(prev_full_pages, new_full_pages, run_day=run_day, root=os.getcwd())
+        import rest_centre_sources as rcsrc
+        rcsrc.save_log(rc_pages, run_day, rc_seconds)
     except Exception as e:
-        print("incident_rest_centre_switch_on:", e, file=sys.stderr)
+        print("::error::rest centre (council-run) log failed: %s: %s" % (type(e).__name__, e), file=sys.stderr)
+    alert_error = _switch_on(prev_full_pages, rc_prev, new_full_pages, rc_pages, run_day)
+    if alert_error:
+        cov["alert_error"] = alert_error
+    if rc_pages:
+        print("rest centre (council-run) scan: %d pages in %.0fs" % (len(rc_pages), rc_seconds or 0))
     os.makedirs("reports", exist_ok=True)
     with open(FULL_MD, "w") as f:
         f.write("# SWEP daily full check (%s)\n\n%d councils: %d with a SWEP page, %d with a homeless line, %d active, %d flagged.\n\n" % (run_day, cov["councils"], cov["with_swep_page"], cov["with_line"], len(cov["active"]), cov["flagged"]))
@@ -187,7 +202,39 @@ def full(fetcher=None, run_day=None, threads=8):
         f.write("".join("- %s: %s\n" % (r["council"], "; ".join(r["flags"])) for r in out if r["flags"]) or "None.\n")
         f.write("\n## No SWEP page found\n\n" + "".join("- %s (%s)\n" % (r["council"], r["nation"]) for r in out if not r["pages"]))
     return cov
+def _rest_centre_pages(run_day):
+    try:
+        import rest_centre_sources as rcsrc
+        prev = rcsrc.load_log_pages()
+        pages, seconds = rcsrc.fetch_pages(run_day=run_day)
+        return pages, seconds, prev
+    except Exception as e:
+        print("::error::rest centre (council-run) page check failed: %s: %s" % (type(e).__name__, e), file=sys.stderr)
+        return [], 0, []
+
+
+def _switch_on(prev_swep, prev_rc, new_swep, new_rc, run_day):
+    try:
+        import incident_rest_centre_switch_on as irso
+        snap = irso.load_snapshot(os.getcwd())
+        prev = snap or (list(prev_swep or []) + list(prev_rc or []))
+        result = irso.apply(prev, list(new_swep or []) + list(new_rc or []), run_day=run_day, root=os.getcwd())
+        return result.get("error")
+    except Exception as e:
+        msg = "%s: %s" % (type(e).__name__, e)
+        print("::error::rest centre switch-on alert or issue open/close failed: %s" % msg, file=sys.stderr)
+        return msg
+
+
+def finish(result):
+    if isinstance(result, dict) and result.get("alert_error"):
+        print("::error::rest centre switch-on alert or issue open/close failed: %s" % result["alert_error"], file=sys.stderr)
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     if sys.argv[1:] == ["discover"]: print(discover())
-    elif sys.argv[1:] == ["full"]: print(json.dumps(full()))
-    else: r = run(); print(r["sources"], "SWEP pages;", len(r["active"]), "active;", len(r["changes"]), "changes")
+    elif sys.argv[1:] == ["full"]:
+        r = full(); print(json.dumps({k: v for k, v in r.items() if k != "alert_error"})); finish(r)
+    else:
+        r = run(); print(r["sources"], "SWEP pages;", len(r["active"]), "active;", len(r["changes"]), "changes"); finish(r)

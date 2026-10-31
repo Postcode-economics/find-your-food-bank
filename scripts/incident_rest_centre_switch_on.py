@@ -7,6 +7,7 @@ import datetime, json, os, re, sys
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 TAG = "rest centre switch-on"
 STATE = "logs/incident_rest_centre_switch_state.json"
+SNAPSHOT = "logs/incident_rest_centre_pages.json"
 RUN = f"{os.environ.get('GITHUB_SERVER_URL','https://github.com')}/{os.environ.get('GITHUB_REPOSITORY','')}/actions/runs/{os.environ.get('GITHUB_RUN_ID','')}"
 
 SWEP_LABEL = "Severe weather shelter (SWEP)"
@@ -15,7 +16,12 @@ INCIDENT_LABEL = "Rest centres (incidents)"
 
 def _quote_excerpt(quote, limit=320):
     q = re.sub(r"\s+", " ", quote or "").strip()
-    return q[:limit] + ("…" if len(q) > limit else "")
+    if len(q) <= limit:
+        return q
+    head = q[:limit]
+    if " " not in head:
+        return q.split(" ", 1)[0]
+    return head.rsplit(" ", 1)[0].rstrip(" ,;:") + "…"
 
 
 def _location(text):
@@ -173,8 +179,8 @@ def close_activation(council, label, comment=None, category=None):
     alert.switch_on_close(council, label, comment, category=category)
 
 
-def transitions(prev_pages, new_pages, run_day=None):
-    if not prev_pages:
+def transitions(prev_pages, new_pages, run_day=None, allow_first=False):
+    if not prev_pages and not allow_first:
         return [], []
     prev = merge_pages(prev_pages, run_day)
     new = merge_pages(new_pages, run_day)
@@ -183,10 +189,34 @@ def transitions(prev_pages, new_pages, run_day=None):
     return on, off
 
 
-def apply(prev_pages, new_pages, run_day=None, root=None, detected_at=None):
+def _strip(pages):
+    out = []
+    for p in pages or []:
+        q = dict(p)
+        q.pop("_text", None)
+        out.append(q)
+    return out
+
+
+def load_snapshot(root=None):
+    root = root or ROOT
+    try:
+        return json.load(open(os.path.join(root, SNAPSHOT), encoding="utf-8")).get("pages") or []
+    except Exception:
+        return []
+
+
+def save_snapshot(pages, root=None):
+    root = root or ROOT
+    path = os.path.join(root, SNAPSHOT)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump({"pages": _strip(pages)}, open(path, "w"), indent=1, ensure_ascii=False)
+
+
+def apply(prev_pages, new_pages, run_day=None, root=None, detected_at=None, allow_first=False):
     root = root or os.getcwd()
     try:
-        on, off = transitions(prev_pages, new_pages, run_day)
+        on, off = transitions(prev_pages, new_pages, run_day, allow_first=allow_first)
         state = load_state(os.path.join(root, STATE))
         waiting = state.get("waiting") or {}
         for act in on:
@@ -201,18 +231,15 @@ def apply(prev_pages, new_pages, run_day=None, root=None, detected_at=None):
         state["updated"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
         save_state(state, os.path.join(root, STATE))
         sync_pending_dean(waiting, root=root)
-        try:
-            import incident_rest_centre_live as live
-            pages = []
-            for p in new_pages or []:
-                pages.append(dict(p))
-            live.sync_from_pages(pages, root=root, now=detected_at or datetime.datetime.now(datetime.timezone.utc))
-        except Exception as e:
-            print(f"incident_rest_centre_live (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
-        return {"opened": len(on), "closed": len(off), "waiting": len(waiting)}
+        save_snapshot(new_pages, root)
+        import incident_rest_centre_live as live
+        before = json.dumps((live.load_state(os.path.join(root, live.STATE)).get("incidents") or {}), sort_keys=True, default=str)
+        live.sync_from_pages(list(new_pages or []), root=root, now=detected_at or datetime.datetime.now(datetime.timezone.utc))
+        after = json.dumps((live.load_state(os.path.join(root, live.STATE)).get("incidents") or {}), sort_keys=True, default=str)
+        return {"opened": len(on), "closed": len(off), "waiting": len(waiting), "live_changed": before != after}
     except Exception as e:
-        print(f"incident_rest_centre_switch_on (non-fatal): {type(e).__name__}: {e}", file=sys.stderr)
-        return {"error": str(e)}
+        print(f"::error::rest centre switch-on alert or issue open/close failed: {type(e).__name__}: {e}", file=sys.stderr)
+        return {"error": f"{type(e).__name__}: {e}"}
 
 
 def enrich_page(page, visible_text, run_day=None):

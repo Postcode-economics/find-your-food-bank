@@ -38,6 +38,19 @@ class RestCentreScan(unittest.TestCase):
     def test_swep_ignored_without_rest_centre(self):
         self.assertFalse(R.rest_centre_on("SWEP is active tonight for rough sleepers."))
 
+    def test_news_page_linking_to_an_old_closed_incident_stays_off(self):
+        from page_visible import html_to_visible_text
+        html = """<html><body><h1>Council news</h1>
+        <ul><li><a href="/news/2019/rest-centre-closed">12 November 2019. A rest centre has been opened for those who have had to evacuate their properties. The rest centre is now closed.</a></li></ul>
+        </body></html>"""
+        text = html_to_visible_text(html)
+        today = __import__("datetime").date(2026, 10, 31)
+        self.assertFalse(R.rest_centre_on(text, today=today))
+        old_only = html_to_visible_text('<a href="/news/2019/old">12 November 2019. A rest centre has been opened at the leisure centre.</a>')
+        self.assertFalse(R.rest_centre_on(old_only, today=today))
+        current = "31 October 2026. A rest centre has been opened at Riverside Hall."
+        self.assertTrue(R.rest_centre_on(current, today=today))
+
     def test_planning_page_false_positive(self):
         url = "https://council.example/emergency-plan.pdf"
         text = "Rest centre plan and guidance: what to do if we open a rest centre."

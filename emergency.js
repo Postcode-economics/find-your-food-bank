@@ -25,7 +25,8 @@ function buttons(c,example){var call=c.phone?'<a class="em-call" href="tel:'+esc
 function attrs(c){var id=c.id||c.name||'';return ' data-em="'+esc(id)+'" data-lat="'+(c.lat==null?'':esc(c.lat))+'" data-lng="'+(c.lng==null?'':esc(c.lng))+'" data-open-until="'+esc(c.open_until||'')+'" data-lad="'+esc(c.lad||'')+'"'}
 function listCard(c,example){var fl=flood(c.postcode,c.nation);
  var quote=c.quote?'<p class="em-quote">'+esc(c.quote)+'</p>':'';
- var dl=row('Opened by',c.opened_by||c.council)+row('Opened for',c.opened_for)+row('Open until',c.open_until_label)+row('Pets',c.pets)+row('Access',c.access)+row('Beds',c.beds)+row('Last checked',c.last_checked||c.checked_at);
+ var when=checkedLabel(c.last_checked||c.checked_at);
+ var dl=row('Opened by',c.opened_by||c.council)+row('Opened for',c.opened_for)+row('Open until',c.open_until_label)+row('Pets',c.pets)+row('Access',c.access)+row('Beds',c.beds)+row('Checked',when.replace(/^Checked\s+/,''));
  var src=c.source_url?'<p class="em-src"><a href="'+esc(c.source_url)+'">Council page</a></p>':'';
  return '<article class="em-card"'+attrs(c)+'><span class="em-badge">'+esc(BADGE)+'</span><h3 class="em-title">'+esc(c.name)+'</h3>'+quote+(dl?'<dl class="em-dl">'+dl+'</dl>':'')+buttons(c,example)+'<div class="em-flood"><span>'+esc(fl[0])+'</span><span>'+esc(fl[1])+'</span></div>'+src+'</article>'}
 function popCard(c,example){return '<article class="em-card em-pop"'+attrs(c)+'><span class="em-badge">'+esc(BADGE)+'</span><h3 class="em-title">'+esc(c.name)+'</h3><p class="em-sub">Open until '+esc(c.open_until_label||'')+'</p>'+buttons(c,example)+'</article>'}
@@ -68,10 +69,19 @@ function locationReady(){var known=readSearched();if(known)return Promise.resolv
 function goNearest(){return locationReady().then(function(loc){reveal(choose(loc))})}
 hit.addEventListener('click',function(e){e.preventDefault();goNearest()});
 banner.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(a)return;if(e.target.closest&&e.target.closest('.em-hit'))return;goNearest()});
+function checkedLabel(raw){var s=String(raw==null?'':raw).trim();if(!s)return '';
+ if(/^Checked\s+\d{1,2}:\d{2}(am|pm),/i.test(s))return 'Checked '+s.replace(/^Checked\s+/i,'');
+ if(!/^\d{4}-\d{2}-\d{2}/.test(s))return s;
+ var d=new Date(s);if(isNaN(d.getTime()))return s;
+ var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hourCycle:'h23',weekday:'short',day:'numeric',month:'short'}).formatToParts(d);
+ var g={};parts.forEach(function(p){if(p.type!=='literal')g[p.type]=p.value});
+ var h24=parseInt(g.hour,10);if(isNaN(h24)||!g.minute)return s;
+ var ap=h24<12?'am':'pm',h=h24%12||12;
+ return 'Checked '+h+':'+g.minute+ap+', '+g.weekday+' '+g.day+' '+g.month}
 function liveBannerText(cards,data){if(!cards.length)return '';
- var c=cards[0], council=c.opened_by||c.council||'The council', incident=c.opened_for||'the incident', src=c.source_url||'', chk=c.last_checked||c.checked_at||data.generated||'';
+ var c=cards[0], council=c.opened_by||c.council||'The council', incident=c.opened_for||'an incident', src=c.source_url||'', chk=checkedLabel(c.last_checked||c.checked_at||data.generated||'');
  var lead='Rest centre open: '+council+' has opened a rest centre for people affected by '+incident+'.';
- var meta='Information from '+(src?'<a href="'+esc(src)+'">the council page</a>':'the council')+', checked '+esc(chk)+'. Follow advice from the emergency services and the council. In danger, call 999.';
+ var meta='Information from '+(src?'<a href="'+esc(src)+'">the council page</a>':'the council')+(chk?', '+esc(chk):'')+'. Follow advice from the emergency services and the council. In danger, call 999.';
  return esc(lead)+'<br>'+meta}
 function applyData(data){var lad=visitorLad();var cards=centresForArea(data,lad);if(isLive&&!lad){banner.hidden=true;root.innerHTML='';setKey(false);return}
  if(!cards.length){if(isLive){banner.hidden=true;root.innerHTML='';setKey(false)}return}
