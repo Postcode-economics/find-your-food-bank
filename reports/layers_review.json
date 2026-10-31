@@ -1,27 +1,6 @@
 {
  "shelters.js": {
-  "added": [
-   {
-    "id": "man-cambria-house-lifehouse",
-    "name": "Cambria House Lifehouse",
-    "tier": "verified"
-   },
-   {
-    "id": "man-howe-hill-young-people",
-    "name": "Howe Hill for Young People",
-    "tier": "verified"
-   },
-   {
-    "id": "man-robinson-court",
-    "name": "Robinson Court",
-    "tier": "verified"
-   },
-   {
-    "id": "man-union-terrace-hostel",
-    "name": "Union Terrace Hostel",
-    "tier": "verified"
-   }
-  ],
+  "added": [],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -180,7 +159,128 @@
   ]
  },
  "warmspaces.js": {
-  "added": [],
+  "added": [
+   {
+    "id": "bh-bn11uf-brighton-unitarian-church",
+    "name": "Brighton Unitarian Church",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn13be-first-church-of-christ-scientist",
+    "name": "First Church of Christ Scientist",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn15jd-withdean-sports-complex",
+    "name": "Withdean Sports Complex",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn21rl-openhouse-dg",
+    "name": "OpenHouse@DG",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn25pb-stanley-deason-leisure-centre",
+    "name": "Stanley Deason Leisure Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn26pa-woodingdean-methodist-church",
+    "name": "Woodingdean Methodist Church",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn32fl-the-hop-50",
+    "name": "The Hop 50+",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn32ww-king-alfred-leisure-centre",
+    "name": "King Alfred Leisure Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn35dr-hove-methodist-church",
+    "name": "Hove Methodist Church",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn411xr-portslade-library",
+    "name": "Portslade Library",
+    "tier": "verified"
+   },
+   {
+    "id": "bh-bn412ws-portslade-sports-centre",
+    "name": "Portslade Sports Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-55472979",
+    "name": "Jubilee Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-55473692",
+    "name": "Coldean library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-55474526",
+    "name": "Hangleton Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-55474875",
+    "name": "Hove Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-55474913",
+    "name": "Moulsecoomb Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-57952512",
+    "name": "St Andrew’s Church, Hove",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-57952647",
+    "name": "Saltdean Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-62827956",
+    "name": "The Good Shepherd, Prestonville",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-64379377",
+    "name": "Patcham Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-65345099",
+    "name": "St Mary the Virgin, Kemptown",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-68672319",
+    "name": "Whitehawk Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-68672327",
+    "name": "Woodingdean Library",
+    "tier": "verified"
+   },
+   {
+    "id": "ww-68672328",
+    "name": "Rottingdean Library",
+    "tier": "verified"
+   }
+  ],
   "removed": [],
   "changed": [],
   "tier_flips": [],
@@ -206,10 +306,6 @@
    {
     "id": "ww-57979418",
     "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
-   },
-   {
-    "id": "ww-57952197",
-    "reason": "schema: hours value invalid: Sat=Closed Monthly"
    },
    {
     "id": "ww-69189484",

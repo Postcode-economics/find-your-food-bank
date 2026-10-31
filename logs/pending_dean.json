@@ -24,6 +24,17 @@
    "held_on": "2026-10-31"
   },
   {
+   "id": "ww-57952197",
+   "name": "Bevendean Community Church",
+   "postcode": "BN2 4LT",
+   "source": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
+   "why": [
+    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
    "id": "ww-69389599",
    "name": "Bishops Offley Open House (BOOH!)",
    "postcode": "ST21 6HE",
@@ -41,6 +52,16 @@
    "source": "https://www.warmwelcome.uk/space?l=16503",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "bh-bn12te-churchill-square",
+   "name": "Churchill Square",
+   "postcode": "BN1 2TE",
+   "source": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
@@ -206,6 +227,16 @@
    "source": "https://www.warmwelcome.uk/space?l=26467",
    "why": [
     "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
+    "no verified phone"
+   ],
+   "held_on": "2026-10-31"
+  },
+  {
+   "id": "bh-bn33re-the-clarendon-centre",
+   "name": "The Clarendon Centre",
+   "postcode": "BN3 3RE",
+   "source": "https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json",
+   "why": [
     "no verified phone"
    ],
    "held_on": "2026-10-31"
