@@ -105,6 +105,53 @@ class Coverage(unittest.TestCase):
                  opener=lambda *a: opened.append(a), resolver=lambda *a: resolved.append(a))
         self.assertEqual(resolved, [("city-coverage",)])
 
+    def test_brighton_council_pins_count_and_eastbourne_does_not(self):
+        """Pins are the published lat/lng. Portslade is inside 10km; Eastbourne and Littlehampton are not."""
+        council = [
+            ("bh-bn11uf-brighton-unitarian-church", 50.823467, -0.139612),
+            ("bh-bn13be-first-church-of-christ-scientist", 50.8255, -0.152083),
+            ("bh-bn35dr-hove-methodist-church", 50.832656, -0.178244),
+            ("bh-bn32ww-king-alfred-leisure-centre", 50.825254, -0.178787),
+            ("bh-bn21rl-openhouse-dg", 50.821651, -0.133452),
+            ("bh-bn411xr-portslade-library", 50.838097, -0.210187),
+            ("bh-bn412ws-portslade-sports-centre", 50.850637, -0.225746),
+            ("bh-bn25pb-stanley-deason-leisure-centre", 50.824219, -0.101416),
+            ("bh-bn32fl-the-hop-50", 50.82696, -0.165955),
+            ("bh-bn15jd-withdean-sports-complex", 50.853857, -0.159544),
+            ("bh-bn26pa-woodingdean-methodist-church", 50.829356, -0.070322),
+            ("ww-55472979", 50.824983, -0.138814),
+        ]
+        far = [
+            ("ww-68672298", 50.78339, 0.25485),
+            ("ww-55473189", 50.814186, -0.547108),
+        ]
+        warm = [{"id": i, "lat": lat, "lng": lng} for i, lat, lng in council + far]
+        rows = C.coverage(warm, [], [], [BRIGHTON])
+        self.assertEqual(rows[0]["warm"], len(council))
+        self.assertFalse(any("fewer than 5" in g for g in rows[0]["gaps"]))
+        near = {i["id"] for i in C.within_pin(warm, BRIGHTON)}
+        self.assertTrue(all(i in near for i, _, _ in council))
+        self.assertTrue(all(i not in near for i, _, _ in far))
+
+    def test_published_warmspaces_file_counts_brighton(self):
+        root = os.path.join(os.path.dirname(__file__), "..")
+        warm = C.load_items(os.path.join(root, "warmspaces.js"))
+        shelters = C.load_items(os.path.join(root, "shelters.js"))
+        bh = [i["id"] for i in warm if str(i.get("id") or "").startswith("bh-")]
+        self.assertEqual(len(bh), 11)
+        near = {i["id"] for i in C.within_pin(C.active(warm), BRIGHTON)}
+        for i in bh:
+            self.assertIn(i, near)
+        self.assertNotIn("ww-68672298", near)
+        self.assertNotIn("ww-55473189", near)
+        day = [i for i in shelters if C.is_day_centre(i)]
+        night = [i for i in shelters if not C.is_day_centre(i)]
+        row = C.coverage(warm, night, day, [BRIGHTON])[0]
+        self.assertGreaterEqual(row["warm"], 25)
+        self.assertEqual(row["day_centres"], 2)
+        self.assertEqual(row["shelters"], 0)
+        self.assertEqual(row["gaps"], [])
+
     def test_watch_returns_zero_when_the_alert_cannot_be_sent(self):
         d = tempfile.mkdtemp()
         try:
