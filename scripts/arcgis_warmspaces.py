@@ -135,6 +135,45 @@ def _pairs(cleaned):
     return pairs
 
 
+def _prepare_council_hours_text(text):
+    """Normalise common council free-text hours before try_convert / hours_table."""
+    s = (text or "").replace("\r", "\n")
+    s = re.sub(r"\b(\d{1,2})\.(\d{2})\b", r"\1:\2", s)
+    s = re.sub(r"(\d)(am|pm)\b", r"\1 \2", s, flags=re.I)
+    out = []
+    for line in s.split("\n"):
+        line = re.sub(r"\s+", " ", line.strip())
+        if not line:
+            continue
+        line = re.sub(r"^(" + DAY + r")\s*:\s*", r"\1 ", line, flags=re.I)
+        line = re.sub(r"^every\s+(" + DAY + r")\s+from\s+", r"\1 ", line, flags=re.I)
+        m = re.match(r"^(\d{1,2}:\d{2}\s*-\s*\d{1,2}(?::\d{2})?)\s+(" + GROUP + r")\s*$", line, re.I)
+        if m:
+            line = "%s %s" % (m.group(2), m.group(1))
+        out.append(line)
+    return " | ".join(out)
+
+
+def _hours_from_norm(text):
+    """hours_norm.try_convert path -> uniform Mon..Sun table or (None, reason)."""
+    cleaned = _prepare_council_hours_text(text)
+    conv, err = H.try_convert(cleaned)
+    table = H.struct_to_hours(conv) if conv else None
+    if not table:
+        return None, err or "times are not a plain weekly timetable"
+    out = {}
+    for day in DAYS:
+        if day not in table:
+            continue
+        cell = _uniform_cell(table[day])
+        if not cell:
+            return None, "times are not in the uniform day format"
+        out[day] = cell
+    if not any(v != "Closed" for v in out.values()):
+        return None, "no times"
+    return {d: out[d] for d in DAYS if d in out}, ""
+
+
 def hours_table(text):
     """Feed wording -> {'Mon': '09:00 - 17:00', ...} or (None, reason). No guessed days."""
     raw = text or ""
@@ -150,25 +189,86 @@ def hours_table(text):
     if not table:
         found = _pairs(cleaned)
         if not found:
+            norm, nwhy = _hours_from_norm(raw)
+            if norm:
+                return norm, ""
             if not re.search(r"\b(?:" + DAY + r")\b", cleaned, re.I):
                 return None, "no weekday stated"
-            return None, err or "times are not a plain weekly timetable"
+            return None, nwhy or err or "times are not a plain weekly timetable"
         pieces = ["%s %s" % (days, body) for days, body in found]
         conv, err = H.try_convert(" | ".join(pieces))
         table = H.struct_to_hours(conv) if conv else None
         if not table:
-            return None, err or "times are not a plain weekly timetable"
+            norm, nwhy = _hours_from_norm(raw)
+            if norm:
+                return norm, ""
+            return None, nwhy or err or "times are not a plain weekly timetable"
     out = {}
     for day in DAYS:
         if day not in table:
             continue
         cell = _uniform_cell(table[day])
         if not cell:
+            norm, nwhy = _hours_from_norm(raw)
+            if norm:
+                return norm, ""
             return None, "times are not in the uniform day format"
         out[day] = cell
     if not any(v != "Closed" for v in out.values()):
         return None, "no times"
     return {d: out[d] for d in DAYS if d in out}, ""
+
+
+def _surrey_cell(cell):
+    cell = re.sub(r"\s+", " ", str(cell or "").replace("\xa0", " ")).strip()
+    cell = re.sub(r"\s*\([^)]*\)", "", cell).strip()
+    cell = cell.replace("\u2013", "-").replace("\u2014", "-")
+    cell = re.sub(r"\s+until\s+", " - ", cell, flags=re.I)
+    cell = re.sub(r"\bto\b", "-", cell, flags=re.I)
+    cell = re.sub(r"(\d)(am|pm)\b", r"\1 \2", cell, flags=re.I)
+    cell = re.sub(r"\b(\d{1,2})\.(\d{2})\b", r"\1:\2", cell)
+    cell = re.sub(r"(\d{1,2}:\d{2}:\d{2})", lambda m: m.group(1)[:5], cell)
+    if re.search(r"\bterm[\s-]?time\b", cell, re.I):
+        return None
+    if not cell or re.fullmatch(r"closed", cell, re.I):
+        return "Closed" if cell else None
+    parts = [p.strip() for p in re.split(r"\s+and\s+", cell, flags=re.I) if p.strip()]
+    norm = []
+    for part in parts:
+        if TIME_RE.match(part):
+            norm.append(part)
+            continue
+        conv, _ = H.try_convert("Monday %s" % part)
+        table = H.struct_to_hours(conv) if conv else None
+        if table and table.get("Mon"):
+            u = _uniform_cell(table["Mon"])
+            if u and u != "Closed":
+                norm.append(u)
+                continue
+        m = re.fullmatch(r"(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})", part)
+        if m:
+            part = "%s - %s" % (m.group(1), m.group(2))
+        if not TIME_RE.match(part):
+            return None
+        norm.append(part)
+    return " / ".join(norm)
+
+
+def hours_from_day_columns(attrs, columns):
+    """ArcGIS columns Monday..Sunday -> day table. attrs keys may be any case."""
+    low = {str(k).lower(): v for k, v in (attrs or {}).items()}
+    out = {}
+    quotes = []
+    for col, day in zip(columns, DAYS):
+        raw = low.get(str(col).lower())
+        cell = _surrey_cell(raw)
+        if cell is None:
+            continue
+        out[day] = cell
+        quotes.append("%s %s" % (day, cell))
+    if not out or not any(v != "Closed" for v in out.values()):
+        return None, "", "no times"
+    return {d: out[d] for d in DAYS if d in out}, " | ".join(quotes), ""
 
 
 def _slug(name, postcode):
@@ -191,13 +291,62 @@ def _attrs(feature):
     return {str(k).lower(): v for k, v in a.items()}
 
 
-def parse_features(features, feed, run_day):
-    """Return (records, skipped). records carry a provisional stable id; dedupe may replace it."""
-    prefix = (feed.get("id_prefix") or "bh").strip("-")
+def _coords(feature, attrs):
+    lat, lng = _num(attrs.get("latitude")), _num(attrs.get("longitude"))
+    if lat is not None and lng is not None:
+        return lat, lng
+    geom = feature.get("geometry") or {}
+    if "y" in geom and "x" in geom:
+        return _num(geom.get("y")), _num(geom.get("x"))
+    return None, None
+
+
+def _http_url(raw):
+    u = re.sub(r"\s+", "", str(raw or ""))
+    if not u or u.lower() in ("n/a", "none"):
+        return ""
+    if not re.match(r"https?://", u, re.I):
+        u = "https://" + u.lstrip("/")
+    return u
+
+
+def _record(feed, run_day, prefix, used, oid, name, address, pc, lat, lng, table, quote, notes, website, meta=None):
+    sid = "%s-%s" % (prefix, _slug(name, pc))
+    if sid in used:
+        sid = "%s-%s" % (sid, oid if oid is not None else len(used))
+    used.add(sid)
+    row = {
+        "id": sid,
+        "name": name,
+        "address": address,
+        "postcode": pc,
+        "lat": lat,
+        "lng": lng,
+        "phone": "",
+        "website": website,
+        "hours": table,
+        "hours_quote": quote,
+        "provided": [],
+        "booking": "Not stated",
+        "notes": notes[:240],
+        "scheme_end": "",
+        "scheme_dates": "Not stated by source",
+        "ended": False,
+        "source": feed.get("source") or "Council warm spaces",
+        "source_url": feed.get("url") or "",
+        "last_verified": run_day,
+        "stale": False,
+        "arcgis_objectid": oid,
+    }
+    if meta:
+        row.update(meta)
+    return row
+
+
+def _parse_brighton(features, feed, run_day, kept, skipped, used):
     source = feed.get("source") or "Council warm spaces"
-    url = feed.get("url") or ""
     website = feed.get("website") or ""
-    kept, skipped, used = [], [], set()
+    prefix = (feed.get("id_prefix") or "bh").strip("-")
     for feature in features or []:
         a = _attrs(feature)
         name = re.sub(r"\s+", " ", str(a.get("venue") or a.get("name") or "")).strip()
@@ -215,14 +364,10 @@ def parse_features(features, feed, run_day):
         if not table:
             skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": why or "no times"})
             continue
-        lat, lng = _num(a.get("latitude")), _num(a.get("longitude"))
+        lat, lng = _coords(feature, a)
         if lat is None or lng is None or not (49.8 <= lat <= 61 and -8.7 <= lng <= 2):
             skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
             continue
-        sid = "%s-%s" % (prefix, _slug(name, pc))
-        if sid in used:
-            sid = "%s-%s" % (sid, oid if oid is not None else len(used))
-        used.add(sid)
         quote = re.sub(r"\s+", " ", hours_raw).strip()
         notes = source
         if a.get("category"):
@@ -234,29 +379,184 @@ def parse_features(features, feed, run_day):
             notes += " Some days named in the feed had no clear clock time, so they are not shown."
         if why:
             notes += ". " + why
-        kept.append({
-            "id": sid,
-            "name": name,
-            "address": re.sub(r"\s+", " ", str(a.get("address") or "")).strip(),
-            "postcode": pc,
-            "lat": lat,
-            "lng": lng,
-            "phone": "",
-            "website": website,
-            "hours": table,
-            "hours_quote": quote,
-            "provided": [],
-            "booking": "Not stated",
-            "notes": notes[:240],
-            "scheme_end": "",
-            "scheme_dates": "Not stated by source",
-            "ended": False,
-            "source": source,
-            "source_url": url,
-            "last_verified": run_day,
-            "stale": False,
-            "arcgis_objectid": oid,
-        })
+        kept.append(_record(feed, run_day, prefix, used, oid, name,
+                            re.sub(r"\s+", " ", str(a.get("address") or "")).strip(), pc, lat, lng,
+                            table, quote, notes, website))
+
+
+def _parse_lancashire(features, feed, run_day, kept, skipped, used):
+    prefix = (feed.get("id_prefix") or "lancs").strip("-")
+    for feature in features or []:
+        a = _attrs(feature)
+        if str(a.get("orgapproved") or "").lower() != "yes":
+            skipped.append({"objectid": a.get("objectid"), "name": a.get("orgname"), "reason": "not OrgApproved"})
+            continue
+        name = re.sub(r"\s+", " ", str(a.get("orgname") or "")).strip()
+        addr = re.sub(r"\s+", " ", str(a.get("orgaddress") or "")).strip()
+        pc = _postcode(addr) or _postcode(str(a.get("postcode") or ""))
+        oid = a.get("objectid")
+        if not name:
+            skipped.append({"objectid": oid, "name": "object %s" % oid, "reason": "no venue name"})
+            continue
+        if not pc:
+            skipped.append({"objectid": oid, "name": name, "reason": "no postcode"})
+            continue
+        hours_raw = str(a.get("orgopentimes") or "").strip()
+        table, why = hours_table(hours_raw)
+        if not table:
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": why or "no times"})
+            continue
+        lat, lng = _coords(feature, a)
+        if lat is None or lng is None or not (49.8 <= lat <= 61 and -8.7 <= lng <= 2):
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
+            continue
+        share = str(a.get("orgcontactshare") or "").strip()
+        tel = re.sub(r"\s+", " ", str(a.get("orgtelephone") or "")).strip()
+        meta = {}
+        if tel and share in ("Both", "Telephone number"):
+            meta["_feed_phone"] = tel
+            meta["_feed_phone_source"] = feed.get("url") or ""
+        site = _http_url(a.get("orgwebsite")) or feed.get("website") or ""
+        quote = re.sub(r"\s+", " ", hours_raw).strip()
+        notes = feed.get("source") or "Lancashire warm spaces"
+        kept.append(_record(feed, run_day, prefix, used, oid, name, addr, pc, lat, lng, table, quote, notes, site, meta))
+
+
+def _parse_surrey(features, feed, run_day, kept, skipped, used):
+    prefix = (feed.get("id_prefix") or "surrey").strip("-")
+    cols = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    for feature in features or []:
+        a = _attrs(feature)
+        name = re.sub(r"\s+", " ", str(a.get("warm_welcome") or a.get("organisation") or "")).strip()
+        addr = re.sub(r"\s+", " ", str(a.get("address") or "")).strip()
+        pc = _postcode(addr)
+        oid = a.get("objectid")
+        if not name:
+            skipped.append({"objectid": oid, "name": "object %s" % oid, "reason": "no venue name"})
+            continue
+        if not pc:
+            skipped.append({"objectid": oid, "name": name, "reason": "no postcode"})
+            continue
+        table, quote, why = hours_from_day_columns(a, cols)
+        if not table:
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": why or "no times"})
+            continue
+        lat, lng = _coords(feature, a)
+        if lat is None or lng is None or not (49.8 <= lat <= 61 and -8.7 <= lng <= 2):
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
+            continue
+        notes = feed.get("source") or "Surrey warm welcome"
+        site = _http_url(a.get("library_accessibility_webpage")) or feed.get("website") or ""
+        meta = {"_venue_page": site} if site else {}
+        kept.append(_record(feed, run_day, prefix, used, oid, name, addr, pc, lat, lng, table, quote, notes,
+                            feed.get("website") or site, meta))
+
+
+def _parse_cherwell(features, feed, run_day, kept, skipped, used):
+    prefix = (feed.get("id_prefix") or "cherwell").strip("-")
+    for feature in features or []:
+        a = _attrs(feature)
+        name = re.sub(r"\s+", " ", str(a.get("event_name") or a.get("organisation") or "")).strip()
+        addr = re.sub(r"\s+", " ", str(a.get("address") or "")).strip()
+        pc = _postcode(addr)
+        oid = a.get("objectid")
+        times = str(a.get("opening_times") or "").strip()
+        if re.search(r"check\s+website", times, re.I):
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "hours say check website"})
+            continue
+        hours_raw = ("%s %s" % (a.get("opening_days") or "", times)).strip()
+        table, why = hours_table(hours_raw)
+        if not table:
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": why or "no times"})
+            continue
+        lat, lng = _coords(feature, a)
+        if lat is None or lng is None or not (49.8 <= lat <= 61 and -8.7 <= lng <= 2):
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
+            continue
+        site = _http_url(a.get("website")) or feed.get("website") or ""
+        quote = re.sub(r"\s+", " ", hours_raw).strip()
+        meta = {"_venue_page": site} if site else {}
+        kept.append(_record(feed, run_day, prefix, used, oid, name, addr, pc, lat, lng, table, quote,
+                            feed.get("source") or "Cherwell warm spaces", site, meta))
+
+
+def _parse_northumberland(features, feed, run_day, kept, skipped, used):
+    prefix = (feed.get("id_prefix") or "nland").strip("-")
+    consent = "do_you_give_permission_to_share_your_details_on_the_northumberland_county_council_website_which_includes_the_details_on_a_map_"
+    for feature in features or []:
+        a = _attrs(feature)
+        if str(a.get(consent) or "").lower() != "yes":
+            skipped.append({"objectid": a.get("objectid"), "name": a.get("space_or_place_name"), "reason": "no website consent"})
+            continue
+        name = re.sub(r"\s+", " ", str(a.get("space_or_place_name") or "")).strip()
+        addr = re.sub(r"\s+", " ", str(a.get("address") or "")).strip()
+        pc = _postcode(str(a.get("postcode") or "")) or _postcode(addr)
+        oid = a.get("objectid")
+        hours_raw = str(a.get("opening_times") or "").strip()
+        table, why = hours_table(hours_raw)
+        if not table:
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": why or "no times"})
+            continue
+        lat, lng = _coords(feature, a)
+        if lat is None or lng is None or not (49.8 <= lat <= 61 and -8.7 <= lng <= 2):
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
+            continue
+        quote = re.sub(r"\s+", " ", hours_raw).strip()
+        kept.append(_record(feed, run_day, prefix, used, oid, name, addr, pc, lat, lng, table, quote,
+                            feed.get("source") or "Northumberland warm spaces", feed.get("website") or ""))
+
+
+def _tower_hamlets_page(name):
+    n = (name or "").strip().lower()
+    if not n:
+        return ""
+    slug = n.replace("idea store ", "idea-store-")
+    slug = re.sub(r"\s+library$", "-library", slug)
+    slug = re.sub(r"[^a-z0-9-]+", "-", slug)
+    slug = re.sub(r"-+", "-", slug).strip("-")
+    return "https://www.ideastore.co.uk/visit-us/%s" % slug
+
+
+def _parse_tower_hamlets(features, feed, run_day, kept, skipped, used):
+    prefix = (feed.get("id_prefix") or "th").strip("-")
+    for feature in features or []:
+        a = _attrs(feature)
+        name = re.sub(r"\s+", " ", str(a.get("organisation_name") or "")).strip()
+        addr = re.sub(r"\s+", " ", str(a.get("organisation_address") or "")).strip()
+        pc = _postcode(addr)
+        oid = a.get("objectid")
+        hours_raw = str(a.get("openinghours") or "").strip()
+        table, why = hours_table(hours_raw)
+        if not table:
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": why or "no times"})
+            continue
+        lat, lng = _coords(feature, a)
+        if lat is None or lng is None or not (49.8 <= lat <= 61 and -8.7 <= lng <= 2):
+            skipped.append({"objectid": oid, "name": name, "postcode": pc, "reason": "no UK coordinates"})
+            continue
+        site = _http_url(a.get("website")) or feed.get("website") or ""
+        venue = _tower_hamlets_page(name) or site
+        quote = re.sub(r"\s+", " ", hours_raw).strip()
+        meta = {"_venue_page": venue} if venue else {}
+        kept.append(_record(feed, run_day, prefix, used, oid, name, addr, pc, lat, lng, table, quote,
+                            feed.get("source") or "Tower Hamlets warm hubs", venue or site, meta))
+
+
+PARSERS = {
+    "brighton": _parse_brighton,
+    "lancashire": _parse_lancashire,
+    "surrey": _parse_surrey,
+    "cherwell": _parse_cherwell,
+    "northumberland": _parse_northumberland,
+    "tower-hamlets": _parse_tower_hamlets,
+}
+
+
+def parse_features(features, feed, run_day):
+    """Return (records, skipped). records carry a provisional stable id; dedupe may replace it."""
+    kept, skipped, used = [], [], set()
+    parser = PARSERS.get((feed.get("format") or "brighton").lower(), _parse_brighton)
+    parser(features, feed, run_day, kept, skipped, used)
     return kept, skipped
 
 
@@ -319,7 +619,7 @@ def merge_records(fresh, records):
         fields = ("name", "address", "postcode", "lat", "lng", "hours", "website", "notes", "source", "source_url",
                   "booking", "provided", "scheme_end", "scheme_dates", "ended", "last_verified")
         if cur is None:
-            row = {k: v for k, v in rec.items() if k not in ("hours_quote", "arcgis_objectid")}
+            row = {k: v for k, v in rec.items() if k not in ("hours_quote", "arcgis_objectid") and not str(k).startswith("_")}
             fresh.append(row)
             by_id[row["id"]] = row
             added.append(row["id"])
