@@ -459,7 +459,7 @@ The 29 Oct 05:44 warm spaces refresh (477f83f73) gave these 16 warm spaces a cou
 
 Counts of held warm spaces, shelters and day-centre candidates within 10km of each top-20 city centre (outcode centroid). Not on the map.
 
-- London: 232 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
+- London: 230 warm spaces, 6 shelters, 0 day centres — main reason: not on allowlist
 - Birmingham: 74 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Manchester: 108 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Glasgow: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
@@ -471,13 +471,13 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Belfast: 11 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist; no independent website: Warm Welcome listing alone is not evidence
 - Leicester: 49 warm spaces, 1 shelter, 0 day centres — main reason: not on allowlist
 - Edinburgh: 14 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Cardiff: 65 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Cardiff: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Coventry: 35 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Bradford: 33 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Nottingham: 64 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Nottingham: 61 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Kingston upon Hull: 19 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Stoke-on-Trent: 25 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
-- Southampton: 57 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
+- Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 26 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
 208 held places had no outcode centroid, so they are not counted under a city.
