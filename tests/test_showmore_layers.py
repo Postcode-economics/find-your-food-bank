@@ -53,6 +53,15 @@ class Static(unittest.TestCase):
         body = js[i:js.index('document.addEventListener', i)]
         for bad in ('innerHTML=', 'fitBounds', 'setView', 'nearX(', 'nearest('):
             self.assertNotIn(bad, body.replace('tpl.innerHTML=', ''), 'Show more must append in place and never move the map')
+        self.assertIn('M8 15.5l8-7.5 8 7.5V24H8z', js)  # house symbol, same box as the sun and 16/25
+        self.assertIn('M3 3h26v26H21l-5 9-5-9H3z', js)  # existing square pin outline kept
+        self.assertIn("st.id='xsym'", js)
+        self.assertIn("youthOnly.sh&&i.kind!=='young_people'", js)
+        self.assertIn('mountShelterStrip', rd('v3.js'))
+        home = rd('index.html')
+        self.assertIn('data-f="youth"', home)
+        self.assertIn('Young people (16–25)', home)
+        self.assertIn('Pobl ifanc (16–25)', home)
 
     def test_cache_tag_is_the_new_layers_js(self):
         lh = 'h' + hashlib.sha256(open(os.path.join(R, 'layers.js'), 'rb').read()).hexdigest()[:12]
@@ -259,6 +268,35 @@ class Chrome(Journey, unittest.TestCase):
 
     def press(self, pg, k):
         pg.click('#xmore-' + k)
+
+    def test_shelter_filters_keep_show_more(self):
+        """Day centres and Young people (16–25) filter the shelters list. Show more still pages what remains."""
+        for w in (390, 1366):
+            with self.subTest(w=w):
+                pg = open_page(self.ctx('sh', w), self.base, 'sh')
+                search(pg, 'sh', 'SW1A 1AA')
+                self.assertTrue(pg.evaluate("() => {const e=document.getElementById('xsym');const s=getComputedStyle(e);return e.getClientRects().length>0&&s.display!=='none'}"))
+                pg.click('#xlist .v3dc')
+                self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5"))
+                ids = pg.evaluate(IDS, 'sh')
+                kinds = pg.evaluate("ids => ids.map(id => (SHELTERS.items.find(i => i.id === id) || {}).kind)", ids)
+                self.assertTrue(kinds and all(k == 'day_centre' for k in kinds), kinds)
+                self.assertTrue(pg.evaluate(BTN, 'sh')['shown'])
+                self.press(pg, 'sh')
+                self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length > 5"))
+                self.assertTrue(all(k == 'day_centre' for k in pg.evaluate(
+                    "ids => ids.map(id => (SHELTERS.items.find(i => i.id === id) || {}).kind)", pg.evaluate(IDS, 'sh'))))
+                pg.click('#xlist .v3dc')
+                self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5"))
+                pg.click('#chips [data-f=youth]')
+                self.assertTrue(until(pg, """() => {const cs=[...document.querySelectorAll('#xlist > .card.xsh')];
+                  return cs.length>=1 && cs.every(c => (SHELTERS.items.find(i => i.id === c.dataset.id) || {}).kind === 'young_people')}"""))
+                btn = pg.evaluate(BTN, 'sh')
+                self.assertTrue(btn is None or not btn['shown'])
+                pg.click('#chips [data-f=youth]')
+                self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5 && !!document.getElementById('xmore-sh')"))
+                self.assertTrue(pg.evaluate(BTN, 'sh')['shown'])
+                self.assertEqual(pg.errs, [])
 
     def test_click_through_both_lists_phone_and_desktop(self):
         for w in (390, 1366):

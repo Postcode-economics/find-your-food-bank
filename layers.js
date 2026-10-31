@@ -39,9 +39,22 @@ const v=x=>lang==='cy'&&VCY[x]?VCY[x]:x;
 const vdates=x=>lang==='cy'&&/^Until /.test(x||'')?'Tan '+fmt(x.slice(6)):v(x);
 const vreason=x=>lang==='cy'?String(x||'').replace(/^No longer listed by source \(unseen (\d+) days\)$/,'Nid yw’r ffynhonnell yn ei restru mwyach (heb ei weld ers $1 diwrnod)'):x;
 const LAYERS={sh:{file:'shelters.js',var:'SHELTERS',col:'#56B4E9',shape:'sq',on:false,data:null,group:null},ws:{file:'warmspaces.js',var:'WARMSPACES',col:'#D55E00',shape:'dia',on:false,data:null,group:null}};
-const SHP={sq:(c)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M9 18l7-7 7 7v6H9z" fill="#0A1628"/></svg>`,
+/* Symbol inside the blue square (Dean 31 Oct). Same 16×16 box for all three: the site's house, a sun, and 16 over 25.
+   Paths are the approved strip (SQ / H / S / Y). The pin keeps the existing square-and-pointer outline. */
+const SYM={
+ house:'<g class="xmk"><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></g>',
+ sun:'<g class="xmk"><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></g>',
+ youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>'};
+const symKey=i=>!i?'house':(i.kind==='day_centre'||i.service==='day_centre')?'sun':i.kind==='young_people'?'youth':'house';
+const symBox=key=>`<svg width="28" height="28" viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
+const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
  dia:(c)=>`<svg width="34" height="40" viewBox="0 0 34 40"><path d="M17 1l15 15-15 23L2 16z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/><path d="M13 21c0-4 4-5 3-9 4 2 6 6 4 10a4 4 0 0 1-7-1z" fill="#0A1628"/></svg>`};
-const pinIcon=(col,grey,shape)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
+const pinIcon=(col,grey,shape,sym)=>L.divIcon({className:'xpin',html:SHP[shape](grey?'#7a8496':col,sym),iconSize:[34,40],iconAnchor:[17,39],popupAnchor:[0,-34]});
+window.mountShelterStrip=function(){if(document.getElementById('xsym'))return;const m=document.getElementById('map');if(!m)return;
+ const st=document.createElement('div');st.id='xsym';st.setAttribute('role','group');
+ const rows=[['house','Hostel or shelter','Hostel neu loches'],['sun','Day centre','Canolfan ddydd'],['youth','Young people','Pobl ifanc']];
+ st.innerHTML=rows.map(([k,en,cy])=>`<span class="xsy">${symBox(k)}<span class="v-en">${en}</span><span class="v-cy" lang="cy">${cy}</span></span>`).join('');
+ const host=document.getElementById('mapcol');if(host)host.append(st);else m.insertAdjacentElement('afterend',st)};
 // ---- UI
 const bar=document.createElement('div');bar.id='xbar';bar.setAttribute('role','toolbar');
 const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria-pressed="${on}"><i class="sw ${shape}" style="background:${col}"></i><span data-t="${k}"></span></button>`;
@@ -143,13 +156,13 @@ async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[dat
  if(!on){if(L_.group)map.removeLayer(L_.group);if(lastPos)nearX(...lastPos);return}
  try{await load(k)}catch(e){return}
  if(!L_.group){L_.group=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45,iconCreateFunction:c=>L.divIcon({className:'xcl',html:`<div class="${L_.shape}" style="background:${L_.col}"><span>${c.getChildCount()}</span></div>`,iconSize:[40,40]})});
-  L_.data.items.forEach(i=>{if(i.no_pin)return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
+  L_.data.items.forEach(i=>{if(i.no_pin)return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape,k==='sh'?symKey(i):null),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
    m.on('click',()=>showSheet(detail(k,i,lastPos?hav(lastPos[0],lastPos[1],i.lat,i.lng):null)));L_.group.addLayer(m)})}
  if(L_.on)map.addLayer(L_.group);if(lastPos)nearX(...lastPos)}
 document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.getAttribute('aria-pressed')!=='true'));
 // ---- nearest lists for the extra layers, alongside (not inside) the food bank list
-let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},dayOnly={sh:false};
-document.addEventListener('click',e=>{const d=e.target.closest('.v3dc');if(d){dayOnly[d.dataset.k]=!dayOnly[d.dataset.k];if(lastPos)nearX(...lastPos);return}const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
+let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},dayOnly={sh:false},youthOnly={sh:false};
+document.addEventListener('click',e=>{const y=e.target.closest('#chips [data-f=youth]');if(y){youthOnly.sh=!youthOnly.sh;y.setAttribute('aria-pressed',String(youthOnly.sh));if(lastPos)nearX(...lastPos);return}const d=e.target.closest('.v3dc');if(d){dayOnly[d.dataset.k]=!dayOnly[d.dataset.k];if(lastPos)nearX(...lastPos);return}const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
 window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={};for(const k in xRank)delete xRank[k]};  // 28 Oct QA B2: failed search clears these lists too
 // Show more (29 Oct 2026): same rules as the food bank list (showmore.js, window.SHOW_LIMITS). The first page is the nearest few,
 // each press appends the next batch before that layer's button, and a new search, Verified only or Open today starts again.
@@ -157,7 +170,7 @@ window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={};for
 const XLIM=()=>{const S=window.SHOW_LIMITS||{},f=+S.first,m=+S.more;return {first:f>0?f:5,more:m>0?m:10}};
 const xRank={},xOpen={};
 function rankX(k,lat,lng,vo,ot){const L_=LAYERS[k];if(!L_.data)return[];ot=ot&&window.V3&&V3.shutToday;
- return L_.data.items.filter(i=>(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&!(k==='sh'&&dayOnly.sh&&i.kind!=='day_centre')).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
+ return L_.data.items.filter(i=>(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&!(k==='sh'&&dayOnly.sh&&i.kind!=='day_centre')&&!(k==='sh'&&youthOnly.sh&&i.kind!=='young_people')).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
 const xCard=(k,x)=>`<div class="card x${k}${!x.i.ended&&window.V3&&V3.status(k,x.i).st==='closed'?' v3closed':''}" data-id="${esc(x.i.id)}">${detail(k,x.i,x.d)}</div>`;
 const xBtn=k=>`<button type="button" id="xmore-${k}" class="showmore xmore" data-k="${k}" aria-controls="xlist" aria-expanded="${xOpen[k]?'true':'false'}"><span class="v-en">Show more</span><span class="v-cy" lang="cy">Dangos mwy</span></button>`;
 function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};

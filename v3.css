@@ -176,7 +176,11 @@ html.light .v3sos a.sosl:not(.s999){background:transparent;color:#F4E6C6!importa
 #v3split{display:block}
 @media (min-width:1024px){
  #v3split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(380px,1fr);gap:16px;align-items:start;padding:0 12px}
- #v3split>#map{position:sticky;top:8px;height:calc(100vh - 16px);min-height:420px;border-radius:12px}
+ #v3split>#map,#v3split>#mapcol{position:sticky;top:8px;height:calc(100vh - 16px);min-height:420px}
+ #v3split>#map,#v3split>#mapcol>#map{border-radius:12px}
+ #v3split>#mapcol{display:flex;flex-direction:column;gap:6px}
+ #v3split>#mapcol>#map{position:relative;top:auto;height:auto;flex:1 1 auto;min-height:0}
+ #v3split>#mapcol>#xsym{flex:none;margin:0}
  html.nomap #v3split{display:block}
  #v3col{min-width:0}
 }
@@ -258,7 +262,7 @@ html body footer a:not(.btn),html body .made a:not(.btn){display:inline-block!im
 html{scroll-padding-top:8px}
 @media (max-width:1023px){header h1{margin:2px 0 4px}#f{margin-bottom:6px}#v3big{margin-bottom:6px!important}}
 @media (min-width:1024px){
- #v3split>#map{position:sticky!important;top:8px}
+ #v3split>#map,#v3split>#mapcol{position:sticky!important;top:8px}
  #v3prow #xbefore{flex:0 0 auto}
  #v3big{margin-bottom:6px!important}.v3b{min-height:56px!important}
  header{display:flex;flex-wrap:wrap;column-gap:10px;align-items:center}header>*{flex:1 1 100%}
@@ -667,3 +671,11 @@ html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(a.btn.gm,a.bt
 html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web){font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important;font-size:var(--hm-btn-size)!important;font-weight:var(--hm-btn-weight)!important;line-height:var(--hm-btn-lh)!important;min-height:var(--hm-btn-h)!important;height:auto!important;align-self:stretch!important;box-sizing:border-box}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web) :is(span,.xdom,.xnum),
 html body .leaflet-popup-content :is(a.btn.gm,a.btn.call:not(.xfb),button.v3share,a.btn.web) :is(span,.xdom,.xnum){font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif!important}
+/* Shelter symbol strip: directly under the map, shelter layer only. Dark box, thin blue border, 28px symbols, one line at 390px. */
+#xsym{display:none;margin:6px 8px 0;justify-content:space-between;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;background:rgba(10,22,40,.88);border:1.5px solid #56B4E9;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:12px;font-weight:600;color:#e8edf6;white-space:nowrap;box-sizing:border-box}
+html[data-v3k=sh] #xsym{display:flex}
+#xsym .xsy{display:flex;align-items:center;gap:5px;white-space:nowrap;min-width:0}
+#xsym svg{width:28px;height:28px;flex:none;display:block}
+html body #chips [data-f=youth]{display:none!important}
+html[data-v3k=sh] body #chips [data-f=youth]{display:inline-flex!important}
+html[data-v3k=sh] #v3filt #chips [data-f=walk],html[data-v3k=sh] #v3filt #chips [data-f=vouch]{display:none!important}
