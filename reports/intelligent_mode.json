@@ -4,8 +4,8 @@
   "foodbanks": {
    "steps": {
     "times": {
-     "applied": 9,
-     "held": 55,
+     "applied": 8,
+     "held": 60,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -15,6 +15,16 @@
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)"
+       ]
+      },
+      {
+       "id": "pbp",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -34,12 +44,10 @@
        ]
       },
       {
-       "id": "inspero",
+       "id": "kings-langley/apsley",
        "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)"
+        "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -75,6 +83,22 @@
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)"
+       ]
+      },
+      {
+       "id": "storehouse-church-alford",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "sunderland",
+       "reasons": [
+        "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
+        "own site lists several centres (14 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer sessions (6 to 1) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet",
+        "this change was undone by Dean; not re-applied"
        ]
       },
       {
@@ -122,15 +146,6 @@
         "known skip: finder copied Liberty Tea Rooms' times onto Way Inn",
         "own site lists several centres (7 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
-      },
-      {
-       "id": "st-annes-advice-nottingham",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
         "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
@@ -193,13 +208,6 @@
        ]
       },
       {
-       "id": "new-wortley-community-centre",
-       "reasons": [
-        "day not on the same line as its times on the own-site page",
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "chichester-district",
        "reasons": [
         "day not on the same line as its times on the own-site page",
@@ -255,6 +263,15 @@
        ]
       },
       {
+       "id": "salvation-army/weymouth",
+       "reasons": [
+        "known skip: own page lists more sessions than the auto-read table (Tuesday evening dropped)",
+        "would cut known hours to fewer sessions (2 to 1) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
        "id": "rickmansworth",
        "reasons": [
         "own site gives one table for several branches; cannot tell which branch",
@@ -297,10 +314,31 @@
        ]
       },
       {
-       "id": "swindon/st-aldhelms-centre",
+       "id": "chat",
        "reasons": [
-        "own site lists several centres (12 postcodes); cannot tie one table to this listing",
-        "day not on the same line as its times on the own-site page"
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "times not read identically on 2 separate runs yet",
+        "transient failure; stored times left unchanged"
+       ]
+      },
+      {
+       "id": "bridgwater",
+       "reasons": [
+        "known skip: Dean 29 Oct 2026 (#224): leave published times as-is until reviewed",
+        "times not read identically on 2 separate runs yet",
+        "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "patch",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -371,9 +409,11 @@
        ]
       },
       {
-       "id": "cann-hall",
+       "id": "ty-hapus",
        "reasons": [
-        "day not on the same line as its times on the own-site page"
+        "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)",
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -391,19 +431,23 @@
        ]
       },
       {
-       "id": "ifan-4a6217d6ae69c4977d7d70-0",
+       "id": "ifan-53c68645aa831ab649ac43-0",
        "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
-       "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
+       "id": "ifan-5b9fd1318a04132921a389-0",
        "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
+       "id": "ifan-da5df633f7eabc8fbdb2a3-0",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
        ]
       }
      ],
@@ -411,14 +455,14 @@
      "alerts": [],
      "coverage": {
       "sites": 15,
-      "sites_opened": 14,
-      "render_attempts": 554,
-      "render_errors": 6,
+      "sites_opened": 13,
+      "render_attempts": 538,
+      "render_errors": 5,
       "source_pages": 18,
-      "source_opened": 16,
+      "source_opened": 15,
       "budget_skipped": 0,
-      "hours_review_due": 1721,
-      "hours_review_opened": 1028
+      "hours_review_due": 1727,
+      "hours_review_opened": 1058
      },
      "enabled": true
     },
@@ -430,11 +474,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1034,
+      "render_attempts": 958,
       "render_errors": 5,
       "budget_skipped": 0,
-      "hours_review_due": 1727,
-      "hours_review_opened": 1058,
+      "hours_review_due": 1726,
+      "hours_review_opened": 980,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
@@ -443,8 +487,8 @@
      "enabled": true
     }
    },
-   "applied": 9,
-   "held": 55,
+   "applied": 8,
+   "held": 60,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -454,6 +498,16 @@
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)"
+     ]
+    },
+    {
+     "id": "pbp",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -473,12 +527,10 @@
      ]
     },
     {
-     "id": "inspero",
+     "id": "kings-langley/apsley",
      "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)"
+      "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -514,6 +566,22 @@
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)"
+     ]
+    },
+    {
+     "id": "storehouse-church-alford",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "sunderland",
+     "reasons": [
+      "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
+      "own site lists several centres (14 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer sessions (6 to 1) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet",
+      "this change was undone by Dean; not re-applied"
      ]
     },
     {
@@ -561,15 +629,6 @@
       "known skip: finder copied Liberty Tea Rooms' times onto Way Inn",
       "own site lists several centres (7 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
-    },
-    {
-     "id": "st-annes-advice-nottingham",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
       "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
@@ -632,13 +691,6 @@
      ]
     },
     {
-     "id": "new-wortley-community-centre",
-     "reasons": [
-      "day not on the same line as its times on the own-site page",
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "chichester-district",
      "reasons": [
       "day not on the same line as its times on the own-site page",
@@ -694,6 +746,15 @@
      ]
     },
     {
+     "id": "salvation-army/weymouth",
+     "reasons": [
+      "known skip: own page lists more sessions than the auto-read table (Tuesday evening dropped)",
+      "would cut known hours to fewer sessions (2 to 1) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
      "id": "rickmansworth",
      "reasons": [
       "own site gives one table for several branches; cannot tell which branch",
@@ -736,10 +797,31 @@
      ]
     },
     {
-     "id": "swindon/st-aldhelms-centre",
+     "id": "chat",
      "reasons": [
-      "own site lists several centres (12 postcodes); cannot tie one table to this listing",
-      "day not on the same line as its times on the own-site page"
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "times not read identically on 2 separate runs yet",
+      "transient failure; stored times left unchanged"
+     ]
+    },
+    {
+     "id": "bridgwater",
+     "reasons": [
+      "known skip: Dean 29 Oct 2026 (#224): leave published times as-is until reviewed",
+      "times not read identically on 2 separate runs yet",
+      "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "patch",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -810,9 +892,11 @@
      ]
     },
     {
-     "id": "cann-hall",
+     "id": "ty-hapus",
      "reasons": [
-      "day not on the same line as its times on the own-site page"
+      "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)",
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -830,19 +914,23 @@
      ]
     },
     {
-     "id": "ifan-4a6217d6ae69c4977d7d70-0",
+     "id": "ifan-53c68645aa831ab649ac43-0",
      "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
-     "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
+     "id": "ifan-5b9fd1318a04132921a389-0",
      "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
+     "id": "ifan-da5df633f7eabc8fbdb2a3-0",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
      ]
     }
    ],
@@ -851,18 +939,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 1034,
+    "render_attempts": 958,
     "render_errors": 5,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
-    "hours_review_due": 1727,
-    "hours_review_opened": 1058
+    "hours_review_due": 1726,
+    "hours_review_opened": 980
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-10-30T15:01:38+00:00"
+ "generated_at": "2026-10-30T22:41:33+00:00"
 }
