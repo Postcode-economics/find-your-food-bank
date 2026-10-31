@@ -112,11 +112,15 @@ class Reader(unittest.TestCase):
         self.assertIn("bexhill/sidley", approved["foodbanks"])
         brighton = [i for i, note in approved["warmspaces"].items() if "Brighton & Hove City Council warm-space feed" in note]
         self.assertEqual(len(brighton), 27)
+        held = {"bh-bn33re-the-clarendon-centre", "bh-bn12te-churchill-square"}
         for i in brighton:
             v = verified[i]
             self.assertEqual(v["evidence_url"], FEED_URL)
             self.assertTrue(v.get("day_time_quote"))
-            self.assertNotIn("phone", v)
+            if i in held:
+                self.assertNotIn("phone", v)
+            else:
+                self.assertTrue(v.get("phone") and v.get("phone_source", "").startswith("https://") and v.get("phone_quote"))
         self.assertEqual(R.schema_errors({"name": "x", "lat": 50.8, "lng": -0.1, "postcode": "BN1 1GE", "address": "a",
                                            "hours": {"Sun": "Closed", "Mon": "09:00 - 17:00"}}, "ws"), [])
 
