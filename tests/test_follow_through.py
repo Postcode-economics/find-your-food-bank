@@ -37,6 +37,54 @@ class Quote(unittest.TestCase):
         text = "Reading Room, 1 High Street, AB1 2CD. Welcome."
         self.assertFalse(F.needs_follow("https://reading-room.example/visit", text, "Reading Room", "AB1 2CD"))
 
+    def test_gallery_page_is_not_the_community_hub(self):
+        html = (
+            "<html><head><title>Spudworks Gallery</title>"
+            '<meta property="og:site_name" content="SPUD"></head><body>'
+            "<h1>Spudworks</h1>"
+            "<p>Sway Community Hub, Station Road, SO41 6BA. "
+            "Opening hours Monday to Friday 10:00am - 4:00pm, Saturday 10:00am - 2:00pm.</p>"
+            "</body></html>"
+        )
+        url = "https://www.spud.org.uk/spudworks"
+        self.assertTrue(F.org_differs("Sway Community Hub", url, html))
+        self.assertIsNotNone(F.quote_for_venue(discover.text_of(html), "Sway Community Hub", "SO41 6BA"))
+        bud = F.Budget(lambda u: page(html, url) if "spud.org.uk" in u else page("<urlset></urlset>", u),
+                       per_host=8, gap=0, sleep=lambda s: None, render=False)
+        hit = F.follow({"id": "ww-65437497", "name": "Sway Community Hub", "postcode": "SO41 6BA", "website": url},
+                       "ws", bud, "2026-10-31")
+        self.assertFalse(hit.get("passed"))
+
+    def test_pantry_hours_are_not_a_warm_space_unless_the_page_says_so(self):
+        pantry = (
+            "<html><body><h1>The Hive</h1>"
+            "<p>The Pantry is open every Friday from 1.30pm to 2.45pm. "
+            "Bath Road, Peasedown St John BA2 8DH.</p></body></html>"
+        )
+        text = discover.text_of(pantry)
+        self.assertIsNone(F.quote_for_venue(text, "The Hive", "BA2 8DH", "ws"))
+        self.assertTrue(F.service_hours_only("Friday 1.30pm to 2.45pm", "The Hive", "ws", text))
+        tied = pantry.replace("The Pantry is open", "The warm space is open")
+        q2 = F.quote_for_venue(discover.text_of(tied), "The Hive", "BA2 8DH", "ws")
+        self.assertTrue(q2)
+        self.assertFalse(F.service_hours_only(q2, "The Hive", "ws", discover.text_of(tied)))
+        self.assertFalse(F.service_hours_only("Cafe open Monday 8am to 2pm", "Round About Cafe", "ws"))
+        url = "https://www.thehivepsj.org/services/community-pantry"
+        bud = F.Budget(lambda u: page(pantry, url), per_host=8, gap=0, sleep=lambda s: None, render=False)
+        hit = F.follow({"id": "ww-64821439", "name": "The Hive", "postcode": "BA2 8DH", "website": url},
+                       "ws", bud, "2026-10-31")
+        self.assertFalse(hit.get("passed"))
+
+    def test_flat_number_is_not_kept_as_the_address(self):
+        self.assertEqual(F.clean_address("Flat 12, Hampshire SO18 2LE"), "Hampshire SO18 2LE")
+        self.assertEqual(F.clean_address("Flat 12"), "")
+        row = F._record(
+            {"id": "ww-55592198", "name": "Round About Cafe", "postcode": "SO18 2LE",
+             "address": "Flat 12, Hampshire SO18 2LE"},
+            "ws", "https://www.roundaboutcafe.org/", "Monday to Friday 8am-2pm", "direct", "2026-10-31")
+        self.assertNotRegex(row["address"], r"Flat\s+12")
+        self.assertIn("SO18 2LE", row["address"])
+
 
 class Follow(unittest.TestCase):
     def fetcher(self, extra=None):
