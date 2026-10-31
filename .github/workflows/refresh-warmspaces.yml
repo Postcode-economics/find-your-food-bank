@@ -61,10 +61,15 @@ jobs:
         env:
           PRIVATE_BLOCKLIST: ${{ secrets.PRIVATE_BLOCKLIST }}
         run: python scripts/validate.py gate
+      - name: City coverage report and alert (does not fail the run)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/city_watch.py || true
       - name: Commit if changed
         id: commit
         run: |
-          bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/warmspaces_carry_forward.json reports/warmspaces_carry_forward.md logs/warmspaces_area_carry_forward.json logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md
+          bash scripts/git_add_existing.sh stamp.js index.html version.json faq.html terms.html privacy.html accessibility.html food-banks warm-spaces shelters sitemap.xml robots.txt 404.html overrides/page_dates.json logs/discovery_today_warmspaces.json reports/new_today.md reports/manual_review.md warmspaces.js logs/warmspaces_discovery.json logs/warmspaces_times_check.json logs/times_crosscheck_seen.json reports/times_auto_applied.json logs/warmspaces_log.json logs/warmspaces_pending.json logs/warmspaces_recheck.json logs/warmspaces_last_confirmed.json reports/warmspaces_grace.md logs/warmspaces_ww_discovery.json logs/warmspaces_ww_discovery_run.json reports/layers_review.md reports/layers_review.json food-banks warm-spaces sitemap.xml robots.txt 404.html overrides/district_cache.json logs/refresh_guard.json reports/refresh_guard_warmspaces.md logs/warmspaces_carry_forward.json reports/warmspaces_carry_forward.md logs/warmspaces_area_carry_forward.json logs/pending_dean.json reports/pending_dean.md logs/sense_check.json reports/sense_check.md reports/verified_new_places.json reports/city_coverage.md
           if git diff --cached --quiet; then echo "No change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

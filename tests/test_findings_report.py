@@ -25,6 +25,14 @@ class FindingsReport(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.d, ignore_errors=True)
 
+    def test_held_near_cities_in_the_findings(self):
+        json.dump([{"id": "g", "name": "Central Library", "postcode": "G1 1AA", "reason": "not on allowlist"}],
+                  open(os.path.join(self.d, "logs", "warmspaces_pending.json"), "w"))
+        open(os.path.join(self.d, "warmspaces.js"), "w").write("x=" + json.dumps({"items": []}) + ";")
+        text = FR.build_report("warmspaces", root=self.d, ref=None, run_started=RUN_START)
+        self.assertIn("Held near cities", text)
+        self.assertIn("Glasgow:", text)
+
     def test_nothing_new_posts_nothing(self):
         open(os.path.join(self.d, "warmspaces.js"), "w").write("x=" + json.dumps({"items": []}) + ";")
         open(os.path.join(self.d, "logs", "discovery_today_warmspaces.json"), "w").write(

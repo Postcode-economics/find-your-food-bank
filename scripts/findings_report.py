@@ -570,6 +570,15 @@ def build_report(workflow, root=None, ref=None, run_started=None, run_url=None):
     if emerg:
         sections.append(emerg)
 
+    if workflow in ("warmspaces", "shelters", "sweep"):
+        try:
+            import city_watch
+            held_near = city_watch.held_summary(root)
+        except Exception:
+            held_near = ""
+        if held_near:
+            sections.append(held_near)
+
     if not sections:
         return None
 

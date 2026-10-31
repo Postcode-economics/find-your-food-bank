@@ -1360,20 +1360,29 @@ def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher
         if c.get("lat") is None and norm_pc(c.get("postcode")) in geo: c["lat"], c["lng"] = geo[norm_pc(c["postcode"])]
     new, dup = dedupe(cands, existing)
     log = {"run": run_day, "candidates": len(cands), "already_on_map": dup, "new": len(new), "added": [], "flagged": [], "rejected": []}
+    import follow_through
+    ft_budget = follow_through.Budget(fetcher, gap=1.0 if fetcher is fetch_raw else 0.0,
+                                      render=follow_through.default_render if follow_through.render_enabled() else False)
     def one(c):
-        if c.get("lat") is None: return c, {"result": "flag", "reasons": ["no postcode/coordinates in directory, cannot pin without guessing"]}, ("queue", ["no valid postcode"])
+        if c.get("lat") is None: return c, {"result": "flag", "reasons": ["no postcode/coordinates in directory, cannot pin without guessing"]}, ("queue", ["no valid postcode"]), None
         pre = pre_flags(c, kind)
         if DR.held(c): r = {"result": "flag", "reasons": []}
         else: r = own_site_check(c, kind, fetcher)
         if pre: r = dict(r, result="flag", reasons=pre + r.get("reasons", []))
         dec = DR.assess(c, r, geo, run_day)
-        return c, r, dec
+        extra = None
+        if kind in ("ws", "sh"):
+            try: extra = follow_through.consider(c, r, dec[0], kind, ft_budget, run_day)
+            except Exception as ex: extra = {"passed": False, "reason": "follow-through error: " + str(ex)[:80]}
+        return c, r, dec, extra
     with cf.ThreadPoolExecutor(threads) as ex: res = list(ex.map(one, new))
     add_cap = int(os.environ.get("DISCOVERY_MAX_NEW", "150"))  # fail-safe: a flood of adds in one run means a source changed - hold them all
     if sum(1 for x in res if x[2][0] == "add") > add_cap:
-        res = [(c, r, ("queue", ["held: more than %d new in one run (source may have changed)" % add_cap]) if d[0] == "add" else d) for c, r, d in res]
-    add = []
-    for c, r, (decision, why) in res:
+        res = [(c, r, ("queue", ["held: more than %d new in one run (source may have changed)" % add_cap]) if d[0] == "add" else d, extra) for c, r, d, extra in res]
+    add, proposals, skipped = [], [], []
+    for c, r, (decision, why), extra in res:
+        if extra and extra.get("retry"): skipped.append(c.get("id"))
+        elif extra and extra.get("passed"): proposals.append(extra)
         ev = {k: r.get(k) for k in ("url", "final_url", "http", "sha256", "etag", "last_modified")}
         if decision == "reject":
             log["rejected"].append({"id": c["id"], "name": c["name"], "postcode": c.get("postcode"), "website": c.get("website"),
@@ -1398,6 +1407,10 @@ def discover_layer(cands, existing, kind, run_day, unverified, log_path, fetcher
         else:
             log["flagged"].append({"id": c["id"], "name": c["name"], "postcode": c.get("postcode"), "website": c.get("website"),
                                    "directory": c.get("directory"), "directory_url": c.get("directory_url"), "reasons": why or r["reasons"], **ev})
+    log["follow_skipped"] = [i for i in skipped if i]
+    log["verified_proposals"] = [p.get("id") for p in proposals if p.get("id")]
+    try: follow_through.merge_proposal(proposals, follow_through.root_from_log(log_path), run_day)
+    except Exception as ex: print("verified proposal not written: %s" % ex)
     json.dump(log, open(log_path, "w"), indent=1, ensure_ascii=False)
     DR.record({"sh": "shelters", "ws": "warmspaces", "fb": "foodbanks"}[kind], run_day,
               [dict(a, upcoming=next((x.get("upcoming") for x in add if x["id"] == a["id"]), False),
