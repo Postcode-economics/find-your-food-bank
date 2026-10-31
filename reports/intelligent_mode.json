@@ -5,7 +5,7 @@
    "steps": {
     "times": {
      "applied": 11,
-     "held": 62,
+     "held": 58,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -23,8 +23,7 @@
         "new own-site times look like office/centre hours",
         "own site lists several centres (3 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "transient failure; stored times left unchanged"
+        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -34,23 +33,13 @@
         "own site lists several centres (3 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
-        "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
-        "transient failure; stored times left unchanged"
+        "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "north-oxfordshire",
        "reasons": [
         "own site lists several centres (3 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "inspero",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -75,6 +64,16 @@
        "id": "storehouse-melton",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+       ]
+      },
+      {
+       "id": "old-kilpatrick-food-parcels",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -210,6 +209,13 @@
        ]
       },
       {
+       "id": "new-wortley-community-centre",
+       "reasons": [
+        "day not on the same line as its times on the own-site page",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "chichester-district",
        "reasons": [
         "day not on the same line as its times on the own-site page",
@@ -331,25 +337,6 @@
        ]
       },
       {
-       "id": "patch",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
-      },
-      {
-       "id": "patch/tenby",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "3food4u/tottenham-sda",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -417,12 +404,6 @@
        ]
       },
       {
-       "id": "cann-hall",
-       "reasons": [
-        "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
        "id": "ty-hapus",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)",
@@ -444,25 +425,9 @@
        ]
       },
       {
-       "id": "ifan-4a6217d6ae69c4977d7d70-0",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
-       ]
-      },
-      {
        "id": "ifan-53c68645aa831ab649ac43-0",
        "reasons": [
         "day not on the same line as its times on the own-site page"
-       ]
-      },
-      {
-       "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
        ]
       }
      ],
@@ -470,30 +435,30 @@
      "alerts": [],
      "coverage": {
       "sites": 15,
-      "sites_opened": 14,
-      "render_attempts": 552,
-      "render_errors": 3,
+      "sites_opened": 13,
+      "render_attempts": 547,
+      "render_errors": 5,
       "source_pages": 18,
-      "source_opened": 16,
+      "source_opened": 15,
       "budget_skipped": 0,
-      "hours_review_due": 1726,
-      "hours_review_opened": 1043
+      "hours_review_due": 1727,
+      "hours_review_opened": 1063
      },
      "enabled": true
     },
     "access": {
-     "applied": 1,
+     "applied": 0,
      "held": 0,
      "stale_cleared": 0,
      "rejected": [],
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1042,
-      "render_errors": 5,
+      "render_attempts": 1123,
+      "render_errors": 7,
       "budget_skipped": 0,
       "hours_review_due": 1727,
-      "hours_review_opened": 1063,
+      "hours_review_opened": 1152,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
@@ -502,8 +467,8 @@
      "enabled": true
     }
    },
-   "applied": 12,
-   "held": 62,
+   "applied": 11,
+   "held": 58,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -521,8 +486,7 @@
       "new own-site times look like office/centre hours",
       "own site lists several centres (3 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "transient failure; stored times left unchanged"
+      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -532,23 +496,13 @@
       "own site lists several centres (3 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
-      "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
-      "transient failure; stored times left unchanged"
+      "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "north-oxfordshire",
      "reasons": [
       "own site lists several centres (3 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "inspero",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -573,6 +527,16 @@
      "id": "storehouse-melton",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
+     ]
+    },
+    {
+     "id": "old-kilpatrick-food-parcels",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -708,6 +672,13 @@
      ]
     },
     {
+     "id": "new-wortley-community-centre",
+     "reasons": [
+      "day not on the same line as its times on the own-site page",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "chichester-district",
      "reasons": [
       "day not on the same line as its times on the own-site page",
@@ -829,25 +800,6 @@
      ]
     },
     {
-     "id": "patch",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
-    },
-    {
-     "id": "patch/tenby",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "3food4u/tottenham-sda",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
@@ -915,12 +867,6 @@
      ]
     },
     {
-     "id": "cann-hall",
-     "reasons": [
-      "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
      "id": "ty-hapus",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)",
@@ -942,25 +888,9 @@
      ]
     },
     {
-     "id": "ifan-4a6217d6ae69c4977d7d70-0",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
-     ]
-    },
-    {
      "id": "ifan-53c68645aa831ab649ac43-0",
      "reasons": [
       "day not on the same line as its times on the own-site page"
-     ]
-    },
-    {
-     "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
      ]
     }
    ],
@@ -969,18 +899,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 1042,
-    "render_errors": 5,
+    "render_attempts": 1123,
+    "render_errors": 7,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
     "hours_review_due": 1727,
-    "hours_review_opened": 1063
+    "hours_review_opened": 1152
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-10-31T09:58:28+00:00"
+ "generated_at": "2026-10-31T14:49:08+00:00"
 }
