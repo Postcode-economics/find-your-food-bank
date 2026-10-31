@@ -417,31 +417,39 @@ def emergency_candidates_new(root, ref, workflow):
 
 
 def emergency_section(workflow, root, ref):
-    """Emergency shelters and SWEP — separate from regular shelter/warm-space rows."""
+    """Incident rest centres and SWEP — separate from regular shelter/warm-space rows."""
     blocks = []
     swep = swep_changes_new(root, ref)
     if swep:
-        blocks.append(("SWEP switch-on/off this run", swep))
+        blocks.append(("Severe weather shelters (SWEP) — switch-on/off this run", swep))
     triggered = swep_triggered_new(root, ref)
     if triggered:
-        blocks.append(("Council severe-weather / shelter pages (weather re-check)", triggered))
+        blocks.append(("Council pages re-checked after weather (SWEP / shelter wording)", triggered))
     centres = emergency_centres_new(root, ref)
     if centres:
-        blocks.append(("New emergency shelter records (preview)", centres))
+        blocks.append(("New incident rest centre records (preview)", centres))
     candidates = emergency_candidates_new(root, ref, workflow)
     if candidates:
         body, extra = cap_lines(candidates)
-        head = f"New emergency shelter candidates ({len(candidates)})"
+        head = f"New incident rest centre candidates ({len(candidates)})"
         if extra:
             head += f" — showing {len(body)}, and {extra} more"
         blocks.append((head, body))
     held = emergency_preview_held_new(root, ref)
     if held:
-        blocks.append(("Emergency shelters held or waiting", held))
+        blocks.append(("Incident rest centres held or waiting", held))
     if not blocks:
         return None
-    out = ["EMERGENCY SHELTERS AND SWEP (separate from regular shelters)", ""]
-    for title, body in blocks:
+    out = ["INCIDENT REST CENTRES AND SWEP (separate from regular shelters)", "", "Incident rest centres", ""]
+    incident = [b for b in blocks if "SWEP" not in b[0] or "incident" in b[0].lower()]
+    swep_blocks = [b for b in blocks if "SWEP" in b[0]]
+    for title, body in incident:
+        out.append(title)
+        out.extend(body if isinstance(body, list) else [body])
+        out.append("")
+    out.append("Severe weather shelters (SWEP)")
+    out.append("")
+    for title, body in swep_blocks:
         out.append(title)
         out.extend(body if isinstance(body, list) else [body])
         out.append("")

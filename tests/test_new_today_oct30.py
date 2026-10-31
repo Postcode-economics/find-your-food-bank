@@ -23,7 +23,7 @@ class Oct30NewToday(unittest.TestCase):
         sh_log = json.load(open(os.path.join(ROOT, "logs", "discovery_today_shelters.json")))
         ws_names = {"Marlborough Primary School B10 9NY", "Saifee Mosque B18 6PU", "The Midlands Greek & Cypriot Association B23 7SJ"}
         ws_added = [a for a in ws_log["added"] if a.get("postcode") and any(n.split()[-1] in a["postcode"] or n in a["name"] for n in ws_names)]
-        self.assertEqual(len(ws_log["added"]), 3)
+        self.assertEqual(len(ws_log["added"]), 4)
         self.assertEqual(len([a for a in ws_added if a["id"] in base_ws]), 3)
         sh_added = sh_log["added"]
         self.assertEqual(len(sh_added), 3)
@@ -33,7 +33,8 @@ class Oct30NewToday(unittest.TestCase):
         open(os.path.join(d, "shelters.js"), "w").write(_git("shelters.js"))
         kept_ws = DR.filter_added("warmspaces", ws_log["added"], d)
         kept_sh = DR.filter_added("shelters", sh_log["added"], d)
-        self.assertEqual(kept_ws, [])
+        self.assertEqual(len(kept_ws), 1)
+        self.assertEqual(kept_ws[0]["name"], "Second Chance Headway Centre")
         self.assertEqual(kept_sh, [])
 
     def test_foodbanks_only_true_publish_diff(self):
@@ -56,7 +57,8 @@ class Oct30NewToday(unittest.TestCase):
         ws_log = json.load(open(os.path.join(ROOT, "logs", "discovery_today_warmspaces.json")))
         DR.record("warmspaces", DAY, ws_log["added"], [], [], source="test", root=r)
         nt = open(os.path.join(r, "reports", "new_today.md")).read()
-        self.assertIn("## Warm spaces: 0 added", nt)
+        self.assertIn("## Warm spaces: 1 added", nt)
+        self.assertIn("Second Chance", nt)
         self.assertNotIn("Marlborough Primary School", nt)
 
 
