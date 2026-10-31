@@ -123,6 +123,56 @@ def is_refuge(name, text):
     if re.search(r"women'?s\s+aid|women at risk of domestic abuse|women'?s?\s+refuges?|domestic (?:abuse|violence) refuges?", blob, re.I):
         return True
     return bool(re.search(r"\brefuges?\b", blob, re.I) and re.search(r"women|domestic", blob, re.I))
+EMAIL_RE = re.compile(r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b")
+def strip_emails(text):
+    """Referral text never carries an email address."""
+    text = EMAIL_RE.sub("", text or "")
+    text = re.sub(r"\(\s*\)", "", text)
+    text = re.sub(r"\s{2,}", " ", text)
+    return text.strip(" ,;.-")
+def _service_text(name, text):
+    """Sentences that name this service. A shared council page must not exclude every hostel on it."""
+    bits = []
+    for s in _sentences(text or ""):
+        if name and (name.lower() in s.lower() or names_place(s, name) or _area_names(s, name)):
+            bits.append(s)
+    return ((name or "") + " " + " ".join(bits)).strip()
+def area_card_excluded_kind(name, text):
+    """Family or temporary-accommodation blocks a council places people into, second-stage hostels,
+    and tenancy-based supported housing. Judged on this service's own sentences, not the whole page."""
+    blob = _service_text(name, text)
+    if re.search(r"family centres?", name or "", re.I):
+        return "family accommodation the council places people into"
+    if re.search(r"second[- ]stage", blob, re.I):
+        return "second-stage hostel"
+    if re.search(r"\btenancy\b", blob, re.I) and re.search(r"supported", blob, re.I):
+        return "tenancy-based supported housing"
+    if re.search(r"temporary accommodation", blob, re.I) and re.search(r"\bcouncil\b", blob, re.I) and re.search(r"place[sd]|places people", blob, re.I):
+        return "temporary accommodation the council places people into"
+    if re.search(r"housing schemes", name or "", re.I) and re.search(r"\bcouncil\b", name or "", re.I):
+        return "temporary accommodation the council places people into"
+    return ""
+def excluded_shelter_ids(root=None):
+    """Exact ids that must not be published. One id, never a whole operator or council page."""
+    path = os.path.join(root or ROOT, "overrides", "shelter_exclusions.json")
+    try:
+        doc = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return {}
+    ids = doc.get("ids") if isinstance(doc, dict) else None
+    return ids if isinstance(ids, dict) else {}
+def page_confirms_running(pages, name, phone):
+    """An operator or council page that names this service, shows this phone, and does not say it has closed."""
+    want = _digits(phone)
+    if not want: return ""
+    for url, text in pages or []:
+        if not text or len(text) < 80 or not _place_url(url): continue
+        if not (names_place(text, name) or _area_names(text, name)): continue
+        if re.search(r"permanently closed|has closed|closed in 20\d\d|no longer (?:running|open|operating)", text, re.I):
+            continue
+        if want not in re.sub(r"\D", "", text): continue
+        return url
+    return ""
 EMERGENCY_BEDS = re.compile(r"direct access|emergency accommodation|emergency beds?|night shelter|emergency shelter", re.I)
 def veterans_supported_only(name, page_text):
     """Stoll is veterans' supported housing. Propose it only when its own page describes emergency or direct-access beds."""
@@ -1217,6 +1267,8 @@ def referral_area_card(name, pages):
     blob = " ".join(t for _, t in pages or [])
     if is_refuge(name, blob) or is_refuge(name, ""): return None
     if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", name or "", re.I): return None
+    if any(area_card_excluded_kind(name, t) for _, t in pages or []) and all(area_card_excluded_kind(name, t) for _, t in pages or []):
+        return None
     if seasonal_reason(name, blob) and not any(not seasonal_reason(name, t) for _, t in pages or []):
         return None
     for url, text in pages or []:
@@ -1225,6 +1277,7 @@ def referral_area_card(name, pages):
         if not _place_url(url): continue
         if seasonal_reason(name, text): continue
         if _page_supported_only(name, text): continue
+        if area_card_excluded_kind(name, text): continue
         host = discover.host(url)
         council = host == "gov.uk" or host.endswith(".gov.uk")
         if council and not re.search(r"hostel|homeless|night shelter|emergency accommodation|direct access", url + " " + (text or ""), re.I):
@@ -1249,6 +1302,8 @@ def referral_area_card(name, pages):
         phone, phone_q = phones[0][2], phones[0][3]
         town, town_q = towns[0][1], towns[0][2]
         operator, op_q = ops[0][1], ops[0][2]
+        route = strip_emails(route)
+        if not route: continue
         referralish = bool(re.search(r"referr|housing options", route, re.I)) and not re.search(r"\bno referral\b", route, re.I)
         notice = "Referral needed, don't turn up without one" if referralish else "Call before you go"
         name_at = (_name_positions(text, name) or [0])[0]
@@ -1285,7 +1340,7 @@ def _first_phone(text):
         if shown: return shown
     return ""
 def _route_ok(text):
-    text = re.sub(r"\s+", " ", text or "").strip()
+    text = strip_emails(re.sub(r"\s+", " ", text or "").strip())
     if not text: return ""
     if re.search(r"\bno referral\b|do not accept", text, re.I) and not re.search(r"self[- ]referr|direct access|housing options", text, re.I):
         return ""
@@ -1331,30 +1386,33 @@ def directory_contradicts(pages, name, town, phone):
                 break
     return False
 def directory_area_card(name, fields, pages):
-    """A Homeless Link or Street Support record can be the evidence when it is a current listing
-    of a hostel or emergency bed, and a readable operator page does not contradict it.
-    No postcode and no pin. A directory postcode is not a location."""
+    """A directory record is not enough. The operator's or council's own page must confirm the
+    service is running now and show the same phone. No postcode and no pin."""
     if not fields or not fields.get("listed_on"): return None
     if is_refuge(name, fields.get("text") or "") or is_refuge(name, ""): return None
     if re.search(r"domestic (?:abuse|violence)|\brefuge\b|women'?s\s+aid", name or "", re.I): return None
     if seasonal_reason(name, fields.get("text") or ""): return None
+    if area_card_excluded_kind(name, fields.get("text") or ""): return None
     if _page_supported_only(name, fields.get("text") or "") and not re.search(r"\bhostel\b|emergency|night shelter|direct access", name or "", re.I):
         return None
-    phone, route, town, operator = fields.get("phone"), fields.get("route"), fields.get("town"), fields.get("operator")
+    phone, route, town, operator = fields.get("phone"), strip_emails(fields.get("route") or ""), fields.get("town"), fields.get("operator")
     if not (phone and route and town and operator): return None
     if directory_contradicts(pages, name, town, phone): return None
+    confirmed = page_confirms_running(pages, name, phone)
+    if not confirmed: return None
+    if any(area_card_excluded_kind(name, t) for u, t in pages or [] if u == confirmed): return None
     referralish = bool(re.search(r"referr|housing options", route, re.I)) and not re.search(r"\bno referral\b", route, re.I)
     notice = "Referral needed, don't turn up without one" if referralish else "Call before you go"
-    urls = [u for u in (fields.get("directory_url"), fields.get("operator_url")) if u]
+    urls = [u for u in (confirmed, fields.get("directory_url")) if u]
     return {"id": "", "name": name, "card_type": "referral_hostel", "status": "proposal", "layer": "shelters",
-            "operator": operator, "area": town, "town": town, "phone": phone, "phone_source": fields.get("directory_url") or "",
+            "operator": operator, "area": town, "town": town, "phone": phone, "phone_source": confirmed,
             "referral_route": route[:240], "label": "Referral hostel", "notice": notice,
             "postcode": "", "lat": None, "lng": None, "address": "", "no_pin": True,
-            "evidence_level": "directory", "listed_on": fields.get("listed_on"),
-            "evidence_url": fields.get("directory_url") or "", "operator_page": fields.get("operator_url") or "",
+            "evidence_level": "operator", "listed_on": fields.get("listed_on"),
+            "evidence_url": confirmed, "operator_page": confirmed,
             "evidence_urls": urls,
             "quotes": fields.get("quotes") or [],
-            "evidence": "%s listing of %s names the hostel, the operator, the area, a phone and how to get a bed. A readable operator page does not contradict it. No building postcode is used as a pin." % (fields.get("source") or "Directory", fields.get("listed_on"))}
+            "evidence": "The operator or council page confirms %s is running and shows the phone. The %s listing is not enough on its own. No building postcode is used as a pin." % (name, fields.get("source") or "directory")}
 def hl_directory_fields(hold, rec, listed_on):
     text = (rec or {}).get("directory_text") or ""
     name = hold.get("name") or (rec or {}).get("name") or ""
@@ -1713,6 +1771,9 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
         if council:
             pages += council_follow(council, name, fetch)
         pages = [(u, t) for u, t in pages if _place_url(u)]
+        if h.get("id") in excluded_shelter_ids(root):
+            gaps[h.get("id")] = "excluded id"
+            continue
         if _already_named(name, existing):
             gaps[h.get("id")] = "other"
             if os.environ.get("SHELTER_SOURCE_PROGRESS"):
@@ -1758,7 +1819,7 @@ def run_area_cards(root=None, fetcher=None, delay=0.15):
                                "by_place_type": by_place, "by_evidence_level": by_level,
                                "checked": len(targets), "proposed": len(cards),
                                "operator_page_gaps": gap_counts,
-                               "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners. evidence_level operator means the place's own page or a council page. evidence_level directory means a current Homeless Link or Street Support listing, and a readable operator page did not contradict the name, town or phone."}
+                               "note": "Proposals only. Not published. No building pin. A directory postcode is not a location. Not shown in emergency or SWEP banners. A directory record alone is not enough: the operator or council page must confirm the service is running now and the phone. Emails are stripped from the referral line. Family and temporary-accommodation blocks the council places people into, second-stage hostels and tenancy-based supported housing are excluded. An entry in overrides/shelter_exclusions.json drops that id only."}
     extra = " Referral hostel area cards are listed under area_cards for review: no building pin, and not published."
     if extra.strip() not in (doc.get("about") or ""):
         doc["about"] = (doc.get("about") or "") + extra

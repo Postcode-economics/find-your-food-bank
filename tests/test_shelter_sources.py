@@ -309,31 +309,54 @@ class ReferralHostel(unittest.TestCase):
     def test_a_building_postcode_is_not_an_area_card(self):
         page = ("https://river.example/hostel", self.PAGE[1] + " Where we are River Hostel, 4 River Lane, Sheffield S1 2AB.")
         self.assertIsNone(S.referral_area_card("River Hostel", [page]))
-    def test_a_current_directory_listing_is_evidence(self):
+    def test_a_directory_listing_alone_is_not_an_area_card(self):
         fields = S.hl_directory_fields(
             {"name": "River Trust - River Hostel", "website": "https://river.example/hostel",
              "directory_url": "https://homeless.org.uk/homeless-england/service/river-hostel/"},
-            {"directory_text": "0114 273 1234 River Hostel in Sheffield. Referral via Sheffield Housing Options.",
-             "referral_procedure": "Referral via Sheffield Housing Options.",
+            {"directory_text": "0114 273 1234 River Hostel in Sheffield. Referral via Sheffield Housing Options. Email stay@river.example.",
+             "referral_procedure": "Referral via Sheffield Housing Options. Email stay@river.example.",
              "referral_address": "", "directory_url": "https://homeless.org.uk/homeless-england/service/river-hostel/"},
             "2026-10-31")
-        card = S.directory_area_card("River Trust - River Hostel", fields, [])
-        self.assertEqual(card["evidence_level"], "directory")
+        self.assertIsNone(S.directory_area_card("River Trust - River Hostel", fields, []))
+        quiet = [("https://river.example/", "River Trust runs several projects. " * 20)]
+        self.assertIsNone(S.directory_area_card("River Trust - River Hostel", fields, quiet))
+        confirm = ("https://river.example/hostel",
+                   "River Hostel is open now in Sheffield and is run by River Trust. Referral via Sheffield Housing Options. Call 0114 273 1234. " * 2)
+        card = S.directory_area_card("River Trust - River Hostel", fields, [confirm])
+        self.assertEqual(card["evidence_level"], "operator")
+        self.assertEqual(card["evidence_url"], confirm[0])
         self.assertEqual(card["postcode"], "")
         self.assertIsNone(card["lat"])
         self.assertEqual(card["town"], "Sheffield")
         self.assertEqual(card["phone"], "0114 273 1234")
-        self.assertIn("homeless.org.uk", card["evidence_url"])
-        self.assertIn("https://river.example/hostel", card["evidence_urls"])
-        # a readable page that does not mention the hostel is not a contradiction
-        quiet = [("https://river.example/", "River Trust runs several projects. " * 20)]
-        self.assertIsNotNone(S.directory_area_card("River Trust - River Hostel", fields, quiet))
-        # a different phone next to the name is a contradiction
+        self.assertNotIn("@", card["referral_route"])
+        self.assertNotIn("stay@river.example", card["referral_route"])
         clash = [("https://river.example/river-hostel",
                   "River Hostel in Sheffield. Call 0114 999 8888 for the hostel. Referral via housing options. " * 5)]
         self.assertIsNone(S.directory_area_card("River Trust - River Hostel", fields, clash))
         refuge = dict(fields, text="Women's refuge. " + fields["text"])
-        self.assertIsNone(S.directory_area_card("Northside Women's Aid", refuge, []))
+        self.assertIsNone(S.directory_area_card("Northside Women's Aid", refuge, [confirm]))
+    def test_council_blocks_second_stage_and_tenancies_are_not_cards_and_an_exclusion_is_one_id(self):
+        family = ("https://family.example/",
+                  "Belvidere Family Centre is where the council places homeless families. Referral via housing options. Call 0800 731 6844.")
+        self.assertIsNone(S.referral_area_card("Belvidere Family Centre", [family]))
+        second = ("https://squared.example/mixed",
+                  "Squared mixed hostel is second-stage move-on housing in Luton, run by Squared. Referral via the council. Call 01582 749011.")
+        self.assertIsNone(S.referral_area_card("Squared mixed hostel", [second]))
+        tenancy = ("https://nile.example/",
+                   "Nile Road is run by Two Saints in Portsmouth. It is tenancy-based supported housing. Referral via the council. Call 023 9283 4989.")
+        self.assertIsNone(S.referral_area_card("Nile Road", [tenancy]))
+        shared = ("https://river.example/hostel",
+                  "Northcott House is temporary accommodation the council places people into. "
+                  + self.PAGE[1])
+        self.assertIsNotNone(S.referral_area_card("River Hostel", [shared]))
+        self.assertIsNone(S.referral_area_card("Northcott House", [shared]))
+        blocked = S.excluded_shelter_ids()
+        self.assertIn("hl-salvation-army-william-booth-house-hull", blocked)
+        self.assertNotIn("hl-st-mungos-longhills", blocked)
+        cleaned = S.strip_emails("Email stay@river.example then call the council.")
+        self.assertNotIn("@", cleaned)
+        self.assertIn("call the council", cleaned)
     def test_a_refuge_is_not_an_area_card(self):
         page = ("https://x.example/", "Northside Women's Aid is run by Women's Aid in Belfast. Referral only via the council. Call 028 9066 6049. Address is not published.")
         self.assertIsNone(S.referral_area_card("Northside Women's Aid", [page]))
@@ -420,6 +443,65 @@ class Report(unittest.TestCase):
         before = os.path.getmtime(base)
         S.build_report([("homeless_link", [], {"status": "ok", "found": 0}, [])], [], lambda u: {"http": 404, "html": ""}, "2026-10-31")
         self.assertEqual(os.path.getmtime(base), before)
+
+class HandCheck(unittest.TestCase):
+    """31 Oct 2026 evening hand check. Published referral lines are the short ones, and only those cards."""
+    LINES = {
+        "man-contact-hostel": "Call the hostel on 0161 861 9806 (8am–8pm) to ask about a referral.",
+        "man-one-ymca-bishops-stortford": "Ages 16–30: refer yourself or ask any agency to refer you on 01279 838 068.",
+        "man-roundabout-hostel": "Ages 16–21: call 0114 258 9829 to refer yourself or be referred by an agency.",
+        "hl-squared-luton-hostels": "Contact Squared or Luton Council's homeless team to apply; you'll be interviewed and assessed.",
+        "hl-dawn-centre-temporary-accommodation-project": "Single adults and couples with no children who have a Leicester connection: call 0116 221 2770 or Leicester Housing Options.",
+        "hl-st-mungos-longhills": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
+        "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
+        "hl-paradigm-housing-group-lea-bridge-house-hostel": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
+        "hl-connection-support-fishermead-hostel": "Ask Milton Keynes Council's housing team to refer you through the Supported Housing Panel.",
+        "ss-63bf328f843d85a21d7bbdce": "Call New Start on 0151 708 7103 or ask your support worker to refer you.",
+    }
+    OFF = [
+        "hl-salvation-army-william-booth-house-hull", "hl-nacro-nottingham-young-persons-accommodation",
+        "hl-london-borough-of-southwark-northcott-house", "ss-6311880e295b30de42434135",
+        "hl-bromford-hayward-road-hostel", "hl-city-of-york-council-homelessness-housing-schemes",
+        "hl-two-saints-nile-road", "hl-solo-housing-the-old-post-office-maltings", "hl-squared-mixed-hostel",
+        "hl-bournemouth-churches-ha-st-pauls-hostel", "ss-63a44ec1b00aca305c753133",
+        "hl-renewal-programme-barking-road-hostel", "hl-look-ahead-slough-hostel",
+        "hl-shp-arlington-road", "hl-shp-ashley-road", "hl-shp-king-georges-hostel",
+        "hl-st-mungos-ealing-accommodation-services", "hl-st-mungos-endell-street",
+        "hl-transform-housing-and-support-hersham-road-hostel", "hl-adullam-homes-ha-bury-aben-phase-3",
+        "hl-turning-lives-around-seacole-scheme", "hl-the-salvation-army-fishermead-hostel",
+        "hl-squared-hostel-for-expected-mothers", "hl-squared-mother-and-baby-hostel",
+    ]
+
+    def test_published_cards_match_the_hand_check(self):
+        raw = open(os.path.join(S.ROOT, "shelters.js"), encoding="utf-8").read()
+        data = json.loads(raw.split("=", 1)[1].strip().rstrip(";"))
+        by = {i["id"]: i for i in data["items"]}
+        for iid, line in self.LINES.items():
+            self.assertIn(iid, by, iid)
+            item = by[iid]
+            self.assertEqual(item.get("referral") or item.get("referral_route"), line)
+            if item.get("card_type") == "referral_hostel":
+                self.assertEqual(item.get("referral_route"), line)
+                self.assertNotIn("@", line)
+                self.assertEqual(item.get("postcode") or "", "")
+                self.assertTrue(item.get("no_pin"))
+        self.assertEqual(by["hl-squared-luton-hostels"]["phone"], "01582 749011")
+        self.assertEqual(by["hl-squared-luton-hostels"]["name"], "Squared hostels")
+        self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["name"], "New Start Harm Reduction (women)")
+        self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["groups"], ["Women"])
+        self.assertNotIn("/test", by["ss-63bf328f843d85a21d7bbdce"].get("website") or "")
+        self.assertEqual(by["hl-connection-support-fishermead-hostel"]["groups"], ["Women"])
+        self.assertNotIn("Salvation", by["hl-connection-support-fishermead-hostel"]["name"])
+        refs = [i for i in data["items"] if i.get("card_type") == "referral_hostel"]
+        self.assertEqual(sorted(i["id"] for i in refs), sorted(i for i in self.LINES if i.startswith(("hl-", "ss-"))))
+        for iid in self.OFF:
+            self.assertNotIn(iid, by)
+        held = open(os.path.join(S.ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()
+        for iid in ("hl-bournemouth-churches-ha-st-pauls-hostel", "ss-63a44ec1b00aca305c753133", "hl-turning-lives-around-seacole-scheme"):
+            self.assertIn(iid, held)
+        self.assertIn("phone unconfirmed", held)
+        self.assertIn("id/name mismatch", held)
+
 
 if __name__ == "__main__":
     unittest.main()
