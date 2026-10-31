@@ -345,7 +345,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Hangar Community Hub CIC · CF11 8TT · https://hangarhub.org — own site did not return the page (HTTP 202; usually a bot check)
 - QUEUED Shipshape Health and Wellbeing · S11 8AE · https://www.shipshape.org.uk — own site has no readable text
 
-### Shelters: 55 queued, 0 rejected
+### Shelters: 56 queued, 0 rejected
 - QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
 - QUEUED HARP · SS0 8AE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
 - QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
@@ -401,6 +401,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Catalyst - Britannia Foyer · EN8 9XD · http://www.broxbourne.gov.uk — directory link is a council page, not the place's own site; name says foyer / supported housing / day centre, not an emergency shelter; own site does not name it; own site does not show it is a shelte
 - QUEUED CCP - Bramah House · http://www.ccp.org.uk — no valid postcode
 - QUEUED CCP - The Arkells · GL50 3HW · http://www.cheltborohomes.org — own site unreachable (HTTP 522)
+- QUEUED Catalyst - Osborne House · EN8 9NB · http://www.broxbourne.gov.uk — directory link is a council page, not the place's own site; own site does not name it; own site does not show it is a shelter/emergency accommodation; directory listing only, with no 2026-27 season da
 
 ### Deep sweep (council pages): 0 queued, 0 rejected
 
