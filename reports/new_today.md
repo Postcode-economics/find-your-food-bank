@@ -2,6 +2,9 @@
 
 Places added automatically by discovery today. Each passed: valid postcode in its area, not a duplicate (name+postcode or 150 m), working source page, current or future dates.
 
+## Shelters: 0 added
+- none
+
 ## Warm spaces: 14 added
 - Blackburn Salvation Army  (Church & Community Centre) · BB1 5BE
 - Y Cross Inn · SA62 5PR
