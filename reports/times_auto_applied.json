@@ -6138,5 +6138,88 @@
   "first_run_at": "2026-10-29T12:14:14+00:00",
   "second_run_at": "2026-10-29T21:45:17+00:00",
   "revert": "python scripts/times_revert.py driffield-wolds"
+ },
+ {
+  "id": "storehouse-church-alford",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "Storehouse Church Alford Foodbank",
+  "old": {
+   "checked_date": "2026-10-23",
+   "protected": true,
+   "raw": "Foodbank: Monday, Wednesday and Friday 10.30am - 12.30pm",
+   "reader": "hand-reviewed 2026-10-23 (own site read; client hours only)",
+   "source_url": "https://thestorehousechurchalford.org.uk/access-centre/",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Foodbank: Monday, Wednesday and Friday 10.30am - 12.30pm"
+   ]
+  },
+  "new": {
+   "checked_date": "2026-10-31",
+   "protected": true,
+   "raw": "Monday, Tuesday, Wednesday and Friday 10am-1pm",
+   "reader": "hand-reviewed 2026-10-23 (own site read; client hours only)",
+   "source_url": "https://thestorehousechurchalford.org.uk/access-centre/",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "13:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ]
+  },
+  "source_url": "https://thestorehousechurchalford.org.uk/access-centre/",
+  "first_run_at": "2026-10-30T21:49:20+00:00",
+  "second_run_at": "2026-10-31T07:14:13+00:00",
+  "revert": "python scripts/times_revert.py fb:storehouse-church-alford"
  }
 ]
