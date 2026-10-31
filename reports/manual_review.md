@@ -101,6 +101,8 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED CCP - Bramah House · http://www.ccp.org.uk — no valid postcode
 - QUEUED CCP - The Arkells · GL50 3HW · http://www.cheltborohomes.org — own site unreachable (HTTP 522)
 
+### Deep sweep (council pages): 0 queued, 0 rejected
+
 ### Warm spaces: 5140 queued, 4 rejected
 - QUEUED Eastbrook Manor Community Centre, Fishersgate · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
 - QUEUED East Worthing Baptist Church · https://www.adur-worthing.gov.uk/warm-spaces/ — directory listing only, with no 2026-27 season dates (latest stated start: none); no postcode
