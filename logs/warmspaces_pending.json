@@ -639,7 +639,7 @@
   "recheck": {
    "url": "https://kingschurchhx.org.uk/",
    "final_url": "https://cornerstonechurchhalifax.co.uk/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "9fceeb73fbe42a76409532bd0d517b3a28fb21ae533d58ce58407a2e18a051e4"
   }
@@ -3376,28 +3376,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "strlib@somerset.gov.uk",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-67998489",
-  "name": "Summer Cool Hub",
-  "address": "Denton Island Community Centre, Newhaven, East Sussex BN9 9BA",
-  "postcode": "BN9 9BA",
-  "source_url": "https://www.warmwelcome.uk/space?l=28311",
-  "website": "",
-  "first_seen": "2026-10-23",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [
-    "no independent website: Warm Welcome listing alone is not evidence"
-   ],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -7126,21 +7104,14 @@
  {
   "id": "ww-57951531",
   "name": "Alcombe Friendship Centre",
-  "address": "Alcombe Methodist Church, Minehead, Somerset TA24 6AN",
-  "postcode": "TA24 6AN",
-  "source_url": "https://www.warmwelcome.uk/space?l=26120",
-  "website": "https://www.westsomersetmethodists.org.uk/alcombe/",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.westsomersetmethodists.org.uk/alcombe/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
+  "reason": "omitted this run: source unreachable this run (HTTP 403)",
+  "recheck": {
+   "url": "https://www.westsomersetmethodists.org.uk/alcombe/",
+   "final_url": "https://www.westsomersetmethodists.org.uk/alcombe/",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
+   "http": 403,
+   "sha256": ""
   }
  },
  {
@@ -8893,7 +8864,7 @@
   "recheck": {
    "url": "https://www.newdaychurch.uk/serving-our-community/the-well",
    "final_url": "https://www.newdaychurch.uk/serving-our-community/the-well",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "c6ed5ba09d4c2b032f512b9c5bbf5858a032541e1b0cc65ae24799ca94c7b393"
   }
@@ -13834,26 +13805,6 @@
   }
  },
  {
-  "id": "ww-55472784",
-  "name": "Blackburn Salvation Army  (Church & Community Centre)",
-  "address": "The Salvation Army Hall (opposite Morrisons / Bus Station), Blackburn, Lancashire BB1 5BE",
-  "postcode": "BB1 5BE",
-  "source_url": "https://www.warmwelcome.uk/space?l=16503",
-  "website": "https://www.salvationarmy.org.uk/blackburn",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/blackburn",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-55472768",
   "name": "Blackburn with Darwen Borough Council Blackburn Library",
   "address": "Roman Road Library, Blackburn, Lancashire BB2  3UY",
@@ -16082,7 +16033,7 @@
   "recheck": {
    "url": "https://www.salvationarmy.org.uk/brighton-bevendean",
    "final_url": "https://www.salvationarmy.org.uk/brighton-bevendean",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "53814f41e86ee2a1b109acaf3ace4a43fe6c6ae654d87cacd63a0ea3871ce4e9"
   }
@@ -18516,7 +18467,7 @@
   "recheck": {
    "url": "https://www.soulsurvivorwatford.co.uk/cafeno7",
    "final_url": "https://soulsurvivor.church/cafeno7",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "0e97501bc6023d3529620d4f5980ca7f19cb12a879f853ac8f4a3cb36107e6c2"
   }
@@ -25098,7 +25049,7 @@
   "recheck": {
    "url": "https://silvertonmethodist.church/blog/",
    "final_url": "https://silvertonmethodist.church/blog/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -27889,7 +27840,7 @@
   "recheck": {
    "url": "https://www.bishopbaptists.co.uk",
    "final_url": "https://www.bishopbaptists.co.uk",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "b1eccdb97c32e3490b93b6e3949ed6e51b2343ac1b76e6cd82a0e56a69bb56d6"
   }
@@ -28416,7 +28367,7 @@
   "recheck": {
    "url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
    "final_url": "https://publichealth.newcastle.gov.uk/WellbeingHub/HubDetail?FormID=875c3d5b-686b-49d1-bd57-5cbb8c6094c8",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -30873,7 +30824,7 @@
   "recheck": {
    "url": "https://dcctelford.wordpress.com/",
    "final_url": "https://dcctelford.wordpress.com/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -31425,26 +31376,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.facebook.com/Devonportfoodclub",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-55476188",
-  "name": "Devonport Morice Town Salvation Army",
-  "address": "The Salvation Army, Balfour Terrace, Plymouth, Devon PL2 1RS",
-  "postcode": "PL2 1RS",
-  "source_url": "https://www.warmwelcome.uk/space?l=14925",
-  "website": "https://www.salvationarmy.org.uk/devonport-morice-town-church-and-community-centre",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/devonport-morice-town-church-and-community-centre",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -35414,26 +35345,6 @@
   }
  },
  {
-  "id": "ww-65441919",
-  "name": "Ewell Hall Warm Space",
-  "address": "Ewell Hall, Epsom, Surrey KT17 2AY",
-  "postcode": "KT17 2AY",
-  "source_url": "https://www.warmwelcome.uk/space?l=25272",
-  "website": "https://www.stmarysewell.com/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.stmarysewell.com/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-58107846",
   "name": "Exeter Library",
   "address": "Libraries Unlimited, Exeter, Devon EX4 3PQ",
@@ -37371,7 +37282,7 @@
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be"
   }
@@ -37384,7 +37295,7 @@
   "recheck": {
    "url": "https://haylincolnshire.co.uk/activities/fozzys/",
    "final_url": "https://haylincolnshire.co.uk/activities/fozzys/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "f8a3d7adc50478b75c95ce3dcf8af37bb47f153658b17c676ddd97f129c4c3be"
   }
@@ -42352,26 +42263,6 @@
   }
  },
  {
-  "id": "ww-55474424",
-  "name": "Harbury Village Library",
-  "address": "The Wight School, High Street, Harbury, Leamington Spa, Warwickshire CV33 9HW",
-  "postcode": "CV33 9HW",
-  "source_url": "https://www.warmwelcome.uk/space?l=14724",
-  "website": "https://www.harburyvillagelibrary.org.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.harburyvillagelibrary.org.uk/",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-62683822",
   "name": "Hare Hill Park Bowling Club",
   "address": "Hare Hill Park Bowling Club, Littleborough, Greater Manchester OL15 9HE",
@@ -42462,7 +42353,7 @@
   "recheck": {
    "url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
    "final_url": "https://www.healthwatchbrent.co.uk/advice-and-information/2025-02-20/meet-new-people-brent",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 410,
    "sha256": ""
   }
@@ -43592,7 +43483,7 @@
   "recheck": {
    "url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
    "final_url": "https://local.kent.gov.uk/kb5/kent/directory/service.page?id=aP_m70n0vP4&localofferchannel=0",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -48547,26 +48438,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://discover.librariesunlimited.org.uk/-/ivybridge-library#/?location=Ivybridge%20Library",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-65437489",
-  "name": "Ivybridge Warm Welcome Cafe",
-  "address": "Ivybridge Methodist Church, Ivybridge, Devon PL21 9AB",
-  "postcode": "PL21 9AB",
-  "source_url": "https://www.warmwelcome.uk/space?l=27645",
-  "website": "http://www.ivybridgemethodistchurch.co.uk/",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "http://www.ivybridgemethodistchurch.co.uk/",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -64169,26 +64040,6 @@
   }
  },
  {
-  "id": "ww-57952902",
-  "name": "Open House Drop In",
-  "address": "33 Richmond Street, Herne Bay, Kent CT6 5RH",
-  "postcode": "CT6 5RH",
-  "source_url": "https://www.warmwelcome.uk/space?l=24737",
-  "website": "https://www.salvationarmy.org.uk/herne-bay",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/herne-bay",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-55474181",
   "name": "Open Kitchen Faringdon",
   "address": "Blessed Hugh Church Hall, Faringdon, oxon SN77JE",
@@ -66750,7 +66601,7 @@
   "recheck": {
    "url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
    "final_url": "https://www.hugofox.com/community/pineholt-bowls-club-15240/news/warm-space-at-pineholt-bowls-club-91529",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "4b270256e38eff4844f2f3b1018e76adbdaa99af524b071fb540e3986795e4ca"
   }
@@ -75852,7 +75703,7 @@
   "recheck": {
    "url": "https://www.gc4ehr.com/",
    "final_url": "https://www.gc4ehr.com/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "385c304a60ba3771deae0363003d3d81d2ed3e09baffd737bb8c70416f1bff1d"
   }
@@ -80593,26 +80444,6 @@
   }
  },
  {
-  "id": "ww-57952715",
-  "name": "St John's Waterloo",
-  "address": "St. Johns Church, London, London SE1 8TY",
-  "postcode": "SE1 8TY",
-  "source_url": "https://www.warmwelcome.uk/space?l=24492",
-  "website": "https://stjohnswaterloo.org/community/#The-Bridge-at-Waterloo",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://stjohnswaterloo.org/community/#The-Bridge-at-Waterloo",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-55473360",
   "name": "St John's Wood Library",
   "address": "City Of Westminster, London NW8 6PD",
@@ -82526,7 +82357,7 @@
   "recheck": {
    "url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
    "final_url": "https://info.cambridgeshire.gov.uk/kb5/cambridgeshire/directory/service.page?camcommunitychannel=6&id=vGJlDICJsZo",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -83353,7 +83184,7 @@
   "recheck": {
    "url": "https://timberscombevillage.com/church-services/",
    "final_url": "https://timberscombevillage.com/church-services/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -84188,7 +84019,7 @@
   "recheck": {
    "url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
    "final_url": "https://www.achurchnearyou.com/church/16964/service-and-events/events/944086/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -85702,26 +85533,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "https://www.oxfordshire.gov.uk/residents/leisure-and-culture/libraries/find-library/stonesfield-library",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-55475278",
-  "name": "Stoneycroft Salvation Army",
-  "address": "The Salvation Army, Merseyside L13 3BT",
-  "postcode": "L13 3BT",
-  "source_url": "https://www.warmwelcome.uk/space?l=23318",
-  "website": "https://www.salvationarmy.org.uk/liverpool-stoneycroft",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/liverpool-stoneycroft",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -93127,7 +92938,7 @@
   "recheck": {
    "url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
    "final_url": "https://winchesterdiocese.org/community-hub-aims-to-be-a-beacon-of-hope-and-light/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "f5f69c3d48068a4f1d214dc251cc848d798263ccfeb129aec109d6c38064bff8"
   }
@@ -94931,26 +94742,6 @@
   }
  },
  {
-  "id": "ww-55474188",
-  "name": "The Salvation Army",
-  "address": "19 Regent Street, Newtownards, Down BT23 4AB",
-  "postcode": "BT23 4AB",
-  "source_url": "https://www.warmwelcome.uk/space?l=16655",
-  "website": "https://www.salvationarmy.org.uk/newtownards",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/newtownards",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65438748",
   "name": "The Salvation Army",
   "address": "The Salvation Army,, Warrington, Cheshire WA1 2BQ",
@@ -96631,21 +96422,14 @@
  {
   "id": "ww-65441921",
   "name": "The Welcome Breakfast",
-  "address": "Hayfield Road, Fife, Fife KY2 5DG",
-  "postcode": "KY2 5DG",
-  "source_url": "https://www.warmwelcome.uk/space?l=16735",
-  "website": "https://www.salvationarmy.org.uk/kirkcaldy",
   "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/kirkcaldy",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
+  "reason": "omitted this run: source no longer names this place",
+  "recheck": {
+   "url": "https://www.salvationarmy.org.uk/kirkcaldy",
+   "final_url": "https://www.salvationarmy.org.uk/kirkcaldy",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
+   "http": 200,
+   "sha256": "dd486015ffe3edd46f49cc9c78abbd8ce30e4c104f712a1504e8b327372c4ce7"
   }
  },
  {
@@ -99643,7 +99427,7 @@
   "recheck": {
    "url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
    "final_url": "https://www.ventnorlocal.uk/listings/ventnor-well-being-cafe",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -99716,7 +99500,7 @@
   "recheck": {
    "url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
    "final_url": "https://www.gosport.gov.uk/article/2428/Food-Clothing-Other-Essentials",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }
@@ -100346,28 +100130,6 @@
    "needs": "credible page with weekday + time, current season",
    "where_to_check": [
     "bit.ly/WyeLibrary-Kent",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
-  "id": "ww-57952323",
-  "name": "Y Cross Inn",
-  "address": "Y Cross - Cross Inn, Haverfordwest, Pembrokeshire  SA62 5PR",
-  "postcode": "SA62 5PR",
-  "source_url": "https://www.warmwelcome.uk/space?l=25821",
-  "website": "https://ycrossinn.cymru",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [
-    "no opening hours"
-   ],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://ycrossinn.cymru",
     "council warm spaces page",
     "achurchnearyou / library page"
    ]
@@ -103317,26 +103079,6 @@
   }
  },
  {
-  "id": "ww-55592285",
-  "name": "Warm Welcome",
-  "address": "The Salvation Army, Lewisham SE6  2HE",
-  "postcode": "SE6 2HE",
-  "source_url": "https://www.warmwelcome.uk/space?l=22218",
-  "website": "https://www.salvationarmy.org.uk/catford",
-  "first_seen": "2026-10-21",
-  "reason": "not on allowlist",
-  "autocheck": {
-   "result": "needs manual evidence",
-   "flags": [],
-   "needs": "credible page with weekday + time, current season",
-   "where_to_check": [
-    "https://www.salvationarmy.org.uk/catford",
-    "council warm spaces page",
-    "achurchnearyou / library page"
-   ]
-  }
- },
- {
   "id": "ww-65945574",
   "name": "Wembley Park URChurch",
   "address": "United Reformed Church, Middlesex, Middlesex HA9 7NN",
@@ -105087,7 +104829,7 @@
   "recheck": {
    "url": "https://ullesthorpe.org/amenities/village-hall/",
    "final_url": "https://ullesthorpe.org/amenities/village-hall/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 404,
    "sha256": ""
   }
@@ -107217,7 +106959,7 @@
   "recheck": {
    "url": "https://www.warmwelcome.uk/find-a-space",
    "final_url": "https://www.warmwelcome.uk/find-a-space",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": "feed",
    "sha256": null
   }
@@ -108512,7 +108254,7 @@
   "recheck": {
    "url": "https://bulwellurc.org.uk/",
    "final_url": "https://bulwellurc.org.uk/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "1b078923df625a6c3b9f5703a340a6d49f6fd865f29f54878f82d00655132e34"
   }
@@ -110845,7 +110587,7 @@
   "recheck": {
    "url": "https://www.christchurchhalifax.co.uk/",
    "final_url": "https://www.christchurchhalifax.co.uk/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 200,
    "sha256": "39f90991edf1bdf6aa0d4b738d04ee19ee2d55c8cc4983226c5468bb4400935c"
   }
@@ -112893,7 +112635,7 @@
   "recheck": {
    "url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
    "final_url": "https://tewkesbury.gov.uk/services/community/warm-spaces/warm-spaces-directory-list/",
-   "fetched_at": "2026-10-30T21:34:28+00:00",
+   "fetched_at": "2026-10-31T05:58:28+00:00",
    "http": 403,
    "sha256": ""
   }

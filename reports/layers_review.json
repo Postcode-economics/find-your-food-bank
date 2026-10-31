@@ -195,6 +195,10 @@
   "ended": [],
   "recheck_failed": [
    {
+    "id": "ww-57951531",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
     "id": "ww-57952860",
     "reason": "source no longer names this place"
    },
@@ -301,6 +305,10 @@
    {
     "id": "ww-68672320",
     "reason": "source did not return the page this run (HTTP 202; usually a bot check)"
+   },
+   {
+    "id": "ww-65441921",
+    "reason": "source no longer names this place"
    },
    {
     "id": "ww-67608542",
