@@ -11,6 +11,19 @@ def test_problems():
     assert pg.problems('warmspaces', {'council_phone': '01'}) == ['no verified phone']
     assert pg.problems('warmspaces', {'council_phone': '01', 'council_label': 'x'}) == []
 
+def test_council_listed_warmspace_auto_ok_without_approved_list():
+    feed = 'https://services1.arcgis.com/KZuCGRSe2K5BiG1Z/arcgis/rest/services/WarmHubs/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json'
+    ok_row = dict(id='th-e11bu-test', name='Test Hub', address='1 Road', postcode='E1 1BU', tel='03333704700',
+                  source_url=feed, source='Tower Hamlets warm hubs')
+    assert pg.council_listed_warmspace(ok_row)
+    assert pg.problems('warmspaces', ok_row) == []
+    no_phone = dict(ok_row, tel='')
+    assert not pg.council_listed_warmspace(no_phone)
+    assert pg.problems('warmspaces', no_phone) == ['no verified phone']
+    lancs = dict(ok_row, id='lancs-bb11-test', source_url='https://services-eu1.arcgis.com/x')
+    assert not pg.council_listed_warmspace(lancs)
+    assert pg.LANCS_HOLD in pg.warmspace_publish_holds(lancs)
+
 def test_published_data_passes_check():
     assert pg.check() == 0
 
