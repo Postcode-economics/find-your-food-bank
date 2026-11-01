@@ -57,7 +57,7 @@ class EveryRenderFailed(unittest.TestCase):
         d = tempfile.mkdtemp()
         try:
             os.makedirs(os.path.join(d, "reports"), exist_ok=True)
-            json.dump([{"kind": "fb", "second_run_at": "2026-10-31T12:00:00+00:00", "reverted": False}],
+            json.dump([{"kind": "fb", "second_run_at": IR._today() + "T12:00:00+00:00", "reverted": False}],
                       open(os.path.join(d, "reports", "times_auto_applied.json"), "w"))
             IR.finish_times(d, "foodbanks", {"x": {"auto_applied": True}, "y": {"status": "held_for_dean", "held": ["fewer days"]}})
             before = IR.load_summary(d)

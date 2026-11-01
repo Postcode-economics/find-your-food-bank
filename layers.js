@@ -139,7 +139,7 @@ async function toggle(k,on){if(k==='fb'){const b=document.querySelector('.xt[dat
  if(!on){if(L_.group)map.removeLayer(L_.group);if(lastPos)nearX(...lastPos);return}
  try{await load(k)}catch(e){return}
  if(!L_.group){L_.group=L.markerClusterGroup({showCoverageOnHover:false,maxClusterRadius:45,iconCreateFunction:c=>L.divIcon({className:'xcl',html:`<div class="${L_.shape}" style="background:${L_.col}"><span>${c.getChildCount()}</span></div>`,iconSize:[40,40]})});
-  L_.data.items.forEach(i=>{if(i.no_pin||i.card_type==='referral_hostel'||typeof i.lat!=='number'||typeof i.lng!=='number')return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
+  L_.data.items.forEach(i=>{if(i.no_pin)return;if(i.card_type==='referral_hostel'||typeof i.lat!=='number'||typeof i.lng!=='number')return;const m=L.marker([i.lat,i.lng],{icon:pinIcon(i.tier==='unverified'?'#8a94a6':L_.col,i.ended,L_.shape),opacity:i.ended?0.6:(i.tier==='unverified'?0.75:1),title:i.name});
    m.on('click',()=>showSheet(detail(k,i,lastPos?hav(lastPos[0],lastPos[1],i.lat,i.lng):null)));L_.group.addLayer(m)})}
  if(L_.on)map.addLayer(L_.group);if(lastPos)nearX(...lastPos)}
 document.querySelectorAll('.xt').forEach(b=>b.onclick=()=>toggle(b.dataset.l,b.getAttribute('aria-pressed')!=='true'));
