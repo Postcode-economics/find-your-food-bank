@@ -100,12 +100,11 @@ def run_layer(base, layer, pc, label, live=False):
     pg.fill('#q', pc)
     pg.press('#q', 'Enter')
     pg.wait_for_timeout(1200)
-    sel = '#xlist > .card' if layer != 'fb' else '#list > .card'
+    sel = '#list > .card' if layer == 'fb' else '#xlist > .card.xws'
     pg.wait_for_selector(sel + ' .xtop', timeout=30000)
     res = pg.evaluate(AUDIT, layer)
     slug = re.sub(r'[^a-z0-9-]+', '-', '%s-%s-%s' % (label, layer, res.get('name', 'card'))).strip('-').lower()[:80]
     shot = os.path.join(ART, 'type-icon-%s.png' % slug)
-    sel = '#xlist > .card' if layer != 'fb' else '#list > .card'
     card = pg.locator(sel).first
     try:
         card.locator('.xtop').screenshot(path=shot, timeout=10000)
@@ -141,7 +140,7 @@ class TypeIconBrowser(unittest.TestCase):
             self.skipTest('live type icon check')
         base = os.environ.get('HELPMAP_BASE', 'https://helpmap.uk').rstrip('/')
         fb = run_layer(base, 'fb', 'BN17 5LF', 'live', live=True)
-        ws = run_layer(base, 'ws', 'BN1 1EE', 'live', live=True)
+        ws = run_layer(base, 'ws', 'M1 1AE', 'live', live=True)
         rep = {'at': datetime.now(timezone.utc).isoformat(), 'fb': fb, 'ws': ws}
         with open(os.path.join(ART, 'type-icon-report-live.json'), 'w', encoding='utf-8') as f:
             json.dump(rep, f, indent=2)
