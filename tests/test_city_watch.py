@@ -148,7 +148,7 @@ class Coverage(unittest.TestCase):
         night = [i for i in shelters if not C.is_day_centre(i) and i.get("kind") != "young_people"]
         row = C.coverage(warm, night, day, [BRIGHTON])[0]
         self.assertGreaterEqual(row["warm"], 25)
-        self.assertEqual(row["day_centres"], 2)
+        self.assertEqual(row["day_centres"], 3)  # First Base, Clock Tower Sanctuary, Antifreeze (#363, 1 Nov 2026)
         self.assertEqual(row["shelters"], 1)  # BHT Phase One hostel (31 Oct 2026); the Foyer is young people's housing, not counted
         self.assertEqual(row["gaps"], [])
 

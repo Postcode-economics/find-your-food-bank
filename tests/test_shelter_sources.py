@@ -449,7 +449,7 @@ class HandCheck(unittest.TestCase):
     LINES = {
         "man-contact-hostel": "Call the hostel on 0161 861 9806 (8am–8pm) to ask about a referral.",
         "man-one-ymca-bishops-stortford": "Ages 16–30: refer yourself or ask any agency to refer you on 01279 838 068.",
-        "man-roundabout-hostel": "Call 0114 258 9829",
+        "man-roundabout-hostel": "Ages 16–21: call 0114 258 9829 to refer yourself or be referred by an agency.",  # verified access line wins (1 Nov 2026)
         "hl-dawn-centre-temporary-accommodation-project": "Single adults and couples with no children who have a Leicester connection: call 0116 221 2770 or Leicester Housing Options.",
         "hl-st-mungos-longhills": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
         "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",

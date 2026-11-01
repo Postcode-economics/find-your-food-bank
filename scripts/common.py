@@ -76,6 +76,23 @@ def is_transient(rc):
     if h in ("error", None): return True
     return isinstance(h, int) and (h in (403, 408, 425, 429) or h >= 500 or 200 <= h < 300)
 
+MANUAL_BLOCK_DAYS = 14  # Dean, 1 Nov 2026: hand-checked rows survive a blocked fetch for 14 days from the last hand-check
+
+def is_fetch_blocked(rc):
+    """Source fetch blocked or server failing (403, 429, 5xx, timeout/network error) - never a page that loaded."""
+    if not rc or rc.get("ok"): return False
+    h = rc.get("http")
+    if h in ("error", "timeout", None): return True
+    return isinstance(h, int) and (h in (403, 408, 429) or h >= 500)
+
+def manual_checked_days(x, now):
+    """Days since a hand-checked shelters_manual row's checked_on, else None."""
+    import datetime
+    if not str(x.get("source", "")).startswith("Manual") or not x.get("checked_on"): return None
+    try: d = datetime.date.fromisoformat(str(x["checked_on"])[:10])
+    except ValueError: return None
+    return (now.date() - d).days
+
 def _hours_since(ts, now):
     import datetime
     try:
@@ -125,7 +142,14 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
         if recheck and rc and rc.get("ok"): LC[x["id"]] = rc.get("fetched_at") or now.replace(microsecond=0).isoformat()
         age = _hours_since(LC.get(x["id"]), now) if recheck else None
         grace = bool((v or (unverified and x["id"] in unverified)) and recheck and is_transient(rc) and age is not None and 0 <= age <= GRACE_HOURS)
-        if grace:
+        mdays = manual_checked_days(x, now)
+        blocked = bool(not grace and v and recheck and is_fetch_blocked(rc) and mdays is not None and 0 <= mdays <= MANUAL_BLOCK_DAYS)
+        if blocked:
+            grace = True
+            LC.setdefault(x["id"], str(x["checked_on"])[:10] + "T00:00:00+00:00")
+            graced.append({"id": x["id"], "name": x["name"], "reason": "kept, fetch blocked (%s)" % rc.get("reason"), "http": rc.get("http"),
+                           "last_confirmed": str(x["checked_on"])[:10], "hours_since": round(mdays * 24.0, 1), "kept_fetch_blocked": True})
+        elif grace:
             graced.append({"id": x["id"], "name": x["name"], "reason": rc.get("reason"), "http": rc.get("http"), "last_confirmed": LC[x["id"]], "hours_since": round(age, 1)})
         if (v or (unverified and x["id"] in unverified)) and recheck and (rc is None or not rc.get("ok")) and not grace:
             pending.append({"id": x["id"], "name": x["name"], "first_seen": run_day, "reason": "omitted this run: " + (rc or {}).get("reason", "not re-checked"),
