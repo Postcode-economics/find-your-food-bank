@@ -19,6 +19,25 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - id: scripts
+        name: Workflow scripts are in the tree
+        # Redone 1 Nov 2026 from old PR #146: an auto-revert restores site files and leaves the workflows, so a workflow can
+        # call a script that is gone. Fail with that reason, not a missing-file traceback in a later step.
+        run: |
+          python - <<'PY'
+          import glob, os, re, sys
+          missing = []
+          pat = re.compile(r'(?:python3?|bash)\s+(scripts/[\w./-]+\.(?:py|sh))')
+          for yml in sorted(glob.glob('.github/workflows/*.yml')):
+              text = open(yml, encoding='utf-8').read()
+              for m in pat.finditer(text):
+                  path = m.group(1)
+                  if not os.path.isfile(path):
+                      missing.append('%s calls %s' % (yml, path))
+          if missing:
+              print('::error::auto-revert restores site files and leaves the workflow in place, so a workflow calls a script that is not in this tree: %s' % '; '.join(missing))
+              sys.exit(1)
+          PY
       - id: install
         name: Install Playwright (the wait step reads the live build in real Chrome)
         run: pip install -q playwright==1.47.0 && python -m playwright install --with-deps chromium >/dev/null
@@ -96,6 +115,7 @@ jobs:
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
           case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
+          case "${{ steps.scripts.outcome }}" in failure) failed="${failed:+$failed }scripts";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
           if [ "$failed" = "install" ]; then
@@ -131,6 +151,7 @@ jobs:
           case "${{ steps.journeys.outcome }}" in failure) failed="${failed:+$failed }journeys";; esac
           case "${{ steps.designlock.outcome }}" in failure) failed="${failed:+$failed }design-lock";; esac
           case "${{ steps.darkdefault.outcome }}" in failure) failed="${failed:+$failed }dark-default";; esac
+          case "${{ steps.scripts.outcome }}" in failure) failed="${failed:+$failed }scripts";; esac
           [ -n "$failed" ] || failed="live check"
           echo "failed check: $failed"
           if [ -n "${CF_BLOCKED:-}" ]; then
