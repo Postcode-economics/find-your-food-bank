@@ -6,11 +6,10 @@ import unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OV = os.path.join(ROOT, "overrides")
 IDS = [
-    "man-google-share-homeless-action-centre-shac",
     "man-google-crawley-open-house-hostel",
-    "man-google-maggs-day-centre-worcester",
     "man-google-the-porch-oxford",
     "man-google-clock-tower-sanctuary",
+    "man-google-day-centre",
 ]
 
 

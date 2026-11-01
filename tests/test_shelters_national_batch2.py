@@ -137,7 +137,6 @@ NEW_IDS = [
     "man-renewed-hope-drop-in-day-centre",
     "man-st-joseph-s-night-shelter-stonepillow",
     "man-leatherhead-start",
-    "man-vaughan-house",
     "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
     "man-genesis-trust-lifeline",
     "man-the-zone-plymouth-youth-housing-homelessness-drop-",
