@@ -63,7 +63,13 @@ const bar=document.createElement('div');bar.id='xbar';bar.setAttribute('role','t
 const seg=(k,col,shape,on)=>`<button type="button" class="xt" data-l="${k}" aria-pressed="${on}"><i class="sw ${shape}" style="background:${col}"></i><span data-t="${k}"></span></button>`;
 bar.innerHTML=seg('fb','#F5C518','tear',true)+seg('sh',LAYERS.sh.col,'sq',false)+seg('ws',LAYERS.ws.col,'dia',false);
 const hdr=document.querySelector('header');hdr.insertBefore(bar,hdr.querySelector('h1').nextSibling);
-const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=`<span><i class="sw tear" style="background:#F5C518"></i><b data-t="fb"></b> <small id="u_fb"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="sh"></b> <small id="u_sh"></small></span><span><i class="sw dia" style="background:${LAYERS.ws.col}"></i><b data-t="ws"></b> <small id="u_ws"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="dayCentre"></b> <small data-t="dayOnly"></small></span><span><i class="sw sq" style="background:${LAYERS.sh.col}"></i><b data-t="youth"></b> <small data-t="youthOnly"></small></span>`;
+const keyRow=(ico,bKey,small)=>`<div class="xkey-row"><span class="xkey-ico" aria-hidden="true">${ico}</span><span class="xkey-txt"><b data-t="${bKey}"></b> ${small}</span></div>`;
+const lg=document.createElement('div');lg.id='xleg';lg.innerHTML=
+ keyRow(`<i class="sw tear" style="background:#F5C518"></i>`,'fb','<small id="u_fb"></small>')+
+ keyRow(symSvg('house',20),'sh','<small id="u_sh"></small>')+
+ keyRow(`<i class="sw dia" style="background:${LAYERS.ws.col}"></i>`,'ws','<small id="u_ws"></small>')+
+ keyRow(symSvg('sun',20),'dayCentre','<small data-t="dayOnly"></small>')+
+ keyRow(symSvg('youth',20),'youth','<small data-t="youthOnly"></small>');
 const ft=document.querySelector('footer');const fu=document.createElement('div');fu.id='xupd';ft.prepend(fu);fu.append(...lg.children);
 const lb=document.createElement('button');lb.type='button';lb.id='xlang';hdr.style.position='relative';hdr.prepend(lb);
 document.getElementById('f').after(document.getElementById('msg'));  // search errors show inline under the search box

@@ -290,9 +290,9 @@ html body footer{padding-bottom:0!important}
 html body .legal{margin:0 auto!important;padding:0 12px 28px!important;border-top:0!important;max-width:none}
 html body .legal p,html body .legal .lgl{margin:0!important}
 html body footer>div,html body footer>div *{font-size:14px!important;line-height:1.6!important;margin-top:0!important;margin-bottom:0!important;min-height:0!important}
-html body footer>div>span{align-items:center}
-html body footer>div{row-gap:0!important}html body footer>div>span{height:1.6em;overflow:visible}html body footer>div i{max-height:1.6em}
 html body footer #xupd,html body footer #xupd *{font-size:14px!important;line-height:1.6!important}
+html body footer #xupd .xkey-row{height:auto!important;min-height:0!important;overflow:visible!important}
+html body footer #xupd .xkey-ico i,html body footer #xupd .xkey-ico svg{max-height:none!important}
 
 /* round 5: national helplines inside the shelter strip, collapsed so the strip stays short */
 .v3sos details.hlp{margin-top:8px}.v3sos details.hlp summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center;text-decoration:underline}.v3sos details.hlp ul{margin:2px 0 0;padding-left:20px}.v3sos details.hlp li{margin:0 0 6px}.v3sos details.hlp a{white-space:nowrap}
