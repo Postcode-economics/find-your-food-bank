@@ -353,256 +353,7 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "ww-55472884",
-    "name": "Abbey Community Centre-Kilburn, London",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Abbey Centre, Greater London NW6 4BJ"
-    },
-    "after": {
-     "address": "Abbey Community Centre, 172 Belsize Road, London NW6 4BJ"
-    }
-   },
-   {
-    "id": "ww-55474670",
-    "name": "All Saints Church",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Market Place, Kingston upon Thames, Surrey KT1 1JP KT1 1JP"
-    },
-    "after": {
-     "address": "Market Place, Kingston upon Thames, Surrey KT1 1JP"
-    }
-   },
-   {
-    "id": "ww-65441837",
-    "name": "BCG Community Hub",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Unit 6, Birmingham, West Midlands B16 0QZ"
-    },
-    "after": {
-     "address": "Units 5 & 6, Magreal Industrial Estate, Freeth Street, Ladywood, Birmingham B16 0QZ"
-    }
-   },
-   {
-    "id": "ww-65437345",
-    "name": "Denaby community Library",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Springwell Centre, Doncaster, DN12 4AB 4AB"
-    },
-    "after": {
-     "address": "Springwell Centre, Doncaster, DN12 4AB"
-    }
-   },
-   {
-    "id": "ww-64379462",
-    "name": "Fairford Library",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "09:30 - 17:00",
-      "Wed": "09:30 - 17:00",
-      "Thu": "09:30 - 19:00",
-      "Sat": "09:30 - 13:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "10:00 - 13:00 / 14:00 - 17:00",
-      "Wed": "10:00 - 13:00 / 14:00 - 17:00",
-      "Thu": "10:00 - 13:00 / 14:00 - 17:00",
-      "Sat": "10:00 - 13:00"
-     }
-    }
-   },
-   {
-    "id": "ww-68911571",
-    "name": "Former scout hall, Broomfield Avenue, Hasland",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Former scout hall, Chesterfield, Derbyshire S41 0LY S41 0LY"
-    },
-    "after": {
-     "address": "Former scout hall, Chesterfield, Derbyshire S41 0LY"
-    }
-   },
-   {
-    "id": "ww-55475350",
-    "name": "Morden Leisure Centre",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Morden Leisure Centre, Surrey SM4 5HE"
-    },
-    "after": {
-     "address": "Morden Leisure Centre, London Road, Morden SM4 5HE"
-    }
-   },
-   {
-    "id": "ww-65420071",
-    "name": "Rainbow Junktion",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "All Hallows Church, West Yorkshire LS6 1NP"
-    },
-    "after": {
-     "address": "All Hallows Church, 24 Regent Terrace, Leeds LS6 1NP"
-    }
-   },
-   {
-    "id": "ww-63065216",
-    "name": "Stretham Community Hub",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Thu": "14:00 - 16:00 Monthly"
-     }
-    },
-    "after": {
-     "hours": {
-      "Thu": "14:00 - 16:00 Fortnightly"
-     }
-    }
-   },
-   {
-    "id": "ww-68896770",
-    "name": "The Branch Cafe",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Tue": "10:00 - 15:00",
-      "Wed": "10:00 - 15:00",
-      "Thu": "10:00 - 15:00",
-      "Fri": "10:00 - 15:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Tue": "10:00 - 15:00",
-      "Wed": "10:00 - 15:00",
-      "Thu": "10:00 - 15:00",
-      "Fri": "11:00 - 15:00"
-     }
-    }
-   },
-   {
-    "id": "ww-68506647",
-    "name": "The Hope Centre, Trinity Mission",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Hope Street Bungalow, Castleford, West Yorkshire WF10 1DZ"
-    },
-    "after": {
-     "address": "Hope Street East, Castleford, West Yorkshire WF10 1DZ"
-    }
-   },
-   {
-    "id": "sbadc-the-hub-south-brent",
-    "name": "The Hub, South Brent (SBADC)",
-    "fields": [
-     "scheme_dates",
-     "upcoming"
-    ],
-    "before": {
-     "scheme_dates": "Opens 1 Nov 2026",
-     "upcoming": true
-    },
-    "after": {
-     "scheme_dates": "Not stated by source",
-     "upcoming": null
-    }
-   },
-   {
-    "id": "ww-65438865",
-    "name": "The Hubbub",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Lockeaze Neighbourhood Trust, Bristol, Avon BS7 9FB BS7 9FB"
-    },
-    "after": {
-     "address": "Lockleaze Neighbourhood Trust, The Hub, Unit 1, Fedden Buildings, Gainsborough Square, Lockleaze, Bristol BS7 9FB"
-    }
-   },
-   {
-    "id": "ww-64432678",
-    "name": "The One Love Project",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Carnarvon Road, Southend on Sea, Essex SS2 6LR"
-    },
-    "after": {
-     "address": "Hollybrook, Carnarvon Road, Southend-on-Sea, Essex SS2 6LR"
-    }
-   },
-   {
-    "id": "ww-67526400",
-    "name": "The Vale Family Hub",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Unit 22b, Sturminster Newton, Dorset DT10 1AZ"
-    },
-    "after": {
-     "address": "22B Butts Pond, Sturminster Newton, Dorset DT10 1AZ"
-    }
-   },
-   {
-    "id": "ww-65070433",
-    "name": "Wembley Creative Community Hub",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Unit 17, Wembley, Middlesex HA0 4AH"
-    },
-    "after": {
-     "address": "Unit 17, 2 Station Grove, Wembley HA0 4AH"
-    }
-   },
-   {
-    "id": "ww-68524251",
-    "name": "Wesleys Community Hub at Baildon Methodist Church",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "Baildon Methodist Church, Newton Way,, Shioley, Shipley. West Yorkshire. BD17  5NH"
-    },
-    "after": {
-     "address": "Baildon Methodist Church, Newton Way, Baildon, Shipley, West Yorkshire BD17 5NH"
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -615,6 +366,10 @@
   "ended": [],
   "recheck_failed": [
    {
+    "id": "ww-57951531",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
     "id": "ww-57952860",
     "reason": "source no longer names this place"
    },
@@ -625,10 +380,6 @@
    {
     "id": "ww-65437341",
     "reason": "schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00"
-   },
-   {
-    "id": "ww-68672287",
-    "reason": "source page loaded (HTTP 200) but had no readable text this run (82 chars; likely a bot check or JavaScript-only page)"
    },
    {
     "id": "ww-62587523",
@@ -717,10 +468,6 @@
    {
     "id": "ww-68833847",
     "reason": "schema: hours value invalid: Wed=Closed - 14:00"
-   },
-   {
-    "id": "ww-62729499",
-    "reason": "source page loaded (HTTP 200) but had no readable text this run (82 chars; likely a bot check or JavaScript-only page)"
    },
    {
     "id": "ww-57951578",

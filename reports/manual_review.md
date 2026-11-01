@@ -569,7 +569,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Haymillscc · B25 8LD · https://www.birmingham.gov.uk/directory_record/580146/haymillscc — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Heath Street Practice (Saathi House) · B18 7AL · https://www.birmingham.gov.uk/directory_record/858814/heath_street_practice_saathi_house — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Help Harry Help Others Drop In Cancer Support Centre · B33 0AW · https://www.birmingham.gov.uk/directory_record/691951/help_harry_help_others_drop_in_cancer_support_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED Highgate Medical Centre- Saheli Hub · B12 0YA · https://saheli.co.uk — own site has no readable text
+- QUEUED Highgate Medical Centre- Saheli Hub · B12 0YA · https://saheli.co.uk — own site does not mention a warm space; directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Holloway Hall · B31 1TT · https://www.birmingham.gov.uk/directory_record/424485/holloway_hall — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Home-Start Birmingham Central and South West · B16 9NX · https://www.birmingham.gov.uk/directory_record/619065/home-start_birmingham_central_and_south_west — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Home-Start Birmingham Ladywood · B16 8UR · https://www.birmingham.gov.uk/directory_record/619066/home-start_birmingham_ladywood — directory listing only, with no 2026-27 season dates (latest stated start: none)
@@ -603,7 +603,7 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 - QUEUED Nansen Primary School · B8 3HG · https://www.birmingham.gov.uk/directory_record/680431/nansen_primary_school — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Nechells POD · B7 4NX · https://www.birmingham.gov.uk/directory_record/424252/nechells_pod — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED New Heights Community Café · B44 0QN · https://www.birmingham.gov.uk/directory_record/436289/new_heights_community_caf%C3%A9 — directory listing only, with no 2026-27 season dates (latest stated start: none)
-- QUEUED New Life Wesleyan Church · B21 0LA · https://wesleyanchurch.org.uk — own site has no readable text
+- QUEUED New Life Wesleyan Church · B21 0LA · https://wesleyanchurch.org.uk — own site does not mention a warm space
 - QUEUED New Testament Church of God · B19 1NP · https://www.birmingham.gov.uk/directory_record/438732/new_testament_church_of_god — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Newbigin Community Trust - Lodge Road Church Centre · B18 5BU · https://www.birmingham.gov.uk/directory_record/438730/newbigin_community_trust_-_lodge_road_church_centre — directory listing only, with no 2026-27 season dates (latest stated start: none)
 - QUEUED Newbigin Community Trust - Newbigin House · B18 4PT · https://newbigintrust.uk/ — own site does not mention a warm space
