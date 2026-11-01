@@ -2080,33 +2080,22 @@
  ],
  "shelters": [
   {
+   "id": "man-google-iou-hostel-hebden-bridge",
+   "name": "IOU Hostel, Hebden Bridge",
+   "postcode": "",
+   "source": "https://www.hebdenbridgehostel.org/",
+   "why": [
+    "no verified phone"
+   ],
+   "held_on": "2026-11-01"
+  },
+  {
    "id": "osm-way-979361293",
    "name": "Salford Foyer",
    "postcode": "M6 5WX",
    "source": "https://www.openstreetmap.org/way/979361293",
    "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
     "no sourced 'who it's for'"
-   ],
-   "held_on": "2026-11-01"
-  },
-  {
-   "id": "hl-st-annes-hostel-birmingham",
-   "name": "St Anne's Hostel",
-   "postcode": "B12 0RY",
-   "source": "https://homeless.org.uk/homeless-england/service/st-annes-hostel/",
-   "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)"
-   ],
-   "held_on": "2026-11-01"
-  },
-  {
-   "id": "hl-st-georges-crypt-leeds",
-   "name": "St George's Crypt – emergency accommodation",
-   "postcode": "LS1 3BR",
-   "source": "https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/",
-   "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)"
    ],
    "held_on": "2026-11-01"
   },
@@ -2116,18 +2105,6 @@
    "postcode": "SE1 0ES",
    "source": "https://www.openstreetmap.org/way/753792449",
    "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
-    "no sourced 'who it's for'"
-   ],
-   "held_on": "2026-11-01"
-  },
-  {
-   "id": "hl-ymca-lincs-nomad-centre",
-   "name": "YMCA Lincolnshire – Nomad Centre",
-   "postcode": "LN2 5AR",
-   "source": "https://homeless.org.uk/homeless-england/service/ymca-lincolnshire-nomad-trust-night-shelter/",
-   "why": [
-    "new place - waiting for your OK (add id to overrides/approved_new_places.json)",
     "no sourced 'who it's for'"
    ],
    "held_on": "2026-11-01"

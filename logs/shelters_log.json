@@ -2,6 +2,169 @@
  {
   "run": "2026-11-01",
   "result": "ok",
+  "items": 329,
+  "stale": 3,
+  "recently_closed": 0,
+  "sources": {
+   "OpenStreetMap (Overpass)": {
+    "status": "ok",
+    "count": 99
+   },
+   "Manual (verified from source pages)": {
+    "status": "ok",
+    "count": 301
+   },
+   "nightshelter.org.uk": {
+    "status": "not scraped: domain is parked (redirects to a lander page); no data"
+   },
+   "StreetLink (thestreetlink.org.uk)": {
+    "status": "not scraped: 403 to automated requests; it is a referral service, not a shelter directory"
+   },
+   "LHF Atlas": {
+    "status": "not scraped: map is an interactive app with no public data export; London-only"
+   },
+   "Crisis / Shelter / St Mungo's / Thames Reach": {
+    "status": "not scraped: no public shelter directory; services are via referral (council/outreach)"
+   },
+   "Shelter directory proposals": {
+    "status": "ok",
+    "verified": 1,
+    "held": 312,
+    "day_centre_candidates": 236,
+    "excluded": 6,
+    "by_source": {
+     "homeless_link": {
+      "found": 0,
+      "verified": 0,
+      "held": 0,
+      "excluded": 0,
+      "already_listed": 0,
+      "day_centre_candidates": 0,
+      "reader": {
+       "status": "failed: HTTP 403"
+      }
+     },
+     "street_support": {
+      "found": 565,
+      "verified": 1,
+      "held": 307,
+      "excluded": 6,
+      "already_listed": 17,
+      "day_centre_candidates": 234,
+      "reader": {
+       "status": "ok",
+       "accommodation": {
+        "status": "ok",
+        "total": 319,
+        "fetched": 319
+       },
+       "dropin": {
+        "status": "ok",
+        "total": 246,
+        "fetched": 246
+       }
+      }
+     },
+     "lifehouses": {
+      "found": 15,
+      "verified": 0,
+      "held": 5,
+      "excluded": 0,
+      "already_listed": 8,
+      "day_centre_candidates": 2,
+      "reader": {
+       "status": "ok",
+       "sitemap_place_pages": 15,
+       "page_fetch_failures": 0,
+       "stated_on_page": 44,
+       "note": "Lifehouses page says 44 services; sitemap exposed 15 place pages (news URLs excluded)"
+      }
+     },
+     "nihe": {
+      "found": 0,
+      "verified": 0,
+      "held": 0,
+      "excluded": 0,
+      "already_listed": 0,
+      "day_centre_candidates": 0,
+      "reader": {
+       "status": "failed: NIHE page HTTP 403; Housing Rights PDF HTTP 200"
+      }
+     }
+    }
+   },
+   "Discovery": {
+    "status": "ok",
+    "candidates": 35,
+    "new": 28,
+    "added_unverified": 0,
+    "flagged": 28
+   },
+   "Hours normalised": {
+    "status": "ok",
+    "changed": 33
+   },
+   "Own-site times check": {
+    "status": "ok",
+    "no_website": 20,
+    "none_published": 189,
+    "unreachable": 16,
+    "differs_review": 55,
+    "unconfirmed": 14,
+    "confirmed": 1,
+    "held_for_dean": 29,
+    "changed": 5,
+    "removed_closed": []
+   },
+   "Verification gate": {
+    "status": "ok",
+    "scraped": 400,
+    "published": 330,
+    "pending": 70,
+    "kept_on_48h_grace": [
+     "osm-way-753792449",
+     "osm-way-979361293",
+     "hl-ymca-lincs-nomad-centre",
+     "hl-st-annes-hostel-birmingham",
+     "hl-st-georges-crypt-leeds",
+     "man-positive-pathways-drop-in-depaul",
+     "man-dominion-community-hub",
+     "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
+     "man-providence-row-dellow-centre",
+     "man-trafalgar-house-sanctuary",
+     "man-home4good-centre-dunfermline",
+     "man-victoria-house",
+     "man-google-day-centre",
+     "man-kip-telford",
+     "man-nomad-centre-ymca-lincolnshire"
+    ],
+    "kept_fetch_blocked": [
+     "man-harp-bradbury-day-centre (hand-checked 2026-10-31)",
+     "man-oak-house-homeless-action (hand-checked 2026-10-31)",
+     "hl-dawn-centre-temporary-accommodation-project (hand-checked 2026-10-31)",
+     "hl-paradigm-housing-group-lea-bridge-house-hostel (hand-checked 2026-10-31)",
+     "hl-st-mungos-longhills (hand-checked 2026-10-31)",
+     "hl-stonepillow-bognor-hostel (hand-checked 2026-10-31)",
+     "man-google-lancaster-district-homeless-action-service (hand-checked 2026-11-01)"
+    ]
+   },
+   "Seasonal dates": {
+    "status": "ok",
+    "upcoming": 4,
+    "expired": []
+   },
+   "Manual contacts": {
+    "status": "ok",
+    "phones_filled": 20,
+    "missing_any_number": [
+     "man-google-iou-hostel-hebden-bridge"
+    ]
+   }
+  }
+ },
+ {
+  "run": "2026-11-01",
+  "result": "ok",
   "items": 144,
   "stale": 1,
   "recently_closed": 0,

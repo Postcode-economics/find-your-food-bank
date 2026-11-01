@@ -1,9 +1,631 @@
 {
  "shelters.js": {
-  "added": [],
+  "added": [
+   {
+    "id": "hl-st-annes-hostel-birmingham",
+    "name": "St Anne's Hostel",
+    "tier": "unverified"
+   },
+   {
+    "id": "hl-st-georges-crypt-leeds",
+    "name": "St George's Crypt – emergency accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "hl-ymca-lincs-nomad-centre",
+    "name": "YMCA Lincolnshire – Nomad Centre",
+    "tier": "unverified"
+   },
+   {
+    "id": "man-700-club-hostel",
+    "name": "700 Club hostel",
+    "tier": "verified"
+   },
+   {
+    "id": "man-airth-court-temporary-accommodation",
+    "name": "Airth Court temporary accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "man-bethany-welcome-centre",
+    "name": "Bethany Welcome Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-brynmenyn-house-the-wallich",
+    "name": "Brynmenyn House (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-cath-harold-tomlins-centre",
+    "name": "CATH - Harold Tomlins Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-chess-homeless",
+    "name": "CHESS Homeless",
+    "tier": "verified"
+   },
+   {
+    "id": "man-cornerstone-house-the-wallich",
+    "name": "Cornerstone House (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-corporation-street-the-wallich",
+    "name": "Corporation Street (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-coventry-cyrenians",
+    "name": "Coventry Cyrenians",
+    "tier": "verified"
+   },
+   {
+    "id": "man-dinas-fechan-hostel-the-wallich",
+    "name": "Dinas Fechan Hostel (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-first-stop-darlington",
+    "name": "First Stop Darlington",
+    "tier": "verified"
+   },
+   {
+    "id": "man-goleudy-access-point",
+    "name": "Goleudy Access Point",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-about-us-hinckley-homeless-group-lawrence-house",
+    "name": "About Us - Hinckley Homeless Group - Lawrence House",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-brentwood-middleton-day-centre",
+    "name": "Brentwood Middleton Day Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-clock-tower-sanctuary",
+    "name": "Clock Tower Sanctuary",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-crawley-open-house-hostel",
+    "name": "Crawley Open House",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-dorset-nightstop",
+    "name": "Dorset Nightstop",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-eva-burrows-lifehouse",
+    "name": "Eva Burrows Lifehouse",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-greenwich-homeless-project-night-shelter",
+    "name": "Greenwich Homeless Project Night Shelter",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-home-page-dewis-housing-port-talbot-neath",
+    "name": "Home Page - Dewis Housing Port Talbot & Neath",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-housing-with-24-7-support",
+    "name": "Housing with 24/7 Support",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-isle-of-wight-night-shelter-outreach",
+    "name": "Isle of Wight Night Shelter and Outreach Support",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-kings-ripton-court",
+    "name": "Kings Ripton Court",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-kingston-churches-action-on-homelessness",
+    "name": "Kingston Churches Action on Homelessness",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-kirkwall",
+    "name": "Kirkwall",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-lancaster-district-homeless-action-service",
+    "name": "Lancaster & District Homeless Action Service",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-lichfield-district-council-joins-safeplaces-for-em",
+    "name": "Lichfield District Council Joins Safeplaces for Emergency",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-lighthouse-day-centre-holyhead",
+    "name": "Lighthouse Day Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-local-hostels-night-shelters",
+    "name": "Local Hostels & Night Shelters",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-lws-night-shelter",
+    "name": "LWS Night Shelter",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-macs",
+    "name": "MACS",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-maggs-day-centre-worcester",
+    "name": "Maggs Day Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-national-housing",
+    "name": "National - Housing",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-newark-emmaus-trust-home",
+    "name": "Newark Emmaus Trust: Home",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-over-80-years-supporting-homeless-young-people",
+    "name": "Over 80 years supporting homeless young people",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-reach-haverhill-warm-hubs",
+    "name": "Reach Haverhill : Warm Hubs",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-rough-sleeping-we-are-trinity",
+    "name": "Rough Sleeping - We are Trinity",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-share-homeless-action-centre-shac",
+    "name": "SHARE Homeless Action Centre (SHAC)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-supported-accommodation-for-young-people",
+    "name": "Supported Accommodation For Young People",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-tabor-living-st-catherine",
+    "name": "Tabor Living at St Catherine of Siena Church",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-the-foyer-isle-of-wight",
+    "name": "The Foyer, Isle of Wight",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-the-night-shelter-coventry",
+    "name": "The Night Shelter Coventry",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-the-porch-oxford",
+    "name": "The Porch",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-torbay-foyer",
+    "name": "Torbay Foyer",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-utility-street-mens-hostel",
+    "name": "Utility Street Men's Hostel",
+    "tier": "verified"
+   },
+   {
+    "id": "man-google-ymca-mendip-including-ymca-south-somerset",
+    "name": "YMCA Mendip (including YMCA South Somerset)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-greenlaw-house",
+    "name": "Greenlaw House",
+    "tier": "verified"
+   },
+   {
+    "id": "man-harp-bradbury-day-centre",
+    "name": "HARP Bradbury Day Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-leatherhead-start",
+    "name": "LeatherHEAD START",
+    "tier": "verified"
+   },
+   {
+    "id": "man-leonard-stocks-centre",
+    "name": "Leonard Stocks Centre",
+    "tier": "verified"
+   },
+   {
+    "id": "man-manse-avenue-temporary-accommodation",
+    "name": "Manse Avenue temporary accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "man-maple-tree-house-goleudy",
+    "name": "Maple Tree House (Goleudy)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-oak-house-homeless-action",
+    "name": "Oak House (Homeless Action)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-p3-wolves-hub-navigator",
+    "name": "P3 Wolverhampton Street Outreach (Navigator)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-paxton-street-hostel-goleudy",
+    "name": "Paxton Street Hostel (Goleudy)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-salvation-army-booth-house-swindon",
+    "name": "Salvation Army Booth House Swindon",
+    "tier": "verified"
+   },
+   {
+    "id": "man-st-john-s-hostel-the-wallich-b-item-resolved",
+    "name": "St John's Hostel (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-st-joseph-s-night-shelter-stonepillow",
+    "name": "St Joseph's Night Shelter (Stonepillow)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-tarbolton-road-temporary-accommodation",
+    "name": "Tarbolton Road temporary accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "man-the-falcon-centre-falcon-support-services",
+    "name": "The Falcon Centre (Falcon Support Services)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-the-ferry-project",
+    "name": "The Ferry Project",
+    "tier": "verified"
+   },
+   {
+    "id": "man-thrashbush-quadrant-temporary-accommodation",
+    "name": "Thrashbush Quadrant temporary accommodation",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ty-ogwr-hostel-the-wallich",
+    "name": "Ty Ogwr Hostel (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ty-raena-the-wallich",
+    "name": "Ty Raena (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ty-tom-jones-the-wallich",
+    "name": "Ty Tom Jones (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-ynys-mon-supported-accommodation-the-wallich",
+    "name": "Ynys Mon Supported Accommodation (The Wallich)",
+    "tier": "verified"
+   },
+   {
+    "id": "man-york-road-project",
+    "name": "York Road Project",
+    "tier": "verified"
+   }
+  ],
   "removed": [],
-  "changed": [],
-  "tier_flips": [],
+  "changed": [
+   {
+    "id": "man-action-for-barnsley-homeless",
+    "name": "Action for Barnsley Homeless",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": "Mon 4pm-8pm (meal 6pm); Wed 10am-12pm McLintocks"
+    },
+    "after": {
+     "hours": {
+      "Mon": "16:00 - 20:00",
+      "Wed": "10:00 - 12:00"
+     }
+    }
+   },
+   {
+    "id": "man-google-calderwood-house",
+    "name": "Calderwood House",
+    "fields": [
+     "address",
+     "access_type"
+    ],
+    "before": {
+     "address": "",
+     "access_type": "not_stated"
+    },
+    "after": {
+     "address": "Egremont",
+     "access_type": "open_access"
+    }
+   },
+   {
+    "id": "hl-dawn-centre-temporary-accommodation-project",
+    "name": "Dawn Centre - Temporary Accommodation Project",
+    "fields": [
+     "address",
+     "tier",
+     "access_type"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified",
+     "access_type": null
+    },
+    "after": {
+     "address": "Leicester",
+     "tier": "verified",
+     "access_type": "referral_only"
+    }
+   },
+   {
+    "id": "man-google-day-centre",
+    "name": "Day Centre",
+    "fields": [
+     "access_type"
+    ],
+    "before": {
+     "access_type": "not_stated"
+    },
+    "after": {
+     "access_type": "open_access"
+    }
+   },
+   {
+    "id": "man-first-stop-centre",
+    "name": "First Stop Centre",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": "Not stated"
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:30 - 13:30",
+      "Tue": "10:30 - 13:30",
+      "Thu": "10:30 - 13:30",
+      "Fri": "10:30 - 13:30"
+     }
+    }
+   },
+   {
+    "id": "man-gloucester-city-mission-homeless-day-provision",
+    "name": "Gloucester City Mission Homeless Day Provision",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": "Mon/Tue/Thu 10-3, Wed 11-1, Fri 10-1:30"
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 15:00",
+      "Tue": "10:00 - 15:00",
+      "Wed": "11:00 - 13:00",
+      "Thu": "10:00 - 15:00",
+      "Fri": "10:00 - 13:30"
+     }
+    }
+   },
+   {
+    "id": "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
+    "name": "HUG Safe Space (Bexhill & Rother Homelessness Unity Group)",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": "Not stated"
+    },
+    "after": {
+     "hours": {
+      "Sat": "13:00 - 15:00"
+     }
+    }
+   },
+   {
+    "id": "ss-63bf328f843d85a21d7bbdce",
+    "name": "New Start Harm Reduction (women)",
+    "fields": [
+     "address",
+     "tier"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified"
+    },
+    "after": {
+     "address": "Liverpool",
+     "tier": "verified"
+    }
+   },
+   {
+    "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
+    "name": "Paradigm Housing Group - Lea Bridge House Hostel",
+    "fields": [
+     "address",
+     "tier"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified"
+    },
+    "after": {
+     "address": "Waltham Forest",
+     "tier": "verified"
+    }
+   },
+   {
+    "id": "hl-st-mungos-longhills",
+    "name": "St Mungo's - Longhills",
+    "fields": [
+     "address",
+     "tier",
+     "access_type"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified",
+     "access_type": null
+    },
+    "after": {
+     "address": "Bristol City",
+     "tier": "verified",
+     "access_type": "referral_only"
+    }
+   },
+   {
+    "id": "hl-stonepillow-bognor-hostel",
+    "name": "Stonepillow - Bognor Hostel",
+    "fields": [
+     "address",
+     "tier"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified"
+    },
+    "after": {
+     "address": "Bognor Regis",
+     "tier": "verified"
+    }
+   }
+  ],
+  "tier_flips": [
+   {
+    "id": "hl-st-mungos-longhills",
+    "name": "St Mungo's - Longhills",
+    "fields": [
+     "address",
+     "tier",
+     "access_type"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified",
+     "access_type": null
+    },
+    "after": {
+     "address": "Bristol City",
+     "tier": "verified",
+     "access_type": "referral_only"
+    }
+   },
+   {
+    "id": "ss-63bf328f843d85a21d7bbdce",
+    "name": "New Start Harm Reduction (women)",
+    "fields": [
+     "address",
+     "tier"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified"
+    },
+    "after": {
+     "address": "Liverpool",
+     "tier": "verified"
+    }
+   },
+   {
+    "id": "hl-paradigm-housing-group-lea-bridge-house-hostel",
+    "name": "Paradigm Housing Group - Lea Bridge House Hostel",
+    "fields": [
+     "address",
+     "tier"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified"
+    },
+    "after": {
+     "address": "Waltham Forest",
+     "tier": "verified"
+    }
+   },
+   {
+    "id": "hl-stonepillow-bognor-hostel",
+    "name": "Stonepillow - Bognor Hostel",
+    "fields": [
+     "address",
+     "tier"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified"
+    },
+    "after": {
+     "address": "Bognor Regis",
+     "tier": "verified"
+    }
+   },
+   {
+    "id": "hl-dawn-centre-temporary-accommodation-project",
+    "name": "Dawn Centre - Temporary Accommodation Project",
+    "fields": [
+     "address",
+     "tier",
+     "access_type"
+    ],
+    "before": {
+     "address": "",
+     "tier": "unverified",
+     "access_type": null
+    },
+    "after": {
+     "address": "Leicester",
+     "tier": "verified",
+     "access_type": "referral_only"
+    }
+   }
+  ],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
    "Glasgow City Mission Overnight Welcome Centre – Opens 1 Dec 2026 until 31 Mar 2027",
@@ -177,140 +799,20 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "man-first-stop-darlington",
-    "reason": "source unreachable this run (HTTP error)"
-   },
-   {
-    "id": "man-700-club-hostel",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
     "id": "man-the-brick-queen-s-hall-action-on-poverty-day-centr",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-cath-harold-tomlins-centre",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-leonard-stocks-centre",
-    "reason": "schema: referral requirement not stated"
    },
    {
     "id": "man-providence-row-dellow-centre",
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "man-bethany-welcome-centre",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-thrashbush-quadrant-temporary-accommodation",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-manse-avenue-temporary-accommodation",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-tarbolton-road-temporary-accommodation",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-greenlaw-house",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-brynmenyn-house-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-ty-ogwr-hostel-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-dinas-fechan-hostel-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-ty-tom-jones-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-ty-raena-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-corporation-street-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-ynys-mon-supported-accommodation-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-st-john-s-hostel-the-wallich-b-item-resolved",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-paxton-street-hostel-goleudy",
-    "reason": "source now says closed/ended"
-   },
-   {
-    "id": "man-maple-tree-house-goleudy",
-    "reason": "source now says closed/ended"
-   },
-   {
     "id": "man-harp-bradbury-day-centre",
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "man-the-falcon-centre-falcon-support-services",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
     "id": "man-trafalgar-house-sanctuary",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-the-ferry-project",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-salvation-army-booth-house-swindon",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-york-road-project",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-st-joseph-s-night-shelter-stonepillow",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-leatherhead-start",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-airth-court-temporary-accommodation",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-cornerstone-house-the-wallich",
-    "reason": "schema: referral requirement not stated"
-   },
-   {
-    "id": "man-goleudy-access-point",
-    "reason": "source now says closed/ended"
-   },
-   {
-    "id": "man-p3-wolves-hub-navigator",
-    "reason": "source no longer names this place"
-   },
-   {
-    "id": "man-coventry-cyrenians",
-    "reason": "source unreachable this run (HTTP 503)"
    },
    {
     "id": "man-home4good-centre-dunfermline",
@@ -319,10 +821,6 @@
    {
     "id": "man-victoria-house",
     "reason": "source unreachable this run (HTTP 403)"
-   },
-   {
-    "id": "man-chess-homeless",
-    "reason": "schema: referral requirement not stated"
    },
    {
     "id": "man-oak-house-homeless-action",
@@ -345,8 +843,20 @@
     "reason": "source unreachable this run (HTTP 403)"
    },
    {
-    "id": "ss-63bf328f843d85a21d7bbdce",
-    "reason": "schema: lat out of UK range; lng out of UK range; address missing"
+    "id": "man-google-lancaster-district-homeless-action-service",
+    "reason": "source unreachable this run (HTTP error)"
+   },
+   {
+    "id": "man-google-day-centre",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-kip-telford",
+    "reason": "source unreachable this run (HTTP 403)"
+   },
+   {
+    "id": "man-nomad-centre-ymca-lincolnshire",
+    "reason": "source unreachable this run (HTTP 403)"
    }
   ]
  },
