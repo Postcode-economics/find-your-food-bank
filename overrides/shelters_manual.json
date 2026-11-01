@@ -1199,7 +1199,10 @@
   "hours": "",
   "referral": "Self-referral or any agency; beds cannot be pre-booked; latest admission 8:30pm",
   "beds": "",
-  "groups": [],
+  "groups": [
+   "Single homeless people"
+  ],
+  "groups_source": "https://www.lincsymca.co.uk/housing/emergency-accommodation/",
   "season": "Year-round",
   "operator": "",
   "flag_closed": false,
