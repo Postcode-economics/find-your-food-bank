@@ -455,7 +455,9 @@ class HandCheck(unittest.TestCase):
         "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
         "hl-paradigm-housing-group-lea-bridge-house-hostel": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
         "ss-63bf328f843d85a21d7bbdce": "Call New Start on 0151 708 7103 or ask your support worker to refer you.",
+        "man-google-calderwood-house": "Adults 25+ in West Cumbria: call 01946 439312 to ask about emergency hostel places at Calderwood House in Egremont.",
     }
+    HAND_REF_PREFIX = ("hl-", "ss-", "man-google-")
     OFF = [
         "hl-salvation-army-william-booth-house-hull", "hl-nacro-nottingham-young-persons-accommodation",
         "hl-london-borough-of-southwark-northcott-house", "ss-6311880e295b30de42434135",
@@ -468,7 +470,8 @@ class HandCheck(unittest.TestCase):
         "hl-transform-housing-and-support-hersham-road-hostel", "hl-adullam-homes-ha-bury-aben-phase-3",
         "hl-turning-lives-around-seacole-scheme", "hl-the-salvation-army-fishermead-hostel",
         "hl-squared-hostel-for-expected-mothers", "hl-squared-mother-and-baby-hostel",
-        "hl-squared-luton-hostels", "hl-connection-support-fishermead-hostel",  # 1 Nov: phone not on own page
+        "hl-squared-luton-hostels",         "hl-connection-support-fishermead-hostel",  # 1 Nov: phone not on own page
+        "man-google-homeless-accommodation-tai-gogledd-cymru",  # 1 Nov: operator page does not verify Denbigh town
     ]
 
     def test_published_cards_match_the_hand_check(self):
@@ -488,7 +491,7 @@ class HandCheck(unittest.TestCase):
         self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["groups"], ["Women"])
         self.assertNotIn("/test", by["ss-63bf328f843d85a21d7bbdce"].get("website") or "")
         refs = [i for i in data["items"] if i.get("card_type") == "referral_hostel"]
-        self.assertEqual(sorted(i["id"] for i in refs), sorted(i for i in self.LINES if i.startswith(("hl-", "ss-"))))
+        self.assertEqual(sorted(i["id"] for i in refs), sorted(i for i in self.LINES if i.startswith(self.HAND_REF_PREFIX)))
         for iid in self.OFF:
             self.assertNotIn(iid, by)
         held = open(os.path.join(S.ROOT, "reports", "pending_dean.md"), encoding="utf-8").read()

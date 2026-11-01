@@ -42,10 +42,13 @@ def schema_errors(x, layer):
     """Validate every published field. Returns a list of problems (empty = valid)."""
     e = []
     if not x.get("name"): e.append("name missing")
-    if not isinstance(x.get("lat"), (int, float)) or not 49.8 <= x["lat"] <= 61: e.append("lat out of UK range")
-    if not isinstance(x.get("lng"), (int, float)) or not -8.7 <= x["lng"] <= 2: e.append("lng out of UK range")
+    list_only = layer == "sh" and x.get("no_pin") and x.get("card_type") == "referral_hostel"
+    if not list_only:
+        if not isinstance(x.get("lat"), (int, float)) or not 49.8 <= x["lat"] <= 61: e.append("lat out of UK range")
+        if not isinstance(x.get("lng"), (int, float)) or not -8.7 <= x["lng"] <= 2: e.append("lng out of UK range")
     if x.get("postcode") and not PC_RE.match(str(x["postcode"]).upper()): e.append("postcode invalid")
-    if not (x.get("address") or x.get("postcode")): e.append("address missing")
+    if not (x.get("address") or x.get("postcode") or (list_only and (x.get("town") or x.get("area")))):
+        e.append("address missing")
     h = x.get("hours")
     if isinstance(h, dict):
         for k, v in h.items():

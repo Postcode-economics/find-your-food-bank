@@ -52,16 +52,17 @@ def main():
             "postcode": row.get("postcode") or "",
             "verified_on": "2026-11-01",
             "evidence_name": e.get("_evidence_name") or "",
-            "access_type": row.get("access_type") or "not_stated",
             "note": NOTE,
             "facilities": row.get("facilities") or "Not stated",
             "who_for": row.get("who_for") or "Not stated",
             "groups": row.get("groups") or [],
             "season": row.get("season") or "Year-round",
             "hours": row.get("hours") or "Not stated",
-            "wheelchair": row.get("wheelchair") or "Not stated",
             "referral": row.get("referral") or "Not stated",
         }
+        at = row.get("access_type")
+        if at in ("open_access", "self_referral", "referral_only"):
+            ver[row["id"]]["access_type"] = at
         sh_ap[row["id"]] = NOTE
         if row.get("phone"):
             ph.setdefault(row["id"], {"layer": "shelters", "phone": row["phone"]})

@@ -209,9 +209,10 @@ class Batch2(unittest.TestCase):
                 self.assertTrue(m.get("groups_quote"), i)
             self.assertEqual(m["who_for"], m["groups"] or "Not stated", i)
             self.assertNotIn("Women only", m["groups"], i)
-            self.assertIn(m["wheelchair"], ("yes", "partial", "no", "Not stated"), i)
-            if m["wheelchair"] != "Not stated":
-                self.assertTrue(m["wheelchair_quote"], i)
+            if "wheelchair" in m:
+                self.assertIn(m["wheelchair"], ("yes", "partial", "no", "Not stated"), i)
+                if m["wheelchair"] != "Not stated":
+                    self.assertTrue(m.get("wheelchair_quote"), i)
 
 
 if __name__ == "__main__":
