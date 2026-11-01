@@ -47,10 +47,11 @@ const SYM={
  youth:'<g class="xmk"><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></g>',
  food:'<g class="xmk"><path d="M9 13.5h14l-1.3 10.5H10.3z" fill="#0A1628"/><path d="M12 13.5V12a4 4 0 0 1 8 0v1.5" fill="none" stroke="#0A1628" stroke-width="2"/></g>',
  flame:'<g class="xmk"><path d="M16.2 7.2c.4 3.2-2.4 4.6-2.2 8 .2 2.2 2.2 3.2 4.2 2.4 1.2-2.4-.4-4 1.4-6.2 1.8 2.4 2.6 4.8 1.2 7.6a5.2 5.2 0 1 1-9.4-2.8c.8-2.6 2.8-4 4.8-9z" fill="#0A1628"/></g>'};
-const shDay=i=>{const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
-const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),groups=(i.groups||[]).join(' '),blob=name+' '+groups;return/\bfoyers?\b/i.test(name)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/\byoung people\b/i.test(name)||/16\s*[-–to]{1,3}\s*2[0-9]/i.test(name)||/16\s*[-–to]{1,3}\s*2[0-9]/i.test(groups)};
+const shYouthBlob=i=>{if(!i)return'';const wf=Array.isArray(i.who_for)?i.who_for.join(' '):String(i.who_for||'');return(String(i.name||'')+' '+(i.groups||[]).join(' ')+' '+wf).replace(/\s+/g,' ')};
+const shYouth=i=>{const U=window.UFacts;if(U&&U.isYouth)return U.isYouth(i);if(!i||i.kind==='young_people')return!!(i&&i.kind==='young_people');const name=String(i.name||''),blob=shYouthBlob(i);return/\bfoyers?\b/i.test(blob)||/\byoung people\b/i.test(blob)||/\byouth\b/i.test(blob)||/Age\s*16\s*[-–]\s*25/i.test(blob)||/16\s*[-–to]{1,3}\s*25/i.test(blob)||/1[678]\s*[-–to]{1,3}\s*2[0-9]/i.test(blob)||(/\bhousing\b/i.test(name)&&/16\s*[-–to]{1,3}\s*25/i.test(blob))||/young people'?s housing/i.test(blob)};
+const shDay=i=>{const U=window.UFacts;if(U&&U.isDayCentre)return U.isDayCentre(i);if(shYouth(i))return false;const k=String((i&&i.kind)||(i&&i.service)||'').toLowerCase().replace(/-/g,' ').replace(/_/g,' ');return i&&i.label==='Day centre'||k==='day centre'};
 const shHostel=i=>i&&!shDay(i)&&!shYouth(i);
-const symKey=i=>!i?'house':shDay(i)?'sun':shYouth(i)?'youth':'house';
+const symKey=i=>!i?'house':shYouth(i)?'youth':shDay(i)?'sun':'house';
 const symSvg=(key,px)=>`<svg ${px?`width="${px}" height="${px}" `:''}viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key]}</svg>`;
 const symBox=key=>symSvg(key,28);
 const SHP={sq:(c,sym)=>`<svg width="32" height="40" viewBox="0 0 32 40"><path d="M3 3h26v26H21l-5 9-5-9H3z" fill="${c}" stroke="#0A1628" stroke-width="2.5"/>${SYM[sym||'house']}</svg>`,
@@ -184,6 +185,7 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
 
  ${i.ended?`<p class="xw">${IC('alert')}${t('ended')}</p>`:''}${i.stale?`<p class="xw">${IC('alert')}${t('stale')}</p>`:''}
  <p>${addr(i)}</p>
+ ${i.no_pin&&(i.town||i.area)?`<p class="sub">${lang==='cy'?'Gwasanaeth lefel tref – dim pin ar y map':'Town-level service – no map pin'} (${esc(i.town||i.area)})</p>`:''}
  ${facts}
  ${checked}
  <div class="xacts">${dir}${call}${contact.web}${share}</div>
@@ -208,11 +210,16 @@ let lastPos=null;const openOnly={sh:false,ws:false},verOnly={sh:false,ws:false},
 function shelterTypeOk(i){const day=dayOnly.sh,youth=youthOnly.sh,hostel=typeOn.shost;if(!day&&!youth&&!hostel)return true;
  if(day&&shDay(i))return true;if(youth&&shYouth(i))return true;
  return !!(hostel&&shHostel(i))}
-window.shDay=shDay;window.shYouth=shYouth;window.shHostel=shHostel;window.shelterTypeOk=shelterTypeOk;
+function shChipOn(){return !!(typeOn.shost||youthOnly.sh||dayOnly.sh)}
+window.shDay=shDay;window.shYouth=shYouth;window.shHostel=shHostel;window.shelterTypeOk=shelterTypeOk;window.shChipOn=shChipOn;
+function shFitBounds(lat,lng,all){const n=XLIM().first,pin=all.filter(x=>!x.i.no_pin);const pick=(pin.length?pin:all).slice(0,n);if(!pick.length)return null;return L.latLngBounds([[lat,lng],...pick.map(x=>[x.i.lat,x.i.lng])]).pad(0.2)}
+function refitShMap(){if(!map||!lastPos||window.v3focus!=='sh')return;const B=window._fitX&&window._fitX.sh;if(!B)return;map.invalidateSize();map.fitBounds(B,{animate:false});if(innerWidth<1024&&map.getZoom()<12)map.setView([lastPos[0],lastPos[1]],13,{animate:false})}
+window.refitShMap=refitShMap;
 function syncTypeChips(){const map={shost:typeOn.shost,youth:youthOnly.sh,sday:dayOnly.sh};Object.keys(map).forEach(k=>{const e=document.querySelector('#chips [data-f="'+k+'"]');if(e)e.setAttribute('aria-pressed',String(!!map[k]))})}
 function syncPins(k){const L_=LAYERS[k];if(!L_||!L_.group||!L_._ms)return;const ot=!!(typeof F!=='undefined'&&F.open&&window.V3);
- L_._ms.forEach(m=>{const i=m._si;if(!i)return;const show=(k!=='sh'||shelterTypeOk(i))&&!(ot&&(i.ended||V3.shutToday(k,i)));m._keep=show;const on=L_.group.hasLayer(m);if(show&&!on)L_.group.addLayer(m);else if(!show&&on)L_.group.removeLayer(m)});if(k==='sh')window.__shPins=L_._ms}
-document.addEventListener('click',e=>{const chip=e.target.closest('#chips [data-f=shost],#chips [data-f=youth],#chips [data-f=sday]');if(chip){e.preventDefault();holdSheet();const f=chip.dataset.f;if(f==='shost')typeOn.shost=!typeOn.shost;else if(f==='youth')youthOnly.sh=!youthOnly.sh;else dayOnly.sh=!dayOnly.sh;syncTypeChips();syncPins('sh');if(lastPos)nearX(...lastPos);return}const d=e.target.closest('.v3dc');if(d){dayOnly[d.dataset.k]=!dayOnly[d.dataset.k];syncTypeChips();syncPins('sh');if(lastPos)nearX(...lastPos);return}const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
+ const ranked=shChipOn()&&k==='sh'&&(xRank.sh||(lastPos&&ensureXRank('sh')))?new Set((xRank.sh||[]).map(x=>String(x.i.id))):null;
+ L_._ms.forEach(m=>{const i=m._si;if(!i)return;let show=(k!=='sh'||shelterTypeOk(i))&&!(ot&&(i.ended||V3.shutToday(k,i)));if(ranked&&!ranked.has(String(i.id)))show=false;m._keep=show;const on=L_.group.hasLayer(m);if(show&&!on)L_.group.addLayer(m);else if(!show&&on)L_.group.removeLayer(m)});if(k==='sh'){window.__shPins=L_._ms;window.__shVisiblePinIds=L_._ms.filter(m=>m._keep&&L_.group.hasLayer(m)).map(m=>m._si.id).sort()}else delete window.__shVisiblePinIds}
+document.addEventListener('click',e=>{const chip=e.target.closest('#chips [data-f=shost],#chips [data-f=youth],#chips [data-f=sday]');if(chip){e.preventDefault();holdSheet();const f=chip.dataset.f;if(f==='shost')typeOn.shost=!typeOn.shost;else if(f==='youth')youthOnly.sh=!youthOnly.sh;else dayOnly.sh=!dayOnly.sh;syncTypeChips();syncPins('sh');if(lastPos){nearX(...lastPos);refitShMap()}return}const d=e.target.closest('.v3dc');if(d){dayOnly[d.dataset.k]=!dayOnly[d.dataset.k];syncTypeChips();syncPins('sh');if(lastPos){nearX(...lastPos);refitShMap()}return}const v=e.target.closest('.v3vo');if(v){verOnly[v.dataset.k]=!verOnly[v.dataset.k];if(lastPos)nearX(...lastPos);return}const b=e.target.closest('.v3oo');if(!b)return;openOnly[b.dataset.k]=!openOnly[b.dataset.k];if(lastPos)nearX(...lastPos)});
 {const hide=document.getElementById('fhide');if(hide){const prev=hide.onclick;hide.onclick=e=>{if(document.documentElement.dataset.v3k==='sh'){typeOn.shost=false;youthOnly.sh=false;dayOnly.sh=false;syncTypeChips();const ot=document.getElementById('openToday');if(ot&&ot.checked){ot.checked=false;ot.dispatchEvent(new Event('change'))}else{syncPins('sh');if(lastPos)nearX(...lastPos)}}if(prev)prev.call(hide,e)}}}
 window.clearNearX=()=>{lastPos=null;$x('xlist').innerHTML='';window._fitX={};for(const k in xRank)delete xRank[k]};  // 28 Oct QA B2: failed search clears these lists too
 // Show more (29 Oct 2026): same rules as the food bank list (showmore.js, window.SHOW_LIMITS). The first page is the nearest few,
@@ -232,9 +239,10 @@ function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={la
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data){delete xRank[k];continue}
   const shown=keep?$x('xlist').querySelectorAll('.card.x'+k).length:0;if(!keep)xOpen[k]=false;
   const all=rankX(k,lat,lng,verOnly[k],ot);xRank[k]=all;const r=all.slice(0,Math.max(lim.first,shown));
-  (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins (first page; Show more never moves the map) */
+  if(k==='sh')window.__shRankPinIds=all.filter(x=>!x.i.no_pin).map(x=>x.i.id).sort();
+  (window._fitX=window._fitX||{})[k]=k==='sh'&&shChipOn()?shFitBounds(lat,lng,all):(r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null);  /* chip filter: fit nearest matching pins; else first page */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(k==='sh'?`<button type="button" class="v3t v3dc" data-k="sh" aria-pressed="${dayOnly.sh}">${t('dayFilt')}</button>`:'')+(r.length?r.map(x=>xCard(k,x)).join('')+(all.length>r.length?xBtn(k):''):`<p>${t('none')}</p>`))}
- $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(k=>{syncXMoreBtn(k);syncPins(k)});pinNote();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+ $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(k=>{syncXMoreBtn(k);syncPins(k)});pinNote();if(LAYERS.sh&&LAYERS.sh.on)refitShMap();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 function pinNote(){let el=document.getElementById('xnopin');if(!el){el=document.createElement('div');el.id='xnopin';el.hidden=true;el.setAttribute('role','note');el.innerHTML='<span class="v-en">Some places have no public address – see the list</span><span class="v-cy" lang="cy">Mae rhai lleoedd heb gyfeiriad cyhoeddus – gweler y rhestr</span>';const mapEl=document.getElementById('map');if(mapEl)mapEl.appendChild(el)}
  const sh=window.v3focus==='sh',items=(LAYERS.sh&&LAYERS.sh.data&&LAYERS.sh.data.items)||[];
  const recs=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>items.find(i=>i.id===c.dataset.id)).filter(Boolean);
@@ -259,6 +267,7 @@ window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list|
  if(added.length){btn.before(tpl.content);xOpen[k]=true;fitSym(list)}
  batch.forEach(it=>have.add(String(it.i.id)));
  syncXMoreBtn(k);
+ if(k==='sh'&&shChipOn())syncPins('sh');
  if(fromBtn&&xMoreRemain(k)<=0&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
  else if(fromBtn&&xMoreRemain(k)>0)btn.focus({preventScroll:true});
  pinScroll(x,y);return added.length};
@@ -269,7 +278,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('#xlist .xmore');
 const orig=window.nearest;window.nearest=function(lat,lng,label,note){const r=orig.apply(this,arguments);nearX(lat,lng,label);
  const nk=window.__nearK;window.__nearK=null;if(nk&&!window.v3scrollList){const h=[...document.querySelectorAll('#xlist .lh')].find(e=>e.textContent===t(nk==='sh'?'nSh':'nWs'));if(h){const y=h.getBoundingClientRect().top+scrollY-Math.round(innerHeight*0.15);setTimeout(()=>scrollTo({top:Math.max(0,y),behavior:'auto'}),0)}}  // Find nearest shelter / warm space: land on that list, not the food banks
  map.invalidateSize();  // map-top scroll removed 22 Oct (UX): index.html does the one scroll, only on an explicit search
- const fit=()=>{const k=window.v3focus,fx=window._fitX&&window._fitX[k],wide=(k==='ws'||k==='sh')&&fx&&innerWidth<1024,B=wide?fx:window._fitB;if(!B)return;map.invalidateSize();map.fitBounds(B,{animate:false});if(wide&&map.getZoom()<12&&lastPos)map.setView([lastPos[0],lastPos[1]],13,{animate:false})};/* phones: a postcode search stays on the town, not the spread of the first page */fit();clearTimeout(window._refitT);window._refitT=setTimeout(fit,250);return r};  /* window._refitT: a later deliberate map move (e.g. the emergency banner) cancels this delayed re-fit */  // map can resize when results appear: re-fit so one Search press is enough
+ const fit=()=>{const k=window.v3focus,fx=window._fitX&&window._fitX[k],chipSh=k==='sh'&&shChipOn(),wide=(k==='ws'||k==='sh')&&fx&&innerWidth<1024,B=chipSh&&fx?fx:(wide?fx:window._fitB);if(!B)return;map.invalidateSize();map.fitBounds(B,{animate:false});if(wide&&map.getZoom()<12&&lastPos)map.setView([lastPos[0],lastPos[1]],13,{animate:false})};/* phones: a postcode search stays on the town, not the spread of the first page */fit();clearTimeout(window._refitT);window._refitT=setTimeout(fit,250);return r};  /* window._refitT: a later deliberate map move (e.g. the emergency banner) cancels this delayed re-fit */  // map can resize when results appear: re-fit so one Search press is enough
 try{nearest=window.nearest}catch(e){}
 // ---- recently closed (each layer kept separate)
 $x('xclosed').addEventListener('toggle',async e=>{if(!e.target.open)return;const parts=[];
