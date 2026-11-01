@@ -641,10 +641,17 @@ footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;paddin
 #xextra .card:is(.xsh,.xws)>.utag,#sheet .card>.utag{margin:0 8px 8px 0!important;align-self:center}
 /* Shelter card top row (Dean): symbol square, then the type pill, then the access pill. Symbol matches the pill, 26px at phone width. */
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xtop,html body .leaflet-popup-content .xtop{display:flex;align-items:flex-start;flex-wrap:wrap;gap:6px;order:1!important;flex:1 1 100%!important;width:100%;margin:0 0 6px!important}
+#xextra .card:is(.xsh,.xws)>.xtop{order:0!important;align-self:flex-start;width:100%!important;margin:0 0 8px!important}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox{display:flex;flex:0 0 auto;line-height:0;align-self:flex-start}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xmkbox svg{width:26px;height:26px;display:block}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .utag{display:inline-flex!important;align-items:center;justify-content:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;background:transparent!important;color:#fff!important;border:1.5px solid #56B4E9!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 1 auto!important;order:0!important;white-space:nowrap;max-width:100%}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-fb .utag{border-color:#F5C518!important}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-ws .utag{border-color:#D55E00!important}
+html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-sh .utag{border-color:#56B4E9!important}
 html.light body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .utag{color:#0A1628!important;background:#fff!important;border-color:#0072B2!important}
+html.light body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-fb .utag{border-color:#8A5A00!important}
+html.light body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-ws .utag{border-color:#D55E00!important}
+html.light body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop.xtop-sh .utag{border-color:#0072B2!important}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xacc{display:inline-flex!important;align-items:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 0 auto!important;order:0!important;white-space:nowrap}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .useason{margin:0 0 0 2px;padding:0;border:0;font-size:14px!important;font-weight:700!important;line-height:1!important}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xacts,html body .leaflet-popup-content .xacts{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;order:10;width:100%;flex:1 1 100%;margin-top:12px!important}
