@@ -23,4 +23,6 @@ Dean hand-check of 197 rows added since `1857e7a08` → `5a306e518`. This file r
 | `man-streetlife-the-base-young-people-16-25` | Type → **young_people** (16–25 night shelter) |
 | `man-doorway-young-people-16-25` | Type → **young_people** (16–25) |
 
-Expected published count on this branch (from main 333): **328** (= 333 − 5 pulls). If merged after PR #376 shelter set (306 rows), expect **301** (= 306 − 5).
+Expected published count after merge with PR #376 base (**298**): **301** (= 298 + 6 restored `man-google` hand-check rows − 3 PULL rows still on main: `hl-ymca-lincs-nomad-centre`, `man-vaughan-house`, `ss-63bf328f843d85a21d7bbdce`). Aberdeen Cyrenians kept as day centre (FIX).
+
+Republication allowlist: `overrides/man_google_handcheck.json` + proof quotes in `logs/sweep_national_audit_1nov.md`.
