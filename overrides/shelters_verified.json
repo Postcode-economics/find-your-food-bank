@@ -279,12 +279,15 @@
   "evidence_url": "https://www.salvationarmy.org.uk/independence-house",
   "quote": "Independence House Lifehouse",
   "phone": "",
-  "address": "120 Barmouth Street",
+  "address": "235 Barmouth Street, Beswick, Manchester",
   "verified_on": "2026-10-21",
   "note": "15-bed supported housing for homeless adults",
   "day_time_quote": "Independence House Lifehouse",
   "evidence_name": "salvationarmy.org.uk",
-  "access_type": "referral_only"
+  "access_type": "referral_only",
+  "address_quote": "Independence House Lifehouse Where we are 235 Barmouth Street Beswick Manchester M11 3TB",
+  "address_checked": "2026-11-01",
+  "address_note": "1 Nov 2026 (redone from old PR #233): own Salvation Army page gives 235 Barmouth Street (was 120). Same postcode M11 3TB, so the pin does not move."
  },
  "osm-way-169564851": {
   "name": "James House",
@@ -1009,7 +1012,20 @@
   "quote": "The Shelter - The Boulevard Centre, Cathedral Quarter, 45 Railway Road, Blackburn, BB1 1EZ ... Opening Times 365 Days – From 5.00 pm to 10.00 am",
   "day_time_quote": "365 Days – From 5.00 pm to 10.00 am",
   "verified_on": "2026-10-21",
-  "access_type": "self_referral"
+  "access_type": "self_referral",
+  "hours": {
+   "Mon": "17:00 - 10:00",
+   "Tue": "17:00 - 10:00",
+   "Wed": "17:00 - 10:00",
+   "Thu": "17:00 - 10:00",
+   "Fri": "17:00 - 10:00",
+   "Sat": "17:00 - 10:00",
+   "Sun": "17:00 - 10:00"
+  },
+  "hours_source": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+  "hours_quote": "The Boulevard Centre, Cathedral Quarter, 45 Railway Road, Blackburn, BB1 1EZ 01254 503067 Opening times 365 days - from 5.00 pm to 10.00 am",
+  "hours_checked": "2026-11-01",
+  "hours_note": "1 Nov 2026 (redone from old PR #233): the shelter's own page; replaces the office's Mon-Fri 10:00-16:00. The page also says it closes at 11.00 am on a Sunday morning."
  },
  "hl-st-georges-crypt-leeds": {
   "name": "St George's Crypt – emergency accommodation",
@@ -1503,244 +1519,6 @@
   "groups": [
    "Young people 16-25"
   ]
- },
- "man-swindon-foyer-stonewater": {
-  "name": "Swindon Foyer (Stonewater)",
-  "access": "For ages 16-25. Referral needed: Social Services or Swindon Borough Council Housing Options team (01793 445503).",
-  "evidence_url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
-  "quote": "You can call the Foyer on 07733 106031 for more information.",
-  "phone": "07733 106031",
-  "address": "17-21 Bath Road, Swindon",
-  "postcode": "SN1 4AS",
-  "verified_on": "2026-11-01",
-  "evidence_name": "stonewater.org",
-  "access_type": "referral_only",
-  "note": "Young people's housing (16-25), not an emergency bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": [
-   "Young people 16-25"
-  ],
-  "groups": [
-   "Young people 16-25"
-  ],
-  "season": "Year-round",
-  "hours": "Not stated",
-  "address_source": "https://www.swindon.gov.uk/directory_record/25248/swindon_foyer"
- },
- "man-p3-gloucester-accommodation-morroway-house": {
-  "name": "P3 Gloucester Accommodation Based Support (Morroway House)",
-  "access": "Adults 18+. Referral needed: email refer2@p3charity.org or visit the Morroway House drop-in (Mon-Fri 10am-4pm).",
-  "evidence_url": "https://p3charity.org/services/gloucestershire-accommodation-based-support",
-  "quote": "Phone (Mon–Fri, 9am–5pm) 01452 505425 Address 70 Worcester Street, Kingsholm, Gloucester, GL1 3AS",
-  "phone": "01452 505425",
-  "address": "70 Worcester Street, Kingsholm, Gloucester",
-  "postcode": "GL1 3AS",
-  "verified_on": "2026-11-01",
-  "evidence_name": "p3charity.org",
-  "access_type": "referral_only",
-  "note": "Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": [
-   "Advice"
-  ],
-  "who_for": [
-   "Age 18+"
-  ],
-  "groups": [
-   "Age 18+"
-  ],
-  "season": "Year-round",
-  "hours": "Drop-in to discuss a referral: Mon-Fri 10am-4pm"
- },
- "man-daystop-gloucestershire-nightstop": {
-  "name": "Daystop (Gloucestershire Nightstop)",
-  "access": "For ages 16-25 in Gloucestershire who are homeless or at risk. Daystop referral form on the Nightstop website.",
-  "evidence_url": "https://www.gloucestershirenightstop.org.uk/how-we-help/day-stop/",
-  "quote": "Contact us 13 Ladybellegate Street, Gloucester GL1 2HN Phone : 01452 331330",
-  "phone": "01452 331330",
-  "address": "13 Ladybellegate Street, Gloucester",
-  "postcode": "GL1 2HN",
-  "verified_on": "2026-11-01",
-  "evidence_name": "gloucestershirenightstop.org.uk",
-  "access_type": "referral_only",
-  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": [
-   "Food",
-   "Laundry",
-   "Showers",
-   "Phone charging"
-  ],
-  "who_for": [
-   "Young people 16-25"
-  ],
-  "groups": [
-   "Young people 16-25"
-  ],
-  "season": "Daytime only",
-  "hours": "Weekdays 9am-5pm"
- },
- "man-p3-cheltenham-accommodation": {
-  "name": "P3 Cheltenham Accommodation Based Support",
-  "access": "Adults 18+ verified as homeless by Cheltenham Borough Council. Referral hostel: call P3 Mon-Fri 9am-5pm.",
-  "evidence_url": "https://p3charity.org/services/cheltenham-accommodation-based-support",
-  "quote": "Contact Phone (Mon–Fri, 9am–5pm) 01242 514417",
-  "phone": "01242 514417",
-  "address": "Cheltenham (exact address not published)",
-  "postcode": "",
-  "verified_on": "2026-11-01",
-  "evidence_name": "p3charity.org",
-  "access_type": "referral_only",
-  "note": "Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; town-level card, no pin.",
-  "facilities": [
-   "Advice"
-  ],
-  "who_for": [
-   "Age 18+"
-  ],
-  "groups": [
-   "Age 18+"
-  ],
-  "season": "Year-round",
-  "hours": "Not stated"
- },
- "man-maggs-day-centre-worcester": {
-  "name": "Maggs Day Centre (Worcester)",
-  "access": "Drop-in: you do not need a referral or appointment. Phone option 1 for the Worcester Day Centre.",
-  "evidence_url": "https://www.maggsdaycentre.co.uk/contact-us/",
-  "quote": "01905 25027 (Option 1) Maggs Day Centre, Deansway, Worcester, WR1 2JD",
-  "phone": "01905 25027",
-  "address": "Maggs Day Centre, Deansway, Worcester",
-  "postcode": "WR1 2JD",
-  "verified_on": "2026-11-01",
-  "evidence_name": "maggsdaycentre.co.uk",
-  "access_type": "open_access",
-  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid. Own site gives two different times (day-centre page: weekday mornings 9am-12pm; contact page: Mon-Fri 9am-5pm), so hours left as Not stated for the times finder.",
-  "facilities": [
-   "Medical/GP"
-  ],
-  "who_for": [
-   "People experiencing homelessness"
-  ],
-  "groups": [
-   "People experiencing homelessness"
-  ],
-  "season": "Daytime only",
-  "hours": "Not stated"
- },
- "man-kip-telford": {
-  "name": "KiP Telford",
-  "access": "If sleeping rough, call during opening hours for help with emergency accommodation; out of hours call Telford & Wrekin Housing Solutions 01952 381 925.",
-  "evidence_url": "https://kiptelford.co.uk/contact-us/",
-  "quote": "Emergency Accommodation 01952 924 007 ... KiP Telford, Tan Bank, Wellington, Telford, TF1 1HJ",
-  "phone": "01952 924 007",
-  "address": "Tan Bank, Wellington, Telford",
-  "postcode": "TF1 1HJ",
-  "verified_on": "2026-11-01",
-  "evidence_name": "kiptelford.co.uk",
-  "access_type": "open_access",
-  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": [
-   "People sleeping rough"
-  ],
-  "groups": [
-   "People sleeping rough"
-  ],
-  "season": "Daytime only",
-  "hours": "Mon, Tue, Thu, Fri 9am-2pm (appointments); Wed 8am-12pm (drop-in). Closed weekends and bank holidays"
- },
- "man-ymca-wellington-supported-housing": {
-  "name": "YMCA Wellington supported housing (16-25)",
-  "access": "For ages 16-25 who are homeless or have a housing need. Referral needed: all applications through the Telford and Wrekin Nominations Team (nominations@telford.gov.uk).",
-  "evidence_url": "https://www.ymcawellington.co.uk/supported-housing",
-  "quote": "Contact Tel: 01952 400 401 Email: enquiries@ymcawellington.co.uk",
-  "phone": "01952 400 401",
-  "address": "Wellington, Telford (exact address not published)",
-  "postcode": "",
-  "verified_on": "2026-11-01",
-  "evidence_name": "ymcawellington.co.uk",
-  "access_type": "referral_only",
-  "note": "Young people's housing (16-25), not an emergency bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; town-level card, no pin.",
-  "facilities": "Not stated",
-  "who_for": [
-   "Young people 16-25"
-  ],
-  "groups": [
-   "Young people 16-25"
-  ],
-  "season": "Year-round",
-  "hours": "Staff available 24 hours a day, 7 days a week"
- },
- "man-ludlow-foyer-connexus": {
-  "name": "Ludlow Foyer (Connexus)",
-  "access": "For ages 16-25, linked to training. Referral needed: Shropshire Council Housing Options Team only (0345 6789005).",
-  "evidence_url": "https://connexus-group.co.uk/care-support-services/assisted-accommodation/ludlow-foyer",
-  "quote": "How can I contact the Foyer? Phone: 01584 877111",
-  "phone": "01584 877111",
-  "address": "Marstons Mill, Portcullis Lane, Ludlow",
-  "postcode": "SY8 1PZ",
-  "verified_on": "2026-11-01",
-  "evidence_name": "connexus-group.co.uk",
-  "access_type": "referral_only",
-  "note": "Young people's housing (16-25), not an emergency bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": [
-   "Young people 16-25"
-  ],
-  "groups": [
-   "Young people 16-25"
-  ],
-  "season": "Year-round",
-  "hours": "Not stated"
- },
- "man-nomad-centre-ymca-lincolnshire": {
-  "name": "Nomad Centre (YMCA Lincolnshire)",
-  "access": "Direct-access emergency accommodation for adults 18+. Call or apply; not every application can be accepted and there may be a waiting list.",
-  "evidence_url": "https://www.lincsymca.co.uk/housing/emergency-accommodation/",
-  "quote": "Nomad Centre: St Rumbold's Street Lincoln LN2 5AR Contact us Nomad Centre t: 01522 504 589 (day)",
-  "phone": "01522 504 589",
-  "address": "St Rumbold's Street, Lincoln",
-  "postcode": "LN2 5AR",
-  "verified_on": "2026-11-01",
-  "evidence_name": "lincsymca.co.uk",
-  "access_type": "self_referral",
-  "note": "Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid. Page lists night line as '01522 594 588' (likely typo of 504588 seen elsewhere); only the day number is used.",
-  "facilities": [
-   "Food",
-   "Laundry"
-  ],
-  "who_for": [
-   "Age 18+"
-  ],
-  "groups": [
-   "Age 18+"
-  ],
-  "season": "Year-round",
-  "hours": "Not stated"
- },
- "man-share-homeless-action-centre-chester": {
-  "name": "SHARE Homeless Action Centre",
-  "access": "Drop-in: meals and support during opening times.",
-  "evidence_url": "https://shareaid.co.uk/pages/share-day-centre",
-  "quote": "Tel: 0330 120 1820 Email: info@shareaid.co.uk Location : SHARE Homeless Action Centre (SHAC), Former St Martin's Clinic, St Martin's Way, CH1 2NR",
-  "phone": "0330 120 1820",
-  "address": "Former St Martin's Clinic, St Martin's Way, Chester",
-  "postcode": "CH1 2NR",
-  "verified_on": "2026-11-01",
-  "evidence_name": "shareaid.co.uk",
-  "access_type": "open_access",
-  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": [
-   "Food",
-   "Clothes"
-  ],
-  "who_for": [
-   "People experiencing homelessness"
-  ],
-  "groups": [
-   "People experiencing homelessness"
-  ],
-  "season": "Daytime only",
-  "hours": "Mon-Fri 11am-1pm (last entry 12.30pm)"
  },
  "man-cathedral-archer-project": {
   "name": "Cathedral Archer Project",
@@ -5890,5 +5668,243 @@
   "hours": "Not stated",
   "wheelchair": "Not stated",
   "referral": "Contact them to ask"
+ },
+ "man-swindon-foyer-stonewater": {
+  "name": "Swindon Foyer (Stonewater)",
+  "access": "For ages 16-25. Referral needed: Social Services or Swindon Borough Council Housing Options team (01793 445503).",
+  "evidence_url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+  "quote": "You can call the Foyer on 07733 106031 for more information.",
+  "phone": "07733 106031",
+  "address": "17-21 Bath Road, Swindon",
+  "postcode": "SN1 4AS",
+  "verified_on": "2026-11-01",
+  "evidence_name": "stonewater.org",
+  "access_type": "referral_only",
+  "note": "Young people's housing (16-25), not an emergency bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "facilities": "Not stated",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Year-round",
+  "hours": "Not stated",
+  "address_source": "https://www.swindon.gov.uk/directory_record/25248/swindon_foyer"
+ },
+ "man-p3-gloucester-accommodation-morroway-house": {
+  "name": "P3 Gloucester Accommodation Based Support (Morroway House)",
+  "access": "Adults 18+. Referral needed: email refer2@p3charity.org or visit the Morroway House drop-in (Mon-Fri 10am-4pm).",
+  "evidence_url": "https://p3charity.org/services/gloucestershire-accommodation-based-support",
+  "quote": "Phone (Mon–Fri, 9am–5pm) 01452 505425 Address 70 Worcester Street, Kingsholm, Gloucester, GL1 3AS",
+  "phone": "01452 505425",
+  "address": "70 Worcester Street, Kingsholm, Gloucester",
+  "postcode": "GL1 3AS",
+  "verified_on": "2026-11-01",
+  "evidence_name": "p3charity.org",
+  "access_type": "referral_only",
+  "note": "Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "facilities": [
+   "Advice"
+  ],
+  "who_for": [
+   "Age 18+"
+  ],
+  "groups": [
+   "Age 18+"
+  ],
+  "season": "Year-round",
+  "hours": "Drop-in to discuss a referral: Mon-Fri 10am-4pm"
+ },
+ "man-daystop-gloucestershire-nightstop": {
+  "name": "Daystop (Gloucestershire Nightstop)",
+  "access": "For ages 16-25 in Gloucestershire who are homeless or at risk. Daystop referral form on the Nightstop website.",
+  "evidence_url": "https://www.gloucestershirenightstop.org.uk/how-we-help/day-stop/",
+  "quote": "Contact us 13 Ladybellegate Street, Gloucester GL1 2HN Phone : 01452 331330",
+  "phone": "01452 331330",
+  "address": "13 Ladybellegate Street, Gloucester",
+  "postcode": "GL1 2HN",
+  "verified_on": "2026-11-01",
+  "evidence_name": "gloucestershirenightstop.org.uk",
+  "access_type": "referral_only",
+  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "facilities": [
+   "Food",
+   "Laundry",
+   "Showers",
+   "Phone charging"
+  ],
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Daytime only",
+  "hours": "Weekdays 9am-5pm"
+ },
+ "man-p3-cheltenham-accommodation": {
+  "name": "P3 Cheltenham Accommodation Based Support",
+  "access": "Adults 18+ verified as homeless by Cheltenham Borough Council. Referral hostel: call P3 Mon-Fri 9am-5pm.",
+  "evidence_url": "https://p3charity.org/services/cheltenham-accommodation-based-support",
+  "quote": "Contact Phone (Mon–Fri, 9am–5pm) 01242 514417",
+  "phone": "01242 514417",
+  "address": "Cheltenham (exact address not published)",
+  "postcode": "",
+  "verified_on": "2026-11-01",
+  "evidence_name": "p3charity.org",
+  "access_type": "referral_only",
+  "note": "Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; town-level card, no pin.",
+  "facilities": [
+   "Advice"
+  ],
+  "who_for": [
+   "Age 18+"
+  ],
+  "groups": [
+   "Age 18+"
+  ],
+  "season": "Year-round",
+  "hours": "Not stated"
+ },
+ "man-maggs-day-centre-worcester": {
+  "name": "Maggs Day Centre (Worcester)",
+  "access": "Drop-in: you do not need a referral or appointment. Phone option 1 for the Worcester Day Centre.",
+  "evidence_url": "https://www.maggsdaycentre.co.uk/contact-us/",
+  "quote": "01905 25027 (Option 1) Maggs Day Centre, Deansway, Worcester, WR1 2JD",
+  "phone": "01905 25027",
+  "address": "Maggs Day Centre, Deansway, Worcester",
+  "postcode": "WR1 2JD",
+  "verified_on": "2026-11-01",
+  "evidence_name": "maggsdaycentre.co.uk",
+  "access_type": "open_access",
+  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid. Own site gives two different times (day-centre page: weekday mornings 9am-12pm; contact page: Mon-Fri 9am-5pm), so hours left as Not stated for the times finder.",
+  "facilities": [
+   "Medical/GP"
+  ],
+  "who_for": [
+   "People experiencing homelessness"
+  ],
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "season": "Daytime only",
+  "hours": "Not stated"
+ },
+ "man-kip-telford": {
+  "name": "KiP Telford",
+  "access": "If sleeping rough, call during opening hours for help with emergency accommodation; out of hours call Telford & Wrekin Housing Solutions 01952 381 925.",
+  "evidence_url": "https://kiptelford.co.uk/contact-us/",
+  "quote": "Emergency Accommodation 01952 924 007 ... KiP Telford, Tan Bank, Wellington, Telford, TF1 1HJ",
+  "phone": "01952 924 007",
+  "address": "Tan Bank, Wellington, Telford",
+  "postcode": "TF1 1HJ",
+  "verified_on": "2026-11-01",
+  "evidence_name": "kiptelford.co.uk",
+  "access_type": "open_access",
+  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "facilities": "Not stated",
+  "who_for": [
+   "People sleeping rough"
+  ],
+  "groups": [
+   "People sleeping rough"
+  ],
+  "season": "Daytime only",
+  "hours": "Mon, Tue, Thu, Fri 9am-2pm (appointments); Wed 8am-12pm (drop-in). Closed weekends and bank holidays"
+ },
+ "man-ymca-wellington-supported-housing": {
+  "name": "YMCA Wellington supported housing (16-25)",
+  "access": "For ages 16-25 who are homeless or have a housing need. Referral needed: all applications through the Telford and Wrekin Nominations Team (nominations@telford.gov.uk).",
+  "evidence_url": "https://www.ymcawellington.co.uk/supported-housing",
+  "quote": "Contact Tel: 01952 400 401 Email: enquiries@ymcawellington.co.uk",
+  "phone": "01952 400 401",
+  "address": "Wellington, Telford (exact address not published)",
+  "postcode": "",
+  "verified_on": "2026-11-01",
+  "evidence_name": "ymcawellington.co.uk",
+  "access_type": "referral_only",
+  "note": "Young people's housing (16-25), not an emergency bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; town-level card, no pin.",
+  "facilities": "Not stated",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Year-round",
+  "hours": "Staff available 24 hours a day, 7 days a week"
+ },
+ "man-ludlow-foyer-connexus": {
+  "name": "Ludlow Foyer (Connexus)",
+  "access": "For ages 16-25, linked to training. Referral needed: Shropshire Council Housing Options Team only (0345 6789005).",
+  "evidence_url": "https://connexus-group.co.uk/care-support-services/assisted-accommodation/ludlow-foyer",
+  "quote": "How can I contact the Foyer? Phone: 01584 877111",
+  "phone": "01584 877111",
+  "address": "Marstons Mill, Portcullis Lane, Ludlow",
+  "postcode": "SY8 1PZ",
+  "verified_on": "2026-11-01",
+  "evidence_name": "connexus-group.co.uk",
+  "access_type": "referral_only",
+  "note": "Young people's housing (16-25), not an emergency bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "facilities": "Not stated",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Year-round",
+  "hours": "Not stated"
+ },
+ "man-nomad-centre-ymca-lincolnshire": {
+  "name": "Nomad Centre (YMCA Lincolnshire)",
+  "access": "Direct-access emergency accommodation for adults 18+. Call or apply; not every application can be accepted and there may be a waiting list.",
+  "evidence_url": "https://www.lincsymca.co.uk/housing/emergency-accommodation/",
+  "quote": "Nomad Centre: St Rumbold's Street Lincoln LN2 5AR Contact us Nomad Centre t: 01522 504 589 (day)",
+  "phone": "01522 504 589",
+  "address": "St Rumbold's Street, Lincoln",
+  "postcode": "LN2 5AR",
+  "verified_on": "2026-11-01",
+  "evidence_name": "lincsymca.co.uk",
+  "access_type": "self_referral",
+  "note": "Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid. Page lists night line as '01522 594 588' (likely typo of 504588 seen elsewhere); only the day number is used.",
+  "facilities": [
+   "Food",
+   "Laundry"
+  ],
+  "who_for": [
+   "Age 18+"
+  ],
+  "groups": [
+   "Age 18+"
+  ],
+  "season": "Year-round",
+  "hours": "Not stated"
+ },
+ "man-share-homeless-action-centre-chester": {
+  "name": "SHARE Homeless Action Centre",
+  "access": "Drop-in: meals and support during opening times.",
+  "evidence_url": "https://shareaid.co.uk/pages/share-day-centre",
+  "quote": "Tel: 0330 120 1820 Email: info@shareaid.co.uk Location : SHARE Homeless Action Centre (SHAC), Former St Martin's Clinic, St Martin's Way, CH1 2NR",
+  "phone": "0330 120 1820",
+  "address": "Former St Martin's Clinic, St Martin's Way, Chester",
+  "postcode": "CH1 2NR",
+  "verified_on": "2026-11-01",
+  "evidence_name": "shareaid.co.uk",
+  "access_type": "open_access",
+  "note": "Day centre: daytime only, never an overnight bed. Dean blanket approval for verified items, national web sweep (WebSearch pass 6) 1 Nov 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
+  "facilities": [
+   "Food",
+   "Clothes"
+  ],
+  "who_for": [
+   "People experiencing homelessness"
+  ],
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "season": "Daytime only",
+  "hours": "Mon-Fri 11am-1pm (last entry 12.30pm)"
  }
 }
