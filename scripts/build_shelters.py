@@ -147,6 +147,9 @@ import place_lock
 _applied_times = [i for i, rec in tlog.items() if isinstance(rec, dict) and rec.get("auto_applied")]
 restored = place_lock.protect(items, published_items, place_lock.hands(phone_lock.ROOT, "shelters"), phone_lock.ROOT, "shelters", keep_times=_applied_times)
 print("place lock:", restored, "address/pin fields kept;", json.dumps(place_lock.changes(published_items, items)))
+import google_handcheck  # man-google-* stays off the map unless it is on the hand-check list
+items, held_google = google_handcheck.keep(items, ".")
+sources["man-google hand check"] = {"status": "ok", "published": sum(1 for x in items if str(x.get("id") or "").startswith("man-google-")), "held": [x.get("id") for x in held_google]}
 try:
     import intelligent_rails as _IR
     _IR.finish_times(".", "shelters", tlog)
