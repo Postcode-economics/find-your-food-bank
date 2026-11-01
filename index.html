@@ -111,7 +111,7 @@ Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=hd08dc3319872"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h36de9fbb1a0c"><link rel="stylesheet" href="header.css?v=hbe8476010a0f"><script src="icons.js"></script><script src="facts.js?v=h825e61afbfc8"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=hd08dc3319872"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h8b0785446321"><link rel="stylesheet" href="header.css?v=hbe8476010a0f"><script src="icons.js"></script><script src="facts.js?v=h2dd26851031d"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -257,7 +257,7 @@ const todayLine=i=>{const s=parsed(i),td=DK[pageNow().getDay()],t=i.opening_time
 function webBtn(i){const u=webUrl(i.website),href=u?i.website.trim():(i.givefood||'');if(!href)return'';const host=u?u.hostname.replace(/^www\./i,''):'';
  return `<a class="btn web" href="${esc(href)}" target="_blank" rel="noopener"><span class="v-en">Website</span><span class="v-cy" lang="cy">Gwefan</span>${host?`<span class="xdom">${esc(host)}</span>`:''}</a>`}
 function placeActs(i,tel){const dir=`<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>`;
- const call=tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span></a>`:(i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:'');
+ const call=tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span></a>`:!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:'';
  const share=window.V3?V3.share(i):'';
  return `<div class="xacts">${dir}${call}${webBtn(i)}${share}</div>`}
 function card(i,dist){const tel=telOf(i);
@@ -273,7 +273,7 @@ function card(i,dist){const tel=telOf(i);
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
  ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${window.UFacts?UFacts.block('fb',i,{phoneHtml}):times(i)}
  ${placeActs(i,tel)}
- ${tel&&!i.phone_label?`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}
+ ${tel&&!i.phone_label?`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}${srcLine(i)}
  <div class="note">Times change, call before you go.</div>${acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.UFacts?UFacts.checked(i):''}${i.givefood&&webUrl(i.website)?`<div class="links"><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>`:''}${window.repB?repB('fb',i):''}`}
 function pop(i){const tel=telOf(i);const phoneHtml=!nc(i)?[i.phone_label?`${phLab(i)}`:'',phAlt(i)].filter(Boolean).join(' · '):'';const facts=!nc(i)&&window.UFacts?UFacts.block('fb',i,{phoneHtml})+UFacts.checked(i):'';const top=window.cardTop?cardTop('fb',i):tag(i);const where=window.UFacts?UFacts.addr(i):esc(i.address);return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:''}${top}${!nc(i)&&window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div class="d">${miles(dists[i._k])}</div>`:''}<p>${where}</p>${facts}${nc(i)?'':placeActs(i,tel)}${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
