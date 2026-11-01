@@ -35,12 +35,14 @@ def main():
         ok = True
         reasons.append("shelters_manual mentions batch 3")
 
-    try:
-        subprocess.check_output(["git", "show", "origin/main:tests/test_shelters_cities_batch3.py"], cwd=".")
+    r = subprocess.run(
+        ["git", "show", "origin/main:tests/test_shelters_cities_batch3.py"],
+        cwd=".",
+        capture_output=True,
+    )
+    if r.returncode == 0:
         ok = True
         reasons.append("test_shelters_cities_batch3.py on main")
-    except subprocess.CalledProcessError:
-        pass
 
     ap = subprocess.check_output(["git", "show", "origin/main:overrides/approved_new_places.json"], cwd=".")
     if re.search(r"batch\s*3", ap.decode("utf-8", "replace"), re.I):
