@@ -279,12 +279,15 @@
   "evidence_url": "https://www.salvationarmy.org.uk/independence-house",
   "quote": "Independence House Lifehouse",
   "phone": "",
-  "address": "120 Barmouth Street",
+  "address": "235 Barmouth Street, Beswick, Manchester",
   "verified_on": "2026-10-21",
   "note": "15-bed supported housing for homeless adults",
   "day_time_quote": "Independence House Lifehouse",
   "evidence_name": "salvationarmy.org.uk",
-  "access_type": "referral_only"
+  "access_type": "referral_only",
+  "address_quote": "Independence House Lifehouse Where we are 235 Barmouth Street Beswick Manchester M11 3TB",
+  "address_checked": "2026-11-01",
+  "address_note": "1 Nov 2026 (redone from old PR #233): own Salvation Army page gives 235 Barmouth Street (was 120). Same postcode M11 3TB, so the pin does not move."
  },
  "osm-way-169564851": {
   "name": "James House",
@@ -1009,7 +1012,20 @@
   "quote": "The Shelter - The Boulevard Centre, Cathedral Quarter, 45 Railway Road, Blackburn, BB1 1EZ ... Opening Times 365 Days – From 5.00 pm to 10.00 am",
   "day_time_quote": "365 Days – From 5.00 pm to 10.00 am",
   "verified_on": "2026-10-21",
-  "access_type": "self_referral"
+  "access_type": "self_referral",
+  "hours": {
+   "Mon": "17:00 - 10:00",
+   "Tue": "17:00 - 10:00",
+   "Wed": "17:00 - 10:00",
+   "Thu": "17:00 - 10:00",
+   "Fri": "17:00 - 10:00",
+   "Sat": "17:00 - 10:00",
+   "Sun": "17:00 - 10:00"
+  },
+  "hours_source": "https://nightsafe.org/nightsafe-houses/the-shelter/",
+  "hours_quote": "The Boulevard Centre, Cathedral Quarter, 45 Railway Road, Blackburn, BB1 1EZ 01254 503067 Opening times 365 days - from 5.00 pm to 10.00 am",
+  "hours_checked": "2026-11-01",
+  "hours_note": "1 Nov 2026 (redone from old PR #233): the shelter's own page; replaces the office's Mon-Fri 10:00-16:00. The page also says it closes at 11.00 am on a Sunday morning."
  },
  "hl-st-georges-crypt-leeds": {
   "name": "St George's Crypt – emergency accommodation",
