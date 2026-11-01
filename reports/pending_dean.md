@@ -537,6 +537,25 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 <!-- /times crosscheck ws -->
 
 
+<!-- referral hostel holds -->
+## Referral hostels held (not on the map)
+
+Hand check 31 Oct 2026. A directory listing alone is not enough. Nothing here is published.
+
+- **Bournemouth Churches HA - St Paul's Hostel** (`hl-bournemouth-churches-ha-st-pauls-hostel`): phone unconfirmed
+- **Aigburth Drive - Male Harm Reduction Service** (`ss-63a44ec1b00aca305c753133`): phone unconfirmed
+- **Renewal Programme - Barking Road Hostel** (`hl-renewal-programme-barking-road-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Look Ahead - Slough Hostel** (`hl-look-ahead-slough-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **SHP - 88 Arlington Road** (`hl-shp-arlington-road`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **SHP - Ashley Road** (`hl-shp-ashley-road`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **SHP - King George's Hostel** (`hl-shp-king-georges-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **St Mungo's - Ealing Accommodation Services B65 Hostel** (`hl-st-mungos-ealing-accommodation-services`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **St Mungo's - Endell Street** (`hl-st-mungos-endell-street`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Transform Housing and Support - Hersham Road Hostel** (`hl-transform-housing-and-support-hersham-road-hostel`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Adullam Homes HA - Bury ABEN (Phase 3)** (`hl-adullam-homes-ha-bury-aben-phase-3`): directory record only; an operator or council page has not confirmed it is running now and the phone
+- **Our Way Leeds Emergency Accommodation** (`hl-turning-lives-around-seacole-scheme`): id/name mismatch (the id is Turning Lives Around Seacole; the name is Our Way Leeds)
+<!-- /referral hostel holds -->
+
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
