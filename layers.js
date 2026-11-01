@@ -148,6 +148,16 @@ function cardTop(layer,i){const sk=layer==='fb'?'food':layer==='ws'?'flame':symK
  const acc=layer==='fb'?fbAcc(i):accBadge(i);
  return `<div class="xtop">${sym}<span class="tag utag xtype"><span class="v-en">${esc(en)}</span><span class="v-cy" lang="cy">${esc(cy)}</span>${sea}</span>${acc}</div>`}
 window.cardTop=cardTop;
+function shSource(i){const host=u=>esc(String(u||'').replace(/^https?:\/\/(www\.)?/,'').split('/')[0]);
+ const bi=k=>`<span class="v-en">${esc(T.en[k])}</span><span class="v-cy" lang="cy">${esc(T.cy[k])}</span>`;
+ const bits=[];
+ if(i.evidence_url){bits.push(`${bi('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||host(i.evidence_url))}</a>, ${fmt(i.verified_on||i.last_verified)}`);
+  bits.push(`${bi('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>`)}
+ else if(i.tier==='unverified'&&i.sign_url){bits.push(`${bi('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${host(i.sign_url)}</a>, ${fmt(i.checked_on)}`);
+  bits.push(`${bi('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>`)}
+ else if(i.source||i.source_url)bits.push(`<a href="${esc(i.source_url||'')}" target="_blank" rel="noopener">${esc(i.source||host(i.source_url))}</a>, ${bi('ver')} ${fmt(i.last_verified)}`);
+ if(!bits.length)return '';
+ return `<p class="xsrc"><b>${bi('src')}:</b> ${bits.join(' · ')}</p>`}
 function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(/^(0\d{9,10}|\+44\d{9,10})$/.test(tel0)?tel0:''),row=(l,v)=>v&&v.length?`<p class="xrow"><b>${t(l)}:</b> ${v}</p>`:'';
  const day=k==='sh'&&i.kind==='day_centre';
  const youth=k==='sh'&&i.kind==='young_people';
@@ -168,10 +178,9 @@ function detail(k,i,dist){const tel0=(i.phone||'').replace(/[^\d+]/g,''),tel=i.t
  ${facts}
  ${checked}
  <div class="xacts">${dir}${call}${contact.web}${share}</div>
- <div class="xafter">${contact.rest}
- ${false?`<p><a href="${esc(/^https?:/.test(i.website)?i.website:'https://'+i.website)}" target="_blank" rel="noopener">${esc(i.website.replace(/^https?:\/\//,'').slice(0,40))}</a></p>`:''}
- ${lang==='cy'?`<p class="sub">${t('srcNote')}</p>`:''}${i.evidence_url?`<p class="sub xchk">${t('chk')}: <a href="${esc(i.evidence_url)}" target="_blank" rel="noopener">${esc(i.evidence_name||i.evidence_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.verified_on||i.last_verified)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:(i.tier==='unverified'&&i.sign_url?`<p class="sub xchk">${t('seen')}: <a href="${esc(i.sign_url)}" target="_blank" rel="noopener">${esc(i.sign_url.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a>, ${fmt(i.checked_on)}</p><p class="sub xlst">${t('lst')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a></p>`:`<p class="sub">${t('src')}: <a href="${esc(i.source_url)}" target="_blank" rel="noopener">${esc(i.source)}</a>, ${t('ver')} ${fmt(i.last_verified)}</p>`)}</div>
- ${window.repB?repB(k,i):''}`}
+ ${window.repB?repB(k,i):''}
+ ${contact.rest?`<div class="xafter">${contact.rest}</div>`:''}
+ ${shSource(i)}`}
 function fitSym(root){(root||document).querySelectorAll('.xtop').forEach(row=>{const pill=row.querySelector('.utag,.xkind'),svg=row.querySelector('.xmkbox svg'),sp=row.querySelector('.xmkbox');if(!pill||!svg||!sp)return;sp.style.marginTop='0px';const h=pill.getBoundingClientRect().height;if(!(h>1))return;const px=Math.round(h*100)/100;svg.style.width=px+'px';svg.style.height=px+'px';svg.setAttribute('width',px);svg.setAttribute('height',px);const tr=pill.getBoundingClientRect(),sr=svg.getBoundingClientRect();sp.style.marginTop=(tr.top-sr.top)+'px'})}
 window.fitSym=fitSym;
 function showSheet(html){if(!html||!/<h3[\s>]/.test(html)){if(window.closeSheet)closeSheet();return}const s=document.getElementById('sheet');document.getElementById('sheetBody').innerHTML=`<div class="card">${html}</div>`;s.classList.add('open');s.setAttribute('aria-hidden','false');fitSym(s)}

@@ -300,12 +300,13 @@
       fac = fac.replace(/<\/span>\s*$/, beds + offer + '</span>');
     }
     let extra = '';
-    const phoneBody = [opt.phoneNumber || '', opt.phoneHtml || ''].filter(Boolean).join(' · ');
+    const emailBit = opt.emailHtml ? `<span class="xem">${B('Email', 'E-bost')}: ${opt.emailHtml}</span>` : '';
+    const phoneBody = [opt.phoneNumber || '', opt.phoneHtml || '', emailBit].filter(Boolean).join(' · ');
     if (phoneBody) extra += row('Phone', 'Ffôn', phoneBody);
-    if (opt.emailHtml) extra += row('Email', 'E-bost', opt.emailHtml);
     const sd = i.scheme_dates;
     if (sd && !/^not stated/i.test(String(sd).trim())) extra += row('Scheme dates', 'Dyddiadau’r cynllun', schemeBody(sd));
-    return `<div class="ufact">${row('Who it’s for', 'I bwy mae hwn', who || NS())}${row('How to get in', 'Sut i fynd i mewn', how ? phrase(how[0], how[1]) : NS())}${row('Opening times', 'Oriau agor', times || NS())}${row('Wheelchair access', 'Mynediad i gadeiriau olwyn', wheel ? phrase(wheel[0], wheel[1]) : NS())}${row('Facilities', 'Cyfleusterau', fac || NS())}${extra}</div>`;
+    const change = `<div class="tchg">${B('Times change, call before you go.', 'Mae amseroedd yn newid, ffoniwch cyn mynd.')}</div>`;
+    return `<div class="ufact">${row('Who it’s for', 'I bwy mae hwn', who || NS())}${row('How to get in', 'Sut i fynd i mewn', how ? phrase(how[0], how[1]) : NS())}${row('Opening times', 'Oriau agor', (times || NS()) + change)}${row('Wheelchair access', 'Mynediad i gadeiriau olwyn', wheel ? phrase(wheel[0], wheel[1]) : NS())}${row('Facilities', 'Cyfleusterau', fac || NS())}${extra}</div>`;
   }
   const api = { typeOf, typeRow, winter, whoBits, whoHtml, howPair, wheelPair, facHtml, timesLines, timesHtml, block, checked: checkedHtml, addr: addrHtml, normPc, NS };
   if (typeof window !== 'undefined') window.UFacts = api;

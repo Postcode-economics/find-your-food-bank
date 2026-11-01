@@ -354,7 +354,7 @@ html:not(.light) :is(#list,#xextra) .card a:not(.btn):not(.sosl):not(.v3sos a),h
 #list .card>.links a{min-height:44px;display:inline-flex;align-items:center;font-size:15px!important}
 #list .card>.psrc,#list .card>.palt{order:13;font-size:13px!important;color:var(--muted)!important}
 #list .card>.note,#list .card>div.sub{order:14;font-size:13px!important;color:var(--muted)!important;margin-top:4px!important}
-#list .card>.rpb{order:15;flex:0 0 auto;min-height:44px!important;margin-top:8px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:14px!important;text-decoration:underline;justify-content:flex-start;width:auto}
+#list .card>.rpb{order:15;flex:0 0 auto;min-height:44px!important;margin-top:16px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:14px!important;text-decoration:underline;justify-content:flex-start;width:auto}
 /* light mode keeps its high-contrast look */
 html.light #list .card>.v3st,html.light #list .card>.v3share,html.light #list .card>.d{color:#000!important}
 html.light #list .card>p:not(.sub):not(.warn),html.light #list .card>.v3wk,html.light #list .card>p.sub,html.light #list .card>.psrc,html.light #list .card>.note,html.light #list .card>div.sub,html.light #list .card>.rpb{color:#4A5568!important}
@@ -384,7 +384,7 @@ html.light #list .card,html.light #xextra .card{border-top:2px solid #000!import
 #xextra .card:is(.xsh,.xws)>.v3sos{order:9;margin-top:16px!important}
 #xextra .card:is(.xsh,.xws)>.xhow{order:10;margin-top:12px!important}
 #xextra .card:is(.xsh,.xws)>:is(.xchk,.xlst){order:30;font-size:13px!important;color:var(--muted)!important;margin-top:8px!important}
-#xextra .card:is(.xsh,.xws)>.rpb{order:31;flex:0 0 auto;width:auto;min-height:44px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:14px!important;text-decoration:underline}
+#xextra .card:is(.xsh,.xws)>.rpb{order:31;flex:0 0 auto;width:auto;min-height:44px!important;margin-top:16px!important;padding:0!important;background:transparent!important;border:0!important;color:var(--muted)!important;font-size:14px!important;text-decoration:underline}
 html.light #xextra .card:is(.xsh,.xws)>:is(.v3st,.v3share,.btn.web){color:#000!important}html.light #xextra .card:is(.xsh,.xws)>:is(.v3share,.btn.web){border-color:#000!important}
 html.light #xextra .card:is(.xsh,.xws)>:is(.v3sos+p,.xchk,.xlst,.rpb){color:#4A5568!important}
 /* final tweaks: tight small-print block; long shelter button labels wrap instead of clipping */
@@ -648,7 +648,10 @@ html.light body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xto
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .xacc{display:inline-flex!important;align-items:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 0 auto!important;order:0!important;white-space:nowrap}
 html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .useason{margin:0 0 0 2px;padding:0;border:0;font-size:14px!important;font-weight:700!important;line-height:1!important}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xacts,html body .leaflet-popup-content .xacts{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;order:10;width:100%;flex:1 1 100%;margin-top:12px!important}
-html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xafter,html body .leaflet-popup-content .xafter{order:14!important;flex:1 1 100%!important;width:100%;min-width:0;margin-top:8px}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xafter,html body .leaflet-popup-content .xafter{order:36!important;flex:1 1 100%!important;width:100%;min-width:0;margin-top:12px}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xsrc,html body .leaflet-popup-content .xsrc{order:40!important;flex:1 1 100%!important;width:100%;min-width:0;margin:14px 0 0!important;font-size:13px!important;line-height:1.45;color:var(--muted)}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) p.xsrc a:not(.btn):not(.sosl):not(.v3share),html body .leaflet-popup-content p.xsrc a:not(.btn):not(.sosl):not(.v3share){display:inline!important;min-height:0!important;height:auto!important;padding:0!important;margin:0!important;font-size:13px!important}
+html body .ufact .tchg{display:block;margin-top:4px;font-size:13px;line-height:1.35;color:var(--muted)}
 html body .xacts>:is(a.btn.gm,a.btn.call,a.btn.web,button.v3share){flex:1 1 calc(50% - 8px)!important;width:auto!important;max-width:calc(50% - 4px)!important;margin:0!important;height:var(--hm-btn-h)!important;min-height:var(--hm-btn-h)!important;max-height:var(--hm-btn-h)!important;overflow:hidden;box-sizing:border-box}
 html body .xacts>a.btn.web{flex-direction:column!important;align-items:center;justify-content:center;overflow-wrap:normal!important;white-space:nowrap!important;gap:0;color:#F2F4F8!important;background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;text-decoration:none!important}
 html.light body .xacts>a.btn.web{color:#0A1628!important;border-color:#000!important;background:#fff!important}

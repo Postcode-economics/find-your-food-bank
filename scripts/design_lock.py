@@ -105,7 +105,7 @@ ROWS_JS = r"""(sel)=>{const bad=[];
   const labels=[...c.querySelectorAll(':scope > .ufact > .xrow, :scope > .ufact > .xrow')].map(lab);
   const rows=[...c.querySelectorAll('.ufact > .xrow')].map(lab);
   want.forEach((w,i)=>{if((rows[i]||'')!==w) bad.push(name+' row '+i+' '+(rows[i]||'(missing)'));});
-  if(rows.some(l=>/^(Beds|Offers|Gwelyau|Yn cynnig)$/.test(l))) bad.push(name+' beds or offers row');
+  if(rows.some(l=>/^(Beds|Offers|Gwelyau|Yn cynnig|Email|E-bost)$/.test(l))) bad.push(name+' extra row '+rows.filter(l=>/^(Beds|Offers|Gwelyau|Yn cynnig|Email|E-bost)$/.test(l)).join(','));
   const call=[...c.querySelectorAll('a.btn.call')].find(a=>(a.getAttribute('href')||'').startsWith('tel:')&&!a.classList.contains('xfb'));
   if(call && !rows.some(l=>l==='Phone'||l==='Ff\u00f4n')) bad.push(name+' phone row missing');
   const uchk=c.querySelector('.uchk'), box=c.querySelector(':scope > .xacts')||c.querySelector('.xacts');
@@ -133,6 +133,26 @@ ROWS_JS = r"""(sel)=>{const bad=[];
    const s=getComputedStyle(dom);
    if(s.whiteSpace!=='nowrap') bad.push(name+' domain wraps');
    if(dom.scrollHeight>dom.clientHeight+2) bad.push(name+' domain more than one line');
+  }
+  const rep=[...c.querySelectorAll('button.rpb')].find(b=>/Report a problem|Rhoi gwybod/.test(b.innerText||''));
+  if(rep){
+   const rr=rep.getBoundingClientRect();
+   const w=document.createTreeWalker(c, NodeFilter.SHOW_TEXT);
+   let n;
+   while(n=w.nextNode()){
+    const text=(n.nodeValue||'').replace(/\s+/g,' ').trim();
+    if(!text) continue;
+    const parent=n.parentElement;
+    if(!parent||box.contains(parent)||rep.contains(parent)||parent.closest('.xacts,button.rpb,a.btn,button')) continue;
+    const range=document.createRange(); range.selectNodeContents(n);
+    for(const r of range.getClientRects()){
+     if(r.width<1||r.height<1) continue;
+     const mid=(r.top+r.bottom)/2;
+     if(mid>br.bottom+2 && mid<rr.top-2) bad.push(name+' between buttons and report '+text.slice(0,48));
+    }
+   }
+   const src=c.querySelector('.xsrc');
+   if(src && src.getBoundingClientRect().top<rr.bottom-2) bad.push(name+' source not below report');
   }
  }
  return bad}"""
