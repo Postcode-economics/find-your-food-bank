@@ -36,7 +36,7 @@
   new Promise(function (r) { if (window.__hmBooted) r(); else window.__hmOnBoot = r; })
     .then(function () { return Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })]); })
     .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
-    .then(function () { return navigator.serviceWorker.register('sw.js?v=h824d875a343b' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
+    .then(function () { return navigator.serviceWorker.register('sw.js?v=h298cdaa19373' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
     .then(function (reg) {
       // With service workers blocked, register() resolves to undefined. Do not touch it.
       if (!reg || !reg.addEventListener) return;
@@ -449,7 +449,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=h89e110229fcc" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=ha04165c26ed6" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=h89e110229fcc" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=hc4ffa0c7d76a" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');

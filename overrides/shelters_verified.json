@@ -2121,24 +2121,6 @@
   "season": "Daytime only",
   "hours": "Mon-Fri 10am-12.30pm drop-in"
  },
- "man-aylesbury-homeless-action-group-ahag": {
-  "name": "Aylesbury Homeless Action Group (AHAG)",
-  "access": "Advice; Friday drop-in 10.30-12.30 at Aylesbury Library (per search summary)",
-  "evidence_url": "https://www.ahag.org.uk/",
-  "quote": "RITY | CONSISTENCY | RESPECT Sign Up to our Newsletter Charity No. 1009983 2 Rickfords Hill, Aylesbury, HP20 2RX Phone: 01296 435026 Email: info@ahag.org.uk Privacy Policy",
-  "phone": "01296 435026",
-  "address": "2 Rickfords Hill, Aylesbury",
-  "postcode": "HP20 2RX",
-  "verified_on": "2026-10-31",
-  "evidence_name": "www.ahag.org.uk",
-  "access_type": "open_access",
-  "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
-  "season": "Daytime only",
-  "hours": "Not stated"
- },
  "man-the-hope-hub": {
   "name": "The Hope Hub",
   "access": "Drop in; EAS via Surrey Heath BC",
@@ -2152,22 +2134,20 @@
   "access_type": "open_access",
   "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
   "facilities": [
-   "Food"
+   "Food",
+   "Laundry",
+   "Showers",
+   "Clothes",
+   "Advice"
   ],
   "facilities_quote": [
-   "Our EAS offers safe overnight accommodation with a hot meal, staff onsite to provide support, and works hand in hand with daily support provided by The Hope Hub in central Camberley."
+   "Crisis Services: Refreshments / Nourishing meal; Laundry Service; Shower & emergency items; Clothing",
+   "Money management, Debt Advice"
   ],
-  "groups_quote": [
-   "Our pathways for Adults 18+"
-  ],
-  "who_for": [
-   "Age 18+"
-  ],
-  "groups": [
-   "Age 18+"
-  ],
+  "who_for": "Not stated",
+  "groups": [],
   "season": "Daytime only",
-  "hours": "Tue-Fri 9.30am-3.30pm, crisis drop-in 10am-2pm; emergency accommodation 5.30pm-9am nightly via Surrey Heath council referral"
+  "hours": "Tue-Fri 9.30am-3.30pm (crisis drop-in 10am-2pm)"
  },
  "man-o-hanlon-house-homeless-oxfordshire": {
   "name": "O'Hanlon House (Homeless Oxfordshire)",
@@ -2253,7 +2233,12 @@
   "evidence_name": "www.caritassalford.org.uk",
   "access_type": "open_access",
   "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": "Not stated",
+  "facilities": [
+   "Food",
+   "Showers",
+   "Medical/GP",
+   "Advice"
+  ],
   "groups_quote": [
    "The team, which supports anyone over 18, offers a holistic approach to supporting the whole person, assisting them to have their voice heard and to transform their life with dignity."
   ],
@@ -2264,7 +2249,12 @@
    "Age 18+"
   ],
   "season": "Daytime only",
-  "hours": "Mon-Fri 9.30am-1pm (drop-ins 9.30-12, lunch 12-1)"
+  "hours": "Mon-Fri 9.30am-1pm (drop-ins 9.30-12, lunch 12-1)",
+  "facilities_quote": [
+   "Services offered at Cornerstone include: Free community lunch; Showers; Benefits advice; Housing advice",
+   "specialist health and wellbeing advice sessions held with GPs, nurses"
+  ],
+  "referral": "Anyone can drop in during our opening hours, with no referral needed."
  },
  "man-salford-loaves-fishes-drop-in": {
   "name": "Salford Loaves & Fishes drop-in",
@@ -2466,37 +2456,6 @@
   "groups": [],
   "season": "Daytime only",
   "hours": "Weekdays 10am-2pm"
- },
- "man-thomas-drop-in": {
-  "name": "THOMAS Drop-In",
-  "access": "Drop-in",
-  "evidence_url": "https://www.thomasonline.org.uk/",
-  "quote": "eal served, every life supported, and [...] T.H.O.M.A.S St Anne's House France Street Blackburn Lancashire BB2 1LX Tel: 01254 660861 Registered Charity No: 1114489 Register",
-  "phone": "01254 660861",
-  "address": "St Anne's House, France Street",
-  "postcode": "BB2 1LX",
-  "verified_on": "2026-10-31",
-  "evidence_name": "www.thomasonline.org.uk",
-  "access_type": "open_access",
-  "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
-  "facilities": [
-   "Food"
-  ],
-  "facilities_quote": [
-   "Every meal served, every life supported, and [...]"
-  ],
-  "groups_quote": [
-   "Huddlestone House provides a safe, supportive and structured environment for women recovering from drug and alcohol dependency.",
-   "2026-01-12T14:11:18+00:00"
-  ],
-  "who_for": [
-   "Age 18+"
-  ],
-  "groups": [
-   "Age 18+"
-  ],
-  "season": "Daytime only",
-  "hours": "Not stated"
  },
  "man-routes-to-roots-genesis-centre": {
   "name": "Routes to Roots (Genesis Centre)",
@@ -3044,12 +3003,19 @@
   "access_type": "open_access",
   "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
   "wheelchair": "yes",
-  "wheelchair_quote": "Bus: The nearest stops are Jubilee Clock or High Street Harlesden ADDITIONAL INFORMATION The Crisis Skylight Brent building is wheelchair accessible and has accessible bathroom facilities",
+  "wheelchair_quote": "The Crisis Skylight Brent building is wheelchair accessible and has accessible bathroom facilities.",
   "facilities": "Not stated",
-  "who_for": "Not stated",
-  "groups": [],
+  "who_for": [
+   "Age 16+"
+  ],
+  "groups": [
+   "Age 16+"
+  ],
   "season": "Daytime only",
-  "hours": "Not stated"
+  "hours": "Mon-Fri 10am-4pm (drop-in 10am-1pm)",
+  "groups_quote": [
+   "Crisis Skylight Brent works with people over the age of 16 who are experiencing homelessness, or are immediately at risk of homelessness."
+  ]
  },
  "man-crisis-skylight-croydon": {
   "name": "Crisis Skylight Croydon",
@@ -3064,19 +3030,19 @@
   "access_type": "self_referral",
   "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
   "wheelchair": "yes",
-  "wheelchair_quote": "Train : nearest stations are East Croydon and West Croydon ADDITIONAL INFORMATION The Crisis Skylight Croydon building is wheelchair accessible and does have accessible bathroom facilities",
+  "wheelchair_quote": "The Crisis Skylight Croydon building is wheelchair accessible and does have accessible bathroom facilities.",
   "facilities": "Not stated",
   "groups_quote": [
-   "We have both gender neutral and male and female toilet facilities."
+   "Crisis Skylight Croydon works with people over the age of 16 who are experiencing homelessness, or immediately at risk of homelessness."
   ],
   "who_for": [
-   "Men and women"
+   "Age 16+"
   ],
   "groups": [
-   "Men and women"
+   "Age 16+"
   ],
   "season": "Daytime only",
-  "hours": "Not stated"
+  "hours": "Mon, Tue, Thu, Fri 10am-4pm; Wed 10am-2pm"
  },
  "man-merton-faith-in-action-homeless-drop-in": {
   "name": "Merton Faith in Action homeless drop-in",
@@ -4572,16 +4538,18 @@
   "facilities": [
    "Food",
    "Showers",
+   "Laundry",
    "Clothes",
    "Advice"
   ],
   "facilities_quote": [
    "We provide free breakfast, drinks, and a hot meal for lunch.",
-   "We can also wash clothing, provide access to showers and can start the process of getting you back on your feet.",
-   "We can help provide access to bank accounts, housing advice and referrals, benefits advice, settled status support, and support for mental health and addiction."
+   "We can also wash clothing, provide access to showers",
+   "we can help with emergency crisis needs such as sleeping bags, warm clothing and coats.",
+   "housing advice and referrals, benefits advice"
   ],
   "groups_quote": [
-   "If you are homeless and are over 18, register for support at ‘Hand Up’ our Homeless Centre at Oasis House in Central Northampton."
+   "Hand Up is open to people over 18, Monday to Saturday."
   ],
   "who_for": [
    "Age 18+"
@@ -4590,7 +4558,7 @@
    "Age 18+"
   ],
   "season": "Daytime only",
-  "hours": "Not stated"
+  "hours": "Mon-Sat 9am-1:30pm; Sun closed"
  },
  "man-pathways-of-chesterfield": {
   "name": "Pathways of Chesterfield",
@@ -4977,15 +4945,20 @@
   "access_type": "open_access",
   "note": "Dean blanket approval for verified items, national web sweep 31 Oct 2026. Phone found verbatim on the page above; pin is the postcodes.io centroid.",
   "facilities": [
-   "Medical/GP"
+   "Showers",
+   "Laundry",
+   "Medical/GP",
+   "Advice"
   ],
   "facilities_quote": [
+   "We provide: Shower and laundry facilities; Support with benefits; Support with housing issues",
    "Access to an Outreach nurse, Mental Health nurse and Sexual Health nurse"
   ],
   "who_for": "Not stated",
   "groups": [],
   "season": "Daytime only",
-  "hours": "Not stated"
+  "hours": "Mon-Fri 9am-1pm and 1.30pm-4.30pm",
+  "referral": "No referral needed, drop in"
  },
  "man-p3-wolves-hub-navigator": {
   "name": "P3 Wolves Hub (Navigator)",
