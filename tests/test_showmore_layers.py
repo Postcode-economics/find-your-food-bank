@@ -410,8 +410,7 @@ class Chrome(Journey, unittest.TestCase):
                 self.assertTrue(until(pg, """() => {const cs=[...document.querySelectorAll('#xlist > .card.xsh')];
                   const ok=i=>window.shYouth?shYouth(i):i.kind==='young_people';
                   return cs.length>=1 && cs.every(c => ok(SHELTERS.items.find(i => i.id === c.dataset.id) || {}));}"""))
-                btn = pg.evaluate(BTN, 'sh')
-                self.assertTrue(btn is None or not btn['shown'])
+                self.assert_show_more_one_press(pg, 'sh')
                 pg.click('#chips [data-f=youth]')
                 self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5 && !!document.getElementById('xmore-sh')"))
                 self.assertTrue(pg.evaluate(BTN, 'sh')['shown'])
