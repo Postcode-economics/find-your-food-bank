@@ -114,6 +114,23 @@ class GateAllLayers(unittest.TestCase):
         try: held = G.gate('shelters')
         finally: G.ROOT = old
         self.assertEqual([i['id'] for i, _ in held], ['b']); shutil.rmtree(d)
+    def test_referral_hostel_with_town_and_phone_is_not_held(self):
+        d = tempfile.mkdtemp(); run = lambda *a: subprocess.run(a, cwd=d, check=True, capture_output=True)
+        for sub in ('logs', 'reports', 'overrides'): os.makedirs(os.path.join(d, sub))
+        w = lambda items: open(os.path.join(d, 'shelters.js'), 'w').write('window.SH=' + json.dumps({'items': items}) + ';')
+        w([dict(id='a', tel='01000000000', groups=['men'], name='A')]); run('git', 'init', '-q'); run('git', 'add', '-A')
+        run('git', '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'b')
+        json.dump({'shelters': {}}, open(os.path.join(d, 'overrides', 'approved_new_places.json'), 'w'))
+        card = dict(id='hl-river', tel='01142731234', phone='0114 273 1234', groups=['Homeless people'], name='River Hostel',
+                    card_type='referral_hostel', town='Sheffield', area='Sheffield', no_pin=True, postcode='')
+        w([dict(id='a', tel='01000000000', groups=['men'], name='A'), card])
+        old = G.ROOT; G.ROOT = d
+        try: held = G.gate('shelters')
+        finally: G.ROOT = old
+        self.assertEqual(held, [])
+        ids = [i['id'] for i in G.split(open(os.path.join(d, 'shelters.js')).read())[1]['items']]
+        self.assertEqual(ids, ['a', 'hl-river'])
+        shutil.rmtree(d)
 
 class ApprovedRemovals(unittest.TestCase):
     def test_dean_approved_removal_stays_off(self):

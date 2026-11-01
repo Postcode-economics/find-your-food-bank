@@ -52,7 +52,8 @@ def parse_hl_service(slug, page_html):
             "referral": ref, "who": _field(t, "Who do we help?", "Who we cannot help|Gender"),
             "directory": "Homeless Link", "directory_url": f"https://homeless.org.uk/homeless-england/service/{slug}/", "source_url": f"https://homeless.org.uk/homeless-england/service/{slug}/"}
 def homeless_link(fetcher=fetch_raw, known=(), maxpages=15):
-    """Search Homeless Link 'Find help' for accommodation services each run; fetch each service page not already known."""
+    """Keyword search kept for the parser tests. The shelter build pages every accommodation result
+    via shelter_sources.read_homeless_link and does not auto-publish those finds."""
     slugs, fails = set(), 0
     def run(q):
         out = set()

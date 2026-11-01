@@ -331,7 +331,7 @@ class Rails(unittest.TestCase):
         self.assertTrue(any("598 of 1685" in b for b in data["would_block"]))
         lines = IR.digest_lines(data)
         self.assertTrue(any("INTELLIGENT MODE ALERT" in ln for ln in lines))
-        self.assertIn("applied 0", "\n".join(lines))
+        self.assertIn("applied 0 this run", "\n".join(lines))
         import datetime
         import digest
         import learning
