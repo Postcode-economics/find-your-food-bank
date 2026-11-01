@@ -2738,6 +2738,39 @@
    ]
   }
  },
+ "bow": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Come and see us:\nTuesdays 10 am to 12 pm\nThursdays 10 am to 1 pm",
+   "Open session – Non Tower Hamlets Residents welcome:\nWednesdays 14:00 to 19:00",
+   "Click and Collect:\nTuesdays 1:00 pm to 4:30 pm (Order by 1:00 pm Sunday)\nFridays 8:00 am to 12:00 pm (Order by 9:00 pm Wednesday)"
+  ],
+  "raw": "Tuesdays 10am - 12pm and Thursdays 10am - 1pm (visit us); Wednesdays 2pm - 7pm (open to all). Click and Collect: Tuesdays 1pm - 4:30pm (order by 1pm Sunday); Fridays 8am - 12pm (order by 9pm Wednesday)",
+  "reader": "hand-reviewed 2026-10-29 (own site read: home page footer Sessions; Visit Us and Wednesday open session are walk-in client hours; Click and Collect slots and order deadlines kept in text only, not in the day table; Bethnal Green closed and points to Bow; Dean approved)",
+  "source_url": "https://www.bowfoodbank.org",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "14:00",
+     "19:00"
+    ]
+   ]
+  }
+ },
  "bracknell": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon 18:00 - 19:30 Tue 10:30 - 12:00 Wed 10:30 - 12:00 Thu Closed Fri 10:30 - 12:00 Sat Closed Sun Closed ",
@@ -2797,16 +2830,16 @@
   }
  },
  "bradford-north": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Phone line hours, not collection: Our phone line is open Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
-  "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Our phone line is open Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Phone line hours, not collection: Our phone line is open Monday, Tuesday, Thursday and Friday: 9:00am - 2:00pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://bradfordnorth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "bradford-north/church-on-the-way": {
   "checked_date": "2026-10-26",
@@ -3437,16 +3470,16 @@
   }
  },
  "broxbourne": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Warehouse: food donations Tuesday to Thursday 10am - 2pm, not a collection point. Collect parcels from the distribution centres",
-  "source_url": "https://broxbourne.foodbank.org.uk/contact-us/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Food donations can be delivered to the warehouse - Tuesday to Thursday 10am - 2pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Warehouse: food donations Tuesday to Thursday 10am - 2pm, not a collection point. Collect parcels from the distribution centres",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://broxbourne.foodbank.org.uk/contact-us/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "broxbourne/st-catherins-and-st-pauls-church": {
   "checked_date": "2026-10-20",
@@ -3522,6 +3555,34 @@
   "source_url": "https://budefoodbank.org.uk/contact-us/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "burgess-hill": {
+  "checked_date": "2026-10-31",
+  "protected": true,
+  "raw": "BURGESS HILL Tuesday and Thursday 11am - 1pm, Saturday 10am - 12pm",
+  "reader": "hand-reviewed 2026-10-31 (own site; Burgess Hill block only, Hassocks Friday excluded)",
+  "source_url": "https://burgesshillfoodbank.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
  },
  "burnage": {
   "checked_date": "2026-10-20",
@@ -5249,6 +5310,18 @@
    ]
   }
  },
+ "community-essentials": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "We are currently running at full capacity. If a day does not show as available, that means we are fully booked. Please do not call... You can only book a time slot between 1-7 days in the future"
+  ],
+  "raw": "Book a collection slot online, 1 to 7 days ahead. No walk-ins.",
+  "reader": "hand-reviewed 2026-10-29 (own site read: /food-bank online Collection Time booker only; no fixed walk-in hours; contact-us Mon-Wed appointment text left out; Dean approved)",
+  "source_url": "https://community-essentials.org.uk/food-bank",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
  "copenhagen-street": {
   "checked_date": "2026-10-20",
   "raw": "Thursday 1-3:30 pm",
@@ -5648,6 +5721,14 @@
   }
  },
  "crossroads-community-hub": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Cafe Open: Monday 1pm - 3pm (plus foodbank) Thursday 1pm - 3pm (plus foodbank) Friday 10am - 12noon (cafe only)"
+  ],
+  "raw": "Monday 1pm - 3pm (plus foodbank) Thursday 1pm - 3pm (plus foodbank) [Friday 10am - 12noon is cafe only]",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://cchub.org.uk/",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -5662,15 +5743,7 @@
      "15:00"
     ]
    ]
-  },
-  "raw": "Monday 1pm - 3pm (plus foodbank) Thursday 1pm - 3pm (plus foodbank) [Friday 10am - 12noon is cafe only]",
-  "source_url": "https://cchub.org.uk/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Cafe Open: Monday 1pm - 3pm (plus foodbank) Thursday 1pm - 3pm (plus foodbank) Friday 10am - 12noon (cafe only)"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "crossroads-meltham": {
   "checked_date": "2026-10-20",
@@ -8992,16 +9065,16 @@
   "structured": null
  },
  "fusion/calderdale": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Office hours, not food collection: Halifax Mon-Fri: 10am - 3pm",
-  "source_url": "https://fusionhousing.org.uk/contact-us/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Halifax The Elsie Whiteley Innovation Centre, Hopwood Lane, Halifax, HX1 5ER Mon-Fri: 10am - 3pm Sat-Sun: Closed"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Office hours, not food collection: Halifax Mon-Fri: 10am - 3pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://fusionhousing.org.uk/contact-us/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "fylde": {
   "checked_date": "2026-10-20",
@@ -10176,16 +10249,16 @@
   }
  },
  "hangleton-west-blatchington": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "The food bank is open every Wednesday from 12:00-14:00 for clients by appointment only",
-  "source_url": "https://www.hangletonfoodbank.org/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "open every Wednesday from 12:00-14:00 for clients by appointment only"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "The food bank is open every Wednesday from 12:00-14:00 for clients by appointment only",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.hangletonfoodbank.org/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "harlow": {
   "checked_date": "2026-10-20",
@@ -10572,6 +10645,14 @@
   "structured": null
  },
  "hayle": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "collect it from Hayle Methodist Church on a Saturday morning 10-30 to 12pm"
+  ],
+  "raw": "collect it from Hayle Methodist Church on a Saturday morning 10-30 to 12pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.haylemethodist.co.uk/hayle-food-bank/",
   "status": "TIMES_FOUND",
   "structured": {
    "sat": [
@@ -10580,15 +10661,7 @@
      "12:00"
     ]
    ]
-  },
-  "raw": "collect it from Hayle Methodist Church on a Saturday morning 10-30 to 12pm",
-  "source_url": "https://www.haylemethodist.co.uk/hayle-food-bank/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "collect it from Hayle Methodist Church on a Saturday morning 10-30 to 12pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "hays-community-pantry": {
   "checked_date": "2026-10-20",
@@ -10817,29 +10890,29 @@
   }
  },
  "highams-park-hub": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "11:00",
-     "13:00"
-    ]
-   ],
-   "thu": [
-    [
-     "11:00",
-     "13:00"
-    ]
-   ]
-  },
-  "raw": "we open for food collection every Tuesday and Thursday from 11 am to 1 pm",
-  "source_url": "https://hphub.co.uk/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "we open for food collection every Tuesday and Thursday from 11 am to 1 pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "we open for food collection every Tuesday and Thursday from 11 am to 1 pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://hphub.co.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ]
+  }
  },
  "highbridge-area": {
   "checked_date": "2026-10-20",
@@ -11147,6 +11220,31 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "hope-for-belper": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "The Food & Community Hub is open 12pm - 2pm every Tuesday and Friday except Bank Holidays"
+  ],
+  "raw": "The Food & Community Hub is open 12pm - 2pm every Tuesday and Friday except Bank Holidays",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://hopeforbelper.com/the-basic-idea/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
  "hope-kitchen": {
   "checked_date": "2026-10-20",
   "raw": "Monday - 11am to 3.30pm | Tuesday - 11am to 3.30pm | Wednesday - 11am to 3.30pm | Thursday - 11am to 3.30pm | Friday - 11am to 6pm | Saturday - 11am to 2pm",
@@ -11181,6 +11279,14 @@
   }
  },
  "hornsey": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Every Thursday 10:15am - 1pm"
+  ],
+  "raw": "Hours Every Thursday 10:15am - 1pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.hornseyfoodbank.org.uk/about-us",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -11189,15 +11295,7 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "Hours Every Thursday 10:15am - 1pm",
-  "source_url": "https://www.hornseyfoodbank.org.uk/about-us",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Every Thursday 10:15am - 1pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "horsham-district": {
   "checked_date": "2026-10-20",
@@ -11573,6 +11671,37 @@
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
+ "ifan-25c84c4582b7e7c60aeeac-0": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "OPEN THREE DAYS A WEEK Mon 9.30am-2 pm Wed 12.30pm - 4.30 pm Fri 9.30am - 4.30pm"
+  ],
+  "raw": "OPEN THREE DAYS A WEEK Mon 9.30am-2 pm Wed 12.30pm - 4.30 pm Fri 9.30am - 4.30pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.nbil-community.org",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:30",
+     "16:30"
+    ]
+   ],
+   "mon": [
+    [
+     "09:30",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:30",
+     "16:30"
+    ]
+   ]
+  }
+ },
  "ifan-3287e57944ff0bdd42b2a6-0": {
   "checked_date": "2026-10-23",
   "protected": true,
@@ -11590,6 +11719,71 @@
   "source_url": "https://www.jedidiah.org.uk/locations",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "ifan-3c7cb974c7ac6c1966b83c-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Food and Supplies Market:\nMonday: 12pm – 2pm\nTuesday: 12pm – 2pm\nWednesday: 12pm – 2pm\nThursday: Closed\nFriday: 12pm – 2pm\nSaturday: 11am – 1pm"
+  ],
+  "raw": "Food and Supplies Market: Monday 12pm - 2pm; Tuesday 12pm - 2pm; Wednesday 12pm - 2pm; Friday 12pm - 2pm; Saturday 11am - 1pm (Thursday closed)",
+  "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Café, Club Sessions and other programmes left out; Dean approved)",
+  "source_url": "https://www.neocommunity.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "sat": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ]
+  }
+ },
+ "ifan-53c68645aa831ab649ac43-0": {
+  "checked_date": "2026-10-29",
+  "notes": {
+   "thu": "Fortnightly"
+  },
+  "protected": true,
+  "quote": [
+   "St Paul's Pantry is our foodbank offering a bag of groceries and essential household items to those in need. Fortnightly on Thursday 6.30 - 7.30 pm in church."
+  ],
+  "raw": "Every other Thursday, 6:30pm to 7:30pm, in church",
+  "reader": "hand-reviewed 2026-10-29 (own site read: home page St Paul's Pantry section; foodbank fortnightly Thu 6:30-7:30 only; Open Church, Lunch Club, Wednesday Club and other church activities left out; Dean approved)",
+  "source_url": "https://stpaulsparkside.org.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "18:30",
+     "19:30"
+    ]
+   ]
+  }
  },
  "ifan-5b9fd1318a04132921a389-0": {
   "checked_date": "2026-10-30",
@@ -11612,6 +11806,49 @@
   "raw": "Wednesday 10am - 2pm (food bags, no referral needed)",
   "reader": "hand-reviewed 2026-10-29 (own site read: home page and /food-bags agree, 'Wednesdays 10:00am - 2:00pm', no referral; Thursday hot meals, clothes bank and Monday art cafe are other services and left out; Dean approved)",
   "source_url": "https://www.laurenceslarder.org.uk",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "ifan-9cf9dd4ce1df051c2c0a59-0": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Myatts Field Pantry Tuesdays 10am-1pm Myatts Field Centre 24 Crawshay Road Brixton SW9 6FZ Oasis at St Martins the Village Pantry Tuesdays 12-2pm 155 Tulse Hil SW2 3UP Moorlands Pantry Thursdays 11am-3pm"
+  ],
+  "raw": "Pantries: Myatts Field Pantry Tuesdays 10am-1pm; the Village Pantry (Oasis at St Martins) Tuesdays 12-2pm; Moorlands Pantry Thursdays 11am-3pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.healthylivingplatform.org",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
+ "ifan-9fef48d4f0fd3a3f6896d2-0": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
+  ],
+  "raw": "Food Bank: Fridays 5pm - 6pm",
+  "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
+  "source_url": "https://www.gcjc.co.uk",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "17:00",
+     "18:00"
+    ]
+   ]
+  }
+ },
+ "ifan-d59b2e089746f7a97c1e15-0": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Chance Community Pantry | Monday, Wednesday and Friday | 9am to 2pm"
+  ],
+  "raw": "Community Pantry (members only): Monday, Wednesday and Friday, 9am to 2pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.chancechanginglives.org",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
  },
@@ -13537,6 +13774,26 @@
    ]
   }
  },
+ "living-hope": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "The Living Hope Food Bank is open every Wednesday",
+   "Open 12:00PM - 1:30PM"
+  ],
+  "raw": "The Living Hope Food Bank is open every Wednesday ... Open 12:00PM - 1:30PM",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://alccholmewood.com/living-hope",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "wed": [
+    [
+     "12:00",
+     "13:30"
+    ]
+   ]
+  }
+ },
  "llandrindod": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon Closed Tue 10:30 - 13:00 Wed 10:30 - 13:00 Thu Closed Fri 10:30 - 13:00 Sat Closed Sun Closed ",
@@ -13823,6 +14080,37 @@
    ]
   }
  },
+ "machars-churches": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Food Bank Opening Hours at 5 Albert Street, Newont Stewart 9am-12noon on Tuesday, Wednesday and Thursday."
+  ],
+  "raw": "Food Bank Opening Hours at 5 Albert Street, Newton Stewart 9am-12noon on Tuesday, Wednesday and Thursday.",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.penninghamechurch.co.uk/basics-bank",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ]
+  }
+ },
  "magherafelt": {
   "checked_date": "2026-10-20",
   "raw": "Tuesday, Wednesday and Friday 10am-2pm | Mon Closed Tue 10:00 - 14:00 | Wed 10:00 - 14:00 | Thu Closed Fri 10:00 - 14:00",
@@ -13831,29 +14119,29 @@
   "structured": null
  },
  "maidenhead": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "wed": [
-    [
-     "16:45",
-     "17:45"
-    ]
-   ],
-   "sat": [
-    [
-     "09:30",
-     "10:45"
-    ]
-   ]
-  },
-  "raw": "Food Collections: Weds 4:45 - 5:45 pm Food Collection: Sat 9:30 - 10:45 am",
-  "source_url": "https://www.foodshare.charity/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Food Collections: Weds 4:45 - 5:45 pm Food Collection: Sat 9:30 - 10:45 am"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Food Collections: Weds 4:45 - 5:45 pm Food Collection: Sat 9:30 - 10:45 am",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.foodshare.charity/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "09:30",
+     "10:45"
+    ]
+   ],
+   "wed": [
+    [
+     "16:45",
+     "17:45"
+    ]
+   ]
+  }
  },
  "maidstone-homeless-care": {
   "checked_date": "2026-10-20",
@@ -14927,6 +15215,18 @@
    ]
   }
  },
+ "moorland": {
+  "checked_date": "2026-10-29",
+  "protected": true,
+  "quote": [
+   "You can ask your support worker to contact Moorland Food Bank on your behalf, or contact us direct using the details on the Contact Page. We may ask a little about your circumstances... and, if appropriate, will arrange delivery of a one-off free food parcel. Please bear in mind that this is not an emergency service."
+  ],
+  "raw": "No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.",
+  "reader": "hand-reviewed 2026-10-29 (own site read: get-help / home delivery model only; no walk-in collection hours; finder Thu session text left out; Dean approved)",
+  "source_url": "https://www.moorlandfoodbank.org.uk",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
+ },
  "morecambe-bay": {
   "checked_date": "2026-10-20",
   "raw": "Opening times Mon 09:00 - 13:30 Tue 09:00 - 15:00 Wed 09:00 - 13:30 Thu 09:00 - 15:00 Fri 09:00 - 14:30 Sat Closed Sun Closed ",
@@ -15105,16 +15405,16 @@
   }
  },
  "newark/tuxford": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Delivery only: this centre is managed from Newark - obtain a voucher and we will deliver",
-  "source_url": "https://newark.foodbank.org.uk/locations/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "obtain a voucher and we will deliver"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Delivery only: this centre is managed from Newark - obtain a voucher and we will deliver",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://newark.foodbank.org.uk/locations/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "newcastle": {
   "checked_date": "2026-10-20",
@@ -15292,6 +15592,14 @@
   }
  },
  "newlands": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "see them on a Thursday morning between 9 and 11"
+  ],
+  "raw": "see them on a Thursday morning between 9 and 11",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://newlandsmethodistchurch.wordpress.com/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -15300,15 +15608,7 @@
      "11:00"
     ]
    ]
-  },
-  "raw": "see them on a Thursday morning between 9 and 11",
-  "source_url": "https://newlandsmethodistchurch.wordpress.com/foodbank/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "see them on a Thursday morning between 9 and 11"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "newport-district": {
   "card_name": "Newport & District",
@@ -15895,6 +16195,14 @@
   }
  },
  "north-belfast": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Immanuel Presbyterian Church 07902 099 840 Opening times Mon 14:00 - 15:30 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed"
+  ],
+  "raw": "Immanuel Presbyterian Church Opening times Mon 14:00 - 15:30",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://northbelfast.foodbank.org.uk/locations/",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -15903,15 +16211,7 @@
      "15:30"
     ]
    ]
-  },
-  "raw": "Immanuel Presbyterian Church Opening times Mon 14:00 - 15:30",
-  "source_url": "https://northbelfast.foodbank.org.uk/locations/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Immanuel Presbyterian Church 07902 099 840 Opening times Mon 14:00 - 15:30 Tue Closed Wed Closed Thu Closed Fri Closed Sat Closed Sun Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "north-belfast/ekenhead-halls": {
   "checked_date": "2026-10-20",
@@ -16923,29 +17223,29 @@
   }
  },
  "nourish": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "10:00",
-     "14:00"
-    ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "14:00"
-    ]
-   ]
-  },
-  "raw": "Blandford Nourish Open: Tuesdays & Thursdays, 10am - 2pm",
-  "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Blandford Nourish Open: Tuesdays & Thursdays, 10am - 2pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Blandford Nourish Open: Tuesdays & Thursdays, 10am - 2pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://faith-works.org.uk/locations-across-dorset/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "thu": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  }
  },
  "nuneaton": {
   "checked_date": "2026-10-20",
@@ -17162,16 +17462,16 @@
   "structured": null
  },
  "patch": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Milford Haven, Robert Street, SA73 2HA: Monday – Friday 10am-2pm",
-  "source_url": "https://patchcharity.org.uk/get-help/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Milford Haven Robert Street, Milford Haven, SA73 2HA Monday - Friday 10am-2pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Milford Haven, Robert Street, SA73 2HA: Monday – Friday 10am-2pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://patchcharity.org.uk/get-help/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "patch/pembroke-dock": {
   "checked_date": "2026-10-24",
@@ -17569,26 +17869,16 @@
   }
  },
  "pontypridd": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Pontypridd Foodbank card, CF37 1BW: Monday Closed Tuesday-Friday 9:00 am to 1:45 pm Saturday 10:00 am to 11:45 am Sunday Closed"
+  ],
+  "raw": "Tue-Fri 09:00 - 13:45; Sat 10:00 - 11:45",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://pontypridd.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
-   "tue": [
-    [
-     "09:00",
-     "13:45"
-    ]
-   ],
-   "wed": [
-    [
-     "09:00",
-     "13:45"
-    ]
-   ],
-   "thu": [
-    [
-     "09:00",
-     "13:45"
-    ]
-   ],
    "fri": [
     [
      "09:00",
@@ -17600,20 +17890,50 @@
      "10:00",
      "11:45"
     ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "13:45"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "13:45"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "13:45"
+    ]
    ]
-  },
-  "raw": "Tue-Fri 09:00 - 13:45; Sat 10:00 - 11:45",
-  "source_url": "https://pontypridd.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  }
+ },
+ "poole": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
-   "Pontypridd Foodbank card, CF37 1BW: Monday Closed Tuesday-Friday 9:00 am to 1:45 pm Saturday 10:00 am to 11:45 am Sunday Closed"
+   "Poole Lifecentre & Foodbank Open: Tuesdays - Thursdays, 9.30am - 12.30pm Fridays, 9.30am - 12pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "poole": {
+  "raw": "Poole Lifecentre & Foodbank Open: Tuesdays - Thursdays, 9.30am - 12.30pm Fridays, 9.30am - 12pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://faith-works.org.uk/locations-across-dorset/",
   "status": "TIMES_FOUND",
   "structured": {
+   "fri": [
+    [
+     "09:30",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:30",
+     "12:30"
+    ]
+   ],
    "tue": [
     [
      "09:30",
@@ -17625,28 +17945,8 @@
      "09:30",
      "12:30"
     ]
-   ],
-   "thu": [
-    [
-     "09:30",
-     "12:30"
-    ]
-   ],
-   "fri": [
-    [
-     "09:30",
-     "12:00"
-    ]
    ]
-  },
-  "raw": "Poole Lifecentre & Foodbank Open: Tuesdays - Thursdays, 9.30am - 12.30pm Fridays, 9.30am - 12pm",
-  "source_url": "https://faith-works.org.uk/locations-across-dorset/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Poole Lifecentre & Foodbank Open: Tuesdays - Thursdays, 9.30am - 12.30pm Fridays, 9.30am - 12pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "poole/bourne-community-hub": {
   "checked_date": "2026-10-23",
@@ -17679,9 +17979,29 @@
   "structured": null
  },
  "poole/st-clements-church-hall": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "St Clement's Church Hall, 55 Kinson Avenue, BH15 3PH (Mon - Fri, 11am - 12.30pm)"
+  ],
+  "raw": "St Clement's Church Hall, 55 Kinson Avenue, BH15 3PH (Mon - Fri, 11am - 12.30pm)",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
   "status": "TIMES_FOUND",
   "structured": {
+   "fri": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ],
    "mon": [
+    [
+     "11:00",
+     "12:30"
+    ]
+   ],
+   "thu": [
     [
      "11:00",
      "12:30"
@@ -17698,30 +18018,18 @@
      "11:00",
      "12:30"
     ]
-   ],
-   "thu": [
-    [
-     "11:00",
-     "12:30"
-    ]
-   ],
-   "fri": [
-    [
-     "11:00",
-     "12:30"
-    ]
    ]
-  },
-  "raw": "St Clement's Church Hall, 55 Kinson Avenue, BH15 3PH (Mon - Fri, 11am - 12.30pm)",
-  "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
+  }
+ },
+ "poole/st-gabriels-church-hall": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
-   "St Clement's Church Hall, 55 Kinson Avenue, BH15 3PH (Mon - Fri, 11am - 12.30pm)"
+   "St Gabriel's Church Hall, Keysworth Road, Turlin Moor, Poole, BH16 5BH (Tues, 1.30pm - 3pm)"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "poole/st-gabriels-church-hall": {
+  "raw": "St Gabriel's Church Hall, Keysworth Road, Turlin Moor, Poole, BH16 5BH (Tues, 1.30pm - 3pm)",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -17730,15 +18038,7 @@
      "15:00"
     ]
    ]
-  },
-  "raw": "St Gabriel's Church Hall, Keysworth Road, Turlin Moor, Poole, BH16 5BH (Tues, 1.30pm - 3pm)",
-  "source_url": "https://faith-works.org.uk/locations-across-dorset/poole-food-bank-dorset/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "St Gabriel's Church Hall, Keysworth Road, Turlin Moor, Poole, BH16 5BH (Tues, 1.30pm - 3pm)"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "port-talbot": {
   "checked_date": "2026-10-20",
@@ -18171,16 +18471,16 @@
   }
  },
  "redcar-area": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Please note this is not a foodbank. We can now accept donations at our office again Monday to Friday 9am to 12noon",
-  "source_url": "https://redcararea.foodbank.org.uk/contact-us/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Please note this is not a foodbank . We can now accept donations at our office again Monday to Friday 9am to 12noon"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Please note this is not a foodbank. We can now accept donations at our office again Monday to Friday 9am to 12noon",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://redcararea.foodbank.org.uk/contact-us/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "redcar-area/brotton-methodist-church-centre": {
   "checked_date": "2026-10-20",
@@ -18674,29 +18974,29 @@
   "structured": null
  },
  "rickmansworth/mill-end": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "13:45",
-     "16:00"
-    ]
-   ],
-   "fri": [
-    [
-     "10:00",
-     "12:00"
-    ]
-   ]
-  },
-  "raw": "Tue 13:45 - 16:00; Fri 10:00 - 12:00",
-  "source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Mill Cafe Methodist Church card, WD3 7HJ: Monday Closed Tuesday 1:45 pm to 4:00 pm Wednesday-Thursday Closed Friday 10:00 am to 12:00 pm Saturday-Sunday Closed"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Tue 13:45 - 16:00; Fri 10:00 - 12:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://rickmansworth.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "13:45",
+     "16:00"
+    ]
+   ]
+  }
  },
  "rickmansworth/st-lawrence-abbots-langley": {
   "checked_date": "2026-10-23",
@@ -18708,16 +19008,16 @@
   "structured": null
  },
  "ringwood": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Warehouse (postal address), open Monday, Wednesday and Friday 9:30 to 12:30: we do not distribute food from here, please go to your nearest Distribution Centre",
-  "source_url": "https://ringwood.foodbank.org.uk/locations/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Open Monday, Wednesday and Friday 9:30 to 12:30 This is our postal address, we do not distribute food from here, please go to your nearest Distribution Centre"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Warehouse (postal address), open Monday, Wednesday and Friday 9:30 to 12:30: we do not distribute food from here, please go to your nearest Distribution Centre",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://ringwood.foodbank.org.uk/locations/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "ringwood/fordingbridge": {
   "checked_date": "2026-10-20",
@@ -18814,29 +19114,29 @@
   }
  },
  "riverside-vineyard-storehouse": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "thu": [
-    [
-     "13:00",
-     "15:00"
-    ]
-   ],
-   "sat": [
-    [
-     "10:00",
-     "12:00"
-    ]
-   ]
-  },
-  "raw": "FEED OPEN HOURS THURSDAY, 1:00PM-3:00PM SATURDAY, 10:00AM-12:00PM",
-  "source_url": "https://www.riversidevineyard.com/contact/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "FEED OPEN HOURS THURSDAY, 1:00PM-3:00PM SATURDAY, 10:00AM-12:00PM"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "FEED OPEN HOURS THURSDAY, 1:00PM-3:00PM SATURDAY, 10:00AM-12:00PM",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.riversidevineyard.com/contact/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  }
  },
  "rochdale": {
   "checked_date": "2026-10-20",
@@ -19001,6 +19301,14 @@
   }
  },
  "ross-community-larder": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "The Community Larder is open between 9.00 and 11.00 am each Tuesday"
+  ],
+  "raw": "The Community Larder is open between 9.00 and 11.00 am each Tuesday",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://rossparishes.uk/what-we-do/the-community-larder/",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -19009,15 +19317,7 @@
      "11:00"
     ]
    ]
-  },
-  "raw": "The Community Larder is open between 9.00 and 11.00 am each Tuesday",
-  "source_url": "https://rossparishes.uk/what-we-do/the-community-larder/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "The Community Larder is open between 9.00 and 11.00 am each Tuesday"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "rotherham": {
   "checked_date": "2026-10-20",
@@ -19462,16 +19762,16 @@
   }
  },
  "salford": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Kansas Avenue is the warehouse only: no collection facilities. Collect parcels from the distribution centres",
-  "source_url": "https://salford.foodbank.org.uk/locations/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Kansas Avenue (Warehouse only) NO COLLECTION FACILITIES"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Kansas Avenue is the warehouse only: no collection facilities. Collect parcels from the distribution centres",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://salford.foodbank.org.uk/locations/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "salford-food-parcels": {
   "checked_date": "2026-10-27",
@@ -19795,6 +20095,14 @@
   }
  },
  "salma": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "our warehouse is open for collection of food on Monday and Thursday 10-1pm"
+  ],
+  "raw": "our warehouse is open for collection of food on Monday and Thursday 10-1pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.salma-foodbank.org/",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -19809,15 +20117,7 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "our warehouse is open for collection of food on Monday and Thursday 10-1pm",
-  "source_url": "https://www.salma-foodbank.org/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "our warehouse is open for collection of food on Monday and Thursday 10-1pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "saltash": {
   "checked_date": "2026-10-20",
@@ -19982,16 +20282,16 @@
   "structured": null
  },
  "salvation-army/hastings-temple": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Tuesday: Food Bank - appointment required 10:30am - 11:30am",
-  "source_url": "https://www.salvationarmy.org.uk/hastings-temple",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Food Bank - appointment required 10:30am - 11:30am"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Tuesday: Food Bank - appointment required 10:30am - 11:30am",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.salvationarmy.org.uk/hastings-temple",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "salvation-army/hayle": {
   "checked_date": "2026-10-20",
@@ -20522,6 +20822,14 @@
   }
  },
  "shepshed": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "The Shepshed Foodbank is open every Tuesday from 11:00am to 12:30pm"
+  ],
+  "raw": "The Shepshed Foodbank is open every Tuesday from 11:00am to 12:30pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://shepshedfoodbank.org/about/",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -20530,15 +20838,7 @@
      "12:30"
     ]
    ]
-  },
-  "raw": "The Shepshed Foodbank is open every Tuesday from 11:00am to 12:30pm",
-  "source_url": "https://shepshedfoodbank.org/about/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "The Shepshed Foodbank is open every Tuesday from 11:00am to 12:30pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "shepway": {
   "checked_date": "2026-10-20",
@@ -20727,8 +21027,22 @@
   }
  },
  "shrewsbury": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "FOOD BANK AT BARNABAS IS OPEN: Tuesday and Friday (not open on Bank Holidays) 09:30 - 12:00 Wednesday Evening 17:00 - 18:45"
+  ],
+  "raw": "FOOD BANK AT BARNABAS IS OPEN: Tuesday and Friday 09:30 - 12:00, Wednesday Evening 17:00 - 18:45",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank",
   "status": "TIMES_FOUND",
   "structured": {
+   "fri": [
+    [
+     "09:30",
+     "12:00"
+    ]
+   ],
    "tue": [
     [
      "09:30",
@@ -20740,47 +21054,33 @@
      "17:00",
      "18:45"
     ]
-   ],
-   "fri": [
-    [
-     "09:30",
-     "12:00"
-    ]
    ]
-  },
-  "raw": "FOOD BANK AT BARNABAS IS OPEN: Tuesday and Friday 09:30 - 12:00, Wednesday Evening 17:00 - 18:45",
-  "source_url": "https://www.barnabascommunityprojects.org/shrewsburyfoodbank",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "FOOD BANK AT BARNABAS IS OPEN: Tuesday and Friday (not open on Bank Holidays) 09:30 - 12:00 Wednesday Evening 17:00 - 18:45"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "silklife": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "09:30",
-     "11:30"
-    ]
-   ],
-   "fri": [
-    [
-     "09:30",
-     "11:30"
-    ]
-   ]
-  },
-  "raw": "Tue 09:30 - 11:30; Fri 09:30 - 11:30",
-  "source_url": "https://www.silklife.co.uk/foodbank",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "If you would like any further help or advice, please visit the Silklife Foodbank on a Tuesday or a Friday morning between 9:30am and 11:30am"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Sunday 10:30-12:30 on that page is the church service; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Tue 09:30 - 11:30; Fri 09:30 - 11:30",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Sunday 10:30-12:30 on that page is the church service; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.silklife.co.uk/foodbank",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:30",
+     "11:30"
+    ]
+   ]
+  }
  },
  "skegness": {
   "checked_date": "2026-10-20",
@@ -20858,6 +21158,14 @@
   }
  },
  "sketty": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Wednesday 1100 - 1400 (donations & parcel collection)"
+  ],
+  "raw": "Wednesday 1100 - 1400 (donations & parcel collection)",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.skettyfoodbank.co.uk/",
   "status": "TIMES_FOUND",
   "structured": {
    "wed": [
@@ -20866,15 +21174,7 @@
      "14:00"
     ]
    ]
-  },
-  "raw": "Wednesday 1100 - 1400 (donations & parcel collection)",
-  "source_url": "https://www.skettyfoodbank.co.uk/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Wednesday 1100 - 1400 (donations & parcel collection)"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "skipton": {
   "checked_date": "2026-10-20",
@@ -20995,16 +21295,16 @@
   "structured": null
  },
  "somebody-cares": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Foodbank order line (not a walk-in time): Monday - Friday 10:00am - 3:30pm, order by 11.30 am for same day collection",
-  "source_url": "https://www.somebodycaresscotland.org/contact-us/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Foodbank : Open : Order By : Email : Tel : Monday - Friday 10:00am - 3:30pm 11.30 am for same day collection"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Foodbank order line (not a walk-in time): Monday - Friday 10:00am - 3:30pm, order by 11.30 am for same day collection",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.somebodycaresscotland.org/contact-us/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "south-ayrshire": {
   "checked_date": "2026-10-20",
@@ -21765,15 +22065,23 @@
   }
  },
  "south-tyneside": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Opening Hours: Mon, Tue, Thur, Fri 11am to 1pm Closed on Wed"
+  ],
+  "raw": "Food Bank Hampden St South Shields NE33 4JR Opening Hours: Mon, Tue, Thur, Fri 11am to 1pm Closed on Wed",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://hospitalityandhope.org.uk/contact/",
   "status": "TIMES_FOUND",
   "structured": {
-   "mon": [
+   "fri": [
     [
      "11:00",
      "13:00"
     ]
    ],
-   "tue": [
+   "mon": [
     [
      "11:00",
      "13:00"
@@ -21785,21 +22093,13 @@
      "13:00"
     ]
    ],
-   "fri": [
+   "tue": [
     [
      "11:00",
      "13:00"
     ]
    ]
-  },
-  "raw": "Food Bank Hampden St South Shields NE33 4JR Opening Hours: Mon, Tue, Thur, Fri 11am to 1pm Closed on Wed",
-  "source_url": "https://hospitalityandhope.org.uk/contact/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Opening Hours: Mon, Tue, Thur, Fri 11am to 1pm Closed on Wed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "south-west-belfast": {
   "checked_date": "2026-10-20",
@@ -21914,6 +22214,14 @@
   }
  },
  "southgate-mosque": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Southgate Mosque Foodbank runs every Monday (including holidays). Open from 10:30 am - 12:00 pm"
+  ],
+  "raw": "Monday (including holidays). Open from 10:30 am - 12:00 pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://southgatemosque.co.uk/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -21922,15 +22230,7 @@
      "12:00"
     ]
    ]
-  },
-  "raw": "Monday (including holidays). Open from 10:30 am - 12:00 pm",
-  "source_url": "https://southgatemosque.co.uk/foodbank/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Southgate Mosque Foodbank runs every Monday (including holidays). Open from 10:30 am - 12:00 pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "southport": {
   "checked_date": "2026-10-20",
@@ -22260,8 +22560,22 @@
   }
  },
  "st-andrews": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "To get food: Tuesdays & Thursdays: 11am - 1pm Wednesdays: 1-2:30pm"
+  ],
+  "raw": "To get food: Tuesdays & Thursdays: 11am - 1pm Wednesdays: 1-2:30pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.storehousestandrews.com/",
   "status": "TIMES_FOUND",
   "structured": {
+   "thu": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
    "tue": [
     [
      "11:00",
@@ -22273,22 +22587,8 @@
      "13:00",
      "14:30"
     ]
-   ],
-   "thu": [
-    [
-     "11:00",
-     "13:00"
-    ]
    ]
-  },
-  "raw": "To get food: Tuesdays & Thursdays: 11am - 1pm Wednesdays: 1-2:30pm",
-  "source_url": "https://www.storehousestandrews.com/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "To get food: Tuesdays & Thursdays: 11am - 1pm Wednesdays: 1-2:30pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "st-annes-advice-nottingham": {
   "checked_date": "2026-10-20",
@@ -22469,6 +22769,14 @@
   "structured": null
  },
  "st-monicas": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Free Food distributed by the parish every Monday from 12noon - 2.30pm"
+  ],
+  "raw": "Free Food distributed by the parish every Monday from 12noon - 2.30pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://stmonica.co.uk/social-action/",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -22477,15 +22785,7 @@
      "14:30"
     ]
    ]
-  },
-  "raw": "Free Food distributed by the parish every Monday from 12noon - 2.30pm",
-  "source_url": "https://stmonica.co.uk/social-action/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Free Food distributed by the parish every Monday from 12noon - 2.30pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "st-neots": {
   "checked_date": "2026-10-20",
@@ -23022,13 +23322,32 @@
   "structured": null
  },
  "storehouse-church-alford": {
-  "checked_date": "2026-10-23",
+  "checked_date": "2026-10-31",
   "protected": true,
-  "raw": "Foodbank: Monday, Wednesday and Friday 10.30am - 12.30pm",
-  "reader": "hand-reviewed 2026-10-23 (own site read; client hours only)",
+  "raw": "Foodbank open for anyone in need. We are open on Monday, Wednesday and Friday from 10.30am – 12.30pm.",
+  "reader": "hand-reviewed 2026-10-31 (own site read; food bank hours only, café line excluded)",
   "source_url": "https://thestorehousechurchalford.org.uk/access-centre/",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "mon": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
  },
  "storehouse-influence-church": {
   "checked_date": "2026-10-20",
@@ -23061,16 +23380,16 @@
   "structured": null
  },
  "stowmarket-area": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "The centre is open during the following hours: Mondays to Fridays: 9 am - 1 pm",
-  "source_url": "https://www.livingit.org.uk/foodbank/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "The centre is open during the following hours: Mondays: 9 am - 1 pm Tuesdays: 9 am - 1 pm Wednesdays: 9 am - 1 pm Thursdays: 9 am - 1 pm Fridays: 9 am - 1 pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "The centre is open during the following hours: Mondays to Fridays: 9 am - 1 pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.livingit.org.uk/foodbank/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "strabane": {
   "card_name": "The Grassroots Cafe and Food Market",
@@ -24171,16 +24490,16 @@
   }
  },
  "thame": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Food bank phone line answered between 9.00am and 1.00pm each weekday (not collection times)",
-  "source_url": "https://sharinglifetrust.org/foodbank/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "You will be able to speak to one of us between 9.00am and 1.00pm each weekday"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "Food bank phone line answered between 9.00am and 1.00pm each weekday (not collection times)",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://sharinglifetrust.org/foodbank/",
+  "status": "TIMES_TEXT_ONLY",
+  "structured": null
  },
  "the-bus-shelter-shop": {
   "checked_date": "2026-10-20",
@@ -24188,6 +24507,46 @@
   "source_url": "https://www.thebusshelteripswich.co.uk/",
   "status": "TIMES_TEXT_ONLY",
   "structured": null
+ },
+ "the-community-cupboard": {
+  "checked_date": "2026-10-31",
+  "protected": true,
+  "raw": "Mon, Wed & Fri: 10am-12pm; Tues & Thur 12-2pm",
+  "reader": "hand-reviewed 2026-10-31 (own site West Kingsdown hours)",
+  "source_url": "http://www.thecommunitycupboard.co.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "tue": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  }
  },
  "the-community-cupboard/swanley-community-cupboard": {
   "checked_date": "2026-10-24",
@@ -24369,6 +24728,14 @@
   "structured": null
  },
  "thurrock/all-saints-church-south-ockendon": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "South Ockendon Distribution Centre card, RM15 5HF: Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm Friday-Sunday Closed"
+  ],
+  "raw": "Thu 11:00 - 13:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -24377,15 +24744,7 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "Thu 11:00 - 13:00",
-  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "South Ockendon Distribution Centre card, RM15 5HF: Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm Friday-Sunday Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "thurrock/emmanuel-church-chadwell-st-mary": {
   "card_name": "Chadwell Distribution Centre",
@@ -24405,6 +24764,14 @@
   }
  },
  "thurrock/gates-of-praise-international-christian-centre": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Gates of Praise Christian Centre card, RM17 5YF: Monday-Friday Closed Saturday 10:00 am to 12:00 pm Sunday Closed"
+  ],
+  "raw": "Sat 10:00 - 12:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "sat": [
@@ -24413,17 +24780,17 @@
      "12:00"
     ]
    ]
-  },
-  "raw": "Sat 10:00 - 12:00",
-  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  }
+ },
+ "thurrock/gateway-peoples-centre": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
-   "Gates of Praise Christian Centre card, RM17 5YF: Monday-Friday Closed Saturday 10:00 am to 12:00 pm Sunday Closed"
+   "Stanford Le Hope Distribution Centre card, SS17 0EY: Monday-Tuesday Closed Wednesday 11:00 am to 1:00 pm Thursday-Sunday Closed"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "thurrock/gateway-peoples-centre": {
+  "raw": "Wed 11:00 - 13:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "wed": [
@@ -24432,15 +24799,7 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "Wed 11:00 - 13:00",
-  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Stanford Le Hope Distribution Centre card, SS17 0EY: Monday-Tuesday Closed Wednesday 11:00 am to 1:00 pm Thursday-Sunday Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "thurrock/grays-methodist-church": {
   "card_name": "Grays Methodist Church",
@@ -24460,6 +24819,14 @@
   }
  },
  "thurrock/st-francis-centre-linford": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Linford Distribution Centre card, SS17 0QA: Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm Friday-Sunday Closed"
+  ],
+  "raw": "Thu 11:00 - 13:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -24468,17 +24835,17 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "Thu 11:00 - 13:00",
-  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  }
+ },
+ "thurrock/st-john-the-baptist-church-tilbury": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
-   "Linford Distribution Centre card, SS17 0QA: Monday-Wednesday Closed Thursday 11:00 am to 1:00 pm Friday-Sunday Closed"
+   "Tilbury Distribution Centre card, RM18 7PP: Monday Closed Tuesday 11:00 am to 1:00 pm Wednesday-Sunday Closed"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "thurrock/st-john-the-baptist-church-tilbury": {
+  "raw": "Tue 11:00 - 13:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -24487,15 +24854,7 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "Tue 11:00 - 13:00",
-  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Tilbury Distribution Centre card, RM18 7PP: Monday Closed Tuesday 11:00 am to 1:00 pm Wednesday-Sunday Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "thurrock/st-marys-church-hall-little-thurrock": {
   "card_name": "Little Thurrock Distribution Centre",
@@ -24515,6 +24874,14 @@
   }
  },
  "thurrock/st-stephens-church-hall-purfleet": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Purfleet Distribution Centre card, RM19 1QD: Monday-Thursday Closed Friday 10:00 am to 12:00 pm Saturday-Sunday Closed"
+  ],
+  "raw": "Fri 10:00 - 12:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "fri": [
@@ -24523,15 +24890,7 @@
      "12:00"
     ]
    ]
-  },
-  "raw": "Fri 10:00 - 12:00",
-  "source_url": "https://thurrock.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Purfleet Distribution Centre card, RM19 1QD: Monday-Thursday Closed Friday 10:00 am to 12:00 pm Saturday-Sunday Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "todmorden": {
   "checked_date": "2026-10-20",
@@ -24676,8 +25035,28 @@
   "structured": null
  },
  "transformation/centenary-methodist-centre-camborne": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Centenary Methodist Centre Camborne Centenary Street, TR14 8HS Tuesday 1.30pm-3.30pm Wednesday 5.30pm-6.30pm Thursday 10am-12pm Friday 10.30am-12pm"
+  ],
+  "raw": "Centenary Methodist Centre Camborne: Tuesday 1.30pm-3.30pm Wednesday 5.30pm-6.30pm Thursday 10am-12pm Friday 10.30am-12pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://transformationcpr.org/food-banks",
   "status": "TIMES_FOUND",
   "structured": {
+   "fri": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
    "tue": [
     [
      "13:30",
@@ -24689,28 +25068,8 @@
      "17:30",
      "18:30"
     ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "12:00"
-    ]
-   ],
-   "fri": [
-    [
-     "10:30",
-     "12:00"
-    ]
    ]
-  },
-  "raw": "Centenary Methodist Centre Camborne: Tuesday 1.30pm-3.30pm Wednesday 5.30pm-6.30pm Thursday 10am-12pm Friday 10.30am-12pm",
-  "source_url": "https://transformationcpr.org/food-banks",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Centenary Methodist Centre Camborne Centenary Street, TR14 8HS Tuesday 1.30pm-3.30pm Wednesday 5.30pm-6.30pm Thursday 10am-12pm Friday 10.30am-12pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "transformation/st-andrews-redruth": {
   "checked_date": "2026-10-20",
@@ -24727,6 +25086,14 @@
   "structured": null
  },
  "trinity": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "We are open for collection of food parcels, advice, signposting Friday 9 - 12"
+  ],
+  "raw": "Fri 09:00 - 12:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Mon-Thurs 10am - 2pm is the phone line for statutory agencies; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://trinityfoodbank.co.uk/",
   "status": "TIMES_FOUND",
   "structured": {
    "fri": [
@@ -24735,15 +25102,7 @@
      "12:00"
     ]
    ]
-  },
-  "raw": "Fri 09:00 - 12:00",
-  "source_url": "https://trinityfoodbank.co.uk/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "We are open for collection of food parcels, advice, signposting Friday 9 - 12"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Mon-Thurs 10am - 2pm is the phone line for statutory agencies; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "truro": {
   "checked_date": "2026-10-20",
@@ -25585,30 +25944,78 @@
    ]
   }
  },
- "wells": {
+ "wellingborough-district": {
+  "checked_date": "2026-10-31",
+  "collection": false,
+  "notes": {
+   "fri": "Delivery only, no walk-ins",
+   "mon": "Delivery only, no walk-ins",
+   "thu": "Delivery only, no walk-ins",
+   "tue": "Delivery only, no walk-ins",
+   "wed": "Delivery only, no walk-ins"
+  },
+  "protected": true,
+  "raw": "Opening Hours: Monday through to Friday, 9am-12pm. Delivery Service: delivery only, no walk-ins.",
+  "reader": "hand-reviewed 2026-10-31 (own site; delivery/phone hours, not walk-in collection)",
+  "source_url": "https://www.daylightcf.org/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
-   "wed": [
+   "fri": [
     [
-     "10:30",
-     "12:30"
+     "09:00",
+     "12:00"
     ]
    ],
-   "sat": [
+   "mon": [
     [
-     "10:30",
-     "12:30"
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "12:00"
     ]
    ]
-  },
-  "raw": "For food parcels: Wednesdays and Saturdays 10.30 a.m. - 12.30 p.m.",
-  "source_url": "https://www.wellsstorehouse.co.uk/",
+  }
+ },
+ "wells": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "For food parcels: Wednesdays and Saturdays 10.30 a.m. - 12.30 p.m."
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  "raw": "For food parcels: Wednesdays and Saturdays 10.30 a.m. - 12.30 p.m.",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.wellsstorehouse.co.uk/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "sat": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
+   ]
+  }
  },
  "welwyn-garden-city": {
   "checked_date": "2026-10-27",
@@ -26050,6 +26457,14 @@
   }
  },
  "west-end-impact": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "We give out food parcels every Tuesday 10-1pm no questions asked"
+  ],
+  "raw": "We give out food parcels every Tuesday 10-1pm no questions asked.",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.westendimpact.org.uk/i-need-help",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -26058,17 +26473,17 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "We give out food parcels every Tuesday 10-1pm no questions asked.",
-  "source_url": "https://www.westendimpact.org.uk/i-need-help",
+  }
+ },
+ "west-hallam-methodist": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
-   "We give out food parcels every Tuesday 10-1pm no questions asked"
+   "New opening time for collections Friday 10am - 11am"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "west-hallam-methodist": {
+  "raw": "New opening time for collections Friday 10am - 11am",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.westhallammethodistchurch.co.uk/?page_id=1003",
   "status": "TIMES_FOUND",
   "structured": {
    "fri": [
@@ -26077,15 +26492,7 @@
      "11:00"
     ]
    ]
-  },
-  "raw": "New opening time for collections Friday 10am - 11am",
-  "source_url": "https://www.westhallammethodistchurch.co.uk/?page_id=1003",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "New opening time for collections Friday 10am - 11am"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "west-lothian/boghall": {
   "card_name": "Boghall DC (By Appointment Only)",
@@ -26165,6 +26572,14 @@
   "structured": null
  },
  "westminster": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Client sessions run on Mondays 1pm-3pm (except Public Holidays) and Thursday 11am-1pm."
+  ],
+  "raw": "Client sessions run on Mondays 1pm-3pm (except Public Holidays) and Thursday 11am-1pm.",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://westminsterchapel.org.uk/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
@@ -26179,15 +26594,7 @@
      "13:00"
     ]
    ]
-  },
-  "raw": "Client sessions run on Mondays 1pm-3pm (except Public Holidays) and Thursday 11am-1pm.",
-  "source_url": "https://westminsterchapel.org.uk/foodbank/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Client sessions run on Mondays 1pm-3pm (except Public Holidays) and Thursday 11am-1pm."
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "weston-favell-centre": {
   "checked_date": "2026-10-20",
@@ -26372,6 +26779,14 @@
   }
  },
  "whitefoot-and-downham": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "We are open 7:00pm - 8:30 pm every Thursday"
+  ],
+  "raw": "We are open 7:00pm - 8:30 pm every Thursday",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://wdcfplus.org.uk/contact/",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -26380,15 +26795,7 @@
      "20:30"
     ]
    ]
-  },
-  "raw": "We are open 7:00pm - 8:30 pm every Thursday",
-  "source_url": "https://wdcfplus.org.uk/contact/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "We are open 7:00pm - 8:30 pm every Thursday"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "wimbledon": {
   "checked_date": "2026-10-20",
@@ -26625,6 +27032,14 @@
   }
  },
  "wirral/st-james-church-new-brighton": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "ST JAMES New Brighton card, CH45 9LF: Monday-Wednesday Closed Thursday 10:30 am to 12:30 pm Friday-Sunday Closed"
+  ],
+  "raw": "Thu 10:30 - 12:30",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "thu": [
@@ -26633,17 +27048,17 @@
      "12:30"
     ]
    ]
-  },
-  "raw": "Thu 10:30 - 12:30",
-  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
+  }
+ },
+ "wirral/st-joseph-and-st-albans": {
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
-   "ST JAMES New Brighton card, CH45 9LF: Monday-Wednesday Closed Thursday 10:30 am to 12:30 pm Friday-Sunday Closed"
+   "ST ALBAN'S PARISH CENTRE, WALLASEY card, CH44 5UD: Monday Closed Tuesday 5:30 pm to 7:00 pm Wednesday-Sunday Closed"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "wirral/st-joseph-and-st-albans": {
+  "raw": "Tue 17:30 - 19:00",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "tue": [
@@ -26652,15 +27067,7 @@
      "19:00"
     ]
    ]
-  },
-  "raw": "Tue 17:30 - 19:00",
-  "source_url": "https://wirral.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "ST ALBAN'S PARISH CENTRE, WALLASEY card, CH44 5UD: Monday Closed Tuesday 5:30 pm to 7:00 pm Wednesday-Sunday Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "wirral/st-marks-new-ferry": {
   "checked_date": "2026-10-20",
@@ -26778,15 +27185,17 @@
   }
  },
  "woking": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Woking Foodbank (Town Centre) card, GU21 6EL: Monday 10:30 am to 12:30 pm Tuesday Closed Wednesday 10:30 am to 12:30 pm Thursday 10:30 am to 12:30 pm Friday-Sunday Closed"
+  ],
+  "raw": "Mon 10:30 - 12:30; Wed 10:30 - 12:30; Thu 10:30 - 12:30",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
   "status": "TIMES_FOUND",
   "structured": {
    "mon": [
-    [
-     "10:30",
-     "12:30"
-    ]
-   ],
-   "wed": [
     [
      "10:30",
      "12:30"
@@ -26797,16 +27206,14 @@
      "10:30",
      "12:30"
     ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "12:30"
+    ]
    ]
-  },
-  "raw": "Mon 10:30 - 12:30; Wed 10:30 - 12:30; Thu 10:30 - 12:30",
-  "source_url": "https://woking.foodbank.org.uk/emergency-food/i-have-a-food-voucher",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Woking Foodbank (Town Centre) card, GU21 6EL: Monday 10:30 am to 12:30 pm Tuesday Closed Wednesday 10:30 am to 12:30 pm Thursday 10:30 am to 12:30 pm Friday-Sunday Closed"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #228; Trussell centre card matched by postcode; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "woking/byfleet": {
   "card_name": "Woking Foodbank Byfleet",
@@ -26919,52 +27326,72 @@
   }
  },
  "woodhouse-close-church": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "09:00",
-     "16:30"
-    ]
-   ],
-   "tue": [
-    [
-     "09:00",
-     "16:30"
-    ]
-   ],
-   "wed": [
-    [
-     "09:00",
-     "16:30"
-    ]
-   ],
-   "thu": [
-    [
-     "09:00",
-     "16:30"
-    ]
-   ],
-   "fri": [
-    [
-     "09:00",
-     "12:30"
-    ]
-   ]
-  },
-  "raw": "Our Foodbank and Crisis intervention team is open Monday to Thursday 9am till 4-30pm Fridays 9.00 am till 12-30pm",
-  "source_url": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "Our Foodbank and Crisis intervention team is open Monday to Thursday 9am till 4-30pm Fridays 9.00 am till 12-30pm"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "woodley": {
+  "raw": "Our Foodbank and Crisis intervention team is open Monday to Thursday 9am till 4-30pm Fridays 9.00 am till 12-30pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.woodhousechurchandcommunitycentre.co.uk/foodbank/",
   "status": "TIMES_FOUND",
   "structured": {
+   "fri": [
+    [
+     "09:00",
+     "12:30"
+    ]
+   ],
    "mon": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "thu": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "tue": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ],
+   "wed": [
+    [
+     "09:00",
+     "16:30"
+    ]
+   ]
+  }
+ },
+ "woodley": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Monday to Friday, 10:00 - noon"
+  ],
+  "raw": "Woodley Baptist Church ... Monday to Friday, 10:00 - noon",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://woodleyfoodbank.org/",
+  "status": "TIMES_FOUND",
+  "structured": {
+   "fri": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "mon": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "thu": [
     [
      "10:00",
      "12:00"
@@ -26981,28 +27408,8 @@
      "10:00",
      "12:00"
     ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "12:00"
-    ]
-   ],
-   "fri": [
-    [
-     "10:00",
-     "12:00"
-    ]
    ]
-  },
-  "raw": "Woodley Baptist Church ... Monday to Friday, 10:00 - noon",
-  "source_url": "https://woodleyfoodbank.org/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Monday to Friday, 10:00 - noon"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "worcester": {
   "card_name": "Worcester Foodbank",
@@ -27350,9 +27757,29 @@
   }
  },
  "yeovil": {
+  "checked_date": "2026-11-01",
+  "protected": true,
+  "quote": [
+   "Mon- Fri, food parcels are made available to collect between 10am - 2pm"
+  ],
+  "raw": "Mon- Fri, food parcels are made available to collect between 10am - 2pm",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.ycstyeovil.org.uk/contact/",
   "status": "TIMES_FOUND",
   "structured": {
+   "fri": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
    "mon": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
     [
      "10:00",
      "14:00"
@@ -27369,28 +27796,8 @@
      "10:00",
      "14:00"
     ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "14:00"
-    ]
-   ],
-   "fri": [
-    [
-     "10:00",
-     "14:00"
-    ]
    ]
-  },
-  "raw": "Mon- Fri, food parcels are made available to collect between 10am - 2pm",
-  "source_url": "https://www.ycstyeovil.org.uk/contact/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Mon- Fri, food parcels are made available to collect between 10am - 2pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  },
  "yiewsley-west-drayton": {
   "checked_date": "2026-10-20",
@@ -27539,312 +27946,28 @@
   }
  },
  "ystradgynlais": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "10:00",
-     "12:00"
-    ]
-   ],
-   "thu": [
-    [
-     "10:00",
-     "12:00"
-    ]
-   ]
-  },
-  "raw": "We're open Tuesdays and Thursdays between 10:00 am and 12:00 noon.",
-  "source_url": "https://www.ystradgynlaisvc.org.uk/what-we-do/foodbank",
   "checked_date": "2026-11-01",
   "protected": true,
   "quote": [
    "We're open Tuesdays and Thursdays between 10:00 am and 12:00 noon"
   ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "bow": {
-  "checked_date": "2026-10-29",
-  "protected": true,
-  "quote": [
-   "Come and see us:\nTuesdays 10 am to 12 pm\nThursdays 10 am to 1 pm",
-   "Open session – Non Tower Hamlets Residents welcome:\nWednesdays 14:00 to 19:00",
-   "Click and Collect:\nTuesdays 1:00 pm to 4:30 pm (Order by 1:00 pm Sunday)\nFridays 8:00 am to 12:00 pm (Order by 9:00 pm Wednesday)"
-  ],
-  "raw": "Tuesdays 10am - 12pm and Thursdays 10am - 1pm (visit us); Wednesdays 2pm - 7pm (open to all). Click and Collect: Tuesdays 1pm - 4:30pm (order by 1pm Sunday); Fridays 8am - 12pm (order by 9pm Wednesday)",
-  "reader": "hand-reviewed 2026-10-29 (own site read: home page footer Sessions; Visit Us and Wednesday open session are walk-in client hours; Click and Collect slots and order deadlines kept in text only, not in the day table; Bethnal Green closed and points to Bow; Dean approved)",
-  "source_url": "https://www.bowfoodbank.org",
+  "raw": "We're open Tuesdays and Thursdays between 10:00 am and 12:00 noon.",
+  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)",
+  "source_url": "https://www.ystradgynlaisvc.org.uk/what-we-do/foodbank",
   "status": "TIMES_FOUND",
   "structured": {
-   "tue": [
+   "thu": [
     [
      "10:00",
      "12:00"
     ]
    ],
-   "wed": [
-    [
-     "14:00",
-     "19:00"
-    ]
-   ],
-   "thu": [
+   "tue": [
     [
      "10:00",
-     "13:00"
-    ]
-   ]
-  }
- },
- "ifan-3c7cb974c7ac6c1966b83c-0": {
-  "checked_date": "2026-10-29",
-  "protected": true,
-  "quote": [
-   "Food and Supplies Market:\nMonday: 12pm – 2pm\nTuesday: 12pm – 2pm\nWednesday: 12pm – 2pm\nThursday: Closed\nFriday: 12pm – 2pm\nSaturday: 11am – 1pm"
-  ],
-  "raw": "Food and Supplies Market: Monday 12pm - 2pm; Tuesday 12pm - 2pm; Wednesday 12pm - 2pm; Friday 12pm - 2pm; Saturday 11am - 1pm (Thursday closed)",
-  "reader": "hand-reviewed 2026-10-29 (own site read: footer Opening Times, Food and Supplies Market only; Community Café, Club Sessions and other programmes left out; Dean approved)",
-  "source_url": "https://www.neocommunity.org.uk/",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "12:00",
-     "14:00"
-    ]
-   ],
-   "tue": [
-    [
-     "12:00",
-     "14:00"
-    ]
-   ],
-   "wed": [
-    [
-     "12:00",
-     "14:00"
-    ]
-   ],
-   "fri": [
-    [
-     "12:00",
-     "14:00"
-    ]
-   ],
-   "sat": [
-    [
-     "11:00",
-     "13:00"
-    ]
-   ]
-  }
- },
- "ifan-9fef48d4f0fd3a3f6896d2-0": {
-  "checked_date": "2026-10-29",
-  "protected": true,
-  "quote": [
-   "Church weekly schedule\nBible Study: Wednesdays 6pm to 7pm (Currently not available) Street Evangelism: Saturdays 11am to 1pm Food Bank: Fridays 5pm - 6pm Church Services: Sundays 10am to 12pm"
-  ],
-  "raw": "Food Bank: Fridays 5pm - 6pm",
-  "reader": "hand-reviewed 2026-10-29 (own site read: Church weekly schedule on home page; Food Bank line only; Bible study, street evangelism and Sunday church service left out; Dean approved)",
-  "source_url": "https://www.gcjc.co.uk",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "fri": [
-    [
-     "17:00",
-     "18:00"
-    ]
-   ]
-  }
- },
- "ifan-53c68645aa831ab649ac43-0": {
-  "checked_date": "2026-10-29",
-  "protected": true,
-  "quote": [
-   "St Paul's Pantry is our foodbank offering a bag of groceries and essential household items to those in need. Fortnightly on Thursday 6.30 - 7.30 pm in church."
-  ],
-  "raw": "Every other Thursday, 6:30pm to 7:30pm, in church",
-  "reader": "hand-reviewed 2026-10-29 (own site read: home page St Paul's Pantry section; foodbank fortnightly Thu 6:30-7:30 only; Open Church, Lunch Club, Wednesday Club and other church activities left out; Dean approved)",
-  "source_url": "https://stpaulsparkside.org.uk/",
-  "status": "TIMES_FOUND",
-  "structured": {
-   "thu": [
-    [
-     "18:30",
-     "19:30"
-    ]
-   ]
-  },
-  "notes": {
-   "thu": "Fortnightly"
-  }
- },
- "community-essentials": {
-  "checked_date": "2026-10-29",
-  "protected": true,
-  "quote": [
-   "We are currently running at full capacity. If a day does not show as available, that means we are fully booked. Please do not call... You can only book a time slot between 1-7 days in the future"
-  ],
-  "raw": "Book a collection slot online, 1 to 7 days ahead. No walk-ins.",
-  "reader": "hand-reviewed 2026-10-29 (own site read: /food-bank online Collection Time booker only; no fixed walk-in hours; contact-us Mon-Wed appointment text left out; Dean approved)",
-  "source_url": "https://community-essentials.org.uk/food-bank",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
- },
- "moorland": {
-  "checked_date": "2026-10-29",
-  "protected": true,
-  "quote": [
-   "You can ask your support worker to contact Moorland Food Bank on your behalf, or contact us direct using the details on the Contact Page. We may ask a little about your circumstances... and, if appropriate, will arrange delivery of a one-off free food parcel. Please bear in mind that this is not an emergency service."
-  ],
-  "raw": "No walk-ins. Ask a support worker to refer you, or contact the food bank through its website. Parcels are delivered.",
-  "reader": "hand-reviewed 2026-10-29 (own site read: get-help / home delivery model only; no walk-in collection hours; finder Thu session text left out; Dean approved)",
-  "source_url": "https://www.moorlandfoodbank.org.uk",
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null
- },
- "hope-for-belper": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "12:00",
-     "14:00"
-    ]
-   ],
-   "fri": [
-    [
-     "12:00",
-     "14:00"
-    ]
-   ]
-  },
-  "raw": "The Food & Community Hub is open 12pm - 2pm every Tuesday and Friday except Bank Holidays",
-  "source_url": "https://hopeforbelper.com/the-basic-idea/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "The Food & Community Hub is open 12pm - 2pm every Tuesday and Friday except Bank Holidays"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "living-hope": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "wed": [
-    [
-     "12:00",
-     "13:30"
-    ]
-   ]
-  },
-  "raw": "The Living Hope Food Bank is open every Wednesday ... Open 12:00PM - 1:30PM",
-  "source_url": "https://alccholmewood.com/living-hope",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "The Living Hope Food Bank is open every Wednesday",
-   "Open 12:00PM - 1:30PM"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "ifan-25c84c4582b7e7c60aeeac-0": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "mon": [
-    [
-     "09:30",
-     "14:00"
-    ]
-   ],
-   "wed": [
-    [
-     "12:30",
-     "16:30"
-    ]
-   ],
-   "fri": [
-    [
-     "09:30",
-     "16:30"
-    ]
-   ]
-  },
-  "raw": "OPEN THREE DAYS A WEEK Mon 9.30am-2 pm Wed 12.30pm - 4.30 pm Fri 9.30am - 4.30pm",
-  "source_url": "https://www.nbil-community.org",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "OPEN THREE DAYS A WEEK Mon 9.30am-2 pm Wed 12.30pm - 4.30 pm Fri 9.30am - 4.30pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "ifan-9cf9dd4ce1df051c2c0a59-0": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Pantries: Myatts Field Pantry Tuesdays 10am-1pm; the Village Pantry (Oasis at St Martins) Tuesdays 12-2pm; Moorlands Pantry Thursdays 11am-3pm",
-  "source_url": "https://www.healthylivingplatform.org",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Myatts Field Pantry Tuesdays 10am-1pm Myatts Field Centre 24 Crawshay Road Brixton SW9 6FZ Oasis at St Martins the Village Pantry Tuesdays 12-2pm 155 Tulse Hil SW2 3UP Moorlands Pantry Thursdays 11am-3pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "machars-churches": {
-  "status": "TIMES_FOUND",
-  "structured": {
-   "tue": [
-    [
-     "09:00",
-     "12:00"
-    ]
-   ],
-   "wed": [
-    [
-     "09:00",
-     "12:00"
-    ]
-   ],
-   "thu": [
-    [
-     "09:00",
      "12:00"
     ]
    ]
-  },
-  "raw": "Food Bank Opening Hours at 5 Albert Street, Newton Stewart 9am-12noon on Tuesday, Wednesday and Thursday.",
-  "source_url": "https://www.penninghamechurch.co.uk/basics-bank",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Food Bank Opening Hours at 5 Albert Street, Newont Stewart 9am-12noon on Tuesday, Wednesday and Thursday."
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "ifan-d59b2e089746f7a97c1e15-0": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "Community Pantry (members only): Monday, Wednesday and Friday, 9am to 2pm",
-  "source_url": "https://www.chancechanginglives.org",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "Chance Community Pantry | Monday, Wednesday and Friday | 9am to 2pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
- },
- "the-community-cupboard": {
-  "status": "TIMES_TEXT_ONLY",
-  "structured": null,
-  "raw": "West Kingsdown: Mon, Wed & Fri: 10am - 12 noon; Tues & Thur 12 - 2pm",
-  "source_url": "https://thecommunitycupboard.co.uk/",
-  "checked_date": "2026-11-01",
-  "protected": true,
-  "quote": [
-   "West Kingsdown Details Mon, Wed & Fri: 10am 12 noon Tues & Thur 12 -2pm"
-  ],
-  "reader": "hand-reviewed 2026-11-01 (from old PR #231; quote re-read on the place's own page today; redone on current main 1 Nov 2026)"
+  }
  }
 }

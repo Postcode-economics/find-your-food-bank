@@ -8,6 +8,12 @@ Written by scripts/full_check.py on every 3x-daily refresh.
 - phone_fixes.json: clear new numbers from the bank's own site (single clickable number, seen 2 runs running)
 - full_check_state.json: last run's per-site snapshot used to spot changes
 
+## Standing rule (31 Oct 2026 18:31 GMT, Dean; tightened the same evening): a hostel needs the operator or the council, not only a directory
+
+Recorded in `overrides/auto_apply_rules.json` as `referral_hostel_auto_add`. Exact removals are `overrides/shelter_exclusions.json` (one id, never a whole page).
+
+A shelter with a town or council area and a phone is a **Referral hostel** only when the operator's own page or a council page confirms it is running now and shows that phone. A Homeless Link or Street Support record alone is not enough. The card is list-only: no map pin, and a directory postcode is never the location. It is not shown in the emergency strip or a SWEP banner. Women's refuges, domestic-abuse services, family and temporary-accommodation blocks the council places people into, second-stage hostels and tenancy-based supported housing stay off. Referral text has no email address. Anything without a phone stays held. A hand check can still change a published referral line.
+
 ## Rule (30 Oct 2026, Dean): verified items go on without asking
 Recorded in `overrides/auto_apply_rules.json` as `times_finder_rule` and `verified_pending_rule` so every session and refresh carries them.
 
