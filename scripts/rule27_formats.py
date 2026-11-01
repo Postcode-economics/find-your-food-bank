@@ -31,6 +31,9 @@ def clean(text):
                lambda m: (m.group(1) + "am " + m.group(2) + " 12pm") if int(re.split(r"[:.]", m.group(1))[0]) < 12 else m.group(0), t)
     t = re.sub(r"(?i)\b(" + DAYW + r")(s?)\s+(?:from|at)\s+(?=\d)", r"\1\2 ", t)
     t = re.sub(r"(?i)\(?\s*(?:except|not open on|closed on)\s+(?:all\s+)?bank holidays?\s*\)?", " ", t)
+    t = re.sub(r"(?i)\b(" + DAYW + r")\s+through\s+to\s+(" + DAYW + r")\b", r"\1 to \2", t)
+    t = re.sub(r"(?i)\b(" + DAYW + r")\s+through\s+(" + DAYW + r")\b", r"\1 to \2", t)
+    t = re.sub(r"(?i)\b(\d{1,2}(?:[:.]\d{2})?\s*(?:am|pm))\s+(12(?:[:.]00)?\s*(?:noon|midday|pm))\b", r"\1 - \2", t)
     return re.sub(r" +", " ", t).strip()
 
 def to24(s):

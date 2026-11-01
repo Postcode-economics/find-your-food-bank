@@ -151,7 +151,7 @@ def strict_checks(k, ot, it, cur, seen, same_n, ks, blocked=None, own_sites=None
     if old and not _empty(old) and _sig(old) != _sig(ot) and (old.get("source_url") or "") != (ot.get("source_url") or ""):
         why.append("conflicts with times from another source (%s)" % (old.get("source_url") or "unknown"))
     if _sig(ot) and (blocked or {}).get(undone_key(k)) == _sig(ot): why.append("this change was undone by Dean; not re-applied")
-    for extra in (D.jumble_reason(ot), D.shrink_reason(old, ot)):
+    for extra in (D.jumble_reason(ot), D.shrink_reason(old, ot), D.drops_source_days_reason(ot, [ot.get("raw") or ""])):
         if extra: why.append(extra)
     return why
 def _read(ot):
