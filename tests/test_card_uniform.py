@@ -90,5 +90,5 @@ class Uniform(unittest.TestCase):
         self.assertGreater(got['counts'].get('sh', 0), 50, got['counts'])
         self.assertGreater(got['counts'].get('ws', 0), 50, got['counts'])
         self.assertEqual(got['problems'], [], 'checked %s across %s' % (got['n'], got['counts']))
-        self.assertIn('31 Oct 2026', got.get('hall', ''), got.get('hall'))
+        self.assertIn('1 Nov 2026', got.get('hall', ''), got.get('hall'))
         self.assertEqual(got.get('foyer'), 'Referral needed: Brighton & Hove City Council Housing Options team')
