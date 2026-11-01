@@ -397,18 +397,19 @@ class Chrome(Journey, unittest.TestCase):
                 pg.click('#xlist .v3dc')
                 self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5"))
                 ids = pg.evaluate(IDS, 'sh')
-                kinds = pg.evaluate("ids => ids.map(id => (SHELTERS.items.find(i => i.id === id) || {}).kind)", ids)
-                self.assertTrue(kinds and all(k == 'day_centre' for k in kinds), kinds)
+                kinds = pg.evaluate("ids => ids.map(id => { const i = SHELTERS.items.find(x => x.id === id) || {}; return window.shDay && shDay(i) ? 'day' : i.kind; })", ids)
+                self.assertTrue(kinds and all(k == 'day' for k in kinds), kinds)
                 self.assertTrue(pg.evaluate(BTN, 'sh')['shown'])
                 self.press(pg, 'sh')
                 self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length > 5"))
-                self.assertTrue(all(k == 'day_centre' for k in pg.evaluate(
-                    "ids => ids.map(id => (SHELTERS.items.find(i => i.id === id) || {}).kind)", pg.evaluate(IDS, 'sh'))))
+                self.assertTrue(all(k == 'day' for k in pg.evaluate(
+                    "ids => ids.map(id => { const i = SHELTERS.items.find(x => x.id === id) || {}; return window.shDay && shDay(i) ? 'day' : i.kind; })", pg.evaluate(IDS, 'sh'))))
                 pg.click('#xlist .v3dc')
                 self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5"))
                 pg.click('#chips [data-f=youth]')
                 self.assertTrue(until(pg, """() => {const cs=[...document.querySelectorAll('#xlist > .card.xsh')];
-                  return cs.length>=1 && cs.every(c => (SHELTERS.items.find(i => i.id === c.dataset.id) || {}).kind === 'young_people')}"""))
+                  const ok=i=>window.shYouth?shYouth(i):i.kind==='young_people';
+                  return cs.length>=1 && cs.every(c => ok(SHELTERS.items.find(i => i.id === c.dataset.id) || {}));}"""))
                 btn = pg.evaluate(BTN, 'sh')
                 self.assertTrue(btn is None or not btn['shown'])
                 pg.click('#chips [data-f=youth]')
