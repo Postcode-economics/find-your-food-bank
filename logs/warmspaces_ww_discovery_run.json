@@ -1,244 +1,21 @@
 {
- "run": "2026-10-31",
- "candidates": 18,
- "already_on_map": 4,
- "new": 14,
+ "run": "2026-11-01",
+ "candidates": 1,
+ "already_on_map": 0,
+ "new": 1,
  "added": [],
  "flagged": [
   {
-   "id": "ww-69359030",
-   "name": "Resound Cafe",
-   "postcode": "BS16 9BP",
-   "website": "https://www.resoundbristol.co.uk/",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=25554",
-   "reasons": [
-    "own site does not mention a warm space"
-   ],
-   "url": "https://www.resoundbristol.co.uk/",
-   "final_url": "https://www.resoundbristol.co.uk/",
-   "http": 200,
-   "sha256": "b5446e4564a9d23be6067cd03c0c83244c769d762ffad9dc2771316c95f3c45b",
-   "etag": "W/\"2d020ea59b0b4956fa5cdbbed7493a4b\"",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69359031",
-   "name": "Springwood Church Community Cafe",
-   "postcode": "L19 4TF",
-   "website": "https://www.springwoodchurch.co.uk/",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28623",
-   "reasons": [
-    "own site does not mention a warm space"
-   ],
-   "url": "https://www.springwoodchurch.co.uk/",
-   "final_url": "https://www.springwoodchurch.co.uk/",
-   "http": 200,
-   "sha256": "ed6aeaa411406e707b1acb0b6b8527c3ddc8a186b3c3268d48cd1c750cf60ea8",
-   "etag": "W/\"0f1d60e1ae54af6afca8dc6739120eae\"",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69359032",
-   "name": "Oasis Hobmoor Pantry",
-   "postcode": "B25 8JF",
-   "website": "www.oasishubhobmoor.org",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28626",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "www.oasishubhobmoor.org",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69359093",
-   "name": "Friendly Coffee Morning",
-   "postcode": "WD17 1LN",
+   "id": "ww-69375875",
+   "name": "Re:new Community Charity Shop",
+   "postcode": "LA14 1PH",
    "website": "",
    "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28629",
+   "directory_url": "https://www.warmwelcome.uk/space?l=28647",
    "reasons": [
     "directory listing only, with no 2026-27 season dates (latest stated start: none)"
    ],
    "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69359203",
-   "name": "The Hub Carnon Community Methodist Church",
-   "postcode": "TR3 6HY",
-   "website": "Carnonhub.co.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28628",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "Carnonhub.co.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69359213",
-   "name": "Our Space Hub and Library",
-   "postcode": "SY12 0AE",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28632",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69359856",
-   "name": "Ramsey Neighbourhoods Trust",
-   "postcode": "PE26 1HG",
-   "website": "www.ramseynt.org",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28633",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)",
-    "source pin 12.8 km from its postcode"
-   ],
-   "url": "www.ramseynt.org",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69363722",
-   "name": "Burringham Community Warm Space",
-   "postcode": "DN17 3NB",
-   "website": "",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28561",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69366408",
-   "name": "Home Church Warm Space",
-   "postcode": "TQ1 1HG",
-   "website": "http://www.home-church.co.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28578",
-   "reasons": [
-    "own site does not mention a warm space"
-   ],
-   "url": "http://www.home-church.co.uk",
-   "final_url": "https://home-church.co.uk/",
-   "http": 200,
-   "sha256": "ba6bca4899b93054e1815c000d3bb10ae6ff268fe9754d3228ad148d13a2c55f",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69367012",
-   "name": "Amersham Library",
-   "postcode": "HP6 5AH",
-   "website": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/amersham-library/",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28637",
-   "reasons": [
-    "directory link is a council page, not the place's own site",
-    "own site does not mention a warm space"
-   ],
-   "url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/amersham-library/",
-   "final_url": "https://www.buckinghamshire.gov.uk/schools-libraries-and-parks/libraries/information-about-local-library/amersham-library/",
-   "http": 200,
-   "sha256": "98cf80b7e0f2a8221b81380c09b6acba99af88258c70dcbda719280be63710c4",
-   "etag": "",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69367018",
-   "name": "Well Come Cafe",
-   "postcode": "YO8 4QQ",
-   "website": "https://upforyorkshire.org.uk/",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28636",
-   "reasons": [
-    "own site does not mention a warm space"
-   ],
-   "url": "https://upforyorkshire.org.uk/",
-   "final_url": "https://upforyorkshire.org.uk/",
-   "http": 200,
-   "sha256": "93e5298ba4b0221b44aee375dd7c41a53de5c2ca27abcc32c66cc6ced178f134",
-   "etag": "\"1-1793439458;;;\"",
-   "last_modified": ""
-  },
-  {
-   "id": "ww-69367093",
-   "name": "Community Cafe",
-   "postcode": "SY11 3LL",
-   "website": "allsaintsgobowen.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=26733",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "allsaintsgobowen.uk",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69371653",
-   "name": "The Lighthouse",
-   "postcode": "M35 9QG",
-   "website": "www.macedonia-urc.org",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28646",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "www.macedonia-urc.org",
-   "final_url": null,
-   "http": null,
-   "sha256": null,
-   "etag": null,
-   "last_modified": null
-  },
-  {
-   "id": "ww-69374277",
-   "name": "LASS-CIC Community Cafe Hub",
-   "postcode": "LE1 3XL",
-   "website": "www.lass-cic.uk",
-   "directory": "Warm Welcome",
-   "directory_url": "https://www.warmwelcome.uk/space?l=28251",
-   "reasons": [
-    "directory listing only, with no 2026-27 season dates (latest stated start: none)"
-   ],
-   "url": "www.lass-cic.uk",
    "final_url": null,
    "http": null,
    "sha256": null,
@@ -246,5 +23,7 @@
    "last_modified": null
   }
  ],
- "rejected": []
+ "rejected": [],
+ "follow_skipped": [],
+ "verified_proposals": []
 }

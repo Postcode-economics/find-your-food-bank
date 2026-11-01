@@ -1,11 +1,12 @@
 {
- "run": "2026-10-31",
+ "run": "2026-11-01",
  "layers": {
   "foodbanks": {
    "steps": {
     "times": {
-     "applied": 11,
-     "held": 61,
+     "applied": 0,
+     "applied_this_run": 0,
+     "held": 52,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -14,7 +15,8 @@
         "new own-site times look like office/centre hours",
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
+        "not one clear weekly client-hours block (kept as text for review)",
+        "transient failure; stored times left unchanged"
        ]
       },
       {
@@ -27,9 +29,21 @@
        ]
       },
       {
+       "id": "pbp/cetma-llanelli",
+       "reasons": [
+        "new own-site times look like office/centre hours",
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "new own-site times look like office/centre hours",
+        "not one clear weekly client-hours block (kept as text for review)",
+        "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "north-oxfordshire",
        "reasons": [
-        "own site lists several centres (3 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review"
        ]
       },
       {
@@ -38,8 +52,7 @@
         "new own-site times look like office/centre hours",
         "new own-site times look like office/centre hours",
         "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
+        "not one clear weekly client-hours block (kept as text for review)"
        ]
       },
       {
@@ -51,28 +64,27 @@
       {
        "id": "west-cheshire/chester-city-centre",
        "reasons": [
-        "own site lists several centres (15 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (15 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Tue, Thu, Sat, Sun) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "west-cheshire/ellesmere-port",
        "reasons": [
-        "own site lists several centres (15 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (15 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
+       ]
+      },
+      {
+       "id": "pantry",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
        ]
       },
       {
        "id": "storehouse-melton",
        "reasons": [
         "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
-       ]
-      },
-      {
-       "id": "old-kilpatrick-food-parcels",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -89,6 +101,7 @@
         "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
         "own site lists several centres (14 postcodes); cannot tie one table to this listing",
         "would cut known hours to fewer sessions (6 to 1) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review",
         "this change was undone by Dean; not re-applied"
        ]
       },
@@ -96,21 +109,16 @@
        "id": "sunderland/roker-methodist-church",
        "reasons": [
         "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
-        "own site lists several centres (14 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (14 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "sunderland/downhill-centre-community-hub",
        "reasons": [
         "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
-        "own site lists several centres (14 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "nourish",
-       "reasons": [
-        "own site lists several centres (5 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer sessions (12 to 2) and the source does not say that session ended; review"
+        "own site lists several centres (14 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review"
        ]
       },
       {
@@ -120,14 +128,16 @@
         "known skip: finder copied Liberty Tea Rooms' times onto Way Inn",
         "own site lists several centres (7 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
+        "not one clear weekly client-hours block (kept as text for review)",
+        "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "dens/way-inn-christian-centre",
        "reasons": [
         "known skip: finder copied Liberty Tea Rooms' times onto Way Inn",
-        "own site lists several centres (7 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (7 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Sat) and the source does not say that session ended; review"
        ]
       },
       {
@@ -175,7 +185,8 @@
        "id": "bradford-north/st-lukes",
        "reasons": [
         "postcode not matched exactly on the own-site page",
-        "own site lists several centres (6 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (6 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Tue, Fri) and the source does not say that session ended; review"
        ]
       },
       {
@@ -208,52 +219,24 @@
        ]
       },
       {
+       "id": "lw-storehouse",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "chichester-district",
        "reasons": [
         "day not on the same line as its times on the own-site page",
-        "would cut known hours to fewer sessions (8 to 3) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "thurrock/st-john-the-baptist-church-tilbury",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "thurrock/gates-of-praise-international-christian-centre",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "thurrock/st-stephens-church-hall-purfleet",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "thurrock/st-francis-centre-linford",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "thurrock/all-saints-church-south-ockendon",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "thurrock/gateway-peoples-centre",
-       "reasons": [
-        "own site lists several centres (9 postcodes); cannot tie one table to this listing"
+        "would cut known hours to fewer sessions (8 to 3) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "ealing/northolt",
        "reasons": [
-        "own site lists several centres (8 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (8 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review"
        ]
       },
       {
@@ -267,21 +250,21 @@
        "reasons": [
         "known skip: own page lists more sessions than the auto-read table (Tuesday evening dropped)",
         "would cut known hours to fewer sessions (2 to 1) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review",
         "this change was undone by Dean; not re-applied"
+       ]
+      },
+      {
+       "id": "brentwood",
+       "reasons": [
+        "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "rickmansworth",
        "reasons": [
-        "own site gives one table for several branches; cannot tell which branch",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "rickmansworth/mill-end",
-       "reasons": [
-        "own site gives one table for several branches; cannot tell which branch",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review"
        ]
       },
       {
@@ -295,21 +278,24 @@
        "id": "medway/the-net-community-cafe",
        "reasons": [
         "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review"
+        "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "medway/st-justus-church",
        "reasons": [
         "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review"
+        "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "medway/twydall-foodbank-centre-coffee-shop",
        "reasons": [
         "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review"
+        "would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Mon, Wed, Thu, Sat) and the source does not say that session ended; review"
        ]
       },
       {
@@ -329,41 +315,28 @@
        ]
       },
       {
-       "id": "patch",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "3food4u/tottenham-sda",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review"
+        "would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review",
+        "would cut known hours to fewer days (drops Mon, Tue, Thu, Fri, Sat, Sun) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "3food4u/chigwell-row",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
-        "own site lists several centres (10 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (10 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat, Sun) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "3food4u/budworth-hall",
        "reasons": [
         "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
-        "own site lists several centres (10 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "woking",
-       "reasons": [
-        "own site lists several centres (5 postcodes); cannot tie one table to this listing"
+        "own site lists several centres (10 postcodes); cannot tie one table to this listing",
+        "would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
        ]
       },
       {
@@ -381,35 +354,14 @@
       {
        "id": "wirral/st-chads-liscard",
        "reasons": [
-        "own site lists several centres (10 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "wirral/st-joseph-and-st-albans",
-       "reasons": [
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
-        "would cut known hours to fewer days (drops Mon, Wed, Fri) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "wirral/st-james-church-new-brighton",
-       "reasons": [
-        "own site lists several centres (10 postcodes); cannot tie one table to this listing"
-       ]
-      },
-      {
-       "id": "pontypridd",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)"
+        "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review"
        ]
       },
       {
        "id": "cann-hall",
        "reasons": [
-        "day not on the same line as its times on the own-site page",
-        "times not read identically on 2 separate runs yet"
+        "day not on the same line as its times on the own-site page"
        ]
       },
       {
@@ -423,8 +375,7 @@
        "id": "west-end-impact",
        "reasons": [
         "day not on the same line as its times on the own-site page",
-        "jumble: Tue given different times in separate blocks on one page; review only",
-        "would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review"
+        "jumble: Tue given different times in separate blocks on one page; review only"
        ]
       },
       {
@@ -448,6 +399,12 @@
        ]
       },
       {
+       "id": "ifan-84cd0bf40986bfc9a427c6-0",
+       "reasons": [
+        "times not read identically on 2 separate runs yet"
+       ]
+      },
+      {
        "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
        "reasons": [
         "new own-site times look like office/centre hours",
@@ -461,29 +418,27 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 553,
+      "render_attempts": 557,
       "render_errors": 3,
       "source_pages": 18,
-      "source_opened": 16,
-      "budget_skipped": 0,
-      "hours_review_due": 1727,
-      "hours_review_opened": 1152
+      "source_opened": 16
      },
      "enabled": true
     },
     "access": {
      "applied": 0,
+     "applied_this_run": 0,
      "held": 0,
      "stale_cleared": 0,
      "rejected": [],
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 1068,
-      "render_errors": 5,
+      "render_attempts": 977,
+      "render_errors": 6,
       "budget_skipped": 0,
-      "hours_review_due": 1727,
-      "hours_review_opened": 1090,
+      "hours_review_due": 1733,
+      "hours_review_opened": 998,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
@@ -492,8 +447,9 @@
      "enabled": true
     }
    },
-   "applied": 11,
-   "held": 61,
+   "applied": 0,
+   "applied_this_run": 0,
+   "held": 52,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -502,7 +458,8 @@
       "new own-site times look like office/centre hours",
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
+      "not one clear weekly client-hours block (kept as text for review)",
+      "transient failure; stored times left unchanged"
      ]
     },
     {
@@ -515,9 +472,21 @@
      ]
     },
     {
+     "id": "pbp/cetma-llanelli",
+     "reasons": [
+      "new own-site times look like office/centre hours",
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "new own-site times look like office/centre hours",
+      "not one clear weekly client-hours block (kept as text for review)",
+      "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "north-oxfordshire",
      "reasons": [
-      "own site lists several centres (3 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review"
      ]
     },
     {
@@ -526,8 +495,7 @@
       "new own-site times look like office/centre hours",
       "new own-site times look like office/centre hours",
       "new own-site times look like office/shop hours (identical Mon-Fri block, no distribution wording)",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
+      "not one clear weekly client-hours block (kept as text for review)"
      ]
     },
     {
@@ -539,28 +507,27 @@
     {
      "id": "west-cheshire/chester-city-centre",
      "reasons": [
-      "own site lists several centres (15 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (15 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Tue, Thu, Sat, Sun) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "west-cheshire/ellesmere-port",
      "reasons": [
-      "own site lists several centres (15 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (15 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
+     ]
+    },
+    {
+     "id": "pantry",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
      ]
     },
     {
      "id": "storehouse-melton",
      "reasons": [
       "source page never mentions a food bank or this listing's name (rule 21: a host church page counts only when it names the food bank)"
-     ]
-    },
-    {
-     "id": "old-kilpatrick-food-parcels",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -577,6 +544,7 @@
       "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
       "own site lists several centres (14 postcodes); cannot tie one table to this listing",
       "would cut known hours to fewer sessions (6 to 1) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review",
       "this change was undone by Dean; not re-applied"
      ]
     },
@@ -584,21 +552,16 @@
      "id": "sunderland/roker-methodist-church",
      "reasons": [
       "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
-      "own site lists several centres (14 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (14 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "sunderland/downhill-centre-community-hub",
      "reasons": [
       "known skip: times tables and addresses alternate so a table can't be tied to a centre by text order; hand check only",
-      "own site lists several centres (14 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "nourish",
-     "reasons": [
-      "own site lists several centres (5 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer sessions (12 to 2) and the source does not say that session ended; review"
+      "own site lists several centres (14 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review"
      ]
     },
     {
@@ -608,14 +571,16 @@
       "known skip: finder copied Liberty Tea Rooms' times onto Way Inn",
       "own site lists several centres (7 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
+      "not one clear weekly client-hours block (kept as text for review)",
+      "would cut known hours to fewer days (drops Sat) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "dens/way-inn-christian-centre",
      "reasons": [
       "known skip: finder copied Liberty Tea Rooms' times onto Way Inn",
-      "own site lists several centres (7 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (7 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Sat) and the source does not say that session ended; review"
      ]
     },
     {
@@ -663,7 +628,8 @@
      "id": "bradford-north/st-lukes",
      "reasons": [
       "postcode not matched exactly on the own-site page",
-      "own site lists several centres (6 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (6 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Tue, Fri) and the source does not say that session ended; review"
      ]
     },
     {
@@ -696,52 +662,24 @@
      ]
     },
     {
+     "id": "lw-storehouse",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "chichester-district",
      "reasons": [
       "day not on the same line as its times on the own-site page",
-      "would cut known hours to fewer sessions (8 to 3) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "thurrock/st-john-the-baptist-church-tilbury",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "thurrock/gates-of-praise-international-christian-centre",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "thurrock/st-stephens-church-hall-purfleet",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "thurrock/st-francis-centre-linford",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "thurrock/all-saints-church-south-ockendon",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "thurrock/gateway-peoples-centre",
-     "reasons": [
-      "own site lists several centres (9 postcodes); cannot tie one table to this listing"
+      "would cut known hours to fewer sessions (8 to 3) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "ealing/northolt",
      "reasons": [
-      "own site lists several centres (8 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (8 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review"
      ]
     },
     {
@@ -755,21 +693,21 @@
      "reasons": [
       "known skip: own page lists more sessions than the auto-read table (Tuesday evening dropped)",
       "would cut known hours to fewer sessions (2 to 1) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri) and the source does not say that session ended; review",
       "this change was undone by Dean; not re-applied"
+     ]
+    },
+    {
+     "id": "brentwood",
+     "reasons": [
+      "would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "rickmansworth",
      "reasons": [
-      "own site gives one table for several branches; cannot tell which branch",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "rickmansworth/mill-end",
-     "reasons": [
-      "own site gives one table for several branches; cannot tell which branch",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Wed, Thu) and the source does not say that session ended; review"
      ]
     },
     {
@@ -783,21 +721,24 @@
      "id": "medway/the-net-community-cafe",
      "reasons": [
       "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review"
+      "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "medway/st-justus-church",
      "reasons": [
       "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review"
+      "would cut known hours to fewer sessions (3 to 1) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "medway/twydall-foodbank-centre-coffee-shop",
      "reasons": [
       "own site lists several centres (9 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review"
+      "would cut known hours to fewer sessions (4 to 2) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Mon, Wed, Thu, Sat) and the source does not say that session ended; review"
      ]
     },
     {
@@ -817,41 +758,28 @@
      ]
     },
     {
-     "id": "patch",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (4 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "3food4u/tottenham-sda",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review"
+      "would cut known hours to fewer days (drops Tue, Sat) and the source does not say that session ended; review",
+      "would cut known hours to fewer days (drops Mon, Tue, Thu, Fri, Sat, Sun) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "3food4u/chigwell-row",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
-      "own site lists several centres (10 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (10 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat, Sun) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "3food4u/budworth-hall",
      "reasons": [
       "known skip: times listed above each address; finder read them onto the next centre (Budworth Hall got Epping's Friday)",
-      "own site lists several centres (10 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "woking",
-     "reasons": [
-      "own site lists several centres (5 postcodes); cannot tie one table to this listing"
+      "own site lists several centres (10 postcodes); cannot tie one table to this listing",
+      "would cut known hours to fewer days (drops Mon, Tue, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
      ]
     },
     {
@@ -869,35 +797,14 @@
     {
      "id": "wirral/st-chads-liscard",
      "reasons": [
-      "own site lists several centres (10 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "wirral/st-joseph-and-st-albans",
-     "reasons": [
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
-      "would cut known hours to fewer days (drops Mon, Wed, Fri) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "wirral/st-james-church-new-brighton",
-     "reasons": [
-      "own site lists several centres (10 postcodes); cannot tie one table to this listing"
-     ]
-    },
-    {
-     "id": "pontypridd",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)"
+      "would cut known hours to fewer days (drops Mon, Wed, Thu, Fri, Sat) and the source does not say that session ended; review"
      ]
     },
     {
      "id": "cann-hall",
      "reasons": [
-      "day not on the same line as its times on the own-site page",
-      "times not read identically on 2 separate runs yet"
+      "day not on the same line as its times on the own-site page"
      ]
     },
     {
@@ -911,8 +818,7 @@
      "id": "west-end-impact",
      "reasons": [
       "day not on the same line as its times on the own-site page",
-      "jumble: Tue given different times in separate blocks on one page; review only",
-      "would cut known hours to fewer sessions (6 to 2) and the source does not say that session ended; review"
+      "jumble: Tue given different times in separate blocks on one page; review only"
      ]
     },
     {
@@ -936,6 +842,12 @@
      ]
     },
     {
+     "id": "ifan-84cd0bf40986bfc9a427c6-0",
+     "reasons": [
+      "times not read identically on 2 separate runs yet"
+     ]
+    },
+    {
      "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
      "reasons": [
       "new own-site times look like office/centre hours",
@@ -949,18 +861,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 1068,
-    "render_errors": 5,
+    "render_attempts": 977,
+    "render_errors": 6,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
-    "hours_review_due": 1727,
-    "hours_review_opened": 1090
+    "hours_review_due": 1733,
+    "hours_review_opened": 998
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-10-31T22:31:51+00:00"
+ "generated_at": "2026-11-01T06:55:19+00:00"
 }

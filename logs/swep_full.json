@@ -1,11 +1,13 @@
 {
- "run": "2026-10-31",
+ "run": "2026-11-01",
  "coverage": {
   "councils": 382,
   "with_swep_page": 224,
   "with_line": 134,
-  "active": [],
-  "flagged": 61
+  "active": [
+   "North Tyneside Council"
+  ],
+  "flagged": 62
  },
  "councils": [
   {
@@ -141,7 +143,6 @@
    ],
    "status": "unreachable",
    "flags": [
-    "status no SWEP wording -> unreachable",
     "dead page https://www.angus.gov.uk/council_and_democracy/emergency_planning_and_information/severe_weather_weather_watch (HTTP 403)"
    ]
   },
@@ -811,14 +812,17 @@
    "pages": [
     {
      "url": "https://burnley.gov.uk/housing/housing-advice-and-homelessness/",
-     "http": 200,
-     "status": "unknown",
+     "http": 202,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://burnley.gov.uk/housing/housing-advice-and-homelessness/ (HTTP 202)"
+   ]
   },
   {
    "code": "BUR",
@@ -1337,9 +1341,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "CWY",
@@ -1769,9 +1771,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "EHE",
@@ -1844,9 +1844,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "ELN",
@@ -1858,21 +1856,25 @@
    "pages": [
     {
      "url": "https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     },
     {
      "url": "https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.eastlothian.gov.uk/news/2026/severe-weather-affecting-east-lothian (HTTP 403)",
+    "dead page https://www.eastlothian.gov.uk/index.php/news/2026/severe-weather-affecting-east-lothian (HTTP 403)"
+   ]
   },
   {
    "code": "ELS",
@@ -1970,14 +1972,17 @@
    "pages": [
     {
      "url": "https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/",
-     "http": 200,
-     "status": "unknown",
+     "http": 202,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.eastriding.gov.uk/cost-of-living-help-for-households/urgent-help-when-in-need/ (HTTP 202)"
+   ]
   },
   {
    "code": "ESK",
@@ -2332,9 +2337,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "HAL",
@@ -2447,28 +2450,33 @@
    "pages": [
     {
      "url": "https://www.hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     },
     {
      "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     },
     {
      "url": "https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/advice-temporary-accommodation-residents",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping (HTTP 403)",
+    "dead page https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/find-somewhere-stay-tonight (HTTP 403)",
+    "dead page https://hackney.gov.uk/housing/homelessness/help-if-youre-homeless-or-rough-sleeping/advice-temporary-accommodation-residents (HTTP 403)"
+   ]
   },
   {
    "code": "HEF",
@@ -2755,10 +2763,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording",
-    "new page https://www.ipswich.gov.uk/ipswich-newsroom/2026/ipswich-borough-council-strengthens-action-prevent-homelessness-and-tackle"
-   ]
+   "flags": []
   },
   {
    "code": "ISL",
@@ -2901,22 +2906,24 @@
    "pages": [
     {
      "url": "https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     },
     {
      "url": "https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/hot-weather-heatwaves",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
+   "status": "unreachable",
    "flags": [
-    "status unknown -> no SWEP wording"
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.kingston.gov.uk/housing/help-if-you-are-homeless-or-becoming-homeless/helping-rough-sleepers (HTTP 403)",
+    "dead page https://www.kingston.gov.uk/safety-crime-and-emergencies/emergency-planning/coping-with-extreme-weather/hot-weather-heatwaves (HTTP 403)"
    ]
   },
   {
@@ -3008,14 +3015,17 @@
    "pages": [
     {
      "url": "https://www.leicester.gov.uk/housing/homelessness/sleeping-rough",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.leicester.gov.uk/housing/homelessness/sleeping-rough (HTTP 403)"
+   ]
   },
   {
    "code": "LDS",
@@ -3027,14 +3037,17 @@
    "pages": [
     {
      "url": "https://news.leeds.gov.uk/news/extra-support-for-rough-sleepers-as-council-applies-its-cold-weather-protocol-from-next-monday",
-     "http": 200,
-     "status": "unknown",
+     "http": 404,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://news.leeds.gov.uk/news/extra-support-for-rough-sleepers-as-council-applies-its-cold-weather-protocol-from-next-monday (HTTP 404)"
+   ]
   },
   {
    "code": "LEC",
@@ -3413,15 +3426,16 @@
    "pages": [
     {
      "url": "https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
+   "status": "unreachable",
    "flags": [
-    "status unknown -> no SWEP wording"
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.merton.gov.uk/council-tax-benefits-and-housing/homelessness/rough-sleeping (HTTP 403)"
    ]
   },
   {
@@ -3559,9 +3573,7 @@
     }
    ],
    "status": "unknown",
-   "flags": [
-    "status not active -> unknown"
-   ]
+   "flags": []
   },
   {
    "code": "NEC",
@@ -3721,14 +3733,17 @@
    "pages": [
     {
      "url": "https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.n-kesteven.gov.uk/homes-property/im-homeless-or-facing-homelessness (HTTP 403)"
+   ]
   },
   {
    "code": "NLK",
@@ -3912,10 +3927,17 @@
      "status": "unreachable",
      "quote": "",
      "rest_centre": null
+    },
+    {
+     "url": "https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough",
+     "http": null,
+     "status": "active",
+     "quote": "seasonal (council page): SWEP is active between 1 November and 31 March"
     }
    ],
-   "status": "unreachable",
+   "status": "active",
    "flags": [
+    "status unreachable -> active",
     "dead page https://www.northtyneside.gov.uk/housing/homelessness/if-you-are-homeless-or-sleeping-rough (HTTP 403)"
    ]
   },
@@ -4561,14 +4583,17 @@
    "pages": [
     {
      "url": "https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.rutland.gov.uk/council-news/2024/11/have-your-say-draft-housing-homelessness-rough-sleeping-strategy (HTTP 403)"
+   ]
   },
   {
    "code": "SAL",
@@ -4772,15 +4797,16 @@
    "pages": [
     {
      "url": "https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
+   "status": "unreachable",
    "flags": [
-    "status unknown -> no SWEP wording"
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.sheffield.gov.uk/housing/homelessness/homeless/places-stay-severe-weather (HTTP 403)"
    ]
   },
   {
@@ -4866,7 +4892,6 @@
    ],
    "status": "unreachable",
    "flags": [
-    "status no SWEP wording -> unreachable",
     "dead page https://www.southkesteven.gov.uk/sites/default/files/2024-12/Lincolnshire%20SWEP%20Protocol%20updated%20August%202024%20final.pdf (HTTP 403)"
    ]
   },
@@ -4961,9 +4986,7 @@
     }
    ],
    "status": "not active",
-   "flags": [
-    "status unknown -> not active"
-   ]
+   "flags": []
   },
   {
    "code": "SND",
@@ -5011,9 +5034,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "SOS",
@@ -5104,14 +5125,17 @@
    "pages": [
     {
      "url": "https://www.sstaffs.gov.uk/housing/housing-and-homelessness-advice",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.sstaffs.gov.uk/housing/housing-and-homelessness-advice (HTTP 403)"
+   ]
   },
   {
    "code": "STA",
@@ -5342,9 +5366,7 @@
     }
    ],
    "status": "not active",
-   "flags": [
-    "status active -> not active"
-   ]
+   "flags": []
   },
   {
    "code": "SWK",
@@ -5356,15 +5378,16 @@
    "pages": [
     {
      "url": "https://www.southwark.gov.uk/housing/homelessness/sleeping-rough/rough-sleeping-very-cold-weather",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
+   "status": "unreachable",
    "flags": [
-    "status unknown -> no SWEP wording"
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.southwark.gov.uk/housing/homelessness/sleeping-rough/rough-sleeping-very-cold-weather (HTTP 403)"
    ]
   },
   {
@@ -5398,16 +5421,15 @@
    "pages": [
     {
      "url": "https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping",
-     "http": "error",
-     "status": "unreachable",
+     "http": 200,
+     "status": "unknown",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "unreachable",
+   "status": "unknown",
    "flags": [
-    "status unknown -> unreachable",
-    "dead page https://www.tameside.gov.uk/safetyandhygiene/rough-sleeping (HTTP error)"
+    "status unreachable -> unknown"
    ]
   },
   {
@@ -5439,7 +5461,6 @@
    ],
    "status": "unreachable",
    "flags": [
-    "status no SWEP wording -> unreachable",
     "dead page https://www.tamworth.gov.uk/housing/homelessness/rough-sleeping (HTTP 500)"
    ]
   },
@@ -5795,9 +5816,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "WAR",
@@ -6036,14 +6055,17 @@
    "pages": [
     {
      "url": "https://www.west-lindsey.gov.uk/sites/default/files/2026-08/Lincolnshire%20SWEP%20Protocol%20July%202026%20-%20Approved%20Version.pdf",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.west-lindsey.gov.uk/sites/default/files/2026-08/Lincolnshire%20SWEP%20Protocol%20July%202026%20-%20Approved%20Version.pdf (HTTP 403)"
+   ]
   },
   {
    "code": "WLL",
@@ -6125,14 +6147,17 @@
    "pages": [
     {
      "url": "https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "unknown",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status unknown -> unreachable",
+    "dead page https://www.wolverhampton.gov.uk/housing/homelessness/severe-weather-provision (HTTP 403)"
+   ]
   },
   {
    "code": "WND",
@@ -6333,9 +6358,7 @@
     }
    ],
    "status": "no SWEP wording",
-   "flags": [
-    "status unknown -> no SWEP wording"
-   ]
+   "flags": []
   },
   {
    "code": "WSK",
@@ -6358,28 +6381,33 @@
    "pages": [
     {
      "url": "https://www.westminster.gov.uk/cold-weather-support-and-advice",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     },
     {
      "url": "https://www.westminster.gov.uk/form/page-feedback?path=/cold-weather-support-and-advice&amp;source_entity_type=node&amp;source_entity_id=25730",
-     "http": 200,
-     "status": "no SWEP wording",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     },
     {
      "url": "https://www.westminster.gov.uk/businesses/major-incidents-and-contingency-planning/risks-and-hazards/extreme-weather",
-     "http": 200,
-     "status": "unknown",
+     "http": 403,
+     "status": "unreachable",
      "quote": "",
      "rest_centre": null
     }
    ],
-   "status": "no SWEP wording",
-   "flags": []
+   "status": "unreachable",
+   "flags": [
+    "status no SWEP wording -> unreachable",
+    "dead page https://www.westminster.gov.uk/cold-weather-support-and-advice (HTTP 403)",
+    "dead page https://www.westminster.gov.uk/form/page-feedback?path=/cold-weather-support-and-advice&amp;source_entity_type=node&amp;source_entity_id=25730 (HTTP 403)",
+    "dead page https://www.westminster.gov.uk/businesses/major-incidents-and-contingency-planning/risks-and-hazards/extreme-weather (HTTP 403)"
+   ]
   },
   {
    "code": "WSX",

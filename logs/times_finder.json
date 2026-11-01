@@ -1,31 +1,17 @@
 {
-"run": "2026-10-31",
+"run": "2026-11-01",
 "checked": 1,
 "found": {
 "ifan-5b9fd1318a04132921a389-0": {
-"raw": "Mondays 9.30am – 11.00am",
-"status": "TIMES_FOUND",
-"structured": {
-"mon": [
-[
-"09:30",
-"11:00"
-]
-]
-},
-"parsed_from_text": true,
-"_rejected": [
-{
-"text": "Mondays 9.15am – 11.00am",
-"reason": "non-client hours (volunteer)"
-},
-{
-"text": "Mondays 9.15am – 11.00am",
-"reason": "non-client hours (volunteer)"
-}
+"raw": "Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am",
+"status": "TIMES_TEXT_ONLY",
+"structured": null,
+"lines": [
+"Mondays 9.15am – 11.00am",
+"Mondays 9.30am – 11.00am"
 ],
 "source_url": "https://www.holytrinitywesterhailes.org.uk",
-"checked_date": "2026-10-31",
+"checked_date": "2026-11-01",
 "reader": "times_finder",
 "pc_seen": [
 "EH142SL"
@@ -42,11 +28,13 @@
 "id": "ifan-5b9fd1318a04132921a389-0",
 "name": "Holy Trinity Church, Wester Hailes",
 "postcode": "EH14 2SL",
-"proposed": "Mondays 9.30am – 11.00am",
+"proposed": "Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am",
 "source_url": "https://www.holytrinitywesterhailes.org.uk",
 "why": [
-"conflicts with times from another source (https://holytrinitywesterhailes.org.uk/contact-supporting-wh/)",
-"this change was undone by Dean; not re-applied"
+"hand-checked times are protected; finder only flags differences",
+"not one clear weekly client-hours block (kept as text for review)",
+"times not read identically on 2 separate runs yet",
+"jumble: Mon given different times in separate blocks on one page; review only"
 ]
 }
 ]
