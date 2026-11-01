@@ -6,18 +6,19 @@ Set HELPMAP_BASE=https://helpmap.uk for live; default is local static server.
 """
 import functools, http.server, json, os, re, sys, threading, unittest
 from datetime import datetime, timezone
-from playwright.sync_api import sync_playwright
+
+try:
+    from playwright.sync_api import sync_playwright
+    HAVE_PW = True
+except ImportError:
+    sync_playwright = None
+    HAVE_PW = False
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, os.path.join(R, 'scripts'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 ART = os.environ.get('CURSOR_ARTIFACTS_DIR', '/opt/cursor/artifacts')
 CH = '/usr/bin/google-chrome'
-try:
-    import playwright  # noqa: F401
-    HAVE_PW = os.path.exists(CH)
-except Exception:
-    HAVE_PW = False
 
 CITIES = (
     ('Brighton', 'BN1 1EE'),
@@ -152,8 +153,11 @@ def run_matrix(base, label):
 
     os.makedirs(ART, exist_ok=True)
     rows = []
+    launch = {'headless': not live}
+    if os.path.exists(CH):
+        launch['executable_path'] = CH
     pw = sync_playwright().start()
-    b = pw.chromium.launch(executable_path=CH, headless=not live)
+    b = pw.chromium.launch(**launch)
     kw = dict(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
     if not live:
         kw['service_workers'] = 'block'
@@ -230,7 +234,7 @@ def run_matrix(base, label):
     return report
 
 
-@unittest.skipUnless(HAVE_PW, 'needs chrome + playwright')
+@unittest.skipUnless(HAVE_PW, 'needs playwright')
 class LiveBrowser(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
