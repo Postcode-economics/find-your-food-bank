@@ -70,6 +70,8 @@ class Static(unittest.TestCase):
         self.assertIn('M3 3h26v26H21l-5 9-5-9H3z', js)  # existing square pin outline kept
         self.assertIn("st.id='xsym'", js)
         self.assertIn('shelterTypeOk(i)', js)
+        self.assertIn('shChipOn()', js)
+        self.assertIn('refitShMap', js)
         self.assertIn('mountShelterStrip', rd('v3.js'))
         home = rd('index.html')
         self.assertIn('data-f="youth"', home)
@@ -414,6 +416,38 @@ class Chrome(Journey, unittest.TestCase):
                 pg.click('#chips [data-f=youth]')
                 self.assertTrue(until(pg, "() => document.querySelectorAll('#xlist > .card.xsh').length === 5 && !!document.getElementById('xmore-sh')"))
                 self.assertTrue(pg.evaluate(BTN, 'sh')['shown'])
+                self.assertEqual(pg.errs, [])
+
+    def test_shelter_chip_list_nearest_and_map_pins(self):
+        """Hostel, Day centre and Young people chips: nearest-first list, matches only, map pins = list pins."""
+        for w in (390, 1366):
+            with self.subTest(w=w):
+                pg = open_page(self.ctx('sh', w), self.base, 'sh')
+                cases = (
+                    ('youth', '[data-f=youth]', 'BN1 1EE', 'shYouth'),
+                    ('day', '[data-f=sday]', 'SW1A 1AA', 'shDay'),
+                    ('hostel', '[data-f=shost]', 'M1 1AE', 'shHostel'),
+                )
+                for name, sel, q, fn in cases:
+                    with self.subTest(chip=name):
+                        for off in ('[data-f=shost]', '[data-f=youth]', '[data-f=sday]'):
+                            if pg.evaluate("s => document.querySelector('#chips '+s).getAttribute('aria-pressed')==='true'", off):
+                                pg.click('#chips ' + off)
+                        search(pg, 'sh', q)
+                        if pg.evaluate("s => document.querySelector('#chips '+s).getAttribute('aria-pressed')!=='true'", sel):
+                            pg.click('#chips ' + sel)
+                        pg.wait_for_timeout(500)
+                        self.assertTrue(until(pg, """fn => {const f=window[fn];const cs=[...document.querySelectorAll('#xlist > .card.xsh')];
+                          return cs.length&&cs.every(c=>f(SHELTERS.items.find(i=>i.id===c.dataset.id)||{}));}""", fn, 10), name)
+                        self.assertTrue(until(pg, """() => {const cs=[...document.querySelectorAll('#xlist > .card.xsh')];if(!cs.length||!lastNear)return false;
+                          const [a,b]=lastNear,r=x=>x*Math.PI/180,hv=(la,ln)=>12742*Math.asin(Math.sqrt(Math.sin(r(la-a)/2)**2+Math.cos(r(a))*Math.cos(r(la))*Math.sin(r(ln-b)/2)**2));
+                          let prev=-1;for(const c of cs){const i=SHELTERS.items.find(x=>x.id===c.dataset.id)||{};const d=typeof i.lat==='number'?hv(i.lat,i.lng):1e9;
+                          if(d<prev-1e-6)return false;prev=d}return true}""", None, 10), name)
+                        pin_ids = sorted(pg.evaluate("() => (window.__shVisiblePinIds || []).slice()"))
+                        list_pin_ids = sorted(pg.evaluate("() => (window.__shRankPinIds || [])"))
+                        self.assertEqual(pin_ids, list_pin_ids, (name, 'markers vs filtered rank pins'))
+                        self.assertTrue(until(pg, """fn => {const f=window[fn];const ids=window.__shVisiblePinIds||[];
+                          return ids.every(id=>f(SHELTERS.items.find(x=>x.id===id)||{}));}""", fn, 10), name)
                 self.assertEqual(pg.errs, [])
 
     def test_click_through_both_lists_phone_and_desktop(self):
