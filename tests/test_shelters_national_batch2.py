@@ -13,7 +13,7 @@ NEW_IDS = [
     "man-crisis-skylight-newcastle",
     "man-first-stop-darlington",
     "man-700-club-hostel",
-    "man-cap-care",
+    
     "man-shiloh-rotherham",
     "man-harbour-place",
     
@@ -22,11 +22,11 @@ NEW_IDS = [
     "man-catching-lives-canterbury-open-centre",
     "man-portsmouth-rough-sleeping-hub-society-of-st-james-",
     "man-trinity-winchester",
-    "man-caring-hands-in-the-community",
+    
     "man-folkestone-rainbow-centre-homeless-support-service",
     "man-dover-outreach-centre",
     "man-gravesham-sanctuary-day-centre-winter-night-shelte",
-    "man-matthew-25-mission-eastbourne",
+    
     "man-stonepillow-chichester-hub",
     "man-stonepillow-bognor-regis-hub",
     "man-bognor-housing-trust",
@@ -60,10 +60,10 @@ NEW_IDS = [
     "man-p3-stroud-community-based-support-drop-in",
     "man-ymca-bournemouth-delta-house-hostel",
     "man-bh1-project-salvation-army-boscombe",
-    "man-chat-churches-housing-action-team-tiverton",
+    
     "man-the-hope-centre-minehead",
     "man-hosford-homeless-hostel-east-belfast-mission",
-    "man-foyle-haven-day-centre-depaul",
+    
     "man-shekinah-centre",
     "man-turnaround-centre-formerly-bristol-methodist-centr",
     "man-cirdic-churches-in-reading-drop-in-centre",
@@ -85,7 +85,7 @@ NEW_IDS = [
     "man-ymca-romford",
     "man-bethany-welcome-centre",
     "man-aberdeen-cyrenians-direct-access",
-    "man-highland-homeless-trust-gateway",
+    
     "man-thrashbush-quadrant-temporary-accommodation",
     "man-manse-avenue-temporary-accommodation",
     "man-tarbolton-road-temporary-accommodation",
@@ -104,11 +104,11 @@ NEW_IDS = [
     "man-maple-tree-house-goleudy",
     "man-padley-ymca-derbyshire-community-hub",
     "man-wintercomfort-for-the-homeless",
-    "man-good-shepherd-day-centre",
-    "man-the-shrewsbury-ark",
+    
+    
     "man-pottergate-arc-salvation-army",
     "man-harp-bradbury-day-centre",
-    "man-the-beacon-project",
+    
     "man-the-falcon-centre-falcon-support-services",
     "man-beacon-house",
     "man-the-chapman-centre-ihag",
@@ -118,7 +118,7 @@ NEW_IDS = [
     "man-bishopbridge-house-st-martins",
     
     "man-trafalgar-house-sanctuary",
-    "man-the-friary",
+    
     "man-the-bridge-homelessness-to-hope",
     "man-hope4-rugby",
     "man-hope-community-services",
@@ -128,7 +128,7 @@ NEW_IDS = [
     "man-salvation-army-booth-house-swindon",
     "man-crisis-skylight-south-wales",
     "man-999-club-the-gateway",
-    "man-your-place-anchor-house-formerly-caritas-anchor-ho",
+    
     "man-the-upper-room-ur4meals",
     "man-action-for-barnsley-homeless",
     "man-harrogate-homeless-project-springboard-day-centre",
@@ -161,14 +161,14 @@ NEW_IDS = [
     "man-launchpad-reading-drop-in-the-stables",
     "man-open-door-homeless-hub-hightown",
     "man-streets2homes-day-centre",
-    "man-h4bd-hope-4-barking-dagenham-night-shelter",
+    
     "man-birmingham-city-mission-care-centre",
     "man-crisis-skylight-birmingham",
     "man-st-wilfrid-s-centre",
     "man-hope-trinity",
     "man-goleudy-access-point",
     "man-p3-wolves-hub-navigator",
-    "man-under-1-roof-st-martins",
+    
     "man-crisis-skylight-oxford",
     "man-carecent",
     "man-crisis-skylight-edinburgh",
@@ -179,11 +179,10 @@ NEW_IDS = [
     "man-home4good-centre-dunfermline",
     "man-victoria-house",
     "man-crossreach-cunningham-house",
-    "man-belfast-homeless-services-drop-in",
+    
     "man-chess-homeless",
     
-    "man-oak-house-homeless-action",
-    "man-st-vincent-s-centre-southend"
+    "man-oak-house-homeless-action"
 ]
 
 

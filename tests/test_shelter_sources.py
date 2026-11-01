@@ -454,7 +454,6 @@ class HandCheck(unittest.TestCase):
         "hl-st-mungos-longhills": "Bristol connection needed: ask Bristol Council's homelessness team (0117 352 6800) or St Mungo's outreach (0117 407 0330) to refer you.",
         "hl-stonepillow-bognor-hostel": "Go to a Stonepillow day centre in Bognor Regis or Chichester for an assessment and referral.",
         "hl-paradigm-housing-group-lea-bridge-house-hostel": "Ask Waltham Forest Council or your outreach worker to apply for you. You'll need photo ID and proof of income.",
-        "hl-connection-support-fishermead-hostel": "Ask Milton Keynes Council's housing team to refer you through the Supported Housing Panel.",
         "ss-63bf328f843d85a21d7bbdce": "Call New Start on 0151 708 7103 or ask your support worker to refer you.",
     }
     OFF = [
@@ -469,7 +468,7 @@ class HandCheck(unittest.TestCase):
         "hl-transform-housing-and-support-hersham-road-hostel", "hl-adullam-homes-ha-bury-aben-phase-3",
         "hl-turning-lives-around-seacole-scheme", "hl-the-salvation-army-fishermead-hostel",
         "hl-squared-hostel-for-expected-mothers", "hl-squared-mother-and-baby-hostel",
-        "hl-squared-luton-hostels",  # 1 Nov: phone not on own page
+        "hl-squared-luton-hostels", "hl-connection-support-fishermead-hostel",  # 1 Nov: phone not on own page
     ]
 
     def test_published_cards_match_the_hand_check(self):
@@ -488,8 +487,6 @@ class HandCheck(unittest.TestCase):
         self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["name"], "New Start Harm Reduction (women)")
         self.assertEqual(by["ss-63bf328f843d85a21d7bbdce"]["groups"], ["Women"])
         self.assertNotIn("/test", by["ss-63bf328f843d85a21d7bbdce"].get("website") or "")
-        self.assertEqual(by["hl-connection-support-fishermead-hostel"]["groups"], ["Women"])
-        self.assertNotIn("Salvation", by["hl-connection-support-fishermead-hostel"]["name"])
         refs = [i for i in data["items"] if i.get("card_type") == "referral_hostel"]
         self.assertEqual(sorted(i["id"] for i in refs), sorted(i for i in self.LINES if i.startswith(("hl-", "ss-"))))
         for iid in self.OFF:
