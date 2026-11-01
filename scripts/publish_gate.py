@@ -124,6 +124,10 @@ def gate(layer, ref='HEAD'):
         if secrets and private_block.matches(i, secrets):
             pr = ['private details — not published']
             gate.last_privacy = True
+        if layer == 'shelters':
+            import google_handcheck
+            why = google_handcheck.held_reason(i, root=ROOT)
+            if why: pr = [why] + [p for p in pr if p != why]  # already-live man-google rows are held too
         (held if pr else keep).append((i, pr))
     if phone_lock.guard([i for i, _ in keep], ROOT, via='publish', source='publish gate', layer=layer, persist_new=True, published=live_council):
         dirty = True
@@ -169,6 +173,9 @@ def check():
             known = set(gaps.get(layer, {}))
             bad += [f'{layer}:{k} {p}' for k, p in miss if k not in known]
             print(f'{layer}: {len(miss)} gaps, {len([1 for k, _ in miss if k in known])} listed in overrides/known_gaps.json')
+        if layer == 'shelters':
+            import google_handcheck
+            bad += ['%s: %s' % (i['id'], google_handcheck.REASON) for i in items if google_handcheck.held_reason(i, root=ROOT)]
         if secrets:
             n = private_block.match_count(items, secrets)
             if n:

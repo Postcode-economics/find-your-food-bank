@@ -70,8 +70,11 @@ def title_of(text):
 def dataset(iso):
     return {'@context': 'https://schema.org', '@type': 'Dataset', '@id': SITE + '/#dataset',
         'name': 'helpmap.uk: UK food banks, homeless shelters and warm spaces',
-        'description': 'Free map data of UK food banks, homeless shelters and warm spaces, with addresses, phone numbers and opening times. '
-                       'Every listing is checked three times a day against its source page, and a deep sweep three times a day looks for new places.',
+        'description': 'Free map data of UK food banks, homeless shelters, day centres, young people\'s housing and warm spaces, with addresses, phone numbers and opening times. '
+                       'Almost every listing is checked three times a day against its own source page, and a deep sweep three times a day looks for new places. '
+                       'We also monitor the severe weather and homelessness pages of all 383 UK councils on every shelter refresh, '
+                       'and every 10 minutes we read Met Office, Environment Agency, SEPA, Natural Resources Wales and UK Emergency Alerts warnings '
+                       'so emergency rest centres (ERCs) opened for floods, storms and other major incidents are picked up quickly.',
         'url': SITE + '/', 'isAccessibleForFree': True, 'inLanguage': ['en-GB', 'cy'], 'spatialCoverage': {'@type': 'Place', 'name': 'United Kingdom'},
         'dateModified': iso, 'creator': {'@type': 'Organization', 'name': 'Postcode Economics', 'email': 'hello@helpmap.uk'},
         'publisher': {'@type': 'Organization', 'name': 'Postcode Economics', 'email': 'hello@helpmap.uk'},
@@ -88,7 +91,7 @@ def dataset(iso):
              'url': 'https://postcodes.io/', 'license': 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'}],
         # GSC 'Datasets' fixes (25 Oct 2026): sources are CreativeWork (a nested Dataset must itself carry description etc.);
         # license = our terms of use page (reuse terms in export/README.txt); distribution = the real public download files.
-        'license': SITE + '/terms.html', 'keywords': ['food banks', 'homeless shelters', 'warm spaces', 'United Kingdom'],
+        'license': SITE + '/terms.html', 'keywords': ['food banks', 'homeless shelters', 'night shelters', 'hostels', 'day centres', 'young people\'s housing', 'warm spaces', 'severe weather', 'cold weather shelter', 'emergency rest centres', 'major incidents', 'Met Office warnings', 'flood warnings', 'Environment Agency', 'SEPA', 'Natural Resources Wales', 'United Kingdom'],
         'distribution': [{'@type': 'DataDownload', 'encodingFormat': f, 'contentUrl': SITE + '/export/%s.%s' % (n, e)}
                          for n in ('foodbanks', 'shelters', 'warmspaces') for e, f in (('csv', 'text/csv'), ('json', 'application/json'))],
         'creditText': 'Data: Give Food, Independent Food Aid Network, Warm Welcome, Open Innovations, Homeless Link, council pages, OpenStreetMap contributors, postcodes.io (OGL v3.0). Map © OpenStreetMap contributors. Backup map: OpenFreeMap © OpenMapTiles. © MapTiler.'}
