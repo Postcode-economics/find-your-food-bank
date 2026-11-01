@@ -81,7 +81,7 @@ class Source(unittest.TestCase):
         q = 'tiles.js?v=h' + hashlib.sha256(tiles.encode()).hexdigest()[:12]
         self.assertIn(q, home)
         self.assertIn(q, sw)
-        self.assertIn("const C='fyfb-v96'", sw)
+        self.assertIn("const C='fyfb-v97'", sw)
         self.assertNotIn('sw.js?v=57', home)
         self.assertNotIn("const C='fyfb-v91'", sw)
 
@@ -145,7 +145,7 @@ class IPhone(unittest.TestCase):
             self.assertTrue(threw, 'old worker did not reproduce the opaque failure')
             holder['sw'] = None  # the new sw.js from this checkout
             pg.goto(BASE + '/?nocount', wait_until='load')  # layers.js registers sw.js?v=<content hash>, a new worker
-            self.assertTrue(until(pg, "async () => !(await caches.keys()).includes('fyfb-tiles') && (await caches.keys()).includes('fyfb-v96')", 30),
+            self.assertTrue(until(pg, "async () => !(await caches.keys()).includes('fyfb-tiles') && (await caches.keys()).includes('fyfb-v97')", 30),
                             pg.evaluate('async () => await caches.keys()'))
             pg.reload(wait_until='load')
             self.assertTrue(until(pg, PAINTED, 60), pg.evaluate(STATE))

@@ -52,6 +52,33 @@ async (layer) => {
 }
 """
 
+MARKER_MATCH = r"""
+async (layer) => {
+  const bag = 'M9 13.5h14l-1.3 10.5H10.3z';
+  const flame = 'M16.2 7.2c';
+  const card = document.querySelector(layer === 'fb' ? '#list > .card' : '#xlist > .card.xws');
+  const cardSvg = card && card.querySelector('.xmkbox svg');
+  const inner = el => (el && el.innerHTML) || '';
+  const ci = inner(cardSvg);
+  const keyRow = document.querySelectorAll('#xupd .xkey-row')[layer === 'fb' ? 0 : 1];
+  const ki = inner(keyRow && keyRow.querySelector('.xkey-ico svg'));
+  const keyOk = layer === 'fb' ? ki.includes(bag) : ki.includes(flame);
+  let mi = '';
+  if (layer === 'fb') {
+    mi = inner(document.querySelector('.leaflet-marker-icon.pin svg'));
+  } else {
+    const id = card && card.dataset.id;
+    const i = (window.WARMSPACES && WARMSPACES.items || []).find(x => String(x.id) === String(id));
+    const ms = (window.LAYERS && LAYERS.ws && LAYERS.ws._ms) || [];
+    const m = ms.find(x => x._si && String(x._si.id) === String(id));
+    if (m && m._icon && m._icon.options && m._icon.options.html) mi = m._icon.options.html;
+    else mi = inner(document.querySelector('.leaflet-marker-icon.xpin svg'));
+  }
+  const innerOk = layer === 'fb' ? (ci.includes(bag) && mi.includes(bag)) : (ci.includes(flame) && mi.includes(flame));
+  return { layer, innerOk, keyOk, hasMarker: mi.length > 20, pass: innerOk && keyOk && mi.length > 20 };
+}
+"""
+
 
 def serve():
     h = functools.partial(http.server.SimpleHTTPRequestHandler, directory=R)
@@ -102,7 +129,30 @@ def run_layer(base, layer, pc, label, live=False):
     pg.wait_for_timeout(1200)
     sel = '#list > .card' if layer == 'fb' else '#xlist > .card.xws'
     pg.wait_for_selector(sel + ' .xtop', timeout=30000)
+    if layer != 'fb':
+        for _ in range(40):
+            if pg.evaluate("() => !!(window.LAYERS && LAYERS.ws && LAYERS.ws.on && LAYERS.ws.group && LAYERS.ws.group.getLayers().length)"):
+                break
+            pg.wait_for_timeout(500)
+    pg.evaluate("document.getElementById('map').scrollIntoView({block:'center'})")
+    pg.wait_for_timeout(400)
+    if layer == 'ws':
+        pg.evaluate("""() => {
+          const card = document.querySelector('#xlist > .card.xws');
+          const id = card && card.dataset.id;
+          const i = (window.WARMSPACES && WARMSPACES.items || []).find(x => String(x.id) === String(id));
+          if (i && window.map) map.setView([i.lat, i.lng], 16, { animate: false });
+        }""")
+        pg.wait_for_timeout(800)
+        for _ in range(6):
+            if pg.evaluate("() => !!document.querySelector('.leaflet-marker-icon.xpin svg')"):
+                break
+            pg.evaluate("try{map.zoomIn()}catch(e){}")
+            pg.wait_for_timeout(400)
     res = pg.evaluate(AUDIT, layer)
+    mres = pg.evaluate(MARKER_MATCH, layer)
+    res['marker'] = mres
+    res['pass'] = res.get('pass') and mres.get('pass')
     slug = re.sub(r'[^a-z0-9-]+', '-', '%s-%s-%s' % (label, layer, res.get('name', 'card'))).strip('-').lower()[:80]
     shot = os.path.join(ART, 'type-icon-%s.png' % slug)
     card = pg.locator(sel).first
@@ -111,6 +161,14 @@ def run_layer(base, layer, pc, label, live=False):
     except Exception:
         card.screenshot(path=shot, timeout=10000, force=True)
     res['screenshot'] = shot
+    map_shot = os.path.join(ART, 'marker-card-%s-%s.png' % (label, layer))
+    try:
+        pg.locator('#map').screenshot(path=map_shot, timeout=10000)
+        pg.locator(sel).first.locator('.xtop').screenshot(
+            path=os.path.join(ART, 'marker-card-%s-%s-card.png' % (label, layer)), timeout=10000)
+        res['mapScreenshot'] = map_shot
+    except Exception:
+        pass
     ctx.close()
     b.close()
     pw.stop()
@@ -135,9 +193,9 @@ class TypeIconBrowser(unittest.TestCase):
         r = run_layer(self.base, 'ws', 'M1 1AE', 'after-local', live=False)
         self.assertTrue(r.get('pass'), r)
 
+    @unittest.skipUnless(os.environ.get('HELPMAP_TYPE_ICON_LIVE') == '1' and os.environ.get('HELPMAP_ICONS_DEPLOYED') == '1',
+                         'set HELPMAP_TYPE_ICON_LIVE=1 and HELPMAP_ICONS_DEPLOYED=1 after deploy')
     def test_live_food_and_warm_if_requested(self):
-        if not os.environ.get('HELPMAP_TYPE_ICON_LIVE'):
-            self.skipTest('set HELPMAP_TYPE_ICON_LIVE=1 for live check')
         base = os.environ.get('HELPMAP_BASE', 'https://helpmap.uk').rstrip('/')
         fb = run_layer(base, 'fb', 'BN17 5LF', 'live', live=True)
         ws = run_layer(base, 'ws', 'M1 1AE', 'live', live=True)

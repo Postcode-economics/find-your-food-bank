@@ -24,7 +24,8 @@ class Kind(unittest.TestCase):
         self.assertIn("youth:'Tai i bobl ifanc (16–25), angen atgyfeiriad'", L)
         self.assertIn("keyRow(symSvg('youth',20),'youth'", L)  # key line (flex row, data-t youth)
         self.assertIn("i.kind==='young_people'", L)
-        self.assertIn('class="xkind xyouth"', L)  # card badge
+        self.assertIn("pillYouth", L)
+        self.assertIn('class="xmkbox" data-sym="${sk}"', L)
         self.assertIn("if(i.no_pin)return;", L)  # town-level cards get no marker
         self.assertIn(".xkind.xyouth{border-color:#56B4E9", _r("layers.css"))
         self.assertIn("i.kind==='young_people'", _r("v3.js"))
