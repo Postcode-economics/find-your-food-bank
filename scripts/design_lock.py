@@ -130,6 +130,27 @@ STRIP_JS = r"""async ()=>{const bad=[];
  } else if(shown(youth)) bad.push('Young people chip visible off the shelters layer');
  return bad}"""
 
+# Type pill and symbol square (Dean): same height, tops and bottoms within 0.5px, 26px on a phone.
+ALIGN_JS = r"""()=>{const bad=[];const rows=[...document.querySelectorAll('#xlist .card.xsh .xtop,#sheet.open .xtop')];
+ const seen=new Set();
+ if(!rows.length) return ['no shelter top row'];
+ for(const row of rows){
+  const pill=row.querySelector('.utag'); const svg=row.querySelector('.xmkbox svg');
+  const sym=(row.querySelector('.xmkbox')||{}).dataset&&row.querySelector('.xmkbox').dataset.sym;
+  seen.add(sym);
+  const name=((row.closest('.card').querySelector('h3')||{}).textContent||'').trim().slice(0,32);
+  if(!pill||!svg){bad.push(name+' missing symbol or pill'); continue}
+  const kids=[...row.children];
+  if(!kids[0]||!kids[0].classList.contains('xmkbox')||!kids[1]||!kids[1].classList.contains('utag')) bad.push(name+' order');
+  const tr=pill.getBoundingClientRect(), sr=svg.getBoundingClientRect();
+  if(Math.abs(sr.top-tr.top)>0.5||Math.abs(sr.bottom-tr.bottom)>0.5) bad.push(name+' align '+sr.top.toFixed(2)+' '+tr.top.toFixed(2)+' / '+sr.bottom.toFixed(2)+' '+tr.bottom.toFixed(2));
+  if(Math.abs(sr.height-tr.height)>0.5) bad.push(name+' height '+sr.height.toFixed(2)+' vs '+tr.height.toFixed(2));
+  if(Math.abs(sr.width-sr.height)>0.5) bad.push(name+' symbol not square');
+  if(innerWidth<=430&&Math.abs(tr.height-26)>0.5) bad.push(name+' pill '+tr.height.toFixed(2)+'px');
+ }
+ for(const s of ['house','sun','youth']) if(!seen.has(s)) bad.push('missing '+s);
+ return bad}"""
+
 def type_diff(samples, where):
     """samples: layer -> metric dict. Fail when two layers both measured a piece and it is not the same."""
     bad, layers = [], [k for k, v in samples.items() if v]
@@ -228,6 +249,19 @@ def run(base=None, measure=False):
                             if not measure:
                                 bad += ['%dpx %s %s list %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, sel) or [])]
                                 bad += ['%dpx %s %s' % (w, mode, x) for x in (pg.evaluate(STRIP_JS) or [])]
+                                if k == 'sh' and w == 390:
+                                    pg.fill('#q', 'BN1 4NJ'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2000)
+                                    for _ in range(8):
+                                        if pg.evaluate("()=>[...document.querySelectorAll('#xlist .xmkbox')].some(b=>b.dataset.sym==='youth')"):
+                                            break
+                                        pg.evaluate("()=>{if(window.showMoreX)showMoreX('sh')}")
+                                        pg.wait_for_timeout(200)
+                                    for lang in ('en', 'cy'):
+                                        if lang == 'cy':
+                                            pg.click('#xlang'); pg.wait_for_timeout(700)
+                                        bad += ['%dpx %s %s %s' % (w, mode, lang, x) for x in (pg.evaluate(ALIGN_JS) or [])]
+                                    if pg.evaluate("()=>document.documentElement.lang")=='cy':
+                                        pg.click('#xlang'); pg.wait_for_timeout(400)
                                 if k == 'sh':
                                     pg.click('#chips [data-f=youth]'); pg.wait_for_timeout(400)
                                     fy = pg.evaluate("""()=>{const ids=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>c.dataset.id);

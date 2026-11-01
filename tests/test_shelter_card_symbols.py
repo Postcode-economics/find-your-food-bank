@@ -12,8 +12,9 @@ CHECK = r"""() => {
   const out = [];
   for (const c of cards) {
     const name = ((c.querySelector('h3') || {}).textContent || '').slice(0, 48);
-    const lab = c.querySelector('.utag, .xkind');
-    const box = lab && lab.querySelector('.xmkbox');
+    const row = c.querySelector('.xtop');
+    const lab = row && row.querySelector('.utag, .xkind');
+    const box = row && row.querySelector('.xmkbox');
     const svg = box && box.querySelector('svg');
     const id = c.dataset.id || '';
     const item = (window.SHELTERS && SHELTERS.items || []).find(i => i.id === id) || {};
@@ -22,7 +23,8 @@ CHECK = r"""() => {
     const html = svg ? svg.outerHTML : '';
     const sr = svg && svg.getBoundingClientRect();
     const lr = lab && lab.getBoundingClientRect();
-    const svgs = lab ? [...lab.querySelectorAll('svg')] : [];
+      const svgs = row ? [...row.querySelectorAll(':scope > .xmkbox svg')] : [];
+      const kids = row ? [...row.children] : [];
     out.push({
       name, id, expect, sym: box ? box.dataset.sym : '',
       nSvg: svgs.length,
@@ -35,8 +37,10 @@ CHECK = r"""() => {
       pinTail: html.indexOf('l-5 9') >= 0,
       h: sr ? +sr.height.toFixed(1) : 0,
       w: sr ? +sr.width.toFixed(1) : 0,
-      dTop: sr && lr ? +(sr.top - lr.top).toFixed(1) : 99,
-      dBot: sr && lr ? +(lr.bottom - sr.bottom).toFixed(1) : 99
+      dTop: sr && lr ? +(sr.top - lr.top).toFixed(2) : 99,
+      dBot: sr && lr ? +(lr.bottom - sr.bottom).toFixed(2) : 99,
+      first: kids[0] && kids[0].classList.contains('xmkbox'),
+      second: kids[1] && kids[1].classList.contains('utag')
     });
   }
   return out;
@@ -58,10 +62,12 @@ def _fail(row):
         return '16/25 missing'
     if row['bed']:
         return 'legacy bed icon'
-    if abs(row['dTop']) > 1 or abs(row['dBot']) > 1:
-        return 'icon not aligned to the label %s' % row
-    if abs(row['h'] - row['w']) > 1:
-        return 'icon not square %s' % row
+    if not row['first'] or not row['second']:
+        return 'symbol then type pill'
+    if abs(row['dTop']) > 0.5 or abs(row['dBot']) > 0.5:
+        return 'icon not aligned to the pill %s' % row
+    if abs(row['h'] - row['w']) > 0.5 or abs(row['h'] - 26) > 0.5:
+        return 'icon not 26px square %s' % row
     return ''
 
 
@@ -129,16 +135,17 @@ class Render(unittest.TestCase):
                   const lab = c.querySelector('.utag,.xkind').getBoundingClientRect();
                   const sr = box.querySelector('svg').getBoundingClientRect();
                   return {sym: box.dataset.sym, bed: c.innerHTML.indexOf('M3 5v15') >= 0,
-                    square: html.indexOf('M3 3h26v26H3z') >= 0, n: c.querySelectorAll('.utag svg, .xkind svg').length,
-                    dTop: +(sr.top - lab.top).toFixed(1), dBot: +(lab.bottom - sr.bottom).toFixed(1),
-                    h: +sr.height.toFixed(1), w: +sr.width.toFixed(1)};
+                    square: html.indexOf('M3 3h26v26H3z') >= 0, n: c.querySelectorAll('.xtop > .xmkbox svg').length,
+                    dTop: +(sr.top - lab.top).toFixed(2), dBot: +(lab.bottom - sr.bottom).toFixed(2),
+                    h: +sr.height.toFixed(2), w: +sr.width.toFixed(2)};
                 }""")
                 self.assertIn(live['sym'], ('house', 'sun', 'youth'))
                 self.assertFalse(live['bed'])
                 self.assertTrue(live['square'])
                 self.assertEqual(live['n'], 1)
-                self.assertLessEqual(abs(live['dTop']), 1)
-                self.assertLessEqual(abs(live['dBot']), 1)
-                self.assertLessEqual(abs(live['h'] - live['w']), 1)
+                self.assertLessEqual(abs(live['dTop']), 0.5)
+                self.assertLessEqual(abs(live['dBot']), 0.5)
+                self.assertLessEqual(abs(live['h'] - live['w']), 0.5)
+                self.assertLessEqual(abs(live['h'] - 26), 0.5)
             finally:
                 b.close()
