@@ -1,10 +1,9 @@
-# Refresh guard: foodbanks (2026-11-01T06:55:21+00:00)
+# Refresh guard: foodbanks (2026-11-01T14:48:42+00:00)
 
-foodbanks: kept 8 places, 0 phones, 33 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
+foodbanks: kept 7 places, 0 phones, 31 opening times that this run would have dropped. Previous values were kept and published; please check why the source lost them.
 
-## places kept (8)
+## places kept (7)
 
-- ifan-d59b2e089746f7a97c1e15-0
 - ifan-34121866eb63e9e50d317f-0
 - ty-hapus
 - colchester/wivenhoe
@@ -13,17 +12,15 @@ foodbanks: kept 8 places, 0 phones, 33 opening times that this run would have dr
 - st-peter-st-pauls-pantry
 - littlehampton-community-fridge
 
-## times kept (33)
+## times kept (31)
 
 - godalming
-- pantry
 - kintyre
 - ledbury
 - carntyne-riddrie
 - kirkby-storehouse
 - sid-valley
 - noor
-- lw-storehouse
 - portland
 - community-works
 - alnwick-district
@@ -54,9 +51,8 @@ foodbanks: kept 8 places, 0 phones, 33 opening times that this run would have dr
 - ifan-84cd0bf40986bfc9a427c6-0
 - ifan-9fef48d4f0fd3a3f6896d2-0
 
-## access kept (8)
+## access kept (7)
 
-- ifan-d59b2e089746f7a97c1e15-0
 - ifan-34121866eb63e9e50d317f-0
 - ty-hapus
 - colchester/wivenhoe

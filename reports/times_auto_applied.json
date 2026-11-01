@@ -6221,5 +6221,176 @@
   "first_run_at": "2026-10-30T21:49:20+00:00",
   "second_run_at": "2026-10-31T07:14:13+00:00",
   "revert": "python scripts/times_revert.py fb:storehouse-church-alford"
+ },
+ {
+  "id": "pantry",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "PANTRY Foodbank",
+  "old": null,
+  "new": {
+   "raw": "Sats & Tues 10am-12pm | Tuesday 10am - 12pm | Saturday 10am - 12pm",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "12:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-11-01",
+   "source_url": "https://www.pantryfoodbank.org/contact-us.html"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ],
+   "sat": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.pantryfoodbank.org/contact-us.html",
+  "first_run_at": "2026-11-01T06:01:22+00:00",
+  "second_run_at": "2026-11-01T13:58:04+00:00",
+  "revert": "python scripts/times_revert.py fb:pantry"
+ },
+ {
+  "id": "lw-storehouse",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "LW Storehouse Foodbank",
+  "old": null,
+  "new": {
+   "raw": "TUESDAYS 10.00AM – 2.00PM | FRIDAYS 10.00AM – 2.00PM",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "tue": [
+     [
+      "10:00",
+      "14:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true,
+   "reader": "source_page",
+   "checked_date": "2026-11-01",
+   "source_url": "https://lwstorehouse.com/"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://lwstorehouse.com/",
+  "first_run_at": "2026-11-01T06:01:22+00:00",
+  "second_run_at": "2026-11-01T13:58:04+00:00",
+  "revert": "python scripts/times_revert.py fb:lw-storehouse"
+ },
+ {
+  "id": "ifan-84cd0bf40986bfc9a427c6-0",
+  "kind": "fb",
+  "path": "cross_check",
+  "name": "St Laurence's Larder & Open Kitchen",
+  "old": {
+   "checked_date": "2026-10-29",
+   "protected": true,
+   "quote": [
+    "Get Help\nFood Bags\nWednesday 10.00am - 2.00pm\nOpen to all to receive a bag of essential food items (no referral required)."
+   ],
+   "raw": "Wednesday 10am - 2pm (food bags, no referral needed)",
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page and /food-bags agree, 'Wednesdays 10:00am - 2:00pm', no referral; Thursday hot meals, clothes bank and Monday art cafe are other services and left out; Dean approved)",
+   "source_url": "https://www.laurenceslarder.org.uk",
+   "status": "TIMES_TEXT_ONLY",
+   "structured": null,
+   "lines": [
+    "Wednesday 10am - 2pm (food bags, no referral needed)"
+   ]
+  },
+  "new": {
+   "checked_date": "2026-11-01",
+   "protected": true,
+   "quote": [
+    "Get Help\nFood Bags\nWednesday 10.00am - 2.00pm\nOpen to all to receive a bag of essential food items (no referral required)."
+   ],
+   "raw": "Wednesday 10.00am - 2.00pm | Thursday 11.00am - 2.00pm | Monday 12.00 - 2.00pm",
+   "reader": "hand-reviewed 2026-10-29 (own site read: home page and /food-bags agree, 'Wednesdays 10:00am - 2:00pm', no referral; Thursday hot meals, clothes bank and Monday art cafe are other services and left out; Dean approved)",
+   "source_url": "https://www.laurenceslarder.org.uk",
+   "status": "TIMES_FOUND",
+   "structured": {
+    "mon": [
+     [
+      "12:00",
+      "14:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "14:00"
+     ]
+    ],
+    "thu": [
+     [
+      "11:00",
+      "14:00"
+     ]
+    ]
+   },
+   "parsed_from_text": true
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "12:00",
+     "14:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "14:00"
+    ]
+   ],
+   "thu": [
+    [
+     "11:00",
+     "14:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.laurenceslarder.org.uk",
+  "first_run_at": "2026-11-01T06:01:22+00:00",
+  "second_run_at": "2026-11-01T13:58:04+00:00",
+  "revert": "python scripts/times_revert.py fb:ifan-84cd0bf40986bfc9a427c6-0"
  }
 ]

@@ -32,7 +32,7 @@ Score = average of opening-times and phone fill rates (0-100). Flagged if it dro
 - own site familyfoodbank.org: 57.1
 - own site purleyfoodhub.net: 57.1
 - own site meonvalleyfoodbank.co.uk: 57.1
-- IFAN: 57.3
+- IFAN: 58.3
 - own site calderwoodbaptist.co.uk: 58.4
 - own site lutonfoodbank.org.uk: 58.4
 - own site loveworks.org.uk: 58.4

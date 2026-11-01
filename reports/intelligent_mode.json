@@ -4,9 +4,9 @@
   "foodbanks": {
    "steps": {
     "times": {
-     "applied": 0,
-     "applied_this_run": 0,
-     "held": 52,
+     "applied": 3,
+     "applied_this_run": 3,
+     "held": 48,
      "stale_cleared": 0,
      "rejected": [
       {
@@ -14,16 +14,6 @@
        "reasons": [
         "new own-site times look like office/centre hours",
         "own site lists several centres (10 postcodes); cannot tie one table to this listing",
-        "new own-site times look like office/centre hours",
-        "not one clear weekly client-hours block (kept as text for review)",
-        "transient failure; stored times left unchanged"
-       ]
-      },
-      {
-       "id": "pbp",
-       "reasons": [
-        "new own-site times look like office/centre hours",
-        "own site lists several centres (3 postcodes); cannot tie one table to this listing",
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)"
        ]
@@ -36,7 +26,7 @@
         "new own-site times look like office/centre hours",
         "not one clear weekly client-hours block (kept as text for review)",
         "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
-        "times not read identically on 2 separate runs yet"
+        "transient failure; stored times left unchanged"
        ]
       },
       {
@@ -73,12 +63,6 @@
        "reasons": [
         "own site lists several centres (15 postcodes); cannot tie one table to this listing",
         "would cut known hours to fewer days (drops Mon, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "pantry",
-       "reasons": [
-        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -216,12 +200,6 @@
         "not one clear weekly client-hours block (kept as text for review)",
         "jumble: 6 separate time blocks read from one page; review only",
         "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-       ]
-      },
-      {
-       "id": "lw-storehouse",
-       "reasons": [
-        "times not read identically on 2 separate runs yet"
        ]
       },
       {
@@ -399,12 +377,6 @@
        ]
       },
       {
-       "id": "ifan-84cd0bf40986bfc9a427c6-0",
-       "reasons": [
-        "times not read identically on 2 separate runs yet"
-       ]
-      },
-      {
        "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
        "reasons": [
         "new own-site times look like office/centre hours",
@@ -418,10 +390,13 @@
      "coverage": {
       "sites": 15,
       "sites_opened": 14,
-      "render_attempts": 557,
-      "render_errors": 3,
+      "render_attempts": 566,
+      "render_errors": 2,
       "source_pages": 18,
-      "source_opened": 16
+      "source_opened": 16,
+      "budget_skipped": 0,
+      "hours_review_due": 1733,
+      "hours_review_opened": 998
      },
      "enabled": true
     },
@@ -434,11 +409,11 @@
      "errors": [],
      "alerts": [],
      "coverage": {
-      "render_attempts": 977,
-      "render_errors": 6,
+      "render_attempts": 1176,
+      "render_errors": 5,
       "budget_skipped": 0,
-      "hours_review_due": 1733,
-      "hours_review_opened": 998,
+      "hours_review_due": 1736,
+      "hours_review_opened": 1197,
       "sites": 15,
       "sites_opened": 14,
       "source_pages": 18,
@@ -447,9 +422,9 @@
      "enabled": true
     }
    },
-   "applied": 0,
-   "applied_this_run": 0,
-   "held": 52,
+   "applied": 3,
+   "applied_this_run": 3,
+   "held": 48,
    "stale_cleared": 0,
    "rejected": [
     {
@@ -457,16 +432,6 @@
      "reasons": [
       "new own-site times look like office/centre hours",
       "own site lists several centres (10 postcodes); cannot tie one table to this listing",
-      "new own-site times look like office/centre hours",
-      "not one clear weekly client-hours block (kept as text for review)",
-      "transient failure; stored times left unchanged"
-     ]
-    },
-    {
-     "id": "pbp",
-     "reasons": [
-      "new own-site times look like office/centre hours",
-      "own site lists several centres (3 postcodes); cannot tie one table to this listing",
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)"
      ]
@@ -479,7 +444,7 @@
       "new own-site times look like office/centre hours",
       "not one clear weekly client-hours block (kept as text for review)",
       "would cut known hours to fewer sessions (5 to 4) and the source does not say that session ended; review",
-      "times not read identically on 2 separate runs yet"
+      "transient failure; stored times left unchanged"
      ]
     },
     {
@@ -516,12 +481,6 @@
      "reasons": [
       "own site lists several centres (15 postcodes); cannot tie one table to this listing",
       "would cut known hours to fewer days (drops Mon, Wed, Thu, Sat, Sun) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "pantry",
-     "reasons": [
-      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -659,12 +618,6 @@
       "not one clear weekly client-hours block (kept as text for review)",
       "jumble: 6 separate time blocks read from one page; review only",
       "would cut known hours to fewer sessions (7 to 6) and the source does not say that session ended; review"
-     ]
-    },
-    {
-     "id": "lw-storehouse",
-     "reasons": [
-      "times not read identically on 2 separate runs yet"
      ]
     },
     {
@@ -842,12 +795,6 @@
      ]
     },
     {
-     "id": "ifan-84cd0bf40986bfc9a427c6-0",
-     "reasons": [
-      "times not read identically on 2 separate runs yet"
-     ]
-    },
-    {
      "id": "ifan-9d9a5ae13b3923c3fd7d0b-0",
      "reasons": [
       "new own-site times look like office/centre hours",
@@ -861,18 +808,18 @@
    "coverage": {
     "sites": 15,
     "sites_opened": 14,
-    "render_attempts": 977,
-    "render_errors": 6,
+    "render_attempts": 1176,
+    "render_errors": 5,
     "source_pages": 18,
     "source_opened": 16,
     "budget_skipped": 0,
-    "hours_review_due": 1733,
-    "hours_review_opened": 998
+    "hours_review_due": 1736,
+    "hours_review_opened": 1197
    }
   }
  },
  "alerts": [],
  "would_block": [],
  "enabled": true,
- "generated_at": "2026-11-01T06:55:19+00:00"
+ "generated_at": "2026-11-01T14:48:41+00:00"
 }

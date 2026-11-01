@@ -136,8 +136,8 @@ class TypeIconBrowser(unittest.TestCase):
         self.assertTrue(r.get('pass'), r)
 
     def test_live_food_and_warm_if_requested(self):
-        if os.environ.get('CI') and not os.environ.get('HELPMAP_TYPE_ICON_LIVE'):
-            self.skipTest('live type icon check')
+        if not os.environ.get('HELPMAP_TYPE_ICON_LIVE'):
+            self.skipTest('set HELPMAP_TYPE_ICON_LIVE=1 for live check')
         base = os.environ.get('HELPMAP_BASE', 'https://helpmap.uk').rstrip('/')
         fb = run_layer(base, 'fb', 'BN17 5LF', 'live', live=True)
         ws = run_layer(base, 'ws', 'M1 1AE', 'live', live=True)
