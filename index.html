@@ -111,7 +111,7 @@ Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=hd08dc3319872"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h8b0785446321"><link rel="stylesheet" href="header.css?v=hbe8476010a0f"><script src="icons.js"></script><script src="facts.js?v=h2dd26851031d"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=hd08dc3319872"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=h7157a5a06701"><link rel="stylesheet" href="header.css?v=h021a82abb01f"><script src="icons.js"></script><script src="facts.js?v=h5500cd4df8a7"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -262,20 +262,23 @@ function placeActs(i,tel){const dir=`<a class="btn gm" href="${gmaps(i)}" target
  return `<div class="xacts">${dir}${call}${webBtn(i)}${share}</div>`}
 function card(i,dist){const tel=telOf(i);
  const phoneHtml=[i.phone_label?phLab(i):'',phAlt(i)].filter(Boolean).join(' · ');
+ const phoneNumber=tel?`<span class="xph">${ph1(i)}</span>`:'';
  const top=window.cardTop?cardTop('fb',i):tag(i);
  const where=window.UFacts?UFacts.addr(i):esc(i.address);
+ const facts=window.UFacts?UFacts.block('fb',i,{phoneHtml,phoneNumber}):'';
+ const checked=window.UFacts?UFacts.checked(i):'';
  if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div>${top}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${where}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
- ${window.UFacts?UFacts.block('fb',i,{phoneHtml})+UFacts.checked(i):''}
- ${tel?`<div class="xacts"><a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span><small>Phone (to donate or ask)</small></a>${webBtn(i)}</div>`:webBtn(i)}${window.repB?repB('fb',i):''}`;
+ ${facts}${checked}
+ ${tel?`<div class="xacts"><a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span><small>Phone (to donate or ask)</small></a>${webBtn(i)}</div>`:(webBtn(i)?`<div class="xacts">${webBtn(i)}</div>`:'')}${window.repB?repB('fb',i):''}`;
+ const after=[tel&&!i.phone_label?`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:'',srcLine(i),'<div class="note">Times change, call before you go.</div>',acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':'',i.givefood&&webUrl(i.website)?`<div class="links"><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>`:''].filter(Boolean).join('');
  return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${top}${window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
  ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${where}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
- ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${window.UFacts?UFacts.block('fb',i,{phoneHtml}):times(i)}
+ ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${facts||times(i)}${checked}
  ${placeActs(i,tel)}
- ${tel&&!i.phone_label?`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`:''}${srcLine(i)}
- <div class="note">Times change, call before you go.</div>${acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.UFacts?UFacts.checked(i):''}${i.givefood&&webUrl(i.website)?`<div class="links"><a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a></div>`:''}${window.repB?repB('fb',i):''}`}
-function pop(i){const tel=telOf(i);const phoneHtml=!nc(i)?[i.phone_label?`${phLab(i)}`:'',phAlt(i)].filter(Boolean).join(' · '):'';const facts=!nc(i)&&window.UFacts?UFacts.block('fb',i,{phoneHtml})+UFacts.checked(i):'';const top=window.cardTop?cardTop('fb',i):tag(i);const where=window.UFacts?UFacts.addr(i):esc(i.address);return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:''}${top}${!nc(i)&&window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div class="d">${miles(dists[i._k])}</div>`:''}<p>${where}</p>${facts}${nc(i)?'':placeActs(i,tel)}${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
+ ${after?`<div class="xafter">${after}</div>`:''}${window.repB?repB('fb',i):''}`}
+function pop(i){const tel=telOf(i);const phoneHtml=!nc(i)?[i.phone_label?`${phLab(i)}`:'',phAlt(i)].filter(Boolean).join(' · '):'';const phoneNumber=!nc(i)&&tel?`<span class="xph">${ph1(i)}</span>`:'';const facts=!nc(i)&&window.UFacts?UFacts.block('fb',i,{phoneHtml,phoneNumber}):'';const checked=!nc(i)&&window.UFacts?UFacts.checked(i):'';const top=window.cardTop?cardTop('fb',i):tag(i);const where=window.UFacts?UFacts.addr(i):esc(i.address);const after=srcLine(i);return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:''}${top}${!nc(i)&&window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div class="d">${miles(dists[i._k])}</div>`:''}<p>${where}</p>${facts}${checked}${nc(i)?'':placeActs(i,tel)}${after?`<div class="xafter">${after}</div>`:''}${window.repB?repB('fb',i):''}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 /* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
    0 px high (in-app browser toolbars/header still laying out) zooms Leaflet out to the world. So: never zoom out past the UK, never fit
@@ -316,7 +319,7 @@ const applyF=()=>{const on=F.open;refreshClusters();
  closeSheet();if(lastNear)nearest(...lastNear)};
 function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icFor(selected));selected=k;m.setIcon(nc(i)?whIcon:selIcon);
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
- const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;$('sheetBody').scrollTop=0;
+ const show=()=>{if(window.__holdSheet&&Date.now()<window.__holdSheet)return;if(!i||!m){closeSheet();return}if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;$('sheetBody').scrollTop=0;
    const h=$('sheet').offsetHeight,y=map.latLngToContainerPoint(m.getLatLng()).y;map.panTo(m.getLatLng(),{animate:!fromList});
   }else{map.closePopup();m.unbindPopup();m.bindPopup(pop(i),{maxWidth:280,autoPanPaddingTopLeft:[20,20],autoPanPaddingBottomRight:[20,20]}).openPopup()}};
  if(fromList)cl.zoomToShowLayer(m,show);else show()}
@@ -458,7 +461,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=hccac90b7a4eb" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=h4b2af815bb4f" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=hd9d2c20806f8" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=hdffb5069d0f7" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');

@@ -93,6 +93,50 @@ BUTTON_JS = r"""(sel)=>{const bad=[];
  }
  return bad}"""
 
+# Same row order on every card. Last checked is the last row before the buttons.
+# The button block holds buttons only, all the same height, and a web address does not wrap.
+ROWS_JS = r"""(sel)=>{const bad=[];
+ const cards=[...document.querySelectorAll(sel)].filter(c=>c.offsetParent||c.getClientRects().length).slice(0,6);
+ const want=['Who it\u2019s for','How to get in','Opening times','Wheelchair access','Facilities'];
+ const act=el=>el.matches&&el.matches('a.btn.gm,button.v3share,a.btn.web,a.btn.call')&&!el.classList.contains('xfb');
+ const lab=el=>{const b=el.querySelector('b');const t=(b?b.innerText:el.innerText)||'';return t.replace(/\s+/g,' ').replace(/:.*/,'').trim()};
+ for(const c of cards){
+  const name=((c.querySelector('h3')||{}).textContent||'').trim().slice(0,40);
+  const labels=[...c.querySelectorAll(':scope > .ufact > .xrow, :scope > .ufact > .xrow')].map(lab);
+  const rows=[...c.querySelectorAll('.ufact > .xrow')].map(lab);
+  want.forEach((w,i)=>{if((rows[i]||'')!==w) bad.push(name+' row '+i+' '+(rows[i]||'(missing)'));});
+  if(rows.some(l=>/^(Beds|Offers|Gwelyau|Yn cynnig)$/.test(l))) bad.push(name+' beds or offers row');
+  const call=[...c.querySelectorAll('a.btn.call')].find(a=>(a.getAttribute('href')||'').startsWith('tel:')&&!a.classList.contains('xfb'));
+  if(call && !rows.some(l=>l==='Phone'||l==='Ff\u00f4n')) bad.push(name+' phone row missing');
+  const uchk=c.querySelector('.uchk'), box=c.querySelector(':scope > .xacts')||c.querySelector('.xacts');
+  if(!uchk||!box){bad.push(name+' missing last checked or buttons');continue}
+  const ur=uchk.getBoundingClientRect(), br=box.getBoundingClientRect();
+  if(ur.height<2||br.height<2) bad.push(name+' checked or buttons not shown');
+  else if(ur.bottom>br.top+2) bad.push(name+' last checked not before buttons');
+  for(const el of c.querySelectorAll('.psrc,.note,.links,.src,.xem,.xhow,.sub')){
+   if(uchk.contains(el)) continue;
+   const r=el.getBoundingClientRect(); if(r.height<2||r.width<2) continue;
+   const y=(r.top+r.bottom)/2;
+   if(y>ur.bottom-1 && y<br.top+1) bad.push(name+' note between checked and buttons');
+   if(y>br.top+2 && y<br.bottom-2) bad.push(name+' note inside buttons '+((el.className&&el.className.baseVal)||el.className||el.tagName));
+  }
+  for(const el of [...box.children]){
+   if(act(el)) continue;
+   const r=el.getBoundingClientRect();
+   if(r.width>2&&r.height>2) bad.push(name+' loose in buttons');
+  }
+  const btns=[...box.children].filter(act).filter(b=>b.getClientRects().length);
+  const hs=btns.map(b=>Math.round(b.getBoundingClientRect().height));
+  if(hs.length>=2 && Math.max(...hs)-Math.min(...hs)>1) bad.push(name+' button heights '+hs.join(','));
+  const dom=box.querySelector('a.btn.web .xdom');
+  if(dom){
+   const s=getComputedStyle(dom);
+   if(s.whiteSpace!=='nowrap') bad.push(name+' domain wraps');
+   if(dom.scrollHeight>dom.clientHeight+2) bad.push(name+' domain more than one line');
+  }
+ }
+ return bad}"""
+
 # Shelter symbols (Dean 31 Oct): the strip sits under the map only while Shelter is selected,
 # its three symbols share one box, and it does not cover the OpenStreetMap credit.
 STRIP_JS = r"""async ()=>{const bad=[];
@@ -260,9 +304,12 @@ def run(base=None, measure=False):
                             typed[k] = pg.evaluate(TYPE_JS, sel)
                             if not measure:
                                 bad += ['%dpx %s %s list %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, sel) or [])]
+                                bad += ['%dpx %s %s list %s' % (w, mode, k, x) for x in (pg.evaluate(ROWS_JS, sel) or [])]
                                 bad += ['%dpx %s %s' % (w, mode, x) for x in (pg.evaluate(STRIP_JS) or [])]
                                 if k == 'sh' and w == 390:
                                     pg.fill('#q', 'BN1 4NJ'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2000)
+                                    ztown = pg.evaluate('() => map.getZoom()')
+                                    if ztown < 12: bad.append('%dpx %s postcode zoom %s' % (w, mode, ztown))
                                     for _ in range(8):
                                         if pg.evaluate("()=>[...document.querySelectorAll('#xlist .xmkbox')].some(b=>b.dataset.sym==='youth')"):
                                             break
@@ -280,7 +327,14 @@ def run(base=None, measure=False):
                                       const bad=ids.filter(id=>{const i=(window.SHELTERS&&SHELTERS.items||[]).find(x=>x.id===id);return !i||i.kind!=='young_people'});
                                       return {n:ids.length, bad}}""")
                                     if not fy or fy.get('n') < 1 or fy.get('bad'): bad.append('%dpx %s youth filter %s' % (w, mode, fy))
+                                    pg.wait_for_timeout(500)
+                                    if pg.evaluate("()=>document.getElementById('sheet').classList.contains('open') && !((document.querySelector('#sheetBody h3')||{}).textContent||'').trim()"):
+                                        bad.append('%dpx %s empty sheet after youth chip' % (w, mode))
                                     pg.click('#chips [data-f=youth]'); pg.wait_for_timeout(300)
+                                    pg.click('#v3big [data-l=fb]'); pg.wait_for_timeout(700)
+                                    if pg.evaluate("()=>document.getElementById('sheet').classList.contains('open') && !((document.querySelector('#sheetBody h3')||{}).textContent||'').trim()"):
+                                        bad.append('%dpx %s empty sheet after food bank' % (w, mode))
+                                    pg.click('#v3big [data-l=sh]'); pg.wait_for_timeout(600)
                     # pin pop-up card (a place with pins of every type nearby)
                     pg.fill('#q', 'M1 1AE'); pg.press('#q', 'Enter'); pg.wait_for_timeout(2500)
                     pg.evaluate("document.getElementById('map').scrollIntoView({block:'center'})"); pg.wait_for_timeout(500)
@@ -301,6 +355,7 @@ def run(base=None, measure=False):
                     elif not measure: bad += check(pc, mode, '%dpx %s %s pin pop-up' % (w, mode, k), k)
                     typed_pop[k] = pg.evaluate(TYPE_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card')
                     if not measure: bad += ['%dpx %s %s pop %s' % (w, mode, k, x) for x in (pg.evaluate(BUTTON_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card') or [])]
+                    if not measure: bad += ['%dpx %s %s pop %s' % (w, mode, k, x) for x in (pg.evaluate(ROWS_JS, '#map .leaflet-popup-content .pop,#sheet.open #sheetBody .card') or [])]
                     pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
                   if not measure:
                     bad += type_diff(typed, '%dpx %s list type' % (w, mode))
