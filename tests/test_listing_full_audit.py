@@ -6,6 +6,8 @@ via UFacts + published data.js / shelters.js / warmspaces.js. Welsh checked on c
 import json, os, subprocess, unittest
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
+LAYERS = os.path.join(ROOT, 'layers.js')
+V3CSS = os.path.join(ROOT, 'v3.css')
 
 SYMBOL_NODE = r'''
 const fs = require('fs');
@@ -38,14 +40,12 @@ process.stdout.write(JSON.stringify({sh: sh.length, symBad: symBad.slice(0, 20)}
 CARD = open(os.path.join(ROOT, 'tests', 'test_card_uniform.py'), encoding='utf-8').read()
 NODE = CARD.split("NODE = r'''")[1].split("'''")[0]
 
-LAYERS = os.path.join(ROOT, 'layers.js')
-
 
 def footer_key_order():
     text = open(LAYERS, encoding='utf-8').read()
     marks = (
-        'sw tear',
-        'sw dia',
+        "symSvg('food',20)",
+        "symSvg('flame',20)",
         "symSvg('house',20)",
         "symSvg('sun',20)",
         "symSvg('youth',20)",
@@ -75,6 +75,19 @@ class FullAudit(unittest.TestCase):
         got = json.loads(r.stdout)
         self.assertTrue(footer_key_order(), 'footer key row order in layers.js')
         self.assertEqual(got['symBad'], [], got)
+
+    def test_type_icon_shell_colours_and_card_top_class(self):
+        js = open(LAYERS, encoding='utf-8').read()
+        css = open(V3CSS, encoding='utf-8').read()
+        self.assertIn("food:{fill:'#F5C518'", js)
+        self.assertIn("flame:{fill:'#D55E00'", js)
+        self.assertIn("house:{fill:'#56B4E9'", js)
+        sym_fn = js[js.index('const symSvg'):js.index('window.symSvg')]
+        self.assertIn('SYM_SHELL[key]', sym_fn)
+        self.assertNotIn('fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/>${SYM[key', sym_fn)
+        self.assertIn('class="xtop xtop-${layer}"', js)
+        self.assertIn('xtop.xtop-fb .utag{border-color:#F5C518', css)
+        self.assertIn('xtop.xtop-ws .utag{border-color:#D55E00', css)
 
 
 if __name__ == '__main__':
