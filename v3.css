@@ -638,12 +638,14 @@ footer a[href^="tel:"],.legal a[href^="tel:"]{padding-left:10px!important;paddin
 #xextra .card:is(.xsh,.xws)>p.xrow.uchk{order:12!important}
 #xextra .card>.utag,#sheet .card>.utag,#list .card>.utag,.leaflet-popup-content .utag{order:1!important;flex:1 1 auto!important;min-width:0}
 #xextra .card:is(.xsh,.xws)>.utag,#sheet .card>.utag{margin:0 8px 8px 0!important;align-self:center}
-/* Shelter type label: the same square symbol as the pin and the strip, full height of the label. */
-html body :is(#xextra,#sheet,#sheetBody) .utag:has(.xmkbox),
-html body :is(#xextra,#sheet,#sheetBody) .xkind:has(.xmkbox){display:inline-flex!important;align-items:stretch;gap:6px;padding:0 8px 0 0!important}
-html body :is(#xextra,#sheet,#sheetBody) .utag:has(.xmkbox) .utxt{display:flex;align-items:center;padding:4px 0}
-html body :is(#xextra,#sheet,#sheetBody) .xmkbox{display:flex;align-self:stretch;flex:0 0 auto;aspect-ratio:1;line-height:0}
-html body :is(#xextra,#sheet,#sheetBody) .xmkbox svg{width:100%!important;height:100%!important;display:block}
+/* Shelter card top row (Dean): symbol square, then the type pill, then the access pill. Symbol matches the pill, 26px at phone width. */
+html body :is(#xextra,#sheet,#sheetBody) .card>.xtop{display:flex;align-items:flex-start;flex-wrap:wrap;gap:6px;order:1!important;flex:1 1 100%!important;width:100%;margin:0 0 6px!important}
+html body :is(#xextra,#sheet,#sheetBody) .xtop .xmkbox{display:flex;flex:0 0 auto;line-height:0;align-self:flex-start}
+html body :is(#xextra,#sheet,#sheetBody) .xtop .xmkbox svg{width:26px;height:26px;display:block}
+html body :is(#xextra,#sheet,#sheetBody) .xtop .utag{display:inline-flex!important;align-items:center;justify-content:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;background:transparent!important;color:#fff!important;border:1.5px solid #56B4E9!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 1 auto!important;order:0!important;white-space:nowrap;max-width:100%}
+html.light body :is(#xextra,#sheet,#sheetBody) .xtop .utag{color:#0A1628!important;background:#fff!important;border-color:#0072B2!important}
+html body :is(#xextra,#sheet,#sheetBody) .xtop .xacc{display:inline-flex!important;align-items:center;box-sizing:border-box;height:26px!important;margin:0!important;padding:0 10px!important;border-radius:999px!important;font-size:14px!important;font-weight:700!important;line-height:1!important;flex:0 0 auto!important;order:0!important;white-space:nowrap}
+html body :is(#xextra,#sheet,#sheetBody) .xtop .useason{margin:0 0 0 2px;padding:0;border:0;font-size:14px!important;font-weight:700!important;line-height:1!important}
 #xextra .card:is(.xsh,.xws)>.xacc,#sheet .card>.xacc{order:1!important;flex:0 0 auto!important;align-self:center;margin:0 0 8px 0!important}
 #xextra .card:is(.xsh,.xws)>.xunv{order:0!important;flex:1 1 100%!important}
 #xextra .card>.xday{order:2;flex:1 1 100%}
