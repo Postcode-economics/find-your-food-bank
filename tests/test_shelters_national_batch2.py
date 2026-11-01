@@ -132,7 +132,6 @@ NEW_IDS = [
     "man-999-club-the-gateway",
     "man-your-place-anchor-house-formerly-caritas-anchor-ho",
     "man-the-upper-room-ur4meals",
-    "man-oasis-basis-gateshead-drop-in",
     "man-action-for-barnsley-homeless",
     "man-harrogate-homeless-project-springboard-day-centre",
     "man-shoc-slough-homeless-our-concern",
