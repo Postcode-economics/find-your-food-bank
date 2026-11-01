@@ -223,7 +223,7 @@ const xRank={},xOpen={};
 function rankX(k,lat,lng,vo,ot){const L_=LAYERS[k];if(!L_.data)return[];ot=ot&&window.V3&&V3.shutToday;
  return L_.data.items.filter(i=>i.card_type!=='referral_hostel'&&typeof i.lat==='number'&&typeof i.lng==='number'&&(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&(k!=='sh'||shelterTypeOk(i))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
 function ensureXRank(k){if(!lastPos||!LAYERS[k]||!LAYERS[k].data)return null;const ot=!!(typeof F!=='undefined'&&F.open);return (xRank[k]=rankX(k,lastPos[0],lastPos[1],verOnly[k],ot))}
-function xMoreRemain(k){const all=ensureXRank(k)||[];const have=new Set([...$x('xlist').querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));return all.filter(it=>!have.has(String(it.i.id))).length}
+function xMoreRemain(k){const all=(ensureXRank(k)||savedRank(k))||[];const have=new Set([...$x('xlist').querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));return all.filter(it=>!have.has(String(it.i.id))).length}
 function syncXMoreBtn(k){const btn=$x('xmore-'+k);if(!btn||!$x('xlist').contains(btn))return;const left=xMoreRemain(k);if(left<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true')}else{btn.hidden=false;btn.setAttribute('aria-expanded',xOpen[k]?'true':'false')}}
 const xCard=(k,x)=>`<div class="card x${k}${!x.i.ended&&window.V3&&V3.status(k,x.i).st==='closed'?' v3closed':''}" data-id="${esc(x.i.id)}">${detail(k,x.i,x.d)}</div>`;
 const xBtn=k=>`<button type="button" id="xmore-${k}" class="showmore xmore" data-k="${k}" aria-controls="xlist" aria-expanded="${xOpen[k]?'true':'false'}"><span class="v-en">Show more</span><span class="v-cy" lang="cy">Dangos mwy</span></button>`;
@@ -316,7 +316,10 @@ function remember(){try{if(navigator.onLine)localStorage.setItem('savedAt',new D
 function savedWhen(){const d=savedAt();if(d){const dt=new Date(d);if(!isNaN(+dt))return dstr(dt,true)}const S=window.FB_STAMP;return S&&S.label?(lang==='cy'?cyDates(S.label):S.label):''}
 function banner(){if(!isOff){ban.hidden=true;return}const when=savedWhen();ban.textContent=when?t('offline')+when+t('offEnd'):t('offBare');ban.hidden=false}
 function goOffline(){if(isOff)return;isOff=true;banner();try{const s=JSON.parse(localStorage.getItem('lastSearch')||'null');
- if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x}}catch(e){}}
+ if(s){if(!document.getElementById('list').innerHTML)document.getElementById('list').innerHTML=s.fb;if(!$x('xlist').innerHTML)$x('xlist').innerHTML=s.x;
+  if(typeof s.lat==='number'&&typeof s.lng==='number'&&!lastPos)lastPos=[s.lat,s.lng,s.label];
+  if(s.xf){if('shost' in s.xf)typeOn.shost=!!s.xf.shost;if('youth' in s.xf)youthOnly.sh=!!s.xf.youth;if('sday' in s.xf)dayOnly.sh=!!s.xf.sday;syncTypeChips()}
+  ['sh','ws'].forEach(k=>{syncXMoreBtn(k);syncPins(k)})}}catch(e){}}
 addEventListener('offline',goOffline);addEventListener('online',()=>{isOff=false;banner()});
 window.__hmGoOffline=goOffline;if(window.__hmOfflinePending)goOffline();
 if(navigator.serviceWorker)navigator.serviceWorker.addEventListener('message',e=>{if(e.data==='offline')goOffline()});
