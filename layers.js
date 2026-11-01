@@ -222,16 +222,19 @@ const XLIM=()=>{const S=window.SHOW_LIMITS||{},f=+S.first,m=+S.more;return {firs
 const xRank={},xOpen={};
 function rankX(k,lat,lng,vo,ot){const L_=LAYERS[k];if(!L_.data)return[];ot=ot&&window.V3&&V3.shutToday;
  return L_.data.items.filter(i=>i.card_type!=='referral_hostel'&&typeof i.lat==='number'&&typeof i.lng==='number'&&(!vo||i.tier!=='unverified'||timesChecked(i))&&!(ot&&(i.ended||V3.shutToday(k,i)))&&(k!=='sh'||shelterTypeOk(i))).map(i=>({i,d:hav(lat,lng,i.lat,i.lng)})).sort((a,b)=>((!!a.i.ended)-(!!b.i.ended))||a.d-b.d)}
+function ensureXRank(k){if(!lastPos||!LAYERS[k]||!LAYERS[k].data)return null;const ot=!!(typeof F!=='undefined'&&F.open);return (xRank[k]=rankX(k,lastPos[0],lastPos[1],verOnly[k],ot))}
+function xMoreRemain(k){const all=ensureXRank(k)||[];const have=new Set([...$x('xlist').querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));return all.filter(it=>!have.has(String(it.i.id))).length}
+function syncXMoreBtn(k){const btn=$x('xmore-'+k);if(!btn||!$x('xlist').contains(btn))return;const left=xMoreRemain(k);if(left<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true')}else{btn.hidden=false;btn.setAttribute('aria-expanded',xOpen[k]?'true':'false')}}
 const xCard=(k,x)=>`<div class="card x${k}${!x.i.ended&&window.V3&&V3.status(k,x.i).st==='closed'?' v3closed':''}" data-id="${esc(x.i.id)}">${detail(k,x.i,x.d)}</div>`;
 const xBtn=k=>`<button type="button" id="xmore-${k}" class="showmore xmore" data-k="${k}" aria-controls="xlist" aria-expanded="${xOpen[k]?'true':'false'}"><span class="v-en">Show more</span><span class="v-cy" lang="cy">Dangos mwy</span></button>`;
 function nearX(lat,lng,label,keep){lastPos=[lat,lng,label];const out=[],save={lat,lng,label,at:new Date().toISOString(),fb:document.getElementById('list').innerHTML};
- const ot=!!(typeof F!=='undefined'&&F.open);save.xf={ot,sh:verOnly.sh,ws:verOnly.ws};const lim=XLIM();
+ const ot=!!(typeof F!=='undefined'&&F.open);save.xf={ot,sh:verOnly.sh,ws:verOnly.ws,shost:typeOn.shost,youth:youthOnly.sh,sday:dayOnly.sh};const lim=XLIM();
  for(const k in LAYERS){const L_=LAYERS[k];if(!L_.on||!L_.data){delete xRank[k];continue}
   const shown=keep?$x('xlist').querySelectorAll('.card.x'+k).length:0;if(!keep)xOpen[k]=false;
   const all=rankX(k,lat,lng,verOnly[k],ot);xRank[k]=all;const r=all.slice(0,Math.max(lim.first,shown));
   (window._fitX=window._fitX||{})[k]=r.length?L.latLngBounds([[lat,lng],...r.slice(0,lim.first).map(x=>[x.i.lat,x.i.lng])]).pad(0.2):null;  /* Dean 25 Oct 20:45: phone map shows the listed results pins (first page; Show more never moves the map) */
   out.push(`<div class="lh" style="color:${L_.col}">${t(k==='sh'?'nSh':'nWs')}</div>`+`<button type="button" class="v3t v3vo" data-k="${k}" aria-pressed="${verOnly[k]}">${t('verOnly')}</button>`+(k==='sh'?`<button type="button" class="v3t v3dc" data-k="sh" aria-pressed="${dayOnly.sh}">${t('dayFilt')}</button>`:'')+(r.length?r.map(x=>xCard(k,x)).join('')+(all.length>r.length?xBtn(k):''):`<p>${t('none')}</p>`))}
- $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(syncPins);pinNote();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
+ $x('xlist').innerHTML=out.join('');fitSym(document.getElementById('list'));fitSym($x('xlist'));['sh','ws'].forEach(k=>{syncXMoreBtn(k);syncPins(k)});pinNote();save.x=$x('xlist').innerHTML;try{localStorage.setItem('lastSearch',JSON.stringify(save))}catch(e){}}
 function pinNote(){let el=document.getElementById('xnopin');if(!el){el=document.createElement('div');el.id='xnopin';el.hidden=true;el.setAttribute('role','note');el.innerHTML='<span class="v-en">Some places have no public address – see the list</span><span class="v-cy" lang="cy">Mae rhai lleoedd heb gyfeiriad cyhoeddus – gweler y rhestr</span>';const mapEl=document.getElementById('map');if(mapEl)mapEl.appendChild(el)}
  const sh=window.v3focus==='sh',items=(LAYERS.sh&&LAYERS.sh.data&&LAYERS.sh.data.items)||[];
  const recs=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>items.find(i=>i.id===c.dataset.id)).filter(Boolean);
@@ -242,17 +245,22 @@ function pinScroll(x,y){let lock=true,busy=false;const fix=()=>{if(!lock||busy||
 // Cards restored from the saved search (offline) have no ranking in memory: rebuild it from the saved centre and filters.
 function savedRank(k){let s=null;try{s=JSON.parse(localStorage.getItem('lastSearch')||'null')}catch(e){}
  const p=lastPos||(s&&typeof s.lat==='number'?[s.lat,s.lng]:null);if(!p)return null;const f=!lastPos&&s&&s.xf;
+ if(f&&k==='sh'){if('shost' in f)typeOn.shost=!!f.shost;if('youth' in f)youthOnly.sh=!!f.youth;if('sday' in f)dayOnly.sh=!!f.sday;syncTypeChips();syncPins('sh')}
  return rankX(k,p[0],p[1],f?!!f[k]:verOnly[k],f?!!f.ot:!!(typeof F!=='undefined'&&F.open))}
-window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list||!btn||!list.contains(btn)||btn.hidden||!LAYERS[k])return 0;
- if(!xRank[k]){if(!LAYERS[k].data)return load(k).then(()=>window.showMoreX(k),()=>0);const r=savedRank(k);if(!r)return 0;xRank[k]=r}
+window.showMoreX=function(k){const list=$x('xlist'),btn=$x('xmore-'+k);if(!list||!btn||!list.contains(btn)||!LAYERS[k])return 0;
+ if(!LAYERS[k].data)return load(k).then(()=>window.showMoreX(k),()=>0);
+ const all=ensureXRank(k)||savedRank(k);if(!all||!all.length)return 0;
+ if(btn.hidden&&xMoreRemain(k)<=0)return 0;
+ if(btn.hidden&&xMoreRemain(k)>0)btn.hidden=false;
  const x=scrollX,y=scrollY,fromBtn=document.activeElement===btn;
  const have=new Set([...list.querySelectorAll('.card.x'+k)].map(c=>c.dataset.id));
- const batch=xRank[k].filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
+ const batch=all.filter(it=>!have.has(String(it.i.id))).slice(0,XLIM().more);
  const tpl=document.createElement('template');tpl.innerHTML=batch.map(it=>xCard(k,it)).join('');const added=[...tpl.content.children];
  if(added.length){btn.before(tpl.content);xOpen[k]=true;fitSym(list)}
- batch.forEach(it=>have.add(String(it.i.id)));const remain=xRank[k].filter(it=>!have.has(String(it.i.id))).length;
- if(remain<=0){btn.hidden=true;btn.setAttribute('aria-expanded','true');if(fromBtn&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}}
- else{btn.setAttribute('aria-expanded',xOpen[k]?'true':'false');if(fromBtn)btn.focus({preventScroll:true})}
+ batch.forEach(it=>have.add(String(it.i.id)));
+ syncXMoreBtn(k);
+ if(fromBtn&&xMoreRemain(k)<=0&&added[0]){const h=added[0].querySelector('h3');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+ else if(fromBtn&&xMoreRemain(k)>0)btn.focus({preventScroll:true});
  pinScroll(x,y);return added.length};
 document.addEventListener('click',e=>{const b=e.target.closest('#xlist .xmore');if(b)window.showMoreX(b.dataset.k)});
 {const css=document.createElement('style');css.setAttribute('data-showmore','x');
