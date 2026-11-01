@@ -336,7 +336,7 @@ html:not(.light) :is(#list,#xextra) .card a:not(.btn):not(.sosl):not(.v3sos a),h
 #list .card>.d{order:3;flex:0 0 auto;font-size:var(--hm-dist-size)!important;font-weight:var(--hm-dist-weight);line-height:var(--hm-dist-lh);color:var(--white);margin-top:4px!important}
 #list .card>.v3wk{order:3;flex:1 1 0;min-width:0;font-size:var(--hm-dist-size)!important;font-weight:var(--hm-dist-weight);line-height:var(--hm-dist-lh);color:var(--muted)!important;margin-top:4px!important}
 #list .card>.v3wk::before{content:'· '}
-#list .card>p:not(.sub):not(.warn){order:4;font-size:var(--hm-addr-size)!important;font-weight:var(--hm-addr-weight);line-height:var(--hm-addr-lh);color:var(--muted);margin-top:4px!important}
+#list .card>p:not(.sub):not(.warn):not(.xsrc){order:4;font-size:var(--hm-addr-size)!important;font-weight:var(--hm-addr-weight);line-height:var(--hm-addr-lh);color:var(--muted);margin-top:4px!important}
 #list .card>p.sub{order:5;font-size:14px!important;color:var(--muted)}
 #list .card>.warn{order:6;font-size:14px!important}
 /* 4. one status line */
@@ -650,7 +650,9 @@ html body :is(#list,#xextra,#sheet,#sheetBody,.leaflet-popup-content) .xtop .use
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xacts,html body .leaflet-popup-content .xacts{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;order:10;width:100%;flex:1 1 100%;margin-top:12px!important}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xafter,html body .leaflet-popup-content .xafter{order:36!important;flex:1 1 100%!important;width:100%;min-width:0;margin-top:12px}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>.xsrc,html body .leaflet-popup-content .xsrc{order:40!important;flex:1 1 100%!important;width:100%;min-width:0;margin:14px 0 0!important;font-size:13px!important;line-height:1.45;color:var(--muted)}
-html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) p.xsrc a:not(.btn):not(.sosl):not(.v3share),html body .leaflet-popup-content p.xsrc a:not(.btn):not(.sosl):not(.v3share){display:inline!important;min-height:0!important;height:auto!important;padding:0!important;margin:0!important;font-size:13px!important}
+html body p.xsrc .psrc{display:inline!important;margin:0!important;font-size:13px!important;line-height:inherit;color:inherit}
+html body #xextra .card:is(.xsh,.xws)>p:not(.xrow):not(.xsrc):not(.sub):not(.xw):not(.xday){order:4!important}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) p.xsrc a:not(.btn):not(.sosl):not(.v3share),html body .leaflet-popup-content p.xsrc a:not(.btn):not(.sosl):not(.v3share){display:inline-block!important;box-sizing:content-box;width:auto!important;max-width:100%;min-height:0!important;height:auto!important;padding:15px 0!important;margin:-15px 0!important;line-height:16px!important;font-size:13px!important;vertical-align:baseline;white-space:normal}
 html body .ufact .tchg{display:block;margin-top:4px;font-size:13px;line-height:1.35;color:var(--muted)}
 html body .xacts>:is(a.btn.gm,a.btn.call,a.btn.web,button.v3share){flex:1 1 calc(50% - 8px)!important;width:auto!important;max-width:calc(50% - 4px)!important;margin:0!important;height:var(--hm-btn-h)!important;min-height:var(--hm-btn-h)!important;max-height:var(--hm-btn-h)!important;overflow:hidden;box-sizing:border-box}
 html body .xacts>a.btn.web{flex-direction:column!important;align-items:center;justify-content:center;overflow-wrap:normal!important;white-space:nowrap!important;gap:0;color:#F2F4F8!important;background:transparent!important;border:1px solid rgba(201,209,222,.45)!important;text-decoration:none!important}
@@ -680,8 +682,8 @@ html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) h3,
 html body .leaflet-popup-content h3{font-size:var(--hm-name-size)!important;font-weight:var(--hm-name-weight)!important;line-height:var(--hm-name-lh)!important}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(.d,.v3wk),
 html body .leaflet-popup-content :is(.d,.v3wk){font-size:var(--hm-dist-size)!important;font-weight:var(--hm-dist-weight)!important;line-height:var(--hm-dist-lh)!important}
-html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>p:not(.xrow):not(.sub):not(.xday):not(.xw):not(.plab):not(.warn):not(.xalt),
-html body .leaflet-popup-content .pop>p:not(.xrow):not(.sub){font-size:var(--hm-addr-size)!important;font-weight:var(--hm-addr-weight)!important;line-height:var(--hm-addr-lh)!important}
+html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop)>p:not(.xrow):not(.sub):not(.xday):not(.xw):not(.plab):not(.warn):not(.xalt):not(.xsrc),
+html body .leaflet-popup-content .pop>p:not(.xrow):not(.sub):not(.xsrc){font-size:var(--hm-addr-size)!important;font-weight:var(--hm-addr-weight)!important;line-height:var(--hm-addr-lh)!important}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(.ufact .xrow,.xrow.uchk),
 html body .leaflet-popup-content :is(.ufact .xrow,.xrow.uchk){font-size:var(--hm-row-size)!important;font-weight:var(--hm-row-weight)!important;line-height:var(--hm-row-lh)!important}
 html body :is(#list,#xextra,#sheet,#sheetBody) :is(.card,.pop) :is(.ufact .xrow,.xrow.uchk) span,
