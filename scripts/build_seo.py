@@ -96,6 +96,42 @@ def shelter_public(i):
 
 ACC = {'referral_only': 'Referral only', 'self_referral': 'Self-referral', 'open_access': 'Open access'}
 
+def _who(i):
+    g = [str(x).strip() for x in (i.get('groups') or []) if str(x).strip()]
+    prov = i.get('provided') or []
+    if 'Dog Friendly' in prov and not any('dog' in x.lower() for x in g):
+        g.append('Dogs welcome')
+    return ' · '.join(g) if g else 'Not stated'
+
+def _wheel(i):
+    return {'yes': 'Wheelchair accessible', 'partial': 'Partly wheelchair accessible', 'no': 'Not wheelchair accessible'}.get(i.get('wheelchair') or '', 'Not stated')
+
+def _fac(i):
+    names = {'Food Available': 'Food', 'Hot Drinks': 'Hot drinks', 'Showers': 'Showers', 'Laundry': 'Laundry',
+             'Free Wifi': 'Wifi', 'Charging Facilities': 'Charging', 'Accessible Toilets': 'Toilets'}
+    seen, out = set(), []
+    for raw in list(i.get('provided') or []) + list(i.get('facilities') or []):
+        if raw == 'Dog Friendly': continue
+        lab = names.get(raw, raw)
+        if lab.lower() in seen: continue
+        seen.add(lab.lower()); out.append(lab)
+    return ', '.join(out) if out else 'Not stated'
+
+def _checked(i):
+    import datetime
+    v = i.get('verified_on') or i.get('checked_on') or i.get('last_verified') or ''
+    try:
+        d = datetime.date.fromisoformat(str(v)[:10])
+        return d.strftime('%-d %b %Y')
+    except Exception:
+        return 'Not stated'
+
+def _facts(i, how, times):
+    return ('<p class="xrow"><b>Who it\'s for:</b> %s</p><p class="xrow"><b>How to get in:</b> %s</p>'
+            '<p class="xrow"><b>Opening times:</b> %s</p><p class="xrow"><b>Wheelchair access:</b> %s</p>'
+            '<p class="xrow"><b>Facilities:</b> %s</p><p class="xrow"><b>Last checked:</b> %s</p>'
+            % (E(_who(i)), how or 'Not stated', times or 'Not stated', E(_wheel(i)), E(_fac(i)), E(_checked(i))))
+
 def card_sh(i):
     if i.get('card_type') == 'referral_hostel':
         notice = i.get('notice') or "Referral needed, don't turn up without one"
@@ -105,7 +141,23 @@ def card_sh(i):
                 % (E(i.get('name')), E(notice), E(i.get('area') or i.get('town') or ''), phone_html(i.get('phone')), E(i.get('referral_route') or '')))
     day = i.get('kind') == 'day_centre'
     youth = i.get('kind') == 'young_people'
-    tag = '<div class="tag">Day centre</div>' if day else ('<div class="tag">Young people’s housing (16–25), referral needed</div>' if youth else '<div class="tag">Shelter</div>')
+    kind_name = i.get('name') or ''
+    if day:
+        type_en = 'Day centre'
+    elif youth:
+        type_en = "Young people’s housing (16–25), referral needed"
+    elif re.search(r'\bhostel\b', kind_name, re.I) and (i.get('access_type') == 'referral_only' or re.search(r'referral only', i.get('referral') or '', re.I)):
+        type_en = 'Referral hostel'
+    elif re.search(r'\bhostel\b', kind_name, re.I):
+        type_en = 'Hostel'
+    elif re.search(r'\bfoyers?\b', kind_name, re.I):
+        type_en = "Young people’s housing (16–25), referral needed"
+    else:
+        type_en = 'Night shelter'
+    tag = '<div class="tag">%s</div>' % E(type_en)
+    if re.search(r'winter|swep|cold weather', str(i.get('season') or ''), re.I):
+        tag += ' <span class="useason">Winter-only</span>'
+
     if day: tag += '<div class="sub">Daytime only. No overnight bed.</div>'
     if youth: tag += '<div class="sub">For ages 16–25. Referral needed. Not an emergency bed.</div>'
     if i.get('tier') == 'unverified': tag += ' <div class="tag v">Unverified – call before you go</div>'
@@ -129,8 +181,8 @@ def card_sh(i):
         hrs = '<div class="sub"><b>Offers:</b> %s</div>' % E(i['offer']) + hrs
     note = '<div class="sub">%s</div>' % E(i['postcode_note']) if i.get('postcode_note') else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
-    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
-            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone'), i.get('phone_label')), web, sh_contact(i), ref, hrs))
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
+            % (E(i['name']), tag, opens, E(i.get('address')), note, phone_html(i.get('phone'), i.get('phone_label')), web, sh_contact(i), _facts(i, ref, hrs)))
 
 def ws_fallback(i):
     if i.get('tel') or not i.get('council_phone'): return ''
@@ -166,8 +218,9 @@ def card_fb(i, acc):
            else '<div class="tag">Food bank – get food here</div>')
     extra = '<div class="sub">Walk-in not confirmed – call before you go</div>' if a == 'unconfirmed' else ''
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
+    how = 'Voucher' if a == 'voucher' else ('Walk-in' if a == 'walkin' else 'Not stated')
     return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s<div class="sub">Times change, call before you go.</div></li>'
-            % (E(i['name']), tag, extra, E(i.get('address')), phone_html(i.get('phone')) + ws_fallback(i), hours_fb(i), web))
+            % (E(i['name']), tag, extra, E(i.get('address')), phone_html(i.get('phone')) + ws_fallback(i), _facts(i, how, hours_fb(i)), web))
 
 def card_ws(i):
     web = '<div><a href="%s" rel="noopener nofollow">Website</a></div>' % E(i['website']) if i.get('website') else ''
@@ -182,8 +235,8 @@ def card_ws(i):
     if i.get('booking') and i['booking'] != 'Not stated': ref += '<div class="ref"><b>%s</b></div>' % E(i['booking'])
     if 'referr' in (i.get('notes') or '').lower(): ref += '<div class="ref"><b>Referral:</b> %s</div>' % E(i['notes'])
     hrs = ('<div class="sub carried">%s</div>' % E(i['carried_note'])) if i.get('carried_note') else '<div class="sub">Times unknown – call before you go</div>' if i.get('call_check') else hours_ws(i)
-    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s%s<div class="sub">Times change, call before you go.</div></li>'
-            % (E(i['name']), tag, opens, E(i.get('address')), phone_html(i.get('phone')), hrs, ref, web))
+    return ('<li><div class="n">%s</div>%s%s<div>%s</div>%s%s%s<div class="sub">Times change, call before you go.</div></li>'
+            % (E(i['name']), tag, opens, E(i.get('address')), phone_html(i.get('phone')), _facts(i, ref, hrs), web))
 
 SH_CREDIT = ''
 SH_SRC = [('homeless.org.uk', 'Homeless Link', 'https://homeless.org.uk/homeless-england/'), ('openstreetmap.org', 'OpenStreetMap contributors', 'https://www.openstreetmap.org/copyright'),

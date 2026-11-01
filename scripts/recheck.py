@@ -60,6 +60,7 @@ def schema_errors(x, layer):
             ref = (x.get("referral") or "").lower()
             if not any(w in ref for w in ("referral", "refer", "application", "agencies")):
                 e.append("referral requirement not stated")
+    if "wheelchair" in x and x.get("wheelchair") not in ("yes", "partial", "no"): e.append("wheelchair invalid")
     if x.get("ended") not in (None, True, False): e.append("ended not boolean")
     if x.get("flag_closed"): e.append("flagged closed")
     return e

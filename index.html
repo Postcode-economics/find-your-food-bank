@@ -36,7 +36,7 @@
   new Promise(function (r) { if (window.__hmBooted) r(); else window.__hmOnBoot = r; })
     .then(function () { return Promise.race([Promise.resolve(window.__hmHeal).catch(function () {}), new Promise(function (r) { setTimeout(r, 800); })]); })
     .then(function () { return window.__hmHealBusy ? Promise.resolve(window.__hmHeal).catch(function () {}) : 0; })
-    .then(function () { return navigator.serviceWorker.register('sw.js?v=h63472894e11a' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
+    .then(function () { return navigator.serviceWorker.register('sw.js?v=h936216c96a00' + (window.__hmHealBusy || heal ? '&heal=1' : ''), {updateViaCache:'none'}); })
     .then(function (reg) {
       // With service workers blocked, register() resolves to undefined. Do not touch it.
       if (!reg || !reg.addEventListener) return;
@@ -111,7 +111,7 @@ Promise.all(p).catch(function(){}).then(function(){try{var s=location.search,n='
 <meta property="og:image" content="https://helpmap.uk/og_launch.png"><meta property="og:image:alt" content="Free UK food bank, shelter and warm space map"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Find food, shelter or warmth near you">
 <meta name="twitter:description" content="Free UK map of nearly 3,000 food banks, plus homeless shelters and warm spaces. Enter a postcode. Directions in one tap."><meta name="twitter:image" content="https://helpmap.uk/og_launch.png">
-<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=hd08dc3319872"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=hbbb4057d00ac"><link rel="stylesheet" href="header.css?v=h89a8d8eb1a23"><script src="icons.js"></script>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css"><link rel="stylesheet" href="layers.css?v=h2e7bf96289eb"><link rel="stylesheet" href="report.css"><link rel="stylesheet" href="v3.css?v=hdae3009fa20c"><link rel="stylesheet" href="header.css?v=h3a2ad6b9d92c"><script src="icons.js"></script><script src="facts.js?v=h89b3a73bc3b3"></script>
 <style>
 :root{--navy:#0A1628;--gold:#F5C518;--red:#E63946;--white:#F2F4F8;--card:#13223d;--muted:#b9c2d3}
 *{box-sizing:border-box}html,body{margin:0;background:var(--navy);color:var(--white);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
@@ -186,7 +186,7 @@ b.hidden=false;document.getElementById('iabx').onclick=function(){b.hidden=true;
 <header><div class="brand">Postcode Economics</div><h1>Find help near you</h1><p class="fresh"><a id="freshtxt" href="faq.html">Updated 1 Nov 2026, 07:00</a></p>
 <form class="row" id="f"><input id="q" placeholder="Postcode or town, e.g. BN17 5 or Littlehampton" autocomplete="off" aria-label="Postcode or town" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ac">
 <button class="loc" id="me" type="button" aria-label="Use my location" title="Use my location"><svg class="ico" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></button><button class="go">Search</button><ul id="ac" role="listbox" aria-label="Matching places" hidden></ul></form>
-<div id="fwrap"><div class="fchips" id="chips" role="group" aria-label="Food bank filters (swipe up to hide)"><button type="button" class="fchip hide" id="fhide" aria-label="Hide filters" aria-expanded="true">✕</button><button type="button" class="fchip" data-f="walk" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Walk-ins welcome</button><button type="button" class="fchip" data-f="vouch" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Voucher needed</button></div></div><button type="button" class="ftab" id="ftab" hidden aria-label="Show filters">▾ Filters <span class="fb" id="fcount" hidden></span></button><label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote" hidden>Showing places open today. If no times are listed, call before you go.</div><div id="hid" role="status"></div>
+<div id="fwrap"><div class="fchips" id="chips" role="group" aria-label="Food bank filters (swipe up to hide)"><button type="button" class="fchip hide" id="fhide" aria-label="Hide filters" aria-expanded="true">✕</button><button type="button" class="fchip" data-f="walk" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Walk-ins welcome</button><button type="button" class="fchip" data-f="vouch" aria-pressed="false"><span class="ck" aria-hidden="true"></span>Voucher needed</button><button type="button" class="fchip" data-f="shost" aria-pressed="false"><span class="ck" aria-hidden="true"></span><span class="xcs"><svg width="20" height="20" viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/><path d="M8 15.5l8-7.5 8 7.5V24H8z" fill="#0A1628"/></svg></span><span class="v-en">Hostel or shelter</span><span class="v-cy" lang="cy">Hostel neu loches</span></button><button type="button" class="fchip" data-f="youth" aria-pressed="false"><span class="ck" aria-hidden="true"></span><span class="xcs"><svg width="20" height="20" viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/><text x="16" y="15.3" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">16</text><text x="16" y="24" text-anchor="middle" font-family="system-ui,Segoe UI,Arial" font-weight="900" font-size="10" textLength="15.6" lengthAdjust="spacingAndGlyphs" fill="#0A1628">25</text></svg></span><span class="v-en">Young people</span><span class="v-cy" lang="cy">Pobl ifanc</span></button><button type="button" class="fchip" data-f="sday" aria-pressed="false"><span class="ck" aria-hidden="true"></span><span class="xcs"><svg width="20" height="20" viewBox="1.6 1.6 28.8 28.8" aria-hidden="true"><path d="M3 3h26v26H3z" fill="#56B4E9" stroke="#0A1628" stroke-width="2.5"/><circle cx="16" cy="16" r="3.8" fill="#0A1628"/><g stroke="#0A1628" stroke-width="2.4" stroke-linecap="butt"><path d="M16 8v2.8M16 21.2V24M8 16h2.8M21.2 16H24M10.3 10.3l2 2M19.7 19.7l2 2M10.3 21.7l2-2M19.7 12.3l2-2"/></g></svg></span><span class="v-en">Day centre</span><span class="v-cy" lang="cy">Canolfan ddydd</span></button></div></div><button type="button" class="ftab" id="ftab" hidden aria-label="Show filters">▾ Filters <span class="fb" id="fcount" hidden></span></button><label class="tog"><input type="checkbox" id="openToday"> Open today only</label><div class="tnote" hidden>Showing places open today. If no times are listed, call before you go.</div><div id="hid" role="status"></div>
 <div id="msg" role="status"></div></header>
 <div id="map"></div><div id="list"></div>
 <div class="share"><button id="share" type="button">Share this map</button></div>
@@ -210,6 +210,12 @@ function nextOpenText(i){const s=parsed(i);if(!s)return 'Closed today';const nam
  for(let add=1;add<=7;add++){const d=(day+add)%7,slots=s[DK[d]]||[];if(slots.length)return 'Closed today, next open '+names[d]+' '+slots.map(x=>hm12(x[0])+'–'+hm12(x[1])).join(', ')}
  return 'Closed today'}
 const srcLine=i=>{if(!i.source_label)return '';const u=i.evidence_url||web(i);return u?`<div class="src">Source: <a href="${esc(u)}" target="_blank" rel="noopener">${esc(i.source_label)}</a></div>`:`<div class="src">Source: ${esc(i.source_label)}</div>`};
+function fbSource(i){const tel=telOf(i),bits=[];
+ if(tel&&!i.phone_label)bits.push(`<span class="psrc">${i.phone_checked?`<span class="v-en">Phone number checked on their site</span><span class="v-cy" lang="cy">Rhif ffôn wedi’i wirio ar eu gwefan</span>`:`<span class="v-en">Phone number from Give Food</span><span class="v-cy" lang="cy">Rhif ffôn gan Give Food</span>`}</span>`);
+ if(i.source_label){const u=i.evidence_url||web(i);bits.push(u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(i.source_label)}</a>`:esc(i.source_label))}
+ if(acc(i)==='unconfirmed')bits.push(`<span class="v-en">Walk-in not confirmed – call before you go</span><span class="v-cy" lang="cy">Galw heibio heb ei gadarnhau – ffoniwch cyn mynd</span>`);
+ if(i.givefood&&webUrl(i.website))bits.push(`<a href="${esc(i.givefood)}" target="_blank" rel="noopener"><span class="v-en">Give Food page</span><span class="v-cy" lang="cy">Tudalen Give Food</span></a>`);
+ return bits.length?`<p class="xsrc"><b><span class="v-en">Source</span><span class="v-cy" lang="cy">Ffynhonnell</span>:</b> ${bits.join(' · ')}</p>`:''}
 const chkDates=[...new Set(items.map(i=>i.opening_times&&i.opening_times.checked_date).filter(Boolean))].sort();
 function shownLines(t){const src=(t.lines&&t.lines.length)?t.lines:[String(t.raw||'').trim()];return window.timesFmt?timesFmt.lines(src):src.map(x=>String(x).trim()).filter(Boolean)}  // display only: uniform day + 24-hour lines, originals kept when unsafe
 function times(i){const t=i.opening_times,s=parsed(i),td=DK[pageNow().getDay()];
@@ -232,7 +238,7 @@ const miles=km=>{const m=km*0.621371;return (m<10?m.toFixed(1):Math.round(m))+(m
 const webUrl=v=>{const s=typeof v==='string'?v.trim():'';if(!/^https?:\/\/\S+$/i.test(s))return null;try{const u=new URL(s);return /^https?:$/.test(u.protocol)&&/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(u.hostname)?u:null}catch(e){return null}};window.webUrl=webUrl;
 const web=i=>webUrl(i.website)?i.website.trim():'';
 const site=i=>web(i)||i.givefood;
-const tag=i=>acc(i)==='voucher'?'<div class="tag vtag" role="note">Food bank · voucher needed</div>':'<div class="tag" role="note">Food bank</div>';  // voucher-only per access.js (overrides/access CSVs)  // one label for every place clients can collect food
+const tag=i=>acc(i)==='voucher'?'<div class="tag vtag utag" role="note"><span class="v-en">Food bank · voucher needed</span><span class="v-cy" lang="cy">Banc bwyd · angen taleb</span></div>':'<div class="tag utag" role="note"><span class="v-en">Food bank</span><span class="v-cy" lang="cy">Banc bwyd</span></div>';  // voucher-only per access.js. Type label; the How to get in row repeats voucher / walk-in.
 // B30's warehouse wording is locked exactly as approved (📦 included); other donation-only labels use the line icon
 const ncl=i=>i.id==='b30-south-birmingham'?`📦 ${esc(i.label_en)}`:`${IC('box')}<span>${esc(i.label_en)}</span>`;
 const telOf=i=>i.tel!==undefined?(/^0\d{9,10}$/.test(i.tel)?i.tel:''):(i.phone||'').replace(/[^\d+]/g,'');  // build sets tel = first valid UK number
@@ -245,28 +251,39 @@ function ukfmt(v){const s=String(v==null?'':v).trim(),m=s.match(/^(?:\+44\s?\(0\
   if(/^0[17]/.test(d))return d.slice(0,5)+' '+d.slice(5);return s}
  if(d.length===10){if(/^0[58]00/.test(d))return d.slice(0,4)+' '+d.slice(4);if(/^01/.test(d))return d.slice(0,5)+' '+d.slice(5)}
  return s}
-const ph1=i=>esc(String(i.phone||'').split(' or ')[0]),phAlt=i=>String(i.phone||'').includes(' or ')?`<small class="psrc palt">Or: ${esc(String(i.phone).split(' or ').slice(1).join(', '))}</small>`:'';
+const ph1=i=>esc(ukfmt(String(i.phone||'').split(' or ')[0])),phAlt=i=>String(i.phone||'').includes(' or ')?`<small class="psrc palt">Or: ${String(i.phone).split(' or ').slice(1).map(x=>esc(ukfmt(x))).join(', ')}</small>`:'';
 /* Optional phone label (overrides/phone_labels.json, or phone_label on a shelter/warm-space contact).
    Shown in full under the number on the list card and the pin pop-up. As written when it ends in number/line
    ('Library service line', 'Central service line'); otherwise 'Number for …'. Welsh via the text walker. */
-function phLabText(lab){lab=String(lab==null?'':lab).trim();if(!lab)return'';if(/(number|line)$/i.test(lab))return lab;return 'Number for '+lab}
-const phLab=i=>{const t=phLabText(i&&i.phone_label);return t?`<p class="plab">${esc(t)}</p>`:''};
+function phLabText(lab){lab=String(lab==null?'':lab).trim();if(!lab)return'';if(/(number|line)/i.test(lab))return lab;return 'Number for '+lab}
+const phLab=i=>{const t=phLabText(i&&i.phone_label);return t?`<span class="plab">${esc(t)}</span>`:''};
 window.phLab=phLab;window.phLabText=phLabText;
 const todayLine=i=>{const s=parsed(i),td=DK[pageNow().getDay()],t=i.opening_times;if(s){const r=s[td]||[];if(r.length)return `<div class="ptd">${IC('clock')}<b>Today:</b> ${r.map(x=>x.join('–')).join(', ')}${t&&t.notes&&t.notes[td]?' '+esc(t.notes[td]):''}</div>`;if(dayClosed(i,td))return `<div class="ptd">${IC('clock')}<b>Today:</b> Closed</div>`;return ''}
  return t&&t.status==='TIMES_TEXT_ONLY'&&t.raw?(i.source_label?`<div class="ptd">${IC('clock')}${shownLines(t).map(esc).join('<br>')}</div>`:`<div class="ptd">${IC('clock')}Check times on their website</div>`):''};
+function webBtn(i){const u=webUrl(i.website),href=u?i.website.trim():(i.givefood||'');if(!href)return'';const host=u?u.hostname.replace(/^www\./i,''):'';
+ return `<a class="btn web" href="${esc(href)}" target="_blank" rel="noopener"><span class="v-en">Website</span><span class="v-cy" lang="cy">Gwefan</span>${host?`<span class="xdom">${esc(host)}</span>`:''}</a>`}
+function placeActs(i,tel){const dir=`<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>`;
+ const call=tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span></a>`:!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:'';
+ const share=window.V3?V3.share(i):'';
+ return `<div class="xacts">${dir}${call}${webBtn(i)}${share}</div>`}
 function card(i,dist){const tel=telOf(i);
- if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div><h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${esc(i.address)}</p>
+ const phoneHtml=[i.phone_label?phLab(i):'',phAlt(i)].filter(Boolean).join(' · ');
+ const phoneNumber=tel?`<span class="xph">${ph1(i)}</span>`:'';
+ const top=window.cardTop?cardTop('fb',i):tag(i);
+ const where=window.UFacts?UFacts.addr(i):esc(i.address);
+ const facts=window.UFacts?UFacts.block('fb',i,{phoneHtml,phoneNumber}):'';
+ const checked=window.UFacts?UFacts.checked(i):'';
+ if(nc(i))return `<div class="ncb" role="note">${ncl(i)}</div>${top}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}<p>${where}</p>
  <div class="lh">Get food at:</div>${(i.centres||[]).length?'<ul class="cen">'+i.centres.map(c=>`<li><a href="#" data-cid="${esc(c.id)}">${esc(c.name)}</a><span>${esc(c.address)}</span>${c.lat!=null&&c.lng!=null?`<a class="btn cdir" href="${gmaps(c)}" target="_blank" rel="noopener">Directions</a>`:''}</li>`).join('')+'</ul>':'<p>Contact the food bank for where to get food.</p>'}
- <div class="links">${site(i)?`<a href="${esc(site(i))}" target="_blank" rel="noopener">Their website</a>`:''}${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}<small>Phone (to donate or ask)</small></a>${phAlt(i)}${phLab(i)}`:''}${window.repB?repB('fb',i):''}`;
- return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${tag(i)}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
- ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${esc(i.address)}</p>
+ ${facts}${checked}
+ ${tel?`<div class="xacts"><a class="btn call" href="tel:${esc(tel)}">${IC('phone')}<span class="xnum">${ph1(i)}</span><small>Phone (to donate or ask)</small></a>${webBtn(i)}</div>`:(webBtn(i)?`<div class="xacts">${webBtn(i)}</div>`:'')}${window.repB?repB('fb',i):''}${fbSource(i)}`;
+ return `${i.notice?`<div class="ncb" role="note">${esc(i.notice)}</div>`:''}${top}${window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dist!=null?`<div class="d">${miles(dist)}</div>`:''}
+ ${i.name!==i.foodbank?`<p class="sub">Part of ${esc(i.foodbank)}</p>`:''}<p>${where}</p>
  ${i.moved_to_postcode?'<p class="warn">Pin placed at the postcode centre. Check the address.</p>':''}
- <a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>
- ${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a>${phAlt(i)}${i.phone_label?phLab(i):`<small class="psrc">${i.phone_checked?'Phone number checked on their site':'Phone number from Give Food'}</small>`}`:''}${!tel&&i.fb_page?`<a class="btn call xfbk" data-ph="1" data-fb="1" data-off="1" href="${esc(i.fb_page)}" target="_blank" rel="noopener" aria-label="Send a message on Facebook"><span>Send a message</span></a>`:''}
- ${site(i)?`<div class="links"><a href="${esc(site(i))}" target="_blank" rel="noopener">${i.source_label?'Source':'Their website'}</a>${i.givefood?`<a href="${esc(i.givefood)}" target="_blank" rel="noopener">Give Food page</a>`:''}</div>`:''}
- ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${times(i)}<div class="note">Times change, call before you go.</div>${!nc(i)&&acc(i)==='unconfirmed'?'<div class="sub">Walk-in not confirmed – call before you go</div>':''}${window.repB?repB('fb',i):''}`}
-function pop(i){return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:tag(i)}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div style="font-weight:700">${miles(dists[i._k])}</div>`:''}<a class="btn gm" href="${gmaps(i)}" target="_blank" rel="noopener">Directions</a>${!nc(i)&&telOf(i)?`<a class="btn call" href="tel:${esc(telOf(i))}">${IC('phone')}${ph1(i)}</a>${phLab(i)}`:''}${nc(i)?'':todayLine(i)}<div style="margin-top:6px">${esc(i.address)}</div>${srcLine(i)}${window.repB?repB('fb',i):''}</div>`}
+ ${F.open&&!parsed(i)?(i.opening_times&&i.opening_times.status==='TIMES_TEXT_ONLY'&&i.opening_times.raw?(i.source_label?`<div class="tnl">${shownLines(i.opening_times).map(esc).join('<br>')}</div>`:'<div class="tnl">Check times</div>'):'<div class="tnl"><a href="faq.html#times">Call for opening times</a></div>'):''}${facts||times(i)}${checked}
+ ${placeActs(i,tel)}
+ ${window.repB?repB('fb',i):''}${fbSource(i)}`}
+function pop(i){const tel=telOf(i);const phoneHtml=!nc(i)?[i.phone_label?`${phLab(i)}`:'',phAlt(i)].filter(Boolean).join(' · '):'';const phoneNumber=!nc(i)&&tel?`<span class="xph">${ph1(i)}</span>`:'';const facts=!nc(i)&&window.UFacts?UFacts.block('fb',i,{phoneHtml,phoneNumber}):'';const checked=!nc(i)&&window.UFacts?UFacts.checked(i):'';const top=window.cardTop?cardTop('fb',i):tag(i);const where=window.UFacts?UFacts.addr(i):esc(i.address);const src=!nc(i)?fbSource(i):'';return `<div class="pop">${nc(i)?`<div class="ncb">${ncl(i)}</div>`:''}${top}${!nc(i)&&window.V3?V3.badge('fb',i):''}<h3>${esc(i.name)}</h3>${dists[i._k]!=null?`<div class="d">${miles(dists[i._k])}</div>`:''}<p>${where}</p>${facts}${checked}${nc(i)?'':placeActs(i,tel)}${window.repB?repB('fb',i):''}${src}</div>`}
 const map=L.map('map').setView([54.5,-3.2],5);
 /* Dean 25 Oct 19:16 (Instagram iPhone): map showed the whole world after a search. A fit done while the map box is hidden ('List only') or
    0 px high (in-app browser toolbars/header still laying out) zooms Leaflet out to the world. So: never zoom out past the UK, never fit
@@ -296,7 +313,7 @@ const whIcon=L.divIcon({className:'pin wh',html:'<svg width="30" height="30" vie
 const icFor=k=>nc(items[k])?whIcon:icon;
 items.forEach((i,k)=>{i._k=k;if(i.venues_vary||typeof i.lat!=='number'||typeof i.lng!=='number'){markers[k]=null;return}const m=L.marker([i.lat,i.lng],{icon:icFor(k),title:i.name});m._k=k;m.on('click',()=>select(k,false));markers[k]=m});
 map.addLayer(cl);
-const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};
+const ACC=window.FB_ACCESS||{},acc=i=>ACC[i.id]||'unconfirmed',F={walk:false,vouch:false,open:false};window.acc=acc;
 const accOk=i=>{if(!F.walk&&!F.vouch)return true;if(nc(i))return false;const a=acc(i);return (F.walk&&a!=='voucher')||(F.vouch&&a==='voucher')};
 const vis=k=>{const i=items[k];return !i.venues_vary&&typeof i.lat==='number'&&typeof i.lng==='number'&&accOk(i)&&(!F.open||(!closedToday(i)&&!nc(i)))};  // Dean 25 Oct 09:37: Open today hides places closed today; no-times places stay; always nearest first. Venues that vary are listed under the results, never pinned.
 let lastNear=null;
@@ -307,7 +324,7 @@ const applyF=()=>{const on=F.open;refreshClusters();
  closeSheet();if(lastNear)nearest(...lastNear)};
 function select(k,fromList){const i=items[k],m=markers[k];if(selected!=null)markers[selected].setIcon(icFor(selected));selected=k;m.setIcon(nc(i)?whIcon:selIcon);
  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('sel',c.dataset.k==k));
- const show=()=>{if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;$('sheetBody').scrollTop=0;
+ const show=()=>{if(!i||!m){closeSheet();return}if(narrow()){$('sheetBody').innerHTML=`<div class="card">${card(i,dists[k])}</div>`;$('sheet').classList.add('open');$('sheet').setAttribute('aria-hidden','false');$('sheet').scrollTop=0;$('sheetBody').scrollTop=0;
    const h=$('sheet').offsetHeight,y=map.latLngToContainerPoint(m.getLatLng()).y;map.panTo(m.getLatLng(),{animate:!fromList});
   }else{map.closePopup();m.unbindPopup();m.bindPopup(pop(i),{maxWidth:280,autoPanPaddingTopLeft:[20,20],autoPanPaddingBottomRight:[20,20]}).openPopup()}};
  if(fromList)cl.zoomToShowLayer(m,show);else show()}
@@ -344,7 +361,7 @@ function nearest(lat,lng,label,note,lad){lastNear=[lat,lng,label,note];try{windo
  if(!closedNear.length&&!area.length){box.hidden=true;box.innerHTML=''}else{box.hidden=false;const n=closedNear.length;
   box.innerHTML=(n?`<p class="otf">Filter on: open today, ${n} closed nearby hidden. <button type="button" id="otshow">Show all</button></p>`:'')+
    closedNear.map(x=>`<div class="otc" data-id="${esc(x.i.id)}"><h3>${esc(x.i.name)}</h3><div class="d">${miles(x.d)}</div><p>${esc(x.i.address)}</p><p class="otnext">${esc(nextOpenText(x.i))}</p></div>`).join('')+
-   area.map(i=>{const tel=telOf(i);return `<div class="otc ota" data-id="${esc(i.id)}"><h3>${esc(i.name)}</h3><p>Venues vary</p>${i.address&&i.address!=='Venues vary'?`<p>${esc(i.address)}</p>`:''}${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a><small class="psrc">${i.phone_label?(/(number|line)$/i.test(i.phone_label)?'':'Number for ')+esc(i.phone_label):''}</small>`:''}${srcLine(i)}</div>`}).join('')}
+   area.map(i=>{const tel=telOf(i);return `<div class="otc ota" data-id="${esc(i.id)}"><h3>${esc(i.name)}</h3><p>Venues vary</p>${i.address&&i.address!=='Venues vary'?`<p>${esc(i.address)}</p>`:''}${tel?`<a class="btn call" href="tel:${esc(tel)}">${IC('phone')}${ph1(i)}</a><small class="psrc">${i.phone_label?(/(number|line)/i.test(i.phone_label)?'':'Number for ')+esc(i.phone_label):''}</small>`:''}${srcLine(i)}</div>`}).join('')}
  document.querySelectorAll('.card h3').forEach(h=>{h.style.cursor='pointer';h.onclick=()=>select(+h.closest('.card').dataset.k,true)});
  window._fitB=L.latLngBounds([[lat,lng],...r.map(x=>[x.i.lat,x.i.lng])]).pad(0.2);map.fitBounds(window._fitB,{animate:false});msg(note||'');  // straight to the results: an animated fit / flyTo asks for a tile grid at every zoom in between, and the refit that follows cancels the animation anyway
  const go=window.__go;window.__go=false;const c=document.querySelector('#list .card');if(go&&window.v3scrollList){setTimeout(()=>v3scrollList(window.v3focus),0)}else if(go&&c){const rt=c.getBoundingClientRect();if(rt.top<0||rt.top>innerHeight*0.8){const y=rt.top+scrollY-Math.round(innerHeight*(innerWidth>=1024?0.2:0.45));scrollTo({top:Math.max(0,y),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}}  // UX 22 Oct: scroll only after an explicit search (Search/Enter, place pick, my location); type buttons and restores never move the page
@@ -429,14 +446,14 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
 (function(){const ch=$('chips'),wr=$('fwrap'),tab=$('ftab'),cnt=$('fcount');let st={};try{st=JSON.parse(localStorage.getItem('fbFilters')||'{}')}catch(e){}
  const save=()=>{try{const f={walk:!!F.walk,vouch:!!F.vouch};localStorage.setItem('fbFilters',JSON.stringify({f:f}))}catch(e){}};  // Dean 26 Oct: Open today is day-dependent, so it is not kept between visits. Walk-ins and Voucher still are.
  const badge=()=>{const n=Object.values(F).filter(Boolean).length;document.querySelectorAll('.tnote').forEach(e=>e.hidden=!F.open);$('openToday').parentElement.classList.toggle('on',!!F.open);cnt.textContent='· '+n;cnt.hidden=!n;{const cy=document.documentElement.lang==='cy';tab.setAttribute('aria-label',(cy?'Dangos hidlwyr':'Show filters')+(n?', '+n+(cy?' ymlaen':' on'):''))}};
- const sync=()=>{ch.querySelectorAll('[data-f]').forEach(b=>b.setAttribute('aria-pressed',String(!!F[b.dataset.f])));$('openToday').checked=F.open;badge()};
+ const sync=()=>{ch.querySelectorAll('[data-f]').forEach(b=>{if(!(b.dataset.f in F))return;b.setAttribute('aria-pressed',String(!!F[b.dataset.f]))});$('openToday').checked=F.open;badge()};
  // single source of truth for open/closed: #v3filt.fclosed + #ftab.hidden + aria-expanded; state per tab session (sessionStorage)
  const setFilters=(open,focus)=>{const closed=!open;window.fbFiltersClosed=closed;wr.classList.toggle('off',closed);const fl=document.getElementById('v3filt');if(fl)fl.classList.toggle('fclosed',closed);
   tab.hidden=open;tab.setAttribute('aria-expanded','false');$('fhide').setAttribute('aria-expanded','true');ch.style.transform='';ch.style.opacity='';
   ch.querySelectorAll('button').forEach(b=>b.tabIndex=closed?-1:0);try{sessionStorage.setItem('fbFclosed',closed?'1':'0')}catch(e){}if(focus)(closed?tab:$('fhide')).focus();save()};
  const setHidden=(h,focus)=>setFilters(!h,focus);window.fbSetFilters=setFilters;
  if(st.f)['walk','vouch'].forEach(k=>{if(k in st.f)F[k]=!!st.f[k]});F.open=false;sync();if(F.walk||F.vouch)applyF();else refreshClusters();{let c=false;try{c=sessionStorage.getItem('fbFclosed')==='1'}catch(e){}setFilters(!c)}
- ch.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;F[b.dataset.f]=!F[b.dataset.f];sync();applyF();save()});
+ ch.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b||!(b.dataset.f in F))return;F[b.dataset.f]=!F[b.dataset.f];sync();applyF();save()});
  window.fbBadge=badge;$('openToday').onchange=()=>{F.open=$('openToday').checked;badge();applyF();save()};document.addEventListener('click',e=>{if(!e.target.closest('#otshow'))return;e.preventDefault();$('openToday').checked=false;$('openToday').dispatchEvent(new Event('change'))});$('fhide').onclick=()=>setHidden(true,true);tab.onclick=()=>setHidden(false,true);
  ch.addEventListener('keydown',e=>{if(e.key==='Escape')setHidden(true,true);const bs=[...ch.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(i<0)return;if(e.key==='ArrowRight'){e.preventDefault();bs[Math.min(i+1,bs.length-1)].focus()}if(e.key==='ArrowLeft'){e.preventDefault();bs[Math.max(i-1,0)].focus()}});
  // vertical up-flick on the row; horizontal moves are left to native scroll (touch-action:pan-x)
@@ -449,7 +466,7 @@ const qs=new URLSearchParams(location.search);if(qs.get('q')){$('q').value=qs.ge
  let ty=null;tab.addEventListener('touchstart',e=>{ty=e.touches[0].clientY},{passive:true});tab.addEventListener('touchend',e=>{if(ty!=null&&e.changedTouches[0].clientY-ty>20)setHidden(false);ty=null});
 })();
 try{if(window.__hmStripHeal)window.__hmStripHeal()}catch(e){}
-</script><script data-hm src="layers.js?v=hbb117056d3a4" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=hc4ffa0c7d76a" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
+</script><script data-hm src="layers.js?v=h31f27b08ae41" type="text/plain"></script><script data-hm src="report.js" type="text/plain"></script><script data-hm src="register.js" type="text/plain"></script><script data-hm src="v3.js?v=hcc7d4cda4d2d" type="text/plain"></script><script data-hm src="showmore.js" type="text/plain"></script><script>/* Incident rest centres: preview with ?preview=emergency; live when incident_rest_centre_live.json has public and cards. */
 (function(){try{
 var q=new URLSearchParams(location.search),prev=q.get('preview')==='emergency';
 function attach(mode){document.documentElement.classList.add(mode==='preview'?'em-preview':'em-live');

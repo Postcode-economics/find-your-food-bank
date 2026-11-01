@@ -49,9 +49,9 @@ class WebsiteLink(PhoneQA):
                 pg.evaluate("([k, v]) => { items[k].website = v; select(k, true) }", [k, value])
                 until(pg, "document.getElementById('sheet').classList.contains('open')")
                 pg.wait_for_timeout(150)
-                theirs = pg.evaluate("""() => [...document.querySelectorAll('#sheetBody .links a')]
-                    .filter(a => a.textContent.trim() === 'Their website').map(a => a.getAttribute('href'))""")
-                # No real site: "Their website" falls back to the Give Food page, as it did for an empty field.
+                theirs = pg.evaluate("""() => [...document.querySelectorAll('#sheetBody a.btn.web')]
+                    .map(a => a.getAttribute('href'))""")
+                # No real site: the Website button falls back to the Give Food page.
                 self.assertEqual(theirs, [value.strip() if value in GOOD else gf], (name, value))
                 html = pg.evaluate("() => document.getElementById('sheetBody').innerHTML")
                 self.assertNotRegex(html, r'href="(https?://)?(We do|undefined|null|Facebook)', (name, value))

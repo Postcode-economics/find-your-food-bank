@@ -250,12 +250,12 @@ const openTodayL=(layer,i,now)=>{now=clockNow(now);if(i.upcoming||i.call_check)r
 window.V3={sched,status,badge,walk,share,strip,shutToday,openTodayL};
 // ---- food bank card + pop-up: status first, walking time, share. Donation-only sites get no open/closed badge (no client hours).
 const insAfterD=(h,add)=>/<div class="d">[^<]*<\/div>/.test(h)?h.replace(/(<div class="d">[^<]*<\/div>)/,'$1'+add):h.replace(/(<\/h3>)/,'$1'+add);
-const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return insAfterD(h,walk(d));
- h=badge('fb',i)+insAfterD(h,walk(d));
- /* 28 Oct QA F3: a no-phone card's only contact button (Facebook "Send a message") sat after Share, below the fold of the mobile sheet. It now comes straight after Directions, before Share. */
- const fbm=h.match(/<a class="btn call xfbk"[\s\S]*?<\/a>/);if(fbm)h=h.replace(fbm[0],'');
- return h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+(fbm?fbm[0]:'')+share(i))};
-const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);return nc(i)?h:h.replace('<div class="pop">','<div class="pop">'+badge('fb',i)).replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i))};  // Dean 25 Oct design lock: pop-up has Share too
+const oc=window.card;window.card=function(i,d){let h=oc.apply(this,arguments);if(nc(i))return h.includes('v3wk')?h:insAfterD(h,walk(d));
+ if(!h.includes('v3st'))h=badge('fb',i)+h;if(!h.includes('v3wk'))h=insAfterD(h,walk(d));
+ if(!h.includes('v3share')){const fbm=h.match(/<a class="btn call xfbk"[\s\S]*?<\/a>/);if(fbm&&!h.includes('xacts'))h=h.replace(fbm[0],'');
+  h=h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+(fbm&&!h.includes('xacts')?fbm[0]:'')+share(i))}
+ return h};
+const op=window.pop;window.pop=function(i){let h=op.apply(this,arguments);if(nc(i))return h;if(!h.includes('v3st'))h=h.replace('<div class="pop">','<div class="pop">'+badge('fb',i));if(!h.includes('v3share'))h=h.replace(/(<a class="btn gm"[^>]*>[^<]*<\/a>)/,'$1'+share(i));return h};
 const on0=window.nearest;window.nearest=function(){const r=on0.apply(this,arguments);try{const l=document.getElementById('list'),cs=[...l.querySelectorAll(':scope>.card')];
  const sc=c=>{const i=items[+c.dataset.k];if(!i||nc(i))return 1;return({open:0,unknown:1,closed:2})[status('fb',i).st]};
  cs.map((c,n)=>({c,n,s:sc(c)})).sort((a,b)=>a.n-b.n).forEach(x=>{x.c.classList.toggle('v3closed',x.s===2);l.append(x.c)})}catch(e){}return r};
@@ -272,8 +272,8 @@ const ukH=()=>{const q=new URLSearchParams(location.search).get('clock');if(q&&/
  const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());return +p.find(x=>x.type==='hour').value+(+p.find(x=>x.type==='minute').value)/60};
 window.V3.ukH=ukH;
 
-function mark(k){document.documentElement.dataset.v3k=k;/* 28 Oct QA B1: CSS shows only the chosen type's 'Nearest' list */document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){};document.querySelectorAll('#chips [data-f]').forEach(e=>{e.classList.toggle('v3off',k!=='fb');e.inert=k!=='fb';e.setAttribute('aria-disabled',String(k!=='fb'))});['fwrap','ftab','fhide'].forEach(id=>{const e=document.getElementById(id);if(e){e.inert=false;e.classList.remove('v3off');e.removeAttribute('aria-disabled')}})}  /* 25 Oct live bug: only the food-bank-only chips dim; the ✕ and the Filters tab always work */  // round 4: food bank filters dim (not vanish) for the other types: no blank gap, no shift  // round 2: filter row lives above the results (below the map), so hiding it never moves the buttons or the map
-function want(k,noGo){window.v3focus=k;const on=b=>b.getAttribute('aria-pressed')==='true';
+function mark(k){document.documentElement.dataset.v3k=k;/* 28 Oct QA B1: CSS shows only the chosen type's 'Nearest' list */document.querySelectorAll('.v3b').forEach(b=>{const on=b.dataset.l===k;b.setAttribute('aria-checked',String(on));b.tabIndex=on?0:-1});try{localStorage.setItem('v3layer',k)}catch(e){};document.querySelectorAll('#chips [data-f]').forEach(e=>{e.classList.toggle('v3off',k!=='fb');e.inert=k!=='fb';e.setAttribute('aria-disabled',String(k!=='fb'))});document.querySelectorAll('#chips [data-f=walk],#chips [data-f=vouch]').forEach(e=>{e.hidden=k==='sh'});document.querySelectorAll('#chips [data-f=shost],#chips [data-f=youth],#chips [data-f=sday]').forEach(e=>{const on=k==='sh';e.hidden=!on;e.classList.toggle('v3off',!on);e.inert=!on;e.setAttribute('aria-disabled',String(!on))});['fwrap','ftab','fhide'].forEach(id=>{const e=document.getElementById(id);if(e){e.inert=false;e.classList.remove('v3off');e.removeAttribute('aria-disabled')}})}  /* 25 Oct live bug: only the food-bank-only chips dim; the ✕ and the Filters tab always work */  // round 4: food bank filters dim (not vanish) for the other types: no blank gap, no shift  // round 2: filter row lives above the results (below the map), so hiding it never moves the buttons or the map
+function want(k,noGo){window.v3focus=k;if(window.holdSheet)holdSheet();else{window.__holdSheet=Date.now()+600;if(window.closeSheet)closeSheet()}const note=document.getElementById('xnopin');if(note&&k!=='sh')note.hidden=true;const on=b=>b.getAttribute('aria-pressed')==='true';
  ['fb','sh','ws'].forEach(x=>{const b=document.querySelector(`.xt[data-l=${x}]`);if(b&&on(b)!==(x===k))b.click()});
  mark(k);if(noGo)return;window.__go=false;
  // UX 22 Oct (Dean): a type tap never moves the page or asks for location; it re-runs the current search in place at once (no 900ms delay)
@@ -357,7 +357,7 @@ addEventListener('load',()=>setTimeout(()=>{if(LN())return;let s=null;try{s=JSON
 try{map.options.wheelPxPerZoomLevel=180;map.options.wheelDebounceTime=80;map.scrollWheelZoom.disable();const mc=map.getContainer();map.on('click focus',()=>map.scrollWheelZoom.enable());mc.addEventListener('mouseleave',()=>map.scrollWheelZoom.disable());mc.addEventListener('blur',()=>map.scrollWheelZoom.disable())}catch(e){}
 // ---- desktop (>=1024px): map and results side by side; phones keep the single column (CSS in v3.css)
 // 27 Oct 2026: moving the map into the split runs one frame later, so the header rebuild above and the map move are separate iPhone frames.
-requestAnimationFrame(()=>setTimeout(()=>{const m=document.getElementById('map'),sp=document.createElement('div'),col=document.createElement('div');sp.id='v3split';col.id='v3col';m.before(sp);sp.append(m,col);
+requestAnimationFrame(()=>setTimeout(()=>{const m=document.getElementById('map'),sp=document.createElement('div'),col=document.createElement('div'),wrap=document.createElement('div');sp.id='v3split';col.id='v3col';wrap.id='mapcol';m.before(sp);sp.append(wrap,col);wrap.append(m);if(window.mountShelterStrip)window.mountShelterStrip();
  let n=sp.nextElementSibling;while(n&&!(n.classList&&n.classList.contains('share'))&&n.tagName!=='FOOTER'){const nx=n.nextElementSibling;col.append(n);n=nx}
  const xb=document.getElementById('xbefore'),fw=document.getElementById('fwrap'),ft=document.getElementById('ftab'),chg=document.getElementById('v3chg');
  col.prepend(chg);  // round 3 (Dean): filters, 'Always call' and List only/Light mode back above the map, right under the type buttons

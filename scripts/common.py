@@ -135,6 +135,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
     for x in (prev or {}).get("items", []):  # seed from what is live now (its last confirmed fetch)
         if x.get("fetched_at") and x["id"] not in LC and not x.get("grace"): LC[x["id"]] = x["fetched_at"]
     graced = []
+    import place_facts
     for x in fresh:
         v = verified.get(x["id"])
         has_evidence = bool(v and v.get("evidence_url") and (v.get("day_time_quote") or v.get("quote")))
@@ -172,6 +173,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
                     x["groups"] = g
                     x["groups_source"] = v.get("evidence_url") or v.get("evidence_name") or ""
             if v.get("access"): x["referral"] = v["access"][0].upper() + v["access"][1:]
+            place_facts.copy_wheelchair(x, v)  # explicit only; a missing wheelchair stays missing
             pub.append(x)
         elif unverified and x["id"] in unverified and (not valid_until or run_day <= valid_until(dict(verified_on=unverified[x["id"]].get("checked_on", "2000-01-01")))) \
                 and unverified[x["id"]].get("sign_url") and not x.get("ended") and not x.get("flag_closed"):
@@ -182,6 +184,7 @@ def verification_gate(fresh, prev, verified, run_day, pending_path, autocheck=No
             elif rc: x["fetched_at"] = rc.get("fetched_at")
             if rc and rc.get("ok") and not grace: x["last_verified"] = run_day
             if u.get("access_type"): x["access_type"] = u["access_type"]
+            place_facts.copy_wheelchair(x, u)
             for k in ("phone", "scheme_start", "scheme_end", "scheme_dates", "call_check"):  # hand-checked fixes on tier-2 entries persist every run
                 if u.get(k): x[k] = u[k]
             pub.append(x)
