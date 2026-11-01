@@ -10,7 +10,11 @@ sys.path.insert(0, os.path.join(ROOT, 'scripts'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from test_showmore_layers import until
-from test_phone_qa_28oct import pc_stub
+
+# goto() returns when the map pane exists. v3.js is a later deferred frame, so a
+# click on .v3b in that gap is a no-op and the search stays on food banks.
+LAYER_READY = "() => window.SHELTERS && document.querySelector('.v3b[data-l=sh][aria-checked=true]')"
+SW_CLAIMED = "() => !!(navigator.serviceWorker && navigator.serviceWorker.controller)"
 
 SYMBOL_JS = r"""() => {
   const bag = 'M9 13.5h14l-1.3 10.5H10.3z';
@@ -20,11 +24,6 @@ SYMBOL_JS = r"""() => {
     const svg = document.querySelector(sel);
     return svg && (svg.innerHTML || '').includes(needle);
   };
-  const anyShCardIcon = () => [...document.querySelectorAll('#xlist .card.xsh .xmkbox svg')].some(svg => {
-    const h = svg.innerHTML || '';
-    return h.includes('M3 3h26v26H3z')
-      && (h.includes('M8 15.5l8-7.5') || h.includes('M16 8v2.8') || (h.includes('>16<') && h.includes('>25<')));
-  });
   const pinSym = (sel, needle) => {
     const el = document.querySelector(sel);
     const html = (el && el.innerHTML) || '';
@@ -38,20 +37,17 @@ SYMBOL_JS = r"""() => {
     map: !!document.querySelector('#map .leaflet-pane'),
     fbCard: cardSym('#list > .card .xmkbox svg', bag),
     fbPin: pinSym('.leaflet-marker-icon.pin svg', bag),
-    shCard: anyShCardIcon(),
+    shCard: cardSym('#xlist > .card.xsh .xmkbox svg', house),
     shPin: pinSym('.leaflet-marker-icon.xpin svg', house),
     cards: document.querySelectorAll('#xlist .card.xsh').length,
     pass: !navigator.onLine
       && !!document.querySelector('#map .leaflet-pane')
-      && anyShCardIcon()
+      && cardSym('#xlist > .card.xsh .xmkbox svg', house)
       && document.querySelectorAll('#xlist .card.xsh').length > 0
       && (pinSym('.leaflet-marker-icon.xpin svg', house)
-          || pinSym('.leaflet-marker-icon.xpin svg', 'M16 8v2.8')
-          || anyShCardIcon()),
+          || cardSym('#xlist > .card.xsh .xmkbox svg', house)),
   };
 }"""
-
-LAYER_READY = "() => window.SHELTERS && document.querySelector('.v3b[data-l=sh][aria-checked=true]')"
 
 
 def _have_pw():
@@ -81,7 +77,6 @@ class OfflineLayerIcons(unittest.TestCase):
         if not live:
             CB.stub_map_tiles(ctx)
         ctx.add_init_script("try{localStorage.setItem('v3layer','sh')}catch(e){}")
-        ctx.route('https://api.postcodes.io/**', pc_stub)
         pg = ctx.new_page()
         pg.goto(base + '/?nocount', wait_until='load', timeout=120000)
         if not live:
@@ -89,14 +84,14 @@ class OfflineLayerIcons(unittest.TestCase):
         assert until(pg, LAYER_READY, None, 60), 'shelter layer not ready'
         pg.fill('#q', 'M1 1AE')
         pg.press('#q', 'Enter')
-        assert until(pg, "() => document.querySelectorAll('#xlist .card.xsh .xmkbox').length > 0", None, 60)
+        pg.wait_for_selector('#xlist .card.xsh .xmkbox', timeout=60000)
         if not live:
             for _ in range(40):
                 if pg.evaluate('() => !!(window.LAYERS && LAYERS.sh && LAYERS.sh.on)'):
                     break
                 pg.wait_for_timeout(500)
         ctx.set_offline(True)
-        pg.reload(wait_until='domcontentloaded', timeout=120000)
+        pg.reload(wait_until='load', timeout=120000)
         pg.wait_for_timeout(4000)
         res = pg.evaluate(SYMBOL_JS)
         shot = os.path.join(ART, 'offline-icons-%s.png' % ('live' if live else 'local'))
@@ -141,8 +136,6 @@ class OfflineLayerIcons(unittest.TestCase):
             host = urlparse(r.request.url).hostname or ''
             if host in ('127.0.0.1', 'localhost'):
                 return r.continue_()
-            if 'api.postcodes.io' in r.request.url:
-                return pc_stub(r)
             if 'tile.openstreetmap.org' in r.request.url:
                 return r.fulfill(status=200, body=CB.TILE_PNG, headers={'content-type': 'image/png', 'access-control-allow-origin': '*'})
             return r.abort()
@@ -158,9 +151,10 @@ class OfflineLayerIcons(unittest.TestCase):
                 assert until(pg, LAYER_READY, None, 60), 'shelter layer not ready'
                 pg.fill('#q', 'M1 1AE')
                 pg.press('#q', 'Enter')
-                assert until(pg, "() => document.querySelectorAll('#xlist .card.xsh .xmkbox').length > 0", None, 60)
+                pg.wait_for_selector('#xlist .card.xsh .xmkbox', timeout=60000)
+                assert until(pg, SW_CLAIMED, None, 60), 'service worker did not claim'
                 ctx.set_offline(True)
-                pg.reload(wait_until='domcontentloaded', timeout=120000)
+                pg.reload(wait_until='load', timeout=120000)
                 pg.wait_for_timeout(5000)
                 res = pg.evaluate(SYMBOL_JS)
                 self.assertTrue(res.get('pass'), res)
