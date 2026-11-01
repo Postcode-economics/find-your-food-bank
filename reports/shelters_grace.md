@@ -1,5 +1,22 @@
-# shelters: kept on 48-hour grace (2026-11-01T03:41:38+00:00)
+# shelters: kept on 48-hour grace (2026-11-01T17:54:28+00:00)
 
 Source page briefly unreachable this run; kept because it was confirmed within the last 48 hours.
 
-None this run.
+- Glass Door Winter Night Shelters (3 circuits) (glassdoor-winter-night-shelters): source unreachable this run (HTTP 403); last confirmed 2026-11-01T03:40:26+00:00 (14.2h ago)
+- Two Saints Day Centre (man-two-saints-day-centre): source unreachable this run (HTTP 403); last confirmed 2026-11-01T03:40:26+00:00 (14.2h ago)
+- Positive Pathways drop-in (Depaul) (man-positive-pathways-drop-in-depaul): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- Dominion Community Hub (man-dominion-community-hub): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- The Brick (Queen's Hall Action on Poverty) day centre (man-the-brick-queen-s-hall-action-on-poverty-day-centr): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- St Petrocs Truro Resource Centre (man-st-petrocs-truro-resource-centre): source unreachable this run (HTTP 403); last confirmed 2026-11-01T03:40:26+00:00 (14.2h ago)
+- St Petrocs Breadline Centre (man-st-petrocs-breadline-centre): source unreachable this run (HTTP 403); last confirmed 2026-11-01T03:40:26+00:00 (14.2h ago)
+- Providence Row (Dellow Centre) (man-providence-row-dellow-centre): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- Padley@YMCA Derbyshire Community Hub (man-padley-ymca-derbyshire-community-hub): source unreachable this run (HTTP 403); last confirmed 2026-11-01T03:40:26+00:00 (14.2h ago)
+- Doorway (young people 16-25) (man-doorway-young-people-16-25): source unreachable this run (HTTP 403); last confirmed 2026-11-01T03:40:26+00:00 (14.2h ago)
+- Trafalgar House (Sanctuary) (man-trafalgar-house-sanctuary): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- Home4Good Centre (Dunfermline) (man-home4good-centre-dunfermline): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- Victoria House (man-victoria-house): source unreachable this run (HTTP 403); last confirmed 2026-10-31T00:00:00+00:00 (41.9h ago)
+- Calderwood House (man-google-calderwood-house): source unreachable this run (HTTP 403); last confirmed 2026-11-01T00:00:00+00:00 (17.9h ago)
+- Homeless Accommodation – Tai Gogledd Cymru (man-google-homeless-accommodation-tai-gogledd-cymru): source unreachable this run (HTTP 403); last confirmed 2026-11-01T00:00:00+00:00 (17.9h ago)
+- Day Centre (man-google-day-centre): source unreachable this run (HTTP 403); last confirmed 2026-11-01T00:00:00+00:00 (17.9h ago)
+- KiP Telford (man-kip-telford): source unreachable this run (HTTP 403); last confirmed 2026-11-01T00:00:00+00:00 (17.9h ago)
+- Nomad Centre (YMCA Lincolnshire) (man-nomad-centre-ymca-lincolnshire): source unreachable this run (HTTP 403); last confirmed 2026-11-01T00:00:00+00:00 (17.9h ago)

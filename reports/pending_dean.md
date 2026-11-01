@@ -213,8 +213,13 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 - Alt-Space (LA3 1QE) - Lancashire feed not yet confirmed for 2026-27 - Lancashire County Council warm spaces
 - CPA  SOCIAL CLUB (BB4 8QT) - Lancashire feed not yet confirmed for 2026-27 - Lancashire County Council warm spaces
 
-## shelters (0)
+## shelters (5)
 
+- Salford Foyer (M6 5WX) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no sourced 'who it's for' - https://www.openstreetmap.org/way/979361293
+- St Anne's Hostel (B12 0RY) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://homeless.org.uk/homeless-england/service/st-annes-hostel/
+- St George's Crypt – emergency accommodation (LS1 3BR) - new place - waiting for your OK (add id to overrides/approved_new_places.json) - https://leedsstar.co.uk/charity/st-georges-crypt-continues-lifeline-for-leeds-most-vulnerable/
+- St Mungo's (SE1 0ES) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no sourced 'who it's for' - https://www.openstreetmap.org/way/753792449
+- YMCA Lincolnshire – Nomad Centre (LN2 5AR) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no sourced 'who it's for' - https://homeless.org.uk/homeless-england/service/ymca-lincolnshire-nomad-trust-night-shelter/
 
 
 <!-- times review -->
@@ -387,80 +392,14 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck sh -->
-## Opening-times changes from the refresh (sh): 0 auto-applied, 24 held
+## Opening-times changes from the refresh (sh): 0 auto-applied, 2 held
 
-- **Portsmouth Rough Sleeping Hub (Society of St James / PCC)** (`man-portsmouth-rough-sleeping-hub-society-of-st-james-`, PO1 3HL): own site now Monday to Thursday 8.30am to 5pm | Friday 8.30am to 4pm  
-  source: https://www.portsmouth.gov.uk/services/housing/looking-for-a-home/if-you-are-at-risk-of-becoming-homeless/sleeping-rough  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
-- **Urban Outreach - Street Life drop-in (Amber Centre)** (`man-urban-outreach-street-life-drop-in-amber-centre`, BL1 2PU): own site now Wednesday 1 - 3pm  
-  source: https://www.urbanoutreach.co.uk/street-life/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **Petrus Hub** (`man-petrus-hub`, OL16 1QG): own site now Mon, Tue, Thu, Fri 9am – 4pm | Wed 9am – 1pm  
-  source: https://www.oldham.gov.uk/info/200257/homelessness/796/drop_in_centres_shelters_and_food_providers  
-  why held: own site lists several centres (21 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; would cut known hours to fewer days (drops Sat, Sun) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
-- **ALABARE Unity House Drop-In** (`man-alabare-unity-house-drop-in`, SN15 3DJ): own site now Monday to Friday 10 am – 4 pm | Saturday & Sunday 1 pm – 3 pm  
-  source: https://alabare.co.uk/help-information/wiltshire/  
-  why held: own site lists several centres (13 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; times not read identically on 2 separate runs yet
-- **Somewhere To Go Project** (`man-somewhere-to-go-project`, BS23 1NA): own site now Mondays, Wednesdays and Fridays 10.30 - 2.30pm  
-  source: https://www.ascendpathways.org.uk/Somewhere-To-Go-Project/Pathway-Services/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **P3 Stroud Community Based Support drop-in** (`man-p3-stroud-community-based-support-drop-in`, GL5 3TJ): own site now Mon–Fri 9am–5pm  
-  source: https://p3charity.org/services/stroud-community-based-support  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
-- **The Hope Centre Minehead** (`man-the-hope-centre-minehead`, TA24 8BS): own site now Tuesday & Friday 10.30am - 2pm  
-  source: https://www.thehopecentreminehead.org.uk/  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **Doorway (young people 16-25)** (`man-doorway-young-people-16-25`, CV11 5QJ): own site now Friday 9:00am-4:30pm  
-  source: https://www.doorway.org.uk/contact  
-  why held: times not read identically on 2 separate runs yet
-- **Gloucester City Mission Homeless Day Provision** (`man-gloucester-city-mission-homeless-day-provision`, GL1 1QN): own site now Monday, Tuesday, Thursday 10am-3pm | Wednesday 11am - 1:00pm | Friday 10am - 1:30pm  
-  source: https://www.gloscitymission.org.uk/what-we-do/homeless-day-provision/  
-  why held: times not read identically on 2 separate runs yet
-- **999 Club – The Gateway** (`man-999-club-the-gateway`, SE8 4PA): own site now Monday to Friday 9am–3pm  
-  source: https://999club.org/get-help-now/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
-- **Action for Barnsley Homeless** (`man-action-for-barnsley-homeless`, S70 4JZ): own site now Monday 4pm - 8pm | Wednesday 10am - 12pm  
-  source: https://www.livewellbarnsley.co.uk/action-for-barnsley-homelessness/  
-  why held: times not read identically on 2 separate runs yet
-- **SHOC (Slough Homeless Our Concern)** (`man-shoc-slough-homeless-our-concern`, SL1 1TX): own site now Monday – Friday 10:00 – 14:30 | Saturday 11:00 – 14:00  
-  source: https://www.sloughhomeless.org.uk/contact-us/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
-- **HUG Safe Space (Bexhill & Rother Homelessness Unity Group)** (`man-hug-safe-space-bexhill-rother-homelessness-unity-g`, TN40 1JG): own site now Saturday 1 pm - 3 pm  
-  source: https://bexhillhug.org.uk/  
-  why held: times not read identically on 2 separate runs yet
-- **Highway House** (`man-highway-house`, N15 4QL): own site now Tuesday and Friday 12pm to 4pm  
-  source: https://haringey.gov.uk/adult-social-care/adult-social-care-directory/highway-house  
-  why held: day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **First Stop Centre** (`man-first-stop-centre`, CM7 9AE): own site now Monday 10:30AM- 1:30PM | Tuesday 10:30AM-1:30PM | Thursday 10:30AM-1:30PM | Friday 10:30AM-1:30PM  
-  source: https://www.firststopcentre.com/location-and-opening-times  
-  why held: times not read identically on 2 separate runs yet
-- **The Haven Day Centre / Swindon Night Shelter** (`man-the-haven-day-centre-swindon-night-shelter`, SN3 1AR): own site now Monday - Friday 9.30am to 2pm  
-  source: https://swindonnightshelter.org.uk/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
-- **The Forge Project** (`man-the-forge-project`, DN16 1UB): own site now Monday to Friday 8-9am | Saturday and Sunday 8am-12pm  
-  source: https://www.theforgeproject.co.uk/get-in-touch/  
-  why held: new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); times not read identically on 2 separate runs yet
-- **Taunton Open Door** (`man-taunton-open-door`, TA1 3QB): own site now Monday to Friday 9.30am – 12.45pm  
-  source: https://www.tauntonopendoor.org.uk/what-we-do/  
-  why held: new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); times not read identically on 2 separate runs yet
-- **Launchpad Reading drop-in (The Stables)** (`man-launchpad-reading-drop-in-the-stables`, RG1 1DT): own site now Monday, Wednesday and Friday 10am - 2pm | Monday, Wednesday, Friday 10.00am to 2.00pm  
-  source: https://launchpadreading.org.uk/drop-in-re-opens-at-the-stables/  
-  why held: would cut known hours to fewer days (drops Tue, Thu) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
-- **Streets2Homes Day Centre** (`man-streets2homes-day-centre`, CM20 1QP): own site now Monday-Friday 9am to 5pm  
-  source: https://streets2homes.co.uk/homeless-what-to-do/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
-- **Birmingham City Mission Care Centre** (`man-birmingham-city-mission-care-centre`, B1 1JR): own site now Monday, Tuesday, Wednesday and Thursday 10am to 4pm  
-  source: https://birminghamcitymission.org.uk/care-centre  
-  why held: own site lists several centres (4 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Fri, Sat) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
-- **St Wilfrid's Centre** (`man-st-wilfrid-s-centre`, S2 4DT): own site now Monday to Friday 10am - 3:30pm  
-  source: https://www.stwilfridscentre.org/contact-us  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; times not read identically on 2 separate runs yet
-- **hope@trinity** (`man-hope-trinity`, CO15 1NJ): own site now Tuesday to Friday 10.30am to 12pm | Tuesday 10:30am - 12:00pm | Wednesday 10:30am - 12:00pm | Thursday 10:30am - 12:00pm  
-  source: https://www.tendringunited.org.uk/hopetrinity/  
-  why held: times not read identically on 2 separate runs yet
-- **Carecent** (`man-carecent`, YO1 8NQ): own site now Monday to Saturday 8.30am to 10.45am  
-  source: https://www.carecent.org.uk/  
-  why held: new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); day not on the same line as its times on the own-site page; times not read identically on 2 separate runs yet
+- **P3 Gloucester Accommodation Based Support (Morroway House)** (`man-p3-gloucester-accommodation-morroway-house`, GL1 3AS): own site now Mon–Fri 9am–5pm  
+  source: https://p3charity.org/services/gloucestershire-accommodation-based-support  
+  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session
+- **P3 Cheltenham Accommodation Based Support** (`man-p3-cheltenham-accommodation`, ): own site now Mon–Fri 9am–5pm | Monday–Friday 9am–5pm  
+  source: https://p3charity.org/services/cheltenham-accommodation-based-support  
+  why held: postcode not matched exactly on the own-site page; own site lists several centres (2 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session
 <!-- /times crosscheck sh -->
 
 
@@ -712,7 +651,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
-275 held places had no outcode centroid, so they are not counted under a city.
+411 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 
