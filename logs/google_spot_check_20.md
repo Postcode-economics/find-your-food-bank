@@ -1,0 +1,22 @@
+# Spot-check 20 A-grade (2026-11-01)
+
+- PASS: `man-google-llandudno-and-colwyn-bay-churches-to-open-as-a-nig` — Llandudno and Colwyn Bay churches to open as a night ...
+- PASS: `man-google-nightstop-north-east-homeless-charity-shelters` — Nightstop North East | Homeless Charity, Shelters & ...
+- PASS: `man-google-sanctuary-trust-halsall-house-for-homeless-men-brh` — Sanctuary Trust Halsall House - For Homeless Men - BRHAIN
+- PASS: `man-google-emergency-help` — Emergency Help
+- PASS: `man-google-hackney-night-shelter` — Hackney Night Shelter
+- PASS: `man-google-homeless-and-need-help` — Homeless and need help?
+- PASS: `man-google-housing` — Housing
+- PASS: `man-google-lydney-accommodation-hotels-b-b-s-and-self-caterin` — Lydney Accommodation - Hotels, B&B's and Self Catering ...
+- PASS: `man-google-support-for-rough-sleepers-in-milton-keynes` — Support for rough sleepers in Milton Keynes
+- PASS: `man-google-night-stop-north-east-depaul-uk-information-now` — Night Stop North East – Depaul UK - Information Now
+- PASS: `man-google-homeless-outreach` — Homeless Outreach
+- PASS: `man-google-wyre-forest-and-south-worcestershire-nightstop` — Wyre Forest and South Worcestershire Nightstop
+- PASS: `man-google-utility-street-men-s-hostel-harmoni` — Utility Street Men's Hostel - Harmoni
+- PASS: `man-google-property-maintenance-seaford-streetaid` — Property Maintenance | Seaford | StreetAid
+- PASS: `man-google-emergency-temporary-accommodation` — Emergency temporary accommodation
+- PASS: `man-google-emergency-homeless-hostels-in-south-gloucestershir` — Emergency Homeless Hostels in South Gloucestershire
+- PASS: `man-google-people-sleeping-rough-london` — People sleeping rough - London
+- PASS: `man-google-nightstop-south-devon` — Nightstop South Devon
+- PASS: `man-google-bradford-nightstop-challenging-youth-homelessness-` — Bradford Nightstop challenging youth homelessness in ...
+- PASS: `man-google-support-available-safergosport` — Support available – Safergosport
