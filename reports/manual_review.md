@@ -44,35 +44,6 @@ Built 23 Oct 2026. Nothing here is a pin. Ready items were checked against own s
 <!-- AUTO-DISCOVERY QUEUE: generated, do not edit below -->
 ## Auto-discovery queue (2026-11-01) — failed one auto-add check, not on the map
 
-### Shelters: 29 queued, 0 rejected
-- QUEUED The Gap Centre · NP20 1JG · https://www.thegap.wales/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site does not show it is a shelter/emergency accommodation
-- QUEUED HARP — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED Willow Lodge · FY2 9NT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Alms Houses — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED House The Homeless · SE27 0QT · https://housethehomeless.com — OpenStreetMap-only: needs verification on the place's own site before it can be added
-- QUEUED The Wallich · NP4 6JQ · https://thewallich.com/services/torfaen-tenancy-support/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; postcode not on own site
-- QUEUED The Shrewsbury Ark · SY1 2EH · https://www.shrewsburyark.co.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
-- QUEUED Sandwood House · https://www.sanctuary-supported-living.co.uk/support-services/homelessness/birmingham-intensive-housing-management — OpenStreetMap-only: needs verification on the place's own site before it can be added; no postcode in directory; no postcode
-- QUEUED Help The Homeless Leicester — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED Queens Hotel · SE19 2UG — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED The Queens Arms — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED Ben's Centre · S10 2GB — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED St Martins House Under 1 Roof · NR2 4SZ — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Centrepoint Camberwell Foyer · SE5 8RX · https://centrepoint.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; name says foyer / supported housing / day centre, not an emergency shelter; postcode not on own site
-- QUEUED St. Mungo's Broadway · NW6 5QW — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Fairholme House · SE5 9DD — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED The Beacon Centre · OX16 0AA — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED The Trinity Foyer · ME14 1BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; name says foyer / supported housing / day centre, not an emergency shelter; no own website in directory
-- QUEUED LDHAS Lancaster Homeless Action · LA1 1BJ · https://www.ldhas.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added; own site unreachable (HTTP error)
-- QUEUED St Mungo's — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED Manna House · LA9 6AA · https://www.manna-house.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
-- QUEUED Refugee Reception Centre - Former Defence Fire Fighting Training Establishment · CT12 5BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Norfolk Hotel · SR1 1EE — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED East Clayton Farm · RH20 4AG · https://www.eastclaytonfarm.org.uk/ — OpenStreetMap-only: needs verification on the place's own site before it can be added
-- QUEUED Mary and Joseph House · M12 6PT — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Trevanion Lodge — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED Sussex Edwardian Hotel · TN37 7BS — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory
-- QUEUED Womens Center M.W.Y.S. & E.F. — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
-- QUEUED Glanrafon — OpenStreetMap-only: needs verification on the place's own site before it can be added; no own website in directory; no postcode
+### Deep sweep (council pages): 0 queued, 0 rejected
 
 <!-- END AUTO-DISCOVERY QUEUE -->

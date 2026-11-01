@@ -225,8 +225,6 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.holytrinitywesterhailes.org.uk  
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
-
-
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 11 auto-applied, 61 held
 
@@ -625,11 +623,10 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 <!-- sweep shelters -->
 ## Shelter candidates from the sweep (review only)
 
-Run 2026-10-31. Nothing here is on the map. Each needs a hand check before it is added.
+Run 2026-11-01. Nothing here is on the map. Each needs a hand check before it is added.
 
 - none this run
 <!-- /sweep shelters -->
-
 
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
@@ -762,7 +759,10 @@ Publish only via the Day centre label once that label exists. Until then these s
 - Coastline Housing Day Centre () — Monday 9am to 5pm | Tuesday 9am to 5pm | Wednesday 9am to 5pm | Thursday 9am to  — https://homeless.org.uk/homeless-england/service/coastline-housing-day-centre/
 - First Base Day Centre () — https://homeless.org.uk/homeless-england/service/first-base-day-centre/
 <!-- /day centre candidates -->
-
+- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
+  source: https://www.holytrinitywesterhailes.org.uk  
+  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
+<!-- /times review -->
 
 <!-- referral hostel holds -->
 ## Referral hostels held (not on the map)
