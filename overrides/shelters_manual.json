@@ -2197,5 +2197,355 @@
   "access_type": "referral_only",
   "kind": "young_people",
   "why": "Town-level card: the page gives only 'Brighton, BN1'. lat/lng are the BN1 outcode centre (postcodes.io), used only for distance; no_pin keeps it off the map as a marker."
+ },
+ {
+  "id": "man-swindon-foyer-stonewater",
+  "name": "Swindon Foyer (Stonewater)",
+  "address": "17-21 Bath Road, Swindon",
+  "postcode": "SN1 4AS",
+  "lat": 51.55242,
+  "lng": -1.777802,
+  "phone": "07733 106031",
+  "website": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+  "hours": "Not stated",
+  "referral": "For ages 16-25. Referral needed: Social Services or Swindon Borough Council Housing Options team (01793 445503).",
+  "beds": "57",
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Year-round",
+  "operator": "Stonewater",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://www.stonewater.org/find-a-home/supported-living/young-people/",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "referral_only",
+  "facilities": "Not stated",
+  "checked_on": "2026-11-01",
+  "kind": "young_people",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "last_checked": "2026-11-01",
+  "groups_quote": "Swindon Foyer provides safe accommodation for homeless young people aged 16-25."
+ },
+ {
+  "id": "man-p3-gloucester-accommodation-morroway-house",
+  "name": "P3 Gloucester Accommodation Based Support (Morroway House)",
+  "address": "70 Worcester Street, Kingsholm, Gloucester",
+  "postcode": "GL1 3AS",
+  "lat": 51.869855,
+  "lng": -2.241688,
+  "phone": "01452 505425",
+  "website": "https://p3charity.org/services/gloucestershire-accommodation-based-support",
+  "hours": "Drop-in to discuss a referral: Mon-Fri 10am-4pm",
+  "referral": "Adults 18+. Referral needed: email refer2@p3charity.org or visit the Morroway House drop-in (Mon-Fri 10am-4pm).",
+  "beds": "8",
+  "groups": [
+   "Age 18+"
+  ],
+  "season": "Year-round",
+  "operator": "P3 Charity",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://p3charity.org/services/gloucestershire-accommodation-based-support",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "referral_only",
+  "facilities": [
+   "Advice"
+  ],
+  "checked_on": "2026-11-01",
+  "kind": "hostel",
+  "who_for": [
+   "Age 18+"
+  ],
+  "last_checked": "2026-11-01",
+  "facilities_quote": "Advice and signposting Benefits advice",
+  "groups_quote": "people aged 18 and over who are homeless or at risk of homelessness"
+ },
+ {
+  "id": "man-daystop-gloucestershire-nightstop",
+  "name": "Daystop (Gloucestershire Nightstop)",
+  "address": "13 Ladybellegate Street, Gloucester",
+  "postcode": "GL1 2HN",
+  "lat": 51.864112,
+  "lng": -2.24918,
+  "phone": "01452 331330",
+  "website": "https://www.gloucestershirenightstop.org.uk/how-we-help/day-stop/",
+  "hours": "Weekdays 9am-5pm",
+  "referral": "For ages 16-25 in Gloucestershire who are homeless or at risk. Daystop referral form on the Nightstop website.",
+  "beds": "",
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Daytime only",
+  "operator": "Gloucestershire Nightstop",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://www.gloucestershirenightstop.org.uk/how-we-help/day-stop/",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "referral_only",
+  "facilities": [
+   "Food",
+   "Laundry",
+   "Showers",
+   "Phone charging"
+  ],
+  "checked_on": "2026-11-01",
+  "kind": "day_centre",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "last_checked": "2026-11-01",
+  "facilities_quote": "food, drink and a warm welcome is always available. Daystop has multiple facilities such as a laundry room, bathroom and shower, kitchen, access to computers and charging points",
+  "groups_quote": "Daystop is available to young people aged 16-25 years old in Gloucestershire"
+ },
+ {
+  "id": "man-p3-cheltenham-accommodation",
+  "name": "P3 Cheltenham Accommodation Based Support",
+  "address": "Cheltenham (exact address not published)",
+  "postcode": "",
+  "lat": 51.900644,
+  "lng": -2.081837,
+  "no_pin": true,
+  "town": "Cheltenham",
+  "phone": "01242 514417",
+  "website": "https://p3charity.org/services/cheltenham-accommodation-based-support",
+  "hours": "Not stated",
+  "referral": "Adults 18+ verified as homeless by Cheltenham Borough Council. Referral hostel: call P3 Mon-Fri 9am-5pm.",
+  "beds": "6",
+  "groups": [
+   "Age 18+"
+  ],
+  "season": "Year-round",
+  "operator": "P3 Charity",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://p3charity.org/services/cheltenham-accommodation-based-support",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "referral_only",
+  "facilities": [
+   "Advice"
+  ],
+  "checked_on": "2026-11-01",
+  "kind": "hostel",
+  "who_for": [
+   "Age 18+"
+  ],
+  "last_checked": "2026-11-01",
+  "why": "Town-level 'Referral hostel' card: the page gives only the P3 Cheltenham Hub office (a referral office, not the accommodation). lat/lng are the Cheltenham town centre (GL50 outcode centre, postcodes.io), used only for distance; no_pin keeps it off the map as a marker.",
+  "facilities_quote": "Advice and signposting Benefits advice",
+  "groups_quote": "We help people aged 18 and over who have been verified as homeless by Cheltenham Borough Council"
+ },
+ {
+  "id": "man-maggs-day-centre-worcester",
+  "name": "Maggs Day Centre (Worcester)",
+  "address": "Maggs Day Centre, Deansway, Worcester",
+  "postcode": "WR1 2JD",
+  "lat": 52.189411,
+  "lng": -2.221301,
+  "phone": "01905 25027",
+  "website": "https://www.maggsdaycentre.co.uk/worcester-day-centre/",
+  "hours": "Not stated",
+  "referral": "Drop-in: you do not need a referral or appointment. Phone option 1 for the Worcester Day Centre.",
+  "beds": "",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "season": "Daytime only",
+  "operator": "Maggs Day Centre",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://www.maggsdaycentre.co.uk/contact-us/",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "open_access",
+  "facilities": [
+   "Medical/GP"
+  ],
+  "checked_on": "2026-11-01",
+  "kind": "day_centre",
+  "who_for": [
+   "People experiencing homelessness"
+  ],
+  "last_checked": "2026-11-01",
+  "facilities_quote": "Nursing clinics and health support",
+  "groups_quote": "If you are homeless or struggling to cope, you are welcome to come to our Day Centre during opening hours.",
+  "groups_source": "https://www.maggsdaycentre.co.uk/about-us/about-maggs/faqs/"
+ },
+ {
+  "id": "man-kip-telford",
+  "name": "KiP Telford",
+  "address": "Tan Bank, Wellington, Telford",
+  "postcode": "TF1 1HJ",
+  "lat": 52.699725,
+  "lng": -2.517706,
+  "phone": "01952 924 007",
+  "website": "https://kiptelford.co.uk/contact-us/",
+  "hours": "Mon, Tue, Thu, Fri 9am-2pm (appointments); Wed 8am-12pm (drop-in). Closed weekends and bank holidays",
+  "referral": "If sleeping rough, call during opening hours for help with emergency accommodation; out of hours call Telford & Wrekin Housing Solutions 01952 381 925.",
+  "beds": "",
+  "groups": [
+   "People sleeping rough"
+  ],
+  "season": "Daytime only",
+  "operator": "KiP Telford",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://kiptelford.co.uk/contact-us/",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "open_access",
+  "facilities": "Not stated",
+  "checked_on": "2026-11-01",
+  "kind": "day_centre",
+  "who_for": [
+   "People sleeping rough"
+  ],
+  "last_checked": "2026-11-01",
+  "groups_quote": "If you are sleeping rough and require assistance with emergency accommodation today, please call our team via the below number, during opening hours."
+ },
+ {
+  "id": "man-ymca-wellington-supported-housing",
+  "name": "YMCA Wellington supported housing (16-25)",
+  "address": "Wellington, Telford (exact address not published)",
+  "postcode": "",
+  "lat": 52.703362,
+  "lng": -2.503281,
+  "no_pin": true,
+  "town": "Wellington (Telford)",
+  "phone": "01952 400 401",
+  "website": "https://www.ymcawellington.co.uk/supported-housing",
+  "hours": "Staff available 24 hours a day, 7 days a week",
+  "referral": "For ages 16-25 who are homeless or have a housing need. Referral needed: all applications through the Telford and Wrekin Nominations Team (nominations@telford.gov.uk).",
+  "beds": "",
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Year-round",
+  "operator": "YMCA Wellington and District",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://www.ymcawellington.co.uk/supported-housing",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "referral_only",
+  "facilities": "Not stated",
+  "checked_on": "2026-11-01",
+  "kind": "young_people",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "last_checked": "2026-11-01",
+  "why": "Town-level card: the page does not give the housing address (only the YMCA office). lat/lng are the TF1 outcode centre (postcodes.io), used only for distance; no_pin keeps it off the map as a marker.",
+  "groups_quote": "We provide supported housing to young people aged 16-25 who are homeless or have a housing need."
+ },
+ {
+  "id": "man-ludlow-foyer-connexus",
+  "name": "Ludlow Foyer (Connexus)",
+  "address": "Marstons Mill, Portcullis Lane, Ludlow",
+  "postcode": "SY8 1PZ",
+  "lat": 52.370367,
+  "lng": -2.717214,
+  "phone": "01584 877111",
+  "website": "https://connexus-group.co.uk/care-support-services/assisted-accommodation/ludlow-foyer",
+  "hours": "Not stated",
+  "referral": "For ages 16-25, linked to training. Referral needed: Shropshire Council Housing Options Team only (0345 6789005).",
+  "beds": "",
+  "groups": [
+   "Young people 16-25"
+  ],
+  "season": "Year-round",
+  "operator": "Connexus",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://connexus-group.co.uk/care-support-services/assisted-accommodation/ludlow-foyer",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "referral_only",
+  "facilities": "Not stated",
+  "checked_on": "2026-11-01",
+  "kind": "young_people",
+  "who_for": [
+   "Young people 16-25"
+  ],
+  "last_checked": "2026-11-01",
+  "groups_quote": "A Foyer is a housing project that provides accommodation for young people aged 16-25"
+ },
+ {
+  "id": "man-nomad-centre-ymca-lincolnshire",
+  "name": "Nomad Centre (YMCA Lincolnshire)",
+  "address": "St Rumbold's Street, Lincoln",
+  "postcode": "LN2 5AR",
+  "lat": 53.228854,
+  "lng": -0.533731,
+  "phone": "01522 504 589",
+  "website": "https://www.lincsymca.co.uk/housing/emergency-accommodation/",
+  "hours": "Not stated",
+  "referral": "Direct-access emergency accommodation for adults 18+. Call or apply; not every application can be accepted and there may be a waiting list.",
+  "beds": "22",
+  "groups": [
+   "Age 18+"
+  ],
+  "season": "Year-round",
+  "operator": "YMCA Lincolnshire",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://www.lincsymca.co.uk/housing/emergency-accommodation/",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "self_referral",
+  "facilities": [
+   "Food",
+   "Laundry"
+  ],
+  "checked_on": "2026-11-01",
+  "kind": "hostel",
+  "who_for": [
+   "Age 18+"
+  ],
+  "last_checked": "2026-11-01",
+  "facilities_quote": "an en-suite room, laundry facilities, three meals a day",
+  "groups_quote": "We provide shelter to adults aged 18 and over"
+ },
+ {
+  "id": "man-share-homeless-action-centre-chester",
+  "name": "SHARE Homeless Action Centre",
+  "address": "Former St Martin's Clinic, St Martin's Way, Chester",
+  "postcode": "CH1 2NR",
+  "lat": 53.191544,
+  "lng": -2.896013,
+  "phone": "0330 120 1820",
+  "website": "https://shareaid.co.uk/pages/share-day-centre",
+  "hours": "Mon-Fri 11am-1pm (last entry 12.30pm)",
+  "referral": "Drop-in: meals and support during opening times.",
+  "beds": "",
+  "groups": [
+   "People experiencing homelessness"
+  ],
+  "season": "Daytime only",
+  "operator": "SHARE",
+  "flag_closed": false,
+  "source": "Manual (verified from source pages)",
+  "source_url": "https://shareaid.co.uk/pages/share-day-centre",
+  "last_verified": "2026-11-01",
+  "stale": false,
+  "access_type": "open_access",
+  "facilities": [
+   "Food",
+   "Clothes"
+  ],
+  "checked_on": "2026-11-01",
+  "kind": "day_centre",
+  "who_for": [
+   "People experiencing homelessness"
+  ],
+  "last_checked": "2026-11-01",
+  "facilities_quote": "The SHAC is open to our friends who are homeless for hot meals, clothes and toiletries.",
+  "groups_quote": "The SHAC is open to our friends who are homeless for hot meals, clothes and toiletries."
  }
 ]
