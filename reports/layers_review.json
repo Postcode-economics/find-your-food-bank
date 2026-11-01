@@ -1,656 +1,8 @@
 {
  "shelters.js": {
-  "added": [
-   {
-    "id": "man-999-club-the-gateway",
-    "name": "999 Club – The Gateway",
-    "tier": "verified"
-   },
-   {
-    "id": "man-aberdeen-cyrenians-direct-access",
-    "name": "Aberdeen Cyrenians Direct Access",
-    "tier": "verified"
-   },
-   {
-    "id": "man-action-for-barnsley-homeless",
-    "name": "Action for Barnsley Homeless",
-    "tier": "verified"
-   },
-   {
-    "id": "man-alabare-place-drop-in",
-    "name": "ALABARE Place Drop-In",
-    "tier": "verified"
-   },
-   {
-    "id": "man-alabare-unity-house-drop-in",
-    "name": "ALABARE Unity House Drop-In",
-    "tier": "verified"
-   },
-   {
-    "id": "man-alongside-manvers-street-hostel",
-    "name": "Alongside Manvers Street Hostel",
-    "tier": "verified"
-   },
-   {
-    "id": "man-angel-trust-safe-night-hub",
-    "name": "Angel Trust Safe Night Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-antifreeze-off-the-fence",
-    "name": "Antifreeze (Off The Fence)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-barons-court-project",
-    "name": "Barons Court Project",
-    "tier": "verified"
-   },
-   {
-    "id": "man-beacon-house",
-    "name": "Beacon House",
-    "tier": "verified"
-   },
-   {
-    "id": "man-bh1-project-salvation-army-boscombe",
-    "name": "BH1 Project (Salvation Army Boscombe)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-birmingham-city-mission-care-centre",
-    "name": "Birmingham City Mission Care Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-bishopbridge-house-st-martins",
-    "name": "Bishopbridge House (St Martins)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-bognor-housing-trust",
-    "name": "Bognor Housing Trust",
-    "tier": "verified"
-   },
-   {
-    "id": "man-bradford-day-shelter-salvation-army-the-orchard",
-    "name": "Bradford Day Shelter (Salvation Army The Orchard)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-bradford-no-second-night-out-humankind-discovery-h",
-    "name": "Bradford No Second Night Out (Humankind, Discovery House)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-bridgend-solutions-centre-the-wallich",
-    "name": "Bridgend Solutions Centre (The Wallich)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-carecent",
-    "name": "Carecent",
-    "tier": "verified"
-   },
-   {
-    "id": "man-catching-lives-canterbury-open-centre",
-    "name": "Catching Lives Canterbury Open Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-cathedral-archer-project",
-    "name": "Cathedral Archer Project",
-    "tier": "verified"
-   },
-   {
-    "id": "man-centrepoint-outreach-drop-in",
-    "name": "Centrepoint Outreach Drop In",
-    "tier": "verified"
-   },
-   {
-    "id": "man-chorley-help-the-homeless-community-cafe",
-    "name": "Chorley Help the Homeless Community Cafe",
-    "tier": "verified"
-   },
-   {
-    "id": "man-cirdic-churches-in-reading-drop-in-centre",
-    "name": "CIRDIC (Churches in Reading Drop-In Centre)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-cornerstone-day-centre-caritas",
-    "name": "Cornerstone Day Centre (Caritas)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-birmingham",
-    "name": "Crisis Skylight Birmingham",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-brent",
-    "name": "Crisis Skylight Brent",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-croydon",
-    "name": "Crisis Skylight Croydon",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-edinburgh",
-    "name": "Crisis Skylight Edinburgh",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-merseyside",
-    "name": "Crisis Skylight Merseyside",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-newcastle",
-    "name": "Crisis Skylight Newcastle",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-oxford",
-    "name": "Crisis Skylight Oxford",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crisis-skylight-south-wales",
-    "name": "Crisis Skylight South Wales",
-    "tier": "verified"
-   },
-   {
-    "id": "man-crossreach-cunningham-house",
-    "name": "CrossReach Cunningham House",
-    "tier": "verified"
-   },
-   {
-    "id": "man-doorstep-hull",
-    "name": "Doorstep (Hull)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-doorway-young-people-16-25",
-    "name": "Doorway (young people 16-25)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-dover-outreach-centre",
-    "name": "Dover Outreach Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-first-stop-centre",
-    "name": "First Stop Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-folkestone-rainbow-centre-homeless-support-service",
-    "name": "Folkestone Rainbow Centre Homeless Support Service",
-    "tier": "verified"
-   },
-   {
-    "id": "man-furness-homeless-support-group",
-    "name": "Furness Homeless Support Group",
-    "tier": "verified"
-   },
-   {
-    "id": "man-genesis-trust-lifeline",
-    "name": "Genesis Trust Lifeline",
-    "tier": "verified"
-   },
-   {
-    "id": "man-gloucester-city-mission-homeless-day-provision",
-    "name": "Gloucester City Mission Homeless Day Provision",
-    "tier": "verified"
-   },
-   {
-    "id": "man-gravesham-sanctuary-day-centre-winter-night-shelte",
-    "name": "Gravesham Sanctuary day centre & winter night shelter",
-    "tier": "verified"
-   },
-   {
-    "id": "man-greenwich-homeless-project-day-centre",
-    "name": "Greenwich Homeless Project Day Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-harbour-place",
-    "name": "Harbour Place",
-    "tier": "verified"
-   },
-   {
-    "id": "man-harrogate-homeless-project-springboard-day-centre",
-    "name": "Harrogate Homeless Project Springboard day centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-highway-house",
-    "name": "Highway House",
-    "tier": "verified"
-   },
-   {
-    "id": "man-hope-community-services",
-    "name": "Hope Community Services",
-    "tier": "verified"
-   },
-   {
-    "id": "man-hope-trinity",
-    "name": "hope@trinity",
-    "tier": "verified"
-   },
-   {
-    "id": "man-hope4-rugby",
-    "name": "Hope4 Rugby",
-    "tier": "verified"
-   },
-   {
-    "id": "man-hosford-homeless-hostel-east-belfast-mission",
-    "name": "Hosford Homeless Hostel (East Belfast Mission)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-house-of-bread-cafe-43",
-    "name": "House of Bread - Cafe 43",
-    "tier": "verified"
-   },
-   {
-    "id": "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
-    "name": "HUG Safe Space (Bexhill & Rother Homelessness Unity Group)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-joining-communities-together-jct",
-    "name": "Joining Communities Together (JCT)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-lantern-trust",
-    "name": "Lantern Trust",
-    "tier": "verified"
-   },
-   {
-    "id": "man-launchpad-reading-drop-in-the-stables",
-    "name": "Launchpad Reading drop-in (The Stables)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-lee-s-place-community-power",
-    "name": "Lee's Place (Community Power)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-maidstone-day-centre",
-    "name": "Maidstone Day Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-merton-faith-in-action-homeless-drop-in",
-    "name": "Merton Faith in Action homeless drop-in",
-    "tier": "verified"
-   },
-   {
-    "id": "man-new-horizon-youth-centre",
-    "name": "New Horizon Youth Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-northampton-hope-centre-hand-up-homeless-centre",
-    "name": "Northampton Hope Centre - Hand Up homeless centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-o-hanlon-house-homeless-oxfordshire",
-    "name": "O'Hanlon House (Homeless Oxfordshire)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-open-door-homeless-hub-hightown",
-    "name": "Open Door Homeless Hub (Hightown)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-p3-stroud-community-based-support-drop-in",
-    "name": "P3 Stroud Community Based Support drop-in",
-    "tier": "verified"
-   },
-   {
-    "id": "man-padley-ymca-derbyshire-community-hub",
-    "name": "Padley@YMCA Derbyshire Community Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-pathways-of-chesterfield",
-    "name": "Pathways of Chesterfield",
-    "tier": "verified"
-   },
-   {
-    "id": "man-petrus-hub",
-    "name": "Petrus Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-portsmouth-rough-sleeping-hub-society-of-st-james-",
-    "name": "Portsmouth Rough Sleeping Hub (Society of St James / PCC)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-pottergate-arc-salvation-army",
-    "name": "Pottergate ARC (Salvation Army)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-renewed-hope-drop-in-day-centre",
-    "name": "Renewed Hope Drop-In Day Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-routes-to-roots-genesis-centre",
-    "name": "Routes to Roots (Genesis Centre)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-salford-loaves-fishes-drop-in",
-    "name": "Salford Loaves & Fishes drop-in",
-    "tier": "verified"
-   },
-   {
-    "id": "man-salvation-army-bridge-project-blackpool-citadel",
-    "name": "Salvation Army Bridge Project (Blackpool Citadel)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-salvation-army-founders-house-hopetown-lifehouse",
-    "name": "Salvation Army Founders House (Hopetown) Lifehouse",
-    "tier": "verified"
-   },
-   {
-    "id": "man-salvation-army-newcastle-under-lyme-homeless-hub",
-    "name": "Salvation Army Newcastle-under-Lyme Homeless Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-salvation-army-the-well-croydon",
-    "name": "Salvation Army The Well (Croydon)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-shekinah-centre",
-    "name": "Shekinah Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-shiloh-rotherham",
-    "name": "Shiloh Rotherham",
-    "tier": "verified"
-   },
-   {
-    "id": "man-shoc-slough-homeless-our-concern",
-    "name": "SHOC (Slough Homeless Our Concern)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-simon-community-scotland-edinburgh-support-hub",
-    "name": "Simon Community Scotland Edinburgh Support Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-simon-community-scotland-glasgow-access-hub",
-    "name": "Simon Community Scotland Glasgow Access Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-sir-julian-hodge-hostel-the-wallich",
-    "name": "Sir Julian Hodge Hostel (The Wallich)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-somewhere-to-go-project",
-    "name": "Somewhere To Go Project",
-    "tier": "verified"
-   },
-   {
-    "id": "man-spires-centre",
-    "name": "Spires Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-st-petrocs-breadline-centre",
-    "name": "St Petrocs Breadline Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-st-petrocs-truro-resource-centre",
-    "name": "St Petrocs Truro Resource Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-st-wilfrid-s-centre",
-    "name": "St Wilfrid's Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-stonepillow-bognor-regis-hub",
-    "name": "Stonepillow Bognor Regis Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-stonepillow-chichester-hub",
-    "name": "Stonepillow Chichester Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-streetlife-the-base-young-people-16-25",
-    "name": "Streetlife - The Base (young people 16-25)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-streets2homes-day-centre",
-    "name": "Streets2Homes Day Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-sutton-night-watch-day-centre",
-    "name": "Sutton Night Watch Day Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-taunton-open-door",
-    "name": "Taunton Open Door",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-bridge-homelessness-to-hope",
-    "name": "The Bridge Homelessness to Hope",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-chapman-centre-ihag",
-    "name": "The Chapman Centre (ihag)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-forge-project",
-    "name": "The Forge Project",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-foxton-centre-homeless-day-centre",
-    "name": "The Foxton Centre homeless day centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-freedom-centre",
-    "name": "The Freedom Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-garden-house-light-project-peterborough",
-    "name": "The Garden House (Light Project Peterborough)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-haven-day-centre-swindon-night-shelter",
-    "name": "The Haven Day Centre / Swindon Night Shelter",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-hope-centre-minehead",
-    "name": "The Hope Centre Minehead",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-hope-hub",
-    "name": "The Hope Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-macari-centre-victoria",
-    "name": "The Macari Centre (Victoria)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-margins-project-union-chapel",
-    "name": "The Margins Project (Union Chapel)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-upper-room-ur4meals",
-    "name": "The Upper Room – UR4Meals",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-wellspring",
-    "name": "The Wellspring",
-    "tier": "verified"
-   },
-   {
-    "id": "man-the-zone-plymouth-youth-housing-homelessness-drop-",
-    "name": "The Zone Plymouth (youth housing & homelessness drop-in)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-trinity-winchester",
-    "name": "Trinity Winchester",
-    "tier": "verified"
-   },
-   {
-    "id": "man-turnaround-centre-formerly-bristol-methodist-centr",
-    "name": "Turnaround Centre (formerly Bristol Methodist Centre)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-turning-tides-st-clare-s-community-hub",
-    "name": "Turning Tides St Clare's Community Hub",
-    "tier": "verified"
-   },
-   {
-    "id": "man-urban-outreach-street-life-drop-in-amber-centre",
-    "name": "Urban Outreach - Street Life drop-in (Amber Centre)",
-    "tier": "verified"
-   },
-   {
-    "id": "man-vaughan-house",
-    "name": "Vaughan House",
-    "tier": "verified"
-   },
-   {
-    "id": "man-wintercomfort-for-the-homeless",
-    "name": "Wintercomfort for the Homeless",
-    "tier": "verified"
-   },
-   {
-    "id": "man-wycombe-homeless-connection-support-centre",
-    "name": "Wycombe Homeless Connection Support Centre",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ymca-bournemouth-delta-house-hostel",
-    "name": "YMCA Bournemouth Delta House Hostel",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ymca-cardiff-the-walk",
-    "name": "YMCA Cardiff - The Walk",
-    "tier": "verified"
-   },
-   {
-    "id": "man-ymca-romford",
-    "name": "YMCA Romford",
-    "tier": "verified"
-   }
-  ],
+  "added": [],
   "removed": [],
-  "changed": [
-   {
-    "id": "osm-way-1125252517",
-    "name": "Independence House",
-    "fields": [
-     "address"
-    ],
-    "before": {
-     "address": "120 Barmouth Street"
-    },
-    "after": {
-     "address": "235 Barmouth Street, Beswick, Manchester"
-    }
-   },
-   {
-    "id": "hl-nightsafe-blackburn",
-    "name": "Nightsafe – The Shelter (young people 16-24)",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": {
-      "Mon": "10:00 - 16:00",
-      "Tue": "10:00 - 16:00",
-      "Wed": "10:00 - 16:00",
-      "Thu": "10:00 - 16:00",
-      "Fri": "10:00 - 16:00"
-     }
-    },
-    "after": {
-     "hours": {
-      "Mon": "17:00 - 10:00",
-      "Tue": "17:00 - 10:00",
-      "Wed": "17:00 - 10:00",
-      "Thu": "17:00 - 10:00",
-      "Fri": "17:00 - 10:00",
-      "Sat": "17:00 - 10:00",
-      "Sun": "17:00 - 10:00"
-     }
-    }
-   },
-   {
-    "id": "man-one-ymca-bishops-stortford",
-    "name": "One YMCA Bishop's Stortford Hostel",
-    "fields": [
-     "hours"
-    ],
-    "before": {
-     "hours": "24-hour staff support"
-    },
-    "after": {
-     "hours": "Open 24 hours"
-    }
-   },
-   {
-    "id": "man-roundabout-hostel",
-    "name": "Roundabout Hostel",
-    "fields": [
-     "referral"
-    ],
-    "before": {
-     "referral": "Call 0114 258 9829"
-    },
-    "after": {
-     "referral": "Ages 16–21: call 0114 258 9829 to refer yourself or be referred by an agency."
-    }
-   }
-  ],
+  "changed": [],
   "tier_flips": [],
   "upcoming": [
    "Barnet Winter Night Shelter (Homeless Action in Barnet) – Opens 8 Nov 2026",
@@ -1001,7 +353,256 @@
  "warmspaces.js": {
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+   {
+    "id": "ww-55472884",
+    "name": "Abbey Community Centre-Kilburn, London",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Abbey Centre, Greater London NW6 4BJ"
+    },
+    "after": {
+     "address": "Abbey Community Centre, 172 Belsize Road, London NW6 4BJ"
+    }
+   },
+   {
+    "id": "ww-55474670",
+    "name": "All Saints Church",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Market Place, Kingston upon Thames, Surrey KT1 1JP KT1 1JP"
+    },
+    "after": {
+     "address": "Market Place, Kingston upon Thames, Surrey KT1 1JP"
+    }
+   },
+   {
+    "id": "ww-65441837",
+    "name": "BCG Community Hub",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Unit 6, Birmingham, West Midlands B16 0QZ"
+    },
+    "after": {
+     "address": "Units 5 & 6, Magreal Industrial Estate, Freeth Street, Ladywood, Birmingham B16 0QZ"
+    }
+   },
+   {
+    "id": "ww-65437345",
+    "name": "Denaby community Library",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Springwell Centre, Doncaster, DN12 4AB 4AB"
+    },
+    "after": {
+     "address": "Springwell Centre, Doncaster, DN12 4AB"
+    }
+   },
+   {
+    "id": "ww-64379462",
+    "name": "Fairford Library",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Mon": "09:30 - 17:00",
+      "Wed": "09:30 - 17:00",
+      "Thu": "09:30 - 19:00",
+      "Sat": "09:30 - 13:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Mon": "10:00 - 13:00 / 14:00 - 17:00",
+      "Wed": "10:00 - 13:00 / 14:00 - 17:00",
+      "Thu": "10:00 - 13:00 / 14:00 - 17:00",
+      "Sat": "10:00 - 13:00"
+     }
+    }
+   },
+   {
+    "id": "ww-68911571",
+    "name": "Former scout hall, Broomfield Avenue, Hasland",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Former scout hall, Chesterfield, Derbyshire S41 0LY S41 0LY"
+    },
+    "after": {
+     "address": "Former scout hall, Chesterfield, Derbyshire S41 0LY"
+    }
+   },
+   {
+    "id": "ww-55475350",
+    "name": "Morden Leisure Centre",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Morden Leisure Centre, Surrey SM4 5HE"
+    },
+    "after": {
+     "address": "Morden Leisure Centre, London Road, Morden SM4 5HE"
+    }
+   },
+   {
+    "id": "ww-65420071",
+    "name": "Rainbow Junktion",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "All Hallows Church, West Yorkshire LS6 1NP"
+    },
+    "after": {
+     "address": "All Hallows Church, 24 Regent Terrace, Leeds LS6 1NP"
+    }
+   },
+   {
+    "id": "ww-63065216",
+    "name": "Stretham Community Hub",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Thu": "14:00 - 16:00 Monthly"
+     }
+    },
+    "after": {
+     "hours": {
+      "Thu": "14:00 - 16:00 Fortnightly"
+     }
+    }
+   },
+   {
+    "id": "ww-68896770",
+    "name": "The Branch Cafe",
+    "fields": [
+     "hours"
+    ],
+    "before": {
+     "hours": {
+      "Tue": "10:00 - 15:00",
+      "Wed": "10:00 - 15:00",
+      "Thu": "10:00 - 15:00",
+      "Fri": "10:00 - 15:00"
+     }
+    },
+    "after": {
+     "hours": {
+      "Tue": "10:00 - 15:00",
+      "Wed": "10:00 - 15:00",
+      "Thu": "10:00 - 15:00",
+      "Fri": "11:00 - 15:00"
+     }
+    }
+   },
+   {
+    "id": "ww-68506647",
+    "name": "The Hope Centre, Trinity Mission",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Hope Street Bungalow, Castleford, West Yorkshire WF10 1DZ"
+    },
+    "after": {
+     "address": "Hope Street East, Castleford, West Yorkshire WF10 1DZ"
+    }
+   },
+   {
+    "id": "sbadc-the-hub-south-brent",
+    "name": "The Hub, South Brent (SBADC)",
+    "fields": [
+     "scheme_dates",
+     "upcoming"
+    ],
+    "before": {
+     "scheme_dates": "Opens 1 Nov 2026",
+     "upcoming": true
+    },
+    "after": {
+     "scheme_dates": "Not stated by source",
+     "upcoming": null
+    }
+   },
+   {
+    "id": "ww-65438865",
+    "name": "The Hubbub",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Lockeaze Neighbourhood Trust, Bristol, Avon BS7 9FB BS7 9FB"
+    },
+    "after": {
+     "address": "Lockleaze Neighbourhood Trust, The Hub, Unit 1, Fedden Buildings, Gainsborough Square, Lockleaze, Bristol BS7 9FB"
+    }
+   },
+   {
+    "id": "ww-64432678",
+    "name": "The One Love Project",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Carnarvon Road, Southend on Sea, Essex SS2 6LR"
+    },
+    "after": {
+     "address": "Hollybrook, Carnarvon Road, Southend-on-Sea, Essex SS2 6LR"
+    }
+   },
+   {
+    "id": "ww-67526400",
+    "name": "The Vale Family Hub",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Unit 22b, Sturminster Newton, Dorset DT10 1AZ"
+    },
+    "after": {
+     "address": "22B Butts Pond, Sturminster Newton, Dorset DT10 1AZ"
+    }
+   },
+   {
+    "id": "ww-65070433",
+    "name": "Wembley Creative Community Hub",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Unit 17, Wembley, Middlesex HA0 4AH"
+    },
+    "after": {
+     "address": "Unit 17, 2 Station Grove, Wembley HA0 4AH"
+    }
+   },
+   {
+    "id": "ww-68524251",
+    "name": "Wesleys Community Hub at Baildon Methodist Church",
+    "fields": [
+     "address"
+    ],
+    "before": {
+     "address": "Baildon Methodist Church, Newton Way,, Shioley, Shipley. West Yorkshire. BD17  5NH"
+    },
+    "after": {
+     "address": "Baildon Methodist Church, Newton Way, Baildon, Shipley, West Yorkshire BD17 5NH"
+    }
+   }
+  ],
   "tier_flips": [],
   "upcoming": [
    "Cornerstone United Reformed Church @ Parrs Wood Road – Opens 4 Nov 2026",
@@ -1009,15 +610,10 @@
    "Greenmount Old School – Opens 5 Jan 2027",
    "NAN activity space/meeting room – Opens 5 Nov 2026",
    "North Warm Welcome – Opens 2 Nov 2026",
-   "The Hub, South Brent (SBADC) – Opens 1 Nov 2026",
    "wee blether with soup and sandwich at Seescape – Opens 5 Nov 2026"
   ],
   "ended": [],
   "recheck_failed": [
-   {
-    "id": "ww-57951531",
-    "reason": "source unreachable this run (HTTP 403)"
-   },
    {
     "id": "ww-57952860",
     "reason": "source no longer names this place"
@@ -1029,6 +625,10 @@
    {
     "id": "ww-65437341",
     "reason": "schema: hours value invalid: Mon=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Thu=10:00 - 13:00, 14:00 - 17:00; hours value invalid: Fri=10:00 - 13:00, 14:00 - 17:00"
+   },
+   {
+    "id": "ww-68672287",
+    "reason": "source page loaded (HTTP 200) but had no readable text this run (82 chars; likely a bot check or JavaScript-only page)"
    },
    {
     "id": "ww-62587523",
@@ -1117,6 +717,10 @@
    {
     "id": "ww-68833847",
     "reason": "schema: hours value invalid: Wed=Closed - 14:00"
+   },
+   {
+    "id": "ww-62729499",
+    "reason": "source page loaded (HTTP 200) but had no readable text this run (82 chars; likely a bot check or JavaScript-only page)"
    },
    {
     "id": "ww-57951578",

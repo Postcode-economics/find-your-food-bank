@@ -1,5 +1,2786 @@
 [
  {
+  "run": "2026-11-01",
+  "result": "ok",
+  "items": 587,
+  "ended": 0,
+  "stale": 0,
+  "recently_closed": 0,
+  "sources": {
+   "Warm Welcome network (warmwelcome.uk map feed)": {
+    "status": "ok",
+    "count": 5828
+   },
+   "Manual (council pages, press releases, approved self-registrations)": {
+    "status": "ok",
+    "count": 112
+   },
+   "Council ArcGIS warm-space feeds": {
+    "status": "ok",
+    "feeds": 6,
+    "added": 182,
+    "skipped": [
+     {
+      "objectid": 5,
+      "name": "Holy Cross Church, Woodingdean",
+      "postcode": "BN2 6BD",
+      "reason": "no times",
+      "feed": "brighton-hove"
+     },
+     {
+      "objectid": 12,
+      "name": "St Leonard\u2019s, Aldrington",
+      "postcode": "BN3 4ED",
+      "reason": "times are not a plain weekly timetable (term-time or similar)",
+      "feed": "brighton-hove"
+     },
+     {
+      "objectid": 17,
+      "name": "Holy Cross Church",
+      "postcode": "BN2 6BD",
+      "reason": "no weekday stated",
+      "feed": "brighton-hove"
+     },
+     {
+      "objectid": 23,
+      "name": "Library Community Collection (Hollingdean Community Centre)",
+      "postcode": "BN1 7BH",
+      "reason": "no times",
+      "feed": "brighton-hove"
+     },
+     {
+      "objectid": 217,
+      "name": "Positive Futures",
+      "postcode": "LA1 4XF",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 299,
+      "name": "Creative Spaces Burnley CIC",
+      "postcode": "BB11 1PP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 309,
+      "name": "St John's Church Centre",
+      "postcode": "BB9 9EY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 310,
+      "name": "Basically Cheer CIC",
+      "postcode": "BB11 5JT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 311,
+      "name": "NRG Health and Fitness CIC",
+      "postcode": "WN8 9SA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 312,
+      "name": "Whitewell Bottom Community Centre CIO",
+      "postcode": "BB4 9LB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 313,
+      "name": "Hesketh Bank Community Centre",
+      "postcode": "PR4 6SR",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 314,
+      "name": "Trinity Methodist Church",
+      "postcode": "PR3 2AX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 315,
+      "name": "Tanterton Christian Fellowship",
+      "postcode": "PR2 7BX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 316,
+      "name": "St Anne's-on-Sea United Reformed Church",
+      "postcode": "FY8 2AE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 317,
+      "name": "The Unity Hub at Rawtenstall Unitarian Church",
+      "postcode": "BB4 7QY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 318,
+      "name": "Borwick & Priest Hutton War Memorial Hall",
+      "postcode": "LA6 1JP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 319,
+      "name": "Hyndburn Food Pantry",
+      "postcode": "BB5 1ES",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 320,
+      "name": "Trinity United Reformed Church, Lancaster",
+      "postcode": "LA1 4AH",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 321,
+      "name": "HASKAYNE AND DOWNHOLLAND COMMUNITY ASSOCIATION",
+      "postcode": "L39 7JE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 322,
+      "name": "Bretherton Congregational  Church Warm Welcome",
+      "postcode": "PR26 9AJ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 323,
+      "name": "Slyne with Hest Memorial Hall",
+      "postcode": "LA2 6JB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 324,
+      "name": "Majestic Church",
+      "postcode": "BB18 5AA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 325,
+      "name": "New Era North West Ltd",
+      "postcode": "BB11 1LE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 326,
+      "name": "The Meeting Place",
+      "postcode": "PR7 1EP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 327,
+      "name": "St.Bernards Larches & Savick Community Hub",
+      "postcode": "PR2 1NT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 328,
+      "name": "Ellel Parish Council",
+      "postcode": "LA2 0LQ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 329,
+      "name": "ISSE ltd",
+      "postcode": "BB4 6HL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 330,
+      "name": "Community Workshop Lytham CIC",
+      "postcode": "FY8 4HB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 331,
+      "name": "Fathers House Elim Church",
+      "postcode": "LA1 2AP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 332,
+      "name": "Rosegrove Neighbourhood Watch \u2013 NW",
+      "postcode": "BB12 6HX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 333,
+      "name": "St John's Church, Yealand Conyers",
+      "postcode": "LA5 9SL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 334,
+      "name": "NRG Health and Fitness CIC",
+      "postcode": "WN8 9SA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 335,
+      "name": "The Olive Grove Community Cafe",
+      "postcode": "PR1 2NL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 336,
+      "name": "Colne Open Door Centre",
+      "postcode": "BB8 0SY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 337,
+      "name": "Trinity Methodist and United reformed church",
+      "postcode": "WN8 8AT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 338,
+      "name": "St Philip's Centre",
+      "postcode": "BB9 9XB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 339,
+      "name": "St John's Church",
+      "postcode": "BB9 9EY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 340,
+      "name": "Chorley Youth Zone",
+      "postcode": "PR7 1BS",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 341,
+      "name": "La Latte Lounge Community Cafe CIC",
+      "postcode": "BB4 6QS",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 342,
+      "name": "Freckleton Methodist Church",
+      "postcode": "PR4 1HS",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 343,
+      "name": "Whitworth Leisure Centre ",
+      "postcode": "OL12 8BT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 344,
+      "name": "Halton Community Association",
+      "postcode": "LA2 6NB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 345,
+      "name": "Disability Equality (nw) Ltd",
+      "postcode": "PR1 1TP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 346,
+      "name": "Burnley Bowls Partnership",
+      "postcode": "BB11 3QW",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 347,
+      "name": "Bank Mill House Senior Citizens Committee",
+      "postcode": "BB6 7NF",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 348,
+      "name": "Blue Flamingo Community Hub",
+      "postcode": "PR2 1AJ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 349,
+      "name": "St Aidan's Community Hub/Larder",
+      "postcode": "PR5 6QR",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 350,
+      "name": "Hyndburn Leisure",
+      "postcode": "BB5 4EP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 351,
+      "name": "Key Unlocking Futures Limited",
+      "postcode": "PR25 2GD",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 352,
+      "name": "West Craven Baptist Church",
+      "postcode": "BB18 6QS",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 353,
+      "name": "West Craven Baptist Church",
+      "postcode": "BB18 5NZ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 354,
+      "name": "Lancaster Men's Hub",
+      "postcode": "LA1 1XX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 355,
+      "name": "Peter Birtwistle Trust",
+      "postcode": "BB8 0JL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 356,
+      "name": "The Dog Inn (Belthorn)",
+      "postcode": "BB1 2NN",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 357,
+      "name": "Burnley Pendle and Rossendale Council for Voluntary Service ",
+      "postcode": "BB12 6RB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 358,
+      "name": "Community Solutions North West Ltd",
+      "postcode": "BB5 4AA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 359,
+      "name": "Burnley FC in the Community",
+      "postcode": "BB10 4BW",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 360,
+      "name": "The King's Community Church, Lancaster",
+      "postcode": "LA1 1DD",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 361,
+      "name": "Robert Windle Foundation",
+      "postcode": "BB18 6QF",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 362,
+      "name": "Roots to Branches Forest School CIC",
+      "postcode": "PR4 3JQ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 363,
+      "name": "Burscough Hub. Well-Being Caf\u00e9 ",
+      "postcode": "L40 4AE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 364,
+      "name": "St Bartholomew's Community cafe",
+      "postcode": "BB8 0LG",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 365,
+      "name": "STRIVE FLEETWOOD CIC",
+      "postcode": "FY7 7ND",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 366,
+      "name": "Community Roots - LSCFT",
+      "postcode": "PR1 6SB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 367,
+      "name": "Neuro Drop In Centre",
+      "postcode": "LA1 5TQ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 368,
+      "name": "CPA Social Club ",
+      "postcode": "BB4 8QT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 369,
+      "name": "Regenerage",
+      "postcode": "PR5 5TA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 370,
+      "name": "Shirdley Hill community association ",
+      "postcode": "L39 8SF",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 371,
+      "name": "CommunityFutures",
+      "postcode": "PR2 3BS",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 372,
+      "name": "St George's Church ",
+      "postcode": "PR1 2NP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 373,
+      "name": "Preston Community Hub ",
+      "postcode": "PR1 4YE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 374,
+      "name": "Trinity Methodist Church",
+      "postcode": "PR5 0ED",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 375,
+      "name": "Community Assets Standing Tall",
+      "postcode": "OL13 8AB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 376,
+      "name": "Finley\u2019s families cic",
+      "postcode": "PR5 5BP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 377,
+      "name": "RammyMen",
+      "postcode": "BL0 0NT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 378,
+      "name": "Hope Church Lytham",
+      "postcode": "FY8 5AA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 379,
+      "name": "Over Wyre United Reformed Church",
+      "postcode": "FY6 9AA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 380,
+      "name": "Central Lancashire Slings CIC",
+      "postcode": "PR25 2LD",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 381,
+      "name": "Burnley wood community group",
+      "postcode": "BB11 2QX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 382,
+      "name": "Burscough Methodist Church",
+      "postcode": "L40 0SG",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 383,
+      "name": "FP RAFT CIC",
+      "postcode": "PR1 5TR",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 384,
+      "name": "HelpPKE ",
+      "postcode": "FY6 0FA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 385,
+      "name": "Quwwat Education Centre",
+      "postcode": "PR1 6QX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 386,
+      "name": "Ember and Blossom CIC",
+      "postcode": "FY7 8PG",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 387,
+      "name": "Parochial Church Council of the Ecclesiastical Parish of Warton",
+      "postcode": "LA5 9PG",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 388,
+      "name": "Maundy Relief",
+      "postcode": "BB5 1EN",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 389,
+      "name": "Rosehill wellbeing ",
+      "postcode": "BB11 2JS",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 390,
+      "name": "Wesley's Community Cafe and Larder",
+      "postcode": "FY8 3NQ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 391,
+      "name": "About the Town CIC",
+      "postcode": "WN8 6HB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 392,
+      "name": "Fulwood Methodist Church",
+      "postcode": "PR2 8EA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 393,
+      "name": "Tanterton Christian Fellowship",
+      "postcode": "PR2 7BX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 394,
+      "name": "Leyland Baptist Church",
+      "postcode": "PR25 1XL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 395,
+      "name": "Revelation Community Church Leyland",
+      "postcode": "PR26 7SN",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 396,
+      "name": "Carnforth Town Council",
+      "postcode": "LA5 9LJ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 397,
+      "name": "Mens shed Fleetwood",
+      "postcode": "FY7 7HY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 398,
+      "name": "Sefton Road United Reformed Church",
+      "postcode": "LA3 1TZ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 399,
+      "name": "Tamhouse  Community Enterprise",
+      "postcode": "WN8 6AN",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 400,
+      "name": "Mill Bank Wellbeing Centre",
+      "postcode": "PR1 1ED",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 401,
+      "name": "Advocacy Focus",
+      "postcode": "BB11 1DZ",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 402,
+      "name": "Cornerstone Community Centre - Lancaster Methodist Church",
+      "postcode": "LA1 1PX",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 403,
+      "name": "Lancaster Methodist Church - Scotforth  Road",
+      "postcode": "LA1 4TE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 404,
+      "name": "Charter House Resource Centre",
+      "postcode": "BB10 4PB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 405,
+      "name": "The Greater Good Project CIC",
+      "postcode": "BB4 6PD",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 406,
+      "name": "The Greenhill. Community Hub Ltd",
+      "postcode": "WN8 8DL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 407,
+      "name": "Community Lives Matter",
+      "postcode": "L39 3NE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 408,
+      "name": "All Saints' Church",
+      "postcode": "PR4 4LN",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 409,
+      "name": "Hurst Green Coffee Stop",
+      "postcode": "BB7 9QA",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 410,
+      "name": "Brave Church",
+      "postcode": "BB5 3HH",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 412,
+      "name": "West End Impact",
+      "postcode": "LA3 1DG",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 413,
+      "name": "West End Impact",
+      "postcode": "LA3 1DG",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 414,
+      "name": "Stanleys Community Centre",
+      "postcode": "LA3 1UT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 415,
+      "name": "Lancaster District Food Justice Partnership",
+      "postcode": "LA1 2AP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 416,
+      "name": "Your Community Shop CIC Community ",
+      "postcode": "PR25 1TB",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 417,
+      "name": "Veterans in Communities",
+      "postcode": "BB4 5PL",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 418,
+      "name": "Stronger Together Carers Group ",
+      "postcode": "OL12 8DP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 419,
+      "name": "Trinity Community Hub",
+      "postcode": "BB7 2JY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 420,
+      "name": "Wellbeing Initiative Association",
+      "postcode": "BB10 1DT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 421,
+      "name": "The-Oasis C.I.C.",
+      "postcode": "BB10 2EN",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 422,
+      "name": "Enterprising Habits Ltd",
+      "postcode": "BB10 1BY",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 423,
+      "name": "Thornton-le-Fylde Christ Church",
+      "postcode": "FY5 2TW",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 424,
+      "name": "Creative Spaces Burnley",
+      "postcode": "BB11 1PP",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 425,
+      "name": "Ground Up Burnley ",
+      "postcode": "BB11 1NR",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 427,
+      "name": "NEWBURGH SPORTS CLUB",
+      "postcode": "WN8 7ND",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 428,
+      "name": "Alt-Space",
+      "postcode": "LA3 1QE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 429,
+      "name": "Alt-Space",
+      "postcode": "LA3 1QE",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 430,
+      "name": "CPA  SOCIAL CLUB",
+      "postcode": "BB4 8QT",
+      "reason": "Lancashire feed not yet confirmed for 2026-27",
+      "feed": "lancashire"
+     },
+     {
+      "objectid": 7,
+      "name": "St Mary's Church, Ash Vale (Friday Community Cafe)",
+      "postcode": "GU12 5JE",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 8,
+      "name": "The Chapel Project, Ash Vale (Monday Chapel Cafe)",
+      "postcode": "GU12 5AY",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 15,
+      "name": "Salfords and Sidlow Parish Council",
+      "postcode": "RH1 5DG",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 30,
+      "name": "Vitality Village CIC",
+      "postcode": "KT7 0BS",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 33,
+      "name": "St Mark's Church Food Club",
+      "postcode": "KT18 5RB",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 34,
+      "name": "New Life Church (Community Life)",
+      "postcode": "RH5 4DH",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 44,
+      "name": "Leatherhead Community Hub",
+      "postcode": "KT22 7PX",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 49,
+      "name": "Runnymede Games Club",
+      "postcode": "TW20 9EW",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 54,
+      "name": "Crossways Community Cafe",
+      "postcode": "RH4 3HB",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 56,
+      "name": "The Bee Pub",
+      "postcode": "GU20 6PD",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 59,
+      "name": "Saint Paul's Church Egham Hythe",
+      "postcode": "TW18 3HJ",
+      "reason": "no times",
+      "feed": "surrey"
+     },
+     {
+      "objectid": 2,
+      "name": "Banbury Library",
+      "postcode": "OX16 5DB",
+      "reason": "hours say check website",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 4,
+      "name": "Caf\u00e9\r\nRusty Musicians\r\nRusty Musicians\r\nKnitters and Crocheters",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 5,
+      "name": "Woodgreen Library",
+      "postcode": "OX16 0AT",
+      "reason": "hours say check website",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 8,
+      "name": "Mini-market (children's clothes/toys)\r\nBingo\r\nCommunity Larder",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 10,
+      "name": "Board Games Night\r\nChess Night\r\nStay and Play",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 11,
+      "name": "Welcome Hub",
+      "postcode": "OX16 9HU",
+      "reason": "the wording is not a clear day and time",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 15,
+      "name": "Thursday coffee morning\r\nSocial Club",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 16,
+      "name": "Seated Yoga\r\nSocial Afternoon",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 20,
+      "name": "Library",
+      "postcode": "OX26 6AU",
+      "reason": "hours say check website",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 22,
+      "name": "Cherwell Collective - WISH",
+      "postcode": "OX5 1EE",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 23,
+      "name": "Kidlington Library",
+      "postcode": "OX5 2BP",
+      "reason": "hours say check website",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 27,
+      "name": "Bitesize for Expectant Mums\r\nRenew Wellbeing Space for Adults\r\nTiddlywinks for mothers/carers with Pre-School Children",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 29,
+      "name": "Still Waters Caf\u00e9\r\nLunch",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 33,
+      "name": "Coffee Morning\r\nLittle Lambs",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 34,
+      "name": "Library\r\nCoffee Morning",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 35,
+      "name": "Deddington Library",
+      "postcode": "OX15 0SH",
+      "reason": "hours say check website",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 36,
+      "name": "Hook Norton Library",
+      "postcode": "OX15 5NH",
+      "reason": "hours say check website",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 41,
+      "name": "Kids and Caffeine\r\nCoffee Morning\r\nSeniors Lunch\r\nCraft in Company",
+      "reason": "no warm welcome / warm space row",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 48,
+      "name": "General Foods Social Club (run by Green Pastures)",
+      "postcode": "OX16 2PA",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 50,
+      "name": "Ruscote Community Centre",
+      "postcode": "OX16 1PH",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 51,
+      "name": "Weston On The Green Memorial Hall",
+      "postcode": "OX25 3QR",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 52,
+      "name": "Seecombe Court Care Home",
+      "postcode": "OX17 3FW",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 53,
+      "name": "Lemon Tree Cafe",
+      "postcode": "OX5 1FZ",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 54,
+      "name": "Hornton Methodist Church",
+      "postcode": "OX15 6BS",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 55,
+      "name": "Wigginton Methodist Church",
+      "postcode": "OX15 4JZ",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 58,
+      "name": "Coffee and bingo",
+      "postcode": "OX16 0RD",
+      "reason": "the hours only apply some weeks (monthly, term-time or similar)",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 59,
+      "name": "Stay and Play",
+      "postcode": "OX16 5DN",
+      "reason": "the wording is not a clear day and time",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 60,
+      "name": "Coffee morning",
+      "postcode": "OX17 3NG",
+      "reason": "the hours only apply some weeks (monthly, term-time or similar)",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 61,
+      "name": "The Salvation Army",
+      "postcode": "OX26 4FR",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 63,
+      "name": "Bicester East Community Association",
+      "postcode": "OX26 4TP",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 64,
+      "name": "Heyford Park Community Centre",
+      "postcode": "OX25 5TE",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 65,
+      "name": "Langford View Care Home",
+      "postcode": "OX26 6EW",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 66,
+      "name": "The Beacon",
+      "postcode": "OX16 0AA",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 67,
+      "name": "Begbroke Village Hall",
+      "postcode": "OX5 1RN",
+      "reason": "no times",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 13,
+      "name": "Community Drop In",
+      "postcode": "OX16 5EX",
+      "reason": "duplicate of cherwell-ox161fa-community-drop-in",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 47,
+      "name": "Coffee Morning",
+      "postcode": "OX27 7PA",
+      "reason": "duplicate of cherwell-ox278ds-coffee-morning",
+      "feed": "cherwell"
+     },
+     {
+      "objectid": 1,
+      "name": "Northern View",
+      "postcode": "TD15 2JU",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 2,
+      "name": "Longhorsley Village Hall Warm Space",
+      "postcode": "NE65 8UR",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 3,
+      "name": "Wooler Warm Welcome",
+      "postcode": "NE71 6LW",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 4,
+      "name": "Seaton Sluice library",
+      "postcode": "NE26 4QX",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 6,
+      "name": "Bedlington Station Library at East Bedlington Community Centre",
+      "postcode": "NE22 7JN",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 7,
+      "name": "Bedlington Library",
+      "postcode": "NE22 7JN",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 11,
+      "name": "Berwick Library",
+      "postcode": "TD15 1DB",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 12,
+      "name": "LongHoughton Community and Sports Centre (Westfield Park)",
+      "postcode": "NE66 3JH",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 13,
+      "name": "Holywell Community Centre - Veterans Hut",
+      "postcode": "NE25 0LJ",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 14,
+      "name": "Mitford Village Hall",
+      "postcode": "NE61 3PS",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 15,
+      "name": "Contact Morpeth Mental Health",
+      "postcode": "NE61 1QD",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 18,
+      "name": "Newbiggin Learning Hive",
+      "postcode": "NE64 6BQ",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 19,
+      "name": "Bell View",
+      "postcode": "NE70 7QB",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 21,
+      "name": "The Alnwick Gardens",
+      "postcode": "NE66 1HB",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 23,
+      "name": "The Launchpad",
+      "postcode": "NE23 2UW",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 24,
+      "name": "Friday at the Gap",
+      "postcode": "NE61 4EG",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 25,
+      "name": "St. Nicholas Church",
+      "postcode": "NE23 6QQ",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 28,
+      "name": "Morpeth Library",
+      "postcode": "NE61 1SR",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 29,
+      "name": "Ponteland Library",
+      "postcode": "NE20 9EG",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 31,
+      "name": "East Bedlington Community Centre",
+      "postcode": "NE22 7JN",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 33,
+      "name": "Berwick Voluntary Centre",
+      "postcode": "TD15 1NG",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 34,
+      "name": "Newbiggin bowls club",
+      "postcode": "NE64 6XE",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 35,
+      "name": "Lynemouth Library",
+      "postcode": "NE61 5SY",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 37,
+      "name": "Mary Magdalaine Hall",
+      "postcode": "NE42 5HH",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 39,
+      "name": "Pegswood Miners Welfare",
+      "postcode": "NE61 6UF",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 40,
+      "name": "Concordia Leisure Centre",
+      "postcode": "NE23 6YB",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 41,
+      "name": "Newbiggin Arts Centre",
+      "postcode": "NE64 6QD",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 42,
+      "name": "Newbiggin Learning Hive",
+      "postcode": "NE64 6BQ",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 44,
+      "name": "Dalton Village Hall",
+      "postcode": "NE18 0AD",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 45,
+      "name": "Salvation Army Community Hall",
+      "postcode": "NE64 6ED",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 46,
+      "name": "Hirst Welfare Centre",
+      "postcode": "NE63 9HN",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 58,
+      "name": "Prudhoe Library",
+      "postcode": "NE42 5AA",
+      "reason": "the wording is not a clear day and time",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 59,
+      "name": "Widdy Welcomes",
+      "postcode": "NE61 5LZ",
+      "reason": "times are not a plain weekly timetable (term-time or similar)",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 62,
+      "name": "Warm and Welcome",
+      "postcode": "NE64 6ED",
+      "reason": "no weekday stated",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 63,
+      "name": "Mayfields Community Centre",
+      "postcode": "NE23 6TF",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 64,
+      "name": "Age UK Northumberland - The Round House Cafe",
+      "postcode": "NE63 9JZ",
+      "reason": "no times",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 27,
+      "name": "The Cramlington Hub",
+      "postcode": "NE23 6YB",
+      "reason": "duplicate of nland-ne236yb-the-cramlington-hub",
+      "feed": "northumberland"
+     },
+     {
+      "objectid": 56,
+      "name": "Newbiggin Sports & Community Hub",
+      "postcode": "NE64 6HG",
+      "reason": "duplicate of nland-ne646hg-newbiggin-sports-community-hub",
+      "feed": "northumberland"
+     }
+    ],
+    "failed": [],
+    "ids": [
+     "bh-bn15jd-withdean-sports-complex",
+     "bh-bn25pb-stanley-deason-leisure-centre",
+     "bh-bn412ws-portslade-sports-centre",
+     "ww-65345099",
+     "bh-bn11uf-brighton-unitarian-church",
+     "ww-62827956",
+     "bh-bn13be-first-church-of-christ-scientist",
+     "bh-bn33re-the-clarendon-centre",
+     "ww-57952512",
+     "bh-bn26pa-woodingdean-methodist-church",
+     "bh-bn21rl-openhouse-dg",
+     "ww-57952197",
+     "ww-55473692",
+     "ww-55474526",
+     "ww-55474875",
+     "ww-55472979",
+     "ww-55474913",
+     "ww-64379377",
+     "bh-bn411xr-portslade-library",
+     "ww-68672328",
+     "ww-57952647",
+     "ww-68672319",
+     "ww-68672327",
+     "bh-bn12te-churchill-square",
+     "bh-bn32ww-king-alfred-leisure-centre",
+     "bh-bn35dr-hove-methodist-church",
+     "bh-bn32fl-the-hop-50",
+     "ww-64379062",
+     "ww-64396795",
+     "surrey-gu212pz-knaphill-baptist-church",
+     "surrey-gu85ez-age-uk-surrey",
+     "surrey-tw197er-stanwell-events",
+     "surrey-gu166bs-the-mytchett-community-association",
+     "surrey-rh76ah-st-peter-and-st-paul-church",
+     "surrey-kt172aq-st-mary-s-ewell",
+     "surrey-kt198ha-love-me-love-my-mind",
+     "surrey-rh13qa-merstham-baptist-church",
+     "surrey-gu216dj-welcome-church-and-welcome-community-grocery",
+     "ww-56388532",
+     "surrey-kt185aq-epsom-methodist-church-family-centre",
+     "surrey-gu213lg-st-andrew-s-church",
+     "surrey-gu154he-st-martin-s-church",
+     "surrey-gu215nz-maybury-and-sheerwater-community-trust",
+     "ww-55592194",
+     "surrey-kt228ah-surrey-lifelong-learning-partnership",
+     "surrey-gu28dq-surrey-lifelong-learning-partnership",
+     "surrey-gu229bx-new-life-church-woking",
+     "surrey-kt82qf-st-peter-s-west-molesey",
+     "surrey-gu153sy-the-hope-hub",
+     "surrey-tw167tp-st-saviour-s-church-of-england-sunbury",
+     "surrey-cr35pg-the-westway-wellbeing-community-centre",
+     "surrey-gu152qn-ezra-charitable-trust-cio",
+     "surrey-gu206aa-windlesham-field-of-remembrance",
+     "surrey-kt207jt-box-hill-village-hall",
+     "surrey-rh12bx-holy-trinity-church-redhill",
+     "surrey-kt185ad-surrey-lifelong-learning-partnership",
+     "ww-57951592",
+     "ww-65437494",
+     "surrey-gu227bd-angelic-network-cic",
+     "ww-65344921",
+     "ww-65437317",
+     "ww-65438703",
+     "ww-65748690",
+     "ww-62871079",
+     "surrey-gu68nt-rowleys-centre-for-the-community",
+     "surrey-tw200qx-the-village-centre",
+     "ww-65414000",
+     "ww-55475744",
+     "ww-56851781",
+     "surrey-gu228hf-maybury-support-group",
+     "surrey-gu216el-emmaus-transformation-trust",
+     "surrey-rh14pe-grange-meadow-cic-ltd",
+     "surrey-gu212sp-dramatize-knaphill",
+     "surrey-rh43pr-the-westcott-village-hub-cic",
+     "ww-65442002",
+     "surrey-tw170sp-dramatize-charlton-village",
+     "surrey-gu11np-st-peter-s-shared-church",
+     "surrey-gu153en-camberley-baptist-church",
+     "ww-65438726",
+     "ww-65437270"
+    ]
+   },
+   "Council warm spaces / warm hubs pages (~360 councils)": {
+    "status": "not scraped: no common format, except ArcGIS FeatureServer feeds listed in overrides/arcgis_warmspaces.json (read above). Other council pages are added via overrides/warmspaces_manual.json with a source URL"
+   },
+   "warmspaces.org (Warm Spaces directory)": {
+    "status": "not scraped: inactive since Nov 2024 (per Open Innovations register); site returns 404"
+   },
+   "Age UK branches, British Red Cross, libraries, church directories": {
+    "status": "not scraped: no machine-readable UK-wide listing; many of these venues are already registered on Warm Welcome"
+   },
+   "Open Innovations warm spaces aggregator (council/VCS directories)": {
+    "status": "ok",
+    "count": 4082,
+    "last_modified": "Mon, 26 Oct 2026 23:02:35 GMT",
+    "sha256": "bdff97b354a154da5ebf454e572ed2536846e822247f5bd0eed21c0169388168"
+   },
+   "Warm Welcome feed discovery": {
+    "status": "ok",
+    "pool": 1,
+    "checked_this_run": 1,
+    "added_this_run": 0,
+    "queued_this_run": 1,
+    "rejected_this_run": 0,
+    "passed_total": 201
+   },
+   "Discovery": {
+    "status": "ok",
+    "candidates": 4082,
+    "new": 2237,
+    "added_unverified": 2,
+    "flagged": 2233
+   },
+   "am/pm hours fix": {
+    "status": "ok",
+    "entries_fixed": 600,
+    "detail": [
+     {
+      "id": "ww-55472831",
+      "name": "Bradford Central Foodbank and The Light Church",
+      "changes": [
+       [
+        "Wed",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437316",
+      "name": "Community Living Room",
+      "changes": [
+       [
+        "Mon",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ],
+       [
+        "Wed",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ],
+       [
+        "Fri",
+        "10:30 - 02:00",
+        "10:30 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473654",
+      "name": "Hedon Centre",
+      "changes": [
+       [
+        "Wed",
+        "09:30 - 01:30",
+        "09:30 - 13:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437279",
+      "name": "Howden Centre",
+      "changes": [
+       [
+        "Mon",
+        "09:30 - 04:30",
+        "09:30 - 16:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474741",
+      "name": "St Mary's Liscard Neigbourhood Hub -   Round  the Back Cafe",
+      "changes": [
+       [
+        "Wed",
+        "11:30 - 02:00",
+        "11:30 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57951916",
+      "name": "1",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ],
+       [
+        "Sat",
+        "12:00 - 03:00",
+        "12:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68851205",
+      "name": "10",
+      "changes": [
+       [
+        "Mon",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Tue",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Wed",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Thu",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Fri",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ],
+       [
+        "Sat",
+        "12:00 - 08:00",
+        "12:00 - 20:00"
+       ],
+       [
+        "Sun",
+        "12:00 - 08:30",
+        "12:00 - 20:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62565383",
+      "name": "55 Ruscoe Road",
+      "changes": [
+       [
+        "Mon",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952250",
+      "name": "A Warm Space",
+      "changes": [
+       [
+        "Wed",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474771",
+      "name": "A warm welcome",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437430",
+      "name": "Abbey Hall Lounge",
+      "changes": [
+       [
+        "Mon",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-65437375",
+      "name": "Aberbargoed Library",
+      "changes": [
+       [
+        "Tue",
+        "09:30 - 06:00",
+        "09:30 - 18:00"
+       ],
+       [
+        "Wed",
+        "09:30 - 05:00",
+        "09:30 - 17:00"
+       ],
+       [
+        "Thu",
+        "09:30 - 05:00",
+        "09:30 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473122",
+      "name": "Abraham Moss Library",
+      "changes": [
+       [
+        "Thu",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952113",
+      "name": "Academy HQ",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 10:00",
+        "10:00 - 22:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65441942",
+      "name": "Afternoon Community Club",
+      "changes": [
+       [
+        "Tue",
+        "01:00 - 02:30 Monthly",
+        "13:00 - 14:30 Monthly"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55475071",
+      "name": "Alcester Methodist Church",
+      "changes": [
+       [
+        "Tue",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65419953",
+      "name": "Allington Library",
+      "changes": [
+       [
+        "Tue",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Wed",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "02:00 - 05:00",
+        "14:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57951928",
+      "name": "Ancient Borough Arms",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sun",
+        "10:00 - 00:00",
+        "10:00 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62980634",
+      "name": "Angy Care Health Foundation",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Wed",
+        "11:00 - 05:00",
+        "11:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65085970",
+      "name": "Antley Methodist Church",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55592144",
+      "name": "Apex Church Community Cafe",
+      "changes": [
+       [
+        "Wed",
+        "12:00 - 01:30",
+        "12:00 - 13:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68922383",
+      "name": "Art,Faith  and  wellbeing  hub",
+      "changes": [
+       [
+        "Tue",
+        "12:00 - 04:00",
+        "12:00 - 16:00"
+       ],
+       [
+        "Thu",
+        "12:00 - 04:00",
+        "12:00 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65413993",
+      "name": "Askern Community Hub",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Wed",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-59964853",
+      "name": "Aspire Community Lunch & Warm Space",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Wed",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Thu",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ],
+       [
+        "Fri",
+        "11:00 - 02:00",
+        "11:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474994",
+      "name": "ATAC COMMUNITY HALL",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 04:00",
+        "11:00 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-69069572",
+      "name": "Audacious Church",
+      "changes": [
+       [
+        "Tue",
+        "10:30 - 15.30",
+        "10:30 - 15:30"
+       ],
+       [
+        "Thu",
+        "10:30 - 15.30",
+        "10:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-69211163",
+      "name": "Bamford Chapel & Norden URC",
+      "changes": [
+       [
+        "Thu",
+        "Closed / 10:30 - 12:00",
+        "10:30 - 12:00"
+       ],
+       [
+        "Fri",
+        "Closed / 13:30 - 15:00 Monthly",
+        "13:30 - 15:00 Monthly"
+       ],
+       [
+        "Sat",
+        "Closed / 18:30 - 20:00 Monthly",
+        "18:30 - 20:00 Monthly"
+       ],
+       [
+        "Sun",
+        "Closed / 10:30 - 12:00",
+        "10:30 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476048",
+      "name": "Bar Hill Hub",
+      "changes": [
+       [
+        "Mon",
+        "Closed / 09:00 - 12:00",
+        "09:00 - 12:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65438825",
+      "name": "Barton Community Centre",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476318",
+      "name": "Beacon Church Centre",
+      "changes": [
+       [
+        "Tue",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476155",
+      "name": "Bearsted Library",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 05:00",
+        "10:00 - 17:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952944",
+      "name": "Beechwood Road Public Library",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952878",
+      "name": "Beggar and Gentleman",
+      "changes": [
+       [
+        "Fri",
+        "11:00 - 00:30",
+        "11:00 - 12:30"
+       ],
+       [
+        "Sat",
+        "11:00 - 00:30",
+        "11:00 - 12:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64432711",
+      "name": "Belgrave Neighbourhood Co-operative Housing Association- EKTA sessions",
+      "changes": [
+       [
+        "Mon",
+        "12:00 - 15.00",
+        "12:00 - 15:00"
+       ],
+       [
+        "Fri",
+        "12:00 - 1500",
+        "12:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65438851",
+      "name": "Bennachie Leisure Centre Charity",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Wed",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 08:00",
+        "09:00 - 20:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 01:00",
+        "09:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55475047",
+      "name": "Beswick Library",
+      "changes": [
+       [
+        "Fri",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474488",
+      "name": "Bethesda Church Cheltenham",
+      "changes": [
+       [
+        "Wed",
+        "10:30 - 03:30",
+        "10:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473353",
+      "name": "Bethlehem Centre, In partnership with All community connect CIC",
+      "changes": [
+       [
+        "Sat",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64378969",
+      "name": "Bethnal Green Methodist Church",
+      "changes": [
+       [
+        "Fri",
+        "10:30 - 04:00",
+        "10:30 - 16:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55476122",
+      "name": "Birchington Library",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "09:30 - 03:30",
+        "09:30 - 15:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55474884",
+      "name": "Blaby All Saints Parish Church",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473387",
+      "name": "Blackburn with Darwen Library and Information Service. Cherry Tree Library",
+      "changes": [
+       [
+        "Tue",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Thu",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sat",
+        "10:12 - 00:00",
+        "10:12 - 12:00"
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-55472965",
+      "name": "Blaenau Gwent Libraries - Abertillery Library",
+      "changes": [
+       [
+        "Fri",
+        "09:00 - 01:00 / 14:00 - 17:30",
+        "09:00 - 13:00 / 14:00 - 17:30"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64432691",
+      "name": "Bloxwich Community Library",
+      "changes": [
+       [
+        "Tue",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Wed",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Thu",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Fri",
+        "08:30 - 06:00",
+        "08:30 - 18:00"
+       ],
+       [
+        "Sat",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-63029577",
+      "name": "Boghall Community Wing",
+      "changes": [
+       [
+        "Mon",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Tue",
+        "10:00 - 09:00",
+        "10:00 - 21:00"
+       ],
+       [
+        "Wed",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Thu",
+        "10:00 - 08:00",
+        "10:00 - 20:00"
+       ],
+       [
+        "Fri",
+        "10:00 - 04:00",
+        "10:00 - 16:00"
+       ],
+       [
+        "Sat",
+        "10:00 - 03:00",
+        "10:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473954",
+      "name": "Botley Library",
+      "changes": [
+       [
+        "Wed",
+        "00:00 - 00:00",
+        null
+       ],
+       [
+        "Sun",
+        "00:00 - 00:00",
+        null
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952653",
+      "name": "Bournemouth Library",
+      "changes": [
+       [
+        "Sat",
+        "09:00 - 05:00",
+        "09:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-58668039",
+      "name": "Bovey Tracey Social Supermarket",
+      "changes": [
+       [
+        "Tue",
+        "03:00 - 05:00",
+        "15:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65420032",
+      "name": "Brandhall Library",
+      "changes": [
+       [
+        "Fri",
+        "10.00 - 13:00 / 14:00 - 17:00",
+        "10:00 - 13:00 / 14:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-62836257",
+      "name": "Bridge Project, Salvation Army",
+      "changes": [
+       [
+        "Mon",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Tue",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Thu",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ],
+       [
+        "Fri",
+        "09:00 - 02:00",
+        "09:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57952791",
+      "name": "Brighouse Central Methodist Church",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-64379209",
+      "name": "Brislington Community Cafe",
+      "changes": [
+       [
+        "Mon",
+        "11:00 - 03:00",
+        "11:00 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-68367637",
+      "name": "Britwell Hub",
+      "changes": [
+       [
+        "Thu",
+        "10:00 - 01:00",
+        "10:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473024",
+      "name": "Bromyard Methodist Church",
+      "changes": [
+       [
+        "Wed",
+        "10:00 - 02:00",
+        "10:00 - 14:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-55473412",
+      "name": "Brookside Community Hub",
+      "changes": [
+       [
+        "Fri",
+        "09:30 - 03:00",
+        "09:30 - 15:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-57953248",
+      "name": "Brynmill Community Centre",
+      "changes": [
+       [
+        "Tue",
+        "11:00 - 01:00",
+        "11:00 - 13:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65345131",
+      "name": "Buckfastleigh Social Supermarket",
+      "changes": [
+       [
+        "Tue",
+        "03:00 - 05:00",
+        "15:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65413945",
+      "name": "Bucknall Village Hall Warm Space",
+      "changes": [
+       [
+        "Mon",
+        "09:30 - 01:10",
+        "09:30 - 13:10"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65989134",
+      "name": "Bugbrooke Community Living Room",
+      "changes": [
+       [
+        "Tue",
+        "01:30 - 05:00",
+        "13:30 - 17:00"
+       ],
+       [
+        "Thu",
+        "02:00 - 05:00",
+        "14:00 - 17:00"
+       ]
+      ]
+     },
+     {
+      "id": "ww-65441981",
+      "name": "Caf\u00e9 connect",
+      "changes": [
+       [
+        "Fri",
+        "10:00 - 04:00",
+        "10:00 - 16:00"
+       ]
+      ]
+     }
+    ]
+   },
+   "Hours normalised": {
+    "status": "ok",
+    "changed": 2
+   },
+   "Own-site times check": {
+    "status": "ok",
+    "unconfirmed": 189,
+    "no_website": 88,
+    "confirmed": 51,
+    "differs_review": 102,
+    "held_for_dean": 29,
+    "none_published": 5,
+    "unreachable": 119,
+    "removed_closed": []
+   },
+   "Verification gate": {
+    "status": "ok",
+    "scraped": 6048,
+    "published": 598,
+    "pending": 5450,
+    "kept_on_48h_grace": [
+     "ww-68672287",
+     "ww-62729499"
+    ]
+   },
+   "Seasonal dates": {
+    "status": "ok",
+    "upcoming": 10,
+    "ended_greyed": 0,
+    "expired": []
+   },
+   "Excluded by review": {
+    "status": "ok",
+    "ids": [
+     "ww-62854883",
+     "ww-64821439",
+     "ww-65437497",
+     "ww-67998489",
+     "ww-68851205",
+     "ww-69343435"
+    ]
+   },
+   "Carried forward (call before you go)": {
+    "status": "ok",
+    "count": 8,
+    "ids": [
+     "cherwell-ox165nt-caf-social-dining-club-invitation-only-day-centr",
+     "ww-65437341",
+     "ww-62587523",
+     "ww-69177710",
+     "cherwell-ox160td-dog-social-club-knit-and-natter-warm-welcome",
+     "ww-65438945",
+     "oi-birmingham-council-marlborough-primary-school-b10-9ny",
+     "ww-65441920"
+    ],
+    "for_review": [
+     "ww-65441920"
+    ],
+    "not_carried": []
+   },
+   "Manual contacts": {
+    "status": "ok",
+    "phones_filled": 397,
+    "missing_any_number": [
+     "sw-age-uk-gloucester-house-le131je",
+     "surrey-gu85ez-age-uk-surrey",
+     "ww-57951531",
+     "surrey-gu227bd-angelic-network-cic",
+     "ww-62980634",
+     "ww-57952197",
+     "ww-69389599",
+     "ww-55472784",
+     "surrey-kt207jt-box-hill-village-hall",
+     "surrey-gu50hg-bramley-library",
+     "surrey-gu153en-camberley-baptist-church",
+     "bh-bn12te-churchill-square",
+     "ww-58322099",
+     "nland-ne663tp-craster-memorial-hall",
+     "ww-55476188",
+     "surrey-tw170sp-dramatize-charlton-village",
+     "surrey-gu212sp-dramatize-knaphill",
+     "surrey-tw209ea-egham-library",
+     "surrey-gu216el-emmaus-transformation-trust",
+     "surrey-kt198ag-epsom-library",
+     "surrey-kt185aq-epsom-methodist-church-family-centre",
+     "surrey-kt190eb-ewell-court-library",
+     "ww-65441919",
+     "surrey-kt171uf-ewell-library",
+     "surrey-gu152qn-ezra-charitable-trust-cio",
+     "cherwell-ox252ls-friday-coffee-morning",
+     "surrey-gu71ht-godalming-library",
+     "surrey-rh14pe-grange-meadow-cic-ltd",
+     "ww-55474424",
+     "surrey-kt124rf-hersham-library",
+     "surrey-rh12bx-holy-trinity-church-redhill",
+     "ww-63057572",
+     "surrey-kt246qr-horsley-library",
+     "ww-65437489",
+     "ww-65437502",
+     "surrey-gu212pz-knaphill-baptist-church",
+     "surrey-gu185sb-lightwater-library",
+     "surrey-kt198ha-love-me-love-my-mind",
+     "surrey-gu215nz-maybury-and-sheerwater-community-trust",
+     "surrey-gu228hf-maybury-support-group",
+     "surrey-rh13qa-merstham-baptist-church",
+     "surrey-kt82hz-molesey-library",
+     "surrey-kt153ha-new-haw-library",
+     "surrey-gu229bx-new-life-church-woking",
+     "ww-69441302",
+     "ww-65437299",
+     "ww-57952902",
+     "ww-65240552",
+     "surrey-gu68nt-rowleys-centre-for-the-community",
+     "ww-69464578",
+     "surrey-rh89fp-st-agatha-s-hall",
+     "surrey-gu213lg-st-andrew-s-church",
+     "ww-57952715",
+     "surrey-tw209hr-st-johns-church-egham",
+     "surrey-gu154he-st-martin-s-church",
+     "surrey-kt172aq-st-mary-s-ewell",
+     "surrey-rh76ah-st-peter-and-st-paul-church",
+     "surrey-gu11np-st-peter-s-shared-church",
+     "surrey-kt82qf-st-peter-s-west-molesey",
+     "surrey-tw167tp-st-saviour-s-church-of-england-sunbury",
+     "surrey-tw197er-stanwell-events",
+     "surrey-kt172ja-stoneleigh-library",
+     "ww-55475278",
+     "surrey-kt228ah-surrey-lifelong-learning-partnership",
+     "surrey-gu28dq-surrey-lifelong-learning-partnership",
+     "surrey-kt185ad-surrey-lifelong-learning-partnership",
+     "surrey-kt185nu-tattenhams-library",
+     "ww-58735679",
+     "bh-bn33re-the-clarendon-centre",
+     "surrey-gu153sy-the-hope-hub",
+     "nland-ne425dt-the-miners-lamp-cafe-and-hub",
+     "surrey-gu166bs-the-mytchett-community-association",
+     "ww-55474188",
+     "ww-65438748",
+     "surrey-tw200qx-the-village-centre",
+     "surrey-rh43pr-the-westcott-village-hub-cic",
+     "surrey-cr35pg-the-westway-wellbeing-community-centre",
+     "ww-69441263",
+     "ww-55592285",
+     "surrey-gu216dj-welcome-church-and-welcome-community-grocery",
+     "surrey-kt138de-weybridge-library",
+     "surrey-gu206aa-windlesham-field-of-remembrance",
+     "ww-57952323"
+    ]
+   }
+  }
+ },
+ {
   "run": "2026-10-31",
   "result": "ok",
   "items": 586,

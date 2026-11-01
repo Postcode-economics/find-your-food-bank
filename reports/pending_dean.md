@@ -5,10 +5,11 @@ No new place (food bank, shelter or warm space) is added automatically: each wai
 ## foodbanks (0)
 
 
-## warmspaces (204)
+## warmspaces (205)
 
 - Age UK Gloucester House (LE13 1JE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.melton.gov.uk/leisure-health-and-community/cost-of-living/warm-spaces-in-melton/
 - Age UK Surrey (GU8 5EZ) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
+- Alcombe Friendship Centre (TA24 6AN) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=26120
 - Angelic Network CIC (GU22 7BD) - no verified phone - https://utility.arcgis.com/usrsvcs/servers/c638ca82d570483bb7b0743beeff6506/rest/services/Highways_Team/Warm_Welcome_2026_2027/MapServer/0/query?where=1%3D1&outFields=*&outSR=4326&returnGeometry=true&f=json
 - Angy Care Health Foundation (DA11 9NE) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://www.warmwelcome.uk/space?l=27103
 - Bevendean Community Church (BN2 4LT) - new place - waiting for your OK (add id to overrides/approved_new_places.json), no verified phone - https://gis.brighton-hove.gov.uk/server/rest/services/Hosted/Warm_spaces_October_26/FeatureServer/0/query?where=1=1&outFields=*&f=json
@@ -225,6 +226,8 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
   source: https://www.holytrinitywesterhailes.org.uk  
   why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
 <!-- /times review -->
+
+
 <!-- times crosscheck fb -->
 ## Opening-times changes from the refresh (fb): 11 auto-applied, 61 held
 
@@ -504,7 +507,7 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 
 
 <!-- times crosscheck ws -->
-## Opening-times changes from the refresh (ws): 0 auto-applied, 37 held
+## Opening-times changes from the refresh (ws): 0 auto-applied, 30 held
 
 - **Bishops Stortford Methodist Church** (`ww-64379621`, CM23 3AZ): own site now Tues - Thurs 10am - 4pm | Mondays and Saturdays 10am - 12pm  
   source: https://www.bsm-church.org.uk  
@@ -515,12 +518,12 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Community hub** (`ww-57951602`, ME20 7QR): own site now Mon, Wed and Fri 9am-2pm  
   source: https://www.aylesford-church.org.uk  
   why held: this change was undone by Dean; not re-applied
-- **Deptford Lounge** (`ww-57952616`, SE8 4RJ): own site now Monday 9am – 7pm | Tuesday 9am – 7pm | Wednesday 9am – 7pm | Thursday 9am – 7pm | Friday 9am – 7pm | Saturday 9am – 5pm | Sunday 10am – 4pm  
-  source: https://deptfordlounge.org.uk/  
-  why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 7 separate time blocks read from one page; review only
 - **Gateway** (`ww-58567193`, OL16 1SN): own site now Monday to Friday 9:30am – 3:30pm  
   source: https://gatewayleisure.co.uk/  
   why held: new own-site times look like office/centre hours
+- **Jubilee Church, Wirral** (`ww-65437506`, CH45 0LA): own site now Thursdays 1pm-3pm  
+  source: https://jubileechurchwirral.org.uk/  
+  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Fri, Sun) and the source does not say that session ended; review; times not read identically on 2 separate runs yet
 - **Kirkliston Parish Church** (`ww-55473134`, EH29 9AX): own site now Fridays 6:00pm - 8:00pm  
   source: https://www.kirklistonparish.org  
   why held: day not on the same line as its times on the own-site page
@@ -530,9 +533,6 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Life Community Lunch Cafe** (`ww-57953101`, CH63 7LA): own site now Tues-Fri 9:00AM - 5:00PM  
   source: https://www.mylifechurch.co.uk  
   why held: new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
-- **Martyrs Church** (`ww-57953292`, LE3 0QT): own site now Thursdays 10am-11:30am  
-  source: https://martyrs.org.uk/  
-  why held: this change was undone by Dean; not re-applied
 - **Museum of the Home** (`ww-55473898`, E2 8EA): own site now Monday to Sunday 10am–5pm  
   source: https://www.museumofthehome.org.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; this change was undone by Dean; not re-applied
@@ -551,36 +551,24 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Renew 88** (`ww-55475882`, GU21 2PZ): own site now Friday 10.30am – 12.30  
   source: http://www.knaphillbaptist.org.uk/whats-happening/renew-88  
   why held: would cut known hours to fewer days (drops Mon) and the source does not say that session ended; review
-- **Revive Community Cafe** (`ww-65437466`, NR2 4DR): own site now Wednesday-Thursday 10am-3pm | Friday 10am-12pm | Saturday 10am-3pm | Sunday 12:45pm-2pm | Wednesday 10am - 3pm | Thursday 10am - 3pm | Friday 10am - 12pm | Saturday 10am - 3pm | Sunday 12:45pm - 2pm  
+- **Revive Community Cafe** (`ww-65437466`, NR2 4DR): own site now Saturday 10am-3pm | Sunday 12:45pm-2pm | Wednesday 10am - 3pm | Thursday 10am - 3pm | Friday 10am - 12pm | Saturday 10am - 3pm | Sunday 12:45pm - 2pm  
   source: http://revive-cafe.co.uk  
-  why held: jumble: 9 separate time blocks read from one page; review only
+  why held: jumble: 7 separate time blocks read from one page; review only
 - **Rushenden Warm Hub** (`ww-64432631`, ME11 5LX): own site now Mon -Thurs 10am to 4pm  
   source: https://www.friendlyfacesofkent.co.uk  
   why held: own site lists several centres (6 postcodes); cannot tie one table to this listing; new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
-- **Shipston Community Warm Hub** (`ww-65413950`, CV36 4AX): own site now Mondays and Thursdays 11am - 12pm | Tuesday 9:30am to 11am  
-  source: https://www.shwp.org.uk/  
-  why held: day not on the same line as its times on the own-site page
 - **St Andrew's CE Parish Church, Wolverhampton WV6 0QZ** (`ww-55473488`, WV6 0QZ): own site now Mondays 9.30-12.30pm | Wednesdays 11am-1pm | Fridays 9.30-12pm  
   source: https://www.achurchnearyou.com/church/4642/  
   why held: this change was undone by Dean; not re-applied
 - **St Mary Magdalene Church** (`ww-55475671`, B71 3PJ): own site now Sunday 10am-12 | Tuesday 8.30am-10 | Wednesday 10am-12 | Friday 10am-12  
   source: https://www.achurchnearyou.com/church/4605/  
   why held: this change was undone by Dean; not re-applied
-- **Stafford Hall Community Living Room** (`ww-65419943`, E17 8JZ): own site now Thursdays 3 pm to 4:15 pm  
-  source: https://www.saintbarnabaswalthamstow.com  
-  why held: would cut known hours to fewer days (drops Wed, Sun) and the source does not say that session ended; review
-- **Starfish Community Social Hub** (`ww-55474433`, TS18 3NA): own site now Monday - Friday 9-5pm  
-  source: https://www.starfishhealthandwellbeing.co.uk/  
-  why held: new own-site times look like office/centre hours; this change was undone by Dean; not re-applied
 - **The Place at Platt Lane** (`ww-55473455`, M14 7FB): own site now Monday 9 AM – 7 PM | Tuesday 9 AM – 5 PM | Wednesday 9 AM – 5 PM | Thursday 10 AM – 7 PM | Friday 9 AM – 5 PM | Saturday 10 AM – 5 PM  
   source: https://theplacefallowfield.co.uk/  
   why held: jumble: 6 separate time blocks read from one page; review only
 - **The Warm Welcome Community Centre** (`ww-68255736`, BS11 9EN): own site now Monday - Friday 10am - 4pm  
   source: https://www.avonmouthcca.org.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; this change was undone by Dean; not re-applied
-- **Wayfarers Caravan Park with St Hilary Church** (`ww-55472899`, TR20 9EF): own site now Sunday 12:00-15:00  
-  source: https://wayfarerspark.co.uk/flying-duck-bistro/  
-  why held: this change was undone by Dean; not re-applied
 - **Warmwell at Westbank** (`ww-65438771`, EX6 8AT): own site now Monday - Friday 9am - 6.30pm  
   source: https://www.westbank.org.uk/warmwell  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; this change was undone by Dean; not re-applied
@@ -593,24 +581,18 @@ Run 2026-11-01. AUTO-APPLIED rows are on the map (strict gate, 2 identical runs;
 - **Wellbeing Group** (`ww-69189528`, B42 2TU): own site now Monday–Saturday 9AM–5PM | Sunday 10AM–2PM  
   source: https://holfordsportshub.co.uk/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours (identical weekday block, not warm-space session wording); new own-site times look like general venue opening hours, not a warm-space session; source page is not the warm space's own session page (general venue or directory page); this change was undone by Dean; not re-applied
-- **Wellness Hub At St Laurence's Church** (`ww-59951280`, PR7 1EB): own site now Monday 5-5.30pm  
-  source: https://www.stlaurencechorley.co.uk/Articles/698575/Wellness_Hub.aspx  
-  why held: day not on the same line as its times on the own-site page; would cut known hours to fewer days (drops Tue, Wed, Thu, Fri) and the source does not say that session ended; review
 - **Warm Space at The Hepworth Wakefield** (`ww-69441263`, WF1 5AW): own site now Tuesday 10am - 5pm | Wednesday 10am - 5pm | Thursday 10am - 5pm | Friday 10am - 5pm | Saturday 10am - 5pm | Sunday 10am - 5pm  
   source: https://hepworthwakefield.org/whats-on/warm-space/  
   why held: new own-site times look like office/centre hours; new own-site times look like general venue opening hours, not a warm-space session; jumble: 6 separate time blocks read from one page; review only
-- **The Friendship Café at Myplace** (`hav-friendship-cafe-myplace`, RM3 9EN): own site now Friday 12pm – 4  
-  source: https://www.havering.gov.uk/warmspaces  
-  why held: own site lists several centres (9 postcodes); cannot tie one table to this listing; day not on the same line as its times on the own-site page
 - **Carway Hall** (`cmn-carway-hall`, SA17 4HL): own site now Tuesday and Wednesday 10am -2pm | Tuesday and Thursday 10am - 2pm  
   source: https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/  
-  why held: own site lists several centres (24 postcodes); cannot tie one table to this listing; this change was undone by Dean; not re-applied
+  why held: own site lists several centres (24 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Fri, Sat, Sun) and the source does not say that session ended; review; this change was undone by Dean; not re-applied
 - **Garnant Family Centre** (`cmn-garnant-family-centre`, SA18 2EP): own site now Thursday and 10.00am -1.00pm  
   source: https://www.carmarthenshire.gov.wales/home/council-services/community-information/warm-hubs/  
-  why held: own site lists several centres (24 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review
+  why held: own site lists several centres (24 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Wed) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Tue, Wed, Fri, Sat, Sun) and the source does not say that session ended; review
 - **Brandon 2 TRA Hall** (`swk-brandon-2-tra-hall`, SE17 3JQ): own site now Tuesday 11am to 2pm | Wednesday 10am to 3pm  
   source: https://www.southwark.gov.uk/benefits-and-support/cost-living/warm-spaces  
-  why held: own site lists several centres (58 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Thu) and the source does not say that session ended; review
+  why held: own site lists several centres (58 postcodes); cannot tie one table to this listing; would cut known hours to fewer days (drops Mon, Thu) and the source does not say that session ended; review; would cut known hours to fewer days (drops Mon, Thu, Fri, Sat, Sun) and the source does not say that session ended; review
 - **The Hub, South Brent (SBADC)** (`sbadc-the-hub-south-brent`, TQ10 9BP): own site now Monday – Thursday 9.30 – 12.30pm  
   source: https://www.sbadc.org.uk/  
   why held: would cut known hours to fewer days (drops Fri) and the source does not say that session ended; review
@@ -627,6 +609,7 @@ Run 2026-11-01. Nothing here is on the map. Each needs a hand check before it is
 
 - none this run
 <!-- /sweep shelters -->
+
 
 <!-- closures -->
 ## Possible closures - still on the map with "May have closed" note (0)
@@ -744,7 +727,7 @@ Counts of held warm spaces, shelters and day-centre candidates within 10km of ea
 - Southampton: 56 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 - Brighton and Hove: 13 warm spaces, 0 shelters, 0 day centres — main reason: not on allowlist
 
-276 held places had no outcode centroid, so they are not counted under a city.
+275 held places had no outcode centroid, so they are not counted under a city.
 <!-- /held near cities -->
 
 
@@ -759,10 +742,7 @@ Publish only via the Day centre label once that label exists. Until then these s
 - Coastline Housing Day Centre () — Monday 9am to 5pm | Tuesday 9am to 5pm | Wednesday 9am to 5pm | Thursday 9am to  — https://homeless.org.uk/homeless-england/service/coastline-housing-day-centre/
 - First Base Day Centre () — https://homeless.org.uk/homeless-england/service/first-base-day-centre/
 <!-- /day centre candidates -->
-- **Holy Trinity Church, Wester Hailes** (`ifan-5b9fd1318a04132921a389-0`, EH14 2SL): Mondays 9.15am – 11.00am | Mondays 9.30am – 11.00am  
-  source: https://www.holytrinitywesterhailes.org.uk  
-  why: hand-checked times are protected; finder only flags differences; not one clear weekly client-hours block (kept as text for review); times not read identically on 2 separate runs yet; jumble: Mon given different times in separate blocks on one page; review only
-<!-- /times review -->
+
 
 <!-- referral hostel holds -->
 ## Referral hostels held (not on the map)
