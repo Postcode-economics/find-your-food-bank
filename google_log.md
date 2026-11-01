@@ -1287,3 +1287,7 @@ Google Serper A-grade places go live in **one final PR after** agent bc-95f199ae
 
 - Used (this run): 1629
 - Estimated remaining: 871
+
+## Hand-checked A list (1 Nov 2026)
+
+Automated 86 A-rows were cleared after spot-check failures. Re-graded by reading operator pages only: **16** rows in `logs/google_a_items.json` with evidence lines in `logs/google_a_handcheck.md` (8 hostel, 7 day_centre, 1 young_people). Bishopbridge House skipped (already `man-bishopbridge-house-st-martins` on the map). PR remains blocked on merge gate until batch 3 lands on `main`.

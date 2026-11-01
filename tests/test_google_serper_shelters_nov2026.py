@@ -1,4 +1,4 @@
-"""Google Serper Nov 2026: sample of strict A-grade rows in shelters_manual."""
+"""Google Serper Nov 2026: sample of hand-checked A-grade rows in shelters_manual."""
 import json
 import os
 import unittest
@@ -6,11 +6,11 @@ import unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OV = os.path.join(ROOT, "overrides")
 IDS = [
-    "man-google-nightstop-south-devon",
-    "man-google-share-homeless-action-centre-chester-homeless-supp",
-    "man-google-maggs-day-centre-home",
-    "man-google-tabor-house-birmingham-our-first-homeless-preventi",
-    "man-google-nightstop-north-east-homeless-charity-shelters",
+    "man-google-share-homeless-action-centre-shac",
+    "man-google-crawley-open-house-hostel",
+    "man-google-maggs-day-centre-worcester",
+    "man-google-the-porch-oxford",
+    "man-google-clock-tower-sanctuary",
 ]
 
 
