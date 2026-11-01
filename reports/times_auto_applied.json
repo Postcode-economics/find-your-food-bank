@@ -6315,5 +6315,192 @@
   "first_run_at": "2026-11-01T06:01:22+00:00",
   "second_run_at": "2026-11-01T13:58:04+00:00",
   "revert": "python scripts/times_revert.py fb:lw-storehouse"
+ },
+ {
+  "id": "man-gloucester-city-mission-homeless-day-provision",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "Gloucester City Mission Homeless Day Provision",
+  "old": "Mon/Tue/Thu 10-3, Wed 11-1, Fri 10-1:30",
+  "new": {
+   "Mon": "10:00 - 15:00",
+   "Tue": "10:00 - 15:00",
+   "Wed": "11:00 - 13:00",
+   "Thu": "10:00 - 15:00",
+   "Fri": "10:00 - 13:30"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "tue": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "wed": [
+    [
+     "11:00",
+     "13:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:00",
+     "15:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:00",
+     "13:30"
+    ]
+   ]
+  },
+  "source_url": "https://www.gloscitymission.org.uk/what-we-do/homeless-day-provision/",
+  "first_run_at": "2026-11-01T03:43:22+00:00",
+  "second_run_at": "2026-11-01T22:19:00+00:00",
+  "revert": "python scripts/times_revert.py sh:man-gloucester-city-mission-homeless-day-provision"
+ },
+ {
+  "id": "man-action-for-barnsley-homeless",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "Action for Barnsley Homeless",
+  "old": "Mon 4pm-8pm (meal 6pm); Wed 10am-12pm McLintocks",
+  "new": {
+   "Mon": "16:00 - 20:00",
+   "Wed": "10:00 - 12:00"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "16:00",
+     "20:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:00",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.livewellbarnsley.co.uk/action-for-barnsley-homelessness/",
+  "first_run_at": "2026-11-01T03:43:22+00:00",
+  "second_run_at": "2026-11-01T22:19:00+00:00",
+  "revert": "python scripts/times_revert.py sh:man-action-for-barnsley-homeless"
+ },
+ {
+  "id": "man-hug-safe-space-bexhill-rother-homelessness-unity-g",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "HUG Safe Space (Bexhill & Rother Homelessness Unity Group)",
+  "old": "Not stated",
+  "new": {
+   "Sat": "13:00 - 15:00"
+  },
+  "new_structured": {
+   "sat": [
+    [
+     "13:00",
+     "15:00"
+    ]
+   ]
+  },
+  "source_url": "https://bexhillhug.org.uk/",
+  "first_run_at": "2026-11-01T03:43:22+00:00",
+  "second_run_at": "2026-11-01T22:19:00+00:00",
+  "revert": "python scripts/times_revert.py sh:man-hug-safe-space-bexhill-rother-homelessness-unity-g"
+ },
+ {
+  "id": "man-first-stop-centre",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "First Stop Centre",
+  "old": "Not stated",
+  "new": {
+   "Mon": "10:30 - 13:30",
+   "Tue": "10:30 - 13:30",
+   "Thu": "10:30 - 13:30",
+   "Fri": "10:30 - 13:30"
+  },
+  "new_structured": {
+   "mon": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ],
+   "tue": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ],
+   "thu": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ],
+   "fri": [
+    [
+     "10:30",
+     "13:30"
+    ]
+   ]
+  },
+  "source_url": "https://www.firststopcentre.com/location-and-opening-times",
+  "first_run_at": "2026-11-01T03:43:22+00:00",
+  "second_run_at": "2026-11-01T22:19:00+00:00",
+  "revert": "python scripts/times_revert.py sh:man-first-stop-centre"
+ },
+ {
+  "id": "man-hope-trinity",
+  "kind": "sh",
+  "path": "cross_check",
+  "name": "hope@trinity",
+  "old": "Tue-Fri 10:30am-12pm",
+  "new": {
+   "Tue": "10:30 - 12:00",
+   "Wed": "10:30 - 12:00",
+   "Thu": "10:30 - 12:00",
+   "Fri": "10:30 - 12:00"
+  },
+  "new_structured": {
+   "tue": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ],
+   "wed": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ],
+   "thu": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ],
+   "fri": [
+    [
+     "10:30",
+     "12:00"
+    ]
+   ]
+  },
+  "source_url": "https://www.tendringunited.org.uk/hopetrinity/",
+  "first_run_at": "2026-11-01T03:43:22+00:00",
+  "second_run_at": "2026-11-01T22:19:00+00:00",
+  "revert": "python scripts/times_revert.py sh:man-hope-trinity"
  }
 ]
