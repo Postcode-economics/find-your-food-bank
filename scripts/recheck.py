@@ -86,6 +86,8 @@ def osm_only(entry):
 def check(entry, ov, page, url=None, prev=None):
     """Run every check against the freshly fetched page; any failure -> ok False with the reason."""
     t = page["text"]; low = t.lower()
+    for ph in ov.get("ignore_phrases") or []:  # site-wide nav text such as "Community Fridge - now closed" (Goleudy) is not about this place
+        low = low.replace(ph.lower(), " ")
     res = {"http": page["http"], "final_url": page.get("final_url"), "etag": page.get("etag", ""),
            "last_modified": page.get("last_modified", ""), "sha256": page.get("sha256", "")}
     prev = prev or {}
