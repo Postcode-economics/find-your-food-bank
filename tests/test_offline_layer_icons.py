@@ -102,9 +102,8 @@ class OfflineLayerIcons(unittest.TestCase):
         return res
 
     def test_offline_shelter_icons_local_sw(self):
-        import shutil, tempfile, http.server, functools, threading
+        import shutil, tempfile, http.server, threading
         import check_browser as CB
-        from site_ready import wait_ready
         from playwright.sync_api import sync_playwright
         from urllib.parse import urlparse
 
