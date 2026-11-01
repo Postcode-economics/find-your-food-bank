@@ -223,7 +223,10 @@ KEY_JS = r"""()=>{const bad=[];
  for(const [i,row] of rows.entries()){
   const txt=row.querySelector('.xkey-txt'); if(!txt||getComputedStyle(txt).position==='absolute') bad.push('row '+i+' text not in flow');
   const ico=row.querySelector('.xkey-ico svg,.xkey-ico .sw'); if(!ico) bad.push('row '+i+' missing icon');}
- const sh=rows[1], day=rows[3], youth=rows[4];
+ const sh=rows[2], day=rows[3], youth=rows[4], ws=rows[1];
+ const order=rows.map(r=>{const b=r.querySelector('b[data-t]');return b?b.dataset.t:null});
+ if(JSON.stringify(order)!=='["fb","ws","sh","dayCentre","youth"]') bad.push('key order '+JSON.stringify(order));
+ if(ws&&!ws.querySelector('.xkey-ico .sw.dia')) bad.push('warm spaces key missing diamond symbol');
  if(sh&&!sh.querySelector('.xkey-ico svg path[d*="15.5"]')) bad.push('shelters key missing house symbol');
  if(day&&!day.querySelector('.xkey-ico svg circle')) bad.push('day centre key missing sun symbol');
  if(youth&&!youth.querySelector('.xkey-ico svg text')) bad.push('youth key missing 16/25 symbol');
@@ -372,7 +375,8 @@ def run(base=None, measure=False):
                                 if k == 'sh':
                                     pg.click('#chips [data-f=youth]'); pg.wait_for_timeout(400)
                                     fy = pg.evaluate("""()=>{const ids=[...document.querySelectorAll('#xlist > .card.xsh')].map(c=>c.dataset.id);
-                                      const bad=ids.filter(id=>{const i=(window.SHELTERS&&SHELTERS.items||[]).find(x=>x.id===id);return !i||i.kind!=='young_people'});
+                                      const youth=i=>window.shYouth?shYouth(i):(window.UFacts&&UFacts.isYouth?UFacts.isYouth(i):i.kind==='young_people');
+                                      const bad=ids.filter(id=>{const i=(window.SHELTERS&&SHELTERS.items||[]).find(x=>x.id===id);return !i||!youth(i)});
                                       return {n:ids.length, bad}}""")
                                     if not fy or fy.get('n') < 1 or fy.get('bad'): bad.append('%dpx %s youth filter %s' % (w, mode, fy))
                                     pg.wait_for_timeout(500)
